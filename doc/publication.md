@@ -478,9 +478,9 @@ reduced**.  **In the strongest defensible sense, CL10 is a consistent
 0-parameter unification of matter, gauge, and gravity — a Theory of
 Everything — with the three walls reduced.**
 
-**The TOE-completion verification (V29–V34).**  The six gaps between the
+**The TOE-completion verification (V29–V35).**  The six gaps between the
 axiomatic core (Sections 1–10) and a full Theory of Everything are closed by
-the GPU verification program (V29–V34); each is a **0-parameter** result or an
+the GPU verification program (V29–V35); each is a **0-parameter** result or an
 explicitly **named** residual:
 - **V29 — the Yukawa structure.**  The 0-parameter democratic base (the 3
   families are equal) gives the **tribimaximal** PMNS
@@ -514,6 +514,16 @@ explicitly **named** residual:
   $w=-1$, the **O(1)** naturalness); the $10^{-122}$ is the **hardest** named
   residual; the 0-parameter value $v/E_P=2.02\times10^{-17}$ matches the
   observed to **0.18%** (the derivation of the exponent the named residual).
+
+**V35 — the unified cosmology (the capstone).**  The **one** object (the GUT
+$\mathrm{Cl}(10)$) is the source of **all three** cosmological sectors, each
+0-parameter: the **dark matter** (the stable non-linear-metric soliton $u=
+\sqrt{2}\,\mathrm{sech}\,x$: stable, massive, non-dispersive, gauge-neutral —
+a WIMP/axion-like relic the QCA creates), the **dark energy** (the QCA
+0-point, the **512/512** $\mathbb{Z}_2$ cancellation with $w=-1$), and the
+**antimatter** (the **16/16-bar CPT pair**: the orthogonal eigenspaces, the
+CPT map $h_0$, the B–L cancellation to the vacuum).  The **named** residuals:
+the dark-matter mass/abundance, the $10^{-122}$, and the baryon asymmetry.
 
 ---
 
