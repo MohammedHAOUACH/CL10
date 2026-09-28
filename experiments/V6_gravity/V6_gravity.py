@@ -22,6 +22,9 @@ def main():
     kmax = 1.0; speed_of_light = 1.0
     verdict = {
         "id": "V6_gravity",
+        "tier": 2,
+        "property": "P2",
+        "residual": False,
         "pass": v['ok'],
         "status": "the_gravity_is_the_13_metric_dynamics",
         "tol": TOL,

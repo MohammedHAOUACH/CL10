@@ -40,29 +40,31 @@ $h_1,\dots,h_{10}$ with $h_a^2 = I$:
 CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
-│   └── publication.md        # the publication (12 sections + abstract)
+│   ├── publication.md        # the publication (13 sections + abstract)
+│   ├── toe_plan.md           # the TOE validation plan (the 7 criteria P0-P6)
+│   ├── reference.md          # the professional technical reference
+│   └── api.md                # the complete CL10 API reference
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
 │   ├── __init__.py
 │   ├── engine.py             # the single computation core (CuPy/JAX/NumPy)
-│   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024 algebra)
-│   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT directions)
-│   ├── matter.py             # the 16 Weyl + 16-bar (one SM generation)
-│   └── qca.py                # the unitary QCA + the metric (gravity) dynamics
-├── experiments/              # the verification program (one experiment per claim)
-│   ├── V0_root/              # the Cl(10) 10 generators, the 1024, the 16/16-bar
-│   ├── V1_spacetime/         # the (1,3) Minkowski inside the GUT, the light cone
-│   ├── V2_matter/            # the 16 Weyl (10+5bar+1+nuc), the 16/16-bar
-│   ├── V3_gauge/             # the 45 (Spin(10) adjoint), the SM breaking
-│   ├── V4_statistics/        # the Z2 grading (boson/fermion)
-│   ├── V5_hierarchy/         # the electroweak / QCD hierarchy
-│   ├── V6_gravity/           # the (1,3) metric dynamics (the graviton, the soliton)
-│   ├── V7_qca/               # the unitary QCA (the full dynamics)
-│   ├── V8_dark_matter/       # the stable soliton (the dark matter candidate)
-│   ├── V9_dark_energy/       # the QCA vacuum (the dark energy / cosmological constant)
-│   └── V10_antimatter/       # the 16/16-bar pair (the CPT, the asymmetry)
-├── run_validation.py         # the runner: runs every experiment, writes the summary
+│   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
+│   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
+│   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
+│   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
+│   ├── qca.py                # the unitary QCA + the metric (gravity) dynamics
+│   └── toepred.py            # the TOE predictions (proton, seesaw, families)
+├── experiments/              # the TOE verification program (17 experiments)
+│   ├── V0_root/              # T0: the Cl(10) root
+│   ├── V1..V4/               # T1: spacetime, matter, gauge, statistics
+│   ├── V5..V7/               # T2: hierarchy, gravity, QCA
+│   ├── V11_anomaly/          # T3: the 16 Weyl is anomaly-free (the hard one)
+│   ├── V12_unification/      # T3: the 5/3 coupling unification
+│   ├── V13_gauge_gravity/    # T3: matter+gauge+gravity in one object
+│   ├── V8..V10/              # T4: dark matter, dark energy, antimatter
+│   └── V14..V16/             # T5: proton, seesaw, the 3 families
+├── run_validation.py         # the runner: runs all 17, writes the TOE verdict
 └── results/
-    └── validation_summary.json
+    └── validation_summary.json   # the 17/17 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -87,9 +89,24 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs V0..V10, prints the verdicts, writes results/validation_summary.json
+python3 run_validation.py        # runs all 17 experiments, prints the TOE verdict
 ```
 
-Each experiment is a **0-parameter** check: it **confirms** a prediction of the
-publication (or reports an honest **residual**) and writes a JSON verdict that
-`run_validation.py` aggregates into `results/validation_summary.json`.
+## The TOE validation
+
+`doc/toe_plan.md` defines **what a Theory of Everything must be** (seven
+criteria, P0–P6) and the **tiered** validation against it.  `run_validation.py`
+runs all **17** experiments (V0–V16) across the six tiers and writes
+`results/validation_summary.json`, including the **TOE verdict**:
+
+> **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
+> object, the kinematics, the dynamics, the **anomaly-free** matter, the
+> **$5/3$ coupling unification**, and the **matter-gauge-gravity in one
+> object**.  The cosmology (tier 4) and the falsifiability (tier 5) are
+> supporting, with the **three named walls** (the cosmological constant, the
+> seesaw scale, the three families) reported, not hidden.
+
+Each experiment is a **0-parameter** check: it **confirms** a prediction of
+the publication (or reports an honest **residual**) and writes a JSON verdict
+(`tier`, `property`, `pass`, `residual`) that `run_validation.py` aggregates
+into `results/validation_summary.json`.

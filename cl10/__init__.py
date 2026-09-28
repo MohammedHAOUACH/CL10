@@ -10,7 +10,7 @@ space = i h_2..4); the matter is the 16-D Weyl spinor; the gauge is the 45
 dynamics of the (1,3) sub-algebra.  0 free parameters.
 """
 
-from . import engine, clifford, spacetime, matter, qca  # noqa: F401
+from . import engine, clifford, spacetime, matter, gauge, qca, toepred  # noqa: F401
 
-__all__ = ["engine", "clifford", "spacetime", "matter", "qca"]
+__all__ = ["engine", "clifford", "spacetime", "matter", "gauge", "qca", "toepred"]
 __version__ = "0.1.0"

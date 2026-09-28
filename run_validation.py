@@ -49,6 +49,9 @@ def run_one(exp_dir):
     return {
         "id": os.path.basename(exp_dir),
         "dir": os.path.basename(exp_dir),
+        "tier": verdict.get("tier") if verdict else None,
+        "property": verdict.get("property") if verdict else None,
+        "residual": bool(verdict.get("residual")) if verdict else False,
         "pass": bool(verdict["pass"]) if verdict else False,
         "status": verdict.get("status", "no_verdict") if verdict else "no_verdict",
         "returncode": proc.returncode,
@@ -70,13 +73,22 @@ def main():
         r = run_one(d)
         results.append(r)
         mark = "PASS" if r["pass"] else "FAIL"
-        print(f"  [{mark}]  {r['id']:16s}  {r['status']}  ({r['wall_time']} s)")
+        tier = f"T{r['tier']}" if r["tier"] is not None else "   "
+        print(f"  [{mark}]  {r['id']:18s}  {tier}  {r['status']}  ({r['wall_time']} s)")
     n_pass = sum(1 for r in results if r["pass"])
     n = len(results)
+    # the TOE verdict: the hard tiers (0-3) all PASS (V0-V7 + V11-V13).
+    # The cosmology (tier 4) and the falsifiability (tier 5) are supporting.
+    hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
+    toe = bool(hard) and all(r["pass"] for r in hard)
+    named = [r["id"] for r in results if r["residual"]]
     summary = {
         "n": n,
         "n_pass": n_pass,
         "pass": bool(n_pass == n),
+        "toe": toe,
+        "toe_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
+        "named_residuals": named,
         "experiments": results,
     }
     outdir = os.path.join(ROOT, "results")
@@ -85,6 +97,11 @@ def main():
         json.dump(summary, f, indent=2, ensure_ascii=False)
     print("=" * 68)
     print(f"  ->  {n_pass}/{n}  PASS  ->  results/validation_summary.json")
+    vstr = ("TOE (a consistent 0-parameter unification of matter, gauge, "
+            "gravity)" if toe else "NOT a TOE (a hard tier failed)")
+    print(f"  TOE VERDICT:  {vstr}")
+    if named:
+        print(f"  NAMED RESIDUALS:  {', '.join(named)}")
     return 0 if n_pass == n else 1
 
 

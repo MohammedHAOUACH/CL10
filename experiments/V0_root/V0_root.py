@@ -23,6 +23,9 @@ def main():
     err_max = max(v['square_to_I'], v['anticommute'])
     verdict = {
         "id": "V0_root",
+        "tier": 0,
+        "property": "P0",
+        "residual": False,
         "pass": (v['ok'] and n_gen == 10 and n_basis == 1024 and n_weyl == 16 and n_16bar == 16),
         "status": "the_cl10_is_the_root",
         "tol": TOL,

@@ -20,6 +20,9 @@ def main():
     rel_err = abs(v_over_EP - observed) / observed
     verdict = {
         "id": "V5_hierarchy",
+        "tier": 2,
+        "property": "P2,P5",
+        "residual": False,
         "pass": rel_err < 0.05,
         "status": "the_0_param_hierarchy",
         "tol": TOL,

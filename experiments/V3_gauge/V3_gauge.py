@@ -24,6 +24,9 @@ def main():
     rank45 = int(np.linalg.matrix_rank(mat, tol=1e-10))
     verdict = {
         "id": "V3_gauge",
+        "tier": 1,
+        "property": "P1",
+        "residual": False,
         "pass": (n45==45 and rank45==45),
         "status": "the_45_is_the_spin10_adjoint",
         "tol": TOL,

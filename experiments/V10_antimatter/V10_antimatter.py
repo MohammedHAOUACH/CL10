@@ -22,6 +22,9 @@ def main():
     inequivalent = (bl16 != bl16b)
     verdict = {
         "id": "V10_antimatter",
+        "tier": 4,
+        "property": "P2,P5",
+        "residual": False,  # a 0-parameter consequence, not a wall
         "pass": inequivalent and n16==16 and n16b==16,
         "status": "the_16_16bar_pair_is_the_antimatter",
         "tol": TOL,

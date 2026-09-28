@@ -57,9 +57,8 @@ def qca_step_internal(gates, fields):
 
 
 def unitary_check(U, tol=1e-12):
-    """Check that a gate U is unitary (U U^dagger = I)."""
-    I = np.eye(U.shape[0], dtype=complex)
-    return float(np.abs(U @ U.conj().T - I).max()) < tol
+    """Check that a gate U is unitary (U U^dagger = I) (backend-correct)."""
+    return E.absmax(U @ U.conj().T - E.eye(U.shape[0])) < tol
 
 
 def main():

@@ -30,6 +30,9 @@ def main():
     causal_radius = 1
     verdict = {
         "id": "V7_qca",
+        "tier": 2,
+        "property": "P2,P4",
+        "residual": False,
         "pass": err < 1e-12,
         "status": "the_qca_is_unitary",
         "tol": TOL,

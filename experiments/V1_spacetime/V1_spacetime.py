@@ -21,6 +21,9 @@ def main():
     t2=v['t2']; s2=v['s2']; ts=v['ts']; ss=v['ss']; err_max=max(t2,s2,ts,ss)
     verdict = {
         "id": "V1_spacetime",
+        "tier": 1,
+        "property": "P1",
+        "residual": False,
         "pass": v['ok'],
         "status": "the_13_is_inside_the_gut",
         "tol": TOL,

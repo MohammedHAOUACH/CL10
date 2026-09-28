@@ -75,10 +75,13 @@ def eye(n, dtype=None):
     return _E.eye(n, dtype=dtype)
 
 
-def zeros(*shape, dtype=None):
+def zeros(shape, dtype=None):
+    """A zero array (shape is a tuple or int, e.g. ``((L,L,L))`` or ``4``)."""
+    if isinstance(shape, int):
+        shape = (shape,)
     if dtype is None:
         dtype = complex
-    return _E.zeros(*shape, dtype=dtype)
+    return _E.zeros(shape, dtype=dtype)
 
 
 def kron(a, b):
@@ -122,10 +125,12 @@ def einops_rearrange(x, pattern_in, pattern_out):
 # ---------------------------------------------------------------------------
 
 def laplacian_3d(u):
-    """The 6-neighbour discrete Laplacian on a 3D lattice (the metric operator)."""
-    up = (np.roll(u, -1, axis=1) + np.roll(u, 1, axis=1)
-          + np.roll(u, -1, axis=2) + np.roll(u, 1, axis=2)
-          + np.roll(u, -1, axis=3) + np.roll(u, 1, axis=3))
+    """The 6-neighbour discrete Laplacian on the **last 3** (spatial) axes of
+    ``u`` (works for a ``(L,L,L)`` field or a ``(mu,nu,L,L,L)`` metric field)."""
+    b = u.ndim - 3
+    up = (np.roll(u, -1, axis=b) + np.roll(u, 1, axis=b)
+          + np.roll(u, -1, axis=b + 1) + np.roll(u, 1, axis=b + 1)
+          + np.roll(u, -1, axis=b + 2) + np.roll(u, 1, axis=b + 2))
     return (up - 6 * u)
 
 

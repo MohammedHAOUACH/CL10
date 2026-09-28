@@ -20,6 +20,9 @@ def main():
     gap = three_alpha / lambda_obs
     verdict = {
         "id": "V9_dark_energy",
+        "tier": 4,
+        "property": "P2,P5",
+        "residual": True,
         "pass": True,
         "status": "the_qca_vacuum_is_the_cosmological_constant",
         "tol": TOL,

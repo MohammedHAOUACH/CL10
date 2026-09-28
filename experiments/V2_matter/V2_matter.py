@@ -21,6 +21,9 @@ def main():
     bl16=matter.bl_charge('16'); bl16b=matter.bl_charge('16bar'); n_sm=len(matter.SM_FIELDS)
     verdict = {
         "id": "V2_matter",
+        "tier": 1,
+        "property": "P1",
+        "residual": False,
         "pass": (n_weyl==16 and n_16bar==16 and total_dim==16),
         "status": "the_16_weyl_is_one_generation",
         "tol": TOL,

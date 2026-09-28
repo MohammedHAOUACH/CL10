@@ -25,6 +25,9 @@ def main():
     stable = res < 0.05
     verdict = {
         "id": "V8_dark_matter",
+        "tier": 4,
+        "property": "P2,P5",
+        "residual": False,  # a 0-parameter consequence, not a wall
         "pass": stable and energy < 10,
         "status": "the_soliton_is_the_dark_matter",
         "tol": TOL,

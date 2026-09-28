@@ -22,6 +22,9 @@ def main():
     total = len(clifford.basis())
     verdict = {
         "id": "V4_statistics",
+        "tier": 1,
+        "property": "P1",
+        "residual": False,
         "pass": (total==1024 and n_even==512 and n_odd==512),
         "status": "the_z2_grading_is_the_statistics",
         "tol": TOL,
