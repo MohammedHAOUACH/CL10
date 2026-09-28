@@ -183,8 +183,25 @@ is the product of the **45 Spin(10) plane rotations** $T_{ab} = i\,h_a h_b$
 
 ---
 
+## 10. `cl10.cpt` — the CPT theorem (the 16/16-bar are CPT conjugates)
 
-## 10. `run_validation.py` — the TOE runner
+The **CPT theorem** (V24): the CPT operator $C = g_1$ (the time direction) is a
+**Hermitian involution** ($C^2=I$) that **anticommutes** with the pseudoscalar
+$w$ (so it maps the 16 to the 16-bar); the 45 GUT generators **commute** with
+$w$ (the chiral CPT split is preserved).  Verified on the **GPU**.
+
+| symbol | signature | returns |
+|---|---|---|
+| `pseudoscalar` | `()` | the volume element $w = g_1 \\cdots g_{10}$ (anti-Hermitian, $w^2 = -I$) |
+| `cpt_operator` | `()` | the CPT operator $C = g_1$ (the time direction, a Hermitian involution) |
+| `projectors` | `(w)` | $(P_{16}, P_{16\\text{bar}}) = (\\tfrac{1}{2}(I - i w), \\tfrac{1}{2}(I + i w))$ (the 16/16-bar projectors) |
+| `cpt_theorem` | `(seed)` | `{C_involution_err, C_unitary_err, C_w_anticommute_err, map_16_to_16bar_err, gut_commute_w_err, n_matter, n_antimatter, cpt_equal_norm, c16_into_16bar, backend}` — the CPT relations + the GPU in-action check (V24) |
+| `main` | `()` | runs the V24 self-check |
+
+---
+
+
+## 11. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|
@@ -200,6 +217,6 @@ is the product of the **45 Spin(10) plane rotations** $T_{ab} = i\,h_a h_b$
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 24 experiments
+python3 run_validation.py              # all 25 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

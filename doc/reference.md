@@ -164,6 +164,16 @@ subgroup of the 45), the $5/3$ normalization, the $\mathbb{Z}_2$ statistics,
 the light-cone causality.  The 3-family structure and the **Yukawa** matrix
 remain the **named** residuals.
 
+**The CPT theorem (V24).**  The **16 Weyl** (matter) and the **16-bar**
+(antimatter) are the **CPT conjugates**: the CPT operator $C = g_1$ (the time
+direction) is a **Hermitian involution** ($C^2 = I$) that **anticommutes** with
+the pseudoscalar $w$ ($C w + w C = 0$), so $C P_{16} = P_{16\text{bar}} C$ (it
+maps matter to antimatter).  The **45 GUT generators commute** with $w$ (the
+chiral split is preserved), so the QCA is **CPT-symmetric** and matter and
+antimatter carry the **same mass**.  In action (on the GPU): a matter (16)
+state and its CPT conjugate (16-bar) carry **equal** norm, and C maps the 16
+entirely into the 16-bar.
+
 **The TOE predictions and the three reduced walls (V14–V19):**
 
 | prediction | 0-parameter value | observation | verdict |
@@ -205,7 +215,7 @@ $2$ CUDA devices.
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (24/24, 2026-09-28).**  Every experiment **passes**; the **TOE
+**The result (25/25, 2026-09-28).**  Every experiment **passes**; the **TOE
 verdict is positive**.  The **3 walls are reduced**: each has a **0-parameter
 mechanism** (V17–V19) and a **named** exact-value residual —
 `V9_dark_energy` (W1, the $\mathbb{Z}_2$ cancellation $\Rightarrow \Lambda = 0$;
@@ -228,7 +238,7 @@ experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py          # -> results/validation_summary.json (24/24, TOE)
+python3 run_validation.py          # -> results/validation_summary.json (25/25, TOE)
 ```
 
 **Lint.**  `python3 -m ruff check cl10/ experiments/ run_validation.py`
