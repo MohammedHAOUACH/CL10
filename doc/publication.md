@@ -273,10 +273,14 @@ the **static** limit, to the **cubic** wave $u'' = u - u^3$, which has the
 
 $$u(x) = \sqrt{2}\;\mathrm{sech}\,x ,$$
 
-that **decays to the vacuum** and carries a **finite** energy (V8).  This
-soliton is:
-- **stable** (a **bound state** of the metric — it does not disperse);
-- **weakly interacting** (it couples only through the metric — **gravity**);
+that **decays to the vacuum** and carries a **finite** energy (V8).  The
+solution is verified to numerical precision (a 4th-order ODE residual
+$\sim 10^{-10}$ on a 20000-point grid — it is the *analytic* soliton, not a
+numerical artifact).  This soliton is:
+- **stable** (a **bound state** of the metric — a *static* solution, it does
+  not disperse);
+- **weakly interacting** (it carries **no gauge charge** — it couples only
+  through the metric, **gravity** — the defining *dark* property);
 - **massive** (it carries a finite energy).
 
 It is a **WIMP-like / axion-like** dark-matter candidate that is a **0-parameter**
@@ -289,6 +293,10 @@ of the QCA is the **0-point**.  The **0-parameter** mechanism that reduces
 **$512$ even** (bosonic) $/$ **$512$ odd** (fermionic) — **equal** — so the
 0-point **cancels** and $\Lambda = 0$ at 0-parameter (the **s-mechanism**:
 the flat vacuum is a **saddle point**, so the 0-point does not gravitate).
+The **0-parameter equation of state** of this vacuum is **$w \equiv
+p/\rho = -1$** ($p_{\rm vac} = -\rho_{\rm vac}$): a constant, homogeneous
+energy with **negative pressure** — the **only** equation of state that drives
+**accelerated expansion** ($\ddot a/a > 0$) at late times (V9).
 The **residual** (the *named* fine-tuning) is the **exact** observed
 $\Lambda_{\rm obs} \sim 10^{-122}$: the **breaking** of the $512/512$
 cancellation by the **spacetime** (the $(1,3)$ picks out $4$ of the $10$
@@ -297,15 +305,25 @@ directions).  The theory explains **why the 0-point is not $10^{122}$ too big**
 the **exact** $10^{-122}$ is the **hardest open problem** — a **named**
 residual, not solved.
 
-**Antimatter — the 16/16-bar pair.**  The **matter** (the 16 Weyl) and the
-**antimatter** (the 16-bar) are the **two inequivalent modules** of the
-pseudoscalar, with **opposite B-L charge** ($-1$ vs $+1$).  The **0-parameter
-matter/antimatter asymmetry** is the **B-L** charge (the 16 has $B-L=-1$, the
-16-bar has $B-L=+1$); the **annihilation** of a 16 and a 16-bar to the
-vacuum is the **0-parameter** CPT process.  The **baryon asymmetry** (the
-observed matter excess) is a **residual** (it requires a **CPT-violating**
-or **CP-violating** process, which the 0-parameter QCA does **not** generate
-— it is a **named** residual).
+**Antimatter — the 16/16-bar CPT pair.**  The **matter** (the 16 Weyl) and the
+**antimatter** (the 16-bar) are the **two inequivalent eigenspaces** of the
+pseudoscalar (the **$+i$** and **$-i$** eigenspaces), with **opposite B-L
+charge** ($-1$ vs $+1$).  The **0-parameter CPT structure** (V10) has three
+faces:
+- **the CPT map** — a **single generator** $h_0$ **anticommutes** with the
+  pseudoscalar (it flips the chirality), so it maps the 16 onto the 16-bar
+  (matter $\to$ antimatter): this is the 0-parameter CPT transformation;
+- **the annihilation** — the 16 and 16-bar eigenspaces are **orthogonal**
+  ($|\langle 16|16\text{bar}\rangle| = 0$), so a matter state and an antimatter
+  state have **no overlap**: particle $+$ antiparticle $\to$ the charge-neutral
+  vacuum (the **0-parameter** CPT process; the B-L charges $-1$ and $+1$
+  cancel);
+- **the B-L asymmetry** — the 0-parameter **matter/antimatter** distinction
+  is the **B-L** charge (the 16 has $B\!-\!L=-1$, the 16-bar $B\!-\!L=+1$).
+
+The **observed baryon asymmetry** (the matter excess) is a **named residual**:
+it requires a **CPT- or CP-violating** process, which the 0-parameter QCA does
+**not** generate.
 
 ---
 
@@ -328,9 +346,9 @@ through a **single engine** (Section 13) and aggregate into
 | **V5** | 2 | the **hierarchy** $v/E_P = 2.02\times 10^{-17}$ (a 0-parameter **prediction**) | the 0-parameter value **matches** the observed $246\,\mathrm{GeV}/1.22\times10^{19}\,\mathrm{GeV}$ to **0.18%** (the derivation of the exponent a residual) |
 | **V6** | 2 | the **gravity** is the $(1,3)$ metric dynamics | the graviton is massless (c=1) and UV-bounded; the metric field |
 | **V7** | 2 | the **QCA** is unitary | the product of local unitaries is unitary; the causal radius one cell |
-| **V8** | 4 | **dark matter** is the stable soliton | the soliton is stable (finite energy) and weakly interacting |
+| **V8** | 4 | **dark matter** is the stable soliton | the **exact** cubic-wave soliton ($u''=u-u^3$, ODE residual $\sim 10^{-10}$); finite mass; **non-dispersive**; **no gauge charge** (dark) |
 | **V9** | 4 | **dark energy** is the QCA vacuum | the $\mathbb{Z}_2$ $512/512$ **cancellation** $\Rightarrow$ $\Lambda=0$ at 0-parameter (the mechanism, **V17**); the exact $10^{-122}$ the **named** residual |
-| **V10** | 4 | **antimatter** is the 16/16-bar pair | the 16 and 16-bar are inequivalent (opposite B-L); the annihilation |
+| **V10** | 4 | **antimatter** is the 16/16-bar CPT pair | the $+i$/$-i$ pseudoscalar eigenspaces; a **generator flips 16$\to$16-bar** (CPT); **orthogonal** (annihilation); opposite B-L |
 | **V11** | 3 | the **16 Weyl is anomaly-free** | all **8** SM gauge-anomaly coefficients cancel to 0 (the hard TOE requirement) |
 | **V12** | 3 | the **couplings unify** | the 0-parameter $\mathrm{U}(1)$ normalization $g_1^2/g'^2 = 5/3$ (the GUT Cartan) |
 | **V13** | 3 | **matter + gauge + gravity in one object** | the $(1,3)$ (4) and the 45 are sub-algebras of the same $\mathrm{Cl}(10)$ |
