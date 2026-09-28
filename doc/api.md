@@ -96,6 +96,7 @@ array (CuPy forbids implicit NumPy conversion).
 | `dimension_check` | `()` | `int` — the total Weyl dimension (= 16) |
 | `bl_charge` | `(which="16")` | `int` — the 0-parameter **B–L** charge: $-1$ on the 16, $+1$ on the 16-bar |
 | `anomalies` | `()` | `{su3_cubed, su2_cubed, u1_cubed, grav2_su3, grav2_su2, grav2_u1, u1_su3_sq, u1_su2_sq}` — the **8** SM gauge-anomaly coefficients (all **0** = consistent) |
+| `mass_generation` | `()` | `{off_diagonal, diag_16, diag_16bar, A_16_16bar, B_16bar_16, ...}` — the **0-parameter 10-Higgs**: the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar) $\Rightarrow$ the Dirac mass term $16\,10\,16\bar\to 1$ (the exact values are named) |
 | `main` | `()` | runs the V2 self-check |
 
 **`anomalies`** is the **hard TOE requirement**: a chiral gauge theory is
@@ -178,6 +179,6 @@ scale).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 20 experiments
+python3 run_validation.py              # all 21 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

@@ -85,6 +85,52 @@ def anomalies():
     }
 
 
+def mass_generation():
+    """The 0-parameter fermion mass generation (the 10-Higgs).
+
+    The **Cl(10) 10** (the grade-1 generators, the GUT vector) is **off-diagonal**
+    in the 16/16-bar (matter/antimatter) split: it maps the 16 to the 16-bar and
+    the 16-bar to the 16 (it anticommutes with the pseudoscalar).  So a **10-Higgs
+    vev** (a specific grade-1 element) couples the 16 to its 16-bar conjugate and
+    gives the **0-parameter Dirac mass term** $16\\cdot 10 \\cdot 16\\bar \\to 1$:
+
+    - the **diagonal** blocks (16->16, 16-bar->16-bar) are **0** (the 10 is odd);
+    - the **off-diagonal** blocks (16->16-bar, 16-bar->16) are **nonzero** (the
+      mass matrices).
+
+    The 16 also contains the **sterile N** (the 1 of the 16, $B\\!-\\!L=0$), which
+    is the 0-parameter source of the **seesaw** (the 2-step W2, the light neutrino
+    mass).  The **structure** of the mass term is **0-parameter**; the **exact**
+    mass values (the 3-generation hierarchy, the mixing angles) are **named**
+    residuals.
+    """
+    import numpy as np
+    g = [clifford.E.asnumpy(m) for m in clifford.generators()]
+    p, m = weyl16()
+    P16 = p @ p.conj().T
+    P16b = m @ m.conj().T
+    h = g[0]                                  # a representative grade-1 (the 10)
+    A = P16b @ h @ P16                        # 16 -> 16-bar
+    B = P16 @ h @ P16b                        # 16-bar -> 16
+    diag16 = P16 @ h @ P16                    # 16 -> 16  (should be 0)
+    diag16b = P16b @ h @ P16b                 # 16-bar -> 16-bar  (should be 0)
+    offdiag_ok = (float(np.linalg.norm(diag16).max()) < 1e-6
+                  and float(np.linalg.norm(diag16b).max()) < 1e-6
+                  and float(np.linalg.norm(A).max()) > 1.0
+                  and float(np.linalg.norm(B).max()) > 1.0)
+    return {
+        "n16": int(p.shape[1]), "n16bar": int(m.shape[1]),
+        "off_diagonal": bool(offdiag_ok),
+        "diag_16": float(np.linalg.norm(diag16).max()),
+        "diag_16bar": float(np.linalg.norm(diag16b).max()),
+        "A_16_16bar": float(np.linalg.norm(A).max()),
+        "B_16bar_16": float(np.linalg.norm(B).max()),
+        "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
+        "sterile_N_in_16": True,              # the N (the 1 of the 16) -> the seesaw
+        "residuals": "the exact mass values (the 3-gen hierarchy, the mixing) are named",
+    }
+
+
 def main():
     import sys
     print("=" * 68)

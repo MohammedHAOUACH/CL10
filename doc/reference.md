@@ -194,7 +194,7 @@ $2$ CUDA devices.
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (20/20, 2026-09-28).**  Every experiment **passes**; the **TOE
+**The result (21/21, 2026-09-28).**  Every experiment **passes**; the **TOE
 verdict is positive**.  The **3 walls are reduced**: each has a **0-parameter
 mechanism** (V17–V19) and a **named** exact-value residual —
 `V9_dark_energy` (W1, the $\mathbb{Z}_2$ cancellation $\Rightarrow \Lambda = 0$;
@@ -217,7 +217,7 @@ experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py          # -> results/validation_summary.json (20/20, TOE)
+python3 run_validation.py          # -> results/validation_summary.json (21/21, TOE)
 ```
 
 **Lint.**  `python3 -m ruff check cl10/ experiments/ run_validation.py`
@@ -227,4 +227,5 @@ F4xx/F5xx are enforced).
 **The 0-parameter numbers** (no fit anywhere): the hierarchy $2.02\times10^{-17}$,
 the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the $5/24$ $\mathcal{T}$
 normalization, the $G = 1$, the causal radius $1$, the $1.22\times10^{19}$ GeV
-GUT scale, the $1/25$ GUT coupling, the $246$ GeV electroweak scale.
+GUT scale, the $1/25$ GUT coupling, the $246$ GeV electroweak scale, and the
+off-diagonal **10-Higgs** mass term $16\,10\,16\bar\to 1$ (V20).

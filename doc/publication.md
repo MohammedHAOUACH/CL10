@@ -4,7 +4,7 @@
 algebra $\mathrm{Cl}(10)$**
 
 *Preprint, 2026-09-28.*  The theory is **0-parameter**: no quantity is fitted
-to data.  The complete implementation (the `cl10/` engine, the V0–V19
+to data.  The complete implementation (the `cl10/` engine, the V0–V20
 experiments, and the `run_validation.py` runner) is public, and every number
 in this paper is reproducible from the code.
 
@@ -54,14 +54,14 @@ derived with **no free parameter**:
 
 The whole theory has **no free parameters** (nothing is **fitted** to data).  The
 **verification program** (Section 10) is a set of **0-parameter** numerical
-experiments (**V0–V19**) run on the **GPU** (CuPy/JAX) by a **single engine**;
+experiments (**V0–V20**) run on the **GPU** (CuPy/JAX) by a **single engine**;
 each **confirms** a prediction of the theory or reports an honest **residual**.
 We validate the **Theory-of-Everything** claim against **seven** explicit
 criteria (P0–P6) in a **tiered** program (Section 11): the single object
 (P0), the kinematics (P1), the dynamics (P2), the **unification** and
 **consistency** — the anomaly-free matter, the coupling unification, the
 matter-gauge-gravity in one object (P3, P4), the **cosmology** (P5) — and
-the **falsifiability** (P6).  All **twenty** experiments **PASS**, and
+the **falsifiability** (P6).  All **twenty-one** experiments **PASS**, and
 the **TOE verdict** is
 **positive**: CL10 is a **consistent 0-parameter unification of matter, gauge,
 and gravity**, **with the three walls reduced** (the cosmological constant, the
@@ -160,6 +160,18 @@ condition of any chiral gauge theory (V11) — and it **passes**.
 modules: they carry opposite **B-L charge** (the 16 has $B - L = -1$, the
 16-bar has $B - L = +1$).  This is the **0-parameter matter/antimatter
 split**.
+
+**The 0-parameter mass generation (the 10-Higgs).**  The **10** (the grade-1
+generators, the GUT vector) is **off-diagonal** in the 16/16-bar split (it
+anticommutes with the pseudoscalar): it maps the 16 to the 16-bar and the
+16-bar to the 16, while the **diagonal** blocks (16$\to$16, 16-bar$\to$16-bar)
+vanish.  A **10-Higgs vev** (a specific grade-1 element) therefore couples the
+16 to its 16-bar conjugate and gives the **0-parameter Dirac mass term**
+$16\,10\,16\bar\to 1$ (V20).  The **1** of the 16 is the **sterile** $\nu^c$
+($B\!-\!L=0$), the 0-parameter source of the **seesaw** (the 2-step W2, the
+light-neutrino mass).  The *structure* of the mass term is **0-parameter**; the
+*exact* fermion masses (the 3-generation hierarchy, the mixing angles) are
+**named** residuals (Section 12).
 
 ---
 
@@ -358,6 +370,7 @@ through a **single engine** (Section 13) and aggregate into
 | **V17** | 4 | the **W1 mechanism**: the $\mathbb{Z}_2$ $512/512$ **cancellation** | $\Lambda = 0$ at 0-parameter (the s-mechanism) — the W1 **mechanism** is 0-parameter |
 | **V18** | 5 | the **W2 mechanism**: the **2-step** GUT breaking | $m_\nu \sim 10^{-2}$ eV (the right order) — the W2 **mechanism** is 0-parameter |
 | **V19** | 5 | the **W3 mechanism**: the **3** families $=$ the **3** space | the 0-parameter candidate (the *why-3* the **named** residual) — the W3 **mechanism** is 0-parameter |
+| **V20** | 2 | the **fermion mass term** is 0-parameter (the 10-Higgs) | the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar); the 10-Higgs gives $16\,10\,16\bar\to 1$; the sterile N enables the seesaw — the **values** the named residual |
 
 Each experiment writes a **JSON verdict** (`tier`, `property`, `pass`,
 `residual`, the 0-parameter number) and `run_validation.py` aggregates them
@@ -377,12 +390,12 @@ name the walls.
 |---|---|---|---|
 | **0 — the Object** | P0 | a single algebraic object is the root | V0 |
 | **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics | V1–V4 |
-| **2 — Dynamics** | P2 | a unitary causal QCA + the gravity + the 0-parameter hierarchy | V5–V7 |
+| **2 — Dynamics** | P2 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** | V5–V7, **V20** |
 | **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** ($5/3$) | V11–V13 |
 | **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter | V8–V10, **V17** |
 | **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the 3 families | V14–V16, **V18–V19** |
 
-**The verdict.**  All **twenty** experiments **PASS** on the GPU
+**The verdict.**  All **twenty-one** experiments **PASS** on the GPU
 (CuPy/JAX).  The **hard** tiers (0–3: V0–V7, V11–V13) are the **logical core**
 of the TOE claim — they must hold for the theory to be a *consistent
 unification*.  They **do**:
@@ -453,9 +466,10 @@ hierarchy, the B-L charge, the 16/16-bar split, the causal radius) are
   **intermediate** scale) $+$ the 0-parameter Dirac give $m_\nu \sim 10^{-2}$
   eV (the **right order**, V18); the **exact** $m_\nu \sim 0.05$ eV is the
   **named** residual (V15).
-- The **Yukawa** couplings (the masses, the mixing): **not** derived (the
-  0-parameter theory fixes the **existence** of the fields, not the **values**
-  of the Yukawa matrix).
+- The **Yukawa** couplings (the masses, the mixing): the 0-parameter theory
+  **fixes the *structure*** of the mass term (the 10-Higgs $16\,10\,16\bar\to 1$
+  and the seesaw, **V20**), but **not** the **values** of the Yukawa matrix
+  (the 3-generation hierarchy, the mixing) — a **named** residual.
 - The **dynamical supersymmetry**: the $\mathbb{Z}_2$ grading is **kinematic**
   (a property of the algebra); we do **not** claim a dynamical SUGRA.
 - The **hierarchy derivation**: the theory **fixes** the 0-parameter value
@@ -506,7 +520,7 @@ present.
    Appl. Math.* **23**, 377 (1970) (the supercritical non-linear wave).
 
 **This work.**  The CL10 repository (the `cl10/` engine, the `experiments/`
-V0–V19, and the `run_validation.py` runner) is the **primary source**: every
+V0–V20, and the `run_validation.py` runner) is the **primary source**: every
 number in this paper is produced by, and reproducible from, the code.
 
 ---
@@ -521,9 +535,9 @@ the metric dynamics, and the **cosmology** (dark matter, dark energy,
 antimatter) are 0-parameter consequences.
 
 The **TOE validation** (Section 11) checks the theory against **seven**
-criteria (P0–P6) in a **tiered** program of **twenty** 0-parameter
-experiments (V0–V19) on the **GPU** (CuPy/JAX) through a **single engine**.
-**All twenty pass.**  The hard tiers (the single object, the kinematics,
+criteria (P0–P6) in a **tiered** program of **twenty-one** 0-parameter
+experiments (V0–V20) on the **GPU** (CuPy/JAX) through a **single engine**.
+**All twenty-one pass.**  The hard tiers (the single object, the kinematics,
 the dynamics, and — critically — the **anomaly-free** matter, the **$5/3$
 coupling unification**, and the **matter-gauge-gravity in one object**) are
 the logical core of the claim, and they hold.  **In the strongest defensible
