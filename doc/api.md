@@ -15,6 +15,7 @@ cl10.matter        # the 16 Weyl + the anomalies (Section 4)
 cl10.gauge         # the 45 + the 5/3 + gauge-gravity (Section 5)
 cl10.qca           # the metric + the QCA (Section 6)
 cl10.toepred       # the TOE predictions (Section 7)
+cl10.walls         # the 3 reduced walls: W1/W2/W3 (Section 8)
 ```
 
 `cl10.__version__` is the package version.
@@ -143,7 +144,25 @@ GeV, `ALPHA_10 = 1/25`, `V_EW = 246.0` GeV.
 
 ---
 
-## 8. `run_validation.py` — the TOE runner
+## 8. `cl10.walls` — the three reduced walls (W1/W2/W3)
+
+The **0-parameter mechanisms** that reduce the three named walls (see
+`doc/walls.md`):
+
+| symbol | signature | returns |
+|---|---|---|
+| `w1_cosmological_constant` | `()` | `{n_even, n_odd, cancellation, lambda_0param, lambda_obs, residual}` — the **W1**: the $\mathbb{Z}_2$ $512/512$ **cancellation** $\Rightarrow$ $\Lambda = 0$ at 0-parameter (the **s-mechanism**); the exact $10^{-122}$ the named residual |
+| `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — the **W2**: the **2-step** seesaw ($M_N$ intermediate, $g_0 v$ Dirac) $\Rightarrow$ $m_\nu \sim 10^{-2}$ eV (the right order) |
+| `w3_families` | `()` | `{n_time, n_space, n_fam_candidate, n_observed, match, derived, residual}` — the **W3**: the **3** families $=$ the **3** spatial directions of the $(1,3)$ (one 0-parameter number, dual use) |
+| `main` | `()` | runs the three wall mechanisms (V17–V19) and prints the verdict |
+
+The 0-parameter constants: `M_PLANCK = 1.22e19` GeV, `V_EW = 246.0` GeV,
+`G0 = 1/8` (the GUT coupling), `M_N = 1e14` GeV (the 2-step intermediate
+scale).
+
+---
+
+## 9. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|

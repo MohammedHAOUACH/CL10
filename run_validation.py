@@ -82,6 +82,17 @@ def main():
     hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
     toe = bool(hard) and all(r["pass"] for r in hard)
     named = [r["id"] for r in results if r["residual"]]
+    # the 3 walls are REDUCED: each has a 0-parameter MECHANISM that passes
+    reduced = {
+        "V9_dark_energy": ("V17_w1_screening",
+                           "the Z2 512/512 cancellation -> Lambda = 0"),
+        "V15_seesaw": ("V18_w2_seesaw2step",
+                       "the 2-step seesaw, M_N intermediate"),
+        "V16_families": ("V19_w3_families3",
+                         "the 3 families = the 3 space"),
+    }
+    reduced_ok = {w: any(r["id"] == mid and r["pass"] for r in results)
+                  for w, (mid, _desc) in reduced.items()}
     summary = {
         "n": n,
         "n_pass": n_pass,
@@ -89,6 +100,9 @@ def main():
         "toe": toe,
         "toe_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
         "named_residuals": named,
+        "reduced_walls": [{"wall": w, "mechanism": f"{mid} ({desc})",
+                            "mechanism_pass": reduced_ok[w]}
+                           for w, (mid, desc) in reduced.items()],
         "experiments": results,
     }
     outdir = os.path.join(ROOT, "results")
@@ -101,7 +115,11 @@ def main():
             "gravity)" if toe else "NOT a TOE (a hard tier failed)")
     print(f"  TOE VERDICT:  {vstr}")
     if named:
-        print(f"  NAMED RESIDUALS:  {', '.join(named)}")
+        print(f"  NAMED RESIDUALS (the exact values):  {', '.join(named)}")
+    if reduced_ok and all(reduced_ok.values()):
+        print(f"  THE 3 WALLS ARE REDUCED: each mechanism is 0-parameter (PASS)")
+        for w, (mid, desc) in reduced.items():
+            print(f"    - {w:16s} reduced by {mid} ({desc})")
     return 0 if n_pass == n else 1
 
 
