@@ -56,7 +56,7 @@ CL10/
 │   ├── walls.py              # the 3 reduced walls (W1/W2/W3) + the baryon asymmetry
 │   ├── sm_qca.py             # the full SM QCA (the 0-parameter unitary QCA, GPU)
 │   └── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
-├── experiments/              # the TOE verification program (25 experiments)
+├── experiments/              # the TOE verification program (29 experiments)
 │   ├── V0_root/              # T0: the Cl(10) root
 │   ├── V1..V4/               # T1: spacetime, matter, gauge, statistics
 │   ├── V5..V7/               # T2: hierarchy, gravity, QCA
@@ -71,9 +71,13 @@ CL10/
 │   ├── V22_baryon/           # T5: the baryon asymmetry (the Sakharov conditions)
 │   ├── V23_full_sm_qca/      # T2: the full SM as a 0-parameter unitary QCA (the deepening)
 │   ├── V24_cpt/              # T3: the CPT theorem (the 16/16-bar are CPT conjugates)
-├── run_validation.py         # the runner: runs all 25, writes the TOE verdict
+│   ├── V25_holography/       # T4: the holographic area law (the entropy scales with AREA)
+│   ├── V26_family/           # T1: the 3-family construct (the 3 generations from the (1,3))
+│   ├── V27_qcd_confinement/  # T2: QCD confinement (the 0-parameter area law + linear potential)
+│   ├── V28_yukawa/           # T2: the Yukawa / mass-hierarchy 0-parameter structure
+├── run_validation.py         # the runner: runs all 29, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 25/25 PASS + the TOE verdict
+    └── validation_summary.json   # the 29/29 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -98,14 +102,14 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 25 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 29 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
 
 `doc/toe_plan.md` defines **what a Theory of Everything must be** (seven
 criteria, P0–P6) and the **tiered** validation against it.  `run_validation.py`
-runs all **25** experiments (V0–V24) across the six tiers and writes
+runs all **29** experiments (V0–V28) across the six tiers and writes
 `results/validation_summary.json`, including the **TOE verdict**:
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single

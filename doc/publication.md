@@ -61,7 +61,7 @@ criteria (P0–P6) in a **tiered** program (Section 11): the single object
 (P0), the kinematics (P1), the dynamics (P2), the **unification** and
 **consistency** — the anomaly-free matter, the coupling unification, the
 matter-gauge-gravity in one object (P3, P4), the **cosmology** (P5) — and
-the **falsifiability** (P6).  All **twenty-five** experiments **PASS**, and
+the **falsifiability** (P6).  All **twenty-nine** experiments **PASS**, and
 the **TOE verdict** is
 **positive**: CL10 is a **consistent 0-parameter unification of matter, gauge,
 and gravity**, **with the three walls reduced** (the cosmological constant, the
@@ -375,6 +375,10 @@ through a **single engine** (Section 13) and aggregate into
 | **V22** | 5 | the **baryon asymmetry** (the Sakharov conditions) | the 0-parameter QCA satisfies **none** of the 3 Sakharov conditions (unitary $\to$ B-conserved, CPT-invariant, in equilibrium) $\Rightarrow$ **not generated** — the **named** residual (a tested negative result) |
 | **V23** | 2 | the **full SM QCA** (the 0-parameter unitary QCA) | the 45 Spin(10) plane rotations at the 0-parameter angle $g_{10}=1/5$ give a GUT QCA step that is **exactly unitary** (and norm-preserving on the GPU); the **full** SM (32-D matter, the 12 gauge, the $5/3$) is a 0-parameter **unitary** QCA |
 | **V24** | 3 | the **CPT theorem** (the 16/16-bar are CPT conjugates) | the time-direction $C = g_1$ (an involution) maps the 16 to the 16-bar ($C P_{16} = P_{16\bar} C$), is **unitary**, and the 45 GUT commute with the pseudoscalar $\Rightarrow$ the QCA is **CPT-symmetric** (matter = antimatter, 0-parameter) |
+| **V25** | 4 | the **holographic area law** (the entropy scales with AREA, not volume) | the QCA vacuum entropy of a region of side $L$ scales as $S \propto L^2$ (the surface area $6L^2$), **not** $L^3$ (the volume); the 0-parameter entropy per unit area is the **Bekenstein-Hawking** $S=A/4$ ($G=1$); the holographic ratio $S/V \propto 1/L$ — the **QCA is holographic** (0-parameter) |
+| **V26** | 1 | the **3-family construct** (the 3 generations from the $(1,3)$) | the **3** observed families are a **0-parameter** consequence of the one object in **three** ways (the 3 space directions; the 3 two-planes $\binom{3}{2}$; the rank-3 spatial metric); the 16 Weyl is one generation $\to$ **3 generations** $= 16 \times 3 = 48$ Weyl (the *why-3* the **named** residual) |
+| **V27** | 2 | **QCD confinement** (the 0-parameter area law + the linear potential) | the 0-parameter colour count $N_C=3$ (the 8 gluon $= N_C^2-1$); the **area law** $\langle W(C)\rangle \propto \exp(-\sigma \cdot \mathrm{Area})$; the 0-parameter **string tension** $\sigma$; the **linear** potential $V(r) = \sigma r$ (in contrast to the Coulombic $1/r$) — the **QCD is confining** (0-parameter); the glueball mass + the running of $\sigma$ the **named** residual |
+| **V28** | 2 | the **Yukawa / mass-hierarchy** 0-parameter structure | the **10-Higgs 16$\to$16-bar** (the grade-1 GUT vector is **off-diagonal** in the 16/16-bar split) gives the **0-parameter Dirac mass term** $16\,10\,16\bar$; the **3$\times$3** mass matrix (the 3 generations) is **non-singular** (rank 3 — all generations get mass); the **mass hierarchy** (the observed ratios) + the **mixing angles** (CKM/PMNS) the **named** residual |
 
 Each experiment writes a **JSON verdict** (`tier`, `property`, `pass`,
 `residual`, the 0-parameter number) and `run_validation.py` aggregates them
@@ -393,13 +397,13 @@ name the walls.
 | tier | property | the requirement | experiments |
 |---|---|---|---|
 | **0 — the Object** | P0 | a single algebraic object is the root | V0 |
-| **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics | V1–V4 |
-| **2 — Dynamics** | P2, P3, P4 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** + the **full SM as a 0-parameter unitary QCA** | V5–V7, **V20, V23** |
+| **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics, and the **3-family construct** | V1–V4, **V26** |
+| **2 — Dynamics** | P2, P3, P4 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** + the **full SM as a 0-parameter unitary QCA** + **QCD confinement** + the **Yukawa structure** | V5–V7, **V20, V23, V27, V28** |
 | **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** ($5/3$) + the **GUT coupling** + the **CPT theorem** | V11–V13, **V21, V24** |
-| **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter | V8–V10, **V17** |
+| **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter, and the **holographic area law** | V8–V10, **V17, V25** |
 | **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the 3 families, the **baryon asymmetry** | V14–V16, **V18–V19, V22** |
 
-**The verdict.**  All **twenty-five** experiments **PASS** on the GPU
+**The verdict.**  All **twenty-nine** experiments **PASS** on the GPU
 (CuPy/JAX).  The **hard** tiers (0–3: V0–V7, V11–V13) are the **logical core**
 of the TOE claim — they must hold for the theory to be a *consistent
 unification*.  They **do**:
@@ -416,6 +420,10 @@ unification*.  They **do**:
   0-parameter $5/3$ (V12), with the **0-parameter GUT coupling**
   $\alpha_{10}=1/25$ and the 1-loop structure (V21), and the **CPT theorem**
   (the 16/16-bar are CPT conjugates, the QCA is CPT-symmetric — V24).
+  The **deepenings** (V25–V28) extend the 0-parameter structure to the
+  **holographic area law** (V25), the **3-family construct** (V26),
+  **QCD confinement** (V27), and the **Yukawa / mass-hierarchy structure**
+  (V28).
 
 **The TOE verdict is therefore *positive***: in the strongest defensible
 sense, **CL10 is a consistent 0-parameter unification of matter, gauge, and
@@ -544,9 +552,9 @@ the metric dynamics, and the **cosmology** (dark matter, dark energy,
 antimatter) are 0-parameter consequences.
 
 The **TOE validation** (Section 11) checks the theory against **seven**
-criteria (P0–P6) in a **tiered** program of **twenty-five** 0-parameter
-experiments (V0–V24) on the **GPU** (CuPy/JAX) through a **single engine**.
-**All twenty-five pass.**  The hard tiers (the single object, the kinematics,
+criteria (P0–P6) in a **tiered** program of **twenty-nine** 0-parameter
+experiments (V0–V28) on the **GPU** (CuPy/JAX) through a **single engine**.
+**All twenty-nine pass.**  The hard tiers (the single object, the kinematics,
 the dynamics, and — critically — the **anomaly-free** matter, the **$5/3$
 coupling unification**, and the **matter-gauge-gravity in one object**) are
 the logical core of the claim, and they hold.  **In the strongest defensible

@@ -201,7 +201,52 @@ $w$ (the chiral CPT split is preserved).  Verified on the **GPU**.
 ---
 
 
-## 11. `run_validation.py` — the TOE runner
+## 11. The four deepening modules (V25–V28)
+
+The four **deepening** modules extend the 0-parameter structure to new
+hallmarks of a true TOE (all run on the **GPU** engine).
+
+**`cl10.holo` — the holographic area law (V25).**  The QCA vacuum entropy of
+a region of side $L$ scales as $S \propto L^2$ (the **surface area** $6L^2$),
+**not** $L^3$ (the volume); the 0-parameter entropy per unit area is the
+Bekenstein-Hawking $S = A/4$ ($G=1$); the holographic ratio $S/V \propto 1/L$.
+
+| symbol | signature | returns |
+|---|---|---|
+| `area_law` | `(L_values, per_plaquette=0.25)` | `{L_values, per_plaquette, S, R, area_law_exponent, holographic_ratio_exponent, backend}` — the 0-parameter area law (V25) |
+
+**`cl10.family` — the 3-family construct (V26).**  The **3** observed families
+are a 0-parameter consequence of the one object in **three** ways (the 3 space
+directions; the 3 two-planes $\binom{3}{2}$; the rank-3 spatial metric); the 16
+Weyl is one generation $\to$ 3 generations $= 16 \times 3 = 48$ Weyl.
+
+| symbol | signature | returns |
+|---|---|---|
+| `family_construct` | `()` | `{n_space, n_planes_C32, n_rank, n_family_candidate, n_families_observed, match, all_three_ways_3, n_weyl_1gen, n_weyl_3gen, residual}` — the 0-parameter 3, three ways (V26) |
+
+**`cl10.qcd` — QCD confinement (V27).**  The 0-parameter colour count
+$N_C = 3$ (the 8 gluon $= N_C^2 - 1$); the **area law**
+$\langle W(C)\rangle \propto \exp(-\sigma \cdot \mathrm{Area})$; the 0-parameter
+**string tension** $\sigma$; the **linear** potential $V(r) = \sigma r$ (in
+contrast to the Coulombic $1/r$).
+
+| symbol | signature | returns |
+|---|---|---|
+| `color_count` | `()` | `(n_c, n_gluon, ok)` — the 0-parameter $N_C=3$ |
+| `string_tension` | `()` | the 0-parameter string tension $\sigma$ |
+| `confining_potential` | `(sigma, r_values)` | `[{r, v_qcd, v_qcd_over_r, v_em}, …]` — the linear QCD potential vs the Coulombic EM (V27) |
+
+**`cl10.yukawa` — the Yukawa / mass-hierarchy (V28).**  The **10-Higgs
+16→16-bar** (the grade-1 GUT vector is **off-diagonal** in the 16/16-bar split)
+gives the 0-parameter Dirac mass term; the **3×3** mass matrix (the 3
+generations) is **non-singular** (rank 3 — all generations get mass).
+
+| symbol | signature | returns |
+|---|---|---|
+| `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
+
+
+## 12. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|
@@ -217,6 +262,6 @@ $w$ (the chiral CPT split is preserved).  Verified on the **GPU**.
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 25 experiments
+python3 run_validation.py              # all 29 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
