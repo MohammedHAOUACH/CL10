@@ -52,8 +52,9 @@ CL10/
 │   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
 │   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
 │   ├── qca.py                # the unitary QCA + the metric (gravity) dynamics
-│   └── toepred.py            # the TOE predictions (proton, seesaw, families)
-├── experiments/              # the TOE verification program (17 experiments)
+│   ├── toepred.py            # the TOE predictions (proton, seesaw, families)
+│   └── walls.py              # the 3 reduced walls (W1/W2/W3 mechanisms)
+├── experiments/              # the TOE verification program (20 experiments)
 │   ├── V0_root/              # T0: the Cl(10) root
 │   ├── V1..V4/               # T1: spacetime, matter, gauge, statistics
 │   ├── V5..V7/               # T2: hierarchy, gravity, QCA
@@ -61,10 +62,11 @@ CL10/
 │   ├── V12_unification/      # T3: the 5/3 coupling unification
 │   ├── V13_gauge_gravity/    # T3: matter+gauge+gravity in one object
 │   ├── V8..V10/              # T4: dark matter, dark energy, antimatter
-│   └── V14..V16/             # T5: proton, seesaw, the 3 families
-├── run_validation.py         # the runner: runs all 17, writes the TOE verdict
+│   ├── V14..V16/             # T5: proton, seesaw, the 3 families
+│   └── V17..V19/             # the 3 REDUCED walls (W1/W2/W3 mechanisms)
+├── run_validation.py         # the runner: runs all 20, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 17/17 PASS + the TOE verdict
+    └── validation_summary.json   # the 20/20 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -89,21 +91,21 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 17 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 20 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
 
 `doc/toe_plan.md` defines **what a Theory of Everything must be** (seven
 criteria, P0–P6) and the **tiered** validation against it.  `run_validation.py`
-runs all **17** experiments (V0–V16) across the six tiers and writes
+runs all **20** experiments (V0–V19) across the six tiers and writes
 `results/validation_summary.json`, including the **TOE verdict**:
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
 > **$5/3$ coupling unification**, and the **matter-gauge-gravity in one
 > object**.  The cosmology (tier 4) and the falsifiability (tier 5) are
-> supporting, with the **three named walls** (the cosmological constant, the
+> supporting, with the **three reduced walls** (the cosmological constant, the
 > seesaw scale, the three families) reported, not hidden.
 
 Each experiment is a **0-parameter** check: it **confirms** a prediction of

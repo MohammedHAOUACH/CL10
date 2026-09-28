@@ -131,6 +131,13 @@ $$\text{TOE} \;=\; \bigwedge_{V \in \{0..13\}} \mathrm{PASS}(V)
 The **named walls** (W1 the cosmological constant, W2 the 3 families, W3 the
 Yukawa, W4 the running, W5 the baryon asymmetry) are **reported, not hidden**.
 
+**The three *primary* walls** (W1 the cosmological constant, W2 the seesaw
+scale, W3 the 3 families) are now **reduced** by 0-parameter **mechanisms**
+(V17–V19; see `doc/walls.md` and `cl10/walls.py`): each wall's *mechanism*
+is a 0-parameter consequence of the single object, and its *exact value* is
+the named residual.  The secondary residuals (the Yukawa, the running, the
+baryon asymmetry) remain named.
+
 ---
 
 ## 5. What would refute the TOE

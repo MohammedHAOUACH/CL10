@@ -146,7 +146,7 @@ GeV, `ALPHA_10 = 1/25`, `V_EW = 246.0` GeV.
 
 ## 8. `cl10.walls` — the three reduced walls (W1/W2/W3)
 
-The **0-parameter mechanisms** that reduce the three named walls (see
+The **0-parameter mechanisms** that reduce the three walls (see
 `doc/walls.md`):
 
 | symbol | signature | returns |
@@ -178,6 +178,6 @@ scale).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 17 experiments
+python3 run_validation.py              # all 20 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
