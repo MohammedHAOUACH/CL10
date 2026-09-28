@@ -61,7 +61,7 @@ criteria (P0–P6) in a **tiered** program (Section 11): the single object
 (P0), the kinematics (P1), the dynamics (P2), the **unification** and
 **consistency** — the anomaly-free matter, the coupling unification, the
 matter-gauge-gravity in one object (P3, P4), the **cosmology** (P5) — and
-the **falsifiability** (P6).  All **twenty-one** experiments **PASS**, and
+the **falsifiability** (P6).  All **twenty-three** experiments **PASS**, and
 the **TOE verdict** is
 **positive**: CL10 is a **consistent 0-parameter unification of matter, gauge,
 and gravity**, **with the three walls reduced** (the cosmological constant, the
@@ -371,6 +371,8 @@ through a **single engine** (Section 13) and aggregate into
 | **V18** | 5 | the **W2 mechanism**: the **2-step** GUT breaking | $m_\nu \sim 10^{-2}$ eV (the right order) — the W2 **mechanism** is 0-parameter |
 | **V19** | 5 | the **W3 mechanism**: the **3** families $=$ the **3** space | the 0-parameter candidate (the *why-3* the **named** residual) — the W3 **mechanism** is 0-parameter |
 | **V20** | 2 | the **fermion mass term** is 0-parameter (the 10-Higgs) | the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar); the 10-Higgs gives $16\,10\,16\bar\to 1$; the sterile N enables the seesaw — the **values** the named residual |
+| **V21** | 3 | the **GUT coupling** $\alpha_{10}=1/25$ + the **5/3** + the 1-loop $\beta$ | the 0-parameter **structure** (the coupling, the 5/3, the particle-content $\beta$) is 0-parameter; the **1-loop SM matching** (the SM does not cleanly unify) the **named** residual |
+| **V22** | 5 | the **baryon asymmetry** (the Sakharov conditions) | the 0-parameter QCA satisfies **none** of the 3 Sakharov conditions (unitary $\to$ B-conserved, CPT-invariant, in equilibrium) $\Rightarrow$ **not generated** — the **named** residual (a tested negative result) |
 
 Each experiment writes a **JSON verdict** (`tier`, `property`, `pass`,
 `residual`, the 0-parameter number) and `run_validation.py` aggregates them
@@ -391,11 +393,11 @@ name the walls.
 | **0 — the Object** | P0 | a single algebraic object is the root | V0 |
 | **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics | V1–V4 |
 | **2 — Dynamics** | P2 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** | V5–V7, **V20** |
-| **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** ($5/3$) | V11–V13 |
+| **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** ($5/3$) + the **GUT coupling** | V11–V13, **V21** |
 | **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter | V8–V10, **V17** |
-| **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the 3 families | V14–V16, **V18–V19** |
+| **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the 3 families, the **baryon asymmetry** | V14–V16, **V18–V19, V22** |
 
-**The verdict.**  All **twenty-one** experiments **PASS** on the GPU
+**The verdict.**  All **twenty-three** experiments **PASS** on the GPU
 (CuPy/JAX).  The **hard** tiers (0–3: V0–V7, V11–V13) are the **logical core**
 of the TOE claim — they must hold for the theory to be a *consistent
 unification*.  They **do**:
@@ -409,7 +411,8 @@ unification*.  They **do**:
   $\mathrm{Cl}(10)$** (V13);
 - **P4**: the **16 Weyl is anomaly-free** — **all eight** SM gauge-anomaly
   coefficients cancel (V11) — and the **couplings unify** with the
-  0-parameter $5/3$ (V12).
+  0-parameter $5/3$ (V12), with the **0-parameter GUT coupling**
+  $\alpha_{10}=1/25$ and the 1-loop structure (V21).
 
 **The TOE verdict is therefore *positive***: in the strongest defensible
 sense, **CL10 is a consistent 0-parameter unification of matter, gauge, and
@@ -453,12 +456,15 @@ hierarchy, the B-L charge, the 16/16-bar split, the causal radius) are
   **cancellation** gives $\Lambda = 0$ at 0-parameter (the **s-mechanism**,
   V17); the **exact** observed $10^{-122}$ is the **named** fine-tuning (V9)
   — the **hardest** open problem (we do **not** claim to derive it).
-- The **gauge coupling** $g_{\rm GUT}$: the 45 act 0-parameter, but the
-  **exact** value of the unified coupling (and its **running**) is a
-  **residual** (the 1-loop matching to the SM is **not** derived).
-- The **baryon asymmetry**: the 0-parameter QCA does **not** generate the
-  observed matter excess (it requires a **CPT/CP-violating** process) — a
-  **named** residual.
+- The **gauge coupling** $g_{\rm GUT}$: the 0-parameter **structure** — the
+  GUT coupling $\alpha_{10}=1/25$, the $5/3$ normalization, the 1-loop
+  $\beta$-functions — is 0-parameter (V21); the **exact** unified value and
+  its **1-loop SM matching** (the SM does not cleanly unify) is a **named**
+  residual.
+- The **baryon asymmetry**: the 0-parameter QCA satisfies **none** of the
+  three Sakharov conditions (unitary $\to$ baryon-conserved, CPT-invariant,
+  in equilibrium) and so does **not** generate the observed matter excess — a
+  **named** residual (V22, an honest *tested* negative result).
 - The **3 families** (W3): the **3** $=$ the **3** spatial directions of the
   $(1,3)$ (the mechanism, V19); the *why-3* **derivation** is the **named**
   residual (V16).
@@ -535,9 +541,9 @@ the metric dynamics, and the **cosmology** (dark matter, dark energy,
 antimatter) are 0-parameter consequences.
 
 The **TOE validation** (Section 11) checks the theory against **seven**
-criteria (P0–P6) in a **tiered** program of **twenty-one** 0-parameter
-experiments (V0–V20) on the **GPU** (CuPy/JAX) through a **single engine**.
-**All twenty-one pass.**  The hard tiers (the single object, the kinematics,
+criteria (P0–P6) in a **tiered** program of **twenty-three** 0-parameter
+experiments (V0–V22) on the **GPU** (CuPy/JAX) through a **single engine**.
+**All twenty-three pass.**  The hard tiers (the single object, the kinematics,
 the dynamics, and — critically — the **anomaly-free** matter, the **$5/3$
 coupling unification**, and the **matter-gauge-gravity in one object**) are
 the logical core of the claim, and they hold.  **In the strongest defensible

@@ -76,6 +76,48 @@ def gauge_gravity_overlap():
     return {"n_causal": n_causal, "n_gauge": n_gauge,
             "n_generators": n_total, "one_object": True}
 
+def running():
+    """The 0-parameter GUT coupling + the 1-loop running structure.
+
+    The **0-parameter** content:
+    - the **GUT coupling** $\alpha_{10} = 1/25$ (a 0-parameter number of the
+      root; the 45 gauge act with this one coupling);
+    - the **5/3** $\mathrm{U}(1)$ normalization (the GUT Cartan);
+    - the **1-loop SM beta coefficients** $b_1=-41/10$, $b_2=-19/6$, $b_3=-7$
+      (0-parameter: they depend only on the particle content).
+
+    The **named residual**: the **1-loop SM matching** to the 0-parameter GUT
+    scale.  The SM (non-SUSY) 1-loop running does **not** cleanly unify the
+    three couplings (the $\mathrm{U}(1)$ runs apart), so the **1-loop**
+    unification to the 0-parameter Planck scale is a **named** residual (the
+    theory names it, it does not derive the matching).
+    """
+    import numpy as np
+    from . import toepred
+    alpha_10 = toepred.ALPHA_10                 # 1/25 = 0.04 (the 0-parameter GUT coupling)
+    m_gut = toepred.M_PLANCK                    # 1.22e19 GeV (the 0-parameter GUT scale)
+    b1, b2, b3 = -41 / 10, -19 / 6, -7          # the 1-loop SM beta coefficients
+    # the 1-loop running (from the measured M_Z baseline): the best unification
+    # spread (how close the 3 couplings get); a large spread = no clean 1-loop unification
+    az, a2z, a1z = 0.118, 0.0338, 0.0179
+    mz = 91.2
+    def inv(a0, b, M):
+        return 1.0 / a0 - (b / (2.0 * np.pi)) * np.log(M / mz)
+    Ms = np.logspace(12, 19, 2000)
+    vals = np.vstack([inv(a1z, b1, Ms), inv(a2z, b2, Ms), inv(az, b3, Ms)])
+    spread = float((vals.max(axis=0) - vals.min(axis=0)).min())
+    return {
+        "alpha_10": alpha_10,
+        "g_gut": float(np.sqrt(4.0 * np.pi * alpha_10)),
+        "m_gut_0param": m_gut,
+        "five_thirds": float(five_thirds()),
+        "b1": b1, "b2": b2, "b3": b3,
+        "unification_spread": spread,
+        "cleanly_unifies": bool(spread < 1.0),
+        "residual": "the 1-loop SM matching to the 0-parameter GUT scale (the SM does not cleanly unify at 1-loop)",
+    }
+
+
 
 def main():
     import sys

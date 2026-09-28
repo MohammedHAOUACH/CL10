@@ -12,10 +12,10 @@ cl10.engine        # the single computation core (Section 1)
 cl10.clifford      # the Cl(10) root (Section 2)
 cl10.spacetime     # the (1,3) inside the GUT (Section 3)
 cl10.matter        # the 16 Weyl + the anomalies (Section 4)
-cl10.gauge         # the 45 + the 5/3 + gauge-gravity (Section 5)
+cl10.gauge         # the 45 + the 5/3 + the GUT coupling/running + gauge-gravity (Section 5)
 cl10.qca           # the metric + the QCA (Section 6)
 cl10.toepred       # the TOE predictions (Section 7)
-cl10.walls         # the 3 reduced walls: W1/W2/W3 (Section 8)
+cl10.walls         # the 3 reduced walls W1/W2/W3 + the baryon asymmetry (Section 8)
 ```
 
 `cl10.__version__` is the package version.
@@ -114,6 +114,7 @@ inconsistent unless all eight coefficients cancel.  `V11_anomaly` checks them.
 | `five_thirds` | `()` | `float` — the **0-parameter** $\mathrm{U}(1)$ normalization $g_1^2/g'^2 = 5/3$ (from $\mathrm{Tr}(\mathcal{T}^2) = 5/24$) |
 | `sm_subgroup` | `()` | `{n_sm, n_gluon, n_w, n_b, n_heavy}` — the 12 SM gauge bosons inside the 45 (8 gluon + 3 W + 1 B) |
 | `gauge_gravity_overlap` | `()` | `{n_causal, n_gauge, n_generators, one_object}` — the $(1,3)$ (4) and the 45 in the **one** $\mathrm{Cl}(10)$ |
+| `running` | `()` | `{alpha_10, g_gut, m_gut_0param, five_thirds, b1, b2, b3, unification_spread, cleanly_unifies, residual}` — the **0-parameter** GUT coupling $\alpha_{10}=1/25$ + the $5/3$ + the 1-loop $\beta$; the **1-loop SM matching** (the SM does not cleanly unify) is the **named** residual |
 | `main` | `()` | runs the V3/V12/V13 self-check |
 
 ---
@@ -145,7 +146,7 @@ GeV, `ALPHA_10 = 1/25`, `V_EW = 246.0` GeV.
 
 ---
 
-## 8. `cl10.walls` — the three reduced walls (W1/W2/W3)
+## 8. `cl10.walls` — the three reduced walls (W1/W2/W3) + the baryon asymmetry
 
 The **0-parameter mechanisms** that reduce the three walls (see
 `doc/walls.md`):
@@ -155,6 +156,7 @@ The **0-parameter mechanisms** that reduce the three walls (see
 | `w1_cosmological_constant` | `()` | `{n_even, n_odd, cancellation, lambda_0param, lambda_obs, residual}` — the **W1**: the $\mathbb{Z}_2$ $512/512$ **cancellation** $\Rightarrow$ $\Lambda = 0$ at 0-parameter (the **s-mechanism**); the exact $10^{-122}$ the named residual |
 | `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — the **W2**: the **2-step** seesaw ($M_N$ intermediate, $g_0 v$ Dirac) $\Rightarrow$ $m_\nu \sim 10^{-2}$ eV (the right order) |
 | `w3_families` | `()` | `{n_time, n_space, n_fam_candidate, n_observed, match, derived, residual}` — the **W3**: the **3** families $=$ the **3** spatial directions of the $(1,3)$ (one 0-parameter number, dual use) |
+| `baryon_asymmetry` | `()` | `{baryon_number_violated, c_or_cp_violated, out_of_equilibrium, all_sakharov, generated, residual}` — the 0-parameter QCA satisfies **none** of the 3 Sakharov conditions $\Rightarrow$ the baryon asymmetry is **not** generated (the **named** residual, V22) |
 | `main` | `()` | runs the three wall mechanisms (V17–V19) and prints the verdict |
 
 The 0-parameter constants: `M_PLANCK = 1.22e19` GeV, `V_EW = 246.0` GeV,
@@ -179,6 +181,6 @@ scale).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 21 experiments
+python3 run_validation.py              # all 23 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

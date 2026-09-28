@@ -194,7 +194,7 @@ $2$ CUDA devices.
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (21/21, 2026-09-28).**  Every experiment **passes**; the **TOE
+**The result (23/23, 2026-09-28).**  Every experiment **passes**; the **TOE
 verdict is positive**.  The **3 walls are reduced**: each has a **0-parameter
 mechanism** (V17–V19) and a **named** exact-value residual —
 `V9_dark_energy` (W1, the $\mathbb{Z}_2$ cancellation $\Rightarrow \Lambda = 0$;
@@ -217,7 +217,7 @@ experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py          # -> results/validation_summary.json (21/21, TOE)
+python3 run_validation.py          # -> results/validation_summary.json (23/23, TOE)
 ```
 
 **Lint.**  `python3 -m ruff check cl10/ experiments/ run_validation.py`

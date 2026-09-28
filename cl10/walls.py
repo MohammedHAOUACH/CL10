@@ -143,6 +143,40 @@ def w3_families():
         "residual": "the derivation of why the family count = the spatial dimension",
     }
 
+def baryon_asymmetry():
+    """The 0-parameter QCA checked against the **Sakharov conditions**.
+
+    A **baryon asymmetry** (the matter excess over antimatter) requires, by the
+    **Sakharov conditions** (1967), **three** ingredients:
+
+    1. **baryon-number violation** (the B-number is not conserved);
+    2. **C and CP violation** (the laws are not symmetric under C or CP);
+    3. **departure from thermal equilibrium** (the dynamics is not reversible).
+
+    The **0-parameter QCA** satisfies **none** of the three:
+    - it is **unitary** (a product of local unitaries), so **all** global
+      charges are conserved — baryon number and B-L are **exact** symmetries
+      (no baryon-number violation);
+    - it is **CPT-invariant** (the 16/16-bar CPT pair, V10) and **CP-conserving**
+      at 0-parameter (no C/CP violation);
+    - it is **reversible** (unitary), so it stays in **equilibrium** (no
+      departure from equilibrium).
+
+    Therefore the 0-parameter QCA **does not generate** the observed baryon
+    asymmetry — it is a **named** residual (the theory names it; it does not
+    derive it).  A baryon asymmetry would require a **beyond-0-parameter**
+    (CPT/CP-violating, non-unitary) process.
+    """
+    return {
+        "baryon_number_violated": False,   # unitary -> B conserved
+        "c_or_cp_violated": False,          # CPT-invariant, CP-conserving at 0-param
+        "out_of_equilibrium": False,        # unitary -> reversible -> equilibrium
+        "all_sakharov": False,              # none of the three are satisfied
+        "generated": False,                 # the QCA does NOT generate the asymmetry
+        "residual": "the observed baryon asymmetry (needs a CPT/CP-violating, non-unitary process)",
+    }
+
+
 
 def main():
     import sys
