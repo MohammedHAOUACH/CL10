@@ -61,7 +61,7 @@ criteria (P0–P6) in a **tiered** program (Section 11): the single object
 (P0), the kinematics (P1), the dynamics (P2), the **unification** and
 **consistency** — the anomaly-free matter, the coupling unification, the
 matter-gauge-gravity in one object (P3, P4), the **cosmology** (P5) — and
-the **falsifiability** (P6).  All **twenty-three** experiments **PASS**, and
+the **falsifiability** (P6).  All **twenty-four** experiments **PASS**, and
 the **TOE verdict** is
 **positive**: CL10 is a **consistent 0-parameter unification of matter, gauge,
 and gravity**, **with the three walls reduced** (the cosmological constant, the
@@ -373,6 +373,7 @@ through a **single engine** (Section 13) and aggregate into
 | **V20** | 2 | the **fermion mass term** is 0-parameter (the 10-Higgs) | the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar); the 10-Higgs gives $16\,10\,16\bar\to 1$; the sterile N enables the seesaw — the **values** the named residual |
 | **V21** | 3 | the **GUT coupling** $\alpha_{10}=1/25$ + the **5/3** + the 1-loop $\beta$ | the 0-parameter **structure** (the coupling, the 5/3, the particle-content $\beta$) is 0-parameter; the **1-loop SM matching** (the SM does not cleanly unify) the **named** residual |
 | **V22** | 5 | the **baryon asymmetry** (the Sakharov conditions) | the 0-parameter QCA satisfies **none** of the 3 Sakharov conditions (unitary $\to$ B-conserved, CPT-invariant, in equilibrium) $\Rightarrow$ **not generated** — the **named** residual (a tested negative result) |
+| **V23** | 2 | the **full SM QCA** (the 0-parameter unitary QCA) | the 45 Spin(10) plane rotations at the 0-parameter angle $g_{10}=1/5$ give a GUT QCA step that is **exactly unitary** (and norm-preserving on the GPU); the **full** SM (32-D matter, the 12 gauge, the $5/3$) is a 0-parameter **unitary** QCA |
 
 Each experiment writes a **JSON verdict** (`tier`, `property`, `pass`,
 `residual`, the 0-parameter number) and `run_validation.py` aggregates them
@@ -392,12 +393,12 @@ name the walls.
 |---|---|---|---|
 | **0 — the Object** | P0 | a single algebraic object is the root | V0 |
 | **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics | V1–V4 |
-| **2 — Dynamics** | P2 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** | V5–V7, **V20** |
+| **2 — Dynamics** | P2, P3, P4 | a unitary causal QCA + the gravity + the 0-parameter hierarchy + the **mass term** + the **full SM as a 0-parameter unitary QCA** | V5–V7, **V20, V23** |
 | **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** ($5/3$) + the **GUT coupling** | V11–V13, **V21** |
 | **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter | V8–V10, **V17** |
 | **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the 3 families, the **baryon asymmetry** | V14–V16, **V18–V19, V22** |
 
-**The verdict.**  All **twenty-three** experiments **PASS** on the GPU
+**The verdict.**  All **twenty-four** experiments **PASS** on the GPU
 (CuPy/JAX).  The **hard** tiers (0–3: V0–V7, V11–V13) are the **logical core**
 of the TOE claim — they must hold for the theory to be a *consistent
 unification*.  They **do**:
@@ -406,7 +407,7 @@ unification*.  They **do**:
 - **P1**: it yields the spacetime (V1), the matter (V2), the gauge (V3), the
   statistics (V4);
 - **P2**: the 0-parameter hierarchy (V5), the gravity (V6), the unitary causal
-  QCA (V7);
+  QCA (V7), and the **full SM as a 0-parameter unitary QCA** (V23);
 - **P3**: **matter, gauge, and gravity are all sub-algebras of the one
   $\mathrm{Cl}(10)$** (V13);
 - **P4**: the **16 Weyl is anomaly-free** — **all eight** SM gauge-anomaly
@@ -541,9 +542,9 @@ the metric dynamics, and the **cosmology** (dark matter, dark energy,
 antimatter) are 0-parameter consequences.
 
 The **TOE validation** (Section 11) checks the theory against **seven**
-criteria (P0–P6) in a **tiered** program of **twenty-three** 0-parameter
-experiments (V0–V22) on the **GPU** (CuPy/JAX) through a **single engine**.
-**All twenty-three pass.**  The hard tiers (the single object, the kinematics,
+criteria (P0–P6) in a **tiered** program of **twenty-four** 0-parameter
+experiments (V0–V23) on the **GPU** (CuPy/JAX) through a **single engine**.
+**All twenty-four pass.**  The hard tiers (the single object, the kinematics,
 the dynamics, and — critically — the **anomaly-free** matter, the **$5/3$
 coupling unification**, and the **matter-gauge-gravity in one object**) are
 the logical core of the claim, and they hold.  **In the strongest defensible

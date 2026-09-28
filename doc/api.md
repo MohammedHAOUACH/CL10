@@ -164,8 +164,27 @@ The 0-parameter constants: `M_PLANCK = 1.22e19` GeV, `V_EW = 246.0` GeV,
 scale).
 
 ---
+## 9. `cl10.sm_qca` — the full SM QCA (the 0-parameter unitary QCA)
 
-## 9. `run_validation.py` — the TOE runner
+The **full Standard Model as a 0-parameter unitary QCA** (V23): the QCA step
+is the product of the **45 Spin(10) plane rotations** $T_{ab} = i\,h_a h_b$
+(Hermitian, $T_{ab}^2 = I$) at the **0-parameter** angle $g_{10} = 1/5$,
+**exactly unitary** (no matrix exponential, no fit), run on the **GPU** engine.
+
+| symbol | signature | returns |
+|---|---|---|
+| `plane_generators` | `()` | the 45 Spin(10) plane generators $T_{ab} = i h_a h_b$ (a list of 45 $(32\times32)$, Hermitian, $T^2=I$) |
+| `plane_rotation` | `(T, theta)` | $\cos\theta\, I - i\sin\theta\, T$ (the exact plane rotation, $T^2=I$) |
+| `gut_qca_step` | `(planes, theta)` | the GUT QCA step $U = \prod_{a<b}[\cos\theta\, I - i\sin\theta\, T_{ab}]$ (exactly unitary) |
+| `unitary_err` | `(U)` | the unitarity residual $\|U U^\dagger - I\|_{\max}$ |
+| `norm_preservation` | `(U, n_steps, L)` | $(n_0, n_1, \text{rel\_err})$ — the norm before/after $n$ steps on a random $32$-D field (GPU) |
+| `sm_qca` | `(n_steps, L)` | `{n_planes, g10, plane_square_to_I_err, step_unitary_err, norm_before, norm_after, norm_rel_err, backend, causal_radius}` — the full SM QCA verdict (V23) |
+| `main` | `()` | runs the V23 self-check |
+
+---
+
+
+## 10. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|
@@ -181,6 +200,6 @@ scale).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 23 experiments
+python3 run_validation.py              # all 24 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
