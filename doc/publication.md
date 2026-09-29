@@ -257,6 +257,22 @@ with the **discrete** 6-neighbour Laplacian as the spatial operator.
 - in a **finite vacuum** — the 0-point is **3** (the $(1,3)$), not the QFT
   divergence.
 
+**The Einstein–Hilbert action (the Riemann curvature).**  The **non-linear**
+action is the Einstein–Hilbert term $S = \frac{1}{16\pi}\int \sqrt{-g}\,R$
+($G=1$).  The QCA metric **computes** the Riemann tensor / Ricci scalar $R$:
+the **flat** metric gives $R=0$ (the vacuum), and the **2-sphere** of radius
+$r$ gives the constant curvature $R = 2/r^2$ — the genuine, **0-parameter**
+curvature of the metric (V31, verified to $10^{-5}$).  Expanding to the
+leading order gives the **3- and 4-graviton** self-interaction vertices, with
+the **0-parameter** coupling $1/(16\pi)$.
+
+**The black-hole (the horizon and the Kretschmann invariant).**  The
+**Schwarzschild** solution $ds^2 = -(1-2M/r)\,dt^2 + (1-2M/r)^{-1}\,dr^2 +
+r^2\,d\Omega^2$ has the **horizon** at $r_h = 2M$ (the 0-parameter event
+horizon, $G=1$), the **vacuum** Ricci scalar $R=0$, and the genuine curvature
+invariant (the **Kretschmann** scalar) $K = 48\,M^2/r^6$ (non-zero, divergent
+at the singularity) — the **black hole** of the non-linear metric.
+
 The **non-linear** completion (the cubic self-interaction
 $\partial_t^2\phi - \nabla^2\phi - g\,\phi^3 = 0$) is the **Choptuik** model:
 it has a **finite critical threshold** that separates **stable** from
@@ -496,8 +512,11 @@ explicitly **named** residual:
 - **V31 — GR from the QCA.**  The metric dynamics (the discrete Laplacian) is
   the **massless spin-2** graviton ($c=1$, the 2 polarizations, the
   UV-bounded dispersion, $\omega/|k|\to1$) in the continuum limit; the
-  non-linear completion is the **Einstein–Hilbert** self-interaction
-  ($G=1$, the 0-parameter 3-/4-graviton vertices).
+  **Einstein–Hilbert** action is **computed** from the metric (the Riemann /
+  Ricci scalar: the flat $R=0$, the 2-sphere $R=2/r^2$), the **static**
+  non-linear metric has the **exact** finite-energy soliton $u=\sqrt{2}\,\mathrm{sech}\,x$
+  (the dark matter), and the **Schwarzschild** black-hole has the horizon
+  $r_h=2M$ and the Kretschmann curvature $K=48M^2/r^6$ ($G=1$).
 - **V32 — the QCA $\to$ QFT correspondence.**  The 0-parameter GUT QCA step
   (the 45 plane rotations) **is** the QFT **time-evolution** (the 't Hooft
   program); the **electroweak breaking** is 0-parameter ($5/3$ + the GUT
