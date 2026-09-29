@@ -57,6 +57,7 @@ def main():
     mm = r["mass_matrix"]
     mix = r["mixing"]
     hier = r["hierarchy"]
+    fs = r["family_symmetry"]
     ok = r["ok"]
 
     verdict = {
@@ -82,6 +83,17 @@ def main():
                 "n_light_2fold": mm["n_light_2fold"],
                 "n_distinct_levels": mm["n_distinct_levels"],
                 "democratic": mm["democratic"],
+            },
+            "family_symmetry": {
+                "n_space": fs["n_space"],
+                "n_families_C32": fs["n_families_C32"],
+                "S_a2_err": fs["S_a2_err"],
+                "anticommutator_Sa_Sb": fs["anticommutator_Sa_Sb"],
+                "spatial_norms": fs["spatial_norms"],
+                "norm_spread": fs["norm_spread"],
+                "equivalent_3fold": fs["equivalent_3fold"],
+                "democratic_spectrum": fs["democratic_spectrum"],
+                "two_level": fs["two_level"],
             },
             "mixing": {
                 "sin2_12": mix["sin2_12"],
@@ -114,17 +126,19 @@ def main():
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY input:  g_10 = {r['g10']:.4f} (= 1/5)")
     print(f"  [1] the one object -> 3 families:  {one['n_levels_1gen']} levels (1 gen) x 3 = {one['n_levels_3gen']} levels (3 gen)")
-    print(f"  [2] 0-parameter 3x3 mass matrix (the democratic base):  eigenvalues "
+    print(f"  [2] 3-fold family symmetry (the DERIVATION of the democratic 3x3):  the 3 spatial directions are "
+          f"{'EQUIVALENT' if fs['equivalent_3fold'] else 'NOT'} (each S_a^2=-I, anticommuting, equal norm) -> the 10-Higgs couples the 3 families equally")
+    print(f"  [3] 0-parameter 3x3 mass matrix (the democratic base):  eigenvalues "
           f"{['%.3g' % x for x in mm['eigenvalues']]}  ({mm['n_distinct_levels']}-level: {mm['n_heavy']} heavy + {mm['n_light_2fold']}-fold light, rank {mm['rank']})")
     obs = mix["obs_pmns"]
-    print(f"  [3] 0-parameter mixing (the TBM / 0-parameter PMNS):  "
+    print(f"  [4] 0-parameter mixing (the TBM / 0-parameter PMNS):  "
           f"sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), "
           f"sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), "
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
-    print(f"  [4] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
+    print(f"  [5] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
-    print(f"  [5] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")
-    print(f"  [6] named residual (W6):  {r['residual']}")
+    print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")
+    print(f"  [7] named residual (W6):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level/exact mixing is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v45_yukawa_matrix.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

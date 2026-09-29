@@ -56,6 +56,7 @@ def main():
     cs = r["cross_section"]
     ds = r["dispersion"]
     uv = r["uv_bound"]
+    fr = r["froissart"]
     ok = (r["s2_unitary_err"] < TOL
           and r["closed_form_match"]
           and cs["P2"] > 0.0
@@ -64,6 +65,7 @@ def main():
           and r["optical_theorem"]
           and ds["uv_bounded"]
           and abs(ds["zero_point"]) < 1e-8
+          and fr["strongest_uv_finite"]
           and r["only_g10"])
 
     verdict = {
@@ -97,6 +99,15 @@ def main():
                 "zero_point": ds["zero_point"],
             },
             "optical_theorem": r["optical_theorem"],
+            "froissart": {
+                "m_min_GeV": fr["m_min_GeV"],
+                "sigma_qca_GeV2": fr["sigma_qca_GeV2"],
+                "sigma_max_GeV2": fr["sigma_max_GeV2"],
+                "constant_uv_finite": fr["constant_uv_finite"],
+                "below_froissart": fr["below_froissart"],
+                "strongest_uv_finite": fr["strongest_uv_finite"],
+                "n_rows": len(fr["rows"]),
+            },
             "elastic": cs["elastic"],
             "sigma_over_smax": cs["sigma_0_GeV2"] / uv["sigma_max_GeV2"],
             "residual": r["residual"],
@@ -122,6 +133,8 @@ def main():
     print(f"  [6] the QCA dispersion:  {ds['n_levels']} levels, max |omega| = {ds['omega_max_over_pi']:.3f} * pi  "
           f"({'UV-bounded' if ds['uv_bounded'] else 'NOT'});  optical theorem: the inelastic P2 IS the cross-section  "
           f"({'holds' if r['optical_theorem'] else 'fails'})")
+    print(f"  [7] Froissart-Martin bound (0-parameter, m_min = M_P):  sigma_qca is CONSTANT (UV-finite)  "
+          f"-> BELOW the ln^2 Froissart growth at every scale above the cutoff ({'strongest UV-finiteness' if fr['strongest_uv_finite'] else 'check'})")
     print(f"  named residual (W9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter GUT cross-section is UV-finite, nonzero, bounded; the RG matching is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v44_lattice_rg.json"))
