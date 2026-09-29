@@ -246,7 +246,7 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
 
 
-## 12. The completion program modules (V36–V43)
+## 12. The completion program modules (V36–V45)
 
 The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
 from a consistent 0-parameter framework to a **complete** TOE.  Each module
@@ -290,6 +290,12 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 |---|---|---|
 | `family_qca` | `()` | `{n_module_3gen=96, n_weyl_3gen=48, n_cpt_3gen=48, unitary_err, family_symmetry_off_block, …, tribimaximal_sin2, residual, …}` — the **3-generation QCA step**: the 45 act **identically on each family** (the family symmetry; the 96×96 is exactly unitary, the per-family 16/16-bar split is preserved) + the 0-parameter tribimaximal mixing (V29) |
 
+**`cl10.yukawa_3x3` — the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6, C4).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the 0-parameter TBM = the 0-parameter PMNS, sin^2 = 1/3, 1/2, 0), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the 0-parameter 16->16-bar Dirac term, V28), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the 0-parameter democratic base) + the **0-parameter TBM mixing** + the **2-level structure**; the **exact** 3-gen hierarchy (the 10-Higgs vev) and the **exact** CKM/PMNS are the named residual |
+
 **`cl10.baryogenesis` — GUT leptogenesis (V40, C5).**
 
 | symbol | signature | returns |
@@ -301,6 +307,12 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 | symbol | signature | returns |
 |---|---|---|
 | `qca_smatrix` | `()` | `{g10, n_planes=45, s1 (32×32), s2 (1024×1024), unitary_residual, probability_conservation, max_offdiag, …}` — the **'t Hooft program** completed: the QCA step **is** the 0-parameter S-matrix (the 1- and 2-particle transition amplitudes; the only input $g_{10}=0.2$) |
+
+**`cl10.lattice_rg` — the QCA lattice RG: the S-matrix to the cross-sections (V44, W9, C6).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `lattice_rg` | `()` | `{g10, one_particle (P1), two_particle (P2, the 1024x1024 S^(2) = U (x) U), uv_bound (sigma_max = 4 pi / M_P^2), cross_section (sigma_0 = P2 / M_P^2, the 0-parameter GUT-scale cross-section; sigma_pert = g_10^4 / (4 pi M_P^2); R = sigma_0 / sigma_pert), uv_finite, …}` — the **'t Hooft program** at the cross-section level: the QCA is **UV-finite** (the Planck cutoff bounds every cross-section, `sigma_0 < sigma_max`), the **0-parameter** 2->2 cross-section `sigma_0 = P2 / M_P^2` (nonzero, bounded, only `g_10` and `M_P` enter), and the **0-parameter** QCA/perturbative ratio `R = 4 pi P2 / g_10^4` (the non-perturbative, all-orders result); the **named residual** (W9) is the lattice RG matching to the measured cross-sections |
 
 **`cl10.cosmology3` — the unified cosmology + the DM scale (V42, C7).**
 
@@ -336,6 +348,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 44 experiments
+python3 run_validation.py              # all 46 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

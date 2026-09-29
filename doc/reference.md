@@ -76,8 +76,10 @@ signatures are in `doc/api.md`):
 | the EH action from the dynamics (§12, C2) | `cl10.einstein.einstein_hilbert_from_dynamics` | the **discrete** quadratic action $S_{\rm EH} = \frac{1}{16\pi}\frac12\sum_{x,t}\, u_t\big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2 u_t\big]$ ($G = 1$, $dt^2 = \tfrac14$, $\nabla^2$ = the 6-neighbour Laplacian); the **Euler–Lagrange equation** is the **numerical** functional derivative (the central finite difference of the action) evaluated on the GPU |
 | the numbers of the root (§12, C3) | `cl10.unification` | $n_{\rm qubits} = \log_2 32 = 5$ $\Rightarrow$ $g_{10} = 1/5$, $\alpha_{10} = 1/25$; $g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ ($n_{\rm space} = 3$ = the spatial dimension of the $(1,3)$); the **down-running** is the 1-loop $1/a(M) = 1/a(M_{\rm UV}) - (b/2\pi)\ln(M_{\rm UV}/M)$ |
 | the 3-family step (§12, C4) | `cl10.family` | the 96-D internal space $= \bigoplus_{k=1}^3 H_{32}$; $U_{96} = \mathrm{blockdiag}(U_{32}, U_{32}, U_{32})$ at the **same** $g_{10}$ (the family symmetry); the tribimaximal PMNS (V29) is a property of the **Yukawa** sector, not of the time-evolution step |
+| the 3-gen Yukawa matrix (V45, W6, C4) | `cl10.yukawa_3x3` | the **democratic** 3×3 mass matrix $M = \|1\!\rangle\!\langle1\|$ (all-ones, rank 1, eigenvalues $\{3,0,0\}$: 1 heavy + a 2-fold light level); the **TBM** ($\sin^2 = 1/3, 1/2, 0$) diagonalizes it (the 0-parameter PMNS); the 3-family 96-level spectrum $= 3 \times$ (the 32 levels); the **3-level** hierarchy (the 10-Higgs vev) and the **exact** CKM/PMNS are the **named** residual |
 | the GUT leptogenesis (§12, C5) | `cl10.baryogenesis` | $\Delta B \sim \frac{28}{79}\cdot\frac{g_0^4}{16\pi}\cdot\eta_{CP}$ with the out-of-equilibrium kinematics $\Gamma/H \sim 6\times10^{-4}$; $\eta_{CP}$ is the **named** input (taken $10^{-3}$, the observed range) |
 | the S-matrix (§12, C6) | `cl10.smatrix` | $S = U$ (the 32×32) and $S^{(2)} = U\otimes U$ (the 1024×1024) — the 0-parameter transition amplitudes of the 't Hooft program |
+| the lattice RG / cross-sections (V44, W9, C6) | `cl10.lattice_rg` | the **UV-finite** statement: the Planck cutoff bounds every cross-section to $\sigma_{\max} = 4\pi / M_P^2$; the 0-parameter 2→2 cross-section $\sigma_0 = P_2 / M_P^2$ ($P_2 = 1 - \bar d^2$ from $S^{(2)} = U \otimes U$); the 0-parameter QCA/perturbative ratio $R = \sigma_0 / \big(g_{10}^4 / (4\pi M_P^2)\big) = 4\pi P_2 / g_{10}^4$; the **named** residual (W9) is the RG matching to the **measured** cross-sections |
 | the dark-matter scale (§12, C7) | `cl10.cosmology3` | the **soliton energy** $E$ (in Planck units) of $u = \sqrt{2}\,\mathrm{sech}\,x$ $\Rightarrow$ $m_{\rm DM} = E \cdot M_P$; the 0-parameter **freeze-out** $\Omega h^2 \sim 1/(\sigma m)$ with $\sigma \sim 1/m^2$ (the only scale in the theory) |
 
 ---
@@ -93,7 +95,7 @@ experiments go through this **one** core, so the whole theory runs on the
 GPU out of the box and degrades cleanly to CPU (the $32\times32$ matrices
 are small).
 
-**The protocol.**  Each experiment (V0–V43 under `experiments/`):
+**The protocol.**  Each experiment (V0–V45 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -101,7 +103,7 @@ are small).
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **44** experiments (V0–V43) in name order,
+`run_validation.py` runs all **46** experiments (V0–V45) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the **TOE verdict**:
@@ -109,7 +111,7 @@ and the **TOE verdict**:
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (44/44, 2026-09-29).**  Every experiment **passes** on the
+**The result (46/46, 2026-09-29).**  Every experiment **passes** on the
 GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -119,12 +121,14 @@ $2.02\times10^{-17}$, the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the
 $5/24$ $\mathcal{T}$ normalization, the $G = 1$, the causal radius $1$,
 the $1.22\times10^{19}$ GeV GUT scale, the $1/25$ GUT coupling, the $246$
 GeV electroweak scale, and the off-diagonal **10-Higgs** mass term
-$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V42):**
+$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V45):**
 $g_{10} = 1/5$ and $g_0 = 1/8$ — **derived from the root** (the 5 qubits
 of the 32-D module; the 3-space, V38); the tribimaximal angles
 $\sin^2\theta_{12} = 1/3$, $\sin^2\theta_{23} = 1/2$, $\theta_{13} = 0$
-(V29/V39); the SM sphaleron factor $28/79$ (V40); the 0-parameter EH
-coefficient $1/16\pi$ and the lattice CFL $dt^2 = 1/4$ (V37).
+$(\mathrm{V29/V39/V45})$; the SM sphaleron factor $28/79$ (V40); the 0-parameter EH
+coefficient $1/16\pi$ and the lattice CFL $dt^2 = 1/4$ (V37); the **UV-finite** 2→2
+cross-section $\sigma_0 = P_2 / M_P^2$ and the QCA/perturbative ratio
+$R = 4\pi P_2 / g_{10}^4$ (V44, W9).
 
 ---
 
@@ -141,7 +145,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (44/44, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (46/46, TOE)
 python3 run_validation.py V11 V12    # a subset
 ```
 
