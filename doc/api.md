@@ -294,7 +294,7 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 
 | symbol | signature | returns |
 |---|---|---|
-| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the 0-parameter TBM = the 0-parameter PMNS, sin^2 = 1/3, 1/2, 0), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the 0-parameter 16->16-bar Dirac term, V28), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the 0-parameter democratic base) + the **0-parameter TBM mixing** + the **2-level structure**; the **exact** 3-gen hierarchy (the 10-Higgs vev) and the **exact** CKM/PMNS are the named residual |
+| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the 0-parameter TBM = the 0-parameter PMNS, sin^2 = 1/3, 1/2, 0), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the computed 16->16-bar Dirac term, rank-16, off-diagonal), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the 0-parameter democratic base) + the **0-parameter TBM mixing** + the **2-level structure** + the **0-parameter rank-16 10-Higgs Dirac term**; the **exact** 3-gen hierarchy (the 10-Higgs vev) and the **exact** CKM/PMNS are the named residual |
 
 **`cl10.baryogenesis` — GUT leptogenesis (V40, C5).**
 
@@ -312,7 +312,7 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 
 | symbol | signature | returns |
 |---|---|---|
-| `lattice_rg` | `()` | `{g10, one_particle (P1), two_particle (P2, the 1024x1024 S^(2) = U (x) U), uv_bound (sigma_max = 4 pi / M_P^2), cross_section (sigma_0 = P2 / M_P^2, the 0-parameter GUT-scale cross-section; sigma_pert = g_10^4 / (4 pi M_P^2); R = sigma_0 / sigma_pert), uv_finite, …}` — the **'t Hooft program** at the cross-section level: the QCA is **UV-finite** (the Planck cutoff bounds every cross-section, `sigma_0 < sigma_max`), the **0-parameter** 2->2 cross-section `sigma_0 = P2 / M_P^2` (nonzero, bounded, only `g_10` and `M_P` enter), and the **0-parameter** QCA/perturbative ratio `R = 4 pi P2 / g_10^4` (the non-perturbative, all-orders result); the **named residual** (W9) is the lattice RG matching to the measured cross-sections |
+| `lattice_rg` | `()` | `{g10, one_particle (P1), two_particle (P2, the 1024x1024 S^(2) = U (x) U), uv_bound (sigma_max = 4 pi / M_P^2), cross_section (sigma_0 = P2 / M_P^2, sigma_pert, R, elastic, optical_theorem), dispersion (the 32-level spectrum H = -i log U, UV-bounded, zero_point), uv_finite, …}` — the **'t Hooft program** at the cross-section level: the QCA is **UV-finite** (the Planck cutoff bounds every cross-section, `sigma_0 < sigma_max`), the **0-parameter** 2->2 cross-section `sigma_0 = P2 / M_P^2`, the **0-parameter dispersion** (the 32-level spectrum, UV-bounded `|omega| <= pi`, no 1-loop pairing), the **0-parameter optical theorem** (the inelastic `P2` **is** the cross-section), and the **0-parameter** QCA/perturbative ratio `R = 4 pi P2 / g_10^4`; the **named residual** (W9) is the lattice RG matching to the measured cross-sections |
 
 **`cl10.cosmology3` — the unified cosmology + the DM scale (V42, C7).**
 
