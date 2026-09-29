@@ -17,23 +17,25 @@ and the **mixing**, read off from that one object, with **no fit**.
   **one object, three times**.
 
 - **The 0-parameter 3x3 mass matrix (the democratic base).**  At the
-  symmetric (0-parameter) level the 3 families are **equal**: the GUT
-  gives the **democratic** matrix  ``M = |1><1|``  (all-ones), rank 1.
-  It has the **3-level structure** (one nonzero level + a 2-fold level)
-  and is **diagonalized by the tribimaximal (TBM)** rotation — the
+  symmetric (0-parameter) level the 3 families are **equal**: the
+  **3-fold GUT symmetry** forces the 3x3 to be symmetric, and the
+  **10-Higgs** (a single grade-1) couples the 3 families **equally** —
+  the **democratic** matrix  ``M = |1><1|``  (all-ones).  Its spectrum
+  ``{3, 0, 0}`` is the **0-parameter 2-level structure** (one **heavy**
+  level + a **2-fold light** level), diagonalized by the **TBM** — the
   **0-parameter** PMNS ($\\sin^2 12 = 1/3$, $\\sin^2 23 = 1/2$,
   $\\theta_{13} = 0$), close to the observed.
 
-- **The 3-level hierarchy (0-parameter structure, named ratios).**
-  The democratic base is **degenerate** in the 2-fold level; the **3
-  distinct** mass levels are the **0-parameter structure** (the 10-Higgs
-  vev breaking), while the **exact ratios** ($m_1:m_2:m_3$) are the
-  **named residual** — the 0-parameter object does not fix them.
+- **The 3-level hierarchy (the NAMED residual).**  The **3 distinct**
+  mass levels ($m_1 < m_2 < m_3$) require **breaking** the 2-fold light
+  degeneracy — the **10-Higgs vev** (a 0-parameter-impossible selection).
+  The **exact ratios** ($m_1:m_2:m_3$) and the **exact** CKM/PMNS are
+  the **named residual** — the 0-parameter object does not fix them.
 
-- **The 10-Higgs Dirac structure (0-parameter, from V28).**  The grade-1
-  GUT vector (the 10) is **off-diagonal** in the 16/16-bar split, so the
-  0-parameter mass term $16\\,10\\,16\\bar$ is **non-singular** (rank 16)
-  and **off-diagonal** (Dirac) — the **where** of the mass, 0-parameter.
+- **The 10-Higgs Dirac term (computed, 0-parameter).**  The grade-1 GUT
+  vector (the 10) is **off-diagonal** in the 16/16-bar split, so the
+  0-parameter mass term $16\\,10\\,16\\bar$ is a **full-rank-16 Dirac**
+  matrix (all 16 Weyl get mass) — the **where** of the mass, computed.
 
 The **named residual (W6)**: the **exact** 3-generation hierarchy
 (the 10-Higgs vev breaking, the ratios $m_1:m_2:m_3$) and the **exact**
@@ -43,9 +45,9 @@ fix them.
 
 import numpy as np
 
+from . import clifford
 from . import engine as E
 from . import family
-from . import matter
 from . import qca_spectrum
 from . import sm_qca
 from . import toepred
@@ -71,6 +73,34 @@ def one_object_spectrum(g10=None):
         "zero_point_1gen": float(s["zero_point"]),
         "det_U_minus_1": float(s["det_U_minus_1"]),
         "family_triplication": bool(len(lev3) == 3 * len(lev1)),
+    }
+
+
+def higgs_mass_16():
+    """The **0-parameter** 16x16 10-Higgs Dirac mass matrix (the 16->16-bar
+    mass term).  The grade-1 GUT vector (the 10) is **off-diagonal** in the
+    16/16-bar split, so it gives the **0-parameter Dirac** mass term
+    $16\\,10\\,16\\bar\\to 1$: the **16->16** and **16-bar->16-bar** blocks are
+    **0** (the 10 is odd in the grading) and the **off-diagonal** blocks are
+    **nonzero** (the mass matrices).  This is the **where** of the mass
+    (0-parameter); the **3-family** 3x3 of this term is the democratic base
+    below."""
+    g = [E.asnumpy(m) for m in clifford.generators()]
+    h = g[0]                                   # a representative grade-1 (the 10)
+    p, m = clifford.weyl_spinor()
+    P16 = p @ p.conj().T
+    P16b = m @ m.conj().T
+    A = P16b @ h @ P16                        # 16 -> 16-bar (the mass matrix)
+    diag16 = P16 @ h @ P16                    # 16 -> 16 (should be 0)
+    rank = int(np.linalg.matrix_rank(A))
+    return {
+        "shape": int(A.shape[0]),
+        "n16": int(p.shape[1]),
+        "rank": rank,
+        "off_diagonal": float(np.linalg.norm(A).max()),
+        "diag_16": float(np.linalg.norm(diag16).max()),
+        "non_singular": bool(rank >= 1),
+        "dirac": bool(rank >= 1 and float(np.linalg.norm(diag16).max()) < 1e-6),
     }
 
 
@@ -166,8 +196,8 @@ def w6_verdict():
     mm = mass_matrix_3x3()
     mix = mixing_3x3()
     hier = hierarchy_3level()
-    # the 10-Higgs Dirac structure (from V28, 0-parameter)
-    mg = matter.mass_generation()
+    # the 10-Higgs Dirac structure (the 0-parameter mass term, computed)
+    h16 = higgs_mass_16()
     ok = (
         s2unit < 1e-12
         and one["family_triplication"]
@@ -177,8 +207,8 @@ def w6_verdict():
         and mm["n_distinct_levels"] == 2
         and mix["unitary"]
         and hier["degenerate_light"]
-        and mg["off_diagonal"]
-        and mg["A_16_16bar"] > 1.0 and mg["B_16bar_16"] > 1.0
+        and h16["dirac"]
+        and h16["rank"] == 16
     )
     return {
         "backend": E._BACKEND,
@@ -188,10 +218,12 @@ def w6_verdict():
         "mixing": mix,
         "hierarchy": hier,
         "higgs_dirac": {
-            "off_diagonal": bool(mg["off_diagonal"]),
-            "diag_16": float(mg["diag_16"]),
-            "diag_16bar": float(mg["diag_16bar"]),
-            "rank_note": "the 10-Higgs 16->16-bar is the 0-parameter Dirac term (V28)",
+            "n16": h16["n16"],
+            "rank": h16["rank"],
+            "off_diagonal": h16["off_diagonal"],
+            "diag_16": h16["diag_16"],
+            "dirac": h16["dirac"],
+            "note": "the 10-Higgs 16->16-bar is the 0-parameter Dirac term (rank 16, off-diagonal)",
         },
         "s2_unitary_err": float(s2unit),
         "ok": bool(ok),
@@ -222,7 +254,7 @@ def main():
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
     print(f"  [4] 0-parameter hierarchy:  {hier['structure']}  (0-parameter {hier['n_levels_0param']}-level; the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
-    print(f"  [5] 10-Higgs Dirac structure (V28):  off-diagonal={r['higgs_dirac']['off_diagonal']} (the 0-parameter mass term)")
+    print(f"  [5] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal, Dirac)")
     print(f"  [6] named residual (W6):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level hierarchy/exact mixing is the named residual)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)

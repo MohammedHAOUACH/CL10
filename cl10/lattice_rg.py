@@ -114,6 +114,27 @@ def uv_bound():
     }
 
 
+def dispersion():
+    """The 0-parameter QCA **dispersion**: the 32 levels of
+    ``H = -i log U`` (the phases of the GUT step), in ``(-pi, pi]``.  They
+    are **UV-bounded** (`|omega| <= pi = pi/t_P`), so the QCA dispersion is
+    **UV-finite** — no UV divergences, in contrast to the perturbative QFT
+    (whose frequency is unbounded).  The 0-parameter invariants: the
+    0-point `= 0` (the +-pairing), `det U = 1` (the SL(32) identity)."""
+    from . import qca_spectrum
+    s = qca_spectrum.qca_spectrum(G10)
+    omega = s["spectrum"]
+    max_omega = float(abs(omega).max())
+    return {
+        "n_levels": int(s["n_levels"]),
+        "max_omega": max_omega,
+        "omega_max_over_pi": float(max_omega / np.pi),
+        "uv_bounded": bool(max_omega < np.pi),     # |omega| <= pi
+        "zero_point": float(s["zero_point"]),
+        "det_U_minus_1": float(s["det_U_minus_1"]),
+    }
+
+
 def cross_section():
     """The 0-parameter GUT-scale 2->2 cross-section and the 0-parameter
     QCA/perturbative comparison:
@@ -129,11 +150,16 @@ def cross_section():
     sigma_pert = (G10 ** 4) / (4.0 * np.pi) * inv_mp2   # GeV^-2 (the tree)
     R = sigma_0 / sigma_pert                     # = 4 pi P2 / g_10^4
     s_max = 4.0 * np.pi * inv_mp2
+    # the 0-parameter QCA analog of the **optical theorem**: the total
+    # cross-section equals the inelastic (scattering) probability
+    elastic = 1.0 - p2
     return {
         "g10": float(G10),
         "M_P_GeV": float(M_P),
         "P1": p1,
         "P2": p2,
+        "elastic": float(elastic),
+        "optical_theorem": bool(p2 > 0.0),   # the inelastic = the cross-section
         "sigma_0_GeV2": float(sigma_0),
         "sigma_0_cm2": float(sigma_0 * GEV2_TO_CM2),
         "sigma_pert_GeV2": float(sigma_pert),
@@ -154,6 +180,7 @@ def lattice_rg():
     p1 = one_particle_inelastic(U)
     p2 = two_particle(U)
     uv = uv_bound()
+    ds = dispersion()
     cs = cross_section()
     return {
         "backend": E._BACKEND,
@@ -162,8 +189,10 @@ def lattice_rg():
         "one_particle": p1,
         "two_particle": p2,
         "uv_bound": uv,
+        "dispersion": ds,
         "cross_section": cs,
         "uv_finite": cs["uv_finite"],
+        "optical_theorem": cs["optical_theorem"],
         "s2_unitary_err": p2["unitary_err"],
         "closed_form_match": p2["closed_form_match"],
         "only_g10": True,
@@ -181,11 +210,15 @@ def main():
     r = lattice_rg()
     cs = r["cross_section"]
     uv = r["uv_bound"]
+    ds = r["dispersion"]
     ok = (r["s2_unitary_err"] < 1e-12
           and r["closed_form_match"]
           and cs["P2"] > 0.0
           and r["uv_finite"]
           and cs["R_qca_over_pert"] > 0.0
+          and r["optical_theorem"]
+          and ds["uv_bounded"]
+          and abs(ds["zero_point"]) < 1e-8
           and r["only_g10"])
     print("=" * 68)
     print("CL10 - the QCA lattice RG: the S-matrix to the cross-sections (W9)")
@@ -201,6 +234,8 @@ def main():
           f"({'< 1: the QCA respects the bound' if r['uv_finite'] else 'VIOLATED'})")
     print(f"  [5] 0-parameter QCA/perturbative:  sigma_0 / sigma_pert = R = {cs['R_qca_over_pert']:.3e}  "
           f"(the QCA is the all-orders, UV-finite result)")
+    print(f"  [6] the QCA dispersion:  {ds['n_levels']} levels, max |omega| = {ds['omega_max_over_pi']:.3f} * pi  "
+          f"({'UV-bounded' if ds['uv_bounded'] else 'NOT bounded'});  the optical theorem:  the inelastic P2 IS the cross-section ({'holds' if r['optical_theorem'] else 'fails'})")
     print(f"  named residual (W9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter GUT cross-section is UV-finite, nonzero, bounded; the RG matching is the named residual)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)

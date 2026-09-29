@@ -123,7 +123,7 @@ def main():
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
     print(f"  [4] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
-    print(f"  [5] 10-Higgs Dirac structure (V28):  off-diagonal={r['higgs_dirac']['off_diagonal']}")
+    print(f"  [5] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")
     print(f"  [6] named residual (W6):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level/exact mixing is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v45_yukawa_matrix.json"))

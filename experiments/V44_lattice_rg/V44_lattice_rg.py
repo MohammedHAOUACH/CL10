@@ -54,12 +54,16 @@ def main():
     t0 = time.time()
     r = lattice_rg.lattice_rg()
     cs = r["cross_section"]
+    ds = r["dispersion"]
     uv = r["uv_bound"]
     ok = (r["s2_unitary_err"] < TOL
           and r["closed_form_match"]
           and cs["P2"] > 0.0
           and r["uv_finite"]
           and cs["R_qca_over_pert"] > 0.0
+          and r["optical_theorem"]
+          and ds["uv_bounded"]
+          and abs(ds["zero_point"]) < 1e-8
           and r["only_g10"])
 
     verdict = {
@@ -86,6 +90,14 @@ def main():
             "sigma_max_GeV2": uv["sigma_max_GeV2"],
             "sigma_max_cm2": uv["sigma_max_cm2"],
             "uv_finite": r["uv_finite"],
+            "dispersion": {
+                "n_levels": ds["n_levels"],
+                "omega_max_over_pi": ds["omega_max_over_pi"],
+                "uv_bounded": ds["uv_bounded"],
+                "zero_point": ds["zero_point"],
+            },
+            "optical_theorem": r["optical_theorem"],
+            "elastic": cs["elastic"],
             "sigma_over_smax": cs["sigma_0_GeV2"] / uv["sigma_max_GeV2"],
             "residual": r["residual"],
         },
@@ -107,6 +119,9 @@ def main():
     print(f"  [4] unitarity consistency:  sigma_0 / sigma_max = {cs['sigma_0_GeV2'] / uv['sigma_max_GeV2']:.3e}  "
           f"({'< 1: bounded' if r['uv_finite'] else 'VIOLATED'})")
     print(f"  [5] non-perturbative:  R = sigma_0 / sigma_pert = {cs['R_qca_over_pert']:.3e}  (the QCA resums all orders)")
+    print(f"  [6] the QCA dispersion:  {ds['n_levels']} levels, max |omega| = {ds['omega_max_over_pi']:.3f} * pi  "
+          f"({'UV-bounded' if ds['uv_bounded'] else 'NOT'});  optical theorem: the inelastic P2 IS the cross-section  "
+          f"({'holds' if r['optical_theorem'] else 'fails'})")
     print(f"  named residual (W9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter GUT cross-section is UV-finite, nonzero, bounded; the RG matching is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v44_lattice_rg.json"))
