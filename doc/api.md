@@ -378,6 +378,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 46 experiments
+python3 run_validation.py              # all 50 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
