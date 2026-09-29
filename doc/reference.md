@@ -81,6 +81,10 @@ signatures are in `doc/api.md`):
 | the S-matrix (§12, C6) | `cl10.smatrix` | $S = U$ (the 32×32) and $S^{(2)} = U\otimes U$ (the 1024×1024) — the 0-parameter transition amplitudes of the 't Hooft program |
 | the lattice RG / cross-sections (V44, W9, C6) | `cl10.lattice_rg` | the **UV-finite** statement: the Planck cutoff bounds every cross-section to $\sigma_{\max} = 4\pi / M_P^2$; the 0-parameter 2→2 cross-section $\sigma_0 = P_2 / M_P^2$ ($P_2 = 1 - \bar d^2$ from $S^{(2)} = U \otimes U$); the **0-parameter dispersion** (the 32-level spectrum $H = -i\log U$, UV-bounded $|\omega| \le \pi$, no 1-loop pairing); the **0-parameter optical theorem** (the inelastic $P_2$ **is** the cross-section, elastic + inelastic = 1); the **0-parameter Froissart-Martin bound** ($m_{\min}=M_P$: the QCA's *constant* cross-section is **below** the $\ln^2$ growth — the strongest UV-finiteness); the QCA/perturbative ratio $R = 4\pi P_2 / g_{10}^4$; the **named** residual (W9) is the RG matching to the **measured** cross-sections |
 | the dark-matter scale (§12, C7) | `cl10.cosmology3` | the **soliton energy** $E$ (in Planck units) of $u = \sqrt{2}\,\mathrm{sech}\,x$ $\Rightarrow$ $m_{\rm DM} = E \cdot M_P$; the 0-parameter **freeze-out** $\Omega h^2 \sim 1/(\sigma m)$ with $\sigma \sim 1/m^2$ (the only scale in the theory) |
+| the 4-D non-linear gravity (§12, C2 completed, V46) | `cl10.nonlinear_gravity` | the **0-parameter** de Sitter metric (flat FRW: $g_{00}=-1$, $g_{ij}=a^2\delta_{ij}$, $a=(1/H)e^{Hx^0}$); the **full 4-D Riemann tensor** (analytic Christoffel $\Gamma^0_{ij}=Ha^2\delta_{ij}$, $\Gamma^i_{0j}=\Gamma^i_{j0}=H\delta_{ij}$ and $\partial_0\Gamma$); the **Einstein tensor** $G_{\mu\nu}=R_{\mu\nu}-\tfrac12 g_{\mu\nu}R=-3H^2 g_{\mu\nu}$ (the 0-parameter cosmological constant); the **nonzero** $\Gamma\Gamma$ (cubic) self-gravity; at the Planck Hubble the 0-parameter vacuum energy $\Lambda\sim M_P^4$ (the W1 named residual) |
+| the 2-loop running (§12, W4, V47) | `cl10.unification.running_2loop` | the **UV-finite** QCA: the 2-step $U^2$ is **unitary** (residual $\sim10^{-15}$) and the 2-particle S-matrix is **bounded** ($\max|S|\le1$); **vs** the **UV-divergent** perturbative 2-loop: the $b_2$ coefficient makes the U(1) Landau pole *closer* (the 1-loop pole is above $M_P$, the 2-loop pole is below $M_P$, $\sim10^{12}$ GeV) |
+| the n-particle amplitudes (§12, W9, V48) | `cl10.smatrix.n_particle` | the **n-particle** S-matrix $S^{(n)} = U\otimes\cdots\otimes U$ is the **Kronecker** product of the 1-particle, so it is **unitary iff the 1-particle is** ($(UU^\dagger)\otimes\cdots\otimes(UU^\dagger)=I$); the 1- and 2-particle are computed on the GPU (the $32\times32$ and $1024\times1024$), the 3- and 4-particle ($32^3$, $32^4$) follow by the property — the **UV-finite** property (the n-step is bounded for all n) |
+| the 0-parameter quark CKM (V49, W6) | `cl10.yukawa_3x3.quark_ckm` | the **quark** mass matrices (the up-type and down-type) on the **democratic** base (the 2-level structure, eigenvalues $\{3,0,0\}$); the **CKM** (the up/down mass-matrix misalignment, the unitary 3×3) is the **TBM** ($\sin^2 = 1/3, 1/2, 0$); the **deviation** to the observed CKM $(0.050, 0.949, 0.020)$ is the W6 named residual, now quantified |
 
 ---
 
@@ -95,7 +99,7 @@ experiments go through this **one** core, so the whole theory runs on the
 GPU out of the box and degrades cleanly to CPU (the $32\times32$ matrices
 are small).
 
-**The protocol.**  Each experiment (V0–V45 under `experiments/`):
+**The protocol.**  Each experiment (V0–V49 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -103,7 +107,7 @@ are small).
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **46** experiments (V0–V45) in name order,
+`run_validation.py` runs all **50** experiments (V0–V49) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the **TOE verdict**:
@@ -111,7 +115,7 @@ and the **TOE verdict**:
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (46/46, 2026-09-29).**  Every experiment **passes** on the
+**The result (50/50, 2026-09-29).**  Every experiment **passes** on the
 GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -121,7 +125,7 @@ $2.02\times10^{-17}$, the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the
 $5/24$ $\mathcal{T}$ normalization, the $G = 1$, the causal radius $1$,
 the $1.22\times10^{19}$ GeV GUT scale, the $1/25$ GUT coupling, the $246$
 GeV electroweak scale, and the off-diagonal **10-Higgs** mass term
-$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V45):**
+$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V49):**
 $g_{10} = 1/5$ and $g_0 = 1/8$ — **derived from the root** (the 5 qubits
 of the 32-D module; the 3-space, V38); the tribimaximal angles
 $\sin^2\theta_{12} = 1/3$, $\sin^2\theta_{23} = 1/2$, $\theta_{13} = 0$
@@ -145,7 +149,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (46/46, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (50/50, TOE)
 python3 run_validation.py V11 V12    # a subset
 ```
 

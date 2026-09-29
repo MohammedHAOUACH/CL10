@@ -66,10 +66,11 @@ CL10/
 │   ├── cosmology.py          # the cosmology (the W1 cancellation, the hierarchy)
 │   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale (V42)
 │   ├── einstein.py           # gravity: the Riemann curvature, the EH action derived from the QCA dynamics (V37)
+│   ├── nonlinear_gravity.py  # the 4-D non-linear gravity: the full Riemann + Einstein tensor of the QCA metric (V46, C2)
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
 │   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
-│   └── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6)
-├── experiments/              # the TOE verification program (46 experiments, V0-V45)
+│   └── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the 0-parameter quark CKM (V49)
+├── experiments/              # the TOE verification program (50 experiments, V0-V49)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -80,10 +81,14 @@ CL10/
 │                              #   the couplings from the root, the 3 families in the dynamics, leptogenesis, the S-matrix, the DM scale
 │   ├── V43/                  # the 9-to-1 reduction: the 32-level QCA spectrum is the one object; the 9 residuals its projections
 │   ├── V44/                  # the QCA lattice RG: the S-matrix to the cross-sections (W9, the UV-finite 0-parameter GUT cross-section)
-│   └── V45/                  # the 3-gen Yukawa mass matrix: the 9-to-1 projection (W6, the democratic base + the TBM mixing)
-├── run_validation.py         # the runner: runs all 46, writes the TOE verdict
+│   ├── V45/                  # the 3-gen Yukawa mass matrix: the 9-to-1 projection (W6, the democratic base + the TBM mixing)
+│   ├── V46/                  # the 4-D non-linear gravity: the Einstein equations from the QCA metric (C2, W1)
+│   ├── V47/                  # the 2-loop running: the UV-finite QCA vs the UV-divergent perturbative (W4)
+│   ├── V48/                  # the 3- and 4-particle amplitudes: the UV-finite property (W9)
+│   └── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
+├── run_validation.py         # the runner: runs all 50, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 46/46 PASS + the TOE verdict
+    └── validation_summary.json   # the 50/50 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -108,7 +113,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 46 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 50 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
@@ -116,7 +121,7 @@ python3 run_validation.py        # runs all 46 experiments, prints the TOE verdi
 Section 11 of `doc/publication.md` defines **what a Theory of Everything
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **46** experiments (V0–V45) across the seven tiers and writes
+runs all **50** experiments (V0–V49) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

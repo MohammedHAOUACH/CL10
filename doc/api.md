@@ -246,7 +246,7 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
 
 
-## 12. The completion program modules (V36–V45)
+## 12. The completion program modules (V36–V49)
 
 The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
 from a consistent 0-parameter framework to a **complete** TOE.  Each module
@@ -327,6 +327,36 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 | `levels` | `(g10=None)` | the $32$ sorted phases of $U$ (the levels of $H = -i\log U$), in $(-\pi,\pi]$ |
 | `qca_spectrum` | `(g10=None)` | `{g10, n_levels=32, spectrum, zero_point (=0: the ±-paired 0-point), det_U_minus_1 (=0: the SL(32) identity), sl32, pairing_resid, max_trace_T45 (=0: the 45 are traceless), cpt_0point_16, cpt_0point_16bar, commutes_with_pseudoscalar, max_level, …}` — the **one** 0-parameter object (the 32-level QCA spectrum) and its 0-parameter invariants (the 0-point $=0$, $\det U=1$ for every $g_{10}$, the CPT split) |
 | `verify` | `(tol=1e-10)` | `{spectrum, ok}` — the 0-parameter checks: the 0-point $=0$, the SL(32) identity, the $\pm$-pairing, the CPT split |
+
+**The four remaining-gaps modules (V46–V49).**  The four 0-parameter
+completions of the remaining gaps (W1, W4, W9, W6): the **4-D non-linear
+gravity** (C2), the **2-loop UV-finite** running (W4), the **3- and
+4-particle** amplitudes (W9), and the **0-parameter quark CKM** (W6).
+
+**`cl10.nonlinear_gravity` — the 4-D non-linear gravity (V46, C2).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `nonlinear_gravity` | `(H=None)` | `{backend, H, einstein_space_err, g_mu_nu_minus_3h2_g, ricci_scalar_minus_12h2, gamma_gamma_max, nonlinear_present, lambda_0param_GeV4, lambda_obs_GeV4, gap, residual, ok}` — the **0-parameter 4-D non-linear gravity**: the full 4-D Riemann + Einstein tensor of the 0-parameter de Sitter metric (the Einstein-space identity $R_{\mu\nu\rho\sigma}=H^2(g g - g g)$, $G_{\mu\nu}=-3H^2 g_{\mu\nu}$, the non-zero $\Gamma\Gamma$ self-gravity, the 0-parameter vacuum energy $\Lambda\sim M_P^4$; the exact $10^{-122}$ is the W1 named residual) |
+| `riemann_4d` | `(H, x0=0)` | the full 4-D Riemann tensor $R^\mu_{\nu\rho\sigma}$ of the de Sitter metric (analytic) |
+
+**`cl10.unification` — the 2-loop running (V47, W4).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `running_2loop` | `()` | `{backend, qca_2step_unitary_residual, qca_2particle_bounded, qca_2particle_max_offdiag, pert_1loop_landau_pole, pert_2loop_landau_pole, pert_2loop_divergent, uv_finite, residual}` — the **2-loop** running: the **UV-finite** QCA (the 2-step is unitary, the 2-particle is bounded) vs the **UV-divergent** perturbative QFT (the 2-loop Landau pole is below M_P) |
+
+**`cl10.smatrix` — the n-particle amplitudes (V48, W9).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `n_particle` | `()` | `{backend, n1_unitary_residual, n2_unitary_residual, n3_unitary_residual, n4_unitary_residual, n1_bounded, uv_finite, residual}` — the **3- and 4-particle** amplitudes: the n-particle S-matrix is the Kronecker product of the 1-particle, so it is unitary (0) for all n (the **UV-finite** property, the n-step is bounded for all n) |
+
+**`cl10.yukawa_3x3` — the 0-parameter quark CKM (V49, W6).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `quark_ckm` | `()` | `{backend, up_eigenvalues, down_eigenvalues, two_level, ckm_unitary, sin2_12, sin2_23, sin2_13, obs_ckm, dev_ckm, residual}` — the **0-parameter** quark CKM: the quark mass matrices on the democratic base (2-level) + the TBM (the 0-parameter quark mixing); the deviation to the observed CKM is the W6 named residual |
 
 ---
 
