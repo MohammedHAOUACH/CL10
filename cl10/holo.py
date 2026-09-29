@@ -23,7 +23,6 @@ This is a **P2/P4** consistency result: the QCA's information content is
 the one object (the $(1,3)$ metric with $G = 1$).
 """
 
-import math
 
 import numpy as np
 

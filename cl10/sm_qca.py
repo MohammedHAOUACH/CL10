@@ -139,11 +139,11 @@ def main():
     print("  the 45 Spin(10) plane rotations:  T_ab = i h_a h_b  (Hermitian, T^2 = I)")
     print(f"    plane generator T^2=I residual:  {r['plane_square_to_I_err']:.3e}")
     print(f"  the 0-parameter rotation angle:  g_10 = {r['g10']:.4f}  (= 1/5)")
-    print(f"  the GUT QCA step U = prod [cos(g_10) I - i sin(g_10) T_ab] (45 planes):")
+    print("  the GUT QCA step U = prod [cos(g_10) I - i sin(g_10) T_ab] (45 planes):")
     print(f"    unitarity residual ||U U^dag - I||:  {r['step_unitary_err']:.3e}  (exactly unitary)")
     print(f"  norm preservation in action ({r['n_steps']} steps, {r['backend']}):")
     print(f"    norm before = {r['norm_before']:.6f}   after = {r['norm_after']:.6f}   rel err = {r['norm_rel_err']:.3e}")
-    print(f"  the full SM:  matter = 32-D (16 + 16-bar),  gauge = 45 (12 SM + 33 heavy),  stats = Z2,  causal = light-cone (1 cell/step)")
+    print("  the full SM:  matter = 32-D (16 + 16-bar),  gauge = 45 (12 SM + 33 heavy),  stats = Z2,  causal = light-cone (1 cell/step)")
     ok = (r["step_unitary_err"] < 1e-10 and r["norm_rel_err"] < 1e-10
           and r["n_planes"] == 45 and r["causal_radius"] == 1
           and r["plane_square_to_I_err"] < 1e-10)

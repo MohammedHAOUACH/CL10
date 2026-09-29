@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+r"""
 CL10 — the unified cosmology: dark matter, dark energy, and antimatter, all
 **0-parameter consequences of the single GUT $\mathrm{Cl}(10)$ object**.
 
@@ -83,6 +83,74 @@ def dark_matter():
 
 
 # ---------------------------------------------------------------------------
+# 1b. the dark-matter mass scale + the 0-parameter freeze-out (V42: W7 quantified)
+# ---------------------------------------------------------------------------
+
+def dm_mass_scale():
+    """V42 — the dark-matter residual, **quantified** (the W7 wall): the
+    **0-parameter mass scale** (the Planck) and the **0-parameter abundance
+    gap** (the 0-parameter freeze-out).
+
+    **The mass scale.**  The stable soliton of the non-linear metric
+    ($u = \\sqrt{2}\\,\\mathrm{sech}\\,x$; ``dark_matter()``) carries a
+    **finite** energy $E$ in **Planck units** (the lattice *is* the Planck
+    lattice).  The 0-parameter mass scale is $m_{\\rm DM} = E\\cdot M_P$ —
+    an **ultra-heavy** relic ($\\sim 1.22 \\times 10^{19}$ GeV, the Planck
+    scale), with the **only** cross-section in the theory,
+    $\\sigma \\sim 1/M_P^2$.
+
+    **The 0-parameter freeze-out.**  The standard WIMP relic estimate
+    $\\Omega h^2 \\sim 1/(\\sigma m)$ evaluated at $m = M_P$ (i.e. with
+    $\\sigma \\sim 1/m^2$, the only scale in the theory) and normalized to
+    the **reference** $(100\\,\\mathrm{GeV})^3$ that gives the observed
+    value ($\\Omega_{\\rm obs} = 0.12$, the measured dark-matter density):
+    $$\\Omega_{\\rm 0param} = \\Omega_{\\rm obs}
+      \\bigg/ \\frac{1/(100\\,\\mathrm{GeV})^3}{1/(M_P)^3}
+      = \\Omega_{\\rm obs}\\,\\bigg(\\frac{100\\,\\mathrm{GeV}}{M_P}
+      \\bigg)^3.$$
+    (i.e. the ratio of the 0-parameter $(1/(\\sigma m))$ to the reference.)
+
+    **The honest 0-parameter result.**  The Planck-mass / Planck-cross-section
+    relic is **under**-abundant (the computed gap
+    $\\Omega_{\\rm 0param}/\\Omega_{\\rm obs} \\sim 10^{-52} \\ll 10^{-20}$):
+    the observed dark matter is **not** the Planck-mass soliton.  The
+    **sub-Planck** DM scale that gives the **observed** abundance is the
+    **named residual** (the W7 wall) — now **quantified** by the computed
+    gap.
+    """
+    dm = dark_matter()
+    M_P = toepred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
+    E = dm["mass_energy_E"]           # the finite energy (the mass, Planck units)
+    m_dm = E * M_P                   # the 0-parameter mass scale (GeV)
+    # the 0-parameter freeze-out: (1/(sigma m)) at m = M_P (sigma ~ 1/M_P^2)
+    # vs the reference (100 GeV)^3 that gives the observed value
+    ref = 1.0 / ((100.0 ** 2) * 100.0)        # GeV^-3
+    cur = 1.0 / ((M_P ** 2) * M_P)            # GeV^-3
+    ratio = ref / cur                         # = (M_P / 100 GeV)^3
+    omega_obs = 0.12                          # the measured dark-matter density
+    omega_0param = omega_obs * (1.0 / ratio)  # the 0-parameter freeze-out
+    gap = omega_0param / omega_obs            # the quantified abundance gap
+    residual = ("the sub-Planck DM scale that gives the observed "
+                "abundance: the 0-parameter Planck-mass / Planck-cross-section "
+                "relic is under-abundant (computed gap Omega_0param/Omega_obs ~= "
+                "%.1e < 1e-20) — the W7 wall, now quantified" % gap)
+    return {
+        "backend": _backend(),
+        "ode_residual": dm["ode_residual"],
+        "mass_energy_E": float(E),
+        "non_dispersive": bool(dm["non_dispersive"]),
+        "gauge_charge": float(dm["gauge_charge"]),
+        "mass_gev": float(m_dm),
+        "sigma_gev2": float(1.0 / (M_P ** 2)),
+        "omega_obs": float(omega_obs),
+        "omega_0param": float(omega_0param),
+        "abundance_gap": float(gap),
+        "under_abundant": bool(gap < 1e-20),
+        "residual": residual,
+    }
+
+
+# ---------------------------------------------------------------------------
 # 2. dark energy — the QCA vacuum (the 512/512 Z2 cancellation, w=-1)
 # ---------------------------------------------------------------------------
 
@@ -121,7 +189,6 @@ def antimatter():
     h0 = gen[0]
     anticommute = float(np.linalg.norm(omega @ h0 + h0 @ omega))
     cpt_to_bar = float(np.linalg.norm(m @ m.conj().T @ (h0 @ p), axis=0).mean())
-    cpt_to_16 = float(np.linalg.norm(p @ p.conj().T @ (h0 @ p), axis=0).mean())
     # the annihilation: the 16 and 16-bar are orthogonal
     ortho = float(np.linalg.norm(p.conj().T @ m).max())
     # the B-L: opposite charges, the sum cancels
@@ -165,18 +232,18 @@ def main():
     print("       all 0-parameter consequences of the one object (the GUT Cl(10))")
     print("=" * 68)
     print(f"  backend (GPU):  {dm['backend']}")
-    print(f"  (1) DARK MATTER  the stable soliton of the non-linear metric")
+    print("  (1) DARK MATTER  the stable soliton of the non-linear metric")
     print(f"      u = sqrt(2) sech(x):  ODE residual = {dm['ode_residual']:.2e}  (exact)")
     print(f"      the mass (finite energy) E = {dm['mass_energy_E']:.4f};  non-dispersive;  gauge charge = {dm['gauge_charge']} (neutral -> dark)")
-    print(f"  (2) DARK ENERGY  the QCA vacuum (the 0-point)")
+    print("  (2) DARK ENERGY  the QCA vacuum (the 0-point)")
     print(f"      the Z2 {de['n_even']}/{de['n_odd']} cancellation -> Lambda_0param = {de['lambda_0param']}  (the s-mechanism)")
     print(f"      the equation of state w = {de['w']}  (the negative pressure -> accelerated expansion)")
-    print(f"  (3) ANTIMATTER   the 16/16-bar CPT pair")
+    print("  (3) ANTIMATTER   the 16/16-bar CPT pair")
     print(f"      the CPT map (h0 flips 16->16bar):  anticommute = {am['cpt_anticommute']:.1e},  ->16bar = {am['cpt_to_bar']:.3f}")
     print(f"      the annihilation:  max|<16|16bar>| = {am['ortho_16_16bar']:.2e}  (orthogonal -> the neutral vacuum)")
     print(f"      B-L:  matter {am['bl16']} / antimatter {am['bl16bar']}  (opposite; sum = {am['bl16'] + am['bl16bar']} -> the vacuum)")
-    print(f"  the UNIFICATION:  all three are 0-parameter consequences of the one object (the GUT Cl(10))")
-    print(f"  the NAMED RESIDUALS:  the dark-matter mass/abundance, the 1e-122, the baryon asymmetry (V33)")
+    print("  the UNIFICATION:  all three are 0-parameter consequences of the one object (the GUT Cl(10))")
+    print("  the NAMED RESIDUALS:  the sub-Planck DM scale (quantified by V42), the 1e-122, the baryon asymmetry (V33/V40)")
     print(f"  VERDICT:  {'PASS (the one object -> the dark matter + dark energy + antimatter, all 0-parameter; the named residuals the mass/abundance, the 1e-122, the baryon asymmetry)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

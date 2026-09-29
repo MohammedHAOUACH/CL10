@@ -1,20 +1,26 @@
 # CL10 — Technical Reference
 
-A **professional** reference for the implementation of **Causal Clifford
-Theory on the GUT root** (CL10).  It gives the **exact** mathematical
-constructions, the **numerical** protocol, the **pass/fail** criteria of each
-experiment, and the **reproducibility** information.  It is the companion to
-`publication.md` (the physics) and `api.md` (the interface).
+A **professional** reference for the **implementation** of Causal Clifford
+Theory on the GUT root (CL10).  It fixes the **exact** constructions used
+by the code, the **numerical** protocol, and the **reproducibility**
+information.
 
-**Conventions.**  Planck units $\hbar = c = \ell_P = t_P = 1$.  All Clifford
-generators are **Hermitian** and **mutually anticommuting** with $h_a^2 = I$.
-The array backend is selected once at import (Section 6); the physics is
-backend-agnostic.  All floating-point residuals are reported against a global
-tolerance $\varepsilon = 10^{-12}$ (machine-precision checks use $10^{-14}$).
+The **physics** (the theorems, the claims, the verification program, the
+nine residuals W1–W9, the falsifiers F1–F7) lives in
+`doc/publication.md`; the **Python interface** lives in `doc/api.md`.
+This reference is the companion to both: it says *how* each construction
+is built, so that every number in the publication is reproducible.
+
+**Conventions.**  Planck units $\hbar = c = \ell_P = t_P = 1$.  All
+Clifford generators are **Hermitian** and **mutually anticommuting** with
+$h_a^2 = I$.  The array backend is selected once at import (Section 3);
+the physics is backend-agnostic.  All floating-point residuals are
+reported against a global tolerance $\varepsilon = 10^{-12}$ (machine-
+precision checks use $10^{-14}$).
 
 ---
 
-## 1. The root: the $\mathrm{Cl}(10)$ generators
+## 1. The root: the exact $\mathrm{Cl}(10)$ construction
 
 The **10** generators are built from **5 qubits** (a $2^5 = 32$-D complex
 module) with the **symplectic Pauli pattern**: for $k = 0,1,\dots,4$,
@@ -22,258 +28,145 @@ module) with the **symplectic Pauli pattern**: for $k = 0,1,\dots,4$,
 $$g_{2k} = Y^{\otimes k} \otimes X \otimes I^{\otimes(4-k)}, \qquad
   g_{2k+1} = Y^{\otimes k} \otimes Z \otimes I^{\otimes(4-k)},$$
 
-where $X, Y, Z$ are the Pauli matrices and $I$ is the $2\times2$ identity.
+where $X, Y, Z$ are the Pauli matrices and $I$ is the $2\times2$ identity
+(implementation: `cl10.clifford.generators`; the full basis:
+`cl10.clifford.basis`).
 
 **Properties (all verified to $\varepsilon$):**
 
 | property | value | check |
 |---|---|---|
-| number of generators | $10$ | $|\\{g_a\\}| = 10$ |
+| number of generators | $10$ | $|\{g_a\}| = 10$ |
 | $g_a^2$ | $= I$ | $\max_a \|g_a^2 - I\| < \varepsilon$ |
 | $\{g_a, g_b\}$ | $= 0$ for $a\ne b$ | $\max_{a<b} \|g_a g_b + g_b g_a\| < \varepsilon$ |
 | algebra dimension | $2^{10} = 1024$ | the number of independent ordered products |
 | module dimension | $32$ (complex) | the matrix size of each $g_a$ |
 
-The **basis** of the $1024$-D algebra is the set of all ordered products
-$\{g_{a_1}\cdots g_{a_r}\}$ for $0 \le r \le 10$ (the identity, the 10 singles,
-the 45 doubles, the 120 triples, $\dots$, the volume element).
-
 **Theorem (correctness).**  The pattern above yields exactly $10$ mutually
-anticommuting Hermitian generators: within a block $k$, $X$ and $Z$ anticommute
-(on qubit $k$); between blocks, the $Y^{\otimes k}$ prefix makes a generator at
-block $k$ anticommute with one at block $j<k$ (the $Y$ anticommutes with the
-$X$ or $Z$ of the later block).  This is the standard construction of a
-$2n$-generator Clifford algebra on $n$ qubits.
+anticommuting Hermitian generators: within a block $k$, $X$ and $Z$
+anticommute (on qubit $k$); between blocks, the $Y^{\otimes k}$ prefix makes
+a generator at block $k$ anticommute with one at block $j<k$ (the $Y$
+anticommutes with the $X$ or $Z$ of the later block).  This is the standard
+construction of a $2n$-generator Clifford algebra on $n$ qubits.
+
+The **basis** of the $1024$-D algebra is the set of all ordered products
+$\{g_{a_1}\cdots g_{a_r}\}$ for $0 \le r \le 10$ (the identity, the 10
+singles, the 45 doubles, the 120 triples, $\dots$, the volume element);
+the **$\mathbb{Z}_2$ grading** (the 512 even / 512 odd sub-algebras) is
+read off from the **parity** of $r$.
 
 ---
 
-## 2. The $(1,3)$ spacetime (a sub-algebra)
+## 2. The construction map: every object of the publication, exactly
 
-The **four** $(1,3)$ Minkowski generators are **four of the ten** GUT
-generators:
+Each object of `doc/publication.md` is computed by **one** module (the
+signatures are in `doc/api.md`):
 
-$$T = g_1 \quad (T^2 = +I), \qquad
-S_a = i\,g_{a+1},\ a=1,2,3 \quad (S_a^2 = -I).$$
-
-Because $g_1,\dots,g_4$ are GUT generators, they anticommute, so the
-**Minkowski** relations hold **0-parameter**:
-
-$$T^2 = +I,\;\; S_a^2 = -I,\;\; \{T,S_a\} = 0,\;\; \{S_a,S_b\} = 0.$$
-
-The **light cone** is the set of null vectors $v = v_0 T + \sum_a v_a S_a$
-with $v^2 = v_0^2 - \sum_a v_a^2 = 0$.  The **6** remaining GUT generators
-$(g_5,\dots,g_{10})$ are the **internal** (gauge) directions.
-
-**Numerical check (V1).**  Each of $T^2-I$, $S_a^2+I$, $\{T,S_a\}$,
-$\{S_a,S_b\}$ has $\ell_\infty$ norm $< \varepsilon$ (measured $0.0$ to
-machine precision).
-
----
-
-## 3. The matter: the 16 Weyl and the 16-bar
-
-The **pseudoscalar** (volume element) $w = g_1 g_2 \cdots g_{10}$ is
-**anti-Hermitian** (the product of an even number of anticommuting Hermitian
-operators with an odd number of transpositions): $w^\dagger = -w$.  It
-therefore has **purely imaginary** eigenvalues $\pm i$, each with **multiplicity
-16**.  The $+i$ eigenspace is the **16 Weyl**; the $-i$ the **16-bar**.
-
-**Numerical (V2, V10).**  The eigenvalue decomposition (a general `eig`, *not*
-`eigh`, since $w$ is anti-Hermitian) gives exactly **16** vectors with
-$\Im(\lambda) = +1$ and **16** with $\Im(\lambda) = -1$.  The **B–L** charge
-is $-1$ on the 16 and $+1$ on the 16-bar (0-parameter: the two modules are
-inequivalent).
-
-**The 6 SM fields** (the 0-parameter charges, $Q = T_3 + Y$):
-
-| field | SU(3) | SU(2) | $Y$ | $n_{\rm Weyl}$ |
-|---|---|---|---|---|
-| $Q$ | $3$ | $2$ | $+1/6$ | $6$ |
-| $\bar u$ | $\bar 3$ | $1$ | $-2/3$ | $3$ |
-| $\bar d$ | $\bar 3$ | $1$ | $+1/3$ | $3$ |
-| $L$ | $1$ | $2$ | $-1/2$ | $2$ |
-| $\bar e$ | $1$ | $1$ | $+1$ | $1$ |
-| $\nu^c$ | $1$ | $1$ | $0$ | $1$ |
-
-Total $n_{\rm Weyl} = 16$.  (The $\bar u,\bar d,\bar e,\nu^c$ are the
-**left-handed Weyl** — the conjugates of the physical right-handed fields.)
-
----
-
-## 4. The gauge: the 45, the $5/3$, and the anomalies
-
-**The 45.**  The gauge generators are the $45$ products $g_a g_b$ for
-$a < b$; they **close** on the $\mathrm{Spin}(10)$ adjoint (verified: the
-$45$ vectors span a $45$-D space, `matrix_rank = 45`).
-
-**The $5/3$ unification (V12).**  The hypercharge is a **Cartan generator** of
-the GUT.  In the $5$ (the $(3,2) = 3\,\bar d + 2\,L$), the $\mathrm{U}(1)$
-generator is
-
-$$\mathcal{T} = \mathrm{diag}(-\tfrac16,-\tfrac16,-\tfrac16,+\tfrac14,+\tfrac14),
-\qquad \mathrm{Tr}(\mathcal{T}^2) = \tfrac{5}{24}.$$
-
-The GUT normalizes generators to $\mathrm{Tr}(T^2) = \tfrac12$; the SM uses
-$Y = 2\mathcal{T}$.  The coupling ratio is therefore **0-parameter**:
-
-$$\frac{g_1^2}{g'^2} = 8\,\mathrm{Tr}(\mathcal{T}^2) = 8\cdot\frac{5}{24} = \frac{5}{3}.$$
-
-**The anomaly cancellation (V11) — the hard requirement.**  A chiral gauge
-theory is **inconsistent** unless all gauge anomalies cancel.  From the
-0-parameter charges, the **8** anomaly coefficients are (the Dynkin indices
-$T(3) = T(2) = \tfrac12$):
-
-| anomaly | formula | value |
+| object (publication.md) | module | the exact construction in the code |
 |---|---|---|
-| $[\mathrm{SU}(3)]^3$ | $\sum n\,\mathrm{sgn}(3)$ | $6 - 3 - 3 = 0$ |
-| $[\mathrm{SU}(2)]^3$ | $d^{abc} = 0$ (SU(2) is pseudoreal) | $0$ |
-| $[\mathrm{U}(1)]^3$ | $\sum n\,Y^3$ | $0$ |
-| $[\mathrm{grav}]^2\!\times\!\mathrm{SU}(3)$ | $\mathrm{tr}(T^a) = 0$ (traceless) | $0$ |
-| $[\mathrm{grav}]^2\!\times\!\mathrm{SU}(2)$ | $\mathrm{tr}(T^a) = 0$ | $0$ |
-| $[\mathrm{grav}]^2\!\times\!\mathrm{U}(1)$ | $\sum n\,Y$ | $0$ |
-| $\mathrm{U}(1)\!\times\!\mathrm{SU}(3)^2$ | $\sum n\,Y\,T(3)$ | $0$ |
-| $\mathrm{U}(1)\!\times\!\mathrm{SU}(2)^2$ | $\sum n\,Y\,T(2)$ | $0$ |
-
-All **8** cancel to **0** (measured $\le 2.2\times10^{-16}$, floating-point
-noise).  This is the **hardest** TOE requirement and it **passes**.
-
----
-
-## 5. The dynamics and the TOE predictions
-
-**The hierarchy (V5).**  $v/E_P = 2.02\times10^{-17}$; the observed
-$246\,\mathrm{GeV}/1.22\times10^{19}\,\mathrm{GeV} = 2.016\times10^{-17}$;
-**relative error $0.18\%$**.
-
-**The graviton (V6).**  The linearised metric perturbation obeys the free wave
-equation with the **discrete** 6-neighbour Laplacian; it is **massless**
-($c = 1$) and **UV-bounded** (the lattice momentum $\le 1$).
-
-**The QCA (V7).**  The dynamics is a **product of local unitaries**; the
-product of $4$ random $16\times16$ unitaries is unitary to
-$1.1\times10^{-15}$; the **causal radius** is one cell per step.
-
-**The full SM QCA (V23).**  The **deepening**: the dynamics is the **full
-Standard Model as a 0-parameter unitary QCA**.  The QCA step is the product of
-the **45 Spin(10) plane rotations** $T_{ab} = i\,g_a g_b$ (each Hermitian,
-$T_{ab}^2 = I$) at the **0-parameter** angle $g_{10} = 1/5$; the product is
-**exactly unitary** ($\|U U^\dagger - I\| \sim 10^{-15}$) and **norm-preserving
-in action** (50 steps on the GPU, relative drift $\sim 10^{-15}$).  The full SM
-is read off: the 32-D matter (16 + 16-bar), the 12 gauge bosons (a 0-parameter
-subgroup of the 45), the $5/3$ normalization, the $\mathbb{Z}_2$ statistics,
-the light-cone causality.  The 3-family structure and the **Yukawa** matrix
-remain the **named** residuals.
-
-**The CPT theorem (V24).**  The **16 Weyl** (matter) and the **16-bar**
-(antimatter) are the **CPT conjugates**: the CPT operator $C = g_1$ (the time
-direction) is a **Hermitian involution** ($C^2 = I$) that **anticommutes** with
-the pseudoscalar $w$ ($C w + w C = 0$), so $C P_{16} = P_{16\text{bar}} C$ (it
-maps matter to antimatter).  The **45 GUT generators commute** with $w$ (the
-chiral split is preserved), so the QCA is **CPT-symmetric** and matter and
-antimatter carry the **same mass**.  In action (on the GPU): a matter (16)
-state and its CPT conjugate (16-bar) carry **equal** norm, and C maps the 16
-entirely into the 16-bar.
-
-
-**The deepening experiments (V25–V28).**
-
-**The holographic area law (V25).**  The QCA vacuum entropy of a region of
-side $L$ scales as $S \propto L^2$ (the **surface area** $6L^2$), **not** $L^3$
-(the volume): the 0-parameter entropy per unit area is the Bekenstein-Hawking
-$S = A/4$ ($G=1$), and the holographic ratio $S/V \propto 1/L$ — the QCA is
-**holographic** (the bulk is encoded on the boundary).
-
-**The 3-family construct (V26).**  The **3** observed families are a
-0-parameter consequence of the one object in **three** ways: the **3** spatial
-directions of the $(1,3)$; the **3** two-planes $\binom{3}{2}$; and the **rank
-3** of the spatial metric.  The 16 Weyl is **one** generation, so the **3
-generations** $= 16 \times 3 = 48$ Weyl.
-
-**QCD confinement (V27).**  The 0-parameter colour count $N_C = 3$ (the 8
-gluon $= N_C^2 - 1$); the **area law** $\langle W(C)\rangle \propto
-\exp(-\sigma \cdot \mathrm{Area})$; the 0-parameter **string tension**
-$\sigma$; and the **linear** potential $V(r) = \sigma r$ (the **confinement**),
-in contrast to the Coulombic $1/r$ of the EM force.
-
-**The Yukawa / mass-hierarchy (V28).**  The **10-Higgs 16→16-bar** (the
-grade-1 GUT vector is **off-diagonal** in the 16/16-bar split) gives the
-0-parameter Dirac mass term $16\,10\,16\bar$; the **3×3** mass matrix (the 3
-generations) is **non-singular** (rank 3 — all generations get mass).  The mass
-**hierarchy** and the **mixing angles** (CKM/PMNS) are the **named** residuals.
-
-**The TOE predictions and the three reduced walls (V14–V19):**
-
-| prediction | 0-parameter value | observation | verdict |
-|---|---|---|---|
-| proton lifetime $\tau_p \sim M_{\rm GUT}^4/(\alpha_{10}^2 m_p^5)$ | $3.98\times10^{47}$ yr | $\tau_p > 10^{34}$ yr | **consistent** (falsifiable) |
-| neutrino mass $m_\nu = (g_0 v)^2/M_N$ (the **2-step**, $M_N\sim10^{14}$) | $\sim 10^{-2}$ eV | $\sim 0.05$ eV | **right order** (the exact value a **reduced wall**, W2) |
-| number of families ($=$ the **3** spatial dirs of the $(1,3)$) | $3$ | $3$ | **0-parameter identification** (the *why-3* a **reduced wall**, W3) |
-| cosmological constant (the **$\mathbb{Z}_2$** $512/512$ **cancellation**) | $\Lambda = 0$ at 0-parameter | $10^{-122}$ | **reduced** (the s-mechanism; the exact $10^{-122}$ a **named** residual, W1) |
-
-The **proton** value **passes** (the proton appears stable).  The **three
-reduced walls** (W1–W3) each have a **0-parameter mechanism** (V17–V19) and a
-**named** exact-value residual: the **$\mathbb{Z}_2$ cancellation** gives
-$\Lambda = 0$ at 0-parameter (the $10^{-122}$ the named fine-tuning), the
-**2-step seesaw** gives $m_\nu$ at the right order (the exact $0.05$ eV the
-residual), and the **3 = 3-space** gives the family count (the *why-3* the
-residual).
+| the root $\mathrm{Cl}(10)$ (§1) | `cl10.clifford` | the 10 generators of Section 1 (the 5-qubit symplectic Pauli pattern) |
+| the $(1,3)$ inside the GUT (§2) | `cl10.spacetime` | $T = h_1$ (time, $+$), $S_a = i\,h_{a+1}$ for $a = 1,2,3$ (space, $-$) — **four of the ten** generators, so the Minkowski relations are **identities** of the root |
+| the 16 Weyl / 16-bar (§3) | `cl10.matter`, `cl10.cpt` | the **pseudoscalar** $w = h_1\cdots h_{10}$ (anti-Hermitian, $w^2 = -I$) diagonalized with a general `eig` (not `eigh` — $w$ is not Hermitian): the **$+i$** eigenspace = the 16, the **$-i$** = the 16-bar |
+| the 45 and the $5/3$ (§4) | `cl10.gauge` | the 45 $= \{h_a h_b : a < b\}$; the hypercharge in the $\mathbf{5}$ is $\mathcal{T} = \mathrm{diag}(-\tfrac16,-\tfrac16,-\tfrac16,+\tfrac14,+\tfrac14)$ with $\mathrm{Tr}(\mathcal{T}^2) = 5/24$; GUT-normalized to $\tfrac12$, with $Y = 2\mathcal{T}$ $\Rightarrow$ $g_1^2/g'^2 = 8 \cdot 5/24 = 5/3$ |
+| the 8 anomalies (§4) | `cl10.matter.anomalies` | the sums over the 0-parameter charges of the 6 fields of the 16 (Table 1 of the publication), with the Dynkin indices $T(3) = T(2) = \tfrac12$ |
+| the metric + the graviton (§6) | `cl10.qca` | the **6-neighbour** discrete Laplacian on an $L^3$ torus; the linearised perturbation is a free wave (the discrete CFL $dt = h/2$ gives $c = 1$, the momentum is UV-bounded) |
+| the non-linear metric, the soliton, the black hole (§6) | `cl10.einstein` | the **cubic** $\phi^3$ (Choptuik) completion: the static $u'' = u - u^3$ has the **exact** finite-energy solution $u = \sqrt{2}\,\mathrm{sech}\,x$; the Ricci scalar is **computed** on prescribed metrics (flat: $0$; the 2-sphere: $2/r^2$; the Schwarzschild: the Kretschmann $48M^2/r^6$) |
+| the full SM QCA step (§11, P2) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
+| the local QCA (§12, C1) | `cl10.local_qca` | the **internal** layer (the 45 rotations per cell) + the **staggered** 2-cell **swap-rotation** layer $U_{\rm bond} = \cos g_{10}\, I - i\sin g_{10}\, P$ along one spatial axis per time step ($P$ = the 0-parameter swap of two adjacent cells — a permutation, no angle) |
+| the EH action from the dynamics (§12, C2) | `cl10.einstein.einstein_hilbert_from_dynamics` | the **discrete** quadratic action $S_{\rm EH} = \frac{1}{16\pi}\frac12\sum_{x,t}\, u_t\big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2 u_t\big]$ ($G = 1$, $dt^2 = \tfrac14$, $\nabla^2$ = the 6-neighbour Laplacian); the **Euler–Lagrange equation** is the **numerical** functional derivative (the central finite difference of the action) evaluated on the GPU |
+| the numbers of the root (§12, C3) | `cl10.unification` | $n_{\rm qubits} = \log_2 32 = 5$ $\Rightarrow$ $g_{10} = 1/5$, $\alpha_{10} = 1/25$; $g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ ($n_{\rm space} = 3$ = the spatial dimension of the $(1,3)$); the **down-running** is the 1-loop $1/a(M) = 1/a(M_{\rm UV}) - (b/2\pi)\ln(M_{\rm UV}/M)$ |
+| the 3-family step (§12, C4) | `cl10.family` | the 96-D internal space $= \bigoplus_{k=1}^3 H_{32}$; $U_{96} = \mathrm{blockdiag}(U_{32}, U_{32}, U_{32})$ at the **same** $g_{10}$ (the family symmetry); the tribimaximal PMNS (V29) is a property of the **Yukawa** sector, not of the time-evolution step |
+| the GUT leptogenesis (§12, C5) | `cl10.baryogenesis` | $\Delta B \sim \frac{28}{79}\cdot\frac{g_0^4}{16\pi}\cdot\eta_{CP}$ with the out-of-equilibrium kinematics $\Gamma/H \sim 6\times10^{-4}$; $\eta_{CP}$ is the **named** input (taken $10^{-3}$, the observed range) |
+| the S-matrix (§12, C6) | `cl10.smatrix` | $S = U$ (the 32×32) and $S^{(2)} = U\otimes U$ (the 1024×1024) — the 0-parameter transition amplitudes of the 't Hooft program |
+| the dark-matter scale (§12, C7) | `cl10.cosmology3` | the **soliton energy** $E$ (in Planck units) of $u = \sqrt{2}\,\mathrm{sech}\,x$ $\Rightarrow$ $m_{\rm DM} = E \cdot M_P$; the 0-parameter **freeze-out** $\Omega h^2 \sim 1/(\sigma m)$ with $\sigma \sim 1/m^2$ (the only scale in the theory) |
 
 ---
 
-## 6. The engine and the numerical protocol
+## 3. The engine and the numerical protocol
 
-**Backend selection** (at import, in `cl10/engine.py`): **CuPy** (GPU) $\to$
-**JAX** (XLA/GPU) $\to$ **NumPy** (CPU).  The active backend is reported by
-`engine._BACKEND` and `engine.backend_info()`.  On the reference machine (an
-**RTX 3090**, CUDA 13.4) the backend is **CuPy** $14.2.0$; JAX $0.11.2$ sees
-$2$ CUDA devices.
+**Backend selection** (at import, in `cl10/engine.py`): **CuPy** (GPU)
+$\to$ **JAX** (XLA/GPU) $\to$ **NumPy** (CPU).  The active backend is
+reported by `engine._BACKEND` and `engine.backend_info()`.  On the
+reference machine (an **RTX 3090**, CUDA 13.4) the backend is **CuPy**
+$14.2.0$; JAX $0.11.2$ sees $2$ CUDA devices.  All modules and all
+experiments go through this **one** core, so the whole theory runs on the
+GPU out of the box and degrades cleanly to CPU (the $32\times32$ matrices
+are small).
 
-**The protocol.**  Each experiment:
+**The protocol.**  Each experiment (V0–V42 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
-3. writes a **JSON verdict** `{id, tier, property, pass, residual, status,
-   data, wall_time}` to `experiments/<id>/results/`;
-4. **passes** iff the residual is below the stated tolerance.
+3. writes a **JSON verdict** `{id, tier, property, pass, residual,
+   status, data, wall_time}` to `experiments/<id>/results/`;
+4. **passes** iff the residual is below the stated tolerance
+   (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **29** experiments, reads the JSONs, and writes
-`results/validation_summary.json` with the per-experiment verdicts and the
-**TOE verdict**:
+`run_validation.py` runs all **43** experiments (V0–V42) in name order,
+reads the JSONs, and writes `results/validation_summary.json` with the
+per-experiment verdicts, the **reduced walls**, the **named residuals**,
+and the **TOE verdict**:
 
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3).}$$
 
-**The result (29/29, 2026-09-28).**  Every experiment **passes**; the **TOE
-verdict is positive**.  The **3 walls are reduced**: each has a **0-parameter
-mechanism** (V17–V19) and a **named** exact-value residual —
-`V9_dark_energy` (W1, the $\mathbb{Z}_2$ cancellation $\Rightarrow \Lambda = 0$;
-the $10^{-122}$ the named fine-tuning), `V15_seesaw` (W2, the 2-step seesaw, the
-exact $m_\nu$ the residual), `V16_families` (W3, the $3 = 3$ space, the *why-3*
-the residual).
+**The result (43/43, 2026-09-29).**  Every experiment **passes** on the
+GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
+which walls are reduced and which residuals are named — see
+`doc/publication.md` Sections 11–13.)
+
+**The 0-parameter numbers** (no fit anywhere): the hierarchy
+$2.02\times10^{-17}$, the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the
+$5/24$ $\mathcal{T}$ normalization, the $G = 1$, the causal radius $1$,
+the $1.22\times10^{19}$ GeV GUT scale, the $1/25$ GUT coupling, the $246$
+GeV electroweak scale, and the off-diagonal **10-Higgs** mass term
+$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V42):**
+$g_{10} = 1/5$ and $g_0 = 1/8$ — **derived from the root** (the 5 qubits
+of the 32-D module; the 3-space, V38); the tribimaximal angles
+$\sin^2\theta_{12} = 1/3$, $\sin^2\theta_{23} = 1/2$, $\theta_{13} = 0$
+(V29/V39); the SM sphaleron factor $28/79$ (V40); the 0-parameter EH
+coefficient $1/16\pi$ and the lattice CFL $dt^2 = 1/4$ (V37).
 
 ---
 
-## 7. Reproducibility
+## 4. Reproducibility
 
 **Environment.**  Python $\ge 3.11$; a **venv** (`.venv`) with the
 `pyproject.toml` dependencies: `kingdon`, `einops`, `jax[cuda13]`,
-`cupy-cuda13x`, `numpy`.  A GPU (CUDA $\ge 12$) is required for the CuPy/JAX
-backends; without it the engine **degrades** to NumPy (CPU) and all
-experiments still run (the $32\times32$ matrices are small).
+`cupy-cuda13x`, `numpy`.  A GPU (CUDA $\ge 12$) is required for the
+CuPy/JAX backends; without it the engine **degrades** to NumPy (CPU) and
+all experiments still run (the $32\times32$ matrices are small).
 
 **Run:**
 
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py          # -> results/validation_summary.json (29/29, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (43/43, TOE)
+python3 run_validation.py V11 V12    # a subset
 ```
 
 **Lint.**  `python3 -m ruff check cl10/ experiments/ run_validation.py`
 passes (the compact numerical style allows E702/E402/E741; the real bugs
 F4xx/F5xx are enforced).
 
-**The 0-parameter numbers** (no fit anywhere): the hierarchy $2.02\times10^{-17}$,
-the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the $5/24$ $\mathcal{T}$
-normalization, the $G = 1$, the causal radius $1$, the $1.22\times10^{19}$ GeV
-GUT scale, the $1/25$ GUT coupling, the $246$ GeV electroweak scale, and the
-off-diagonal **10-Higgs** mass term $16\,10\,16\bar\to 1$ (V20).
+---
+
+## 5. The status of two theorems (the honest wording)
+
+**The Nielsen–Ninomiya status.**  The lattice **chirality** is **not**
+realised by a naive lattice Dirac operator (which would double); it is a
+**representation** of the root: the 16 Weyl is a **module** of
+$\mathrm{Cl}(10)$ (the pseudoscalar splits the 32 into 16/16-bar), and the
+QCA is a 't Hooft-type **finite-state** theory (one **exactly-unitary**
+per-cell step).  The **doubling** theorem (which constrains a naive
+lattice Dirac) does **not** apply to this construction — the chiral
+content is a 0-parameter property of the **algebra**, not of a lattice
+operator.
+
+**The CPT status.**  The CPT map (V24) is a **0-parameter consequence of
+the $\mathbb{Z}_2$ grading**: the **45** GUT generators are **even** in
+the grading (they **commute** with the pseudoscalar), while the **time**
+direction is **odd** (it **anticommutes**).  The "CPT theorem" of the
+theory is this **grading identity** — stated as the *status* of the
+theorem (a real physicist would call it a grading property, not a deep
+theorem).

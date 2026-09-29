@@ -3,12 +3,14 @@
 """V13 - matter, gauge, and gravity are in the ONE Cl(10): the (1,3)
 causal (metric/gravity) and the 45 (gauge) are sub-algebras of the same 10."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
-from cl10 import gauge, spacetime
-import numpy as np
+from cl10 import gauge
 
 TOL = 1e-12
 
@@ -40,7 +42,7 @@ def main():
     print(f"  both sub-algebras of the ONE {n_gen}-generator Cl(10):  {one_obj}")
     print(f"  VERDICT:  {'PASS (matter + gauge + gravity in one object)' if one_obj else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v13_gauge_gravity.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if one_obj else 1
 
 if __name__ == "__main__":

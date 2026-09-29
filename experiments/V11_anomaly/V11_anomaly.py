@@ -3,12 +3,14 @@
 """V11 - the 16 Weyl is anomaly-free: all 8 SM gauge anomalies cancel
 (the hardest TOE requirement — a chiral gauge theory is inconsistent otherwise)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import matter
-import numpy as np
 
 TOL = 1e-12
 
@@ -41,7 +43,7 @@ def main():
     print(f"  max |anomaly|:  {max_abs:.3e}")
     print(f"  VERDICT:  {'PASS (the 16 Weyl is anomaly-free)' if all_zero else 'FAIL (inconsistent)'}")
     print("  JSON -> " + os.path.join(outdir, "v11_anomaly.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if all_zero else 1
 
 if __name__ == "__main__":

@@ -83,7 +83,7 @@ def main():
     print(f"  (1) B-violation in the dynamics:  {'MET' if sak['b_violation_met'] else 'NOT MET'}  (the 45 preserve the 16/16-bar;  [T,P] max = {sak['max_45_pseudoscalar_commutator']:.1e})")
     print(f"  (2) CPT:  {'invariant' if sak['cpt_invariant'] else 'violated'}  (the 16/16-bar are CPT conjugates)")
     print(f"  (3) equilibrium:  {'IN equilibrium' if sak['in_equilibrium'] else 'out'}  (the QCA step is unitary/reversible)")
-    print(f"  -> the 0-parameter QCA does NOT generate the baryon asymmetry (the NAMED RESIDUAL)")
+    print("  -> the 0-parameter QCA does NOT generate the baryon asymmetry (the NAMED RESIDUAL)")
     print(f"  the GUT structure contains the ingredients:  the X/Y (p -> e+ pi0;  tau ~ {ing['proton_lifetime_yr']:.1e} yr), the heavy-N out of equilibrium (Gamma/H = {ing['gamma_over_h']:.2e}), the PMNS CP phase")
     print(f"  VERDICT:  {'PASS (the 0-parameter QCA does not generate the baryon asymmetry; the GUT ingredients are the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v33_baryogenesis.json"))

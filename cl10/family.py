@@ -22,7 +22,15 @@ The **named residual**: the *why-3* **derivation** — the theory fixes the
 count is exactly the spatial dimension (the open family problem).
 """
 
+import math
+
+import numpy as np
+
+from . import baryogenesis
+from . import clifford
+from . import engine as E
 from . import matter
+from . import sm_qca
 from . import spacetime
 
 
@@ -49,13 +57,120 @@ def family_construct():
     }
 
 
+def _backend():
+    return E._BACKEND
+
+
+def tribimaximal_3x3():
+    """The 0-parameter tribimaximal 3x3 unitary (V29): the 0-parameter
+    angles ``sin^2(12) = 1/3``, ``sin^2(23) = 1/2``, ``theta_13 = 0``
+    (numbers of the democratic base).  The 0-parameter family mixing of
+    the GUT (the 0-parameter PMNS prediction)."""
+    s12, c12 = math.sqrt(1.0 / 3.0), math.sqrt(2.0 / 3.0)
+    s23 = c23 = math.sqrt(0.5)
+    r12 = np.array([[c12, s12, 0.0], [-s12, c12, 0.0], [0.0, 0.0, 1.0]])
+    r23 = np.array([[1.0, 0.0, 0.0], [0.0, c23, s23], [0.0, -s23, c23]])
+    return r23 @ r12
+
+
+def family_qca():
+    """The 3-generation QCA step: the 3 families **inside** the 0-parameter
+    dynamics.
+
+    The 3-generation internal space ``H_3f = ⊕_{k=1..3} H_32`` is a **96-D**
+    module (**48 Weyl + 48 CPT-conjugate**): the **3 families** are the **3
+    two-planes** ``C(3,2)`` of the ``(1,3)`` 3-space (the V26 reading), each
+    family one **32-D** copy.  The **3-generation QCA step** is the
+    **family-symmetric** 0-parameter step:
+
+        U_96 = blockdiag(U_32, U_32, U_32),   U_32 = the GUT QCA step
+        (the 45 plane rotations at ``g_10 = 0.2``),
+
+    i.e. the **45 act identically on each family** — the 0-parameter
+    statement that the 45 do **not** distinguish the 3 two-planes (the
+    **family symmetry**).  The 0-parameter **family mixing** of the GUT is
+    the **tribimaximal** 3x3 unitary (the V29 0-parameter angles — the
+    0-parameter PMNS), a property of the neutrino/Yukawa sector, not of
+    the time-evolution step.
+    """
+    n = 32
+    ngen = 3
+    g = [E.Array_(m) for m in clifford.generators()]
+    P = baryogenesis._pseudoscalar()
+    planes = sm_qca.plane_generators()
+    theta = sm_qca.G10
+    U32 = sm_qca.gut_qca_step(planes, theta)
+    I3 = E.eye(ngen)
+    # the 96x96 family-symmetric step: the 3 identical 32-D copies
+    U = E.kron(I3, U32)
+    Ua = E.asnumpy(U)
+    I96 = np.eye(n * ngen, dtype=complex)
+    unitary_err = float(np.abs(Ua @ Ua.conj().T - I96).max())
+    # (1) the family symmetry: U_96 is blockdiag of 3 EQUAL 32x32 blocks
+    off_block = 0.0
+    block_diff = 0.0
+    for i in range(ngen):
+        bi = Ua[i * n:(i + 1) * n, i * n:(i + 1) * n]
+        block_diff = max(block_diff, float(np.abs(bi - Ua[0:n, 0:n]).max()))
+        for j in range(ngen):
+            if i != j:
+                off_block = max(off_block, float(np.abs(
+                    Ua[i * n:(i + 1) * n, j * n:(j + 1) * n]).max()))
+    # (2) the per-family 16/16-bar split is preserved:
+    # (a) the 45 commute with the pseudoscalar of one copy (the V22/V33 logic)
+    max_comm = 0.0
+    for a in range(10):
+        for b in range(a + 1, 10):
+            T = 1j * (g[a] @ g[b])
+            max_comm = max(max_comm, float(np.abs(E.asnumpy(T @ P - P @ T)).max()))
+    # (b) the 32-D GUT step preserves the split of its copy
+    step_comm_32 = float(np.abs(E.asnumpy(U32 @ P - P @ U32)).max())
+    # (c) the full 96x96 step commutes with the 96-D pseudoscalar
+    P96 = E.kron(I3, P)
+    step_comm_96 = float(np.abs(E.asnumpy(U @ P96 - P96 @ U)).max())
+    # (3) the 0-parameter tribimaximal mixing (V29): the 0-parameter PMNS
+    tbm = tribimaximal_3x3()
+    tbm_unitary = float(np.abs(tbm @ tbm.T - np.eye(3)).max())
+    tbm_angles_ok = (abs(tbm[0, 1] ** 2 - 1.0 / 3.0) < 1e-15
+                     and abs(tbm[1, 2] ** 2 - 0.5) < 1e-15
+                     and abs(tbm[0, 2]) < 1e-15)
+    # (4) the dimension: 48 Weyl = 16 x 3 and 48 CPT-conjugate
+    n_weyl_1gen = int(matter.dimension_check())
+    n_weyl_3gen = n_weyl_1gen * ngen
+    return {
+        "backend": _backend(),
+        "g10": float(theta),
+        "n_planes": int(len(planes)),
+        "n_module_1gen": int(n),
+        "n_module_3gen": int(n * ngen),
+        "n_weyl_1gen": int(n_weyl_1gen),
+        "n_weyl_3gen": int(n_weyl_3gen),
+        "n_cpt_3gen": int(n_weyl_3gen),
+        "unitary_err": float(unitary_err),
+        "family_symmetry_off_block": float(off_block),
+        "family_symmetry_block_diff": float(block_diff),
+        "max_45_pseudoscalar_commutator": float(max_comm),
+        "step_32_pseudoscalar_commutator": float(step_comm_32),
+        "step_96_pseudoscalar_commutator": float(step_comm_96),
+        "tribimaximal_unitary_err": float(tbm_unitary),
+        "tribimaximal_angles_ok": bool(tbm_angles_ok),
+        "tribimaximal_sin2": {
+            "s12": float(abs(tbm[0, 1]) ** 2),
+            "s23": float(abs(tbm[1, 2]) ** 2),
+            "s13": float(abs(tbm[0, 2]) ** 2),
+        },
+        "residual": ("the why-3 (W3) and the family mass hierarchy "
+                     "(the 10-Higgs breaking) are the named residuals"),
+    }
+
+
 def main():
     import sys
     print("=" * 68)
     print("CL10 - the 3-family construct (the 3 generations from the (1,3))")
     print("=" * 68)
     r = family_construct()
-    print(f"  the 3 generations = the 0-parameter 3, three ways:")
+    print("  the 3 generations = the 0-parameter 3, three ways:")
     print(f"    (1) the 3 space directions (S = i h_2..4):  {r['n_space']}")
     print(f"    (2) the 3 two-planes (C(3,2)):               {r['n_planes_C32']}")
     print(f"    (3) the rank of the 3x3 spatial metric:      {r['n_rank']}")

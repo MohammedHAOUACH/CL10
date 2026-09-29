@@ -3,12 +3,14 @@
 """V12 - the 0-parameter U(1) normalization g_1^2/g'^2 = 5/3 (the GUT
 unification; the 5/3 is 0-parameter, the GUT Cartan normalization)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import gauge
-import numpy as np
 
 TOL = 1e-12
 
@@ -39,7 +41,7 @@ def main():
     print(f"  relative error:  {abs(r53 - target) / target:.2e}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 5/3)' if abs(r53 - target) < 1e-6 else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v12_unification.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if abs(r53 - target) < 1e-6 else 1
 
 if __name__ == "__main__":

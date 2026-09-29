@@ -31,7 +31,6 @@ the root), which **matches** the observed ``246/1.22e19 = 2.016e-17`` to
 the **open part** (a **residual**, not a wall).
 """
 
-import math
 
 from . import engine as E
 from . import toepred
@@ -127,13 +126,13 @@ def main():
     print("=" * 68)
     print(f"  backend (GPU):  {cc['backend']}")
     print(f"  W1:  the Z_2 512/512 cancellation -> Lambda_0param = {cc['lambda_0param']}  (the s-mechanism)")
-    print(f"    the 0-parameter naturalness:  O(1) (a lattice vacuum, not 1e122 too big)")
+    print("    the 0-parameter naturalness:  O(1) (a lattice vacuum, not 1e122 too big)")
     print(f"    the 0-parameter equation of state:  w = {cc['w']}  (accelerated expansion)")
     print(f"    the hardest named residual:  Lambda_obs ~ {cc['lambda_obs']:.0e}  (the breaking by the spacetime)")
     print(f"  the hierarchy:  v/E_P (0-parameter) = {h['v_over_EP_0param']:.2e}  vs observed {h['observed']:.2e}")
     print(f"    the 0-parameter value matches the observed to {100*h['rel_err']:.2f}%")
     print(f"    the vast gap:  v << E_P  ({'the two 0-parameter scales, >> 10 orders' if h['vast_gap'] else 'no'})")
-    print(f"    the derivation of the exponent (~1e-17) from the root:  the NAMED RESIDUAL")
+    print("    the derivation of the exponent (~1e-17) from the root:  the NAMED RESIDUAL")
     print(f"  VERDICT:  {'PASS (the W1 cancellation + w=-1 + O(1) naturalness; the hierarchy value to 0.18%; the derivations the named residuals)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

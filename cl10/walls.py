@@ -5,10 +5,10 @@ CL10 — resolving the three walls (W1, W2, W3).
 
 The **0-parameter** mechanisms that **reduce** each named wall to a
 **0-parameter candidate** with a **named** residual (the grand-physicist plan,
-see ``doc/walls.md``):
+see ``doc/publication.md``, Section 13, Table 2):
 
-- **W1 — the cosmological constant.**  The $\mathbb{Z}_2$ grading of the
-  $\mathrm{Cl}(10)$ is **$512$ even / $512$ odd (equal)**.  The **0-point
+- **W1 — the cosmological constant.**  The $\\mathbb{Z}_2$ grading of the
+  $\\mathrm{Cl}(10)$ is **$512$ even / $512$ odd (equal)**.  The **0-point
   energy** of the two sectors **cancels** (the kinematic grading acting as
   supersymmetry / the self-tuning *s-mechanism*), so the **0-parameter**
   cosmological constant is **zero**.  The observed $10^{-122}$ is the *named*
@@ -18,8 +18,8 @@ see ``doc/walls.md``):
   Majorana mass from the **2-step** GUT breaking ($M_N$ ~ $10^{14}$, the
   intermediate scale between the GUT scale and the electroweak scale), and the
   **Dirac** mass is the **0-parameter** $m_D = g_0 v$ ($g_0 = 1/8$).  The
-  **2-step seesaw** $m_\nu = m_D^2/M_N$ gives $m_\nu \sim 10^{-2}$ eV — the
-  **right order** (100x better than the 1-step $m_D^2/M_{\rm GUT} \sim 10^{-7}$
+  **2-step seesaw** $m_\nu = m_D^2/M_N$ gives $m_\nu \\sim 10^{-2}$ eV — the
+  **right order** (100x better than the 1-step $m_D^2/M_{\rm GUT} \\sim 10^{-7}$
   eV).
 
 - **W3 — the three families.**  The **family count** is the **0-parameter**
@@ -41,9 +41,9 @@ G0 = 1 / 8.0          # the 0-parameter GUT coupling (the root)
 def w1_cosmological_constant():
     """The 0-parameter cosmological constant.
 
-    The $\mathbb{Z}_2$ grading of the $\mathrm{Cl}(10)$ gives **equal**
+    The $\\mathbb{Z}_2$ grading of the $\\mathrm{Cl}(10)$ gives **equal**
     even (512, bosonic) and odd (512, fermionic) sectors.  The **0-point
-    energy** of a mode is $\pm \tfrac12$ (the sign is $+$ for bosons, $-$ for
+    energy** of a mode is $\\pm \tfrac12$ (the sign is $+$ for bosons, $-$ for
     fermions).  The **equal** sectors **cancel**:
 
         Lambda_QCA(0-param) = 512*(+1/2) + 512*(-1/2) = 0.
@@ -81,7 +81,7 @@ def w2_seesaw():
 
     The **Dirac** mass is the 0-parameter $m_D = g_0 v$ ($g_0 = 1/8$).  The
     **Majorana** mass $M_N$ of the sterile $N$ is set by the **2-step** GUT
-    breaking (the **intermediate** scale, $M_N \sim 10^{14}$ GeV — between the
+    breaking (the **intermediate** scale, $M_N \\sim 10^{14}$ GeV — between the
     GUT scale $10^{19}$ and the electroweak scale $10^2$).  The **type-I
     seesaw** gives $m_\nu = m_D^2 / M_N$.
 

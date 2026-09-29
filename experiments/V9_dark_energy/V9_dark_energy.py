@@ -4,21 +4,21 @@
 
 **Claim.**  The **vacuum** of the QCA is the **0-point** energy.  As a
 **great-physicist** characterization of dark energy we establish, from the
-0-parameter $\mathrm{Cl}(10)$ object, the three defining properties of a
+0-parameter $\\mathrm{Cl}(10)$ object, the three defining properties of a
 cosmological-constant dark energy:
 
-  1. **The mechanism (W1, reduced by V17)** -- the $\mathbb{Z}_2$ grading of the
-     $\mathrm{Cl}(10)$ is **$512$ even (bosonic) / $512$ odd (fermionic), equal**.
-     The 0-point energy per mode is $\pm \tfrac12$ ($+$ bosons, $-$ fermions),
+  1. **The mechanism (W1, reduced by V17)** -- the $\\mathbb{Z}_2$ grading of the
+     $\\mathrm{Cl}(10)$ is **$512$ even (bosonic) / $512$ odd (fermionic), equal**.
+     The 0-point energy per mode is $\\pm \tfrac12$ ($+$ bosons, $-$ fermions),
      so the two **equal** sectors **cancel**:
-     $\Lambda_{\rm 0param} = 512(+\tfrac12) + 512(-\tfrac12) = 0$.  This is the
+     $\\Lambda_{\rm 0param} = 512(+\tfrac12) + 512(-\tfrac12) = 0$.  This is the
      **self-tuning (s-mechanism)**: the flat vacuum is a saddle of the energy,
      so the 0-point does **not** gravitate.  The *named* residual is the exact
-     observed $\Lambda_{\rm obs} \sim 10^{-122}$ (the breaking of the
+     observed $\\Lambda_{\rm obs} \\sim 10^{-122}$ (the breaking of the
      cancellation by the spacetime).
 
   2. **The equation of state $w = -1$** -- a vacuum energy has
-     $p_{\rm vac} = -\rho_{\rm vac}$, i.e. $w \equiv p/\rho = -1$.  This is the
+     $p_{\rm vac} = -\rho_{\rm vac}$, i.e. $w \\equiv p/\rho = -1$.  This is the
      **0-parameter** signature of a cosmological constant (a homogeneous,
      isotropic vacuum): it is the only equation of state that drives
      **accelerated** expansion.
@@ -26,12 +26,12 @@ cosmological-constant dark energy:
   3. **Accelerated expansion** -- with $w=-1$ the vacuum energy density is
      **constant** (it does not dilute as the universe expands), so it
      **dominates** at late times and drives the **accelerated expansion**
-     ($\ddot a/a > 0$).  The 0-parameter QCA vacuum is therefore the
+     ($\\ddot a/a > 0$).  The 0-parameter QCA vacuum is therefore the
      dark energy.
 
 The **exact** $10^{-122}$ (the ratio of the observed value to the Planck value)
 is the **named** fine-tuning (W1): the theory explains *why the 0-point is not
-$10^{122}$ too big* (the cancellation + the $\mathcal{O}(1)$ naturalness of a
+$10^{122}$ too big* (the cancellation + the $\\mathcal{O}(1)$ naturalness of a
 lattice vacuum), but the exact $10^{-122}$ is the **hardest open problem** of
 physics.
 """
@@ -65,7 +65,7 @@ def main():
     w_minus_1 = abs(w + 1.0) < TOL
 
     # 3. accelerated expansion:  a vacuum (w=-1) has constant rho -> it dominates
-    #    late and gives  ddot a / a = (8 pi G / 3)(rho + 3 p) = (8 pi G / 3) rho (1+3w) < 0? 
+    #    late and gives  ddot a / a = (8 pi G / 3)(rho + 3 p) = (8 pi G / 3) rho (1+3w) < 0?
     #    for w=-1:  (1 + 3 w) = -2, so  ddot a / a = -(8 pi G / 3) rho < 0 ...
     #    BUT the sign of the acceleration for a *positive* cosmological constant
     #    is  ddot a / a = (Lambda c^2 / 3) > 0  (the Friedmann acceleration eq.).

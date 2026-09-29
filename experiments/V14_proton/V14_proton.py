@@ -3,12 +3,14 @@
 """V14 - the GUT predicts proton decay p -> e+ pi^0.  The 0-parameter
 lifetime (M_GUT = M_P) is >> the experimental bound (falsifiable)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import toepred
-import numpy as np
 
 TOL = 1e-12
 
@@ -36,9 +38,9 @@ def main():
     print("=" * 68)
     print(f"  tau_p ~ M_GUT^4/(alpha^2 m_p^5):  {tau_p:.3e} yr")
     print(f"  experimental lower bound:  > {bound:.0e} yr")
-    print(f"  VERDICT:  PASS (falsifiable — the proton is stable on observed timescales)")
+    print("  VERDICT:  PASS (falsifiable — the proton is stable on observed timescales)")
     print("  JSON -> " + os.path.join(outdir, "v14_proton.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if tau_p > bound else 1
 
 if __name__ == "__main__":

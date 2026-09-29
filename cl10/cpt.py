@@ -138,7 +138,7 @@ def main():
     print("=" * 68)
     r = cpt_theorem()
     print(f"  backend (GPU):  {r['backend']}")
-    print(f"  C = g_1 (the time direction):")
+    print("  C = g_1 (the time direction):")
     print(f"    (1) involution  C^2 = I:        {r['C_involution_err']:.3e}")
     print(f"    (2) unitary      C C^dag = I:   {r['C_unitary_err']:.3e}")
     print(f"    (3) maps 16 -> 16-bar  C w + w C = 0:  {r['C_w_anticommute_err']:.3e}")

@@ -103,7 +103,7 @@ def main():
     print(f"  backend (GPU):  {mix['backend']}")
     print(f"  [V28] the {y['n_gen']}x{y['n_gen']} mass matrix:  rank {y['rank']} "
           f"({'non-singular' if y['non_singular'] else 'singular'}), Dirac off-diagonal={y['off_diagonal_Dirac']}")
-    print(f"  [V29] the 0-parameter democratic base -> the 0-parameter TRIBIMAXIMAL mixing:")
+    print("  [V29] the 0-parameter democratic base -> the 0-parameter TRIBIMAXIMAL mixing:")
     print(f"    sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), "
           f"sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), "
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")

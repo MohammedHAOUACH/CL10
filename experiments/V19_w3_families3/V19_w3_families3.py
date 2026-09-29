@@ -6,7 +6,10 @@ space) fixes the family count -- one 0-parameter number, dual use.  The
 mechanism is a 0-parameter consequence (NOT a residual); the "why-3" derivation
 is the named residual (V16)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)

@@ -40,44 +40,46 @@ $h_1,\dots,h_{10}$ with $h_a^2 = I$:
 CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
-│   ├── publication.md        # the publication (13 sections + abstract)
-│   ├── toe_plan.md           # the TOE validation plan (the 7 criteria P0-P6)
-│   ├── reference.md          # the professional technical reference
+│   ├── publication.md        # the publication (the theory + the TOE program + the 9 residuals W1-W9 + the falsifiers)
+│   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   └── api.md                # the complete CL10 API reference
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
-│   ├── __init__.py
 │   ├── engine.py             # the single computation core (CuPy/JAX/NumPy)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
 │   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
-│   ├── gauge.py              # the 45 + the 5/3 unification + the GUT coupling/running + gauge-gravity
+│   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
 │   ├── qca.py                # the unitary QCA + the metric (gravity) dynamics
 │   ├── toepred.py            # the TOE predictions (proton, seesaw, families)
 │   ├── walls.py              # the 3 reduced walls (W1/W2/W3) + the baryon asymmetry
-│   ├── sm_qca.py             # the full SM QCA (the 0-parameter unitary QCA, GPU)
+│   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
+│   ├── local_qca.py          # the LOCAL QCA (V36): the causal radius implemented
+│   ├── smatrix.py            # the S-matrix of the QCA (V41): the first processes
+│   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one 0-parameter object + the 9-to-1 reduction (V43)
+│   ├── unification.py        # the 5/3, the 0-parameter couplings derived from the root (V38), the running
+│   ├── electroweak.py        # the electroweak scale from the root
+│   ├── family.py             # the 3-family construct + the 3-generation QCA step (V39)
+│   ├── yukawa.py             # the 3x3 non-singular Dirac + the tribimaximal PMNS
+│   ├── qcd.py                # the 0-parameter QCD area law + the linear potential
+│   ├── holo.py               # the holographic area law (the entropy scales with area)
+│   ├── baryogenesis.py       # the Sakharov conditions + GUT leptogenesis (V40)
+│   ├── cosmology.py          # the cosmology (the W1 cancellation, the hierarchy)
+│   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale (V42)
+│   ├── einstein.py           # gravity: the Riemann curvature, the EH action derived from the QCA dynamics (V37)
 │   └── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
-├── experiments/              # the TOE verification program (29 experiments)
-│   ├── V0_root/              # T0: the Cl(10) root
-│   ├── V1..V4/               # T1: spacetime, matter, gauge, statistics
-│   ├── V5..V7/               # T2: hierarchy, gravity, QCA
-│   ├── V11_anomaly/          # T3: the 16 Weyl is anomaly-free (the hard one)
-│   ├── V12_unification/      # T3: the 5/3 coupling unification
-│   ├── V13_gauge_gravity/    # T3: matter+gauge+gravity in one object
-│   ├── V8..V10/              # T4: dark matter, dark energy, antimatter
-│   ├── V14..V16/             # T5: proton, seesaw, the 3 families
-│   ├── V17..V19/             # the 3 REDUCED walls (W1/W2/W3 mechanisms)
-│   ├── V20_massgen/          # T2: the 0-parameter 10-Higgs mass term
-│   ├── V21_running/          # T3: the 0-parameter GUT coupling + the 1-loop running
-│   ├── V22_baryon/           # T5: the baryon asymmetry (the Sakharov conditions)
-│   ├── V23_full_sm_qca/      # T2: the full SM as a 0-parameter unitary QCA (the deepening)
-│   ├── V24_cpt/              # T3: the CPT theorem (the 16/16-bar are CPT conjugates)
-│   ├── V25_holography/       # T4: the holographic area law (the entropy scales with AREA)
-│   ├── V26_family/           # T1: the 3-family construct (the 3 generations from the (1,3))
-│   ├── V27_qcd_confinement/  # T2: QCD confinement (the 0-parameter area law + linear potential)
-│   ├── V28_yukawa/           # T2: the Yukawa / mass-hierarchy 0-parameter structure
-├── run_validation.py         # the runner: runs all 29, writes the TOE verdict
+├── experiments/              # the TOE verification program (44 experiments, V0-V43)
+│   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
+│   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
+│   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
+│   ├── V20..V24/             # the deepening: the 10-Higgs, the GUT running, the Sakharov, the full SM QCA, the CPT
+│   ├── V25..V29/             # holography, the family construct, QCD, the Yukawa, the tribimaximal PMNS
+│   ├── V30..V35/             # the GUT completion: the running at M_P, the QCA->GR, the 't Hooft program, the baryon, the cosmology capstones
+│   ├── V36..V42/             # THE COMPLETION PROGRAM (C1-C7): the local QCA, the EH action from the dynamics,
+│                              #   the couplings from the root, the 3 families in the dynamics, leptogenesis, the S-matrix, the DM scale
+│   └── V43/                  # the 9-to-1 reduction: the 32-level QCA spectrum is the one object; the 9 residuals its projections
+├── run_validation.py         # the runner: runs all 44, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 29/29 PASS + the TOE verdict
+    └── validation_summary.json   # the 44/44 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -102,22 +104,38 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 29 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 44 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
 
-`doc/toe_plan.md` defines **what a Theory of Everything must be** (seven
-criteria, P0–P6) and the **tiered** validation against it.  `run_validation.py`
-runs all **29** experiments (V0–V28) across the six tiers and writes
-`results/validation_summary.json`, including the **TOE verdict**:
+Section 11 of `doc/publication.md` defines **what a Theory of Everything
+must be** (seven criteria, P0–P6), the **tiered** validation against them,
+and the **falsifiers** (F1–F7).  `run_validation.py`
+runs all **44** experiments (V0–V43) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
 > **$5/3$ coupling unification**, and the **matter-gauge-gravity in one
 > object**.  The cosmology (tier 4) and the falsifiability (tier 5) are
-> supporting, with the **three reduced walls** (the cosmological constant, the
-> seesaw scale, the three families) reported, not hidden.
+> supporting, with the **reduced walls** (the cosmological constant, the
+> seesaw scale, the three families, the baryon asymmetry, the dark-matter
+> abundance) reported, not hidden.
+
+The **completion program** (V36–V42, tier 6 — Section 12 of
+`doc/publication.md`)
+closes the gap from a consistent 0-parameter framework to a **complete**
+TOE: the **local** QCA (the causal radius *implemented*, C1), the
+**dynamics derived from the 0-parameter Einstein–Hilbert action** (C2), the
+**0-parameter numbers derived from the root** ($g_{10}=1/5$ from the 5
+qubits, $g_0=1/8$ from the 3-space, C3), the **three families inside the
+dynamics** (the 96-D 0-parameter unitary step, C4), the **baryon asymmetry
+at the right order** (the 0-parameter GUT leptogenesis mechanism, C5), the
+**S-matrix of the QCA** (the 't Hooft program, C6), and the **quantified
+dark-matter scale** (C7) — and the **9-to-1 reduction** (V43): the
+$32$-level QCA spectrum is the **one** 0-parameter object, and the nine
+residuals (W1–W9) are its **nine named projections** (the 0-point is the
+most invariant — the $\mathrm{SL}(32)$ identity, $=0$ for every coupling).
 
 Each experiment is a **0-parameter** check: it **confirms** a prediction of
 the publication (or reports an honest **residual**) and writes a JSON verdict

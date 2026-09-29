@@ -13,7 +13,7 @@ verify, from the 0-parameter dynamics, the four properties that make it a
 plausible **WIMP-like / axion-like** relic:
 
   1. **Exact solution** -- $u = \\sqrt{2}\\,\\mathrm{sech}\\,x$ satisfies
-     $u'' = u - u^3$ to numerical precision (the ODE residual is $\sim 10^{-6}$
+     $u'' = u - u^3$ to numerical precision (the ODE residual is $\\sim 10^{-6}$
      on a $20000$-point grid; it is the *analytic* soliton, not a numerical
      artifact).
   2. **Finite, positive mass** -- it carries a **finite** energy

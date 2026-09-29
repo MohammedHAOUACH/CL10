@@ -43,7 +43,6 @@ import math
 import numpy as np
 
 from . import engine as E
-from . import gauge
 from . import toepred
 
 
@@ -139,13 +138,13 @@ def main():
     print(f"  the QCA step (the 45 plane rotations at the 0-parameter angle {spec['theta']:.3f})")
     print(f"    the unitarity residual:  {spec['unitary_err']:.2e}  (exactly unitary)")
     print(f"    the energy spectrum:  {spec['n_levels']} levels, the QFT time-evolution (the SM effective action)")
-    print(f"  the 0-parameter electroweak breaking:")
+    print("  the 0-parameter electroweak breaking:")
     print(f"    the unified coupling g_10 = {ew['g10']:.4f}, the 5/3 U(1) -> g' = {ew['gprime']:.4f}")
     print(f"    the vev v = {ew['vev_v']:.1f} GeV")
     print(f"    the W/Z masses:  m_W = {ew['m_W']:.1f}, m_Z = {ew['m_Z']:.1f} GeV (at the GUT scale)")
     print(f"    the 0-parameter weak mixing angle:  sin^2(theta_W) = {ew['sin2_w']:.4f}  (= 3/8)")
     print(f"    the 0-parameter W/Z ratio:  m_W/m_Z = {ew['mw_over_mz']:.4f}  (= sqrt(5/8))")
-    print(f"    the Higgs: the 16's H doublet (the mass is the named residual)")
+    print("    the Higgs: the 16's H doublet (the mass is the named residual)")
     print(f"  VERDICT:  {'PASS (the QCA step -> the SM effective action; the 0-parameter electroweak breaking: sin^2=3/8, m_W/m_Z=sqrt(5/8))' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

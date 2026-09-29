@@ -4,19 +4,19 @@
 
 **Claim.**  The matter (the **16** Weyl) and the antimatter (the **16-bar**)
 are the two **inequivalent** eigenspaces of the **pseudoscalar** (the volume
-element $\omega=h_1\cdots h_{10}$ of the $\mathrm{Cl}(10)$ root): the $+i$
+element $\\omega=h_1\\cdots h_{10}$ of the $\\mathrm{Cl}(10)$ root): the $+i$
 eigenspace is the 16, the $-i$ the 16-bar.  They are the **CPT conjugates**
 of each other:
 
-  1. **CPT map** -- a single generator $h_0$ **anticommutes** with $\omega$
+  1. **CPT map** -- a single generator $h_0$ **anticommutes** with $\\omega$
      (it flips the chirality), so it maps the 16 onto the 16-bar
      (matter $\to$ antimatter).  This is the 0-parameter CPT transformation.
   2. **Annihilation** -- the 16 and 16-bar eigenspaces are **orthogonal**
      (the distinct-eigenvalue eigenspaces of the anti-Hermitian pseudoscalar),
      so a matter state and an antimatter state have **no overlap**
-     ($|\langle 16|16\text{bar}\rangle|=0$): particle $+$ antiparticle
+     ($|\\langle 16|16\text{bar}\rangle|=0$): particle $+$ antiparticle
      $\to$ the charge-neutral vacuum.
-  3. **B-L asymmetry** -- the 16 has $B\!-\!L=-1$, the 16-bar $B\!-\!L=+1$
+  3. **B-L asymmetry** -- the 16 has $B\\!-\\!L=-1$, the 16-bar $B\\!-\\!L=+1$
      (opposite); the **sum cancels to 0** (the annihilation leaves the
      vacuum, no net charge).
   4. **Mass degeneracy** (CPT invariance) -- the 16 and 16-bar have the

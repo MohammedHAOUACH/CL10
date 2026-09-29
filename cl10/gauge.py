@@ -82,13 +82,13 @@ def running():
     The **0-parameter** content:
     - the **GUT coupling** $\alpha_{10} = 1/25$ (a 0-parameter number of the
       root; the 45 gauge act with this one coupling);
-    - the **5/3** $\mathrm{U}(1)$ normalization (the GUT Cartan);
+    - the **5/3** $\\mathrm{U}(1)$ normalization (the GUT Cartan);
     - the **1-loop SM beta coefficients** $b_1=-41/10$, $b_2=-19/6$, $b_3=-7$
       (0-parameter: they depend only on the particle content).
 
     The **named residual**: the **1-loop SM matching** to the 0-parameter GUT
     scale.  The SM (non-SUSY) 1-loop running does **not** cleanly unify the
-    three couplings (the $\mathrm{U}(1)$ runs apart), so the **1-loop**
+    three couplings (the $\\mathrm{U}(1)$ runs apart), so the **1-loop**
     unification to the 0-parameter Planck scale is a **named** residual (the
     theory names it, it does not derive the matching).
     """

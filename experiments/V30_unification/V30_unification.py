@@ -3,7 +3,7 @@
 """V30 — the 0-parameter coupling unification and the QCA UV completion.
 
 **The 0-parameter predictions.**  The **$5/3$** GUT normalization of the SM
-$\mathrm{U}(1)$ (Theorem 3) and the **single GUT coupling**
+$\\mathrm{U}(1)$ (Theorem 3) and the **single GUT coupling**
 $\alpha_{10} = 1/25$ (the 0-parameter GUT Cartan).
 
 **The 1-loop running to the 0-parameter scale.**  Running the three SM

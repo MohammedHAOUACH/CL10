@@ -70,7 +70,7 @@ def main():
     print(f"  V_qcd(r) = sigma*r (linear):  {['%.1f' % r['v_qcd'] for r in rows]}  ->  V/r = {sigma} (0-parameter)")
     print(f"  V_em(r) = 1/r (Coulombic):     {['%.3f' % r['v_em'] for r in rows]}")
     print(f"  the linear (confining) QCD potential, in contrast to the 1/r Coulombic EM:  {'PASS' if linear else 'FAIL'}")
-    print(f"  named residual:  the glueball mass + the running of sigma")
+    print("  named residual:  the glueball mass + the running of sigma")
     print(f"  VERDICT:  {'PASS (the QCD is confining: linear potential, 0-parameter area law)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v27_qcd_confinement.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

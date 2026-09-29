@@ -149,7 +149,7 @@ GeV, `ALPHA_10 = 1/25`, `V_EW = 246.0` GeV.
 ## 8. `cl10.walls` — the three reduced walls (W1/W2/W3) + the baryon asymmetry
 
 The **0-parameter mechanisms** that reduce the three walls (see
-`doc/walls.md`):
+`doc/publication.md`, Section 13, Table 2):
 
 | symbol | signature | returns |
 |---|---|---|
@@ -246,7 +246,79 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
 
 
-## 12. `run_validation.py` — the TOE runner
+## 12. The completion program modules (V36–V43)
+
+The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
+from a consistent 0-parameter framework to a **complete** TOE.  Each module
+function is **0-parameter** (no fit) and **backend-agnostic** (the GPU
+engine), and the matching experiment writes a JSON verdict.
+
+**`cl10.local_qca` — the local QCA (V36, C1).**  The **local** QCA step on
+the $(L,L,L)\times32$ lattice: the 45 Spin(10) plane rotations **per cell**
+plus the **0-parameter exchange (swap) gates** between **adjacent** cells
+(the 't Hooft swap-gate structure).  The **causal radius 1 is
+implemented**, not an axiom: a single-cell excitation after $n$ steps is
+supported **only** inside the $n$-cell light cone (the front speed is
+**exactly 1**).
+
+| symbol | signature | returns |
+|---|---|---|
+| `local_qca` | `(L, n_steps, seed=0)` | `{unitary_residual, support, front_speed, structural_ok, causal_radius_1, …}` — the local step + the realized light cone (V36) |
+
+**`cl10.einstein` — gravity.**  The metric dynamics of the $(1,3)$
+sub-algebra: the massless spin-2 (2 polarizations, $c=1$, UV-bounded), the
+Einstein–Hilbert action (the computed Riemann curvature, the non-linear
+soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
+**derivation** in the direction **dynamics ← action**:
+
+| symbol | signature | returns |
+|---|---|---|
+| `einstein_hilbert` | `(r=2.0, tol=1e-4)` | `{R_sphere, R_flat, G, coupling=1/16π, n_deriv, einstein_hilbert_ok, …}` — the 0-parameter EH action on prescribed metrics (V31) |
+| `eh_quadratic_action` | `(u)` | the 0-parameter **discrete** quadratic EH action on the Planck lattice ($G=1$, $c=1$, $dt^2=1/4$) |
+| `einstein_hilbert_from_dynamics` | `(L=8, T=24, n_probe=16, seed=0, tol=1e-6)` | `{elm_on_qca_trajectory, stationary_ok, elm_off_dynamics, selects_ok, coeff_ok, continuum_ratio, continuum_ok, ok, …}` — the **Euler–Lagrange equation** of the 0-parameter action **is** the QCA metric dynamics (V37): the numerical functional derivative vanishes on the QCA trajectory, an off-dynamics field has a non-zero ELM, the coefficient is $1/16\pi$ ($G=1$), and the discrete dispersion gives the massless $c=1$ continuum |
+
+**`cl10.unification` — the 0-parameter numbers derived from the root (V38, C3).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `g10_from_root` | `()` | `{n_module=32, n_qubits=5, g10=1/5, alpha_10=1/25, n_space=3, g0=1/8, …}` — the GUT coupling $g_{10}=1/n_{\rm qubits}$ (the 5 qubits of the 32-D module) and the Dirac coupling $g_0 = 1/2^{n_{\rm space}}$ (the 3-space), derived from the root |
+| `running_down` | `()` | `{alpha_10_at_M_P, couplings_at_M_Z, measured_at_M_Z, ratio_to_measured, u1_down_pole_scale, residual, …}` — the 1-loop running **down** from the 0-parameter UV input at the QCA cutoff to $M_Z$ (the 1-loop matching is the **quantified** named residual W4) |
+
+**`cl10.family` — the 3 families inside the dynamics (V39, C4).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `family_qca` | `()` | `{n_module_3gen=96, n_weyl_3gen=48, n_cpt_3gen=48, unitary_err, family_symmetry_off_block, …, tribimaximal_sin2, residual, …}` — the **3-generation QCA step**: the 45 act **identically on each family** (the family symmetry; the 96×96 is exactly unitary, the per-family 16/16-bar split is preserved) + the 0-parameter tribimaximal mixing (V29) |
+
+**`cl10.baryogenesis` — GUT leptogenesis (V40, C5).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `leptogenesis_estimate` | `()` | `{M_N_GeV=1e14, gamma_over_h, g0, eps_loop=g0^4/16π, eta_cp (named), sphaleron_factor=28/79, delta_b, observed_delta_b, ratio_to_observed, …}` — the baryon asymmetry at the **right order** (the mechanism 0-parameter, the exact value the named residual) |
+
+**`cl10.smatrix` — the S-matrix of the QCA (V41, C6).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `qca_smatrix` | `()` | `{g10, n_planes=45, s1 (32×32), s2 (1024×1024), unitary_residual, probability_conservation, max_offdiag, …}` — the **'t Hooft program** completed: the QCA step **is** the 0-parameter S-matrix (the 1- and 2-particle transition amplitudes; the only input $g_{10}=0.2$) |
+
+**`cl10.cosmology3` — the unified cosmology + the DM scale (V42, C7).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `dm_mass_scale` | `()` | `{E (the soliton energy, Planck units), m_DM_GeV, sigma, Omega_0param, Omega_obs, abundance_gap, residual, …}` — the **quantified** dark-matter residual: the Planck-mass soliton (stable, massive, neutral) and the computed 0-parameter abundance gap (the sub-Planck scale is the named residual) |
+
+**`cl10.qca_spectrum` — the one 0-parameter object + the 9-to-1 reduction (V43).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `levels` | `(g10=None)` | the $32$ sorted phases of $U$ (the levels of $H = -i\log U$), in $(-\pi,\pi]$ |
+| `qca_spectrum` | `(g10=None)` | `{g10, n_levels=32, spectrum, zero_point (=0: the ±-paired 0-point), det_U_minus_1 (=0: the SL(32) identity), sl32, pairing_resid, max_trace_T45 (=0: the 45 are traceless), cpt_0point_16, cpt_0point_16bar, commutes_with_pseudoscalar, max_level, …}` — the **one** 0-parameter object (the 32-level QCA spectrum) and its 0-parameter invariants (the 0-point $=0$, $\det U=1$ for every $g_{10}$, the CPT split) |
+| `verify` | `(tol=1e-10)` | `{spectrum, ok}` — the 0-parameter checks: the 0-point $=0$, the SL(32) identity, the $\pm$-pairing, the CPT split |
+
+---
+
+## 13. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|
@@ -255,13 +327,15 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `main` | `()` | runs all experiments (or a subset from `argv`), writes `results/validation_summary.json`, prints the **TOE verdict**, returns `0` if all pass |
 
 **The summary** (`results/validation_summary.json`) has:
-`{n, n_pass, pass, toe, toe_criterion, named_residuals, experiments}` where
-`toe` is the **TOE verdict** (the hard tiers 0–3 all pass) and
-`named_residuals` lists the three walls (W1, W2, W3).
+`{n, n_pass, pass, toe, toe_criterion, named_residuals, reduced_walls, experiments}`
+where `toe` is the **TOE verdict** (the hard tiers 0–3 all pass) and
+`named_residuals` lists **all** the named/quantified residuals (the exact
+values the 0-parameter theory does not derive — W1, W2, W3, the running, the
+Yukawa, the baryon asymmetry, the dark-matter scale, …).
 
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 29 experiments
+python3 run_validation.py              # all 43 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

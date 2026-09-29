@@ -3,12 +3,14 @@
 """V15 - the 16 carries the sterile nu^c; the 2-step seesaw (V18) gives the
 0-parameter m_nu at the right order (~10^-2 eV)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import walls
-import numpy as np
 
 TOL = 1e-12
 
@@ -39,9 +41,9 @@ def main():
     print("=" * 68)
     print(f"  2-step seesaw  m_nu = (g0*v)^2/M_N (V18):  {m_nu:.3e} eV  (M_N = {w2['M_N_GeV']:.0e} GeV)")
     print(f"  observed m_nu ~ {w2['m_nu_obs_eV']} eV  (the 2-step is the right order)")
-    print(f"  VERDICT:  PASS (REDUCED W2 — the 2-step mechanism (V18) is 0-parameter; the exact m_nu is the NAMED RESIDUAL)")
+    print("  VERDICT:  PASS (REDUCED W2 — the 2-step mechanism (V18) is 0-parameter; the exact m_nu is the NAMED RESIDUAL)")
     print("  JSON -> " + os.path.join(outdir, "v15_seesaw.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if m_nu < observed_max else 1
 
 if __name__ == "__main__":

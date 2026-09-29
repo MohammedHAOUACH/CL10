@@ -3,12 +3,14 @@
 """V16 - the 3 families; the MECHANISM is reduced by V19 (the 3 = the 3 space).
 The exact "why-3" derivation is the NAMED RESIDUAL (the family problem)."""
 
-import sys, os, json, time
+import sys
+import os
+import json
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import walls
-import numpy as np
 
 TOL = 1e-12
 
@@ -38,9 +40,9 @@ def main():
     print("=" * 68)
     print(f"  the 0-parameter family count (V19):  {candidate} = the {w3['n_space']} space  (observed: {observed})")
     print(f"  derived (3 = 3-space):  {derived}")
-    print(f"  VERDICT:  PASS (REDUCED W3 — the 3 = 3-space mechanism (V19) is 0-parameter; the why-3 is the NAMED RESIDUAL)")
+    print("  VERDICT:  PASS (REDUCED W3 — the 3 = 3-space mechanism (V19) is 0-parameter; the why-3 is the NAMED RESIDUAL)")
     print("  JSON -> " + os.path.join(outdir, "v16_families.json"))
-    print(f"  Wall time = " + f"{time.time() - t0:.2f} s")
+    print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if candidate == observed else 1
 
 if __name__ == "__main__":

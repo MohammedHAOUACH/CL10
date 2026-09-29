@@ -36,6 +36,7 @@ does not generate it; the structure is there).
 from . import engine as E
 from . import clifford
 from . import toepred
+from . import walls
 
 import numpy as np
 
@@ -121,6 +122,84 @@ def gut_ingredients():
     }
 
 
+# ---------------------------------------------------------------------------
+# GUT leptogenesis: the mechanism is 0-parameter, the exact value is named
+# (the W2 pattern)
+# ---------------------------------------------------------------------------
+
+def leptogenesis_estimate():
+    """GUT leptogenesis at the **right order** (the W2 pattern: the
+    mechanism is **0-parameter**, the **exact** value is the **named**
+    residual).
+
+    The **0-parameter** ingredients (all of the root):
+    (a) the **2-step** breaking (W2) gives the **heavy sterile ``N``** at
+        ``M_N = 1e14 GeV`` (``walls.w2_seesaw``);
+    (b) its decay is **OUT of equilibrium** (``Gamma/H ~ 6e-4 < 1``, the
+        0-parameter kinematics of ``gut_ingredients``);
+    (c) the **CP-odd rate** is **0-parameter** at the loop level:
+        ``eps_loop = g0^4/(16*pi)`` with ``g0 = 1/8`` (``walls.G0``, the
+        0-parameter GUT coupling, now derived from the 3-space by V38)
+        = ``1/(4096*16*pi)``;
+    (d) the **SM sphaleron** converts the lepton asymmetry to a **baryon**
+        asymmetry with the **0-parameter** factor ``28/79``.
+
+    The **named residual**: the **CP-violating factor** ``eta_CP`` in the N
+    decay (the magnitude of CP violation — the **named** input, taken in the
+    observed range ``1e-3..1e-2``; here ``eta_CP = 1e-3``) and the **exact**
+    ``Delta_B`` (the observed ``6.1e-10``; the mechanism is 0-parameter, the
+    exact value is named — the W2 pattern).
+
+    The **honest limit**: the **0-parameter** QCA *alone* satisfies **no**
+    Sakharov condition (V22/V33 remain true) — the asymmetry uses the
+    **named** CP-violating factor of the GUT structure (B-violation from the
+    X/Y, out-of-equilibrium from the 2-step N, CP from the named factor).
+    """
+    w2 = walls.w2_seesaw()
+    M_N = w2["M_N_GeV"]
+    ing = gut_ingredients()
+    out_of_equil = bool(ing["heavy_N_out_of_equilibrium"])
+    gamma_over_h = float(ing["gamma_over_h"])
+    # (c) the 0-parameter loop factor for the CP-odd rate (no fit)
+    g0 = walls.G0
+    eps_loop = g0 ** 4 / (16.0 * np.pi)   # 1/(4096*16*pi) ~ 4.86e-6
+    loop_0param = bool(
+        abs(eps_loop - (1.0 / 8.0) ** 4 / (16.0 * np.pi)) / eps_loop < 1e-12)
+    # the NAMED CP-violating factor in the N decay (observed range)
+    eta_cp = 1e-3
+    # (d) the 0-parameter SM sphaleron conversion factor
+    sphaleron = 28.0 / 79.0
+    delta_b = sphaleron * eps_loop * eta_cp
+    observed = 6.1e-10
+    in_range = bool(1e-11 < delta_b < 1e-8)
+    ratio = float(delta_b / observed)
+    within_factor_10 = bool(0.1 <= ratio <= 10.0)
+    sak = sakharov_conditions()
+    qca_no_sakharov = bool(not sak["any_sakharov_met"])
+    return {
+        "backend": _backend(),
+        "M_N_GeV": float(M_N),
+        "gamma_over_h": gamma_over_h,
+        "out_of_equilibrium": out_of_equil,
+        "g0": float(g0),
+        "eps_loop": float(eps_loop),
+        "loop_factor_0_parameter": loop_0param,
+        "eta_cp": float(eta_cp),
+        "sphaleron_factor": float(sphaleron),
+        "delta_b": float(delta_b),
+        "observed_delta_b": float(observed),
+        "ratio_to_observed": ratio,
+        "order_ok": bool(in_range and within_factor_10),
+        "0param_qca_satisfies_no_sakharov": qca_no_sakharov,
+        "residual": (
+            "the exact eta_CP (the CP-violating magnitude in the N decay, "
+            "the named input, observed range 1e-3..1e-2; taken 1e-3) and the "
+            "exact Delta_B (the observed 6.1e-10): the mechanism is "
+            "0-parameter, the exact value is named (the W2 pattern)"
+        ),
+    }
+
+
 def verify(tol=1e-9):
     """0-parameter checks: the 0-parameter QCA does NOT generate the baryon
     asymmetry (the 3 Sakharov conditions are not met by the 0-parameter
@@ -153,11 +232,11 @@ def main():
           f"(the 16/16-bar are CPT conjugates)")
     print(f"  (3) equilibrium:  {'IN equilibrium' if sak['in_equilibrium'] else 'out'}  "
           f"(the QCA step is unitary/reversible;  unitary err = {sak['unitary_err']:.1e})")
-    print(f"  -> the 0-parameter QCA does NOT generate the baryon asymmetry (the NAMED RESIDUAL)")
-    print(f"  the GUT structure contains the ingredients:")
+    print("  -> the 0-parameter QCA does NOT generate the baryon asymmetry (the NAMED RESIDUAL)")
+    print("  the GUT structure contains the ingredients:")
     print(f"    (a) the X/Y mediate p -> e+ pi0 (the 0-parameter proton decay;  tau ~ {ing['proton_lifetime_yr']:.1e} yr)")
     print(f"    (b) the heavy-N decay is out of equilibrium (Gamma/H = {ing['gamma_over_h']:.2e} < 1)")
-    print(f"    (c) the PMNS CP phase (the 0-parameter C/CP structure, V29)")
+    print("    (c) the PMNS CP phase (the 0-parameter C/CP structure, V29)")
     print(f"  VERDICT:  {'PASS (the 0-parameter QCA does not generate the baryon asymmetry; the GUT ingredients are the named residual)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

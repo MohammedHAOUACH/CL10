@@ -117,7 +117,7 @@ def main():
     if named:
         print(f"  NAMED RESIDUALS (the exact values):  {', '.join(named)}")
     if reduced_ok and all(reduced_ok.values()):
-        print(f"  THE 3 WALLS ARE REDUCED: each mechanism is 0-parameter (PASS)")
+        print("  THE 3 WALLS ARE REDUCED: each mechanism is 0-parameter (PASS)")
         for w, (mid, desc) in reduced.items():
             print(f"    - {w:16s} reduced by {mid} ({desc})")
     return 0 if n_pass == n else 1

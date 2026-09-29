@@ -76,7 +76,7 @@ def main():
     print("=" * 68)
     print(f"  backend (GPU):  {mix['backend']}")
     print(f"  [V28] the {y['n_gen']}x{y['n_gen']} mass matrix: rank {y['rank']} (non-singular), Dirac off-diagonal")
-    print(f"  [V29] the 0-parameter democratic base -> the 0-parameter TRIBIMAXIMAL mixing:")
+    print("  [V29] the 0-parameter democratic base -> the 0-parameter TRIBIMAXIMAL mixing:")
     print(f"    sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
     print(f"  the mean 0-parameter vs observed PMNS deviation:  {dev:.3f}")
     print(f"  the 0-parameter base spectrum (degenerate):  {['%.3g' % x for x in h['base_spectrum']]}")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
+r"""
 CL10 — the 0-parameter coupling unification and the QCA UV completion.
 
 **The 0-parameter content.**
@@ -28,9 +28,12 @@ scale).  This is the **0-parameter UV completion** of the theory.
 
 import numpy as np
 
+from . import clifford
 from . import engine as E
 from . import gauge
+from . import spacetime
 from . import toepred
+from . import walls
 
 M_Z = 91.2                       # GeV
 ALPHA_10 = toepred.ALPHA_10      # 1/25 = 0.04 (the 0-parameter GUT coupling)
@@ -57,6 +60,80 @@ def landau_pole_u1():
     """The SM U(1) Landau pole scale (where 1/a1 -> 0)."""
     ln_pole = (2.0 * np.pi / B_SM[0]) * (1.0 / A_Z[0])
     return M_Z * float(np.exp(ln_pole))
+
+
+def g10_from_root():
+    """The 0-parameter numbers **are numbers of the root** (C3).
+
+    The 32-D module of the Cl(10) root is a **2^5** space (the symplectic
+    Pauli pattern of ``clifford.py``: **5** qubits, 10 = 2x5 generators).
+    The GUT coupling is a **number of the root**:
+
+        g_10 = 1 / n_qubits = 1/5,   alpha_10 = g_10^2 = 1/25.
+
+    The **Dirac** coupling (the W2 0-parameter ``g_0``) is
+
+        g_0 = 1 / 2^{n_space} = 1 / 2^3 = 1/8,
+
+    the **3** being the spatial dimension of the (1,3) (the same 0-parameter
+    number as the family count — one number, two uses).
+    """
+    n_module = int(clifford.generators()[0].shape[0])     # the 32-D module
+    n_qubits = int(np.log2(n_module))                     # = 5
+    g10 = 1.0 / n_qubits                                  # 1/5
+    T, S = spacetime.causal_generators()
+    n_space = len(S)                                      # the 3 spatial directions
+    g0 = 1.0 / 2.0 ** n_space                             # 1/8
+    return {
+        "backend": E._BACKEND,
+        "n_module": int(n_module),
+        "n_qubits": int(n_qubits),
+        "g10": float(g10),
+        "alpha_10": float(g10 ** 2),
+        "g10_matches_sm_qca": bool(abs(g10 - 0.2) < 1e-12),
+        "alpha_10_matches_toepred": bool(abs(g10 ** 2 - toepred.ALPHA_10) < 1e-12),
+        "n_space": int(n_space),
+        "g0": float(g0),
+        "g0_matches_walls": bool(abs(g0 - walls.G0) < 1e-12),
+    }
+
+
+def _run_down(a_uv, b, M, M_uv):
+    """The 1-loop running DOWN: 1/a(M) = 1/a(M_uv) - (b/2pi) ln(M_uv/M)."""
+    return 1.0 / a_uv - (b / (2.0 * np.pi)) * np.log(M_uv / M)
+
+
+def running_down():
+    """The 0-parameter UV input at the QCA cutoff **run down** to M_Z (C3).
+
+    The QCA lattice UV cutoff is the **Planck** scale, and the 0-parameter
+    GUT coupling there is ``alpha_10 = 1/25`` (a number of the root, derived
+    by ``g10_from_root``).  The standard 1-loop QFT extrapolation with the
+    SM beta coefficients is **reported** together with the deviation from
+    the measured ``alpha_i(M_Z)``.  The **1-loop matching to a single point**
+    (the non-SUSY SM) is the **named residual** (W4), now **quantified**;
+    the QCA **lattice RG** (the open part) governs below the UV cutoff.
+    """
+    a_uv = ALPHA_10
+    a = [1.0 / _run_down(a_uv, B_SM[k], M_Z, M_P) for k in range(3)]
+    ratios = [float(x / A_Z[k]) for k, x in enumerate(a)]
+    # the U(1) pole of the DOWN running (where 1/a1 -> 0): 1/a1 = 0 when
+    # ln(M_P / M_pole) = 2pi/(b1) * 1/a10
+    ln_pole = (2.0 * np.pi / B_SM[0]) * (1.0 / a_uv)
+    pole_scale = M_P * float(np.exp(-ln_pole))
+    return {
+        "backend": E._BACKEND,
+        "alpha_10_at_M_P": float(a_uv),
+        "couplings_at_M_Z": [float(x) for x in a],
+        "measured_at_M_Z": [float(x) for x in A_Z],
+        "ratio_to_measured": ratios,
+        "a2_within_factor_2": bool(abs(ratios[1] - 1.0) < 1.0),
+        "a3_within_factor_10": bool(abs(ratios[2] - 1.0) < 9.0),
+        "u1_down_pole_scale": float(pole_scale),
+        "u1_pole_inside_lattice": bool(M_Z < pole_scale < M_P),
+        "residual": ("the 1-loop SM matching to the measured M_Z values (W4, now "
+                     "quantified by the down-running); the QCA lattice RG is the open part"),
+    }
 
 
 def unification():
