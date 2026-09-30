@@ -153,71 +153,92 @@ def run_interactive(cfg):
     scene = Scene.Scene(cfg, off_screen=False)
     p = scene.plotter
 
-    state = {"running": True}
+    n_steps = int(cfg["n_steps"])
+    collapse_every = int(cfg["collapse_every"])
+    step_ms = 50  # ~20 fps; the actual pace is bounded by the render time
+    # mutable state shared by the key handler and the timer callback
+    st = {"running": True, "collapse_timer": 0}
 
     def panel():
         scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
 
-    def on_key(evt=None):
-        key = (evt.char or "") if evt else ""
-        k = key.lower()
-        if k == "q":
-            state["running"] = False
-            p.terminate_event()
-        elif k == "s":
-            sim.slit_separation += 2
-            sim._build_barrier()
-        elif k == "a":
-            sim.slit_separation = max(6, sim.slit_separation - 2)
-            sim._build_barrier()
-        elif k == "w":
-            sim.slit_width = min(30, sim.slit_width + 1)
-            sim._build_barrier()
-        elif k == "x":
-            sim.slit_width = max(2, sim.slit_width - 1)
-            sim._build_barrier()
-        elif k == "e":
-            sim.wavelength = min(40, sim.wavelength + 1)
-        elif k == "d":
-            sim.wavelength = max(4, sim.wavelength - 1)
-        elif k == "o":
-            collapse.show = not collapse.show
-        elif k == " " or k == "p":
-            state["running"] = not state["running"]
-        # (the panel is refreshed each frame in the loop below)
+    def key_q():
+        st["running"] = False
+        p.iren.interactor.TerminateApp()
 
-    p.add_key_event("Any", on_key)
+    def key_s():
+        sim.slit_separation += 2
+        sim._build_barrier()
 
-    collapse_every = int(cfg["collapse_every"])
-    collapse_timer = 0
+    def key_a():
+        sim.slit_separation = max(6, sim.slit_separation - 2)
+        sim._build_barrier()
 
-    def timer(evt=None):
-        if not state["running"]:
+    def key_w():
+        sim.slit_width = min(30, sim.slit_width + 1)
+        sim._build_barrier()
+
+    def key_x():
+        sim.slit_width = max(2, sim.slit_width - 1)
+        sim._build_barrier()
+
+    def key_e():
+        sim.wavelength = min(40, sim.wavelength + 1)
+
+    def key_d():
+        sim.wavelength = max(4, sim.wavelength - 1)
+
+    def key_o():
+        collapse.show = not collapse.show
+
+    def key_p():
+        st["running"] = not st["running"]
+
+    for key, cb in (
+        ("q", key_q),
+        ("s", key_s),
+        ("a", key_a),
+        ("w", key_w),
+        ("x", key_x),
+        ("e", key_e),
+        ("d", key_d),
+        ("o", key_o),
+        ("p", key_p),
+        (" ", key_p),
+    ):
+        p.add_key_event(key, cb)
+
+    def tick(step):
+        if not st["running"] or sim.t >= n_steps:
             return
         sim.step()
-        collapse_timer += 1
-        if collapse_timer >= collapse_every and collapse.n_detected() < collapse.n_detections:
+        # a detection (fills the screen)
+        st["collapse_timer"] += 1
+        if (
+            st["collapse_timer"] >= collapse_every
+            and collapse.n_detected() < collapse.n_detections
+        ):
             I = sim.screen_intensity()
             if I.sum() > 0:
                 pt = collapse.sample(I)
                 if pt is not None:
                     collapse.add(*pt)
                     collapse.set_event(*pt)
-                    collapse_timer = 0
+                    st["collapse_timer"] = 0
         collapse.advance_event()
-
+        # the field (contracted onto the detected point while the event is active)
         field = sim.field()
         if collapse.event_active():
             field = collapse.contract(field)
         cp = (collapse.event[0], collapse.event[1]) if collapse.event_active() else None
         scene.draw_frame(sim, field * field, sim.screen_intensity(),
-                        collapse.detections, cp)
+                         collapse.detections, cp)
         panel()
         p.render()
 
-    p.add_timer(timer, timer=100)
-    print("[young] interactive window. keys: s/a sep, w/x width, e/d wavelength, "
-          "o collapse, p pause, q quit")
+    p.add_timer_event(max_steps=n_steps, duration=n_steps * step_ms, callback=tick)
+    print("[young] interactive window. keys: s/a slit sep, w/x slit width, "
+          "e/d wavelength, o collapse on/off, p pause, q quit")
     p.show()
     scene.close()
 
