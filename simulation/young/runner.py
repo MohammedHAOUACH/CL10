@@ -234,11 +234,20 @@ def run_interactive(cfg):
         scene.draw_frame(sim, field * field, sim.screen_intensity(),
                          collapse.detections, cp)
         panel()
-        p.render()
+        # Timer.execute calls Render() after this callback, so no explicit
+        # render here (avoids a double render per tick).
 
-    p.add_timer_event(max_steps=n_steps, duration=n_steps * step_ms, callback=tick)
+    # duration is the per-tick interval in ms (a repeating VTK timer), NOT the
+    # total: n_steps ticks at step_ms each.
+    p.add_timer_event(max_steps=n_steps, duration=step_ms, callback=tick)
     print("[young] interactive window. keys: s/a slit sep, w/x slit width, "
           "e/d wavelength, o collapse on/off, p pause, q quit")
+    # an initial draw so the window is not black before the first tick
+    field = sim.field()
+    scene.draw_frame(sim, field * field, sim.screen_intensity(),
+                     collapse.detections, None)
+    panel()
+    p.render()
     p.show()
     scene.close()
 
