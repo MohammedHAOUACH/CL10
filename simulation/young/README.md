@@ -17,12 +17,13 @@ and the Born-rule sampling are all 0-parameter.
 ```bash
 cd CL10
 source .venv/bin/activate
-# headless: renders the big 3-D scene off-screen on the pinned GPU and writes
-# video/young.mp4 + stills in video/frames/
+# headless: renders the big 3-D scene off-screen (PyVista) on the pinned GPU
+# and writes video/young.mp4 + stills in video/frames/
 python -m simulation.young
-# live window with the interactive parameter panel
-# (keys: s/a slit sep, w/x slit width, e/d wavelength, o collapse on/off,
-#  p pause, q quit)
+# live window (VisPy): the wave as a glowing 3-D volume + the detection
+# screen as the hot 2-D panel (the fringes + the accumulated detections).
+# keys: Space pause | +/- speed | s/a slit sep | w/x slit width |
+#       e/d wavelength | R reset | C clear | V camera | Q quit
 python -m simulation.young --interactive
 ```
 
@@ -48,7 +49,30 @@ also shown live in the window corner:
 | `n_detections` / `collapse_every` | the sampling rate (the *reality*) |
 | `show_collapse` / `collapse_frames` / `collapse_peak` | the wave-packet reduction |
 | `render_size` / `n_video_frames` / `fps` / `n_steps` / `camera` | the rendering |
-| `colormap` | the field colormap |
+| `colormap` | the field colormap (headless video) |
+| `visualization.{cmap,clim,volume_stride,volume_refresh_rate,steps_per_frame,show_detections,agc_release,agc_gain_max}` | the live VisPy window |
+
+## The live window (VisPy)
+
+`--interactive` opens a live **VisPy** window with two panels:
+
+  `|psi|**2` (a bright cloud that propagates, diffracts through the two slits,
+  and interferes), the **double-slit wall** (a dark plane + the two bright slit
+  openings), the bounding box, and the detection-screen plane.
+  intensity (the **interference fringes**) with the **accumulated detections**
+  (the *reality*) drawn as bright dots on top.
+
+**Flicker-free.** The volume's transform is set once (never re-attached per
+frame, which is what causes a periodic "heartbeat"), and the brightness is
+stabilised by an **AGC** (auto-gain): the 99th-percentile of the density is the
+exposure target, with a fast attack and a slow exponential release, so the
+volume glows steadily instead of pulsing on/off with each wave salve.
+
+**Keys.** `Space` pause · `+`/`-` speed · `s`/`a` slit separation ·
+`w`/`x` slit width · `e`/`d` wavelength · `V` toggle the camera (along the beam
+vs perpendicular) · `R` reset the wave + screen · `C` clear the detections ·
+`Q`/`Esc` quit.  Slit/wavelength changes are applied **live** (the barrier and
+the slit wall rebuild on the fly).
 
 ## Files
 
@@ -56,5 +80,10 @@ also shown live in the window corner:
 - `backend.py` — the GPU core (CuPy -> NumPy).
 - `wave.py` — the 3-D FDTD wave equation (the beam, the sponge, the slits, the source).
 - `collapse.py` — the wave-packet reduction (the Born-rule sampling + the contraction).
-- `scene.py` — the PyVista 3-D scene (the field cloud, the barrier, the screen, the panel).
-- `runner.py` / `__main__.py` — the headless video / the live window.
+- `scene.py` — the PyVista 3-D scene (used by the **headless video**: the field
+  cloud, the barrier, the screen, the corner panel).
+- `vispy_young.py` — the **live VisPy window**: the 3-D additive volume of
+  `|psi|**2` (with the anti-flicker AGC), the double-slit wall, the detection
+  screen, the hot 2-D fringe panel with the accumulated detections, the HUD,
+  and the keyboard controls.
+- `runner.py` / `__main__.py` — the headless video / the live window dispatch.

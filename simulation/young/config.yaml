@@ -103,3 +103,31 @@ colormap: inferno
 # where the video and the still frames are written (relative to this dir).
 out_video: video/young.mp4
 out_frames: video/frames
+# --- the live VisPy window (--interactive) -----------------------------------
+# (the headless video uses the blocks above; these tune the interactive one)
+
+# the colormap of the 3-D volume and the 2-D detection screen.
+visualization:
+  cmap: hot
+
+  # the colour range of the (frame-normalised) intensities.
+  clim: [0.0, 1.0]
+
+  # subsample the 3-D volume by this stride in each axis (2 -> 1/8 the cells).
+  volume_stride: 2
+
+  # refresh the (heavier) 3-D volume every N frames (the 2-D screen is every
+  # frame).  Throttling it keeps the window responsive.
+  volume_refresh_rate: 2
+
+  # how many sim-steps per rendered frame (the playback speed; tune live with
+  # the +/- keys).
+  steps_per_frame: 4
+
+  # draw the accumulated detections (the "reality") on the 2-D screen.
+  show_detections: true
+
+  # the anti-flicker auto-gain (AGC): how many frames it takes the gain to
+  # fall (the slow release) and its hard cap.
+  agc_release: 600
+  agc_gain_max: 8.0

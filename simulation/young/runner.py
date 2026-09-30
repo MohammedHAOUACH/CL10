@@ -4,11 +4,15 @@
 The runner.
 
 ``python -m simulation.young``            -> **headless**: run the wave on the
-    pinned GPU, render the big 3-D scene off-screen, and write the video
-    (the wave passing the slits + the collapse events + the screen filling).
-``python -m simulation.young --interactive`` -> the same, but with a live
-    window and a **parameter panel** (keyboard shortcuts to tune the slits,
-    the wavelength, the speed, the collapse, ...).
+    pinned GPU, render the big 3-D scene off-screen (PyVista), and write the
+    video (the wave passing the slits + the collapse events + the screen
+    filling).
+``python -m simulation.young --interactive`` -> the **live VisPy window**:
+    the wave as a glowing 3-D volume (additive, anti-flicker AGC) passing the
+    double-slit wall, the detection screen as the hot 2-D panel (the
+    interference fringes + the accumulated detections = the *reality*), with a
+    HUD and keyboard controls (pause, speed, camera, reset, clear, live
+    slit/wavelength tuning).
 
 The **collapse** (the wave-packet reduction) is shown on the screen exactly as
 the user asked: the field is seen **contracting** onto the detected point, the
@@ -145,116 +149,26 @@ def run_headless(cfg):
 
 
 # ---------------------------------------------------------------------------
-# interactive: the live window + the parameter panel (keyboard)
+# interactive: the live VisPy window (3-D volume + 2-D detection screen)
 # ---------------------------------------------------------------------------
 def run_interactive(cfg):
-    sim = WaveSim.WaveSim(cfg)
-    collapse = Collapse.Collapse(cfg)
-    scene = Scene.Scene(cfg, off_screen=False)
-    p = scene.plotter
+    """The live window (VisPy): the wave as a glowing 3-D additive volume
+    passing the double-slit wall, the detection screen as the hot 2-D panel
+    (the interference fringes + the accumulated detections = the *reality*),
+    with a HUD and keyboard controls (pause, speed, camera, reset, clear, and
+    live slit / wavelength tuning)."""
+    from . import vispy_young
 
-    n_steps = int(cfg["n_steps"])
-    collapse_every = int(cfg["collapse_every"])
-    step_ms = 50  # ~20 fps; the actual pace is bounded by the render time
-    # mutable state shared by the key handler and the timer callback
-    st = {"running": True, "collapse_timer": 0}
-
-
-    def key_q():
-        st["running"] = False
-        p.iren.interactor.TerminateApp()
-
-    def key_s():
-        sim.slit_separation += 2
-        sim._build_barrier()
-
-    def key_a():
-        sim.slit_separation = max(6, sim.slit_separation - 2)
-        sim._build_barrier()
-
-    def key_w():
-        sim.slit_width = min(30, sim.slit_width + 1)
-        sim._build_barrier()
-
-    def key_x():
-        sim.slit_width = max(2, sim.slit_width - 1)
-        sim._build_barrier()
-
-    def key_e():
-        sim.wavelength = min(40, sim.wavelength + 1)
-
-    def key_d():
-        sim.wavelength = max(4, sim.wavelength - 1)
-
-    def key_o():
-        collapse.show = not collapse.show
-
-    def key_p():
-        st["running"] = not st["running"]
-
-    for key, cb in (
-        ("q", key_q),
-        ("s", key_s),
-        ("a", key_a),
-        ("w", key_w),
-        ("x", key_x),
-        ("e", key_e),
-        ("d", key_d),
-        ("o", key_o),
-        ("p", key_p),
-        (" ", key_p),
-    ):
-        p.add_key_event(key, cb)
-
-    def tick(step):
-        if not st["running"] or sim.t >= n_steps:
-            return
-        sim.step()
-        # a detection (fills the screen)
-        st["collapse_timer"] += 1
-        if (
-            st["collapse_timer"] >= collapse_every
-            and collapse.n_detected() < collapse.n_detections
-        ):
-            I = sim.screen_intensity()
-            if I.sum() > 0:
-                pt = collapse.sample(I)
-                if pt is not None:
-                    collapse.add(*pt)
-                    collapse.set_event(*pt)
-                    st["collapse_timer"] = 0
-        collapse.advance_event()
-        # the field (contracted onto the detected point while the event is active)
-        field = sim.field()
-        if collapse.event_active():
-            field = collapse.contract(field)
-        cp = (collapse.event[0], collapse.event[1]) if collapse.event_active() else None
-        # rebuild all actors (render=False) then set the panel; Timer.execute
-        # does the single render after this callback, so the panel is included
-        # in one frame (no double render, no flicker).
-        scene.draw_frame(sim, field * field, sim.screen_intensity(),
-                         collapse.detections, cp, render=False)
-        scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
-
-    # duration is the per-tick interval in ms (a repeating VTK timer), NOT the
-    # total: n_steps ticks at step_ms each.
-    p.add_timer_event(max_steps=n_steps, duration=step_ms, callback=tick)
-    print("[young] interactive window. keys: s/a slit sep, w/x slit width, "
-          "e/d wavelength, o collapse on/off, p pause, q quit")
-    # an initial draw so the window is not black before the first tick
-    field = sim.field()
-    scene.draw_frame(sim, field * field, sim.screen_intensity(),
-                     collapse.detections, None, render=False)
-    scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
-    scene.plotter.render()
-    p.show()
-    scene.close()
+    print("[young] interactive window (VisPy). keys: Space pause | +/- speed | "
+          "s/a slit sep | w/x slit width | e/d wavelength | R reset | "
+          "C clear | V camera | Q quit")
+    vispy_young.run(cfg)
 
 
 def main(argv):
     """The dispatcher.  The GPU is pinned in ``__main__.py`` (before the CuPy
     import) from ``config.yaml`` (default **1**); ``--interactive`` opens the
-    live window + the parameter panel instead of writing the video."""
+    live VisPy window instead of writing the video."""
     interactive = "--interactive" in argv
     cfg = load_config()
     if interactive:

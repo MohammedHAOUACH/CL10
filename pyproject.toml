@@ -21,6 +21,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["ruff", "pytest"]
+# the simulation/young visualizations: the live VisPy window (vispy + its
+# PySide6/PyOpenGL backend) and the headless PyVista video.
+young = ["vispy", "PySide6", "PyOpenGL", "PyVista"]
 
 [tool.setuptools.packages.find]
 include = ["cl10*"]

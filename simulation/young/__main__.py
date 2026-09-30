@@ -5,8 +5,8 @@ Entry point: ``python -m simulation.young``.
 
 Pins **``CUDA_VISIBLE_DEVICES``** to the ``gpu`` id from ``config.yaml``
 (default **1** -- the free card) *before* the CuPy import, so the whole
-simulation runs on that GPU.  Then dispatches to the runner (headless video by
-default, ``--interactive`` for the live window + parameter panel).
+simulation runs on that GPU.  Then dispatches to the runner: the headless
+video by default, or the live VisPy window with ``--interactive``.
 """
 
 import os
