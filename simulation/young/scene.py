@@ -197,14 +197,15 @@ class Scene:
 
     # -- a full frame ----------------------------------------------------------
     def draw_frame(self, sim, intensity, screen_intensity, detections,
-                   collapse_xy=None):
+                   collapse_xy=None, render=True):
         self.plotter.clear_actors()
         self._add_static(sim)
         self._add_field(intensity)
         self._add_screen(sim, screen_intensity, detections)
         if collapse_xy is not None:
             self._add_collapse_marker(collapse_xy[0], collapse_xy[1], sim.screen_z)
-        self.plotter.render()
+        if render:
+            self.plotter.render()
 
     def save_frame(self, path):
         self.plotter.screenshot(path)

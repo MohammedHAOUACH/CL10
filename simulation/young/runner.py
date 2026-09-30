@@ -122,7 +122,7 @@ def run_headless(cfg):
             intensity = field * field
             cp = (collapse.event[0], collapse.event[1]) if collapse.event_active() else None
             scene.draw_frame(sim, intensity, sim.screen_intensity(),
-                             collapse.detections, cp)
+                             collapse.detections, cp, render=False)
             scene.set_panel(make_panel(cfg, sim, collapse, t))
             scene.plotter.render()
             scene.write_frame()
@@ -159,8 +159,6 @@ def run_interactive(cfg):
     # mutable state shared by the key handler and the timer callback
     st = {"running": True, "collapse_timer": 0}
 
-    def panel():
-        scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
 
     def key_q():
         st["running"] = False
@@ -231,11 +229,12 @@ def run_interactive(cfg):
         if collapse.event_active():
             field = collapse.contract(field)
         cp = (collapse.event[0], collapse.event[1]) if collapse.event_active() else None
+        # rebuild all actors (render=False) then set the panel; Timer.execute
+        # does the single render after this callback, so the panel is included
+        # in one frame (no double render, no flicker).
         scene.draw_frame(sim, field * field, sim.screen_intensity(),
-                         collapse.detections, cp)
-        panel()
-        # Timer.execute calls Render() after this callback, so no explicit
-        # render here (avoids a double render per tick).
+                         collapse.detections, cp, render=False)
+        scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
 
     # duration is the per-tick interval in ms (a repeating VTK timer), NOT the
     # total: n_steps ticks at step_ms each.
@@ -245,9 +244,9 @@ def run_interactive(cfg):
     # an initial draw so the window is not black before the first tick
     field = sim.field()
     scene.draw_frame(sim, field * field, sim.screen_intensity(),
-                     collapse.detections, None)
-    panel()
-    p.render()
+                     collapse.detections, None, render=False)
+    scene.set_panel(make_panel(cfg, sim, collapse, sim.t))
+    scene.plotter.render()
     p.show()
     scene.close()
 
