@@ -91,37 +91,26 @@ def make_plane(parent, z_sim, Lx, Ly, face, border):
     contour.set_gl_state("translucent", blend=True, depth_test=False)
 
 
-def make_slit_wall(parent, sim):
-    """The double-slit wall: a dark rectangle at ``barrier_z`` plus the two
-    bright slit openings (from ``sim.slit_rects``).  The rectangles are built
-    in the (Sim X, Sim Y) plane and transformed to the wall (Sim Z =
-    barrier_z).  Returns the created visual nodes (so the wall can be rebuilt
-    when the slits are changed live)."""
-    Lx, Ly = sim.Lx, sim.Ly
+def make_slit_outlines(parent, sim):
+    """The two slit openings as bright **yellow rectangular outlines** on the
+    barrier plane (matching the reference visualizer).  Each rectangle lies in
+    the (view Y = Sim Y, view Z = Sim X) plane at view X = ``barrier_z``
+    (perpendicular to the beam).  Returns the created line nodes (so the
+    outlines can be rebuilt when the slits are changed live)."""
+    px = float(sim.barrier_z)
     nodes = []
-
-    def wall_rect(x0, x1, y0, y1, color, border, zoff=0.0, bw=1):
-        cx, cy = (x0 + x1) / 2.0, (y0 + y1) / 2.0
-        rect = scene.visuals.Rectangle(
-            center=(cx, cy),
-            width=max(1.0, x1 - x0), height=max(1.0, y1 - y0),
-            color=color, border_color=border, border_width=bw,
+    for (x0, x1, y0, y1) in sim.slit_rects:
+        x0, x1, y0, y1 = float(x0), float(x1), float(y0), float(y1)
+        line = scene.visuals.Line(
+            pos=np.array([
+                [px, y0, x0], [px, y1, x0], [px, y1, x1],
+                [px, y0, x1], [px, y0, x0],
+            ], dtype=np.float32),
+            connect="strip", color=(1.0, 1.0, 0.0, 1.0), width=3,
             parent=parent,
         )
-        t = scene.transforms.MatrixTransform()
-        t.rotate(-90, (0, 1, 0))
-        t.translate((float(sim.barrier_z) + zoff, 0, 0))
-        rect.transform = t
-        rect.set_gl_state("translucent", cull_face=False, blend=True, depth_test=True)
-        nodes.append(rect)
-        return rect
-
-    # the opaque wall (the whole plane)
-    wall_rect(0, Lx, 0, Ly, (0.1, 0.1, 0.1, 0.7), (0.5, 0.5, 0.5, 0.8))
-    # the two slit openings (bright)
-    for (x0, x1, y0, y1) in sim.slit_rects:
-        wall_rect(x0, x1, y0, y1, (1.0, 1.0, 0.0, 0.3), (1.0, 1.0, 0.0, 1.0),
-                  zoff=0.1, bw=2)
+        line.set_gl_state("translucent", blend=True, depth_test=False)
+        nodes.append(line)
     return nodes
 
 
@@ -133,7 +122,7 @@ class YoungVisPy(scene.SceneCanvas):
         self.cfg = cfg
         vis = cfg.get("visualization", {})
         self.Lx, self.Ly, self.Lz = (int(v) for v in cfg["grid"])
-        win_size = tuple(int(v) for v in cfg.get("render_size", (1280, 800)))
+        win_size = tuple(int(v) for v in vis.get("window_size", (1200, 800)))
 
         scene.SceneCanvas.__init__(
             self, title="CL10 Young 3-D (VisPy)",
@@ -188,7 +177,14 @@ class YoungVisPy(scene.SceneCanvas):
         )
 
         make_box(self.view_3d.scene, self.Lx, self.Ly, self.Lz)
-        self._slit_nodes = make_slit_wall(self.view_3d.scene, self.sim)
+        # the slit wall: a faint BLUE translucent plane (the barrier) with the
+        # two slit openings marked as bright yellow outlines.
+        make_plane(
+            self.view_3d.scene, self.sim.barrier_z, self.Lx, self.Ly,
+            (0.2, 0.4, 1.0, 0.07), (0.3, 0.6, 1.0, 0.9),
+        )
+        self._slit_nodes = make_slit_outlines(self.view_3d.scene, self.sim)
+        # the detection screen: the "projection screen" (a faint orange plane).
         make_plane(
             self.view_3d.scene, self.sim.screen_z, self.Lx, self.Ly,
             (1.0, 0.6, 0.0, 0.07), (1.0, 0.85, 0.0, 0.9),
@@ -228,6 +224,10 @@ class YoungVisPy(scene.SceneCanvas):
         self._scr_ref = None    # the AGC reference (2-D screen)
         self._release = float(vis.get("agc_release", 600.0))
         self._gain_max = float(vis.get("agc_gain_max", 8.0))
+        # the volume translucency: the density is scaled by this before the
+        # additive blend, so < 1.0 makes the cloud read as a semi-transparent
+        # "alpha" volume (like the reference).
+        self.volume_alpha = float(vis.get("volume_alpha", 0.7))
 
         # prime the visuals
         self._maj_volume()
@@ -243,7 +243,7 @@ class YoungVisPy(scene.SceneCanvas):
     # ------------------------------------------------------------------
     def _maj_layout(self):
         W, H = self.size
-        w2 = min(int(W * 0.28), H)
+        w2 = min(int(W * 0.25), H)
         h2 = min(int(round(w2 * self.Ly / self.Lx)), H)
         self.view_3d.pos = (0, 0)
         self.view_3d.size = (W - w2, H)
@@ -315,6 +315,8 @@ class YoungVisPy(scene.SceneCanvas):
         top = float(self.volume.clim[1]) if hasattr(self.volume.clim, "__getitem__") \
             else 1.0
         dens, self._vol_ref = self._agc(dens, self._vol_ref, top)
+        if self.volume_alpha != 1.0:
+            dens *= self.volume_alpha
         self.volume.set_data(dens.astype(np.float32))
 
     def _maj_screen(self):
@@ -356,11 +358,11 @@ class YoungVisPy(scene.SceneCanvas):
         self.info_text.update()
 
     def _rebuild_slit_wall(self):
-        """Detach the old slit rectangles and rebuild them from the current
+        """Detach the old slit outlines and rebuild them from the current
         (live-tuned) slits."""
         for n in self._slit_nodes:
             n.parent = None
-        self._slit_nodes = make_slit_wall(self.view_3d.scene, self.sim)
+        self._slit_nodes = make_slit_outlines(self.view_3d.scene, self.sim)
 
     # ------------------------------------------------------------------
     # keyboard

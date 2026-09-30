@@ -39,10 +39,10 @@ also shown live in the window corner:
 | key | meaning |
 |---|---|
 | `gpu` | which GPU to pin (default **1** — the free card) |
-| `grid` | the `(Lx, Ly, Lz)` box — a big 3-D volume |
+| `grid` | the `(Lx, Ly, Lz)` box — a wide + flat 3-D volume (`256×256×512`, the long `z` axis) |
 | `r` | the leapfrog coefficient `c dt/dx` (CFL: `r <= 1/sqrt(3)`) |
 | `wavelength` | the source wavelength (sets the fringe spacing) |
-| `source_width` / `source_amplitude` / `ramp_steps` | the Gaussian beam |
+| `source_width` / `source_amplitude` / `source_z` / `ramp_steps` | the Gaussian beam (and its `z` position) |
 | `sponge_width` | the absorbing boundary (kills reflections) |
 | `barrier_z` / `slit_separation` / `slit_width` / `slit_height` | the two slits |
 | `screen_z` | the detection screen |

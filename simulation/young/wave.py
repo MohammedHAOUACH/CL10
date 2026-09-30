@@ -29,6 +29,7 @@ class WaveSim:
         self.wavelength = float(cfg["wavelength"])
         self.source_width = float(cfg["source_width"])
         self.source_amplitude = float(cfg["source_amplitude"])
+        self.source_z = int(cfg.get("source_z", 0))
         self.ramp_steps = int(cfg["ramp_steps"])
         self.barrier_z = int(cfg["barrier_z"])
         self.screen_z = int(cfg["screen_z"])
@@ -48,14 +49,12 @@ class WaveSim:
         phi = 2.0 * math.pi / self.wavelength
         self.omega = math.asin(self.r * math.sin(phi))
 
-        # the Gaussian source envelope (a 2-D mask on x-y at the source plane)
+        # the source envelope: a Gaussian in x (a broad beam that illuminates
+        # both slits), FULL in y -- a vertical sheet like the reference, so the
+        # interference pattern is clean vertical fringes (independent of y).
         gx = B.arange(self.Lx, dtype=B._E.float32)
-        gy = B.arange(self.Ly, dtype=B._E.float32)
-        X, Y = B.meshgrid(gx, gy)
-        self.source_mask = B.exp(
-            -((X - self.Lx / 2.0) ** 2 + (Y - self.Ly / 2.0) ** 2)
-            / (2.0 * self.source_width ** 2)
-        )
+        mx = B.exp(-((gx - self.Lx / 2.0) ** 2) / (2.0 * self.source_width ** 2))
+        self.source_mask = mx[:, None] * B.ones((1, self.Ly), dtype=B._E.float32)
 
         self._build_sponge()
         self._build_barrier()
@@ -125,11 +124,11 @@ class WaveSim:
         new = new * self.sponge
         # the double-slit barrier (hard mask at the barrier plane)
         new[:, :, self.barrier_z] = new[:, :, self.barrier_z] * self.barrier
-        # the driven Gaussian-beam source at z = 0 (ramped in to avoid a shock)
+        # the driven Gaussian-beam source at ``source_z`` (ramped in to avoid a shock)
         ramp = 1.0 if self.t >= self.ramp_steps else (self.t / float(self.ramp_steps))
         self.psi_prev = p
         self.psi = new
-        self.psi[:, :, 0] = (
+        self.psi[:, :, self.source_z] = (
             self.source_amplitude * ramp * self.source_mask * B.cos(self.omega * self.t)
         )
         self.t += 1

@@ -13,11 +13,11 @@
 # free card; 0 is usually busy).
 gpu: 1
 
-# --- the grid / the 3-D scene (grande taille) --------------------------------
-# (Lx, Ly, Lz) cells.  The wave propagates along +z, the two slits are
-# separated along x, the slits are slots of height along y.  A big box so the
-# scene reads as a large 3-D volume, not a flat plane.
-grid: [256, 160, 256]
+# --- the grid / the 3-D scene (wide + flat, like the reference) -------------
+# (Lx, Ly, Lz) cells.  The wave propagates along +z (the long axis), the two
+# slits are separated along x, the slits are full-height slots along y.
+# 256 x 256 x 512 = the same wide, flat box as the reference example.
+grid: [256, 256, 512]
 
 # render only every N-th cell (a stride in each axis) to keep the point cloud
 # fast on the GPU and the window responsive.  2 -> 1/8 of the cells drawn.
@@ -31,11 +31,15 @@ r: 0.5
 # the source wavelength in grid units (sets the fringe spacing on the screen).
 wavelength: 10.0
 
-# the Gaussian source-envelope width (x and y), in grid units.
-source_width: 34.0
+# the Gaussian source-envelope width in x (the beam is full in y -- a sheet),
+# in grid units.  Broad enough to illuminate both slits.
+source_width: 60.0
 
 # the source amplitude (the beam height at the source).
 source_amplitude: 1.0
+# the z position of the source (a little inside the box, off the sponge,
+# like the reference).
+source_z: 32
 
 # the source ramp-in, in steps (avoid a launch shock; the beam fades in).
 ramp_steps: 150
@@ -45,7 +49,7 @@ sponge_width: 12
 
 # --- the barrier + the two slits (the "fentes") ------------------------------
 # z position of the barrier plane.
-barrier_z: 128
+barrier_z: 156
 
 # the center-to-center distance between the two slits (x), in grid units.
 slit_separation: 32.0
@@ -53,12 +57,14 @@ slit_separation: 32.0
 # the width of **each** slit (x), in grid units.
 slit_width: 9.0
 
-# the height of each slit (a slot along y), in grid units.
-slit_height: 90.0
+# the height of each slit (a slot along y) -- full height (= Ly), so the slits
+# are clean vertical lines like the reference (the sheet passes fully through).
+slit_height: 256.0
 
 # --- the detection screen (the "reality") ------------------------------------
-# z position of the detection screen (behind the slits).
-screen_z: 240
+# z position of the detection screen (behind the slits; 82% down the box,
+# like the reference).
+screen_z: 420
 
 # how many collapse / detection events to accumulate on the screen.
 n_detections: 3000
@@ -106,12 +112,19 @@ out_frames: video/frames
 # --- the live VisPy window (--interactive) -----------------------------------
 # (the headless video uses the blocks above; these tune the interactive one)
 
-# the colormap of the 3-D volume and the 2-D detection screen.
 visualization:
+  # the window size (width, height) in pixels -- the same as the reference.
+  window_size: [1200, 800]
+
+  # the colormap of the 3-D volume and the 2-D detection screen.
   cmap: hot
 
   # the colour range of the (frame-normalised) intensities.
   clim: [0.0, 1.0]
+
+  # the volume translucency: < 1.0 makes the propagating cloud read as a
+  # semi-transparent "alpha" volume (like the reference); 1.0 = full.
+  volume_alpha: 0.7
 
   # subsample the 3-D volume by this stride in each axis (2 -> 1/8 the cells).
   volume_stride: 2
