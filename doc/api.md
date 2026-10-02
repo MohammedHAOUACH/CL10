@@ -246,7 +246,7 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
 
 
-## 12. The completion program modules (V36–V49)
+## 12. The completion program modules (V36–V50)
 
 The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
 from a consistent 0-parameter framework to a **complete** TOE.  Each module
@@ -342,26 +342,36 @@ gravity** (C2), the **2-loop UV-finite** running (W4), the **3- and
 
 **`cl10.gravity` — the COMPLETE 4-D non-linear gravity (V50, C2, W9).**
 
-The 4-D non-linear gravity **completed**: the general Riemann / Ricci / Einstein /
-Kretschmann are **computed by central finite differences from an *arbitrary*
-metric** (not hard-coded, not restricted to one analytic solution), **2-route
-verified** (the computed de Sitter matches the independent analytic one to
-$O(h^2)$; the Schwarzschild Ricci is $0$ and the computed Kretschmann is
-$48M^2/r^6$ — the **black hole recovered by computation**), the **complete**
-0-parameter discrete EH action ($G=1$) whose functional derivative is the
-non-linear Einstein equation (dynamics $\leftarrow$ action), and the
-**non-linear** (state-dependent) QCA metric evolution (unitary/UV-finite,
+The 4-D non-linear gravity **completed**: the general Riemann / Ricci /
+Einstein / Kretschmann are **computed by central finite differences from an
+*arbitrary* metric** (no hard-coded Christoffels, not restricted to one
+solution), **2-route verified** (the computed de Sitter Riemann matches the
+independent analytic one — `cl10.nonlinear_gravity` — to $O(h^2)$; the
+Schwarzschild Ricci is $0$ and the **computed** Kretschmann is $48M^2/r^6$ —
+the **black hole recovered by computation**; the flat metric gives
+$R=G=K=0$), the **complete** 0-parameter discrete Einstein–Hilbert action
+$S = \frac{1}{16\pi}\sum_x \sqrt{-\det g}\,(R - 2\Lambda)$ ($G=1$) whose
+functional derivative **is** the non-linear Einstein equation
+(dynamics $\leftarrow$ action), and the **non-linear** (state-dependent)
+QCA metric evolution (the 't Hooft non-linear completion: unitary/UV-finite,
 causal $c=1$, superposition fails).
 
 | symbol | signature | returns |
 |---|---|---|
-| `gravity` | `()` | `{backend, dsitter_riemann_err, schwarzschild_ricci_max, kretschmann_ratio, flat_ricci, flat_einstein, gamma_gamma_flat, gamma_gamma_curved, qca_norm_rel_err, superpose_err, front_speed, g_10, lambda, residual, ok}` — the **complete** 4-D non-linear gravity (all 0-parameter, no fit): the general Riemann/Ricci/Einstein/Kretschmann computed from an arbitrary metric; 2-route verification (de Sitter analytic vs computed, $O(h^2)$); the Schwarzschild black hole recovered by computation (Ricci $0$, Kretschmann $48M^2/r^6$); the flat-metric vacuum ($R=G=0$ exact); the non-linear $\Gamma\Gamma$ self-gravity (flat $0$ / curved $>0$); the non-linear QCA (norm-preserving, superposition fails, causal); the exact $10^{-122}$ and the full NR/quantum completion are the W9 named residual |
-| `riemann_4d` | `(gmn, x, h=0.05)` | `{R, G, K}` — the **general** 4-D Riemann (curvature) $R^\mu_{\nu\rho\sigma}$, Ricci $R_{\mu\nu}$, Einstein $G_{\mu\nu}$, Kretschmann $K$ **computed by 2nd-order central finite differences** from an **arbitrary** metric $g_{\mu\nu}(x)$ (inverse metric $g^\mu\nu$, Christoffel, then the curvature; 10-point central stencil) |
-| `metric_and_dg` | `(f, h)` | the metric $g_{\mu\nu}(x)$ and its inverse $g^\mu\nu(x)$ on the lattice from a field `f` of shape `(L,4,4)` (the diagonal approximation; $\det g$ via `np.linalg.det` at each point) |
-| `min_grid` | `(x0, L=4)` | an $(L+1)^4$ 4-D grid (0-indexed, stride-1) with the **2nd-order central finite-difference** `np.gradient` operators in all 4 directions |
-| `einstein_hilbert` | `(gmn, dginv, rmax, lam=0.0)` | `{S, R, lam, G=1, det_g, det_g_min, ok}` — the **complete** 0-parameter discrete EH action $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}(R(x)-2\Lambda)$ on the GPU ($G=1$); $R(x)$ from `riemann_4d` |
-| `dynamics_from_action` | `(gmn, ginv, dginv, lam=0.0, tol=1e-3)` | `{deltaS, max_deltaS, deltaS_flat, flat_ok, nonlinear_ok, ok, ...}` — the **functional derivative** $\delta S/\delta g_{\mu\nu}$ (the Euler–Lagrange) is the **non-linear** Einstein equation (dynamics $\leftarrow$ action): it vanishes on a **flat** metric (vacuum, exact) and is non-zero on a **curved** metric (the self-gravity source) |
-| `nonlinear_qca` | `(f0, n_steps, lambda=0.2, G10=0.2)` | `(f, norms)` — the **non-linear** (state-dependent) QCA metric evolution: the GUT angle is modulated by the **local** $\Gamma\Gamma$ curvature (the 't Hooft non-linear completion) + the 0-parameter **causal** bond layer (the staggered 2×2 unitary of `cl10.local_qca`: front speed 1); norm-preserving (unitary/UV-finite), superposition fails (non-linear) |
+| `H_FD` / `G10` | (module constants) | the 0-parameter finite-difference step ($10^{-3}$, a *numerical* convergence parameter) / the GUT angle ($g_{10} = 1/5$) |
+| `christoffel_4d` | `(g, dg)` | $\Gamma^\rho_{\mu\sigma}$ — the 4-D Christoffel symbols from a 4×4 metric and its first derivatives (a 4×4×4 array) |
+| `riemann_4d` | `(mfn, x, h=H_FD)` | the **full 4-D Riemann** $R^\rho{}_{\sigma\mu\nu}$ (4×4×4×4) **computed by central finite differences from an *arbitrary* metric** `mfn(x) -> 4x4` |
+| `ricci_4d` | `(R)` | $R_{\mu\nu} = R^\rho{}_{\mu\rho\nu}$ |
+| `ricci_scalar_4d` | `(Ric, gin)` | $R = g^{\mu\nu}R_{\mu\nu}$ |
+| `einstein_tensor_4d` | `(Ric, g, scalar)` | $G_{\mu\nu} = R_{\mu\nu} - \tfrac12 g_{\mu\nu} R$ |
+| `kretschmann_4d` | `(R, g)` | $K = R^{mnpq}R_{mnpq}$ (the coordinate-independent curvature invariant) |
+| `gamma_gamma_4d` | `(mfn, x, h=H_FD)` | $\max\lvert\Gamma\Gamma\rvert$ — the non-linear (cubic) self-gravity part of the Riemann (0 for flat, $>0$ for a curved metric) |
+| `metric_flat` / `metric_de_sitter` / `metric_schwarzschild` / `metric_2sphere` | `(x)` / `(H, x)` / `(M, x)` / `(r, x)` | the 0-parameter metric factories (the known solutions, each a 4×4) |
+| `discrete_eh_action` | `(mfn, grid, Lambda, h=H_FD)` | $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}\,(R(x)-2\Lambda)$ (the complete 0-parameter discrete EH action, $G=1$) |
+| `dynamics_from_action` | `(mfn, Lambda, x0, h=H_FD, eps=1e-4)` | the **functional derivative** $\delta S/\delta g$ (the numerical Euler–Lagrange) — the non-linear Einstein equation: vanishes on a solution (flat), nonzero on a curved metric (the self-gravity source) |
+| `nonlinear_qca` | `(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12)` | the **non-linear** (state-dependent) QCA metric evolution → `{norm_rel_err, superpose_err, unitary_ok, nonlinear_ok, causal_ok, front_speed, g10, lam, residual, ok}` (norm preserved to machine precision; the superposition fails) |
+| `verify_analytic_vs_computed` / `verify_blackhole` / `verify_flat` / `verify_nonlinear` | `(h=H_FD)` | the 2-route checks: the computed vs analytic de Sitter Riemann; the Schwarzschild vacuum ($G=0$ by computation) + the computed Kretschmann; the flat vacuum; the ΓΓ self-gravity (absent for flat, present for de Sitter) |
+| `verify` | `(tol=1e-9)` | the complete 4-D non-linear gravity verdict (all the checks above + the non-linear QCA) |
 
 **`cl10.unification` — the 2-loop running (V47, W4).**
 
@@ -401,6 +411,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 50 experiments
+python3 run_validation.py              # all 51 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
