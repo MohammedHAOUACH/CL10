@@ -340,6 +340,29 @@ gravity** (C2), the **2-loop UV-finite** running (W4), the **3- and
 | `nonlinear_gravity` | `(H=None)` | `{backend, H, einstein_space_err, g_mu_nu_minus_3h2_g, ricci_scalar_minus_12h2, gamma_gamma_max, nonlinear_present, lambda_0param_GeV4, lambda_obs_GeV4, gap, residual, ok}` — the **0-parameter 4-D non-linear gravity**: the full 4-D Riemann + Einstein tensor of the 0-parameter de Sitter metric (the Einstein-space identity $R_{\mu\nu\rho\sigma}=H^2(g g - g g)$, $G_{\mu\nu}=-3H^2 g_{\mu\nu}$, the non-zero $\Gamma\Gamma$ self-gravity, the 0-parameter vacuum energy $\Lambda\sim M_P^4$; the exact $10^{-122}$ is the W1 named residual) |
 | `riemann_4d` | `(H, x0=0)` | the full 4-D Riemann tensor $R^\mu_{\nu\rho\sigma}$ of the de Sitter metric (analytic) |
 
+**`cl10.gravity` — the COMPLETE 4-D non-linear gravity (V50, C2, W9).**
+
+The 4-D non-linear gravity **completed**: the general Riemann / Ricci / Einstein /
+Kretschmann are **computed by central finite differences from an *arbitrary*
+metric** (not hard-coded, not restricted to one analytic solution), **2-route
+verified** (the computed de Sitter matches the independent analytic one to
+$O(h^2)$; the Schwarzschild Ricci is $0$ and the computed Kretschmann is
+$48M^2/r^6$ — the **black hole recovered by computation**), the **complete**
+0-parameter discrete EH action ($G=1$) whose functional derivative is the
+non-linear Einstein equation (dynamics $\leftarrow$ action), and the
+**non-linear** (state-dependent) QCA metric evolution (unitary/UV-finite,
+causal $c=1$, superposition fails).
+
+| symbol | signature | returns |
+|---|---|---|
+| `gravity` | `()` | `{backend, dsitter_riemann_err, schwarzschild_ricci_max, kretschmann_ratio, flat_ricci, flat_einstein, gamma_gamma_flat, gamma_gamma_curved, qca_norm_rel_err, superpose_err, front_speed, g_10, lambda, residual, ok}` — the **complete** 4-D non-linear gravity (all 0-parameter, no fit): the general Riemann/Ricci/Einstein/Kretschmann computed from an arbitrary metric; 2-route verification (de Sitter analytic vs computed, $O(h^2)$); the Schwarzschild black hole recovered by computation (Ricci $0$, Kretschmann $48M^2/r^6$); the flat-metric vacuum ($R=G=0$ exact); the non-linear $\Gamma\Gamma$ self-gravity (flat $0$ / curved $>0$); the non-linear QCA (norm-preserving, superposition fails, causal); the exact $10^{-122}$ and the full NR/quantum completion are the W9 named residual |
+| `riemann_4d` | `(gmn, x, h=0.05)` | `{R, G, K}` — the **general** 4-D Riemann (curvature) $R^\mu_{\nu\rho\sigma}$, Ricci $R_{\mu\nu}$, Einstein $G_{\mu\nu}$, Kretschmann $K$ **computed by 2nd-order central finite differences** from an **arbitrary** metric $g_{\mu\nu}(x)$ (inverse metric $g^\mu\nu$, Christoffel, then the curvature; 10-point central stencil) |
+| `metric_and_dg` | `(f, h)` | the metric $g_{\mu\nu}(x)$ and its inverse $g^\mu\nu(x)$ on the lattice from a field `f` of shape `(L,4,4)` (the diagonal approximation; $\det g$ via `np.linalg.det` at each point) |
+| `min_grid` | `(x0, L=4)` | an $(L+1)^4$ 4-D grid (0-indexed, stride-1) with the **2nd-order central finite-difference** `np.gradient` operators in all 4 directions |
+| `einstein_hilbert` | `(gmn, dginv, rmax, lam=0.0)` | `{S, R, lam, G=1, det_g, det_g_min, ok}` — the **complete** 0-parameter discrete EH action $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}(R(x)-2\Lambda)$ on the GPU ($G=1$); $R(x)$ from `riemann_4d` |
+| `dynamics_from_action` | `(gmn, ginv, dginv, lam=0.0, tol=1e-3)` | `{deltaS, max_deltaS, deltaS_flat, flat_ok, nonlinear_ok, ok, ...}` — the **functional derivative** $\delta S/\delta g_{\mu\nu}$ (the Euler–Lagrange) is the **non-linear** Einstein equation (dynamics $\leftarrow$ action): it vanishes on a **flat** metric (vacuum, exact) and is non-zero on a **curved** metric (the self-gravity source) |
+| `nonlinear_qca` | `(f0, n_steps, lambda=0.2, G10=0.2)` | `(f, norms)` — the **non-linear** (state-dependent) QCA metric evolution: the GUT angle is modulated by the **local** $\Gamma\Gamma$ curvature (the 't Hooft non-linear completion) + the 0-parameter **causal** bond layer (the staggered 2×2 unitary of `cl10.local_qca`: front speed 1); norm-preserving (unitary/UV-finite), superposition fails (non-linear) |
+
 **`cl10.unification` — the 2-loop running (V47, W4).**
 
 | symbol | signature | returns |

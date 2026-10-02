@@ -1,0 +1,17 @@
+ Points de prudence / limites (ce qu'un "grand physicien" devrait aussi noter) :                                                                                                                                    
+ - Le "0-paramètre" est partiellement conventionnel. Des nombres comme g₁₀=1/5, α₁₀=1/25, g₀=1/8, M_(rm GUT)=M_P, v=246 GeV sont posés à partir de la structure de la racine, mais la choix de lire "1/n_qubits"    
+   comme le couplage, ou d'identifier M_(rm GUT) avec M_P, est une convention de mapping, pas une prédiction libre. Le match v/E_P=2.02×10⁻¹⁷ à 0.18% est séduisant mais fragile : c'est une coincidence numérique  
+   de 2 chiffres, non une déduction — et la théorie l'admet honnêtement (W8, "la dérivation de l'exposant est ouverte").                                                                                            
+ 
+ - La hiérarchie n'est pas expliquée, seulement fixée. La théorie pose 2 échelles (Planck, électrofaible) avec un grand gap ; elle n'explique pas pourquoi le gap est 10⁻¹⁷.                                        
+ 
+ - La gravité : le non-linéaire 4-D est maintenant COMPLET au niveau classique (V50). Le Riemann/Ricci/Einstein/Kretschmann GÉNÉRAL est calculé par différences finies à partir de n'importe quelle métrique (vérifié 2 voies
+   contre l'analytique de Sitter, O(h²) ; le trou noir de Schwarzschild est récupéré PAR CALCUL : Ricci=0 (G=0 au vide), Kretschmann=48M²/r⁶, ratio 1.000009 ; le plat donne R=G=K=0 exact). L'action EH
+   complète (G=1) est dérivée de la dynamique (δS/δg = la non-linéarité), et l'évolution QCA non-linéaire (dépendante de l'état) est unitaire/UV-finie et causale (c=1). Ce qui reste ouvert (W9) : l'évolution
+   numérique-relativité complète (BSSN/Z4) d'une métrique 3+1 arbitraire + la complétion QUANTIQUE (l'UV de la gravité quantique) — plus le toy 1-D de Choptuik (V13) pour l'effondrement critique.
+ 
+ - La baryogenèse n'est pas générée par le QCA 0-param. La théorie est honête : le QCA 0-param satisfait aucune des 3 conditions de Sakharov (il est conservant en baryon, CPT-invariant, en équilibre).            
+   L'asymétrie vient de l'ingrédient nommé η_(CP) (la leptogenèse GUT). C'est le point le plus faible du programme : l'asymétrie baryonique observée est ajoutée par un paramètre nommé, pas produite.              
+ 
+ - La dark-matter 0-param ne matche pas l'observé. Le soliton de Planck donne Ω₀ₚₐᵣₐₘ/Ω_(rm obs)∼10⁻⁵² — la théorie le quantifie comme gap (W7) mais c'est un échec de prédiction de la MM observée, honnêtement    
+   reporté. 

@@ -31,7 +31,7 @@ $h_1,\dots,h_{10}$ with $h_a^2 = I$:
 | the **matter** (1 SM generation) | the **16-D Weyl** spinor ($16 = 10 \oplus 5\bar \oplus 1 \oplus \nu^c$) and its $\overline{16}$ |
 | the **gauge** (the GUT) | the **45** (the $\mathrm{Spin}(10)$ adjoint, the $h_a h_b$ for $a<b$) |
 | the **statistics** (boson/fermion) | the **$\mathbb{Z}_2$ grading** (even/odd in the 10 generators) |
-| the **gravity** | the **metric** $g^{\mu\nu}$ of the $(1,3)$ sub-algebra + its dynamics |
+| the **gravity** | the **metric** $g^{\mu\nu}$ of the $(1,3)$ sub-algebra + its dynamics (the **complete** 4-D non-linear gravity: the general Riemann computed from any metric, the 0-parameter EH action, dynamics $\leftarrow$ action, the non-linear QCA) |
 | the **cosmology** | dark matter (the stable **soliton**), dark energy (the **vacuum**), antimatter (the **16/16-bar** pair) |
 
 ## The layout
@@ -66,11 +66,12 @@ CL10/
 │   ├── cosmology.py          # the cosmology (the W1 cancellation, the hierarchy)
 │   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale (V42)
 │   ├── einstein.py           # gravity: the Riemann curvature, the EH action derived from the QCA dynamics (V37)
-│   ├── nonlinear_gravity.py  # the 4-D non-linear gravity: the full Riemann + Einstein tensor of the QCA metric (V46, C2)
+│   ├── nonlinear_gravity.py  # the 4-D non-linear gravity (analytic de Sitter): the full Riemann + Einstein tensor (V46) — the analytic reference
+│   ├── gravity.py            # the COMPLETE 4-D non-linear gravity (V50): the general Riemann/Ricci/Einstein/Kretschmann COMPUTED from any metric (2-route verified), the black hole recovered by computation, the complete 0-parameter EH action (dynamics <- action), and the non-linear (state-dependent) QCA metric evolution
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
 │   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
 │   └── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the 0-parameter quark CKM (V49)
-├── experiments/              # the TOE verification program (50 experiments, V0-V49)
+├── experiments/              # the TOE verification program (51 experiments, V0-V50)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -82,13 +83,14 @@ CL10/
 │   ├── V43/                  # the 9-to-1 reduction: the 32-level QCA spectrum is the one object; the 9 residuals its projections
 │   ├── V44/                  # the QCA lattice RG: the S-matrix to the cross-sections (W9, the UV-finite 0-parameter GUT cross-section)
 │   ├── V45/                  # the 3-gen Yukawa mass matrix: the 9-to-1 projection (W6, the democratic base + the TBM mixing)
-│   ├── V46/                  # the 4-D non-linear gravity: the Einstein equations from the QCA metric (C2, W1)
+│   ├── V46/                  # the 4-D non-linear gravity: the Einstein equations from the QCA metric (C2, the analytic de Sitter reference)
 │   ├── V47/                  # the 2-loop running: the UV-finite QCA vs the UV-divergent perturbative (W4)
 │   ├── V48/                  # the 3- and 4-particle amplitudes: the UV-finite property (W9)
-│   └── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
-├── run_validation.py         # the runner: runs all 50, writes the TOE verdict
+│   ├── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
+│   └── V50/                  # the COMPLETE 4-D non-linear gravity (W9, C2): the general Riemann COMPUTED from any metric, the 2-route verification, the black hole recovered by computation, the non-linear QCA dynamics
+├── run_validation.py         # the runner: runs all 51, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 50/50 PASS + the TOE verdict
+    └── validation_summary.json   # the 51/51 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -113,7 +115,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 50 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 51 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
@@ -121,7 +123,7 @@ python3 run_validation.py        # runs all 50 experiments, prints the TOE verdi
 Section 11 of `doc/publication.md` defines **what a Theory of Everything
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **50** experiments (V0–V49) across the seven tiers and writes
+runs all **51** experiments (V0–V50) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -131,7 +133,7 @@ runs all **50** experiments (V0–V49) across the seven tiers and writes
 > seesaw scale, the three families, the baryon asymmetry, the dark-matter
 > abundance) reported, not hidden.
 
-The **completion program** (V36–V42, tier 6 — Section 12 of
+The **completion program** (V36–V42, V46, V50, tier 6 — Section 12 of
 `doc/publication.md`)
 closes the gap from a consistent 0-parameter framework to a **complete**
 TOE: the **local** QCA (the causal radius *implemented*, C1), the
@@ -140,11 +142,26 @@ TOE: the **local** QCA (the causal radius *implemented*, C1), the
 qubits, $g_0=1/8$ from the 3-space, C3), the **three families inside the
 dynamics** (the 96-D 0-parameter unitary step, C4), the **baryon asymmetry
 at the right order** (the 0-parameter GUT leptogenesis mechanism, C5), the
-**S-matrix of the QCA** (the 't Hooft program, C6), and the **quantified
+**S-matrix of the QCA** (the 't Hooft program, C6), the **quantified
 dark-matter scale** (C7) — and the **9-to-1 reduction** (V43): the
 $32$-level QCA spectrum is the **one** 0-parameter object, and the nine
 residuals (W1–W9) are its **nine named projections** (the 0-point is the
 most invariant — the $\mathrm{SL}(32)$ identity, $=0$ for every coupling).
+
+The **complete gravity** (V50) is the last piece of C2: the 4-D non-linear
+gravity is **completed** from the analytic de Sitter (V46) to the **general**
+computation — the full Riemann / Ricci / Einstein / Kretschmann are **computed
+by finite differences from an *arbitrary* metric** (not hard-coded, not
+restricted to one solution), **2-route verified** (the computed de Sitter
+matches the independent analytic one to $O(h^2)$; the Schwarzschild Ricci is
+$0$ and the Kretschmann is $48M^2/r^6$, so the **black hole is recovered by
+computation**), the **complete** 0-parameter discrete EH action
+($S = \frac{1}{16\pi}\sum \sqrt{-\det g}(R-2\Lambda)$, $G=1$) whose functional
+derivative **is** the non-linear Einstein equation (dynamics $\leftarrow$
+action), and the **non-linear** (state-dependent) QCA metric evolution (the
+'t Hooft non-linear completion: unitary/UV-finite, causal, superposition
+fails).  The **open** part of W9 is now precisely the **full** 4-D
+numerical-relativity evolution (BSSN/Z4) + the **quantum** completion.
 
 Each experiment is a **0-parameter** check: it **confirms** a prediction of
 the publication (or reports an honest **residual**) and writes a JSON verdict
