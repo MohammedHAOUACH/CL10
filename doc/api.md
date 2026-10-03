@@ -451,9 +451,10 @@ on the **CuPy** GPU engine.
 
 | symbol | signature | returns |
 |---|---|---|
-| `F10` | `()` | the **0-parameter 10-loop factor** $(1/16\pi)^{10} \approx 9.7\times10^{-18}$ (the **10** = $n_{\rm gen}$, the number of $\mathrm{Cl}(10)$ generators) |
-| `hierarchy_exponent` | `()` | `{backend, n_gen, F10, E_P_GeV, v_GeV, v_over_EP_0param, v_over_EP_observed, ratio_predicted_over_observed, match_rel_pct, n_scan, min_level, scan_abs_diff_at_n9, exponent_is_0param, residual, one_line}` — the **0-parameter value** $v/E_P = 2.02\times10^{-17}$ **is** the 10-loop factor $\times 2.08$; the **exponent** $-17$ is 0-parameter-derived (the match to the observed $2.016\times10^{-17}$ to 0.18%); the **2-digit** coefficient ($2.08$) is the named residual |
-| `verify` | `(tol=1e-9)` | `{r, ok}` — `ok` when the 2-digit ratio is in $[1/3,3]$ and the exponent is in $[-19,-15]$ |
+| `loop_factor` | `(n=N_GEN)` | the 0-parameter $n$-loop factor $(1/16\pi)^n$; the **10** $= n_{\rm gen} = 2\times5$ (the 16/16-bar **chiral split** × the **5 qubits** of the 32-D module, $2^5 = 32$) |
+| `loop_ladder` | `()` | `{F10, n_gen, n_qubits, g10_as_2x5, hierarchy, dm}` — the **same** 10-loop factor $(1/16\pi)^{10} \approx 9.7\times10^{-18}$ gives **two** results: the **hierarchy** ($v/E_P = 2.08(1/16\pi)^{10}$) and the **DM mass** ($M_P(1/16\pi)^{10} = 118$ GeV) — **one factor, two results** |
+| `hierarchy17` | `()` | `{backend, loop_factor, n_gen, predicted_ratio, predicted_exponent, observed_ratio, observed_exponent, exponent_abs_diff, ratio_predicted_over_observed, scan, n_best_scan, nstep, loop_ladder, one_line}` — the 0-parameter value $v/E_P = 2.02\times10^{-17}$ **is** the 10-loop factor $\times 2.08$; the **exponent** $-17$ is 0-parameter-derived (match to the observed to 0.18%); the **2-digit** coefficient is the named residual |
+| `verify` | `(tol=1e-9)` | `{r, ok}` — `ok` when the 2-digit ratio is in $[1/3,3]$ and the unique best loop count is $n_{\rm gen}=10$ |
 
 **`cl10.dm_wimp` — the sub-Planck DM scale (V54, W7).**
 
@@ -464,13 +465,13 @@ on the **CuPy** GPU engine.
 | `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale); the **V42** Planck-soliton gap (the $10^{-52}$) is **resolved** |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $10 \le m_{\rm DM} \le 1000$ GeV, $m_{\rm DM}/100 \in [1/3,3]$, and $0.02 \le \Omega_{\rm DM} \le 0.5$ |
 
-**`cl10.eta_cp` — the CP-violating factor (V55, W5).**
+**`cl10.eta_cp` — the baryon asymmetry as a product of 0-parameter numbers (V55, W5).**
 
 | symbol | signature | returns |
 |---|---|---|
-| `cp_odd_loop_factor` | `()` | the 0-parameter CP-odd **rate** factor $g_0^4/16\pi \approx 4.9\times10^{-6}$ ($g_0=1/8$) |
-| `eta_cp` | `()` | `{backend, loop_factor, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — $\eta_{CP} = (1/16\pi)^2 = 3.96\times10^{-4}$ (the 0-parameter 2-loop factor); $\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8) |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $\eta_{CP}$ is within a factor 3 of the V40 value and the $\Delta B$ ratio is in $[1/3,3]$ (and improved on V40) |
+| `cp_odd_loop_factor` | `()` | the 0-parameter CP-odd **rate** factor $g_0^4/16\pi \approx 4.9\times10^{-6}$ — the **1-loop CP-odd** decay asymmetry $\varepsilon_{CP}$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension) |
+| `eta_cp` | `()` | `{backend, loop_factor, structure, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — the baryon asymmetry as a **product of 0-parameter numbers** $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$, the 1-loop CP-odd $\varepsilon_{CP} = g_0^4/16\pi$, the 2-loop dilution $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8); `structure` = `{sphaleron, eps_CP, D_dilution, g0, g0_is_1_over_2_cubed, loop_count}` |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 2-loop factor is within a factor 3 of the V40 value and the $\Delta B$ ratio is in $[1/3,3]$ (and improved on V40) |
 
 **`cl10.g10_selection` — the 1-loop $g_{10}$ data check (V56, W6).**
 

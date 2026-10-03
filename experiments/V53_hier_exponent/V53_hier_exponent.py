@@ -49,6 +49,7 @@ def main():
     r = hier_exponent.verify()
     d = r["r"]
     ns = d["nstep"]
+    ll = d["loop_ladder"]
     ok = r["ok"]
 
     verdict = {
@@ -58,10 +59,12 @@ def main():
         "residual": True,   # the exact 2-digit coefficient (factor 2.08) is the named residual
         "pass": bool(ok),
         "status": ("the_hierarchy_exponent_-17_is_the_0_parameter_10_loop_suppression_"
-                   "(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root: predicted 9.7e-18 "
+                   "(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root (= 2 x 5: the 16/16-bar "
+                   "chiral split x the 5 qubits of the 32-D module): predicted 9.7e-18 "
                    "vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique "
-                   "best of the n=1..20 scan; not a raw n-step spectral level; the "
-                   "2-digit coefficient is the named residual W8)"),
+                   "best of the n=1..20 scan; not a raw n-step spectral level). One "
+                   "0-parameter factor gives TWO results: the hierarchy AND the DM mass "
+                   "(118 GeV); the 2-digit coefficients are the named residual W8)"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -86,6 +89,15 @@ def main():
                 "n_diophantine_est": ns["n_diophantine_est"],
                 "diophantine_is_0param": ns["diophantine_is_0param"],
             },
+            "loop_ladder": {
+                "F10": ll["F10"],
+                "n_gen": ll["n_gen"],
+                "n_qubits": ll["n_qubits"],
+                "g10_as_2x5": ll["g10_as_2x5"],
+                "hierarchy_coefficient": ll["hierarchy"]["coefficient"],
+                "dm_m_GeV": ll["dm"]["m_DM_GeV"],
+                "dm_coefficient": ll["dm"]["coefficient"],
+            },
             "residual": ("the exact 2-digit coefficient (predicted/observed = "
                          "%.3f, a factor %.2f) — the exponent -17 is "
                          "0-parameter-derived (10 = n_gen)"
@@ -108,6 +120,10 @@ def main():
     print(f"  observed   v/M_P       = {d['observed_ratio']:.3e}   log10 = {d['observed_exponent']:.3f}")
     print(f"  exponent match:  {d['exponent_abs_diff']:.3f} decades  "
           f"({'0-parameter-derived' if d['exponent_abs_diff'] < 1.0 else 'NO'})")
+    print(f"  the 10 = 2 x 5:  2 = the 16/16-bar (chiral) split,  5 = qubits of the 32-D module (2^5 = 32)")
+    print(f"  ONE 0-parameter factor (1/16pi)^10 gives TWO results:")
+    print(f"    - the hierarchy   v/E_P = {ll['hierarchy']['coefficient']:.3f} x (1/16pi)^10   (2-digit residual)")
+    print(f"    - the DM mass     m_DM = M_P x (1/16pi)^10 = {ll['dm']['m_DM_GeV']:.0f} GeV   (coefficient {ll['dm']['coefficient']:.3f}, 2-digit residual)")
     print(f"  2-digit coefficient ratio = {d['ratio_predicted_over_observed']:.3f}  (the named residual)")
     print(f"  n-scan:  the unique best loop count is n = {d['n_best_scan']} = n_gen  "
           f"(n=9 is {verdict['data']['scan_abs_diff_at_n9']:.2f} decades off)")

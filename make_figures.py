@@ -180,7 +180,7 @@ def fig3_10loop_ladder():
                 xy=(10, ladder[10]), xytext=(5.5, 1e6),
                 fontsize=9, ha="center",
                 arrowprops=dict(arrowstyle="->", color="0.3"))
-    ax.set_xlabel(r"loop count $n$  (0-parameter: $10 = n_{\rm gen}$, the number of $\mathrm{Cl}(10)$ generators)")
+    ax.set_xlabel(r"loop count $n$  (0-parameter: $10 = n_{\rm gen} = 2 \times 5$, the 16/16-bar chiral split $\times$ the 5 qubits of the 32-D module)")
     ax.set_ylabel(r"energy scale (GeV, log scale)")
     ax.set_title("The 10-loop ladder: one 0-parameter factor gives both\n"
                  r"the hierarchy $v/E_P = 2.08\,(1/16\pi)^{10}$ (V53) and the DM mass (V54)")
@@ -339,8 +339,8 @@ def fig8_baryon():
     v55 = r["delta_B_0param"]         # 0-parameter 2-loop eta_CP  (V55, ratio 1.12)
 
     fig, ax = plt.subplots()
-    cats = ["observed", "V40\n(named $\\eta_{CP}$)",
-            "V55\n(2-loop $\\eta_{CP}$)"]
+    cats = ["observed", "V40\n(named $\\eta_{CP}=10^{-3}$)",
+            "V55\n($\\frac{28}{79}\\,\\varepsilon_{CP}\\,D$)"]
     vals = [obs, v40, v55]
     vals9 = [x / 1e-9 for x in vals]
     cols = ["#7f7f7f", "#ff7f0e", C_ZERO]
@@ -351,8 +351,8 @@ def fig8_baryon():
     ax.axhline(obs / 1e-9, color="k", ls="--", lw=1.2,
                label=r"the observed $\Delta B = 6.1\times10^{-10}$")
     ax.set_ylabel(r"baryon asymmetry $\Delta B$  ($\times 10^{-9}$)")
-    ax.set_title("GUT leptogenesis: the 0-parameter baryon asymmetry.  V55 (the 2-loop CP factor\n"
-                 r"$\eta_{CP} = (1/16\pi)^2$) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match to the observed (V40's ratio: 2.8)")
+    ax.set_title("GUT leptogenesis: the baryon asymmetry as a product of 0-parameter numbers.  "
+                 r"V55: $\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D$ ($\varepsilon_{CP}=g_0^4/16\pi$, $g_0=1/2^3$; $D=(1/16\pi)^2$) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match (V40's ratio: 2.8)")
     ax.set_ylim(0, max(vals9) * 1.4)
     ax.legend(loc="upper left", framealpha=0.95)
     _save(fig, "fig8_baryon_asymmetry.png")

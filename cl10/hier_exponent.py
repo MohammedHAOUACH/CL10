@@ -55,6 +55,7 @@ M_P = toepred.M_PLANCK          # GeV
 V_EW = toepred.V_EW            # GeV
 N_GEN = 10                     # the 0-parameter number of Cl(10) generators
 LOOP = 1.0 / (16.0 * np.pi)    # the 0-parameter 1-loop QFT factor
+N_QUBITS = 5                   # the 0-parameter qubit count of the 32-D module (2^5 = 32)
 
 
 def _backend():
@@ -65,6 +66,42 @@ def loop_factor(n=N_GEN):
     """The 0-parameter $n$-loop factor $(1/16\\pi)^n$ ($n = n_{\\rm gen} = 10$
     by default)."""
     return float(LOOP ** n)
+
+def loop_ladder():
+    """The 0-parameter 10-loop ladder as ONE factor with TWO results.
+
+    The **10** (the GUT dimension, ``n_gen``) is ``2 x 5``: the **2** = the
+    16/16-bar (chiral) split of the 32-D module, the **5** = the **qubit
+    count** of the 32-D module ($2^5 = 32$, a 0-parameter number of the
+    root).  The GUT dimension is thus 2× the module's qubit count.
+
+    The **same** 10-loop factor $(1/16\\pi)^{10}$ gives **two** independent
+    0-parameter results (the "9-to-1" of the root):
+
+    - the **hierarchy**  $v/E_P = 2.08 (1/16\\pi)^{10}$  (W8);
+    - the **DM mass**    $m_{\\rm DM} = M_P (1/16\\pi)^{10} \\approx 118$ GeV (W7).
+
+    The **2-digit** coefficients (2.08 and 1.18) are the named residuals.
+    """
+    F10 = loop_factor(N_GEN)                    # (1/16pi)^10 ~ 9.7e-18
+    v_ratio_obs = float(V_EW / M_P)             # 2.016e-17
+    m_DM = float(M_P * F10)                     # ~ 118 GeV
+    return {
+        "F10": float(F10),
+        "n_gen": int(N_GEN),
+        "n_qubits": int(N_QUBITS),
+        "g10_as_2x5": bool(N_GEN == 2 * N_QUBITS),
+        "hierarchy": {
+            "predicted": float(F10),
+            "observed": v_ratio_obs,
+            "coefficient": float(v_ratio_obs / F10),   # ~2.08 (2-digit residual)
+        },
+        "dm": {
+            "m_DM_GeV": m_DM,
+            "weak_GeV": 100.0,
+            "coefficient": float(m_DM / 100.0),       # ~1.18 (2-digit residual)
+        },
+    }
 
 
 def nstep_spectrum(max_n=100, target=2.02e-17):
@@ -149,6 +186,7 @@ def hierarchy17():
         "scan": scan,
         "n_best_scan": int(n_best),
         "nstep": nstep,
+        "loop_ladder": loop_ladder(),
         "one_line": one_line,
     }
 
