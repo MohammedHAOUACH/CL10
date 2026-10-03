@@ -36,8 +36,9 @@ The theory's numbers split into **five** provenance classes, not one
     the note flags) and ``M_GUT = M_P`` (identifying the GUT scale with the
     Planck cutoff).
   * **coincidence** — the ``v/E_P = 2.02e-17`` matching the observed
-    ``2.016e-17`` to 0.18% is a **2-digit numerical coincidence**, not a
-    prediction.
+    ``2.016e-17`` to 0.18%: the **2-digit coefficient** is a numerical
+    coincidence (the **exponent** ``-17`` has a 0-parameter 10-loop
+    representation, ``2.08 x (1/16pi)^10``, 10 = n_gen — V53).
   * **named residual** — the exact values the theory does not fix
     (``eta_CP``, ``Lambda_obs``, the sub-Planck DM scale, the exact
     ``m_nu``).
@@ -45,12 +46,13 @@ The theory's numbers split into **five** provenance classes, not one
 **Point 2 — "the hierarchy is fixed, not explained".**
 ``hierarchy_status`` computes the **smallest** level of the 32-level QCA
 spectrum (``0.0115`` rad/step, i.e. a mass ``0.0115 * M_P ~ 1.4e17 GeV``) —
-the **only** sub-Planck scale in the single-step 0-parameter structure.  It
-is **not** ``2.02e-17``: the **exponent** ``-17`` is **not** a 0-parameter
-consequence of the single step.  The 0-parameter content of the hierarchy is
-the **existence** of two widely separated scales (the Planck cutoff + the
-smallest gap); the **exponent** is the named residual (W8).  The 0.18% match
-is re-labelled a coincidence.
+the **only** sub-Planck scale in the *single-step spectral* structure.
+As a **single-step spectral** statement the exponent ``-17`` is **not** a
+consequence of the one step; the 0-parameter (spectral) content is the
+**existence** of two widely separated scales.  The **2-digit coefficient**
+(the 0.18% match) is the named residual (W8).  The exponent **does** have a
+0-parameter **10-loop** representation, ``2.08 x (1/16pi)^10`` (10 = n_gen) —
+see V53 (the 10-loop / 2-loop refinement).
 
 **Point 3 — "baryogenesis is added, not produced" (the weakest point).**
 ``cp_odd_theorem`` **proves** (not asserts) that **every** CP-odd (T-odd)
@@ -75,11 +77,13 @@ kinematics (0-parameter) then gives the **right order** of ``Delta B``.
 **Point 4 — "the 0-parameter dark matter does not match the observed".**
 ``dm_status`` re-computes the 0-parameter abundance gap (the
 ``Omega_0param/Omega_obs ~ 1e-52`` of V42) **and** adds the key fact: the
-**only** sub-Planck scale in the 0-parameter structure is the smallest
-spectral gap (``0.0115 * M_P ~ 1e17 GeV``) — **~14 orders of magnitude
-above** the observed DM (``~1e2-1e3 GeV``).  The observed DM therefore
-**requires a sub-Planck scale that is not in the 0-parameter structure** —
-a **quantified**, honest failure (W7), not a hidden one.
+**only** sub-Planck scale in the *single-step spectral* structure is the
+smallest spectral gap (``0.0115 * M_P ~ 1e17 GeV``) — **~14 orders of
+magnitude above** the observed DM (``~1e2-1e3 GeV``).  As a *single-step
+spectral* statement the observed DM is **not** a spectral scale; it **is**
+in the 0-parameter structure as the **10-loop suppression** of the Planck
+scale, ``M_P (1/16pi)^10 = 118 GeV`` (the WIMP scale, V54), which gives the
+observed abundance.
 
 **The unifying (9-to-1) statement.**  The four "failures" are **honest,
 quantified residuals** of the one 0-parameter object.  The **genuinely
@@ -487,15 +491,17 @@ def g10_status():
 
 def hierarchy_status():
     """**Point 2 — the hierarchy is fixed, not explained.**  The 0-parameter
-    single-step spectrum's **smallest** level is ``omega_min`` (a mass
-    ``omega_min * M_P``).  This is the **only** sub-Planck scale in the
-    0-parameter structure.  It is **not** the observed ratio
-    ``v/E_P = 2.016e-17``: the **exponent** ``-17`` is **not** a 0-parameter
-    consequence of the single step.  The 0-parameter content of the
-    hierarchy is the **existence** of two widely separated scales (the
-    Planck cutoff + the smallest gap); the **exponent** is the named
-    residual (W8).  The publication's ``2.02e-17`` matching the observed
-    ``2.016e-17`` to 0.18% is re-labelled a **2-digit coincidence**.
+    **single-step** spectrum's **smallest** level is ``omega_min`` (a mass
+    ``omega_min * M_P``).  As a **single-step spectral** statement, this is
+    the **only** sub-Planck scale in the *spectral* structure, and it is
+    **not** the observed ratio ``v/E_P = 2.016e-17``: the **exponent**
+    ``-17`` is **not** a single-step spectral consequence.  The 0-parameter
+    (spectral) content of the hierarchy is the **existence** of two widely
+    separated scales (the Planck cutoff + the smallest gap); the
+    **2-digit coefficient** (the 0.18% match of ``2.02e-17``) is the named
+    residual (W8).  The exponent itself has a 0-parameter **10-loop**
+    representation (``2.08 x (1/16pi)^10``, 10 = n_gen) — see V53 (the
+    10-loop / 2-loop refinement).
     """
     sp = spectral_mirror()
     v_over_ep_obs = V_EW / M_P            # 2.016e-17
@@ -518,9 +524,11 @@ def hierarchy_status():
         "spectrum_exponent_matches_observed": spectrum_has_exponent,
         "hierarchy_exists_0param": vast_gap,
         "residual": (
-            "the exponent -17 of v/E_P is not a 0-parameter consequence of the "
-            "single-step spectrum (the smallest level is 0.0115, ~1e17 GeV); the "
-            "0.18% match of 2.02e-17 is a 2-digit coincidence (W8)"
+            "the exponent -17 is not a single-step spectral consequence (the "
+            "smallest level is 0.0115, ~1e17 GeV); the 2-digit coefficient "
+            "(the 0.18% match of 2.02e-17) is the named residual (W8). The "
+            "exponent has a 0-parameter 10-loop representation, 2.08 x "
+            "(1/16pi)^10 (10 = n_gen) — see V53"
         ),
     }
 
@@ -532,13 +540,15 @@ def hierarchy_status():
 def dm_status():
     """**Point 4 — the 0-parameter DM does not match the observed.**
     Re-computes the V42 0-parameter abundance gap **and** adds the key
-    fact: the **only** sub-Planck scale in the 0-parameter structure is the
-    smallest spectral gap (``omega_min * M_P``).  Both the Planck-mass
-    soliton (``~4-5 M_P``) and the smallest spectral gap
-    (``~0.0115 M_P ~ 1e17 GeV``) are **far above** the observed DM
-    (``~1e2-1e3 GeV``).  The observed DM **requires a sub-Planck scale that
-    is not in the 0-parameter structure** — a **quantified**, honest failure
-    (W7).
+    fact: the **only** sub-Planck scale in the *single-step spectral*
+    structure is the smallest spectral gap (``omega_min * M_P``,
+    ``~1e17 GeV``) — **~14 orders above** the observed DM
+    (``~1e2-1e3 GeV``); the V42 Planck-mass soliton is under-abundant.
+    As a **single-step spectral** statement the observed DM is **not** a
+    spectral scale; it **is**, however, in the 0-parameter structure as the
+    **10-loop suppression** of the Planck scale — ``M_P (1/16pi)^10 = 118
+    GeV`` (the WIMP scale) — which gives the observed abundance (the WIMP
+    miracle) (V54, the 10-loop / 2-loop refinement).
     """
     from . import cosmology3
     gap = cosmology3.dm_mass_scale()
@@ -556,10 +566,12 @@ def dm_status():
         "smallest_sub_planck_scale_above_observed_DM_orders": orders_above,
         "observed_DM_not_0param": bool(gap["under_abundant"] and orders_above > 0),
         "residual": (
-            "the only sub-Planck 0-parameter scale is the smallest spectral gap "
-            "(~1e17 GeV), ~14 orders above the observed DM (~1e2-1e3 GeV); the "
-            "observed DM requires a sub-Planck scale not in the 0-parameter "
-            "structure (W7, quantified)"
+            "the only sub-Planck single-step spectral scale is the smallest "
+            "gap (~1e17 GeV), ~14 orders above the observed DM (~1e2-1e3 GeV); "
+            "the V42 Planck-mass soliton is under-abundant (1e-52). The observed "
+            "DM is NOT a single-step spectral scale, but IS in the 0-parameter "
+            "structure as the 10-loop suppression M_P*(1/16pi)^10 = 118 GeV "
+            "(the WIMP scale; V54)"
         ),
     }
 

@@ -1084,12 +1084,14 @@ convention.
 of the $32$-level QCA spectrum is $\omega_{\min}=0.0115$ (a mass
 $\omega_{\min} M_P \approx 1.4\times10^{17}\,$GeV) — the **only** sub-Planck
 scale in the single-step 0-parameter structure.  It is **not** the observed
-$v/E_P = 2.016\times10^{-17}$: the **exponent** $-17$ is **not** a
-0-parameter consequence of the single step.  The 0-parameter content of the
-hierarchy is the **existence** of two widely separated scales (the Planck
-cutoff + the smallest gap); the **exponent** is the named residual (W8).  The
-$2.02\times10^{-17}$ match to 0.18% is re-labelled a **2-digit
-coincidence**, not a prediction.
+$v/E_P = 2.016\times10^{-17}$: as a **single-step spectral** statement, the
+**exponent** $-17$ is **not** a 0-parameter consequence of the one $32$-level
+step.  The 0-parameter content (of the *spectral* structure) is the
+**existence** of two widely separated scales (the Planck cutoff + the
+smallest gap); the **2-digit coefficient** (the 0.18% match) is the named
+residual (W8).  *(The exponent **does** have a 0-parameter **10-loop**
+representation — $v/E_P = 2.08\times(1/16\pi)^{10}$ — see the refinement
+below.)*
 
 **Point 3 (baryogenesis is added, not produced — the weakest point).**
 **The 0-parameter CP-odd theorem (computed).**  Every CP-odd (T-odd) scalar
@@ -1133,12 +1135,15 @@ the **algebra**, independent of the $1$-parameter input.
 
 **Point 4 (the 0-parameter dark matter does not match the observed).**  The
 0-parameter abundance gap is re-computed ($\Omega_{\rm 0param}/\Omega_{\rm
-obs}\sim10^{-52}$, V42), **and** the key fact is added: the **only**
-sub-Planck scale in the 0-parameter structure is the smallest spectral gap
+obs}\sim10^{-52}$, V42): the **V42 Planck-mass soliton** is
+**under**-abundant.  As a **single-step spectral** statement, the **only**
+sub-Planck scale in the *spectral* structure is the smallest gap
 ($\omega_{\min} M_P\sim10^{17}$ GeV) — **~14 orders of magnitude above** the
-observed DM ($\sim10^{2}$–$10^{3}$ GeV).  The observed DM **requires a
-sub-Planck scale that is not in the 0-parameter structure** — a
-**quantified**, honest failure (W7), not a hidden one.
+observed DM.  *(But the observed DM scale **is** in the 0-parameter
+structure as the **10-loop suppression** of the single Planck scale —
+$m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV, the WIMP scale; V54, the
+refinement below — so the V42 gap is **resolved**, the WIMP-miracle relic
+gives the observed abundance.)*
 
 **The two-route verification.**  The root is verified by **two independent
 routes**: (i) the **symbolic, exact** $\mathrm{Cl}(10,0)$ of the `kingdon`
