@@ -171,10 +171,10 @@ def fig3_10loop_ladder():
     # the two landing points
     ax.axhline(100.0, color=C_ZERO, ls="--", lw=1.5,
                label="WIMP / weak scale ($100$ GeV)")
-    ax.scatter([10], [ladder[10]], s=90, color=C_ZERO, zorder=5,
+    ax.scatter([10], [ladder[10]], s=90, color=C_ZERO, zorder=5, clip_on=False,
                label=rf"10-loop $= M_P(1/16\pi)^{{10}} = $ {ladder[10]:.0f} GeV "
                      r"(the 0-parameter WIMP mass)")
-    ax.scatter([0], [ladder[0]], s=90, color="k", zorder=5,
+    ax.scatter([0], [ladder[0]], s=90, color="k", zorder=5, clip_on=False,
                label=r"$M_P = 1.22\times10^{19}$ GeV (the Planck scale)")
     ax.annotate("the 10-loop suppression\nbrings the Planck scale\ndown to the WIMP scale",
                 xy=(10, ladder[10]), xytext=(5.5, 1e6),
@@ -185,7 +185,8 @@ def fig3_10loop_ladder():
     ax.set_title("The 10-loop ladder: one 0-parameter factor gives both\n"
                  r"the hierarchy $v/E_P = 2.08\,(1/16\pi)^{10}$ (V53) and the DM mass (V54)")
     ax.set_xticks(n)
-    ax.set_ylim(1e2, 1e20)
+    ax.set_xlim(-0.5, 10.5)
+    ax.set_ylim(50, 1e20)
     ax.legend(loc="upper right", framealpha=0.95)
     _save(fig, "fig3_10loop_ladder.png")
 
@@ -197,7 +198,7 @@ def fig4_wimp_miracle():
     from cl10 import dm_wimp
 
     OMEGA_OBS = dm_wimp.relic_abundance(100.0)      # = 0.12 by construction
-    m = np.logspace(2, 20, 240)
+    m = np.logspace(1.7, 20, 240)
     omega = OMEGA_OBS * (100.0 / m) ** 3
 
     m_dm = dm_wimp.dm_wimp()["m_DM_GeV"]
@@ -210,13 +211,13 @@ def fig4_wimp_miracle():
     ax.axhline(0.12, color="k", ls="--", lw=1.5,
               label=r"observed $\Omega_{\rm DM} h^2 = 0.12$")
     # the WIMP-miracle point and the 0-parameter point
-    ax.scatter([100.0], [0.12], s=110, color=C_SU3, zorder=5,
+    ax.scatter([100.0], [0.12], s=110, color=C_SU3, zorder=5, clip_on=False,
                label="WIMP miracle: $m=100$ GeV $\\Rightarrow$ $\\Omega_{\\rm obs}$")
-    ax.scatter([m_dm], [dm_wimp.relic_abundance(m_dm)], s=110, color=C_ZERO, zorder=5,
+    ax.scatter([m_dm], [dm_wimp.relic_abundance(m_dm)], s=110, color=C_ZERO, zorder=5, clip_on=False,
                marker="*",
                label=f"0-parameter: $m_{{\\rm DM}}=M_P(1/16\\pi)^{{10}}={m_dm:.0f}$ GeV $\\Rightarrow$ $\\Omega h^2=$ {dm_wimp.relic_abundance(m_dm):.3f}")
     # the V42 Planck-mass soliton (under-abundant)
-    ax.scatter([M_P], [0.12 * planck_gap], s=70, color="#7f7f7f", zorder=5,
+    ax.scatter([M_P], [0.12 * planck_gap], s=70, color="#7f7f7f", zorder=5, clip_on=False,
                label=r"V42 Planck-mass soliton ($\sim 10^{-52}$, under-abundant)")
     # the 0-parameter WIMP star is identified in the legend (no extra
     # annotation: it sits in the top corner next to the WIMP-miracle point).
@@ -224,7 +225,7 @@ def fig4_wimp_miracle():
     ax.set_ylabel(r"relic abundance $\Omega h^2$")
     ax.set_title("The WIMP miracle, resolved: the 0-parameter 10-loop mass\n"
                  "$M_P(1/16\\pi)^{10}=118$ GeV gives the observed dark-matter abundance (V54)")
-    ax.set_xlim(1e2, 1e20)
+    ax.set_xlim(40.0, 1e20)
     ax.set_ylim(1e-55, 1.0)
     ax.legend(loc="upper right", framealpha=0.95)
     _save(fig, "fig4_wimp_miracle.png")
@@ -367,24 +368,25 @@ def fig9_anomaly():
     order_keys = ["Q", "u^c", "d^c", "L", "e^c", "N"]
     order_lbl = ["Q", r"$u^c$", r"$d^c$", "L", r"$e^c$", "N"]
     frac_lbl = {  # the exact n*Y^3 per field (an exact algebraic identity)
-        "Q": "1/36", "u^c": r"$-\frac{8}{9}$", "d^c": "1/9",
-        "L": r"$-\frac{1}{4}$", "e^c": "1", "N": "0"}
+        "Q": "1/36", "u^c": "-8/9", "d^c": "1/9",
+        "L": "-1/4", "e^c": "1", "N": "0"}
     perfield = [n * y ** 3 for (_s3, _s2, y, n) in
                 (matter.SM_FIELDS[k] for k in order_keys)]
 
     fig, ax = plt.subplots()
     x = np.arange(len(order_keys))
     cols = [C_SU3 if v >= 0 else C_GUT for v in perfield]
-    ax.bar(x, perfield, color=cols, edgecolor="k", linewidth=0.5)
+    ax.bar(x, perfield, color=cols, edgecolor="k", linewidth=0.5, width=0.5)
     ax.axhline(0, color="k", lw=1.2)
     ax.set_xticks(x)
     ax.set_xticklabels(order_lbl)
     ax.set_ylabel(r"$n \times Y^3$  (the $[\mathrm{U}(1)]^3$ contribution per field)")
     for xi, k in zip(x, order_keys):
         v = perfield[xi]
-        ax.text(xi, v + (0.04 if v >= 0 else -0.12),
-                f"{v:.3f}\n({frac_lbl[k]})", ha="center", fontsize=8)
-    ax.set_ylim(-1.35, 1.35)
+        va = "bottom" if v >= 0 else "top"
+        ax.text(xi, v + (0.10 if v >= 0 else -0.10), frac_lbl[k],
+                ha="center", va=va, fontsize=10)
+    ax.set_ylim(-1.55, 1.55)
     ax.set_title(r"$[\mathrm{U}(1)]^3$: the six SM fields cancel ($\sum = 0$) — the 16 Weyl is anomaly-free (V0)")
     _save(fig, "fig9_anomaly_free.png")
 
