@@ -63,6 +63,28 @@ def levels(g10=None):
     return np.sort(np.angle(np.linalg.eigvals(U)))
 
 
+def cpt_block_phases(g10=None):
+    """The CPT (16/16-bar) mirror of the GUT step, as two 16-element
+    eigenphase lists (each sorted ascending).  ``U`` **commutes** with the
+    pseudoscalar, so it is block-diagonal in the pseudoscalar (16/16-bar)
+    basis: the **16 (matter)** block and the **16-bar (antimatter)** block.
+    CPT is phase conjugation, so the 16-bar multiset is the **mirror** of
+    the 16 (``omega_16bar = -omega_16``) — the 0-parameter CPT mirror.
+
+    Note: each block carries a **mix** of + and - phases (the 16 has 9
+    negative / 7 positive); the mirror is between the two **blocks**, not
+    between the + and - halves of the full 32-level spectrum."""
+    g10 = G10 if g10 is None else g10
+    U = _asnp(sm_qca.gut_qca_step(sm_qca.plane_generators(), g10))
+    w = _asnp(clifford.pseudoscalar())
+    ev, V = np.linalg.eigh(1j * w)            # Hermitian, eigenvalues +-1
+    idx16 = np.where(np.abs(ev + 1) < 1e-9)[0]    # iw = -1 <=> w = +i = the 16
+    idx16b = np.where(np.abs(ev - 1) < 1e-9)[0]   # iw = +1 <=> w = -i = the 16-bar
+    ph16 = np.sort(np.angle(np.linalg.eigvals(V[:, idx16].conj().T @ U @ V[:, idx16])))
+    ph16b = np.sort(np.angle(np.linalg.eigvals(V[:, idx16b].conj().T @ U @ V[:, idx16b])))
+    return {"ph16": ph16, "ph16b": ph16b}
+
+
 def qca_spectrum(g10=None):
     """The one 0-parameter object (the 32-level QCA spectrum) and its
     0-parameter invariants: the 0-point, the SL(32) identity, the +/--;

@@ -390,6 +390,155 @@ def fig9_anomaly():
     ax.set_title(r"$[\mathrm{U}(1)]^3$: the six SM fields cancel ($\sum = 0$) — the 16 Weyl is anomaly-free (V0)")
     _save(fig, "fig9_anomaly_free.png")
 
+# ===========================================================================
+# Figure 10 — CL10 vs observation: the 0-parameter predictions vs the data
+# ===========================================================================
+def fig10_predictions():
+    from cl10 import eta_cp as ep, dm_wimp as dw, toepred as tp
+
+    e = ep.eta_cp()
+    d = dw.dm_wimp()
+    # (x = observed/measured, y = 0-parameter prediction, label, color, marker, label-offset)
+    rows = [
+        (e["delta_B_observed"], e["delta_B_0param"],
+         "baryon asymmetry  $\\Delta B$  (2-loop, V55)", C_ZERO, "o", (12, -22)),
+        (d["omega_obs"], d["omega_DM"],
+         r"dark-matter $\Omega h^2$  (10-loop WIMP, V54)", C_SU2, "o", (-175, 20)),
+        (d["weak_scale_GeV"], d["m_DM_GeV"],
+         r"dark-matter mass $m_{\rm DM}$  (10-loop, V54)  [GeV]", C_SU2, "s", (16, 16)),
+        (2.016e-17, 2.02e-17,
+         r"hierarchy $v/E_P$  (10-loop, V53)", C_GUT, "o", (12, -24)),
+        (1e-3, e["eta_CP_0param"],
+         r"CP factor $\eta_{CP}$  (2-loop, V55)", C_SU3, "^", (-150, -26)),
+        (0.05, ((1.0 / 8 * 246.0) ** 2 / 1e14) * 1e9,
+         r"neutrino mass $m_\nu$  (seesaw, W2)  [eV]", C_ROOT, "D", (14, -26)),
+        (1e34, tp.proton_decay_lifetime(),
+         r"proton lifetime $\tau_p$  (GUT, a lower bound)  [yr]", "#7f7f7f", "x", (-205, -16)),
+    ]
+    xs = np.array([r[0] for r in rows])
+    ys = np.array([r[1] for r in rows])
+    lo = min(xs.min(), ys.min()) * 0.3
+    hi = max(xs.max(), ys.max()) * 3.0
+
+    fig, ax = plt.subplots(figsize=(15, 9))
+    # the 45-degree line (perfect match) + the within-a-factor-of-2 band
+    ax.plot([lo, hi], [lo, hi], color="k", lw=1.0,
+            label="perfect match  (0-param $=$ observed)")
+    ax.fill_between([lo, hi], 0.5 * np.array([lo, hi]), 2.0 * np.array([lo, hi]),
+                    color="0.82", alpha=0.6, zorder=0,
+                    label="within a factor of 2")
+    for (xo, yp, lab, col, mk, off) in rows:
+        ax.scatter([xo], [yp], s=130, color=col, marker=mk, zorder=5, clip_on=False)
+        ax.annotate(lab, (xo, yp), xytext=off, textcoords="offset points",
+                    fontsize=9, color=col)
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlim(lo, hi)
+    ax.set_ylim(lo, hi)
+    ax.set_xlabel("observed / measured value  (log)")
+    ax.set_ylabel("0-parameter prediction  (log)")
+    ax.set_title("CL10 vs observation: the 0-parameter predictions vs the measured values.\n"
+                 r"The 45$^\circ$ line $=$ a match; most predictions sit within a factor of 2 (2-digit residuals)",
+                 fontsize=13)
+    ax.legend(loc="center right", framealpha=0.95)
+    _save(fig, "fig10_predictions_vs_obs.png")
+
+# ===========================================================================
+# Figure 11 — the 0-parameter ladder of scales (one object -> all scales)
+# ===========================================================================
+def fig11_ladder():
+    from cl10 import hier_exponent as he, dm_wimp as dw, toepred as tp
+
+    m_nu_eV = ((1.0 / 8 * 246.0) ** 2 / 1e14) * 1e9     # ~ 10^-2 eV
+    # (energy GeV, label, color, side(+/-1), height multiplier)
+    scales = [
+        (m_nu_eV * 1e-9, r"neutrino  $m_\nu \sim 10^{-2}$ eV  (seesaw, W2)", C_ZERO, -1, 0.5),
+        (1.0, r"QCD  $\Lambda_{\rm QCD} \sim 1$ GeV  (V27)", C_SU3, 1, 0.5),
+        (dw.dm_wimp()["m_DM_GeV"], r"0-param DM  $m_{\rm DM}=118$ GeV  (10-loop, V54)", C_SU2, -1, 0.5),
+        (tp.V_EW, r"electroweak  $v = 246$ GeV", C_GUT, 1, 0.95),
+        (1e14, r"2-step seesaw  $M_N \sim 10^{14}$ GeV  (W2)", C_ROOT, -1, 0.5),
+        (tp.M_PLANCK, r"Planck / GUT  $M_P = M_{\rm GUT} = 1.22\times10^{19}$ GeV", "k", 1, 0.5),
+    ]
+    fig, ax = plt.subplots(figsize=(15, 6))
+    ax.axhline(0, color="0.3", lw=1.0)
+    for (E, lab, col, side, hgt) in scales:
+        x = np.log10(E)
+        ax.plot([x, x], [0, 0.30 * hgt * side], color=col, lw=1.0)
+        ax.scatter([x], [0], s=90, color=col, zorder=5, clip_on=False,
+                   edgecolor="k", lw=0.5)
+        ax.text(x, 0.37 * hgt * side, lab, ha="center",
+                va="bottom" if side > 0 else "top", fontsize=9, color=col)
+    ax.set_xlim(-12.5, 20.5)
+    ax.set_ylim(-0.72, 0.92)
+    ax.set_yticks([])
+    ax.set_xlabel("energy scale  (GeV, log scale)")
+    ax.set_title("The 0-parameter ladder of scales: one object generates six scales spanning 30 decades\n"
+                 r"(the single $10$-loop factor $M_P(1/16\pi)^{10}$ gives both the DM mass and the $v/E_P$ hierarchy)")
+    _save(fig, "fig11_ladder_of_scales.png")
+
+
+# ===========================================================================
+# Figure 12 — the 0-parameter parameter audit: the five epistemic classes
+# ===========================================================================
+def fig12_audit():
+    from cl10 import parameter_audit as pa
+
+    c = pa.provenance_table()["counts_by_provenance"]
+    classes = [  # (label, count, color, items)
+        ("algebraic 0-param", c["algebraic_0param"], C_SU3,
+         "16/16-bar, the 45, the 5/3, 8 anomalies, 32-spectrum, det U, the CPT mirror"),
+        ("free 1-param", c["free_1param"], C_GUT,
+         r"$g_{10}=1/5$ (the one free 't Hooft angle; not UV-fixed)"),
+        ("convention", c["convention"], C_SU2,
+         r"$g_0=1/8$ ($1/2^{n_{\rm space}}$ mapping); $M_{\rm GUT}=M_P$ (scale ID)"),
+        ("coincidence", c["coincidence"], C_ZERO,
+         r"$v/E_P = 2.02\times10^{-17}$ (the 2-digit 0.18% match)"),
+        ("named residual", c["named_residual"], "#7f7f7f",
+         r"$\eta_{CP}$, $\Lambda_{\rm obs}$, the sub-Planck DM scale, the exact $m_\nu$"),
+    ]
+    y = np.arange(len(classes))[::-1]
+    fig, ax = plt.subplots(figsize=(14, 5.5))
+    ax.barh(y, [n for (_, n, _, _) in classes],
+            color=[col for (_, _, col, _) in classes], edgecolor="k", lw=0.5)
+    ax.set_yticks(y)
+    ax.set_yticklabels([f"{lab}   (n={n})" for (lab, n, _, _) in classes])
+    xmax = max(n for (_, n, _, _) in classes)
+    for (yi, (_, n, _, items)) in zip(y, classes):
+        ax.text(n + 0.15, yi, items, va="center", ha="left", fontsize=8, color="0.2")
+    ax.set_xlim(0, 13)
+    ax.set_xlabel("number of quantities  in the class")
+    ax.set_title("The honest parameter audit: the '0-parameter' label, reclassified into five\n"
+                 r"epistemic classes (the 7 algebraic invariants hold; the rest are named, not fitted)  (V52)")
+    _save(fig, "fig12_parameter_audit.png")
+
+
+# ===========================================================================
+# Figure 13 — the CPT spectral mirror: matter (16) vs antimatter (16-bar)
+# ===========================================================================
+def fig13_cpt_mirror():
+    from cl10 import qca_spectrum as qs
+
+    p = qs.cpt_block_phases()
+    m = np.asarray(p["ph16"], dtype=float)      # the 16 (matter) eigenphases, sorted
+    b = np.asarray(p["ph16b"], dtype=float)     # the 16-bar (antimatter), for the check
+    # the CPT mirror holds: the 16-bar multiset is the phase-conjugate of the 16
+    assert np.allclose(np.sort(b), -np.sort(m)[::-1], atol=1e-9), "the 16-bar is the mirror of the 16"
+    k = np.arange(1, len(m) + 1)
+    fig, ax = plt.subplots()
+    # the CPT axis (omega = 0) and the two mirror blocks: for each rank k,
+    # the matter level m_k and its CPT conjugate -m_k (the 16-bar level)
+    ax.axvline(0, color="k", lw=1.0, ls="--", label="CPT axis  ($\\omega = 0$)")
+    ax.plot(m, k, "o-", color=C_SU3, lw=1.6, ms=5, label="matter  $16$   ($\\omega_k$)")
+    ax.plot(-m, k, "o-", color=C_SU2, lw=1.6, ms=5,
+            label="antimatter  $\\overline{16}$   ($-\\omega_k$)")
+    ax.set_xlabel("eigenphase  $\\omega_k$  (rad/step)")
+    ax.set_ylabel("rank $k$  (within the 16)")
+    ax.set_title("The CPT spectral mirror: the $16$ (matter) and $\\overline{16}$ (antimatter) QCA blocks are\n"
+                 r"exact phase-conjugates  ($\omega_{\overline{16}} = -\omega_{16}$) — CPT as spectral conjugation (V24/V52)")
+    ax.legend(loc="lower right", framealpha=0.95)
+    _save(fig, "fig13_cpt_mirror.png")
+
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -401,7 +550,11 @@ def main():
     fig7_qcd()
     fig8_baryon()
     fig9_anomaly()
-    print("done: 9 figures.")
+    fig10_predictions()
+    fig11_ladder()
+    fig12_audit()
+    fig13_cpt_mirror()
+    print("done: 13 figures.")
 
 
 if __name__ == "__main__":

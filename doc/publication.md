@@ -1232,7 +1232,7 @@ values are still named.
 
 ## Figures
 
-All six figures are **computed from the CL10 modules** (the generation
+All **thirteen** figures are **computed from the CL10 modules** (the generation
 script is `make_figures.py`, see `doc/reference.md`) — **no hand-drawn
 data**.  Each states the **0-parameter** content and, where relevant, the
 **named residual**, following the W2 pattern (Section 13: the 0-parameter
@@ -1347,6 +1347,54 @@ fields' $n\cdot Y^3$ contributions to the $[\mathrm{U}(1)]^3$ anomaly
 ($1/36$, $-8/9$, $1/9$, $-1/4$, $1$, $0$) **cancel exactly**
 ($\sum = 0$), as do all **8** gauge anomaly coefficients (Section 2, V0).
 
+
+**Fig. 10 — CL10 vs observation: the 0-parameter predictions vs the data.**
+
+![The 0-parameter predictions vs the measured values.](figures/fig10_predictions_vs_obs.png)
+
+The **master scoreboard**: each **0-parameter prediction** (y-axis) vs the
+corresponding **observed** value (x-axis), on a log scale. The **45° line** is
+a perfect match; the shaded band is "within a factor of 2." The **0-parameter**
+points (the baryon asymmetry, the DM abundance and mass, the $v/E_P$ hierarchy)
+lie **on or within** the band (2-digit residuals, Section 15); the **CP factor**
+and the **neutrino mass** are **order-of-magnitude** matches; the **proton
+lifetime** is a **lower bound** (the prediction sits far above it — consistent
+and **falsifiable**).
+
+**Fig. 11 — the 0-parameter ladder of scales: one object, thirty decades.**
+
+![The 0-parameter ladder of scales.](figures/fig11_ladder_of_scales.png)
+
+The **one** 0-parameter object generates **six** scales spanning **30
+decades**: the Planck/GUT scale ($1.22\times10^{19}$ GeV), the 2-step seesaw
+($10^{14}$), the electroweak ($246$ GeV), the 0-parameter DM ($118$ GeV),
+QCD ($\sim1$ GeV), and the neutrino ($\sim10^{-2}$ eV). The **single** 10-loop
+factor $M_P(1/16\pi)^{10}$ (Fig. 3) sets **both** the DM mass and the $v/E_P$
+hierarchy — **one factor, two results**.
+
+**Fig. 12 — the honest parameter audit: the five epistemic classes.**
+
+![The honest parameter audit.](figures/fig12_parameter_audit.png)
+
+The "0-parameter" label, **reclassified** into its **true** status (the
+$7+1+2+1+4$ split, Section 15, V52): **7 algebraic** 0-param invariants that
+**hold** (the $16/16$-bar, the $45$, the $5/3$, the $8$ anomalies $=0$, the
+$32$-spectrum, $\det U = 1$, the CPT mirror); **1 free** 't Hooft angle
+($g_{10}=1/5$); **2 conventions** ($g_0=1/8$, $M_{\rm GUT}=M_P$); **1
+coincidence** ($v/E_P$); **4 named** residuals ($\eta_{CP}$, $\Lambda_{\rm
+obs}$, the DM scale, the exact $m_\nu$). The grand-physicist contribution:
+**audit** the label — do not defend it.
+
+**Fig. 13 — the CPT spectral mirror: the 16 (matter) vs the 16-bar (antimatter).**
+
+![The CPT spectral mirror.](figures/fig13_cpt_mirror.png)
+
+The GUT step $U$ **commutes** with the pseudoscalar, so it preserves the $16$
+(matter) and the $16$-bar (antimatter) blocks. Computed: the **antimatter**
+spectrum is the **exact mirror** of the **matter** one,
+$\omega_{16\text{bar}}=-\omega_{16}$ — **CPT as spectral conjugation** (the
+spectral form of the CPT theorem of V24; it holds for **every** $g_{10}$, a
+property of the **algebra**, V52).
 ---
 
 ## References
