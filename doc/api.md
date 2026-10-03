@@ -421,7 +421,27 @@ bounded by the lattice cutoff).  The **open** part of W9 is now only the
 
 ---
 
-## 13. `run_validation.py` — the TOE runner
+## 13. `cl10.parameter_audit` — the honest parameter audit (V52)
+
+The **solution to `doc/remarques.txt`** (the four limits).  All numerics on
+the **CuPy** GPU engine; the root cross-checked by a **second route** (the
+symbolic `kingdon` $\mathrm{Cl}(10,0)$).
+
+| symbol | signature | returns |
+|---|---|---|
+| `kingdon_2route` | `()` | `{backend, kingdon_available, kingdon_sq_minus_1, kingdon_anticommute, kingdon_w2_scalar, pauli_sq_minus_I, pauli_anticommute, pauli_w2_plus_I, two_route_agree}` — the **2-route root**: the symbolic, exact `kingdon` $\mathrm{Cl}(10,0)$ ($e_a^2=1$, $\{e_a,e_b\}=0$, $w^2=-1$) vs the numeric $32\times32$ symplectic-Pauli on the GPU |
+| `spectral_mirror` | `()` | `{backend, g10, n_levels, omega_min, omega_min_mass_GeV, omega_min_16weyl, levels_16weyl, w_pure_imaginary, commute_Uw, preserves_chiral_split, mirror_resid, mirror_ok, mirror_resid_all_g10, mirror_holds_for_all_g10, g10_grid, zp_16, zp_16bar, det_U_minus_1, sl32}` — the **16/16-bar spectral mirror = the spectral form of CPT**: $U$ commutes with the pseudoscalar (`[U,w]=0`, preserves the chiral split), and the **antimatter** spectrum is the **mirror** of the **matter** one, $\omega_{16\bar}=-\omega_{16}$, i.e. $\mathrm{spec}(U|_{16\bar})=\mathrm{spec}((U|_{16})^\dagger)=\overline{\mathrm{spec}(U|_{16})}$ (C = matter↔antimatter since $w$ is purely imaginary; T = $U\to U^\dagger$). **Holds for every 't Hooft angle** (`mirror_resid_all_g10`, `g10_grid`) — a 0-parameter property of the algebra, refining V24's CPT theorem |
+| `cp_odd_theorem` | `(n4_sample=200000, seed=0)` | `{backend, max_cpodd_2rot, max_cpodd_3rot, max_cpodd_4rot_sample, max_cpodd_b_sandwich, cpodd_democratic_yukawa, n4_sample, all_cp_odd_zero, sakharov, verdict}` — the **0-parameter CP-odd theorem**: every CP-odd (T-odd) invariant vanishes (2- and 3-rotation full, 4-rotation sample, every B-violating $h_i R_{ab} h_j R_{cd}$ sandwich full, rank-1 real democratic Yukawa) $\Rightarrow$ the QCA is CP-conserving, B-conserving, in equilibrium $\Rightarrow$ **none** of the 3 Sakharov conditions $\Rightarrow$ **no** baryon asymmetry (a theorem) |
+| `g10_status` | `()` | `{backend, g10_0param, n_qubits, mapping_convention, uv_finiteness_fixes_g10, pole_2loop_below_MP_for_all_g10, g10_is_free_t_hooft_angle, grid, verdict}` — $g_{10}$ is **not** fixed by the UV-finiteness (2-loop Landau-pole) condition (the pole is below $M_P$ for every $g_{10}$) $\Rightarrow$ the **one free** 't Hooft angle |
+| `hierarchy_status` | `()` | `{backend, v_over_EP_observed, v_over_EP_claimed_0param, match_rel_err, match_is_2digit_coincidence, omega_min, omega_min_mass_GeV, smallest_sub_planck_scale_is, spectrum_exponent_matches_observed, hierarchy_exists_0param, residual}` — the hierarchy **exponent** $-17$ is **not** in the single-step spectrum (the smallest level $0.0115$); the $0.18\%$ match of $2.02\times10^{-17}$ is a **2-digit coincidence**; the 0-parameter content is the **existence** of the hierarchy (W8) |
+| `dm_status` | `()` | `{backend, soliton_mass_GeV, abundance_gap_0param_over_obs, omega_min_mass_GeV, dm_observed_range_GeV, smallest_sub_planck_scale_above_observed_DM_orders, observed_DM_not_0param, residual}` — the **only** sub-Planck 0-parameter scale (the smallest spectral gap $\sim10^{17}$ GeV) is ~14 orders above the observed DM; the 0-parameter abundance gap $\sim10^{-52}$ (W7, quantified) |
+| `provenance_table` | `()` | `{backend, rows, counts_by_provenance}` — every "0-parameter" number **reclassified** by its true provenance: **algebraic_0param** (7), **free_1param** (1: the free 't Hooft angle $g_{10}$), **convention** (2: $g_0$, $M_{\rm GUT}=M_P$), **coincidence** (1: the $2.02\times10^{-17}$ match), **named_residual** (4) — the direct answer to "0-parameter is partly conventional" |
+| `verify` | `(tol=1e-9)` | `{backend, two_route, spectral_mirror, cp_odd_theorem, g10_status, hierarchy_status, dm_status, provenance_table, invariants_ok, limits_ok, ok}` — the full audit; `ok` when the 0-parameter invariants **hold** and the four limits are **quantified** |
+| `main` | `()` | runs the audit and prints the verdict |
+
+---
+
+## 14. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |
 |---|---|---|
@@ -439,6 +459,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 52 experiments
+python3 run_validation.py              # all 53 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

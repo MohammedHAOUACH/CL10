@@ -87,6 +87,8 @@ signatures are in `doc/api.md`):
 | the 2-loop running (§12, W4, V47) | `cl10.unification.running_2loop` | the **UV-finite** QCA: the 2-step $U^2$ is **unitary** (residual $\sim10^{-15}$) and the 2-particle S-matrix is **bounded** ($\max|S|\le1$); **vs** the **UV-divergent** perturbative 2-loop: the $b_2$ coefficient makes the U(1) Landau pole *closer* (the 1-loop pole is above $M_P$, the 2-loop pole is below $M_P$, $\sim10^{12}$ GeV) |
 | the n-particle amplitudes (§12, W9, V48) | `cl10.smatrix.n_particle` | the **n-particle** S-matrix $S^{(n)} = U\otimes\cdots\otimes U$ is the **Kronecker** product of the 1-particle, so it is **unitary iff the 1-particle is** ($(UU^\dagger)\otimes\cdots\otimes(UU^\dagger)=I$); the 1- and 2-particle are computed on the GPU (the $32\times32$ and $1024\times1024$), the 3- and 4-particle ($32^3$, $32^4$) follow by the property — the **UV-finite** property (the n-step is bounded for all n) |
 | the 0-parameter quark CKM (V49, W6) | `cl10.yukawa_3x3.quark_ckm` | the **quark** mass matrices (the up-type and down-type) on the **democratic** base (the 2-level structure, eigenvalues $\{3,0,0\}$); the **CKM** (the up/down mass-matrix misalignment, the unitary 3×3) is the **TBM** ($\sin^2 = 1/3, 1/2, 0$); the **deviation** to the observed CKM $(0.050, 0.949, 0.020)$ is the W6 named residual, now quantified |
+| the honest parameter audit (§15, V52) | `cl10.parameter_audit` | the **solution to `doc/remarques.txt`**: (i) the **2-route root** — the **symbolic, exact** $\mathrm{Cl}(10,0)$ of the `kingdon` library ($e_a^2=1$, $\{e_a,e_b\}=0$, $w^2=-1$) **vs** the **numeric** $32\times32$ symplectic-Pauli (the same identities, GPU); (ii) the **16/16-bar spectral mirror** — the **spectral form of CPT**: $[U,w]=0$ (the chiral split is preserved) and the **antimatter** spectrum is the **phase-conjugate** of the **matter** one, $\omega_{16\bar}=-\omega_{16}$, $\mathrm{spec}(U|_{16\bar})=\mathrm{spec}((U|_{16})^{\dagger})$ — **holds for every** 't Hooft angle (a property of the algebra, not of $g_{10}$) — + the smallest spectral level ($0.0115$); (iii) the **0-parameter CP-odd theorem** — $\mathrm{Im}\,\mathrm{Tr}$ of every 2- and 3-rotation product (full), a large 4-rotation sample, **every** B-violating $h_i R_{ab} h_j R_{cd}$ sandwich (full), and the rank-1 real democratic Yukawa **all vanish** $\Rightarrow$ the QCA is CP-conserving, B-conserving, in equilibrium $\Rightarrow$ **none** of the 3 Sakharov conditions $\Rightarrow$ **no** baryon asymmetry (a theorem); (iv) $g_{10}$ **not** fixed by the 2-loop Landau-pole condition (the pole is below $M_P$ for every $g_{10}$) $\Rightarrow$ the **one free** 't Hooft angle; (v) the **hierarchy** exponent $-17$ **not** in the single-step spectrum (the smallest level $0.0115$) and the **DM** gap re-quantified; (vi) the **provenance table** (the $7+1+2+1+4$ split: algebraic 0-param / free 1-param / convention / coincidence / named residual) |
+
 
 ---
 
@@ -100,8 +102,18 @@ $14.2.0$; JAX $0.11.2$ sees $2$ CUDA devices.  All modules and all
 experiments go through this **one** core, so the whole theory runs on the
 GPU out of the box and degrades cleanly to CPU (the $32\times32$ matrices
 are small).
+**The second route (the symbolic cross-check).**  The root
+$\mathrm{Cl}(10,0)$ is verified by a **second, independent** route: the
+**symbolic, exact** Clifford algebra of the `kingdon` library (the
+`Algebra(10,0)` frame, where $e_a^2=1$, $\{e_a,e_b\}=0$, and $w^2=-1$ hold
+**exactly**, with no float), cross-checked against the **numeric**
+$32\times32$ symplectic-Pauli representation of `clifford` on the GPU
+(V52, `cl10.parameter_audit.kingdon_2route`).  The two agree — the root is
+not an artifact of one construction.  `kingdon` is used for **symbolic**
+algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V51 under `experiments/`):
+
+**The protocol.**  Each experiment (V0–V52 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -109,7 +121,7 @@ are small).
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **52** experiments (V0–V51) in name order,
+`run_validation.py` runs all **53** experiments (V0–V52) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the **TOE verdict**:
@@ -117,7 +129,7 @@ and the **TOE verdict**:
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (52/52, 2026-10-03).**  Every experiment **passes** on the
+**The result (53/53, 2026-10-03).**  Every experiment **passes** on the
 GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -128,8 +140,10 @@ $5/24$ $\mathcal{T}$ normalization, the $G = 1$, the causal radius $1$,
 the $1.22\times10^{19}$ GeV GUT scale, the $1/25$ GUT coupling, the $246$
 GeV electroweak scale, and the off-diagonal **10-Higgs** mass term
 $16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V51):**
-$g_{10} = 1/5$ and $g_0 = 1/8$ — **derived from the root** (the 5 qubits
-of the 32-D module; the 3-space, V38); the tribimaximal angles
+$g_{10} = 1/5$ (the **one free** 't Hooft angle) and $g_0 = 1/8$ (the
+$1/2^{n_{\rm space}}$ mapping; the 3-space, V38) — the **1-parameter and
+convention** status of these two couplings is **audited** in V52; the
+tribimaximal angles
 $\sin^2\theta_{12} = 1/3$, $\sin^2\theta_{23} = 1/2$, $\theta_{13} = 0$
 $(\mathrm{V29/V39/V45})$; the SM sphaleron factor $28/79$ (V40); the 0-parameter EH
 coefficient $1/16\pi$ and the lattice CFL $dt^2 = 1/4$ (V37); the **UV-finite** 2→2
@@ -152,7 +166,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (52/52, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (53/53, TOE)
 python3 run_validation.py V11 V12    # a subset
 ```
 
@@ -180,4 +194,11 @@ the grading (they **commute** with the pseudoscalar), while the **time**
 direction is **odd** (it **anticommutes**).  The "CPT theorem" of the
 theory is this **grading identity** — stated as the *status* of the
 theorem (a real physicist would call it a grading property, not a deep
-theorem).
+theorem).  The **spectral** form of this CPT is **computed** in V52
+(`cl10.parameter_audit.spectral_mirror`): because the dynamics commute
+with the pseudoscalar ($[U,w]=0$, the chiral split is preserved), the
+**antimatter** ($16$-bar) QCA spectrum is the **mirror** (phase-conjugate)
+of the **matter** ($16$) one — $\omega_{16\bar} = -\omega_{16}$, i.e.
+$\mathrm{spec}(U|_{16\bar}) = \mathrm{spec}((U|_{16})^{\dagger})$ — and this
+holds for **every** 't Hooft angle (a property of the algebra, not of the
+chosen $g_{10}$): **CPT $=$ spectral conjugation**.
