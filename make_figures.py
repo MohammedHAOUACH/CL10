@@ -101,39 +101,56 @@ def fig1_one_object():
 
 
 # ===========================================================================
-# Figure 2 — the 1-loop running of the three SM couplings to M_P
+# Figure 2 — the 1-loop running (1/alpha_i) to M_P + the Landau-pole contrast
 # ===========================================================================
 def fig2_unification():
     from cl10 import unification
 
-    B = unification.B_SM          # (41/10, -19/6, -7)
-    AZ = unification.A_Z          # measured at M_Z
+    B = unification.B_SM          # (41/10, -19/6, -7)  1-loop beta
+    B2 = unification.B2_SM        # the 2-loop beta coefficients
+    AZ = unification.A_Z          # the measured couplings at M_Z
     M_Z, M_P = unification.M_Z, unification.M_P
-    names = [r"$\alpha_1$ (U(1))", r"$\alpha_2$ (SU(2))", r"$\alpha_3$ (SU(3))"]
+    names = [r"$1/\alpha_1$ (U(1))", r"$1/\alpha_2$ (SU(2))", r"$1/\alpha_3$ (SU(3))"]
     cols = [C_GUT, C_SU2, C_SU3]
+
+    # the 2-loop U(1) Landau pole (the perturbative UV-divergence, below M_P)
+    b1, b2, c = B[0], B2[0], 1.0 / AZ[0]
+    Acoef = b2 / (b1 ** 2 * 2.0 * np.pi)
+    Bcoef = b1 / (2.0 * np.pi)
+    t2 = (-Bcoef + np.sqrt(Bcoef ** 2 + 4.0 * Acoef * c)) / (2.0 * Acoef)
+    pole2 = M_Z * float(np.exp(t2))
+    pole1 = unification.landau_pole_u1()
 
     s = np.logspace(np.log10(M_Z), np.log10(M_P), 240)
     ln = np.log(s / M_Z)
     fig, ax = plt.subplots()
     for k in range(3):
-        inv_a = 1.0 / AZ[k] - (B[k] / (2.0 * np.pi)) * ln
-        with np.errstate(divide="ignore", invalid="ignore"):
-            a = 1.0 / inv_a
-        a = np.where(inv_a > 0, a, np.nan)
-        ax.plot(np.log10(s), a, color=cols[k], label=names[k])
-    # the 0-parameter GUT coupling and the U(1) Landau pole
-    ax.axhline(unification.ALPHA_10, color=C_ZERO, ls="--", lw=1.4,
-               label=r"0-parameter $\alpha_{10}=1/25$ (the GUT coupling)")
-    pole = unification.landau_pole_u1()
-    ax.axvline(np.log10(pole), color=C_GUT, ls=":", lw=1.4,
-               label=f"U(1) Landau pole ($\\sim$ {pole:.0e} GeV, above $M_P$)")
+        ax.plot(np.log10(s), 1.0 / AZ[k] - (B[k] / (2.0 * np.pi)) * ln,
+                color=cols[k], lw=2.0, label=names[k])
+    # the 0-parameter GUT coupling: 1/alpha_10 = 25
+    ax.axhline(1.0 / unification.ALPHA_10, color=C_ZERO, ls="--", lw=1.4,
+               label=r"0-parameter $1/\alpha_{10} = 25$ (the GUT coupling)")
+    # the 0-parameter GUT scale and the 2-loop Landau pole
     ax.axvline(np.log10(M_P), color="k", ls="-", lw=1.0)
-    ax.text(np.log10(M_P), 0.008, r" $M_P$", rotation=90, fontsize=9, ha="left")
+    ax.text(np.log10(M_P) - 0.12, 9.0, r"$M_P$  ($1.22\times10^{19}$ GeV)",
+            rotation=90, fontsize=9, ha="right")
+    ax.axvline(np.log10(pole2), color="#7f7f7f", ls=":", lw=1.4,
+               label=f"2-loop U(1) Landau pole ($\\sim$ {pole2:.0e} GeV, below $M_P$)")
+    # the 1-loop pole (above M_P) — the 1-loop running stays UV-bounded
+    ax.text(0.02, 0.97,
+            f"1-loop U(1) pole $\\sim$ {pole1:.0e} GeV (above $M_P$): the 1-loop\n"
+            + r"running is UV-bounded, but the 2-loop pole lies below $M_P$ — "
+            "so the\n"
+            "perturbative QFT is UV-divergent while the QCA step is UV-finite (W4)",
+            transform=ax.transAxes, va="top", ha="left", fontsize=8,
+            bbox=dict(boxstyle="round", fc="#f2f2f2", ec="#888", alpha=0.95))
     ax.set_xlabel(r"$\log_{10}(M/\mathrm{GeV})$  (1-loop, SM $\beta$-coefficients)")
-    ax.set_ylabel(r"coupling $\alpha_i$")
-    ax.set_title("1-loop running of the three SM couplings to the Planck scale")
-    ax.set_ylim(0, 0.14)
-    ax.legend(loc="upper right", framealpha=0.95)
+    ax.set_ylabel(r"running coupling $1/\alpha_i$")
+    ax.set_title("1-loop running of the three SM couplings to the Planck scale: they reach the\n"
+                 r"GUT range near $M_P$ (the 1-loop matching, W4); the three couplings do not meet at a single point")
+    ax.set_xlim(np.log10(M_Z) - 0.1, np.log10(M_P) + 0.5)
+    ax.set_ylim(8, 60)
+    ax.legend(loc="lower left", framealpha=0.95)
     _save(fig, "fig2_unification_1loop.png")
 
 
@@ -284,6 +301,93 @@ def fig6_512_512():
     _save(fig, "fig6_512_512.png")
 
 
+# ===========================================================================
+# Figure 7 — QCD confinement: the 0-parameter linear vs Coulombic potential
+# ===========================================================================
+def fig7_qcd():
+    from cl10 import qcd
+
+    sigma = qcd.string_tension()      # the 0-parameter string tension (= 1)
+    r = np.logspace(0, 3, 200)        # quark separation (Planck units)
+    v_qcd = sigma * r                 # the linear (confining) potential
+    v_em = 1.0 / r                    # the Coulombic (screening) potential
+
+    fig, ax = plt.subplots()
+    ax.loglog(r, v_qcd, color=C_SU3, lw=2.2,
+              label=r"strong:  $V(r) = \sigma\, r$  (linear — the energy grows without bound)")
+    ax.loglog(r, v_em, color=C_GUT, lw=2.2,
+              label=r"electromagnetic:  $V(r) \propto 1/r$  (Coulombic — screening)")
+    ax.axvline(1.0, color="0.6", ls=":", lw=1.0)
+    ax.set_xlabel(r"quark–antiquark separation $r$  (Planck units, log)")
+    ax.set_ylabel(r"potential $V$  (Planck units, log)")
+    ax.set_title("QCD confinement (0-parameter): the linear potential $V = \\sigma r$ rises without\n"
+                 "bound (confinement), in contrast to the Coulombic $1/r$ of the unconfined EM force")
+    ax.legend(loc="upper left", framealpha=0.95)
+    _save(fig, "fig7_qcd_confinement.png")
+
+
+# ===========================================================================
+# Figure 8 — GUT leptogenesis: the 0-parameter baryon asymmetry
+# ===========================================================================
+def fig8_baryon():
+    from cl10 import eta_cp
+
+    r = eta_cp.eta_cp()
+    obs = r["delta_B_observed"]       # 6.1e-10
+    v40 = r["delta_B_v40"]            # named eta_CP = 1e-3  (V40, ratio 2.8)
+    v55 = r["delta_B_0param"]         # 0-parameter 2-loop eta_CP  (V55, ratio 1.12)
+
+    fig, ax = plt.subplots()
+    cats = ["observed", "V40\n(named $\\eta_{CP}$)",
+            "V55\n(2-loop $\\eta_{CP}$)"]
+    vals = [obs, v40, v55]
+    vals9 = [x / 1e-9 for x in vals]
+    cols = ["#7f7f7f", "#ff7f0e", C_ZERO]
+    bars = ax.bar(cats, vals9, color=cols, width=0.5, edgecolor="k", linewidth=0.6)
+    for b, v, c in zip(bars, vals, cols):
+        ax.text(b.get_x() + b.get_width() / 2, v / 1e-9 + 0.06,
+                f"{v:.1e}\n(ratio {v / obs:.2f})", ha="center", fontsize=9, color=c)
+    ax.axhline(obs / 1e-9, color="k", ls="--", lw=1.2,
+               label=r"the observed $\Delta B = 6.1\times10^{-10}$")
+    ax.set_ylabel(r"baryon asymmetry $\Delta B$  ($\times 10^{-9}$)")
+    ax.set_title("GUT leptogenesis: the 0-parameter baryon asymmetry.  V55 (the 2-loop CP factor\n"
+                 r"$\eta_{CP} = (1/16\pi)^2$) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match to the observed (V40's ratio: 2.8)")
+    ax.set_ylim(0, max(vals9) * 1.4)
+    ax.legend(loc="upper left", framealpha=0.95)
+    _save(fig, "fig8_baryon_asymmetry.png")
+
+
+# ===========================================================================
+# Figure 9 — the 16 Weyl is anomaly-free (all 8 gauge anomalies cancel)
+# ===========================================================================
+def fig9_anomaly():
+    from cl10 import matter
+
+    # the [U(1)]^3 per-field contribution n*Y^3 (the exact cancellation)
+    order_keys = ["Q", "u^c", "d^c", "L", "e^c", "N"]
+    order_lbl = ["Q", r"$u^c$", r"$d^c$", "L", r"$e^c$", "N"]
+    frac_lbl = {  # the exact n*Y^3 per field (an exact algebraic identity)
+        "Q": "1/36", "u^c": r"$-\frac{8}{9}$", "d^c": "1/9",
+        "L": r"$-\frac{1}{4}$", "e^c": "1", "N": "0"}
+    perfield = [n * y ** 3 for (_s3, _s2, y, n) in
+                (matter.SM_FIELDS[k] for k in order_keys)]
+
+    fig, ax = plt.subplots()
+    x = np.arange(len(order_keys))
+    cols = [C_SU3 if v >= 0 else C_GUT for v in perfield]
+    ax.bar(x, perfield, color=cols, edgecolor="k", linewidth=0.5)
+    ax.axhline(0, color="k", lw=1.2)
+    ax.set_xticks(x)
+    ax.set_xticklabels(order_lbl)
+    ax.set_ylabel(r"$n \times Y^3$  (the $[\mathrm{U}(1)]^3$ contribution per field)")
+    for xi, k in zip(x, order_keys):
+        v = perfield[xi]
+        ax.text(xi, v + (0.04 if v >= 0 else -0.12),
+                f"{v:.3f}\n({frac_lbl[k]})", ha="center", fontsize=8)
+    ax.set_ylim(-1.35, 1.35)
+    ax.set_title(r"$[\mathrm{U}(1)]^3$: the six SM fields cancel ($\sum = 0$) — the 16 Weyl is anomaly-free (V0)")
+    _save(fig, "fig9_anomaly_free.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -292,7 +396,10 @@ def main():
     fig4_wimp_miracle()
     fig5_gravity_kretschmann()
     fig6_512_512()
-    print("done: 6 figures.")
+    fig7_qcd()
+    fig8_baryon()
+    fig9_anomaly()
+    print("done: 9 figures.")
 
 
 if __name__ == "__main__":

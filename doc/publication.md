@@ -1315,6 +1315,38 @@ of state is **$w = -1$**.  The **residual** is the exact observed
 $\Lambda \sim 10^{-122}$ (the **breaking** of the cancellation by the $(1,3)$
 — W1, the hardest open problem of physics).
 
+
+**Fig. 7 — QCD confinement: the 0-parameter linear (confining) vs Coulombic potential.**
+
+![QCD confinement.](figures/fig7_qcd_confinement.png)
+
+The **0-parameter** QCD string tension $\sigma = 1$ (the lattice spacing)
+gives a **linear** potential $V(r) = \sigma\, r$ — the energy **grows without
+bound** as the quarks separate (**confinement**), in contrast to the
+**Coulombic** $1/r$ of the unconfined EM force.  The **0-parameter**
+$\Lambda_{\rm QCD}$ (the 10-loop ladder) sets the confinement scale
+(Section 9.3, V27).
+
+**Fig. 8 — GUT leptogenesis: the 0-parameter baryon asymmetry.**
+
+![GUT leptogenesis.](figures/fig8_baryon_asymmetry.png)
+
+The **0-parameter** baryon asymmetry
+$\Delta B \sim (28/79)(g_0^4/16\pi)\,\eta_{CP}$.  With the **named**
+$\eta_{CP}=10^{-3}$ (V40) it gives $1.7\times10^{-9}$ (ratio $2.8$ to the
+observed); with the **0-parameter 2-loop** factor
+$\eta_{CP}=(1/16\pi)^2$ (V55) it gives $6.8\times10^{-10}$ — a **12% match**
+to the observed $6.1\times10^{-10}$ (Section 12, W6).
+
+**Fig. 9 — anomaly cancellation: the $[\mathrm{U}(1)]^3$ per-field divergence.**
+
+![Anomaly cancellation.](figures/fig9_anomaly_free.png)
+
+The **16 Weyl** of the $\mathrm{Cl}(10)$ is **anomaly-free**: the six SM
+fields' $n\cdot Y^3$ contributions to the $[\mathrm{U}(1)]^3$ anomaly
+($1/36$, $-8/9$, $1/9$, $-1/4$, $1$, $0$) **cancel exactly**
+($\sum = 0$), as do all **8** gauge anomaly coefficients (Section 2, V0).
+
 ---
 
 ## References

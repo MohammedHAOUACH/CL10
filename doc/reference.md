@@ -178,21 +178,26 @@ python3 run_validation.py V11 V12    # a subset
 passes (the compact numerical style allows E702/E402/E741; the real bugs
 F4xx/F5xx are enforced).
 
-**Figures.**  The six figures of `doc/publication.md` (the "Figures"
+**Figures.**  The nine figures of `doc/publication.md` (the "Figures"
 section) are **computed, not hand-drawn**, by `make_figures.py` (at the
 repo root).  It imports the `cl10` modules and writes PNGs to
 `doc/figures/`:
 
 ```bash
-python3 make_figures.py            # -> doc/figures/fig1..fig6_*.png
+python3 make_figures.py            # -> doc/figures/fig1..fig9_*.png
 ```
 
-The six, by module: the **32-level QCA spectrum** (the one object;
-`cl10.qca_spectrum`), the **1-loop running** to $M_P$ (`cl10.unification`),
-the **10-loop ladder** (the hierarchy $+$ the DM mass;
+The nine, by module: the **32-level QCA spectrum** (the one object;
+`cl10.qca_spectrum`), the **1-loop running** of the three SM couplings to
+$M_P$ ($1/\alpha_i$, with the 2-loop Landau-pole contrast;
+`cl10.unification`), the **10-loop ladder** (the hierarchy $+$ the DM mass;
 `cl10.hier_exponent`), the **WIMP miracle** (`cl10.dm_wimp`), the **2-route
-Kretschmann** (`cl10.gravity`), and the **512/512 cancellation**
-(`cl10.cosmology3`).  It uses the same backend selection as Section 3
+Kretschmann** (`cl10.gravity`), the **512/512 cancellation**
+(`cl10.cosmology3`), **QCD confinement** (the 0-parameter linear vs
+Coulombic potential; `cl10.qcd`), **GUT leptogenesis** (the 0-parameter
+baryon asymmetry, the 2-loop CP factor; `cl10.eta_cp`), and **anomaly
+cancellation** (the $[\mathrm{U}(1)]^3$ per-field divergence;
+`cl10.matter`).  It uses the same backend selection as Section 3
 (CuPy/GPU, degrading to NumPy/CPU).
 
 ---
