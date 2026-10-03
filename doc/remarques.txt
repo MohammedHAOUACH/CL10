@@ -7,8 +7,10 @@
  
  - La gravité : le non-linéaire 4-D est maintenant COMPLET au niveau classique (V50). Le Riemann/Ricci/Einstein/Kretschmann GÉNÉRAL est calculé par différences finies à partir de n'importe quelle métrique (vérifié 2 voies
    contre l'analytique de Sitter, O(h²) ; le trou noir de Schwarzschild est récupéré PAR CALCUL : Ricci=0 (G=0 au vide), Kretschmann=48M²/r⁶, ratio 1.000009 ; le plat donne R=G=K=0 exact). L'action EH
-   complète (G=1) est dérivée de la dynamique (δS/δg = la non-linéarité), et l'évolution QCA non-linéaire (dépendante de l'état) est unitaire/UV-finie et causale (c=1). Ce qui reste ouvert (W9) : l'évolution
-   numérique-relativité complète (BSSN/Z4) d'une métrique 3+1 arbitraire + la complétion QUANTIQUE (l'UV de la gravité quantique) — plus le toy 1-D de Choptuik (V13) pour l'effondrement critique.
+   complète (G=1) est dérivée de la dynamique (δS/δg = la non-linéarité), et l'évolution QCA non-linéaire (dépendante de l'état) est unitaire/UV-finie et causale (c=1). La
+   numérique-relativité 3+1 (BSSN/Z4) est maintenant COMPLÈTE (V51) : la 0-row (R_00, R_0i) est vérifiée 2 voies (Riemann 4-D vs décomposition 3+1 γ/K, O(h²)), les contraintes (H, M), le damping
+   Z4 (la violation d'une contrainte décaït), la non-linéarité (la superposition échoue) et la propriété UV-finie. Ce qui reste ouvert (W9) : la complétion QUANTIQUE (l'UV de la gravité quantique) — plus
+   le toy 1-D de Choptuik (V13) pour l'effondrement critique.
  
  - La baryogenèse n'est pas générée par le QCA 0-param. La théorie est honête : le QCA 0-param satisfait aucune des 3 conditions de Sakharov (il est conservant en baryon, CPT-invariant, en équilibre).            
    L'asymétrie vient de l'ingrédient nommé η_(CP) (la leptogenèse GUT). C'est le point le plus faible du programme : l'asymétrie baryonique observée est ajoutée par un paramètre nommé, pas produite.              

@@ -246,7 +246,7 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 | `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
 
 
-## 12. The completion program modules (V36–V50)
+## 12. The completion program modules (V36–V51)
 
 The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
 from a consistent 0-parameter framework to a **complete** TOE.  Each module
@@ -373,6 +373,34 @@ causal $c=1$, superposition fails).
 | `verify_analytic_vs_computed` / `verify_blackhole` / `verify_flat` / `verify_nonlinear` | `(h=H_FD)` | the 2-route checks: the computed vs analytic de Sitter Riemann; the Schwarzschild vacuum ($G=0$ by computation) + the computed Kretschmann; the flat vacuum; the ΓΓ self-gravity (absent for flat, present for de Sitter) |
 | `verify` | `(tol=1e-9)` | the complete 4-D non-linear gravity verdict (all the checks above + the non-linear QCA) |
 
+**`cl10.numrel` — the 3+1 BSSN/Z4 numerical relativity (V51, C2, W9).**
+
+The **complete** 3+1 numerical relativity (the BSSN/Z4 completion of the W9
+gap): the 3+1 Ricci **0-row** $(R_{00}, R_{0i})$ — the **constraints** $H, M$
+of the 4-D Einstein tensor — is **2-route verified** (the 4-D Riemann,
+`cl10.gravity`, vs the 3+1 $(\gamma, K)$ decomposition — $K_{ij} =
+-\tfrac12\partial_0\gamma_{ij}$, the 3+1 Christoffels $\Gamma^{(3)}$ —
+agreeing to $O(h^2)$, residual $\sim 10^{-13}$); the **Z4**
+constraint-damping (a perturbed constraint decays to 0; the undamped case
+does not); the **non-linearity** (the Ricci 0-row is quadratic in $K$, so
+superposition fails); and the **UV-finite** property (the 3+1 quantities are
+bounded by the lattice cutoff).  The **open** part of W9 is now only the
+**quantum** completion.
+
+| symbol | signature | returns |
+|---|---|---|
+| `H_FD` / `DAMP` | (module constants) | the 0-parameter finite-difference step ($10^{-3}$, a *numerical* convergence parameter) / the Z4 damping rate ($1$) |
+| `gamma` / `K` | `(g4fn, x)` / `(g4fn, x, h=H_FD)` | the spatial 3×3 metric $\gamma_{ij} = g_{ij}$ / the extrinsic curvature $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$ (the 0-parameter gauge $\alpha=1$, $\beta=0$) |
+| `G3` / `R3` | `(g4fn, x, h=H_FD)` | the 3+1 Christoffels $\Gamma^{(3)a}{}_{ij}$ / the **3-D Riemann** $R^{(3)a}{}_{bcd}$ (the BSSN $\mathscr{R}$) |
+| `ricci_0row_4d` / `ricci_0row_3p1` | `(g4fn, x, h=H_FD)` | **Route 1** (the 4-D Riemann, `cl10.gravity`) / **Route 2** (the 3+1 $(\gamma, K)$) 0-row $(R_{00}, R_{0i})$ — the 2-route verification agrees to $O(h^2)$ |
+| `constraints` | `(g4fn, x, h=H_FD)` | the 3+1 **constraints**: the **Hamiltonian** $H = {}^{(3)}\!R + K^2 - K_{ij}K^{ij}$ and the **momentum** $M_i = D_j K^j{}_i - D_i K$ |
+| `verify_2route` | `(g4fn, n_pts=24, h=H_FD, tol=1e-4, seed=11)` | the **2-route** check over `n_pts` random points → `{max_r00, max_r0i, h2, ok}` |
+| `nonlinear_superpose` | `(a_fn, b_fn, x, h=H_FD, tol=1e-8)` | the **non-linearity**: the 0-row of the sum metric $(a+b)$ vs the sum of the 0-rows (fails) |
+| `z4_damping` | `(g4fn, x, n_steps=20, h=H_FD, lam=DAMP)` | the **Z4** damping → `{H0, damped_final, undamped_final, damped_ratio, undamped_ratio, ok}` (the damped $H$ decays, the undamped does not) |
+| `uv_finite` | `(g4fn, x, h=H_FD)` | the **UV-finite** (bounded) check → `{max_abs, bounded, ok}` |
+| `metric_31` | `(x)` | the 3+1 **test** metric (a spatial + time-dependent $\gamma_{ij}$ with an off-diagonal term) |
+| `verify` | `(tol=1e-4, seed=11)` | the complete 3+1 NR verdict (the 2-route 0-row + the Z4 damping + the non-linearity + the UV-finite property) |
+
 **`cl10.unification` — the 2-loop running (V47, W4).**
 
 | symbol | signature | returns |
@@ -411,6 +439,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 51 experiments
+python3 run_validation.py              # all 52 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

@@ -40,11 +40,12 @@ of the $(1,3)$ GUT sub-algebra) is **complete**:
    **fails**: the evolved ``a+b`` differs from the sum of the separately
    evolved parts -- the hallmark of non-linear gravity).
 
-**The named residual (W9).**  The **full** 4-D non-linear numerical-relativity
-evolution of an *arbitrary* 3+1 metric (the BSSN/Z4 gauge-fixing + the
-constraint damping) and the **quantum** completion (the UV of the quantum
-gravity) are the **open** part of W9 -- named, not the classical gravity
-(which is complete here).
+**The named residual (W9).**  The **3+1 BSSN/Z4 numerical relativity** is now
+**complete** (V51, `cl10.numrel`): the 2-route 0-row + the Z4 constraint
+damping + the non-linearity + the UV-finite property.  The remaining **open**
+part of W9 is the **quantum** completion (the UV of the quantum gravity) --
+not the classical 4-D gravity (V50) nor the classical 3+1 NR (V51), which
+are complete here.
 """
 
 import sys

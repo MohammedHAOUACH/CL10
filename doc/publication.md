@@ -306,10 +306,12 @@ action** (dynamics $\leftarrow$ action).  And the **non-linear**
 (state-dependent) QCA metric evolution (the 't Hooft non-linear completion:
 the GUT angle modulated by the **local** $\Gamma\Gamma$ curvature) is
 **unitary/UV-finite**, **causal** ($c=1$), and **fails superposition** — a
-genuine non-linear phenomenon, not a numerical artifact.  The **open** part
-(W9) is now precisely the **full** 4-D numerical-relativity evolution
-(BSSN/Z4 gauge-fixing + constraint damping) and the **quantum** completion —
-**not** the classical gravity, which is complete here.
+genuine non-linear phenomenon, not a numerical artifact.  The **complete
+3+1 BSSN/Z4 numerical relativity** (V51) closes the classical NR piece
+(the 2-route 0-row, the constraints, the Z4 damping).  The **open** part
+(W9) is now precisely the **quantum** completion (the UV of the quantum
+gravity) — **not** the classical gravity (V50) nor the classical 3+1
+numerical relativity (V51), which are complete here.
 
 ---
 
@@ -825,9 +827,30 @@ on a curved metric (the self-gravity source).  And the **non-linear**
 **local** $\Gamma\Gamma$ curvature — the 't Hooft non-linear completion) is
 **unitary/UV-finite** (the norm is preserved to machine precision),
 **causal** (front speed $1$), and **fails superposition** — a genuine
-non-linear phenomenon.  The **open** part (W9) is now precisely the **full**
-4-D numerical-relativity evolution (BSSN/Z4) and the **quantum** completion —
-**not** the classical gravity, which is complete here.
+non-linear phenomenon.  The **open** part (W9) is now precisely the
+**quantum** completion (the UV of the quantum gravity) — **not** the
+classical gravity (V50) nor the **3+1 BSSN/Z4 numerical relativity**
+(Theorem 15, V51), which are complete here.
+
+**Theorem 15 (the 3+1 BSSN/Z4 numerical relativity — the complete
+classical NR, V51).**  The classical numerical relativity of the $(1,3)$
+sub-algebra is **completed**: the **2-route** verification shows the 3+1
+Ricci **0-row** $(R_{00}, R_{0i})$ — the **constraints** of the 4-D Einstein
+equations — is **identical** whether computed by the full 4-D Riemann (the
+curvature, Theorem 14, `cl10.gravity`) or by the **3+1** $(\gamma, K)$
+decomposition (the spatial metric $\gamma_{ij}$ and the extrinsic curvature
+$K_{ij} = -\tfrac12 \partial_0 \gamma_{ij}$), agreeing to $O(h^2)$
+(residual $\sim 10^{-13}$).  The 0-row is the 0-row of the 4-D Einstein
+tensor: $R_{00}$ is the **Hamiltonian** constraint $H$ and $R_{0i}$ is the
+**momentum** constraint $M$.  The **BSSN/Z4** completion of the W9 gap is
+**0-parameter**: the **Z4** constraint-damping (the BSSN gauge-fixing)
+drives a constraint violation to zero (the damped $H$ decays as
+$e^{-\lambda t}$; the undamped case does not); the evolution is
+**non-linear** (the Ricci 0-row is quadratic in $K$, so **superposition
+fails**); and it is **UV-finite** (the 3+1 quantities are bounded by the
+lattice cutoff).  The **open** part (W9) is now precisely the **quantum**
+completion — the **classical** 3+1 BSSN/Z4 numerical relativity is
+**complete** here.
 
 **The 9-to-1 reduction (the capstone).**  The nine named residuals
 (Table 2) are **not** nine independent fine-tunings: they are **nine
@@ -924,16 +947,18 @@ the theory that are not derived from the root.
 - The **dynamical supersymmetry**: the $\mathbb{Z}_2$ grading is **kinematic**
   (a property of the algebra); we do **not** claim a dynamical SUGRA.
 - The **non-linear** gravity beyond the quadratic order is now **complete
-  in the classical regime** (V50): the general 4-D Riemann / Ricci / Einstein
-  / Kretschmann are **computed** from an *arbitrary* metric (2-route verified
-  against the analytic de Sitter; the Schwarzschild black hole is **recovered
-  by computation**), the complete 0-parameter Einstein–Hilbert action is
-  **derived from the dynamics**, and the non-linear (state-dependent) QCA
-  metric evolution is unitary/UV-finite and causal.  What remains **open**
-  (W9) is the **full** 4-D numerical-relativity evolution (the BSSN/Z4
-  gauge-fixing + constraint damping of an arbitrary 3+1 metric) and the
-  **quantum** completion (the UV of the quantum gravity) — **not** the
-  classical non-linear gravity, which is complete here.
+  in the classical regime**: the general 4-D Riemann / Ricci / Einstein
+  / Kretschmann are **computed** from an *arbitrary* metric (V50, 2-route
+  verified against the analytic de Sitter; the Schwarzschild black hole is
+  **recovered by computation**), the complete 0-parameter Einstein–Hilbert
+  action is **derived from the dynamics**, the non-linear (state-dependent)
+  QCA metric evolution is unitary/UV-finite and causal, and the **3+1
+  BSSN/Z4 numerical relativity** (V51) is **2-route verified** (the
+  constraints $R_{00}, R_{0i}$ by the 4-D Riemann vs the 3+1 $(\gamma, K)$
+  decomposition), **Z4-damped**, **non-linear**, and **UV-finite**.  What
+  remains **open** (W9) is the **quantum** completion (the UV of the
+  quantum gravity) — **not** the classical non-linear gravity (V50) nor the
+  classical 3+1 numerical relativity (V51), which are complete here.
 
 ---
 

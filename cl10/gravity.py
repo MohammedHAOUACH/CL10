@@ -615,13 +615,13 @@ def verify(tol=1e-9):
         "flat": fl,
         "nonlinear_gamma_gamma": nl,
         "nonlinear_qca": qca,
-        "residual": ("the **full** 4-D non-linear numerical-relativity "
-                     "evolution (the BSSN/Z4 gauge-fixing + the constraint "
-                     "damping of an arbitrary 3+1 metric) and the **quantum** "
-                     "completion (the UV of the quantum gravity) are the "
-                     "**open** part of W9 / the quantum-gravity wall -- "
-                     "named, not the classical gravity (which is complete "
-                     "here)"),
+        "residual": ("the **3+1 BSSN/Z4 numerical relativity** is now "
+                     "**complete** (V51, `cl10.numrel`: the 2-route 0-row + "
+                     "the Z4 constraint-damping + the non-linearity + the "
+                     "UV-finite property) -- the remaining **open** part of "
+                     "W9 / the quantum-gravity wall is the **quantum** "
+                     "completion (the UV of the quantum gravity), not the "
+                     "classical gravity (V50) nor the classical 3+1 NR (V51)"),
         "ok": bool(ok),
     }
 

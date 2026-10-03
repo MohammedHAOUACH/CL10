@@ -72,6 +72,7 @@ signatures are in `doc/api.md`):
 | the metric + the graviton (§6) | `cl10.qca` | the **6-neighbour** discrete Laplacian on an $L^3$ torus; the linearised perturbation is a free wave (the discrete CFL $dt = h/2$ gives $c = 1$, the momentum is UV-bounded) |
 | the non-linear metric, the soliton, the black hole (§6) | `cl10.einstein` | the **cubic** $\phi^3$ (Choptuik) completion: the static $u'' = u - u^3$ has the **exact** finite-energy solution $u = \sqrt{2}\,\mathrm{sech}\,x$; the Ricci scalar is **computed** on prescribed metrics (flat: $0$; the 2-sphere: $2/r^2$; the Schwarzschild: the Kretschmann $48M^2/r^6$) |
 | the **complete** 4-D non-linear gravity (§6, C2, W9; V50) | `cl10.gravity` | the **general** 4-D Riemann / Ricci / Einstein / Kretschmann **computed by central finite differences from an *arbitrary* metric** $g_{\mu\nu}(x)$ (no hard-coded Christoffels, not restricted to one solution); **2-route verified**: the computed de Sitter $R^{\mu}_{\nu\rho\sigma}$ **matches** the independent analytic Riemann (`cl10.nonlinear_gravity`) to $O(h^2)$, the **Schwarzschild** Ricci is $0$ (the vacuum equation $G=0$ is satisfied **by computation**) and the **computed** Kretschmann is $48M^2/r^6$ (the **black hole recovered**); the complete 0-parameter discrete EH action $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}(R(x)-2\Lambda)$ ($G=1$) whose **functional derivative** (the numerical Euler–Lagrange) **is** the non-linear Einstein equation (dynamics $\leftarrow$ action); and the **non-linear** (state-dependent) QCA metric evolution (the 't Hooft non-linear completion: the GUT angle is modulated by the local $\Gamma\Gamma$ curvature — unitary/UV-finite, causal $c=1$, superposition fails) |
+| the **3+1 BSSN/Z4 numerical relativity** (§6, C2, W9; V51) | `cl10.numrel` | the **complete** 3+1 NR: the 3+1 Ricci **0-row** $(R_{00}, R_{0i})$ (the **constraints** $H, M$ of the 4-D Einstein tensor) by **2 routes** — the **4-D Riemann** (`cl10.gravity`, the general curvature) and the **3+1** $(\gamma, K)$ decomposition ($K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, the 3+1 Christoffels $\Gamma^{(3)}$) — agreeing to $O(h^2)$ (residual $\sim 10^{-13}$); the **BSSN/Z4** completion of the W9 gap: the **Z4** constraint-damping (a perturbed constraint decays to 0; the undamped case does not), the **non-linearity** (the Ricci 0-row is quadratic in $K$, so superposition fails), and the **UV-finite** property (the 3+1 quantities are bounded by the lattice cutoff) — the **classical** 3+1 numerical relativity is **complete** (the **open** part of W9 is now only the **quantum** completion) |
 | the 4-D non-linear gravity (analytic de Sitter, V46) | `cl10.nonlinear_gravity` | the **0-parameter** de Sitter metric (flat FRW: $g_{00}=-1$, $g_{ij}=a^2\delta_{ij}$, $a=(1/H)e^{Hx^0}$); the **full 4-D Riemann tensor** (analytic Christoffel $\Gamma^0_{ij}=Ha^2\delta_{ij}$, $\Gamma^i_{0j}=\Gamma^i_{j0}=H\delta_{ij}$ and $\partial_0\Gamma$); the **Einstein tensor** $G_{\mu\nu}=R_{\mu\nu}-\tfrac12 g_{\mu\nu}R=-3H^2 g_{\mu\nu}$ (the 0-parameter cosmological constant); the **nonzero** $\Gamma\Gamma$ (cubic) self-gravity; at the Planck Hubble the 0-parameter vacuum energy $\Lambda\sim M_P^4$ (the W1 named residual).  This is the **analytic reference** that `cl10.gravity` (V50) cross-checks against (the 2-route verification) |
 | the full SM QCA step (§11, P2) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
 | the local QCA (§12, C1) | `cl10.local_qca` | the **internal** layer (the 45 rotations per cell) + the **staggered** 2-cell **swap-rotation** layer $U_{\rm bond} = \cos g_{10}\, I - i\sin g_{10}\, P$ along one spatial axis per time step ($P$ = the 0-parameter swap of two adjacent cells — a permutation, no angle) |
@@ -100,7 +101,7 @@ experiments go through this **one** core, so the whole theory runs on the
 GPU out of the box and degrades cleanly to CPU (the $32\times32$ matrices
 are small).
 
-**The protocol.**  Each experiment (V0–V50 under `experiments/`):
+**The protocol.**  Each experiment (V0–V51 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -108,7 +109,7 @@ are small).
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **51** experiments (V0–V50) in name order,
+`run_validation.py` runs all **52** experiments (V0–V51) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the **TOE verdict**:
@@ -116,7 +117,7 @@ and the **TOE verdict**:
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (51/51, 2026-10-02).**  Every experiment **passes** on the
+**The result (52/52, 2026-10-03).**  Every experiment **passes** on the
 GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -126,7 +127,7 @@ $2.02\times10^{-17}$, the $5/3$, the B–L $(-1/+1)$, the 16/16-bar, the
 $5/24$ $\mathcal{T}$ normalization, the $G = 1$, the causal radius $1$,
 the $1.22\times10^{19}$ GeV GUT scale, the $1/25$ GUT coupling, the $246$
 GeV electroweak scale, and the off-diagonal **10-Higgs** mass term
-$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V50):**
+$16\,10\,16\bar\to 1$ (V20).  **From the completion program (V36–V51):**
 $g_{10} = 1/5$ and $g_0 = 1/8$ — **derived from the root** (the 5 qubits
 of the 32-D module; the 3-space, V38); the tribimaximal angles
 $\sin^2\theta_{12} = 1/3$, $\sin^2\theta_{23} = 1/2$, $\theta_{13} = 0$
@@ -134,6 +135,7 @@ $(\mathrm{V29/V39/V45})$; the SM sphaleron factor $28/79$ (V40); the 0-parameter
 coefficient $1/16\pi$ and the lattice CFL $dt^2 = 1/4$ (V37); the **UV-finite** 2→2
 cross-section $\sigma_0 = P_2 / M_P^2$, the **0-parameter dispersion** (the 32-level spectrum, UV-bounded) and the **0-parameter optical theorem** (the inelastic $P_2$ **is** the cross-section), and the QCA/perturbative ratio
 $R = 4\pi P_2 / g_{10}^4$ (V44, W9); and the **complete** 4-D non-linear gravity (V50): the **general** Riemann computed from an *arbitrary* metric (the 2-route analytic/computed agreement $6.5\times10^{-7}$), the **black hole** recovered by computation (the computed Kretschmann $48M^2/r^6$, the vacuum $G=0$), and the **non-linear** (state-dependent) QCA metric evolution.
+the **complete 3+1 BSSN/Z4 numerical relativity** (V51): the 2-route 0-row (the **constraints** $R_{00}, R_{0i}$ by the 4-D Riemann vs the 3+1 $(\gamma, K)$ decomposition, agreeing to $O(h^2)$), the **Z4** constraint-damping, the **non-linearity** (superposition fails), and the **UV-finite** property.
 
 ---
 
@@ -150,7 +152,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (51/51, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (52/52, TOE)
 python3 run_validation.py V11 V12    # a subset
 ```
 
