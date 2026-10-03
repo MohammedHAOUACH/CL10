@@ -72,7 +72,7 @@ CL10/
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
 │   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
 │   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the 0-parameter quark CKM (V49)
-│   └── parameter_audit.py    # the honest parameter audit (V52): the solution to doc/remarques.txt — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the one free 't Hooft angle, the provenance table
+│   └── parameter_audit.py    # the honest parameter audit (V52): the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the one free 't Hooft angle, the provenance table
 ├── experiments/              # the TOE verification program (53 experiments, V0-V52)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
@@ -91,7 +91,7 @@ CL10/
 │   ├── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
 │   ├── V50/                  # the COMPLETE 4-D non-linear gravity (W9, C2): the general Riemann COMPUTED from any metric, the 2-route verification, the black hole recovered by computation, the non-linear QCA dynamics
 │   ├── V51/                  # the 3+1 BSSN/Z4 numerical relativity (W9, C2): the 2-route 0-row (R_00, R_0i) by 4-D Riemann vs 3+1 gamma/K, the constraints, Z4 damping, non-linear + UV-finite
-│   └── V52/                  # the honest parameter audit: the solution to doc/remarques.txt — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the free 't Hooft angle, the provenance table
+│   └── V52/                  # the honest parameter audit: the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the free 't Hooft angle, the provenance table
 ├── run_validation.py         # the runner: runs all 53, writes the TOE verdict
 └── results/
     └── validation_summary.json   # the 53/53 PASS + the TOE verdict

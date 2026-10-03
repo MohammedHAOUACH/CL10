@@ -77,7 +77,7 @@ mirror (CPT as spectral conjugation, holding for all $g_{10}$)**, $\det U = 1$,
 **one** free 't Hooft angle $g_{10}=1/5$, **not** fixed by the
 UV-finiteness condition), **convention** ($g_0=1/8$, $M_{\rm GUT}=M_P$),
 **coincidence** (the $2.02\times10^{-17}$ match), and **named residual** —
-and turns the four limits of `remarques.txt` into **computed theorems**.
+and turns the four limits of the theory into **computed theorems**.
 
 
 ---
@@ -1034,11 +1034,16 @@ V51); the one open problem is the quantum itself.**
 
 ## 15. The Honest Parameter Audit (the solution to the four limits)
 
-`doc/remarques.txt` is the note *"what a grand physicist should also flag"*
-about this theory.  Its four points are all facets of **one** meta-problem:
-the label **"0-parameter"** is applied, undifferentiated, to numbers of
-**four** different epistemic statuses.  A grand physicist does not defend the
-label; they **audit** it.  **V52** (`cl10.parameter_audit`) is that audit: it
+The **four limits** of the theory — the honest note of *"what a grand
+physicist should also flag"*: (1) **"0-parameter is partly conventional"**
+(the mapping $1/n_{\rm qubits}\to g_{10}=1/5$, $g_0=1/8$, $M_{\rm GUT}=M_P$;
+the $v/E_P$ match is a 2-digit coincidence), (2) **the hierarchy is fixed,
+not explained**, (3) **baryogenesis is added, not produced**, (4) **the
+0-parameter dark matter does not match the observed** — are all facets of
+**one** meta-problem: the label **"0-parameter"** is applied, undifferentiated,
+to numbers of **four** different epistemic statuses.  A grand physicist does
+not defend the label; they **audit** it.  **V52** (`cl10.parameter_audit`) is
+that audit: it
 **computes** the four resolutions on the GPU (the CuPy engine) and
 **cross-checks** the root by a **second route** (the symbolic
 `$\mathrm{Cl}(10,0)$` of the `kingdon` Clifford-algebra library).
@@ -1133,7 +1138,7 @@ no float), and (ii) the **numeric** $32\times32$ symplectic-Pauli
 representation on the GPU (the same identities, to machine precision).  The
 two **agree** — the root is not an artifact of one construction.
 
-**The unifying 9-to-1 statement.**  The four "failures" of `remarques.txt`
+**The unifying 9-to-1 statement.**  The four "failures" of the theory
 are **not** four independent holes; they are **honest, quantified
 projections** of the one 0-parameter object.  The **genuinely 0-parameter**
 content (the algebraic invariants: the $16/16$-bar, the $45$, the $5/3$, the

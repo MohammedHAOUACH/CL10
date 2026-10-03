@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the honest parameter audit: the solution to the four limits of
-``doc/remarques.txt``.
+CL10 — the honest parameter audit: the solution to the four limits of the
+theory.
 
-``doc/remarques.txt`` is the note "what a grand physicist should also flag"
-about this theory.  Its four points are all facets of **one** meta-problem:
-the label **"0-parameter"** is applied, undifferentiated, to numbers of
-**four** different epistemic statuses.  A grand physicist does not defend the
-label; they **audit** it.  This module is that audit, each item **computed**
+**The four limits** — the honest note "what a grand physicist should also
+flag": (1) "0-parameter is partly conventional", (2) the hierarchy is fixed,
+not explained, (3) baryogenesis is added, not produced, (4) the 0-parameter
+dark matter does not match the observed — are all facets of **one**
+meta-problem: the label **"0-parameter"** is applied, undifferentiated, to
+numbers of **four** different epistemic statuses.  A grand physicist does
+not defend the label; they **audit** it.  This module is that audit, each
+item **computed**
 on the GPU (the CuPy engine) and cross-checked by a **second route** (the
 symbolic ``Cl(10,0)`` of the ``kingdon`` Clifford-algebra library).
 
@@ -322,8 +325,8 @@ def spectral_mirror():
 # ---------------------------------------------------------------------------
 
 def cp_odd_theorem(n4_sample=200000, seed=0):
-    """**The 0-parameter CP-odd theorem (the solution to the weakest point
-    of ``remarques.txt``).**  Every CP-odd (T-odd) scalar invariant of the
+    """**The 0-parameter CP-odd theorem (the solution to the weakest of the
+    four limits).**  Every CP-odd (T-odd) scalar invariant of the
     0-parameter QCA **vanishes**.  Under time-reversal the rotation
     ``R(g) -> R(-g) = R^dag`` (and the product order reverses), so
     ``Im Tr(<product>)`` is **T-odd**: a nonzero value would be a
@@ -681,7 +684,7 @@ def main():
     import sys
     r = verify()
     print("=" * 72)
-    print("CL10 - the honest parameter audit (the solution to doc/remarques.txt)")
+    print("CL10 - the honest parameter audit (the solution to the four limits of the theory)")
     print("=" * 72)
     print(f"  backend (GPU):  {r['backend']}")
     kr = r["two_route"]

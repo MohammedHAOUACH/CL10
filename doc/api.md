@@ -423,7 +423,7 @@ bounded by the lattice cutoff).  The **open** part of W9 is now only the
 
 ## 13. `cl10.parameter_audit` — the honest parameter audit (V52)
 
-The **solution to `doc/remarques.txt`** (the four limits).  All numerics on
+The **solution to the four limits of the theory**.  All numerics on
 the **CuPy** GPU engine; the root cross-checked by a **second route** (the
 symbolic `kingdon` $\mathrm{Cl}(10,0)$).
 

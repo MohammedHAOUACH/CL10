@@ -11,7 +11,7 @@ hole recovered by computation, the non-linear QCA metric dynamics) is
 **complete** in ``cl10.gravity`` (V50).  What remained open -- the **3+1
 numerical-relativity** of an *arbitrary* 3+1 metric -- is **closed here**
 (the **quantum** completion / the UV of *quantum* gravity stays a **named**
-residual, see ``doc/remarques.txt``).
+residual, Section 13 of the publication).
 
 The module works in the **3+1** split of the $(1,3)$ spacetime.  The
 spacetime is foliated by $t = \mathrm{const}$ hypersurfaces with **lapse**

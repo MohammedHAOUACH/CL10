@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V52 - the honest parameter audit: the solution to ``doc/remarques.txt``.
+"""V52 - the honest parameter audit: the solution to the four limits of the
+theory.
 
-``doc/remarques.txt`` is the note "what a grand physicist should also flag".
-Its four points are all facets of **one** meta-problem: the label
+**The four limits** — the honest note "what a grand physicist should also
+flag" — are all facets of **one** meta-problem: the label
 **"0-parameter"** is applied, undifferentiated, to numbers of **four**
 different epistemic statuses.  This experiment is the **audit**: it
 **computes** (on the GPU, the CuPy engine) the four resolutions and
@@ -186,7 +187,7 @@ def main():
     with open(os.path.join(outdir, "v52_parameter_audit.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V52 - the honest parameter audit (the solution to doc/remarques.txt)")
+    print("V52 - the honest parameter audit (the solution to the four limits of the theory)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  2-route root (kingdon symbolic vs Pauli GPU):  {kr['two_route_agree']}")
