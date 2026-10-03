@@ -86,7 +86,7 @@ def main():
     print("V55 - the baryon asymmetry as a product of 0-parameter numbers (W5)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
-    print(f"  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
+    print("  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
     print(f"    - sphaleron   = 28/79 = {st['sphaleron']:.4f}   (the SM)")
     print(f"    - eps_CP      = g_0^4/16pi = {st['eps_CP']:.3e}   (1-loop; g_0 = 1/2^3, 3 = spatial)")
     print(f"    - D (dilution)= (1/16pi)^2 = {st['D_dilution']:.3e}   (2-loop)")

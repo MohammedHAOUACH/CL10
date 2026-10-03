@@ -148,7 +148,7 @@ def main():
     print("=" * 72)
     st = d["structure"]
     print(f"  backend (GPU):  {d['backend']}")
-    print(f"  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
+    print("  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
     print(f"    - sphaleron   = 28/79 = {st['sphaleron']:.4f}   (the SM)")
     print(f"    - eps_CP      = g_0^4/16pi = {st['eps_CP']:.3e}   (1-loop; g_0 = 1/2^3)")
     print(f"    - D (dilution)= (1/16pi)^2 = {st['D_dilution']:.3e}   (2-loop)")

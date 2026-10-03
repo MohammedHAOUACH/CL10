@@ -220,9 +220,8 @@ operator.
 the $\mathbb{Z}_2$ grading**: the **45** GUT generators are **even** in
 the grading (they **commute** with the pseudoscalar), while the **time**
 direction is **odd** (it **anticommutes**).  The "CPT theorem" of the
-theory is this **grading identity** — stated as the *status* of the
-theorem (a real physicist would call it a grading property, not a deep
-theorem).  The **spectral** form of this CPT is **computed** in V52
+theory is this **grading identity** — a **grading property**, not a deep
+theorem.  The **spectral** form of this CPT is **computed** in V52
 (`cl10.parameter_audit.spectral_mirror`): because the dynamics commute
 with the pseudoscalar ($[U,w]=0$, the chiral split is preserved), the
 **antimatter** ($16$-bar) QCA spectrum is the **mirror** (phase-conjugate)

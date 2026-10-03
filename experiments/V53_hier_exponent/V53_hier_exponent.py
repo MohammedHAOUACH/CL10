@@ -120,8 +120,8 @@ def main():
     print(f"  observed   v/M_P       = {d['observed_ratio']:.3e}   log10 = {d['observed_exponent']:.3f}")
     print(f"  exponent match:  {d['exponent_abs_diff']:.3f} decades  "
           f"({'0-parameter-derived' if d['exponent_abs_diff'] < 1.0 else 'NO'})")
-    print(f"  the 10 = 2 x 5:  2 = the 16/16-bar (chiral) split,  5 = qubits of the 32-D module (2^5 = 32)")
-    print(f"  ONE 0-parameter factor (1/16pi)^10 gives TWO results:")
+    print("  the 10 = 2 x 5:  2 = the 16/16-bar (chiral) split,  5 = qubits of the 32-D module (2^5 = 32)")
+    print("  ONE 0-parameter factor (1/16pi)^10 gives TWO results:")
     print(f"    - the hierarchy   v/E_P = {ll['hierarchy']['coefficient']:.3f} x (1/16pi)^10   (2-digit residual)")
     print(f"    - the DM mass     m_DM = M_P x (1/16pi)^10 = {ll['dm']['m_DM_GeV']:.0f} GeV   (coefficient {ll['dm']['coefficient']:.3f}, 2-digit residual)")
     print(f"  2-digit coefficient ratio = {d['ratio_predicted_over_observed']:.3f}  (the named residual)")
