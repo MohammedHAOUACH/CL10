@@ -441,6 +441,46 @@ symbolic `kingdon` $\mathrm{Cl}(10,0)$).
 
 ---
 
+## 13.5. The 10-loop / 2-loop refinement modules (V53–V56)
+
+The **0-parameter loop-factor** representations of three named residuals
+(the loop count a 0-parameter number of the root; Section 15).  All numerics
+on the **CuPy** GPU engine.
+
+**`cl10.hier_exponent` — the hierarchy exponent (V53, W8).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `F10` | `()` | the **0-parameter 10-loop factor** $(1/16\pi)^{10} \approx 9.7\times10^{-18}$ (the **10** = $n_{\rm gen}$, the number of $\mathrm{Cl}(10)$ generators) |
+| `hierarchy_exponent` | `()` | `{backend, n_gen, F10, E_P_GeV, v_GeV, v_over_EP_0param, v_over_EP_observed, ratio_predicted_over_observed, match_rel_pct, n_scan, min_level, scan_abs_diff_at_n9, exponent_is_0param, residual, one_line}` — the **0-parameter value** $v/E_P = 2.02\times10^{-17}$ **is** the 10-loop factor $\times 2.08$; the **exponent** $-17$ is 0-parameter-derived (the match to the observed $2.016\times10^{-17}$ to 0.18%); the **2-digit** coefficient ($2.08$) is the named residual |
+| `verify` | `(tol=1e-9)` | `{r, ok}` — `ok` when the 2-digit ratio is in $[1/3,3]$ and the exponent is in $[-19,-15]$ |
+
+**`cl10.dm_wimp` — the sub-Planck DM scale (V54, W7).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `F10` | `()` | the 0-parameter 10-loop factor (same as V53) |
+| `relic_abundance` | `(m_GeV)` | the 0-parameter relic abundance $\Omega h^2 = \Omega_{\rm obs}(100/m)^3$ (the WIMP-miracle convention: $= \Omega_{\rm obs}$ at 100 GeV) |
+| `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale); the **V42** Planck-soliton gap (the $10^{-52}$) is **resolved** |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $10 \le m_{\rm DM} \le 1000$ GeV, $m_{\rm DM}/100 \in [1/3,3]$, and $0.02 \le \Omega_{\rm DM} \le 0.5$ |
+
+**`cl10.eta_cp` — the CP-violating factor (V55, W5).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `cp_odd_loop_factor` | `()` | the 0-parameter CP-odd **rate** factor $g_0^4/16\pi \approx 4.9\times10^{-6}$ ($g_0=1/8$) |
+| `eta_cp` | `()` | `{backend, loop_factor, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — $\eta_{CP} = (1/16\pi)^2 = 3.96\times10^{-4}$ (the 0-parameter 2-loop factor); $\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $\eta_{CP}$ is within a factor 3 of the V40 value and the $\Delta B$ ratio is in $[1/3,3]$ (and improved on V40) |
+
+**`cl10.g10_selection` — the 1-loop $g_{10}$ data check (V56, W6).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.024$) and the (non-unification) spread (the W4 named residual) |
+| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, n_closest_to_1loop, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.65** of the 1-loop GUT coupling |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
+
+
 ## 14. `run_validation.py` — the TOE runner
 
 | symbol | signature | returns |

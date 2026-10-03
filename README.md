@@ -72,8 +72,12 @@ CL10/
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
 │   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
 │   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the 0-parameter quark CKM (V49)
-│   └── parameter_audit.py    # the honest parameter audit (V52): the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the one free 't Hooft angle, the provenance table
-├── experiments/              # the TOE verification program (53 experiments, V0-V52)
+│   ├── parameter_audit.py    # the honest parameter audit (V52): the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the one free 't Hooft angle, the provenance table
+│   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
+│   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
+│   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
+└── g10_selection.py          # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
+├── experiments/              # the TOE verification program (57 experiments, V0-V56)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -91,10 +95,14 @@ CL10/
 │   ├── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
 │   ├── V50/                  # the COMPLETE 4-D non-linear gravity (W9, C2): the general Riemann COMPUTED from any metric, the 2-route verification, the black hole recovered by computation, the non-linear QCA dynamics
 │   ├── V51/                  # the 3+1 BSSN/Z4 numerical relativity (W9, C2): the 2-route 0-row (R_00, R_0i) by 4-D Riemann vs 3+1 gamma/K, the constraints, Z4 damping, non-linear + UV-finite
-│   └── V52/                  # the honest parameter audit: the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the free 't Hooft angle, the provenance table
-├── run_validation.py         # the runner: runs all 53, writes the TOE verdict
+│   ├── V52/                  # the honest parameter audit: the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the free 't Hooft angle, the provenance table
+│   ├── V53/                  # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (W8)
+│   ├── V54/                  # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (W7)
+│   ├── V55/                  # the CP-violating factor = the 2-loop factor (1/16pi)^2 (W5)
+└── V56/                  # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
+├── run_validation.py         # the runner: runs all 57, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 53/53 PASS + the TOE verdict
+    └── validation_summary.json   # the 57/57 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -119,7 +127,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 53 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 57 experiments, prints the TOE verdict
 ```
 
 ## The TOE validation
@@ -127,7 +135,7 @@ python3 run_validation.py        # runs all 53 experiments, prints the TOE verdi
 Section 11 of `doc/publication.md` defines **what a Theory of Everything
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **53** experiments (V0–V52) across the seven tiers and writes
+runs all **57** experiments (V0–V56) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
