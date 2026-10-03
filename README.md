@@ -78,8 +78,9 @@ CL10/
 │   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
 ├── g10_selection.py          # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
-│   └── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
-├── experiments/              # the TOE verification program (59 experiments, V0-V58)
+│   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
+│   └── four_limits.py        # the UNIFIED solution to the four limits (V59, Section 16): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named (1 't Hooft angle + 2 conventions + 2 2-digit coeffs + 1 CP phase)
+├── experiments/              # the TOE verification program (60 experiments, V0-V59)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -104,9 +105,10 @@ CL10/
 ├── V56/                  # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
 │   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
 │   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
-├── run_validation.py         # the runner: runs all 59, writes the TOE verdict
+│   ├── V59/                # the UNIFIED solution to the four limits (Section 16): 10 = 2 x 5 (2 = chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named
+├── run_validation.py         # the runner: runs all 60, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 59/59 PASS + the TOE verdict
+    └── validation_summary.json   # the 60/60 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -131,7 +133,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 59 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 60 experiments, prints the TOE verdict
 python3 make_figures.py          # regenerates the 6 publication figures -> doc/figures/
 ```
 
@@ -140,7 +142,7 @@ python3 make_figures.py          # regenerates the 6 publication figures -> doc/
 Section 11 of `doc/publication.md` defines **what a Theory of Everything
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **59** experiments (V0–V58) across the seven tiers and writes
+runs all **60** experiments (V0–V59) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -149,6 +151,15 @@ runs all **59** experiments (V0–V58) across the seven tiers and writes
 > supporting, with the **reduced walls** (the cosmological constant, the
 > seesaw scale, the three families, the baryon asymmetry, the dark-matter
 > abundance) reported, not hidden.
+
+The **honest parameter audit** (Section 15, V52) turns the four limits
+(`doc/remarques.txt`) into four computed theorems + a provenance table, and
+**Section 16** (V59, `cl10.four_limits`) goes further and **unifies** them:
+the four "limits" are the four projections of one 0-parameter invariant,
+$10 = 2 \times 5$ (the chiral $16/16$-bar split times the 5 qubits of the
+32-D module), **plus one irreducible CP phase** — so the named residual set is
+the minimum: **1 free 't Hooft angle + 2 mapping conventions + 2 2-digit
+coefficients + 1 CP phase = 6**, nothing else.
 
 The **completion program** (V36–V42, V46, V50, V51, tier 6 — Section 12 of
 `doc/publication.md`)
