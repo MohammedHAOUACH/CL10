@@ -128,6 +128,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 57 experiments, prints the TOE verdict
+python3 make_figures.py          # regenerates the 6 publication figures -> doc/figures/
 ```
 
 ## The TOE validation

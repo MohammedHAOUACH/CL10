@@ -109,7 +109,7 @@ The single object $\mathrm{Cl}(10)$ has three structural facts:
   splits into a **16 Weyl** $+$ a **16-bar**;
 - it is **$\mathbb{Z}_2$-graded** (even/odd in the ten generators).
 
-Everything else in the theory is **representation theory of this one object**.
+Everything else in the theory is **representation theory of this one object** — concretely its **32-level QCA spectrum** (the 0-point, the $\mathrm{SL}(32)$ identity, and the CPT $16/16$-bar split; **Fig. 1**).
 
 ---
 
@@ -309,7 +309,7 @@ effect — a genuine, not a numerical, phenomenon.
 is **completed** — not restricted to the 1-D Choptuik toy, nor to one
 prescribed analytic metric.  The full **Riemann**, **Ricci**, **Einstein** and
 **Kretschmann** tensors are **computed by central finite differences from an
-*arbitrary* metric** $g_{\mu\nu}(x)$.  The result is **2-route verified**:
+*arbitrary* metric** $g_{\mu\nu}(x)$.  The result is **2-route verified** (**Fig. 5**):
 the **computed** de Sitter Riemann **matches** the independent analytic one to
 $O(h^2)$, the **Schwarzschild** black hole is **recovered by computation**
 (the Ricci is $0$ — the vacuum $G_{\mu\nu}=0$ holds **by computation** — and
@@ -338,7 +338,7 @@ $$\frac{v}{E_P} \;=\; 2.02\times 10^{-17},$$
 where $v$ is the electroweak scale and $E_P$ the Planck scale.  It **matches**
 the **observed** value
 $$\frac{246\;\mathrm{GeV}}{1.22\times10^{19}\;\mathrm{GeV}} \;=\; 2.016\times10^{-17},$$
-to **0.18%**.  We are precise about the status: the **0-parameter** content is
+to **0.18%** (**Fig. 3**, the 10-loop ladder connecting the two scales).  We are precise about the status: the **0-parameter** content is
 the **existence** of the hierarchy ($v\ll E_P$) — a direct consequence of the
 QCA structure, which fixes **both** scales (the Planck lattice and the
 electroweak) with a **vast** gap — and the **value** $2.02\times10^{-17}$ (a
@@ -387,7 +387,7 @@ soliton is:
 
 It is a **WIMP-like / axion-like** dark-matter candidate that is a
 **0-parameter** consequence of the QCA dynamics (the non-linear metric
-**creates** the dark matter; it is **not** an added field).
+**creates** the dark matter; it is **not** an added field).  The **observed** sub-Planck abundance is the **WIMP miracle** (**Fig. 4**): the 0-parameter 10-loop scale $m_{\rm DM}=M_P(1/16\pi)^{10}=118$ GeV gives $\Omega h^2 \sim 0.07 \sim \Omega_{\rm obs}$ (W7, V54).
 
 **Dark energy — the QCA vacuum (the cosmological constant).**  The **vacuum**
 of the QCA is the **0-point**.  The **0-parameter** mechanism that reduces the
@@ -397,7 +397,7 @@ the $1024$-D algebra splits **$512$ even** (bosonic) / **$512$ odd**
 (sign $+$ for bosons, $-$ for fermions), so the 0-point **cancels** and
 $$\Lambda_{\rm QCA}\big|_{\text{0-param}} = 512\!\left(+\tfrac12\right) +
 512\!\left(-\tfrac12\right) = 0.$$
-This is the **self-tuning** (s-mechanism): the flat vacuum is a **saddle
+(**Fig. 6**.)  This is the **self-tuning** (s-mechanism): the flat vacuum is a **saddle
 point** of the energy, so the 0-point **does not gravitate**.  The
 **0-parameter equation of state** of this vacuum is **$w\equiv p/\rho = -1$**
 ($p_{\rm vac} = -\rho_{\rm vac}$): a constant, homogeneous energy with
@@ -581,7 +581,7 @@ explicitly **named** residual:
   ($\sim0.02$–$0.04$) but does **not** meet at a single point (the
   **1-loop matching** is the named residual); the QCA's lattice UV cutoff
   ($M_P$) is **below** the U(1) Landau pole, so the running is
-  **UV-bounded**.
+  **UV-bounded** (**Fig. 2**).
 - **General relativity from the QCA.**  The metric dynamics (the discrete
   Laplacian) is the **massless spin-2** graviton ($c=1$, the 2
   polarizations, the UV-bounded dispersion, $\omega/|k|\to1$) in the
@@ -1227,6 +1227,93 @@ $3.96\times10^{-4}$) remain **named** residuals.  The audit's provenance
 table is **preserved**: the loop-factor representations do not *fit*
 anything — they are a 0-parameter *derivation of the order*, and the 2-digit
 values are still named.
+
+---
+
+## Figures
+
+All six figures are **computed from the CL10 modules** (the generation
+script is `make_figures.py`, see `doc/reference.md`) — **no hand-drawn
+data**.  Each states the **0-parameter** content and, where relevant, the
+**named residual**, following the W2 pattern (Section 13: the 0-parameter
+*mechanism* is solved; the *exact* value is named).
+
+**Fig. 1 — the one 0-parameter object: the 32-level QCA spectrum.**
+
+![The one 0-parameter object: the 32-level QCA spectrum.](figures/fig1_one_object_32spectrum.png)
+
+The **single object** of the theory is the **32-level QCA spectrum** — the
+eigenphases $\omega_k$ of the GUT step $U = \prod_{a<b}
+(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ at $g_{10}=1/5$.  The spectrum is
+$\pm$-paired: the **16 Weyl** (matter, red) and the **16-bar** (antimatter,
+purple) are **CPT conjugates**, so the antimatter spectrum is the negative of
+the matter spectrum (the CPT $=$ spectral conjugation).  The **0-point**
+(the sum of the levels) is $0$ and $\det U = 1$ (**the $\mathrm{SL}(32)$
+identity** — W1); the **smallest** level sets the **UV-bounded** mass scale
+$\sim 1.4\times10^{17}$ GeV.  All **nine** named residuals (Section 13) are
+projections of this one object.
+
+**Fig. 2 — the 1-loop running of the three SM couplings to the Planck scale.**
+
+![1-loop running of the three SM couplings.](figures/fig2_unification_1loop.png)
+
+The **0-parameter** UV input is the GUT coupling $\alpha_{10}=1/25$ (derived
+from the 5 qubits of the root).  The three SM couplings run **1-loop** (the
+$\beta$-coefficients $b_1=-41/10$, $b_2=-19/6$, $b_3=-7$ are fixed by the
+particle content) from $M_Z$ to the Planck scale, reaching the **GUT range**
+($\sim0.02$–$0.04$) near $M_P$ but **not meeting** at a single point — the
+**1-loop matching** (W4) is the **named** residual.  The **U(1) Landau pole**
+($\sim10^{39}$ GeV) lies **above** $M_P$, so the running is **UV-bounded**
+(the QCA lattice cutoff sits below the pole).
+
+**Fig. 3 — the 10-loop ladder: one factor, two results.**
+
+![The 10-loop ladder.](figures/fig3_10loop_ladder.png)
+
+A single **0-parameter** factor $(1/16\pi)^n$ with **$10 = n_{\rm gen}$** (the
+number of $\mathrm{Cl}(10)$ generators) connects the **Planck scale**
+($1.22\times10^{19}$ GeV, $n=0$) to the **WIMP scale** (118 GeV, $n=10$).  The
+**same** 10-loop factor sets the **hierarchy** $v/E_P = 2.08\,(1/16\pi)^{10}
+= 2.02\times10^{-17}$ (W8), matching the observed $2.016\times10^{-17}$ to
+**0.18%**.  The **0-parameter** content is the loop **count** $10 = n_{\rm
+gen}$ (the *order*); the **2-digit** coefficient $2.08\times$ is a **named**
+residual (Section 15, the honest caveat).
+
+**Fig. 4 — the WIMP miracle: relic abundance vs mass.**
+
+![The WIMP miracle.](figures/fig4_wimp_miracle.png)
+
+The **0-parameter** 10-loop mass $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV
+gives $\Omega h^2 \sim 0.07 \sim \Omega_{\rm obs} = 0.12$ — the **WIMP
+miracle** (W7, V54) at the **right order**.  The green point is the classic
+**WIMP miracle** ($100$ GeV $\Rightarrow$ the observed abundance); the **V42**
+Planck-mass soliton ($1.22\times10^{19}$ GeV) is **under**-abundant by
+$\sim10^{-52}$ (the quantified gap).  The **exact** cross-section and DM
+identity remain **named** residuals (W7, W9).
+
+**Fig. 5 — 2-route gravity: the computed Kretschmann equals the analytic.**
+
+![2-route Kretschmann.](figures/fig5_gravity_kretschmann.png)
+
+The **Kretschmann** invariant $K = R^{mnpq}R_{mnpq}$ of the **Schwarzschild**
+black hole, **computed from an arbitrary metric** by 4-D central finite
+differences (the red points), lies on the independent **analytic** curve
+$K = 48\,M^2/r^6$ (the black line) to a max residual of **$5.5\times10^{-5}$**
+(the $O(h^2)$ finite-difference error).  The **black hole is recovered by
+computation** (the vacuum $G_{\mu\nu}=0$ holds **by computation**); the flat
+metric gives $R=G=K=0$ exactly (V50, 2-route).
+
+**Fig. 6 — the $\mathbb{Z}_2$ $512/512$ cancellation: the 0-parameter dark energy.**
+
+![The 512/512 cancellation.](figures/fig6_512_512.png)
+
+The **1024**-D vacuum 0-point splits **512 even** (bosonic, $+\tfrac12$ each)
+/ **512 odd** (fermionic, $-\tfrac12$ each) — **equal** — and **cancels**:
+$\Lambda_{\rm 0param} = 512(+\tfrac12) + 512(-\tfrac12) = 0$ (**the
+s-mechanism**: the 0-point does not gravitate).  The **0-parameter** equation
+of state is **$w = -1$**.  The **residual** is the exact observed
+$\Lambda \sim 10^{-122}$ (the **breaking** of the cancellation by the $(1,3)$
+— W1, the hardest open problem of physics).
 
 ---
 
