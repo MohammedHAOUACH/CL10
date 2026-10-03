@@ -182,6 +182,17 @@ and **UV-finite** (bounded).  The **open** part of W9 is now precisely the
 **quantum** completion — not the classical gravity (V50) nor the classical
 3+1 numerical relativity (V51), which are complete here.
 
+The **10-loop / 2-loop refinement** (V53–V56, Section 15) resolves the
+remaining "fixed-not-explained" limits: the **hierarchy exponent** $-17$ is
+the **10-loop** factor $(1/16\pi)^{10}$ ($10 = n_{\rm gen}$; V53), the
+**sub-Planck dark-matter scale** is the **10-loop** suppression
+$M_P(1/16\pi)^{10} = 118$ GeV (the WIMP scale, resolving the V42
+Planck-soliton gap; V54), the **CP-violating factor** is the **2-loop**
+factor $(1/16\pi)^2$ (V55), and the **$g_{10}$** convention passes the
+**1-loop** GUT-coupling data check (V56).  The **2-digit** coefficients
+remain the named residuals — the loop counts are numbers of the root, not
+fits.
+
 Each experiment is a **0-parameter** check: it **confirms** a prediction of
 the publication (or reports an honest **residual**) and writes a JSON verdict
 (`tier`, `property`, `pass`, `residual`) that `run_validation.py` aggregates

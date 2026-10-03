@@ -78,6 +78,13 @@ mirror (CPT as spectral conjugation, holding for all $g_{10}$)**, $\det U = 1$,
 UV-finiteness condition), **convention** ($g_0=1/8$, $M_{\rm GUT}=M_P$),
 **coincidence** (the $2.02\times10^{-17}$ match), and **named residual** —
 and turns the four limits of the theory into **computed theorems**.
+**The 10-loop / 2-loop refinement (V53–V56, Section 15)** further shows that
+three of these "coincidence / not-in-the-structure" residuals have
+**0-parameter loop-factor** representations — the **hierarchy exponent**
+$-17$ $=$ the 10-loop factor $(1/16\pi)^{10}$ ($10 = n_{\rm gen}$), the
+**sub-Planck DM scale** $= M_P(1/16\pi)^{10}$ (the WIMP scale), and the
+**CP factor** $= (1/16\pi)^2$ (2-loop) — with the **2-digit** coefficients
+as the named residuals.
 
 
 ---
@@ -1056,6 +1063,11 @@ that audit: it
 **computes** the four resolutions on the GPU (the CuPy engine) and
 **cross-checks** the root by a **second route** (the symbolic
 `$\mathrm{Cl}(10,0)$` of the `kingdon` Clifford-algebra library).
+The audit is **refined** by the **10-loop / 2-loop** experiments
+(**V53–V56**, below): three of the "coincidence / not-in-the-structure"
+residuals have **0-parameter loop-factor** representations (the loop count
+a number of the root), with the 2-digit coefficients as the named
+residuals.
 
 **The five provenance classes.**  Every number the theory calls
 "0-parameter" is reclassified into its **true** status (the audit's

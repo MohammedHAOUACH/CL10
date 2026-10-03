@@ -617,13 +617,18 @@ def provenance_table():
         ("M_GUT = M_P", "1.22e19 GeV", "convention",
          "identifying the GUT scale with the Planck cutoff"),
         ("v/E_P = 2.02e-17 (0.18% match)", "2.02e-17", "coincidence",
-         "a 2-digit numerical coincidence, not a derivation"),
+         "the **2-digit coefficient** (the 0.18% match) is a coincidence; the "
+         "**exponent** -17 has a 0-parameter 10-loop representation, "
+         "2.08 x (1/16pi)^10 (10 = n_gen; V53)"),
         ("eta_CP (the CP-violating factor)", "1e-3 (named)", "named_residual",
-         "the magnitude of CP violation in the N decay (W5)"),
+         "the 2-loop factor (1/16pi)^2 = 3.96e-4 (V55) gives the right order; "
+         "the **exact 2-digit** magnitude is the residual (W5)"),
         ("Lambda_obs ~ 1e-122", "1e-122", "named_residual",
          "the breaking of the 512/512 cancellation (W1)"),
         ("the sub-Planck DM scale", "~1e2-1e3 GeV (named)", "named_residual",
-         "the scale that gives the observed DM abundance (W7)"),
+         "not a single-step spectral scale; the **10-loop suppression** "
+         "M_P*(1/16pi)^10 = 118 GeV (V54) gives the observed abundance; the DM "
+         "**identity** is the residual (W7)"),
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
          "the exact light-neutrino mass (W2)"),
     ]
