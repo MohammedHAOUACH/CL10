@@ -180,27 +180,43 @@ python3 run_validation.py V11 V12    # a subset
 passes (the compact numerical style allows E702/E402/E741; the real bugs
 F4xx/F5xx are enforced).
 
-**Figures.**  The nine figures of `doc/publication.md` (the "Figures"
-section) are **computed, not hand-drawn**, by `make_figures.py` (at the
-repo root).  It imports the `cl10` modules and writes PNGs to
-`doc/figures/`:
+ **Figures.**  The **seventeen** figures of `doc/publication.md` (the
+ "Figures" section) are **computed, not hand-drawn**, by `make_figures.py`
+ (at the repo root).  It imports the `cl10` modules and writes PNGs to
+ `doc/figures/`:
 
-```bash
-python3 make_figures.py            # -> doc/figures/fig1..fig9_*.png
-```
+ ```bash
+ python3 make_figures.py            # -> doc/figures/fig1..fig17_*.png
+ ```
 
-The nine, by module: the **32-level QCA spectrum** (the one object;
-`cl10.qca_spectrum`), the **1-loop running** of the three SM couplings to
-$M_P$ ($1/\alpha_i$, with the 2-loop Landau-pole contrast;
-`cl10.unification`), the **10-loop ladder** (the hierarchy $+$ the DM mass;
-`cl10.hier_exponent`), the **WIMP miracle** (`cl10.dm_wimp`), the **2-route
-Kretschmann** (`cl10.gravity`), the **512/512 cancellation**
-(`cl10.cosmology3`), **QCD confinement** (the 0-parameter linear vs
-Coulombic potential; `cl10.qcd`), **GUT leptogenesis** (the baryon asymmetry
-as a product of 0-parameter numbers; `cl10.eta_cp`), and **anomaly
-cancellation** (the $[\mathrm{U}(1)]^3$ per-field divergence;
-`cl10.matter`).  It uses the same backend selection as Section 3
-(CuPy/GPU, degrading to NumPy/CPU).
+ Figs 1-13 are **0-parameter** results of the `cl10` modules: the
+ **32-level QCA spectrum** (the one object; `cl10.qca_spectrum`), the
+ **1-loop running** of the three SM couplings to $M_P$ (with the 2-loop
+ Landau-pole contrast; `cl10.unification`), the **10-loop ladder** (the
+ hierarchy $+$ the DM mass; `cl10.hier_exponent`), the **WIMP miracle**
+ (`cl10.dm_wimp`), the **2-route Kretschmann** (`cl10.gravity`), the
+ **512/512 cancellation** (`cl10.cosmology3`), **QCD confinement**
+ (`cl10.qcd`), **GUT leptogenesis** (the baryon asymmetry; `cl10.eta_cp`),
+ **anomaly cancellation** (`cl10.matter`), the **predictions-vs-observation
+ scoreboard** (fig 10), the **ladder of scales** (fig 11), the **parameter
+ audit** (fig 12), and the **CPT spectral mirror** (fig 13).
+
+ Figs 14-17 are **SM-comparison** figures: fig 14 the **head-to-head**
+ (every 0-parameter prediction vs its measured value for six headline
+ quantities), fig 15 the **matter content** (the 16 Weyl =
+ $\mathbf{10}\oplus\bar5\oplus1$ of one SM generation), fig 16 the **GUT
+ coupling and the $5/3$** (1-loop running to $M_P$ $+$ the couplings at
+ $M_Z$), and fig 17 the **ladder of scales** (the 0-parameter ladder vs the
+ observed SM ladder).  The measured values in figs 14/16/17 are **reference
+ data, not fits**: the SM gauge couplings and the electroweak / Planck
+ scales from the **Particle Data Group** (`pdg.lbl.gov`), the dark-matter
+ abundance and the baryon asymmetry from **Planck 2018** (Planck
+ Collaboration, *A&A* **641**, A6 (2020): $\Omega_{\rm DM}h^2=0.120$), the
+ proton-decay limit from **Super-Kamiokande**, and the observed neutrino
+ mass $\sim0.05$ eV.  No SM number is used to fit a CL10 parameter.
+
+ It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
+ NumPy/CPU).
 
 ---
 

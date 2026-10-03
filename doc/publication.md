@@ -207,7 +207,10 @@ structure and the **family count**: the **3 generations** are $16\times 3 = 48$
 Weyl (one 16 per family).  The *why-3* — a *derivation* of why the family
 count equals the spatial dimension — is a **named** residual (Section 13, W3).
 
----
+ **Fig. 15** — the SU(5) content of the 16: the six left-handed Weyl fields
+ in $\mathbf{10}\oplus\bar5\oplus1$ with their gauge representations.
+
+ ---
 
 ## 4. The Gauge: the 45 and the $5/3$
 
@@ -246,7 +249,12 @@ This is the **GUT normalization** of the SM $\mathrm{U}(1)$ — a **0-parameter*
 prediction of the unified group, and the **anchor** of the coupling
 unification.
 
----
+ **Fig. 16** — the single GUT coupling $\alpha_{10}=1/25$ and the 1-loop
+ running of the three SM couplings toward it: $\alpha_2$ matches,
+ $\alpha_3$ is order-of-magnitude, and $\alpha_1$ sits below the U(1)
+ Landau pole.
+
+ ---
 
 ## 5. The Statistics: the $\mathbb{Z}_2$ grading
 
@@ -351,7 +359,11 @@ the 0.18% is the accuracy *after* inserting that named coefficient.  The
 **derivation of the exact exponent and the 2-digit coefficient** is a
 **named** residual (Section 13, W8).
 
----
+ **Fig. 17** — the full 0-parameter ladder of scales (the Planck / GUT, the
+ 2-step seesaw, the electroweak, the DM, QCD, and the neutrino): the same
+ hierarchy as the observed SM ladder, one object across 30+ decades.
+
+ ---
 
 ## 8. Holography: the area law
 
@@ -586,7 +598,8 @@ explicitly **named** residual:
   ($\sim0.02$–$0.04$) but does **not** meet at a single point (the
   **1-loop matching** is the named residual); the QCA's lattice UV cutoff
   ($M_P$) is **below** the U(1) Landau pole, so the running is
-  **UV-bounded** (**Fig. 2**).
+   **UV-bounded** (**Fig. 2**); the GUT coupling $\alpha_{10}$ and the three
+   SM couplings at $M_Z$ are drawn in **Fig. 16**.
 - **General relativity from the QCA.**  The metric dynamics (the discrete
   Laplacian) is the **massless spin-2** graviton ($c=1$, the 2
   polarizations, the UV-bounded dispersion, $\omega/|k|\to1$) in the
@@ -1097,6 +1110,11 @@ residuals have **0-parameter loop-factor** representations (the loop count
 a number of the root), with the 2-digit coefficients as the named
 residuals.
 
+ **Fig. 14** — the head-to-head comparison: every 0-parameter prediction
+ against its SM / Planck / PDG measured value, the match and the named
+ residual side by side (no quantity is fitted — the measured values are
+ reference data).
+
 **The five provenance classes.**  Every number the theory calls
 "0-parameter" is reclassified into its **true** status (the audit's
 **$7 + 1 + 2 + 1 + 4$** split):
@@ -1473,6 +1491,53 @@ spectrum is the **exact mirror** of the **matter** one,
 $\omega_{16\text{bar}}=-\omega_{16}$ — **CPT as spectral conjugation** (the
 spectral form of the CPT theorem of V24; it holds for **every** $g_{10}$, a
 property of the **algebra**, V52).
+
+ **Fig. 14 — the head-to-head: the CL10 0-parameter prediction vs the SM measurement.**
+
+ ![CL10 0-parameter prediction vs the SM measurement.](figures/fig14_sm_head2head.png)
+
+ The six headline numbers, **side by side**: the baryon asymmetry $\Delta B$,
+ the dark-matter abundance $\Omega_{\rm DM}h^2$ and mass $m_{\rm DM}$, the
+ $v/E_P$ hierarchy, the neutrino mass $m_\nu$, and the proton lifetime
+ $\tau_p$.  Grey = the SM / Planck / PDG **measured** value (reference data);
+ red = the CL10 **0-parameter** prediction.  **No quantity is fitted**: the
+ theory matches the baryon asymmetry to order-of-magnitude, the DM mass to
+ $118$ GeV, the $v/E_P$ hierarchy to a factor $2.08$ (the named 2-digit
+ residual), and the proton lifetime as a lower bound; the DM **abundance**
+ (W7) and the **exact** $m_\nu$ (W2) are the named gaps.
+
+ **Fig. 15 — the matter content: the 16 Weyl = one full SM generation.**
+
+ ![The 16 Weyl = one full SM generation = 10 ⊕ 5 ⊕ 1 of SU(5).](figures/fig15_matter_content.png)
+
+ The **16** left-handed Weyl components of $\mathrm{Cl}(10)$ decompose under
+ the SM gauge group into the six fields of **one** generation: $Q$ (dim $6$),
+ $\bar u$ ($3$), $\bar e$ ($1$) in the $\mathbf{10}$; $\bar d$ ($3$), $L$
+ ($2$) in the $\bar5$; and the sterile $\nu^c$ ($1$).  The dimensions sum
+ **exactly** to $16$ — the GUT $\mathbf{10}\oplus\bar5\oplus1$ of $\mathrm{SU}(5)$
+ with **no parameter fitted**.
+
+ **Fig. 16 — the 0-parameter GUT coupling and the $5/3$.**
+
+ ![The 0-parameter GUT coupling and the SM couplings at M_Z.](figures/fig16_couplings_mz.png)
+
+ (a) the three 1-loop SM couplings $\alpha_1,\alpha_2,\alpha_3$ run toward the
+ **0-parameter** GUT coupling $1/\alpha_{10}=25$ near $M_P$ (the $5/3$ is the
+ $\mathrm{U}(1)$ GUT normalization, Theorem 3); (b) at $M_Z$: $\alpha_2$
+ matches ($0.66\times$), $\alpha_3$ is order-of-magnitude, and $\alpha_1$ sits
+ **below the U(1) Landau pole** (the 1-loop matching is the named residual, W4).
+
+ **Fig. 17 — the ladder of scales: the 0-parameter ladder vs the SM ladder.**
+
+ ![The 0-parameter ladder of scales vs the SM ladder.](figures/fig17_ladder_sm.png)
+
+ The **one** 0-parameter object spans **30+ decades**: the Planck / GUT scale,
+ the 2-step seesaw $M_N=M_P(1/16\pi)^3$, the electroweak $v=246$ GeV, the DM
+ $m_{\rm DM}=M_P(1/16\pi)^{10}$, QCD, and the neutrino
+ $m_\nu=M_P(1/16\pi)^{17}$.  The upper (colored) row is the CL10 0-parameter
+ ladder; the lower (grey) row is the **observed** SM ladder — the same
+ hierarchy of scales, generated by one object.
+
 ---
 
 ## References

@@ -447,7 +447,7 @@ def fig10_predictions():
 # Figure 11 — the 0-parameter ladder of scales (one object -> all scales)
 # ===========================================================================
 def fig11_ladder():
-    from cl10 import hier_exponent as he, dm_wimp as dw, toepred as tp
+    from cl10 import dm_wimp as dw, toepred as tp
 
     m_nu_eV = ((1.0 / 8 * 246.0) ** 2 / 1e14) * 1e9     # ~ 10^-2 eV
     # (energy GeV, label, color, side(+/-1), height multiplier)
@@ -502,7 +502,6 @@ def fig12_audit():
             color=[col for (_, _, col, _) in classes], edgecolor="k", lw=0.5)
     ax.set_yticks(y)
     ax.set_yticklabels([f"{lab}   (n={n})" for (lab, n, _, _) in classes])
-    xmax = max(n for (_, n, _, _) in classes)
     for (yi, (_, n, _, items)) in zip(y, classes):
         ax.text(n + 0.15, yi, items, va="center", ha="left", fontsize=8, color="0.2")
     ax.set_xlim(0, 13)
@@ -539,6 +538,227 @@ def fig13_cpt_mirror():
     _save(fig, "fig13_cpt_mirror.png")
 
 
+
+# ===========================================================================
+# Figure 14 — CL10 0-parameter vs the Standard Model: head-to-head (2 x 3)
+# ===========================================================================
+def fig14_sm_head2head():
+    from cl10 import (eta_cp as ep, dm_wimp as dw, hier_exponent as he,
+                      toepred as tp, neutrino as nn)
+
+    e = ep.eta_cp()
+    d = dw.dm_wimp()
+    h = he.hierarchy17()
+    m_nu_pred = nn.seesaw_2step()["m_nu_2step_eV"]
+
+    def _pair(ax, title, unit, obs, pred, log, note=None, ok=None):
+        xs = [0, 1]
+        vals = [obs, pred]
+        bars = ax.bar(xs, vals, color=["#9a9a9a", C_ZERO],
+                      edgecolor="k", lw=0.6, width=0.62)
+        if log:
+            ax.set_yscale("log")
+            ax.set_ylim(min(vals) * 0.35, max(vals) * 2.6)
+        else:
+            ax.set_ylim(0, max(vals) * 1.20)
+        for b, v in zip(bars, vals):
+            ax.text(b.get_x() + b.get_width() / 2, v * 0.97, f"{v:g}",
+                    ha="center", va="top", fontsize=8.5, color="0.25")
+        ratio = pred / obs
+        if ok is None:
+            ok = 0.5 <= ratio <= 2.0
+        col = C_SU3 if ok else "#e07b00"
+        txt = note if note is not None else f"0-param / obs = {ratio:.2f}"
+        ax.text(0.5, 0.98, txt, transform=ax.transAxes, ha="center", va="top",
+                fontsize=8.5, color=col,
+                bbox=dict(boxstyle="round", fc="#f6f6f6", ec="#c8c8c8", alpha=0.92))
+        ax.set_xticks(xs)
+        ax.set_xticklabels(["SM\nmeasured", "CL10\n0-param"], fontsize=9)
+        ax.set_title(title + (f"  ({unit})" if unit else ""), fontsize=10)
+        ax.set_ylabel("value" + (f", {unit}" if unit else "") + (" (log)" if log else ""),
+                      fontsize=9)
+
+    fig, axs = plt.subplots(2, 3, figsize=(15.2, 8.6))
+    fig.suptitle("CL10 0-parameter prediction  vs  Standard-Model measurement\n"
+                 "no quantity is fitted — the measured values are PDG / Planck reference data",
+                 fontsize=13, y=0.995)
+    _pair(axs[0, 0], "baryon asymmetry  $\\Delta B$", "$\\times10^{-10}$",
+          e["delta_B_observed"], e["delta_B_0param"], False)
+    _pair(axs[0, 1], "dark-matter  $\\Omega_{\\rm DM} h^2$", "",
+          d["omega_obs"], d["omega_DM"], False)
+    _pair(axs[0, 2], "dark-matter mass  $m_{\\rm DM}$", "GeV",
+          d["weak_scale_GeV"], d["m_DM_GeV"], False)
+    _pair(axs[1, 0], "hierarchy  $v/E_P$", "",
+          h["observed_ratio"], h["predicted_ratio"], True,
+          note=r"2.08$\times$ below obs (the 2-digit residual)", ok=False)
+    _pair(axs[1, 1], r"neutrino mass  $m_\nu$", "eV",
+          0.05, m_nu_pred, True,
+          note=f"{m_nu_pred / 0.05:.1f}$\\times$ obs (order-of-magnitude)", ok=False)
+    _pair(axs[1, 2], "proton lifetime  $\\tau_p$", "yr",
+          1e34, tp.proton_decay_lifetime(), True,
+          note="0-param $\\gg$ the experimental\nlower bound (consistent)", ok=True)
+    fig.tight_layout(rect=[0, 0, 1, 0.965])
+    _save(fig, "fig14_sm_head2head.png")
+
+
+# ===========================================================================
+# Figure 15 — the 16 Weyl = one full SM generation = 10 + 5bar + 1 of SU(5)
+# ===========================================================================
+def fig15_matter_content():
+
+    items = [
+        (r"$Q$",   6, r"$(3,2,+1/6)$",   "10", C_SU3),
+        (r"$\bar u$",  3, r"$(\bar3,1,-2/3)$", "10", C_SU3),
+        (r"$\bar e$",  1, r"$(1,1,+1)$",   "10", C_SU3),
+        (r"$\bar d$",  3, r"$(\bar3,1,+1/3)$", "$\\bar5$", C_SU2),
+        (r"$L$",   2, r"$(1,2,-1/2)$",  "$\\bar5$", C_SU2),
+        (r"$\nu^c$", 1, r"$(1,1,0)$",   "$1$", C_ROOT),
+    ]
+    y = np.arange(len(items))[::-1]
+    fig, ax = plt.subplots(figsize=(10.5, 5.0))
+    ax.barh(y, [it[1] for it in items], color=[it[4] for it in items],
+            edgecolor="k", lw=0.5)
+    for yi, (lab, dim, rep, su5, col) in zip(y, items):
+        ax.text(dim + 0.15, yi, f"{rep}  (in the {su5})",
+                va="center", fontsize=9, color="0.2")
+    ax.set_yticks(y)
+    ax.set_yticklabels([it[0] for it in items])
+    ax.set_xlabel("dimension  $n$  (Weyl components)")
+    ax.set_xlim(0, 10)
+    from matplotlib.lines import Line2D
+    ax.legend(handles=[
+        Line2D([0], [0], color=C_SU3, lw=0, marker="s", ms=11,
+               label=r"the $\mathbf{10}$  :  $Q, \bar u, \bar e$   $(6+3+1 = 10)$"),
+        Line2D([0], [0], color=C_SU2, lw=0, marker="s", ms=11,
+               label=r"the $\mathbf{\bar 5}$  :  $\bar d, L$   $(3+2 = 5)$"),
+        Line2D([0], [0], color=C_ROOT, lw=0, marker="s", ms=11,
+               label=r"the $\mathbf{1}$  :  $\nu^c$   $(1)$  — the sterile"),
+    ], loc="lower right", framealpha=0.95, fontsize=8.5)
+    ax.set_title(r"The 16 Weyl $= $ one full SM generation $= \mathbf{10} \oplus \mathbf{\bar 5} \oplus \mathbf{1}$ of $\mathrm{SU}(5)$"
+                 r"  —  the six left-handed fields, total dimension $16$ (exact, 0-parameter)",
+                 fontsize=10.5)
+    _save(fig, "fig15_matter_content.png")
+
+
+# ===========================================================================
+# Figure 16 — the 0-parameter GUT coupling and the 5/3 at M_Z
+# ===========================================================================
+def fig16_couplings_mz():
+    from cl10 import unification as u
+
+    rd = u.running_down()
+    az = u.A_Z
+    p0 = rd["couplings_at_M_Z"]
+    names = [r"$\alpha_1$  U(1)", r"$\alpha_2$  SU(2)", r"$\alpha_3$  SU(3)"]
+    cols = [C_GUT, C_SU2, C_SU3]
+    fig, (axA, axB) = plt.subplots(
+        1, 2, figsize=(12.5, 4.6), gridspec_kw={"width_ratios": [1.35, 1.0]})
+    # (a) the 1-loop running of the 3 SM couplings to M_P + the GUT band
+    s = np.logspace(np.log10(u.M_Z), np.log10(u.M_P), 220)
+    ln = np.log(s / u.M_Z)
+    for k in range(3):
+        axA.plot(np.log10(s), 1.0 / az[k] - (u.B_SM[k] / (2.0 * np.pi)) * ln,
+                 color=cols[k], lw=2.0, label=names[k])
+    axA.axhline(1.0 / u.ALPHA_10, color=C_ZERO, ls="--", lw=1.5,
+                label=r"0-param GUT coupling  $1/\alpha_{10} = 25$")
+    axA.axvline(np.log10(u.M_P), color="k", lw=0.8)
+    axA.set_xlabel(r"$\log_{10}(M/\mathrm{GeV})$")
+    axA.set_ylabel(r"running $1/\alpha_i$  (1-loop, SM $\beta$)")
+    axA.set_xlim(np.log10(u.M_Z) - 0.1, np.log10(u.M_P) + 0.3)
+    axA.set_ylim(8, 42)
+    axA.set_title("(a)  the three SM couplings reach the GUT band near $M_P$",
+                  fontsize=9.5)
+    axA.legend(fontsize=8, loc="upper left", framealpha=0.95)
+    # (b) at M_Z: measured vs the 0-param down-running (paired bars)
+    m = [0, 1, 2]
+    w = 0.36
+    axB.bar([x - w / 2 - 0.02 for x in m], az, width=w, color="#9a9a9a",
+            edgecolor="k", lw=0.5, label="SM measured")
+    p0plot = [max(p, 0.0) for p in p0]
+    axB.bar([x + w / 2 + 0.02 for x in m], p0plot, width=w, color=C_ZERO,
+            edgecolor="k", lw=0.5, label="CL10 0-param (down-run)")
+    for x in m:
+        axB.text(x - w / 2, az[x] + 0.003, f"{az[x]:.3f}",
+                 ha="center", fontsize=7.5, color="0.3")
+        if p0[x] <= 0:
+            axB.text(x + w / 2, 0.003, "below\npole", ha="center", fontsize=7,
+                     color="0.4")
+        else:
+            axB.text(x + w / 2, p0[x] + 0.003, f"{p0[x]:.3f}",
+                     ha="center", fontsize=7.5, color="0.45")
+    axB.set_xticks(m)
+    axB.set_xticklabels(names)
+    axB.set_ylabel("$\\alpha_i$  at $M_Z$")
+    axB.set_ylim(0, 0.145)
+    axB.set_title("(b)  at $M_Z$:  $\\alpha_2$ matches ($0.66\\times$);  "
+                  r"$\alpha_3$ order-of-mag;  $\alpha_1$ below the pole"
+                  "\n(the 1-loop matching = the W4 named residual)", fontsize=8.5)
+    axB.legend(fontsize=8, loc="upper right", framealpha=0.95)
+    fig.suptitle("The 0-parameter GUT coupling $\\alpha_{10}=1/25$ and the $5/3$  —  "
+                 "the SM couplings at $M_Z$", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.94])
+    _save(fig, "fig16_couplings_mz.png")
+
+
+# ===========================================================================
+# Figure 17 — the 0-parameter ladder of scales vs the SM ladder
+# ===========================================================================
+def fig17_ladder_sm():
+    from cl10 import dm_wimp as dw, toepred as tp
+
+    M_P = tp.M_PLANCK
+    LOOP = 1.0 / (16.0 * np.pi)
+    # each point: (GeV value, label, color, y_level, ha, x_nudge) -- the level
+    # + nudge + a leader line stagger the cluster near log10(100-246 GeV)
+    cl10 = [
+        (M_P * LOOP ** 17,   r"neutrino  $m_\nu = M_P(1/16\pi)^{17}$  (W2)", C_ZERO, 0, "center", 0.0),
+        (1.0,               r"QCD  $\Lambda \sim 1$ GeV  (V27)",           C_SU3,  0, "center", 0.0),
+        (dw.dm_wimp()["m_DM_GeV"], r"DM  $m_{\rm DM} = M_P(1/16\pi)^{10}$  (W7)", C_SU2, 1, "right", -0.4),
+        (tp.V_EW,           r"electroweak  $v = 246$ GeV",                C_GUT,  2, "left",  +0.4),
+        (M_P * LOOP ** 3,   r"2-step  $M_N = M_P(1/16\pi)^3$  (W2)",     C_ROOT, 0, "center", 0.0),
+        (M_P,              r"GUT / Planck  $M_P = M_{\rm GUT}$",          "k",    0, "center", 0.0),
+    ]
+    sm = [
+        (0.05 * 1e-9,      r"$m_\nu \sim 0.05$ eV",            "#8c8c8c", 0, "center", 0.0),
+        (1.0,             r"$\Lambda_{\rm QCD} \sim 1$ GeV",   "#8c8c8c", 0, "center", 0.0),
+        (100.0,           r"WIMP  $\sim 100$ GeV",             "#8c8c8c", 1, "right", -0.4),
+        (246.0,           r"$v = 246$ GeV",                    "#8c8c8c", 2, "left",  +0.4),
+        (1.22e19,         r"$M_P$",                            "#8c8c8c", 0, "center", 0.0),
+    ]
+
+    fig, ax = plt.subplots(figsize=(18, 7.5))
+    ax.axhline(0.30, color="0.7", lw=0.8, ls=":")
+    ax.axhline(-0.30, color="0.7", lw=0.8, ls=":")
+    top_levels = {0: 0.66, 1: 0.84, 2: 0.99}
+    bot_levels = {0: -0.66, 1: -0.84, 2: -0.99}
+
+    def draw_row(points, ydot, levels):
+        for (E, lab, col, lvl, ha, xn) in points:
+            x = np.log10(E)
+            ylab = levels[lvl]
+            ax.plot([x, x + xn], [ydot, ylab], color=col, lw=0.8,
+                    alpha=0.55, zorder=2)
+            ax.scatter([x], [ydot], s=85, color=col, zorder=5,
+                       edgecolor="k", lw=0.4)
+            va = "bottom" if ydot > 0 else "top"
+            ax.text(x + xn, ylab + (0.05 if ydot > 0 else -0.05), lab,
+                    ha=ha, va=va, fontsize=8.5, color=col)
+
+    draw_row(cl10, 0.30, top_levels)
+    draw_row(sm, -0.30, bot_levels)
+
+    ax.text(9.5, 1.05, "CL10 0-parameter ladder", fontsize=11, weight="bold",
+            color="0.2", ha="center")
+    ax.text(9.5, -1.09, "SM observed ladder", fontsize=11, weight="bold",
+            color="0.4", ha="center")
+    ax.set_xlim(-11, 20)
+    ax.set_ylim(-1.18, 1.18)
+    ax.set_yticks([])
+    ax.set_xlabel("energy scale (GeV, log)   —   one object spans 30+ decades")
+    ax.set_title("The 0-parameter ladder of scales vs the SM ladder: the same hierarchy,"
+                 " from the Planck scale down to the neutrino", fontsize=11)
+    _save(fig, "fig17_ladder_sm.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -554,7 +774,11 @@ def main():
     fig11_ladder()
     fig12_audit()
     fig13_cpt_mirror()
-    print("done: 13 figures.")
+    fig14_sm_head2head()
+    fig15_matter_content()
+    fig16_couplings_mz()
+    fig17_ladder_sm()
+    print("done: 17 figures.")
 
 
 if __name__ == "__main__":
