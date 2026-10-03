@@ -82,14 +82,18 @@ def main():
     hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
     toe = bool(hard) and all(r["pass"] for r in hard)
     named = [r["id"] for r in results if r["residual"]]
-    # the 3 walls are REDUCED: each has a 0-parameter MECHANISM that passes
+    # the named walls/residuals are REDUCED: each has a 0-parameter MECHANISM
+    # that passes.  W2 is now completed on the 10-loop ladder (V57); W4 by the
+    # UV-finite discrete RG (V58).
     reduced = {
         "V9_dark_energy": ("V17_w1_screening",
                            "the Z2 512/512 cancellation -> Lambda = 0"),
-        "V15_seesaw": ("V18_w2_seesaw2step",
-                       "the 2-step seesaw, M_N intermediate"),
+        "V15_seesaw": ("V57_neutrino",
+                       "the 2-step seesaw on the 10-loop ladder (0-param M_N, m_D)"),
         "V16_families": ("V19_w3_families3",
                          "the 3 families = the 3 space"),
+        "V47_2loop_uvfinite": ("V58_uvr",
+                               "the UV-finite discrete RG (bounded tower U^(2^p))"),
     }
     reduced_ok = {w: any(r["id"] == mid and r["pass"] for r in results)
                   for w, (mid, _desc) in reduced.items()}
@@ -117,9 +121,9 @@ def main():
     if named:
         print(f"  NAMED RESIDUALS (the exact values):  {', '.join(named)}")
     if reduced_ok and all(reduced_ok.values()):
-        print("  THE 3 WALLS ARE REDUCED: each mechanism is 0-parameter (PASS)")
+        print(f"  THE {len(reduced)} NAMED RESIDUALS ARE REDUCED: each has a 0-parameter mechanism (PASS)")
         for w, (mid, desc) in reduced.items():
-            print(f"    - {w:16s} reduced by {mid} ({desc})")
+            print(f"    - {w:18s} reduced by {mid} ({desc})")
     return 0 if n_pass == n else 1
 
 

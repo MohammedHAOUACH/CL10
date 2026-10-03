@@ -441,11 +441,11 @@ symbolic `kingdon` $\mathrm{Cl}(10,0)$).
 
 ---
 
-## 13.5. The 10-loop / 2-loop refinement modules (V53–V56)
+## 13.5. The 10-loop / 2-loop / QCA-step refinement modules (V53–V58)
 
-The **0-parameter loop-factor** representations of three named residuals
-(the loop count a 0-parameter number of the root; Section 15).  All numerics
-on the **CuPy** GPU engine.
+The **0-parameter loop-factor** representations of four named residuals
+(the loop count a 0-parameter number of the root; Section 15).  All
+numerics on the **CuPy** GPU engine.
 
 **`cl10.hier_exponent` — the hierarchy exponent (V53, W8).**
 
@@ -480,6 +480,28 @@ on the **CuPy** GPU engine.
 | `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.024$) and the (non-unification) spread (the W4 named residual) |
 | `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, n_closest_to_1loop, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.65** of the 1-loop GUT coupling |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
+
+**`cl10.neutrino` — the 2-step seesaw on the 10-loop ladder (V57, W2).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `loop_ladder` | `(n)` | the 0-parameter $n$-loop scale $M_P(1/16\pi)^n$ (the "one object") |
+| `dirac_mass` | `()` | the 0-parameter Dirac mass $m_D = M_P(1/16\pi)^{10} \approx 118$ GeV (the 10-loop / WIMP scale) |
+| `twostep_scale` | `()` | the 0-parameter 2-step (Majorana) scale $M_N = M_P(1/16\pi)^3 \approx 9.6\times10^{13}$ GeV (the $10^{14}$ scale, **replacing** the hard-coded $10^{14}$) |
+| `seesaw_2step` | `()` | `{backend, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_ladder_eV, m_nu_obs_eV, off_2step, right_order, ladder_match, exp_2step, residual}` — the 0-parameter 2-step seesaw $m_\nu = m_D^2/M_N = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.15$ eV (**2.9x** the observed; `exp_2step = 17` the 0-parameter loop identity) |
+| `twostep_unitary` | `(tol=1e-9)` | `{backend, n, unitary_err_1step, unitary_err_2step, two_step_unitary, uv_finite}` — the 2-step $U^2$ of the GUT QCA is a 0-parameter **unitary** (the 2-loop), computed on the GPU |
+| `verify` | `(tol=1e-12)` | `{ok, checks, seesaw, twostep}` — `ok` when the 10-loop Dirac = the DM/WIMP scale, the 2-step is unitary, the loop identity holds, and the result is the right order |
+
+**`cl10.uvrunning` — the UV-finite discrete RG (V58, W4).**
+
+| symbol | signature | returns |
+|---|---|---|
+| `one_loop_running` | `(M)` | the 1-loop SM couplings at scale $M$ (the non-SUSY SM) |
+| `landau_poles` | `(M)` | the 1-loop Landau-pole scale of each coupling ($U(1)$ a real pole; $SU(2)/SU(3)$ asymptotically free) |
+| `two_loop_pole_u1` | `()` | the 2-loop $U(1)$ Landau-pole scale ($\sim10^{12}$ GeV, **below** the cutoff — the perturbative UV divergence) |
+| `discrete_rg` | `(max_power=8)` | `{backend, n, rows, all_bounded, two_step_unitary_err, two_particle_max_offdiag, two_particle_bounded}` — the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$): each step is **unitary** (bounded) (the GPU) $\Rightarrow$ the **discrete RG is UV-finite** (no Landau pole); the 2-particle S-matrix is bounded |
+| `w4_verdict` | `()` | `{backend, alpha_10, M_P_GeV, couplings_at_M_P, spread_at_M_P, one_loop_landau_poles, two_loop_u1_pole, u1_1loop_above_cutoff, u1_2loop_below_cutoff, discrete_rg, w4_resolved, residual, ok}` — the full W4: the 1-loop non-unification (the $U(1)$ pole) **resolved** by the UV-finite discrete RG |
+| `verify` | `(tol=1e-9)` | `{ok, checks, verdict}` — `ok` when the discrete RG tower is all bounded, the 2-step is unitary, and the 2-loop $U(1)$ pole is below the cutoff (the W4 resolution) |
 
 
 ## 14. `run_validation.py` — the TOE runner

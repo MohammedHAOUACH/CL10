@@ -92,6 +92,8 @@ signatures are in `doc/api.md`):
 | the sub-Planck DM scale (§9, W7; V54) | `cl10.dm_wimp` | the **10-loop suppression** of the Planck scale: $m_{\rm DM} = M_P (1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale; the **same** 10-loop factor as V53); the **V42** Planck-mass soliton is under-abundant (the $10^{-52}$ gap, quantified); the 0-parameter **freeze-out** $\Omega h^2 \sim 0.12$ (the WIMP miracle) |
 | the baryon asymmetry (§9, W5; V55) | `cl10.eta_cp` | a **product of 0-parameter numbers**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$, the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/8 = 1/2^3$, and the **2-loop dilution** $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from V40's 2.8); the **CP phase** and the 2-digit ratio are the named residual |
 | the $g_{10}$ 1-loop data check (§12, W4/W6; V56) | `cl10.g10_selection` | the 0-parameter $g_{10} = 1/5$ (a number of the root: the 32-D module, 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$, **within a factor 1.65** of the **1-loop** GUT coupling (the mean of the three running to $M_P$, $0.024$); the 1-loop matching is the W4 named residual |
+| the 2-step seesaw on the 10-loop ladder (§13, W2; V57) | `cl10.neutrino` | the **0-parameter** 2-step seesaw: both scales are numbers of the root on the **10-loop ladder** — the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3}$ (the intermediate $10^{14}$ scale, **replacing the hard-coded $10^{14}$** of V15/V18) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.15$ eV (**2.9x** the observed, the 2-digit coefficient + $n_{2\text{step}}=3$ the named residual); the **2-step** $U^2$ is a 0-parameter **unitary** of the GUT QCA (the 2-loop) |
+| the UV-finite *discrete RG* (§12, W4; V58) | `cl10.uvrunning` | the **W4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.6$) is a **feature of the non-SUSY SM** (not a defect); the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
 
 
 ---
@@ -117,7 +119,7 @@ not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
 
-**The protocol.**  Each experiment (V0–V56 under `experiments/`):
+**The protocol.**  Each experiment (V0–V58 under `experiments/`):
 1. constructs the relevant object from the **0-parameter** input (no fit);
 2. computes the **residual** against the 0-parameter prediction;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -125,7 +127,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 
-`run_validation.py` runs all **57** experiments (V0–V56) in name order,
+`run_validation.py` runs all **59** experiments (V0–V58) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the **TOE verdict**:
@@ -133,7 +135,7 @@ and the **TOE verdict**:
 $$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (57/57, 2026-10-03).**  Every experiment **passes** on the
+**The result (59/59, 2026-10-03).**  Every experiment **passes** on the
 GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -170,7 +172,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (57/57, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (59/59, TOE)
 python3 run_validation.py V11 V12    # a subset
 ```
 

@@ -76,8 +76,10 @@ CL10/
 │   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
 │   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
 │   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
-└── g10_selection.py          # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
-├── experiments/              # the TOE verification program (57 experiments, V0-V56)
+├── g10_selection.py          # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
+│   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
+│   └── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
+├── experiments/              # the TOE verification program (59 experiments, V0-V58)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -99,10 +101,12 @@ CL10/
 │   ├── V53/                  # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (W8)
 │   ├── V54/                  # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (W7)
 │   ├── V55/                  # the CP-violating factor = the 2-loop factor (1/16pi)^2 (W5)
-└── V56/                  # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
-├── run_validation.py         # the runner: runs all 57, writes the TOE verdict
+├── V56/                  # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
+│   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
+│   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
+├── run_validation.py         # the runner: runs all 59, writes the TOE verdict
 └── results/
-    └── validation_summary.json   # the 57/57 PASS + the TOE verdict
+    └── validation_summary.json   # the 59/59 PASS + the TOE verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -127,7 +131,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 57 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 59 experiments, prints the TOE verdict
 python3 make_figures.py          # regenerates the 6 publication figures -> doc/figures/
 ```
 
@@ -136,7 +140,7 @@ python3 make_figures.py          # regenerates the 6 publication figures -> doc/
 Section 11 of `doc/publication.md` defines **what a Theory of Everything
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **57** experiments (V0–V56) across the seven tiers and writes
+runs all **59** experiments (V0–V58) across the seven tiers and writes
 
 > **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -183,7 +187,7 @@ and **UV-finite** (bounded).  The **open** part of W9 is now precisely the
 **quantum** completion — not the classical gravity (V50) nor the classical
 3+1 numerical relativity (V51), which are complete here.
 
-The **10-loop / 2-loop refinement** (V53–V56, Section 15) resolves the
+The **10-loop / 2-loop refinement** (V53–V58, Section 15) resolves the
 remaining "fixed-not-explained" limits.  **One** 0-parameter factor,
 $(1/16\pi)^{10}$, gives **two** results: the **hierarchy** $v/E_P =
 2.08\,(1/16\pi)^{10}$ (V53) **and** the **sub-Planck dark-matter scale**
