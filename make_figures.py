@@ -867,6 +867,60 @@ def fig19_uv_2loop():
     ax.legend(loc="lower left", framealpha=0.95, fontsize=8)
     _save(fig, "fig19_uv_2loop.png")
 
+
+# ===========================================================================
+# Figure 20 — proton decay p -> e+ pi0: the 0-parameter lifetime vs the GUT scale
+# ===========================================================================
+def fig20_proton_decay():
+    """The 0-parameter proton lifetime tau_p ~ M_GUT^4 / (alpha_10^2 m_p^5).
+    The GUT scale sets the decay rate; the 0-parameter point (M_GUT = M_P) is
+    far above the experimental bound, so the proton is stable on all observed
+    timescales (consistent with data, and falsifiable)."""
+    from cl10 import toepred as tp
+
+    M_P = tp.M_PLANCK
+    ALPHA = tp.ALPHA_10
+    m_p = tp.M_P_ROBSON
+    GEV_TO_S = tp.GEV_TO_S
+    S_TO_YR = tp.S_TO_YR
+
+    def tau(M):
+        return (M ** 4 / (ALPHA ** 2 * m_p ** 5)) * GEV_TO_S / S_TO_YR
+
+    M_GUT = np.logspace(14, 20, 300)
+    tau_p = tau(M_GUT)
+
+    BOUND = 1.6e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande)
+    TAU_UNIVERSE = 1.4e10   # yr, the age of the universe
+
+    fig, ax = plt.subplots(figsize=(8.2, 5.4))
+    ax.loglog(M_GUT, tau_p, "-", color=C_ROOT, lw=2.4,
+              label=r"$\tau_p \sim M_{\rm GUT}^{4}\,/\,(\alpha_{10}^{2}\,m_p^{5})$")
+    ax.axhline(BOUND, color=C_ZERO, ls="--", lw=1.5,
+               label="experimental bound  $\\tau_p > 1.6\\times10^{34}$ yr  ($p\\to e^+\\pi^0$)")
+    ax.axhline(TAU_UNIVERSE, color="0.45", ls=":", lw=1.5,
+               label="age of the universe  $\\sim 1.4\\times10^{10}$ yr")
+    tau0 = float(tp.proton_decay_lifetime())
+    ax.scatter([M_P], [tau0], s=150, marker="*", color=C_ZERO, zorder=5,
+               label=r"0-parameter:  $M_{\rm GUT}=M_P=1.22\times10^{19}$ GeV "
+                     r"$\Rightarrow$ $\tau_p = $" + f"{tau0:.1e}" + r" yr")
+    ax.axhspan(1.0, BOUND, color=C_ZERO, alpha=0.05)
+    ax.annotate(
+        r"$M_{\rm GUT} \lesssim 5\times10^{15}$ GeV gives $\tau_p$ below the bound (excluded, shaded);"
+        "\nthe 0-parameter point sits $\\sim$13 orders of magnitude above it, so the proton is stable "
+        "on all\nobserved timescales (consistent with data; the prediction is falsifiable)",
+        xy=(M_P, tau0), xytext=(2e14, 3e34),
+        fontsize=8.5, ha="left", va="bottom",
+        bbox=dict(boxstyle="round", fc="#f4f4f4", ec="#888", alpha=0.95),
+        arrowprops=dict(arrowstyle="->", color="0.3"))
+    ax.set_xlabel(r"GUT scale  $M_{\rm GUT}$  (GeV, log scale)")
+    ax.set_ylabel(r"proton lifetime  $\tau_p$  (yr, log scale)")
+    ax.set_title("Proton decay $p \\to e^+ \\pi^0$: the 0-parameter lifetime vs the GUT scale")
+    ax.set_xlim(1e14, 1e20)
+    ax.set_ylim(1e9, 1e49)
+    ax.legend(loc="upper left", framealpha=0.95, fontsize=8)
+    _save(fig, "fig20_proton_decay.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -888,7 +942,8 @@ def main():
     fig17_ladder_sm()
     fig18_residual_reduction()
     fig19_uv_2loop()
-    print("done: 19 figures.")
+    fig20_proton_decay()
+    print("done: 20 figures.")
 
 
 if __name__ == "__main__":

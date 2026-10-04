@@ -1693,6 +1693,31 @@ the GUT couplings ($g_{10}=1/5$, $g_0=1/8$) are 0-parameter-computed, and the
 minimal named set is the two 2-digit coefficients + one irreducible CP phase
 ($3^*$).
 
+**Fig. 19 — the 2-loop running of the $U(1)$ coupling: the perturbative QFT pole vs the bounded QCA step.**
+
+![The 2-loop running of the U(1) coupling.](figures/fig19_uv_2loop.png)
+
+The 2-loop running $1/\alpha_1(M)$ (red) reaches a **Landau pole below $M_P$**
+($\sim 10^{12}$ GeV); the 1-loop running (orange) stays bounded (its pole is
+above $M_P$).  The QCA step is a **unitary** automaton, so its $n$-step
+amplitudes stay bounded at every order — the perturbative UV divergence is a
+property of the perturbative expansion, not of the QCA (the 2-loop UV
+completion, W4).
+
+**Fig. 20 — proton decay $p \to e^+ \pi^0$: the 0-parameter lifetime vs the GUT scale.**
+
+![The 0-parameter proton lifetime vs the GUT scale.](figures/fig20_proton_decay.png)
+
+The 0-parameter lifetime $\tau_p \sim M_{\rm GUT}^4/(\alpha_{10}^2\,m_p^5)$
+rises with the GUT scale (slope $4$ on the log-log plot): the GUT scale sets
+the decay rate.  The dashed line is the **experimental bound**
+$\tau_p > 1.6\times10^{34}$ yr ($p \to e^+ \pi^0$, Super-Kamiokande); the
+dotted line is the age of the universe.  The 0-parameter point
+$M_{\rm GUT} = M_P = 1.22\times10^{19}$ GeV gives $\tau_p \sim 4\times10^{47}$
+yr, about **13 orders of magnitude above the bound** — the proton is stable on
+all observed timescales (consistent with data; the prediction is
+**falsifiable**).
+
 ---
 
 ## References
