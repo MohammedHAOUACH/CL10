@@ -183,13 +183,13 @@ python3 run_validation.py V11 V12    # a subset
 passes (the compact numerical style allows E702/E402/E741; the real bugs
 F4xx/F5xx are enforced).
 
- **Figures.**  The **twenty-four** figures of `doc/publication.md` (the
+ **Figures.**  The **twenty-five** figures of `doc/publication.md` (the
  "Figures" section) are **computed, not hand-drawn**, by `make_figures.py`
  (at the repo root).  It imports the `cl10` modules and writes PNGs to
  `doc/figures/`:
 
  ```bash
- python3 make_figures.py            # -> doc/figures/fig1..fig24_*.png
+ python3 make_figures.py            # -> doc/figures/fig1..fig25_*.png (fig 25 is the heavy QCA young sim: `python3 make_figures.py --young`)
  ```
 
  Figs 1-13 are **0-parameter** results of the `cl10` modules: the
@@ -218,7 +218,7 @@ F4xx/F5xx are enforced).
  proton-decay limit from **Super-Kamiokande**, and the observed neutrino
  mass $\sim0.05$ eV.  No SM number is used to fit a CL10 parameter.
 
-Figs 18-24 close the set: fig 18 the **residual-set reduction**
+Figs 18-25 close the set: fig 18 the **residual-set reduction**
 (Section 16), fig 19 the **2-loop** running of the $U(1)$ coupling (the
 Landau-pole contrast), fig 20 the **0-parameter proton lifetime** vs the GUT
 scale (the falsifiability bound), fig 21 the **proton decay rate** normalised
@@ -226,7 +226,16 @@ to the bound (the 13-order margin), fig 22 the **three GUT channels**
 ($p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$), fig 23 the **0-parameter QCA
 wave** (the causal $+$ unitary dispersive spreading of a pulse), and fig 24 the
 **0-parameter black hole** (the 3-D well $+$ the geodesic integrated through
-the CL10 Christoffels, and the 2-route computed Kretschmann $=48M^2/r^6$).
+the CL10 Christoffels, and the 2-route computed Kretschmann $=48M^2/r^6$),
+and fig 25 the **Young double-slit as a measurement** (the 0-parameter 3-D QCA
+wave — the same 4-neighbour discrete wave equation as the CL10 graviton —
+run by the ``simulation.young`` engine: the propagation $+$ double-slit
+diffraction (a), the far-field interference on the screen (b, the $d/\lambda$
+fringes with a bright central maximum), the **9-to-1 collapse** of one
+Born-rule detection onto a point (c), and the **accumulated** detected points
+building the fringes (d)).  Fig 25 is the **only** heavy figure (a
+$128\times128\times220$ 3-D FDTD, $\sim$1.2k steps): it is **opt-in** (the
+`--young` flag) and its PNG is committed, so the default run stays fast.
 
  It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
  NumPy/CPU).

@@ -53,7 +53,7 @@ class Collapse:
         u = np.random.random()
         flat = int(np.searchsorted(cdf, u, side="right"))
         flat = min(flat, p.size - 1)
-        Ly = I.shape[0]  # (Lx, Ly) -> x is the first axis
+        Ly = I.shape[1]  # I is (Lx, Ly); C-order ravel is x*Ly + y
         x = flat // Ly
         y = flat % Ly
         return int(x), int(y)

@@ -1152,7 +1152,160 @@ def fig24_gravity_3d():
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     _save(fig, "fig24_gravity_3d.png")
 
-def main():
+
+# ===========================================================================
+# Figure 25 — the Young double-slit as a measurement (the 0-parameter QCA wave
+# and its 9-to-1 collapse onto the detected points)
+# ===========================================================================
+def fig25_young():
+    """fig25 - the CL10 Young double-slit run as the 0-parameter 3-D QCA wave
+    equation (simulation.young).  (a) the propagation + double-slit diffraction
+    (the x-z slice), (b) the interference on the detection screen (the fringes
+    + the 1-D profile), (c) the collapse: one Born-rule detection reduces the
+    superposition onto a point (the 9-to-1 projection), (d) the reality: the
+    accumulated detected points build the fringes.  The *heavy* figure (a
+    128x180x240 3-D FDTD, ~1.4k steps): GPU (cuPy) is a few seconds; CPU is
+    slower, so this is opt-in (the --young flag) and its PNG is committed."""
+    import matplotlib.patches as mpatches
+    np.random.seed(2025)
+    from simulation.young import collapse as Coll
+    from simulation.young import wave
+
+    C = plt.get_cmap("inferno")
+    TXT = "#2b2b2b"
+    LIGHT = "#f0f0f0"
+
+    def blackize(ax):
+        ax.set_facecolor("black")
+        for sp in ax.spines.values():
+            sp.set_color("#666")
+        ax.tick_params(labelcolor=TXT)
+
+    def norm(A):
+        A = np.asarray(A, float)
+        return (A - A.min()) / max(A.max() - A.min(), 1e-12)
+
+    Lx, Ly, Lz = 128, 128, 220
+    lam, d, a = 4.5, 22.0, 5.0
+    cfg = dict(grid=[Lx, Ly, Lz], r=0.5, wavelength=lam, source_width=18.0,
+               source_amplitude=1.0, source_z=20, ramp_steps=200,
+               sponge_width=16, barrier_z=44, slit_separation=d,
+               slit_width=a, slit_height=Ly, screen_z=200)
+    bar_z, scr_z = cfg["barrier_z"], cfg["screen_z"]
+    sim = wave.WaveSim(cfg)
+    col = Coll.Collapse(dict(grid=[Lx, Ly, Lz], source_width=18.0,
+                             show_collapse=True, collapse_frames=9,
+                             collapse_peak=6.0, n_detections=10**8))
+    diff_slice = None
+    for i in range(1200):
+        sim.step()
+        if i == 500:
+            diff_slice = (sim.field()[:, Ly // 2, :] ** 2).copy()
+        if i >= 600 and i % 3 == 0:
+            I = sim.screen_intensity()
+            if I.sum() > 0:
+                pt = col.sample(I)
+                if pt:
+                    col.add(*pt)
+    screen = sim.screen_intensity().copy()
+    det = np.array(col.detections) if col.n_detected() else np.empty((0, 2))
+    # pick a detected point in a bright fringe for the collapse animation
+    if det.size:
+        bright = det[screen[det[:, 0], det[:, 1]] > 0.3 * screen.max()]
+        if not bright.size:
+            bright = det
+        cx, cy = max(bright, key=lambda p: screen[int(p[0]), int(p[1])])
+        cx, cy = int(cx), int(cy)
+    else:
+        cx, cy = Lx // 2, Ly // 2
+    # the contraction: the screen superposition * a shrinking Gaussian
+    gx, gy = np.meshgrid(np.arange(Lx), np.arange(Ly), indexing="ij")
+    sig0, sig1, pkmax, nframe = 60.0, 1.5, 6.0, 9
+    seq = np.stack([
+        screen * np.exp(-((gx - cx)**2 + (gy - cy)**2) /
+                        (2 * (sig0 * (sig1 / sig0)**(f/(nframe-1)))**2))
+        * (1.0 + (pkmax - 1.0) * f / (nframe - 1)) for f in range(nframe)])
+
+    fig = plt.figure(figsize=(12.6, 9.2), facecolor="white")
+    gs = fig.add_gridspec(2, 2, hspace=0.42, wspace=0.26,
+                          left=0.05, right=0.97, top=0.89, bottom=0.08)
+    # (a) propagation + diffraction (x-z slice)
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax1.imshow(np.sqrt(norm(diff_slice)), cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lz, 0, Lx])
+    ax1.axvline(bar_z, color="w", ls="--", lw=1.4, alpha=0.9)
+    ax1.axvline(scr_z, color="yellow", ls="--", lw=1.4, alpha=0.9)
+    ax1.annotate("slits", xy=(bar_z, Lx*0.5), xytext=(bar_z-22, Lx*0.5),
+                 color="w", fontsize=8, ha="center")
+    ax1.annotate("screen", xy=(scr_z, Lx*0.5), xytext=(scr_z-30, Lx*0.62),
+                 color="yellow", fontsize=8, ha="center")
+    ax1.set_xlabel("propagation $z$  (source $\\leftarrow$ , screen $\\rightarrow$)",
+                   color=TXT)
+    ax1.set_ylabel("transverse $x$", color=TXT)
+    ax1.set_title("(a) the wave: propagation $+$ double-slit diffraction", color=TXT)
+    blackize(ax1)
+    # (b) the interference on the detection screen
+    ax2 = fig.add_subplot(gs[0, 1])
+    ax2.imshow(norm(screen).T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly])
+    ax2.set_xlabel("transverse $x$", color=TXT)
+    ax2.set_ylabel("transverse $y$", color=TXT)
+    ax2.set_title("(b) the interference on the detection screen", color=TXT)
+    blackize(ax2)
+    inset = ax2.inset_axes([0.03, 0.66, 0.55, 0.30], facecolor="#1a1a1a")
+    prof = screen.mean(axis=1)
+    inset.plot(prof, color=C_ZERO, lw=1.3)
+    inset.set_xlim(0, Lx); inset.set_ylim(0, prof.max() * 1.2)
+    inset.set_xticks([0, Lx//2, Lx]); inset.set_yticks([])
+    inset.set_title("profile along $x$", fontsize=7.5, color=LIGHT, pad=1)
+    for sp in inset.spines.values():
+        sp.set_color("#444")
+    inset.tick_params(colors=LIGHT, labelsize=6.5)
+    # (c) the collapse: one detection reduces the packet onto a point
+    ax3 = fig.add_subplot(gs[1, 0])
+    base = norm(screen)
+    ax3.imshow(base.T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly], alpha=0.55, vmin=0, vmax=1)
+    fin = norm(seq[-1])
+    ax3.imshow(np.ma.masked_less(fin.T, 0.18), cmap=C, origin="lower",
+               aspect="auto", extent=[0, Lx, 0, Ly], vmin=0, vmax=1)
+    ax3.add_patch(mpatches.Circle((cx, Ly-cy), 0.5*lam/2.0, fill=False,
+                                  color="w", ls="--", lw=1.8))
+    ax3.plot([cx], [Ly-cy], marker="*", color="w", ms=15, zorder=5,
+             markeredgecolor="k", markeredgewidth=0.5)
+    ax3.set_xlabel("transverse $x$", color=TXT)
+    ax3.set_ylabel("transverse $y$", color=TXT)
+    ax3.set_title("(c) the collapse: one detection reduces the packet onto a point",
+                 color=TXT)
+    blackize(ax3)
+    for i in range(3):
+        sax = ax3.inset_axes([0.10+0.27*i, 0.04, 0.24, 0.40], facecolor="black")
+        sax.imshow(norm([seq[0], seq[len(seq)//2], seq[-1]][i]).T, cmap=C,
+                   origin="lower", aspect="auto")
+        sax.set_xticks([]); sax.set_yticks([])
+        sax.set_title(["$\\sigma$ large", "contracting", "the point"][i],
+                      fontsize=7.5, color=LIGHT, pad=1)
+        for sp in sax.spines.values():
+            sp.set_color("#444")
+    # (d) the reality: the detected points build the fringes
+    ax4 = fig.add_subplot(gs[1, 1])
+    ax4.imshow(base.T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly], alpha=0.30, vmin=0, vmax=1)
+    xs = det[:, 0]; ys = Ly - det[:, 1]
+    ax4.scatter(xs, ys, s=4, c=C_ZERO, alpha=0.75, linewidths=0)
+    ax4.set_xlabel("transverse $x$", color=TXT)
+    ax4.set_ylabel("transverse $y$", color=TXT)
+    ax4.set_title(f"(d) the reality: {len(xs)} detected points build the fringes",
+                 color=TXT)
+    blackize(ax4)
+    fig.suptitle("The CL10 Young double-slit as a measurement: the 0-parameter QCA "
+                 "wave (a,b) and its 9-to-1 collapse onto the detected points (c,d)",
+                 fontsize=12.5, color="#111")
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    _save(fig, "fig25_young.png")
+
+
+def main(with_young=False):
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
     fig2_unification()
@@ -1178,8 +1331,11 @@ def main():
     fig22_proton_channels()
     fig23_qca_wave()
     fig24_gravity_3d()
-    print("done: 24 figures.")
+    if with_young:
+        fig25_young()
+    print(f"done: {25 if with_young else 24} figures.")
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    main(with_young=("--young" in sys.argv))
