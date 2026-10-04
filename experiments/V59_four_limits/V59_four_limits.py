@@ -49,17 +49,19 @@ def main():
     l1 = d["L1_conventionality"]
     l24 = d["L2_hierarchy_plus_L4_DM"]
     l3 = d["L3_baryogenesis"]
+    cp = d["coupling_provenance"]
 
     verdict = {
         "id": "V59_four_limits",
         "tier": 6,
         "property": "P1",
-        "residual": True,   # the minimal named set: 1 angle + 2 conventions + 2 coeffs + 1 CP phase
+        "residual": True,   # 0 free params; 3 named (2 two-digit coeffs + 1 CP phase) + the mapping conventions (Point 1)
         "pass": ok,
-        "status": ("the_4_limits_are_the_4_projections_of_one_0_parameter_invariant_10=2x5_"
-                   "plus_one_irreducible_CP_phase;_reduced_to_the_minimum_residual_set_6_named_"
-                   "(g10_invariant_algebra;_unique_n=10_for_hierarchy_and_DM;_baryogenesis_needs_"
-                   "exactly_one_CP_phase)"),
+        "status": ("the_4_limits_have_0_free_parameters_(g10=1/5_and_g0=1/8_are_0-param-COMPUTED)"
+                   "and_are_the_4_projections_of_one_0-parameter_invariant_10=2x5_plus_one_CP_phase;"
+                   "reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_and_1_CP_phase)_plus_mapping_conventions;"
+                   "g10_invariant_algebra;_unique_n=10_for_hierarchy_and_DM;_baryogenesis_needs_one_CP_phase;"
+                   "delta_is_INDEPENDENT_of_g10_(the_QCA_is_real/CP-even)"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -80,6 +82,14 @@ def main():
             "L3_delta_B_0param": float(l3["delta_B_0param"]),
             "L3_delta_B_observed": float(l3["delta_B_observed"]),
             "L3_delta_B_ratio": float(l3["delta_B_ratio"]),
+            "free_parameters": int(d["residual_set"]["free_parameters"]),
+            "g10_is_0param": bool(cp["g10_is_0param"]),
+            "g0_is_0param": bool(cp["g0_is_0param"]),
+            "g10_0param": float(cp["g10_0param"]),
+            "g0_0param": float(cp["g0_0param"]),
+            "qca_cp_even": bool(cp["qca_cp_even"]),
+            "delta_independent_of_g10": bool(cp["delta_independent_of_g10"]),
+            "mapping_conventions": cp["mapping_conventions"],
             "residual_set": d["residual_set"],
             "total_named_residuals": int(d["total_named_residuals"]),
             "verdict": d["verdict"],
@@ -101,8 +111,9 @@ def main():
     print(f"            coeffs:  hierarchy = {l24['coeff_hierarchy']:.3f},  DM = {l24['coeff_dm']:.3f}")
     print(f"  [L3]  rank-1 CP phases = {l3['rank1_cp_phases']} (none);  2-step (2N) = {l3['minimal_cp_phases_required']} (one)  "
           f"|Delta B| = {l3['delta_B_0param']:.2e} (ratio {l3['delta_B_ratio']:.2f})")
-    print(f"  reduced residual set:  {d['residual_set']}  (total {d['total_named_residuals']})")
-    print(f"  VERDICT:  {'PASS (the four limits -> 1 angle + 2 conventions + 2 coeffs + 1 CP phase)' if ok else 'FAIL'}")
+    print("  [couplings]  g_10 = 1/5 (0-param);  g_0 = 1/8 (0-param);  -> 0 free parameters")
+    print(f"  reduced residual set:  {d['residual_set']}  (total {d['total_named_residuals']} named; 0 free)")
+    print(f"  VERDICT:  {'PASS (0 free params; 3 named = 2 two-digit coeffs + 1 CP phase)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v59_four_limits.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

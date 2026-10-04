@@ -759,6 +759,61 @@ def fig17_ladder_sm():
                  " from the Planck scale down to the neutrino", fontsize=11)
     _save(fig, "fig17_ladder_sm.png")
 
+
+# ===========================================================================
+# Figure 18 — the residual-set reduction: the unique n + the 0-free/3-named set
+# ===========================================================================
+def fig18_residual_reduction():
+    from cl10 import four_limits as fl
+
+    r = fl.unique_10loop()
+    h_scan = [(p["n"], p["hier_dev"]) for p in r["scan"]]
+    d_scan = [(p["n"], p["dm_dev"]) for p in r["scan"]]
+    n_best = r["n_best"]
+
+    fig, (axA, axB) = plt.subplots(
+        1, 2, figsize=(13.0, 4.7), gridspec_kw={"width_ratios": [1.4, 1.0]})
+    # (a) the two 0-parameter constraints (deviation in e-folds vs n)
+    axA.plot([p[0] for p in h_scan], [p[1] for p in h_scan], "o-",
+             color=C_SU3, lw=1.6, ms=4, label="hierarchy  $v/E_P$  (1-loop)")
+    axA.plot([p[0] for p in d_scan], [p[1] for p in d_scan], "s-",
+             color=C_SU2, lw=1.6, ms=4, label="dark matter  $m_{\\rm DM}$  (2-loop)")
+    axA.axhline(0.0, color="k", lw=0.8, ls="--")
+    axA.axvline(n_best, color=C_ZERO, lw=1.4, ls=":",
+                label=f"the unique solution  $n = {n_best}$  (both $<= 1$)")
+    hv = min(p[1] for p in h_scan if p[0] == n_best)
+    dv = min(p[1] for p in d_scan if p[0] == n_best)
+    axA.scatter([n_best], [min(hv, dv)], color=C_ZERO, s=90, zorder=5,
+                edgecolor="k", lw=0.6)
+    axA.set_xlabel("$n$  (the 0-parameter loop count $= 2 \\times n_{\\rm qubits}$)")
+    axA.set_ylabel("deviation from observed  (e-folds)")
+    axA.set_xlim(0, 21)
+    axA.set_ylim(-0.5, 2.4)
+    axA.legend(loc="upper left", framealpha=0.95, fontsize=8.5)
+    axA.set_title("Two 0-parameter constraints, one number: only $n = 10$ satisfies both\n"
+                  r"($n_{\rm gen} = 5$ satisfies neither) — the unique solution (Section 16, V59)",
+                  fontsize=10.5)
+    # (b) the residual-set reduction (the 4 limits -> 0 free + 3 named)
+    axB.axis("off")
+    rows = [
+        ("the 4 'limits'  (doc/remarques.txt)", 0.98, "0.3", "normal"),
+        ("   1.  the '0-parameter' convention", 0.86, "0.4", "normal"),
+        ("   2.  the hierarchy gap (W8)", 0.74, "0.4", "normal"),
+        ("   3.  the baryogenesis (W5)", 0.62, "0.4", "normal"),
+        ("   4.  the dark matter (W7)", 0.50, "0.4", "normal"),
+        ("        ==>  0 free  +  3 named", 0.34, C_ZERO, "bold"),
+        (r"$g_{10} = 1/5$,   $g_0 = 1/8$   (0-parameter-computed)", 0.24, "0.3", "normal"),
+        ("the named set = 2 two-digit coefficients $(2.08, 1.18)$", 0.15, "0.4", "normal"),
+        (r"+  1  CP phase  $= 3^{*}$", 0.07, "0.4", "normal"),
+    ]
+    for text, y, col, wt in rows:
+        axB.text(0.5, y, text, ha="center", va="center",
+                 fontsize=10 if col == C_ZERO else 8.5,
+                 color=col, weight=wt)
+    axB.set_title("The residual set reduces to 0 free + 3 named", fontsize=10.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    _save(fig, "fig18_residual_reduction.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -778,7 +833,8 @@ def main():
     fig15_matter_content()
     fig16_couplings_mz()
     fig17_ladder_sm()
-    print("done: 17 figures.")
+    fig18_residual_reduction()
+    print("done: 18 figures.")
 
 
 if __name__ == "__main__":

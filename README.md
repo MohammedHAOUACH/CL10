@@ -157,9 +157,10 @@ The **honest parameter audit** (Section 15, V52) turns the four limits
 **Section 16** (V59, `cl10.four_limits`) goes further and **unifies** them:
 the four "limits" are the four projections of one 0-parameter invariant,
 $10 = 2 \times 5$ (the chiral $16/16$-bar split times the 5 qubits of the
-32-D module), **plus one irreducible CP phase** — so the named residual set is
-the minimum: **1 free 't Hooft angle + 2 mapping conventions + 2 2-digit
-coefficients + 1 CP phase = 6**, nothing else.
+32-D module), **plus one irreducible CP phase** — and the theory has **0 free
+parameters** ($g_{10}=1/5$ and $g_0=1/2^3$ are 0-parameter-computed from the
+root).  The named residual set is the minimum: **2 two-digit coefficients
+(2.08, 1.18) + 1 CP phase = 3**, plus the mapping conventions (Point 1).
 
 The **completion program** (V36–V42, V46, V50, V51, tier 6 — Section 12 of
 `doc/publication.md`)

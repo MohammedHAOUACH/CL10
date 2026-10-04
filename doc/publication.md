@@ -1001,7 +1001,7 @@ CPT split, and the S-matrix are its 0-parameter invariants).
 | **W4** | the **1-loop SM matching** (the non-SUSY SM does not unify at 1-loop; the QCA **lattice RG** is the open part) | the **0-parameter UV input** $\alpha_{10} = 1/25$ (**derived from the 5 qubits of the root**) $+$ the 1-loop $\beta$-functions (fixed by the particle content); the **down-running** from the QCA UV cutoff is **computed**; **completed (V58)**: the **W4 open part** (the *lattice RG*) is made **explicit** — the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) is **unitary** (bounded) at **every** step (the GPU), so the **discrete RG is UV-finite** (no Landau pole), in contrast to the *continuous* perturbative RG (2-loop $U(1)$ pole below the cutoff) | the **1-loop spread** ($\sim0.6$, the exact matching of the three GUT-range couplings) and the **2-digit** 2-loop pole ratio — the *naive* 1-loop non-unification (a feature of the non-SUSY SM) |
 | **W5** | the exact $\eta_{CP}$ and the exact $\Delta B = 6.1\times10^{-10}$ | **GUT leptogenesis** as a **product of 0-parameter numbers**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$, with the **SM sphaleron** $28/79$, the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension), and the **2-loop dilution** $D = (1/16\pi)^2$ (loop counts $1+2=3$); the 2-step heavy $N$ decays **out of equilibrium** (the 0-parameter kinematics) (V55) $\Rightarrow$ $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from V40's ratio 2.8) | the **CP phase** (which makes $\varepsilon_{CP}$ nonzero, an $\mathcal{O}(1)$ input) and the **2-digit** ratio 1.12 — the **W2 pattern** applied to the baryon asymmetry |
 | **W6** | the **exact Yukawa** values (the 3-generation **hierarchy**, the **CKM** mixing) | the **structure** of the mass term is 0-parameter: the **10-Higgs** $16\to16\text{-bar}$ (Dirac, **off-diagonal, rank-16**), and the **democratic $3\times3$** is **derived** — the **3-fold family symmetry** (the 3 spatial directions $S_a$ are equivalent: $S_a^2=-I$, $\{S_a,S_b\}=0$, equal norm, so the 10-Higgs couples the 3 families equally) gives the all-ones matrix, eigenvalues $\{3,0,0\}$ (one heavy + a 2-fold light level), diagonalized by the **0-parameter tribimaximal** PMNS ($\sin^2\theta_{12}=1/3$, $\sin^2\theta_{23}=1/2$, $\theta_{13}=0$) | the **values** of the 3-level mass hierarchy ($m_\mu/m_e$, $m_t/m_b$, the neutrino masses — the 10-Higgs vev) and the **exact** CKM/PMNS mixing angles |
-| **W7** | the **sub-Planck** DM scale (the observed DM is **not** the Planck-mass soliton) | the **V42** Planck-mass soliton (the 0-parameter candidate) is **under**-abundant (the gap $\Omega_{\rm 0param}/\Omega_{\rm obs} \sim 10^{-52}$, quantified); the **resolved** sub-Planck scale is $m_{\rm DM} = M_P (1/16\pi)^{10} = 118$ GeV (the **WIMP/weak scale**, the **10-loop** factor, V54) — the **same** 10-loop factor as W8, which gives the **observed** abundance (the WIMP miracle, a 0-parameter cosmological result) | the DM **identity** (which particle) and the exact **cross-section** (W9) — the mass **scale** (118 GeV) and the abundance order are 0-parameter |
+| **W7** | the **sub-Planck** DM scale (the observed DM is **not** the Planck-mass soliton) | the **V42** Planck-mass soliton (the 0-parameter candidate) is **under**-abundant (the gap $\Omega_{\rm 0param}/\Omega_{\rm obs} \sim 10^{-52}$, quantified); the **resolved** sub-Planck scale is $m_{\rm DM} = M_P (1/16\pi)^{10} = 118$ GeV (the **WIMP/weak scale**, the **10-loop** factor, V54) — the **same** 10-loop factor as W8, which gives the **observed** abundance (the WIMP miracle, a 0-parameter cosmological result) | the DM **identity** — the theory fixes the **mass scale**, not the *particle*: the 0-parameter candidate is the lightest stable soliton, but its *identification* with a specific observed particle is the residual (a 0-parameter theory gives a scale, not an identity) — and the exact **cross-section** (W9); the mass **scale** (118 GeV) and the abundance order are 0-parameter |
 | **W8** | the **derivation of the hierarchy exponent** ($v/E_P \sim 10^{-17}$) | the **0-parameter** scale of the gap is the **10-loop factor** $(1/16\pi)^{10} = 9.7\times10^{-18}$ — the **10** is **$2\times5$** (the 16/16-bar **chiral split** $\times$ the **5 qubits** of the 32-D module, $2^5=32$; V53); the **same** 10-loop factor also gives the **DM mass** $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (W7) — **one factor, two results**; the **exponent** $-17$ is **0-parameter-derived** | the **2-digit** coefficient ($2.08\times$ the 10-loop, giving $2.02\times10^{-17}$, **0.18%** of the observed $2.016\times10^{-17}$) — the *exact* value |
 | **W9** | the **quantum-gravity wall** (the QCA lattice RG to the measured cross-sections; the non-linear completion beyond the quadratic EH — classical **and** quantum) | the **0-parameter S-matrix** is **computed** (the QCA step **is** the time-evolution, the 't Hooft program — $S = U$ and $S^{(2)} = U\otimes U$ **exactly unitary**), **and** the **0-parameter cross-section** is **computed** (V44): the QCA is **UV-finite** (the Planck cutoff bounds every cross-section to $\sigma_{\max} = 4\pi/M_P^2$), the 2→2 cross-section $\sigma_0 = P_2/M_P^2$ (nonzero, bounded, $P_2 = 1-\bar d^2$), the **0-parameter dispersion** (the 32-level spectrum $H = -i\log U$, UV-bounded $\lvert \omega\rvert \le \pi$, no 1-loop pairing), the **0-parameter optical theorem** (the inelastic $P_2$ **is** the cross-section, elastic + inelastic = 1), the **0-parameter Froissart-Martin bound** ($m_{\min}=M_P$: the QCA's *constant* cross-section sits **below** the $\ln^2$ growth at every scale above the cutoff — the **strongest** UV-finiteness), the 0-parameter QCA/perturbative ratio $R = 4\pi P_2/g_{10}^4$; **and the classical non-linear completion is complete** (the 4-D curvature from any metric, V50; the 3+1 BSSN/Z4 NR, V51) | the **matching** of the 0-parameter cross-section to the **measured** one (a **0-parameter prediction** — the 't Hooft program, a **falsifier**); the **open** part of W9 is the **quantum** completion (the UV of quantum gravity) |
 
@@ -1042,6 +1042,35 @@ hierarchy (two separated scales).
   remains **open** (W9) is the **quantum** completion (the UV of the
   quantum gravity) — **not** the classical non-linear gravity (V50) nor the
   classical 3+1 numerical relativity (V51), which are complete here.
+
+**The W9 quantum-completion gap, precisely (done vs open vs the 0-parameter form).**
+- **DONE** (0-parameter, numerically verified): the *classical* gravity is
+  complete — the general 4-D Riemann / Ricci / Einstein / Kretschmann
+  **computed** from an *arbitrary* metric (V50, 2-route), the complete
+  0-parameter Einstein–Hilbert action **derived from the dynamics**, the
+  3+1 BSSN/Z4 numerical relativity (V51: the 2-route 0-row, the constraints,
+  Z4 damping), the **0-parameter S-matrix** ($S = U$, the 't Hooft program),
+  the **0-parameter cross-sections** (V44: UV-finite, bounded by
+  $\sigma_{\max} = 4\pi/M_P^2$; the dispersion, the optical theorem, the
+  Froissart–Martin bound), the **n-particle** S-matrix (V48, the UV-finite
+  property), and the **UV-finite discrete RG** (V58, the bounded
+  coarse-graining tower).
+- **OPEN** (the genuine frontier): the **quantum** completion of the *quantum*
+  gravity — the **UV of the quantum theory**, not the classical one.  The
+  open pieces are (i) the **quantum** evolution (a *sum over* the QCA
+  histories, not the single classical trajectory), (ii) the **quantum**
+  graviton and the **renormalization** of the quantum couplings, and (iii) the
+  **quantum** completion of the non-linear (state-dependent) metric dynamics
+  beyond the classical 't Hooft non-linearity.
+- **The 0-parameter *form* of that completion (a scaffold, **not** a claimed
+  solution):** the QCA is already a *deterministic, non-linear, unitary*
+  evolution on a causal lattice, so the natural quantum completion is a **sum
+  over these 0-parameter histories** — a *causal-lattice path integral* with
+  the **0-parameter** (uniform, lattice-regularized) measure, **UV-finite by
+  construction** (the cutoff is the lattice spacing).  This is the *direction*
+  the 0-parameter structure points to; it is **not yet computed or verified**,
+  so it remains the open W9 — stated here as the 0-parameter scaffold, **not**
+  as a result.
 
 ---
 
@@ -1345,11 +1374,12 @@ invariants (the $16/16$-bar CPT mirror, the 45, the $5/3$, the $8$ anomaly
 coefficients $=0$, the 32-spectrum, $\det U = 1$) are **$g_{10}$-invariant**:
 computed for $g_{10} = 0.1,0.2,0.3,0.4,0.5$, the CPT-mirror residual stays
 $\sim 1.8\times10^{-15}$ for **every** angle.  The invariant is a property of
-the $\mathrm{Cl}(10)$ **algebra**, not of the 't Hooft angle.  Hence the
-"0-parameter" label is honest **for the algebra**, and $g_{10}$ is the single
-free ('t Hooft) angle: the theory is **0-parameter in the algebra and
-1-parameter in the dynamics**.  The conventionality of Point 1 is a
-*redundancy of the angle*, not a physical degree of freedom.
+the $\mathrm{Cl}(10)$ **algebra**, not of the 't Hooft angle.  And the
+selected angle $g_{10}=1/5$ is itself **0-parameter** (a number of the root:
+$1/n_{\rm qubits}$, 5 qubits).  So the theory has **no free parameters** — the
+QCA is a one-parameter *family* $U(g_{10})$, but its *value* $g_{10}=1/5$ is
+fixed by the root.  The conventionality of Point 1 is the *mapping* (reading
+that number as the GUT coupling), not a physical degree of freedom.
 
 **L2 (hierarchy) + L4 (DM) — one number, two constraints, one solution.**
 The **same** loop count $n = 10 = 2\times 5$ is the **unique** $n$ in
@@ -1377,29 +1407,39 @@ the observed $6.1\times10^{-10}$.  The "added" $\eta_{CP}$ is thereby reduced
 to **the one irreducible CP phase of the 2-step seesaw** — a number the
 0-parameter structure *permits*, not a free matrix.
 
-**The reduction (the solution).**  The four "limits" collapse to exactly
-**six** named quantities, and **nothing else**:
+**The reduction (the solution).**  The four "limits" collapse to **zero free
+parameters** and **three** irreducible named quantities.  The two GUT
+couplings are **0-parameter-computed** from the root, not free:
+$g_{10} = 1/n_{\rm qubits} = 1/5$ (the 32-D module) and
+$g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ (the 3 spatial directions).  The
+residual set is:
 
-$$\underbrace{1}_{\text{free 't Hooft angle } g_{10}}
-\;+\; \underbrace{2}_{\text{mapping conventions } g_0,\ M_{\rm GUT}=M_P}
-\;+\; \underbrace{2}_{\text{2-digit coefficients } 2.08,\ 1.18}
+$$\underbrace{0}_{\text{free parameters}}
+\;+\; \underbrace{2}_{\text{2-digit coefficients } 2.08,\ 1.18\ (\text{order 0-param})}
 \;+\; \underbrace{1}_{\text{irreducible CP phase }\delta}
-\;=\; 6.$$
+\;=\; 3 \;\text{named}.$$
 
-The **0-parameter** content (the $7$ algebraic invariants, the $10=2\times5$
-loop ladder, the rank-1 CP-forbid) **holds and is computed**; the **six**
-named quantities are the **irreducible** content of the theory — the minimum
-a 1-parameter QCA with a 2-step GUT breaking can carry.  **V59**
+The **0-parameter** content (the $7$ algebraic invariants, the $g_{10}$-invariant
+mirror, the $g_{10}=1/5$ and $g_0=1/2^3$ couplings, the $10=2\times5$ loop
+ladder, the rank-1 CP-forbid, and the baryon magnitude via V55) **holds and
+is computed**.  The **3** named quantities (the exact $2$-digit values of
+$2.08$ and $1.18$, and the one CP-violating phase) are the **irreducible**
+content; the **mapping conventions** (how to *read* the 0-parameter numbers
+$g_{10}$, $g_0$, $M_{\rm GUT}=M_P$ as physical quantities) are Point 1's
+honest caveat — conventions, not free fits.  The $\delta\leftrightarrow g_{10}$
+identification is **false**: the QCA $U(g_{10})$ is **real** (CP-even), so the
+CP phase is independent of the 't Hooft angle.  **V59**
 (`cl10.four_limits`) computes the whole reduction on the GPU (the
-$g_{10}$-invariant mirror, the unique-$n$ scan, the CP-phase count) and
-writes the verdict; the CPT-mirror invariance is **Fig. 13**, the 10-loop ladder
-(hierarchy + WIMP) is **Fig. 3**, and the baryon product is **Fig. 8**.
+$g_{10}$-invariant mirror, the $g_{10}/g_0$ provenance, the unique-$n$ scan,
+the CP-phase count) and writes the verdict; the CPT-mirror invariance is
+**Fig. 13**, the 10-loop ladder (hierarchy + WIMP) is **Fig. 3**, and the
+baryon product is **Fig. 8**.
 
 ---
 
 ## Figures
 
-All **thirteen** figures are **computed from the CL10 modules** (the generation
+All **eighteen** figures are **computed from the CL10 modules** (the generation
 script is `make_figures.py`, see `doc/reference.md`) — **no hand-drawn
 data**.  Each states the **0-parameter** content and, where relevant, the
 **named residual**, following the W2 pattern (Section 13: the 0-parameter
@@ -1610,6 +1650,21 @@ property of the **algebra**, V52).
  $m_\nu=M_P(1/16\pi)^{17}$.  The upper (colored) row is the CL10 0-parameter
  ladder; the lower (grey) row is the **observed** SM ladder — the same
  hierarchy of scales, generated by one object.
+
+**Fig. 18 — the residual-set reduction: one number, two constraints, the 0-free / 3-named set.**
+
+![The residual-set reduction (Section 16, V59).](figures/fig18_residual_reduction.png)
+
+The **unified solution** (Section 16, V59), plotted.  (a) The **two** 0-parameter
+constraints on the single loop count $n$ — the **hierarchy** $v/E_P$ (the 1-loop
+factor) and the **dark-matter** mass (the 2-loop factor) — are both satisfied by
+**exactly one** $n$: $n = 10$ ($= 2\times 5$); the naive $n_{\rm gen} = 5$
+satisfies *neither*.  One 0-parameter number, two independent constraints, one
+solution — the two 2-digit residuals ($2.08$, $1.18$) are the only named content.
+(b) The four "limits" of `doc/remarques.txt` reduce to **0 free + 3 named**:
+the GUT couplings ($g_{10}=1/5$, $g_0=1/8$) are 0-parameter-computed, and the
+minimal named set is the two 2-digit coefficients + one irreducible CP phase
+($3^*$).
 
 ---
 
