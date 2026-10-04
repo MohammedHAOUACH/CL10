@@ -17,7 +17,7 @@ gpu: 1
 # (Lx, Ly, Lz) cells.  The wave propagates along +z (the long axis), the two
 # slits are separated along x, the slits are full-height slots along y.
 # 256 x 256 x 512 = the same wide, flat box as the reference example.
-grid: [128, 128, 220]
+grid: [300, 128, 520]
 
 # render only every N-th cell (a stride in each axis) to keep the point cloud
 # fast on the GPU and the window responsive.  2 -> 1/8 of the cells drawn.
@@ -90,7 +90,7 @@ slit_height: 128.0
 # --- the detection screen (the "reality") ------------------------------------
 # z position of the detection screen (behind the slits; 82% down the box,
 # like the reference).
-screen_z: 200
+screen_z: 480
 
 # how many collapse / detection events to accumulate on the screen.
 n_detections: 3000
