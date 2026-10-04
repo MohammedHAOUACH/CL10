@@ -1305,7 +1305,194 @@ def fig25_young():
     _save(fig, "fig25_young.png")
 
 
-def main(with_young=False):
+# ===========================================================================
+# Figure 26 — the Young double-slit as a *single-electron* measurement: the
+# Tonomura flow (one electron at a time) with the Born rule sampled from the
+# *time-integrated* screen, so the impact points cluster into the fringes.
+# ===========================================================================
+def fig26_young():
+    """fig26 - the CL10 Young double-slit as a single-electron measurement
+    (the Tonomura flow).  The emitter fires one localized electron at a time;
+    each one diffracts through the slits and is detected at a *single point*
+    sampled from the **time-integrated** on-screen |psi|^2 (the interference
+    pattern the screen records -- a single instant of the traveling wave is
+    only a blob, so we integrate over the passage).  The points are collected
+    one per electron and build the fringes.  Panels: (a) the wave (x-z slice),
+    (b) the time-integrated interference pattern + its x-profile, (c) the
+    9-to-1 collapse of one electron onto a point, (d) the reality -- the
+    accumulated single-electron detections cluster into the fringe groups.
+    Opt-in (--young2); its PNG is committed."""
+    import matplotlib.patches as mpatches
+    np.random.seed(2026)
+    from simulation.young import collapse as Coll
+    from simulation.young import wave
+
+    C = plt.get_cmap("inferno")
+    TXT = "#2b2b2b"
+    LIGHT = "#f0f0f0"
+
+    def blackize(ax):
+        ax.set_facecolor("black")
+        for sp in ax.spines.values():
+            sp.set_color("#666")
+        ax.tick_params(labelcolor=TXT)
+
+    def norm(A):
+        A = np.asarray(A, float)
+        return (A - A.min()) / max(A.max() - A.min(), 1e-12)
+
+    Lx, Ly, Lz = 128, 128, 220
+    lam, d, a = 4.5, 22.0, 5.0
+    cfg = dict(grid=[Lx, Ly, Lz], r=0.5, wavelength=lam, source_width=18.0,
+               source_amplitude=1.0, source_z=20, ramp_steps=200,
+               source_mode="single", source_shape="point",
+               source_y_width=14.0, packet_z_width=8.0,
+               sponge_width=16, barrier_z=44, slit_separation=d,
+               slit_width=a, slit_height=Ly, screen_z=200)
+    bar_z, scr_z = cfg["barrier_z"], cfg["screen_z"]
+    sim = wave.WaveSim(cfg)
+    col = Coll.Collapse(dict(grid=[Lx, Ly, Lz], source_width=18.0,
+                             show_collapse=True, collapse_frames=9,
+                             collapse_peak=6.0, n_detections=10 ** 8))
+
+    # -- run the Tonomura flow: one electron at a time, one point each --------
+    absorb_frac, max_flight, n_target = 0.02, 300, 150
+    sim.emit_packet()
+    dets = []
+    screened = False
+    flight = 0
+    xz_slice = None      # (a) the propagation slice, captured at the slits
+    time_pattern = None  # (b) the time-integrated interference pattern
+    n_steps = 0
+    while len(dets) < n_target and n_steps < 200000:
+        sim.step()
+        n_steps += 1
+        flight += 1
+        if xz_slice is None and bar_z < sim.t < bar_z + 40:
+            xz_slice = (sim.field()[:, Ly // 2, :] ** 2).copy()
+        # the front reaches the screen -> arm the screen buffer
+        if not screened and (sim.at_screen() or flight > max_flight):
+            sim.arm_screen()
+            screened = True
+            flight = 0
+        # every step: integrate the on-screen intensity into the buffer
+        sim.accumulate_screen()
+        # the sponge has absorbed the electron -> sample the Born-rule point
+        # from the *time-integrated* pattern, then fire the next electron
+        if screened and sim.absorbed(absorb_frac):
+            P = sim.screen_pattern()
+            if time_pattern is None:
+                time_pattern = P.copy()
+            pt = col.sample(P)
+            if pt is not None:
+                dets.append(pt)
+            sim.emit_packet()
+            screened = False
+            flight = 0
+    det = np.array(dets) if dets else np.empty((0, 2))
+    if xz_slice is None:
+        xz_slice = (sim.field()[:, Ly // 2, :] ** 2)
+    if time_pattern is None:
+        time_pattern = sim.screen_pattern()
+
+    # pick a detected point in a bright fringe for the collapse animation
+    if det.size:
+        bright = det[time_pattern[det[:, 0], det[:, 1]] > 0.3 * time_pattern.max()]
+        if not bright.size:
+            bright = det
+        cx, cy = max(bright, key=lambda p: time_pattern[int(p[0]), int(p[1])])
+        cx, cy = int(cx), int(cy)
+    else:
+        cx, cy = Lx // 2, Ly // 2
+    # the contraction: the screen superposition * a shrinking Gaussian
+    gx, gy = np.meshgrid(np.arange(Lx), np.arange(Ly), indexing="ij")
+    sig0, sig1, pkmax, nframe = 60.0, 1.5, 6.0, 9
+    seq = np.stack([
+        time_pattern * np.exp(-((gx - cx) ** 2 + (gy - cy) ** 2) /
+                              (2 * (sig0 * (sig1 / sig0) ** (f / (nframe - 1))) ** 2))
+        * (1.0 + (pkmax - 1.0) * f / (nframe - 1)) for f in range(nframe)])
+
+    fig = plt.figure(figsize=(12.6, 9.2), facecolor="white")
+    gs = fig.add_gridspec(2, 2, hspace=0.42, wspace=0.26,
+                          left=0.05, right=0.97, top=0.89, bottom=0.08)
+    # (a) the wave: the propagation + double-slit diffraction (x-z slice)
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax1.imshow(np.sqrt(norm(xz_slice)), cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lz, 0, Lx])
+    ax1.axvline(bar_z, color="w", ls="--", lw=1.4, alpha=0.9)
+    ax1.axvline(scr_z, color="yellow", ls="--", lw=1.4, alpha=0.9)
+    ax1.annotate("slits", xy=(bar_z, Lx * 0.5), xytext=(bar_z - 22, Lx * 0.5),
+                 color="w", fontsize=8, ha="center")
+    ax1.annotate("screen", xy=(scr_z, Lx * 0.5), xytext=(scr_z - 30, Lx * 0.62),
+                 color="yellow", fontsize=8, ha="center")
+    ax1.set_xlabel("propagation $z$  (source $\\leftarrow$ , screen $\\rightarrow$)",
+                   color=TXT)
+    ax1.set_ylabel("transverse $x$", color=TXT)
+    ax1.set_title("(a) the wave: one electron, propagation $+$ diffraction",
+                 color=TXT)
+    blackize(ax1)
+    # (b) the time-integrated interference pattern on the detection screen
+    ax2 = fig.add_subplot(gs[0, 1])
+    ax2.imshow(norm(time_pattern).T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly])
+    ax2.set_xlabel("transverse $x$", color=TXT)
+    ax2.set_ylabel("transverse $y$", color=TXT)
+    ax2.set_title("(b) the interference: the time-integrated screen", color=TXT)
+    blackize(ax2)
+    inset = ax2.inset_axes([0.03, 0.66, 0.55, 0.30], facecolor="#1a1a1a")
+    prof = time_pattern.mean(axis=1)
+    inset.plot(prof, color=C_ZERO, lw=1.3)
+    inset.set_xlim(0, Lx); inset.set_ylim(0, prof.max() * 1.2)
+    inset.set_xticks([0, Lx // 2, Lx]); inset.set_yticks([])
+    inset.set_title("profile along $x$ (the fringe groups)", fontsize=7.5,
+                   color=LIGHT, pad=1)
+    for sp in inset.spines.values():
+        sp.set_color("#444")
+    inset.tick_params(colors=LIGHT, labelsize=6.5)
+    # (c) the collapse: one electron reduces onto a point
+    ax3 = fig.add_subplot(gs[1, 0])
+    base = norm(time_pattern)
+    ax3.imshow(base.T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly], alpha=0.55, vmin=0, vmax=1)
+    fin = norm(seq[-1])
+    ax3.imshow(np.ma.masked_less(fin.T, 0.18), cmap=C, origin="lower",
+               aspect="auto", extent=[0, Lx, 0, Ly], vmin=0, vmax=1)
+    ax3.add_patch(mpatches.Circle((cx, Ly - cy), 0.5 * lam / 2.0, fill=False,
+                                  color="w", ls="--", lw=1.8))
+    ax3.plot([cx], [Ly - cy], marker="*", color="w", ms=15, zorder=5,
+             markeredgecolor="k", markeredgewidth=0.5)
+    ax3.set_xlabel("transverse $x$", color=TXT)
+    ax3.set_ylabel("transverse $y$", color=TXT)
+    ax3.set_title("(c) the collapse: one electron reduces onto a point", color=TXT)
+    blackize(ax3)
+    for i in range(3):
+        sax = ax3.inset_axes([0.10 + 0.27 * i, 0.04, 0.24, 0.40], facecolor="black")
+        sax.imshow(norm([seq[0], seq[len(seq) // 2], seq[-1]][i]).T, cmap=C,
+                   origin="lower", aspect="auto")
+        sax.set_xticks([]); sax.set_yticks([])
+        sax.set_title(["$\\sigma$ large", "contracting", "the point"][i],
+                      fontsize=7.5, color=LIGHT, pad=1)
+        for sp in sax.spines.values():
+            sp.set_color("#444")
+    # (d) the reality: the single-electron detections cluster into the fringes
+    ax4 = fig.add_subplot(gs[1, 1])
+    ax4.imshow(base.T, cmap=C, origin="lower", aspect="auto",
+               extent=[0, Lx, 0, Ly], alpha=0.30, vmin=0, vmax=1)
+    xs = det[:, 0]; ys = Ly - det[:, 1]
+    ax4.scatter(xs, ys, s=4, c=C_ZERO, alpha=0.8, linewidths=0)
+    ax4.set_xlabel("transverse $x$", color=TXT)
+    ax4.set_ylabel("transverse $y$", color=TXT)
+    ax4.set_title(f"(d) the reality: {len(xs)} single-electron hits cluster into the fringes",
+                 color=TXT)
+    blackize(ax4)
+    fig.suptitle("The CL10 Young double-slit as a single-electron measurement: "
+                 "one electron at a time, each reduced onto a point (Tonomura flow)",
+                 fontsize=12.5, color="#111")
+    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    _save(fig, "fig26_young.png")
+
+
+def main(with_young=False, with_young2=False):
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
     fig2_unification()
@@ -1333,9 +1520,13 @@ def main(with_young=False):
     fig24_gravity_3d()
     if with_young:
         fig25_young()
-    print(f"done: {25 if with_young else 24} figures.")
+    if with_young2:
+        fig26_young()
+    n = 24 + (1 if with_young else 0) + (1 if with_young2 else 0)
+    print(f"done: {n} figures.")
 
 
 if __name__ == "__main__":
     import sys
-    main(with_young=("--young" in sys.argv))
+    main(with_young=("--young" in sys.argv),
+         with_young2=("--young2" in sys.argv))
