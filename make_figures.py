@@ -183,7 +183,7 @@ def fig3_10loop_ladder():
     ax.set_xlabel(r"loop count $n$  (0-parameter: $10 = n_{\rm gen} = 2 \times 5$, the 16/16-bar chiral split $\times$ the 5 qubits of the 32-D module)")
     ax.set_ylabel(r"energy scale (GeV, log scale)")
     ax.set_title("The 10-loop ladder: one 0-parameter factor gives both\n"
-                 r"the hierarchy $v/E_P = 2.08\,(1/16\pi)^{10}$ (V53) and the DM mass (V54)")
+                 r"the hierarchy $v/E_P = 2.08\,(1/16\pi)^{10}$ and the DM mass")
     ax.set_xticks(n)
     ax.set_xlim(-0.5, 10.5)
     ax.set_ylim(50, 1e20)
@@ -216,15 +216,15 @@ def fig4_wimp_miracle():
     ax.scatter([m_dm], [dm_wimp.relic_abundance(m_dm)], s=110, color=C_ZERO, zorder=5, clip_on=False,
                marker="*",
                label=f"0-parameter: $m_{{\\rm DM}}=M_P(1/16\\pi)^{{10}}={m_dm:.0f}$ GeV $\\Rightarrow$ $\\Omega h^2=$ {dm_wimp.relic_abundance(m_dm):.3f}")
-    # the V42 Planck-mass soliton (under-abundant)
+    # the Planck-mass soliton (under-abundant)
     ax.scatter([M_P], [0.12 * planck_gap], s=70, color="#7f7f7f", zorder=5, clip_on=False,
-               label=r"V42 Planck-mass soliton ($\sim 10^{-52}$, under-abundant)")
+               label=r"Planck-mass soliton ($\sim 10^{-52}$, under-abundant)")
     # the 0-parameter WIMP star is identified in the legend (no extra
     # annotation: it sits in the top corner next to the WIMP-miracle point).
     ax.set_xlabel(r"relic mass $m$ (GeV, log scale)")
     ax.set_ylabel(r"relic abundance $\Omega h^2$")
     ax.set_title("The WIMP miracle, resolved: the 0-parameter 10-loop mass\n"
-                 "$M_P(1/16\\pi)^{10}=118$ GeV gives the observed dark-matter abundance (V54)")
+                 "$M_P(1/16\\pi)^{10}=118$ GeV gives the observed dark-matter abundance")
     ax.set_xlim(40.0, 1e20)
     ax.set_ylim(1e-55, 1.0)
     ax.legend(loc="upper right", framealpha=0.95)
@@ -339,8 +339,8 @@ def fig8_baryon():
     v55 = r["delta_B_0param"]         # 0-parameter 2-loop eta_CP  (V55, ratio 1.12)
 
     fig, ax = plt.subplots()
-    cats = ["observed", "V40\n(named $\\eta_{CP}=10^{-3}$)",
-            "V55\n($\\frac{28}{79}\\,\\varepsilon_{CP}\\,D$)"]
+    cats = ["observed", "named\n($\\eta_{CP}=10^{-3}$)",
+            "0-param.\n($\\frac{28}{79}\\,\\varepsilon_{CP}\\,D$)"]
     vals = [obs, v40, v55]
     vals9 = [x / 1e-9 for x in vals]
     cols = ["#7f7f7f", "#ff7f0e", C_ZERO]
@@ -352,7 +352,7 @@ def fig8_baryon():
                label=r"the observed $\Delta B = 6.1\times10^{-10}$")
     ax.set_ylabel(r"baryon asymmetry $\Delta B$  ($\times 10^{-9}$)")
     ax.set_title("GUT leptogenesis: the baryon asymmetry as a product of 0-parameter numbers.  "
-                 r"V55: $\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D$ ($\varepsilon_{CP}=g_0^4/16\pi$, $g_0=1/2^3$; $D=(1/16\pi)^2$) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match (V40's ratio: 2.8)")
+                 r"$\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D$ ($\varepsilon_{CP}=g_0^4/16\pi$, $g_0=1/2^3$; $D=(1/16\pi)^2$) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match (the named $\eta_{CP}$: 2.8)")
     ax.set_ylim(0, max(vals9) * 1.4)
     ax.legend(loc="upper left", framealpha=0.95)
     _save(fig, "fig8_baryon_asymmetry.png")
@@ -387,7 +387,7 @@ def fig9_anomaly():
         ax.text(xi, v + (0.10 if v >= 0 else -0.10), frac_lbl[k],
                 ha="center", va=va, fontsize=10)
     ax.set_ylim(-1.55, 1.55)
-    ax.set_title(r"$[\mathrm{U}(1)]^3$: the six SM fields cancel ($\sum = 0$) — the 16 Weyl is anomaly-free (V0)")
+    ax.set_title(r"$[\mathrm{U}(1)]^3$: the six SM fields cancel ($\sum = 0$) — the 16 Weyl is anomaly-free")
     _save(fig, "fig9_anomaly_free.png")
 
 # ===========================================================================
@@ -401,15 +401,15 @@ def fig10_predictions():
     # (x = observed/measured, y = 0-parameter prediction, label, color, marker, label-offset)
     rows = [
         (e["delta_B_observed"], e["delta_B_0param"],
-         "baryon asymmetry  $\\Delta B$  (2-loop, V55)", C_ZERO, "o", (12, -22)),
+         "baryon asymmetry  $\\Delta B$  (2-loop)", C_ZERO, "o", (12, -22)),
         (d["omega_obs"], d["omega_DM"],
-         r"dark-matter $\Omega h^2$  (10-loop WIMP, V54)", C_SU2, "o", (-175, 20)),
+         r"dark-matter $\Omega h^2$  (10-loop WIMP)", C_SU2, "o", (-175, 20)),
         (d["weak_scale_GeV"], d["m_DM_GeV"],
-         r"dark-matter mass $m_{\rm DM}$  (10-loop, V54)  [GeV]", C_SU2, "s", (16, 16)),
+         r"dark-matter mass $m_{\rm DM}$  (10-loop)  [GeV]", C_SU2, "s", (16, 16)),
         (2.016e-17, 2.02e-17,
-         r"hierarchy $v/E_P$  (10-loop, V53)", C_GUT, "o", (12, -24)),
+         r"hierarchy $v/E_P$  (10-loop)", C_GUT, "o", (12, -24)),
         (1e-3, e["eta_CP_0param"],
-         r"CP factor $\eta_{CP}$  (2-loop, V55)", C_SU3, "^", (-150, -26)),
+         r"CP factor $\eta_{CP}$  (2-loop)", C_SU3, "^", (-150, -26)),
         (0.05, ((1.0 / 8 * 246.0) ** 2 / 1e14) * 1e9,
          r"neutrino mass $m_\nu$  (seesaw, W2)  [eV]", C_ROOT, "D", (14, -26)),
         (1e34, tp.proton_decay_lifetime(),
@@ -453,8 +453,8 @@ def fig11_ladder():
     # (energy GeV, label, color, side(+/-1), height multiplier)
     scales = [
         (m_nu_eV * 1e-9, r"neutrino  $m_\nu \sim 10^{-2}$ eV  (seesaw, W2)", C_ZERO, -1, 0.5),
-        (1.0, r"QCD  $\Lambda_{\rm QCD} \sim 1$ GeV  (V27)", C_SU3, 1, 0.5),
-        (dw.dm_wimp()["m_DM_GeV"], r"0-param DM  $m_{\rm DM}=118$ GeV  (10-loop, V54)", C_SU2, -1, 0.5),
+        (1.0, r"QCD  $\Lambda_{\rm QCD} \sim 1$ GeV", C_SU3, 1, 0.5),
+        (dw.dm_wimp()["m_DM_GeV"], r"0-param DM  $m_{\rm DM}=118$ GeV  (10-loop)", C_SU2, -1, 0.5),
         (tp.V_EW, r"electroweak  $v = 246$ GeV", C_GUT, 1, 0.95),
         (1e14, r"2-step seesaw  $M_N \sim 10^{14}$ GeV  (W2)", C_ROOT, -1, 0.5),
         (tp.M_PLANCK, r"Planck / GUT  $M_P = M_{\rm GUT} = 1.22\times10^{19}$ GeV", "k", 1, 0.5),
@@ -507,7 +507,7 @@ def fig12_audit():
     ax.set_xlim(0, 13)
     ax.set_xlabel("number of quantities  in the class")
     ax.set_title("The honest parameter audit: the '0-parameter' label, reclassified into five\n"
-                 r"epistemic classes (the 7 algebraic invariants hold; the rest are named, not fitted)  (V52)")
+                 r"epistemic classes (the 7 algebraic invariants hold; the rest are named, not fitted)")
     _save(fig, "fig12_parameter_audit.png")
 
 
@@ -532,8 +532,8 @@ def fig13_cpt_mirror():
             label="antimatter  $\\overline{16}$   ($-\\omega_k$)")
     ax.set_xlabel("eigenphase  $\\omega_k$  (rad/step)")
     ax.set_ylabel("rank $k$  (within the 16)")
-    ax.set_title("The CPT spectral mirror: the $16$ (matter) and $\\overline{16}$ (antimatter) QCA blocks are\n"
-                 r"exact phase-conjugates  ($\omega_{\overline{16}} = -\omega_{16}$) — CPT as spectral conjugation (V24/V52)")
+    ax.set_title("The CPT spectral mirror: the $16$ (matter) and $\overline{16}$ (antimatter) QCA blocks are\n"
+                 r"exact phase-conjugates  ($\omega_{\overline{16}} = -\omega_{16}$) — CPT as spectral conjugation")
     ax.legend(loc="lower right", framealpha=0.95)
     _save(fig, "fig13_cpt_mirror.png")
 
@@ -712,7 +712,7 @@ def fig17_ladder_sm():
     # + nudge + a leader line stagger the cluster near log10(100-246 GeV)
     cl10 = [
         (M_P * LOOP ** 17,   r"neutrino  $m_\nu = M_P(1/16\pi)^{17}$  (W2)", C_ZERO, 0, "center", 0.0),
-        (1.0,               r"QCD  $\Lambda \sim 1$ GeV  (V27)",           C_SU3,  0, "center", 0.0),
+        (1.0,               r"QCD  $\Lambda \sim 1$ GeV",                 C_SU3,  0, "center", 0.0),
         (dw.dm_wimp()["m_DM_GeV"], r"DM  $m_{\rm DM} = M_P(1/16\pi)^{10}$  (W7)", C_SU2, 1, "right", -0.4),
         (tp.V_EW,           r"electroweak  $v = 246$ GeV",                C_GUT,  2, "left",  +0.4),
         (M_P * LOOP ** 3,   r"2-step  $M_N = M_P(1/16\pi)^3$  (W2)",     C_ROOT, 0, "center", 0.0),
@@ -791,12 +791,12 @@ def fig18_residual_reduction():
     axA.set_ylim(-0.5, 2.4)
     axA.legend(loc="upper left", framealpha=0.95, fontsize=8.5)
     axA.set_title("Two 0-parameter constraints, one number: only $n = 10$ satisfies both\n"
-                  r"($n_{\rm gen} = 5$ satisfies neither) — the unique solution (Section 16, V59)",
+                  r"($n_{\rm gen} = 5$ satisfies neither) — the unique solution (Section 16)",
                   fontsize=10.5)
     # (b) the residual-set reduction (the 4 limits -> 0 free + 3 named)
     axB.axis("off")
     rows = [
-        ("the 4 'limits'  (doc/remarques.txt)", 0.98, "0.3", "normal"),
+        ("the 4 'limits'  (the honest limits)", 0.98, "0.3", "normal"),
         ("   1.  the '0-parameter' convention", 0.86, "0.4", "normal"),
         ("   2.  the hierarchy gap (W8)", 0.74, "0.4", "normal"),
         ("   3.  the baryogenesis (W5)", 0.62, "0.4", "normal"),
