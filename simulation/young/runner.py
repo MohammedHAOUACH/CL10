@@ -92,16 +92,19 @@ def run_headless(cfg):
     stills = {0, n_frames // 4, n_frames // 2, 3 * n_frames // 4, n_frames - 1}
 
     # the single-electron lifecycle (the real Tonomura flow): fire one packet;
-    # when its front reaches the screen, take the ONE Born-rule detection there;
-    # then let the wave keep riding until the **sponge** has absorbed it (its
-    # total energy has decayed), and only then fire the next electron.  There
-    # is **no reset between emissions** -- the boundary takes each electron.
+    # when its front reaches the screen, **arm the screen buffer** and start
+    # integrating the on-screen |psi|^2 over the passage (a single instant is a
+    # blob -- the fringes build up only as the diffracted wave crosses the
+    # slits and interferes).  Let the wave ride until the **sponge** absorbs
+    # it (the buffer now holds the time-averaged interference pattern), take
+    # the ONE Born-rule detection from it, and fire the next electron.  No
+    # reset in between -- the boundary takes each electron.
     single = sim.source_mode == "single"
     absorb_frac = float(cfg.get("absorb_frac", 0.02))
     max_flight = int(cfg.get("max_flight_steps", 300))  # safety, if the sponge is slow
     if single:
         sim.emit_packet()
-    detected = False
+    screened = False
     flight_timer = 0
 
     while t < n_steps:
@@ -111,21 +114,25 @@ def run_headless(cfg):
 
         if single:
             flight_timer += 1
-            # 1) the front reaches the screen -> one Born-rule detection
-            if not detected and (sim.at_screen() or flight_timer > max_flight):
-                I = sim.screen_intensity()
+            # 1) the front reaches the screen -> arm the screen buffer
+            if not screened and (sim.at_screen() or flight_timer > max_flight):
+                sim.arm_screen()
+                screened = True
+            # every step: integrate the on-screen intensity into the buffer
+            sim.accumulate_screen()
+            # 2) the sponge has absorbed the wave -> the buffer holds the
+            #    time-averaged interference pattern; take the ONE Born-rule
+            #    detection from it, then fire the next electron (no reset)
+            if screened and sim.absorbed(absorb_frac):
+                I = sim.screen_pattern()
                 if I.sum() > 0 and collapse.n_detected() < collapse.n_detections:
                     pt = collapse.sample(I)
                     if pt is not None:
                         collapse.add(*pt)
                         collapse.set_event(*pt)
                         display_timer = 0
-                detected = True
-                flight_timer = 0
-            # 2) the sponge has absorbed the wave -> fire the next electron
-            elif detected and sim.absorbed(absorb_frac):
                 sim.emit_packet()
-                detected = False
+                screened = False
                 flight_timer = 0
         else:
             # the old continuous-beam mode: sample from the on-screen |psi|**2

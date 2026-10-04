@@ -280,24 +280,30 @@ class YoungVisPy(scene.SceneCanvas):
             self.sim.step()
             self._step += 1
             if single:
-                # the single-electron lifecycle: detect when the front reaches
-                # the screen (one point sampled from its on-screen |psi|^2 = the
-                # collapse), then let the wave keep riding until the **sponge**
-                # absorbs it (total energy decayed) before firing the NEXT
-                # electron -- no reset in between.
+                # the single-electron lifecycle: when the front reaches the
+                # screen, arm the screen buffer and integrate the on-screen
+                # |psi|^2 over the passage (a single instant is a blob -- the
+                # fringes build up only as the diffracted wave crosses the
+                # slits and interferes).  Let the wave ride until the **sponge**
+                # absorbs it (the buffer now holds the time-averaged
+                # interference pattern), take the ONE Born-rule detection from
+                # it, and fire the next electron -- no reset in between.
                 self._flight_timer += 1
                 if not self._detected and (
                     self.sim.at_screen() or self._flight_timer > self._max_flight
                 ):
+                    self.sim.arm_screen()
+                    self._detected = True
+                # every step: integrate the on-screen intensity into the buffer
+                self.sim.accumulate_screen()
+                if self._detected and self.sim.absorbed(self._absorb_frac):
                     if self.collapse.n_detected() < self.collapse.n_detections:
-                        I = self.sim.screen_intensity()
+                        I = self.sim.screen_pattern()
                         if I.sum() > 0:
                             pt = self.collapse.sample(I)
                             if pt is not None:
                                 self.collapse.add(*pt)
-                    self._detected = True
-                    self._flight_timer = 0
-                elif self._detected and self.sim.absorbed(self._absorb_frac):
+                                self.collapse.set_event(*pt)
                     self.sim.emit_packet()  # fire the next electron (no reset)
                     self._detected = False
                     self._flight_timer = 0

@@ -20,6 +20,7 @@ backend (``backend.py``).
 """
 
 from . import backend as B
+import numpy as np
 
 
 class WaveSim:
@@ -75,6 +76,15 @@ class WaveSim:
         # conservative, so this only decays when the sponge absorbs it) --
         # used by absorbed() to decide when the next electron may fire.
         self._emit_energy = 0.0
+        # the screen buffer: the on-screen |psi|^2 *integrated over time* while
+        # the packet passes the detection screen.  A single instant of a
+        # traveling FDTD wave is a small blob (the front), not the interference
+        # pattern -- the fringes only emerge once the diffracted field has
+        # crossed the slits and interfered across the screen.  Integrating the
+        # intensity over the passage gives the time-averaged distribution,
+        # which IS the Born-rule probability the real Tonomura screen records.
+        self._screen_buf = np.zeros((self.Lx, self.Ly), dtype=np.float64)
+        self._screen_armed = False  # start integrating once the front reaches it
 
         self._build_sponge()
         self._build_barrier()
@@ -173,6 +183,10 @@ class WaveSim:
         sponge between one emission and the next."""
         self.psi.fill(0)
         self.psi_prev.fill(0)
+        # fresh screen buffer for the next electron (the previous one's
+        # time-averaged pattern was already sampled before this fired)
+        self._screen_buf.fill(0)
+        self._screen_armed = False
         # the (x, y) envelope of the packet (a 3-D Gaussian, centered)
         if self.source_shape == "sheet":
             # full in y (a vertical sheet -> clean x-fringes, like the reference)
@@ -226,6 +240,25 @@ class WaveSim:
         if self._emit_energy <= 0.0:
             return False
         return float((self.psi * self.psi).sum()) < frac * self._emit_energy
+
+    # -- the screen buffer: integrate the on-screen |psi|^2 over the passage --
+    def arm_screen(self):
+        """Start integrating the on-screen intensity (call when the front
+        reaches the screen)."""
+        self._screen_armed = True
+
+    def accumulate_screen(self):
+        """Add the current on-screen |psi|^2 to the running buffer (call every
+        step while armed).  The buffer is the time-integrated intensity -- the
+        true Born-rule probability distribution the Tonomura screen records."""
+        if not self._screen_armed:
+            return
+        self._screen_buf += self.screen_intensity()
+
+    def screen_pattern(self):
+        """The time-integrated on-screen |psi|^2 (host numpy, Lx x Ly) -- the
+        interference pattern to sample a Born-rule detection from."""
+        return self._screen_buf
 
     # -- outputs to the host --------------------------------------------------
     def field(self):
