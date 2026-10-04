@@ -91,13 +91,18 @@ def run_headless(cfg):
     next_frame_at = 0
     stills = {0, n_frames // 4, n_frames // 2, 3 * n_frames // 4, n_frames - 1}
 
-    # the single-electron lifecycle: fire one packet at a time; after the
-    # flight time, detect it (one point) and fire the next (the Tonomura flow).
+    # the single-electron lifecycle (the real Tonomura flow): fire one packet;
+    # when its front reaches the screen, take the ONE Born-rule detection there;
+    # then let the wave keep riding until the **sponge** has absorbed it (its
+    # total energy has decayed), and only then fire the next electron.  There
+    # is **no reset between emissions** -- the boundary takes each electron.
     single = sim.source_mode == "single"
-    flight_steps = int(cfg.get("flight_steps", 300))
-    flight_timer = 0
+    absorb_frac = float(cfg.get("absorb_frac", 0.02))
+    max_flight = int(cfg.get("max_flight_steps", 300))  # safety, if the sponge is slow
     if single:
         sim.emit_packet()
+    detected = False
+    flight_timer = 0
 
     while t < n_steps:
         # -- the wave step (GPU) --
@@ -105,11 +110,9 @@ def run_headless(cfg):
         t += 1
 
         if single:
-            # the single-electron lifecycle: the packet has flown for the
-            # flight time -> it is at the screen.  Detect it (one point = the
-            # collapse) and fire the NEXT electron.
             flight_timer += 1
-            if flight_timer >= flight_steps:
+            # 1) the front reaches the screen -> one Born-rule detection
+            if not detected and (sim.at_screen() or flight_timer > max_flight):
                 I = sim.screen_intensity()
                 if I.sum() > 0 and collapse.n_detected() < collapse.n_detections:
                     pt = collapse.sample(I)
@@ -117,7 +120,12 @@ def run_headless(cfg):
                         collapse.add(*pt)
                         collapse.set_event(*pt)
                         display_timer = 0
-                sim.emit_packet()  # reset the field + fire the next electron
+                detected = True
+                flight_timer = 0
+            # 2) the sponge has absorbed the wave -> fire the next electron
+            elif detected and sim.absorbed(absorb_frac):
+                sim.emit_packet()
+                detected = False
                 flight_timer = 0
         else:
             # the old continuous-beam mode: sample from the on-screen |psi|**2

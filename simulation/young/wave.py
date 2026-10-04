@@ -71,6 +71,10 @@ class WaveSim:
         self.source_mask = mx[:, None] * B.ones((1, self.Ly), dtype=B._E.float32)
         self._t_since_emit = 0
         self._emit_count = 0
+        # the total |psi|^2 of the last emitted packet (the wave is
+        # conservative, so this only decays when the sponge absorbs it) --
+        # used by absorbed() to decide when the next electron may fire.
+        self._emit_energy = 0.0
 
         self._build_sponge()
         self._build_barrier()
@@ -158,12 +162,15 @@ class WaveSim:
 
     # -- a single electron: launch one localized packet ------------------------
     def emit_packet(self):
-        """Emit **one** electron: clear the field, then launch a localized 3-D
-        wave packet (a Gaussian in x, y and z modulated by the +z carrier) at
-        the source, with an **initial +z velocity** so it flies toward the slits
-        and the screen.  This is the Tonomura single-electron source -- one
-        packet in the apparatus at a time.  The next call resets and fires the
-        next electron (after the previous one has been detected)."""
+        """Emit **one** electron: clear the (already ~0) field, then launch a
+        localized 3-D wave packet (a Gaussian in x, y and z modulated by the +z
+        carrier) at the source, with an **initial +z velocity** so it flies
+        toward the slits and the screen.  This is the Tonomura single-electron
+        source -- one packet in the apparatus at a time.  It is called **only
+        after** the previous packet has been absorbed by the sponge (the field
+        has decayed to ~0), so the clear here only removes numerical residue --
+        there is **no mid-flight reset**: the electron rides all the way to the
+        sponge between one emission and the next."""
         self.psi.fill(0)
         self.psi_prev.fill(0)
         # the (x, y) envelope of the packet (a 3-D Gaussian, centered)
@@ -183,6 +190,9 @@ class WaveSim:
         self.psi_prev[:, :, :-1] = self.psi[:, :, 1:]
         self._t_since_emit = 0
         self._emit_count += 1
+        # remember the packet's total energy (conservative until the sponge
+        # takes it) -- absorbed() compares the live total against this.
+        self._emit_energy = float((self.psi * self.psi).sum())
         return self
 
     # -- reset the field (the current electron is done) -----------------------
@@ -196,11 +206,26 @@ class WaveSim:
         return self
 
     def at_screen(self):
-        """Has the emitted packet reached the detection screen?  (the on-screen
-        |psi|^2 is non-negligible.)  Used to trigger a detection + reset in
-        ``"single"`` mode."""
+        """Has the emitted packet's **front** reached the detection screen?  (the
+        on-screen |psi|^2 is non-negligible.)  In ``"single"`` mode this triggers
+        the one Born-rule *detection* of the electron (a point sampled from the
+        on-screen intensity) -- the wave is **not** consumed here; it keeps
+        propagating toward the sponge."""
         I = self.psi[:, :, self.screen_z] ** 2
         return float(I.max()) > 1e-6
+
+    def absorbed(self, frac=0.02):
+        """Has the packet been **absorbed by the sponge**?  The FDTD wave is
+        **conservative**: a spreading packet keeps its total ``sum|psi|^2`` as
+        it diffracts (only its *peak* falls), so the peak is a bad "gone"
+        signal.  The total energy, by contrast, decays **only** when the
+        sponge takes the wave at the boundary.  Once the live total has fallen
+        below ``frac`` of the emitted energy, the sponge has absorbed the
+        electron -- the *next* one may fire (no reset in between: the electron
+        rode all the way to the sponge)."""
+        if self._emit_energy <= 0.0:
+            return False
+        return float((self.psi * self.psi).sum()) < frac * self._emit_energy
 
     # -- outputs to the host --------------------------------------------------
     def field(self):

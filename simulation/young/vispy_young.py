@@ -219,10 +219,16 @@ class YoungVisPy(scene.SceneCanvas):
         self.volume_refresh = int(vis.get("volume_refresh_rate", 2))
         self.show_detections = bool(vis.get("show_detections", True))
         self._step = 0
-        # the single-electron lifecycle: the flight time (steps per electron)
-        # and the flight timer (None = the first packet has not been fired yet).
-        self._flight_steps = int(cfg.get("flight_steps", 300))
+        # the single-electron lifecycle: detect when the front reaches the
+        # screen, then wait for the **sponge** to absorb the wave (total
+        # energy decayed) before firing the next electron -- no reset in
+        # between.  _flight_timer is None until the first packet is fired;
+        # _detected marks the on-screen detection; _absorb_frac / _max_flight
+        # tune the (short) absorb phase after the detection.
+        self._absorb_frac = float(cfg.get("absorb_frac", 0.02))
+        self._max_flight = int(cfg.get("max_flight_steps", 300))
         self._flight_timer = None
+        self._detected = False
         self._frame = 0
         self._vol_ref = None    # the AGC reference (volume)
         self._scr_ref = None    # the AGC reference (2-D screen)
@@ -274,19 +280,26 @@ class YoungVisPy(scene.SceneCanvas):
             self.sim.step()
             self._step += 1
             if single:
-                # the single-electron lifecycle: the packet has flown for the
-                # flight time -> it is at the screen.  Detect it (one point
-                # sampled from its on-screen |psi|^2 = the collapse) and fire
-                # the NEXT electron (electron after the other).
+                # the single-electron lifecycle: detect when the front reaches
+                # the screen (one point sampled from its on-screen |psi|^2 = the
+                # collapse), then let the wave keep riding until the **sponge**
+                # absorbs it (total energy decayed) before firing the NEXT
+                # electron -- no reset in between.
                 self._flight_timer += 1
-                if self._flight_timer >= self._flight_steps:
+                if not self._detected and (
+                    self.sim.at_screen() or self._flight_timer > self._max_flight
+                ):
                     if self.collapse.n_detected() < self.collapse.n_detections:
                         I = self.sim.screen_intensity()
                         if I.sum() > 0:
                             pt = self.collapse.sample(I)
                             if pt is not None:
                                 self.collapse.add(*pt)
-                    self.sim.emit_packet()  # reset the field + fire the next one
+                    self._detected = True
+                    self._flight_timer = 0
+                elif self._detected and self.sim.absorbed(self._absorb_frac):
+                    self.sim.emit_packet()  # fire the next electron (no reset)
+                    self._detected = False
                     self._flight_timer = 0
             else:
                 # the old continuous-beam mode: sample from the on-screen |psi|**2
@@ -409,6 +422,7 @@ class YoungVisPy(scene.SceneCanvas):
             self._step = 0
             self._det_timer = 0
             self._flight_timer = None
+            self._detected = False
             self._vol_ref = None
             self._scr_ref = None
             self._maj_screen()

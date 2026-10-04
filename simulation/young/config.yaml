@@ -42,10 +42,13 @@ source_amplitude: 1.0
 source_z: 20
 
 # --- the single-electron source (the real Tonomura experiment) --------------
-# "single": fire ONE localized electron packet at a time -- emit a packet, it
-#   flies to the screen, one detection (a point sampled from its on-screen
-#   |psi|^2), the field resets, then the next electron is fired (after the
-#   other).  The accumulated points build the interference pattern.
+# "single": fire ONE localized electron packet at a time.  The packet flies to
+#   the screen, where one detection is taken (a point sampled from its
+#   on-screen |psi|^2 = the Born rule / the collapse).  The wave then keeps
+#   riding until the **sponge** at the edge of the box absorbs it (its total
+#   energy decays), and only then the NEXT electron is fired.  There is no
+#   reset in between -- the boundary takes each electron, like the real
+#   Tonomura flow.  The accumulated points build the interference pattern.
 # "continuous": the old driven beam (a sheet re-driven every step).
 source_mode: single
 # the packet shape: "point" = a 3-D Gaussian (a true single electron);
@@ -55,10 +58,14 @@ source_shape: point
 source_y_width: 14.0
 # the z-width of the emitted packet (a thin sliver of the beam), in cells.
 packet_z_width: 8.0
-# the flight time: the steps an electron takes to reach the screen before it
-#   is detected and the next one is fired.  The FDTD is dispersive, so this
-#   is longer than the naive (screen_z - source_z).
-flight_steps: 300
+# absorb_frac: the fraction of the emitted energy the sponge must absorb before
+#   the NEXT electron is fired (the wave's total |psi|^2 decays below this
+#   fraction of the emitted energy).  Lower = the electron is fully absorbed.
+absorb_frac: 0.02
+# max_flight_steps: a safety cap on the absorb phase (after the on-screen
+#   detection).  If the sponge is slower than this, the next electron fires
+#   anyway (so the simulation never stalls).
+max_flight_steps: 300
 
 # the source ramp-in, in steps (avoid a launch shock; the beam fades in).
 ramp_steps: 200
