@@ -166,7 +166,7 @@ the six **left-handed** fields
 $$16 \;=\; Q(\mathbf{3},\mathbf{2},+\tfrac16)\;\oplus\;\bar u(\bar{\mathbf{3}},\mathbf{1},-\tfrac23)\;\oplus\;
 \bar d(\bar{\mathbf{3}},\mathbf{1},+\tfrac13)\;\oplus\; L(\mathbf{1},\mathbf{2},-\tfrac12)\;\oplus\;
 \bar e(\mathbf{1},\mathbf{1},+1)\;\oplus\;\nu^c(\mathbf{1},\mathbf{1},0),$$
-with dimensions $6+3+3+2+1+1 = 16$ (hypercharge $Y$ in $Q = T_3 + Y$).
+with dimensions $6+3+3+2+1+1 = 16$ (hypercharge $Y$ in $Q = T_3 + Y/2$).
 Equivalently, under the **0-parameter** $\mathrm{SU}(5)$ (a sub-group of
 $\mathrm{Spin}(10)$):
 $$16 \;=\; \mathbf{10}\;\oplus\;\mathbf{\bar 5}\;\oplus\;\mathbf{1},$$
@@ -548,7 +548,7 @@ claim — they must hold for the theory to be a *consistent unification*:
 - **P4**: the **16 Weyl is anomaly-free** (Theorem 2 — all eight coefficients
   cancel), the **couplings unify** with the **0-parameter $5/3$** (Theorem 3)
   and the **0-parameter GUT coupling** $\alpha_{10}=1/25$ (with the SM
-  1-loop $\beta$-coefficients $b_1=-41/10$, $b_2=-19/6$, $b_3=-7$ fixed by the
+  1-loop $\beta$-coefficients $b_1=41/10$, $b_2=-19/6$, $b_3=-7$ fixed by the
   particle content), and the **CPT theorem** (the 16/16-bar are CPT
   conjugates: the time-direction $C$ is a **Hermitian involution** ($C^2=I$)
   that **anticommutes** with the pseudoscalar and maps the 16 to the 16-bar,
@@ -586,7 +586,7 @@ seen.  **None of the falsifiers F1–F7 is observed.**
 **The verdict.**  All claims in the **hard** tiers (0–3) hold, the
 cosmology (4) and falsifiability (5) are **supported** with the **walls
 reduced to named residuals**, and the **completion program** (tier 6,
-Section 12) is **complete** — **all 59 experiments pass**.  The
+Section 12) is **complete** — **all 60 experiments pass**.  The
 **TOE verdict is positive**: **in the strongest defensible sense, CL10 is
 a consistent 0-parameter unification of matter, gauge, and gravity — a
 Theory of Everything — with the only open items the named, quantified
@@ -843,7 +843,7 @@ completion).**  The **2-loop** completion of the running: the **QCA is
 UV-finite** (the **2-step** $U^2$ is **unitary** — residual $\sim 10^{-15}$
 — and the **2-particle** S-matrix is **bounded** ($\max|S| \le 1$));
 **whereas** the **perturbative** QFT is **UV-divergent**: the **2-loop**
-beta coefficient ($b_2$) makes the U(1) **Landau pole** *closer* — the
+correction to the $U(1)$ $\beta$-function makes the Landau pole *closer* — the
 **1-loop** pole is **above** $M_P$ (the UV-bounded), but the **2-loop**
 pole is **below** $M_P$ (the **UV divergence** is **reached** *before* the
 cutoff, $\sim 10^{12}$ GeV).  The 0-parameter completion makes the
@@ -1098,7 +1098,7 @@ program** (Section 12: the **local** QCA, the **EH action derived from the
 QCA dynamics**, the **0-parameter numbers derived from the root**, the
 **three families inside the dynamics**, the **baryon asymmetry at the right
 order**, the **0-parameter S-matrix**, and the **quantified dark-matter
-scale**).  **All 59 experiments pass** (Sections 11–12); the
+scale**).  **All 60 experiments pass** (Sections 11–12); the
 **TOE verdict is positive**.  The **hard** tiers (0–3: the single object,
 the kinematics, the dynamics, and — critically — the **anomaly-free**
 matter, the **$5/3$** coupling unification, and the **matter–gauge–gravity
@@ -1112,7 +1112,7 @@ root** ($g_{10}=1/5$, $g_0=1/8$), the **families inside the dynamics**, the
 **9-to-1 reduction** (Section 12): the **nine named** items are the
 **quantified residuals** (Section 13: the $10^{-122}$, the 1-loop matching, the
 exact $m_\nu$, the *why-3*, the baryon asymmetry / CP phase, the Yukawa matrix, the
-sub-Planck DM scale, the **0-parameter cross-section** to the measured), the
+sub-Planck DM scale, the $v/E_P$ hierarchy, the **0-parameter cross-section** to the measured), the
 **nine projections of the one 0-parameter object**.  The **sole genuinely
 open** part is the **quantum** completion (the UV of quantum gravity): the
 **classical** non-linear completion beyond the quadratic EH is **complete**
@@ -1234,10 +1234,10 @@ $w$ ($[U,w]=0$: every one of the $45$ even generators $h_a h_b$ commutes with
 $w$), so it **preserves** the $16$ (matter, the $w=+i$ eigenspace) and the
 $16$-bar (antimatter, $w=-i$).  Computed: the **antimatter** $16$-level
 spectrum is the **exact** mirror of the **matter** one,
-$\omega_{16\bar}=-\omega_{16}$ (to $10^{-15}$).  Equivalently — the CPT
+$\omega_{16\text{bar}}=-\omega_{16}$ (to $10^{-15}$).  Equivalently — the CPT
 content — the **antimatter** step has the **same spectrum as the adjoint
 (time-reversed) matter** step:
-$\mathrm{spec}(U|_{16\bar}) = \mathrm{spec}((U|_{16})^{\dagger}) =
+$\mathrm{spec}(U|_{16\text{bar}}) = \mathrm{spec}((U|_{16})^{\dagger}) =
 \overline{\mathrm{spec}(U|_{16})}$.  CPT is the composition of **C** (matter
 $\to$ antimatter: because $w$ is **purely imaginary**, complex conjugation
 swaps the two eigenspaces) and **T** (time reversal, $U\to U^{\dagger}$, i.e.
@@ -1464,7 +1464,7 @@ baryon product is **Fig. 8**.
 
 ## Figures
 
-All **eighteen** figures are **computed directly from the theory's quantities**
+All **twenty** figures are **computed directly from the theory's quantities**
 (the generation script is in the repository; see the **technical** **reference**)
 — **no hand-drawn data**.  Each states the **0-parameter** content and, where relevant, the
 **named residual**, following the W2 pattern (Section 13: the 0-parameter
@@ -1491,7 +1491,7 @@ projections of this one object.
 
 The **0-parameter** UV input is the GUT coupling $\alpha_{10}=1/25$ (derived
 from the 5 qubits of the root).  The three SM couplings run **1-loop** (the
-$\beta$-coefficients $b_1=-41/10$, $b_2=-19/6$, $b_3=-7$ are fixed by the
+$\beta$-coefficients $b_1=41/10$, $b_2=-19/6$, $b_3=-7$ are fixed by the
 particle content) from $M_Z$ to the Planck scale, reaching the **GUT range**
 ($\sim0.02$–$0.04$) near $M_P$ but **not meeting** at a single point — the
 **1-loop matching** (W4) is the **named** residual.  The **U(1) Landau pole**
