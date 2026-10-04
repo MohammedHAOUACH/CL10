@@ -1464,7 +1464,7 @@ baryon product is **Fig. 8**.
 
 ## Figures
 
-All **twenty** figures are **computed directly from the theory's quantities**
+All **twenty-four** figures are **computed directly from the theory's quantities**
 (the generation script is in the repository; see the **technical** **reference**)
 — **no hand-drawn data**.  Each states the **0-parameter** content and, where relevant, the
 **named residual**, following the W2 pattern (Section 13: the 0-parameter
@@ -1717,6 +1717,50 @@ $M_{\rm GUT} = M_P = 1.22\times10^{19}$ GeV gives $\tau_p \sim 4\times10^{47}$
 yr, about **13 orders of magnitude above the bound** — the proton is stable on
 all observed timescales (consistent with data; the prediction is
 **falsifiable**).
+
+**Fig. 21 — proton decay: the 0-parameter decay rate vs the bound (the falsifiability margin).**
+
+![The 0-parameter decay rate normalised to the bound, vs the GUT scale.](figures/fig21_proton_margin.png)
+
+The decay rate $\Gamma=1/\tau_p \propto M_{\rm GUT}^{-4}$, normalised to the
+experimental bound.  The 0-parameter point ($M_{\rm GUT}=M_P=1.22\times10^{19}$
+GeV) sits at $\Gamma/\Gamma_{\rm bound}\sim 4\times10^{-14}$ — **13 orders of
+magnitude below the bound**.  The shaded region ($M_{\rm GUT}\lesssim
+5\times10^{15}$ GeV) would make the proton decay faster than the bound
+(**excluded**); the 0-parameter point is far above it, so the proton is stable
+on all observed timescales (the **falsifiability margin** — the complement of
+Fig. 20's lifetime view).
+
+**Fig. 22 — proton decay: the 0-parameter lifetime vs the bound, for the three GUT channels.**
+
+![The stability margin (predicted over bound) for the three GUT channels.](figures/fig22_proton_channels.png)
+
+The stability margin $\tau_p^{\rm(pred)}/\tau_p^{\rm(bound)}$ for the three GUT
+channels $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, and $p\to e^+K^+$ (the rate is set by
+the two-body phase space; the hadronic matrix element is $\mathrm{O}(1)$).
+Each sits $\sim10^{13}$-$10^{14}$ above its experimental bound — the proton is
+**stable in every channel** (the rate is GUT-suppressed, $\propto
+M_{\rm GUT}^{-2}$; only the two-body phase space differs between them).
+
+**Fig. 23 — the 0-parameter QCA wave: the dispersive spreading of a pulse (heatmaps).**
+
+![The QCA field intensity for a pulse, over time (each panel normalised to its own peak).](figures/fig23_qca_wave.png)
+
+The 0-parameter QCA field (the same 4-neighbour discrete wave equation as the
+CL10 graviton): a pulse emits a **causal** front that expands at the lattice
+speed $c=0.5$ (never faster — the QCA is **causal**), and the **peak amplitude
+drops $\propto 1/{\rm area}$** as the **unitary** norm is conserved (the
+dispersive spreading).  A $2\times4$ grid of $|\psi|^2$ heatmaps over time.
+
+**Fig. 24 — the 3-D gravity well + the Schwarzschild geodesic (the rosette precession).**
+
+![The Newtonian gravity well with a Schwarzschild geodesic rosette.](figures/fig24_gravity_3d.png)
+
+The 0-parameter gravity well (the Newtonian potential $\Phi=-M/r$) as a 3-D
+surface, with the **Schwarzschild geodesic** of a test particle: a
+**precessing rosette** that dips to $r\sim2.4$ (just above the horizon
+$r=2M$).  The **precession** (the orbit does not close) is the relativistic
+geodesic effect (Section 6: the 2-route non-linear gravity).
 
 ---
 

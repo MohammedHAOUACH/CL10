@@ -183,13 +183,13 @@ python3 run_validation.py V11 V12    # a subset
 passes (the compact numerical style allows E702/E402/E741; the real bugs
 F4xx/F5xx are enforced).
 
- **Figures.**  The **eighteen** figures of `doc/publication.md` (the
+ **Figures.**  The **twenty-four** figures of `doc/publication.md` (the
  "Figures" section) are **computed, not hand-drawn**, by `make_figures.py`
  (at the repo root).  It imports the `cl10` modules and writes PNGs to
  `doc/figures/`:
 
  ```bash
- python3 make_figures.py            # -> doc/figures/fig1..fig17_*.png
+ python3 make_figures.py            # -> doc/figures/fig1..fig24_*.png
  ```
 
  Figs 1-13 are **0-parameter** results of the `cl10` modules: the
@@ -217,6 +217,16 @@ F4xx/F5xx are enforced).
  Collaboration, *A&A* **641**, A6 (2020): $\Omega_{\rm DM}h^2=0.120$), the
  proton-decay limit from **Super-Kamiokande**, and the observed neutrino
  mass $\sim0.05$ eV.  No SM number is used to fit a CL10 parameter.
+
+Figs 18-24 close the set: fig 18 the **residual-set reduction**
+(Section 16), fig 19 the **2-loop** running of the $U(1)$ coupling (the
+Landau-pole contrast), fig 20 the **0-parameter proton lifetime** vs the GUT
+scale (the falsifiability bound), fig 21 the **proton decay rate** normalised
+to the bound (the 13-order margin), fig 22 the **three GUT channels**
+($p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$), fig 23 the **0-parameter QCA
+wave** (the causal $+$ unitary dispersive spreading of a pulse), and fig 24 the
+**3-D gravity well** with the **Schwarzschild geodesic** (the rosette
+precession).
 
  It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
  NumPy/CPU).

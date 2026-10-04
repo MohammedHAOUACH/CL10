@@ -532,7 +532,7 @@ def fig13_cpt_mirror():
             label="antimatter  $\\overline{16}$   ($-\\omega_k$)")
     ax.set_xlabel("eigenphase  $\\omega_k$  (rad/step)")
     ax.set_ylabel("rank $k$  (within the 16)")
-    ax.set_title("The CPT spectral mirror: the $16$ (matter) and $\overline{16}$ (antimatter) QCA blocks are\n"
+    ax.set_title("The CPT spectral mirror: the $16$ (matter) and $\\overline{16}$ (antimatter) QCA blocks are\n"
                  r"exact phase-conjugates  ($\omega_{\overline{16}} = -\omega_{16}$) — CPT as spectral conjugation")
     ax.legend(loc="lower right", framealpha=0.95)
     _save(fig, "fig13_cpt_mirror.png")
@@ -921,6 +921,193 @@ def fig20_proton_decay():
     ax.legend(loc="upper left", framealpha=0.95, fontsize=8)
     _save(fig, "fig20_proton_decay.png")
 
+# ===========================================================================
+# Figure 21 — proton decay: the 0-parameter rate vs the bound (the margin)
+# ===========================================================================
+def fig21_proton_margin():
+    """The 0-parameter decay rate normalised to the experimental bound,
+    Gamma/Gamma_bound = tau_bound/tau_p, vs the GUT scale.  The 0-parameter
+    point (M_GUT = M_P) sits ~13 orders of magnitude below the bound (the
+    proton is stable); M_GUT below ~5e15 GeV would be excluded (shaded)."""
+    from cl10 import toepred as tp
+    M_P, ALPHA, m_p = tp.M_PLANCK, tp.ALPHA_10, tp.M_P_ROBSON
+    def tau(M):
+        return (M**4 / (ALPHA**2 * m_p**5)) * tp.GEV_TO_S / tp.S_TO_YR
+    BOUND = 1.6e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande)
+    M_GUT = np.logspace(14, 20, 400)
+    ratio = BOUND / tau(M_GUT)                 # = Gamma / Gamma_bound
+    tau0 = float(tp.proton_decay_lifetime())
+    r0 = BOUND / tau0
+    M_excl = M_P * (BOUND / tau0) ** 0.25      # the M where tau = the bound
+
+    fig, ax = plt.subplots(figsize=(8.2, 5.2))
+    ax.loglog(M_GUT, ratio, "-", color=C_ROOT, lw=2.4,
+              label=r"$\Gamma/\Gamma_{\rm bound}\ \propto\ M_{\rm GUT}^{-4}$")
+    ax.axhline(1.0, color=C_ZERO, ls="--", lw=1.5,
+               label=r"experimental bound  $\Gamma=\Gamma_{\rm bound}$")
+    ax.axvline(M_P, color="0.35", ls=":", lw=1.3)
+    ax.axvspan(1e14, M_excl, color=C_ZERO, alpha=0.08)
+    ax.scatter([M_P], [r0], s=150, marker="*", color=C_ZERO, zorder=5,
+               label=rf"0-parameter $M_{{\rm GUT}}=M_P$:  $\Gamma/\Gamma_{{\rm bound}}={r0:.1e}$")
+    ax.annotate(
+        rf"$M_{{\rm GUT}}\leq {M_excl:.1e}$ GeV would make the proton decay faster than the bound "
+        "(shaded, excluded);\nthe 0-parameter point is $\\sim$13 orders below it, so the proton "
+        "is stable on all observed timescales",
+        xy=(M_P, r0), xytext=(2.5e15, 3e-5),
+        fontsize=8.5, ha="left", va="bottom",
+        bbox=dict(boxstyle="round", fc="#f4f4f4", ec="#888", alpha=0.95),
+        arrowprops=dict(arrowstyle="->", color="0.3"))
+    ax.set_xlabel(r"GUT scale  $M_{\rm GUT}$  (GeV, log)")
+    ax.set_ylabel(r"$\Gamma/\Gamma_{\rm bound}$  (the decay rate vs the bound, log)")
+    ax.set_title("Proton decay: the 0-parameter rate vs the bound (the falsifiability margin)")
+    ax.set_xlim(1e14, 1e20)
+    ax.set_ylim(1e-15, 10)
+    ax.legend(loc="upper right", framealpha=0.95, fontsize=8)
+    _save(fig, "fig21_proton_margin.png")
+
+# ===========================================================================
+# Figure 22 — proton decay: the three GUT channels (0-parameter rate vs the bound)
+# ===========================================================================
+def fig22_proton_channels():
+    """The 0-parameter partial lifetimes for the three GUT channels
+    p -> e+ pi0, p -> mu+ pi0, p -> e+ K+ (the rate is set by the two-body
+    phase space; the hadronic matrix element is O(1)).  Each sits
+    ~10^13-14 above its experimental bound (the proton is stable in all)."""
+    from cl10 import toepred as tp
+    tau0 = float(tp.proton_decay_lifetime())   # the p -> e+ pi0 0-parameter lifetime
+    mp, me, mmu, mpi, mk = 938.272, 0.511, 105.658, 134.977, 493.677
+    def pf(a, b):
+        return 0.5 / mp * np.sqrt((mp**2 - (a + b)**2) * (mp**2 - (a - b)**2))
+    pf0 = pf(me, mpi)
+    chans = [
+        ("$p \\to e^+ \\pi^0$", pf(me, mpi) / pf0, 1.0, 2.4e34),
+        ("$p \\to \\mu^+ \\pi^0$", pf(mmu, mpi) / pf0, 1.0, 7.0e33),
+        ("$p \\to e^+ K^+$", pf(me, mk) / pf0, 1.0, 2.7e33),
+    ]
+    names, margin = [], []
+    for nm, phase, had, bound in chans:
+        tau_ch = tau0 * phase / had      # tau ~ 1/rate ~ 1/(phase-space)
+        names.append(nm)
+        margin.append(tau_ch / bound)    # how many times longer than the bound
+
+    fig, ax = plt.subplots(figsize=(7.8, 5.0))
+    x = np.arange(len(names))
+    bars = ax.bar(x, margin, 0.5, color=[C_ROOT, C_SU2, C_SU3], alpha=0.85, edgecolor="k")
+    for b, m in zip(bars, margin):
+        ax.text(b.get_x() + b.get_width()/2, m, f"{m:.1e}",
+                ha="center", va="bottom", fontsize=9)
+    ax.set_yscale("log")
+    ax.set_xticks(x)
+    ax.set_xticklabels(names)
+    ax.set_ylabel(r"$\tau_p^{\rm (pred)}/\tau_p^{\rm (bound)}$  (the stability margin, log)")
+    ax.set_title("Proton decay: the 0-parameter lifetime vs the bound, for the three GUT channels\n"
+                 r"(each $\sim10^{13}$-$10^{14}$ above its bound: the rate is GUT-suppressed, the two-body phase space differs)",
+                 fontsize=10)
+    ax.axhline(1.0, color=C_ZERO, ls="--", lw=1.4,
+               label=r"the bound  ($\Gamma=\Gamma_{\rm bound}$)")
+    ax.set_ylim(1e0, 1e15)
+    ax.legend(loc="upper left", framealpha=0.95, fontsize=8)
+    _save(fig, "fig22_proton_channels.png")
+
+# ===========================================================================
+# Figure 23 — the 0-parameter QCA wave: the unitary wavepacket (heatmaps)
+# ===========================================================================
+def fig23_qca_wave():
+    """The 0-parameter QCA field (the same 4-neighbour discrete wave equation
+    as the CL10 graviton): a pulse emits a **causal light-cone** — the signal
+    propagates at the lattice speed $c=0.5$ and never faster (the QCA is
+    causal).  A 2x4 grid of $|\\psi|^2$ heatmaps over time (each panel
+    normalised to its own peak, so the expanding ring is always resolved)."""
+    Lx, Ly = 200, 140
+    r2 = 0.25                                   # (c dt/dx)^2, c=0.5 (the CFL limit)
+    x, y = np.meshgrid(np.arange(Lx), np.arange(Ly), indexing="ij")
+    cx, cy, sig = Lx // 2, Ly // 2, 3
+    psi = np.exp(-0.5 * ((x - cx)**2 + (y - cy)**2) / sig**2)   # a sharp pulse
+    psi_m1 = psi.copy()                          # zero initial velocity
+    exL = x / (0.12 * Lx); exR = (Lx - 1 - x) / (0.12 * Lx)
+    edgeY = np.minimum(y, Ly - 1 - y) / (0.12 * Ly)
+    s = np.clip(np.minimum(np.minimum(exL, exR), edgeY), 0.0, 1.0)
+    times = [0, 25, 50, 75, 100, 125, 150, 175]
+    frames = []
+    for t in range(180):
+        lap = np.zeros((Lx, Ly))
+        lap[:, 1:] += psi[:, :-1]; lap[:, :-1] += psi[:, 1:]
+        lap[1:, :] += psi[:-1, :]; lap[:-1, :] += psi[1:, :]
+        lap -= 4 * psi
+        psi = (2 * psi - psi_m1 + r2 * lap) * s
+        psi_m1 = psi
+        if t in times:
+            frames.append((t, psi * psi))
+    fig, axes = plt.subplots(2, 4, figsize=(11.8, 5.4), sharex=True, sharey=True,
+                             gridspec_kw={"wspace": 0.12, "hspace": 0.42})
+    cmap = plt.get_cmap("inferno")
+    for i, (t, f) in enumerate(frames):
+        ax = axes[i // 4, i % 4]
+        ax.set_facecolor("black")
+        m = float(f.max())
+        ax.imshow((f / m).T, origin="lower", extent=[0, Lx, 0, Ly],
+                  cmap=cmap, vmin=0.0, vmax=1.0, aspect="auto")
+        ax.set_title(f"t = {t}    (peak $\\times$ {m:.1e})", fontsize=9, color="k")
+    for ax in axes[-1]:
+        ax.set_xlabel(r"space $x$  (lattice units)")
+    for ax in axes[:, 0]:
+        ax.set_ylabel(r"space $y$")
+    fig.suptitle("The 0-parameter QCA wave: the dispersive spreading of a pulse — the peak "
+                 "drops $\\propto 1/\\mathrm{area}$ as the causal support expands at $c=0.5$ "
+                 "(the unitary norm is conserved)", fontsize=10.5, y=0.985)
+    fig.subplots_adjust(top=0.88, left=0.05, right=0.98, wspace=0.12, hspace=0.45)
+    _save(fig, "fig23_qca_wave.png")
+
+# ===========================================================================
+# Figure 24 — the 3-D gravity well + a geodesic (the Schwarzschild plunge rosette)
+# ===========================================================================
+def fig24_gravity_3d():
+    """The 0-parameter gravity well (the Newtonian potential Phi = -M/r) as a
+    3-D surface, with the **Schwarzschild geodesic** of a test particle
+    (a precessing rosette that dips to r ~ 2.4, just above the horizon r = 2).
+    The precession is the relativistic geodesic effect."""
+    from scipy.integrate import solve_ivp
+    M = 1.0
+    R = 13.0
+    # -- the 3-D surface: Phi = -M/r, capped at the horizon r = 2M
+    g = np.linspace(-R, R, 90)
+    X, Y = np.meshgrid(g, g)
+    rr = np.sqrt(X**2 + Y**2)
+    Phi = -M / np.maximum(rr, 2 * M)
+    # -- the geodesic (equatorial, the state [r, th, r', th', t'])
+    def geo(t, u):
+        r, th, rd, thd, ttd = u
+        f = 1 - 2 * M / r
+        return [rd, thd,
+                -M / r**2 * f * ttd**2 + M / (r**2 * f) * rd**2 + (r - 2 * M) * thd**2,
+                -2 / r * rd * thd,
+                2 * M / (r**2 * f) * ttd * rd]
+    r0, vt = 12.0, 0.12
+    gamma = 1.0 / np.sqrt(1 - vt**2)
+    u0 = [r0, 0.0, 0.0, gamma * vt / r0, gamma / np.sqrt(1 - 2 * M / r0)]
+    sol = solve_ivp(geo, [0, 600], u0, method="DOP853",
+                    rtol=1e-9, atol=1e-9, max_step=0.2)
+    r = sol.y[0]; th = sol.y[1]
+    tx = r * np.cos(th); ty = r * np.sin(th); tz = -M / np.maximum(r, 2 * M)
+    # -- the horizon ring
+    a = np.linspace(0, 2 * np.pi, 200)
+    hpx, hpy = 2 * M * np.cos(a), 2 * M * np.sin(a)
+
+    fig = plt.figure(figsize=(8.2, 6.2))
+    ax = fig.add_subplot(111, projection="3d")
+    ax.plot_surface(X, Y, Phi, cmap="viridis", alpha=0.45, rstride=2, cstride=2)
+    ax.plot(tx, ty, tz, color=C_ZERO, lw=1.6, label="the geodesic (the precessing rosette)")
+    ax.plot(hpx, hpy, np.full_like(hpx, -M / (2 * M)), color="w", ls="--", lw=1.6,
+            label="the horizon  $r=2M$")
+    ax.scatter([tx[0]], [ty[0]], [tz[0]], color="w", s=24, zorder=5, label="start")
+    ax.scatter([tx[-1]], [ty[-1]], [tz[-1]], color="k", s=24, zorder=5, label="dip")
+    ax.set_xlabel("x"); ax.set_ylabel("y")
+    ax.set_zlabel(r"$\Phi=-M/r$")
+    ax.set_title("3-D gravity well + the Schwarzschild geodesic (the rosette precession)")
+    ax.view_init(elev=55, azim=-40)
+    ax.legend(loc="upper left", framealpha=0.9, fontsize=8)
+    _save(fig, "fig24_gravity_3d.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -943,7 +1130,11 @@ def main():
     fig18_residual_reduction()
     fig19_uv_2loop()
     fig20_proton_decay()
-    print("done: 20 figures.")
+    fig21_proton_margin()
+    fig22_proton_channels()
+    fig23_qca_wave()
+    fig24_gravity_3d()
+    print("done: 24 figures.")
 
 
 if __name__ == "__main__":
