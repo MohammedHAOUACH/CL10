@@ -1752,15 +1752,18 @@ speed $c=0.5$ (never faster — the QCA is **causal**), and the **peak amplitude
 drops $\propto 1/{\rm area}$** as the **unitary** norm is conserved (the
 dispersive spreading).  A $2\times4$ grid of $|\psi|^2$ heatmaps over time.
 
-**Fig. 24 — the 3-D gravity well + the Schwarzschild geodesic (the rosette precession).**
+**Fig. 24 — the 0-parameter (Planck-mass) black hole: the well + geodesic (left), the 2-route Kretschmann (right).**
 
-![The Newtonian gravity well with a Schwarzschild geodesic rosette.](figures/fig24_gravity_3d.png)
+![The 3-D well with the CL10-geodesic rosette (left); the 2-route computed Kretschmann (right).](figures/fig24_gravity_3d.png)
 
-The 0-parameter gravity well (the Newtonian potential $\Phi=-M/r$) as a 3-D
-surface, with the **Schwarzschild geodesic** of a test particle: a
-**precessing rosette** that dips to $r\sim2.4$ (just above the horizon
-$r=2M$).  The **precession** (the orbit does not close) is the relativistic
-geodesic effect (Section 6: the 2-route non-linear gravity).
+The 0-parameter black hole, computed from ``cl10.gravity``.  **Left:** the 3-D
+gravity well with the **geodesic** integrated through the CL10 finite-difference
+Christoffel symbols (``_christoffel_at`` from ``metric_schwarzschild``) — a
+**precessing rosette** ($r\in[7,10]$, the orbit does not close) and the horizon
+ring $r=2M$.  **Right:** the **2-route** verification — the Kretschmann
+*computed from the metric* (4-D central finite differences) equals the analytic
+$48M^2/r^6$ to $5\times10^{-5}$ (the black hole is **recovered by computation**;
+Section 6).
 
 ---
 

@@ -225,8 +225,8 @@ scale (the falsifiability bound), fig 21 the **proton decay rate** normalised
 to the bound (the 13-order margin), fig 22 the **three GUT channels**
 ($p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$), fig 23 the **0-parameter QCA
 wave** (the causal $+$ unitary dispersive spreading of a pulse), and fig 24 the
-**3-D gravity well** with the **Schwarzschild geodesic** (the rosette
-precession).
+**0-parameter black hole** (the 3-D well $+$ the geodesic integrated through
+the CL10 Christoffels, and the 2-route computed Kretschmann $=48M^2/r^6$).
 
  It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
  NumPy/CPU).

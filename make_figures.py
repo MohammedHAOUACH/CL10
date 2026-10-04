@@ -1059,53 +1059,97 @@ def fig23_qca_wave():
     _save(fig, "fig23_qca_wave.png")
 
 # ===========================================================================
-# Figure 24 — the 3-D gravity well + a geodesic (the Schwarzschild plunge rosette)
+# Figure 24 — the 0-parameter black hole: the well + geodesic (left), and the
+# 2-route Kretschmann (right), both computed from the CL10 metric
 # ===========================================================================
 def fig24_gravity_3d():
-    """The 0-parameter gravity well (the Newtonian potential Phi = -M/r) as a
-    3-D surface, with the **Schwarzschild geodesic** of a test particle
-    (a precessing rosette that dips to r ~ 2.4, just above the horizon r = 2).
-    The precession is the relativistic geodesic effect."""
+    """fig24 — the 0-parameter (Planck-mass) black hole.  Left: the 3-D
+    gravity well with the **geodesic** integrated through the CL10
+    finite-difference Christoffel symbols (the precessing rosette) and the
+    horizon ring.  Right: the **2-route** verification — the Kretschmann
+    *computed from the metric* (4-D central finite differences) equals the
+    analytic 48M^2/r^6 (the black hole is recovered by computation).  Both
+    panels are computed from ``cl10.gravity`` (``metric_schwarzschild``,
+    ``_christoffel_at``, ``riemann_4d``/``kretschmann_4d``)."""
+    from cl10 import gravity
     from scipy.integrate import solve_ivp
-    M = 1.0
+
+    M = 1.0                        # the 0-parameter black-hole mass (Planck units)
     R = 13.0
-    # -- the 3-D surface: Phi = -M/r, capped at the horizon r = 2M
+    H = gravity.H_FD
+
+    def sw(x):
+        return gravity.metric_schwarzschild(M, x)
+
+    # ---- LEFT: the 3-D well + the geodesic (via the CL10 Christoffels) ----
     g = np.linspace(-R, R, 90)
     X, Y = np.meshgrid(g, g)
     rr = np.sqrt(X**2 + Y**2)
+    # the well: the metric's time-time part g_00 = -(1 - 2M/r) gives, in the
+    # weak-field limit, the potential Phi = -M/r (capped at the horizon).
     Phi = -M / np.maximum(rr, 2 * M)
-    # -- the geodesic (equatorial, the state [r, th, r', th', t'])
-    def geo(t, u):
-        r, th, rd, thd, ttd = u
-        f = 1 - 2 * M / r
-        return [rd, thd,
-                -M / r**2 * f * ttd**2 + M / (r**2 * f) * rd**2 + (r - 2 * M) * thd**2,
-                -2 / r * rd * thd,
-                2 * M / (r**2 * f) * ttd * rd]
-    r0, vt = 12.0, 0.12
+
+    def geodesic(lam, u):
+        t, r, th, ph, td, rd, thd, phd = u
+        G = gravity._christoffel_at(sw, np.array([t, r, th, ph]), H)
+        v = np.array([td, rd, thd, phd])
+        dv = -np.einsum("mab,a,b->m", G, v, v)
+        return [td, rd, thd, phd, dv[0], dv[1], dv[2], dv[3]]
+
+    r0, vt = 10.0, 0.34
     gamma = 1.0 / np.sqrt(1 - vt**2)
-    u0 = [r0, 0.0, 0.0, gamma * vt / r0, gamma / np.sqrt(1 - 2 * M / r0)]
-    sol = solve_ivp(geo, [0, 600], u0, method="DOP853",
-                    rtol=1e-9, atol=1e-9, max_step=0.2)
-    r = sol.y[0]; th = sol.y[1]
-    tx = r * np.cos(th); ty = r * np.sin(th); tz = -M / np.maximum(r, 2 * M)
-    # -- the horizon ring
+    u0 = [0.0, r0, np.pi / 2, 0.0, gamma / np.sqrt(1 - 2 * M / r0), 0.0,
+          0.0, gamma * vt / r0]
+    sol = solve_ivp(geodesic, [0.0, 600.0], u0, method="DOP853",
+                    rtol=1e-8, atol=1e-8, max_step=0.5)
+    r = sol.y[1]; ph = sol.y[3]
+    tx = r * np.cos(ph); ty = r * np.sin(ph); tz = -M / np.maximum(r, 2 * M)
+
     a = np.linspace(0, 2 * np.pi, 200)
     hpx, hpy = 2 * M * np.cos(a), 2 * M * np.sin(a)
 
-    fig = plt.figure(figsize=(8.2, 6.2))
-    ax = fig.add_subplot(111, projection="3d")
-    ax.plot_surface(X, Y, Phi, cmap="viridis", alpha=0.45, rstride=2, cstride=2)
-    ax.plot(tx, ty, tz, color=C_ZERO, lw=1.6, label="the geodesic (the precessing rosette)")
-    ax.plot(hpx, hpy, np.full_like(hpx, -M / (2 * M)), color="w", ls="--", lw=1.6,
-            label="the horizon  $r=2M$")
-    ax.scatter([tx[0]], [ty[0]], [tz[0]], color="w", s=24, zorder=5, label="start")
-    ax.scatter([tx[-1]], [ty[-1]], [tz[-1]], color="k", s=24, zorder=5, label="dip")
-    ax.set_xlabel("x"); ax.set_ylabel("y")
-    ax.set_zlabel(r"$\Phi=-M/r$")
-    ax.set_title("3-D gravity well + the Schwarzschild geodesic (the rosette precession)")
-    ax.view_init(elev=55, azim=-40)
-    ax.legend(loc="upper left", framealpha=0.9, fontsize=8)
+    # ---- RIGHT: the 2-route Kretschmann (computed vs analytic) ----
+    rv = np.linspace(2.3, 20.0, 12)
+    Kc, Ka = [], []
+    for ri in rv:
+        x = np.array([0.0, ri, 0.5, 0.7])
+        Rm = gravity.riemann_4d(sw, x, H)
+        gm, _ = gravity._metric_and_dg(sw, x, H)
+        Kc.append(gravity.kretschmann_4d(Rm, gm))
+        Ka.append(48.0 * M**2 / ri**6)
+    Kc, Ka = np.array(Kc), np.array(Ka)
+
+    fig = plt.figure(figsize=(12.6, 5.6))
+    ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+    ax1.set_proj_type("ortho")
+    ax1.plot_surface(X, Y, Phi, cmap="viridis", alpha=0.4, rstride=3, cstride=3)
+    ax1.plot(tx, ty, tz, color=C_ZERO, lw=1.5,
+             label="the geodesic (CL10 Christoffels)")
+    ax1.plot(hpx, hpy, np.full_like(hpx, -M / (2 * M)), color="w", ls="--",
+             lw=1.4, label=r"the horizon $r=2M$")
+    ax1.scatter([tx[0]], [ty[0]], [tz[0]], color="w", s=20, zorder=5,
+                label="start")
+    ax1.set_zlabel(r"$\Phi=-M/r$"); ax1.set_title("the well + the geodesic",
+                                                 fontsize=10)
+    ax1.view_init(elev=55, azim=-40)
+    ax1.legend(loc="upper left", fontsize=7)
+
+    ax2 = fig.add_subplot(1, 2, 2)
+    ax2.loglog(rv, Ka, "-", color="k", lw=1.6, label=r"analytic $K=48M^2/r^6$")
+    ax2.loglog(rv, Kc, "o", color=C_ZERO, ms=5,
+               label="computed from the CL10 metric")
+    resid = float(np.abs(Kc / Ka - 1.0).max())
+    ax2.text(0.03, 0.05, f"2-route residual = {resid:.1e}\n(the black hole is "
+             "recovered by computation)", transform=ax2.transAxes, fontsize=8,
+             bbox=dict(boxstyle="round", fc="#f2f2f2", ec="#888", alpha=0.95))
+    ax2.set_xlabel(r"radius $r$  ($M=1$, $r>2M$)")
+    ax2.set_ylabel("Kretschmann $K = R^{mnpq}R_{mnpq}$")
+    ax2.set_title("2-route: the computed Kretschmann", fontsize=10)
+    ax2.legend(loc="upper right", fontsize=8)
+
+    fig.suptitle("fig24 — the 0-parameter black hole: the well + geodesic "
+                 "(left), the 2-route Kretschmann (right)", fontsize=10.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
     _save(fig, "fig24_gravity_3d.png")
 
 def main():
