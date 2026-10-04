@@ -1355,21 +1355,30 @@ def fig26_young():
                              show_collapse=True, collapse_frames=9,
                              collapse_peak=6.0, n_detections=10 ** 8))
 
+    # -- (a) the wave: a *separate* driven sheet beam (continuous mode) so the
+    # x-z slice shows the full field diffracting through the two slits and the
+    # two waves interfering (like fig25) -- a single electron's small packet
+    # would only show a little blob.
+    sim_a = wave.WaveSim(dict(cfg, source_mode="continuous",
+                              source_shape="sheet"))
+    xz_slice = None
+    for _i in range(520):
+        sim_a.step()
+        if _i == 500:
+            xz_slice = (sim_a.field()[:, Ly // 2, :] ** 2).copy()
+
     # -- run the Tonomura flow: one electron at a time, one point each --------
     absorb_frac, max_flight, n_target = 0.02, 300, 150
     sim.emit_packet()
     dets = []
     screened = False
     flight = 0
-    xz_slice = None      # (a) the propagation slice, captured at the slits
     time_pattern = None  # (b) the time-integrated interference pattern
     n_steps = 0
     while len(dets) < n_target and n_steps < 200000:
         sim.step()
         n_steps += 1
         flight += 1
-        if xz_slice is None and bar_z < sim.t < bar_z + 40:
-            xz_slice = (sim.field()[:, Ly // 2, :] ** 2).copy()
         # the front reaches the screen -> arm the screen buffer
         if not screened and (sim.at_screen() or flight > max_flight):
             sim.arm_screen()
@@ -1391,7 +1400,7 @@ def fig26_young():
             flight = 0
     det = np.array(dets) if dets else np.empty((0, 2))
     if xz_slice is None:
-        xz_slice = (sim.field()[:, Ly // 2, :] ** 2)
+        xz_slice = (sim_a.field()[:, Ly // 2, :] ** 2)
     if time_pattern is None:
         time_pattern = sim.screen_pattern()
 
