@@ -439,6 +439,13 @@ symbolic `kingdon` $\mathrm{Cl}(10,0)$).
 | `verify` | `(tol=1e-9)` | `{backend, two_route, spectral_mirror, cp_odd_theorem, g10_status, hierarchy_status, dm_status, provenance_table, invariants_ok, limits_ok, ok}` — the full audit; `ok` when the 0-parameter invariants **hold** and the four limits are **quantified** |
 | `main` | `()` | runs the audit and prints the verdict |
 
+**Refined by V59 (Section 13.6).**  The `g10_status` / `provenance_table`
+above are the audit's **conservative baseline** (they classify $g_{10}$ as
+the **one free** *family* parameter).  Section 13.6 (`cl10.four_limits`,
+V59) **refines** this: the *selected* value $g_{10}=1/5$ is a root number
+(the 32-D module, 5 qubits), so the theory is **0-free**, and the named set
+reduces to **3** (2 two-digit coefficients + 1 CP phase).
+
 ---
 
 ## 13.5. The 10-loop / 2-loop / QCA-step refinement modules (V53–V58)

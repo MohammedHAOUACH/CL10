@@ -73,18 +73,27 @@ dark-matter candidate) are stated, and none is observed.
 **The honest parameter audit (V52, Section 15)** reclassifies every
 "0-parameter" number by its **true** provenance — **algebraic 0-param** (the
 $16/16$-bar, the $45$, the $5/3$, the anomalies, the **$16/16$-bar spectral
-mirror (CPT as spectral conjugation, holding for all $g_{10}$)**, $\det U = 1$,
-**one** free 't Hooft angle $g_{10}=1/5$, **not** fixed by the
-UV-finiteness condition), **convention** ($g_0=1/8$, $M_{\rm GUT}=M_P$),
-**coincidence** (the $v/E_P$ 2-digit match), and **named residual** —
-and turns the four limits of the theory into **computed theorems**.
-**The 10-loop / 2-loop refinement (V53–V58, Section 15)** shows that four
-of these "coincidence / not-in-the-structure" residuals have **0-parameter
-loop-factor** representations — the **hierarchy exponent** $-17$ $=$ the
-10-loop factor $(1/16\pi)^{10}$ ($10 = n_{\rm gen}$), the **sub-Planck DM
-scale** $= M_P(1/16\pi)^{10}$ (the WIMP scale), the **2-step seesaw scale**
-$= M_P(1/16\pi)^{3}$ (W2), and the **CP factor** $= (1/16\pi)^2$ (2-loop) —
-with the **2-digit** coefficients as the named residuals.
+mirror (CPT as spectral conjugation, holding for all $g_{10}$)**, $\det U = 1$),
+**one** 't Hooft angle $g_{10}=1/5$ (the audit's **family** parameter — the
+*reading* $1/n_{\rm qubits}$ is a mapping choice, not yet a derivation),
+**convention** ($g_0=1/8$, $M_{\rm GUT}=M_P$), **coincidence** (the $v/E_P$
+2-digit match), and **named residual** — and turns the four limits of the
+theory into **computed theorems**.  **The 10-loop / 2-loop refinement
+(V53–V58, Section 15)** then shows that four of these
+"coincidence / not-in-the-structure" residuals have **0-parameter loop-factor**
+representations — the **hierarchy exponent** $-17$ $=$ the 10-loop factor
+$(1/16\pi)^{10}$ ($10 = n_{\rm gen}$), the **sub-Planck DM scale**
+$= M_P(1/16\pi)^{10}$ (the WIMP scale), the **2-step seesaw scale**
+$= M_P(1/16\pi)^{3}$ (W2), and the **CP factor** $= (1/16\pi)^2$ (2-loop) — with
+the **2-digit** coefficients as the named residuals.  **The unified solution
+(V59, Section 16) closes the audit**: the *selected* value $g_{10}=1/5$ is
+**itself a root number** ($1/n_{\rm qubits}$, the 5 qubits of the 32-D module),
+so the audit's "one free" *family* parameter has a **0-parameter selection**,
+and the **0-free** statement at the top holds: the four limits are the four
+projections of one 0-parameter invariant $10 = 2\times5$, and the **named
+residual set reduces to the minimum — 2 two-digit coefficients ($2.08$,
+$1.18$) + 1 irreducible CP phase = 3** (plus the mapping conventions of the
+audit).  This is the theory's final parameter count.
 
 
 ---
@@ -1156,6 +1165,19 @@ residuals.
 | **coincidence** (1) | a 2-digit numerical match, not a prediction | $v/E_P$: the pure 0-parameter 10-loop $(1/16\pi)^{10} = 9.7\times10^{-18}$ vs the observed $2.016\times10^{-17}$ (factor **2.08**) |
 | **named residual** (4) | an exact value the theory does not fix | $\eta_{CP}$, $\Lambda_{\rm obs}$, the sub-Planck DM scale, the exact $m_\nu$ |
 
+**The audit is the conservative baseline; Section 16 (V59) refines it.**
+The **"free 1-param"** $g_{10}=1/5$ is the audit's *family* parameter, but its
+**selected value is 0-parameter**: the 32-D module has **5 qubits**
+($2^5=32$), so $g_{10} = 1/n_{\rm qubits} = 1/5$ is a *root number* — the
+theory is **0-free** (Section 16, L1).  The **named** set is reduced the same
+way: the **sub-Planck DM *scale*** ($118$ GeV) is the **0-parameter 10-loop**
+(W7, V54), *not* a named residual, so the **four limits (L1–L4) reduce to the
+minimum named set — 2 two-digit coefficients ($2.08$, $1.18$) + 1 CP phase =
+3**.  The remaining walls keep their own named residuals ($\Lambda_{\rm obs}$,
+the exact $m_\nu$, the DM *identity*, the 1-loop matching — Table 2).  The
+provenance table above is **preserved** as the audit's computed baseline;
+Section 16 is its refinement.
+
 **The four limits, resolved as computed theorems:**
 
 **Point 1 (conventionality).**  $g_{10}$ is **not** fixed by any 0-parameter
@@ -1166,6 +1188,9 @@ angle.  $g_{10}$ is therefore the **one free** ('t Hooft) angle — the theory
 is **1-parameter** in its *dynamics* and **0-parameter** in its *algebra*.
 The "0-parameter" reading of $1/n_{\rm qubits}$ is re-labelled a mapping
 convention.
+*(Section 16, L1, shows this selected value $g_{10}=1/5$ is a root number, so
+the family has a 0-parameter selection — the theory is **0-free**; the
+"1-parameter" above is the conservative *family* statement of the audit.)*
 
 **Point 2 (the hierarchy is fixed, not explained).**  The **smallest** level
 of the $32$-level QCA spectrum is $\omega_{\min}=0.0115$ (a mass
@@ -1258,8 +1283,9 @@ computed theorems + a provenance table** — the audit's contribution.
 **non-zero** CP-odd invariant (e.g. once the two-$N$ seesaw is included)
 **refutes** the CP-odd theorem and **switches on** baryogenesis; a
 **non-mirror** $16/16$-bar spectrum **refutes** the CPT pairing; a
-dynamical condition that **fixes** $g_{10}$ **changes** the 1-parameter
-status.  **None is observed.**
+dynamical condition that **fixes** $g_{10}$ **beyond** the V52 *mapping*
+**changes** the audit's *family*-parameter finding (the V59 0-free is a
+*provenance* argument, a *weaker* claim).  **None is observed.**
 
 **The 10-loop / 2-loop refinement (V53–V58).**  The audit above (V52)
 classifies the *provenance* of the 0-parameter numbers.  The six new
@@ -1591,8 +1617,10 @@ $7+1+2+1+4$ split, Section 15, V52): **7 algebraic** 0-param invariants that
 $32$-spectrum, $\det U = 1$, the CPT mirror); **1 free** 't Hooft angle
 ($g_{10}=1/5$); **2 conventions** ($g_0=1/8$, $M_{\rm GUT}=M_P$); **1
 coincidence** ($v/E_P$); **4 named** residuals ($\eta_{CP}$, $\Lambda_{\rm
-obs}$, the DM scale, the exact $m_\nu$). The lesson: **audit** the label —
-do not defend it.
+obs}$, the DM scale, the exact $m_\nu$).  The lesson: **audit** the label —
+do not defend it.  *(Section 16, V59, refines the "1 free" to **0-free**: the
+selected value $g_{10}=1/5$ is a root number (the 5 qubits); the named set
+reduces to 3.)*
 
 **Fig. 13 — the CPT spectral mirror: the 16 (matter) vs the 16-bar (antimatter).**
 
