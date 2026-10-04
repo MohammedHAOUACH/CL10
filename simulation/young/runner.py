@@ -183,7 +183,22 @@ def run_interactive(cfg):
     live slit / wavelength tuning)."""
     from . import vispy_young
 
-    print("[young] interactive window (VisPy). keys: Space pause | +/- speed | "
+    # a real WINDOW needs a Qt GUI backend (PySide6/PyQt).  Without one VisPy
+    # silently falls back to its **off-screen EGL** backend: the process runs
+    # (this line prints) but **no window appears**.  Detect that up front.
+    import importlib.util
+    qt = next(
+        (n for n in ("PySide6", "PyQt6", "PySide2", "PyQt5")
+         if importlib.util.find_spec(n) is not None),
+        None,
+    )
+    if qt is None:
+        print("\n[young] WARNING: no Qt GUI backend found (PySide6/PyQt) -- VisPy will "
+              "use its off-screen EGL backend and NO window will open.\n"
+              "        install one to get the live 3-D window:\n"
+              "            pip install PySide6        (or:  pip install cl10[young])\n")
+    print(f"[young] interactive window (VisPy, backend={qt or 'EGL/off-screen'}). "
+          "keys: Space pause | +/- speed | "
           "s/a slit sep | w/x slit width | e/d wavelength | R reset | "
           "C clear | V camera | Q quit")
     vispy_young.run(cfg)
