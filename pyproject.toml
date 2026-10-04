@@ -22,8 +22,11 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["ruff", "pytest"]
 # the simulation/young visualizations: the live VisPy window (vispy + its
-# PySide6/PyOpenGL backend) and the headless PyVista video.
-young = ["vispy", "PySide6", "PyOpenGL", "PyVista"]
+# PySide6/PyOpenGL backend), the headless PyVista video (imageio writes the
+# mp4), and PyYAML (loads config.yaml).  None of these is a default
+# dependency, so a bare `pip install cl10` lacks them and the sim crashes on
+# startup.
+young = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "imageio-ffmpeg"]
 
 [tool.setuptools.packages.find]
 include = ["cl10*"]

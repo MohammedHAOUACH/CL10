@@ -17,7 +17,7 @@ gpu: 1
 # (Lx, Ly, Lz) cells.  The wave propagates along +z (the long axis), the two
 # slits are separated along x, the slits are full-height slots along y.
 # 256 x 256 x 512 = the same wide, flat box as the reference example.
-grid: [256, 256, 512]
+grid: [128, 128, 220]
 
 # render only every N-th cell (a stride in each axis) to keep the point cloud
 # fast on the GPU and the window responsive.  2 -> 1/8 of the cells drawn.
@@ -29,42 +29,61 @@ render_subsample: 2
 r: 0.5
 
 # the source wavelength in grid units (sets the fringe spacing on the screen).
-wavelength: 10.0
+wavelength: 4.5
 
 # the Gaussian source-envelope width in x (the beam is full in y -- a sheet),
 # in grid units.  Broad enough to illuminate both slits.
-source_width: 60.0
+source_width: 18.0
 
 # the source amplitude (the beam height at the source).
 source_amplitude: 1.0
 # the z position of the source (a little inside the box, off the sponge,
 # like the reference).
-source_z: 32
+source_z: 20
+
+# --- the single-electron source (the real Tonomura experiment) --------------
+# "single": fire ONE localized electron packet at a time -- emit a packet, it
+#   flies to the screen, one detection (a point sampled from its on-screen
+#   |psi|^2), the field resets, then the next electron is fired (after the
+#   other).  The accumulated points build the interference pattern.
+# "continuous": the old driven beam (a sheet re-driven every step).
+source_mode: single
+# the packet shape: "point" = a 3-D Gaussian (a true single electron);
+#   "sheet" = full in y (a vertical sheet -> clean x-fringes, like the ref).
+source_shape: point
+# the y-width of the packet (for "point"; ignored for "sheet"), in grid units.
+source_y_width: 14.0
+# the z-width of the emitted packet (a thin sliver of the beam), in cells.
+packet_z_width: 8.0
+# the flight time: the steps an electron takes to reach the screen before it
+#   is detected and the next one is fired.  The FDTD is dispersive, so this
+#   is longer than the naive (screen_z - source_z).
+flight_steps: 300
 
 # the source ramp-in, in steps (avoid a launch shock; the beam fades in).
-ramp_steps: 150
+ramp_steps: 200
 
 # the absorbing (sponge) boundary width, in cells (kills reflections).
-sponge_width: 12
+sponge_width: 16
 
 # --- the barrier + the two slits (the "fentes") ------------------------------
 # z position of the barrier plane.
-barrier_z: 156
+barrier_z: 44
 
 # the center-to-center distance between the two slits (x), in grid units.
-slit_separation: 32.0
+slit_separation: 22.0
 
 # the width of **each** slit (x), in grid units.
-slit_width: 9.0
+slit_width: 5.0
 
 # the height of each slit (a slot along y) -- full height (= Ly), so the slits
 # are clean vertical lines like the reference (the sheet passes fully through).
-slit_height: 256.0
+slit_height: 128.0
 
 # --- the detection screen (the "reality") ------------------------------------
 # z position of the detection screen (behind the slits; 82% down the box,
 # like the reference).
-screen_z: 420
+screen_z: 200
 
 # how many collapse / detection events to accumulate on the screen.
 n_detections: 3000
@@ -99,7 +118,7 @@ n_steps: 3200
 
 # the camera: a wide pull-back so the whole big box is in frame.
 #   [x, y, z]  ->  a point high up and behind, looking at the box centre.
-camera: [128.0, 130.0, 470.0]
+camera: [64.0, 66.0, 205.0]
 camera_fov: 45
 
 # the colormap of the field intensity.

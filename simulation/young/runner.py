@@ -28,7 +28,6 @@ import yaml
 
 from . import backend as B
 from . import collapse as Collapse
-from . import scene as Scene
 from . import wave as WaveSim
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -59,6 +58,7 @@ def make_panel(cfg, sim, collapse, t):
 # headless: the video (the verified deliverable)
 # ---------------------------------------------------------------------------
 def run_headless(cfg):
+    from . import scene as Scene  # lazy: PyVista is only needed for the headless video (not the interactive VisPy window)
     t0 = time.time()
     print(f"[young] backend={B.backend_name()}  {B.gpu_info()}")
 
@@ -91,23 +91,47 @@ def run_headless(cfg):
     next_frame_at = 0
     stills = {0, n_frames // 4, n_frames // 2, 3 * n_frames // 4, n_frames - 1}
 
+    # the single-electron lifecycle: fire one packet at a time; after the
+    # flight time, detect it (one point) and fire the next (the Tonomura flow).
+    single = sim.source_mode == "single"
+    flight_steps = int(cfg.get("flight_steps", 300))
+    flight_timer = 0
+    if single:
+        sim.emit_packet()
+
     while t < n_steps:
         # -- the wave step (GPU) --
         sim.step()
         t += 1
 
-        # -- every detection (fills the screen = the "reality") --
-        collapse_timer += 1
-        if (
-            collapse_timer >= collapse_every
-            and collapse.n_detected() < collapse.n_detections
-        ):
-            I = sim.screen_intensity()
-            if I.sum() > 0:
-                pt = collapse.sample(I)
-                if pt is not None:
-                    collapse.add(*pt)
-                    collapse_timer = 0
+        if single:
+            # the single-electron lifecycle: the packet has flown for the
+            # flight time -> it is at the screen.  Detect it (one point = the
+            # collapse) and fire the NEXT electron.
+            flight_timer += 1
+            if flight_timer >= flight_steps:
+                I = sim.screen_intensity()
+                if I.sum() > 0 and collapse.n_detected() < collapse.n_detections:
+                    pt = collapse.sample(I)
+                    if pt is not None:
+                        collapse.add(*pt)
+                        collapse.set_event(*pt)
+                        display_timer = 0
+                sim.emit_packet()  # reset the field + fire the next electron
+                flight_timer = 0
+        else:
+            # the old continuous-beam mode: sample from the on-screen |psi|**2
+            collapse_timer += 1
+            if (
+                collapse_timer >= collapse_every
+                and collapse.n_detected() < collapse.n_detections
+            ):
+                I = sim.screen_intensity()
+                if I.sum() > 0:
+                    pt = collapse.sample(I)
+                    if pt is not None:
+                        collapse.add(*pt)
+                        collapse_timer = 0
 
         # -- the *displayed* collapse (the wave-packet reduction) --
         display_timer += 1

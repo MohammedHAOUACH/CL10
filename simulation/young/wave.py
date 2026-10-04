@@ -38,23 +38,39 @@ class WaveSim:
         self.slit_height = float(cfg["slit_height"])
         self.sponge_width = int(cfg["sponge_width"])
 
+        # the source model: "single" = one localized electron packet at a time
+        # (the real Tonomura experiment); "continuous" = the old driven beam.
+        self.source_mode = str(cfg.get("source_mode", "single"))
+        # the packet shape: "point" = a 3D Gaussian (a true single electron);
+        # "sheet" = full in y (a vertical sheet, clean x-fringes like the ref).
+        self.source_shape = str(cfg.get("source_shape", "point"))
+        self.source_y_width = float(cfg.get("source_y_width", self.source_width))
+        # the z-width of the emitted packet (a thin sliver of the beam).
+        self.packet_z_width = float(cfg.get("packet_z_width", 8.0))
+
         self.psi = B.zeros((self.Lx, self.Ly, self.Lz))
         self.psi_prev = B.zeros((self.Lx, self.Ly, self.Lz))
         self.t = 0
 
-        # the temporal frequency of the source, matched to the FDTD dispersion
-        # so the driven boundary launches a clean propagating wave (no phase
-        # pile-up).  phi = 2*pi/lambda is the spatial phase per cell.
+        # the carrier: the spatial frequency is matched to the FDTD dispersion
+        # (phi = 2*pi/lambda; omega = asin(r*sin(phi))) so the packet has a
+        # clean central wavenumber (no phase pile-up).
         import math
-        phi = 2.0 * math.pi / self.wavelength
-        self.omega = math.asin(self.r * math.sin(phi))
-
-        # the source envelope: a Gaussian in x (a broad beam that illuminates
-        # both slits), FULL in y -- a vertical sheet like the reference, so the
-        # interference pattern is clean vertical fringes (independent of y).
-        gx = B.arange(self.Lx, dtype=B._E.float32)
-        mx = B.exp(-((gx - self.Lx / 2.0) ** 2) / (2.0 * self.source_width ** 2))
+        self.phi = 2.0 * math.pi / self.wavelength
+        self.omega = math.asin(self.r * math.sin(self.phi))
+        self._gx = B.arange(self.Lx, dtype=B._E.float32)
+        self._gy = B.arange(self.Ly, dtype=B._E.float32)
+        self._gz = B.arange(self.Lz, dtype=B._E.float32)
+        # the z-part of the emitted packet: a Gaussian in z * the +z carrier.
+        dz = self._gz - float(self.source_z)
+        self._z_packet = (
+            B.exp(-dz * dz / (2.0 * self.packet_z_width ** 2)) * B.cos(self.phi * dz)
+        )
+        # the "continuous" drive mask (a sheet: Gaussian in x, full in y).
+        mx = B.exp(-((self._gx - self.Lx / 2.0) ** 2) / (2.0 * self.source_width ** 2))
         self.source_mask = mx[:, None] * B.ones((1, self.Ly), dtype=B._E.float32)
+        self._t_since_emit = 0
+        self._emit_count = 0
 
         self._build_sponge()
         self._build_barrier()
@@ -108,6 +124,10 @@ class WaveSim:
 
     # -- one FDTD step --------------------------------------------------------
     def step(self):
+        """One leapfrog step of the 0-parameter discrete wave equation.  In
+        ``"continuous"`` mode the source plane is re-driven every step (the old
+        beam); in ``"single"`` mode nothing is driven -- the packet that
+        ``emit_packet`` launched simply propagates (and spreads)."""
         p = self.psi
         pp = self.psi_prev
         r2 = self.r * self.r
@@ -124,15 +144,63 @@ class WaveSim:
         new = new * self.sponge
         # the double-slit barrier (hard mask at the barrier plane)
         new[:, :, self.barrier_z] = new[:, :, self.barrier_z] * self.barrier
-        # the driven Gaussian-beam source at ``source_z`` (ramped in to avoid a shock)
-        ramp = 1.0 if self.t >= self.ramp_steps else (self.t / float(self.ramp_steps))
         self.psi_prev = p
         self.psi = new
-        self.psi[:, :, self.source_z] = (
-            self.source_amplitude * ramp * self.source_mask * B.cos(self.omega * self.t)
-        )
+        if self.source_mode == "continuous":
+            # the driven Gaussian-beam source (ramped in to avoid a shock)
+            ramp = 1.0 if self.t >= self.ramp_steps else (self.t / float(self.ramp_steps))
+            self.psi[:, :, self.source_z] = (
+                self.source_amplitude * ramp * self.source_mask * B.cos(self.omega * self.t)
+            )
+        self._t_since_emit += 1
         self.t += 1
         return self.t
+
+    # -- a single electron: launch one localized packet ------------------------
+    def emit_packet(self):
+        """Emit **one** electron: clear the field, then launch a localized 3-D
+        wave packet (a Gaussian in x, y and z modulated by the +z carrier) at
+        the source, with an **initial +z velocity** so it flies toward the slits
+        and the screen.  This is the Tonomura single-electron source -- one
+        packet in the apparatus at a time.  The next call resets and fires the
+        next electron (after the previous one has been detected)."""
+        self.psi.fill(0)
+        self.psi_prev.fill(0)
+        # the (x, y) envelope of the packet (a 3-D Gaussian, centered)
+        if self.source_shape == "sheet":
+            # full in y (a vertical sheet -> clean x-fringes, like the reference)
+            ex = B.exp(-((self._gx - self.Lx / 2.0) ** 2) / (2.0 * self.source_width ** 2))
+            xy = ex[:, None] * B.ones((1, self.Ly), dtype=B._E.float32)
+        else:
+            # a true single electron: a 3-D Gaussian (localized in x and y)
+            ex = B.exp(-((self._gx - self.Lx / 2.0) ** 2) / (2.0 * self.source_width ** 2))
+            ey = B.exp(-((self._gy - self.Ly / 2.0) ** 2) / (2.0 * self.source_y_width ** 2))
+            xy = ex[:, None] * ey[None, :]
+        # the full 3-D packet: the (x, y) envelope * the z-part (a carrier in z)
+        self.psi[:] = self.source_amplitude * xy[:, :, None] * self._z_packet[None, None, :]
+        # the initial +z velocity: the field at t-1 is the packet 1 cell behind
+        # (so the leapfrog sees it moving toward +z, not back toward the source)
+        self.psi_prev[:, :, :-1] = self.psi[:, :, 1:]
+        self._t_since_emit = 0
+        self._emit_count += 1
+        return self
+
+    # -- reset the field (the current electron is done) -----------------------
+    def reset(self):
+        """Clear the field (the current electron has been detected; ready to
+        fire the next one)."""
+        self.psi.fill(0)
+        self.psi_prev.fill(0)
+        self.t = 0
+        self._t_since_emit = 0
+        return self
+
+    def at_screen(self):
+        """Has the emitted packet reached the detection screen?  (the on-screen
+        |psi|^2 is non-negligible.)  Used to trigger a detection + reset in
+        ``"single"`` mode."""
+        I = self.psi[:, :, self.screen_z] ** 2
+        return float(I.max()) > 1e-6
 
     # -- outputs to the host --------------------------------------------------
     def field(self):

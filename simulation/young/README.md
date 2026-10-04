@@ -1,12 +1,13 @@
 # CL10 / simulation/young — the 3-D Young (double-slit) simulation
 
 A **3-D** visualization of the **Young double-slit experiment** as a *measurement
-process*.  A Gaussian beam (a 0-parameter wave) propagates on a big 3-D grid,
-**diffracts through the two slits**, and the screen shows the **wave-packet
-reduction (collapse)**: the packet **contracts onto a detected point** (sampled
-from the on-screen `psi**2`, the Born rule), the point **lands** on the
-detection screen, and the accumulated detections build the **interference
-pattern** — the *reality* emerging from the *reductions*.
+process* — the **Tonomura single-electron** version.  The source fires **one
+electron at a time** (a localized 0-parameter wave packet): each packet
+**diffracts through the two slits**, flies to the detection screen, and is
+**reduced onto a single detected point** (sampled from the on-screen `|psi|**2`,
+the Born rule).  The field then **resets** and the **next electron** is fired
+(electron after the other).  The **accumulated single detections build the
+interference pattern** — the *reality* emerging from the *reductions*.
 
 This is the CL10 **9-to-1 / Z2-projection** collapse (see `doc/publication.md`)
 made visible.  **Nothing is fitted**: the wave equation, the discrete Laplacian,
@@ -43,6 +44,7 @@ also shown live in the window corner:
 | `r` | the leapfrog coefficient `c dt/dx` (CFL: `r <= 1/sqrt(3)`) |
 | `wavelength` | the source wavelength (sets the fringe spacing) |
 | `source_width` / `source_amplitude` / `source_z` / `ramp_steps` | the Gaussian beam (and its `z` position) |
+| `source_mode` / `source_shape` / `source_y_width` / `packet_z_width` / `flight_steps` | the **single-electron** source: `single` fires one packet at a time (the Tonomura experiment), `point`/`sheet` shape, and the flight time to the screen |
 | `sponge_width` | the absorbing boundary (kills reflections) |
 | `barrier_z` / `slit_separation` / `slit_width` / `slit_height` | the two slits |
 | `screen_z` | the detection screen |
