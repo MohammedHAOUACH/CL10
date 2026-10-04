@@ -279,6 +279,48 @@ the state space).  It is **not** a claim of a dynamical supersymmetry (no
 supercharge annihilating the vacuum); the *dynamical* supersymmetry (and its
 absence) is discussed in Section 13.
 
+**The measurement: the reduction of the wave function (the collapse).**
+
+The QCA wave (the superposition) evolves **unitarily** — the 0-parameter step
+$U$ (Section 1) carries it forward **without** any collapse.  A **measurement**
+(a detection) is the one place where the state is **reduced** onto a single
+outcome, and that reduction is **0-parameter**:
+
+**The Born rule is the QCA intensity.**  The probability of detecting the
+particle at the lattice site $x$ is the **squared modulus of the very field
+that propagates**,
+$$P(x) \;=\; |\psi(x)|^{2}.$$
+The field that **evolves** (the QCA wave of Section 6; the Young wave of
+**Fig. 25**) is the **same** object that gives the **detection probability**:
+there is no separate "probability" input — the intensity $|\psi|^{2}$ **is** the
+Born-rule distribution.
+
+**The reduction (the collapse).**  Upon a detection at the site $x_{0}$, the
+superposition
+$$|\Psi\rangle = \sum_{x}\,\psi(x)\,|x\rangle$$
+is **reduced** to the single localized state $|x_{0}\rangle$ — the particle
+*lands* at $x_{0}$ — with probability $|\psi(x_{0})|^{2}$:
+$$|\Psi\rangle \;\xrightarrow{\ \text{detection at } x_{0}\ }\; |x_{0}\rangle.$$
+This **many-to-one** projection $P_{x_{0}} = |x_{0}\rangle\langle x_{0}|$ (the
+**wave-function collapse**) is **non-unitary** and **discrete** — it is the
+update that the **unitary** step does **not** perform.  **Between** measurements
+the QCA is **unitary** (deterministic); **at** a measurement the superposition
+is **reduced** onto one **$\mathbb{Z}_{2}$-graded** basis vector (this section:
+one Weyl component at one lattice site).
+
+**The 0-parameter status (honest).**  What is **0-parameter** is the
+**distributable** content — *where* the detections land and the **pattern** they
+build, i.e. $|\psi|^{2}$.  The **projection postulate** (the non-unitary
+reduction) is the **named** rule of measurement: it is **not** derived from the
+unitary step (the **measurement problem**, part of the **quantum completion**
+W9).  In the **deterministic-QCA** reading it is the **coarse-graining** of the
+ontic (unitary) state onto the measured $\mathbb{Z}_{2}$ sector — the observer's
+reduced state of knowledge; in the **standard** reading it is the **von
+Neumann** projection.  Either way, the **repeated reductions** (the detections)
+**reconstruct the interference pattern** (Fig. 25, panels c–d): the **measured
+reality** *emerges* from the individual **collapses**, and the **fringes** — the
+0-parameter $|\psi|^{2}$ — are **what the pattern converges to**.
+
 ---
 
 ## 6. Gravity: the metric dynamics of the $(1,3)$ sub-algebra
@@ -1765,9 +1807,9 @@ ring $r=2M$.  **Right:** the **2-route** verification — the Kretschmann
 $48M^2/r^6$ to $5\times10^{-5}$ (the black hole is **recovered by computation**;
 Section 6).
 
-**Fig. 25 — the Young double-slit as a measurement: the 0-parameter QCA wave and its 9-to-1 collapse onto the detected points.**
+**Fig. 25 — the Young double-slit as a measurement: the 0-parameter QCA wave and its collapse (the reduction of the wave function) onto the detected points.**
 
-![The CL10 Young double-slit as a measurement: the 0-parameter QCA wave (a,b) and its 9-to-1 collapse onto the detected points (c,d).](figures/fig25_young.png)
+![The CL10 Young double-slit as a measurement: the 0-parameter QCA wave (a,b) and its collapse onto the detected points (c,d).](figures/fig25_young.png)
 
 The CL10 Young experiment run as the **0-parameter 3-D QCA wave** (the same
 4-neighbour discrete wave equation as the CL10 graviton, Section 6; the
@@ -1776,8 +1818,8 @@ The CL10 Young experiment run as the **0-parameter 3-D QCA wave** (the same
 on the detection screen** — the **0-parameter** far-field fringes (the bright
 central maximum and the $d/\lambda\approx5$ envelope), with the 1-D profile
 along $x$.  **c)** the **collapse**: a single Born-rule **detection** reduces
-the superposition onto a **point** (the **9-to-1 / $\mathbb{Z}_2$ projection**,
-Section 1) — the wave-packet visibly contracts onto the detected particle.
+the superposition onto a **point** (the **reduction of the wave function**,
+Section 5) — the wave-packet visibly contracts onto the detected particle.
 **d)** the **reality**: the **accumulated** detected points **build the
 fringes** — the interference pattern *emerges* from the individual reductions.
 The Young experiment is thereby a **measurement process** of the CL10 root,
