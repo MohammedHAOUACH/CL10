@@ -1807,21 +1807,26 @@ ring $r=2M$.  **Right:** the **2-route** verification — the Kretschmann
 $48M^2/r^6$ to $5\times10^{-5}$ (the black hole is **recovered by computation**;
 Section 6).
 
-**Fig. 25 — the Young double-slit as a measurement: the 0-parameter QCA wave and its collapse (the reduction of the wave function) onto the detected points.**
+**Fig. 25 — the Young double-slit as a *single-electron* measurement: the Tonomura flow, one electron at a time, each reduced onto a point (the reduction of the wave function).**
 
-![The CL10 Young double-slit as a measurement: the 0-parameter QCA wave (a,b) and its collapse onto the detected points (c,d).](figures/fig25_young.png)
+![The CL10 Young double-slit as a single-electron measurement: one electron at a time, each reduced onto a point (Tonomura flow).](figures/fig25_young.png)
 
-The CL10 Young experiment run as the **0-parameter 3-D QCA wave** (the same
-4-neighbour discrete wave equation as the CL10 graviton, Section 6; the
-``simulation.young`` engine).  **a)** the wave: the beam propagates and
-**diffracts** through the two slits (the x-z slice).  **b)** the **interference
-on the detection screen** — the **0-parameter** far-field fringes (the bright
-central maximum and the $d/\lambda\approx5$ envelope), with the 1-D profile
-along $x$.  **c)** the **collapse**: a single Born-rule **detection** reduces
+The CL10 Young experiment run as a **single-electron measurement** (the
+**Tonomura flow**, the ``simulation.young`` engine).  The emitter fires **one
+localized electron at a time**; each one diffracts through the two slits and is
+detected at a **single point** sampled from the **time-integrated** on-screen
+$\psi^{2}$ (the interference pattern the screen records — a single instant of
+the traveling wave is only a blob, so the detection is sampled from the pattern
+integrated over the electron's passage).  **a)** the wave: the field
+**diffracts** through the two slits and the **two waves interfere** (the x-z
+slice).  **b)** the **interference on the detection screen** — the
+**time-integrated** fringes (the bright central maximum and the fringe groups),
+with the 1-D profile along $x$.  **c)** the **collapse**: one electron reduces
 the superposition onto a **point** (the **reduction of the wave function**,
 Section 5) — the wave-packet visibly contracts onto the detected particle.
-**d)** the **reality**: the **accumulated** detected points **build the
-fringes** — the interference pattern *emerges* from the individual reductions.
+**d)** the **reality**: the **accumulated single-electron detections cluster
+into the fringe groups** — the interference pattern *emerges* from the
+individual reductions, one electron at a time (the Tonomura experiment).
 The Young experiment is thereby a **measurement process** of the CL10 root,
 not a separate physical input.
 
