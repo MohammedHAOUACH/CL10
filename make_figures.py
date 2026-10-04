@@ -814,6 +814,59 @@ def fig18_residual_reduction():
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     _save(fig, "fig18_residual_reduction.png")
 
+# ===========================================================================
+# Figure 19 — the 2-loop running: the perturbative QFT Landau pole vs the unitary QCA step
+# ===========================================================================
+def fig19_uv_2loop():
+    """The 2-loop running of the U(1) coupling: the perturbative QFT reaches a
+    Landau pole below M_P, the 1-loop running stays bounded, and the unitary QCA
+    step remains bounded at every order."""
+    from cl10 import unification as u, toepred as tp
+
+    M_Z, M_P = u.M_Z, tp.M_PLANCK
+    b1, b2 = u.B_SM[0], u.B2_SM[0]
+    a1z = u.A_Z[0]
+    c = 1.0 / a1z
+    Bcoef = b1 / (2.0 * np.pi)
+    Acoef = b2 / (b1 ** 2 * 2.0 * np.pi)
+    t2 = (-Bcoef + np.sqrt(Bcoef ** 2 + 4.0 * Acoef * c)) / (2.0 * Acoef)
+    pole2 = M_Z * float(np.exp(t2))
+
+    t = np.linspace(0.0, np.log(3.0e20 / M_Z), 400)
+    M = M_Z * np.exp(t)
+    inv1 = c - Bcoef * t
+    inv2 = c - Bcoef * t - Acoef * t ** 2
+    valid = inv2 > 0
+
+    fig, ax = plt.subplots(figsize=(8.2, 5.4))
+    ax.semilogx(M, inv1, "-", color=C_SU2, lw=2.2,
+                label=r"1-loop  $1/\alpha_1(M)$  (the pole is above $M_P$)")
+    ax.semilogx(M[valid], inv2[valid], "-", color=C_ZERO, lw=2.4,
+                label=r"2-loop  $1/\alpha_1(M)$  (the pole is below $M_P$)")
+    ax.axvline(M_P, color="k", lw=1.2)
+    ax.text(M_P * 1.05, 57, r"$M_P$", fontsize=9, va="bottom", ha="left")
+    ax.axvline(pole2, color=C_ZERO, ls=":", lw=1.4)
+    ax.scatter([pole2], [0], s=130, marker="x", color=C_ZERO, zorder=5,
+               label=r"the 2-loop Landau pole  $\sim$ " + f"{pole2:.0e}" + r" GeV")
+    ax.axhline(1.0 / u.ALPHA_10, color="0.35", ls="--", lw=1.3,
+               label=r"0-parameter GUT coupling  $1/\alpha_{10} = 25$")
+    ax.annotate(
+        r"the 2-loop perturbative $QFT$ reaches a Landau pole below $M_P$;  the $QCA$ "
+        "step is unitary, so its $n$-step amplitudes stay bounded\n"
+        r"$\Rightarrow$ the perturbative UV divergence is not a property of the QCA itself",
+        xy=(pole2, 0), xytext=(3e3, 44),
+        fontsize=8.5, ha="left", va="top",
+        bbox=dict(boxstyle="round", fc="#f4f4f4", ec="#888", alpha=0.95),
+        arrowprops=dict(arrowstyle="->", color="0.3"))
+    ax.set_xlabel(r"scale $M$  (GeV, log scale)")
+    ax.set_ylabel(r"$1/\alpha_1$  (the $U(1)$ coupling)")
+    ax.set_title("2-loop running of the $U(1)$ coupling: the perturbative QFT pole "
+                 "vs the bounded QCA step")
+    ax.set_xlim(70, 3e20)
+    ax.set_ylim(-3, 60)
+    ax.legend(loc="lower left", framealpha=0.95, fontsize=8)
+    _save(fig, "fig19_uv_2loop.png")
+
 def main():
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -834,7 +887,8 @@ def main():
     fig16_couplings_mz()
     fig17_ladder_sm()
     fig18_residual_reduction()
-    print("done: 18 figures.")
+    fig19_uv_2loop()
+    print("done: 19 figures.")
 
 
 if __name__ == "__main__":

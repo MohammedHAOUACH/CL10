@@ -955,7 +955,7 @@ on the lattice, no fit) are:
 - **the S-matrix** (W9): the step **is** the 0-parameter S-matrix
   ($S = U$, the 't Hooft program).
 
-The **elegant 9-to-1**: the nine residuals are the **nine independent
+The **9-to-1 reduction**: the nine residuals are the **nine independent
 exact values** (scales and angles) that this one object does **not** fix —
 W1 (the $10^{-122}$ breaking of the 0-point), W2 (the exact $M_N$ and
 $m_\nu$), W3 (the *why-3* of the family count), W4 (the 1-loop matching
