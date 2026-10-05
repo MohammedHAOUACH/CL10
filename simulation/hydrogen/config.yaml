@@ -74,6 +74,13 @@ relative_step_size: 0.8
 log_gain: 1.0e4
 # the display gamma (the old-project alpha_gamma).
 alpha_gamma: 1.0
+# the transparency of the **faint shell** of the 3-D volumes (the bright core
+# always stays opaque, so it keeps its brightness).  1.0 = the old solid look
+# (no see-through); lower = the dilute halo gets see-through, so the nucleus
+# and the far lobe read through the near side ("see inside the cloud").
+# The alpha ramps from this value (the faint shell) up to 1.0 (the core).
+# Only the 3-D is affected; the 2-D cut stays opaque.
+volume_alpha: 0.4
 # the volume silhouette threshold: zero the (near-zero) box background so the
 # MIP shows the cloud's shape, not the whole box.
 volume_threshold: 0.02

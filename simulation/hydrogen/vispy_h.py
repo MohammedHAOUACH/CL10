@@ -49,20 +49,51 @@ from vispy import app, scene
 from vispy.color import Colormap
 from vispy.util.quaternion import Quaternion
 
-# the colormaps: purple-free (the standard "inferno" / "viridis" have a
-# magenta/purple low end that reads as a "mask" over the black background).
-FIRE = Colormap(
-    colors=["#000000", "#3a0000", "#cc2200", "#ff8a00", "#ffeb4d"],
-    controls=[0.0, 0.2, 0.5, 0.8, 1.0],
+# the colour stops (RGB hex + controls): the RGB versions drive the **2-D
+# screen** (fully opaque); the RGBA versions (the ``_make_rgba`` ramp below)
+# drive the **3-D volumes** with an alpha channel, so the faint outer shell is
+# transparent and you can see *through* it into the core (the nucleus, the
+# inner lobes) -- "see inside the cloud".
+FIRE_STOPS = (
+    ["#000000", "#3a0000", "#cc2200", "#ff8a00", "#ffeb4d"],
+    [0.0, 0.2, 0.5, 0.8, 1.0],
 )  # the photon (black -> dark red -> red -> orange -> yellow)
-DENSITY = Colormap(
-    colors=["#000000", "#12237a", "#1f9aa0", "#43e08a", "#ffe94d"],
-    controls=[0.0, 0.3, 0.55, 0.8, 1.0],
+DENSITY_STOPS = (
+    ["#000000", "#12237a", "#1f9aa0", "#43e08a", "#ffe94d"],
+    [0.0, 0.3, 0.55, 0.8, 1.0],
 )  # the electron density (black -> blue -> teal -> green -> yellow)
-COOL = Colormap(
-    colors=["#000000", "#003a5a", "#0088cc", "#a0f0ff"],
-    controls=[0.0, 0.3, 0.6, 1.0],
+COOL_STOPS = (
+    ["#000000", "#003a5a", "#0088cc", "#a0f0ff"],
+    [0.0, 0.3, 0.6, 1.0],
 )  # the potential well (black -> dark blue -> blue -> light cyan)
+
+FIRE = Colormap(*FIRE_STOPS)
+DENSITY = Colormap(*DENSITY_STOPS)
+COOL = Colormap(*COOL_STOPS)
+
+
+def _make_rgba(stops, alpha_min):
+    """Build an **RGBA** Colormap from the RGB ``stops``: the same RGB colours,
+    but with an alpha channel that ramps from ``alpha_min`` (the faint outer
+    shell, value 0) up to **1.0** (the bright core, value 1).
+
+    The bright core stays fully opaque (so it keeps its colour and brightness
+    -- a pure ``alpha < 1`` ramp would *dim* the whole cloud), while only the
+    dilute halo is made see-through.  That is what "see inside" needs: you look
+    *through* the faint shell into the dense core (the nucleus, the far lobe)
+    instead of the near side hiding it.  ``alpha_min = 1.0`` recovers the old
+    solid look; ``alpha_min = 0`` makes the faint shell fully transparent."""
+    def _rgb(h):
+        h = h.lstrip("#")
+        return (
+            int(h[0:2], 16) / 255.0,
+            int(h[2:4], 16) / 255.0,
+            int(h[4:6], 16) / 255.0,
+        )
+    colors, controls = stops
+    rgba = [(*_rgb(c), alpha_min + (1.0 - alpha_min) * k)
+            for c, k in zip(colors, controls)]
+    return Colormap(colors=rgba, controls=list(controls))
 
 from . import backend as B
 from . import qca as QCA
@@ -167,6 +198,10 @@ class HydroVisPy(scene.SceneCanvas):
         self.stride = int(cfg.get("volume_stride", 2))
         self.log_gain = float(cfg.get("log_gain", 1.0e4))
         self.gamma = float(cfg.get("alpha_gamma", 1.0))
+        # the 3-D volume opacity: the (max) alpha of the bright core.  Below
+        # 1 the cloud is see-through -- the faint shell is transparent, so the
+        # nucleus and the far lobe read through the near side ("see inside").
+        self.vol_alpha = float(cfg.get("volume_alpha", 0.6))
         vs = (
             max(1, self.Lx // self.stride),
             max(1, self.Ly // self.stride),
@@ -182,7 +217,7 @@ class HydroVisPy(scene.SceneCanvas):
             self.elec_data, parent=self.view_3d.scene, method="additive",
             clim=(0.0, 1.0),
         )
-        self.elec.cmap = DENSITY
+        self.elec.cmap = _make_rgba(DENSITY_STOPS, self.vol_alpha)
         self.elec.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )
@@ -192,7 +227,7 @@ class HydroVisPy(scene.SceneCanvas):
             self.phot_data, parent=self.view_3d.scene, method="additive",
             clim=(0.0, 1.0),
         )
-        self.phot.cmap = FIRE
+        self.phot.cmap = _make_rgba(FIRE_STOPS, self.vol_alpha)
         self.phot.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )
@@ -202,7 +237,7 @@ class HydroVisPy(scene.SceneCanvas):
             self.pot_data, parent=self.view_3d.scene, method="additive",
             clim=(0.0, 1.0),
         )
-        self.pot.cmap = COOL
+        self.pot.cmap = _make_rgba(COOL_STOPS, self.vol_alpha)
         self.pot.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )

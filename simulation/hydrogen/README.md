@@ -111,7 +111,8 @@ shown live in the window corner:
 | `line_width` | the natural linewidth of the absorption line (0 = the lifetime) |
 | `photon_width` / `photon_amp` | the fired packet (Gaussian width, amplitude) |
 | `n_steps` / `n_video_frames` / `fps` / `out_video` / `out_frames` | the headless video |
-| `window_size` / `volume_stride` / `volume_alpha` / `steps_per_frame` / `volume_refresh_rate` / `agc_release` / `agc_gain_max` | the live VisPy window |
+| `volume_alpha` | the see-through of the 3-D **faint shell** (the bright core stays opaque): 1.0 = solid, lower = look through the dilute halo into the core |
+| `window_size` / `volume_stride` / `steps_per_frame` / `volume_refresh_rate` / `agc_release` / `agc_gain_max` | the live VisPy window |
 
 ## Files
 
