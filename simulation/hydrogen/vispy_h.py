@@ -300,8 +300,8 @@ class HydroVisPy(scene.SceneCanvas):
         cx = self.Lx // 2
         sl = f_gpu[cx, :, :][:: self.stride, :: self.stride].T
         if self.vis_mode == "potential":
-            lo = float(B.asnumpy(B.minimum(sl)))
-            hi = float(B.asnumpy(B.maximum(sl)))
+            lo = float(B.asnumpy(sl.min()))
+            hi = float(B.asnumpy(sl.max()))
             img = B.clip((sl - lo) / max(hi - lo, 1e-9), 0.0, 1.0)
         else:
             lg = B.log1p(B.maximum(sl, B.zeros_like(sl)) * self.log_gain)
@@ -378,13 +378,20 @@ class HydroVisPy(scene.SceneCanvas):
 
     def on_key_press(self, event):
         k = event.key
+        # VisPy passes a Key object (it compares to its string names, but has
+        # no __int__). Normalise to its primary string name (lowercase) so the
+        # digit modes and the +/- speed keys work on every backend.
+        if hasattr(k, "name"):
+            k = k.name
+        k = str(k).lower()
         if k in ("q", "escape"):
             self.close()
+            return
         elif k == "space":
             self.paused = not self.paused
-        elif k == "add":
+        elif k in ("+", "=", "add"):
             self.steps_per_frame = min(128, max(1, self.steps_per_frame * 2))
-        elif k == "subtract":
+        elif k in ("-", "_", "subtract"):
             self.steps_per_frame = max(1, self.steps_per_frame // 2)
         elif k == "e":
             self._fire_gap(0, 1)  # Lyman-alpha: 1s -> 2p
