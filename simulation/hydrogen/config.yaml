@@ -20,7 +20,7 @@ field_dtype: float64
 
 # --- the lattice -------------------------------------------------------------
 # the (Lx, Ly, Lz) box of Planck cells.
-grid: [196, 196, 196]
+grid: [296, 296, 296]
 # the CFL number r = c dt/dx of the massless fields (must stay < 1/sqrt(3)).
 r: 0.5
 # the sponge (absorbing boundary) width, in cells.
