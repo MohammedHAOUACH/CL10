@@ -40,9 +40,11 @@ Keys
 """
 
 import numpy as np
+import math
 
 from vispy import app, scene
 from vispy.color import Colormap
+from vispy.util.quaternion import Quaternion
 
 # the colormaps: purple-free (the standard "inferno" / "viridis" have a
 # magenta/purple low end that reads as a "mask" over the black background).
@@ -120,6 +122,10 @@ class HydroVisPy(scene.SceneCanvas):
         self.cfg = cfg
         self.Lx, self.Ly, self.Lz = (int(v) for v in cfg["grid"])
         self.L = max(self.Lx, self.Ly, self.Lz)
+        # the atom's length scale (Bohr radius, in cells).  The camera zooms to
+        # THIS (not the whole box): with a large box and a small atom, showing
+        # the box would shrink the atom to a speck.
+        self.a0 = float(cfg.get("bohr_radius", 18.0))
         win = tuple(int(v) for v in cfg.get("window_size", (1200, 800)))
 
         scene.SceneCanvas.__init__(
@@ -135,47 +141,51 @@ class HydroVisPy(scene.SceneCanvas):
         self.sim.set_ground()
 
         # -- the 3-D view (left) ---------------------------------------------
-        self.view_3d = scene.ViewBox(parent=self.central_widget)
-        self.view_3d.camera = "arcball"
+        self.view_3d = scene.ViewBox(
+            parent=self.central_widget, camera="arcball",
+        )
         self.view_3d.camera.center = [self.L / 2.0] * 3
-        self.view_3d.camera.distance = self.L * 1.9
-        # a front-ish 3/4 view (the z-oriented 2p dumbbell reads in 3-D)
-        self.view_3d.camera.elevation = -14
-        self.view_3d.camera.azimuth = -72
+        # zoom to the atom's size (a0), not the whole box: the atom fills the
+        # 3-D view even when the lattice is much larger than the cloud.
+        self.view_3d.camera.distance = self.a0 * 7.0
+        # a 3/4 tilt (rotate about X) so the z-oriented 2p dumbbell reads as a
+        # dumbbell, not an end-on circle.  Set via the quaternion + an explicit
+        # view_changed -- the same reliable pattern the Young window uses.
+        _tilt = math.radians(-28.0)
+        self.view_3d.camera._quaternion = Quaternion(
+            *[math.cos(_tilt / 2.0), math.sin(_tilt / 2.0), 0.0, 0.0],
+        )
+        self.view_3d.camera.view_changed()
 
         self.stride = int(cfg.get("volume_stride", 2))
         self.log_gain = float(cfg.get("log_gain", 1.0e4))
         self.gamma = float(cfg.get("alpha_gamma", 1.0))
-        self.iso_frac = float(cfg.get("iso_fraction", 0.05))
-        rstep = float(cfg.get("relative_step_size", 0.8))
-        method = cfg.get("method", "mip")
-
         vs = (
             max(1, self.Lx // self.stride),
             max(1, self.Ly // self.stride),
             max(1, self.Lz // self.stride),
         )
-        # the electron cloud: a **bright isosurface** (a clean surface, no
-        # low-value background) -- a sphere in the 1s, a two-lobe dumbbell in
-        # the 2p, a doughnut in the 3d (the excitation deforms the shape)
+        # the electron cloud: an **additive glow** volume (the same reliable
+        # method as the Young wave) -- a sphere in the 1s, a two-lobe dumbbell
+        # in the 2p, a doughnut in the 3d (the excitation deforms the shape).
+        # (an isosurface here draws as flat coloured quads -- the "planes" --
+        # and is flaky under some GL drivers, so a smooth glow is used instead.)
         self.elec_data = np.zeros(vs, dtype=np.float32)
-        self.elec = scene.visuals.Isosurface(
-            self.elec_data, level=self.iso_frac, parent=self.view_3d.scene,
+        self.elec = scene.visuals.Volume(
+            self.elec_data, parent=self.view_3d.scene, method="additive",
+            clim=(0.0, 1.0),
         )
         self.elec.cmap = DENSITY
-        self.elec.color = "#35e0c8"  # the bright teal surface (the headless look)
-        self.elec.set_gl_state("translucent", blend=True, depth_test=True)
         self.elec.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )
-        # the photon: a faint MIP volume (the packet + the radiation)
+        # the photon: an additive glow volume (the packet + the radiation)
         self.phot_data = np.zeros(vs, dtype=np.float32)
         self.phot = scene.visuals.Volume(
-            self.phot_data, parent=self.view_3d.scene, method=method,
-            clim=(0.0, 1.0), relative_step_size=rstep,
+            self.phot_data, parent=self.view_3d.scene, method="additive",
+            clim=(0.0, 1.0),
         )
         self.phot.cmap = FIRE
-        self.phot.set_gl_state("translucent", blend=True, depth_test=True)
         self.phot.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )
@@ -206,16 +216,18 @@ class HydroVisPy(scene.SceneCanvas):
             clim=[0.0, 1.0], interpolation="bilinear",
         )
 
-        # -- the HUD (the panel, top-right of the 3-D view) ------------------
+        # -- the HUD (the panel) ---------------------------------------------
+        # repositioned to the bottom-left by _maj_layout: the text's top sits
+        # at pos.y and it grows *downward*, so it sits in the corner of the
+        # 3-D view and is never cut off by the top edge (the old bug).
         self.info_text = scene.visuals.Text(
             "", parent=self.scene, color="white", font_size=10,
-            anchor_x="right", anchor_y="top",
+            anchor_x="left", anchor_y="top",
         )
-        self.info_text.pos = (0.70 * self.size[0], 8)
+        self.info_text.pos = (12, 12)
 
         # -- the AGC (for the glow + photon volumes) -------------------------
         rel = float(cfg.get("agc_release", 300.0))
-        self._agc_g = AGC(rel)
         self._agc_p = AGC(rel)
 
         self._maj_layout()
@@ -241,14 +253,18 @@ class HydroVisPy(scene.SceneCanvas):
     # layout: the 3-D view on the left, the 2-D screen on the right
     # ------------------------------------------------------------------
     def _maj_layout(self):
+        if not hasattr(self, "view_ecran"):
+            return  # the initial resize fires before the views are built
         W, H = self.size
         w2 = min(int(W * 0.30), H)
         self.view_ecran.pos = (W - w2, (H - w2) // 2)
         self.view_ecran.size = (w2, w2)
         self.view_3d.pos = (0, 0)
         self.view_3d.size = (W - w2, H)
-        # keep the HUD at the top-right of the 3-D view
-        self.info_text.pos = (self.view_3d.pos[0] + self.view_3d.size[0] - 8, 8)
+        # keep the HUD in the bottom-left of the 3-D view: the text's top sits
+        # at pos.y and it grows *downward*, so leave a margin for its ~10 lines
+        # so nothing is cut off by the bottom edge (and it is not the top).
+        self.info_text.pos = (12, H - 200)
 
     def on_resize(self, event):
         super().on_resize(event)
@@ -258,20 +274,23 @@ class HydroVisPy(scene.SceneCanvas):
     # the GPU -> host compression helpers
     # ------------------------------------------------------------------
 
-    def _normalize(self, f_gpu):
-        """The subsampled density normalised to 0..1 (for the isosurface
-        level, which tracks a fixed fraction of the current peak)."""
-        a = f_gpu[:: self.stride, :: self.stride, :: self.stride]
-        peak = max(float(B.asnumpy(a.max())), 1e-12)
-        return (B.asnumpy(a) / peak).astype(np.float32)
-
     def _compress(self, f_gpu, agc):
-        """log1p-compress ``f_gpu`` to a subsampled 0..1 host array (for a
-        MIP volume), normalised by the AGC-smoothed peak."""
+        """log1p-compress ``f_gpu`` to a subsampled 0..1 host array (for an
+        additive glow volume), normalised by the AGC-smoothed peak."""
         lg = B.log1p(B.maximum(f_gpu, B.zeros_like(f_gpu)) * self.log_gain)
         lg_s = lg[:: self.stride, :: self.stride, :: self.stride]
         peak = agc.update(float(B.asnumpy(lg_s.max())))
         data = B.clip(lg_s / max(peak, 1e-9), 0.0, 1.0) ** self.gamma
+        return B.asnumpy(data)
+    def _compress_electron(self, f_gpu):
+        """log1p-compress the (bounded) electron density to a subsampled 0..1
+        array, normalised by the *current* peak (no AGC): the brightest part
+        is always at full intensity, so the glow stays bright and stable as
+        the atom moves between eigenstates (the photon AGC would dim it)."""
+        lg = B.log1p(B.maximum(f_gpu, B.zeros_like(f_gpu)) * self.log_gain)
+        lg_s = lg[:: self.stride, :: self.stride, :: self.stride]
+        peak = max(float(B.asnumpy(lg_s.max())), 1e-9)
+        data = B.clip(lg_s / peak, 0.0, 1.0) ** self.gamma
         return B.asnumpy(data)
 
     def _compress_slab(self, f_gpu):
@@ -304,7 +323,7 @@ class HydroVisPy(scene.SceneCanvas):
 
     def _maj_volume(self):
         de = self.sim.electron_density()
-        self.elec_data[:] = self._normalize(de)
+        self.elec_data[:] = self._compress_electron(de)
         self.elec.set_data(self.elec_data)
         dp = self.sim.photon_density()
         self.phot_data[:] = self._compress(dp, self._agc_p)

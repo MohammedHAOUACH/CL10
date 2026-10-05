@@ -50,20 +50,22 @@ degrades to NumPy (CPU).
 
 `--interactive` opens a live **VisPy** window with two panels:
 
-- **left** — a 3-D `ViewBox` (arcball camera) with the **electron cloud**
-  `|psi|²` as a **bright teal isosurface** (a clean surface, no low-value
-  background: a sphere in the 1s, a two-lobe dumbbell in the 2p, a doughnut in
-  the 3d — the excitation deforms the shape), the **photon** `|F|² + |F_out|²`
-  as a MIP volume with a **purple-free "fire" colormap** (black→red→orange→
-  yellow: the incoming packet flying in, the emitted radiation flying out), and
-  the **nucleus** (an orange octahedron);
+- **left** — a 3-D `ViewBox` (arcball camera, zoomed to the atom's size) with
+  the **electron cloud** `|psi|²` as a **glowing additive volume** on a
+  **purple-free "density" colormap** (black→blue→teal→yellow: a sphere in the
+  1s, a two-lobe dumbbell in the 2p, a doughnut in the 3d — the excitation
+  deforms the shape), the **photon** `|F|²` as a **glowing additive volume**
+  with a **purple-free "fire" colormap** (black→red→orange→yellow: the
+  incoming packet flying in, the emitted radiation flying out), and the
+  **nucleus** (an orange octahedron);
+- a **HUD** (bottom-left of the 3-D view): the live populations, the atom
+  energy in eV, the excited fraction, the fired photon's frequency, and the
+  mode.
 - **right** — a 2-D `ViewBox` (panzoom) with the **mid-plane cut** of the
   current mode (the electron density `|psi|²`, the photon `|F|²`, or the
   Coulomb potential `W`) on a **purple-free "density" colormap** (black→blue→
   teal→green→yellow): the 1s reads as a round dot, the 2p as a **two-lobe
   dumbbell** (two lobes + a node in the middle), the 3d as a doughnut;
-- a **HUD** (top-right of the 3-D view): the live populations, the atom energy
-  in eV, the excited fraction, the fired photon's frequency, and the mode.
 
 **Keys** (fire the photon — the excitation is triggered by you, like a laser
 in the lab):
@@ -81,10 +83,12 @@ in the lab):
 | `q` / `Esc` | quit |
 
 **Flicker-free.**  Each volume's transform is set once (never re-attached per
-frame, which is what causes a periodic "heartbeat"), and the brightness is
-stabilised by an **AGC** (auto-gain): the (log1p) peak of the density is the
-exposure target, with a fast attack and a slow exponential release, so the
-cloud glows steadily instead of pulsing on/off as a photon packet passes.
+frame, which is what causes a periodic "heartbeat").  The **electron** cloud
+is normalised by a peak-following gain (no per-frame re-spike), and the
+**photon** brightness is stabilised by an **AGC** (auto-gain): the (log1p)
+peak is the exposure target, with a fast attack and a slow exponential
+release, so the radiation glows steadily instead of pulsing on/off as a
+packet passes.
 
 ## The parameter panel
 
@@ -118,6 +122,7 @@ shown live in the window corner:
   electron cloud, the incoming + emitted photon clouds, the Coulomb well, the
   corner panel).
 - `vispy_h.py` — the **live VisPy window**: the 3-D additive volumes (with the
-  anti-flicker AGC), the 2-D energy-level panel, the HUD, and the keyboard
+  anti-flicker AGC on the photon), the 2-D mid-plane cut, the HUD, and the
+  keyboard
   shortcuts that fire the photons.
 - `runner.py` / `__main__.py` — the headless video / the live window dispatch.
