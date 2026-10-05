@@ -4,7 +4,7 @@
 CL10 — the S-matrix of the QCA: the 't Hooft program, completed (V41).
 
 The 't Hooft program: the **time-evolution for one Planck step** of a
-TOE is a **unitary cellular automaton** (in the 0-parameter limit a
+U10 is a **unitary cellular automaton** (in the 0-parameter limit a
 0/1 permutation of states).  The GUT QCA step of ``sm_qca`` **is**
 that evolution, so its matrix elements are the **S-matrix** of the
 theory — the 0-parameter **transition amplitudes**:

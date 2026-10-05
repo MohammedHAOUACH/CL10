@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the TOE predictions: proton decay, the seesaw, the 3 families.
+CL10 — the U10 predictions: proton decay, the seesaw, the 3 families.
 
-The **falsifiable** TOE predictions, all from the 0-parameter GUT structure:
+The **falsifiable** U10 predictions, all from the 0-parameter GUT structure:
 
 - **Proton decay.**  The GUT X/Y bosons mediate ``p -> e^+ pi^0``.  The
   **0-parameter** lifetime (the GUT scale is the Planck scale,
@@ -69,7 +69,7 @@ def family_candidate():
 def main():
     import sys
     print("=" * 68)
-    print("CL10 - the TOE predictions: proton, seesaw, families")
+    print("CL10 - the U10 predictions: proton, seesaw, families")
     print("=" * 68)
     tau_p = proton_decay_lifetime()
     print(f"  proton decay  tau_p ~ M_GUT^4/(alpha^2 m_p^5):  "

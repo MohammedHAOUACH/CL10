@@ -1,4 +1,6 @@
-# CL10 — Causal Clifford Theory on the GUT root
+# CL10 — The Standard Model as a Single Clifford Root
+
+**Mohammed Haouach** — independent researcher  \haouach.mohammed@gmail.com\
 
 **One object generates the physics.** The theory is a unitary quantum cellular
 automaton (QCA) on a Planck lattice whose **single root object is the Clifford
@@ -41,7 +43,7 @@ $h_1,\dots,h_{10}$ with $h_a^2 = I$:
 CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
-│   ├── publication.md        # the publication (the theory + the TOE program + the 9 residuals W1-W9 + the falsifiers)
+│   ├── publication.md        # the publication (the theory + the U10 verification program + the 9 residuals W1-W9 + the falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   └── api.md                # the complete CL10 API reference
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
@@ -51,7 +53,7 @@ CL10/
 │   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
 │   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
 │   ├── qca.py                # the unitary QCA + the metric (gravity) dynamics
-│   ├── toepred.py            # the TOE predictions (proton, seesaw, families)
+│   ├── u10pred.py            # the U10 predictions (proton, seesaw, families)
 │   ├── walls.py              # the 3 reduced walls (W1/W2/W3) + the baryon asymmetry
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
 │   ├── local_qca.py          # the LOCAL QCA (V36): the causal radius implemented
@@ -81,7 +83,7 @@ CL10/
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   └── four_limits.py        # the UNIFIED solution to the four limits (V59, Section 16): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named (1 't Hooft angle + 2 conventions + 2 2-digit coeffs + 1 CP phase)
-├── experiments/              # the TOE verification program (60 experiments, V0-V59)
+├── experiments/              # the U10 verification program (60 experiments, V0-V59)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -107,9 +109,9 @@ CL10/
 │   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
 │   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
 │   ├── V59/                # the UNIFIED solution to the four limits (Section 16): 10 = 2 x 5 (2 = chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named
-├── run_validation.py         # the runner: runs all 60, writes the TOE verdict
+├── run_validation.py         # the runner: runs all 60, writes the U10 verdict
 └── results/
-    └── validation_summary.json   # the 60/60 PASS + the TOE verdict
+    └── validation_summary.json   # the 60/60 PASS + the U10 verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -134,18 +136,18 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 60 experiments, prints the TOE verdict
+python3 run_validation.py        # runs all 60 experiments, prints the U10 verdict
 python3 make_figures.py          # regenerates the 6 publication figures -> doc/figures/
 ```
 
-## The TOE validation
+## The U10 validation
 
-Section 11 of `doc/publication.md` defines **what a Theory of Everything
+Section 11 of `doc/publication.md` defines **what a 0-parameter unification
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
 runs all **60** experiments (V0–V59) across the seven tiers and writes
 
-> **TOE** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
+> **U10** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
 > **$5/3$ coupling unification**, and the **matter-gauge-gravity in one
 > object**.  The cosmology (tier 4) and the falsifiability (tier 5) are
@@ -168,7 +170,7 @@ the data) + 1 CP phase = 3**, plus the mapping conventions (Point 1).
 The **completion program** (V36–V42, V46, V50, V51, tier 6 — Section 12 of
 `doc/publication.md`)
 closes the gap from a consistent 0-parameter framework to a **complete**
-TOE: the **local** QCA (the causal radius *implemented*, C1), the
+U10: the **local** QCA (the causal radius *implemented*, C1), the
 **dynamics derived from the 0-parameter Einstein–Hilbert action** (C2), the
 the **0-parameter selection rules** of the numbers of the root ($g_{10}=1/5$
 from the 5 qubits, $g_0=1/8$ from the 3-space, C3), the **three families inside the

@@ -132,13 +132,13 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
 `run_validation.py` runs all **60** experiments (V0–V59) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
-and the **TOE verdict**:
+and the **U10 verdict**:
 
-$$\mathrm{TOE} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
+$$\mathrm{U10} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
 **The result (60/60, 2026-10-03).**  Every experiment **passes** on the
-GPU; the **TOE verdict is positive**.  (For the *meaning* of each pass —
+GPU; the **U10 VERDICT is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
 
@@ -176,7 +176,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (60/60, TOE)
+python3 run_validation.py            # -> results/validation_summary.json (60/60, U10)
 python3 run_validation.py V11 V12    # a subset
 ```
 

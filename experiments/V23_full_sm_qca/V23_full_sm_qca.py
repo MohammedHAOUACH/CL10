@@ -26,7 +26,7 @@ The **check** (run on the **GPU** engine, CuPy):
 4. the **0-parameter** angle ``g_10 = 1/5`` and the **causal** radius (1).
 
 This is the **dynamics** (P2) + **unification** (P3) + **consistency** (P4)
-of the TOE: the **full** SM is a 0-parameter **unitary** QCA.  The 3-family
+of the U10: the **full** SM is a 0-parameter **unitary** QCA.  The 3-family
 structure and the **Yukawa** matrix remain the **named** residuals.
 """
 

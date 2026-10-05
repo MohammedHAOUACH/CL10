@@ -42,10 +42,10 @@ import numpy as np
 
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 N = 32                            # the internal (Weyl) space per cell
-G10 = math.sqrt(toepred.ALPHA_10) # = 1/5, the 0-parameter GUT angle
+G10 = math.sqrt(u10pred.ALPHA_10) # = 1/5, the 0-parameter GUT angle
 
 
 def internal_unitary():

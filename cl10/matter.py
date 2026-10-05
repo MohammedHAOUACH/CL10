@@ -16,7 +16,7 @@ fields).  The 16-bar is the **antimatter** (the CPT conjugate, opposite B-L).
 
 The **0-parameter** charges above are the input to the **anomaly**
 computation: a chiral gauge theory is *inconsistent* unless all gauge
-anomalies cancel, so the anomaly check is a **hard TOE requirement**.
+anomalies cancel, so the anomaly check is a **hard U10 requirement**.
 """
 
 from . import clifford

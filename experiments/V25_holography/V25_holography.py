@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """V25 - the holographic area law (S scales with AREA, not volume).
 
-The **holographic principle** — the "true-TOE" hallmark.  The **0-parameter**
+The **holographic principle** — the hallmark of a genuine 0-parameter unification.  The **0-parameter**
 content of the CL10 QCA:
 
 - the **area law**: the QCA vacuum entropy of a region of side $L$ scales as

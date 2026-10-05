@@ -28,7 +28,7 @@ see ``doc/publication.md``, Section 13, Table 2):
   dual use).
 """
 
-# the 0-parameter scales (shared with toepred)
+# the 0-parameter scales (shared with u10pred)
 M_PLANCK = 1.22e19     # GeV (the GUT scale = the Planck scale)
 V_EW = 246.0           # GeV (the electroweak scale)
 G0 = 1 / 8.0          # the 0-parameter GUT coupling (the root)

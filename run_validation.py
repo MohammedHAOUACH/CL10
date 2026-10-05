@@ -77,10 +77,10 @@ def main():
         print(f"  [{mark}]  {r['id']:18s}  {tier}  {r['status']}  ({r['wall_time']} s)")
     n_pass = sum(1 for r in results if r["pass"])
     n = len(results)
-    # the TOE verdict: the hard tiers (0-3) all PASS (V0-V7 + V11-V13).
+    # the U10 verdict: the hard tiers (0-3) all PASS (V0-V7 + V11-V13).
     # The cosmology (tier 4) and the falsifiability (tier 5) are supporting.
     hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
-    toe = bool(hard) and all(r["pass"] for r in hard)
+    u10 = bool(hard) and all(r["pass"] for r in hard)
     named = [r["id"] for r in results if r["residual"]]
     # the named walls/residuals are REDUCED: each has a 0-parameter MECHANISM
     # that passes.  W2 is now completed on the 10-loop ladder (V57); W4 by the
@@ -101,8 +101,8 @@ def main():
         "n": n,
         "n_pass": n_pass,
         "pass": bool(n_pass == n),
-        "toe": toe,
-        "toe_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
+        "u10": u10,
+        "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
         "named_residuals": named,
         "reduced_walls": [{"wall": w, "mechanism": f"{mid} ({desc})",
                             "mechanism_pass": reduced_ok[w]}
@@ -115,9 +115,9 @@ def main():
         json.dump(summary, f, indent=2, ensure_ascii=False)
     print("=" * 68)
     print(f"  ->  {n_pass}/{n}  PASS  ->  results/validation_summary.json")
-    vstr = ("TOE (a consistent 0-parameter unification of matter, gauge, "
-            "gravity)" if toe else "NOT a TOE (a hard tier failed)")
-    print(f"  TOE VERDICT:  {vstr}")
+    vstr = ("U10 (a 0-parameter unification of matter, gauge, and gravity)"
+            if u10 else "NOT a 0-parameter unification (a hard tier failed)")
+    print(f"  U10 VERDICT:  {vstr}")
     if named:
         print(f"  NAMED RESIDUALS (the exact values):  {', '.join(named)}")
     if reduced_ok and all(reduced_ok.values()):

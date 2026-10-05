@@ -52,12 +52,12 @@ import numpy as np
 
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # the 0-parameter GUT coupling (the only input): g_10 = sqrt(alpha_10) = 1/5
 G10 = sm_qca.G10
 # the Planck scale (= the GUT scale = the UV cutoff, 0-parameter)
-M_P = toepred.M_PLANCK          # GeV
+M_P = u10pred.M_PLANCK          # GeV
 GEV2_TO_CM2 = 0.389e-27         # 1/GeV^2 in cm^2 (the 0-parameter conversion)
 
 

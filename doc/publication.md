@@ -1,5 +1,7 @@
-# Causal Clifford Theory on the GUT Root
-## A 0-Parameter Unitary Theory in which One Algebraic Object is the Root
+# The Standard Model as a Single Clifford Root
+## 0-Parameter Matter, Gauge, and Gravity on a Planck-Lattice QCA
+
+**Mohammed Haouach**  \haouach.mohammed@gmail.com\
 
 The theory is **0-parameter in its algebra**: no algebraic quantity is fitted
 to data. Every number below is either a **direct consequence** of the single
@@ -68,9 +70,15 @@ All claims in the **hard** tiers hold, and the **completion program**
 the QCA dynamics**, the **0-parameter numbers derived from the root**, the
 **families inside the dynamics**, the **baryon asymmetry at the right
 order**, the **0-parameter S-matrix**, the **quantified dark-matter scale**)
-is **complete**.  The **TOE verdict is positive**: CL10 is a **consistent
-0-parameter unification of matter, gauge, and gravity**, **with the walls
-reduced to the nine named, quantified residuals** of Section 13.  The
+is **complete**.  **In the strongest defensible sense** — as a *consistent*
+unification, not a *numerically predictive* one — the U10 verdict is
+positive: CL10 is a **consistent 0-parameter unification of matter, gauge,
+and gravity**, **with the walls reduced to the nine named, quantified
+residuals** of Section 13.  **The 0-parameter claim holds for the *algebra*
+(the 16, the 45, the $5/3$, the $8$ anomalies $=0$, $\det U=1$, the CPT
+spectral mirror); the *numeric* matches (the hierarchy, the masses, the
+baryon asymmetry) are loop-factor *orders of magnitude* whose few 2-digit
+coefficients are **read from the data**, not derived (Section 15).  The
 **9-to-1 reduction** (Section 12) shows that these nine residuals are not nine
 independent fine-tunings but the **nine named projections of one 0-parameter
 object** — the 32-level spectrum of the QCA step.  The theory is
@@ -187,7 +195,8 @@ the six **left-handed** fields
 $$16 \;=\; Q(\mathbf{3},\mathbf{2},+\tfrac16)\;\oplus\;\bar u(\bar{\mathbf{3}},\mathbf{1},-\tfrac23)\;\oplus\;
 \bar d(\bar{\mathbf{3}},\mathbf{1},+\tfrac13)\;\oplus\; L(\mathbf{1},\mathbf{2},-\tfrac12)\;\oplus\;
 \bar e(\mathbf{1},\mathbf{1},+1)\;\oplus\;\nu^c(\mathbf{1},\mathbf{1},0),$$
-with dimensions $6+3+3+2+1+1 = 16$ (hypercharge $Y$ in $Q = T_3 + Y/2$).
+with dimensions $6+3+3+2+1+1 = 16$ (hypercharge $Y$ in the $Q = T_3 + Y$
+convention — the 16 of $\mathrm{Spin}(10)$, one full generation).
 Equivalently, under the **0-parameter** $\mathrm{SU}(5)$ (a sub-group of
 $\mathrm{Spin}(10)$):
 $$16 \;=\; \mathbf{10}\;\oplus\;\mathbf{\bar 5}\;\oplus\;\mathbf{1},$$
@@ -216,8 +225,16 @@ root** rather than an input.  (The gravitational $[\mathrm{grav}]^2\!\times
 $\blacksquare$
 
 **The 16-bar is the antimatter.**  The 16 and the 16-bar are **inequivalent**
-modules: they carry **opposite B–L charge** (the 16 has $B-L=-1$, the 16-bar
-$B-L=+1$).  This is the **0-parameter matter/antimatter split** (Section 9).
+modules: under **CPT** they carry **opposite B–L** — the $\mathrm{U}(1)_{B-L}$
+generator flips sign from the 16 to the 16-bar.  In the
+$\mathrm{Spin}(10)\to\mathrm{SU}(5)\times\mathrm{U}(1)_{B-L}$ decomposition,
+$16 = (10,+\tfrac13)\oplus(\bar5,-1)\oplus(1,-1)$ and
+$16\bar = (\bar{10},-\tfrac13)\oplus(5,+1)\oplus(1,+1)$: the **singlet** $1$
+(the sterile $\nu^c$) carries $B\!-\!L=-1$ in the 16 and $B\!-\!L=+1$ in the
+16-bar.  B–L is a **generator**, so it is **not** a single number for the
+whole 16 (its value varies over the 16's components); the module-level
+statement is the **sign** flip.  This is the **0-parameter matter/antimatter
+split** (Section 9).
 
 **The 0-parameter mass generation (the 10-Higgs).**  The **10** (the grade-1
 generators, the GUT vector) is **off-diagonal** in the 16/16-bar split (it
@@ -226,7 +243,8 @@ anticommutes with the pseudoscalar): it maps the 16 to the 16-bar and the
 vanish.  A **10-Higgs vev** (a specific grade-1 element) therefore couples the
 16 to its 16-bar conjugate and gives the **0-parameter Dirac mass term**
 $16\,10\,16\bar \to 1$.  The **1** of the 16 is the **sterile** $\nu^c$
-($B\!-\!L=0$), the 0-parameter source of the **seesaw** (Section 13, W2).
+($B\!-\!L=-1$, the $(1,-1)$ of the $\mathrm{U}(1)_{B-L}$ decomposition), the
+0-parameter source of the **seesaw** (Section 13, W2).
 
 **The three families.**  The 16 Weyl is **one** generation.  The **3**
 observed families are the **0-parameter** number **3 of the 3-space**,
@@ -259,9 +277,9 @@ $$\mathrm{Spin}(10)\;\supset\;\mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\times\mathr
 
 **Theorem 3 (the $5/3$ coupling unification).**  The hypercharge is a
 **Cartan** generator of the GUT.  In the fundamental $\mathbf{5}$ of
-$\mathrm{SU}(5)$, the hypercharge (in the convention $Q=T_3+Y/2$) is
-$$Y = 2\,\mathrm{diag}\big(-\tfrac16,-\tfrac16,-\tfrac16,+\tfrac14,+\tfrac14\big)
-= \mathrm{diag}\big(-\tfrac13,-\tfrac13,-\tfrac13,+\tfrac12,+\tfrac12\big),
+$\mathrm{SU}(5)$, in the same $Q=T_3+Y$ convention as Proposition 1, the
+hypercharge is
+$$Y = \mathrm{diag}\big(-\tfrac13,-\tfrac13,-\tfrac13,+\tfrac12,+\tfrac12\big),
 \qquad \mathrm{Tr}(Y^2) = \tfrac{5}{6},$$
 whereas the **non-Abelian** GUT generators are normalized to
 $\mathrm{Tr}(T_a T_b)=\tfrac12\delta_{ab}$.  Rescaling the $\mathrm{U}(1)$ to
@@ -575,10 +593,15 @@ structure is fixed by the 10-Higgs (Section 3): the **10** (the grade-1 GUT
 vector) is **off-diagonal** in the 16/16-bar split, so the mass term
 $16\,10\,16\bar\to 1$ is a **Dirac** mass (the **diagonal** — Majorana — blocks
 vanish; no Majorana mass for the charged fermions).  With the **3 families**
-(Section 3), the mass term gives a **3$\times$3** mass matrix per fermion type,
-which is **non-singular** (rank 3): **all three generations acquire mass**, a
-**0-parameter** consequence of the 10-Higgs coupling the **full** 16 to the
-**full** 16-bar.  The **mass hierarchy** (the observed ratios,
+(Section 3), the mass term gives a **3$\times$3** mass matrix per fermion
+type.  The **10-Higgs** is a **single** object, so the **0-parameter**
+(democratic) base is the **rank-1** matrix $|1\rangle\langle1|$ (eigenvalues
+$\{3,0,0\}$: one heavy level $+$ a **2-fold light** level), diagonalized by
+the **0-parameter tribimaximal** mixing (Theorem 13, W6); the **three
+distinct masses** (the full 3-level hierarchy) come from the **10-Higgs
+vev** breaking the 2-fold light degeneracy — a **named** residual (W6),
+**not** a 0-parameter statement.  The **mass hierarchy** (the observed
+ratios,
 $m_\mu/m_e$, $m_t/m_b$, the neutrino masses) and the **mixing angles** (CKM
 and PMNS) are **named** residuals — the theory fixes the **structure** of the
 mass term, not its **values**.
@@ -587,12 +610,13 @@ mass term, not its **values**.
 
 ## 11. The Consistency of the Claim
 
-A defensible Theory of Everything does not *assert* itself; it
-**defines what a TOE must be**, tests against explicit criteria, and **names
-the walls**.
+A defensible 0-parameter unification does not *assert* itself; it
+**defines what such a theory must be** — the **U10**, a 0-parameter
+unification of matter, gauge, and gravity on the $\mathrm{Cl}(10)$ root —
+then tests against explicit criteria and **names the walls**.
 
-**What a TOE must be (the seven properties).**  In the strong sense the
-claim is made here, a TOE must satisfy:
+**What a U10 must be (the seven properties).**  In the strong sense the
+claim is made here, a U10 must satisfy:
 
 | # | property | means |
 |---|---|---|
@@ -610,7 +634,7 @@ We validate CL10 against these **seven** properties (organized into
 the single object (a **derived** result) or an explicitly **named**
 residual (a stated open problem).  No quantity is fitted to data.
 
-**Table 1.**  The TOE criteria and the claims that satisfy them.
+**Table 1.**  The U10 criteria and the claims that satisfy them.
 
 | tier | criterion | the requirement | the 0-parameter result |
 |---|---|---|---|
@@ -622,8 +646,7 @@ residual (a stated open problem).  No quantity is fitted to data.
 | **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the family count, the **baryon asymmetry** | the proton appears stable (Sec. 11), the neutrino is light (Sec. 11), the 3 families (Sec. 3), the baryon asymmetry **not** generated (Sec. 9) |
 | **6 — Completion** | C1–C7 | the **local** dynamics; the **dynamics derived from the action**; the **0-parameter numbers derived from the root**; the **families inside the dynamics**; the **baryon asymmetry at the right order**; the **S-matrix**; the **quantified dark-matter scale** | the local QCA (Sec. 12), the EH action $\Leftarrow$ the QCA dynamics (Sec. 12), $g_{10}=1/5$, $g_0=1/8$ from the root (Sec. 12), the 96-D family-symmetric step (Sec. 12), GUT leptogenesis at the right order (Sec. 12), the 0-parameter S-matrix (Sec. 12), the Planck-mass soliton + the quantified abundance gap (Sec. 12) |
 
-**The hard tiers (0–3) hold.**  These are the **logical core** of the TOE
-claim — they must hold for the theory to be a *consistent unification*:
+**The hard tiers (0–3) hold.**  These are the **logical core** of the U10 claim — they must hold for the theory to be a *consistent unification*:
 - **P0**: the single object $\mathrm{Cl}(10)$ is well-defined;
 - **P1**: it yields the spacetime (Theorem 1), the matter (Prop. 1), the gauge
   (Sec. 4), the statistics (Sec. 5), and the 3 families (Sec. 3);
@@ -653,13 +676,13 @@ mechanism** (a 0-parameter consequence of the root) and **names the exact
 value** as the residual — the same discipline that Section 13 applies to
 all nine.
 
-**The falsifiers** (what would *refute* the TOE) — stated explicitly, the
+**The falsifiers** (what would *refute* the U10) — stated explicitly, the
 conditions under which the claim would be *retracted*:
 
 | # | the falsifier | the consequence |
 |---|---|---|
-| **F1** | any **non-zero** gauge anomaly | the quantum theory is inconsistent → **not a TOE** |
-| **F2** | the three SM couplings **do not** meet at a single scale with the 0-parameter $5/3$ | no unification → **not a TOE** |
+| **F1** | any **non-zero** gauge anomaly | the quantum theory is inconsistent → **not a 0-parameter unification** |
+| **F2** | the three SM couplings **do not** meet at a single scale with the 0-parameter $5/3$ | no unification → **not a 0-parameter unification** |
 | **F3** | the measured $v/E_P$ falls **outside the 10-loop band** $2.08\times(1/16\pi)^{10}$ (i.e. the exponent is not $-17$, or the 2-digit closure fails by more than the named coefficient) | the 10-loop hierarchy (W8) fails |
 | **F4** | a **massive** graviton or a **UV divergence** in the QCA | the gravity is not the UV-bounded lattice gravity → the unification breaks |
 | **F5** | a **non-GUT** proton decay is observed, or a GUT-mediated rate **requiring** $M_{\rm GUT} \lesssim 5\times10^{15}$ GeV (Fig. 21) | the GUT structure / the 0-parameter $M_{\rm GUT}=M_P$ scale is falsified (the lifetime $\sim4\times10^{47}$ yr itself rests on that convention) |
@@ -687,20 +710,20 @@ them would pass for **any** theory built on this root, and they are **not**
 tests of the physics against data.  The **six comparisons against nature**
 — $v/E_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$
 (Fig. 14) — are the **phenomenological** content, each with a named
-residual.  The **TOE verdict** means **the hard tiers (0-3) hold**, not that
+residual.  The **U10 verdict** means **the hard tiers (0-3) hold**, not that
 the 60 checks confirm the physics.
 
 **The verdict.**  All claims in the **hard** tiers (0–3) hold, the
 cosmology (4) and falsifiability (5) are **supported** with the **walls
 reduced to named residuals**, and the **completion program** (tier 6,
 Section 12) is **complete** — **all 60 experiments pass**.  The
-**TOE verdict is positive**: **in the strongest defensible sense, CL10 is
+**U10 VERDICT is positive**: **in the strongest defensible sense, CL10 is
 a consistent 0-parameter unification of matter, gauge, and gravity — a
-Theory of Everything — with the only open items the named, quantified
+0-parameter unification — with the only open items the named, quantified
 residuals.**
 
 **The numerical verification program.**  The gaps between the axiomatic core
-(Sections 1–10) and a full Theory of Everything are closed by a systematic
+(Sections 1–10) and a full 0-parameter unification are closed by a systematic
 numerical verification; each check is a **0-parameter** result or an
 explicitly **named** residual:
 - **The Yukawa structure.**  The 0-parameter democratic base (the 3 families
@@ -780,7 +803,7 @@ eigenspaces, the CPT map $h_0$, the B–L cancellation to the vacuum).  The
 the baryon asymmetry.
 
 **The completion program (C1–C7).**  The seven remaining gaps between a
-*consistent 0-parameter framework* and a **complete** TOE are closed by
+*consistent 0-parameter framework* and a **complete** 0-parameter unification are closed by
 **Section 12**, each a **0-parameter** construction or a **quantified**
 named residual: the **local** QCA (C1, the causal radius 1 *implemented*),
 the **Einstein–Hilbert action derived from the QCA dynamics** (C2), the
@@ -795,7 +818,7 @@ program), and the **quantified dark-matter scale** (C7).
 ## 12. The Completion Program (C1–C7)
 
 The completion program (C1–C7) closes the gap from
-a *consistent 0-parameter framework* to a **complete** TOE.  Each entry is a
+a *consistent 0-parameter framework* to a **complete** 0-parameter unification.  Each entry is a
 **0-parameter** construction (no fit) or a **quantified** named residual —
 the **open problems of physics, named**, not logical holes.
 
@@ -831,10 +854,15 @@ the metric in Section 6).
 
 **Theorem 6 (the 0-parameter numbers are numbers of the root).**  The
 32-D matter module is a **$2^5$** space (the symplectic Pauli pattern:
-**5** qubits, $10 = 2\times 5$ generators), hence the GUT coupling
-$$g_{10} = \frac{1}{5},\qquad \alpha_{10} = \frac{1}{25} = \frac{g_{10}^2}{4\pi},$$
+**5** qubits, $10 = 2\times 5$ generators), hence the GUT 't Hooft angle
+$$g_{10} = \frac{1}{5},\qquad \alpha_{10} = \frac{1}{25} = g_{10}^{2},$$
 is a **number of the root** (the previously-*chosen* rational is
-**derived**).  The **0-parameter** Dirac coupling (W2) is
+**derived**).  Here $\alpha_{10}\equiv g_{10}^2$ is the **0-parameter
+convention** that reads the GUT coupling as the **square of the rotation
+angle** (the 5 qubits); in the standard $\alpha = g^2/4\pi$ convention the
+corresponding coupling constant is $g = \sqrt{4\pi\,\alpha_{10}} =
+\sqrt{4\pi/25}\approx 0.709$ — a **mapping** convention (the audit's class),
+not a derivation.  The **0-parameter** Dirac coupling (W2) is
 $$g_0 = \frac{1}{2^{n_{\rm space}}} = \frac{1}{2^3} = \frac{1}{8},$$
 the **3** being the spatial dimension of the $(1,3)$ — the **same**
 0-parameter number as the family count (one number, two uses).  The
@@ -892,22 +920,26 @@ heavy $N$) **permits but does not fix**.  The **named residuals** are that
 **phase** and the 2-digit ratio 1.12; the 0-parameter QCA satisfies
 **none** of the Sakharov conditions on its own.
 
-**Theorem 9 (the S-matrix of the QCA — the 't Hooft program).**  The QCA
-step **is** the time-evolution for one Planck step, so the **0-parameter
-transition amplitudes are the S-matrix** of the theory:
+**Theorem 9 (the 0-parameter transition amplitudes — the 't Hooft
+program).**  The QCA **step is** the time-evolution for one Planck step, so
+the **0-parameter transition amplitudes** are the matrix elements of $U$:
 $$S_{ij} = \langle i|\,U\,|j\rangle\quad(16\text{ Weyl} + 16\text{-bar}),
 \qquad S^{(2)} = U\otimes U\quad(1024\times1024),$$
 $U$ being the full 32-D GUT step (the 45 at the 0-parameter
 $g_{10}=0.2$).  $U$ is **exactly unitary** (probability conservation,
 residual $\sim 10^{-15}$), the **off-diagonal** 0-parameter amplitudes are
 **nonzero** at $O(g_{10})$ (max $|S_{ij}| \sim 0.45$ — the 45 **mix** the
-32 Weyl amplitudes).  This is the **first computed process of the theory**
-— a **0-parameter
-prediction**: the 0-parameter cross-section is **computed** (UV-finite),
-and its **matching** to the **measured** cross-sections (the QCA lattice RG)
-is the **named** residual (a **falsifier**, W9).  The **open** part of W9 is
-the **quantum** completion (the UV of quantum gravity) — the **classical**
-non-linear completion beyond the quadratic EH is **complete**.
+32 Weyl amplitudes).  This is the **first computed *kinematic* object of
+the theory** — the 0-parameter **transition amplitude** (the 't Hooft
+program), **not** a scattering *process*: it has **no** asymptotic states,
+no energy or angle dependence.  The 0-parameter **cross-section**
+$\sigma_0 = P_2/M_P^2$ ($P_2 = 1-\bar d^2$ the inelastic probability per
+step) is a **defined**, **bounded** ($\sigma_0 \le 4\pi/M_P^2$), UV-finite
+kinematic **scale**; its **matching** to the **measured** cross-sections
+(the QCA lattice RG) is the **named** residual (a **falsifier**, W9).
+The **open** part of W9 is the **quantum** completion (the UV of quantum
+gravity) — the **classical** non-linear completion beyond the quadratic EH
+is **complete**.
 
 **The quantified dark-matter scale (C7).**  The 0-parameter DM candidate
 (the stable **soliton** $u=\sqrt{2}\,\mathrm{sech}\,x$ of the non-linear
@@ -1227,7 +1259,7 @@ QCA dynamics**, the **0-parameter numbers derived from the root**, the
 **three families inside the dynamics**, the **baryon asymmetry at the right
 order**, the **0-parameter S-matrix**, and the **quantified dark-matter
 scale**).  **All 60 experiments pass** (Sections 11–12); the
-**TOE verdict is positive**.  The **hard** tiers (0–3: the single object,
+**U10 VERDICT is positive**.  The **hard** tiers (0–3: the single object,
 the kinematics, the dynamics, and — critically — the **anomaly-free**
 matter, the **$5/3$** coupling unification, and the **matter–gauge–gravity
 in one object**) are the **logical core** of the claim, and they **hold**.
@@ -1562,22 +1594,26 @@ algebra** + **the 1 't Hooft angle with a 0-parameter selection
 rule**; the 2-digit conventionality of Point 1 is the *reading*, not a
 fit.
 
-**L2 (hierarchy) + L4 (DM) — one number, two constraints, one solution.**
-The **same** loop count $n = 10 = 2\times 5$ is the **unique** $n$ in
-$1\ldots20$ that simultaneously (i) puts the hierarchy at
-$2.08\,(1/16\pi)^{10}$ (the observed $v/E_P = 2.016\times10^{-17}$) and
-(ii) puts the DM at the WIMP mass $M_P(1/16\pi)^{10} = 118$ GeV (the
-$1.18\times100$-GeV window) — **no other $n$** is within the scan
-tolerance of **both** (the computed unique-10loop test).  This is a
-**selection** of the loop integer by the two 2-digit closures, and the
-**interpretation** $10 = 2\times5$ (the chiral $16/16$-bar split
-$\times$ the 5 qubits of the 32-D module) is what makes the number a
-**root number** — a 0-parameter *representation of the order*, not a
-derivation of the 2-digit coefficients.  The hierarchy and the WIMP
-scale are thus **one loop count, two statements**; the **only** named
-content is the 2-digit pair $2.08$, $1.18$.  This is why the raw
-Planck-mass soliton (the $10^{-52}$ gap) is **not** the DM: the DM is
-the **10-loop projection** of the same object.
+**L2 (hierarchy) + L4 (DM) — one number, one equation, two projections.**
+The **same** loop count $n = 10 = 2\times 5$ sets **one** scale,
+$M_P(1/16\pi)^{10} = 118$ GeV, which appears in **two places**: the
+**hierarchy** $v/E_P = 2.08\,(1/16\pi)^{10}$ (the observed
+$2.016\times10^{-17}$) and the **DM mass** $m_{\rm DM} = M_P(1/16\pi)^{10}
+= 118$ GeV (the $1.18\times100$-GeV window).  These are **not two
+independent constraints** — they are **one equation**, $v = 2.08\,
+m_{\rm DM}$, written twice (the $2.08$ and $1.18$ are the two 2-digit
+coefficients).  Scanning $n = 1\ldots20$, $n = 10$ is the **nearest** to
+the observed $v/E_P$ (a factor $2.08$, *just outside* the strict factor-2
+window), so it is a **nearest** selection within a decade — *not* an
+independent confirmation of two numbers; the **interpretation**
+$10 = 2\times5$ (the chiral $16/16$-bar split $\times$ the 5 qubits of the
+32-D module) is what makes the number a **root number** — a 0-parameter
+*representation of the order*, not a derivation of the 2-digit
+coefficients.  The hierarchy and the WIMP scale are thus **one loop count,
+one scale, two projections**; the **only** named content is the 2-digit
+pair $2.08$, $1.18$.  This is why the raw Planck-mass soliton (the
+$10^{-52}$ gap) is **not** the DM: the DM is the **10-loop projection** of
+the same object.
 
 **L3 — baryogenesis (solved by the CP-phase count).**  This is the weakest
 limit, and the unification is sharpest here.  A **rank-1** Yukawa (one heavy
@@ -1666,7 +1702,8 @@ $\beta$-coefficients $b_1=41/10$, $b_2=-19/6$, $b_3=-7$ are fixed by the
 particle content) from $M_Z$ to the Planck scale, reaching the **GUT range**
 ($\sim0.02$–$0.04$) near $M_P$ but **not meeting** at a single point — the
 **1-loop matching** (W4) is the **named** residual.  The **U(1) Landau pole**
-($\sim10^{39}$ GeV) lies **above** $M_P$, so the running is **UV-bounded**
+(the 1-loop pole of the *un*-GUT-normalized $\alpha'$, $\sim1.4\times10^{39}$
+GeV) lies **above** $M_P$, so the running is **UV-bounded**
 (the QCA lattice cutoff sits below the pole).
 
 **Fig. 3 — the 10-loop ladder: one loop count, two statements.**
@@ -1855,14 +1892,17 @@ property of the **algebra**).
 
 ![The residual-set reduction (Section 16).](figures/fig18_residual_reduction.png)
 
-The **unified solution** (Section 16), plotted.  (a) The **two** 0-
-parameter constraints on the single loop count $n$ — the **hierarchy**
-$v/E_P$ and the **dark-matter** mass (the **same** 10-loop factor, two
-statements of one scale) — are both satisfied by **exactly one** $n$:
-$n = 10$ ($= 2\times 5$; the unique-10loop scan over $1\ldots20$, the
-naive $n_{\rm gen} = 5$ satisfies *neither*).  One loop count, two
-statements — the two 2-digit coefficients ($2.08$, $1.18$) are the only
-named content.  (b) The four honest limits reduce to **0 free parameters
+The **unified solution** (Section 16), plotted.  (a) **One** loop count
+$n$ sets **one** scale, $M_P(1/16\pi)^n$, which appears in **two places**
+(the **hierarchy** $v/E_P = 2.08\,(1/16\pi)^{10}$ and the **DM mass**
+$M_P(1/16\pi)^{10} = 118$ GeV) — **one equation** $v = 2.08\, m_{\rm DM}$,
+two projections, **not** two independent constraints.  Scanning
+$n = 1\ldots20$, $n = 10$ ($= 2\times 5$; the bare qubit count
+$n_{\rm qubits} = 5$ satisfies *neither*) is the **nearest** to the observed
+$v/E_P$ (a factor $2.08$, *just outside* the strict factor-2 window) — a
+*nearest* selection within a decade, not an independent confirmation.
+One loop count, one scale, two projections — the two 2-digit coefficients
+($2.08$, $1.18$) are the only named content.
 in the algebra + 3 named**: the GUT couplings ($g_{10}=1/5$, $g_0=1/8$)
 carry 0-parameter selection rules (the audit's *convention* class), and
 the minimal named set is the two 2-digit coefficients + one irreducible
@@ -1993,3 +2033,20 @@ not a separate physical input.
     Anomalous Fermion Number Nonconservation in the Standard Model,"
     *Phys. Lett. B* **357**, 113 (1995) (the 0-parameter sphaleron
     conversion factor $28/79$, Section 12).
+
+11. (Prior art — the **matter content** is not new to CL10.)  The
+    identification of the **16 of $\mathrm{Spin}(10)$** as **one full SM
+    generation** ($16 = \mathbf{10} \oplus \mathbf{\bar 5} \oplus \mathbf{1}$
+    of $\mathrm{SU}(5)$) and the **$5/3$** GUT normalization are **standard**
+    results of the $\mathrm{SO}(10)$ GUT literature since the 1970s (see,
+    e.g., the *Grand Unification* review in the *Review of Particle
+    Physics*, Particle Data Group, \url{https://pdg.lbl.gov/}).  CL10's
+    contribution is **not** the matter content but the **0-parameter QCA
+    dynamics** on this root and the **parameter audit** (Sections 15–16).
+12. C. I. Castro, "A Clifford algebra-based grand unification program of
+    gravity and the Standard Model: a review study," *Can. J. Phys.* **92**,
+    1989 (2014) (DOI 10.1139/cjp-2013-0686) (the **Clifford-algebra GUT**
+    program — prior art on $\mathrm{Cl}(n)$-based unification).
+13. C. I. Castro, "Note on a Clifford Algebra Based Grand Unification
+    Program of Gravity and the Standard Model," *Adv. Appl. Clifford
+    Algebras* **25**, 1969 (2015) (DOI 10.1007/s00006-015-0628-8).

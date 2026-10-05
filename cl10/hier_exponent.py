@@ -48,11 +48,11 @@ import numpy as np
 
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # the 0-parameter constants
-M_P = toepred.M_PLANCK          # GeV
-V_EW = toepred.V_EW            # GeV
+M_P = u10pred.M_PLANCK          # GeV
+V_EW = u10pred.V_EW            # GeV
 N_GEN = 10                     # the 0-parameter number of Cl(10) generators
 LOOP = 1.0 / (16.0 * np.pi)    # the 0-parameter 1-loop QFT factor
 N_QUBITS = 5                   # the 0-parameter qubit count of the 32-D module (2^5 = 32)

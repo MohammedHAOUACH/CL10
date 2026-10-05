@@ -10,13 +10,13 @@ import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
-from cl10 import toepred
+from cl10 import u10pred
 
 TOL = 1e-12
 
 def main():
     t0 = time.time()
-    tau_p = toepred.proton_decay_lifetime()
+    tau_p = u10pred.proton_decay_lifetime()
     bound = 1e34
     verdict = {
         "id": "V14_proton",

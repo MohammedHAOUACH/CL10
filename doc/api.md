@@ -14,7 +14,7 @@ cl10.spacetime     # the (1,3) inside the GUT (Section 3)
 cl10.matter        # the 16 Weyl + the anomalies (Section 4)
 cl10.gauge         # the 45 + the 5/3 + the GUT coupling/running + gauge-gravity (Section 5)
 cl10.qca           # the metric + the QCA (Section 6)
-cl10.toepred       # the TOE predictions (Section 7)
+cl10.u10pred       # the U10 predictions (Section 7)
 cl10.walls         # the 3 reduced walls W1/W2/W3 + the baryon asymmetry (Section 8)
 ```
 
@@ -99,7 +99,7 @@ array (CuPy forbids implicit NumPy conversion).
 | `mass_generation` | `()` | `{off_diagonal, diag_16, diag_16bar, A_16_16bar, B_16bar_16, ...}` — the **0-parameter 10-Higgs**: the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar) $\Rightarrow$ the Dirac mass term $16\,10\,16\bar\to 1$ (the exact values are named) |
 | `main` | `()` | runs the V2 self-check |
 
-**`anomalies`** is the **hard TOE requirement**: a chiral gauge theory is
+**`anomalies`** is the **hard U10 requirement**: a chiral gauge theory is
 inconsistent unless all eight coefficients cancel.  `V11_anomaly` checks them.
 
 ---
@@ -132,7 +132,7 @@ inconsistent unless all eight coefficients cancel.  `V11_anomaly` checks them.
 
 ---
 
-## 7. `cl10.toepred` — the TOE predictions
+## 7. `cl10.u10pred` — the U10 predictions
 
 | symbol | signature | returns |
 |---|---|---|
@@ -204,7 +204,7 @@ $w$ (the chiral CPT split is preserved).  Verified on the **GPU**.
 ## 11. The four deepening modules (V25–V28)
 
 The four **deepening** modules extend the 0-parameter structure to new
-hallmarks of a true TOE (all run on the **GPU** engine).
+hallmarks of a genuine 0-parameter unification (all run on the **GPU** engine).
 
 **`cl10.holo` — the holographic area law (V25).**  The QCA vacuum entropy of
 a region of side $L$ scales as $S \propto L^2$ (the **surface area** $6L^2$),
@@ -249,7 +249,7 @@ generations) is **non-singular** (rank 3 — all generations get mass).
 ## 12. The completion program modules (V36–V51)
 
 The **completion program** (C1–C7, `doc/publication.md` Section 12) closes the gap
-from a consistent 0-parameter framework to a **complete** TOE.  Each module
+from a consistent 0-parameter framework to a **complete** 0-parameter unification.  Each module
 function is **0-parameter** (no fit) and **backend-agnostic** (the GPU
 engine), and the matching experiment writes a JSON verdict.
 
@@ -531,17 +531,17 @@ to the minimum (**6**: 2 mapping conventions + 2 two-digit coefficients + 1 CP p
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when L1 is $g_{10}$-invariant, the unique $n=10$ is within one decade of both closures, and the CP-phase count is 0 (rank-1) / 1 (2-step) |
 | `main` | `()` | runs the module, prints the L1 / L2+L4 / L3 results + the reduced residual set + the verdict, returns `0` if `ok` |
 
-## 14. `run_validation.py` — the TOE runner
+## 14. `run_validation.py` — the U10 runner
 
 | symbol | signature | returns |
 |---|---|---|
 | `find_experiments` | `()` | a list of the experiment directories under `experiments/` |
 | `run_one` | `(exp_dir)` | `{id, dir, tier, property, residual, pass, status, returncode, wall_time, verdict}` — runs one experiment and reads its JSON verdict |
-| `main` | `()` | runs all experiments (or a subset from `argv`), writes `results/validation_summary.json`, prints the **TOE verdict**, returns `0` if all pass |
+| `main` | `()` | runs all experiments (or a subset from `argv`), writes `results/validation_summary.json`, prints the **U10 verdict**, returns `0` if all pass |
 
 **The summary** (`results/validation_summary.json`) has:
-`{n, n_pass, pass, toe, toe_criterion, named_residuals, reduced_walls, experiments}`
-where `toe` is the **TOE verdict** (the hard tiers 0–3 all pass) and
+`{n, n_pass, pass, u10, u10_criterion, named_residuals, reduced_walls, experiments}`
+where `u10` is the **U10 verdict** (the hard tiers 0–3 all pass) and
 `named_residuals` lists **all** the named/quantified residuals (the exact
 values the 0-parameter theory does not derive — W1, W2, W3, the running, the
 Yukawa, the baryon asymmetry, the dark-matter scale, …).

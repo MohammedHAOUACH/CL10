@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """V11 - the 16 Weyl is anomaly-free: all 8 SM gauge anomalies cancel
-(the hardest TOE requirement — a chiral gauge theory is inconsistent otherwise)."""
+(the hardest unification requirement — a chiral gauge theory is inconsistent otherwise)."""
 
 import sys
 import os
@@ -35,7 +35,7 @@ def main():
     with open(os.path.join(outdir, "v11_anomaly.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V11 - anomaly cancellation (the hard TOE requirement)  [tier 3, P4]")
+    print("V11 - anomaly cancellation (the hard unification requirement)  [tier 3, P4]")
     print("=" * 68)
     print("  the 8 SM gauge-anomaly coefficients (all must be 0):")
     for k, v in a.items():

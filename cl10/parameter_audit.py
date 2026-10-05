@@ -107,12 +107,12 @@ import numpy as np
 from . import clifford
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # the 0-parameter GUT angle (the free 't Hooft angle): g_10 = sqrt(alpha_10)
-G10 = math.sqrt(toepred.ALPHA_10)   # = 0.2
-M_P = toepred.M_PLANCK              # 1.22e19 GeV
-V_EW = toepred.V_EW                 # 246 GeV
+G10 = math.sqrt(u10pred.ALPHA_10)   # = 0.2
+M_P = u10pred.M_PLANCK              # 1.22e19 GeV
+V_EW = u10pred.V_EW                 # 246 GeV
 
 
 def _backend():

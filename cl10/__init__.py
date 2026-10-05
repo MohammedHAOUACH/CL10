@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — Causal Clifford Theory on the GUT root.
+CL10 — Causal Clifford Theory: the Standard Model as a single Clifford root.
 
 The single root object is the Clifford algebra ``Cl(10)`` of ten mutually
 anticommuting generators.  The spacetime (1,3) is *inside* it (time = h_1,
@@ -12,7 +12,7 @@ the one 't Hooft angle of the dynamics carries a 0-parameter selection
 rule (the *reading* is the audit's mapping convention).
 """
 
-from . import engine, clifford, spacetime, matter, gauge, qca, toepred  # noqa: F401
+from . import engine, clifford, spacetime, matter, gauge, qca, u10pred  # noqa: F401
 
-__all__ = ["engine", "clifford", "spacetime", "matter", "gauge", "qca", "toepred"]
+__all__ = ["engine", "clifford", "spacetime", "matter", "gauge", "qca", "u10pred"]
 __version__ = "0.1.0"

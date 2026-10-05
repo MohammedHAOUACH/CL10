@@ -49,11 +49,11 @@ soliton, $10^{-52}$) is **resolved**: the observed DM is the **10-loop
 import numpy as np
 
 from . import engine as E
-from . import toepred
+from . import u10pred
 from . import cosmology3
 
 # the 0-parameter constants
-M_P = toepred.M_PLANCK          # GeV
+M_P = u10pred.M_PLANCK          # GeV
 N_GEN = 10                     # the 0-parameter number of Cl(10) generators
 LOOP = 1.0 / (16.0 * np.pi)    # the 0-parameter 1-loop QFT factor
 WEAK_SCALE = 100.0             # GeV (the 0-parameter WIMP-miracle reference)

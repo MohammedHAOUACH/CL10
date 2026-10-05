@@ -62,7 +62,7 @@ import numpy as np
 from . import engine as E
 from . import parameter_audit as pa
 from . import eta_cp as ep
-from . import toepred as tp
+from . import u10pred as tp
 
 M_P = tp.M_PLANCK            # 1.22e19 GeV
 V_EW = tp.V_EW               # 246 GeV

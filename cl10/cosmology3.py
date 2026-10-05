@@ -42,7 +42,7 @@ import numpy as np
 from . import engine as E
 from . import clifford
 from . import matter
-from . import toepred
+from . import u10pred
 
 
 def _backend():
@@ -119,7 +119,7 @@ def dm_mass_scale():
     gap.
     """
     dm = dark_matter()
-    M_P = toepred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
+    M_P = u10pred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
     E = dm["mass_energy_E"]           # the finite energy (the mass, Planck units)
     m_dm = E * M_P                   # the 0-parameter mass scale (GeV)
     # the 0-parameter freeze-out: (1/(sigma m)) at m = M_P (sigma ~ 1/M_P^2)

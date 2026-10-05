@@ -43,7 +43,7 @@ import math
 import numpy as np
 
 from . import engine as E
-from . import toepred
+from . import u10pred
 
 
 def _backend():
@@ -61,7 +61,7 @@ def qca_step_spectrum():
     SM effective action.  Returns the (real) energies in ``[0, pi)``."""
     from . import sm_qca
     planes = sm_qca.plane_generators()
-    theta = math.sqrt(toepred.ALPHA_10)   # the 0-parameter GUT angle
+    theta = math.sqrt(u10pred.ALPHA_10)   # the 0-parameter GUT angle
     U = sm_qca.gut_qca_step(planes, theta)
     Ua = E.asnumpy(U)
     evals = np.linalg.eigvals(Ua)          # on the unit circle
@@ -86,8 +86,8 @@ def electroweak_breaking():
     """The 0-parameter electroweak breaking: the 0-parameter unified coupling
     ``g_10`` + the 5/3 U(1) normalization + the vev ``v = 246`` GeV -> the
     W/Z masses and the 0-parameter weak mixing angle."""
-    g10 = math.sqrt(4.0 * math.pi * toepred.ALPHA_10)   # the 0-parameter GUT coupling
-    v = toepred.V_EW                                    # 246 GeV
+    g10 = math.sqrt(4.0 * math.pi * u10pred.ALPHA_10)   # the 0-parameter GUT coupling
+    v = u10pred.V_EW                                    # 246 GeV
     g2 = g10                                            # the SU(2) = the GUT coupling
     gprime = g10 / math.sqrt(5.0 / 3.0)                 # the 0-parameter 5/3 U(1)
     m_W = g2 * v / 2.0

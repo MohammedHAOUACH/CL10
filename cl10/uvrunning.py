@@ -48,15 +48,15 @@ import numpy as np
 
 from . import engine as E
 from . import smatrix
-from . import toepred
+from . import u10pred
 from . import unification
 
 # ---------------------------------------------------------------------------
-# the 0-parameter inputs (shared with unification / toepred)
+# the 0-parameter inputs (shared with unification / u10pred)
 # ---------------------------------------------------------------------------
 M_Z = 91.2
-M_P = toepred.M_PLANCK                       # 1.22e19 GeV (the UV cutoff)
-ALPHA_10 = toepred.ALPHA_10                 # 1/25 (the 0-parameter GUT coupling)
+M_P = u10pred.M_PLANCK                       # 1.22e19 GeV (the UV cutoff)
+ALPHA_10 = u10pred.ALPHA_10                 # 1/25 (the 0-parameter GUT coupling)
 B_SM = unification.B_SM                     # (b1, b2, b3)  the 1-loop SM content
 A_Z = unification.A_Z                        # (a1, a2, a3) at M_Z
 B2_SM = unification.B2_SM                    # (b21, b22, b23) the 2-loop

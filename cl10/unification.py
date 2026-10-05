@@ -20,7 +20,8 @@ does **not** unify to a single point at $M_P$ (the clean MSSM unification is at
 $\sim2\\times10^{16}$, **below** the Planck scale).
 
 **The QCA UV completion.**  The lattice UV cutoff is the Planck scale.  The SM
-$\mathrm{U}(1)$ has a **Landau pole** at $\sim3\\times10^{39}$ GeV, far
+$\mathrm{U}(1)$ (the *un*-GUT-normalized $g'$, $b_1=41/10$, $\alpha'(M_Z)=0.0179$)
+has a **1-loop** **Landau pole** at $\sim1.4\\times10^{39}$ GeV, far
 **above** the QCA cutoff $M_P$ — so in the QCA the running is **UV-bounded**
 (the coupling is **bounded** on the lattice, no Landau pole below the Planck
 scale).  This is the **0-parameter UV completion** of the theory.
@@ -32,12 +33,12 @@ from . import clifford
 from . import engine as E
 from . import gauge
 from . import spacetime
-from . import toepred
+from . import u10pred
 from . import walls
 
 M_Z = 91.2                       # GeV
-ALPHA_10 = toepred.ALPHA_10      # 1/25 = 0.04 (the 0-parameter GUT coupling)
-M_P = toepred.M_PLANCK           # 1.22e19 GeV (the 0-parameter GUT = Planck scale)
+ALPHA_10 = u10pred.ALPHA_10      # 1/25 = 0.04 (the 0-parameter GUT coupling)
+M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the 0-parameter GUT = Planck scale)
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
 B_SM = (41 / 10, -19 / 6, -7)    # (b1, b2, b3)  (the SM particle content)
@@ -93,7 +94,7 @@ def g10_from_root():
         "g10": float(g10),
         "alpha_10": float(g10 ** 2),
         "g10_matches_sm_qca": bool(abs(g10 - 0.2) < 1e-12),
-        "alpha_10_matches_toepred": bool(abs(g10 ** 2 - toepred.ALPHA_10) < 1e-12),
+        "alpha_10_matches_u10pred": bool(abs(g10 ** 2 - u10pred.ALPHA_10) < 1e-12),
         "n_space": int(n_space),
         "g0": float(g0),
         "g0_matches_walls": bool(abs(g0 - walls.G0) < 1e-12),

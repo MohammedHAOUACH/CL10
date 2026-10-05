@@ -5,7 +5,8 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cl10"
 version = "0.1.0"
-description = "Causal Clifford Theory on the GUT root Cl(10): a single object generates spacetime, matter, gauge, statistics and gravity (0-parameter, GPU-first)."
+description = "The Standard Model as a Single Clifford Root — Cl(10): 0-parameter matter, gauge, and gravity on a Planck-lattice QCA (0-parameter, GPU-first)."
+authors = [{ name = "Mohammed Haouach", email = "haouach.mohammed@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }

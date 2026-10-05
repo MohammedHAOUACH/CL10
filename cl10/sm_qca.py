@@ -28,7 +28,7 @@ The **full Standard Model** is read off the one object:
 - the **causality** is the light-cone (1 cell / step).
 
 This is the **dynamics** (P2) + **unification** (P3) + **consistency** (P4)
-of the TOE: the **full** Standard Model is a 0-parameter **unitary** QCA.
+of the U10: the **full** Standard Model is a 0-parameter **unitary** QCA.
 The exact value of the 3-family structure and the Yukawa matrix remain the
 **named** residuals.
 """
@@ -39,10 +39,10 @@ import numpy as np
 
 from . import clifford
 from . import engine as E
-from . import toepred
+from . import u10pred
 
 # the 0-parameter GUT coupling (the rotation angle): g_10 = sqrt(alpha_10) = 1/5
-G10 = math.sqrt(toepred.ALPHA_10)  # = 0.2
+G10 = math.sqrt(u10pred.ALPHA_10)  # = 0.2
 
 
 def plane_generators():

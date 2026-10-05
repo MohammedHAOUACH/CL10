@@ -60,12 +60,12 @@ import numpy as np
 from . import dm_wimp
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # ---------------------------------------------------------------------------
 # the 0-parameter scales (shared with the 10-loop ladder, V53/V54)
 # ---------------------------------------------------------------------------
-M_P = toepred.M_PLANCK                     # 1.22e19 GeV (the GUT = Planck scale)
+M_P = u10pred.M_PLANCK                     # 1.22e19 GeV (the GUT = Planck scale)
 LOOP = 1.0 / (16.0 * np.pi)                # the 0-parameter 1-loop QFT factor
 N_GEN = 10                                 # the n_gen of the Cl(10) root
 N_2STEP = 3                                # the 2-step loop position (the 10^14 scale)

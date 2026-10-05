@@ -43,10 +43,10 @@ import numpy as np
 from . import clifford
 from . import engine as E
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # the 0-parameter GUT coupling (the only input of the object): g_10 = 1/5
-G10 = toepred.ALPHA_10 ** 0.5
+G10 = u10pred.ALPHA_10 ** 0.5
 
 
 def _asnp(x):

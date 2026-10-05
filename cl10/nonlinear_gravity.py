@@ -38,9 +38,9 @@ metric).
 import numpy as np
 
 from . import engine as E
-from . import toepred
+from . import u10pred
 
-M_P = toepred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
+M_P = u10pred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
 
 
 def _backend():

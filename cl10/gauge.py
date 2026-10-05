@@ -93,9 +93,9 @@ def running():
     theory names it, it does not derive the matching).
     """
     import numpy as np
-    from . import toepred
-    alpha_10 = toepred.ALPHA_10                 # 1/25 = 0.04 (the 0-parameter GUT coupling)
-    m_gut = toepred.M_PLANCK                    # 1.22e19 GeV (the 0-parameter GUT scale)
+    from . import u10pred
+    alpha_10 = u10pred.ALPHA_10                 # 1/25 = 0.04 (the 0-parameter GUT coupling)
+    m_gut = u10pred.M_PLANCK                    # 1.22e19 GeV (the 0-parameter GUT scale)
     b1, b2, b3 = -41 / 10, -19 / 6, -7          # the 1-loop SM beta coefficients
     # the 1-loop running (from the measured M_Z baseline): the best unification
     # spread (how close the 3 couplings get); a large spread = no clean 1-loop unification

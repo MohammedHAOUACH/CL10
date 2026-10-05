@@ -35,7 +35,7 @@ does not generate it; the structure is there).
 
 from . import engine as E
 from . import clifford
-from . import toepred
+from . import u10pred
 from . import walls
 
 import numpy as np
@@ -82,7 +82,7 @@ def sakharov_conditions():
     # (3) equilibrium: the QCA step is unitary -> reversible -> in equilibrium
     from . import sm_qca
     planes = sm_qca.plane_generators()
-    theta = (toepred.ALPHA_10) ** 0.5
+    theta = (u10pred.ALPHA_10) ** 0.5
     U = sm_qca.gut_qca_step(planes, theta)
     unitary_err = sm_qca.unitary_err(U)
     in_equilibrium = unitary_err < 1e-9
@@ -107,11 +107,11 @@ def gut_ingredients():
     (a) the X/Y B-violating process (p -> e+ pi0, the 0-parameter proton decay);
     (b) the heavy-N decay OUT of equilibrium (Gamma/H < 1, the kinematics);
     (c) the PMNS CP phase (the 0-parameter C/CP structure, V29)."""
-    g2 = 4.0 * np.pi * toepred.ALPHA_10
-    M_GUT = toepred.M_PLANCK
+    g2 = 4.0 * np.pi * u10pred.ALPHA_10
+    M_GUT = u10pred.M_PLANCK
     Gamma = g2 * M_GUT / (16.0 * np.pi)
-    H = 1.66 * np.sqrt(100.0) * M_GUT ** 2 / toepred.M_PLANCK
-    tau_p = toepred.proton_decay_lifetime()
+    H = 1.66 * np.sqrt(100.0) * M_GUT ** 2 / u10pred.M_PLANCK
+    tau_p = u10pred.proton_decay_lifetime()
     return {
         "backend": _backend(),
         "xy_process": True,                 # the X/Y mediate p -> e+ pi0 (0-parameter)

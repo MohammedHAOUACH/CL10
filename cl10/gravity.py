@@ -70,10 +70,10 @@ import numpy as np
 from . import engine as E
 from . import nonlinear_gravity
 from . import sm_qca
-from . import toepred
+from . import u10pred
 
 # the 0-parameter Planck scale (= the GUT scale = the UV cutoff)
-M_P = toepred.M_PLANCK
+M_P = u10pred.M_PLANCK
 
 # the 0-parameter finite-difference step (a **numerical** convergence
 # parameter, not a physical one): the default is small enough that the

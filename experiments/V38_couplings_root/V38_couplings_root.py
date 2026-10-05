@@ -50,7 +50,7 @@ def main():
     m1, m2, m3 = down["measured_at_M_Z"]
     ok = (root["n_qubits"] == 5
           and root["g10_matches_sm_qca"]
-          and root["alpha_10_matches_toepred"]
+          and root["alpha_10_matches_u10pred"]
           and root["n_space"] == 3
           and root["g0_matches_walls"]
           and root["g10"] == 1.0 / 5.0
@@ -74,7 +74,7 @@ def main():
             "g10": root["g10"],
             "alpha_10": root["alpha_10"],
             "g10_matches_sm_qca": root["g10_matches_sm_qca"],
-            "alpha_10_matches_toepred": root["alpha_10_matches_toepred"],
+            "alpha_10_matches_u10pred": root["alpha_10_matches_u10pred"],
             "n_space": root["n_space"],
             "g0": root["g0"],
             "g0_matches_walls": root["g0_matches_walls"],

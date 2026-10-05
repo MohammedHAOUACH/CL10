@@ -33,7 +33,7 @@ the **open part** (a **residual**, not a wall).
 
 
 from . import engine as E
-from . import toepred
+from . import u10pred
 
 
 def _backend():
@@ -79,8 +79,8 @@ def hierarchy():
     ``E_P`` and the electroweak ``v``) with a vast gap; the 0-parameter value
     ``v/E_P = 2.02e-17`` matches the observed to 0.18%; the derivation of the
     exponent is the named residual."""
-    E_P = toepred.M_PLANCK        # 1.22e19 GeV (the Planck lattice)
-    v = toepred.V_EW             # 246 GeV (the electroweak scale)
+    E_P = u10pred.M_PLANCK        # 1.22e19 GeV (the Planck lattice)
+    v = u10pred.V_EW             # 246 GeV (the electroweak scale)
     # the 0-parameter prediction (the 0-parameter number of the root)
     v_over_EP_0p = 2.02e-17
     observed = v / E_P           # the actual v/E_P

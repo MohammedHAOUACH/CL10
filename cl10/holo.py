@@ -3,7 +3,7 @@
 """
 CL10 — the holographic area law: the entropy scales with AREA, not volume.
 
-The **holographic principle** (the "true-TOE" hallmark): the number of
+The **holographic principle** (the hallmark of a genuine 0-parameter unification): the number of
 independent degrees of freedom in a region is **bounded by the surface area**
 of its boundary, **not** the volume.  In the CL10 QCA the **0-parameter**
 content is:

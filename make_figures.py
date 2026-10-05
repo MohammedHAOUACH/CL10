@@ -394,7 +394,7 @@ def fig9_anomaly():
 # Figure 10 — CL10 vs observation: the 0-parameter predictions vs the data
 # ===========================================================================
 def fig10_predictions():
-    from cl10 import eta_cp as ep, dm_wimp as dw, toepred as tp
+    from cl10 import eta_cp as ep, dm_wimp as dw, u10pred as tp
 
     e = ep.eta_cp()
     d = dw.dm_wimp()
@@ -447,7 +447,7 @@ def fig10_predictions():
 # Figure 11 — the 0-parameter ladder of scales (one object -> all scales)
 # ===========================================================================
 def fig11_ladder():
-    from cl10 import dm_wimp as dw, toepred as tp
+    from cl10 import dm_wimp as dw, u10pred as tp
 
     m_nu_eV = ((1.0 / 8 * 246.0) ** 2 / 1e14) * 1e9     # ~ 10^-2 eV
     # (energy GeV, label, color, side(+/-1), height multiplier)
@@ -544,7 +544,7 @@ def fig13_cpt_mirror():
 # ===========================================================================
 def fig14_sm_head2head():
     from cl10 import (eta_cp as ep, dm_wimp as dw, hier_exponent as he,
-                      toepred as tp, neutrino as nn)
+                      u10pred as tp, neutrino as nn)
 
     e = ep.eta_cp()
     d = dw.dm_wimp()
@@ -704,7 +704,7 @@ def fig16_couplings_mz():
 # Figure 17 — the 0-parameter ladder of scales vs the SM ladder
 # ===========================================================================
 def fig17_ladder_sm():
-    from cl10 import dm_wimp as dw, toepred as tp
+    from cl10 import dm_wimp as dw, u10pred as tp
 
     M_P = tp.M_PLANCK
     LOOP = 1.0 / (16.0 * np.pi)
@@ -821,7 +821,7 @@ def fig19_uv_2loop():
     """The 2-loop running of the U(1) coupling: the perturbative QFT reaches a
     Landau pole below M_P, the 1-loop running stays bounded, and the unitary QCA
     step remains bounded at every order."""
-    from cl10 import unification as u, toepred as tp
+    from cl10 import unification as u, u10pred as tp
 
     M_Z, M_P = u.M_Z, tp.M_PLANCK
     b1, b2 = u.B_SM[0], u.B2_SM[0]
@@ -876,7 +876,7 @@ def fig20_proton_decay():
     The GUT scale sets the decay rate; the 0-parameter point (M_GUT = M_P) is
     far above the experimental bound, so the proton is stable on all observed
     timescales (consistent with data, and falsifiable)."""
-    from cl10 import toepred as tp
+    from cl10 import u10pred as tp
 
     M_P = tp.M_PLANCK
     ALPHA = tp.ALPHA_10
@@ -929,7 +929,7 @@ def fig21_proton_margin():
     Gamma/Gamma_bound = tau_bound/tau_p, vs the GUT scale.  The 0-parameter
     point (M_GUT = M_P) sits ~13 orders of magnitude below the bound (the
     proton is stable); M_GUT below ~5e15 GeV would be excluded (shaded)."""
-    from cl10 import toepred as tp
+    from cl10 import u10pred as tp
     M_P, ALPHA, m_p = tp.M_PLANCK, tp.ALPHA_10, tp.M_P_ROBSON
     def tau(M):
         return (M**4 / (ALPHA**2 * m_p**5)) * tp.GEV_TO_S / tp.S_TO_YR
@@ -973,7 +973,7 @@ def fig22_proton_channels():
     p -> e+ pi0, p -> mu+ pi0, p -> e+ K+ (the rate is set by the two-body
     phase space; the hadronic matrix element is O(1)).  Each sits
     ~10^13-14 above its experimental bound (the proton is stable in all)."""
-    from cl10 import toepred as tp
+    from cl10 import u10pred as tp
     tau0 = float(tp.proton_decay_lifetime())   # the p -> e+ pi0 0-parameter lifetime
     mp, me, mmu, mpi, mk = 938.272, 0.511, 105.658, 134.977, 493.677
     def pf(a, b):
