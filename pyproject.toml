@@ -27,6 +27,9 @@ dev = ["ruff", "pytest"]
 # dependency, so a bare `pip install cl10` lacks them and the sim crashes on
 # startup.
 young = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "imageio-ffmpeg"]
+# the simulation/hydrogen visualizations: the same deps as young (the live
+# VisPy window + the headless PyVista video).
+hydrogen = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "imageio-ffmpeg"]
 
 [tool.setuptools.packages.find]
 include = ["cl10*"]
