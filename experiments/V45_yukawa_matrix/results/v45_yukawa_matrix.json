@@ -1,0 +1,83 @@
+{
+  "id": "V45_yukawa_matrix",
+  "tier": 2,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_0_parameter_3x3_Yukawa_mass_matrix_democratic_base_the_TBM_mixing_the_2_level_structure_the_exact_hierarchy_is_the_named_residual",
+  "tol": 1e-12,
+  "data": {
+    "backend": "numpy",
+    "g10": 0.2,
+    "n_levels_1gen": 32,
+    "n_levels_3gen": 96,
+    "family_triplication": true,
+    "zero_point_1gen": -8.881784197001252e-16,
+    "det_U_minus_1": 4.443059973708341e-15,
+    "mass_matrix": {
+      "eigenvalues": [
+        0.0,
+        9.064933036736789e-17,
+        3.0
+      ],
+      "rank": 1,
+      "n_heavy": 1,
+      "n_light_2fold": 2,
+      "n_distinct_levels": 2,
+      "democratic": true
+    },
+    "family_symmetry": {
+      "n_space": 3,
+      "n_families_C32": 3,
+      "S_a2_err": 0.0,
+      "anticommutator_Sa_Sb": 0.0,
+      "spatial_norms": [
+        32.0,
+        32.0,
+        32.0
+      ],
+      "norm_spread": 0.0,
+      "equivalent_3fold": true,
+      "democratic_spectrum": [
+        0.0,
+        2.220446049250313e-16,
+        3.0
+      ],
+      "two_level": true
+    },
+    "mixing": {
+      "sin2_12": 0.3333333333333333,
+      "sin2_23": 0.5,
+      "sin2_13": 0.0,
+      "obs_pmns": [
+        0.307,
+        0.579,
+        0.022
+      ],
+      "obs_ckm": [
+        0.05,
+        0.949,
+        0.02
+      ],
+      "dev_pmns": 0.042444444444444424,
+      "dev_ckm": 0.25077777777777777
+    },
+    "hierarchy": {
+      "n_levels_0param": 2,
+      "n_levels_observed": 3,
+      "structure": "one heavy + a 2-fold light level (the 0-parameter base)",
+      "degenerate_light": true
+    },
+    "higgs_dirac": {
+      "n16": 16,
+      "rank": 16,
+      "off_diagonal": 3.9999999999999996,
+      "diag_16": 8.881784197001252e-16,
+      "dirac": true,
+      "note": "the 10-Higgs 16->16-bar is the 0-parameter Dirac term (rank 16, off-diagonal)"
+    },
+    "s2_unitary_err": 1.6653487242199808e-15,
+    "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the 0-parameter TBM (W6)"
+  },
+  "wall_time": 0.023
+}

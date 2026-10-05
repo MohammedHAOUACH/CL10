@@ -1,0 +1,33 @@
+{
+  "id": "V39_families_qca",
+  "tier": 1,
+  "property": "P1",
+  "residual": true,
+  "pass": true,
+  "status": "the_three_families_inside_the_qca_dynamics_the_96d_step_is_0_parameter_unitary_and_family_symmetric",
+  "tol": 1e-12,
+  "data": {
+    "backend": "numpy",
+    "g10": 0.2,
+    "n_planes": 45,
+    "n_module_1gen": 32,
+    "n_module_3gen": 96,
+    "n_weyl_1gen": 16,
+    "n_weyl_3gen": 48,
+    "n_cpt_3gen": 48,
+    "unitary_err": 1.6653487242199808e-15,
+    "family_symmetry_off_block": 0.0,
+    "family_symmetry_block_diff": 0.0,
+    "max_45_pseudoscalar_commutator": 0.0,
+    "step_32_pseudoscalar_commutator": 7.791361360319882e-16,
+    "step_96_pseudoscalar_commutator": 7.791361360319882e-16,
+    "tribimaximal_unitary_err": 2.220446049250313e-16,
+    "tribimaximal_sin2": {
+      "s12": 0.3333333333333333,
+      "s23": 0.5000000000000001,
+      "s13": 0.0
+    },
+    "residual": "the why-3 (W3) and the family mass hierarchy (the 10-Higgs breaking) are the named residuals"
+  },
+  "wall_time": 0.029
+}

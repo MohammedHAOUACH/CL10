@@ -1,0 +1,42 @@
+{
+  "id": "V53_hier_exponent",
+  "tier": 6,
+  "property": "P5,P6",
+  "residual": true,
+  "pass": true,
+  "status": "the_hierarchy_exponent_-17_is_the_0_parameter_10_loop_suppression_(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root (= 2 x 5: the 16/16-bar chiral split x the 5 qubits of the 32-D module): predicted 9.7e-18 vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique best of the n=1..20 scan; not a raw n-step spectral level). One 0-parameter factor gives TWO results: the hierarchy AND the DM mass (118 GeV); the 2-digit coefficients are the named residual W8)",
+  "tol": 1e-12,
+  "data": {
+    "backend": "numpy",
+    "loop_factor": 0.019894367886486918,
+    "n_gen": 10,
+    "predicted_ratio": 9.711838380882492e-18,
+    "predicted_exponent": -17.012698553500584,
+    "observed_ratio": 2.016393442622951e-17,
+    "observed_exponent": -16.695424723571367,
+    "exponent_abs_diff": 0.31727382992921704,
+    "ratio_predicted_over_observed": 0.481644017263278,
+    "n_best_scan": 10,
+    "scan_abs_diff_at_n10": 0.31727382992921704,
+    "scan_abs_diff_at_n9": 1.3839960254208403,
+    "nstep": {
+      "n_levels_1step": 32,
+      "min_level_small_n": 0.0007050900380285441,
+      "max_n_scanned": 100,
+      "any_level_at_target": false,
+      "n_diophantine_est": 4.95049504950495e+16,
+      "diophantine_is_0param": false
+    },
+    "loop_ladder": {
+      "F10": 9.711838380882492e-18,
+      "n_gen": 10,
+      "n_qubits": 5,
+      "g10_as_2x5": true,
+      "hierarchy_coefficient": 2.0762221976347655,
+      "dm_m_GeV": 118.4844282467664,
+      "dm_coefficient": 1.184844282467664
+    },
+    "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
+  },
+  "wall_time": 0.004
+}

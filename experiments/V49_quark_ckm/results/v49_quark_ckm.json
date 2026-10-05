@@ -1,0 +1,35 @@
+{
+  "id": "V49_quark_ckm",
+  "tier": 4,
+  "property": "P5",
+  "residual": true,
+  "pass": true,
+  "status": "the_0parameter_quark_ckm_is_the_tbm_the_democratic_2level_mass_matrices_the_deviation_to_observed_is_the_w6_residual",
+  "tol": 1e-08,
+  "data": {
+    "backend": "numpy",
+    "up_eigenvalues": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "down_eigenvalues": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "two_level": true,
+    "ckm_unitary": true,
+    "sin2_12": 0.3333333333333333,
+    "sin2_23": 0.5,
+    "sin2_13": 0.0,
+    "obs_ckm": [
+      0.05,
+      0.949,
+      0.02
+    ],
+    "dev_ckm": 0.25077777777777777,
+    "residual": "the exact quark CKM angles beyond the 0-parameter TBM (the up/down mass-matrix misalignment, the 10-Higgs vev breaking) — the W6 named residual, now quantified"
+  },
+  "wall_time": 0.001
+}

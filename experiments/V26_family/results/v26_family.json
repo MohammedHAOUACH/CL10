@@ -1,0 +1,20 @@
+{
+  "id": "V26_family",
+  "tier": 1,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_3_generations_are_a_0_parameter_3_three_ways",
+  "tol": 1e-12,
+  "data": {
+    "n_space": 3,
+    "n_planes_C32": 3,
+    "n_rank": 3,
+    "n_family_candidate": 3,
+    "n_families_observed": 3,
+    "n_weyl_1gen": 16,
+    "n_weyl_3gen": 48,
+    "residual": "the 'why-3' full derivation (the 0-parameter candidate is 3, three ways)"
+  },
+  "wall_time": 0.001
+}

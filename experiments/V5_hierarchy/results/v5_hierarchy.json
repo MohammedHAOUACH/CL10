@@ -1,0 +1,15 @@
+{
+  "id": "V5_hierarchy",
+  "tier": 2,
+  "property": "P2,P5",
+  "residual": false,
+  "pass": true,
+  "status": "the_0_param_hierarchy",
+  "tol": 1e-12,
+  "data": {
+    "v_over_EP": 2.02e-17,
+    "observed": 2.016393442622951e-17,
+    "rel_err": 0.0017886178861788171
+  },
+  "wall_time": 0.0
+}

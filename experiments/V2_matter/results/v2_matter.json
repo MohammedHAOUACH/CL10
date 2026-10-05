@@ -1,0 +1,18 @@
+{
+  "id": "V2_matter",
+  "tier": 1,
+  "property": "P1",
+  "residual": false,
+  "pass": true,
+  "status": "the_16_weyl_is_one_generation",
+  "tol": 1e-12,
+  "data": {
+    "n_weyl": 16,
+    "n_16bar": 16,
+    "total_dim": 16,
+    "n_sm": 6,
+    "bl16": -1,
+    "bl16bar": 1
+  },
+  "wall_time": 0.002
+}

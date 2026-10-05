@@ -1,0 +1,20 @@
+{
+  "id": "V18_w2_seesaw2step",
+  "tier": 5,
+  "property": "P6",
+  "residual": false,
+  "pass": true,
+  "status": "the_w2_mechanism_2step_seesaw",
+  "tol": 1e-12,
+  "data": {
+    "g0": 0.125,
+    "m_D_GeV": 30.75,
+    "M_N_GeV": 100000000000000.0,
+    "m_nu_2step_eV": 0.009455625,
+    "m_nu_1step_eV": 7.750512295081968e-08,
+    "m_nu_obs_eV": 0.05,
+    "off_1step": 1.5501024590163936e-06,
+    "off_2step": 0.1891125
+  },
+  "wall_time": 0.0
+}

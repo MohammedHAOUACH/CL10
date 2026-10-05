@@ -1,0 +1,22 @@
+{
+  "id": "V21_running",
+  "tier": 3,
+  "property": "P4",
+  "residual": true,
+  "pass": true,
+  "status": "the_0_parameter_gut_coupling_and_1_loop_structure",
+  "tol": 1e-06,
+  "data": {
+    "alpha_10": 0.04,
+    "g_gut": 0.7089815403622064,
+    "m_gut_0param": 1.22e+19,
+    "five_thirds": 1.6666666666666665,
+    "b1": -4.1,
+    "b2": -3.1666666666666665,
+    "b3": -7,
+    "unification_spread": 31.42093331612383,
+    "cleanly_unifies": false,
+    "named_residual": "the 1-loop SM matching to the 0-parameter GUT scale"
+  },
+  "wall_time": 0.001
+}

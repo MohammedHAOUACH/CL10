@@ -1,0 +1,20 @@
+{
+  "id": "V47_2loop_uvfinite",
+  "tier": 1,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_qca_is_uvfinite_the_2step_is_unitary_and_the_2particle_is_bounded_the_perturbative_2loop_is_uvdivergent",
+  "tol": 1e-08,
+  "data": {
+    "backend": "numpy",
+    "qca_2step_unitary_residual": 1.8873794903055345e-15,
+    "qca_2particle_max_offdiag": 0.3320306396873518,
+    "pert_1loop_landau_pole": 1.385249013068412e+39,
+    "pert_2loop_landau_pole": 1128961110302.3076,
+    "pert_2loop_divergent": true,
+    "uv_finite": true,
+    "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
+  },
+  "wall_time": 0.098
+}

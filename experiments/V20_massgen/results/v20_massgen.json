@@ -1,0 +1,21 @@
+{
+  "id": "V20_massgen",
+  "tier": 2,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_10_higgs_gives_the_0_parameter_mass_term",
+  "tol": 1e-06,
+  "data": {
+    "n16": 16,
+    "n16bar": 16,
+    "diag_16": 8.881784197001252e-16,
+    "diag_16bar": 4.440892098500626e-16,
+    "A_16_16bar": 3.9999999999999996,
+    "B_16bar_16": 3.9999999999999996,
+    "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
+    "sterile_N_in_16": true,
+    "named_residuals": "the exact mass values (the 3-gen hierarchy, the mixing) are named"
+  },
+  "wall_time": 0.003
+}

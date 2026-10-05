@@ -1,0 +1,35 @@
+{
+  "id": "V29_yukawa_hierarchy",
+  "tier": 2,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_0_parameter_democratic_base_gives_the_tribimaximal_PMNS_close_to_observed",
+  "tol": 1e-12,
+  "data": {
+    "backend": "numpy",
+    "n_gen": 3,
+    "mass_matrix_rank": 3,
+    "non_singular": true,
+    "off_diagonal_Dirac": true,
+    "tribimaximal": {
+      "sin2_12": 0.3333333333333333,
+      "sin2_23": 0.5,
+      "sin2_13": 0.0
+    },
+    "observed_PMNS": {
+      "sin2_12": 0.307,
+      "sin2_23": 0.579,
+      "sin2_13": 0.022
+    },
+    "mean_mixing_deviation": 0.042444444444444424,
+    "base_spectrum": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "degenerate_base": true,
+    "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
+  },
+  "wall_time": 0.004
+}

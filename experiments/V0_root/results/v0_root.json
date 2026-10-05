@@ -1,0 +1,17 @@
+{
+  "id": "V0_root",
+  "tier": 0,
+  "property": "P0",
+  "residual": false,
+  "pass": true,
+  "status": "the_cl10_is_the_root",
+  "tol": 1e-12,
+  "data": {
+    "n_gen": 10,
+    "n_basis": 1024,
+    "n_weyl": 16,
+    "n_16bar": 16,
+    "err": 0.0
+  },
+  "wall_time": 0.063
+}

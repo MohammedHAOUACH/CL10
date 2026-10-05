@@ -1,0 +1,22 @@
+{
+  "id": "V8_dark_matter",
+  "tier": 4,
+  "property": "P2,P5",
+  "residual": false,
+  "pass": true,
+  "status": "the_stable_soliton_is_the_dark_matter",
+  "tol": 1e-06,
+  "data": {
+    "soliton": "u = sqrt(2) sech(x) (the exact static cubic wave u'' = u - u^3)",
+    "ode_residual": 4.766645134157699e-10,
+    "mass_energy_E": 1.3333305333439112,
+    "mass_L2": 4.0,
+    "bound_state_tail": 2.662663612262385e-13,
+    "localized_non_dispensive": true,
+    "width_lattice_units": 1.0,
+    "gauge_charge": 0.0,
+    "weakly_interacting": "couples only through the metric (gravity) -> dark",
+    "relic": "a 0-parameter consequence of the QCA dynamics (the non-linear metric creates it)"
+  },
+  "wall_time": 0.003
+}

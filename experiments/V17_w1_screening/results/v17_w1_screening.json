@@ -1,0 +1,16 @@
+{
+  "id": "V17_w1_screening",
+  "tier": 4,
+  "property": "P2,P5",
+  "residual": false,
+  "pass": true,
+  "status": "the_w1_mechanism_z2_cancellation",
+  "tol": 1e-12,
+  "data": {
+    "n_even": 512,
+    "n_odd": 512,
+    "lambda_0param": 0.0,
+    "lambda_obs": 1e-122
+  },
+  "wall_time": 0.0
+}

@@ -1,0 +1,34 @@
+{
+  "id": "V57_neutrino",
+  "tier": 5,
+  "property": "P6",
+  "residual": true,
+  "pass": true,
+  "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
+  "tol": 1e-09,
+  "data": {
+    "backend": "numpy",
+    "n_gen": 10,
+    "n_2step": 3,
+    "exp_2step": 17,
+    "m_D_GeV": 118.4844282467664,
+    "M_N_GeV": 96061699239510.22,
+    "m_nu_2step_eV": 0.14614107233269794,
+    "m_nu_1step_eV": 1.1507016177838637e-06,
+    "m_nu_ladder_eV": 0.1461410723326979,
+    "m_nu_obs_eV": 0.05,
+    "off_2step": 2.9228214466539586,
+    "right_order": true,
+    "ladder_match": true,
+    "two_step_unitary": true,
+    "checks": {
+      "loop_dirac_matches_dm_wimp": true,
+      "twostep_scale_0param": true,
+      "loop_identity_17": true,
+      "two_step_unitary": true,
+      "uv_finite": true,
+      "right_order": true
+    }
+  },
+  "wall_time": 0.003
+}

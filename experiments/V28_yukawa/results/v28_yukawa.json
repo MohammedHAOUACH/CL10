@@ -1,0 +1,20 @@
+{
+  "id": "V28_yukawa",
+  "tier": 2,
+  "property": "P2",
+  "residual": true,
+  "pass": true,
+  "status": "the_0_parameter_3x3_non_singular_Dirac_mass_matrix",
+  "tol": 1e-12,
+  "data": {
+    "n_gen": 3,
+    "n_dim": 3,
+    "rank": 3,
+    "non_singular": true,
+    "off_diagonal_Dirac": true,
+    "diag_zero": true,
+    "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
+    "residual": "the mass hierarchy (the observed ratios) + the mixing angles (CKM/PMNS)"
+  },
+  "wall_time": 0.004
+}

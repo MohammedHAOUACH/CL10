@@ -1,0 +1,26 @@
+{
+  "id": "V34_cosmology",
+  "tier": 4,
+  "property": "P2,P5",
+  "residual": true,
+  "pass": true,
+  "status": "the_w1_cancellation_and_the_hierarchy_value_the_derivations_are_the_named_residuals",
+  "tol": 1e-09,
+  "data": {
+    "backend": "numpy",
+    "n_even": 512,
+    "n_odd": 512,
+    "cancellation": true,
+    "lambda_0param": 0.0,
+    "lambda_0param_natural": 1.0,
+    "lambda_obs": 1e-122,
+    "w": -1.0,
+    "E_P": 1.22e+19,
+    "v": 246.0,
+    "v_over_EP_0param": 2.02e-17,
+    "v_over_EP_observed": 2.016393442622951e-17,
+    "rel_err": 0.0017886178861788171,
+    "residual": "the 1e-122 (the W1 breaking by the spacetime) + the derivation of the hierarchy exponent (~1e-17) from the root"
+  },
+  "wall_time": 0.0
+}

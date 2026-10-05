@@ -1,0 +1,17 @@
+{
+  "id": "V19_w3_families3",
+  "tier": 5,
+  "property": "P6",
+  "residual": false,
+  "pass": true,
+  "status": "the_w3_mechanism_3_equals_3_space",
+  "tol": 1e-12,
+  "data": {
+    "n_time": 1,
+    "n_space": 3,
+    "n_fam_candidate": 3,
+    "n_observed": 3,
+    "derived": true
+  },
+  "wall_time": 0.0
+}

@@ -1,0 +1,24 @@
+{
+  "id": "V10_antimatter",
+  "tier": 4,
+  "property": "P2,P5",
+  "residual": false,
+  "pass": true,
+  "status": "the_16_16bar_CPT_pair_is_the_antimatter",
+  "tol": 1e-08,
+  "data": {
+    "n16": 16,
+    "n16bar": 16,
+    "bl16": -1,
+    "bl16bar": 1,
+    "cpt_map": "a single generator (h0) flips 16 -> 16bar (anticommutes with the pseudoscalar)",
+    "cpt_to_bar_norm": 0.9999999999999999,
+    "cpt_to_16_norm": 1.7190174826096483e-16,
+    "anticommute_residual": 0.0,
+    "annihilation_overlap_16_16bar": 5.339954707146991e-16,
+    "bl_sum": 0,
+    "mass_degenerate": true,
+    "baryon_asymmetry": "named residual (needs a CPT/CP-violating process; the 0-parameter QCA does not generate it)"
+  },
+  "wall_time": 0.005
+}
