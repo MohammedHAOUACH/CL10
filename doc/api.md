@@ -443,8 +443,11 @@ symbolic `kingdon` $\mathrm{Cl}(10,0)$).
 above are the audit's **conservative baseline** (they classify $g_{10}$ as
 the **one free** *family* parameter).  Section 13.6 (`cl10.four_limits`,
 V59) **refines** this: the *selected* value $g_{10}=1/5$ is a root number
-(the 32-D module, 5 qubits), so the theory is **0-free**, and the named set
-reduces to **3** (2 two-digit coefficients + 1 CP phase).
+(the 32-D module, 5 qubits) — a **0-parameter selection rule** (its
+*reading* is the audit's mapping convention) — so the **algebra** has
+**0 free parameters**; the named set reduces to **3** (2 two-digit
+coefficients read from the data + 1 CP phase), plus the one 't Hooft angle
+of the dynamics.
 
 ---
 
@@ -517,15 +520,15 @@ The **unification**: the four "limits" of the theory (`doc/remarques.txt`) are
 the **four projections of one 0-parameter invariant**, $10 = 2\times5$ (the
 chiral $16/16$-bar split $\times$ the 5 qubits of the 32-D module), **plus one
 irreducible CP phase**.  Computed on the GPU; reduces the named residual set
-to the minimum (**6**).  Section 16 of `doc/publication.md`.
+to the minimum (**6**: 2 mapping conventions + 2 two-digit coefficients + 1 CP phase + 1 angle).  Section 16 of `doc/publication.md`.
 
 | symbol | signature | returns |
 |---|---|---|
 | `invariance_g10` | `()` | **L1** — `{backend, grid, max_mirror_residual_over_grid, max_abs_detU_dev_over_grid, g10_invariant, n_algebraic_invariants, free_angles, verdict}` — the 7 algebraic invariants are **$g_{10}$-invariant**: the 16/16-bar CPT-mirror residual stays $\sim1.8\times10^{-15}$ for $g_{10}=0.1..0.5$ (a property of the $\mathrm{Cl}(10)$ **algebra**, not of the free angle) |
-| `unique_10loop` | `(max_n=20)` | **L2+L4** — `{..., n_best, n_gen_is_2x5, unique_n_within_factor2_of_both, n_candidates_within_factor2, coeff_hierarchy, coeff_dm, scan, verdict}` — the **same** $n=10$ is the **unique** $n\in1..20$ within a factor 2 of **both** the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — one number, two independent constraints |
+| `unique_10loop` | `(max_n=20)` | **L2+L4** — `{..., n_best, 5_is_qubit_count, unique_n_within_1decade_of_both, n_candidates_within_1decade, factor2_test_of_both_empty, coeff_hierarchy, coeff_dm, scan, verdict}` — the **same** $n=10$ is the **unique** $n\in1..20$ within **one decade** of **both** closures: the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — **two statements of one scale** (the strict factor-2 test of both is **empty**); the 2-digit coefficients are **named residuals** (computed from the data, not derived) |
 | `cp_phase_reduction` | `()` | **L3** — `{..., rank1_cp_phases, two_N_2flavor_cp_phases, cpodd_at_delta_0, cpodd_at_delta_pi4, cpodd_at_delta_pi2, minimal_cp_phases_required, delta_B_0param, delta_B_ratio, verdict}` — rank-1 (1 $N$) has **0** CP phases (no baryon); the 2-step (2 $N$) has **1** ($\mathrm{Im}\det(Y)=|\sin\delta|$) → baryogenesis needs **one** phase, $\Delta B = 6.8\times10^{-10}$ (ratio 1.12) |
-| `four_limits` | `()` | the **assembly** — `{backend, unifying_invariant, L1_conventionality, L2_hierarchy_plus_L4_DM, L3_baryogenesis, coupling_provenance, residual_set, total_named_residuals, mapping_conventions, all_resolved, verdict}` — **0 free parameters** ($g_{10}=1/5$, $g_0=1/2^3$ are 0-param-computed); the **residual set is the minimum**: **2 two-digit coefficients** (2.08, 1.18) + **1 CP phase = 3** + the mapping conventions (Point 1); the $\delta\leftrightarrow g_{10}$ identification is **false** (the QCA $U(g_{10})$ is real / CP-even) |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when L1 is $g_{10}$-invariant, the unique $n=10$ satisfies both constraints, and the CP-phase count is 0 (rank-1) / 1 (2-step) |
+| `four_limits` | `()` | the **assembly** — `{backend, unifying_invariant, L1_conventionality, L2_hierarchy_plus_L4_DM, L3_baryogenesis, coupling_provenance, residual_set, total_named_residuals, mapping_conventions, all_resolved, verdict}` — **0 free parameters in the algebra** ($g_{10}=1/5$, $g_0=1/2^3$ are 0-parameter **selection rules**); the **residual set is the minimum**: **2 two-digit coefficients** (2.08, 1.18 — *named*, read from the data) + **1 CP phase = 3** + the mapping conventions (Point 1) + the one 't Hooft angle of the dynamics; the $\delta\leftrightarrow g_{10}$ identification is **false** (the QCA $U(g_{10})$ is real / CP-even) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when L1 is $g_{10}$-invariant, the unique $n=10$ is within one decade of both closures, and the CP-phase count is 0 (rank-1) / 1 (2-step) |
 | `main` | `()` | runs the module, prints the L1 / L2+L4 / L3 results + the reduced residual set + the verdict, returns `0` if `ok` |
 
 ## 14. `run_validation.py` — the TOE runner

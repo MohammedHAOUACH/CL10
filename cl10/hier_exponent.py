@@ -75,8 +75,8 @@ def loop_ladder():
     count** of the 32-D module ($2^5 = 32$, a 0-parameter number of the
     root).  The GUT dimension is thus 2× the module's qubit count.
 
-    The **same** 10-loop factor $(1/16\\pi)^{10}$ gives **two** independent
-    0-parameter results (the "9-to-1" of the root):
+    The **same** 10-loop factor $(1/16\\pi)^{10}$ gives **two statements of
+    one 0-parameter scale** (the "9-to-1" of the root):
 
     - the **hierarchy**  $v/E_P = 2.08 (1/16\\pi)^{10}$  (W8);
     - the **DM mass**    $m_{\\rm DM} = M_P (1/16\\pi)^{10} \\approx 118$ GeV (W7).

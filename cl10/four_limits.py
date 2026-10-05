@@ -19,27 +19,41 @@ honest for the **algebra**; ``g_10`` is the **single free** ('t Hooft) angle,
 so the theory is **0-parameter in the algebra, 1-parameter in the dynamics**.
 
 **L2 (hierarchy) + L4 (DM).**  The **same** loop count ``n = 10`` is the
-**unique** ``n`` in ``1..20`` that simultaneously (i) puts the hierarchy at
-``2.08 (1/16\pi)^10`` (observed ``2.016e-17``) and (ii) puts the DM mass at
-``M_P (1/16\pi)^10 = 118`` GeV (the WIMP window).  **One number, two
-independent constraints, one solution.**  The only 2-digit residuals are
-``2.08`` (hierarchy) and ``1.18`` (DM).
+**unique** ``n`` in ``1..20`` within **one decade** (a factor of 10) of
+**both** closures: (i) the hierarchy ``2.08 (1/16\pi)^10`` (observed
+``2.016e-17``) and (ii) the DM mass ``M_P (1/16\pi)^10 = 118`` GeV (the
+WIMP window).  The two closures are **two statements of one scale**
+(the "9-to-1"), **not** two independent constraints (the hierarchy is
+``2.08 x`` the WIMP mass).  The strict **factor-2** test of both is
+**empty** (for ``n = 10`` the hierarchy is off by a factor ``2.08 > 2``);
+the uniqueness holds for the one-decade window.  The 2-digit
+coefficients ``2.08`` (hierarchy) and ``1.18`` (DM) are **named
+residuals**: ``observed / 10-loop factor``, computed from the data,
+**not** derived.
 
-**L3 (baryogenesis — the weakest).**  The **rank-1** (1 heavy ``N``) Yukawa
-has **0** irreducible CP phases (every ``2x2`` minor is real, so
-``Im det(Y) = 0``: no CP violation, no baryon -- a theorem).  The **2-step**
-(2 heavy ``N``) Yukawa has **1** irreducible CP phase: the 2x2 CP-odd
-``Im det(Y) = -sin(delta)``, nonzero for ``delta != 0``.  So the baryon
-asymmetry requires **exactly one** CP phase -- the **minimal** irreducible
-input -- and the 0-parameter structure (the 2 ``N``'s from the 2-step ladder,
-the ``g_0^4/16\pi`` 1-loop CP rate, the ``(1/16\pi)^2`` dilution, the ``28/79``
-sphaleron) fixes the rest: ``6.8e-10``, ratio ``1.12`` to the observed
-``6.1e-10``.
+**L3 (baryogenesis — the weakest).**  The **rank-1** (1 heavy ``N``)
+Yukawa has **0** irreducible CP phases (every ``2x2`` minor is real, so
+``Im det(Y) = 0``: no CP violation, no baryon -- a theorem).  The
+**2-step** (2 heavy ``N``) Yukawa has **1** irreducible CP phase: the
+2x2 CP-odd ``Im det(Y) = -sin(delta)``, nonzero for ``delta != 0``.  So
+the baryon asymmetry requires **exactly one** CP phase -- the
+**minimal** irreducible input.  The 0-parameter **factors** (the 2
+``N``'s from the 2-step ladder, the 1-loop CP rate ``g_0^4/16\pi`` at the
+0-parameter coupling ``g_0 = 1/8`` (a **mapping convention**, not a
+computed leptogenesis vertex), the ``(1/16\pi)^2`` dilution, the
+``28/79`` sphaleron) give the **right order** ``6.8e-10`` (ratio
+``1.12`` to the observed ``6.1e-10``); the audit's CP-odd theorem gives
+``epsilon_CP = 0`` in the 0-parameter QCA *alone* -- the **named** CP
+phase is what switches it on.
 
-**The reduction (the solution).**  The four "limits" reduce to exactly: the
-0-parameter **algebra** (holds; ``g_10``-invariant), **one** free 't Hooft
-angle (``g_10``), **two** mapping conventions (``g_0``, ``M_GUT = M_P``),
-**one** 2-digit coefficient (``2.08``), and **one** irreducible CP phase
+**The reduction (the solution).**  The four "limits" reduce to exactly:
+**0 free parameters in the algebra** (the 7 invariants hold for **every**
+``g_10``), **one** 't Hooft angle of the *dynamics* (``g_10``) whose
+**selected value** ``1/n_qubits = 1/5`` is a **0-parameter selection
+rule** (the *reading* is the audit's *convention* class, not a
+derivation), **two** further mapping conventions (``g_0``,
+``M_GUT = M_P``), **two** 2-digit coefficients (``2.08``, ``1.18`` --
+**named**, read from the data), and **one** irreducible CP phase
 (``delta``).  Nothing else.
 """
 
@@ -118,15 +132,21 @@ def _log10_loop(n):
 
 def unique_10loop(max_n=20):
     r"""**L2 + L4.**  For each loop count ``n`` the ladder gives
-    ``(1/16\pi)^n`` (the hierarchy) and ``M_P (1/16\pi)^n`` (a mass scale).
-    We find the ``n`` that **simultaneously** matches (i) the observed
-    hierarchy ``v/E_P = 2.016e-17`` and (ii) the WIMP mass window
-    (``~100`` GeV).  ``n = 10`` is the **unique** ``n`` that is within a
-    factor 2 of **both** -- one number satisfying two independent
-    constraints.
+    ``(1/16\pi)^n`` (the hierarchy) and ``M_P (1/16\pi)^n`` (a mass
+    scale).  We find the ``n`` that matches (i) the observed hierarchy
+    ``v/E_P = 2.016e-17`` and (ii) the WIMP mass window (``~100`` GeV,
+    the *center* of the WIMP-miracle window -- a convention, **not** a
+    measurement).  ``n = 10`` is the **unique** ``n`` in
+    ``1..max_n`` within **one decade** (a factor of 10) of **both**
+    closures.  The two closures are **two statements of one scale**
+    (the "9-to-1"), **not** two independent constraints; the strict
+    **factor-2** test of both is **empty**.  The returned coefficients
+    ``coeff_hierarchy`` (``2.08``) and ``coeff_dm`` (``1.18``) are
+    **named residuals**: ``observed / 10-loop factor``, computed from
+    the data, **not** derived.
     """
-    hier_obs = float(V_EW / M_P)          # 2.016e-17
-    dm_obs = 100.0                       # GeV (the WIMP-miracle reference)
+    hier_obs = float(V_EW / M_P)          # 2.016e-17 (the measured value)
+    dm_obs = 100.0                       # GeV (the WIMP-miracle window center; ~50-1000 GeV: a convention, not a measurement)
     lh_obs = float(np.log10(hier_obs))    # ~ -16.70
     ld_obs = float(np.log10(dm_obs))      # ~ 2.0
     scan = []
@@ -143,10 +163,12 @@ def unique_10loop(max_n=20):
             "combined_dev": float(abs(np.log10(h) - lh_obs) + abs(np.log10(m) - ld_obs)),
         })
     best = min(scan, key=lambda r: r["combined_dev"])
-    # the uniqueness: no other n is within a factor 2 of BOTH
+    # the uniqueness: no other n is within one decade (a factor 10) of BOTH
     both_ok = [r["n"] for r in scan if r["hier_dev"] < 1.0 and r["dm_dev"] < 1.0]
-    coeff_hier = float(hier_obs / LOOP ** best["n"])     # ~2.08
-    coeff_dm = float(best["dm_GeV"] / dm_obs)            # ~1.18
+    # the strict factor-2 test of both closures (a decade = 1.0, factor 2 = 0.301)
+    both_ok_f2 = [r["n"] for r in scan if r["hier_dev"] < 0.301 and r["dm_dev"] < 0.301]
+    coeff_hier = float(hier_obs / LOOP ** best["n"])     # ~2.08 (named residual: observed / 10-loop)
+    coeff_dm = float(best["dm_GeV"] / dm_obs)            # ~1.18 (named residual: 10-loop / window center)
     return {
         "backend": _backend(),
         "n_gen": int(N_GEN),
@@ -154,8 +176,9 @@ def unique_10loop(max_n=20):
         "2_is_chiral_split": True,
         "5_is_qubit_count": True,
         "n_best": int(best["n"]),
-        "unique_n_within_factor2_of_both": bool(len(both_ok) == 1 and both_ok[0] == best["n"]),
-        "n_candidates_within_factor2": both_ok,
+        "unique_n_within_1decade_of_both": bool(len(both_ok) == 1 and both_ok[0] == best["n"]),
+        "n_candidates_within_1decade": both_ok,
+        "factor2_test_of_both_empty": bool(len(both_ok_f2) == 0),
         "coeff_hierarchy": coeff_hier,
         "coeff_dm": coeff_dm,
         "n_best_combined_dev": float(best["combined_dev"]),
@@ -163,10 +186,12 @@ def unique_10loop(max_n=20):
         "scan": scan,
         "verdict": (
             "the SAME loop count n = 10 (= 2 x 5: chiral x qubits) is the "
-            "unique n that matches BOTH the hierarchy (2.08 (1/16pi)^10) and "
-            "the DM WIMP mass (1.18 x 100 GeV = 118 GeV): one 0-parameter "
-            "number, two independent constraints, one solution; the only "
-            "2-digit residuals are 2.08 and 1.18"
+            "unique n in 1..20 within one decade of BOTH closures (the "
+            "hierarchy 2.08 (1/16pi)^10 and the DM WIMP mass 1.18 x 100 "
+            "GeV = 118 GeV): two statements of one scale (the 9-to-1), "
+            "not two independent constraints; the strict factor-2 test "
+            "of both is EMPTY.  The 2-digit coefficients 2.08 and 1.18 "
+            "are NAMED residuals (observed / 10-loop factor), not derived"
         ),
     }
 
@@ -236,28 +261,35 @@ def cp_phase_reduction():
             "CP violation, no baryon -- the theorem); the 2-step (2 heavy N) "
             "seesaw has 1 irreducible CP phase (the one CP-odd Im det(Y) = |sin delta|). "
             "So the baryon asymmetry requires EXACTLY ONE CP phase -- the "
-            "minimal irreducible input -- and the 0-parameter structure (the "
-            "2 N's from the 2-step ladder, the g_0^4/16pi 1-loop rate, the "
-            "(1/16pi)^2 dilution, the 28/79 sphaleron) fixes the rest: "
-            "6.8e-10, ratio 1.12 to the observed 6.1e-10"
+            "minimal irreducible input.  The 0-parameter FACTORS (the 2 N's "
+            "from the 2-step ladder, the g_0^4/16pi 1-loop rate at the "
+            "0-parameter coupling g_0 = 1/8 -- a mapping convention, not a "
+            "computed leptogenesis vertex -- the (1/16pi)^2 dilution, the "
+            "28/79 sphaleron) give the RIGHT ORDER 6.8e-10 (ratio 1.12 to "
+            "the observed 6.1e-10); the 0-parameter QCA alone gives epsilon_CP = 0 "
+            "(the CP-odd theorem) -- the NAMED CP phase is what switches it on"
         ),
     }
 
 
 # ---------------------------------------------------------------------------
-# the 0-parameter provenance of the couplings (g_10, g_0): they are COMPUTED
+# the 0-parameter *selection rules* of the couplings (g_10, g_0)
 # ---------------------------------------------------------------------------
 
 def coupling_provenance():
-    r"""**The 0-parameter provenance of the two GUT couplings** -- they are
-    *computed* from the root, not free:  ``g_10 = 1/n_qubits = 1/5`` (the 32-D
-    module, ``2^5 = 32``) and ``g_0 = 1/2^{n_space} = 1/2^3 = 1/8`` (the 3
-    spatial directions).  Both are **numbers of the root**, so the theory has
-    **0 free parameters**; the only residual is the *mapping* (how to read a
-    root number as a coupling) -- Point 1's honest caveat (a convention, not
-    a fit).  Also records that the QCA ``U(g_10)`` is **real** (CP-even), so
-    the CP phase is **independent** of ``g_10`` (the delta<->g_10 hypothesis is
-    false).
+    r"""**The 0-parameter *selection rules* of the two GUT couplings.**
+    ``g_10 = 1/n_qubits = 1/5`` (the 32-D module, ``2^5 = 32``) and
+    ``g_0 = 1/2^{n_space} = 1/2^3 = 1/8`` (the 3 spatial directions) are
+    **numbers of the root** that *name* the family member: **0-parameter
+    selection rules**.  The *reading* (root number -> coupling) is the
+    **mapping convention** of the audit's *convention* class (Point 1's
+    honest caveat: a convention, not a fit, and **not** a derivation -- no
+    0-parameter condition selects the angle: the 2-loop U(1) Landau pole
+    lies below the cutoff for every ``g_10``).  The **dynamics** is the
+    one-parameter family ``U(g_10)``; the **algebra** has **0 free
+    parameters** (the 7 invariants are g_10-invariant).  Also records that
+    the QCA ``U(g_10)`` is **real** (CP-even), so the CP phase is
+    **independent** of ``g_10`` (the delta<->g_10 hypothesis is false).
     """
     n_qubits = N_QUBITS
     n_space = N_SPACE
@@ -277,20 +309,25 @@ def coupling_provenance():
         "g0_is_0param": bool(g0_is_0param),
         "qca_cp_even": True,            # U(g_10) is a product of real cos/sin rotations
         "delta_independent_of_g10": True,
-        "n_free_parameters": 0,
+        "n_free_parameters_in_algebra": 0,
+        "n_free_parameters_in_dynamics": 1,
         "mapping_conventions": [
             "g_10 = 1/n_qubits = 1/5 read as the GUT coupling (5 qubits of the 32-D module)",
             "g_0 = 1/2^n_space = 1/8 read as the GUT coupling (3 spatial directions)",
             "M_GUT = M_P (the GUT scale identified with the Planck scale: two 0-parameter scales)",
         ],
         "verdict": (
-            "g_10 = 1/5 and g_0 = 1/8 are 0-parameter-COMPUTED from the root "
-            "(g_10 = 1/n_qubits = 1/5, g_0 = 1/2^n_space = 1/8): the theory "
-            "has 0 free parameters.  The only residual is the MAPPING (how to "
-            "read a root number as a coupling, and identifying M_GUT with "
-            "M_P) -- Point 1's honest caveat, a convention not a fit.  The "
-            "QCA U(g_10) is REAL (CP-even), so the CP phase is INDEPENDENT of "
-            "g_10 (the delta<->g_10 hypothesis is false)."
+            "g_10 = 1/5 and g_0 = 1/8 are 0-parameter SELECTION RULES from "
+            "the root (g_10 = 1/n_qubits = 1/5, g_0 = 1/2^n_space = 1/8): "
+            "the dynamics is the one-parameter family U(g_10) whose SELECTED "
+            "value is a root number (the reading is the audit's mapping "
+            "convention, not a derivation); the algebra has 0 free "
+            "parameters (the 7 invariants are g_10-invariant).  The only "
+            "residuals are the MAPPING (how to read a root number as a "
+            "coupling, and identifying M_GUT with M_P) -- Point 1's honest "
+            "caveat, a convention not a fit.  The QCA U(g_10) is REAL "
+            "(CP-even), so the CP phase is INDEPENDENT of g_10 (the "
+            "delta<->g_10 hypothesis is false)."
         ),
     }
 
@@ -302,24 +339,28 @@ def coupling_provenance():
 def four_limits():
     """The unified solution to the four limits: the 4 projections of one
     0-parameter invariant (``10 = 2 x 5``) plus one irreducible CP phase,
-    reduced to the minimum residual set -- with the two GUT couplings proven
-    to be **0-parameter-COMPUTED** (so the theory has 0 free parameters)."""
+    reduced to the minimum residual set -- **0 free parameters in the
+    algebra** (the invariants hold for every ``g_10``), **1** 't Hooft
+    angle of the dynamics with a **0-parameter selection rule**
+    (``g_10 = 1/5``), **2** mapping conventions, **2** two-digit
+    coefficients (named), **1** CP phase (named)."""
     l1 = invariance_g10()
     l24 = unique_10loop()
     l3 = cp_phase_reduction()
     cp = coupling_provenance()
-    # the PRECISE residual set (0 free parameters):
+    # the PRECISE residual set:
     residual_set = {
-        "free_parameters": 0,                     # g_10 = 1/5, g_0 = 1/8 are COMPUTED (5 qubits, 3 dims)
-        "two_digit_coefficients": 2,              # 2.08 (hierarchy), 1.18 (DM): order 0-param, exact 2-digit value named
-        "irreducible_cp_phases": int(l3["minimal_cp_phases_required"]),  # 1 (the 2-step; baryon MAGNITUDE 0-param via V55)
+        "free_parameters_in_algebra": 0,        # the 7 invariants hold for every g_10 (L1)
+        "free_parameters_in_dynamics": 1,       # the 't Hooft angle g_10 (the value 1/5 is a 0-param selection rule)
+        "two_digit_coefficients": 2,            # 2.08 (hierarchy), 1.18 (DM): order 0-param, exact 2-digit values NAMED (read from data)
+        "irreducible_cp_phases": int(l3["minimal_cp_phases_required"]),  # 1 (the 2-step; baryon magnitude = right order via V55)
     }
     total_named = int(residual_set["two_digit_coefficients"]
                       + residual_set["irreducible_cp_phases"])
     all_resolved = bool(
         l1["g10_invariant"]
         and l24["n_best"] == N_GEN
-        and l24["unique_n_within_factor2_of_both"]
+        and l24["unique_n_within_1decade_of_both"]
         and l3["rank1_cp_phases"] == 0
         and l3["minimal_cp_phases_required"] == 1
         and 0.5 <= l3["delta_B_ratio"] <= 2.0
@@ -338,19 +379,23 @@ def four_limits():
         "mapping_conventions": cp["mapping_conventions"],
         "all_resolved": all_resolved,
         "verdict": (
-            "0 FREE PARAMETERS.  g_10 = 1/5 and g_0 = 1/8 are 0-parameter-"
-            "COMPUTED from the root (1/n_qubits, 1/2^n_space).  The 4 limits "
-            "reduce to 3 named quantities: 2 two-digit coefficients (2.08, "
-            "1.18 -- the ORDER is 0-param, the exact 2-digit value is named) "
-            "and 1 irreducible CP phase (the 2-step; its baryon MAGNITUDE is "
-            "0-param via V55, the phase is the CP-violating input).  The "
-            "mapping conventions (how to READ the 0-param g_10, g_0, "
-            "M_GUT=M_P as physical quantities) are Point 1's honest caveat.  "
-            "L1: the 7 algebraic invariants are g_10-invariant (proven); "
-            "L2+L4: one loop count n=10 satisfies two independent constraints "
-            "(unique); L3: baryogenesis needs exactly one CP phase.  The "
-            "delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / "
-            "CP-even, so the CP phase is independent of g_10)."
+            "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for "
+            "every g_10).  The dynamics is the one-parameter family "
+            "U(g_10); the selected value g_10 = 1/5 is a 0-parameter "
+            "SELECTION RULE (1/n_qubits; the reading is the mapping "
+            "convention, not a derivation).  The 4 limits reduce to 3 "
+            "NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the "
+            "ORDER is 0-param, the exact values are read from the data) "
+            "and 1 irreducible CP phase (the 2-step; the baryon magnitude "
+            "is the right order via V55; the 0-param QCA alone gives zero "
+            "by the CP-odd theorem).  The mapping conventions (the readings "
+            "of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: "
+            "the 7 algebraic invariants are g_10-invariant (proven); "
+            "L2+L4: one loop count n=10 satisfies the two statements of "
+            "one scale (unique within one decade of both; the strict "
+            "factor-2 test is empty); L3: baryogenesis needs exactly one CP "
+            "phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) "
+            "is real / CP-even, so the CP phase is independent of g_10)."
         ),
     }
 
@@ -382,18 +427,19 @@ def main():
           f"(max residual {l1['max_mirror_residual_over_grid']:.2e} over g_10=0.1..0.5)")
     l24 = d["L2_hierarchy_plus_L4_DM"]
     print(f"  [L2+L4]  unique loop count n = {l24['n_best']} (= 2 x 5):  "
-          f"unique-of-both = {l24['unique_n_within_factor2_of_both']}  "
-          f"(coeffs 2.08 = {l24['coeff_hierarchy']:.3f}, 1.18 = {l24['coeff_dm']:.3f})")
+          f"unique-within-1-decade-of-both = {l24['unique_n_within_1decade_of_both']}  "
+          f"(named residuals 2.08 = {l24['coeff_hierarchy']:.3f}, 1.18 = {l24['coeff_dm']:.3f})")
     l3 = d["L3_baryogenesis"]
     print(f"  [L3]  rank-1 CP phases = {l3['rank1_cp_phases']} (none);  "
           f"2-step (2N) CP phases = {l3['minimal_cp_phases_required']} (one)  "
           f"|DeltaB|_0param = {l3['delta_B_0param']:.2e} (ratio {l3['delta_B_ratio']:.2f})")
     cp = d["coupling_provenance"]
-    print(f"  [couplings]  g_10 = 1/{cp['n_qubits']} (0-param, {cp['n_qubits']} qubits);  "
-          f"g_0 = 1/8 (0-param, {cp['n_space']} dims);  -> 0 free parameters")
+    print(f"  [couplings]  g_10 = 1/{cp['n_qubits']} (selection rule, {cp['n_qubits']} qubits);  "
+          f"g_0 = 1/8 (selection rule, {cp['n_space']} dims);  "
+          f"-> 0 free in the algebra, 1 angle in the dynamics")
     print(f"  reduced residual set:  {d['residual_set']}  "
-          f"(total {d['total_named_residuals']} named; 0 free)")
-    print(f"  VERDICT:  {'PASS (0 free params; 3 named = 2 two-digit coeffs + 1 CP phase)' if ok else 'FAIL'}")
+          f"(total {d['total_named_residuals']} named)")
+    print(f"  VERDICT:  {'PASS (0 free in algebra; 3 named = 2 two-digit coeffs + 1 CP phase)' if ok else 'FAIL'}")
     return 0 if ok else 1
 
 

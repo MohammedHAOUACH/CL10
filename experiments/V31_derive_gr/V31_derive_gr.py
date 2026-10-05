@@ -106,8 +106,8 @@ def main():
     print("V31 - deriving GR from the QCA (the metric dynamics -> Einstein-Hilbert)")
     print(f"  backend (GPU):  {lin['backend']}")
     print(f"  the light cone (c=1) is a GUT sub-algebra:  {'OK' if lin['light_cone_ok'] else 'FAIL'}")
-    print("  the linearised metric dynamics:  the free wave = the MASSLESS SPIN-2 graviton")
-    print(f"    the {lin['n_polarizations']} polarizations (helicity +-2), the c = {lin['c']}")
+    print("  the linearised metric dynamics:  the free wave = MASSLESS (c=1, UV-bounded) + the DECLARED spin-2 (the (1,3) metric field)")
+    print(f"    the {lin['n_polarizations']} polarizations (helicity +-2: DECLARED structure), the c = {lin['c']}")
     print(f"    the continuum dispersion:  omega/|k| = {lin['continuum_ratio']:.4f} -> 1 (massless)")
     print(f"    the UV-bounded Brillouin zone:  omega_max = {lin['omega_max']:.4f}")
     print("  the Einstein-Hilbert action (0-parameter):  S = (1/16*pi) INT sqrt(-g) R")
@@ -121,7 +121,7 @@ def main():
     print(f"  the Schwarzschild black-hole:  M = {bh['M']}, horizon = {bh['horizon']}, "
           f"R_vacuum = {bh['R_vacuum']:.0f}")
     print(f"    the Kretschmann curvature invariant K = {bh['Kretschmann']:.4f}")
-    print(f"  VERDICT:  {'PASS (the QCA metric dynamics -> the Einstein-Hilbert: the massless spin-2 + the computed Riemann curvature + the non-linear soliton + the black hole)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the QCA metric dynamics -> the Einstein-Hilbert: the massless, UV-bounded free wave + the computed Riemann curvature + the non-linear soliton + the black hole)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v31_derive_gr.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

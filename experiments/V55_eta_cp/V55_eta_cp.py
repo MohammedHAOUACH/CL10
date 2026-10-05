@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-V55 — the baryon asymmetry as a **product of 0-parameter numbers** (W5).
+V55 — the baryon asymmetry as a **product of 0-parameter factors** (W5).
 
 The W5 residual (Section 13): the **CP-violating factor** $\eta_{CP}$ in the
 heavy-$N$ decay (V40 takes $\eta_{CP} = 10^{-3}$, the observed range
 $10^{-3}\text{–}10^{-2}$).  This experiment presents the baryon asymmetry
-as a **product of 0-parameter numbers** (the physical GUT-leptogenesis
+as a **product of 0-parameter factors** (the physical GUT-leptogenesis
 structure):
 
     \Delta B \;=\; \frac{28}{79}\;\varepsilon_{CP}\;D
 
 with $\frac{28}{79}$ = the **SM sphaleron**, $\varepsilon_{CP} = g_0^4/16\pi$
-= the **1-loop CP-odd** asymmetry ($g_0 = 1/8 = 1/2^3$, **3** = the spatial
-dimension), and $D = (1/16\pi)^2$ = the **2-loop dilution**.  **Every number
-is 0-parameter** (root / QFT / SM); the loop counts are $1$ (CP) $+$
-$2$ (dilution) $= 3$.  The result is $\Delta B = 6.8e-10$, a **ratio 1.12**
-to the observed $6.1e-10$ (a **12%** match).  The **named residual**: the
-CP **phase** (which makes $\varepsilon_{CP}$ nonzero) and the 2-digit ratio
-1.12.
+= the **1-loop CP-odd rate** ($g_0 = 1/8 = 1/2^3$, **3** = the spatial
+dimension -- the *reading* is the audit's mapping convention), and
+$D = (1/16\pi)^2$ = the **2-loop dilution**.  The **factors** are
+0-parameter (root / QFT / SM); the 0-parameter QCA **alone** gives
+$\varepsilon_{CP} = 0$ (the CP-odd theorem) -- the asymmetry is nonzero
+**only** through the **named** irreducible CP phase $\delta$
+($\mathcal{O}(1)$).  The result is $\Delta B = 6.8e-10$, a **ratio 1.12**
+to the observed $6.1e-10$ -- the 2-digit ratio is a **named residual**
+(read from the data).
 """
 import sys
 import os
@@ -45,10 +47,11 @@ def main():
         "property": "P5,P6",
         "residual": True,   # the exact 2-digit CP magnitude and the exact Delta_B are the named residual
         "pass": bool(ok),
-        "status": ("the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_0-parameter_numbers_"
-                   "(28/79_the_SM_sphaleron; eps_CP=g0^4/16pi_the_1-loop_CP-odd_asymmetry_with_g0=1/2^3; "
+        "status": ("the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_0-parameter_FACTORS_"
+                   "(28/79_the_SM_sphaleron; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; "
                    "D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; "
-                   "the_CP_phase_and_the_2-digit_ratio_are_the_named_residual"),
+                   "the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); "
+                   "the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -83,7 +86,7 @@ def main():
     with open(os.path.join(outdir, "v55_eta_cp.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V55 - the baryon asymmetry as a product of 0-parameter numbers (W5)")
+    print("V55 - the baryon asymmetry as a product of 0-parameter factors (W5)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
     print("  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
@@ -94,7 +97,7 @@ def main():
     print(f"  0-parameter Delta_B = {d['delta_B_0param']:.3e}   (observed {d['delta_B_observed']:.1e};  ratio {d['delta_B_ratio']:.3f})")
     print(f"  V40 comparison:  Delta_B = {d['delta_B_v40']:.3e}  (ratio {d['delta_B_ratio_v40']:.3f})")
     print(f"  named residual (W5):  {verdict['data']['residual']}")
-    print(f"  VERDICT:  {'PASS (the baryon asymmetry is a product of 0-parameter numbers; 12% match; the CP phase is the named residual)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (factors 0-parameter; right order 1.12; QCA alone gives eps_CP = 0; the CP phase + 2-digit ratio are the named residuals)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v55_eta_cp.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

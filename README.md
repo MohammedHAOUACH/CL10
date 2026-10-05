@@ -17,8 +17,9 @@ generation, $16 = 10 \oplus 5\bar \oplus 1 \oplus \nu^c$), the gauge is the
 $(1,3)$ sub-algebra.
 
 **Nothing is added.** Every structure (spacetime, matter, gauge, statistics,
-gravity) is a property of the **one** object $\mathrm{Cl}(10)$; the theory has
-**0 free parameters**.
+gravity) is a property of the **one** object $\mathrm{Cl}(10)$; the
+**algebra** has **0 free parameters** (the 't Hooft angle of the dynamics
+carries a 0-parameter selection rule).
 
 ## The single object
 
@@ -157,18 +158,20 @@ The **honest parameter audit** (Section 15, V52) turns the four limits
 **Section 16** (V59, `cl10.four_limits`) goes further and **unifies** them:
 the four "limits" are the four projections of one 0-parameter invariant,
 $10 = 2 \times 5$ (the chiral $16/16$-bar split times the 5 qubits of the
-32-D module), **plus one irreducible CP phase** — and the theory has **0 free
-parameters** ($g_{10}=1/5$ and $g_0=1/2^3$ are 0-parameter-computed from the
-root).  The named residual set is the minimum: **2 two-digit coefficients
-(2.08, 1.18) + 1 CP phase = 3**, plus the mapping conventions (Point 1).
+32-D module), **plus one irreducible CP phase** — and the **algebra** has
+**0 free parameters** ($g_{10}=1/5$ and $g_0=1/2^3$ are 0-parameter
+**selection rules** of the root; their *reading* is the audit's mapping
+convention).  The named residual set is the minimum: **1 't Hooft angle of
+the dynamics + 2 two-digit coefficients (2.08, 1.18 — *named*, read from
+the data) + 1 CP phase = 3**, plus the mapping conventions (Point 1).
 
 The **completion program** (V36–V42, V46, V50, V51, tier 6 — Section 12 of
 `doc/publication.md`)
 closes the gap from a consistent 0-parameter framework to a **complete**
 TOE: the **local** QCA (the causal radius *implemented*, C1), the
 **dynamics derived from the 0-parameter Einstein–Hilbert action** (C2), the
-**0-parameter numbers derived from the root** ($g_{10}=1/5$ from the 5
-qubits, $g_0=1/8$ from the 3-space, C3), the **three families inside the
+the **0-parameter selection rules** of the numbers of the root ($g_{10}=1/5$
+from the 5 qubits, $g_0=1/8$ from the 3-space, C3), the **three families inside the
 dynamics** (the 96-D 0-parameter unitary step, C4), the **baryon asymmetry
 at the right order** (the 0-parameter GUT leptogenesis mechanism, C5), the
 **S-matrix of the QCA** (the 't Hooft program, C6), the **quantified

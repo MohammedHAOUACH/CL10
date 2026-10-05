@@ -2,5 +2,6 @@
 __pycache__/
 *.pyc
 .ruff_cache/
-results/
+results/*
+!results/validation_summary.json
 *.egg-info/

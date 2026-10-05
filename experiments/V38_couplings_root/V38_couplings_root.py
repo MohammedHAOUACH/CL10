@@ -1,18 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V38 — the 0-parameter numbers **are numbers of the root** (C3): the GUT
-coupling, the Dirac coupling, and the 1-loop running DOWN to M_Z (quantified).
+"""V38 — the numbers of the root **read as 0-parameter couplings** (C3):
+the GUT coupling, the Dirac coupling, and the 1-loop running DOWN to M_Z (quantified).
 
 **The gap (before).**  The GUT coupling ``alpha_10 = 1/25`` and the Dirac
 coupling ``g_0 = 1/8`` were *chosen* rationals labelled "0-parameter".
 
-**The 0-parameter derivation.**  The 32-D module of the Cl(10) root is a
+**The 0-parameter selection rule.**  The 32-D module of the Cl(10) root is a
 **2^5** space (the symplectic Pauli pattern: **5** qubits, 10 = 2x5
-generators), so the GUT coupling is a **number of the root**:
-$g_{10} = 1/n_{qubits} = 1/5$, $\\alpha_{10} = g_{10}^2 = 1/25$.  The
-**Dirac** coupling (W2) is $g_0 = 1/2^{n_{space}} = 1/2^3 = 1/8$, the **3**
-being the spatial dimension of the (1,3) (the same 0-parameter number as the
-family count — one number, two uses).
+generators), so the GUT coupling is a **number of the root** read as a
+coupling: $g_{10} = 1/n_{qubits} = 1/5$, $\alpha_{10} = g_{10}^2 = 1/25$ —
+a **0-parameter selection rule** (the *reading* is the audit's mapping
+convention, not a derivation: no 0-parameter condition selects the angle —
+the audit's Point 1).  The **Dirac** coupling (W2) is
+$g_0 = 1/2^{n_{space}} = 1/2^3 = 1/8$, the **3** being the spatial
+dimension of the (1,3) (the same 0-parameter number as the family count —
+one number, two uses).
 
 **The 1-loop running DOWN (quantified, the named residual).**  The QCA
 lattice UV cutoff is the **Planck** scale with the 0-parameter UV input
@@ -90,7 +93,7 @@ def main():
     with open(os.path.join(outdir, "v38_couplings_root.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V38 - the 0-parameter numbers ARE NUMBERS OF THE ROOT (C3)")
+    print("V38 - the numbers of the root read as 0-parameter couplings (C3)")
     print("=" * 68)
     print(f"  backend (GPU):  {root['backend']}")
     print(f"  (1) the GUT coupling from the root:  the module is 2^{root['n_qubits']} = {root['n_module']} (the 5 qubits)")

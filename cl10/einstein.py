@@ -6,16 +6,20 @@ action (the Riemann tensor) + the non-linear metric (the soliton) + the
 black-hole (the horizon, the Kretschmann invariant) in the continuum limit.
 
 The QCA spacetime is the discrete (1,3) sub-algebra of the GUT Cl(10) (see
-``spacetime.py``).  Its metric ``g^{mu nu}`` has a **dynamics**: the linearised
-perturbation ``h`` is a **free wave** on the discrete Laplacian (V6), i.e. the
-**massless spin-2 graviton**.  This module is the **non-linear completion** of
-that linearised theory -- the parts that turn the free graviton into **GR**:
+``spacetime.py``).  Its metric ``g^{mu nu}`` has a **dynamics**: the
+linearised perturbation ``h`` is a **free wave** on the discrete Laplacian
+(V6).  This module is the **non-linear completion** of that linearised
+theory -- the parts that turn the free wave into **GR**:
 
-- **The linearised part** (0-parameter, G=1): the metric perturbation obeys
-  the discrete free wave (the 2 helicity ``+-2`` polarizations, **massless**
-  ``c=1``, **UV-bounded** by the lattice Brillouin zone).  The discrete
-  Laplacian is the 0-parameter spatial operator (V6); the light cone is a GUT
-  sub-algebra (``spacetime``).
+- **The linearised part** (0-parameter, G=1): the **computed** discrete
+  free wave is **massless** (``c = 1``) and **UV-bounded** (the lattice
+  Brillouin zone).  The **spin-2** character (the 2 helicity ``+-2``
+  polarizations of the tensor perturbation ``h^{mu nu}``) is the
+  **declared structure** of the ``(1,3)`` metric field -- the **one
+  relaxation of P0 for gravity** (the lattice computes the *dispersion*,
+  not a representation computation).  The discrete Laplacian is the
+  0-parameter spatial operator (V6); the light cone is a GUT sub-algebra
+  (``spacetime``).
 
 - **The Einstein-Hilbert action** (0-parameter): ``S = (1/16*pi) INT sqrt(-g)
   R`` with ``G = 1`` (Planck units).  We **compute** the Riemann tensor / Ricci
@@ -76,13 +80,18 @@ def _lap4(x, shape):
     return L / 6.0
 
 def linearized_graviton(L=20):
-    """The linearised metric dynamics: the discrete free wave (the massless spin-2
-    graviton).  Compute the **lattice dispersion** of the discrete Laplacian on the
-    torus (the free-wave eigenmodes) and verify the **continuum massless** limit
-    (``omega ~ |k|``, ``c=1``) + the **UV-bounded** Brillouin zone.
+    """The linearised metric dynamics.  Computes the **lattice dispersion**
+    of the **scalar** discrete Laplacian on the torus (the free-wave
+    eigenmodes) and verifies the **continuum massless** limit (``omega ~
+    |k|``, ``c = 1``) + the **UV-bounded** Brillouin zone -- this is what
+    the lattice actually computes.
 
-    The 2 independent polarizations are the **spin-2** ``+`` and ``x`` (helicity
-    ``+-2``); the (1,3) light cone is a GUT sub-algebra (``spacetime``).
+    The **spin-2** character (the 2 helicity ``+-2`` polarizations of the
+    tensor perturbation ``h^{mu nu}``) is the **declared structure** of
+    the ``(1,3)`` metric field (the one relaxation of P0 for gravity) --
+    the *declared*, not *computed*, part (no representation computation
+    is performed here).  The (1,3) light cone is a GUT sub-algebra
+    (``spacetime``).
     """
     k = np.arange(L)
     kx, ky, kz = np.meshgrid(k, k, k, indexing="ij")
@@ -109,8 +118,9 @@ def linearized_graviton(L=20):
         "L": int(L),
         "c": 1.0,
         "massless": True,
-        "helicity": 2,
-        "n_polarizations": 2,
+        "helicity": 2,               # DECLARED: the spin-2 + / x polarizations (the (1,3) metric field; one relaxation of P0, not computed)
+        "n_polarizations": 2,        # DECLARED: the 2 polarizations of h^{mu nu} (declared structure, not a computed representation)
+        "spin2_declared": True,
         "light_cone_ok": light_cone()["ok"],
         "continuum_ratio": continuum_ratio,   # omega/|k| for the low-lying mode -> 1
         "omega_max": omega_max,              # the UV-bounded Brillouin zone edge
@@ -458,7 +468,7 @@ def main():
     print("=" * 72)
     lin = r["linearized"]
     print(f"  linearised graviton : massless={lin['massless']} c={lin['c']} "
-          f"pol={lin['n_polarizations']} (spin-2 +-2)")
+          f"pol={lin['n_polarizations']} (spin-2 +-2: DECLARED structure, one relaxation of P0)")
     print(f"    continuum omega/|k| = {lin['continuum_ratio']:.6f} (-> 1), "
           f"UV-bounded omega_max={lin['omega_max']:.4f}")
     eh = r["einstein_hilbert"]
