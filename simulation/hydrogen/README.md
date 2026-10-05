@@ -50,14 +50,16 @@ degrades to NumPy (CPU).
 
 `--interactive` opens a live **VisPy** window with two panels:
 
-- **left** — a 3-D `ViewBox` (arcball camera, zoomed to the atom's size) with
-  the **electron cloud** `|psi|²` as a **glowing additive volume** on a
-  **purple-free "density" colormap** (black→blue→teal→yellow: a sphere in the
-  1s, a two-lobe dumbbell in the 2p, a doughnut in the 3d — the excitation
-  deforms the shape), the **photon** `|F|²` as a **glowing additive volume**
-  with a **purple-free "fire" colormap** (black→red→orange→yellow: the
-  incoming packet flying in, the emitted radiation flying out), and the
-  **nucleus** (an orange octahedron);
+- **left** — a 3-D `ViewBox` (arcball camera, zoomed to the atom's size).
+  Keys `1`/`2`/`3` switch **both** this 3-D volume and the 2-D cut to one of
+  the three fields: the **electron** cloud `|psi|²` (a glowing additive volume
+  on a **purple-free "density" colormap** — black→blue→teal→yellow: a sphere
+  in the 1s, a two-lobe dumbbell in the 2p, a doughnut in the 3d — the
+  excitation deforms the shape), the **photon** `|F|²` (the **electromagnetic**
+  field, a glowing additive volume on a **fire** colormap — black→red→orange→
+  yellow: the incoming packet flying in, the emitted radiation flying out), or
+  the **Coulomb potential** `W` (the well: a bright core fading to the far
+  field);
 - a **HUD** (bottom-left of the 3-D view): the live populations, the atom
   energy in eV, the excited fraction, the fired photon's frequency, and the
   mode.
@@ -76,7 +78,7 @@ in the lab):
 | `l` | fire a **1s→3p** photon (12.1 eV, 102.6 nm) |
 | `b` | fire a **2p→3d** photon (1.89 eV, 656 nm) — the atom is set to the 2p first |
 | `o` | fire an **off-resonant** photon (between the gaps) — the control shot: not absorbed |
-| `1` / `2` / `3` | the 2-D cut mode: the electron `|psi|²` / the photon `|F|²` / the potential `W` |
+| `1` / `2` / `3` | the display mode: **both** the 3-D volume and the 2-D cut show the electron `|psi|²` / the photon `|F|²` (the EM field) / the potential `W` |
 | `Space` | pause / resume |
 | `+` / `-` | the speed (QCA steps per frame) |
 | `g` / `r` | reset the atom to the 1s and clear the photon fields |

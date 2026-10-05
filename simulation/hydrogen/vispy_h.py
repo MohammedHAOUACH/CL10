@@ -12,7 +12,9 @@ The look matches the headless video (the old-project style):
   * the **CL10 photon** ``(|F|**2 + |F_out|**2)`` as a faint MIP volume -- the
     packet that flies in, is **absorbed**, and is **re-radiated**;
   * the **nucleus** as a small octahedron at the centre;
-  * a **2-D mid-plane cut** (the shape, front-on) + a HUD on the right.
+  * a large **2-D mid-plane cut** (the shape, front-on) on the right, plus two
+    text panels: a **top-left** title + key list and a **bottom-left** live
+    state with a one-line explanation that adapts to every key press;
 
 **The excitation is the dynamics, not a re-assignment** ("sans triche"):
 pressing ``e`` sends a resonant CL10 photon (a free 3-D FDTD field) and the
@@ -33,7 +35,8 @@ Keys
 - **o**  : fire an **off-resonant** photon (between the gaps) -- the control
   shot: it is *not* absorbed, the atom stays in the 1s.
 - **g**  : reset the atom to the 1s and clear the photons.
-- **1/2/3**: the 2-D **view mode** (electron / photon / potential) -- NOT a
+- **1/2/3**: the **view mode** (electron / photon / potential) -- applies to
+  BOTH the 3-D and the 2-D views (mode 2 shows the CL10 photon field).  NOT a
   state re-assignment.
 - **space**: pause / resume.   **+ / -**: the speed (QCA steps per frame).
 - **q / Esc** : quit.
@@ -56,6 +59,10 @@ DENSITY = Colormap(
     colors=["#000000", "#12237a", "#1f9aa0", "#43e08a", "#ffe94d"],
     controls=[0.0, 0.3, 0.55, 0.8, 1.0],
 )  # the electron density (black -> blue -> teal -> green -> yellow)
+COOL = Colormap(
+    colors=["#000000", "#003a5a", "#0088cc", "#a0f0ff"],
+    controls=[0.0, 0.3, 0.6, 1.0],
+)  # the potential well (black -> dark blue -> blue -> light cyan)
 
 from . import backend as B
 from . import qca as QCA
@@ -189,6 +196,16 @@ class HydroVisPy(scene.SceneCanvas):
         self.phot.transform = scene.transforms.STTransform(
             scale=(self.stride, self.stride, self.stride),
         )
+        # the potential: an additive glow volume (the Coulomb well, -1/r)
+        self.pot_data = np.zeros(vs, dtype=np.float32)
+        self.pot = scene.visuals.Volume(
+            self.pot_data, parent=self.view_3d.scene, method="additive",
+            clim=(0.0, 1.0),
+        )
+        self.pot.cmap = COOL
+        self.pot.transform = scene.transforms.STTransform(
+            scale=(self.stride, self.stride, self.stride),
+        )
 
         # the nucleus (a small octahedron at the centre)
         v, f = _nucleus_mesh(max(2.0, self.L * 0.02))
@@ -216,15 +233,24 @@ class HydroVisPy(scene.SceneCanvas):
             clim=[0.0, 1.0], interpolation="bilinear",
         )
 
-        # -- the HUD (the panel) ---------------------------------------------
-        # repositioned to the bottom-left by _maj_layout: the text's top sits
-        # at pos.y and it grows *downward*, so it sits in the corner of the
-        # 3-D view and is never cut off by the top edge (the old bug).
+        # -- the texts --------------------------------------------------------
+        # top-left: the title + the keyboard shortcuts (mostly static).
+        # NOTE: VisPy's multi-line Text anchors are inverted (font y-up vs
+        # canvas y-down): anchor_y="bottom" puts the anchor at the text's TOP
+        # so the block grows *down* from pos.y -- which is what we want here.
         self.info_text = scene.visuals.Text(
-            "", parent=self.scene, color="white", font_size=10,
+            "", parent=self.scene, color="white", font_size=11,
+            anchor_x="left", anchor_y="bottom",
+        )
+        self.info_text.pos = (12, 0)
+        # bottom-left: the live state + a one-line explanation (adapts to
+        # every key press).  anchor_y="top" -> the anchor is at the text's
+        # *bottom*, so the block grows *up* from pos.y (the bottom corner).
+        self.state_text = scene.visuals.Text(
+            "", parent=self.scene, color="#8fe8ff", font_size=11,
             anchor_x="left", anchor_y="top",
         )
-        self.info_text.pos = (12, 12)
+        self.state_text.pos = (12, 12)
 
         # -- the AGC (for the glow + photon volumes) -------------------------
         rel = float(cfg.get("agc_release", 300.0))
@@ -237,11 +263,13 @@ class HydroVisPy(scene.SceneCanvas):
         self.paused = False
         self.steps_per_frame = int(cfg.get("steps_per_frame", 4))
         self._last_photon_eV = None
+        self._msg = "pret: tire [e] Lyman-alpha pour exciter l'atome (1s->2p)"
 
         # prime the visuals
         self._maj_volume()
         self._maj_ecran()
-        self._maj_hud()
+        self._maj_text()
+
 
         if show:
             self.timer = app.Timer(
@@ -256,15 +284,22 @@ class HydroVisPy(scene.SceneCanvas):
         if not hasattr(self, "view_ecran"):
             return  # the initial resize fires before the views are built
         W, H = self.size
-        w2 = min(int(W * 0.30), H)
+        # the 2-D cut: a large square (bigger than before), centred vertically
+        # in the right half of the window.
+        w2 = min(int(W * 0.42), H)
         self.view_ecran.pos = (W - w2, (H - w2) // 2)
         self.view_ecran.size = (w2, w2)
         self.view_3d.pos = (0, 0)
         self.view_3d.size = (W - w2, H)
-        # keep the HUD in the bottom-left of the 3-D view: the text's top sits
-        # at pos.y and it grows *downward*, so leave a margin for its ~10 lines
-        # so nothing is cut off by the bottom edge (and it is not the top).
-        self.info_text.pos = (12, H - 200)
+        # the 2-D camera: match the image extent so the cut fills (and centres)
+        # the view -- no black border, the slab is centred in the panel.
+        sh_y, sh_x = self._sl_shape
+        self.view_ecran.camera.set_range(x=(0, sh_x), y=(0, sh_y))
+        # the two texts: top-left (title + keys; anchor "bottom" grows *down*
+        # from y=0) and bottom-left (state + explanation; anchor "top" grows
+        # *up* from y=H) -- both anchored so the block is inside the window.
+        self.info_text.pos = (12, 0)
+        self.state_text.pos = (12, H)
 
     def on_resize(self, event):
         super().on_resize(event)
@@ -300,14 +335,29 @@ class HydroVisPy(scene.SceneCanvas):
         cx = self.Lx // 2
         sl = f_gpu[cx, :, :][:: self.stride, :: self.stride].T
         if self.vis_mode == "potential":
-            lo = float(B.asnumpy(sl.min()))
-            hi = float(B.asnumpy(sl.max()))
-            img = B.clip((sl - lo) / max(hi - lo, 1e-9), 0.0, 1.0)
+            # the well's *magnitude* (deepest = brightest), so the core is
+            # bright and the far field dark (normalising the raw negative well
+            # would invert it: core dark, edge bright).
+            m = B.maximum(-sl, B.zeros_like(sl))
+            peak = max(float(B.asnumpy(m.max())), 1e-9)
+            img = B.clip(m / peak, 0.0, 1.0) ** 2.0
         else:
             lg = B.log1p(B.maximum(sl, B.zeros_like(sl)) * self.log_gain)
             peak = max(float(B.asnumpy(lg.max())), 1e-9)
             img = B.clip(lg / peak, 0.0, 1.0) ** self.gamma
         return B.asnumpy(img)
+
+    def _compress_potential(self, f_gpu):
+        """Compress the (negative) Coulomb well to a subsampled 0..1 array: the
+        *depth* of the well is the intensity (deepest = brightest).  A power law
+        (not log) keeps the far field dark, so the well reads as a bright core
+        instead of a uniform haze (a log keeps a smooth 1/r well bright
+        everywhere, which renders the whole box as a white glow)."""
+        m = B.maximum(-f_gpu, B.zeros_like(f_gpu))
+        m_s = m[:: self.stride, :: self.stride, :: self.stride]
+        peak = max(float(B.asnumpy(m_s.max())), 1e-9)
+        data = B.clip(m_s / peak, 0.0, 1.0) ** 2.0
+        return B.asnumpy(data)
 
     # ------------------------------------------------------------------
     # the periodic updates
@@ -318,7 +368,7 @@ class HydroVisPy(scene.SceneCanvas):
                 self.sim.step()
         self._maj_volume()
         self._maj_ecran()
-        self._maj_hud()
+        self._maj_text()
         self.update()
 
     def _maj_volume(self):
@@ -328,6 +378,13 @@ class HydroVisPy(scene.SceneCanvas):
         dp = self.sim.photon_density()
         self.phot_data[:] = self._compress(dp, self._agc_p)
         self.phot.set_data(self.phot_data)
+        dw = self.sim.W
+        self.pot_data[:] = self._compress_potential(dw)
+        self.pot.set_data(self.pot_data)
+        # the modes apply to the 3-D too: show only the current mode's volume
+        self.elec.visible = self.vis_mode == "electron"
+        self.phot.visible = self.vis_mode == "photon"
+        self.pot.visible = self.vis_mode == "potential"
 
     def _maj_ecran(self):
         if self.vis_mode == "electron":
@@ -339,29 +396,37 @@ class HydroVisPy(scene.SceneCanvas):
         img = self._compress_slab(f)
         self.ecran_img.set_data(img)
 
-    def _maj_hud(self):
+    def _maj_text(self):
+        # top-left: the title + the keyboard shortcuts (mostly static)
+        self.info_text.text = (
+            "CL10 HYDROGEN [GPU]  (%s)\n"
+            "------------------------------\n"
+            "[e] Lyman-a 1s->2p   [l] 1s->3p\n"
+            "[b] 2p->3d          [o] hors-res.\n"
+            "[1/2/3] mode 3D+2D: 1 elec / 2 photon / 3 potent.\n"
+            "[space] pause  [+/-] vitesse  [g] 1s  [q] quit"
+        ) % ("PAUSE" if self.paused else "RUN")
+        # bottom-left: the live state + the one-line explanation
         p = self.sim.populations()
         E = self.sim.atom_energy()
         om = self.sim.omega_ph
         lab = self.MODE_TITRES[self.vis_mode]
         n = self.VIEW_MODES.index(self.vis_mode) + 1
         lines = [
-            "CL10 HYDROGEN (GPU)  [%s]" % ("PAUSE" if self.paused else "RUN"),
-            "t=%-5d  E_atom=%6.2f eV  excited=%4.1f%%"
+            "t=%-5d  E_atom=%7.2f eV  exc=%5.1f%%"
             % (self.sim.t, E, 100.0 * self.sim.excited_fraction()),
         ]
         for label, pop in zip(self.sim.labels, p):
-            lines.append("  %-3s %6.3f" % (label, pop))
+            lines.append("  %-3s %7.3f" % (label, pop))
         if om > 0:
             eV = self._last_photon_eV
-            extra = " (%.2f eV)" % eV if eV else ""
-            lines.append("photon  %6.3f rad/step%s" % (om, extra))
+            extra = "  (%.2f eV)" % eV if eV else ""
+            lines.append("photon  %7.3f rad/step%s" % (om, extra))
         else:
-            lines.append("photon  (none)")
+            lines.append("photon  (aucun)")
         lines.append("mode[%d] %s" % (n, lab))
-        lines.append("[e] Lyman-a [l] 1s->3p [b] 2p->3d [o] off [g] 1s")
-        lines.append("[space] pause [+/-] speed [1/2/3] mode [q]")
-        self.info_text.text = "\n".join(lines)
+        lines.append(">>> %s" % self._msg)
+        self.state_text.text = "\n".join(lines)
 
     # ------------------------------------------------------------------
     # the keyboard shortcuts
@@ -374,7 +439,7 @@ class HydroVisPy(scene.SceneCanvas):
         width = float(self.cfg.get("photon_width", 0.0)) or None
         self.sim.fire_transition(i, j, amp=amp, width=width)
         self._last_photon_eV = self.sim.gaps_eV.get((i, j))
-        self._maj_hud()
+        self._maj_text()
 
     def on_key_press(self, event):
         k = event.key
@@ -389,16 +454,23 @@ class HydroVisPy(scene.SceneCanvas):
             return
         elif k == "space":
             self.paused = not self.paused
+            self._msg = "pause" if self.paused else "resume"
         elif k in ("+", "=", "add"):
             self.steps_per_frame = min(128, max(1, self.steps_per_frame * 2))
+            self._msg = "vitesse: %d steps/frame" % self.steps_per_frame
         elif k in ("-", "_", "subtract"):
             self.steps_per_frame = max(1, self.steps_per_frame // 2)
+            self._msg = "vitesse: %d steps/frame" % self.steps_per_frame
         elif k == "e":
             self._fire_gap(0, 1)  # Lyman-alpha: 1s -> 2p
+            self._msg = ("Lyman-alpha tire: l'atome absorbe (1s->2p), "
+                         "le photon s'efface")
         elif k == "l":
             self._fire_gap(0, 2)  # 1s -> 3p
+            self._msg = "1s->3p tire: l'atome absorbe le photon"
         elif k == "b":
             self._fire_gap(1, 3)  # 2p -> 3d
+            self._msg = "2p->3d tire (l'atome est mis en 2p d'abord)"
         elif k == "o":
             # the off-resonant control shot (between the gaps)
             self.sim.set_ground()
@@ -407,12 +479,16 @@ class HydroVisPy(scene.SceneCanvas):
                 amp=float(self.cfg.get("photon_amp", 0.7)),
             )
             self._last_photon_eV = None
+            self._msg = "hors-resonance: le photon traverse, AUCUNE absorption"
         elif k in ("g", "r"):
             self.sim.set_ground()
             self._last_photon_eV = None
+            self._msg = "reset: l'atome retourne en 1s, les photons sont effaces"
         elif k in ("1", "2", "3"):
             self.vis_mode = self.VIEW_MODES[int(k) - 1]
-        self._maj_hud()
+            self._msg = "mode %d: le 3D et le 2D montrent le(s) %s" % (
+                int(k), self.MODE_TITRES[self.vis_mode])
+        self._maj_text()
 
     # ------------------------------------------------------------------
     def run(self):
