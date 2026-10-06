@@ -187,37 +187,52 @@ def table_block(lines, caption=None):
             else "footnotesize")
     pad = ("\\setlength{\\tabcolsep}{4pt}\n" if ncol >= 4 else "")
 
-    def row(r, wrap):
+    def row(r, wrap, bold=False):
         cells = []
         for i, c in enumerate(r):
             t = inline(c)
+            if bold:
+                t = r"\textbf{" + t + "}"
             if wrap and i < ncol and widths[i]:
                 t = r"\parbox{" + f"{widths[i]}cm" + "}{" + t + "}"
             cells.append(t)
         return " & ".join(cells) + r" \\"
 
-    cap_lt = ("\\multicolumn{" + str(ncol) + "}{l}{" + inline(caption) + "} \\\\\n"
-              if caption else "")
-    cap_tab = (r"\textbf{" + inline(caption) + r"} \\[2pt]" + "\n"
-               if caption else "")
-    stretch = "\\renewcommand{\\arraystretch}{1.25}\n"
+    def caption_text():
+        # APS style: bold "Table N." label, plain caption text
+        if not caption:
+            return ""
+        m = re.match(r"^(Table \d+\.)(.*)$", caption.strip())
+        return (r"\textbf{" + m.group(1) + "}" + inline(m.group(2))
+                if m else inline(caption))
+
+    def caption_row():
+        return ("\\multicolumn{" + str(ncol) + "}{l}{" + caption_text() + "} \\\\\n"
+                + "\\addlinespace[2pt]\n")
+
+    cap_tab = (caption_text() + r" \\[4pt]" + "\n") if caption else ""
+    stretch = "\\renewcommand{\\arraystretch}{1.35}\n"
 
     if len(rows) > 8 or any(w for w in widths):
         # the Markdown caption already carries the "Table N." label, so it is
         # typeset as a header row: REVTeX overrides longtable's \caption.
-        head = row(rows[0], True)
+        # The caption sits in the FIRST head only (\endfirsthead); continuation
+        # pages repeat just the bold column headers.
+        head = row(rows[0], True, bold=True)
         rest = "\n".join(row(r, True) for r in rows[1:])
         # \footnotesize / \arraystretch must NOT sit between \begin{longtable}
         # and the \multicolumn caption row: that starts the first row and the
         # \multicolumn then becomes a misplaced \omit (and longtable loops).
         return ("{\\" + font + "\n" + pad + stretch + "\n"
-                + r"\begin{longtable}{" + "l" * ncol + "}" + "\n" + cap_lt
-                + r"\toprule" + "\n" + head + "\n" + r"\midrule" + "\n"
-                + r"\endhead" + "\n" + r"\midrule" + "\n" + r"\endfoot" + "\n"
-                + r"\bottomrule" + "\n" + r"\endlastfoot" + "\n"
-                + rest + "\n" + r"\end{longtable}" + "\n}\n")
+                + "\\begin{longtable}{" + "l" * ncol + "}" + "\n" + caption_row()
+                + "\\toprule" + "\n" + head + "\n" + "\\midrule" + "\n"
+                + "\\endfirsthead" + "\n"
+                + "\\toprule" + "\n" + head + "\n" + "\\midrule" + "\n"
+                + "\\endhead" + "\n" + "\\midrule" + "\n" + "\\endfoot" + "\n"
+                + "\\bottomrule" + "\n" + "\\endlastfoot" + "\n"
+                + rest + "\n" + "\\end{longtable}" + "\n}\n")
 
-    head = row(rows[0], False)
+    head = row(rows[0], False, bold=True)
     rest = "\n".join(row(r, False) for r in rows[1:])
     spec = "".join("p{" + f"{widths[c]}cm" + "}" if widths[c] else "l"
                    for c in range(ncol))

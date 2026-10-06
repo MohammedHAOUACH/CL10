@@ -54,11 +54,17 @@ The paper's discipline is therefore a \textbf{provenance discipline}: a number i
 \textbf{The seven criteria.} A unification claim has to be checkable, so the paper states the criteria it is judging itself against, with its own verdict on each.
 
 {\footnotesize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{lll}
+\multicolumn{3}{l}{} \\
+\addlinespace[2pt]
 \toprule
-\parbox{3.6cm}{criterion} & \parbox{4.77cm}{requirement} & \parbox{6.72cm}{verdict here} \\
+\parbox{3.6cm}{\textbf{criterion}} & \parbox{4.77cm}{\textbf{requirement}} & \parbox{6.72cm}{\textbf{verdict here}} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{3.6cm}{\textbf{criterion}} & \parbox{4.77cm}{\textbf{requirement}} & \parbox{6.72cm}{\textbf{verdict here}} \\
 \midrule
 \endhead
 \midrule
@@ -109,7 +115,7 @@ Everything derived below is representation theory of this one object plus the dy
 
 \emph{The real span of $\{T,\allowbreak{} S_1,\allowbreak{} S_2,\allowbreak{} S_3\}$ inside the grade-1 part of the algebra, equipped with the quadratic form induced by the Clifford product, is Minkowski space $\mathbb{R}^{1,\allowbreak{}3}$.}
 
-\emph{Proof.} The four generators $h_1,\allowbreak{}\dots,\allowbreak{}h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, the Clifford product gives $v^2 = (v_0^2 - \sum_a v_a^2)I$, which is the Minkowski quadratic form. $\blacksquare$
+\emph{Proof.} The four generators $h_1,\allowbreak{}\dots,\allowbreak{}h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, the Clifford product gives $v^2 = (v_0^2 - \sum_a v_a^2)I$, which is the Minkowski quadratic form.
 
 \textbf{Corollary 1 (the light cone).} \emph{A vector $v$ in that real span is null, $v^2 = 0$, if and only if $v_0^2 = \sum_a v_a^2$. The null cone of this quadratic form is the light cone of the lattice.}
 
@@ -132,12 +138,17 @@ This identification is not new to CL10: it is the standard $\mathrm{Spin}(10)$ a
 \textbf{Theorem 2 (anomaly cancellation).} \emph{All eight gauge and mixed anomaly coefficients of the 16 vanish.}
 
 {\footnotesize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{lll}
-\multicolumn{3}{l}{Table 1. The anomaly coefficients of the 16.} \\
+\multicolumn{3}{l}{\textbf{Table 1.} The anomaly coefficients of the 16.} \\
+\addlinespace[2pt]
 \toprule
-\parbox{4.25cm}{coefficient} & \parbox{9.39cm}{contribution of the 16} & value \\
+\parbox{4.25cm}{\textbf{coefficient}} & \parbox{9.39cm}{\textbf{contribution of the 16}} & \textbf{value} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{4.25cm}{\textbf{coefficient}} & \parbox{9.39cm}{\textbf{contribution of the 16}} & \textbf{value} \\
 \midrule
 \endhead
 \midrule
@@ -154,7 +165,7 @@ This identification is not new to CL10: it is the standard $\mathrm{Spin}(10)$ a
 \end{longtable}
 }
 
-\emph{Proof.} Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities in the table are the dimensions of the \emph{other} group factors (the factor 2 on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor 3 in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ is its colour triplet nature), and $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$. The charges are those of Proposition 1, fixed by the $\mathrm{SU}(5)$ embedding. $\blacksquare$
+\emph{Proof.} Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities in the table are the dimensions of the \emph{other} group factors (the factor 2 on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor 3 in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ is its colour triplet nature), and $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$. The charges are those of Proposition 1, fixed by the $\mathrm{SU}(5)$ embedding.
 
 This is the hardest consistency condition a chiral gauge theory has, and it is satisfied identically by the module content. It is the strongest single result in the paper (Fig. 9, Fig. 15).
 
@@ -170,7 +181,7 @@ The 45 generators $h_a h_b$ ($a<b$) close on the $\mathrm{Spin}(10)$ adjoint. Th
 
 \textbf{Theorem 3 (the $5/3$).} \emph{In the $\mathbf 5$ of $\mathrm{SU}(5)$ the hypercharge is $Y = \mathrm{diag}(-\tfrac13,\allowbreak{}-\tfrac13,\allowbreak{}-\tfrac13,\allowbreak{}+\tfrac12,\allowbreak{}+\tfrac12)$ with $\mathrm{Tr}\,\allowbreak{}Y^2 = \tfrac56$, while the non-Abelian generators obey $\mathrm{Tr}\,\allowbreak{}T_aT_b = \tfrac12\delta_{ab}$. Requiring a single unified coupling $g_5$ for all generators gives $g_1^2/g'^2 = 5/3$, where $g'$ is the SM hypercharge coupling and $g_1 \equiv g_5$.}
 
-\emph{Proof.} $\mathrm{Tr}\,\allowbreak{}Y^2 = 3\cdot\tfrac19 + 2\cdot\tfrac14 = \tfrac56$. Rescaling $Y \to \sqrt{3/5}\,\allowbreak{}Y$ normalises it to $\tfrac12$; the covariant derivative $g_5 (\sqrt{3/5}Y) = g' Y$ then gives $g' = g_5\sqrt{3/5}$, i.e. $g_1^2/g'^2 = 5/3$. The result depends only on the $\mathrm{SU}(5)$ embedding \cite{ref06,ref09}. $\blacksquare$
+\emph{Proof.} $\mathrm{Tr}\,\allowbreak{}Y^2 = 3\cdot\tfrac19 + 2\cdot\tfrac14 = \tfrac56$. Rescaling $Y \to \sqrt{3/5}\,\allowbreak{}Y$ normalises it to $\tfrac12$; the covariant derivative $g_5 (\sqrt{3/5}Y) = g' Y$ then gives $g' = g_5\sqrt{3/5}$, i.e. $g_1^2/g'^2 = 5/3$. The result depends only on the $\mathrm{SU}(5)$ embedding \cite{ref06,ref09}.
 
 This is an algebraic fact of the root: no parameter enters. It is the anchor of the coupling-unification discussion in Section 11.1, where it will be seen that the \emph{value} of the unified coupling is not under control even though its \emph{normalisation} is.
 
@@ -262,12 +273,17 @@ The Riemann, Ricci, Einstein and Kretschmann tensors are computed by central fin
 
 {\footnotesize
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{llll}
-\multicolumn{4}{l}{Table 2. The lattice-curvature cross-checks (two independent routes).} \\
+\multicolumn{4}{l}{\textbf{Table 2.} The lattice-curvature cross-checks (two independent routes).} \\
+\addlinespace[2pt]
 \toprule
-\parbox{4.57cm}{test} & \parbox{2.3cm}{computed} & \parbox{2.2cm}{analytic} & \parbox{5.58cm}{residual} \\
+\parbox{4.57cm}{\textbf{test}} & \parbox{2.3cm}{\textbf{computed}} & \parbox{2.2cm}{\textbf{analytic}} & \parbox{5.58cm}{\textbf{residual}} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{4.57cm}{\textbf{test}} & \parbox{2.3cm}{\textbf{computed}} & \parbox{2.2cm}{\textbf{analytic}} & \parbox{5.58cm}{\textbf{residual}} \\
 \midrule
 \endhead
 \midrule
@@ -342,12 +358,12 @@ $2.6\%$ below the atmospheric scale $\sqrt{\Delta m^2_{32}} = 0.050$ eV, and wit
 One factor, four scales (Fig. 3, Fig. 11, Fig. 17):
 
 \begin{table}[htb]
-\textbf{Table 3. One loop factor, four scales.} \\[2pt]
+\textbf{Table 3.} One loop factor, four scales. \\[4pt]
 \begin{center}\footnotesize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 \begin{tabular}{lll}
 \toprule
-scale & CL10 expression & value \\
+\textbf{scale} & \textbf{CL10 expression} & \textbf{value} \\
 \midrule
 Planck / GUT & $M_P$ (convention $M_{\rm GUT} = M_P$) & $1.22\times10^{19}$ GeV \\
 seesaw Majorana & $M_P(1/16\pi)^3$ & $9.6\times10^{13}$ GeV \\
@@ -435,12 +451,17 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 
 {\footnotesize
 \setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{llll}
-\multicolumn{4}{l}{Table 4. The framework against data.} \\
+\multicolumn{4}{l}{\textbf{Table 4.} The framework against data.} \\
+\addlinespace[2pt]
 \toprule
-\parbox{2.2cm}{quantity} & \parbox{5.24cm}{CL10} & \parbox{2.41cm}{measured} & \parbox{4.8cm}{status} \\
+\parbox{2.2cm}{\textbf{quantity}} & \parbox{5.24cm}{\textbf{CL10}} & \parbox{2.41cm}{\textbf{measured}} & \parbox{4.8cm}{\textbf{status}} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{2.2cm}{\textbf{quantity}} & \parbox{5.24cm}{\textbf{CL10}} & \parbox{2.41cm}{\textbf{measured}} & \parbox{4.8cm}{\textbf{status}} \\
 \midrule
 \endhead
 \midrule
@@ -508,12 +529,17 @@ The structural hallmarks of a confining vacuum are present as assumptions: a Wil
 Every number the theory calls a prediction is reclassified by how it was obtained.
 
 {\footnotesize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{lll}
-\multicolumn{3}{l}{Table 5. The provenance of every headline number.} \\
+\multicolumn{3}{l}{\textbf{Table 5.} The provenance of every headline number.} \\
+\addlinespace[2pt]
 \toprule
-\parbox{3.99cm}{class} & count & \parbox{9.66cm}{numbers} \\
+\parbox{3.99cm}{\textbf{class}} & \textbf{count} & \parbox{9.66cm}{\textbf{numbers}} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{3.99cm}{\textbf{class}} & \textbf{count} & \parbox{9.66cm}{\textbf{numbers}} \\
 \midrule
 \endhead
 \midrule
@@ -537,12 +563,17 @@ The accompanying code reports the same classification over 15 headline numbers a
 \section{Open residuals and falsifiers}
 
 {\scriptsize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{lll}
-\multicolumn{3}{l}{Table 6. The nine open residuals.} \\
+\multicolumn{3}{l}{\textbf{Table 6.} The nine open residuals.} \\
+\addlinespace[2pt]
 \toprule
-\parbox{3.6cm}{the residual} & \parbox{5.21cm}{what the theory does supply} & \parbox{6.29cm}{the gap} \\
+\parbox{3.6cm}{\textbf{the residual}} & \parbox{5.21cm}{\textbf{what the theory does supply}} & \parbox{6.29cm}{\textbf{the gap}} \\
+\midrule
+\endfirsthead
+\toprule
+\parbox{3.6cm}{\textbf{the residual}} & \parbox{5.21cm}{\textbf{what the theory does supply}} & \parbox{6.29cm}{\textbf{the gap}} \\
 \midrule
 \endhead
 \midrule
@@ -562,12 +593,17 @@ The accompanying code reports the same classification over 15 headline numbers a
 }
 
 {\scriptsize
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 
 \begin{longtable}{ll}
-\multicolumn{2}{l}{Table 7. Falsifiers.} \\
+\multicolumn{2}{l}{\textbf{Table 7.} Falsifiers.} \\
+\addlinespace[2pt]
 \toprule
-\# & \parbox{13.91cm}{observation that refutes the theory} \\
+\textbf{\#} & \parbox{13.91cm}{\textbf{observation that refutes the theory}} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{\#} & \parbox{13.91cm}{\textbf{observation that refutes the theory}} \\
 \midrule
 \endhead
 \midrule
