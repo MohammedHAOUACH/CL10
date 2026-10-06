@@ -212,6 +212,9 @@ def table_block(lines, caption=None):
 
     cap_tab = (caption_text() + r" \\[4pt]" + "\n") if caption else ""
     stretch = "\\renewcommand{\\arraystretch}{1.35}\n"
+    # light rule between body rows: multi-line parbox cells otherwise read as
+    # one grey block; a faint rule keeps each row visually distinct
+    sep = "\n\\arrayrulecolor{black!40}\\hline\\arrayrulecolor{black}\n"
 
     if len(rows) > 8 or any(w for w in widths):
         # the Markdown caption already carries the "Table N." label, so it is
@@ -219,7 +222,7 @@ def table_block(lines, caption=None):
         # The caption sits in the FIRST head only (\endfirsthead); continuation
         # pages repeat just the bold column headers.
         head = row(rows[0], True, bold=True)
-        rest = "\n".join(row(r, True) for r in rows[1:])
+        rest = sep.join(row(r, True) for r in rows[1:])
         # \footnotesize / \arraystretch must NOT sit between \begin{longtable}
         # and the \multicolumn caption row: that starts the first row and the
         # \multicolumn then becomes a misplaced \omit (and longtable loops).
@@ -233,7 +236,7 @@ def table_block(lines, caption=None):
                 + rest + "\n" + "\\end{longtable}" + "\n}\n")
 
     head = row(rows[0], False, bold=True)
-    rest = "\n".join(row(r, False) for r in rows[1:])
+    rest = sep.join(row(r, False) for r in rows[1:])
     spec = "".join("p{" + f"{widths[c]}cm" + "}" if widths[c] else "l"
                    for c in range(ncol))
     return (r"\begin{table}[htb]" + "\n" + cap_tab
@@ -446,7 +449,8 @@ def main():
     LAYOUT = measure_layout(opts)
     doc.append("\\documentclass[" + opts + "]{revtex4-2}\n")
     doc.append("\\usepackage{graphicx}\n\\usepackage{booktabs}\n"
-               "\\usepackage{longtable}\n\\usepackage{microtype}\n")
+               "\\usepackage{longtable}\n\\usepackage{microtype}\n"
+               "\\usepackage{xcolor}\n\\usepackage{colortbl}\n")   # faint grey row rules in tables
     doc.append("\\usepackage{xurl}\n")   # no 'array': REVTeX 4-2 redefines the column machinery
     doc.append("\\graphicspath{{figures/}}\n\n")
     # 26 figures in one section: the default TeX float limits strand them
