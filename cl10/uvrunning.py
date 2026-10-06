@@ -183,7 +183,7 @@ def w4_verdict():
         "discrete_rg_bounded": discrete_bounded,
         "w4_resolved": ok,
         "residual": ("the 1-loop spread (the exact matching of the three GUT-range "
-                     "couplings; ~0.6 for the non-SUSY SM) — the *named* residual of "
+                     "couplings; ~0.47 for the non-SUSY SM) — the *named* residual of "
                      "the 1-loop non-unification"),
         "ok": ok,
     }

@@ -15,12 +15,12 @@ CL10 — the 0-parameter coupling unification and the QCA UV completion.
 $M_Z$ to the **Planckian** GUT scale $M_{\\rm GUT}=M_P$ (the 0-parameter
 single scale) gives couplings in the **GUT range** ($\\alpha\\sim0.02$-$0.04$,
 consistent with $\alpha_{10}=0.04$); the **1-loop spread** at $M_P$
-($\\sim0.6$ for the non-SUSY SM) is the **named residual** — the non-SUSY SM
+($\\sim0.47$ for the non-SUSY SM) is the **named residual** — the non-SUSY SM
 does **not** unify to a single point at $M_P$ (the clean MSSM unification is at
 $\sim2\\times10^{16}$, **below** the Planck scale).
 
 **The QCA UV completion.**  The lattice UV cutoff is the Planck scale.  The SM
-$\mathrm{U}(1)$ (the *un*-GUT-normalized $g'$, $b_1=41/10$, $\alpha'(M_Z)=0.0179$)
+$\mathrm{U}(1)$ (the GUT-normalised $g_1$, $b_1=41/10$, $\alpha_1(M_Z)=0.0169$)
 has a **1-loop** **Landau pole** at $\sim1.4\\times10^{39}$ GeV, far
 **above** the QCA cutoff $M_P$ — so in the QCA the running is **UV-bounded**
 (the coupling is **bounded** on the lattice, no Landau pole below the Planck
@@ -42,7 +42,7 @@ M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the 0-parameter GUT = Planck sca
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
 B_SM = (41 / 10, -19 / 6, -7)    # (b1, b2, b3)  (the SM particle content)
-A_Z = (0.0179, 0.0338, 0.118)    # (a1, a2, a3) at M_Z  (paired with B_SM)
+A_Z = (0.0169, 0.0338, 0.118)    # (a1, a2, a3) at M_Z  (PDG: a1 GUT-normalised, a1^-1 = 59.0)
 # the 2-loop beta coefficients (n_f = 6, the SM particle content)
 B2_SM = (199/25, 25/2 - 27/50*6, -143/3 + 23/15*6)   # (b21, b22, b23)
 

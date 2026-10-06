@@ -20,6 +20,8 @@ import os
 import sys
 import time
 
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, ROOT)
 from cl10 import numrel
 
 # the 0-parameter tolerance (the module's own O(h^2) check)

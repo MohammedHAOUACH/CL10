@@ -34,7 +34,7 @@ def main():
     # 0-parameter structure is consistent:
     five_thirds_ok = abs(r["five_thirds"] - 5.0 / 3.0) < 1e-6
     gut_coupling_ok = abs(r["alpha_10"] - 1.0 / 25.0) < 1e-6
-    beta_ok = (r["b1"] == -41 / 10 and r["b2"] == -19 / 6 and r["b3"] == -7)
+    beta_ok = (r["b1"] == 41 / 10 and r["b2"] == -19 / 6 and r["b3"] == -7)
     structure_ok = five_thirds_ok and gut_coupling_ok and beta_ok
     # the 1-loop running: the spread is large (no clean unification) -> named residual
     residual = (not r["cleanly_unifies"])

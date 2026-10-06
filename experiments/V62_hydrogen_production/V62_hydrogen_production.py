@@ -49,7 +49,8 @@ are physical parameters of the atom, **not** fitted to any measured number.
     python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
 
 -> the verdict ``experiments/V62_hydrogen_production/results/v62_hydrogen_production.json``
-+ the figure ``doc/figures/fig26_hydrogen.png`` + ``fig26_hydrogen.meta.json``.
++ the figure ``doc/figures/fig26_hydrogen.png`` and the run metadata
+``experiments/V62_hydrogen_production/results/fig26_hydrogen.meta.json``.
 """
 
 import os
@@ -80,7 +81,8 @@ import matplotlib.pyplot as plt
 from simulation.hydrogen import runner, qca as QCA, backend as B
 
 OUT_PNG = os.path.join(ROOT, "doc", "figures", "fig26_hydrogen.png")
-OUT_META = os.path.join(ROOT, "doc", "figures", "fig26_hydrogen.meta.json")
+OUT_META = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results",
+                        "fig26_hydrogen.meta.json")
 
 
 # ---------------------------------------------------------------------------
@@ -461,6 +463,7 @@ def make_figure(r, cfg):
                  "text; the atom is the real hydrogen (an input of atomic "
                  "physics), the photon is the CL10 free massless field"),
     }
+    os.makedirs(os.path.dirname(OUT_META), exist_ok=True)
     with open(OUT_META, "w") as f:
         json.dump(meta, f, indent=2, ensure_ascii=False)
     print("[v62] wrote %s and %s" % (OUT_PNG, OUT_META), flush=True)

@@ -46,15 +46,26 @@ def run_one(exp_dir):
                 verdict = json.load(open(jf))
             except Exception:  # noqa: BLE001
                 pass
+    # un crash du script invalide tout verdict JSON deja present sur disque :
+    # sans ce garde-fou, une experience qui plante herite du PASS de sa
+    # precedente execution (un resultat perime compte comme valide).
+    crashed = proc.returncode != 0
+    if crashed:
+        tail = (proc.stderr or "").strip().splitlines()
+        verdict = None
+        status = f"CRASH (rc={proc.returncode}): {tail[-1] if tail else 'no stderr'}"
+    else:
+        status = verdict.get("status", "no_verdict") if verdict else "no_verdict"
     return {
         "id": os.path.basename(exp_dir),
         "dir": os.path.basename(exp_dir),
-        "tier": verdict.get("tier") if verdict else None,
-        "property": verdict.get("property") if verdict else None,
-        "residual": bool(verdict.get("residual")) if verdict else False,
-        "pass": bool(verdict["pass"]) if verdict else False,
-        "status": verdict.get("status", "no_verdict") if verdict else "no_verdict",
+        "tier": None if crashed else (verdict.get("tier") if verdict else None),
+        "property": None if crashed else (verdict.get("property") if verdict else None),
+        "residual": False if crashed else (bool(verdict.get("residual")) if verdict else False),
+        "pass": False if crashed else (bool(verdict["pass"]) if verdict else False),
+        "status": status,
         "returncode": proc.returncode,
+        "crashed": crashed,
         "wall_time": round(time_, 3),
         "verdict": verdict,
     }

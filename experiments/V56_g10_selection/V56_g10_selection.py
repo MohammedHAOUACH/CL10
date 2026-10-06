@@ -10,9 +10,9 @@ honest.
 
 The 0-parameter $g_{10} = 1/5$ (a **number of the root**: the 32-D module,
 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$.  The 1-loop running up to $M_P$
-gives a GUT coupling (mean of the three) of $\sim 0.024$ (the 1-loop does not
+gives a GUT coupling (mean of the three) of $\sim 0.023$ (the 1-loop does not
 fully unify — the spread is the W4 named residual).  The 0-parameter
-$\alpha_{10} = 1/25$ is **within a factor 1.65** of this 1-loop GUT coupling —
+$\alpha_{10} = 1/25$ is **within a factor 1.73** of this 1-loop GUT coupling —
 the **right order**.
 
 The 0-parameter content: the $g_{10} = 1/5$ (a root number).  The named
@@ -20,8 +20,8 @@ residual: the 1-loop matching (W4) and the exact GUT coupling.
 
 **The honest scan (this experiment states it explicitly).**  Scanning the
 0-parameter candidates $\\alpha = 1/n^2$ ($n = 2\\ldots8$) against the 1-loop
-GUT coupling, the **data-optimal** value is $n = 6$ ($1/36 = 0.0278$), **not**
-the root $n = 5$ ($1/25 = 0.04$): the data-optimal $n$ is $4.4\times$ closer to
+GUT coupling, the **data-optimal** value is $n = 7$ ($1/49 = 0.0204$), **not**
+the root $n = 5$ ($1/25 = 0.04$): the data-optimal $n$ is $6.4\times$ closer to
 the measured coupling than the root value.  The data check therefore confirms
 the **order only** — it does **not** select $n$.  This is precisely what makes
 the reading $1/n_{\rm qubits}$ a **mapping convention** rather than a fit:
@@ -53,9 +53,9 @@ def main():
         "property": "P5,P6",
         "residual": True,   # the 1-loop matching (W4) and the exact GUT coupling are the named residual
         "pass": bool(ok),
-        "status": ("the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_"
-                   "5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.65_of_the_1_loop_GUT_"
-                   "coupling_0.024_at_M_P_the_1_loop_matching_is_the_W4_named_residual"),
+        "status": (f"the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_"
+                   f"5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_{d['ratio_to_1loop']:.2f}_of_the_1_loop_GUT_"
+                   f"coupling_{d['gut_1loop']['mean_GUT']:.3f}_at_M_P_the_1_loop_matching_is_the_W4_named_residual"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],

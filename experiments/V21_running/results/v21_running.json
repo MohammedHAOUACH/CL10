@@ -11,12 +11,12 @@
     "g_gut": 0.7089815403622064,
     "m_gut_0param": 1.22e+19,
     "five_thirds": 1.6666666666666665,
-    "b1": -4.1,
+    "b1": 4.1,
     "b2": -3.1666666666666665,
     "b3": -7,
-    "unification_spread": 31.42093331612383,
+    "unification_spread": 3.603739241838653,
     "cleanly_unifies": false,
     "named_residual": "the 1-loop SM matching to the 0-parameter GUT scale"
   },
-  "wall_time": 0.001
+  "wall_time": 0.0
 }

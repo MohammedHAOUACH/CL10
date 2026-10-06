@@ -96,10 +96,10 @@ def running():
     from . import u10pred
     alpha_10 = u10pred.ALPHA_10                 # 1/25 = 0.04 (the 0-parameter GUT coupling)
     m_gut = u10pred.M_PLANCK                    # 1.22e19 GeV (the 0-parameter GUT scale)
-    b1, b2, b3 = -41 / 10, -19 / 6, -7          # the 1-loop SM beta coefficients
+    b1, b2, b3 = 41 / 10, -19 / 6, -7           # 1-loop SM betas (1/a(M) = 1/a(Mz) - (b/2pi)ln(M/Mz): U(1) is NOT asymptotically free)
     # the 1-loop running (from the measured M_Z baseline): the best unification
     # spread (how close the 3 couplings get); a large spread = no clean 1-loop unification
-    az, a2z, a1z = 0.118, 0.0338, 0.0179
+    az, a2z, a1z = 0.118, 0.0338, 0.0169        # (a3, a2, a1) at M_Z (PDG; a1 GUT-normalised)
     mz = 91.2
     def inv(a0, b, M):
         return 1.0 / a0 - (b / (2.0 * np.pi)) * np.log(M / mz)

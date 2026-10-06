@@ -80,11 +80,12 @@ CL10/
 │   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
 │   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
 │   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
-│   ├── g10_selection.py      # the 1-loop data check of g_10 = 1/5 (V56, W4: the data prefer n = 6)
+│   ├── g10_selection.py      # the 1-loop data check of g_10 = 1/5 (V56, W4: the data prefer n = 7)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
-│   └── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
-├── experiments/              # the verification program (63 experiments, V0-V62)
+│   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
+│   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
+├── experiments/              # the verification program (64 experiments, V0-V63)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -112,13 +113,14 @@ CL10/
 │   ├── V59/                # the four limits and their common object (paper Section 14): 10 = 2 x 5 + one CP phase (bookkeeping)
 │   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
 │   ├── V61/                # the 3-D hydrogen atom (Fig. 26; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
-│   └── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 26 claim measured at production resolution, the figure regenerated as a product of the experiment
+│   ├── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 26 claim measured at production resolution, the figure regenerated as a product of the experiment
+│   └── V63/                # the Brillouin-zone chirality test (W9): the 16 sector is closed by the FULL local step (leakage 1e-15), the Bloch Floquet matches the 4^3 torus (4e-15), the zone centre is GAPPED (0.0365), the 12 doubler momenta are GAPLESS (|v| = 0.142), the node chiralities sum to 0 — the doubling survives
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
-├── run_validation.py         # the runner: runs all 63, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 64, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 63/63 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 64/64 PASS + the hard-tier verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -143,7 +145,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 63 experiments, prints the hard-tier verdict
+python3 run_validation.py        # runs all 64 experiments, prints the hard-tier verdict
 python3 make_figures.py          # regenerates the 25 matplotlib figures (fig 1-25) -> doc/figures/
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
@@ -157,8 +159,8 @@ python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **63** experiments
-(V0–V62) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **64** experiments
+(V0–V63) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -166,7 +168,7 @@ falsifiers** (F1–F7).  `run_validation.py` runs all **63** experiments
 > cosmology (tier 4) and the falsifiability (tier 5) are supporting; the named
 > residuals are reported, not hidden.
 
-**What the 63 passes mean.**  Most of them check **internal consistency** —
+**What the 64 passes mean.**  Most of them check **internal consistency** —
 algebraic identities, unitarity of the step, agreement between two numerical
 routes — and would pass for any theory built on this root; they are not tests
 against nature.  The six comparisons against data ($v/M_P$, $m_\nu$,
@@ -195,6 +197,10 @@ bookkeeping that groups the residuals, not a derivation of any value.
   derived (W6).
 - The QCD string tension used is $\sigma = 1$ in Planck units, $10^{38}\times$
   the physical value (W9).
+- The 16-sector Brillouin-zone spectrum of the implemented automaton (V63) is
+  gapped at $q = 0$ and gapless at **12 doubler momenta**: the fermion doubling
+  the on-site construction was supposed to evade is present in the spectrum of
+  the dynamics, and the theory has no Wilson / overlap / domain-wall term (W9).
 
 **Gravity.**  V50 computes the general 4-D Riemann / Ricci / Einstein /
 Kretschmann from an **arbitrary** metric by finite differences, **2-route
@@ -202,8 +208,11 @@ verified** against the analytic de Sitter ($6.5\times10^{-7}$), with the
 Schwarzschild Ricci $= 0$ and the Kretschmann $48M^2/r^6$ recovered **by
 computation**; V51 does the same for the 3+1 constraint 0-row with Z4 damping.
 Newton's constant is an **input** ($G = 1$).  The open part of W9 is the sum
-over geometries, the **lattice chirality check** (no Brillouin-zone analysis has
-been run) and the quantum completion.
+over geometries and the quantum completion — and, since V63, the **lattice
+chirality** of the implemented step: the 16-sector Brillouin-zone Floquet
+spectrum is gapped at the zone centre ($0.0365$) and gapless at the 12 doubler
+momenta $(\pm\pi/2,\pm\pi/2,0)$ with node chiralities summing to $0$, so the
+fermion doubling is **present** and nothing in the construction removes it.
 
 **The loop ladder.**  One factor $(1/16\pi)^{10}$ **represents** the hierarchy
 $v/M_P = 2.08(1/16\pi)^{10}$ and the DM mass $1.18\,M_P(1/16\pi)^{10} = 118$

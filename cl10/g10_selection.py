@@ -20,9 +20,9 @@ generators).  The 0-parameter GUT coupling is a **number of the root**:
 **The 1-loop data check (this module).**  The **1-loop** running **up** to the
 Planck scale $M_P$ (the 0-parameter GUT = Planck scale) from the **measured**
 $M_Z$ couplings gives a **GUT coupling** (the mean of the three) of
-$\sim 0.024$ (the 1-loop does **not** fully unify — the spread is the **W4**
+$\sim 0.023$ (the 1-loop does **not** fully unify — the spread is the **W4**
 named residual).  The 0-parameter $\alpha_{10} = 1/25 = 0.04$ is **within a
-factor 1.65** of this 1-loop GUT coupling ($0.04/0.024$) — the **right order**.
+factor 1.73** of this 1-loop GUT coupling ($0.04/0.023$) — the **right order**.
 
 **The honest 0-parameter result.**  The 0-parameter $g_{10} = 1/5$ (a number of
 the root) is **within a factor $\sim 2$** of the 1-loop GUT coupling — the
@@ -75,14 +75,14 @@ def g10_selection():
     gut = gut_1loop()
     a10_0param = float(root["alpha_10"])            # 1/25
     mean_gut = gut["mean_GUT"]
-    ratio = float(a10_0param / mean_gut)            # ~ 1.65
+    ratio = float(a10_0param / mean_gut)            # ~ 1.73
 
     # the 0-parameter candidate scan: which n is closest to the 1-loop GUT coupling
     cands = _a10_candidates()
     scan = {n: float(abs(a10 / mean_gut - 1.0)) for n, a10 in cands.items()}
     best_n = min(scan, key=scan.get)
     n_root = int(root["n_qubits"])
-    # l'honnêteté : le scan désigne n = 6 (1/36 = 0.0278), PAS n = 5
+    # l'honnêteté : le scan désigne n = 7 (1/49 = 0.0204), PAS n = 5
     # (1/25 = 0.04).  n = 5 n'est PAS le meilleur ajustement : c'est le nombre
     # du root (le module 32-D, 10 = 2 x 5).  Le data-check ne fixe donc pas
     # n : il confirme seulement l'ORDRE.  C'est exactement ce qui fait de la
@@ -94,13 +94,13 @@ def g10_selection():
     one_line = (
         "the 0-parameter GUT coupling g_10 = 1/5 (a number of the root: the "
         "32-D module, 5 qubits) gives alpha_10 = 1/25 = 0.04, within a factor "
-        "1.65 of the 1-loop GUT coupling (0.024 at M_P; the 1-loop matching is "
+        "%.2f of the 1-loop GUT coupling (%.3f at M_P; the 1-loop matching is "
         "the W4 named residual).  HONEST: the candidate scan picks n = %d "
         "(alpha = 1/%d = %.4f, gap %.3f), NOT the root n = %d (gap %.3f) — the "
         "data check confirms the ORDER only, it does not select n; n = 5 is a "
         "root number, so reading 1/n_qubits as the coupling is a mapping "
-        "convention, not a fit" % (best_n, best_n, cands[best_n], gap_best,
-                                    n_root, gap_root)
+        "convention, not a fit" % (ratio, mean_gut, best_n, best_n, cands[best_n],
+                                    gap_best, n_root, gap_root)
     )
     return {
         "backend": _backend(),

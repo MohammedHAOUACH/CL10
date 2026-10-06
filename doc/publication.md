@@ -11,7 +11,7 @@ We define **Causal Clifford Theory (CL10)**: a unitary quantum cellular automato
 
 We also show **what does not follow**. Every number is classified by provenance — *algebraic*, *conventional*, *fitted*, or *open* — rather than labelled "prediction". The family number, the Yukawa structure, the quark mixing matrix, the cosmological constant, the dark-matter identity and abundance, the exact neutrino mass, the baryon asymmetry and the one-loop coupling unification are open. A single loop factor $(1/16\pi)^{10}$ reproduces the electroweak/Planck hierarchy to a factor $2.08$ and gives a dark-matter mass scale of $118$ GeV; the exponent $10$ is selected by the data it is meant to explain, so this is a representation of the order, not a derivation.
 
-Four tensions with observation are reported rather than hidden: running the GUT coupling $\alpha_{10}=1/25$ (the reading $\alpha_{10} \equiv g_{10}^2$ is a convention) down from the Planck scale with the SM $\beta$-functions produces a $U(1)$ Landau pole at $\sim 280$ GeV; the seesaw value $m_\nu = 0.146$ eV exceeds the oscillation scale by $2.9$ and the cosmological bound $\sum m_\nu < 0.12$ eV; the relic abundance is not computed but normalised to the measured value; and the heavy-neutrino decay at the model's own couplings is *in* equilibrium ($\Gamma/H \simeq 4.6$), so the third Sakharov condition fails. The seven criteria a unification claim must meet, the nine open residuals, and the seven falsifiers are stated explicitly.
+Five tensions with observation are reported rather than hidden: running the GUT coupling $\alpha_{10}=1/25$ (the reading $\alpha_{10} \equiv g_{10}^2$ is a convention) down from the Planck scale with the SM $\beta$-functions produces a $U(1)$ Landau pole at $\sim 280$ GeV; the seesaw value $m_\nu = 0.146$ eV exceeds the oscillation scale by $2.9$ and the cosmological bound $\sum m_\nu < 0.12$ eV; the relic abundance is not computed but normalised to the measured value; the heavy-neutrino decay at the model's own couplings is *in* equilibrium ($\Gamma/H \simeq 4.6$), so the third Sakharov condition fails; and the Brillouin-zone spectrum of the implemented automaton, computed here, is gapped at the zone centre and gapless at twelve doubler momenta — the fermion doubling is present (Section 8.4). The seven criteria a unification claim must meet, the nine open residuals, and the seven falsifiers are stated explicitly.
 
 **Keywords.** Clifford algebra; quantum cellular automaton; $\mathrm{Spin}(10)$ grand unification; anomaly cancellation; lattice gravity; dark matter; cosmological constant; baryogenesis; falsifiability.
 
@@ -45,11 +45,11 @@ The paper's discipline is therefore a **provenance discipline**: a number is *al
 | **kinematics** | spacetime, matter content, gauge group and statistics follow by representation theory | met (Sections 3–6) |
 | **dynamics** | the object yields a unitary, causal evolution | met (Section 8: exactly unitary, $\det U = 1$, measured front speed $= 1$) |
 | **unification** | matter, gauge and gravity live in the same object, not glued from separate pieces | partial: matter and gauge are the same module and the same 45; gravity is the metric dynamics of a subalgebra of that module, with an added field |
-| **consistency** | anomaly-free, unitary, causal, UV-bounded | met (Theorem 2, Theorem 5, the bounded 32-level spectrum, the bounded $S^{(n)}$) |
+| **consistency** | anomaly-free, unitary, causal, UV-bounded | met (Theorem 2, Theorem 5, the bounded 32-level spectrum, the bounded $S^{(n)}$); the doubler spectrum of Proposition 2 is a separate, named failure (W9) |
 | **parameters** | every physical number fixed by the object, no fit | **not met**: one free 't Hooft angle, three conventions, three fitted coefficients (Table 5) |
 | **falsifiability** | testable predictions, and the open problems named rather than hidden | met (Tables 4, 6, 7) |
 
-The paper passes the structural criteria and fails the parameter one. That is the honest summary of the whole exercise.
+The paper passes the structural criteria and fails the parameter one. The chirality check of Section 8.4 shows that even the structural pass is partial: the automaton is unitary, causal and anomaly-free, but its 16 sector is not a single chirally propagating lattice fermion. That is the honest summary of the whole exercise.
 
 ### 1.3 Conventions
 
@@ -203,7 +203,11 @@ The bond layer is therefore what turns the light cone of Section 3 into a propag
 
 The Nielsen–Ninomiya theorem forbids a single chiral fermion in a theory with a *local, translation-invariant, Hermitian* lattice Dirac operator and a bounded spectrum [19]. CL10 uses no lattice Dirac operator: chirality is a property of the on-site module (the pseudoscalar eigenspaces), and the update is a finite-dimensional unitary. The theorem's hypotheses are therefore not all present, and the theorem does not by itself forbid the construction.
 
-That is *not* the same as having evaded it. The non-trivial question is the low-energy spectrum of the **local** automaton of Theorem 5: does it contain exactly 16 chiral Weyl modes and no doublers? That spectral computation has not been done. Until it is, the claim of lattice chirality is an assumption (part of W9), not a result.
+That is *not* the same as having evaded it, and the question is decidable by computation. The step alternates its bond parity with the time step and cycles its axis with period 3, so the 6-step Floquet operator is translation invariant with period 2 in each direction: the true unit cell is the $2\times2\times2$ cell and the good quantum number is the **supercell momentum** $q \in [-\pi,\pi]^3$. The 16-sector Bloch Floquet $U_{\rm F}(q)$ — internal layer times bond layer, a bond crossing the cell carrying the phase $e^{\pm i q_j}$ — has now been computed exactly and cross-checked against the real-space Floquet on a $4^3$ torus (agreement $5\times10^{-15}$).
+
+**Proposition 2 (lattice chirality: what the computation gives).** *(i) The 16 sector is closed by the full local dynamics, not only by the internal layer:* the bond layer acts on the cell index and commutes with $w$, so a state initialized in the 16 leaves it by $10^{-15}$ after six steps. Chirality is a dynamical symmetry of the automaton. *(ii) The zone centre is gapped:* $\min_a|\omega_a(q=0)| = 0.0365$ per 6-step cycle, so the would-be massless matter is **not** at $q = 0$. *(iii) The gapless points are the doublers:* the 16-sector spectrum is gapless at the 12 momenta $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$ and their permutations — the classic doubler momenta — with linear dispersion $|v| = 0.142$ and node chiralities summing to $0$, as Nielsen–Ninomiya requires. The gap at $q = 0$ is not protected: it moves from $0.036$ at $g_{10} = 0.2$ to $0.072$ at $g_{10} = 0.15$ and to $2.35$ at $g_{10} = 0.1$.
+
+The doubling therefore **survives** the automaton. There is no Wilson term, no overlap operator and no domain-wall mechanism in the construction that removes it, and the gaplessness at the doubler momenta is not symmetry-protected. "The 16 is a single chiral generation" is a property of the *internal module*; the *lattice spectrum*, which is what couples to low-energy physics, contains twelve doublers. This is now a computed statement, and it counts against the theory (part of W9).
 
 ---
 
@@ -296,6 +300,12 @@ $$m_\nu = \frac{m_D^2}{M_N} = M_P\Big(\frac{1}{16\pi}\Big)^{17} = 0.146\ \mathrm
 
 The exponent identity $2\times10 - 3 = 17$ is exact; the choice $n_{2\text{step}} = 3$ is not. Comparison with data: the atmospheric scale is $\sqrt{\Delta m^2_{32}} = 0.050$ eV, so the prediction is a factor $2.9$ high; and if all three families carried the same $m_D$ the sum would be $\sim 0.44$ eV, excluded by $\sum m_\nu < 0.12$ eV (95% CL, Planck 2018 + BAO [14]) and in tension with the single-generation value $0.146$ eV as well. The democratic rank-1 Yukawa (Section 11.5) gives a Dirac mass to only one family, which brings the sum to $\sim 0.15$ eV — still above the cosmological bound. This is the sharpest numerical tension in the theory and is listed as a falsifier (F3).
 
+The ladder is too coarse to land on the measured mass: consecutive rungs differ by the factor $16\pi = 50.3$, so the neighbours of $0.146$ eV are $7.3$ eV ($n = 16$) and $2.9\times10^{-3}$ eV ($n = 18$), and no integer rung lies in the oscillation window. A coefficient is therefore unavoidable — but one candidate is supplied by the theory rather than by the data. The only mixing number the model derives is $\sin^2\theta_{12} = 1/3$ (Section 11.5); multiplying the ladder value by it gives
+
+$$m_\nu = \tfrac13\,M_P\Big(\frac{1}{16\pi}\Big)^{17} = 0.0487\ \mathrm{eV},$$
+
+$2.6\%$ below the atmospheric scale $\sqrt{\Delta m^2_{32}} = 0.050$ eV, and with the democratic rank-1 spectrum $\sum m_\nu \simeq 0.05$ eV — inside the cosmological bound $\sum m_\nu < 0.12$ eV and inside the KATRIN bound $m_\beta < 0.45$ eV [16]. The factor $2.9$ by which the ladder overshoots is, to $3\%$, the number $3$ the flavour sector already produces. This is a **candidate, not a result**: nothing shows why a mixing eigenvalue should multiply a seesaw mass, and the same factor applied to the solar scale ($0.0487\times\sqrt{\Delta m^2_{21}/\Delta m^2_{32}} = 0.0084$ eV against the measured $0.0086$ eV) is a second coincidence, not a derivation. What it does buy is a sharp, falsifiable prediction: normal ordering with $\sum m_\nu \simeq 0.05$ eV and a vanishing lightest mass.
+
 ### 10.4 The ladder
 
 One factor, four scales (Fig. 3, Fig. 11, Fig. 17):
@@ -318,17 +328,25 @@ The QCD scale is **not** on this ladder: $\Lambda_{\rm QCD}\sim 0.2$ GeV would r
 
 ### 11.1 Couplings
 
-The theory's single gauge coupling is $\alpha_{10} \equiv g_{10}^2 = 1/25 = 0.040$. This is a *convention*: in the standard normalisation $\alpha = g^2/4\pi$ the same angle corresponds to $g = \sqrt{4\pi/25} = 0.709$. Running the three SM couplings up from $M_Z$ at one loop with $b_1 = 41/10$, $b_2 = -19/6$, $b_3 = -7$ (fixed by the particle content) gives, at $M_P$,
+The theory's single gauge coupling is $\alpha_{10} \equiv g_{10}^2 = 1/25 = 0.040$. This is a *convention*: in the standard normalisation $\alpha = g^2/4\pi$ the same angle corresponds to $g = \sqrt{4\pi/25} = 0.709$. Running the three SM couplings up from $M_Z$ at one loop with $b_1 = 41/10$, $b_2 = -19/6$, $b_3 = -7$ (fixed by the particle content), from the measured inputs $\alpha_1(M_Z) = 0.0169$ (GUT-normalised, $\alpha_1^{-1} = 59.0$), $\alpha_2(M_Z) = 0.0338$, $\alpha_3(M_Z) = 0.118$ [13], gives, at $M_P$,
 
-$$(\alpha_1,\alpha_2,\alpha_3) = (0.033,\ 0.020,\ 0.019),\qquad \text{mean } 0.024,\quad \text{spread } 58\%,$$
+$$(\alpha_1,\alpha_2,\alpha_3) = (0.0299,\ 0.0202,\ 0.0191),\qquad \text{mean } 0.0231,\quad \text{spread } 47\%,$$
 
-so $\alpha_{10}$ is within a factor $1.66$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $1.4\times10^{39}$ GeV, above the cutoff, so the up-running is UV-bounded (Fig. 2). At two loops the pole moves to $\sim 1.1\times10^{12}$ GeV, *below* the cutoff (Fig. 19): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
+so $\alpha_{10}$ is within a factor $1.73$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $2.2\times10^{41}$ GeV, above the cutoff, so the up-running is UV-bounded (Fig. 2). At two loops the pole moves to $\sim 2.5\times10^{12}$ GeV, *below* the cutoff (Fig. 19): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
 
 The down-running is worse and must be stated plainly. Starting from $\alpha_{10} = 0.04$ at $M_P$ and running down with the SM $\beta$-functions gives, at $M_Z$,
 
 $$\alpha_1(M_Z) = -1.36\quad(\text{a Landau pole at } 280\ \mathrm{GeV}),\qquad \alpha_2 = 0.022\ (0.66\times),\qquad \alpha_3 = 0.015\ (0.12\times).$$
 
 The hypercharge coupling blows up *below* the electroweak scale. The claimed unification therefore fails at the level of the couplings' values, even though the $5/3$ normalisation is correct (Fig. 16). This is residual W4 and falsifier F2.
+
+Two quantitative statements sharpen W4. First, the identification $\alpha_1(M_P) = \alpha_{10}$ is not merely inaccurate — it is excluded. With $b_1 = 41/10$,
+
+$$\frac{1}{\alpha_1(M_Z)} = \frac{1}{\alpha_1(M_P)} - \frac{b_1}{2\pi}\ln\frac{M_P}{M_Z} = \frac{1}{\alpha_1(M_P)} - 25.7,$$
+
+so any $\alpha_1(M_P) \ge 1/25 = 0.040$ makes $\alpha_1(M_Z) \le 0$: the pole sits at $280$ GeV, inside the lattice. A weakly coupled hypercharge at $M_Z$ requires $\alpha_1(M_P) \le 0.0389$, and the measured value requires $\alpha_1(M_P) = 0.0299$. The theory's coupling overshoots the admissible maximum by $3\%$ and the required value by $34\%$.
+
+Second, the failure is not repaired by the matter a partial breaking could leave light. A complete vectorlike $\mathbf{10}\oplus\bar{\mathbf{5}}$ shifts all three one-loop coefficients by the *same* amount $8/3$ above its threshold $M_V$ — the defining property of a complete $\mathrm{SU}(5)$ multiplet — so it changes the common slope, not the mismatch of slopes. Scanning $n_V = 0\dots8$ against $M_V \in [10^6, 10^{19}]$ GeV, the spread at $M_P$ never falls below its $n_V = 0$ value of $47\%$; the case that comes closest to the required $1/25$ (five families at $M_V \simeq 1.2\times10^{16}$ GeV) still leaves the worst of the three couplings $34\%$ away from it, at a spread of $74\%$. Under pure SM running the pairwise meeting scales are $1.2\times10^{13}$ GeV $(1,2)$, $2.6\times10^{14}$ GeV $(1,3)$ and $9.7\times10^{16}$ GeV $(2,3)$ — three different scales. Unification fails at the level of the values, and no threshold available in the model repairs it at one loop.
 
 ### 11.2 Electroweak mixing
 
@@ -345,6 +363,14 @@ $$\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D,\qquad \varepsilon_{CP} = \frac{
 with $g_0 = 1/2^3 = 1/8$ and the SM sphaleron conversion $B = \tfrac{28}{79}(B-L)$ [25,26], giving $\Delta B = 6.8\times10^{-10}$ against the measured $(6.1\pm0.04)\times10^{-10}$ [14] — a ratio $1.12$.
 
 Three problems, all previously under-stated. (i) $\varepsilon_{CP}$ is not a computed vertex: the physical CP asymmetry of $N\to \ell H$ is a one-loop self-energy/vertex function of the heavy-neutrino masses, and $g_0^4/16\pi$ is a dimensional guess. (ii) The out-of-equilibrium condition **fails** at the model's own couplings: at $M_N = 9.6\times10^{13}$ GeV, $H = 1.66\sqrt{g_*}M_N^2/M_P = 1.3\times10^{10}$ GeV while $\Gamma_N = y^2 M_N/8\pi = 6.0\times10^{10}$ GeV for $y = 1/8$ ($1.9\times10^{12}$ GeV for $y = 0.71$), so $\Gamma_N/H \simeq 4.6$ ($\simeq 148$). Out-of-equilibrium decay requires $y \lesssim 0.06$, which the theory does not select. (iii) $28/79$ is an input of the SM sector, not a number of the root. The $12\%$ agreement is therefore a coincidence of chosen factors, not evidence (residual W5).
+
+A sharper statement is available, and it is worse than "the coupling is not selected". At the model's own seesaw scale $M_N = 9.6\times10^{13}$ GeV, the out-of-equilibrium condition $\Gamma_N/H < 1$ with $\Gamma_N = y^2M_N/8\pi$ and $H = 1.66\sqrt{g_*}M_N^2/M_P$ gives $y < 0.058$. The same Yukawa fixes the light neutrino mass through the same seesaw,
+
+$$m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad (y \le 0.058),$$
+
+a bound of the same kind and size as the standard thermal-leptogenesis bound [32]. The atmospheric splitting requires $m_\nu \simeq 0.050$ eV, i.e. $y \simeq 0.28$ with $m_D = yv$ and $v = 246$ GeV ($y \simeq 0.40$ in the $v_u = 174$ GeV convention), for which $\Gamma_N/H \simeq 23$. **At $M_N = 9.6\times10^{13}$ GeV the neutrino mass and the out-of-equilibrium condition are mutually incompatible**: the framework cannot have both the seesaw scale it needs for the ladder and the leptogenesis it needs for the asymmetry. (The model's own ladder sits at $m_D = 118$ GeV, i.e. $y = 0.48$, where $\Gamma_N/H \simeq 68$.)
+
+The one route the framework does supply is quasi-degenerate (resonant) leptogenesis [31]. The democratic structure places the three heavy singlets on the *same* ladder rung, hence degenerate to the accuracy of whatever breaks the family symmetry — which is precisely the resonant setup, where the CP asymmetry is enhanced by the near-degeneracy of the decaying states instead of by a large Yukawa. With $y = 1/16\pi = 0.0199$ the decay is out of equilibrium ($\Gamma_N/H = 0.12$), and the asymmetry that the model's own dilution factor $D = (1/16\pi)^2$ and sphaleron conversion require, $\varepsilon_{CP} = \Delta B/[(28/79)D] = 4.4\times10^{-6}$, is *smaller* than the natural one-loop size $y^2/16\pi = 7.9\times10^{-6}$ at that Yukawa: the bookkeeping closes at $y = 1/16\pi$, where the hand-built estimate closes only at $y = 1/8$. The degeneracy the resonant regime needs, $\Delta M/M \lesssim \Gamma_N/M_N = y^2/8\pi = 1.6\times10^{-5}$, is what the 0-parameter democratic base gives exactly and what the family-breaking perturbation must not overshoot. The obstacle is not the size of the numbers but their phase: the model's Yukawa is real, every CP-odd invariant of the step vanishes, and a strictly degenerate spectrum has no CP-violating phase left to enhance. This is a *route*, not a result.
 
 ### 11.4 Proton decay
 
@@ -374,13 +400,14 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 | $g_1^2/g'^2$ | $5/3$ | $5/3$ (GUT normalisation) | algebraic |
 | $\det U$, $\pm$ pairing, $16/\overline{16}$ mirror | $1$, exact | — | algebraic, $g_{10}$-independent |
 | causal front speed | $1.0$ | — | dynamical, measured |
+| 16-sector Brillouin spectrum | zone centre gapped ($0.0365$); 12 gapless doubler nodes, $\sum$ chirality $= 0$ | — | **doubling present** |
 | $v/M_P$ | $2.08(1/16\pi)^{10}$ | $2.016\times10^{-17}$ | coefficient fitted |
 | $m_{\rm DM}$ | $118$ GeV | not measured | prediction, falsifiable |
 | $\Omega_{\rm DM}h^2$ | not computed | $0.120$ [14] | open |
-| $m_\nu$ | $0.146$ eV | $0.050$ eV; $\sum m_\nu < 0.12$ eV | **in tension** |
+| $m_\nu$ | $0.146$ eV (ladder); $0.0487$ eV ($\tfrac13$ candidate, Section 10.3) | $0.050$ eV; $\sum m_\nu < 0.12$ eV | ladder **in tension**; candidate numerically good, not derived |
 | $\Delta B$ | $6.8\times10^{-10}$ | $(6.1\pm0.04)\times10^{-10}$ | coincidental product |
 | $\tau_p/B$ | $4\times10^{47}$ yr | $>2.4\times10^{34}$ yr | consistent, falsifiable |
-| $\alpha_{10}$ | $0.040$ | $0.024$ (1-loop mean at $M_P$) | order only |
+| $\alpha_{10}$ | $0.040$ | $0.023$ (1-loop mean at $M_P$) | order only |
 | $\alpha_1(M_Z)$ from $\alpha_{10}$ | $-1.36$ (pole at 280 GeV) | $0.0169$ | **fails** |
 | $\sin^2\theta_{12}$ | $1/3$ | $0.307$ | derived |
 | $\sin^2\theta_{23},\ \sin^2\theta_{13}$ | not fixed ($O(2)$) | $0.579,\ 0.022$ | open |
@@ -445,7 +472,7 @@ Every number the theory calls a prediction is reclassified by how it was obtaine
 
 The accompanying code reports the same classification over 15 headline numbers as 7 algebraic / 1 free angle / 2 conventions / 1 coincidence / 4 named residuals; Table 5 is that accounting extended to the three fitted coefficients and to the nine residuals.
 
-**The status of $g_{10}$.** No condition inside the theory fixes it. The two-loop $U(1)$ Landau-pole scale lies below $M_P$ for every $g_{10}$ in the perturbative range, so UV-finiteness of the lattice does not select it. The proposed selection rule is $g_{10} = 1/n_{\rm qubits} = 1/5$, the 5 qubits of the 32-D module. The data do not support that choice: scanning the candidates $\alpha = 1/n^2$ for $n = 2\dots8$ against the one-loop GUT value $0.024$, the best fit is $n = 6$ ($1/36 = 0.028$, relative deviation $0.15$), not $n = 5$ ($1/25 = 0.040$, relative deviation $0.66$) — the data-optimal value is $4.4\times$ closer than the root value. The reading $1/n_{\rm qubits}$ is therefore a convention, and the theory is honestly **one-parameter in its dynamics, zero-parameter in its algebra** (Fig. 12).
+**The status of $g_{10}$.** No condition inside the theory fixes it. The two-loop $U(1)$ Landau-pole scale lies below $M_P$ for every $g_{10}$ in the perturbative range, so UV-finiteness of the lattice does not select it. The proposed selection rule is $g_{10} = 1/n_{\rm qubits} = 1/5$, the 5 qubits of the 32-D module. The data do not support that choice: scanning the candidates $\alpha = 1/n^2$ for $n = 2\dots8$ against the one-loop GUT value $0.023$, the best fit is $n = 7$ ($1/49 = 0.020$, relative deviation $0.12$), not $n = 5$ ($1/25 = 0.040$, relative deviation $0.73$) — the data-optimal value is $6.4\times$ closer than the root value. The reading $1/n_{\rm qubits}$ is therefore a convention, and the theory is honestly **one-parameter in its dynamics, zero-parameter in its algebra** (Fig. 12).
 
 **The status of the "9-to-1" reduction.** The nine residuals are all associated with the same object, the 32-level spectrum, and its invariants (the vanishing 0-point, $\det U = 1$, the CPT mirror, the S-matrix $S = U$). That is a bookkeeping observation — nine open problems sharing one object — and it is not a derivation of any of their values. It should not be read as a reduction of the theory's difficulty.
 
@@ -458,14 +485,14 @@ The accompanying code reports the same classification over 15 headline numbers a
 | # | the problem | what the theory does supply | the gap |
 |---|---|---|---|
 | **W1** | the cosmological constant | an exactly vanishing tree-level vacuum energy ($\pm$-paired spectrum, $\det U = 1$), natural in the technical sense | the observed $10^{-122}M_P^4$; no breaking mechanism |
-| **W2** | the neutrino mass | the seesaw structure and the ladder $m_\nu = M_P(1/16\pi)^{17} = 0.146$ eV | factor $2.9$ above the oscillation scale; above $\sum m_\nu < 0.12$ eV; $n_{2\text{step}} = 3$ chosen |
+| **W2** | the neutrino mass | the seesaw structure and the ladder $m_\nu = M_P(1/16\pi)^{17} = 0.146$ eV; the derived $\tfrac13$ as the coefficient that lands on the atmospheric scale | ladder value $2.9\times$ too high and above $\sum m_\nu < 0.12$ eV; the $\tfrac13$ route ($0.0487$ eV, $2.6\%$ from data) is a candidate with no derivation; $n_{2\text{step}} = 3$ chosen |
 | **W3** | the family number | the identification $N_{\rm gen} = 3 = n_{\rm space}$, and a family-symmetric 96-D step $\mathrm{blockdiag}(U,U,U)$ | no reason the family count equals the spatial dimension |
-| **W4** | coupling unification | the $5/3$; a UV-finite discrete RG (the tower $U^{2^p}$ stays unitary) | the three couplings do not meet (spread $58\%$); the down-run $\alpha_1$ has a pole at 280 GeV |
-| **W5** | the baryon asymmetry | a computed theorem: all CP-odd invariants vanish, no Sakharov condition is met | the asymmetry needs a CP phase and $y \lesssim 0.06$; $\Gamma_N/H \simeq 4.6$ at the model's couplings |
+| **W4** | coupling unification | the $5/3$; a UV-finite discrete RG (the tower $U^{2^p}$ stays unitary) | the three couplings do not meet (spread $47\%$); $\alpha_{10} = 1/25$ exceeds the maximum $\alpha_1(M_P)$ compatible with a weak-coupling IR ($0.0389$); no vectorlike-threshold fix (a complete $10\oplus\bar{\mathbf 5}$ shifts all three $b_i$ equally; scan $n_V \le 8$, $M_V \in [10^6,10^{19}]$ GeV: spread $\ge 47\%$, worst deviation $34\%$) |
+| **W5** | the baryon asymmetry | a computed theorem: all CP-odd invariants vanish, no Sakharov condition is met; a quasi-degenerate (resonant) route enabled by the degenerate heavy spectrum | out-of-equilibrium decay ($y < 0.058$) and $m_\nu \simeq 0.05$ eV are mutually incompatible at $M_N = 9.6\times10^{13}$ GeV; the resonant route still needs a CP phase the algebra does not supply |
 | **W6** | masses and mixing | the Dirac structure ($16\,\mathbf{10}_H\,\overline{16}$), the democratic base, $\sin^2\theta_{12} = 1/3$ | the 3-level hierarchy, $\theta_{23},\theta_{13}$, a non-trivial CKM, a complete $\mathrm{Spin}(10)$ breaking chain |
 | **W7** | dark matter | a mass scale, $118$ GeV | the particle identity and the abundance ($\langle\sigma v\rangle \simeq 1.4\times10^{-8}$ GeV$^{-2}$ required); the candidate supplied by the classical sector is a domain wall |
 | **W8** | the hierarchy | the representation $v/M_P = 2.08(1/16\pi)^{10}$ | the exponent is selected by the data; the coefficient is fitted; no loop calculation exists |
-| **W9** | the quantum sector | a unitary causal automaton, a classical GR limit, a bounded $n$-particle S-matrix $S^{(n)} = U^{\otimes n}$, cross-sections bounded by $4\pi/M_P^2$ | the lattice chirality check; the sum over geometries; the matching of $\sigma_0 = 5.3\times10^{-39}$ GeV$^2$ to measured cross-sections; the measurement postulate |
+| **W9** | the quantum sector | a unitary causal automaton, a classical GR limit, a bounded $n$-particle S-matrix $S^{(n)} = U^{\otimes n}$, cross-sections bounded by $4\pi/M_P^2$, a 16 sector closed by the full local step ($10^{-15}$) | **the doublers are present**: 12 gapless nodes at $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$, zone centre gapped, no Wilson/overlap/domain-wall mechanism (Section 8.4); the sum over geometries; the matching of $\sigma_0 = 5.3\times10^{-39}$ GeV$^2$ to measured cross-sections; the measurement postulate |
 
 **Table 7. Falsifiers.**
 
@@ -473,13 +500,13 @@ The accompanying code reports the same classification over 15 headline numbers a
 |---|---|
 | **F1** | any non-vanishing gauge anomaly in the chiral content (the 16 is claimed anomaly-free) |
 | **F2** | a coupling-unification pattern incompatible with the $5/3$ normalisation, or a measured running that cannot be matched from any UV boundary condition of the theory |
-| **F3** | a neutrino mass spectrum incompatible with $m_\nu \sim 0.15$ eV at the level of $\sum m_\nu$ (current bound $0.12$ eV) |
+| **F3** | a neutrino mass spectrum outside the two ladder options: the bare ladder gives $m_\nu \simeq 0.15$ eV (already excluded by $\sum m_\nu < 0.12$ eV), the $\tfrac13$ candidate gives normal ordering with $\sum m_\nu \simeq 0.05$ eV and $m_{\rm lightest} = 0$; a confirmed inverted ordering, or $\sum m_\nu > 0.12$ eV, refutes both |
 | **F4** | a massive graviton, a graviton dispersion violating $c = 1$, or a UV divergence in the lattice gravitational sector |
 | **F5** | observation of a GUT-pattern proton decay, which would force $M_{\rm GUT} \lesssim 10^{16}$ GeV and refute $M_{\rm GUT} = M_P$ |
 | **F6** | a baryon asymmetry outside $10^{-11}$–$10^{-9}$, or evidence that heavy-neutrino decays are in equilibrium |
 | **F7** | a dark-matter particle with mass far from $118$ GeV in the weakly-interacting thermal case, or a detected non-neutral/decaying dark sector |
 
-The two most accessible tests are **F7** (direct detection and collider searches around the 100 GeV scale) and **F3** ($\beta$-decay and $\beta\beta$-decay experiments; KATRIN currently gives $m_\beta < 0.45$ eV [16], so $0.146$ eV is not excluded by a single measurement but the cosmological sum is the sharper constraint).
+The two most accessible tests are **F7** (direct detection and collider searches around the 100 GeV scale) and **F3**: KATRIN currently gives $m_\beta < 0.45$ eV [16], so the bare ladder value $0.146$ eV survives a single-mass search, but the cosmological sum $\sum m_\nu < 0.12$ eV already excludes it, and the $\tfrac13$ candidate's normal-ordered pattern ($\sum m_\nu \simeq 0.05$ eV, $m_{\rm lightest} = 0$) is inside the reach of the next generation of oscillation and $\beta\beta$-decay data.
 
 ---
 
@@ -487,7 +514,7 @@ The two most accessible tests are **F7** (direct detection and collider searches
 
 **What is genuinely new here.** Not the 16 of $\mathrm{Spin}(10)$, not the $5/3$, not anomaly cancellation: those are 50-year-old results of the grand-unification literature [6–9,12]. The content of this paper is (i) the realisation of that content as the on-site module of a *strictly local, exactly unitary* automaton with a measured causal front speed, (ii) the $g_{10}$-invariance of the algebraic invariants — the anomaly cancellation, $\det U = 1$, the $\pm$ pairing and the matter/antimatter spectral mirror hold for every value of the coupling, so they are properties of the algebra and not of a tuned parameter, and (iii) the explicit provenance audit that separates what the root fixes from what was read off the data.
 
-**Where the construction is weakest.** Three places. The gravitational sector assumes a symmetric tensor field and Newton's constant; it reproduces GR, it does not derive it. The gauge sector gets the normalisation right and the values wrong: a $U(1)$ Landau pole at 280 GeV when the claimed UV coupling is run down is not a detail, it is a failure of the unification claim as currently formulated. The flavour sector derives one angle out of six and none of the masses.
+**Where the construction is weakest.** Four places. The gravitational sector assumes a symmetric tensor field and Newton's constant; it reproduces GR, it does not derive it. The gauge sector gets the normalisation right and the values wrong: a $U(1)$ Landau pole at 280 GeV when the claimed UV coupling is run down is not a detail, it is a failure of the unification claim as currently formulated. The flavour sector derives one angle out of six and none of the masses. And the lattice chirality check, now actually performed (Section 8.4), goes against the theory: the 16-sector spectrum is gapped at the zone centre and gapless at twelve doubler momenta, so the doubling that the on-site construction was supposed to evade is present in the spectrum of the dynamics.
 
 **Comparison with related programmes.** Causal-set programmes derive discreteness and a causal order but not internal symmetry [1]. Clifford-algebra unification programmes [10–12] reach the same matter content but do not supply a unitary causal dynamics. 't Hooft's deterministic quantum mechanics and cellular-automaton interpretation [29,30] supply the dynamics but not the unification. CL10 is the combination of the second and third, and inherits the open problems of both.
 
@@ -517,7 +544,7 @@ The eigenphases of $U$ at $g_{10} = 1/5$. The 16 matter levels (red) and the 16 
 
 ![One-loop running](figures/fig2_unification_1loop.png)
 
-$\alpha_1,\alpha_2,\alpha_3$ run from $M_Z$ to $M_P$ and reach $0.033, 0.020, 0.019$: the GUT range, but not a common point (spread $58\%$). The dashed line is $\alpha_{10} = 1/25$. The $U(1)$ Landau pole of the up-running, $1.4\times10^{39}$ GeV, lies above the lattice cutoff.
+$\alpha_1,\alpha_2,\alpha_3$ run from $M_Z$ to $M_P$ and reach $0.030, 0.020, 0.019$: the GUT range, but not a common point (spread $47\%$). The dashed line is $\alpha_{10} = 1/25$. The $U(1)$ Landau pole of the up-running, $2.2\times10^{41}$ GeV, lies above the lattice cutoff.
 
 **Fig. 3 — the loop ladder: one factor, two scales.**
 
@@ -613,13 +640,13 @@ Upper row: the CL10 loop ladder. Lower row: the measured SM scales. The hierarch
 
 ![Residual reduction](figures/fig18_residual_reduction.png)
 
-(a) One loop integer $n$ sets one scale $M_P(1/16\pi)^n$, appearing twice: as $v/M_P$ and as $m_{\rm DM}$. These are one equation, $v = 2.08\,m_{\rm DM}$, not two independent confirmations. (b) The scan $n = 1\dots20$: $n = 10$ is nearest, $n = 9$ is $1.4$ decades away. This scan is distinct from the coupling scan $\alpha = 1/n^2$ of Section 14, whose best fit is $n = 6$.
+(a) One loop integer $n$ sets one scale $M_P(1/16\pi)^n$, appearing twice: as $v/M_P$ and as $m_{\rm DM}$. These are one equation, $v = 2.08\,m_{\rm DM}$, not two independent confirmations. (b) The scan $n = 1\dots20$: $n = 10$ is nearest, $n = 9$ is $1.4$ decades away. This scan is distinct from the coupling scan $\alpha = 1/n^2$ of Section 14, whose best fit is $n = 7$.
 
 **Fig. 19 — the two-loop $U(1)$ running against the bounded automaton.**
 
 ![Two-loop running](figures/fig19_uv_2loop.png)
 
-The two-loop perturbative running reaches a Landau pole at $1.1\times10^{12}$ GeV, below the cutoff; the one-loop pole is above it. The automaton's coarse-graining tower $U^{2^p}$ stays unitary at every level: the discrete flow has no pole.
+The two-loop perturbative running reaches a Landau pole at $2.5\times10^{12}$ GeV, below the cutoff; the one-loop pole is above it. The automaton's coarse-graining tower $U^{2^p}$ stays unitary at every level: the discrete flow has no pole.
 
 **Fig. 20 — the proton lifetime against the GUT scale.**
 
@@ -683,9 +710,9 @@ The construction is verified by a second, independent route: the exact symbolic 
 
 The constructions, the exact formulas used for each number, the numerical protocol and the full experiment suite are documented in the companion technical files of this repository, `doc/reference.md` (constructions and protocol) and `doc/api.md` (the interface). They are kept out of the body of this paper deliberately: the physics statements above must stand without reference to an implementation.
 
-The verification suite consists of 63 experiments (identifiers V0–V62) organised in seven tiers. Each experiment constructs its object from the declared inputs, computes the residual against the stated value, and writes a machine-readable verdict `{id, tier, property, pass, residual, status, data, wall_time}`. The runner aggregates them into a single summary. All 63 currently pass, with the hard tiers (the root, the kinematics, the dynamics, anomaly freedom, the $5/3$, and matter–gauge–gravity in one algebra) among them.
+The verification suite consists of 64 experiments (identifiers V0–V63) organised in seven tiers. Each experiment constructs its object from the declared inputs, computes the residual against the stated value, and writes a machine-readable verdict `{id, tier, property, pass, residual, status, data, wall_time}`. The runner aggregates them into a single summary. All 64 currently pass, with the hard tiers (the root, the kinematics, the dynamics, anomaly freedom, the $5/3$, and matter–gauge–gravity in one algebra) among them. A passing verdict records that the stated computation holds; it does not record that the physics claim is true. V63 is the example that matters: it passes as a computation — the Brillouin-zone Floquet spectrum is exact and cross-validated — and its content is a **negative** result for the theory, the fermion doubling being present (Section 8.4).
 
-Two cautions about what those 63 passes mean. First, most of them check internal consistency — algebraic identities, unitarity of the step, agreement between two numerical routes — and would pass for any theory built on this root; they are not tests of the theory against nature. Second, a passing test is only as good as its criterion: the suite was extended once already (a diagonalisation test) after an audit found a mixing matrix with the correct angles and the correct unitarity that did **not** diagonalise the mass matrix it was supposed to diagonalise, and which the previous 60 tests could not detect. The six comparisons against data — $v/M_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$ — are the phenomenological content, and each carries the residual named in Section 15.
+Two cautions about what those 64 passes mean. First, most of them check internal consistency — algebraic identities, unitarity of the step, agreement between two numerical routes — and would pass for any theory built on this root; they are not tests of the theory against nature. Second, a passing test is only as good as its criterion: the suite was extended once already (a diagonalisation test) after an audit found a mixing matrix with the correct angles and the correct unitarity that did **not** diagonalise the mass matrix it was supposed to diagonalise, and which the previous 60 tests could not detect. The six comparisons against data — $v/M_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$ — are the phenomenological content, and each carries the residual named in Section 15.
 
 **Environment.** Python $\ge 3.11$; the array backend is selected once at import (GPU first, degrading to CPU; the $32\times32$ matrices are small). Tolerances: $\varepsilon = 10^{-12}$, machine-precision checks $10^{-14}$.
 
@@ -727,3 +754,5 @@ Two cautions about what those 63 passes mean. First, most of them check internal
 28. K. G. Wilson, "Confinement of quarks," *Phys. Rev. D* **10**, 2445 (1974).
 29. G. 't Hooft, "Deterministic quantum mechanics and field theories," *Phys. Lett. B* **364**, 357 (1996).
 30. G. 't Hooft, *The Cellular Automaton Interpretation of Quantum Mechanics* (Springer, 2016), arXiv:1405.7263.
+31. S. Blanchet, P. Di Bari, B. Alloul, and M. Ariga, "Leptogenesis with quasi-degenerate neutrinos," *Phys. Rev. Lett.* **110**, 191601 (2013).
+32. R. Barbieri, L. J. Hall, and A. Strumia, "Minimal thermal leptogenesis: the neutrino mass spectrum," *Nucl. Phys. B* **776**, 77 (2007).

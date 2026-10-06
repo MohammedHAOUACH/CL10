@@ -454,7 +454,7 @@ above are the audit's **baseline**: $g_{10}$ is the **one free** parameter of
 the dynamics.  `cl10.four_limits` (V59) adds the bookkeeping observation that
 the **algebra** itself has no free parameter — $g_{10}=1/5$ and $g_0=1/2^3$ are
 readings of the root.  They are **conventions**, not derivations: V56 shows the
-data prefer $n = 6$ over $n = 5$.  The named set is then 2 two-digit
+data prefer $n = 7$ over $n = 5$.  The named set is then 2 two-digit
 coefficients read from the data + 1 CP phase, plus the one 't Hooft angle of
 the dynamics (paper Section 14).
 
@@ -497,8 +497,8 @@ on the **CuPy** GPU engine.
 
 | symbol | signature | returns |
 |---|---|---|
-| `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.024$) and the (non-unification) spread (the W4 named residual) |
-| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.65** of the 1-loop GUT coupling; **honest scan**: the data-optimal candidate is $n=6$ (gap 0.15), **not** the root $n=5$ (gap 0.66) — `data_check_selects_n = False`, so the reading $1/n_{\rm qubits}$ is a **mapping convention**, not a fit |
+| `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.023$) and the (non-unification) spread (the W4 named residual) |
+| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.73** of the 1-loop GUT coupling; **honest scan**: the data-optimal candidate is $n=7$ (gap 0.12), **not** the root $n=5$ (gap 0.73) — `data_check_selects_n = False`, so the reading $1/n_{\rm qubits}$ is a **mapping convention**, not a fit |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
 
 **`cl10.neutrino` — the 2-step seesaw on the 10-loop ladder (V57, W2).**
@@ -563,6 +563,26 @@ their values (paper Section 14).
 
 ---
 
+## 13.9. `cl10.brillouin` — the Brillouin-zone chirality test (V63, W9)
+
+The lattice-chirality check the suite had never run: does the **implemented**
+local step carry a single chiral 16 sector, or does the Nielsen–Ninomiya
+doubling survive?  It does not evade the theorem by hypothesis (no lattice
+Dirac operator), so the question is answered on the spectrum.  Protocol and
+cross-validation: `doc/reference.md` §5.
+
+| symbol | signature | returns |
+|---|---|---|
+| `blocks` | `(g10=G10)` | `(B, U32, U16)` — the pseudoscalar $+i$ basis $B$ (the 16), the internal 't Hooft step on the 32, and $U_{16} = B^\dagger U_{32}B$ |
+| `floquet` | `(q, U, order=ORDER, g10=G10)` | the exact $128\times128$ Bloch Floquet $U_{\mathrm{F}}(q) = \prod_{t=0..5}\big(S_{j(t),p(t)}(q)\otimes U\big)$ over the 6-step cycle, on the $2\times2\times2$ supercell (8 sites) at supercell momentum $q \in [-\pi,\pi]^3$ |
+| `sector_closure` | `(n_steps=6, L=8)` | the $16\to\overline{16}$ leakage of the **implemented** evolution (internal layer + staggered bond layer, `cl10.local_qca`): $9.7\times10^{-16}$ — chirality is a dynamical symmetry |
+| `torus_validation` | `()` | the maximum phase-spectrum deviation between the Bloch Floquet and the real-space 6-step Floquet on a $4^3$ torus, over the 8 supercell momenta $\{0,\pi\}^3$: $4.4\times10^{-15}$ |
+| `brillouin` | `()` | `{backend, g10, floquet_cycle=6, sector_leakage_16_to_16bar, bloch_vs_torus_dev, gap_q0_16=0.036499, gap_q0_32=0.036499, n_doubler_nodes=12, max_doubler_gap=2.0e-4, nodes[{q, gap, slope, chirality}], chirality_sum=0.0, v_typical=0.1419, g10_scan[{g10, gap_q0, gap_doubler}]}` — the zone centre is **gapped**, the 12 momenta $(\pm\pi/2,\pm\pi/2,0)$ are **gapless** with paired chiralities |
+| `verify` | `(tol=1e-9)` | the verdict dict with `ok`: leakage $<\varepsilon$, Bloch-vs-torus $<10^{-9}$, $\mathrm{gap}(0) > 10^{-3}$, $\max\mathrm{gap}(\text{doubler}) < 10^{-3}$, $\sum\text{chirality} = 0$, 12 nodes.  `ok` is a statement about the **computation**; its physics content is a **negative** result for the theory (the doublers are present, W9) |
+
+---
+
+
 ## 14. `run_validation.py` — the verification runner
 
 | symbol | signature | returns |
@@ -581,7 +601,7 @@ values the theory does not derive — W1–W9: the cosmological constant, the se
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 63 experiments
+python3 run_validation.py              # all 64 experiments
 python3 run_validation.py V11 V12      # a subset
 ```
 

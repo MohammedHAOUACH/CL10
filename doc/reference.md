@@ -91,9 +91,9 @@ signatures are in `doc/api.md`):
 | the hierarchy exponent (§10.1, W8; V53) | `cl10.hier_exponent` | $v/E_P = 2.02\times10^{-17}$ **is** the **10-loop** factor $(1/16\pi)^{10}\times 2.08$; the **10** $= 2\times5$ (the 16/16-bar **chiral split** $\times$ the **5 qubits** of the 32-D module) is a **representation**, not a loop calculation; the **same** factor also gives the DM mass (V54) — **one factor, two statements of one scale**; the exponent is **selected** so that the 2-digit coefficient lands on the data (the $0.18\%$ match fixes the coefficient, not the exponent); the coefficient $2.08$ is **fitted** |
 | the sub-Planck DM scale (§10.2, W7; V54) | `cl10.dm_wimp` | the **10-loop suppression** of the Planck scale: $m_{\rm DM} = 1.18\,M_P (1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale; the **same** 10-loop factor as V53, the $1.18$ **fitted**); the **V42** Planck-mass soliton is under-abundant (the $10^{-52}$ gap, quantified); the abundance $\Omega h^2$ is **not computed** — the code normalises it to the observed $0.120$ at $100$ GeV, so there is **no WIMP-miracle prediction**, only a mass scale |
 | the baryon asymmetry (§11.3, W5; V55) | `cl10.eta_cp` | a **product of factors of three provenances**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ — an **input of the SM sector**, the LH d.o.f. count; the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/8 = 1/2^3$, a dimensional guess; and the **2-loop dilution** $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from V40's 2.8); the **CP phase** and the 2-digit ratio are the named residual |
-| the $g_{10}$ 1-loop data check (§11.1, §14; V56) | `cl10.g10_selection` | $g_{10} = 1/5$ (the 32-D module, 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$, **within a factor 1.65** of the **1-loop** GUT coupling (the mean of the three running to $M_P$, $0.0242$); the 1-loop matching is the W4 named residual; **honest scan**: the data-optimal candidate is $n=6$ ($\alpha = 1/36 = 0.028$, relative deviation $0.15$), **not** the root $n=5$ (deviation $0.66$) — the data check confirms the **order only** and does **not** select $n$ |
+| the $g_{10}$ 1-loop data check (§11.1, §14; V56) | `cl10.g10_selection` | $g_{10} = 1/5$ (the 32-D module, 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$, **within a factor 1.73** of the **1-loop** GUT coupling (the mean of the three running to $M_P$, $0.0231$, from the PDG inputs $\alpha_1(M_Z) = 0.0169$, $\alpha_2 = 0.0338$, $\alpha_3 = 0.118$); the 1-loop matching is the W4 named residual; **honest scan**: the data-optimal candidate is $n=7$ ($\alpha = 1/49 = 0.020$, relative deviation $0.12$), **not** the root $n=5$ (deviation $0.73$) — the data check confirms the **order only** and does **not** select $n$ |
 | the 2-step seesaw on the 10-loop ladder (§10.3, W2; V57) | `cl10.neutrino` | the 2-step seesaw on the **loop ladder**: the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3} = 9.6\times10^{13}$ GeV (**replacing the hard-coded $10^{14}$** of V15/V18) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.146$ eV — **2.9×** the atmospheric $0.050$ eV and **in tension** with $\sum m_\nu < 0.12$ eV; $n_{2\text{step}}=3$ and the 2-digit coefficient are **fitted**; the **2-step** $U^2$ is a **unitary** of the GUT QCA |
-| the UV-finite *discrete RG* (§11.1, W4; V58) | `cl10.uvrunning` | the **W4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff; and run *down* from $\alpha_{10}=1/25$ the $U(1)$ pole sits at $280$ GeV, §11.1); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.6$) is a **failure of the coupling values**, not a feature to be dismissed; the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
+| the UV-finite *discrete RG* (§11.1, W4; V58) | `cl10.uvrunning` | the **W4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff; and run *down* from $\alpha_{10}=1/25$ the $U(1)$ pole sits at $280$ GeV, §11.1); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.47$) is a **failure of the coupling values**, not a feature to be dismissed; the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
 | the **four limits and their common object** (§14; V59) | `cl10.four_limits` | the four "limits" of the theory are the **four projections of one invariant** $10 = 2\times5$ (the chiral $16/16$-bar split $\times$ the 5 qubits of the 32-D module) **plus one irreducible CP phase** — computed on the GPU: (L1) the 7 algebraic invariants are **$g_{10}$-invariant** (the CPT-mirror residual stays $\sim1.8\times10^{-15}$ for $g_{10}=0.1..0.5$); (L2+L4) the **same** $n=10$ is the **unique** $n\in1..20$ within **one decade** of **both** closures: the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — **two statements of one scale**; (L3) the **rank-1** (1 $N$) Yukawa has **0** CP phases (no baryon) while the **2-step** (2 $N$) has **1** irreducible CP phase ($\mathrm{Im}\det(Y)=|\sin\delta|$) — so baryogenesis needs **one** phase, $\Delta B=6.8\times10^{-10}$ (ratio 1.12).  **Bookkeeping, not a derivation:** the algebra has no free parameter, but $g_{10}=1/5$ and $g_0=1/2^3$ are **conventions**, and the named residual set is **2 two-digit coefficients** (2.08, 1.18, read from the data) **+ 1 CP phase + 1 't Hooft angle** |
 | the **3-D hydrogen atom** driven by the CL10 photon (Fig. 26; V61, V62) | `simulation.hydrogen` | the hydrogen atom (the **real** Rydberg levels $E_n=-13.606/n^2$ and the eigenfunctions $R_{nl}(r)Y_{lm}$ drawn on a $296^3$ lattice — an **input of atomic physics**, NOT derived from the root) coupled to the **CL10 free massless 3-D field** (the 6-neighbour leapfrog FDTD, the same engine as `simulation.young`): the **Fermi-golden-rule** dipole drive $A\,|F|^2\,L(\delta)$ with a **Lorentzian** line shape (a photon *at* a gap is absorbed, one far from every gap mostly is not — the **tail is real**, not zero), the **Einstein-A** emission (the transition dipole sources an outgoing wave at the gap frequency and the population relaxes), the **sponge** absorbing boundary, and the observables (`populations`, `atom_energy`, `excited_fraction`, `electron_density` $=|\psi|^2$, `photon_density` $=|F|^2+|F_{\rm out}|^2$).  **V61** measures: the gaps equal the Rydberg differences (relative error $0$), the **E1 selection rules come out of the lattice wavefunctions** (the forbidden dipoles $6.8\times10^{-19}$ and $8.6\times10^{-18}$, against $9.93$/$-3.00$/$22.97$ for the allowed ones), the absorption **peaks on the gap and falls with the detuning**, and the excited atom **radiates while it decays**.  The knobs $A$, $h$, $\gamma_{\rm sp}$ are physical parameters of the atom, **not fitted**.  **V62** is the production run ($296^3$, the full photon script) that regenerates the Fig. 26 figure. |
 | the Young wave + the **single-electron** measurement / collapse (Fig. 25, §7) | `simulation.young` | the **3-D QCA wave** (the same discrete wave equation as the CL10 graviton, §9.1) run through a **double-slit barrier** as a **single-electron measurement** (the Tonomura flow): `wave.WaveSim` is the FDTD (the `r=0.5` CFL leapfrog, the source matched to the FDTD dispersion, the quadratic absorbing sponge) that fires **one localized electron at a time** — each one diffracts through the slits and is detected at a **single point** sampled from the **time-integrated** on-screen $\psi^{2}$ (the interference pattern the screen records; a single instant of the traveling wave is only a blob, so the detection is integrated over the electron's passage), with the **sponge** absorbing the wave between emissions (no reset); the **`collapse.Collapse`** class implements the **measurement** — `sample` = the **Born-rule** inverse-CDF sampling of one detection point, `contract` = the **wave-packet reduction** ($\psi\to\psi\times$ a shrinking Gaussian centred on the detected point: the **non-unitary** projection, the collapse), and `add` = the **detection accumulation** whose points cluster into the fringe groups.  The collapse is an **input of the interpretation** (W9), not a consequence of the unitary step |
@@ -121,15 +121,18 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V62 under `experiments/`):
+**The protocol.**  Each experiment (V0–V63 under `experiments/`):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
    status, data, wall_time}` to `experiments/<id>/results/`;
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
+5. a **crash** of the experiment script (non-zero exit code) is recorded as
+   a **FAIL** and any JSON verdict already on disk is **discarded**: an
+   experiment never inherits the verdict of a previous run.
 
-`run_validation.py` runs all **63** experiments (V0–V62) in name order,
+`run_validation.py` runs all **64** experiments (V0–V63) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the runner's hard-tier verdict (the runner labels it `U10`; the paper
@@ -138,7 +141,7 @@ does not use that label):
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (63/63, 2026-10-06).**  Every experiment **passes** on the
+**The result (64/64, 2026-10-06).**  Every experiment **passes** on the
 GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
 (Appendix B): most of these checks are **internal consistency** (they
 would pass for any theory built on this root), and a pass is only as good
@@ -189,7 +192,7 @@ over 15 rows as 7 algebraic / 1 free angle / 2 conventions / 1 coincidence
   the **UV-finite** property (V51).
 
 $g_{10} = 1/5$ is the theory's **one free parameter**: V52 flags it as such
-and V56 shows the data prefer $n = 6$ over the root $n = 5$.  The **algebra**
+and V56 shows the data prefer $n = 7$ over the root $n = 5$.  The **algebra**
 has no free parameter; that is not the same as the **dynamics** being
 parameter-free.
 
@@ -208,9 +211,14 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (63/63)
+python3 run_validation.py            # -> results/validation_summary.json (64/64)
 python3 run_validation.py V11 V12    # a subset
+CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 ```
+
+`CL10_BACKEND=numpy` overrides the GPU-first backend selection in
+`cl10.engine`; the physics is unchanged, the run is slower (the hydrogen
+experiments V61/V62 dominate).
 
 **Lint.**  `python3 -m ruff check cl10/ experiments/ run_validation.py`
 passes (the compact numerical style allows E702/E402/E741; the real bugs
@@ -222,7 +230,7 @@ F4xx/F5xx are enforced).
  PNGs to `doc/figures/`.  **Fig 26** is produced by the **V62** production
  experiment (`experiments/V62_hydrogen_production`, the `simulation/hydrogen`
  engine on the **GPU**): a computed four-panel matplotlib figure (the mid-plane
- cuts of $|\psi|^2$, $|F|^2$, $|F_{\rm out}|^2$) with a meta JSON next to it (see the
+ cuts of $|\psi|^2$, $|F|^2$, $|F_{\rm out}|^2$); its run metadata is written to the experiment's own `results/` directory (see the
  note after the figure list), and its content is checked by **V61** (fast) and
  **V62** (production) rather than by `make_figures.py`:
 
@@ -284,7 +292,7 @@ either: it is the **V62** product — the **production** $296^3$ run of the
 ``simulation/hydrogen`` engine **on the GPU** (the full photon script: Lyman-alpha
 twice, $1s\to3p$, $2p\to3d$, off-resonant control) from which the four mid-plane
 panels are selected by the physics; the meta JSON
-(``doc/figures/fig26_hydrogen.meta.json``) records the grid, the script, the
+(``experiments/V62_hydrogen_production/results/fig26_hydrogen.meta.json``) records the grid, the script, the
 selected instants and the populations.  Its content is **checked by V61** (the
 fast $120^3$ run, part of the suite) and **V62** (this production run).  The
 **video** (the 3-D scene + stills) is a separate product of
@@ -298,18 +306,45 @@ fast $120^3$ run, part of the suite) and **V62** (this production run).  The
 
 ## 5. The status of two theorems (the honest wording)
 
-**The Nielsen–Ninomiya status.**  The lattice **chirality** is **not**
-realised by a naive lattice Dirac operator (which would double): the 16 Weyl
+**The Nielsen–Ninomiya status (V63, `cl10.brillouin`).**  The lattice
+**chirality** is **not** realised by a naive lattice Dirac operator: the 16 Weyl
 is a **module** of $\mathrm{Cl}(10)$ (the pseudoscalar splits the 32 into
 16/16-bar), and the QCA is a 't Hooft-type **finite-state** theory (one
-**exactly-unitary** per-cell step).  The doubling theorem constrains a
-**local, Hermitian, translation-invariant** lattice Dirac operator, so it does
-not by itself forbid this construction — the chiral content is a property of
-the **algebra**, not of a lattice operator.  **What has not been done:** the
-theorem's own hypothesis has never been tested here — there is no
-Brillouin-zone analysis of a would-be lattice fermion propagator, so "no
-doublers" is **not established on the lattice**.  This is the lattice-chirality
-item of W9, and the paper lists it as open.
+**exactly-unitary** per-cell step).  The doubling theorem constrains a **local,
+Hermitian, translation-invariant** lattice Dirac operator, so it does not by
+itself forbid this construction.  **What the theorem leaves open has now been
+computed** rather than asserted.
+
+*Protocol.*  The implemented step (`cl10.local_qca`) is **internal layer +
+staggered bond layer**, with the bond axis $j(t) = t \bmod 3$ and the bond
+parity alternating with $t \bmod 2$; the 6-step cycle
+`[(even,0),(odd,1),(even,2),(odd,0),(even,1),(odd,2)]` is therefore periodic in
+space with period 2 in each direction, so the unit cell is the **$2\times2\times2$
+cell** (8 sites) and the good quantum number is the **supercell momentum**
+$q \in [-\pi,\pi]^3$.  On the 8-site cell the bond layer along axis $j$ is
+$S = \mathbb{1}$ except on the pairs $(e, e \oplus 2^j)$ selected by the parity,
+where $S_{ee} = S_{oo} = \cos g_{10}$, $S_{eo} = -i\sin g_{10}\,\phi$,
+$S_{oe} = -i\sin g_{10}\,\phi^*$ with $\phi = 1$ on the even layer and
+$\phi = e^{+iq_j}$ ($e^{-iq_j}$) on the odd layer according to which member of
+the pair carries the cell-crossing bond.  The Bloch Floquet is
+$U_{\mathrm{F}}(q) = \prod_{t=0}^{5}\big(S_{j(t),p(t)}(q)\otimes U_{16}\big)$,
+$U_{16} = B^\dagger U_{32}B$ the internal step in the $+i$ eigenspace $B$ of the
+pseudoscalar, built exactly ($8\times8$ bond $\otimes$ $16\times16$ internal =
+$128\times128$).  It is cross-validated against the **real-space** 6-step
+Floquet on a $4^3$ torus: maximum deviation $4.4\times10^{-15}$.
+
+*Results (V63, tier 2, named residual).*  (1) 16-sector closure of the
+implemented evolution: $16\to\overline{16}$ leakage $9.7\times10^{-16}$ over six
+steps — chirality is a **dynamical** symmetry, not only an on-site one.
+(2) Zone centre: $\min_a|\omega_a(0)| = 0.036499$ (16 sector) and $0.036499$
+(32 sector) — **gapped**.  (3) The 12 momenta $(\pm\pi/2,\pm\pi/2,0)$ and their
+permutations: maximum gap $2.0\times10^{-4}$, linear slopes $|v| = 0.1419$, node
+chiralities $\pm1$ with sum exactly $0$.  (4) $g_{10}$ scan:
+$\mathrm{gap}(0)/\mathrm{gap}(\text{doubler}) = 0.0365/0.0002$ at $g_{10}=0.2$,
+$0.0715/0.0430$ at $0.15$, $2.3548/2.4722$ at $0.1$ — the zone-centre gap is not
+protected.  **The doublers are present**; the construction contains no Wilson,
+overlap or domain-wall term that removes them.  This is the lattice-chirality
+item of W9, and the paper reports it as a **negative** result (Section 8.4).
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the

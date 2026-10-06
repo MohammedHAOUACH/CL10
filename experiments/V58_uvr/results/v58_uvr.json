@@ -7,21 +7,21 @@
   "status": "the_w4_uvfinite_discrete_rg_resolves_the_1loop_nonunification",
   "tol": 1e-09,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "alpha_10": 0.04,
     "M_P_GeV": 1.22e+19,
     "couplings_at_M_P": [
-      0.03318593193916546,
+      0.029905266390705666,
       0.020218102277503234,
       0.01908090876072175
     ],
-    "spread_at_M_P": 0.5837773721989419,
+    "spread_at_M_P": 0.46923505448489045,
     "one_loop_landau_poles": [
-      1.385249013068412e+39,
+      2.195930344862803e+41,
       Infinity,
       Infinity
     ],
-    "two_loop_u1_pole": 1128961110302.3076,
+    "two_loop_u1_pole": 2473567583262.504,
     "u1_1loop_above_cutoff": true,
     "u1_2loop_below_cutoff": true,
     "discrete_rg_all_bounded": true,
@@ -38,5 +38,5 @@
       "w4_resolved": true
     }
   },
-  "wall_time": 0.135
+  "wall_time": 0.053
 }

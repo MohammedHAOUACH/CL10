@@ -7,7 +7,7 @@
   "status": "the_4d_nonlinear_gravity_is_0parameter_the_einstein_space_identity_and_cosmological_constant_and_self_gravity_are_computed",
   "tol": 1e-08,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "H": 1.0,
     "einstein_space_err": 0.0,
     "g_mu_nu_minus_3h2_g": 0.0,
@@ -19,5 +19,5 @@
     "gap": 9.999999999999999e-123,
     "residual": "the exact Lambda ~ 1e-122 (Planck units): the 0-parameter 4-D non-linear gravity (the Einstein tensor) gives the 0-parameter vacuum energy Lambda ~ M_P^4; the observed 1e-122 (the W1 wall) is the named residual"
   },
-  "wall_time": 0.401
+  "wall_time": 0.004
 }
