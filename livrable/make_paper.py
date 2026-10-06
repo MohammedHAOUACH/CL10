@@ -89,6 +89,7 @@ def inline(s):
         return "\\texttt{" + body + "}"
     s = re.sub(r"`([^`]+)`", code, s)
     s = re.sub(r"https?://[^\s)\]]+", r"\\url{\g<0>}", s)
+    s = citations(s)
     return re.sub(r"\x00(\d+)\x00", lambda m: maths[int(m.group(1))], s)
 
 
