@@ -890,14 +890,14 @@ def fig20_proton_decay():
     M_GUT = np.logspace(14, 20, 300)
     tau_p = tau(M_GUT)
 
-    BOUND = 1.6e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande)
+    BOUND = 2.4e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande, Takenaka et al. 2020)
     TAU_UNIVERSE = 1.4e10   # yr, the age of the universe
 
     fig, ax = plt.subplots(figsize=(8.2, 5.4))
     ax.loglog(M_GUT, tau_p, "-", color=C_ROOT, lw=2.4,
               label=r"$\tau_p \sim M_{\rm GUT}^{4}\,/\,(\alpha_{10}^{2}\,m_p^{5})$")
     ax.axhline(BOUND, color=C_ZERO, ls="--", lw=1.5,
-               label="experimental bound  $\\tau_p > 1.6\\times10^{34}$ yr  ($p\\to e^+\\pi^0$)")
+               label="experimental bound  $\\tau_p > 2.4\\times10^{34}$ yr  ($p\\to e^+\\pi^0$)")
     ax.axhline(TAU_UNIVERSE, color="0.45", ls=":", lw=1.5,
                label="age of the universe  $\\sim 1.4\\times10^{10}$ yr")
     tau0 = float(tp.proton_decay_lifetime())
@@ -906,7 +906,7 @@ def fig20_proton_decay():
                      r"$\Rightarrow$ $\tau_p = $" + f"{tau0:.1e}" + r" yr")
     ax.axhspan(1.0, BOUND, color=C_ZERO, alpha=0.05)
     ax.annotate(
-        r"$M_{\rm GUT} \lesssim 5\times10^{15}$ GeV gives $\tau_p$ below the bound (excluded, shaded);"
+        r"$M_{\rm GUT} \lesssim 6\times10^{15}$ GeV gives $\tau_p$ below the bound (excluded, shaded);"
         "\nthe 0-parameter point sits $\\sim$13 orders of magnitude above it, so the proton is stable "
         "on all\nobserved timescales (consistent with data; the prediction is falsifiable)",
         xy=(M_P, tau0), xytext=(2e14, 3e34),
@@ -933,7 +933,7 @@ def fig21_proton_margin():
     M_P, ALPHA, m_p = tp.M_PLANCK, tp.ALPHA_10, tp.M_P_ROBSON
     def tau(M):
         return (M**4 / (ALPHA**2 * m_p**5)) * tp.GEV_TO_S / tp.S_TO_YR
-    BOUND = 1.6e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande)
+    BOUND = 2.4e34          # yr, the p -> e+ pi0 bound (Super-Kamiokande, Takenaka et al. 2020)
     M_GUT = np.logspace(14, 20, 400)
     ratio = BOUND / tau(M_GUT)                 # = Gamma / Gamma_bound
     tau0 = float(tp.proton_decay_lifetime())
@@ -981,8 +981,8 @@ def fig22_proton_channels():
     pf0 = pf(me, mpi)
     chans = [
         ("$p \\to e^+ \\pi^0$", pf(me, mpi) / pf0, 1.0, 2.4e34),
-        ("$p \\to \\mu^+ \\pi^0$", pf(mmu, mpi) / pf0, 1.0, 7.0e33),
-        ("$p \\to e^+ K^+$", pf(me, mk) / pf0, 1.0, 2.7e33),
+        ("$p \\to \\mu^+ \\pi^0$", pf(mmu, mpi) / pf0, 1.0, 1.6e34),
+        ("$p \\to e^+ K^+$", pf(me, mk) / pf0, 1.0, 6.6e33),
     ]
     names, margin = [], []
     for nm, phase, had, bound in chans:
@@ -1001,8 +1001,8 @@ def fig22_proton_channels():
     ax.set_xticklabels(names)
     ax.set_ylabel(r"$\tau_p^{\rm (pred)}/\tau_p^{\rm (bound)}$  (the stability margin, log)")
     ax.set_title("Proton decay: the 0-parameter lifetime vs the bound, for the three GUT channels\n"
-                 r"(each $\sim10^{13}$-$10^{14}$ above its bound: the rate is GUT-suppressed, the two-body phase space differs)",
-                 fontsize=10)
+                 r"(each $\sim10^{13}$-$10^{14}$ above its bound; for the $K^+$ mode the $p\to\bar\nu K^+$ bound is used, the closest measured channel)",
+                 fontsize=9)
     ax.axhline(1.0, color=C_ZERO, ls="--", lw=1.4,
                label=r"the bound  ($\Gamma=\Gamma_{\rm bound}$)")
     ax.set_ylim(1e0, 1e15)
