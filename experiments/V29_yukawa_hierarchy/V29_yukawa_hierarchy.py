@@ -108,11 +108,11 @@ def main():
     print("  [V29] the democratic base -> the TRIBIMAXIMAL mixing (it diagonalizes |1><1|: "
           f"{mix['diagonalizes_democratic']}):")
     print(f"    sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
-    print(f"    HONEST: sin^2(12)=1/3 is DERIVED 0-parameter (the unique heavy eigenvector, "
-          f"8% from observed);")
+    print("    HONEST: sin^2(12)=1/3 is DERIVED 0-parameter (the unique heavy eigenvector, "
+          "8% from observed);")
     print(f"            sin^2(23) sweeps {tuple(round(x,3) for x in mix['sin2_23_O2_range'])} and "
           f"sin^2(13) sweeps {tuple(round(x,3) for x in mix['sin2_13_O2_range'])} (the O(2) freedom) —")
-    print(f"            the TBM values are the (23)-adapted CHOICE, not a derivation.")
+    print("            the TBM values are the (23)-adapted CHOICE, not a derivation.")
     print(f"  the mean 0-parameter vs observed PMNS deviation:  {dev:.3f}")
     print(f"  the 0-parameter base spectrum (degenerate):  {['%.3g' % x for x in h['base_spectrum']]}")
     print(f"  named residual:  {h['residual']}")

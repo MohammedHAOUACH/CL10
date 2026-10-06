@@ -541,7 +541,7 @@ def main():
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
     print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal, Dirac)")
     hh = r["mixing_honest"]
-    print(f"  [7] HONEST mixing status (the O(2) freedom of the 2-fold light subspace):")
+    print("  [7] HONEST mixing status (the O(2) freedom of the 2-fold light subspace):")
     print(f"      sin^2(12) = {hh['sin2_12_value']:.4f}  -> DERIVED 0-parameter "
           f"(the unique heavy eigenvector), vs observed {hh['sin2_12_vs_observed']['observed']} "
           f"(ratio {hh['sin2_12_vs_observed']['ratio']:.3f})")
@@ -549,7 +549,7 @@ def main():
     print(f"      sin^2(13) sweeps [{hh['sin2_13_range'][0]:.3f}, {hh['sin2_13_range'][1]:.3f}]  -> NOT derived (O(2) choice)")
     print(f"      TBM diagonalizes |1><1|: {hh['tbm_diagonalizes_democratic']}  "
           f"(the (23)-adapted member of the family: {hh['tbm_in_the_O2_family']})")
-    print(f"      the S3 transpositions (12),(13),(23) are equivalent symmetries of |1><1|;")
+    print("      the S3 transpositions (12),(13),(23) are equivalent symmetries of |1><1|;")
     print(f"      only (23) reproduces TBM: "
           f"{ {k: v['reproduces_TBM'] for k, v in hh['s3_transpositions_equivalent'].items()} }")
     print(f"  [8] named residual (W6):  {r['residual']}")

@@ -178,7 +178,7 @@ def main():
     print("V60 - the TBM regression test (the W6 mixing, honest)")
     print("=" * 72)
     c1 = r["check_1_diagonalization"]
-    print(f"  [1] DIAGONALIZATION of |1><1| (the check the old suite lacked):")
+    print("  [1] DIAGONALIZATION of |1><1| (the check the old suite lacked):")
     print(f"      the fixed TBM   : max off-diagonal = {c1['good_TBM_max_offdiag']:.2e}  -> {c1['good_diagonalizes']}")
     print(f"      the old sign bug: max off-diagonal = {c1['old_sign_error_max_offdiag']:.4f}  -> {c1['old_sign_error_diagonalizes']}")
     c2, c3 = r["check_2_angles"], r["check_3_unitarity"]
@@ -187,7 +187,7 @@ def main():
     print(f"  [4] -> the old tests were BLIND to the bug; the diagonalization guard catches it: "
           f"{r['check_4_guard_is_necessary']['guard_catches_the_bug']}")
     c5 = r["check_5_honest_mixing_split"]
-    print(f"  [5] the honest mixing split:")
+    print("  [5] the honest mixing split:")
     print(f"      sin^2_12 = {c5['sin2_12_value']:.4f}  DERIVED 0-parameter "
           f"(observed {c5['sin2_12_vs_observed']['observed']}, ratio {c5['sin2_12_vs_observed']['ratio']:.3f})")
     print(f"      sin^2_23 sweeps {tuple(round(x,3) for x in c5['sin2_23_O2_range'])}  (O(2) freedom, NOT derived)")

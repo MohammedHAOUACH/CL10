@@ -89,7 +89,7 @@ def main():
     print(f"  [check 2] the CKM is unitary:  {r['ckm_unitary']}")
     print(f"  [check 3] HONEST: the CKM computed from H_u = H_d (both democratic) IS THE IDENTITY: {r['ckm_is_identity']}")
     print(f"              computed CKM angles: sin2(12,23,13) = {tuple(round(a,4) for a in r['ckm_computed_angles'])}")
-    print(f"              (a non-trivial CKM needs an up/down MISALIGNMENT the democratic base does not give)")
+    print("              (a non-trivial CKM needs an up/down MISALIGNMENT the democratic base does not give)")
     print(f"  [check 4] the TBM angles ({r['sin2_12']:.3f}, {r['sin2_23']:.3f}, {r['sin2_13']:.3f}) are the LEPTON-sector (23)-adapted choice, not a quark result")
     print(f"            deviation to observed CKM (0.050, 0.949, 0.020): {r['dev_ckm']:.3f}  (the W6 named residual)")
     print(f"  named residual:  {r['residual']}")

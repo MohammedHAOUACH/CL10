@@ -97,8 +97,8 @@ def main():
           f"NOT the root n = {d['n_qubits']} (gap {d['gap_root_n5']:.3f})")
     print(f"    -> the data check confirms the ORDER only; it does NOT select n "
           f"(selects n: {d['data_check_selects_n']})")
-    print(f"    -> reading 1/n_qubits as the coupling is therefore a MAPPING CONVENTION "
-          f"(n = 5 is the number of qubits of the 32-D module, 10 = 2 x 5)")
+    print("    -> reading 1/n_qubits as the coupling is therefore a MAPPING CONVENTION "
+          "(n = 5 is the number of qubits of the 32-D module, 10 = 2 x 5)")
     print(f"  named residual (W6):  {verdict['data']['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the W4 named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v56_g10_selection.json"))

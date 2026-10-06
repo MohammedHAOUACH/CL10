@@ -151,10 +151,10 @@ def main():
           f"sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), "
           f"sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), "
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
-    print(f"      HONEST: sin^2(12) = 1/3 is DERIVED 0-parameter (the unique heavy eigenvector);")
+    print("      HONEST: sin^2(12) = 1/3 is DERIVED 0-parameter (the unique heavy eigenvector);")
     print(f"              sin^2(23) sweeps [{hh['sin2_23_range'][0]:.3f}, {hh['sin2_23_range'][1]:.3f}] and")
     print(f"              sin^2(13) sweeps [{hh['sin2_13_range'][0]:.3f}, {hh['sin2_13_range'][1]:.3f}] under the O(2) freedom")
-    print(f"              of the 2-fold light subspace — the TBM values are the (23)-adapted CHOICE.")
+    print("              of the 2-fold light subspace — the TBM values are the (23)-adapted CHOICE.")
     print(f"  [5] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
     print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")

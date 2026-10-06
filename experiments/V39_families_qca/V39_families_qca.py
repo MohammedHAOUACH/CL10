@@ -123,7 +123,7 @@ def main():
           f"sin^2(23) = {s['s23']:.4f} (= 1/2), sin^2(13) = {s['s13']:.1e} (= 0)")
     print(f"    ||U_TBM U_TBM^T - I||_max = {r['tribimaximal_unitary_err']:.3e}  (unitary)")
     print(f"    U_TBM diagonalizes the democratic base |1><1|: {r['tribimaximal_diagonalizes_democratic']}")
-    print(f"    (only sin^2(12)=1/3 is 0-parameter as a number; sin^2(23), sin^2(13) are an O(2) choice)")
+    print("    (only sin^2(12)=1/3 is 0-parameter as a number; sin^2(23), sin^2(13) are an O(2) choice)")
     print(f"  [check 5] dimension:  {r['n_weyl_3gen']} Weyl = {r['n_weyl_1gen']} x 3;  {r['n_cpt_3gen']} CPT-conjugate")
     print(f"  named residual:  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 3 families are inside the QCA dynamics; the 96x96 step is 0-parameter unitary and family-symmetric)' if ok else 'FAIL'}")
