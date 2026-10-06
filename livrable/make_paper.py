@@ -70,15 +70,34 @@ def citations(s):
     return CITE_RE.sub(repl, s)
 
 
-def inline(s):
-    """Convert Markdown text to LaTeX; $...$ math is stashed, never rewritten."""
+def inline(s, mbox_math=False):
+    """Convert Markdown text to LaTeX; $...$ math is stashed, never rewritten.
+
+    mbox_math=True additionally shields each inline formula in \\mbox{} so it
+    cannot be split across lines (table cells: no orphaned symbols).
+    """
     maths = []
 
     def stash(m):
+        # short formulas are atomic: \mbox keeps them on one line (no orphaned
+        # symbols in table cells); long ones keep the comma-break behaviour
+        if mbox_math and rendered_len(m.group(0)) <= 14:
+            maths.append("\\mbox{" + m.group(0) + "}")
+            return "\x00%d\x00" % (len(maths) - 1)
         # a long unbreakable inline expression (diag(...), charge lists) is what
         # pushes a paragraph past the margin: permit a break after each comma
         maths.append(re.sub(r",(?=\\|\s|\+|-|[A-Za-z0-9(])", r",\\allowbreak{}", m.group(0)))
         return "\x00%d\x00" % (len(maths) - 1)
+
+    if mbox_math:
+        # a number glued to its unit ($X$ eV, $4\times10^{47}$ yr) must not
+        # wrap across lines: stash the whole pair as one raw-LaTeX \mbox
+        # (inserting \mbox directly would be mangled by escape_text below)
+        def unit_pair(m):
+            maths.append("\\mbox{" + m.group(1) + " " + m.group(2) + "}")
+            return "\x00%d\x00" % (len(maths) - 1)
+        s = re.sub(r"(\$[^$]{1,16}\$)\s(GeV|MeV|TeV|keV|eV|yr)\b",
+                   unit_pair, s)
 
     s = re.sub(r"\$\$[^$]*\$\$|\$[^$]*\$", stash, s)
     s = escape_text(s)
@@ -169,12 +188,18 @@ def column_widths(rows, ncol):
             need = min(3.6 - out[c], out[donor] - 2.2)
             out[c] += need
             out[donor] -= need
-    # no unbreakable word may overflow its column: floor each width at the
-    # longest single word in that column (the label columns are one word)
+    # no unbreakable unit may overflow its column: floor each width at the
+    # longest single word OR short inline formula (formulas <= 14 glyphs are
+    # \mbox'ed in cells, so they are unbreakable too), scanned over ALL cells
     for c in wide:
-        words = [rendered_len(w) for w in re.findall(r"[A-Za-z0-9{}\\^_\-]+",
-                                                     longest[c])]
-        word_min = (max(words, default=0) * CHAR_CM + 0.25)
+        units = []
+        for r in rows:
+            cell = r[c] if c < len(r) else ""
+            units += [rendered_len(m) for m in re.findall(r"\$[^$]*\$", cell)
+                      if rendered_len(m) <= 14]
+            units += [rendered_len(w) for w in
+                      re.sub(r"\$[^$]*\$", " ", cell).split()]
+        word_min = (max(units, default=0) * CHAR_CM + 0.35)
         if out[c] < word_min:
             donors = [d for d in wide if d != c and out[d] > 2.6]
             if donors:
@@ -204,18 +229,22 @@ def table_block(lines, caption=None):
     def row(r, wrap, bold=False):
         cells = []
         for i, c in enumerate(r):
-            t = inline(c)
-            if bold:
-                t = r"\textbf{" + t + "}"
             if wrap and i < ncol and widths[i]:
-                # ragged right: justified narrow cells produce rivers of
-                # whitespace and bad hyphenation; \RaggedRight keeps hyphenation.
+                # \\raggedright: no hyphenation and no stretched spaces inside
+                # cells; words stay whole, the right edge stays ragged.
                 # [c]: centre short cells vertically so row rules read cleanly.
-                # \vspace top/bottom: the text must breathe inside the cell —
+                # \\vspace top/bottom: the text must breathe inside the cell —
                 # never flush against the row rules above or below.
+                t = inline(c, mbox_math=True)
+                if bold:
+                    t = r"\textbf{" + t + "}"
                 t = (r"\parbox[c]{" + f"{widths[i]}cm" + "}{\\vspace{2.5pt}"
-                     "\\RaggedRight \\emergencystretch=1em " + t
-                     + "\\vspace{2.5pt}}")
+                     "\\raggedright \\hyphenpenalty=10000000 "
+                     + t + "\\vspace{2.5pt}}")
+            else:
+                t = inline(c)
+                if bold:
+                    t = r"\textbf{" + t + "}"
             cells.append(t)
         return " & ".join(cells) + r" \\"
 
