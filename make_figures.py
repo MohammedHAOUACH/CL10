@@ -351,8 +351,11 @@ def fig8_baryon():
     ax.axhline(obs / 1e-9, color="k", ls="--", lw=1.2,
                label=r"the observed $\Delta B = 6.1\times10^{-10}$")
     ax.set_ylabel(r"baryon asymmetry $\Delta B$  ($\times 10^{-9}$)")
-    ax.set_title("GUT leptogenesis: the baryon asymmetry as a product of factors of three provenances.  "
-                 r"$\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D$ ($\varepsilon_{CP}=g_0^4/16\pi$, $g_0=1/2^3$; $D=(1/16\pi)^2$; the $28/79$ sphaleron is an input of the SM sector) gives $\Delta B = 6.8\times10^{-10}$ — a 12% match (the named $\eta_{CP}$: 2.8)")
+    ax.set_title(r"GUT leptogenesis: $\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D$"
+                 "\n"
+                 r"(0-parameter: $6.8\times10^{-10}$, a 12% match;"
+                 " the named $\\eta_{CP}$: 2.8)",
+                 fontsize=10)
     ax.set_ylim(0, max(vals9) * 1.4)
     ax.legend(loc="upper left", framealpha=0.95)
     _save(fig, "fig8_baryon_asymmetry.png")
