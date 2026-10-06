@@ -718,7 +718,7 @@ def fig17_ladder_sm():
         (1.0,               r"QCD  $\Lambda \sim 1$ GeV",                 C_SU3,  0, "center", 0.0),
         (dw.dm_wimp()["m_DM_GeV"], r"DM  $m_{\rm DM} = M_P(1/16\pi)^{10}$  (W7)", C_SU2, 1, "right", -0.4),
         (tp.V_EW,           r"electroweak  $v = 246$ GeV",                C_GUT,  2, "left",  +0.4),
-        (M_P * LOOP ** 3,   r"2-step  $M_N = M_P(1/16\pi)^3$  (W2)",     C_ROOT, 0, "center", 0.0),
+        (M_P * LOOP ** 3,   r"2-step  $M_N = M_P(1/16\pi)^3$  (W2)",     C_ROOT, 1, "center", 0.0),
         (M_P,              r"GUT / Planck  $M_P = M_{\rm GUT}$",          "k",    0, "center", 0.0),
     ]
     sm = [
@@ -729,7 +729,7 @@ def fig17_ladder_sm():
         (1.22e19,         r"$M_P$",                            "#8c8c8c", 0, "center", 0.0),
     ]
 
-    fig, ax = plt.subplots(figsize=(18, 7.5))
+    fig, ax = plt.subplots(figsize=(9.5, 5.2))
     ax.axhline(0.30, color="0.7", lw=0.8, ls=":")
     ax.axhline(-0.30, color="0.7", lw=0.8, ls=":")
     top_levels = {0: 0.66, 1: 0.84, 2: 0.99}
@@ -745,21 +745,22 @@ def fig17_ladder_sm():
                        edgecolor="k", lw=0.4)
             va = "bottom" if ydot > 0 else "top"
             ax.text(x + xn, ylab + (0.05 if ydot > 0 else -0.05), lab,
-                    ha=ha, va=va, fontsize=8.5, color=col)
+                    ha=ha, va=va, fontsize=12.5, color=col)
 
     draw_row(cl10, 0.30, top_levels)
     draw_row(sm, -0.30, bot_levels)
 
-    ax.text(9.5, 1.05, "CL10 0-parameter ladder", fontsize=11, weight="bold",
-            color="0.2", ha="center")
-    ax.text(9.5, -1.09, "SM observed ladder", fontsize=11, weight="bold",
-            color="0.4", ha="center")
+    ax.text(-10.8, 1.05, "CL10 0-parameter ladder", fontsize=14, weight="bold",
+            color="0.2", ha="left")
+    ax.text(-10.8, -1.09, "SM observed ladder", fontsize=14, weight="bold",
+            color="0.4", ha="left")
     ax.set_xlim(-11, 20)
     ax.set_ylim(-1.18, 1.18)
     ax.set_yticks([])
-    ax.set_xlabel("energy scale (GeV, log)   —   one object spans 30+ decades")
+    ax.set_xlabel("energy scale (GeV, log)   —   one object spans 30+ decades",
+                  fontsize=12)
     ax.set_title("The 0-parameter ladder of scales vs the SM ladder: the same hierarchy,"
-                 " from the Planck scale down to the neutrino", fontsize=11)
+                 " from the Planck scale down to the neutrino", fontsize=13)
     _save(fig, "fig17_ladder_sm.png")
 
 
