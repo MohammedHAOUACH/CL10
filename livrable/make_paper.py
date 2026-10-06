@@ -9,11 +9,11 @@ and produces, in ``livrable/``:
   figures/*.png     copies of the manuscript figures
   publication.pdf   compiled with xelatex (twice, for the cross-references)
 
-Editorial overrides live here, not in ``doc/``:
+Editorial inputs kept here, not in ``doc/``:
 
-  livrable/abstract.tex   if present, replaces the Markdown abstract
   livrable/doi.json       verified DOIs, keyed by reference number; appended
                           to the bibliography entries as \url{https://doi.org/..}
+  livrable/orcid.txt      if present, the author ORCID, appended to the affiliation
 
 Usage:
   python3 livrable/make_paper.py [--twocolumn] [--no-compile]
@@ -75,15 +75,20 @@ def inline(s):
     maths = []
 
     def stash(m):
-        maths.append(m.group(0))
+        # a long unbreakable inline expression (diag(...), charge lists) is what
+        # pushes a paragraph past the margin: permit a break after each comma
+        maths.append(re.sub(r",(?=\\|\s|\+|-|[A-Za-z0-9(])", r",\\allowbreak{}", m.group(0)))
         return "\x00%d\x00" % (len(maths) - 1)
 
     s = re.sub(r"\$\$[^$]*\$\$|\$[^$]*\$", stash, s)
     s = escape_text(s)
     s = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", s)
     s = re.sub(r"(?<!\*)\*([^*]+?)\*(?!\*)", r"\\emph{\1}", s)
-    s = re.sub(r"`([^`]+)`", r"\\texttt{\1}", s)
-    s = citations(s)
+    def code(m):
+        body = re.sub(r"(/|\\_|_)", r"\1\\allowbreak{}", m.group(1))
+        return "\\texttt{" + body + "}"
+    s = re.sub(r"`([^`]+)`", code, s)
+    s = re.sub(r"https?://[^\s)\]]+", r"\\url{\g<0>}", s)
     return re.sub(r"\x00(\d+)\x00", lambda m: maths[int(m.group(1))], s)
 
 
@@ -105,46 +110,118 @@ def is_sep(line):
     return bool(re.match(r"^\|[\s:|-]+\|$", line.strip()))
 
 
+def rendered_len(cell):
+    """Approximate the printed width of a Markdown cell (markup costs nothing)."""
+    s = re.sub(r"\\[a-zA-Z]+", "", cell)          # \mathrm, \tfrac, \alpha -> printed glyphs only
+    s = re.sub(r"[\$&{}\\]", "", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return len(s)
+
+
+CM_PER_PT = 0.0351455
+CHAR_CM = 0.19          # average glyph width at \footnotesize
+
+
+def prose_share(cell):
+    """Fraction of the printed characters that are text rather than math."""
+    tot = rendered_len(cell)
+    if not tot:
+        return 1.0
+    maths = sum(rendered_len(m) for m in re.findall(r"\$[^$]*\$", cell))
+    return 1.0 - maths / tot
+
+
+def column_widths(rows, ncol):
+    """Natural width per column, then a share of \\textwidth for the wide ones.
+
+    The share is proportional to the content, except that a prose column is
+    never squeezed under 3 cm: mid-word hyphenation in a 2 cm column is what
+    made the residual tables unreadable. The deficit is taken from the widest
+    column, which is a math column and wraps badly at any width anyway.
+    """
+    avail = LAYOUT[0] * CM_PER_PT - 0.45 * ncol   # \\tabcolsep: 6pt on each side
+    longest = [max((r[c] for r in rows if c < len(r)), key=rendered_len, default="")
+               for c in range(ncol)]
+    nat = [rendered_len(longest[c]) * CHAR_CM + 0.5 for c in range(ncol)]
+    if sum(nat) <= avail:
+        return [None] * ncol, max(nat)             # everything fits unwrapped
+    narrow = [c for c in range(ncol) if nat[c] < 3.0]
+    wide = [c for c in range(ncol) if nat[c] >= 3.0]
+    if not wide:
+        wide, narrow = list(range(ncol)), []
+    budget = max(1.5, avail - sum(nat[c] for c in narrow))
+    share = sum(nat[c] for c in wide)
+    out = {c: max(2.2, budget * nat[c] / share) for c in wide}
+    total = sum(out.values())
+    if total > budget:                             # scale the proportional share
+        for c in wide:
+            out[c] = out[c] * budget / total
+    # a prose column under ~3.6 cm hyphenates mid-word; take the width from the
+    # widest column, which is a math column and wraps badly at any width
+    for c in wide:
+        if out[c] < 3.6 and prose_share(longest[c]) > 0.6:
+            others = [d for d in wide if d != c]
+            donors = [d for d in others if prose_share(longest[d]) < 0.6] or others
+            donor = max(donors, key=lambda d: out[d])
+            need = min(3.6 - out[c], out[donor] - 2.2)
+            out[c] += need
+            out[donor] -= need
+    return [None if c not in out else round(out[c], 2) for c in range(ncol)], max(nat)
+
+
 def table_block(lines, caption=None):
     """Short tables float as a tabular; long ones become a longtable.
 
-    REVTeX 4-2 rejects p{} columns inside longtable, so the long columns are
-    wrapped in \\parbox there and use p{} in the tabular.
+    Column widths are proportional to the printed content: a fixed 3.4 cm for
+    every long column stacked the math-heavy cells into unreadable towers.
+    REVTeX 4-2 rejects p{} columns inside longtable, so there the wrapped
+    columns are \\parbox{\\dots} of the same computed width.
     """
     rows = [split_row(l) for l in lines if not is_sep(l)]
     ncol = max(len(r) for r in rows)
-    long_col = [max((len(r[c]) for r in rows if c < len(r)), default=0) > 42
-                for c in range(ncol)]
+    widths, tallest = column_widths(rows, ncol)
+    # a cell needing more than two wrapped lines at \footnotesize is more
+    # readable at \scriptsize than as a six-line tower
+    font = ("scriptsize" if tallest > 2 * (LAYOUT[0] * CM_PER_PT - 0.45 * ncol)
+            else "footnotesize")
+    pad = ("\\setlength{\\tabcolsep}{4pt}\n" if ncol >= 4 else "")
 
     def row(r, wrap):
         cells = []
         for i, c in enumerate(r):
             t = inline(c)
-            cells.append(r"\parbox{3.4cm}{" + t + "}"
-                         if wrap and i < ncol and long_col[i] else t)
+            if wrap and i < ncol and widths[i]:
+                t = r"\parbox{" + f"{widths[i]}cm" + "}{" + t + "}"
+            cells.append(t)
         return " & ".join(cells) + r" \\"
 
     cap_lt = ("\\multicolumn{" + str(ncol) + "}{l}{" + inline(caption) + "} \\\\\n"
               if caption else "")
     cap_tab = (r"\textbf{" + inline(caption) + r"} \\[2pt]" + "\n"
                if caption else "")
+    stretch = "\\renewcommand{\\arraystretch}{1.25}\n"
 
-    if len(rows) > 8:
+    if len(rows) > 8 or any(w for w in widths):
         # the Markdown caption already carries the "Table N." label, so it is
         # typeset as a header row: REVTeX overrides longtable's \caption.
         head = row(rows[0], True)
         rest = "\n".join(row(r, True) for r in rows[1:])
-        return (r"\begin{longtable}{" + "l" * ncol + "}" + "\n" + cap_lt
+        # \footnotesize / \arraystretch must NOT sit between \begin{longtable}
+        # and the \multicolumn caption row: that starts the first row and the
+        # \multicolumn then becomes a misplaced \omit (and longtable loops).
+        return ("{\\" + font + "\n" + pad + stretch + "\n"
+                + r"\begin{longtable}{" + "l" * ncol + "}" + "\n" + cap_lt
                 + r"\toprule" + "\n" + head + "\n" + r"\midrule" + "\n"
                 + r"\endhead" + "\n" + r"\midrule" + "\n" + r"\endfoot" + "\n"
                 + r"\bottomrule" + "\n" + r"\endlastfoot" + "\n"
-                + rest + "\n" + r"\end{longtable}" + "\n")
+                + rest + "\n" + r"\end{longtable}" + "\n}\n")
 
     head = row(rows[0], False)
     rest = "\n".join(row(r, False) for r in rows[1:])
-    spec = "".join("p{3.4cm}" if long_col[c] else "l" for c in range(ncol))
+    spec = "".join("p{" + f"{widths[c]}cm" + "}" if widths[c] else "l"
+                   for c in range(ncol))
     return (r"\begin{table}[htb]" + "\n" + cap_tab
-            + r"\begin{center}\footnotesize" + "\n"
+            + r"\begin{center}" + "\\" + font + "\n" + pad + stretch
             + r"\begin{tabular}{" + spec + "}" + "\n"
             + r"\toprule" + "\n" + head + "\n" + r"\midrule" + "\n"
             + rest + "\n" + r"\bottomrule" + "\n"
@@ -269,7 +346,11 @@ def build_body(lines, opts):
             continue
 
         if s.startswith("$$") and s.endswith("$$"):
-            out.append("\\[" + s[2:-2].strip() + "\\]\n")
+            body = s[2:-2].strip()
+            if "\\\\" in body:      # a multi-line display needs an alignment env
+                out.append("\\[\n\\begin{gathered}\n" + body + "\n\\end{gathered}\n\\]\n")
+            else:
+                out.append("\\[" + body + "\\]\n")
             i += 1
             continue
 
@@ -293,19 +374,12 @@ def build_body(lines, opts):
 
 def parse_references(block):
     """The numbered Markdown list -> \\bibitem entries (faithful, no re-parsing)."""
-    dois, fixes = {}, {}
+    dois = {}
     p = os.path.join(HERE, "doi.json")
     if os.path.exists(p):
         for k, v in json.load(open(p)).items():
             if v and k.isdigit():
                 dois[int(k)] = v
-    # livrable/references_fix.json: corrections to entries whose volume/page/
-    # title did not match the registered record (doc/ is not edited by us).
-    p = os.path.join(HERE, "references_fix.json")
-    if os.path.exists(p):
-        for k, v in json.load(open(p)).items():
-            if k.isdigit():
-                fixes[int(k)] = v
     items = []
     for line in block:
         m = re.match(r"^(\d{1,2})\.\s+(.*)$", line.strip())
@@ -313,7 +387,7 @@ def parse_references(block):
             if items:
                 items[-1][1] += " " + line.strip()      # wrapped entry
             continue
-        items.append([int(m.group(1)), fixes.get(int(m.group(1)), m.group(2))])
+        items.append([int(m.group(1)), m.group(2)])
     out = [r"\begin{thebibliography}{99}" + "\n"]
     for n, text in items:
         doi = dois.get(n)
@@ -345,24 +419,19 @@ def main():
     body_lines = md[i_kw + 2:i_ref]
     refs_block = md[i_ref + 1:]
 
-    override = os.path.join(HERE, "abstract.tex")
-    if os.path.exists(override):
-        abstract = open(override, encoding="utf-8").read().strip()
-        abstract_src = "override"
-    else:
-        abstract = "\n\n".join(inline(" ".join(p.split("\n")))
-                               for p in " ".join(abstract_md).split("\n\n"))
-        abstract_src = "doc/publication.md"
+    abstract = "\n\n".join(inline(" ".join(p.split("\n")))
+                           for p in " ".join(abstract_md).split("\n\n"))
+    abstract_src = "doc/publication.md"
 
     doc = []
-    opts = "aps,prd,amsmath,amssymb,superscriptaddress,longbibliography"
+    opts = "aps,prd,amsmath,amssymb,superscriptaddress,longbibliography,floatfix"
     opts += ",twocolumn" if twocolumn else ",preprint"
     global LAYOUT
     LAYOUT = measure_layout(opts)
     doc.append("\\documentclass[" + opts + "]{revtex4-2}\n")
     doc.append("\\usepackage{graphicx}\n\\usepackage{booktabs}\n"
-               "\\usepackage{longtable}\n")
-    doc.append("\\usepackage{url}\n")   # no 'array': REVTeX 4-2 redefines the column machinery
+               "\\usepackage{longtable}\n\\usepackage{microtype}\n")
+    doc.append("\\usepackage{xurl}\n")   # no 'array': REVTeX 4-2 redefines the column machinery
     doc.append("\\graphicspath{{figures/}}\n\n")
     # 26 figures in one section: the default TeX float limits strand them
     doc.append("\\renewcommand{\\topfraction}{0.95}\n"
@@ -378,18 +447,18 @@ def main():
     doc.append("\\begin{document}\n\n")
     doc.append("\\title{" + inline(title) + "}\n")
     doc.append("\\author{" + inline(author) + "}\n")
-    doc.append("\\affiliation{" + inline(affil) + "}\n\n")
+    orcid = ""
+    op = os.path.join(HERE, "orcid.txt")
+    if os.path.exists(op):
+        orcid = open(op, encoding="utf-8").read().strip()
+    doc.append("\\affiliation{" + inline(affil)
+               + ("; ORCID: " + orcid if orcid else "") + "}\n\n")
     doc.append("\\begin{abstract}\n" + abstract + "\n")
     if keywords:
         doc.append("\n\\medskip\n" + inline(keywords.replace("**Keywords.**",
                    "*Keywords.*")) + "\n")
     doc.append("\\end{abstract}\n\n\\maketitle\n\n")
     doc.append(build_body(body_lines, opts))
-    # livrable/code_availability.tex, if present, closes Appendix B: the
-    # manuscript in doc/ names no repository URL and doc/ is not edited here.
-    ca = os.path.join(HERE, "code_availability.tex")
-    if os.path.exists(ca):
-        doc.append("\n" + open(ca, encoding="utf-8").read().strip() + "\n")
     doc.append("\n\\clearpage\n\\bibliographystyle{apsrev4-2}\n")
     doc.append(parse_references(refs_block))
     doc.append("\n\\end{document}\n")

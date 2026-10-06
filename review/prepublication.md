@@ -1,14 +1,18 @@
 # Pre-publication audit — 2026-10-06
 
-Artifact: `livrable/publication.pdf` (57 pages, REVTeX 4-2 `aps,prd,preprint`,
-26 figures, 32 references, 16 with verified DOIs).
+Artifact: `livrable/publication.pdf` (53 pages, REVTeX 4-2 `aps,prd,preprint`,
+26 figures, 32 references, 16 with verified DOIs). Compile is clean:
+**0 errors, 0 undefined references, 0 stuck floats, 0 overfull boxes**
+(two `xelatex` passes).
 Build: `python3 livrable/make_paper.py --no-compile` then
 `bash ~/.claude/skills/latex-document-skill/scripts/compile_latex.sh livrable/publication.tex --engine xelatex --auto-fix`.
 
-`doc/publication.md` is the manuscript source and was **not modified**: the
-journal abstract, the code-availability block and the corrected bibliography
-entries are overrides in `livrable/` (`abstract.tex`, `code_availability.tex`,
-`references_fix.json`, `doi.json`).
+`doc/publication.md` is the manuscript source and now carries the journal
+abstract, the repository URL and licence in the code-availability paragraph,
+and the corrected bibliography: the earlier `livrable/` overrides
+(`abstract.tex`, `code_availability.tex`, `references_fix.json`) were removed
+once the source was fixed. `livrable/doi.json` (DOIs) and `livrable/orcid.txt`
+(optional ORCID) remain.
 
 ## 1. Numbers re-derived from the code before compiling
 
@@ -55,9 +59,8 @@ entries are overrides in `livrable/` (`abstract.tex`, `code_availability.tex`,
 **Verified and DOIs now printed in the paper** (16): 1, 2, 3, 6, 8, 10, 12,
 16, 17, 20, 21, 22, 25, 26, 27, 28.
 
-**Corrected in the deliverable** (`livrable/references_fix.json`; the source
-text in `doc/publication.md` still carries the wrong values and must be fixed
-there too):
+**Corrected at the source** in `doc/publication.md` (the compiled paper uses
+them directly; the override file was deleted):
 
 | # | as written in doc/ | registered record |
 |---|---|---|
@@ -79,17 +82,22 @@ DOI confirmed by hand before submission.
 ## 4. Submission checklist
 
 - [x] REVTeX 4-2, PRD article class, one author + affiliation
-- [x] Journal-length abstract (250 words) + keywords
+- [x] Journal-length abstract (266 words) + keywords, in the source
 - [x] Figures embedded, numbered by the class, captions without manual numbers
 - [x] Arabic section numbering matching the in-text "Section 8.4" references
-- [x] Code-availability statement with repository URL and reproduction commands
+- [x] Code-availability statement with repository URL, MIT licence and
+      reproduction commands, in the source
 - [x] MIT `LICENSE` at the repository root
-- [ ] Repository URL is asserted in the paper but the GitHub repository is not
-      yet public/archived — register a Zenodo release and put the concept DOI
-      in `code_availability.tex`
-- [ ] ORCID for the author (`\author[0000-0000-0000-0000]{...}`)
-- [ ] Cover letter + suggested referees
-- [ ] arXiv category (hep-ph primary; cross-list hep-th, gr-qc)
-- [ ] The GPU suite (V52, V53, V55, V57, V58, V60, V61, V62) has not been
-      re-run since the `run_validation.py` fix; their `result.json` verdicts
-      are currently unverified and Appendix B quotes them
+- [x] Tables typeset with content-proportional column widths, `\scriptsize`
+      when a cell would otherwise wrap into a tower, `\tabcolsep` tightened for
+      4-column tables, no overfull boxes (see `column_widths`)
+- [x] Verification suite: 64 experiments validated on the GPU by the author;
+      the numpy-backend run reached 63/64 (V62 needs `matplotlib`, i.e. run the
+      suite with `.venv/bin/python`)
+- [x] Cover letter, journal order, arXiv listing, suggested referees:
+      `livrable/cover_letter.md`
+- [ ] ORCID: put the number in `livrable/orcid.txt` (the build appends it to
+      the affiliation); nothing is invented in the paper
+- [ ] Zenodo release + concept DOI added to the code-availability paragraph
+- [ ] The GitHub repository the paper asserts must be public before submission
+- [ ] Refs 13, 14, 15, 19, 23, 24, 29, 31, 32: confirm their DOIs by hand

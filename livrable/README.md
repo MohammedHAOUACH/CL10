@@ -31,10 +31,14 @@ mkdir -p ~/texmf/tex/latex/revtex && cp *.cls *.sty *.rtx ~/texmf/tex/latex/revt
 | `make_paper.py` | Markdown → REVTeX 4.2 converter (stdlib only) |
 | `publication.tex` | generated manuscript (`revtex4-2`, `aps,prd,preprint`) |
 | `publication.pdf` | compiled paper, 26 figures, 32 references |
-| `abstract.tex` | **override**: the 250-word journal abstract replaces the 410-word one in `doc/publication.md` |
-| `code_availability.tex` | **override**: repository URL + reproduction commands, appended to Appendix B |
 | `doi.json` | DOIs verified against Crossref, appended to the bibliography |
+| `orcid.txt` | optional: the author ORCID, appended to the affiliation |
+| `cover_letter.md` | submission letter, journal order, arXiv listing, referees |
 | `figures/` | copies of `doc/figures/*.png` used by the manuscript |
+
+The manuscript text lives in `doc/publication.md` and the build writes nothing
+there: the abstract, the code-availability statement and the corrected
+bibliography entries are in the source itself.
 
 ## Converter constraints found the hard way
 
@@ -46,3 +50,22 @@ mkdir -p ~/texmf/tex/latex/revtex && cp *.cls *.sty *.rtx ~/texmf/tex/latex/revt
 - Section numbering is forced to arabic because the manuscript cross-references
   "Section 8.4" in prose.
 - Figure captions drop the Markdown "Fig. N —" label: REVTeX prints `FIG. n.`.
+- `p{}` widths are computed per table from the printed content
+  (`column_widths`); a fixed width for every long column stacked the
+  math-heavy cells into unreadable towers.
+- `xurl` (not `url`) so the repository URL breaks; `\allowbreak{}` after `/`
+  and `_` inside `\texttt{}` and after commas inside `$...$`, otherwise a long
+  `\texttt{path}` or `\mathrm{diag}(...)` pushes a line past the margin.
+- `floatfix` + `\topfraction`/`\totalnumber`: 26 figures in one section strand
+  under the default TeX float limits.
+- `$$ ... \\ ... $$` becomes `\[ \begin{gathered} ... \end{gathered} \]`;
+  `\\` inside `\[ \]` alone is invalid.
+- In a Python replacement string, `\a` is the BEL character: a LaTeX
+  replacement must be written `\\allowbreak{}` (raw string is not enough).
+- Nothing may sit between `\begin{longtable}{...}` and the `\multicolumn`
+  caption row: `\footnotesize` there starts the first row, the `\multicolumn`
+  becomes a **misplaced `\omit`**, and longtable then loops forever (a 600 s
+  hang). Font and `\tabcolsep` go in a group *around* the table.
+- Dense tables switch to `\scriptsize` when the widest cell needs more than two
+  wrapped lines, and a prose column is never squeezed under 3.6 cm (mid-word
+  hyphenation); the width is taken from the widest math column.
