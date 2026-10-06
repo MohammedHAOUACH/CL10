@@ -158,15 +158,29 @@ def column_widths(rows, ncol):
         for c in wide:
             out[c] = out[c] * budget / total
     # a prose column under ~3.6 cm hyphenates mid-word; take the width from the
-    # widest column, which is a math column and wraps badly at any width
+    # widest column, which is a math column and wraps badly at any width.
+    # Only columns whose own content is genuinely long prose qualify: a
+    # single-word label column must keep its natural width.
     for c in wide:
-        if out[c] < 3.6 and prose_share(longest[c]) > 0.6:
+        if out[c] < 3.6 and nat[c] >= 4.5 and prose_share(longest[c]) > 0.6:
             others = [d for d in wide if d != c]
             donors = [d for d in others if prose_share(longest[d]) < 0.6] or others
             donor = max(donors, key=lambda d: out[d])
             need = min(3.6 - out[c], out[donor] - 2.2)
             out[c] += need
             out[donor] -= need
+    # no unbreakable word may overflow its column: floor each width at the
+    # longest single word in that column (the label columns are one word)
+    for c in wide:
+        words = [rendered_len(w) for w in re.findall(r"[A-Za-z0-9{}\\^_\-]+",
+                                                     longest[c])]
+        word_min = (max(words, default=0) * CHAR_CM + 0.25)
+        if out[c] < word_min:
+            donors = [d for d in wide if d != c and out[d] > 2.6]
+            if donors:
+                donor = max(donors, key=lambda d: out[d])
+                out[donor] -= word_min - out[c]
+                out[c] = word_min
     return [None if c not in out else round(out[c], 2) for c in range(ncol)], max(nat)
 
 
@@ -194,7 +208,11 @@ def table_block(lines, caption=None):
             if bold:
                 t = r"\textbf{" + t + "}"
             if wrap and i < ncol and widths[i]:
-                t = r"\parbox{" + f"{widths[i]}cm" + "}{" + t + "}"
+                # ragged right: justified narrow cells produce rivers of
+                # whitespace and bad hyphenation; \RaggedRight keeps hyphenation.
+                # [c]: centre short cells vertically so row rules read cleanly
+                t = (r"\parbox[c]{" + f"{widths[i]}cm" + "}{\\RaggedRight "
+                     "\\emergencystretch=1em " + t + "}")
             cells.append(t)
         return " & ".join(cells) + r" \\"
 
@@ -450,7 +468,8 @@ def main():
     doc.append("\\documentclass[" + opts + "]{revtex4-2}\n")
     doc.append("\\usepackage{graphicx}\n\\usepackage{booktabs}\n"
                "\\usepackage{longtable}\n\\usepackage{microtype}\n"
-               "\\usepackage{xcolor}\n\\usepackage{colortbl}\n")   # faint grey row rules in tables
+               "\\usepackage{xcolor}\n\\usepackage{colortbl}\n"
+               "\\usepackage{ragged2e}\n")   # faint grey row rules; ragged cells
     doc.append("\\usepackage{xurl}\n")   # no 'array': REVTeX 4-2 redefines the column machinery
     doc.append("\\graphicspath{{figures/}}\n\n")
     # 26 figures in one section: the default TeX float limits strand them
