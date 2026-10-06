@@ -1,0 +1,14 @@
+\section*{Code and data availability}
+The implementation, the 64-experiment verification suite and the figure
+generators are available at \url{https://github.com/MohammedHAOUACH/CL10}.
+Every figure of this paper is produced by that code:
+\texttt{python3 make\_figures.py} writes Figs.~1--24,
+\texttt{python3 make\_figures.py --young} adds Fig.~25 (the Young
+double-slit simulation), and Fig.~26 is a product of its own experiment,
+\texttt{python3 experiments/V62\_hydrogen\_production/V62\_hydrogen\_production.py}.
+The suite is run by \texttt{python3 run\_validation.py}, which writes
+\texttt{results/validation\_summary.json}; an experiment whose script exits
+with a non-zero status is recorded as a failure and any verdict left on disk
+by an earlier run is discarded. No measured value used in this paper is
+produced by the code: the comparison values are the published data of
+refs.~\cite{ref13,ref14,ref15,ref16,ref17}.
