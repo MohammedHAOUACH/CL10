@@ -1,0 +1,462 @@
+[
+  {
+    "n": 1,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Space-time as a causal set",
+    "crossref_journal": "Physical Review Letters",
+    "crossref_volume": "59",
+    "crossref_page": "521-524",
+    "crossref_year": 1987,
+    "crossref_doi": "10.1103/physrevlett.59.521",
+    "crossref_authors": "Luca Bombelli, Joohan Lee, David Meyer, Rafael D. Sorkin",
+    "claim": "Bombelli, Space-time as a causal set, Phys. Rev. Lett. 59, 521 (1987)"
+  },
+  {
+    "n": 2,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Computation of the quantum effects due to a four-dimensional pseudoparticle",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "14",
+    "crossref_page": "3432-3450",
+    "crossref_year": 1976,
+    "crossref_doi": "10.1103/physrevd.14.3432",
+    "crossref_authors": "G. 't Hooft",
+    "claim": "'t Hooft, Computation of the quantum effects due to a four-dimensional pseudoparticle, Phys. Rev. D 14, 3432 (1976)"
+  },
+  {
+    "n": 3,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "From quantum cellular automata to quantum lattice gases",
+    "crossref_journal": "Journal of Statistical Physics",
+    "crossref_volume": "85",
+    "crossref_page": "551-574",
+    "crossref_year": 1996,
+    "crossref_doi": "10.1007/bf02199356",
+    "crossref_authors": "David A. Meyer",
+    "claim": "Meyer, From quantum cellular automata to quantum lattice gases, J. Stat. Phys. 85, 551 (1996)"
+  },
+  {
+    "n": 4,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 11, Crossref 18",
+      "page: claimed 546, Crossref 885",
+      "year: claimed 2012, Crossref 2019"
+    ],
+    "score": 0.9,
+    "crossref_title": "An overview of quantum cellular automata",
+    "crossref_journal": "Natural Computing",
+    "crossref_volume": "18",
+    "crossref_page": "885-899",
+    "crossref_year": 2019,
+    "crossref_doi": "10.1007/s11047-019-09762-6",
+    "crossref_authors": "P. Arrighi",
+    "claim": "Arrighi, An introduction to quantum cellular automata, Nat. Comput. 11, 546 (2012)"
+  },
+  {
+    "n": 5,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 390, Crossref None",
+      "year: claimed 2019, Crossref None"
+    ],
+    "score": 0.8,
+    "crossref_title": "Complex electronic circuits design with quantum-dot cellular automata",
+    "crossref_journal": "",
+    "crossref_volume": null,
+    "crossref_page": null,
+    "crossref_year": null,
+    "crossref_doi": "10.12681/eadd/49975",
+    "crossref_authors": "Ορέστης Λιώλης",
+    "claim": "D'Ariano, Equivalence of quantum cellular automata and circuits, J. Comput. Phys. 390, 198 (2019)"
+  },
+  {
+    "n": 6,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Unity of All Elementary-Particle Forces",
+    "crossref_journal": "Physical Review Letters",
+    "crossref_volume": "32",
+    "crossref_page": "438-441",
+    "crossref_year": 1974,
+    "crossref_doi": "10.1103/physrevlett.32.438",
+    "crossref_authors": "Howard Georgi, S. L. Glashow",
+    "claim": "Georgi, Unity of all elementary-particle forces, Phys. Rev. Lett. 32, 438 (1974)"
+  },
+  {
+    "n": 7,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 93, Crossref None",
+      "page: claimed 193, Crossref 165",
+      "year: claimed 1975, Crossref 1978"
+    ],
+    "score": 0.72,
+    "crossref_title": "Unified Interactions of Leptons and Quarks",
+    "crossref_journal": "Many Degrees of Freedom in Particle Theory",
+    "crossref_volume": null,
+    "crossref_page": "165-237",
+    "crossref_year": 1978,
+    "crossref_doi": "10.1007/978-1-4684-2814-8_6",
+    "crossref_authors": "H. Fritzsch",
+    "claim": "Fritzsch, Unified interactions of strong and electroweak forces of quarks and leptons, Ann. Phys. 93, 193 (1975)"
+  },
+  {
+    "n": 8,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Group theory for unified model building",
+    "crossref_journal": "Physics Reports",
+    "crossref_volume": "79",
+    "crossref_page": "1-128",
+    "crossref_year": 1981,
+    "crossref_doi": "10.1016/0370-1573(81)90092-2",
+    "crossref_authors": "R Slansky",
+    "claim": "Slansky, Group theory for unified model building, Phys. Rep. 79, 1 (1981)"
+  },
+  {
+    "n": 9,
+    "verdict": "BOOK (not Crossref-checked)",
+    "claim": "Georgi, Lie Algebras in Particle Physics (1999)"
+  },
+  {
+    "n": 10,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Clifford modules",
+    "crossref_journal": "Topology",
+    "crossref_volume": "3",
+    "crossref_page": "3-38",
+    "crossref_year": 1964,
+    "crossref_doi": "10.1016/0040-9383(64)90003-5",
+    "crossref_authors": "M.F. Atiyah, R. Bott, A. Shapiro",
+    "claim": "Atiyah, Clifford modules, Topology 3, 3 (1964)"
+  },
+  {
+    "n": 11,
+    "verdict": "BOOK (not Crossref-checked)",
+    "claim": "Penrose, Spinors and Space-Time (1984)"
+  },
+  {
+    "n": 12,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "A Clifford algebra-based grand unification program of gravity and the Standard Model: a review study",
+    "crossref_journal": "Canadian Journal of Physics",
+    "crossref_volume": "92",
+    "crossref_page": "1501-1527",
+    "crossref_year": 2014,
+    "crossref_doi": "10.1139/cjp-2013-0686",
+    "crossref_authors": "Carlos Castro",
+    "claim": "Castro, A Clifford algebra-based grand unification program of gravity and the Standard Model, Can. J. Phys. 92, 1501 (2014)"
+  },
+  {
+    "n": 13,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 110, Crossref None",
+      "page: claimed 70001, Crossref 213",
+      "year: claimed 2024, Crossref 2003"
+    ],
+    "score": 0.67,
+    "crossref_title": "REVIEW OF LEP2 PHYSICS",
+    "crossref_journal": "Frontiers of Particle Physics",
+    "crossref_volume": null,
+    "crossref_page": "213-222",
+    "crossref_year": 2003,
+    "crossref_doi": "10.1142/9789812704948_0027",
+    "crossref_authors": "P.M. Watkins",
+    "claim": "Navas, Review of Particle Physics, Phys. Rev. D 110, 70001 (2024)"
+  },
+  {
+    "n": 14,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 641, Crossref 1743",
+      "page: claimed 6, Crossref 50014",
+      "year: claimed 2020, Crossref 2016"
+    ],
+    "score": 0.6,
+    "crossref_title": "Planck 2015 cosmological results",
+    "crossref_journal": "AIP Conference Proceedings",
+    "crossref_volume": "1743",
+    "crossref_page": "050014",
+    "crossref_year": 2016,
+    "crossref_doi": "10.1063/1.4953315",
+    "crossref_authors": "",
+    "claim": "Aghanim, Planck 2018 results. VI. Cosmological parameters, Astron. Astrophys. 641, 6 (2020)"
+  },
+  {
+    "n": 15,
+    "verdict": "MISMATCH",
+    "problems": [
+      "title match weak (0.25)",
+      "volume: claimed 102, Crossref None",
+      "year: claimed 2020, Crossref 1999"
+    ],
+    "score": 0.25,
+    "crossref_title": "Search for the Decay KL -&amp;gt;pi0 mu+ mu-",
+    "crossref_journal": "",
+    "crossref_volume": null,
+    "crossref_page": null,
+    "crossref_year": 1999,
+    "crossref_doi": "10.2172/1421477",
+    "crossref_authors": "Masayoshi Sadamoto",
+    "claim": "Abe, Search for proton decay via p to e+ pi0 and p to mu+ pi0 in 0.37 megaton-years exposure of Super-Kamiokande, Phys. Rev. D 102, 12006 (2020)"
+  },
+  {
+    "n": 16,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 388, Crossref None",
+      "page: claimed 180, Crossref 173",
+      "year: claimed 2025, Crossref 2026"
+    ],
+    "score": 0.62,
+    "crossref_title": "Direct neutrino mass measurement at the KATRIN experiment",
+    "crossref_journal": "Proceedings of The European Physical Society Conference on High Energy Physics — PoS(EPS-HEP2025)",
+    "crossref_volume": null,
+    "crossref_page": "173",
+    "crossref_year": 2026,
+    "crossref_doi": "10.22323/1.485.0173",
+    "crossref_authors": "Jaroslav Štorek, ",
+    "claim": "Aker, Direct neutrino-mass measurement based on 259 days of KATRIN data, Science 388, 180 (2025)"
+  },
+  {
+    "n": 17,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "The fate of hints: updated global analysis of three-flavor neutrino oscillations",
+    "crossref_journal": "Journal of High Energy Physics",
+    "crossref_volume": "2020",
+    "crossref_page": null,
+    "crossref_year": 2020,
+    "crossref_doi": "10.1007/jhep09(2020)178",
+    "crossref_authors": "Ivan Esteban, M.C. Gonzalez-Garcia, Michele Maltoni, Thomas Schwetz, Albert Zhou",
+    "claim": "Esteban, The fate of hints: updated global analysis of three-flavor neutrino oscillations, JHEP 2020, 178 (2020)"
+  },
+  {
+    "n": 18,
+    "verdict": "BOOK (not Crossref-checked)",
+    "claim": "Weinberg, The Quantum Theory of Fields (1995)"
+  },
+  {
+    "n": 19,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 105, Crossref 111",
+      "year: claimed 1981, Crossref 2013"
+    ],
+    "score": 0.71,
+    "crossref_title": "Gauge theory generalization of the fermion doubling theorem",
+    "crossref_journal": "Physical Review Letters",
+    "crossref_volume": "111",
+    "crossref_page": null,
+    "crossref_year": 2013,
+    "crossref_doi": "10.1103/physrevlett.111.161603",
+    "crossref_authors": "S. M. Kravec, John McGreevy",
+    "claim": "Nielsen, A no-go theorem to avoid the fermion doubling in lattice gauge theory, Phys. Lett. B 105, 219 (1981)"
+  },
+  {
+    "n": 20,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Photons and Gravitons in Perturbation Theory: Derivation of Maxwell's and Einstein's Equations",
+    "crossref_journal": "Physical Review",
+    "crossref_volume": "138",
+    "crossref_page": "B988-B1002",
+    "crossref_year": 1965,
+    "crossref_doi": "10.1103/physrev.138.b988",
+    "crossref_authors": "Steven Weinberg",
+    "claim": "Weinberg, Photons and gravitons in perturbation theory: Derivation of Maxwell's and Einstein's equations, Phys. Rev. 138, 988 (1965)"
+  },
+  {
+    "n": 21,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Limits on massless particles",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "96",
+    "crossref_page": "59-62",
+    "crossref_year": 1980,
+    "crossref_doi": "10.1016/0370-2693(80)90212-9",
+    "crossref_authors": "Steven Weinberg, Edward Witten",
+    "claim": "Weinberg, Limits on massless particles, Phys. Lett. B 96, 59 (1980)"
+  },
+  {
+    "n": 22,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Universality and scaling in gravitational collapse of a massless scalar field",
+    "crossref_journal": "Physical Review Letters",
+    "crossref_volume": "70",
+    "crossref_page": "9-12",
+    "crossref_year": 1993,
+    "crossref_doi": "10.1103/physrevlett.70.9",
+    "crossref_authors": "Matthew W. Choptuik",
+    "claim": "Choptuik, Universality and scaling in gravitational collapse of a massless scalar field, Phys. Rev. Lett. 70, 9 (1993)"
+  },
+  {
+    "n": 23,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 23, Crossref None",
+      "page: claimed 377, Crossref 532",
+      "year: claimed 1970, Crossref 1985"
+    ],
+    "score": 1.15,
+    "crossref_title": "Blow-Up of Solutions of Nonlinear Wave Equations in Three Space Dimensions",
+    "crossref_journal": "Fritz John",
+    "crossref_volume": null,
+    "crossref_page": "532-565",
+    "crossref_year": 1985,
+    "crossref_doi": "10.1007/978-1-4612-5409-6_38",
+    "crossref_authors": "Fritz John",
+    "claim": "John, Blow-up of solutions of nonlinear wave equations in three space dimensions, Comm. Pure Appl. Math. 23, 377 (1970)"
+  },
+  {
+    "n": 24,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 5, Crossref None",
+      "page: claimed 24, Crossref 84",
+      "year: claimed 1967, Crossref 1998"
+    ],
+    "score": 0.95,
+    "crossref_title": "VIOLATION OF CP-INVARIANCE, C-ASYMMETRY, AND BARYON ASYMMETRY OF THE UNIVERSE",
+    "crossref_journal": "In the Intermissions…",
+    "crossref_volume": null,
+    "crossref_page": "84-87",
+    "crossref_year": 1998,
+    "crossref_doi": "10.1142/9789812815941_0013",
+    "crossref_authors": "A. D. SAKHAROV",
+    "claim": "Sakharov, Violation of CP invariance, C asymmetry, and baryogenesis of the universe, JETP Lett. 5, 24 (1967)"
+  },
+  {
+    "n": 25,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.12,
+    "crossref_title": "Cosmological baryon and lepton number in the presence of electroweak fermion-number violation",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "42",
+    "crossref_page": "3344-3349",
+    "crossref_year": 1990,
+    "crossref_doi": "10.1103/physrevd.42.3344",
+    "crossref_authors": "Jeffrey A. Harvey, Michael S. Turner",
+    "claim": "Harvey, Cosmological baryon and lepton number in the presence of electroweak fermion interactions, Phys. Rev. D 42, 3344 (1990)"
+  },
+  {
+    "n": 26,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "The statistical theory of anomalous fermion number non-conservation",
+    "crossref_journal": "Nuclear Physics B",
+    "crossref_volume": "308",
+    "crossref_page": "885-912",
+    "crossref_year": 1988,
+    "crossref_doi": "10.1016/0550-3213(88)90133-2",
+    "crossref_authors": "S.Yu. Khlebnikov, M.E. Shaposhnikov",
+    "claim": "Khlebnikov, The statistical theory of anomalous fermion number nonconservation, Nucl. Phys. B 308, 885 (1988)"
+  },
+  {
+    "n": 27,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Tri-bimaximal mixing and the neutrino oscillation data",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "530",
+    "crossref_page": "167-173",
+    "crossref_year": 2002,
+    "crossref_doi": "10.1016/s0370-2693(02)01336-9",
+    "crossref_authors": "P.F. Harrison, D.H. Perkins, W.G. Scott",
+    "claim": "Harrison, Tri-bimaximal mixing and the neutrino oscillation data, Phys. Lett. B 530, 167 (2002)"
+  },
+  {
+    "n": 28,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Confinement of quarks",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "10",
+    "crossref_page": "2445-2459",
+    "crossref_year": 1974,
+    "crossref_doi": "10.1103/physrevd.10.2445",
+    "crossref_authors": "Kenneth G. Wilson",
+    "claim": "Wilson, Confinement of quarks, Phys. Rev. D 10, 2445 (1974)"
+  },
+  {
+    "n": 29,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 364, Crossref None",
+      "page: claimed 357, Crossref 49",
+      "year: claimed 1996, Crossref 2016"
+    ],
+    "score": 0.75,
+    "crossref_title": "Deterministic Quantum Mechanics",
+    "crossref_journal": "Fundamental Theories of Physics",
+    "crossref_volume": null,
+    "crossref_page": "49-56",
+    "crossref_year": 2016,
+    "crossref_doi": "10.1007/978-3-319-41285-6_4",
+    "crossref_authors": "Gerard ’t Hooft",
+    "claim": "'t Hooft, Deterministic quantum mechanics and field theories, Phys. Lett. B 364, 357 (1996)"
+  },
+  {
+    "n": 30,
+    "verdict": "BOOK (not Crossref-checked)",
+    "claim": "'t Hooft, The Cellular Automaton Interpretation of Quantum Mechanics (2016)"
+  },
+  {
+    "n": 31,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 110, Crossref 83",
+      "year: claimed 2013, Crossref 2023"
+    ],
+    "score": 1.0,
+    "crossref_title": "On different approaches to freeze-in and freeze-out leptogenesis with quasi-degenerate neutrinos",
+    "crossref_journal": "The European Physical Journal C",
+    "crossref_volume": "83",
+    "crossref_page": null,
+    "crossref_year": 2023,
+    "crossref_doi": "10.1140/epjc/s10052-023-11321-4",
+    "crossref_authors": "J. Racker",
+    "claim": "Blanchet, Leptogenesis with quasi-degenerate neutrinos, Phys. Rev. Lett. 110, 191601 (2013)"
+  },
+  {
+    "n": 32,
+    "verdict": "MISMATCH",
+    "problems": [
+      "volume: claimed 776, Crossref 99",
+      "year: claimed 2007, Crossref 2019"
+    ],
+    "score": 0.67,
+    "crossref_title": "TeV-scale neutrino mass generation, minimal inelastic dark matter, and high scale leptogenesis",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "99",
+    "crossref_page": null,
+    "crossref_year": 2019,
+    "crossref_doi": "10.1103/physrevd.99.015025",
+    "crossref_authors": "Pei-Hong Gu, Hong-Jian He",
+    "claim": "Barbieri, Minimal thermal leptogenesis: the neutrino mass spectrum, Nucl. Phys. B 776, 77 (2007)"
+  }
+]

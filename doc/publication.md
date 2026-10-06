@@ -153,7 +153,7 @@ The $\mathbb{Z}_2$ grading splits the algebra into 512 even and 512 odd elements
 
 ## 7. Measurement
 
-Between measurements the automaton is exactly unitary (Section 8). A detection is modelled as the standard projection: a state $\sum_x \psi(x)|x\rangle$ is reduced to $|x_0\rangle$ with probability $|\psi(x_0)|^2$. The probability rule used throughout is the field intensity $|\psi|^2$ of the propagating lattice field, and the single-electron double-slit simulation (Fig. 25) samples detections from the time-integrated on-screen $|\psi|^2$; the accumulated clicks reconstruct the fringe pattern, one electron at a time.
+Between measurements the automaton is exactly unitary (Section 8). A detection is modelled as the standard projection: a state $\sum_x \psi(x)|x\rangle$ is reduced to $|x_0\rangle$ with probability $|\psi(x_0)|^2$. The probability rule used throughout is the field intensity $|\psi|^2$ of the propagating lattice field, and the single-electron double-slit simulation (Fig. 25) [47] samples detections from the time-integrated on-screen $|\psi|^2$; the accumulated clicks reconstruct the fringe pattern, one electron at a time.
 
 This is quantum mechanics as usual. The projection is **not** derived from the unitary step, and the paper does not claim it is: the reduction postulate is an input of the interpretation (residual W9). What the QCA adds is only that the wave being sampled is a strictly causal, unitary, lattice field.
 
@@ -207,7 +207,7 @@ That is *not* the same as having evaded it, and the question is decidable by com
 
 **Proposition 2 (lattice chirality: what the computation gives).** *(i) The 16 sector is closed by the full local dynamics, not only by the internal layer:* the bond layer acts on the cell index and commutes with $w$, so a state initialized in the 16 leaves it by $10^{-15}$ after six steps. Chirality is a dynamical symmetry of the automaton. *(ii) The zone centre is gapped:* $\min_a|\omega_a(q=0)| = 0.0365$ per 6-step cycle, so the would-be massless matter is **not** at $q = 0$. *(iii) The gapless points are the doublers:* the 16-sector spectrum is gapless at the 12 momenta $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$ and their permutations — the classic doubler momenta — with linear dispersion $|v| = 0.142$ and node chiralities summing to $0$, as Nielsen–Ninomiya requires. The gap at $q = 0$ is not protected: it moves from $0.036$ at $g_{10} = 0.2$ to $0.072$ at $g_{10} = 0.15$ and to $2.35$ at $g_{10} = 0.1$.
 
-The doubling therefore **survives** the automaton. There is no Wilson term, no overlap operator and no domain-wall mechanism in the construction that removes it, and the gaplessness at the doubler momenta is not symmetry-protected. "The 16 is a single chiral generation" is a property of the *internal module*; the *lattice spectrum*, which is what couples to low-energy physics, contains twelve doublers. This is now a computed statement, and it counts against the theory (part of W9).
+The doubling therefore **survives** the automaton. There is no Wilson term, no overlap operator [48] and no domain-wall mechanism in the construction that removes it, and the gaplessness at the doubler momenta is not symmetry-protected. "The 16 is a single chiral generation" is a property of the *internal module*; the *lattice spectrum*, which is what couples to low-energy physics, contains twelve doublers. This is now a computed statement, and it counts against the theory (part of W9).
 
 ---
 
@@ -229,7 +229,7 @@ The status of this sector must be stated precisely, because it is where the theo
 
 ### 9.2 The discrete Einstein–Hilbert action
 
-The quadratic action
+The quadratic action [33]
 
 $$S_{\rm EH} = \frac{1}{16\pi}\cdot\frac12\sum_{x,t} u_t\Big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2_{(6)} u_t\Big],\qquad dt^2 = \tfrac14,$$
 
@@ -250,7 +250,7 @@ The Riemann, Ricci, Einstein and Kretschmann tensors are computed by central fin
 | flat metric | $R = G = K = 0$ | $0$ | exact |
 | 2-sphere of radius $r$ | $R = 2/r^2$ | $2/r^2$ | $10^{-5}$ |
 
-The 3+1 formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the 4-D Einstein tensor agrees, computed by the 4-D curvature and by the 3+1 $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution drives a constraint violation to zero while the undamped one does not; the 0-row is quadratic in $K$, so superposition fails; all 3+1 quantities are bounded by the lattice cutoff (Fig. 5, Fig. 24).
+The 3+1 formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the 4-D Einstein tensor agrees, computed by the 4-D curvature and by the 3+1 $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution [34] drives a constraint violation to zero while the undamped one does not; the 0-row is quadratic in $K$, so superposition fails; all 3+1 quantities are bounded by the lattice cutoff (Fig. 5, Fig. 24).
 
 **What this does and does not establish.** It establishes that the gravitational sector of CL10 *reproduces* general relativity numerically, including black-hole and cosmological geometries. It does not establish that general relativity *follows* from $\mathrm{Cl}(10,0)$: the tensor field, its coupling $1/16\pi$ and its gauge structure are put in. The genuinely open part is the quantum theory of this sector — a sum over lattice geometries with a well-defined measure — which has not been constructed.
 
@@ -286,7 +286,7 @@ The same factor applied to the Planck scale gives
 
 $$m_{\rm DM} = M_P\Big(\frac{1}{16\pi}\Big)^{10} = 118\ \mathrm{GeV},$$
 
-i.e. $1.18\times$ the canonical $100$ GeV WIMP scale. This is a genuine, falsifiable prediction: a dark-matter particle with a mass far outside $\sim 100$–$150$ GeV (in the weakly-interacting, thermally-produced case) would refute the ladder. The *identity* of the particle is not predicted (W7).
+i.e. $1.18\times$ the canonical $100$ GeV WIMP scale [45]. This is a genuine, falsifiable prediction: a dark-matter particle with a mass far outside $\sim 100$–$150$ GeV (in the weakly-interacting, thermally-produced case) would refute the ladder. The *identity* of the particle is not predicted (W7).
 
 ### 10.3 The neutrino sector
 
@@ -332,7 +332,7 @@ The theory's single gauge coupling is $\alpha_{10} \equiv g_{10}^2 = 1/25 = 0.04
 
 $$(\alpha_1,\alpha_2,\alpha_3) = (0.0299,\ 0.0202,\ 0.0191),\qquad \text{mean } 0.0231,\quad \text{spread } 47\%,$$
 
-so $\alpha_{10}$ is within a factor $1.73$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $2.2\times10^{41}$ GeV, above the cutoff, so the up-running is UV-bounded (Fig. 2). At two loops the pole moves to $\sim 2.5\times10^{12}$ GeV, *below* the cutoff (Fig. 19): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
+so $\alpha_{10}$ is within a factor $1.73$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $2.2\times10^{41}$ GeV, above the cutoff, so the up-running is UV-bounded (Fig. 2). At two loops [49] the pole moves to $\sim 2.5\times10^{12}$ GeV, *below* the cutoff (Fig. 19): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
 
 The down-running is worse and must be stated plainly. Starting from $\alpha_{10} = 0.04$ at $M_P$ and running down with the SM $\beta$-functions gives, at $M_Z$,
 
@@ -356,7 +356,7 @@ $\sin^2\theta_W = 3/8$ is the tree-level $\mathrm{SU}(5)/\mathrm{Spin}(10)$ boun
 
 The automaton alone cannot produce it. Every CP-odd (T-odd) invariant of the unitary step vanishes: $\mathrm{Im}\,\mathrm{Tr}$ of all two- and three-fold products of the 45, of a $2\times10^5$ sample of four-fold products, of all $10\times10\times45\times45$ baryon-violating sandwiches, and of the rank-1 real democratic Yukawa — all zero to $10^{-15}$. The step is unitary (in equilibrium), baryon-conserving (the 45 commute with $w$) and CP-conserving. It satisfies **none** of the Sakharov conditions [24]. This is a computed theorem, and it is the correct starting point for the asymmetry discussion.
 
-A GUT-leptogenesis estimate is then built by hand:
+A GUT-leptogenesis estimate [39] is then built by hand:
 
 $$\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D,\qquad \varepsilon_{CP} = \frac{g_0^4}{16\pi} = 4.9\times10^{-6},\qquad D = \Big(\frac{1}{16\pi}\Big)^2 = 3.96\times10^{-4},$$
 
@@ -370,7 +370,7 @@ $$m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad (y \le 0.0
 
 a bound of the same kind and size as the standard thermal-leptogenesis bound [32]. The atmospheric splitting requires $m_\nu \simeq 0.050$ eV, i.e. $y \simeq 0.28$ with $m_D = yv$ and $v = 246$ GeV ($y \simeq 0.40$ in the $v_u = 174$ GeV convention), for which $\Gamma_N/H \simeq 23$. **At $M_N = 9.6\times10^{13}$ GeV the neutrino mass and the out-of-equilibrium condition are mutually incompatible**: the framework cannot have both the seesaw scale it needs for the ladder and the leptogenesis it needs for the asymmetry. (The model's own ladder sits at $m_D = 118$ GeV, i.e. $y = 0.48$, where $\Gamma_N/H \simeq 68$.)
 
-The one route the framework does supply is quasi-degenerate (resonant) leptogenesis [31]. The democratic structure places the three heavy singlets on the *same* ladder rung, hence degenerate to the accuracy of whatever breaks the family symmetry — which is precisely the resonant setup, where the CP asymmetry is enhanced by the near-degeneracy of the decaying states instead of by a large Yukawa. With $y = 1/16\pi = 0.0199$ the decay is out of equilibrium ($\Gamma_N/H = 0.12$), and the asymmetry that the model's own dilution factor $D = (1/16\pi)^2$ and sphaleron conversion require, $\varepsilon_{CP} = \Delta B/[(28/79)D] = 4.4\times10^{-6}$, is *smaller* than the natural one-loop size $y^2/16\pi = 7.9\times10^{-6}$ at that Yukawa: the bookkeeping closes at $y = 1/16\pi$, where the hand-built estimate closes only at $y = 1/8$. The degeneracy the resonant regime needs, $\Delta M/M \lesssim \Gamma_N/M_N = y^2/8\pi = 1.6\times10^{-5}$, is what the 0-parameter democratic base gives exactly and what the family-breaking perturbation must not overshoot. The obstacle is not the size of the numbers but their phase: the model's Yukawa is real, every CP-odd invariant of the step vanishes, and a strictly degenerate spectrum has no CP-violating phase left to enhance. This is a *route*, not a result.
+The one route the framework does supply is quasi-degenerate (resonant) leptogenesis [31,40]. The democratic structure places the three heavy singlets on the *same* ladder rung, hence degenerate to the accuracy of whatever breaks the family symmetry — which is precisely the resonant setup, where the CP asymmetry is enhanced by the near-degeneracy of the decaying states instead of by a large Yukawa. With $y = 1/16\pi = 0.0199$ the decay is out of equilibrium ($\Gamma_N/H = 0.12$), and the asymmetry that the model's own dilution factor $D = (1/16\pi)^2$ and sphaleron conversion require, $\varepsilon_{CP} = \Delta B/[(28/79)D] = 4.4\times10^{-6}$, is *smaller* than the natural one-loop size $y^2/16\pi = 7.9\times10^{-6}$ at that Yukawa: the bookkeeping closes at $y = 1/16\pi$, where the hand-built estimate closes only at $y = 1/8$. The degeneracy the resonant regime needs, $\Delta M/M \lesssim \Gamma_N/M_N = y^2/8\pi = 1.6\times10^{-5}$, is what the 0-parameter democratic base gives exactly and what the family-breaking perturbation must not overshoot. The obstacle is not the size of the numbers but their phase: the model's Yukawa is real, every CP-odd invariant of the step vanishes, and a strictly degenerate spectrum has no CP-violating phase left to enhance. This is a *route*, not a result.
 
 ### 11.4 Proton decay
 
@@ -378,17 +378,17 @@ Dimensional analysis of $X/Y$ exchange gives
 
 $$\tau_p \sim \frac{M_{\rm GUT}^4}{\alpha_{10}^2\, m_p^5} = 4.0\times10^{47}\ \mathrm{yr}\qquad (M_{\rm GUT} = M_P,\ \alpha_{10} = 1/25),$$
 
-against the Super-Kamiokande bound $\tau_p/B(p\to e^+\pi^0) > 2.4\times10^{34}$ yr [15] (Fig. 20, Fig. 21). The margin is 13 orders of magnitude, and it rests entirely on the convention $M_{\rm GUT} = M_P$: any GUT scale below $\sim 5\times10^{15}$ GeV is excluded by the same bound (Fig. 21). The estimate omits the renormalisation factor $A_L$, the hadronic matrix element, the dressing of the operators and the splitting between the $X/Y$ masses and the unification scale, all of which shift the lifetime by one to two orders. The three channels $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ differ here only by two-body phase space (Fig. 22); the rate scales as $M_{\rm GUT}^{-4}$ in all of them. Observation of a GUT-pattern decay at any accessible rate would falsify $M_{\rm GUT} = M_P$ (F5).
+against the Super-Kamiokande bound $\tau_p/B(p\to e^+\pi^0) > 2.4\times10^{34}$ yr [15] (Fig. 20, Fig. 21). The margin is 13 orders of magnitude, and it rests entirely on the convention $M_{\rm GUT} = M_P$: any GUT scale below $\sim 6\times10^{15}$ GeV is excluded by the same bound (Fig. 21). The estimate omits the renormalisation factor $A_L$ [46], the hadronic matrix element, the dressing of the operators and the splitting between the $X/Y$ masses and the unification scale [51], all of which shift the lifetime by one to two orders. The three channels $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ differ here only by two-body phase space (Fig. 22); the rate scales as $M_{\rm GUT}^{-4}$ in all of them. Observation of a GUT-pattern decay at any accessible rate would falsify $M_{\rm GUT} = M_P$ (F5).
 
 ### 11.5 Flavour
 
-The democratic mass matrix $M = |1\rangle\langle 1|$ (all entries 1, rank 1, spectrum $\{3,0,0\}$) follows from the hypothesis that the three spatial directions are equivalent, so the $\mathbf{10}_H$ couples the three families identically. Its heavy eigenvector $(1,1,1)/\sqrt3$ is unique, hence
+The democratic mass matrix $M = |1\rangle\langle 1|$ (all entries 1, rank 1, spectrum $\{3,0,0\}$) [43] follows from the hypothesis that the three spatial directions are equivalent, so the $\mathbf{10}_H$ couples the three families identically. Its heavy eigenvector $(1,1,1)/\sqrt3$ is unique, hence
 
 $$\sin^2\theta_{12} = |\langle e_1|h\rangle|^2 = \tfrac13$$
 
-for any family basis — the **only** mixing angle the model derives, $8.6\%$ from the measured $0.307$ [17]. The light eigenspace is two-fold degenerate, so every diagonaliser is an $O(2)$ rotation in it; sweeping that freedom over 1441 rotations, $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ each cover the whole interval $[0,\tfrac23]$. The tribimaximal values $(\tfrac12, 0)$ [27] are one point of that family, picked by declaring which $S_3$ transposition breaks — and $(12)$, $(13)$, $(23)$ are equivalent symmetries of $|1\rangle\langle1|$, so the choice is an input.
+for any family basis — the **only** mixing angle the model derives, $8.6\%$ from the measured $0.307$ [17,50]. The light eigenspace is two-fold degenerate, so every diagonaliser is an $O(2)$ rotation in it; sweeping that freedom over 1441 rotations, $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ each cover the whole interval $[0,\tfrac23]$. The tribimaximal values $(\tfrac12, 0)$ [27] are one point of that family, picked by declaring which $S_3$ transposition breaks — and $(12)$, $(13)$, $(23)$ are equivalent symmetries of $|1\rangle\langle1|$, so the choice is an input.
 
-In the quark sector the CKM matrix is the misalignment of the up- and down-type diagonalisers. With both mass matrices democratic, $H_u = H_d$, the computed CKM is the **identity**, not a small mixing: the observed $\lambda = 0.225$ [13] is not reproduced. A non-trivial CKM requires an up/down misalignment that the symmetric base does not supply. The three-family mass hierarchy itself is also unfixed: the democratic base gives one heavy level and a two-fold degenerate light level, so two of the three masses are degenerate at 0-parameter. All of this is residual W6.
+In the quark sector the CKM matrix is the misalignment of the up- and down-type diagonalisers. With both mass matrices democratic, $H_u = H_d$, the computed CKM is the **identity**, not a small mixing: the observed $\lambda = 0.225$ [13,44] is not reproduced. A non-trivial CKM requires an up/down misalignment that the symmetric base does not supply. The three-family mass hierarchy itself is also unfixed: the democratic base gives one heavy level and a two-fold degenerate light level, so two of the three masses are degenerate at 0-parameter. All of this is residual W6.
 
 ### 11.6 Scoreboard
 
@@ -410,8 +410,8 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 | $\alpha_{10}$ | $0.040$ | $0.023$ (1-loop mean at $M_P$) | order only |
 | $\alpha_1(M_Z)$ from $\alpha_{10}$ | $-1.36$ (pole at 280 GeV) | $0.0169$ | **fails** |
 | $\sin^2\theta_{12}$ | $1/3$ | $0.307$ | derived |
-| $\sin^2\theta_{23},\ \sin^2\theta_{13}$ | not fixed ($O(2)$) | $0.579,\ 0.022$ | open |
-| CKM | identity | $\lambda = 0.225$ | **fails** |
+| $\sin^2\theta_{23},\ \sin^2\theta_{13}$ | not fixed ($O(2)$) | $0.579,\ 0.022$ [17,50] | open |
+| CKM | identity | $\lambda = 0.225$ [13,44] | **fails** |
 | $\Lambda$ | $0$ (tree level) | $\sim 10^{-122}M_P^4$ | open |
 
 (Fig. 10, Fig. 14.)
@@ -424,17 +424,17 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 
 The vacuum energy of the automaton vanishes at the level of the single-cell spectrum: the 32 levels are $\pm$-paired for every $g_{10}$, so $\sum_k\omega_k = \arg\det U = 0$. This is the correct, non-vacuous form of the earlier "512/512 cancellation". The counting of the 512 even and 512 odd **elements of the algebra** as bosonic and fermionic zero-point modes is not a physical mode counting — the physical one-cell Hilbert space has 32 states, not 1024 — and it is dropped here (Fig. 6 keeps the grading, not the arithmetic).
 
-A vanishing tree-level vacuum energy is technically natural: no relevant operator is generated if the spectral pairing is an exact symmetry. What the theory does **not** do is produce the observed value. The observed $\Lambda \sim 10^{-122}M_P^4$ is $122$ orders of magnitude *above* the theory's value, and no mechanism breaking the pairing by that amount is known. Independently, the classical self-gravitating de Sitter vacuum of Section 9 has $G_{\mu\nu} = -3H^2 g_{\mu\nu}$, i.e. a vacuum energy bounded by $M_P^4$ on the lattice. These are three different statements — spectral zero, classical bound, observed value — and they do not "reconcile": the gap between the first and the third is residual W1, the largest unexplained number in the theory. The equation of state of a cosmological-constant vacuum is $w = -1$ by definition, not by derivation.
+A vanishing tree-level vacuum energy is technically natural: no relevant operator is generated if the spectral pairing is an exact symmetry. What the theory does **not** do is produce the observed value. The observed $\Lambda \sim 10^{-122}M_P^4$ is $122$ orders of magnitude *above* the theory's value, and no mechanism breaking the pairing by that amount is known. Independently, the classical self-gravitating de Sitter vacuum of Section 9 has $G_{\mu\nu} = -3H^2 g_{\mu\nu}$, i.e. a vacuum energy bounded by $M_P^4$ on the lattice. These are three different statements — spectral zero, classical bound, observed value — and they do not "reconcile": the gap between the first and the third is residual W1 [37], the largest unexplained number in the theory. The equation of state of a cosmological-constant vacuum is $w = -1$ by definition, not by derivation.
 
 ### 12.2 Dark matter
 
 The candidate supplied by the classical sector is the kink of Section 9.4. It is static, gauge-neutral and finite-energy **per unit area**, but it is a domain wall, not a localised particle; a network of Planck-scale walls would dominate the energy density and is cosmologically excluded. The theory therefore supplies no dark-matter *particle*.
 
-What it does supply is a **mass scale**, $m_{\rm DM} = 118$ GeV (Section 10.2). The abundance at that mass is not computed. Two naive estimates bracket the observation by four orders of magnitude:
+What it does supply is a **mass scale**, $m_{\rm DM} = 118$ GeV (Section 10.2). The abundance at that mass is not computed. Two naive estimates [41] bracket the observation by four orders of magnitude:
 
 $$\Omega h^2 \simeq \frac{1.04\times10^9\, x_f\ \mathrm{GeV}^{-1}}{M_P\langle\sigma v\rangle},\qquad x_f \simeq 20,$$
 
-gives $\Omega h^2 \simeq 2\times10^{-5}$ for $\langle\sigma v\rangle = 1/m^2$ at $m = 118$ GeV (under-abundant), and $\Omega h^2 \sim 10^{29}$ for the theory's own Planck-suppressed cross-section $\sigma_0 = P_2/M_P^2 = 5.3\times10^{-39}$ GeV$^2$ (the freeze-out approximation is then meaningless). The observed $\Omega h^2 = 0.120$ requires $\langle\sigma v\rangle \simeq 1.4\times10^{-8}$ GeV$^{-2}$, which the theory does not derive. The "WIMP miracle" quoted in earlier versions was obtained by normalising the abundance to the measured value at 100 GeV; that is a definition, not a calculation, and it is removed here (Fig. 4 shows the standard relic curve with the CL10 mass marked, not a computed abundance).
+gives $\Omega h^2 \simeq 2\times10^{-5}$ for $\langle\sigma v\rangle = 1/m^2$ at $m = 118$ GeV (under-abundant), and $\Omega h^2 \sim 10^{29}$ for the theory's own Planck-suppressed cross-section $\sigma_0 = P_2/M_P^2 = 5.3\times10^{-39}$ GeV$^2$ (the freeze-out approximation is then meaningless). The observed $\Omega h^2 = 0.120$ requires $\langle\sigma v\rangle \simeq 1.4\times10^{-8}$ GeV$^{-2}$, which the theory does not derive. Non-thermal production (freeze-in) is not considered here [42]. The "WIMP miracle" quoted in earlier versions was obtained by normalising the abundance to the measured value at 100 GeV; that is a definition, not a calculation, and it is removed here (Fig. 4 shows the standard relic curve with the CL10 mass marked, not a computed abundance).
 
 ### 12.3 Antimatter
 
@@ -446,13 +446,13 @@ Matter and antimatter are the two Weyl eigenspaces, with the exact spectral mirr
 
 ### 13.1 The area law
 
-A generic QCA with $d$ internal states per cell has a state count $d^{L^3}$ and a volume-law entropy. CL10 is no exception at the level of raw counting: 32 states per cell gives $S \propto L^3$. The area law quoted in earlier versions was obtained by *assuming* the Bekenstein–Hawking density $S = A/4$ with $A = 6L^2$ and then fitting the exponent, which returns $2$ by construction. That is not a derivation and is not claimed here.
+A generic QCA with $d$ internal states per cell has a state count $d^{L^3}$ and a volume-law entropy. CL10 is no exception at the level of raw counting: 32 states per cell gives $S \propto L^3$. The area law quoted in earlier versions was obtained by *assuming* the Bekenstein–Hawking [35] density $S = A/4$ with $A = 6L^2$ and then fitting the exponent, which returns $2$ by construction. That is not a derivation and is not claimed here.
 
-The honest statement is a consistency one: if the physical Hilbert space of a region is restricted to gauge-invariant (or typical) states, the entropy is expected to scale as $A/4\ell_P^2$, and CL10 is compatible with that expectation because it has a Planck-spacing lattice and $G = 1$. Deriving the area law — i.e. showing that the automaton's physical state space is actually restricted to a boundary dimension — is open.
+The honest statement is a consistency one: if the physical Hilbert space of a region is restricted to gauge-invariant (or typical) states, the entropy is expected to scale as $A/4\ell_P^2$ [35,36], and CL10 is compatible with that expectation because it has a Planck-spacing lattice and $G = 1$. Deriving the area law — i.e. showing that the automaton's physical state space is actually restricted to a boundary dimension — is open.
 
 ### 13.2 Confinement
 
-The structural hallmarks of a confining vacuum are present as assumptions: a Wilson loop with an area-law expectation value $\langle W(C)\rangle \propto e^{-\sigma\,\mathrm{Area}(C)}$ [28] implies a linear potential $V(r) = \sigma r$. But the string tension used is $\sigma = 1$ in Planck units, i.e. $\sigma = M_P^2 \simeq 1.5\times10^{38}$ GeV$^2$, against the physical $\sigma \simeq 0.18$ GeV$^2$ — a discrepancy of 38 orders of magnitude. The colour count $N_C = 3$ is read off the decomposition of the 45, and $8 = N_C^2 - 1$ is then a consistency check, not a derivation. $\Lambda_{\rm QCD}$ is not on the loop ladder (it would need $n \simeq 11.6$). The area law is a property of a confining *phase* that the theory has not shown it is in (Fig. 7).
+The structural hallmarks of a confining vacuum are present as assumptions: a Wilson loop with an area-law expectation value $\langle W(C)\rangle \propto e^{-\sigma\,\mathrm{Area}(C)}$ [28] implies a linear potential $V(r) = \sigma r$. But the string tension used is $\sigma = 1$ in Planck units, i.e. $\sigma = M_P^2 \simeq 1.5\times10^{38}$ GeV$^2$, against the physical $\sigma \simeq 0.18$ GeV$^2$ [38] — a discrepancy of 38 orders of magnitude. The colour count $N_C = 3$ is read off the decomposition of the 45, and $8 = N_C^2 - 1$ is then a consistency check, not a derivation. $\Lambda_{\rm QCD}$ is not on the loop ladder (it would need $n \simeq 11.6$). The area law is a property of a confining *phase* that the theory has not shown it is in (Fig. 7).
 
 ---
 
@@ -658,13 +658,13 @@ $\tau_p \propto M_{\rm GUT}^4$. The point $M_{\rm GUT} = M_P$ gives $4\times10^{
 
 ![Proton margin](figures/fig21_proton_margin.png)
 
-$\Gamma/\Gamma_{\rm bound} \propto M_{\rm GUT}^{-4}$. The shaded region $M_{\rm GUT} \lesssim 5\times10^{15}$ GeV is excluded; the CL10 point sits $10^{13}$ below the bound. The margin is a consequence of the convention $M_{\rm GUT} = M_P$.
+$\Gamma/\Gamma_{\rm bound} \propto M_{\rm GUT}^{-4}$. The shaded region $M_{\rm GUT} \lesssim 6\times10^{15}$ GeV is excluded; the CL10 point sits $10^{13}$ below the bound. The margin is a consequence of the convention $M_{\rm GUT} = M_P$.
 
 **Fig. 22 — the three GUT channels.**
 
 ![Proton channels](figures/fig22_proton_channels.png)
 
-The stability margin for $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ against their respective bounds ($2.4\times10^{34}$, $7.0\times10^{33}$, $2.7\times10^{33}$ yr). The channels differ only by two-body phase space; the rate scales as $M_{\rm GUT}^{-4}$ in each.
+The stability margin for $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ against their respective bounds ($2.4\times10^{34}$, $1.6\times10^{34}$ [15], $6.6\times10^{33}$ [52] yr; for the $K^+$ mode the $p\to\bar\nu K^+$ bound is used, the closest measured channel). The channels differ only by two-body phase space; the rate scales as $M_{\rm GUT}^{-4}$ in each.
 
 **Fig. 23 — the causal front of a lattice pulse.**
 
@@ -727,32 +727,52 @@ Two cautions about what those 64 passes mean. First, most of them check internal
 1. L. Bombelli, J. Lee, D. Meyer, and R. D. Sorkin, "Space-time as a causal set," *Phys. Rev. Lett.* **59**, 521 (1987); R. D. Sorkin, "Causal sets: Discrete gravity," *arXiv:gr-qc/0309009* (2003).
 2. G. 't Hooft, "Computation of the quantum effects due to a four-dimensional pseudoparticle," *Phys. Rev. D* **14**, 3432 (1976).
 3. D. A. Meyer, "From quantum cellular automata to quantum lattice gases," *J. Stat. Phys.* **85**, 551 (1996).
-4. P. Arrighi, T. Nesme, and R. Scherrer, "An introduction to quantum cellular automata," *Nat. Comput.* **11**, 546 (2012).
-5. T. D'Ariano, P. Perinotti, D. Bahreyni, and G. W. Ford, "Equivalence of quantum cellular automata and circuits," *J. Comput. Phys.* **390**, 198 (2019).
+4. P. Arrighi, "An overview of quantum cellular automata," *Nat. Comput.* **18**, 885 (2019).
+5. T. D'Ariano and P. Perinotti, "Quantum cellular automata and free quantum field theory," *Front. Phys.* **12**, 120301 (2016); A. Bisio, T. D'Ariano, P. Perinotti, and A. Tosini, "Weyl, Dirac and Maxwell quantum cellular automata," *Found. Phys.* **45**, 1203 (2015).
 6. H. Georgi and S. L. Glashow, "Unity of all elementary-particle forces," *Phys. Rev. Lett.* **32**, 438 (1974).
-7. H. Fritzsch and P. Minkowski, "Unified interactions of strong and electroweak forces of quarks and leptons," *Ann. Phys. (N.Y.)* **93**, 193 (1975).
+7. H. Fritzsch and P. Minkowski, "Unified interactions of leptons and hadrons," *Ann. Phys. (N.Y.)* **93**, 193 (1975).
 8. R. Slansky, "Group theory for unified model building," *Phys. Rep.* **79**, 1 (1981).
 9. H. Georgi, *Lie Algebras in Particle Physics*, 2nd ed. (Westview, 1999).
 10. M. F. Atiyah, R. Bott, and I. M. Shapiro, "Clifford modules," *Topology* **3**, 3 (1964).
 11. R. Penrose and W. Rindler, *Spinors and Space-Time*, Vol. I (Cambridge University Press, 1984).
-12. C. I. Castro, "A Clifford algebra-based grand unification program of gravity and the Standard Model: a review study," *Can. J. Phys.* **92**, 1501 (2014); C. I. Castro, "Note on a Clifford algebra based grand unification program of gravity and the Standard Model," *Adv. Appl. Clifford Algebras* **25**, 1969 (2015). See also C. Distler and H. Fraser, "Heterotic fermions in noncommutative geometry," *Commun. Math. Phys.* **161**, 195 (1994).
-13. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics," *Phys. Rev. D* **110**, 070001 (2024).
+12. C. I. Castro, "A Clifford algebra-based grand unification program of gravity and the Standard Model: a review study," *Can. J. Phys.* **92**, 1501 (2014); C. I. Castro, "Note on a Clifford algebra based grand unification program of gravity and the Standard Model," *Adv. Appl. Clifford Algebras* **26**, 573 (2015).
+13. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics," *Phys. Rev. D* **110**, 030001 (2024).
 14. Planck Collaboration (N. Aghanim *et al.*), "Planck 2018 results. VI. Cosmological parameters," *Astron. Astrophys.* **641**, A6 (2020).
-15. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to e^+\pi^0$ and $p\to\mu^+\pi^0$ in 0.37 megaton-years exposure of Super-Kamiokande," *Phys. Rev. D* **102**, 012006 (2020).
+15. Super-Kamiokande Collaboration (A. Takenaka *et al.*), "Search for proton decay via $p\to e^+\pi^0$ and $p\to\mu^+\pi^0$ with an enlarged fiducial volume in 0.37 megaton-years exposure of Super-Kamiokande," *Phys. Rev. D* **102**, 112011 (2020).
 16. KATRIN Collaboration (M. Aker *et al.*), "Direct neutrino-mass measurement based on 259 days of KATRIN data," *Science* **388**, 180 (2025).
 17. I. Esteban, M. C. Gonzalez-Garcia, M. Maltoni, T. Schwetz, and A. Zhou, "The fate of hints: updated global analysis of three-flavor neutrino oscillations," *JHEP* **09**, 178 (2020).
 18. S. Weinberg, *The Quantum Theory of Fields*, Vol. I (Cambridge University Press, 1995), Ch. 5 (Clifford algebras and spinors).
-19. H. B. Nielsen and M. Ninomiya, "A no-go theorem to avoid the fermion doubling in lattice gauge theory," *Phys. Lett. B* **105**, 219 (1981); "A proof of the Nielsen-Ninomiya theorem," *Commun. Math. Phys.* **78**, 589 (1981).
+19. H. B. Nielsen and M. Ninomiya, "A no-go theorem for regularizing chiral fermions," *Phys. Lett. B* **105**, 219 (1981); "Absence of neutrinos on a lattice. I. Proof by homotopy theory," *Nucl. Phys. B* **185**, 20 (1981); "Absence of neutrinos on a lattice. II. Intuitive topological proof," *Nucl. Phys. B* **193**, 173 (1981).
 20. S. Weinberg, "Photons and gravitons in perturbation theory: Derivation of Maxwell's and Einstein's equations," *Phys. Rev.* **138**, B988 (1965).
 21. S. Weinberg and E. Witten, "Limits on massless particles," *Phys. Lett. B* **96**, 59 (1980).
 22. M. W. Choptuik, "Universality and scaling in gravitational collapse of a massless scalar field," *Phys. Rev. Lett.* **70**, 9 (1993).
-23. F. John, "Blow-up of solutions of nonlinear wave equations in three space dimensions," *Comm. Pure Appl. Math.* **23**, 377 (1970).
-24. A. D. Sakharov, "Violation of CP invariance, c asymmetry, and baryogenesis of the universe," *JETP Lett.* **5**, 24 (1967).
+23. F. John, "Blow-up of solutions of nonlinear wave equations in three space dimensions," *Manuscripta Math.* **28**, 235 (1979).
+24. A. D. Sakharov, "Violation of CP invariance, C asymmetry, and baryon asymmetry of the universe," *JETP Lett.* **5**, 24 (1967).
 25. J. A. Harvey and M. S. Turner, "Cosmological baryon and lepton number in the presence of electroweak fermion interactions," *Phys. Rev. D* **42**, 3344 (1990).
 26. S. A. Khlebnikov and M. E. Shaposhnikov, "The statistical theory of anomalous fermion number nonconservation," *Nucl. Phys. B* **308**, 885 (1988).
 27. P. F. Harrison, D. H. Perkins, and W. G. Scott, "Tri-bimaximal mixing and the neutrino oscillation data," *Phys. Lett. B* **530**, 167 (2002).
 28. K. G. Wilson, "Confinement of quarks," *Phys. Rev. D* **10**, 2445 (1974).
-29. G. 't Hooft, "Deterministic quantum mechanics and field theories," *Phys. Lett. B* **364**, 357 (1996).
-30. G. 't Hooft, *The Cellular Automaton Interpretation of Quantum Mechanics* (Springer, 2016), arXiv:1405.7263.
-31. S. Blanchet, P. Di Bari, B. Alloul, and M. Ariga, "Leptogenesis with quasi-degenerate neutrinos," *Phys. Rev. Lett.* **110**, 191601 (2013).
-32. R. Barbieri, L. J. Hall, and A. Strumia, "Minimal thermal leptogenesis: the neutrino mass spectrum," *Nucl. Phys. B* **776**, 77 (2007).
+29. G. 't Hooft, "On the quantum structure of a black hole," *Nucl. Phys. B* **256**, 727 (1985).
+30. G. 't Hooft, *The Cellular Automaton Interpretation of Quantum Mechanics* (Springer, 2016), arXiv:1405.1548.
+31. S. Blanchet and P. Di Bari, "The minimal scenario of leptogenesis," *New J. Phys.* **14**, 125012 (2012).
+32. S. Davidson and A. Ibarra, "A lower bound on the right-handed neutrino mass from leptogenesis," *Phys. Lett. B* **535**, 25 (2002).
+33. T. Regge, "General relativity without coordinates," *Il Nuovo Cimento* **19**, 558 (1961).
+34. H. Gundlach, J. M. Martin-Garcia, G. Calabrese, and I. Hinder, "Constraint damping in the Z4 formulation and harmonic gauge," *Class. Quantum Grav.* **22**, 3767 (2005).
+35. J. D. Bekenstein, "Black holes and entropy," *Phys. Rev. D* **7**, 2333 (1973); S. W. Hawking, "Particle creation by black holes," *Commun. Math. Phys.* **43**, 199 (1975).
+36. L. Susskind, "The world as a hologram," *J. Math. Phys.* **36**, 6377 (1995).
+37. S. Weinberg, "The cosmological constant problem," *Rev. Mod. Phys.* **61**, 1 (1989).
+38. C. Morningstar and M. Peardon, "The glueball spectrum from an anisotropic lattice study," *Phys. Rev. D* **60**, 034509 (1999).
+39. R. Barbieri, P. Creminelli, A. Strumia, and N. Tetradis, "Baryogenesis through leptogenesis," *Nucl. Phys. B* **575**, 61 (2000); W. Buchmüller, P. Di Bari, and M. Plümacher, "Leptogenesis for pedestrians," *Ann. Phys. (N.Y.)* **315**, 305 (2005).
+40. A. Pilaftsis and T. E. J. Underwood, "Resonant leptogenesis," *Nucl. Phys. B* **692**, 303 (2004).
+41. E. W. Kolb and M. S. Turner, *The Early Universe* (Addison-Wesley, 1990), Ch. 5.
+42. L. J. Hall, K. Jedamzik, J. March-Russell, and S. M. West, "Freeze-in production of FIMP dark matter," *JHEP* **03**, 080 (2010).
+43. H. Fritzsch, "Weak-interaction mixing in the six-quark theory," *Phys. Lett. B* **73**, 317 (1978).
+44. L. Wolfenstein, "Parametrization of the Kobayashi-Maskawa matrix," *Phys. Rev. Lett.* **51**, 1945 (1983).
+45. M. Jungman, M. Kamionkowski, and K. Griest, "Supersymmetric dark matter," *Phys. Rep.* **267**, 195 (1996).
+46. H. Hisano, M. Kobayashi, K. Muramatsu, and N. Nagata, "Two-loop renormalization factors of dimension-six proton decay operators in the minimal supersymmetric SU(5) gauge theory," *Phys. Lett. B* **724**, 283 (2013).
+47. M. Tonomura, J. Endo, T. Matsuda, T. Kawasaki, and H. Ezawa, "Demonstration of single-electron buildup of an interference pattern," *Am. J. Phys.* **57**, 117 (1989).
+48. D. B. Kaplan, "A method for simulating chiral fermions on the lattice," *Phys. Lett. B* **288**, 342 (1992); Y. Shamir, "Chiral fermions from lattice boundaries," *Nucl. Phys. B* **406**, 90 (1993); R. Narayanan and H. Neuberger, "Exactly massless quarks on the lattice," *Phys. Lett. B* **417**, 141 (1998).
+49. M. E. Machacek and M. T. Vaughn, "Two-loop renormalization group equations in a general quantum field theory. I. Proof of the equivalence theorem," *Nucl. Phys. B* **222**, 83 (1983); "III. Scalar model with fermions," *Nucl. Phys. B* **249**, 70 (1985).
+50. I. Esteban, M. C. Gonzalez-Garcia, M. Maltoni, I. Martinez-Soler, and T. Schwetz, "NuFIT 6.0: Updated global analysis of three-flavor neutrino oscillations," *PoS ICHEP2024*, 446 (2025), arXiv:2410.05380.
+51. M. Nath and P. Fileviez Pérez, "Proton stability in grand unified theories, in strings and in branes," *Phys. Rep.* **441**, 191 (2007).
+52. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).

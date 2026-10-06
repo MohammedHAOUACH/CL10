@@ -1,7 +1,7 @@
 # Pre-publication audit — 2026-10-06
 
-Artifact: `livrable/publication.pdf` (53 pages, REVTeX 4-2 `aps,prd,preprint`,
-26 figures, 32 references, 16 with verified DOIs). Compile is clean:
+Artifact: `livrable/publication.pdf` (55 pages, REVTeX 4-2 `aps,prd,preprint`,
+26 figures, 52 references, 46 with verified DOIs). Compile is clean:
 **0 errors, 0 undefined references, 0 stuck floats, 0 overfull boxes**
 (two `xelatex` passes).
 Build: `python3 livrable/make_paper.py --no-compile` then
@@ -54,30 +54,18 @@ once the source was fixed. `livrable/doi.json` (DOIs) and `livrable/orcid.txt`
    the twelve corner momenta; the $1.1\cdot10^{-16}$ residual is the
    matter/antimatter mirror, not a mass gap.
 
-## 3. Bibliography audit (Crossref, title+volume+page+year)
+## 3. Bibliography audit (Crossref + INSPIRE + arXiv — full re-audit 2026-10-06)
 
-**Verified and DOIs now printed in the paper** (16): 1, 2, 3, 6, 8, 10, 12,
-16, 17, 20, 21, 22, 25, 26, 27, 28.
-
-**Corrected at the source** in `doc/publication.md` (the compiled paper uses
-them directly; the override file was deleted):
-
-| # | as written in doc/ | registered record |
-|---|---|---|
-| 3 | J. Stat. Phys. 85, **167** (1996) | 85, **551–574** (1996) |
-| 6 | 'Unity of all elementary particles' | 'Unity of all elementary-**particle forces**' |
-| 10 | Bull. Amer. Math. Soc. **69, 115 (1963)** | **Topology 3, 3–38 (1964)** |
-| 12 | Can. J. Phys. **92, 1989 (2014)** | 92, **1501–1527** (2014) |
-| 16 | Science 388, **1159** (2025) | 388, **180–185** (2025) |
-| 25 | 'Covariant baryon number of the electroweak instanton/sphaleron processes' | the record at PRD **42, 3344** is 'Cosmological baryon and lepton number in the presence of electroweak fermion interactions' |
-| 26 | Nucl. Phys. B **374, 37 (1992)** | **B 308, 885–912 (1988)** |
-
-**Not verifiable through Crossref** (kept without DOI): 4, 5, 7, 9, 11, 13,
-14, 15, 18, 19, 23, 24, 29, 30, 31, 32 — books, arXiv-only items, and older
-or non-indexed journal records. Refs 13 (PDG), 14 (Planck), 15 (Super-K),
-19 (Nielsen–Ninomiya), 24 (Sakharov), 29 ('t Hooft 1996), 31 (Blanchet),
-32 (Barbieri–Hall–Strumia) are the ones a referee will check: each needs its
-DOI confirmed by hand before submission.
+**Superseded by `review/refs_audit.md`** (the definitive record). Summary: the
+bibliography was expanded 32 → 52 entries; every entry verified against
+Crossref/INSPIRE/arXiv; 11 real errors corrected at the source (wrong titles,
+invented DOIs for Sakharov/John/Nielsen–Ninomiya, a non-existent D'Ariano JCP
+paper, a wrong Gundlach reference, a wrong Hisano reference, wrong Regge
+initial, wrong SK bounds); 46 verified DOIs in `livrable/doi.json`. The
+in-text citations were previously rendered as literal `[n]` in the PDF
+(`citations()` was never called from `inline()`); fixed in
+`livrable/make_paper.py` — the compiled paper now has real `\cite{}` links,
+all 52 refs cited, 0 undefined citations.
 
 ## 4. Submission checklist
 
