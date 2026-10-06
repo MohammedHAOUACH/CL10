@@ -336,7 +336,7 @@ def figure_block(path, caption):
     tw, th = LAYOUT
     dims = png_size(os.path.join(ROOT, "doc", path))
     width = tw if not dims else min(tw, 0.72 * th * dims[0] / dims[1])
-    return (r"\begin{figure}[htbp]" + "\n"
+    return (r"\begin{figure}[!ht]" + "\n"
             + f"\\includegraphics[width={width:.0f}pt]{{{name}}}" + "\n"
             + r"\caption{" + cap + "}" + "\n"
             + r"\label{fig:" + name + "}" + "\n"
@@ -366,6 +366,10 @@ def build_body(lines, opts):
             if m.group(2).startswith("Appendix") and depth == 2 and not in_appendix:
                 out.append("\\appendix")
                 in_appendix = True
+            # the figure section must start on a fresh page: otherwise the
+            # first figure floats backwards, above the section heading
+            if depth == 2 and strip_number(m.group(2)) == "Figures":
+                out.append("\n\\clearpage\n")
             cmd = {2: "section", 3: "subsection", 4: "subsubsection"}[depth]
             out.append(f"\\{cmd}{{{title}}}\n")
             i += 1
