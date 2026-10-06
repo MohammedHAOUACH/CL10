@@ -129,3 +129,24 @@ shown live in the window corner:
   keyboard
   shortcuts that fire the photons.
 - `runner.py` / `__main__.py` — the headless video / the live window dispatch.
+
+## Verification (the experiments)
+
+This engine is checked by two experiments of the U10 verification program
+(both pin the same `gpu` id from `config.yaml` **before** the CuPy import, so
+they run on the configured card — default **1**, the free card — and degrade
+to NumPy only without a GPU):
+
+- `experiments/V61_hydrogen/` — the **fast check** of the suite (the same model
+  on a reduced `120^3` grid): the gaps are the Rydberg differences (relative
+  error 0), the E1 selection rules come out of the lattice wavefunctions, the
+  absorption peaks on the gap and falls with the detuning, the excited atom
+  radiates and decays, the norm is conserved, the fields are bounded.
+- `experiments/V62_hydrogen_production/` — the **production experiment**: the
+  full `296^3` run on the **GPU** with the complete photon script (Lyman-alpha
+  twice, `1s→3p`, `2p→3d`, one off-resonant control).  It measures every claim
+  of Fig. 26 at production resolution (including the deformation of the cloud,
+  as the density quadrupole: sphere in the `1s`, two-lobe dumbbell after the
+  `1s→2p` excitation) and **regenerates the publication figure**
+  (`doc/figures/fig26_hydrogen.png` + the meta JSON) as a product of the
+  experiment.

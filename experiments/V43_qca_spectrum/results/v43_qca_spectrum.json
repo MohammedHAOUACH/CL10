@@ -10,14 +10,14 @@
     "one_object": {
       "n_levels": 32,
       "g10": 0.2,
-      "zero_point": -4.440892098500626e-16,
-      "det_U_minus_1": 4.443059973708341e-15,
+      "zero_point": 2.220446049250313e-15,
+      "det_U_minus_1": 5.329720999804419e-15,
       "sl32": true,
-      "pairing_resid": 1.9984014443252818e-15,
+      "pairing_resid": 1.6653345369377348e-15,
       "max_trace_T45": 0.0,
-      "cpt_0point_16": 8.881784197001252e-16,
-      "cpt_0point_16bar": -1.1102230246251565e-15,
-      "commutes_with_pseudoscalar": 7.791361360319882e-16
+      "cpt_0point_16": 9.992007221626409e-16,
+      "cpt_0point_16bar": 4.440892098500626e-15,
+      "commutes_with_pseudoscalar": 7.043917247687978e-16
     },
     "nine_projections": [
       {
@@ -76,5 +76,5 @@
       }
     ]
   },
-  "wall_time": 0.011
+  "wall_time": 0.086
 }

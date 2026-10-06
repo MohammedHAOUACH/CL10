@@ -46,17 +46,31 @@ parameters of the atom, **not** fitted to any measured number.
 **Grid note.**  The figure is rendered on the production grid (296^3).  This check
 runs the **same model** on a reduced grid (120^3) so it is fast enough to be part
 of the validation suite; the physics checks below are grid-independent.
+
+**GPU note.**  Like ``simulation/hydrogen/__main__.py``, this script pins
+``CUDA_VISIBLE_DEVICES`` to the ``gpu`` id of ``simulation/hydrogen/config.yaml``
+(default 1 -- the free card) **before** the CuPy import, so the check runs on
+the configured GPU and degrades to NumPy (CPU) only when no GPU is available.
 """
 
 import os
 import sys
 import json
 import time
-
-import numpy as np
+import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
+
+# Pin the GPU *before* the CuPy import (mirrors
+# simulation/hydrogen/__main__.py): the configured card (``gpu``, default 1 --
+# the free card) rather than the first visible one (which may be occupied by
+# another process) or the CPU.  An explicit CUDA_VISIBLE_DEVICES set by the
+# caller wins.
+_HYDRO = os.path.join(ROOT, "simulation", "hydrogen")
+with open(os.path.join(_HYDRO, "config.yaml")) as _f:
+    _hcfg = yaml.safe_load(_f)
+os.environ.setdefault("CUDA_VISIBLE_DEVICES", str(_hcfg.get("gpu", 1)))
 
 from simulation.hydrogen import runner, qca as QCA, backend as B
 
@@ -187,7 +201,6 @@ def check_resonance(sim_factory):
 
     sim = sim_factory()
     gap12 = abs(sim.omega[1] - sim.omega[0])
-    gap13 = abs(sim.omega[2] - sim.omega[0])
     gamma_line = sim.gamma_line
 
     # the baseline: the atom alone, no photon at all
@@ -386,19 +399,19 @@ def main():
     for e in s["forbidden"]:
         print(f"      FORBIDDEN {e['transition']:9s}  <z> = {e['dipole_z']:+8.4f}  (Delta l = {e['delta_l']})")
     res = r["resonance"]
-    print(f"  [3] the resonance (the content of the figure):")
+    print("  [3] the resonance (the content of the figure):")
     print(f"      baseline, the atom ALONE (no photon): excited fraction "
           f"{res['atom_alone_no_photon']['excited_fraction']:.2e}")
     print(f"      line HWHM {res['line_width_HWHM_rad_per_step']:.4f} rad/step")
     print(f"      RESONANT 1s->2p {res['resonant']['gap_eV']:.2f} eV -> excited fraction "
           f"{res['resonant']['excited_fraction']:.3f}")
-    print(f"      the detuning scan (same amplitude, same width, same duration):")
+    print("      the detuning scan (same amplitude, same width, same duration):")
     for e in res["detuning_scan"]:
         print(f"        detuning {e['detuning_from_1s2p_rad']:.4f} rad/step "
               f"({e['detuning_in_line_widths']:5.1f} line widths)  -> excited {e['excited_fraction']:.4f}")
     print(f"      suppression (on-resonance / far-off): {res['suppression_on_over_far']:.1f}x   "
           f"peaks on the gap: {res['absorption_peaks_on_the_gap']}")
-    print(f"      the packet-locality trap (a packet wider than the box = a persistent bath):")
+    print("      the packet-locality trap (a packet wider than the box = a persistent bath):")
     for e in res["packet_locality_scan"]:
         print(f"        width {e['photon_width_cells']:3d} cells ({e['width_over_box']:.2f} of the box)  -> excited {e['excited_fraction']:.4f}")
     em = r["spontaneous_emission"]

@@ -79,11 +79,11 @@ CL10/
 │   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
 │   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
 │   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
-├── g10_selection.py          # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
+│   ├── g10_selection.py      # the 1-loop data check of the 0-parameter g_10 = 1/5 (V56, W6)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   └── four_limits.py        # the UNIFIED solution to the four limits (V59, Section 16): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named (1 't Hooft angle + 2 conventions + 2 2-digit coeffs + 1 CP phase)
-├── experiments/              # the U10 verification program (62 experiments, V0-V61)
+├── experiments/              # the U10 verification program (63 experiments, V0-V62)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -105,18 +105,19 @@ CL10/
 │   ├── V53/                  # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (W8)
 │   ├── V54/                  # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (W7)
 │   ├── V55/                  # the CP-violating factor = the 2-loop factor (1/16pi)^2 (W5)
-├── V56/                  # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
+│   ├── V56/                # the 1-loop data check of the 0-parameter g_10 = 1/5 (W6)
 │   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
 │   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
 │   ├── V59/                # the UNIFIED solution to the four limits (Section 16): 10 = 2 x 5 (2 = chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named
 │   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
-│   └── V61/                # the 3-D hydrogen atom driven by the CL10 photon (Fig. 26): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
+│   ├── V61/                # the 3-D hydrogen atom (Fig. 26; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
+│   └── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 26 claim measured at production resolution, the figure regenerated as a product of the experiment
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
-│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; regenerate the video/stills with `python -m simulation.hydrogen`
-├── run_validation.py         # the runner: runs all 62, writes the U10 verdict
+│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
+├── run_validation.py         # the runner: runs all 63, writes the U10 verdict
 └── results/
-    └── validation_summary.json   # the 62/62 PASS + the U10 verdict
+    └── validation_summary.json   # the 63/63 PASS + the U10 verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -141,10 +142,13 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 62 experiments, prints the U10 verdict
-python3 make_figures.py          # regenerates the 25 matplotlib figures -> doc/figures/
-python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (Fig. 26)
+python3 run_validation.py        # runs all 63 experiments, prints the U10 verdict
+python3 make_figures.py          # regenerates the 25 matplotlib figures (fig 1-25) -> doc/figures/
+python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
+python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
+                                 # the production hydrogen experiment (296^3, GPU):
+                                 # regenerates doc/figures/fig26_hydrogen.png + the meta JSON
 ```
 
 ## The U10 validation
@@ -152,7 +156,7 @@ python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (Fig.
 Section 11 of `doc/publication.md` defines **what a 0-parameter unification
 must be** (seven criteria, P0–P6), the **tiered** validation against them,
 and the **falsifiers** (F1–F7).  `run_validation.py`
-runs all **60** experiments (V0–V59) across the seven tiers and writes
+runs all **63** experiments (V0–V62) across the seven tiers and writes
 
 > **U10** = all of the hard tiers (0–3: V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

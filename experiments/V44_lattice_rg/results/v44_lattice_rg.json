@@ -7,40 +7,40 @@
   "status": "the_0_parameter_GUT_cross_section_is_UV_finite_nonzero_bounded_the_RG_matching_is_the_named_residual",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "g10": 0.2,
     "M_P_GeV": 1.22e+19,
     "P1": 0.540443072716866,
-    "P2": 0.7888074305860842,
-    "s2_unitary_err": 2.88658108636398e-15,
+    "P2": 0.7888074305860843,
+    "s2_unitary_err": 2.8865801871728566e-15,
     "closed_form_match": true,
-    "sigma_0_GeV2": 5.2997005548648496e-39,
-    "sigma_0_cm2": 2.0615835158424263e-66,
+    "sigma_0_GeV2": 5.29970055486485e-39,
+    "sigma_0_cm2": 2.0615835158424266e-66,
     "sigma_pert_GeV2": 8.554417795855705e-43,
     "sigma_pert_cm2": 3.327668522587869e-70,
-    "R_qca_over_pert": 6195.279072565705,
+    "R_qca_over_pert": 6195.279072565706,
     "sigma_max_GeV2": 8.442871952673457e-38,
     "sigma_max_cm2": 3.2842771895899746e-65,
     "uv_finite": true,
     "dispersion": {
       "n_levels": 32,
-      "omega_max_over_pi": 0.473130597085328,
+      "omega_max_over_pi": 0.47313059708532773,
       "uv_bounded": true,
-      "zero_point": -4.440892098500626e-16
+      "zero_point": 2.220446049250313e-15
     },
     "optical_theorem": true,
     "froissart": {
       "m_min_GeV": 1.22e+19,
-      "sigma_qca_GeV2": 5.2997005548648496e-39,
+      "sigma_qca_GeV2": 5.29970055486485e-39,
       "sigma_max_GeV2": 8.442871952673457e-38,
       "constant_uv_finite": true,
       "below_froissart": true,
       "strongest_uv_finite": true,
       "n_rows": 4
     },
-    "elastic": 0.21119256941391584,
-    "sigma_over_smax": 0.06277130086269621,
+    "elastic": 0.21119256941391573,
+    "sigma_over_smax": 0.06277130086269622,
     "residual": "the lattice RG (running the cross-section from the Planck scale down to the physical scale: the non-trivial / anomalous part) and the matching of the 0-parameter amplitudes to the MEASURED cross-sections — the open part of the 't Hooft program (W9)"
   },
-  "wall_time": 0.346
+  "wall_time": 0.25
 }

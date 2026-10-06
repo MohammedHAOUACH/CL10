@@ -7,7 +7,7 @@
   "status": "the_dm_candidate_is_stable_massive_neutral_at_the_planck_scale_the_abundance_gap_is_quantified",
   "tol": 1e-06,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "ode_residual": 4.766645134157699e-10,
     "mass_energy_E": 1.3333305333439112,
     "non_dispersive": true,
@@ -20,5 +20,5 @@
     "under_abundant": true,
     "residual": "the sub-Planck DM scale that gives the observed abundance: the 0-parameter Planck-mass / Planck-cross-section relic is under-abundant (computed gap Omega_0param/Omega_obs ~= 5.5e-52 < 1e-20) — the W7 wall, now quantified"
   },
-  "wall_time": 0.003
+  "wall_time": 0.002
 }

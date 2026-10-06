@@ -7,7 +7,7 @@
   "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_gen": 3,
     "mass_matrix_rank": 1,
     "mass_matrix_spectrum": [
@@ -50,5 +50,5 @@
     "degenerate_base": true,
     "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
   },
-  "wall_time": 0.235
+  "wall_time": 0.169
 }

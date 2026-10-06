@@ -95,7 +95,7 @@ signatures are in `doc/api.md`):
 | the 2-step seesaw on the 10-loop ladder (§13, W2; V57) | `cl10.neutrino` | the **0-parameter** 2-step seesaw: both scales are numbers of the root on the **10-loop ladder** — the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3}$ (the intermediate $10^{14}$ scale, **replacing the hard-coded $10^{14}$** of V15/V18) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.15$ eV (**2.9x** the observed, the 2-digit coefficient + $n_{2\text{step}}=3$ the named residual); the **2-step** $U^2$ is a 0-parameter **unitary** of the GUT QCA (the 2-loop) |
 | the UV-finite *discrete RG* (§12, W4; V58) | `cl10.uvrunning` | the **W4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.6$) is a **feature of the non-SUSY SM** (not a defect); the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
 | the **unified solution to the four limits** (§16, V59) | `cl10.four_limits` | the **unification**: the four "limits" (`doc/remarques.txt`) are the **four projections of one 0-parameter invariant** $10 = 2\times5$ (the chiral $16/16$-bar split $\times$ the 5 qubits of the 32-D module) **plus one irreducible CP phase** — computed on the GPU: (L1) the 7 algebraic invariants are **$g_{10}$-invariant** (the CPT-mirror residual stays $\sim1.8\times10^{-15}$ for $g_{10}=0.1..0.5$); (L2+L4) the **same** $n=10$ is the **unique** $n\in1..20$ within **one decade** of **both** closures: the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — **two statements of one scale** (the strict factor-2 test of both is **empty**); (L3) the **rank-1** (1 $N$) Yukawa has **0** CP phases (no baryon) while the **2-step** (2 $N$) has **1** irreducible CP phase ($\mathrm{Im}\det(Y)=|\sin\delta|$) — so baryogenesis needs **one** phase, $\Delta B=6.8\times10^{-10}$ (ratio 1.12); **0 free parameters in the algebra** ($g_{10}=1/5$, $g_0=1/2^3$ are 0-parameter **selection rules**) — the named residual set is the **minimum**: **2 two-digit coefficients** (2.08, 1.18 — *named*, read from the data) + **1 CP phase = 3** + the mapping conventions (Point 1) + the one 't Hooft angle of the dynamics |
-| the **3-D hydrogen atom** driven by the CL10 photon (Fig. 26; V61) | `simulation.hydrogen` | the hydrogen atom (the **real** Rydberg levels $E_n=-13.606/n^2$ and the eigenfunctions $R_{nl}(r)Y_{lm}$ drawn on a $296^3$ lattice — an **input of atomic physics**, NOT derived from the root) coupled to the **CL10 free massless 3-D field** (the 6-neighbour leapfrog FDTD, the same engine as `simulation.young`): the **Fermi-golden-rule** dipole drive $A\,|F|^2\,L(\delta)$ with a **Lorentzian** line shape (a photon *at* a gap is absorbed, one far from every gap mostly is not — the **tail is real**, not zero), the **Einstein-A** emission (the transition dipole sources an outgoing wave at the gap frequency and the population relaxes), the **sponge** absorbing boundary, and the observables (`populations`, `atom_energy`, `excited_fraction`, `electron_density` $=|\psi|^2$, `photon_density` $=|F|^2+|F_{\rm out}|^2$).  **V61** measures: the gaps equal the Rydberg differences (relative error $0$), the **E1 selection rules come out of the lattice wavefunctions** (the forbidden dipoles $6.8\times10^{-19}$ and $8.6\times10^{-18}$, against $9.93$/$-3.00$/$22.97$ for the allowed ones), the absorption **peaks on the gap and falls with the detuning**, and the excited atom **radiates while it decays**.  The knobs $A$, $h$, $\gamma_{\rm sp}$ are physical parameters of the atom, **not fitted**. |
+| the **3-D hydrogen atom** driven by the CL10 photon (Fig. 26; V61, V62) | `simulation.hydrogen` | the hydrogen atom (the **real** Rydberg levels $E_n=-13.606/n^2$ and the eigenfunctions $R_{nl}(r)Y_{lm}$ drawn on a $296^3$ lattice — an **input of atomic physics**, NOT derived from the root) coupled to the **CL10 free massless 3-D field** (the 6-neighbour leapfrog FDTD, the same engine as `simulation.young`): the **Fermi-golden-rule** dipole drive $A\,|F|^2\,L(\delta)$ with a **Lorentzian** line shape (a photon *at* a gap is absorbed, one far from every gap mostly is not — the **tail is real**, not zero), the **Einstein-A** emission (the transition dipole sources an outgoing wave at the gap frequency and the population relaxes), the **sponge** absorbing boundary, and the observables (`populations`, `atom_energy`, `excited_fraction`, `electron_density` $=|\psi|^2$, `photon_density` $=|F|^2+|F_{\rm out}|^2$).  **V61** measures: the gaps equal the Rydberg differences (relative error $0$), the **E1 selection rules come out of the lattice wavefunctions** (the forbidden dipoles $6.8\times10^{-19}$ and $8.6\times10^{-18}$, against $9.93$/$-3.00$/$22.97$ for the allowed ones), the absorption **peaks on the gap and falls with the detuning**, and the excited atom **radiates while it decays**.  The knobs $A$, $h$, $\gamma_{\rm sp}$ are physical parameters of the atom, **not fitted**. | **The production version** (296^3, the full photon script) is the **V62** experiment, which also regenerates the Fig. 26 figure.
 | the Young wave + the **single-electron** measurement / collapse (Fig. 25, §5) | `simulation.young` | the **0-parameter 3-D QCA wave** (the same 4-neighbour discrete wave equation as the CL10 graviton, Section 6) run through a **double-slit barrier** as a **single-electron measurement** (the Tonomura flow): `wave.WaveSim` is the FDTD (the `r=0.5` CFL leapfrog, the source matched to the FDTD dispersion, the quadratic absorbing sponge) that fires **one localized electron at a time** — each one diffracts through the slits and is detected at a **single point** sampled from the **time-integrated** on-screen $\psi^{2}$ (the interference pattern the screen records; a single instant of the traveling wave is only a blob, so the detection is integrated over the electron's passage), with the **sponge** absorbing the wave between emissions (no reset); the **`collapse.Collapse`** class implements the **measurement** — `sample` = the **Born-rule** inverse-CDF sampling of one detection point, `contract` = the **wave-packet reduction** ($\psi\to\psi\times$ a shrinking Gaussian centred on the detected point: the **non-unitary** projection, the collapse), and `add` = the **detection accumulation** whose points cluster into the fringe groups.
 
 
@@ -138,7 +138,7 @@ and the **U10 verdict**:
 $$\mathrm{U10} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (62/62, 2026-10-06).**  Every experiment **passes** on the
+**The result (63/63, 2026-10-06).**  Every experiment **passes** on the
 GPU; the **U10 VERDICT is positive**.  (For the *meaning* of each pass —
 which walls are reduced and which residuals are named — see
 `doc/publication.md` Sections 11–13.)
@@ -182,7 +182,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (62/62, U10)
+python3 run_validation.py            # -> results/validation_summary.json (63/63, U10)
 python3 run_validation.py V11 V12    # a subset
 ```
 
@@ -193,9 +193,12 @@ F4xx/F5xx are enforced).
  **Figures.**  The **twenty-six** figures of `doc/publication.md` (the
  "Figures" section) are **computed, not hand-drawn**.  **Fig 1–25** come from
  `make_figures.py` (at the repo root): it imports the `cl10` modules and writes
- PNGs to `doc/figures/`.  **Fig 26** is not a matplotlib figure — it is a still of
- the `simulation/hydrogen` engine (see the note after the figure list), and its
- content is checked by **V61** rather than by `make_figures.py`:
+ PNGs to `doc/figures/`.  **Fig 26** is produced by the **V62** production
+ experiment (`experiments/V62_hydrogen_production`, the `simulation/hydrogen`
+ engine on the **GPU**): a computed four-panel matplotlib figure (the mid-plane
+ cuts of $|\psi|^2$, $|F|^2$, $|F_{\rm out}|^2$) with a meta JSON next to it (see the
+ note after the figure list), and its content is checked by **V61** (fast) and
+ **V62** (production) rather than by `make_figures.py`:
 
  ```bash
  python3 make_figures.py            # -> doc/figures/fig1..fig25_*.png (fig 25 is the heavy QCA young sim: `python3 make_figures.py --young`)
@@ -248,13 +251,17 @@ one electron onto a point (the wave-packet reduction), and (d) the
 **accumulated single-electron detections** cluster into the fringe groups).
 Fig 25 is the **only** heavy matplotlib figure (a $128\times120\times220$ 3-D FDTD,
 ~1.5k steps): it is **opt-in** (the `--young` flag) and its PNG is committed,
-so the default run stays fast.  Fig 26 is **not** produced by
-``make_figures.py``: it is a **still of the hydrogen simulation**
-(``simulation/hydrogen``, the PyVista/VisPy engine) regenerated with
-``python -m simulation.hydrogen`` (the video and the stills land in
-``simulation/hydrogen/video/``, which is git-ignored; the chosen still is copied to
-``doc/figures/fig26_hydrogen.png``).  Its content is **checked by V61**, not by
-``make_figures.py``.
+so the default run stays fast.  Fig 26 is **not** produced by ``make_figures.py``
+either: it is the **V62** product — the **production** $296^3$ run of the
+``simulation/hydrogen`` engine **on the GPU** (the full photon script: Lyman-alpha
+twice, $1s\to3p$, $2p\to3d$, off-resonant control) from which the four mid-plane
+panels are selected by the physics; the meta JSON
+(``doc/figures/fig26_hydrogen.meta.json``) records the grid, the script, the
+selected instants and the populations.  Its content is **checked by V61** (the
+fast $120^3$ run, part of the suite) and **V62** (this production run).  The
+**video** (the 3-D scene + stills) is a separate product of
+``python -m simulation.hydrogen`` (the PyVista/VisPy engine; it lands in
+``simulation/hydrogen/video/``, which is git-ignored).
 
  It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
  NumPy/CPU).

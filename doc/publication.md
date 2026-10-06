@@ -707,7 +707,7 @@ is **far above** the experimental bound $\tau_p>10^{34}$ yr (the proton
 appears stable) — **consistent**, and **falsifiable** if a non-GUT decay is
 seen.  **None of the falsifiers F1–F7 is observed.**
 
-**What the 62 checks are (and are not).**  The 62 experiments verify the
+**What the 63 checks are (and are not).**  The 63 experiments verify the
 **internal consistency of the construction** (the algebraic identities of
 the root, the 2-route numerical checks, the unitarity of the step): most of
 them would pass for **any** theory built on this root, and they are **not**
@@ -715,12 +715,12 @@ tests of the physics against data.  The **six comparisons against nature**
 — $v/E_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$
 (Fig. 14) — are the **phenomenological** content, each with a named
 residual.  The **U10 verdict** means **the hard tiers (0-3) hold**, not that
-the 60 checks confirm the physics.
+the 63 checks confirm the physics.
 
 **The verdict.**  All claims in the **hard** tiers (0–3) hold, the
 cosmology (4) and falsifiability (5) are **supported** with the **walls
 reduced to named residuals**, and the **completion program** (tier 6,
-Section 12) is **complete** — **all 62 experiments pass**.  The
+Section 12) is **complete** — **all 63 experiments pass**.  The
 **U10 VERDICT is positive**: **in the strongest defensible sense, CL10 is
 a consistent 0-parameter unification of matter, gauge, and gravity — a
 0-parameter unification — with the only open items the named, quantified
@@ -1305,7 +1305,7 @@ program** (Section 12: the **local** QCA, the **EH action derived from the
 QCA dynamics**, the **0-parameter numbers derived from the root**, the
 **three families inside the dynamics**, the **baryon asymmetry at the right
 order**, the **0-parameter S-matrix**, and the **quantified dark-matter
-scale**).  **All 62 experiments pass** (Sections 11–12); the
+scale**).  **All 63 experiments pass** (Sections 11–12); the
 **U10 VERDICT is positive**.  The **hard** tiers (0–3: the single object,
 the kinematics, the dynamics, and — critically — the **anomaly-free**
 matter, the **$5/3$** coupling unification, and the **matter–gauge–gravity
@@ -1739,7 +1739,7 @@ following the W2 pattern (Section 13: the 0-parameter *mechanism* is solved; the
 *exact* value is named).  **Fig. 26 is the one figure whose input is not the root**:
 the atom is the **real hydrogen** system (an input of atomic physics), and what the
 figure tests is the **photon sector** of the QCA.  Its provenance is stated in its
-caption and measured by **V61**.
+caption and measured by **V61** (the fast $120^3$ check) and **V62** (the production $296^3$ run on the GPU, which also regenerates the figure).
 
 **Fig. 1 — the one 0-parameter object: the 32-level QCA spectrum.**
 
@@ -2086,7 +2086,7 @@ atom.  **Right:** the mid-plane cut of the same cloud.  The corner panel reads t
 live state: the level populations, the atom energy in eV, the excited fraction, the
 dipole $D$ and the photon frequency.
 
-**What is measured (V61, not asserted).**  **a)** The **levels are the real hydrogen
+**What is measured (V61 / V62, not asserted).**  **a)** The **levels are the real hydrogen
 ones**: the gaps come out $1s\to 2p = 10.204$ eV, $1s\to 3p = 12.094$ eV,
 $2p\to 3d = 1.890$ eV — the Rydberg differences to a relative error of $0$
 (0-parameter in the sense that **nothing is fitted to atomic data**).  **b)** The **E1
@@ -2121,7 +2121,11 @@ Measured at a detuning of half the $1s\to 2p$ gap in a $120$-cell box, the off-r
 excited fraction grows with the packet width — $0.037$ at $12$ cells ($0.10$ of the box),
 $0.135$ at $24$ ($0.20$), $0.326$ at $48$ ($0.40$) — because the field stops leaving the
 atom's neighbourhood.  The figure uses a localised packet ($20$ cells in a $296$ box,
-$0.07$ of the box).
+$0.07$ of the box).  The figure itself is a **V62** product: the **production**
+$296^3$ simulation on the **GPU** runs the full photon script (Lyman-alpha,
+$1s\to3p$, $2p\to3d$, off-resonant control) and the four mid-plane instants are
+selected by the physics (the meta JSON next to the figure records the grid,
+the script, the instants and the populations).
 
 ---
 

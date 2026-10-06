@@ -6,7 +6,7 @@
   "pass": true,
   "status": "the CL10 photon resonates with the real hydrogen levels (absorbed on resonance, not off resonance), the E1 selection rules come out of the lattice wavefunctions, and the excited atom radiates and decays; the ATOM is an input (real hydrogen), the PHOTON is CL10",
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "grid_figure": [
       296,
       296,
@@ -47,14 +47,14 @@
         {
           "transition": "1s->2p",
           "delta_l": 1,
-          "dipole_z": 9.925509361633184,
+          "dipole_z": 9.925509361633182,
           "e1_allowed_by_rule": true,
           "nonzero_on_the_lattice": true
         },
         {
           "transition": "1s->3p",
           "delta_l": 1,
-          "dipole_z": -2.9982777497305566,
+          "dipole_z": -2.998277749730556,
           "e1_allowed_by_rule": true,
           "nonzero_on_the_lattice": true
         },
@@ -77,22 +77,22 @@
         {
           "transition": "1s->3d",
           "delta_l": 2,
-          "dipole_z": -6.776263578034403e-19,
+          "dipole_z": 1.666960840196463e-18,
           "e1_allowed_by_rule": false,
           "nonzero_on_the_lattice": false
         },
         {
           "transition": "2p->3p",
           "delta_l": 0,
-          "dipole_z": 8.565197162635485e-18,
+          "dipole_z": 1.1872013788716274e-17,
           "e1_allowed_by_rule": false,
           "nonzero_on_the_lattice": false
         }
       ],
       "rule_and_lattice_agree": true,
-      "max_forbidden_dipole": 8.565197162635485e-18,
-      "min_allowed_dipole": 2.9982777497305566,
-      "suppression_factor": 3.500535589315023e+17
+      "max_forbidden_dipole": 1.1872013788716274e-17,
+      "min_allowed_dipole": 2.998277749730556,
+      "suppression_factor": 2.5255005621542166e+17
     },
     "resonance": {
       "travel_steps_to_the_atom": 120,
@@ -111,12 +111,12 @@
         "gap_eV": 10.2045,
         "field_reached_the_atom": 0.24973074762450365,
         "populations": {
-          "1s": 0.575843530517098,
-          "2p": 0.30978451460498163,
-          "3p": 0.10723813913812384,
-          "3d": 0.007133815739806002
+          "1s": 0.5758435305260019,
+          "2p": 0.30978451461561424,
+          "3p": 0.107238139115933,
+          "3d": 0.007133815742462264
         },
-        "excited_fraction": 0.424156469482902
+        "excited_fraction": 0.4241564694739981
       },
       "detuning_scan": [
         {
@@ -124,20 +124,20 @@
           "detuning_from_1s2p_rad": 0.0,
           "detuning_in_line_widths": 0.0,
           "field_reached_the_atom": 0.24973074762450365,
-          "excited_fraction": 0.424156469482902
+          "excited_fraction": 0.4241564694739981
         },
         {
           "omega_rad_per_step": 0.3125,
           "detuning_from_1s2p_rad": 0.0625,
           "detuning_in_line_widths": 15.625,
-          "field_reached_the_atom": 0.2774278034836505,
+          "field_reached_the_atom": 0.27742780348365026,
           "excited_fraction": 0.3523213413555506
         },
         {
           "omega_rad_per_step": 0.375,
           "detuning_from_1s2p_rad": 0.125,
           "detuning_in_line_widths": 31.25,
-          "field_reached_the_atom": 0.296035691552826,
+          "field_reached_the_atom": 0.29603569155282605,
           "excited_fraction": 0.14518016740222472
         },
         {
@@ -155,9 +155,9 @@
           "excited_fraction": 0.011049798941457412
         }
       ],
-      "on_resonance_excited": 0.424156469482902,
+      "on_resonance_excited": 0.4241564694739981,
       "far_off_resonance_excited": 0.011049798941457412,
-      "suppression_on_over_far": 38.385899302793824,
+      "suppression_on_over_far": 38.385899301988026,
       "absorption_peaks_on_the_gap": true,
       "packet_locality_scan": [
         {
@@ -172,14 +172,14 @@
           "width_over_box": 0.2,
           "spectral_bandwidth_rad_per_step": 0.020833333333333332,
           "excited_fraction": 0.13516953709865942,
-          "field_reached_the_atom": 0.47478860789391275
+          "field_reached_the_atom": 0.47478860789391264
         },
         {
           "photon_width_cells": 48,
           "width_over_box": 0.4,
           "spectral_bandwidth_rad_per_step": 0.010416666666666666,
           "excited_fraction": 0.3258698341908902,
-          "field_reached_the_atom": 0.5618211730815337
+          "field_reached_the_atom": 0.5618211730815339
         }
       ],
       "caveat": "the off-resonant absorption is NOT exactly zero: the model's Fermi-golden-rule rate carries a Lorentzian tail, and a packet wider than the box becomes a persistent bath that drives the atom off resonance (measured in packet_locality_scan).  The production figure uses a localised packet (width 20 in a 296 box)."
@@ -199,14 +199,14 @@
       },
       "ground_population_increased": true,
       "emitted_field_max_before": 0.0,
-      "emitted_field_max_after": 86596.50464291277,
+      "emitted_field_max_after": 86596.50464291284,
       "radiation_emitted": true
     },
     "stability": {
       "norm_min": 0.9999999999999997,
-      "norm_max": 1.000000000000017,
-      "norm_drift": 1.709743457922741e-14,
-      "field_max": 1.0391535471452773,
+      "norm_max": 1.0000000000000244,
+      "norm_drift": 2.4424906541753444e-14,
+      "field_max": 1.039153547145277,
       "field_bounded": true
     },
     "provenance": {
@@ -217,5 +217,5 @@
     },
     "ok": true
   },
-  "wall_time": 699.479
+  "wall_time": 22.928
 }
