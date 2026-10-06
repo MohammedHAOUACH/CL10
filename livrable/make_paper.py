@@ -210,9 +210,12 @@ def table_block(lines, caption=None):
             if wrap and i < ncol and widths[i]:
                 # ragged right: justified narrow cells produce rivers of
                 # whitespace and bad hyphenation; \RaggedRight keeps hyphenation.
-                # [c]: centre short cells vertically so row rules read cleanly
-                t = (r"\parbox[c]{" + f"{widths[i]}cm" + "}{\\RaggedRight "
-                     "\\emergencystretch=1em " + t + "}")
+                # [c]: centre short cells vertically so row rules read cleanly.
+                # \vspace top/bottom: the text must breathe inside the cell —
+                # never flush against the row rules above or below.
+                t = (r"\parbox[c]{" + f"{widths[i]}cm" + "}{\\vspace{2.5pt}"
+                     "\\RaggedRight \\emergencystretch=1em " + t
+                     + "\\vspace{2.5pt}}")
             cells.append(t)
         return " & ".join(cells) + r" \\"
 
@@ -229,7 +232,7 @@ def table_block(lines, caption=None):
                 + "\\addlinespace[2pt]\n")
 
     cap_tab = (caption_text() + r" \\[4pt]" + "\n") if caption else ""
-    stretch = "\\renewcommand{\\arraystretch}{1.35}\n"
+    stretch = "\\renewcommand{\\arraystretch}{1.45}\n"
     # light rule between body rows: multi-line parbox cells otherwise read as
     # one grey block; a faint rule keeps each row visually distinct
     sep = "\n\\arrayrulecolor{black!40}\\hline\\arrayrulecolor{black}\n"
