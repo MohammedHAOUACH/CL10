@@ -17,6 +17,16 @@ the **right order**.
 
 The 0-parameter content: the $g_{10} = 1/5$ (a root number).  The named
 residual: the 1-loop matching (W4) and the exact GUT coupling.
+
+**The honest scan (this experiment states it explicitly).**  Scanning the
+0-parameter candidates $\\alpha = 1/n^2$ ($n = 2\\ldots8$) against the 1-loop
+GUT coupling, the **data-optimal** value is $n = 6$ ($1/36 = 0.0278$), **not**
+the root $n = 5$ ($1/25 = 0.04$): the data-optimal $n$ is $4.4\times$ closer to
+the measured coupling than the root value.  The data check therefore confirms
+the **order only** — it does **not** select $n$.  This is precisely what makes
+the reading $1/n_{\rm qubits}$ a **mapping convention** rather than a fit:
+$n = 5$ is chosen because it is the number of qubits of the 32-D module
+($10 = 2 \times 5$), not because the data prefer it.
 """
 import sys
 import os
@@ -58,6 +68,11 @@ def main():
             "spread": g["spread"],
             "ratio_to_1loop": d["ratio_to_1loop"],
             "n_closest_to_1loop": d["n_closest_to_1loop"],
+            "best_n_1loop": d["best_n_1loop"],
+            "candidate_scan_gap": d["candidate_scan_gap"],
+            "gap_root_n5": d["gap_root_n5"],
+            "gap_best_n": d["gap_best_n"],
+            "data_check_selects_n": d["data_check_selects_n"],
             "residual": ("the 1-loop matching (W4) and the exact GUT coupling — "
                          "the 0-parameter g_10 = 1/5 is a root number in the "
                          "right order (within a factor 2 of the 1-loop GUT "
@@ -78,6 +93,12 @@ def main():
     print(f"  1-loop GUT coupling (mean at M_P) = {g['mean_GUT']:.4f}   (a1={g['a_at_M_P'][0]:.4f} a2={g['a_at_M_P'][1]:.4f} a3={g['a_at_M_P'][2]:.4f}; spread {g['spread']:.2f})")
     print(f"  ratio 0-parameter / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
     print(f"  0-parameter candidate scan:  n closest to the 1-loop GUT coupling = {d['n_closest_to_1loop']}")
+    print(f"    -> the DATA-optimal n is {d['best_n_1loop']} (gap {d['gap_best_n']:.3f}), "
+          f"NOT the root n = {d['n_qubits']} (gap {d['gap_root_n5']:.3f})")
+    print(f"    -> the data check confirms the ORDER only; it does NOT select n "
+          f"(selects n: {d['data_check_selects_n']})")
+    print(f"    -> reading 1/n_qubits as the coupling is therefore a MAPPING CONVENTION "
+          f"(n = 5 is the number of qubits of the 32-D module, 10 = 2 x 5)")
     print(f"  named residual (W6):  {verdict['data']['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the W4 named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v56_g10_selection.json"))

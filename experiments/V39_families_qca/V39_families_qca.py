@@ -16,9 +16,10 @@ i.e. the **45** Spin(10) plane rotations at $g_{10} = 0.2$ act **identically
 on each family** — the 0-parameter statement that the 45 do **not**
 distinguish the 3 two-planes (the **family symmetry**).  The 0-parameter
 **family mixing** of the GUT is the **tribimaximal** 3x3 unitary (the V29
-0-parameter angles $\\sin^2\\theta_{12}=1/3$, $\\sin^2\\theta_{23}=1/2$,
-$\\theta_{13}=0$ — the 0-parameter PMNS), a property of the
-neutrino/Yukawa sector, not of the time-evolution step.
+angles $\\sin^2\\theta_{12}=1/3$, $\\sin^2\\theta_{23}=1/2$, $\\theta_{13}=0$), a
+property of the neutrino/Yukawa sector, not of the time-evolution step.  Of
+these only $\\sin^2\\theta_{12}=1/3$ is 0-parameter **as a number**; $\\theta_{23}$
+and $\\theta_{13}$ are an $O(2)$ convention (Theorem 13, V60).
 
 **The checks.**
 1. the 96x96 step is **exactly unitary** ($\\|U U^{\\dagger} - I\\| \\sim
@@ -28,8 +29,10 @@ neutrino/Yukawa sector, not of the time-evolution step.
 3. the step **preserves the per-family 16/16-bar split**: the 45 commute
    with the per-family pseudoscalar (the V22/V33 logic), and the 96-D
    step commutes with the 96-D pseudoscalar;
-4. the **0-parameter tribimaximal mixing** (V29) is unitary at the
-   0-parameter angles (the 0-parameter PMNS of the theory);
+4. the **tribimaximal mixing** (V29) is unitary **and diagonalizes the
+   democratic base** (the check the earlier code lacked); of its angles only
+   $\\sin^2\\theta_{12}=1/3$ is 0-parameter **as a number** (the unique heavy
+   eigenvector) — $\\theta_{23}, \\theta_{13}$ are an $O(2)$ convention;
 5. the **dimension**: 48 Weyl $= 16 \\times 3$ and 48 CPT-conjugate
    (the antimatter).
 
@@ -60,6 +63,10 @@ def main():
           and r["step_96_pseudoscalar_commutator"] < 1e-9
           and r["tribimaximal_unitary_err"] < TOL
           and r["tribimaximal_angles_ok"]
+          # the regression guard: the TBM must DIAGONALIZE the democratic base.
+          # The old code checked only the angles (the moduli), which a bimaximal
+          # matrix with the wrong sign also satisfies.
+          and r["tribimaximal_diagonalizes_democratic"]
           and r["n_weyl_3gen"] == r["n_weyl_1gen"] * 3 == 48
           and r["n_cpt_3gen"] == 48
           and r["n_module_3gen"] == 96)
@@ -89,6 +96,7 @@ def main():
             "step_96_pseudoscalar_commutator": r["step_96_pseudoscalar_commutator"],
             "tribimaximal_unitary_err": r["tribimaximal_unitary_err"],
             "tribimaximal_sin2": r["tribimaximal_sin2"],
+            "tribimaximal_diagonalizes_democratic": r["tribimaximal_diagonalizes_democratic"],
             "residual": r["residual"],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -111,9 +119,11 @@ def main():
     print(f"    the 32-D GUT step vs its pseudoscalar:  max comm = {r['step_32_pseudoscalar_commutator']:.3e}")
     print(f"    the 96-D step vs the 96-D pseudoscalar: max comm = {r['step_96_pseudoscalar_commutator']:.3e}")
     s = r["tribimaximal_sin2"]
-    print(f"  [check 4] the 0-parameter tribimaximal mixing (V29):  sin^2(12) = {s['s12']:.4f} (= 1/3), "
+    print(f"  [check 4] the tribimaximal mixing (V29):  sin^2(12) = {s['s12']:.4f} (= 1/3), "
           f"sin^2(23) = {s['s23']:.4f} (= 1/2), sin^2(13) = {s['s13']:.1e} (= 0)")
-    print(f"    ||U_TBM U_TBM^T - I||_max = {r['tribimaximal_unitary_err']:.3e}  (unitary at the 0-parameter angles)")
+    print(f"    ||U_TBM U_TBM^T - I||_max = {r['tribimaximal_unitary_err']:.3e}  (unitary)")
+    print(f"    U_TBM diagonalizes the democratic base |1><1|: {r['tribimaximal_diagonalizes_democratic']}")
+    print(f"    (only sin^2(12)=1/3 is 0-parameter as a number; sin^2(23), sin^2(13) are an O(2) choice)")
     print(f"  [check 5] dimension:  {r['n_weyl_3gen']} Weyl = {r['n_weyl_1gen']} x 3;  {r['n_cpt_3gen']} CPT-conjugate")
     print(f"  named residual:  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 3 families are inside the QCA dynamics; the 96x96 step is 0-parameter unitary and family-symmetric)' if ok else 'FAIL'}")

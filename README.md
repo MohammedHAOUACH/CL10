@@ -62,7 +62,7 @@ CL10/
 │   ├── unification.py        # the 5/3, the 0-parameter couplings derived from the root (V38), the running
 │   ├── electroweak.py        # the electroweak scale from the root
 │   ├── family.py             # the 3-family construct + the 3-generation QCA step (V39)
-│   ├── yukawa.py             # the 3x3 non-singular Dirac + the tribimaximal PMNS
+│   ├── yukawa.py             # the democratic rank-1 3x3 ({3,0,0}) + the tribimaximal PMNS
 │   ├── qcd.py                # the 0-parameter QCD area law + the linear potential
 │   ├── holo.py               # the holographic area law (the entropy scales with area)
 │   ├── baryogenesis.py       # the Sakharov conditions + GUT leptogenesis (V40)
@@ -74,7 +74,7 @@ CL10/
 │   ├── numrel.py           # the 3+1 BSSN/Z4 numerical relativity (V51, W9): the 2-route 0-row (R_00, R_0i) by 4-D Riemann vs 3+1 gamma/K, the constraints (H, M), Z4 damping, non-linear + UV-finite
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
 │   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
-│   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the 0-parameter quark CKM (V49)
+│   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6) + the quark CKM, honestly (V49)
 │   ├── parameter_audit.py    # the honest parameter audit (V52): the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the one free 't Hooft angle, the provenance table
 │   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
 │   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
@@ -83,7 +83,7 @@ CL10/
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   └── four_limits.py        # the UNIFIED solution to the four limits (V59, Section 16): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named (1 't Hooft angle + 2 conventions + 2 2-digit coeffs + 1 CP phase)
-├── experiments/              # the U10 verification program (60 experiments, V0-V59)
+├── experiments/              # the U10 verification program (62 experiments, V0-V61)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -98,7 +98,7 @@ CL10/
 │   ├── V46/                  # the 4-D non-linear gravity: the Einstein equations from the QCA metric (C2, the analytic de Sitter reference)
 │   ├── V47/                  # the 2-loop running: the UV-finite QCA vs the UV-divergent perturbative (W4)
 │   ├── V48/                  # the 3- and 4-particle amplitudes: the UV-finite property (W9)
-│   ├── V49/                  # the 0-parameter quark CKM: the democratic 2-level base + the TBM (W6)
+│   ├── V49/                  # the quark CKM, honestly: the democratic 2-level base is 0-parameter, the computed CKM is the identity (W6)
 │   ├── V50/                  # the COMPLETE 4-D non-linear gravity (W9, C2): the general Riemann COMPUTED from any metric, the 2-route verification, the black hole recovered by computation, the non-linear QCA dynamics
 │   ├── V51/                  # the 3+1 BSSN/Z4 numerical relativity (W9, C2): the 2-route 0-row (R_00, R_0i) by 4-D Riemann vs 3+1 gamma/K, the constraints, Z4 damping, non-linear + UV-finite
 │   ├── V52/                  # the honest parameter audit: the solution to the four limits of the theory — the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the 0-parameter CP-odd theorem, g10 the free 't Hooft angle, the provenance table
@@ -109,9 +109,14 @@ CL10/
 │   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
 │   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
 │   ├── V59/                # the UNIFIED solution to the four limits (Section 16): 10 = 2 x 5 (2 = chiral split, 5 = qubits) + one CP phase -> the 4 limits reduce to 6 named
-├── run_validation.py         # the runner: runs all 60, writes the U10 verdict
+│   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
+│   └── V61/                # the 3-D hydrogen atom driven by the CL10 photon (Fig. 26): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
+├── simulation/               # the 3-D visualizations on the CL10 engine
+│   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
+│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; regenerate the video/stills with `python -m simulation.hydrogen`
+├── run_validation.py         # the runner: runs all 62, writes the U10 verdict
 └── results/
-    └── validation_summary.json   # the 60/60 PASS + the U10 verdict
+    └── validation_summary.json   # the 62/62 PASS + the U10 verdict
 ```
 
 ## The engine: GPU-first, one core
@@ -136,8 +141,10 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 60 experiments, prints the U10 verdict
-python3 make_figures.py          # regenerates the 6 publication figures -> doc/figures/
+python3 run_validation.py        # runs all 62 experiments, prints the U10 verdict
+python3 make_figures.py          # regenerates the 25 matplotlib figures -> doc/figures/
+python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (Fig. 26)
+                                 # -> simulation/hydrogen/video/  (git-ignored)
 ```
 
 ## The U10 validation
@@ -211,8 +218,10 @@ $(1/16\pi)^{10}$, gives **two** results: the **hierarchy** $v/E_P =
 $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (the WIMP scale, resolving the
 V42 Planck-soliton gap; V54).  The **10** is **$2\times5$**: the 16/16-bar
 **chiral split** $\times$ the **5 qubits** of the 32-D module ($2^5 = 32$).
-The **baryon asymmetry** (V55) is a **product of 0-parameter numbers**:
-$\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$, the
+The **baryon asymmetry** (V55) is a **product of factors of three provenances**
+(root / QFT / SM): $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron
+$28/79$ — an **input of the SM sector**, the LH d.o.f. count, a root number only
+conditional on V23, the
 1-loop CP-odd $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/2^3$, and the
 2-loop dilution $D = (1/16\pi)^2$), giving a **12%** match to the observed
 $\Delta B$.  The **2-digit** coefficients and the **CP phase** remain the

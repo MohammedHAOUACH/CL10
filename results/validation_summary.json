@@ -1,6 +1,6 @@
 {
-  "n": 60,
-  "n_pass": 60,
+  "n": 62,
+  "n_pass": 62,
   "pass": true,
   "u10": true,
   "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
@@ -42,6 +42,8 @@
     "V57_neutrino",
     "V58_uvr",
     "V59_four_limits",
+    "V60_tbm_regression",
+    "V61_hydrogen",
     "V9_dark_energy"
   ],
   "reduced_walls": [
@@ -75,8 +77,8 @@
       "residual": false,
       "pass": true,
       "status": "the_cl10_is_the_root",
-      "returncode": 1,
-      "wall_time": 1.287,
+      "returncode": 0,
+      "wall_time": 1.534,
       "verdict": {
         "id": "V0_root",
         "tier": 0,
@@ -92,7 +94,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.063
+        "wall_time": 0.064
       }
     },
     {
@@ -103,8 +105,8 @@
       "residual": false,
       "pass": true,
       "status": "the_16_16bar_CPT_pair_is_the_antimatter",
-      "returncode": 1,
-      "wall_time": 1.309,
+      "returncode": 0,
+      "wall_time": 1.48,
       "verdict": {
         "id": "V10_antimatter",
         "tier": 4,
@@ -138,8 +140,8 @@
       "residual": false,
       "pass": true,
       "status": "the_16_weyl_is_anomaly_free",
-      "returncode": 1,
-      "wall_time": 1.298,
+      "returncode": 0,
+      "wall_time": 1.277,
       "verdict": {
         "id": "V11_anomaly",
         "tier": 3,
@@ -170,8 +172,8 @@
       "residual": false,
       "pass": true,
       "status": "the_couplings_unify_5_3",
-      "returncode": 1,
-      "wall_time": 1.273,
+      "returncode": 0,
+      "wall_time": 1.23,
       "verdict": {
         "id": "V12_unification",
         "tier": 3,
@@ -185,7 +187,7 @@
           "target": 1.6666666666666667,
           "err": 2.220446049250313e-16
         },
-        "wall_time": 0.001
+        "wall_time": 0.002
       }
     },
     {
@@ -196,8 +198,8 @@
       "residual": false,
       "pass": true,
       "status": "matter_gauge_gravity_in_one_object",
-      "returncode": 1,
-      "wall_time": 1.279,
+      "returncode": 0,
+      "wall_time": 1.018,
       "verdict": {
         "id": "V13_gauge_gravity",
         "tier": 3,
@@ -212,7 +214,7 @@
           "n_generators": 10,
           "one_object": true
         },
-        "wall_time": 0.004
+        "wall_time": 0.003
       }
     },
     {
@@ -223,8 +225,8 @@
       "residual": false,
       "pass": true,
       "status": "the_proton_decay_prediction",
-      "returncode": 1,
-      "wall_time": 1.316,
+      "returncode": 0,
+      "wall_time": 1.238,
       "verdict": {
         "id": "V14_proton",
         "tier": 5,
@@ -248,8 +250,8 @@
       "residual": true,
       "pass": true,
       "status": "the_neutrino_mass_via_2step_seesaw",
-      "returncode": 1,
-      "wall_time": 1.31,
+      "returncode": 0,
+      "wall_time": 1.354,
       "verdict": {
         "id": "V15_seesaw",
         "tier": 5,
@@ -275,8 +277,8 @@
       "residual": true,
       "pass": true,
       "status": "the_3_families_reduced_by_3_space",
-      "returncode": 1,
-      "wall_time": 1.316,
+      "returncode": 0,
+      "wall_time": 1.313,
       "verdict": {
         "id": "V16_families",
         "tier": 5,
@@ -303,8 +305,8 @@
       "residual": false,
       "pass": true,
       "status": "the_w1_mechanism_z2_cancellation",
-      "returncode": 1,
-      "wall_time": 1.286,
+      "returncode": 0,
+      "wall_time": 1.321,
       "verdict": {
         "id": "V17_w1_screening",
         "tier": 4,
@@ -330,8 +332,8 @@
       "residual": false,
       "pass": true,
       "status": "the_w2_mechanism_2step_seesaw",
-      "returncode": 1,
-      "wall_time": 1.293,
+      "returncode": 0,
+      "wall_time": 0.718,
       "verdict": {
         "id": "V18_w2_seesaw2step",
         "tier": 5,
@@ -361,8 +363,8 @@
       "residual": false,
       "pass": true,
       "status": "the_w3_mechanism_3_equals_3_space",
-      "returncode": 1,
-      "wall_time": 1.294,
+      "returncode": 0,
+      "wall_time": 1.032,
       "verdict": {
         "id": "V19_w3_families3",
         "tier": 5,
@@ -389,8 +391,8 @@
       "residual": false,
       "pass": true,
       "status": "the_13_is_inside_the_gut",
-      "returncode": 1,
-      "wall_time": 1.272,
+      "returncode": 0,
+      "wall_time": 1.241,
       "verdict": {
         "id": "V1_spacetime",
         "tier": 1,
@@ -406,7 +408,7 @@
           "ss": 0.0,
           "err": 0.0
         },
-        "wall_time": 0.002
+        "wall_time": 0.003
       }
     },
     {
@@ -417,8 +419,8 @@
       "residual": true,
       "pass": true,
       "status": "the_10_higgs_gives_the_0_parameter_mass_term",
-      "returncode": 1,
-      "wall_time": 1.309,
+      "returncode": 0,
+      "wall_time": 1.179,
       "verdict": {
         "id": "V20_massgen",
         "tier": 2,
@@ -438,7 +440,7 @@
           "sterile_N_in_16": true,
           "named_residuals": "the exact mass values (the 3-gen hierarchy, the mixing) are named"
         },
-        "wall_time": 0.003
+        "wall_time": 0.004
       }
     },
     {
@@ -449,8 +451,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_gut_coupling_and_1_loop_structure",
-      "returncode": 1,
-      "wall_time": 1.261,
+      "returncode": 0,
+      "wall_time": 1.343,
       "verdict": {
         "id": "V21_running",
         "tier": 3,
@@ -482,8 +484,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qca_does_not_generate_the_baryon_asymmetry",
-      "returncode": 1,
-      "wall_time": 1.297,
+      "returncode": 0,
+      "wall_time": 1.185,
       "verdict": {
         "id": "V22_baryon",
         "tier": 5,
@@ -511,8 +513,8 @@
       "residual": true,
       "pass": true,
       "status": "the_full_sm_is_a_0_parameter_unitary_qca",
-      "returncode": 1,
-      "wall_time": 1.294,
+      "returncode": 0,
+      "wall_time": 1.155,
       "verdict": {
         "id": "V23_full_sm_qca",
         "tier": 2,
@@ -542,7 +544,7 @@
           "n_module": 32,
           "named_residual": "the 3-family structure + the Yukawa matrix"
         },
-        "wall_time": 0.033
+        "wall_time": 0.035
       }
     },
     {
@@ -553,8 +555,8 @@
       "residual": false,
       "pass": true,
       "status": "the_16_16bar_are_cpt_conjugates_and_the_qca_is_cpt_symmetric",
-      "returncode": 1,
-      "wall_time": 1.29,
+      "returncode": 0,
+      "wall_time": 1.198,
       "verdict": {
         "id": "V24_cpt",
         "tier": 3,
@@ -578,7 +580,7 @@
           "cpt_equal_norm": true,
           "c16_into_16bar": 44.43441706294196
         },
-        "wall_time": 0.014
+        "wall_time": 0.016
       }
     },
     {
@@ -589,8 +591,8 @@
       "residual": false,
       "pass": true,
       "status": "the_qca_is_holographic_S_scales_with_area_not_volume",
-      "returncode": 1,
-      "wall_time": 1.295,
+      "returncode": 0,
+      "wall_time": 1.175,
       "verdict": {
         "id": "V25_holography",
         "tier": 4,
@@ -620,10 +622,10 @@
             0.1875,
             0.09375
           ],
-          "area_law_exponent": 2.0000000000000004,
-          "holographic_ratio_exponent": -1.0000000000000002
+          "area_law_exponent": 2.0,
+          "holographic_ratio_exponent": -0.9999999999999999
         },
-        "wall_time": 0.002
+        "wall_time": 0.004
       }
     },
     {
@@ -634,8 +636,8 @@
       "residual": true,
       "pass": true,
       "status": "the_3_generations_are_a_0_parameter_3_three_ways",
-      "returncode": 1,
-      "wall_time": 1.303,
+      "returncode": 0,
+      "wall_time": 1.297,
       "verdict": {
         "id": "V26_family",
         "tier": 1,
@@ -665,8 +667,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qcd_is_confining_linear_potential_0_parameter_area_law",
-      "returncode": 1,
-      "wall_time": 1.287,
+      "returncode": 0,
+      "wall_time": 1.281,
       "verdict": {
         "id": "V27_qcd_confinement",
         "tier": 2,
@@ -715,28 +717,37 @@
       "property": "P2",
       "residual": true,
       "pass": true,
-      "status": "the_0_parameter_3x3_non_singular_Dirac_mass_matrix",
-      "returncode": 1,
-      "wall_time": 1.293,
+      "status": "the_0_parameter_democratic_rank1_Dirac_mass_matrix_the_2_level_structure",
+      "returncode": 0,
+      "wall_time": 1.456,
       "verdict": {
         "id": "V28_yukawa",
         "tier": 2,
         "property": "P2",
         "residual": true,
         "pass": true,
-        "status": "the_0_parameter_3x3_non_singular_Dirac_mass_matrix",
+        "status": "the_0_parameter_democratic_rank1_Dirac_mass_matrix_the_2_level_structure",
         "tol": 1e-12,
         "data": {
           "n_gen": 3,
           "n_dim": 3,
-          "rank": 3,
-          "non_singular": true,
+          "rank": 1,
+          "spectrum": [
+            0.0,
+            9.064933036736789e-17,
+            3.0
+          ],
+          "n_distinct_levels": 2,
+          "n_heavy": 1,
+          "n_light_2fold": 2,
+          "democratic": true,
+          "singular": true,
           "off_diagonal_Dirac": true,
           "diag_zero": true,
           "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
-          "residual": "the mass hierarchy (the observed ratios) + the mixing angles (CKM/PMNS)"
+          "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
         },
-        "wall_time": 0.004
+        "wall_time": 0.026
       }
     },
     {
@@ -746,28 +757,47 @@
       "property": "P2",
       "residual": true,
       "pass": true,
-      "status": "the_0_parameter_democratic_base_gives_the_tribimaximal_PMNS_close_to_observed",
-      "returncode": 1,
-      "wall_time": 1.289,
+      "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
+      "returncode": 0,
+      "wall_time": 1.549,
       "verdict": {
         "id": "V29_yukawa_hierarchy",
         "tier": 2,
         "property": "P2",
         "residual": true,
         "pass": true,
-        "status": "the_0_parameter_democratic_base_gives_the_tribimaximal_PMNS_close_to_observed",
+        "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
         "tol": 1e-12,
         "data": {
           "backend": "numpy",
           "n_gen": 3,
-          "mass_matrix_rank": 3,
-          "non_singular": true,
+          "mass_matrix_rank": 1,
+          "mass_matrix_spectrum": [
+            0.0,
+            9.064933036736789e-17,
+            3.0
+          ],
+          "n_distinct_levels": 2,
+          "democratic": true,
+          "singular": true,
           "off_diagonal_Dirac": true,
           "tribimaximal": {
             "sin2_12": 0.3333333333333333,
             "sin2_23": 0.5,
             "sin2_13": 0.0
           },
+          "sin2_12_is_0param_derived": true,
+          "sin2_23_is_0param_derived": false,
+          "sin2_13_is_0param_derived": false,
+          "sin2_23_O2_range": [
+            2.7733391199176196e-32,
+            0.6666666666666666
+          ],
+          "sin2_13_O2_range": [
+            0.0,
+            0.6666666666666666
+          ],
+          "diagonalizes_democratic": true,
           "observed_PMNS": {
             "sin2_12": 0.307,
             "sin2_23": 0.579,
@@ -782,7 +812,7 @@
           "degenerate_base": true,
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
         },
-        "wall_time": 0.004
+        "wall_time": 0.235
       }
     },
     {
@@ -793,8 +823,8 @@
       "residual": false,
       "pass": true,
       "status": "the_16_weyl_is_one_generation",
-      "returncode": 1,
-      "wall_time": 1.3,
+      "returncode": 0,
+      "wall_time": 1.355,
       "verdict": {
         "id": "V2_matter",
         "tier": 1,
@@ -811,7 +841,7 @@
           "bl16": -1,
           "bl16bar": 1
         },
-        "wall_time": 0.002
+        "wall_time": 0.003
       }
     },
     {
@@ -822,8 +852,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_5_3_and_GUT_coupling_with_GUT_range_running_at_M_P_and_UV_bounded",
-      "returncode": 1,
-      "wall_time": 1.324,
+      "returncode": 0,
+      "wall_time": 1.237,
       "verdict": {
         "id": "V30_unification",
         "tier": 2,
@@ -860,8 +890,8 @@
       "residual": false,
       "pass": true,
       "status": "the_qca_metric_dynamics_gives_the_einstein_hilbert_the_massless_spin_2_the_computed_riemann_curvature_the_non_linear_soliton_and_the_schwarzschild_black_hole",
-      "returncode": 1,
-      "wall_time": 1.282,
+      "returncode": 0,
+      "wall_time": 1.2,
       "verdict": {
         "id": "V31_derive_gr",
         "tier": 2,
@@ -895,7 +925,7 @@
           "black_hole_R_vacuum": 0.0,
           "black_hole_Kretschmann": 0.06584362139917696
         },
-        "wall_time": 0.025
+        "wall_time": 0.036
       }
     },
     {
@@ -906,8 +936,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qca_step_gives_the_sm_effective_action_with_the_0_parameter_electroweak_breaking",
-      "returncode": 1,
-      "wall_time": 1.339,
+      "returncode": 0,
+      "wall_time": 1.264,
       "verdict": {
         "id": "V32_qca_qft",
         "tier": 2,
@@ -942,8 +972,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_QCA_does_not_generate_the_baryon_asymmetry_the_GUT_ingredients_are_the_named_residual",
-      "returncode": 1,
-      "wall_time": 1.315,
+      "returncode": 0,
+      "wall_time": 1.269,
       "verdict": {
         "id": "V33_baryogenesis",
         "tier": 2,
@@ -966,7 +996,7 @@
           "pmns_cp_phase": true,
           "residual": "the baryon asymmetry (the 0-parameter QCA does not generate it; the GUT ingredients require a non-0-parameter out-of-equilibrium + CP-violating rate)"
         },
-        "wall_time": 0.007
+        "wall_time": 0.008
       }
     },
     {
@@ -977,8 +1007,8 @@
       "residual": true,
       "pass": true,
       "status": "the_w1_cancellation_and_the_hierarchy_value_the_derivations_are_the_named_residuals",
-      "returncode": 1,
-      "wall_time": 1.324,
+      "returncode": 0,
+      "wall_time": 1.059,
       "verdict": {
         "id": "V34_cosmology",
         "tier": 4,
@@ -1014,8 +1044,8 @@
       "residual": true,
       "pass": true,
       "status": "the_one_object_gives_the_dark_matter_and_dark_energy_and_antimatter_all_0_parameter",
-      "returncode": 1,
-      "wall_time": 1.295,
+      "returncode": 0,
+      "wall_time": 0.98,
       "verdict": {
         "id": "V35_cosmology_unified",
         "tier": 4,
@@ -1052,7 +1082,7 @@
           },
           "residual": "the dark-matter mass/abundance, the 1e-122 (W1), the baryon asymmetry (V33)"
         },
-        "wall_time": 0.005
+        "wall_time": 0.007
       }
     },
     {
@@ -1063,8 +1093,8 @@
       "residual": false,
       "pass": true,
       "status": "the_causal_radius_1_is_implemented_the_light_cone_is_realized",
-      "returncode": 1,
-      "wall_time": 1.294,
+      "returncode": 0,
+      "wall_time": 1.539,
       "verdict": {
         "id": "V36_local_qca",
         "tier": 2,
@@ -1103,7 +1133,7 @@
           ],
           "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
         },
-        "wall_time": 0.403
+        "wall_time": 0.485
       }
     },
     {
@@ -1114,8 +1144,8 @@
       "residual": false,
       "pass": true,
       "status": "the_eh_action_derives_the_qca_metric_dynamics_the_direction_dynamics_from_action",
-      "returncode": 1,
-      "wall_time": 1.292,
+      "returncode": 0,
+      "wall_time": 1.066,
       "verdict": {
         "id": "V37_eh_action",
         "tier": 2,
@@ -1143,7 +1173,7 @@
           "continuum_ok": true,
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
-        "wall_time": 0.02
+        "wall_time": 0.025
       }
     },
     {
@@ -1154,8 +1184,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
-      "returncode": 1,
-      "wall_time": 1.36,
+      "returncode": 0,
+      "wall_time": 1.172,
       "verdict": {
         "id": "V38_couplings_root",
         "tier": 3,
@@ -1165,7 +1195,7 @@
         "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
         "tol": 1e-09,
         "data": {
-          "backend": "cupy",
+          "backend": "numpy",
           "n_module": 32,
           "n_qubits": 5,
           "g10": 0.2,
@@ -1195,7 +1225,7 @@
           "u1_pole_inside_lattice": true,
           "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
         },
-        "wall_time": 0.024
+        "wall_time": 0.002
       }
     },
     {
@@ -1206,8 +1236,8 @@
       "residual": true,
       "pass": true,
       "status": "the_three_families_inside_the_qca_dynamics_the_96d_step_is_0_parameter_unitary_and_family_symmetric",
-      "returncode": 1,
-      "wall_time": 1.319,
+      "returncode": 0,
+      "wall_time": 1.54,
       "verdict": {
         "id": "V39_families_qca",
         "tier": 1,
@@ -1237,9 +1267,10 @@
             "s23": 0.5000000000000001,
             "s13": 0.0
           },
+          "tribimaximal_diagonalizes_democratic": true,
           "residual": "the why-3 (W3) and the family mass hierarchy (the 10-Higgs breaking) are the named residuals"
         },
-        "wall_time": 0.029
+        "wall_time": 0.085
       }
     },
     {
@@ -1250,8 +1281,8 @@
       "residual": false,
       "pass": true,
       "status": "the_45_is_the_spin10_adjoint",
-      "returncode": 1,
-      "wall_time": 1.317,
+      "returncode": 0,
+      "wall_time": 1.779,
       "verdict": {
         "id": "V3_gauge",
         "tier": 1,
@@ -1264,7 +1295,7 @@
           "n45": 45,
           "rank45": 45
         },
-        "wall_time": 0.032
+        "wall_time": 0.411
       }
     },
     {
@@ -1275,8 +1306,8 @@
       "residual": true,
       "pass": true,
       "status": "the_baryon_asymmetry_at_the_right_order_the_mechanism_is_0_parameter_the_exact_value_named",
-      "returncode": 1,
-      "wall_time": 1.344,
+      "returncode": 0,
+      "wall_time": 1.197,
       "verdict": {
         "id": "V40_leptogenesis",
         "tier": 2,
@@ -1301,7 +1332,7 @@
           "0param_qca_satisfies_no_sakharov": true,
           "residual": "the exact eta_CP (the CP-violating magnitude in the N decay, the named input, observed range 1e-3..1e-2; taken 1e-3) and the exact Delta_B (the observed 6.1e-10): the mechanism is 0-parameter, the exact value is named (the W2 pattern)"
         },
-        "wall_time": 0.006
+        "wall_time": 0.007
       }
     },
     {
@@ -1312,8 +1343,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qca_step_is_the_0_parameter_S_matrix_the_first_processes_of_the_theory",
-      "returncode": 1,
-      "wall_time": 1.314,
+      "returncode": 0,
+      "wall_time": 1.182,
       "verdict": {
         "id": "V41_smatrix",
         "tier": 2,
@@ -1339,7 +1370,7 @@
           "s2_max_offdiag": 0.3320306396873518,
           "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.123
+        "wall_time": 0.169
       }
     },
     {
@@ -1350,8 +1381,8 @@
       "residual": true,
       "pass": true,
       "status": "the_dm_candidate_is_stable_massive_neutral_at_the_planck_scale_the_abundance_gap_is_quantified",
-      "returncode": 1,
-      "wall_time": 1.304,
+      "returncode": 0,
+      "wall_time": 1.173,
       "verdict": {
         "id": "V42_dm_scale",
         "tier": 4,
@@ -1385,8 +1416,8 @@
       "residual": true,
       "pass": true,
       "status": "the_9_to_1_reduction: one object (the 32-level QCA spectrum), nine named projections (W1-W9)",
-      "returncode": 1,
-      "wall_time": 1.346,
+      "returncode": 0,
+      "wall_time": 1.232,
       "verdict": {
         "id": "V43_qca_spectrum",
         "tier": 4,
@@ -1399,13 +1430,13 @@
           "one_object": {
             "n_levels": 32,
             "g10": 0.2,
-            "zero_point": -8.881784197001252e-16,
+            "zero_point": -4.440892098500626e-16,
             "det_U_minus_1": 4.443059973708341e-15,
             "sl32": true,
-            "pairing_resid": 2.3314683517128287e-15,
+            "pairing_resid": 1.9984014443252818e-15,
             "max_trace_T45": 0.0,
-            "cpt_0point_16": 1.887379141862766e-15,
-            "cpt_0point_16bar": -3.3306690738754696e-16,
+            "cpt_0point_16": 8.881784197001252e-16,
+            "cpt_0point_16bar": -1.1102230246251565e-15,
             "commutes_with_pseudoscalar": 7.791361360319882e-16
           },
           "nine_projections": [
@@ -1442,7 +1473,7 @@
             {
               "wall": "W6",
               "residual": "the exact Yukawa (the hierarchy, the CKM)",
-              "mechanism": "the 10-Higgs mass term + the 0-parameter tribimaximal PMNS",
+              "mechanism": "the 10-Higgs mass term + the tribimaximal PMNS (only sin^2_12 = 1/3 is 0-parameter as a number)",
               "projection": "the spectrum (the 16 levels)"
             },
             {
@@ -1465,7 +1496,7 @@
             }
           ]
         },
-        "wall_time": 0.008
+        "wall_time": 0.011
       }
     },
     {
@@ -1476,8 +1507,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_GUT_cross_section_is_UV_finite_nonzero_bounded_the_RG_matching_is_the_named_residual",
-      "returncode": 1,
-      "wall_time": 1.292,
+      "returncode": 0,
+      "wall_time": 1.674,
       "verdict": {
         "id": "V44_lattice_rg",
         "tier": 2,
@@ -1504,9 +1535,9 @@
           "uv_finite": true,
           "dispersion": {
             "n_levels": 32,
-            "omega_max_over_pi": 0.4731305970853279,
+            "omega_max_over_pi": 0.473130597085328,
             "uv_bounded": true,
-            "zero_point": -8.881784197001252e-16
+            "zero_point": -4.440892098500626e-16
           },
           "optical_theorem": true,
           "froissart": {
@@ -1522,7 +1553,7 @@
           "sigma_over_smax": 0.06277130086269621,
           "residual": "the lattice RG (running the cross-section from the Planck scale down to the physical scale: the non-trivial / anomalous part) and the matching of the 0-parameter amplitudes to the MEASURED cross-sections — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.295
+        "wall_time": 0.346
       }
     },
     {
@@ -1533,8 +1564,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_3x3_Yukawa_mass_matrix_democratic_base_the_TBM_mixing_the_2_level_structure_the_exact_hierarchy_is_the_named_residual",
-      "returncode": 1,
-      "wall_time": 1.309,
+      "returncode": 0,
+      "wall_time": 1.315,
       "verdict": {
         "id": "V45_yukawa_matrix",
         "tier": 2,
@@ -1549,7 +1580,7 @@
           "n_levels_1gen": 32,
           "n_levels_3gen": 96,
           "family_triplication": true,
-          "zero_point_1gen": -8.881784197001252e-16,
+          "zero_point_1gen": -4.440892098500626e-16,
           "det_U_minus_1": 4.443059973708341e-15,
           "mass_matrix": {
             "eigenvalues": [
@@ -1597,7 +1628,20 @@
               0.02
             ],
             "dev_pmns": 0.042444444444444424,
-            "dev_ckm": 0.25077777777777777
+            "dev_ckm": 0.25077777777777777,
+            "diagonalizes_democratic": true,
+            "sin2_12_is_0param_derived": true,
+            "sin2_23_is_0param_derived": false,
+            "sin2_13_is_0param_derived": false,
+            "sin2_23_O2_range": [
+              2.7733391199176196e-32,
+              0.6666666666666666
+            ],
+            "sin2_13_O2_range": [
+              0.0,
+              0.6666666666666666
+            ],
+            "mixing_status": "the democratic base DERIVES sin^2 theta_12 = 1/3 (8% from the observed 0.307): it is the squared overlap of any family basis vector with the UNIQUE heavy eigenvector (1,1,1)/sqrt(3).  It does NOT derive sin^2 theta_23 or sin^2 theta_13: both sweep [0, 2/3] under the O(2) freedom of the 2-fold light subspace.  TBM (1/3, 1/2, 0) is the (23)-adapted member of that family; (12), (13) and (23) are equivalent symmetries of |1><1|, so WHICH one breaks is an extra input.  The CKM from identical up/down democratic matrices is the IDENTITY, not the TBM."
           },
           "hierarchy": {
             "n_levels_0param": 2,
@@ -1614,9 +1658,9 @@
             "note": "the 10-Higgs 16->16-bar is the 0-parameter Dirac term (rank 16, off-diagonal)"
           },
           "s2_unitary_err": 1.6653487242199808e-15,
-          "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the 0-parameter TBM (W6)"
+          "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (W6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
         },
-        "wall_time": 0.023
+        "wall_time": 0.311
       }
     },
     {
@@ -1627,8 +1671,8 @@
       "residual": true,
       "pass": true,
       "status": "the_4d_nonlinear_gravity_is_0parameter_the_einstein_space_identity_and_cosmological_constant_and_self_gravity_are_computed",
-      "returncode": 1,
-      "wall_time": 1.325,
+      "returncode": 0,
+      "wall_time": 1.315,
       "verdict": {
         "id": "V46_nonlinear_gravity",
         "tier": 2,
@@ -1650,7 +1694,7 @@
           "gap": 9.999999999999999e-123,
           "residual": "the exact Lambda ~ 1e-122 (Planck units): the 0-parameter 4-D non-linear gravity (the Einstein tensor) gives the 0-parameter vacuum energy Lambda ~ M_P^4; the observed 1e-122 (the W1 wall) is the named residual"
         },
-        "wall_time": 0.002
+        "wall_time": 0.003
       }
     },
     {
@@ -1661,8 +1705,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qca_is_uvfinite_the_2step_is_unitary_and_the_2particle_is_bounded_the_perturbative_2loop_is_uvdivergent",
-      "returncode": 1,
-      "wall_time": 1.284,
+      "returncode": 0,
+      "wall_time": 1.439,
       "verdict": {
         "id": "V47_2loop_uvfinite",
         "tier": 1,
@@ -1681,7 +1725,7 @@
           "uv_finite": true,
           "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
         },
-        "wall_time": 0.098
+        "wall_time": 0.162
       }
     },
     {
@@ -1692,8 +1736,8 @@
       "residual": true,
       "pass": true,
       "status": "the_3and4particle_amplitudes_are_uvfinite_the_kronecker_product_property_the_nstep_is_bounded_for_all_n",
-      "returncode": 1,
-      "wall_time": 1.309,
+      "returncode": 0,
+      "wall_time": 1.125,
       "verdict": {
         "id": "V48_3particle",
         "tier": 3,
@@ -1712,7 +1756,7 @@
           "uv_finite": true,
           "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the W9 open part"
         },
-        "wall_time": 0.027
+        "wall_time": 0.029
       }
     },
     {
@@ -1722,16 +1766,16 @@
       "property": "P5",
       "residual": true,
       "pass": true,
-      "status": "the_0parameter_quark_ckm_is_the_tbm_the_democratic_2level_mass_matrices_the_deviation_to_observed_is_the_w6_residual",
-      "returncode": 1,
-      "wall_time": 1.337,
+      "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
+      "returncode": 0,
+      "wall_time": 1.122,
       "verdict": {
         "id": "V49_quark_ckm",
         "tier": 4,
         "property": "P5",
         "residual": true,
         "pass": true,
-        "status": "the_0parameter_quark_ckm_is_the_tbm_the_democratic_2level_mass_matrices_the_deviation_to_observed_is_the_w6_residual",
+        "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
         "tol": 1e-08,
         "data": {
           "backend": "numpy",
@@ -1747,6 +1791,12 @@
           ],
           "two_level": true,
           "ckm_unitary": true,
+          "ckm_is_identity": true,
+          "ckm_computed_angles": [
+            2.3906227480241556e-32,
+            1.334283281158008e-32,
+            4.762224389213186e-32
+          ],
           "sin2_12": 0.3333333333333333,
           "sin2_23": 0.5,
           "sin2_13": 0.0,
@@ -1756,7 +1806,7 @@
             0.02
           ],
           "dev_ckm": 0.25077777777777777,
-          "residual": "the exact quark CKM angles beyond the 0-parameter TBM (the up/down mass-matrix misalignment, the 10-Higgs vev breaking) — the W6 named residual, now quantified"
+          "residual": "the quark CKM is NOT derived 0-parameter: with H_u = H_d (both democratic) the computed CKM is the IDENTITY.  A non-trivial CKM requires an up/down MISALIGNMENT, which the symmetric democratic base does not provide — it comes from the 10-Higgs vev breaking.  The TBM angles are the lepton-sector (23)-adapted choice, not a quark result: the W6 named residual, now stated honestly"
         },
         "wall_time": 0.001
       }
@@ -1769,8 +1819,8 @@
       "residual": false,
       "pass": true,
       "status": "the_z2_grading_is_the_statistics",
-      "returncode": 1,
-      "wall_time": 1.287,
+      "returncode": 0,
+      "wall_time": 1.376,
       "verdict": {
         "id": "V4_statistics",
         "tier": 1,
@@ -1784,7 +1834,7 @@
           "n_even": 512,
           "n_odd": 512
         },
-        "wall_time": 0.052
+        "wall_time": 0.065
       }
     },
     {
@@ -1795,8 +1845,8 @@
       "residual": true,
       "pass": true,
       "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
-      "returncode": 1,
-      "wall_time": 1.392,
+      "returncode": 0,
+      "wall_time": 3.772,
       "verdict": {
         "id": "V50_complete_gravity",
         "tier": 2,
@@ -1822,7 +1872,7 @@
           "nonlinear_qca_causal_ok": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of W9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 2.287
+        "wall_time": 2.352
       }
     },
     {
@@ -1833,8 +1883,8 @@
       "residual": true,
       "pass": true,
       "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
-      "returncode": 1,
-      "wall_time": 1.612,
+      "returncode": 0,
+      "wall_time": 31.431,
       "verdict": {
         "id": "V51_numrel",
         "tier": 2,
@@ -1844,7 +1894,7 @@
         "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
         "tol": 0.0001,
         "data": {
-          "backend": "cupy",
+          "backend": "numpy",
           "two_route_0row": {
             "max_r00": 1.7630341631047486e-13,
             "max_r0i": 2.716958602544395e-13,
@@ -1877,7 +1927,7 @@
             "max_abs": 1.9718631545217424
           }
         },
-        "wall_time": 18.829488039016724
+        "wall_time": 30.10589861869812
       }
     },
     {
@@ -1888,8 +1938,8 @@
       "residual": true,
       "pass": true,
       "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+2+1+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle (g_0 and M_GUT=M_P are conventions); the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals W8/W7)",
-      "returncode": 1,
-      "wall_time": 1.639,
+      "returncode": 0,
+      "wall_time": 15.435,
       "verdict": {
         "id": "V52_parameter_audit",
         "tier": 6,
@@ -1901,10 +1951,10 @@
         "data": {
           "backend": "numpy",
           "two_route_root": {
-            "kingdon_available": false,
-            "kingdon_sq_minus_1": NaN,
-            "kingdon_anticommute": NaN,
-            "kingdon_w2_scalar": NaN,
+            "kingdon_available": true,
+            "kingdon_sq_minus_1": 0.0,
+            "kingdon_anticommute": 0.0,
+            "kingdon_w2_scalar": -1.0,
             "pauli_sq_minus_I": 0.0,
             "pauli_anticommute": 0.0,
             "pauli_w2_plus_I": 0.0,
@@ -1915,9 +1965,9 @@
             "w_pure_imaginary": 0.0,
             "commute_Uw": 7.791361360319882e-16,
             "preserves_chiral_split": true,
-            "mirror_resid": 8.881784197001252e-16,
+            "mirror_resid": 1.1102230246251565e-15,
             "mirror_ok": true,
-            "mirror_resid_all_g10": 2.220446049250313e-15,
+            "mirror_resid_all_g10": 1.7763568394002505e-15,
             "mirror_holds_for_all_g10": true,
             "g10_grid": [
               0.05,
@@ -1928,12 +1978,12 @@
               0.4,
               0.5
             ],
-            "zp_16": 2.220446049250313e-15,
-            "zp_16bar": -4.440892098500626e-16,
+            "zp_16": 4.440892098500626e-16,
+            "zp_16bar": -8.881784197001252e-16,
             "det_U_minus_1": 4.443059973708341e-15,
             "sl32": true,
-            "omega_min": 0.011466436647426264,
-            "omega_min_mass_GeV": 1.3989052709860042e+17
+            "omega_min": 0.011466436647426626,
+            "omega_min_mass_GeV": 1.3989052709860483e+17
           },
           "cp_odd_theorem": {
             "max_cpodd_2rot": 2.4615858523155454e-17,
@@ -1962,20 +2012,20 @@
             "v_over_EP_claimed_0param": 2.02e-17,
             "match_rel_err": 0.0017886178861788171,
             "match_is_2digit_coincidence": true,
-            "omega_min": 0.011466436647426264,
-            "omega_min_mass_GeV": 1.3989052709860042e+17,
+            "omega_min": 0.011466436647426626,
+            "omega_min_mass_GeV": 1.3989052709860483e+17,
             "spectrum_exponent_matches_observed": false,
             "hierarchy_exists_0param": true
           },
           "dm_status": {
             "soliton_mass_GeV": 1.6266632506795717e+19,
             "abundance_gap_0param_over_obs": 5.5070688736061614e-52,
-            "omega_min_mass_GeV": 1.3989052709860042e+17,
+            "omega_min_mass_GeV": 1.3989052709860483e+17,
             "dm_observed_range_GeV": [
               100.0,
               1000.0
             ],
-            "smallest_sub_planck_scale_above_observed_DM_orders": 14.145788306571196,
+            "smallest_sub_planck_scale_above_observed_DM_orders": 14.14578830657121,
             "observed_DM_not_0param": true
           },
           "provenance_table": {
@@ -2083,7 +2133,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 10.775
+        "wall_time": 13.978
       }
     },
     {
@@ -2094,8 +2144,8 @@
       "residual": true,
       "pass": true,
       "status": "the_hierarchy_exponent_-17_is_the_0_parameter_10_loop_suppression_(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root (= 2 x 5: the 16/16-bar chiral split x the 5 qubits of the 32-D module): predicted 9.7e-18 vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique best of the n=1..20 scan; not a raw n-step spectral level). One 0-parameter factor gives TWO results: the hierarchy AND the DM mass (118 GeV); the 2-digit coefficients are the named residual W8)",
-      "returncode": 1,
-      "wall_time": 1.609,
+      "returncode": 0,
+      "wall_time": 1.471,
       "verdict": {
         "id": "V53_hier_exponent",
         "tier": 6,
@@ -2119,7 +2169,7 @@
           "scan_abs_diff_at_n9": 1.3839960254208403,
           "nstep": {
             "n_levels_1step": 32,
-            "min_level_small_n": 0.0007050900380285441,
+            "min_level_small_n": 0.0007050900380782821,
             "max_n_scanned": 100,
             "any_level_at_target": false,
             "n_diophantine_est": 4.95049504950495e+16,
@@ -2136,7 +2186,7 @@
           },
           "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
         },
-        "wall_time": 0.004
+        "wall_time": 0.006
       }
     },
     {
@@ -2147,8 +2197,8 @@
       "residual": true,
       "pass": true,
       "status": "the_sub_Planck_DM_mass_is_the_0_parameter_10_loop_suppression_of_the_Planck_scale_M_P*(1/16pi)^10=118_GeV_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_W8_hierarchy_the_V42_Planck_soliton_gap_1e-52_is_resolved_the_observed_DM_is_the_10_loop_relic",
-      "returncode": 1,
-      "wall_time": 1.729,
+      "returncode": 0,
+      "wall_time": 1.138,
       "verdict": {
         "id": "V54_dm_wimp",
         "tier": 6,
@@ -2183,16 +2233,16 @@
       "property": "P5,P6",
       "residual": true,
       "pass": true,
-      "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_0-parameter_FACTORS_(28/79_the_SM_sphaleron; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
-      "returncode": 1,
-      "wall_time": 1.738,
+      "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
+      "returncode": 0,
+      "wall_time": 1.32,
       "verdict": {
         "id": "V55_eta_cp",
         "tier": 6,
         "property": "P5,P6",
         "residual": true,
         "pass": true,
-        "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_0-parameter_FACTORS_(28/79_the_SM_sphaleron; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
+        "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
         "tol": 1e-12,
         "data": {
           "backend": "numpy",
@@ -2216,7 +2266,7 @@
             "g0_is_1_over_2_cubed": true,
             "loop_count": 3
           },
-          "residual": "the CP phase (which makes eps_CP nonzero, an O(1) input) and the 2-digit ratio 1.12 — the 28/79, g_0 = 1/2^3, 16pi, and loop counts are 0-parameter"
+          "residual": "the CP phase (which makes eps_CP nonzero, an O(1) input) and the 2-digit ratio 1.12.  Provenances: the 16pi and the loop counts are numbers of the root; eps_CP and D are QFT loop factors at g_0 = 1/2^3; the 28/79 sphaleron is an input of the SM sector (a root number only conditional on V23)"
         },
         "wall_time": 0.0
       }
@@ -2229,8 +2279,8 @@
       "residual": true,
       "pass": true,
       "status": "the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.65_of_the_1_loop_GUT_coupling_0.024_at_M_P_the_1_loop_matching_is_the_W4_named_residual",
-      "returncode": 1,
-      "wall_time": 1.713,
+      "returncode": 0,
+      "wall_time": 1.058,
       "verdict": {
         "id": "V56_g10_selection",
         "tier": 6,
@@ -2254,9 +2304,22 @@
           "spread": 0.5837773721989419,
           "ratio_to_1loop": 1.6555162364883216,
           "n_closest_to_1loop": 6,
+          "best_n_1loop": 6,
+          "candidate_scan_gap": {
+            "2": 9.346976478052008,
+            "3": 3.598656212467559,
+            "4": 1.586744119513002,
+            "5": 0.6555162364883214,
+            "6": 0.1496640531168898,
+            "7": 0.15534885893453,
+            "8": 0.3533139701217495
+          },
+          "gap_root_n5": 0.6555162364883214,
+          "gap_best_n": 0.1496640531168898,
+          "data_check_selects_n": false,
           "residual": "the 1-loop matching (W4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
         },
-        "wall_time": 0.001
+        "wall_time": 0.002
       }
     },
     {
@@ -2267,8 +2330,8 @@
       "residual": true,
       "pass": true,
       "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
-      "returncode": 1,
-      "wall_time": 1.738,
+      "returncode": 0,
+      "wall_time": 1.448,
       "verdict": {
         "id": "V57_neutrino",
         "tier": 5,
@@ -2301,7 +2364,7 @@
             "right_order": true
           }
         },
-        "wall_time": 0.003
+        "wall_time": 0.004
       }
     },
     {
@@ -2312,8 +2375,8 @@
       "residual": true,
       "pass": true,
       "status": "the_w4_uvfinite_discrete_rg_resolves_the_1loop_nonunification",
-      "returncode": 1,
-      "wall_time": 1.779,
+      "returncode": 0,
+      "wall_time": 2.384,
       "verdict": {
         "id": "V58_uvr",
         "tier": 1,
@@ -2354,7 +2417,7 @@
             "w4_resolved": true
           }
         },
-        "wall_time": 0.086
+        "wall_time": 1.008
       }
     },
     {
@@ -2365,8 +2428,8 @@
       "residual": true,
       "pass": true,
       "status": "the_4_limits_reduce_to_0_free_parameters_IN_THE_ALGEBRA_(the_7_invariants_hold_for_every_g10)plus_1_t_Hooft_angle_of_the_dynamics_whose_selected_value_g10=1/5_is_a_0-parameter_selection_rule;the_4_limits_are_the_4_projections_of_one_0-parameter_invariant_10=2x5_plus_one_CP_phase;reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_read_from_data_and_1_CP_phase)_plus_2_mapping_conventions;unique_n=10_within_one_decade_of_both_statements_of_one_scale_(the_strict_factor2_test_is_empty);baryogenesis_needs_one_CP_phase_(the_0-param_QCA_alone_gives_zero_by_the_CP-odd_theorem);delta_is_INDEPENDENT_of_g10_(the_QCA_is_real/CP-even)",
-      "returncode": 1,
-      "wall_time": 1.767,
+      "returncode": 0,
+      "wall_time": 1.209,
       "verdict": {
         "id": "V59_four_limits",
         "tier": 6,
@@ -2379,35 +2442,35 @@
           "backend": "numpy",
           "unifying_invariant": "10 = 2 x 5 (2 = the chiral 16/16-bar split; 5 = the 32-D qubit count)",
           "L1_g10_invariant": true,
-          "L1_max_mirror_residual": 2.220446049250313e-15,
+          "L1_max_mirror_residual": 1.7763568394002505e-15,
           "L1_grid": [
             {
               "g10": 0.1,
-              "mirror_residual": 9.992007221626409e-16,
+              "mirror_residual": 1.3877787807814457e-15,
               "abs_detU": 1.000000000000078,
               "detU_phase_deg": -1.5902773407317584e-15
             },
             {
               "g10": 0.2,
-              "mirror_residual": 8.881784197001252e-16,
+              "mirror_residual": 1.5543122344752192e-15,
               "abs_detU": 0.9999999999999956,
               "detU_phase_deg": 7.951386703658793e-15
             },
             {
               "g10": 0.3,
-              "mirror_residual": 1.7763568394002505e-15,
+              "mirror_residual": 1.1102230246251565e-15,
               "abs_detU": 0.9999999999999302,
               "detU_phase_deg": -4.452776554048926e-14
             },
             {
               "g10": 0.4,
-              "mirror_residual": 1.7763568394002505e-15,
+              "mirror_residual": 8.881784197001252e-16,
               "abs_detU": 1.0000000000000437,
               "detU_phase_deg": 2.2263882770244617e-14
             },
             {
               "g10": 0.5,
-              "mirror_residual": 2.220446049250313e-15,
+              "mirror_residual": 1.7763568394002505e-15,
               "abs_detU": 1.0000000000000548,
               "detU_phase_deg": 2.3854160110976376e-15
             }
@@ -2450,7 +2513,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the selected value g_10 = 1/5 is a 0-parameter SELECTION RULE (1/n_qubits; the reading is the mapping convention, not a derivation).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the ORDER is 0-param, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the 0-param QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.015
+        "wall_time": 0.019
       }
     },
     {
@@ -2462,7 +2525,7 @@
       "pass": true,
       "status": "the_0_param_hierarchy",
       "returncode": 0,
-      "wall_time": 0.026,
+      "wall_time": 0.067,
       "verdict": {
         "id": "V5_hierarchy",
         "tier": 2,
@@ -2480,6 +2543,325 @@
       }
     },
     {
+      "id": "V60_tbm_regression",
+      "dir": "V60_tbm_regression",
+      "tier": 2,
+      "property": "P2",
+      "residual": true,
+      "pass": true,
+      "status": "the_TBM_diagonalizes_the_democratic_base_(the_check_the_old_suite_lacked); the_wrong_sign_matrix_is_caught; sin2_12=1/3_derived_0_parameter; sin2_23_and_sin2_13_sweep_[0,2/3]_(O2_choice); the_CKM_from_identical democratic_matrices_is_the_identity",
+      "returncode": 0,
+      "wall_time": 1.302,
+      "verdict": {
+        "id": "V60_tbm_regression",
+        "tier": 2,
+        "property": "P2",
+        "residual": true,
+        "pass": true,
+        "status": "the_TBM_diagonalizes_the_democratic_base_(the_check_the_old_suite_lacked); the_wrong_sign_matrix_is_caught; sin2_12=1/3_derived_0_parameter; sin2_23_and_sin2_13_sweep_[0,2/3]_(O2_choice); the_CKM_from_identical democratic_matrices_is_the_identity",
+        "tol": 1e-09,
+        "data": {
+          "backend": "numpy",
+          "check_1_diagonalization": {
+            "good_TBM_max_offdiag": 1.0085132409719027e-16,
+            "old_sign_error_max_offdiag": 1.1547005383792517,
+            "good_diagonalizes": true,
+            "old_sign_error_diagonalizes": false
+          },
+          "check_2_angles": {
+            "good": [
+              0.3333333333333333,
+              0.5000000000000001,
+              0.0
+            ],
+            "old_sign_error": [
+              0.3333333333333333,
+              0.5000000000000001,
+              0.0
+            ],
+            "target": [
+              0.3333333333333333,
+              0.5,
+              0.0
+            ],
+            "good_ok": true,
+            "old_sign_error_ok": true
+          },
+          "check_3_unitarity": {
+            "good_err": 2.220446049250313e-16,
+            "old_sign_error_err": 2.220446049250313e-16,
+            "good_ok": true,
+            "old_sign_error_ok": true
+          },
+          "check_4_guard_is_necessary": {
+            "guard_catches_the_bug": true,
+            "note": "the old suite checked the ANGLES and the UNITARITY, both of which the wrong-sign matrix satisfies; only the DIAGONALIZATION test catches it"
+          },
+          "check_5_honest_mixing_split": {
+            "sin2_12_derived_0param": true,
+            "sin2_12_value": 0.3333333333333334,
+            "sin2_12_vs_observed": {
+              "predicted": 0.3333333333333334,
+              "observed": 0.307,
+              "ratio": 1.0857763300760046
+            },
+            "sin2_23_O2_range": [
+              2.7733391199176196e-32,
+              0.6666666666666666
+            ],
+            "sin2_13_O2_range": [
+              0.0,
+              0.6666666666666666
+            ],
+            "tbm_is_in_the_O2_family": true,
+            "s3_transpositions": {
+              "(23)": true,
+              "(12)": false,
+              "(13)": false
+            }
+          },
+          "check_6_ckm": {
+            "ckm_is_identity": true,
+            "note": "H_u = H_d both democratic -> the computed CKM is the identity; a non-trivial CKM needs an up/down misalignment (the W6 residual)"
+          },
+          "ok": true
+        },
+        "wall_time": 0.145
+      }
+    },
+    {
+      "id": "V61_hydrogen",
+      "dir": "V61_hydrogen",
+      "tier": 2,
+      "property": "P2",
+      "residual": true,
+      "pass": true,
+      "status": "the CL10 photon resonates with the real hydrogen levels (absorbed on resonance, not off resonance), the E1 selection rules come out of the lattice wavefunctions, and the excited atom radiates and decays; the ATOM is an input (real hydrogen), the PHOTON is CL10",
+      "returncode": 0,
+      "wall_time": 699.774,
+      "verdict": {
+        "id": "V61_hydrogen",
+        "tier": 2,
+        "property": "P2",
+        "residual": true,
+        "pass": true,
+        "status": "the CL10 photon resonates with the real hydrogen levels (absorbed on resonance, not off resonance), the E1 selection rules come out of the lattice wavefunctions, and the excited atom radiates and decays; the ATOM is an input (real hydrogen), the PHOTON is CL10",
+        "data": {
+          "backend": "numpy",
+          "grid_figure": [
+            296,
+            296,
+            296
+          ],
+          "grid_test": [
+            120,
+            120,
+            120
+          ],
+          "levels_0param": {
+            "checks": {
+              "1s->2p": {
+                "simulated_eV": 10.2045,
+                "rydberg_eV": 10.2045,
+                "relative_error": 0.0
+              },
+              "1s->3p": {
+                "simulated_eV": 12.094222222222221,
+                "rydberg_eV": 12.094222222222221,
+                "relative_error": 0.0
+              },
+              "2p->3d": {
+                "simulated_eV": 1.8897222222222223,
+                "rydberg_eV": 1.8897222222222223,
+                "relative_error": 0.0
+              },
+              "1s->3d": {
+                "simulated_eV": 12.094222222222221,
+                "rydberg_eV": 12.094222222222221,
+                "relative_error": 0.0
+              }
+            },
+            "max_relative_error": 0.0
+          },
+          "selection_rules": {
+            "allowed": [
+              {
+                "transition": "1s->2p",
+                "delta_l": 1,
+                "dipole_z": 9.925509361633184,
+                "e1_allowed_by_rule": true,
+                "nonzero_on_the_lattice": true
+              },
+              {
+                "transition": "1s->3p",
+                "delta_l": 1,
+                "dipole_z": -2.9982777497305566,
+                "e1_allowed_by_rule": true,
+                "nonzero_on_the_lattice": true
+              },
+              {
+                "transition": "2p->3d",
+                "delta_l": 1,
+                "dipole_z": 22.97059056413719,
+                "e1_allowed_by_rule": true,
+                "nonzero_on_the_lattice": true
+              },
+              {
+                "transition": "3p->3d",
+                "delta_l": 1,
+                "dipole_z": -22.323996788192662,
+                "e1_allowed_by_rule": true,
+                "nonzero_on_the_lattice": true
+              }
+            ],
+            "forbidden": [
+              {
+                "transition": "1s->3d",
+                "delta_l": 2,
+                "dipole_z": -6.776263578034403e-19,
+                "e1_allowed_by_rule": false,
+                "nonzero_on_the_lattice": false
+              },
+              {
+                "transition": "2p->3p",
+                "delta_l": 0,
+                "dipole_z": 8.565197162635485e-18,
+                "e1_allowed_by_rule": false,
+                "nonzero_on_the_lattice": false
+              }
+            ],
+            "rule_and_lattice_agree": true,
+            "max_forbidden_dipole": 8.565197162635485e-18,
+            "min_allowed_dipole": 2.9982777497305566,
+            "suppression_factor": 3.500535589315023e+17
+          },
+          "resonance": {
+            "travel_steps_to_the_atom": 120,
+            "line_width_HWHM_rad_per_step": 0.004,
+            "atom_alone_no_photon": {
+              "populations": {
+                "1s": 1.0,
+                "2p": 0.0,
+                "3p": 0.0,
+                "3d": 0.0
+              },
+              "excited_fraction": 0.0
+            },
+            "resonant": {
+              "omega_rad_per_step": 0.25,
+              "gap_eV": 10.2045,
+              "field_reached_the_atom": 0.24973074762450365,
+              "populations": {
+                "1s": 0.575843530517098,
+                "2p": 0.30978451460498163,
+                "3p": 0.10723813913812384,
+                "3d": 0.007133815739806002
+              },
+              "excited_fraction": 0.424156469482902
+            },
+            "detuning_scan": [
+              {
+                "omega_rad_per_step": 0.25,
+                "detuning_from_1s2p_rad": 0.0,
+                "detuning_in_line_widths": 0.0,
+                "field_reached_the_atom": 0.24973074762450365,
+                "excited_fraction": 0.424156469482902
+              },
+              {
+                "omega_rad_per_step": 0.3125,
+                "detuning_from_1s2p_rad": 0.0625,
+                "detuning_in_line_widths": 15.625,
+                "field_reached_the_atom": 0.2774278034836505,
+                "excited_fraction": 0.3523213413555506
+              },
+              {
+                "omega_rad_per_step": 0.375,
+                "detuning_from_1s2p_rad": 0.125,
+                "detuning_in_line_widths": 31.25,
+                "field_reached_the_atom": 0.296035691552826,
+                "excited_fraction": 0.14518016740222472
+              },
+              {
+                "omega_rad_per_step": 0.5,
+                "detuning_from_1s2p_rad": 0.25,
+                "detuning_in_line_widths": 62.5,
+                "field_reached_the_atom": 0.31081065058581697,
+                "excited_fraction": 0.035308155192881774
+              },
+              {
+                "omega_rad_per_step": 0.75,
+                "detuning_from_1s2p_rad": 0.5,
+                "detuning_in_line_widths": 125.0,
+                "field_reached_the_atom": 0.3167643800898221,
+                "excited_fraction": 0.011049798941457412
+              }
+            ],
+            "on_resonance_excited": 0.424156469482902,
+            "far_off_resonance_excited": 0.011049798941457412,
+            "suppression_on_over_far": 38.385899302793824,
+            "absorption_peaks_on_the_gap": true,
+            "packet_locality_scan": [
+              {
+                "photon_width_cells": 12,
+                "width_over_box": 0.1,
+                "spectral_bandwidth_rad_per_step": 0.041666666666666664,
+                "excited_fraction": 0.036647351817025386,
+                "field_reached_the_atom": 0.16684576915165178
+              },
+              {
+                "photon_width_cells": 24,
+                "width_over_box": 0.2,
+                "spectral_bandwidth_rad_per_step": 0.020833333333333332,
+                "excited_fraction": 0.13516953709865942,
+                "field_reached_the_atom": 0.47478860789391275
+              },
+              {
+                "photon_width_cells": 48,
+                "width_over_box": 0.4,
+                "spectral_bandwidth_rad_per_step": 0.010416666666666666,
+                "excited_fraction": 0.3258698341908902,
+                "field_reached_the_atom": 0.5618211730815337
+              }
+            ],
+            "caveat": "the off-resonant absorption is NOT exactly zero: the model's Fermi-golden-rule rate carries a Lorentzian tail, and a packet wider than the box becomes a persistent bath that drives the atom off resonance (measured in packet_locality_scan).  The production figure uses a localised packet (width 20 in a 296 box)."
+          },
+          "spontaneous_emission": {
+            "populations_before": {
+              "1s": 0.0,
+              "2p": 1.0,
+              "3p": 0.0,
+              "3d": 0.0
+            },
+            "populations_after_400_steps": {
+              "1s": 0.7987502407616898,
+              "2p": 0.2012497592383213,
+              "3p": 0.0,
+              "3d": 0.0
+            },
+            "ground_population_increased": true,
+            "emitted_field_max_before": 0.0,
+            "emitted_field_max_after": 86596.50464291277,
+            "radiation_emitted": true
+          },
+          "stability": {
+            "norm_min": 0.9999999999999997,
+            "norm_max": 1.000000000000017,
+            "norm_drift": 1.709743457922741e-14,
+            "field_max": 1.0391535471452773,
+            "field_bounded": true
+          },
+          "provenance": {
+            "atom_levels": "the REAL hydrogen eigenstates (Rydberg) — an input of atomic physics, NOT derived from the Cl(10) root",
+            "photon": "the CL10 free massless 3-D field (the 6-neighbour leapfrog engine, the same as the Young double-slit)",
+            "coupling_knobs": "A, h, gamma: physical parameters of the atom, not fitted to any measured number",
+            "what_the_figure_demonstrates": "the photon sector of CL10 propagates, resonates and is emitted like the EM field; it is NOT a 0-parameter derivation of hydrogen"
+          },
+          "ok": true
+        },
+        "wall_time": 699.479
+      }
+    },
+    {
       "id": "V6_gravity",
       "dir": "V6_gravity",
       "tier": 2,
@@ -2487,8 +2869,8 @@
       "residual": false,
       "pass": true,
       "status": "the_gravity_is_the_13_metric_dynamics",
-      "returncode": 1,
-      "wall_time": 1.709,
+      "returncode": 0,
+      "wall_time": 1.05,
       "verdict": {
         "id": "V6_gravity",
         "tier": 2,
@@ -2515,7 +2897,7 @@
       "pass": true,
       "status": "the_qca_is_unitary",
       "returncode": 0,
-      "wall_time": 0.123,
+      "wall_time": 0.329,
       "verdict": {
         "id": "V7_qca",
         "tier": 2,
@@ -2529,7 +2911,7 @@
           "causal_radius": 1,
           "n_gates": 4
         },
-        "wall_time": 0.011
+        "wall_time": 0.022
       }
     },
     {
@@ -2541,7 +2923,7 @@
       "pass": true,
       "status": "the_stable_soliton_is_the_dark_matter",
       "returncode": 0,
-      "wall_time": 0.145,
+      "wall_time": 0.276,
       "verdict": {
         "id": "V8_dark_matter",
         "tier": 4,
@@ -2562,7 +2944,7 @@
           "weakly_interacting": "couples only through the metric (gravity) -> dark",
           "relic": "a 0-parameter consequence of the QCA dynamics (the non-linear metric creates it)"
         },
-        "wall_time": 0.003
+        "wall_time": 0.004
       }
     },
     {
@@ -2573,8 +2955,8 @@
       "residual": true,
       "pass": true,
       "status": "the_qca_vacuum_reduced_by_z2_cancellation",
-      "returncode": 1,
-      "wall_time": 1.753,
+      "returncode": 0,
+      "wall_time": 1.14,
       "verdict": {
         "id": "V9_dark_energy",
         "tier": 4,

@@ -58,7 +58,7 @@ NINE = [
      "GUT leptogenesis: the heavy N out of equilibrium, g_0^4/16pi, the 28/79 sphaleron",
      "the algebra (the 2-step)"),
     ("W6", "the exact Yukawa (the hierarchy, the CKM)",
-     "the 10-Higgs mass term + the 0-parameter tribimaximal PMNS",
+     "the 10-Higgs mass term + the tribimaximal PMNS (only sin^2_12 = 1/3 is 0-parameter as a number)",
      "the spectrum (the 16 levels)"),
     ("W7", "the sub-Planck dark-matter scale",
      "the stable soliton u = sqrt(2) sech x of the non-linear metric",

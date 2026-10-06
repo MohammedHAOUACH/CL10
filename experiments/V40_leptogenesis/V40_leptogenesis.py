@@ -17,8 +17,9 @@ $$\\varepsilon \\sim \\frac{g_0^4}{16\\pi} = \\frac{1}{4096\\cdot 16\\pi}
 times the **CP-violating factor** $\\eta_{CP}$ (the **named** input — the
 magnitude of CP violation in the N decay, in the observed range
 $10^{-3}-10^{-2}$; taken $10^{-3}$).  The **lepton** asymmetry is converted
-to a **baryon** asymmetry by the **0-parameter** SM sphaleron factor
-$28/79$:
+to a **baryon** asymmetry by the SM sphaleron factor $28/79$ (an
+**input of the SM sector** — the left-handed d.o.f. count — not a number of
+the root):
 $$\\Delta B \\sim \\frac{28}{79}\\,\\varepsilon\\,\\eta_{CP}
 \\sim 10^{-10}\\quad (\\eta_{CP}\\sim 10^{-3}),$$
 the **right order** of the observed $6.1\\times10^{-10}$.
@@ -26,7 +27,8 @@ the **right order** of the observed $6.1\\times10^{-10}$.
 **The named residual.**  The **exact** $\\eta_{CP}$ and the **exact**
 $\\Delta B$ (the observed $6.1\\times10^{-10}$) — the mechanism is
 **0-parameter** (the 2-step N, the out-of-equilibrium decay, the $g_0$
-loop factor, the sphaleron 28/79 — all of the root), the **exact value** is
+loop factor; the sphaleron 28/79 is an input of the SM sector, not of the
+root), the **exact value** is
 the **named** residual (the W2 pattern).  **Honest limit:** the 0-parameter
 QCA *alone* satisfies no Sakharov condition (V22/V33 remain true).
 """
@@ -106,7 +108,8 @@ def main():
     print(f"  (b) out of equilibrium (the 0-parameter kinematics of V33):  Gamma/H = {r['gamma_over_h']:.2e} < 1  -> {out_of_equil}")
     print(f"  (c) the 0-parameter loop factor (g0^4/(16*pi), g0 = 1/8, no fit):  eps_loop = {r['eps_loop']:.3e}")
     print(f"  (d) the NAMED CP-violating factor in the N decay:  eta_CP = {r['eta_cp']:.0e}")
-    print(f"  the 0-parameter SM sphaleron factor:  28/79 = {r['sphaleron_factor']:.4f}")
+    print(f"  the SM sphaleron factor:  28/79 = {r['sphaleron_factor']:.4f}  "
+          f"(provenance SM: an input of the SM sector, not a root number)")
     print(f"  Delta_B = (28/79)*eps_loop*eta_CP = {r['delta_b']:.3e}  (observed {r['observed_delta_b']:.1e}; ratio {r['ratio_to_observed']:.2f})")
     print(f"  the honest limit (V22/V33):  the 0-parameter QCA ALONE satisfies no Sakharov condition  -> {no_sakharov}")
     print(f"  named residual:  {r['residual']}")

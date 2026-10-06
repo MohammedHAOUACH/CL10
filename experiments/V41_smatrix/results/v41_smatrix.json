@@ -23,5 +23,5 @@
     "s2_max_offdiag": 0.3320306396873518,
     "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (W9)"
   },
-  "wall_time": 0.123
+  "wall_time": 0.169
 }

@@ -39,8 +39,9 @@ and the **mixing**, read off from that one object, with **no fit**.
 
 The **named residual (W6)**: the **exact** 3-generation hierarchy
 (the 10-Higgs vev breaking, the ratios $m_1:m_2:m_3$) and the **exact**
-CKM/PMNS angles beyond the 0-parameter TBM — the one object does not
-fix them.
+CKM/PMNS angles beyond the TBM — and the TBM angles $\\sin^2 23$, $\\sin^2 13$
+themselves (the $O(2)$ freedom of the 2-fold light subspace) — the one object
+does not fix them.  Only $\\sin^2 12 = 1/3$ is 0-parameter **as a number**.
 """
 
 import numpy as np
@@ -185,15 +186,143 @@ def mass_matrix_3x3():
     }
 
 
-def mixing_3x3():
-    """The **0-parameter** mixing: the eigenvectors of the democratic base
-    give the **tribimaximal** (TBM) 3x3 unitary — the **0-parameter PMNS**
-    ($\\sin^2 12 = 1/3$, $\\sin^2 23 = 1/2$, $\\theta_{13} = 0$).  This is
-    the **0-parameter** prediction, close to the observed PMNS (0.31, 0.58,
+def mixing_from_democratic():
+    """**Honest analysis** of what the democratic base does and does not fix.
+
+    La base democratique M = |1><1| a le spectre {3,0,0}.  Le niveau **lourd**
+    h = (1,1,1)/sqrt(3) est **unique** ; le sous-espace **leger** est **2-fold
+    degenerate**, donc tout diagonaliseur de M est une rotation O(2) dans ce
+    sous-espace, tensorisee avec h.  La base democratique fixe le **spectre** et
+    **une partie** du melange — pas tout le melange.
+
+    Le resultat honnete, **mesure** ici (balayage O(2) sur 1441 rotations) :
+
+    - ``sin^2 theta_12 = |U_e2|^2`` est **FIXE a 1/3** : c'est le carre du
+      recouvrement de n'importe quel vecteur de base avec le vecteur lourd
+      **unique** h.  C'est une **vraie prediction 0-parametre** (observe
+      0.307, soit un ecart de 8 %).
+    - ``sin^2 theta_23`` et ``sin^2 theta_13`` **balayent [0, 2/3]** : la liberte
+      O(2) du sous-espace degeneré.  Les valeurs TBM (1/2, 0) sont un **choix**.
+
+    Le choix TBM est celui **adapte a la transposition (23)** de S3.  Or (12),
+    (13) et (23) sont **trois symetries equivalentes** de |1><1| : la base
+    democratique ne designe pas (23).  Le choix de **quelle** transposition est
+    brisee est donc un **input supplementaire** (le nommer est la correction
+    honnete), pas une consequence 0-parametre.
+
+    Second point corrige : le CKM obtenu a partir de deux matrices up/down
+    democratiques **identiques** est l'**identite**, pas la TBM.  Une CKM non
+    triviale exige une **misalignment** entre up et down, que la base
+    democratique symetrique ne fournit pas.
     """
-    # the TBM is the 0-parameter diagonalizer of the democratic base
+    J = np.ones((3, 3), dtype=complex)
+    h = np.array([1, 1, 1], dtype=float) / np.sqrt(3.0)        # the UNIQUE heavy eigenvector
+    a0 = np.array([1, -1, 0], dtype=float) / np.sqrt(2.0)      # an orthonormal basis of
+    b0 = np.array([1, 1, -2], dtype=float) / np.sqrt(6.0)      # the 2-fold light subspace
+
+    def diagonalizer(t):
+        """a diagonalizer of M, with the heavy direction in the MIDDLE column
+        (the PMNS slot convention: column 2 is the one carrying sin^2 12 and
+        sin^2 23)."""
+        e1 = np.cos(t) * a0 + np.sin(t) * b0
+        e2 = -np.sin(t) * a0 + np.cos(t) * b0
+        return np.column_stack([e1, h, e2])
+
+    def offdiag(U):
+        D = U.conj().T @ J @ U
+        return float(np.abs(D - np.diag(np.diag(D))).max())
+
+    th = np.linspace(0.0, 2.0 * np.pi, 1441)
+    s12 = [abs(diagonalizer(t)[0, 1]) ** 2 for t in th]        # |U_e2|^2
+    s23 = [abs(diagonalizer(t)[1, 2]) ** 2 for t in th]        # |U_mu3|^2
+    s13 = [abs(diagonalizer(t)[0, 2]) ** 2 for t in th]        # |U_e3|^2
+
+    # every member of the family really diagonalizes M (the check the old code
+    # lacked: it checked the ANGLES, never the diagonalization)
+    diag_err = max(offdiag(diagonalizer(t)) for t in th[::40])
+
+    # the TBM is a member of the family (the (23)-adapted one)
     tbm = family.tribimaximal_3x3()
-    # the 0-parameter TBM angles (the numbers of the democratic base)
+    tbm_diag_err = offdiag(tbm)
+    # a diagonalizer is defined column-by-column up to a phase, so the family
+    # must be compared against all 8 column-sign choices diag(s0, s1, s2)
+    signs = [np.diag([float(a), float(b), float(c)])
+             for a in (-1.0, 1.0) for b in (-1.0, 1.0) for c in (-1.0, 1.0)]
+    tbm_in_family = bool(min(np.abs(diagonalizer(t) @ S - tbm).max()
+                             for t in th for S in signs) < 1e-9)
+
+    # the three S3 transpositions: equivalent symmetries of |1><1|, each adapted
+    # basis giving a DIFFERENT mixing matrix
+    axes = {"(23)": ((-2, 1, 1), (0, 1, -1)),
+            "(12)": ((1, 1, -2), (1, -1, 0)),
+            "(13)": ((1, -2, 1), (1, 0, -1))}
+    adapted = {}
+    for name, (p1, p2) in axes.items():
+        e1 = np.array(p1, dtype=float) / np.linalg.norm(p1)
+        e2 = np.array(p2, dtype=float) / np.linalg.norm(p2)
+        B = np.column_stack([e1, h, e2])
+        adapted[name] = {"sin2_12": float(abs(B[0, 1]) ** 2),
+                         "sin2_23": float(abs(B[1, 2]) ** 2),
+                         "sin2_13": float(abs(B[0, 2]) ** 2),
+                         "reproduces_TBM": bool(abs(B[0, 1]) ** 2 - 1/3 < 1e-9
+                                                and abs(B[1, 2]) ** 2 - 1/2 < 1e-9
+                                                and abs(B[0, 2]) ** 2 < 1e-9)}
+
+    # the CKM from IDENTICAL up/down democratic matrices is the IDENTITY
+    wu, Vu = np.linalg.eigh(np.ones((3, 3), dtype=complex))
+    wd, Vd = np.linalg.eigh(np.ones((3, 3), dtype=complex))
+    ckm_naive = Vu.conj().T @ Vd
+    ckm_is_identity = bool(np.allclose(np.abs(ckm_naive), np.eye(3)))
+
+    obs_pmns = (0.307, 0.579, 0.022)
+    return {
+        "spectrum_fixed": [3.0, 0.0, 0.0],
+        "heavy_eigenvector": [1/np.sqrt(3)] * 3,
+        "heavy_eigenvector_unique": True,
+        "light_degeneracy": 2,
+        "diagonalizer_is_unique": False,
+        "sin2_12_fixed": bool(max(s12) - min(s12) < 1e-9),
+        "sin2_12_value": float(np.mean(s12)),
+        "sin2_12_range": [float(min(s12)), float(max(s12))],
+        "sin2_23_range": [float(min(s23)), float(max(s23))],
+        "sin2_13_range": [float(min(s13)), float(max(s13))],
+        "sin2_12_vs_observed": {"predicted": float(np.mean(s12)),
+                                "observed": obs_pmns[0],
+                                "ratio": float(np.mean(s12) / obs_pmns[0])},
+        "max_diagonalization_err": diag_err,
+        "tbm_diagonalizes_democratic": bool(tbm_diag_err < 1e-9),
+        "tbm_in_the_O2_family": tbm_in_family,
+        "tbm_angles": {"sin2_12": 1.0 / 3.0, "sin2_23": 0.5, "sin2_13": 0.0},
+        "s3_transpositions_equivalent": adapted,
+        "ckm_is_identity": ckm_is_identity,
+        "verdict_0param": (
+            "the democratic base DERIVES sin^2 theta_12 = 1/3 (8% from the "
+            "observed 0.307): it is the squared overlap of any family basis "
+            "vector with the UNIQUE heavy eigenvector (1,1,1)/sqrt(3).  It does "
+            "NOT derive sin^2 theta_23 or sin^2 theta_13: both sweep [0, 2/3] "
+            "under the O(2) freedom of the 2-fold light subspace.  TBM (1/3, "
+            "1/2, 0) is the (23)-adapted member of that family; (12), (13) and "
+            "(23) are equivalent symmetries of |1><1|, so WHICH one breaks is "
+            "an extra input.  The CKM from identical up/down democratic "
+            "matrices is the IDENTITY, not the TBM."),
+    }
+
+
+def mixing_3x3():
+    """The mixing of the democratic base: the TBM **angles**, with the honest
+    status of each.
+
+    Les angles sin^2 12 = 1/3, sin^2 23 = 1/2, theta_13 = 0 sont ceux de la TBM,
+    qui **diagonalise exactement** la base democratique.  Mais ils ne sont pas
+    **uniques** : la degenerescence 2-fold du sous-espace leger laisse une
+    liberte O(2) (cf. `mixing_from_democratic`).  La TBM est le choix adapte a
+    la transposition (23) ; la base democratique ne designe pas cette
+    transposition.  Son statut 0-parametre est donc celui d'une **convention
+    adaptee a S3**, pas d'une prediction.
+    """
+    # the TBM is a diagonalizer of the democratic base (the (23)-adapted one)
+    tbm = family.tribimaximal_3x3()
+    # the TBM angles (the numbers of the (23)-adapted choice)
     s12, s23, s13 = (1.0 / 3.0, 0.5, 0.0)
     obs_pmns = (0.307, 0.579, 0.022)   # the observed PMNS (world average)
     obs_ckm = (0.050, 0.949, 0.020)    # the observed CKM (world average)
@@ -201,11 +330,21 @@ def mixing_3x3():
                 + abs(s13 - obs_pmns[2])) / 3
     dev_ckm = (abs(s12 - obs_ckm[0]) + abs(s23 - obs_ckm[1])
                + abs(s13 - obs_ckm[2])) / 3
+    honest = mixing_from_democratic()
     return {
-        "unitary": bool(np.allclose(tbm @ tbm.T, np.eye(3))),
+        "unitary": bool(np.allclose(tbm.conj().T @ tbm, np.eye(3))),
+        "diagonalizes_democratic": honest["tbm_diagonalizes_democratic"],
         "sin2_12": float(s12), "sin2_23": float(s23), "sin2_13": float(s13),
         "obs_pmns": obs_pmns, "obs_ckm": obs_ckm,
         "dev_pmns": float(dev_pmns), "dev_ckm": float(dev_ckm),
+        # the honest provenance of each angle
+        "sin2_12_is_0param_derived": honest["sin2_12_fixed"],
+        "sin2_23_is_0param_derived": False,
+        "sin2_13_is_0param_derived": False,
+        "sin2_23_O2_range": honest["sin2_23_range"],
+        "sin2_13_O2_range": honest["sin2_13_range"],
+        "tbm_is_the_23_adapted_choice": True,
+        "mixing_status": honest["verdict_0param"],
     }
 
 
@@ -231,7 +370,8 @@ def hierarchy_3level():
         "obs_ratio_order": obs_ratio,
         "residual": ("the exact 3-gen hierarchy (the 10-Higgs vev breaking, "
                      "the ratios m1:m2:m3) and the exact CKM/PMNS angles "
-                     "beyond the 0-parameter TBM (W6)"),
+                     "beyond the TBM (W6); sin^2_23 and sin^2_13 are an O(2) "
+                     "choice, not a derivation"),
     }
 
 def quark_ckm():
@@ -263,15 +403,32 @@ def quark_ckm():
     # the quark mass matrices (the democratic base, the 3x3)
     mu = np.ones((3, 3), dtype=complex)          # the up-type (the democratic base)
     md = np.ones((3, 3), dtype=complex)          # the down-type (the democratic base)
-    eig_u = sorted(float(x) for x in np.abs(np.linalg.eigvals(0.5 * (mu + mu.conj().T))))
-    eig_d = sorted(float(x) for x in np.abs(np.linalg.eigvals(0.5 * (md + md.conj().T))))
-    # the CKM (the 0-parameter quark mixing, the TBM)
+    Hu = 0.5 * (mu + mu.conj().T)
+    Hd = 0.5 * (md + md.conj().T)
+    eig_u = sorted(float(x) for x in np.abs(np.linalg.eigvals(Hu)))
+    eig_d = sorted(float(x) for x in np.abs(np.linalg.eigvals(Hd)))
+
+    # **HONEST CKM.**  Le CKM est la **misalignment** entre les diagonaliseurs
+    # de $H_u$ et $H_d$.  Or ici $H_u = H_d$ : les deux diagonaliseurs sont les
+    # memes, donc le CKM calcule est l'**IDENTITE**, pas la TBM.  Une CKM non
+    # triviale exige une **misalignment** up/down que la base democratique
+    # symetrique ne fournit pas (elle vient du vev du 10-Higgs, le residu W6).
+    # L'affirmation "CKM = TBM" est donc FAUSSE dans la construction 0-parametre
+    # telle que codee ; elle n'est vraie que si l'on POSTULE des diagonaliseurs
+    # differents, ce qui est justement le residu nomme.
+    wu, Vu = np.linalg.eigh(Hu)
+    wd, Vd = np.linalg.eigh(Hd)
+    ckm = Vu.conj().T @ Vd
+    ckm_is_identity = bool(np.allclose(np.abs(ckm), np.eye(3)))
+    ckm_angles = [float(abs(ckm[0, 1]) ** 2), float(abs(ckm[1, 2]) ** 2),
+                  float(abs(ckm[0, 2]) ** 2)]
+
     tbm = family.tribimaximal_3x3()
     s12, s23, s13 = (1.0 / 3.0, 0.5, 0.0)
     obs_ckm = (0.050, 0.949, 0.020)             # the observed CKM (world average)
     dev_ckm = (abs(s12 - obs_ckm[0]) + abs(s23 - obs_ckm[1])
                + abs(s13 - obs_ckm[2])) / 3
-    ok = (bool(np.allclose(tbm @ tbm.T, np.eye(3)))
+    ok = (bool(np.allclose(tbm.conj().T @ tbm, np.eye(3)))
           and len({round(e, 6) for e in eig_u}) == 2
           and len({round(e, 6) for e in eig_d}) == 2)
     return {
@@ -280,19 +437,26 @@ def quark_ckm():
         "down_eigenvalues": eig_d,
         "two_level": bool(len({round(e, 6) for e in eig_u}) == 2
                           and len({round(e, 6) for e in eig_d}) == 2),
-        "ckm_unitary": bool(np.allclose(tbm @ tbm.T, np.eye(3))),
+        "ckm_unitary": bool(np.allclose(ckm.conj().T @ ckm, np.eye(3))),
+        "ckm_is_identity": ckm_is_identity,
+        "ckm_computed_angles": ckm_angles,
         "sin2_12": float(s12), "sin2_23": float(s23), "sin2_13": float(s13),
         "obs_ckm": obs_ckm,
         "dev_ckm": float(dev_ckm),
-        "residual": ("the exact quark CKM angles beyond the 0-parameter TBM "
-                     "(the up/down mass-matrix misalignment, the 10-Higgs vev "
-                     "breaking) — the W6 named residual, now quantified"),
+        "residual": ("the quark CKM is NOT derived 0-parameter: with H_u = H_d "
+                     "(both democratic) the computed CKM is the IDENTITY.  A "
+                     "non-trivial CKM requires an up/down MISALIGNMENT, which "
+                     "the symmetric democratic base does not provide — it comes "
+                     "from the 10-Higgs vev breaking.  The TBM angles are the "
+                     "lepton-sector (23)-adapted choice, not a quark result: "
+                     "the W6 named residual, now stated honestly"),
         "ok": bool(ok),
     }
 def w6_verdict():
     """The full 0-parameter W6 verdict: the 9-to-1 projection of the one
     object onto the 3-family space — the 3x3 mass matrix (the democratic
-    base), the 0-parameter TBM mixing, the 3-level hierarchy structure, the
+    base), the TBM mixing (only sin^2_12 = 1/3 is 0-parameter as a number),
+    the 3-level hierarchy structure, the
     10-Higgs Dirac structure, and the **named residual** (the exact
     hierarchy + the exact mixing)."""
     U = sm_qca.gut_qca_step(sm_qca.plane_generators(), G10)
@@ -306,6 +470,7 @@ def w6_verdict():
     # the 10-Higgs Dirac structure (the 0-parameter mass term, computed)
     h16 = higgs_mass_16()
     fs = family_symmetry()
+    honest = mixing_from_democratic()
     ok = (
         s2unit < 1e-12
         and one["family_triplication"]
@@ -314,6 +479,11 @@ def w6_verdict():
         and mm["rank"] == 1
         and mm["n_distinct_levels"] == 2
         and mix["unitary"]
+        # the honest mixing checks (the old code checked only the ANGLES, never
+        # that the matrix actually diagonalizes the democratic base)
+        and honest["tbm_diagonalizes_democratic"]
+        and honest["sin2_12_fixed"]
+        and abs(honest["sin2_12_value"] - 1.0 / 3.0) < 1e-9
         and hier["degenerate_light"]
         and h16["dirac"]
         and h16["rank"] == 16
@@ -336,6 +506,7 @@ def w6_verdict():
             "dirac": h16["dirac"],
             "note": "the 10-Higgs 16->16-bar is the 0-parameter Dirac term (rank 16, off-diagonal)",
         },
+        "mixing_honest": honest,
         "s2_unitary_err": float(s2unit),
         "ok": bool(ok),
         "residual": hier["residual"],
@@ -362,14 +533,26 @@ def main():
           f"{'EQUIVALENT' if fs['equivalent_3fold'] else 'NOT'} (each S_a^2=-I, anticommuting, equal norm) -> the 10-Higgs couples the 3 families equally -> democratic spectrum {fs['democratic_spectrum']}")
     print(f"  [3] 0-parameter 3x3 mass matrix (the democratic base):  eigenvalues "
           f"{['%.3g' % x for x in mm['eigenvalues']]}  ({mm['n_distinct_levels']}-level: {mm['n_heavy']} heavy + {mm['n_light_2fold']}-fold light, rank {mm['rank']})")
-    print(f"  [4] 0-parameter mixing (the TBM / 0-parameter PMNS):  "
+    print(f"  [4] mixing (the TBM, which diagonalizes |1><1|):  "
           f"sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), "
           f"sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), "
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
     print(f"  [5] 0-parameter hierarchy:  {hier['structure']}  (0-parameter {hier['n_levels_0param']}-level; the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
     print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal, Dirac)")
-    print(f"  [7] named residual (W6):  {r['residual']}")
+    hh = r["mixing_honest"]
+    print(f"  [7] HONEST mixing status (the O(2) freedom of the 2-fold light subspace):")
+    print(f"      sin^2(12) = {hh['sin2_12_value']:.4f}  -> DERIVED 0-parameter "
+          f"(the unique heavy eigenvector), vs observed {hh['sin2_12_vs_observed']['observed']} "
+          f"(ratio {hh['sin2_12_vs_observed']['ratio']:.3f})")
+    print(f"      sin^2(23) sweeps [{hh['sin2_23_range'][0]:.3f}, {hh['sin2_23_range'][1]:.3f}]  -> NOT derived (O(2) choice)")
+    print(f"      sin^2(13) sweeps [{hh['sin2_13_range'][0]:.3f}, {hh['sin2_13_range'][1]:.3f}]  -> NOT derived (O(2) choice)")
+    print(f"      TBM diagonalizes |1><1|: {hh['tbm_diagonalizes_democratic']}  "
+          f"(the (23)-adapted member of the family: {hh['tbm_in_the_O2_family']})")
+    print(f"      the S3 transpositions (12),(13),(23) are equivalent symmetries of |1><1|;")
+    print(f"      only (23) reproduces TBM: "
+          f"{ {k: v['reproduces_TBM'] for k, v in hh['s3_transpositions_equivalent'].items()} }")
+    print(f"  [8] named residual (W6):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level hierarchy/exact mixing is the named residual)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

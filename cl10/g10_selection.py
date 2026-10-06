@@ -81,17 +81,30 @@ def g10_selection():
     cands = _a10_candidates()
     scan = {n: float(abs(a10 / mean_gut - 1.0)) for n, a10 in cands.items()}
     best_n = min(scan, key=scan.get)
+    n_root = int(root["n_qubits"])
+    # l'honnêteté : le scan désigne n = 6 (1/36 = 0.0278), PAS n = 5
+    # (1/25 = 0.04).  n = 5 n'est PAS le meilleur ajustement : c'est le nombre
+    # du root (le module 32-D, 10 = 2 x 5).  Le data-check ne fixe donc pas
+    # n : il confirme seulement l'ORDRE.  C'est exactement ce qui fait de la
+    # lecture 1/n_qubits une CONVENTION DE MAPPING et non une prédiction.
+    gap_root = scan[n_root]
+    gap_best = scan[best_n]
+    fit_prefers_root = bool(best_n == n_root)
 
     one_line = (
         "the 0-parameter GUT coupling g_10 = 1/5 (a number of the root: the "
         "32-D module, 5 qubits) gives alpha_10 = 1/25 = 0.04, within a factor "
         "1.65 of the 1-loop GUT coupling (0.024 at M_P; the 1-loop matching is "
-        "the W4 named residual) — the 0-parameter convention is a root number "
-        "in the right order, not a free fit"
+        "the W4 named residual).  HONEST: the candidate scan picks n = %d "
+        "(alpha = 1/%d = %.4f, gap %.3f), NOT the root n = %d (gap %.3f) — the "
+        "data check confirms the ORDER only, it does not select n; n = 5 is a "
+        "root number, so reading 1/n_qubits as the coupling is a mapping "
+        "convention, not a fit" % (best_n, best_n, cands[best_n], gap_best,
+                                    n_root, gap_root)
     )
     return {
         "backend": _backend(),
-        "n_qubits": int(root["n_qubits"]),
+        "n_qubits": n_root,
         "g10": float(root["g10"]),
         "alpha_10_0param": a10_0param,
         "g10_matches_sm_qca": bool(root["g10_matches_sm_qca"]),
@@ -99,6 +112,11 @@ def g10_selection():
         "ratio_to_1loop": ratio,
         "best_n_1loop": int(best_n),
         "n_closest_to_1loop": int(best_n),
+        "candidate_scan_gap": {int(k): float(v) for k, v in scan.items()},
+        "gap_root_n5": float(gap_root),
+        "gap_best_n": float(gap_best),
+        "fit_prefers_root": fit_prefers_root,
+        "data_check_selects_n": fit_prefers_root,
         "one_line": one_line,
     }
 
@@ -132,6 +150,10 @@ def main():
     print(f"  1-loop GUT coupling (mean at M_P) = {g['mean_GUT']:.4f}   (spread {g['spread']:.2f}, the W4 named residual)")
     print(f"  ratio 0-parameter / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
     print(f"  0-parameter candidate scan:  n closest to the 1-loop GUT coupling = {d['n_closest_to_1loop']}")
+    print(f"    -> the DATA-optimal n is {d['best_n_1loop']} (gap {d['gap_best_n']:.3f}), "
+          f"NOT the root n = {d['n_qubits']} (gap {d['gap_root_n5']:.3f})")
+    print(f"    -> the data check confirms the ORDER only; it does NOT select n "
+          f"(selects n: {d['data_check_selects_n']}) — reading 1/n_qubits is a MAPPING CONVENTION")
     print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the W4 named residual)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

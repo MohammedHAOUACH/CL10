@@ -27,8 +27,8 @@
       0.1875,
       0.09375
     ],
-    "area_law_exponent": 2.0000000000000004,
-    "holographic_ratio_exponent": -1.0000000000000002
+    "area_law_exponent": 2.0,
+    "holographic_ratio_exponent": -0.9999999999999999
   },
-  "wall_time": 0.002
+  "wall_time": 0.004
 }

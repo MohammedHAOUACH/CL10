@@ -18,6 +18,8 @@ utilities), ``einops`` (the tensor reshapes), ``jax[cuda13]`` and
 resolves when present; the rest fall back to NumPy.
 """
 
+import os
+
 import numpy as np
 
 # ---------------------------------------------------------------------------
@@ -26,12 +28,21 @@ import numpy as np
 _BACKEND = "numpy"
 _E = np
 
+# CL10_BACKEND=numpy force le backend CPU (les petits tests d'algèbre — 3x3,
+# mélanges — n'ont pas besoin du GPU et doivent tourner même quand le GPU est
+# occupé par un autre processus).  Par défaut : aucun effet, le GPU reste choisi.
+_FORCE_CPU = os.environ.get("CL10_BACKEND", "").strip().lower() in ("numpy", "cpu")
+
 try:  # the preferred GPU backend (CuPy)
+    if _FORCE_CPU:
+        raise ImportError("CL10_BACKEND=numpy (the CPU override)")
     import cupy as _cp
     _E = _cp
     _BACKEND = "cupy"
 except Exception:  # noqa: BLE001
     try:  # the second GPU backend (JAX / XLA)
+        if _FORCE_CPU:
+            raise ImportError("CL10_BACKEND=numpy (the CPU override)")
         import jax
         import jax.numpy as _jnp
         jax.config.update("jax_platform_name", "gpu")

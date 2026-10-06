@@ -19,10 +19,16 @@ read off from that one object, with **no fit**:
    |1><1|`` (all-ones, rank 1), spectrum ``{3, 0, 0}`` — **one heavy**
    level + a **2-fold light** level (the 0-parameter **2-level structure**).
 
-3. **The 0-parameter mixing (the TBM / 0-parameter PMNS).**  Diagonalizing
-   the democratic base gives the **tribimaximal** rotation
-   ($\\sin^2 12 = 1/3$, $\\sin^2 23 = 1/2$, $\\theta_{13} = 0$), close to
-   the observed PMNS (0.31, 0.58, 0.02).
+3. **The mixing (the TBM), with its honest split.**  The TBM **diagonalizes**
+   the democratic base.  Of its angles, only $\\sin^2 12 = 1/3$ is **derived
+   0-parameter**: it is the squared overlap with the **unique** heavy eigenvector
+   $(1,1,1)/\\sqrt3$, and it does not move under the residual symmetry.  The
+   light eigenspace is **2-fold degenerate**, so every diagonalizer is an $O(2)$
+   rotation in it: $\\sin^2 23$ and $\\sin^2 13$ **sweep $[0, 2/3]$** (measured
+   here).  The TBM values $1/2, 0$ are the member **adapted to the transposition
+   (23)** of $S_3$ — and $(12),(13),(23)$ are equivalent symmetries of $|1\\rangle\\langle1|$,
+   so the base does not single out $(23)$.  Close to the observed PMNS
+   (0.31, 0.58, 0.02).
 
 4. **The 3-level hierarchy (named).**  The **3-level** mass hierarchy
    (3 distinct masses $m_1 < m_2 < m_3$) is the **10-Higgs vev** breaking
@@ -34,8 +40,10 @@ read off from that one object, with **no fit**:
    0-parameter mass term $16\\,10\\,16\\bar$ is the **Dirac** term.
 
 **The named residual (W6).**  The **exact** 3-gen hierarchy (the 10-Higgs
-vev breaking, the ratios $m_1:m_2:m_3$) and the **exact** CKM/PMNS angles
-beyond the 0-parameter TBM — the one object does not fix them.
+vev breaking, the ratios $m_1:m_2:m_3$), the angles $\\sin^2 23$ and
+$\\sin^2 13$ (the $O(2)$ choice of which $S_3$ transposition breaks), and the
+**non-trivial CKM** (with $H_u = H_d$ both democratic the computed CKM is the
+**identity**) — the one object does not fix them.
 """
 
 import sys
@@ -103,6 +111,13 @@ def main():
                 "obs_ckm": mix["obs_ckm"],
                 "dev_pmns": mix["dev_pmns"],
                 "dev_ckm": mix["dev_ckm"],
+                "diagonalizes_democratic": mix["diagonalizes_democratic"],
+                "sin2_12_is_0param_derived": mix["sin2_12_is_0param_derived"],
+                "sin2_23_is_0param_derived": mix["sin2_23_is_0param_derived"],
+                "sin2_13_is_0param_derived": mix["sin2_13_is_0param_derived"],
+                "sin2_23_O2_range": mix["sin2_23_O2_range"],
+                "sin2_13_O2_range": mix["sin2_13_O2_range"],
+                "mixing_status": mix["mixing_status"],
             },
             "hierarchy": {
                 "n_levels_0param": hier["n_levels_0param"],
@@ -131,10 +146,15 @@ def main():
     print(f"  [3] 0-parameter 3x3 mass matrix (the democratic base):  eigenvalues "
           f"{['%.3g' % x for x in mm['eigenvalues']]}  ({mm['n_distinct_levels']}-level: {mm['n_heavy']} heavy + {mm['n_light_2fold']}-fold light, rank {mm['rank']})")
     obs = mix["obs_pmns"]
-    print(f"  [4] 0-parameter mixing (the TBM / 0-parameter PMNS):  "
+    hh = r["mixing_honest"]
+    print(f"  [4] mixing (the TBM, which diagonalizes |1><1|: {mix['diagonalizes_democratic']}):  "
           f"sin^2(12)={mix['sin2_12']:.3f} (obs {obs[0]:.3f}), "
           f"sin^2(23)={mix['sin2_23']:.3f} (obs {obs[1]:.3f}), "
           f"sin^2(13)={mix['sin2_13']:.3f} (obs {obs[2]:.3f})")
+    print(f"      HONEST: sin^2(12) = 1/3 is DERIVED 0-parameter (the unique heavy eigenvector);")
+    print(f"              sin^2(23) sweeps [{hh['sin2_23_range'][0]:.3f}, {hh['sin2_23_range'][1]:.3f}] and")
+    print(f"              sin^2(13) sweeps [{hh['sin2_13_range'][0]:.3f}, {hh['sin2_13_range'][1]:.3f}] under the O(2) freedom")
+    print(f"              of the 2-fold light subspace — the TBM values are the (23)-adapted CHOICE.")
     print(f"  [5] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
     print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")

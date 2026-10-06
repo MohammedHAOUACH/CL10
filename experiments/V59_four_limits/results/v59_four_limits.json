@@ -10,35 +10,35 @@
     "backend": "numpy",
     "unifying_invariant": "10 = 2 x 5 (2 = the chiral 16/16-bar split; 5 = the 32-D qubit count)",
     "L1_g10_invariant": true,
-    "L1_max_mirror_residual": 2.220446049250313e-15,
+    "L1_max_mirror_residual": 1.7763568394002505e-15,
     "L1_grid": [
       {
         "g10": 0.1,
-        "mirror_residual": 9.992007221626409e-16,
+        "mirror_residual": 1.3877787807814457e-15,
         "abs_detU": 1.000000000000078,
         "detU_phase_deg": -1.5902773407317584e-15
       },
       {
         "g10": 0.2,
-        "mirror_residual": 8.881784197001252e-16,
+        "mirror_residual": 1.5543122344752192e-15,
         "abs_detU": 0.9999999999999956,
         "detU_phase_deg": 7.951386703658793e-15
       },
       {
         "g10": 0.3,
-        "mirror_residual": 1.7763568394002505e-15,
+        "mirror_residual": 1.1102230246251565e-15,
         "abs_detU": 0.9999999999999302,
         "detU_phase_deg": -4.452776554048926e-14
       },
       {
         "g10": 0.4,
-        "mirror_residual": 1.7763568394002505e-15,
+        "mirror_residual": 8.881784197001252e-16,
         "abs_detU": 1.0000000000000437,
         "detU_phase_deg": 2.2263882770244617e-14
       },
       {
         "g10": 0.5,
-        "mirror_residual": 2.220446049250313e-15,
+        "mirror_residual": 1.7763568394002505e-15,
         "abs_detU": 1.0000000000000548,
         "detU_phase_deg": 2.3854160110976376e-15
       }
@@ -81,5 +81,5 @@
     "total_named_residuals": 3,
     "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the selected value g_10 = 1/5 is a 0-parameter SELECTION RULE (1/n_qubits; the reading is the mapping convention, not a derivation).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the ORDER is 0-param, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the 0-param QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
   },
-  "wall_time": 0.015
+  "wall_time": 0.019
 }

@@ -18,7 +18,15 @@ import numpy as np
 _BACKEND = "numpy"
 _E = np
 
+# CL10_BACKEND=numpy force le backend CPU.  La physique est identique sur les
+# deux (voir le docstring) ; le CPU est nécessaire quand les cartes sont
+# occupées par un autre processus (sinon CuPy lève une OOM à l'import des
+# champs, et la simulation ne tourne plus du tout).
+_FORCE_CPU = os.environ.get("CL10_BACKEND", "").strip().lower() in ("numpy", "cpu")
+
 try:  # the GPU backend (CuPy)
+    if _FORCE_CPU:
+        raise ImportError("CL10_BACKEND=numpy (the CPU override)")
     import cupy as _cp  # noqa: F401
     _E = _cp
     _BACKEND = "cupy"

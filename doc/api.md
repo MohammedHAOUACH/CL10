@@ -239,11 +239,14 @@ contrast to the Coulombic $1/r$).
 **`cl10.yukawa` — the Yukawa / mass-hierarchy (V28).**  The **10-Higgs
 16→16-bar** (the grade-1 GUT vector is **off-diagonal** in the 16/16-bar split)
 gives the 0-parameter Dirac mass term; the **3×3** mass matrix (the 3
-generations) is **non-singular** (rank 3 — all generations get mass).
+generations) is the **democratic** base $|1\rangle\langle1|$: **rank 1**,
+spectrum $\{3,0,0\}$ (one heavy + a 2-fold light level).  A rank-1 3×3 is
+**singular**: the three distinct masses are the **named residual** (the 10-Higgs
+vev), not a 0-parameter statement.
 
 | symbol | signature | returns |
 |---|---|---|
-| `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, non_singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter 3×3 non-singular Dirac mass matrix (V28) |
+| `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, spectrum, n_distinct_levels, n_heavy, n_light_2fold, democratic, singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter **democratic rank-1** 3×3 Dirac mass matrix, spectrum {3,0,0} (V28; delegates to `yukawa_3x3.mass_matrix_3x3`) |
 
 
 ## 12. The completion program modules (V36–V51)
@@ -288,13 +291,13 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 
 | symbol | signature | returns |
 |---|---|---|
-| `family_qca` | `()` | `{n_module_3gen=96, n_weyl_3gen=48, n_cpt_3gen=48, unitary_err, family_symmetry_off_block, …, tribimaximal_sin2, residual, …}` — the **3-generation QCA step**: the 45 act **identically on each family** (the family symmetry; the 96×96 is exactly unitary, the per-family 16/16-bar split is preserved) + the 0-parameter tribimaximal mixing (V29) |
+| `family_qca` | `()` | `{n_module_3gen=96, n_weyl_3gen=48, n_cpt_3gen=48, unitary_err, family_symmetry_off_block, …, tribimaximal_sin2, residual, …}` — the **3-generation QCA step**: the 45 act **identically on each family** (the family symmetry; the 96×96 is exactly unitary, the per-family 16/16-bar split is preserved) + the tribimaximal mixing (V29; only sin^2_12 = 1/3 is 0-parameter as a number) |
 
 **`cl10.yukawa_3x3` — the 3-gen Yukawa mass matrix: the 9-to-1 projection (V45, W6, C4).**
 
 | symbol | signature | returns |
 |---|---|---|
-| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), family_symmetry (the 3-fold symmetry: the 3 spatial directions S_a are equivalent -> the democratic base is DERIVED, not asserted; S_a^2=-I, {S_a,S_b}=0, equal norm), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the 0-parameter TBM = the 0-parameter PMNS, sin^2 = 1/3, 1/2, 0), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the computed 16->16-bar Dirac term, rank-16, off-diagonal), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the **derived** democratic base) + the **0-parameter TBM mixing** + the **2-level structure** + the **0-parameter rank-16 10-Higgs Dirac term**; the **exact** 3-gen hierarchy (the 10-Higgs vev) and the **exact** CKM/PMNS are the named residual |
+| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), family_symmetry (the 3-fold symmetry: the 3 spatial directions S_a are equivalent -> the democratic base is DERIVED, not asserted; S_a^2=-I, {S_a,S_b}=0, equal norm), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the TBM, which **diagonalizes** |1><1|; honest split: sin^2_12 = 1/3 is derived 0-parameter from the unique heavy eigenvector, while sin^2_23 and sin^2_13 sweep [0, 2/3] under the O(2) freedom of the 2-fold light subspace), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the computed 16->16-bar Dirac term, rank-16, off-diagonal), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the **derived** democratic base) + the **TBM mixing** (only sin^2_12 = 1/3 is 0-parameter as a number) + the **2-level structure** + the **0-parameter rank-16 10-Higgs Dirac term**; the 3-gen hierarchy (the 10-Higgs vev), sin^2_23, sin^2_13 (the O(2) choice) and the non-trivial CKM are the named residual |
 
 **`cl10.baryogenesis` — GUT leptogenesis (V40, C5).**
 
@@ -331,7 +334,9 @@ soliton, the Schwarzschild black hole), and — **V37 (C2)** — the
 **The four remaining-gaps modules (V46–V49).**  The four 0-parameter
 completions of the remaining gaps (W1, W4, W9, W6): the **4-D non-linear
 gravity** (C2), the **2-loop UV-finite** running (W4), the **3- and
-4-particle** amplitudes (W9), and the **0-parameter quark CKM** (W6).
+4-particle** amplitudes (W9), and the **quark CKM on the democratic
+base** (W6 — the 2-level mass structure is 0-parameter; the computed CKM is the
+identity, see `quark_ckm` below).
 
 **`cl10.nonlinear_gravity` — the 4-D non-linear gravity (V46, C2).**
 
@@ -413,11 +418,11 @@ bounded by the lattice cutoff).  The **open** part of W9 is now only the
 |---|---|---|
 | `n_particle` | `()` | `{backend, n1_unitary_residual, n2_unitary_residual, n3_unitary_residual, n4_unitary_residual, n1_bounded, uv_finite, residual}` — the **3- and 4-particle** amplitudes: the n-particle S-matrix is the Kronecker product of the 1-particle, so it is unitary (0) for all n (the **UV-finite** property, the n-step is bounded for all n) |
 
-**`cl10.yukawa_3x3` — the 0-parameter quark CKM (V49, W6).**
+**`cl10.yukawa_3x3` — the quark CKM, honestly (V49, W6).**
 
 | symbol | signature | returns |
 |---|---|---|
-| `quark_ckm` | `()` | `{backend, up_eigenvalues, down_eigenvalues, two_level, ckm_unitary, sin2_12, sin2_23, sin2_13, obs_ckm, dev_ckm, residual}` — the **0-parameter** quark CKM: the quark mass matrices on the democratic base (2-level) + the TBM (the 0-parameter quark mixing); the deviation to the observed CKM is the W6 named residual |
+| `quark_ckm` | `()` | `{backend, up_eigenvalues, down_eigenvalues, two_level, ckm_unitary, ckm_is_identity, ckm_computed_angles, sin2_12, sin2_23, sin2_13, obs_ckm, dev_ckm, residual}` — the quark mass matrices on the democratic base (the 2-level structure, 0-parameter). **Honest:** with H_u = H_d both democratic the computed CKM **is the identity** (`ckm_is_identity: true`), not the TBM; a non-trivial CKM needs an up/down misalignment the democratic base does not supply — that is the W6 named residual |
 
 ---
 
@@ -475,12 +480,12 @@ numerics on the **CuPy** GPU engine.
 | `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale); the **V42** Planck-soliton gap (the $10^{-52}$) is **resolved** |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $10 \le m_{\rm DM} \le 1000$ GeV, $m_{\rm DM}/100 \in [1/3,3]$, and $0.02 \le \Omega_{\rm DM} \le 0.5$ |
 
-**`cl10.eta_cp` — the baryon asymmetry as a product of 0-parameter numbers (V55, W5).**
+**`cl10.eta_cp` — the baryon asymmetry as a product of factors of three provenances (V55, W5).**
 
 | symbol | signature | returns |
 |---|---|---|
 | `cp_odd_loop_factor` | `()` | the 0-parameter CP-odd **rate** factor $g_0^4/16\pi \approx 4.9\times10^{-6}$ — the **1-loop CP-odd** decay asymmetry $\varepsilon_{CP}$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension) |
-| `eta_cp` | `()` | `{backend, loop_factor, structure, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — the baryon asymmetry as a **product of 0-parameter numbers** $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$, the 1-loop CP-odd $\varepsilon_{CP} = g_0^4/16\pi$, the 2-loop dilution $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8); `structure` = `{sphaleron, eps_CP, D_dilution, g0, g0_is_1_over_2_cubed, loop_count}` |
+| `eta_cp` | `()` | `{backend, loop_factor, structure, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — the baryon asymmetry as a **product of factors of three provenances** $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ = an **input of the SM sector**, the LH d.o.f. count, a root number only conditional on V23; the 1-loop CP-odd $\varepsilon_{CP} = g_0^4/16\pi$; the 2-loop dilution $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8); `structure` = `{sphaleron, eps_CP, D_dilution, g0, g0_is_1_over_2_cubed, loop_count}` |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 2-loop factor is within a factor 3 of the V40 value and the $\Delta B$ ratio is in $[1/3,3]$ (and improved on V40) |
 
 **`cl10.g10_selection` — the 1-loop $g_{10}$ data check (V56, W6).**
@@ -488,7 +493,7 @@ numerics on the **CuPy** GPU engine.
 | symbol | signature | returns |
 |---|---|---|
 | `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.024$) and the (non-unification) spread (the W4 named residual) |
-| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, n_closest_to_1loop, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.65** of the 1-loop GUT coupling |
+| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.65** of the 1-loop GUT coupling; **honest scan**: the data-optimal candidate is $n=6$ (gap 0.15), **not** the root $n=5$ (gap 0.66) — `data_check_selects_n = False`, so the reading $1/n_{\rm qubits}$ is a **mapping convention**, not a fit |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
 
 **`cl10.neutrino` — the 2-step seesaw on the 10-loop ladder (V57, W2).**
@@ -549,6 +554,6 @@ Yukawa, the baryon asymmetry, the dark-matter scale, …).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 53 experiments
+python3 run_validation.py              # all 62 experiments
 python3 run_validation.py V11 V12      # a subset
 ```

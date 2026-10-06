@@ -142,7 +142,10 @@ def leptogenesis_estimate():
         0-parameter GUT coupling, now derived from the 3-space by V38)
         = ``1/(4096*16*pi)``;
     (d) the **SM sphaleron** converts the lepton asymmetry to a **baryon**
-        asymmetry with the **0-parameter** factor ``28/79``.
+        asymmetry with the factor ``28/79`` — an **input of the SM sector**
+        (the left-handed d.o.f. count), **not** a number of the Cl(10) root:
+        it is 0-parameter only conditional on the derivation of the SM content
+        (V23, a named residual).
 
     The **named residual**: the **CP-violating factor** ``eta_CP`` in the N
     decay (the magnitude of CP violation — the **named** input, taken in the
@@ -167,7 +170,8 @@ def leptogenesis_estimate():
         abs(eps_loop - (1.0 / 8.0) ** 4 / (16.0 * np.pi)) / eps_loop < 1e-12)
     # the NAMED CP-violating factor in the N decay (observed range)
     eta_cp = 1e-3
-    # (d) the 0-parameter SM sphaleron conversion factor
+    # (d) the SM sphaleron conversion factor (an input of the SM sector,
+    #     not a root number: 0-parameter only conditional on V23)
     sphaleron = 28.0 / 79.0
     delta_b = sphaleron * eps_loop * eta_cp
     observed = 6.1e-10

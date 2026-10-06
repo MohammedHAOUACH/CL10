@@ -47,8 +47,9 @@ def main():
         "property": "P5,P6",
         "residual": True,   # the exact 2-digit CP magnitude and the exact Delta_B are the named residual
         "pass": bool(ok),
-        "status": ("the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_0-parameter_FACTORS_"
-                   "(28/79_the_SM_sphaleron; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; "
+        "status": ("the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_"
+                   "(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; "
+                   "eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; "
                    "D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; "
                    "the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); "
                    "the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12"),
@@ -76,8 +77,11 @@ def main():
                 "loop_count": st["loop_count"],
             },
             "residual": ("the CP phase (which makes eps_CP nonzero, an O(1) "
-                         "input) and the 2-digit ratio 1.12 — the 28/79, "
-                         "g_0 = 1/2^3, 16pi, and loop counts are 0-parameter"),
+                         "input) and the 2-digit ratio 1.12.  Provenances: the "
+                         "16pi and the loop counts are numbers of the root; "
+                         "eps_CP and D are QFT loop factors at g_0 = 1/2^3; the "
+                         "28/79 sphaleron is an input of the SM sector (a root "
+                         "number only conditional on V23)"),
         },
         "wall_time": round(time.time() - t0, 3),
     }
@@ -89,8 +93,10 @@ def main():
     print("V55 - the baryon asymmetry as a product of 0-parameter factors (W5)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
-    print("  Delta_B = (28/79) x eps_CP x D, every factor 0-parameter:")
-    print(f"    - sphaleron   = 28/79 = {st['sphaleron']:.4f}   (the SM)")
+    print("  Delta_B = (28/79) x eps_CP x D, the factors and their provenance:")
+    print(f"    - sphaleron   = 28/79 = {st['sphaleron']:.4f}   (provenance SM: an input of the")
+    print(f"                              SM sector, the LH d.o.f. count — NOT a root number")
+    print(f"                              (0-parameter only conditional on V23, a named residual)")
     print(f"    - eps_CP      = g_0^4/16pi = {st['eps_CP']:.3e}   (1-loop; g_0 = 1/2^3, 3 = spatial)")
     print(f"    - D (dilution)= (1/16pi)^2 = {st['D_dilution']:.3e}   (2-loop)")
     print(f"    - loop counts = 1 (CP) + 2 (dilution) = {st['loop_count']}")

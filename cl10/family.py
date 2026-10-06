@@ -62,14 +62,28 @@ def _backend():
 
 
 def tribimaximal_3x3():
-    """The 0-parameter tribimaximal 3x3 unitary (V29): the 0-parameter
-    angles ``sin^2(12) = 1/3``, ``sin^2(23) = 1/2``, ``theta_13 = 0``
-    (numbers of the democratic base).  The 0-parameter family mixing of
-    the GUT (the 0-parameter PMNS prediction)."""
+    """The genuine tribimaximal (Harrison-Perkins-Scott) 3x3 unitary.
+
+    **Correction.**  L'implementation precedente avait un **signe errone** dans
+    ``r23`` : elle produisait en realite la matrice **bimaximale**, qui a les
+    **mêmes modules carrés** que la TBM (d'ou des angles apparemment corrects,
+    ``sin^2 12 = 1/3``, ``sin^2 23 = 1/2``, ``sin^2 13 = 0``) mais qui **ne
+    diagonalise pas** la base democratique ``|1><1|`` : sa troisieme colonne
+    ``(0,1,1)/sqrt(2)`` n'appartient pas au sous-espace propre leger (somme des
+    composantes non nulle).  Le bug etait invisible parce que les **angles**
+    (les modules) etaient verifies, pas la **diagonalisation**.
+
+    La TBM propre a ses trois colonnes = les vecteurs propres de ``|1><1|`` :
+    ``(2,-1,-1)/sqrt(6)`` et ``(0,1,-1)/sqrt(2)`` (le sous-espace leger 2-fold,
+    somme nulle) et ``(1,1,1)/sqrt(3)`` (le niveau lourd).  C'est le choix
+    **adapte a S3** (la transposition (23)) de la liberte O(2) du sous-espace
+    degeneré — voir ``yukawa_3x3.mixing_from_democratic`` pour l'analyse
+    honnete de ce qui est 0-parametre et de ce qui ne l'est pas.
+    """
     s12, c12 = math.sqrt(1.0 / 3.0), math.sqrt(2.0 / 3.0)
     s23 = c23 = math.sqrt(0.5)
     r12 = np.array([[c12, s12, 0.0], [-s12, c12, 0.0], [0.0, 0.0, 1.0]])
-    r23 = np.array([[1.0, 0.0, 0.0], [0.0, c23, s23], [0.0, -s23, c23]])
+    r23 = np.array([[1.0, 0.0, 0.0], [0.0, c23, -s23], [0.0, s23, c23]])
     return r23 @ r12
 
 
@@ -89,9 +103,11 @@ def family_qca():
     i.e. the **45 act identically on each family** — the 0-parameter
     statement that the 45 do **not** distinguish the 3 two-planes (the
     **family symmetry**).  The 0-parameter **family mixing** of the GUT is
-    the **tribimaximal** 3x3 unitary (the V29 0-parameter angles — the
-    0-parameter PMNS), a property of the neutrino/Yukawa sector, not of
-    the time-evolution step.
+    the **tribimaximal** 3x3 unitary (the V29 angles — the PMNS of the
+    democratic base), a property of the neutrino/Yukawa sector, not of the
+    time-evolution step.  Only $\\sin^2\\theta_{12}=1/3$ is 0-parameter **as a
+    number** (the unique heavy eigenvector of the democratic base);
+    $\\theta_{23}$ and $\\theta_{13}$ are an $O(2)$ convention.
     """
     n = 32
     ngen = 3
@@ -128,12 +144,18 @@ def family_qca():
     # (c) the full 96x96 step commutes with the 96-D pseudoscalar
     P96 = E.kron(I3, P)
     step_comm_96 = float(np.abs(E.asnumpy(U @ P96 - P96 @ U)).max())
-    # (3) the 0-parameter tribimaximal mixing (V29): the 0-parameter PMNS
+    # (3) the tribimaximal mixing (V29): the PMNS of the democratic base
     tbm = tribimaximal_3x3()
     tbm_unitary = float(np.abs(tbm @ tbm.T - np.eye(3)).max())
     tbm_angles_ok = (abs(tbm[0, 1] ** 2 - 1.0 / 3.0) < 1e-15
                      and abs(tbm[1, 2] ** 2 - 0.5) < 1e-15
                      and abs(tbm[0, 2]) < 1e-15)
+    # the check the old code lacked: the TBM must actually DIAGONALIZE the
+    # democratic base, not merely carry the right moduli (the old sign bug
+    # passed the angle test while failing this one).
+    _J = np.ones((3, 3), dtype=complex)
+    _D = tbm.conj().T @ _J @ tbm
+    tbm_diagonalizes = bool(float(np.abs(_D - np.diag(np.diag(_D))).max()) < 1e-9)
     # (4) the dimension: 48 Weyl = 16 x 3 and 48 CPT-conjugate
     n_weyl_1gen = int(matter.dimension_check())
     n_weyl_3gen = n_weyl_1gen * ngen
@@ -154,6 +176,7 @@ def family_qca():
         "step_96_pseudoscalar_commutator": float(step_comm_96),
         "tribimaximal_unitary_err": float(tbm_unitary),
         "tribimaximal_angles_ok": bool(tbm_angles_ok),
+        "tribimaximal_diagonalizes_democratic": tbm_diagonalizes,
         "tribimaximal_sin2": {
             "s12": float(abs(tbm[0, 1]) ** 2),
             "s23": float(abs(tbm[1, 2]) ** 2),

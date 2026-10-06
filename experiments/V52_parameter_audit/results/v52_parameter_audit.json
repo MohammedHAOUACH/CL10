@@ -9,10 +9,10 @@
   "data": {
     "backend": "numpy",
     "two_route_root": {
-      "kingdon_available": false,
-      "kingdon_sq_minus_1": NaN,
-      "kingdon_anticommute": NaN,
-      "kingdon_w2_scalar": NaN,
+      "kingdon_available": true,
+      "kingdon_sq_minus_1": 0.0,
+      "kingdon_anticommute": 0.0,
+      "kingdon_w2_scalar": -1.0,
       "pauli_sq_minus_I": 0.0,
       "pauli_anticommute": 0.0,
       "pauli_w2_plus_I": 0.0,
@@ -23,9 +23,9 @@
       "w_pure_imaginary": 0.0,
       "commute_Uw": 7.791361360319882e-16,
       "preserves_chiral_split": true,
-      "mirror_resid": 8.881784197001252e-16,
+      "mirror_resid": 1.1102230246251565e-15,
       "mirror_ok": true,
-      "mirror_resid_all_g10": 2.220446049250313e-15,
+      "mirror_resid_all_g10": 1.7763568394002505e-15,
       "mirror_holds_for_all_g10": true,
       "g10_grid": [
         0.05,
@@ -36,12 +36,12 @@
         0.4,
         0.5
       ],
-      "zp_16": 2.220446049250313e-15,
-      "zp_16bar": -4.440892098500626e-16,
+      "zp_16": 4.440892098500626e-16,
+      "zp_16bar": -8.881784197001252e-16,
       "det_U_minus_1": 4.443059973708341e-15,
       "sl32": true,
-      "omega_min": 0.011466436647426264,
-      "omega_min_mass_GeV": 1.3989052709860042e+17
+      "omega_min": 0.011466436647426626,
+      "omega_min_mass_GeV": 1.3989052709860483e+17
     },
     "cp_odd_theorem": {
       "max_cpodd_2rot": 2.4615858523155454e-17,
@@ -70,20 +70,20 @@
       "v_over_EP_claimed_0param": 2.02e-17,
       "match_rel_err": 0.0017886178861788171,
       "match_is_2digit_coincidence": true,
-      "omega_min": 0.011466436647426264,
-      "omega_min_mass_GeV": 1.3989052709860042e+17,
+      "omega_min": 0.011466436647426626,
+      "omega_min_mass_GeV": 1.3989052709860483e+17,
       "spectrum_exponent_matches_observed": false,
       "hierarchy_exists_0param": true
     },
     "dm_status": {
       "soliton_mass_GeV": 1.6266632506795717e+19,
       "abundance_gap_0param_over_obs": 5.5070688736061614e-52,
-      "omega_min_mass_GeV": 1.3989052709860042e+17,
+      "omega_min_mass_GeV": 1.3989052709860483e+17,
       "dm_observed_range_GeV": [
         100.0,
         1000.0
       ],
-      "smallest_sub_planck_scale_above_observed_DM_orders": 14.145788306571196,
+      "smallest_sub_planck_scale_above_observed_DM_orders": 14.14578830657121,
       "observed_DM_not_0param": true
     },
     "provenance_table": {
@@ -191,5 +191,5 @@
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 10.775
+  "wall_time": 13.978
 }

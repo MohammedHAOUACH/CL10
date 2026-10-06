@@ -4,19 +4,38 @@
   "property": "P2",
   "residual": true,
   "pass": true,
-  "status": "the_0_parameter_democratic_base_gives_the_tribimaximal_PMNS_close_to_observed",
+  "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
   "tol": 1e-12,
   "data": {
     "backend": "numpy",
     "n_gen": 3,
-    "mass_matrix_rank": 3,
-    "non_singular": true,
+    "mass_matrix_rank": 1,
+    "mass_matrix_spectrum": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "n_distinct_levels": 2,
+    "democratic": true,
+    "singular": true,
     "off_diagonal_Dirac": true,
     "tribimaximal": {
       "sin2_12": 0.3333333333333333,
       "sin2_23": 0.5,
       "sin2_13": 0.0
     },
+    "sin2_12_is_0param_derived": true,
+    "sin2_23_is_0param_derived": false,
+    "sin2_13_is_0param_derived": false,
+    "sin2_23_O2_range": [
+      2.7733391199176196e-32,
+      0.6666666666666666
+    ],
+    "sin2_13_O2_range": [
+      0.0,
+      0.6666666666666666
+    ],
+    "diagonalizes_democratic": true,
     "observed_PMNS": {
       "sin2_12": 0.307,
       "sin2_23": 0.579,
@@ -31,5 +50,5 @@
     "degenerate_base": true,
     "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
   },
-  "wall_time": 0.004
+  "wall_time": 0.235
 }

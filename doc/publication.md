@@ -58,7 +58,9 @@ The theory has **no free parameters in the algebra** (the invariants hold for
 **every** 't Hooft angle — computed) and **one** angle in its dynamics
 ($g_{10}$), whose **selected** value $g_{10}=1/5$ is the root number
 $1/n_{\rm qubits}$ — a **mapping** convention whose order is **data-checked**
-($\alpha_{10}=1/25$ vs the 1-loop GUT coupling $\sim0.024$, factor $1.65$).
+($\alpha_{10}=1/25$ vs the 1-loop GUT coupling $\sim0.024$, factor $1.65$; the
+candidate scan picks $n=6$, **not** the root $n=5$ — the data check confirms the
+**order only** and does **not** select $n$).
 We validate the **Theory-of-Everything** claim against **seven** explicit
 criteria (P0–P6) in a **tiered** consistency program (Section 11): the
 **single object** (P0), the **kinematics** (P1), the **dynamics** (P2), the
@@ -596,8 +598,10 @@ vanish; no Majorana mass for the charged fermions).  With the **3 families**
 (Section 3), the mass term gives a **3$\times$3** mass matrix per fermion
 type.  The **10-Higgs** is a **single** object, so the **0-parameter**
 (democratic) base is the **rank-1** matrix $|1\rangle\langle1|$ (eigenvalues
-$\{3,0,0\}$: one heavy level $+$ a **2-fold light** level), diagonalized by
-the **0-parameter tribimaximal** mixing (Theorem 13, W6); the **three
+$\{3,0,0\}$: one heavy level $+$ a **2-fold light** level).  The 2-fold light
+degeneracy means the **diagonalizer is not unique** (an $O(2)$ freedom): the
+base fixes the **spectrum** and $\sin^2\theta_{12} = 1/3$ (the unique heavy
+eigenvector), **not** the full mixing (Theorem 13, W6); the **three
 distinct masses** (the full 3-level hierarchy) come from the **10-Higgs
 vev** breaking the 2-fold light degeneracy — a **named** residual (W6),
 **not** a 0-parameter statement.  The **mass hierarchy** (the observed
@@ -640,7 +644,7 @@ residual (a stated open problem).  No quantity is fitted to data.
 |---|---|---|---|
 | **0 — the Object** | P0 | a single algebraic object is the root | the $\mathrm{Cl}(10)$ (Theorem 1's object) |
 | **1 — Kinematics** | P1 | it yields the spacetime, matter, gauge, statistics, and the family count | the $(1,3)$ (Theorem 1), the 16 Weyl + 3 families (Prop. 1, Theorem 2), the 45 (Sec. 4), the $\mathbb{Z}_2$ (Sec. 5) |
-| **2 — Dynamics** | P2, P3, P4 | a unitary causal QCA + the gravity + the hierarchy + the mass term + the **full SM as a unitary QCA** + **QCD confinement** + the **Yukawa structure** | the unitary QCA (Sec. 6), the $v/E_P$ hierarchy (Sec. 7), the 10-Higgs mass term (Sec. 3), the **full SM** 45-plane-rotation QCA (Sec. 11), the area law + linear potential (Sec. 10), the non-singular 3×3 (Sec. 10) |
+| **2 — Dynamics** | P2, P3, P4 | a unitary causal QCA + the gravity + the hierarchy + the mass term + the **full SM as a unitary QCA** + **QCD confinement** + the **Yukawa structure** | the unitary QCA (Sec. 6), the $v/E_P$ hierarchy (Sec. 7), the 10-Higgs mass term (Sec. 3), the **full SM** 45-plane-rotation QCA (Sec. 11), the area law + linear potential (Sec. 10), the democratic rank-1 3×3 with the {3,0,0} 2-level spectrum (Sec. 10) |
 | **3 — Unification** | P3, P4 | matter + gauge + gravity in one object; **anomaly-free**; the **couplings unify** | the 16 is anomaly-free (Theorem 2), the $5/3$ (Theorem 3), the GUT coupling $\alpha_{10}$ (Sec. 11), the CPT theorem (Sec. 11) |
 | **4 — Cosmology** | P2, P5 | dark matter, dark energy, antimatter, and the **holographic area law** | the stable soliton (Sec. 9), the 0-point cancellation + $w=-1$ (Sec. 9), the 16/16-bar CPT pair (Sec. 9), the area law $S\propto L^2$ (Sec. 8) |
 | **5 — Falsifiability** | P6 | the proton decay, the neutrino mass, the family count, the **baryon asymmetry** | the proton appears stable (Sec. 11), the neutrino is light (Sec. 11), the 3 families (Sec. 3), the baryon asymmetry **not** generated (Sec. 9) |
@@ -703,7 +707,7 @@ is **far above** the experimental bound $\tau_p>10^{34}$ yr (the proton
 appears stable) — **consistent**, and **falsifiable** if a non-GUT decay is
 seen.  **None of the falsifiers F1–F7 is observed.**
 
-**What the 60 checks are (and are not).**  The 60 experiments verify the
+**What the 62 checks are (and are not).**  The 62 experiments verify the
 **internal consistency of the construction** (the algebraic identities of
 the root, the 2-route numerical checks, the unitarity of the step): most of
 them would pass for **any** theory built on this root, and they are **not**
@@ -716,7 +720,7 @@ the 60 checks confirm the physics.
 **The verdict.**  All claims in the **hard** tiers (0–3) hold, the
 cosmology (4) and falsifiability (5) are **supported** with the **walls
 reduced to named residuals**, and the **completion program** (tier 6,
-Section 12) is **complete** — **all 60 experiments pass**.  The
+Section 12) is **complete** — **all 62 experiments pass**.  The
 **U10 VERDICT is positive**: **in the strongest defensible sense, CL10 is
 a consistent 0-parameter unification of matter, gauge, and gravity — a
 0-parameter unification — with the only open items the named, quantified
@@ -727,10 +731,14 @@ residuals.**
 numerical verification; each check is a **0-parameter** result or an
 explicitly **named** residual:
 - **The Yukawa structure.**  The 0-parameter democratic base (the 3 families
-  are equal) gives the **tribimaximal** PMNS
-  ($\sin^2\theta_{12}=1/3$, $\sin^2\theta_{23}=1/2$, $\sin^2\theta_{13}=0$),
-  close to the observed $(0.31,0.58,0.02)$; the **3-level** mass hierarchy
-  (the 10-Higgs breaking) is the **named** residual.
+  are equal) gives the **2-level spectrum** $\{3,0,0\}$ and
+  **$\sin^2\theta_{12}=1/3$** (8% from the observed $0.307$ — the one derived
+  mixing angle).  $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ sweep $[0,2/3]$
+  under the $O(2)$ freedom of the 2-fold light subspace (the TBM values
+  $1/2, 0$ are the $(23)$-adapted choice), and the quark CKM computed from
+  identical up/down democratic matrices is the **identity**; the **3-level**
+  mass hierarchy (the 10-Higgs breaking) and the non-trivial CKM are the
+  **named** residuals.
 - **The coupling unification.**  The 0-parameter $5/3$ (Theorem 3) and the
   single GUT coupling $\alpha_{10}=1/25$; the 1-loop running of the three SM
   couplings to the **Planckian** scale is **GUT-range**
@@ -762,8 +770,8 @@ explicitly **named** residual:
   the GUT structure *contains* the ingredients (the X/Y B-violation, the
   heavy-$N$ out-of-equilibrium, the PMNS CP phase).  The completion
   program (Section 12) reduces this to the **right order** — GUT
-  leptogenesis as a **product of 0-parameter numbers** ($\Delta B =
-  (28/79)\,\varepsilon_{CP}\,D$, the SM sphaleron, the 1-loop CP-odd $g_0^4/
+  leptogenesis as a **product of factors of three provenances** ($\Delta B =
+  (28/79)\,\varepsilon_{CP}\,D$, the SM sphaleron (an SM-sector input), the 1-loop CP-odd $g_0^4/
   16\pi$, the 2-loop dilution; **12%** match, the CP **phase** the named
   residual).
 - **The cosmology (W1 refinement + the hierarchy).**  The 0-parameter
@@ -782,10 +790,10 @@ explicitly **named** residual:
   (the WIMP/weak scale).  The **10** is **$2\times 5$**: the **2** =
   the 16/16-bar (chiral) split, the **5** = the **qubit count** of the
   32-D module ($2^5 = 32$) — the GUT dimension is 2× the module's qubit
-  count.  The **baryon asymmetry** is a **product of 0-parameter
-  numbers**, the physical GUT-leptogenesis structure:
+  count.  The **baryon asymmetry** is a **product of factors of three
+  provenances** (root / QFT / SM), the physical GUT-leptogenesis structure:
   $\Delta B = (28/79)\,\varepsilon_{CP}\,D$, with the **SM sphaleron**
-  $28/79$, the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ ($g_0 =
+  $28/79$ (an **input of the SM sector**), the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ ($g_0 =
   1/2^3$, **3** = the spatial dimension), and the **2-loop dilution** $D =
   (1/16\pi)^2$ (loop counts $1+2 = 3$), giving $\Delta B = 6.8\times10^{-10}$
   (a **12%** match to the observed $6.1\times10^{-10}$).  The **2-digit**
@@ -882,16 +890,18 @@ each family**
 $$U_{96} = \mathrm{blockdiag}(U_{32},\; U_{32},\; U_{32}),$$
 **exactly unitary**, with the per-family **16/16-bar** split
 **preserved** (the 45 commute with the per-family pseudoscalar).  The
-**0-parameter** family mixing of the GUT is the **tribimaximal** 3×3
-unitary ($\sin^2\theta_{12}=1/3$, $\sin^2\theta_{23}=1/2$,
-$\theta_{13}=0$ — the 0-parameter PMNS), a property of the
-neutrino/Yukawa sector, **not** of the time-evolution step.
+family mixing of the GUT is the **tribimaximal** 3×3 unitary
+($\sin^2\theta_{12}=1/3$, $\sin^2\theta_{23}=1/2$, $\theta_{13}=0$), a
+property of the neutrino/Yukawa sector, **not** of the time-evolution step.  Of
+these, only $\sin^2\theta_{12}=1/3$ is 0-parameter **as a number** (the unique
+heavy eigenvector); $\theta_{23}$ and $\theta_{13}$ are an $O(2)$ convention
+fixed by choosing which $S_3$ transposition breaks (Theorem 13).
 
 **Theorem 8 (the baryon asymmetry at the right order).**  **GUT
 leptogenesis** (the W2 pattern applied to the 2-step breaking): the
 **heavy $N$** ($M_N \sim 10^{14}$ GeV) decays **out of equilibrium**
 (the 0-parameter kinematics, $\Gamma/H \sim 6\times10^{-4}$); the baryon
-asymmetry is a **product of 0-parameter numbers**:
+asymmetry is a **product of factors of three provenances** (root / QFT / SM):
 
 $$\Delta B \;=\; \frac{28}{79}\;\varepsilon_{CP}\;D,$$
 
@@ -905,9 +915,13 @@ $$\Delta B \;=\; \frac{28}{79}\,\frac{g_0^4}{16\pi}\,(1/16\pi)^2
 \;\approx\; 6.8\times10^{-10},$$
 
 the **right order** of the observed baryon asymmetry
-$6.1\times10^{-10}$ (**ratio 1.12**, a **12%** match).  The **factors** are
-0-parameter numbers (the SM sphaleron $28/79$, the $16\pi$, the loop counts
-$1+2=3$); the **rate** $g_0^4/16\pi$ is an **order-of-magnitude estimate**
+$6.1\times10^{-10}$ (**ratio 1.12**, a **12%** match).  The **factors** carry
+**three different provenances**, and the distinction matters: the $16\pi$ and
+the loop counts $1+2=3$ are **numbers of the root**; the SM sphaleron $28/79$
+is an **input of the SM sector** — it counts the SM left-handed degrees of
+freedom, so it is a number of the root **only conditional** on the full
+derivation of the SM content (the V23 named residual), not an independent
+0-parameter result; the **rate** $g_0^4/16\pi$ is an **order-of-magnitude estimate**
 at the 0-parameter coupling $g_0 = 1/8$ (a **mapping convention**,
 Section 15 — not a computed leptogenesis diagram: the standard CP-odd
 asymmetry is a vertex/self-energy function of the $N$ masses).
@@ -1025,15 +1039,48 @@ $32^4 = 10^6$) follow **by** the Kronecker product property (the
 0-parameter consequence).  This **completes** the 't Hooft program to
 arbitrary particle number (the W9 completion).
 
-**Theorem 13 (the 0-parameter quark CKM — W6).**  The **quark** mass
-matrices (the **up**-type and **down**-type) on the **democratic** base
-are the **2-level** structure (spectrum $\{3,0,0\}$: one heavy + a
-2-fold light).  The **CKM** (the **misalignment** between the up-type and
-down-type mass matrices, the **unitary** 3×3) is the **TBM** (the
-0-parameter quark mixing: $\sin^2\theta_{12}=1/3$,
-$\sin^2\theta_{23}=1/2$, $\theta_{13}=0$).  The **deviation** to the
-**observed** CKM ($0.050, 0.949, 0.020$) is the **W6** named residual
-**quantified** (the 10-Higgs vev breaking the 2-fold light degeneracy).
+**Theorem 13 (the 0-parameter content of the mixing, and its honest limit —
+W6).**  The **quark** mass matrices (the **up**-type and **down**-type) on the
+**democratic** base are the **2-level** structure (spectrum $\{3,0,0\}$: one
+heavy + a 2-fold light): this **is** 0-parameter.  What the democratic base
+does and does **not** fix is then settled by an explicit sweep of the residual
+symmetry (V45, V49):
+
+1. **Derived 0-parameter.**  The heavy eigenvector of $|1\rangle\langle1|$ is
+   **unique**: $h = (1,1,1)/\sqrt3$.  Hence for **any** family basis,
+   $\sin^2\theta_{12} = |U_{e2}|^2 = |\langle e_1|h\rangle|^2 = 1/3$ — a
+   genuine 0-parameter prediction, **8%** from the observed $0.307$.  It is the
+   **only** mixing angle the model derives.
+
+2. **Not derived (the $O(2)$ freedom).**  The light eigenspace is **2-fold
+   degenerate**, so every diagonalizer of $|1\rangle\langle1|$ is an $O(2)$
+   rotation in it.  Sweeping that freedom over $1441$ rotations:
+   $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ each **sweep $[0, 2/3]$**.  The
+   TBM values $(1/2, 0)$ are **one point** of the family — the member
+   **adapted to the transposition $(23)$** of $S_3$.  But $(12)$, $(13)$ and
+   $(23)$ are **three equivalent symmetries** of $|1\rangle\langle1|$, and the
+   democratic base does **not** single out $(23)$: which transposition breaks is
+   an **additional named input**, not a consequence.
+
+3. **Not derived (the quark sector).**  The CKM is the **misalignment** of the
+   diagonalizers of $H_u$ and $H_d$.  With **both** democratic
+   ($H_u = H_d$), the computed CKM is the **identity**, not the TBM.  A
+   non-trivial CKM requires an up/down **misalignment** that the symmetric
+   democratic base does not supply — it enters only through the **10-Higgs vev**
+   breaking.  The quark CKM is therefore **not** a 0-parameter result; the
+   deviation to the observed $(0.050, 0.949, 0.020)$ is the **W6** named
+   residual.
+
+*(Correction of an earlier version of this theorem, which stated "the CKM is
+the TBM".  That claim is false in the 0-parameter construction: it silently
+assumed different diagonalizers for $H_u$ and $H_d$, which is exactly the
+residual.  The corresponding code bug — a sign error in the "TBM" matrix, which
+carried the right moduli but did **not** diagonalize $|1\rangle\langle1|$ — is
+fixed, and the diagonalization is now an explicit check rather than an
+inference from the angles.  The check is **V60**, which also reconstructs the
+wrong-sign matrix and verifies that it passes the angle and unitarity tests while
+failing the diagonalization test ($1.15$ against $10^{-16}$): the guard is
+necessary, not redundant.)*
 
 **Theorem 14 (the complete 4-D non-linear gravity — C2 completed to
 the *general* metric).**  The 4-D non-linear gravity is **completed**
@@ -1168,8 +1215,8 @@ CPT split, and the S-matrix are its 0-parameter invariants).
 | **W2** | the exact $M_N$ and the exact $m_\nu \sim 0.05$ eV | the **2-step** GUT breaking ($M_N$ intermediate) $+$ the **0-parameter** Dirac mass $m_D = g_0 v$ ($g_0 = 1/8$, **derived from the 3-space**) $\Rightarrow$ the type-I **seesaw** $m_\nu = m_D^2/M_N \sim 10^{-2}$ eV (**right order**); **completed**: **both** scales are **0-parameter numbers of the root** on the **10-loop ladder** — $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale) and $M_N = M_P(1/16\pi)^{3}$ (the 2-step, **replacing the hard-coded $10^{14}$**) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.15$ eV (**2.9x**, the 2-digit coefficient is the named residual) | the **2-digit** coefficient ($\times2.9$) and the loop integer $n_{2\text{step}}=3$ — the *exact* $m_\nu$ |
 | **W3** | the **why-3** (the derivation of the family count) | the **3** $=$ the **3** spatial directions of the $(1,3)$ (one 0-parameter number, dual use); the **3 families inside the dynamics** (the 96-D family-symmetric step) | the *derivation* of *why* the family count equals the spatial dimension (why not 1, 2, or 4) |
 | **W4** | the **1-loop SM matching** (the non-SUSY SM does not unify at 1-loop; the QCA **lattice RG** is the open part) | the **0-parameter UV input** $\alpha_{10} = 1/25$ (**derived from the 5 qubits of the root**) $+$ the 1-loop $\beta$-functions (fixed by the particle content); the **down-running** from the QCA UV cutoff is **computed**; **completed**: the **W4 open part** (the *lattice RG*) is made **explicit** — the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) is **unitary** (bounded) at **every** step (the GPU), so the **discrete RG is UV-finite** (no Landau pole), in contrast to the *continuous* perturbative RG (2-loop $U(1)$ pole below the cutoff) | the **1-loop spread** ($\sim0.6$, the exact matching of the three GUT-range couplings) and the **2-digit** 2-loop pole ratio — the *naive* 1-loop non-unification (a feature of the non-SUSY SM) |
-| **W5** | the exact $\eta_{CP}$ and the exact $\Delta B = 6.1\times10^{-10}$ | **GUT leptogenesis** as a **product of 0-parameter numbers**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$, with the **SM sphaleron** $28/79$, the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension), and the **2-loop dilution** $D = (1/16\pi)^2$ (loop counts $1+2=3$); the 2-step heavy $N$ decays **out of equilibrium** (the 0-parameter kinematics) $\Rightarrow$ $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from the 2.8 ratio) | the **CP phase** (which makes $\varepsilon_{CP}$ nonzero, an $\mathcal{O}(1)$ input) and the **2-digit** ratio 1.12 — the **W2 pattern** applied to the baryon asymmetry |
-| **W6** | the **exact Yukawa** values (the 3-generation **hierarchy**, the **CKM** mixing) | the **structure** of the mass term is 0-parameter: the **10-Higgs** $16\to16\text{-bar}$ (Dirac, **off-diagonal, rank-16**), and the **democratic $3\times3$** is **derived** — the **3-fold family symmetry** (the 3 spatial directions $S_a$ are equivalent: $S_a^2=-I$, $\{S_a,S_b\}=0$, equal norm, so the 10-Higgs couples the 3 families equally) gives the all-ones matrix, eigenvalues $\{3,0,0\}$ (one heavy + a 2-fold light level), diagonalized by the **0-parameter tribimaximal** PMNS ($\sin^2\theta_{12}=1/3$, $\sin^2\theta_{23}=1/2$, $\theta_{13}=0$) | the **values** of the 3-level mass hierarchy ($m_\mu/m_e$, $m_t/m_b$, the neutrino masses — the 10-Higgs vev) and the **exact** CKM/PMNS mixing angles |
+| **W5** | the exact $\eta_{CP}$ and the exact $\Delta B = 6.1\times10^{-10}$ | **GUT leptogenesis** as a **product of factors of three provenances**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$, with the **SM sphaleron** $28/79$ (an **input of the SM sector** — the LH d.o.f. count, a root number only conditional on V23), the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension), and the **2-loop dilution** $D = (1/16\pi)^2$ (loop counts $1+2=3$); the 2-step heavy $N$ decays **out of equilibrium** (the 0-parameter kinematics) $\Rightarrow$ $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from the 2.8 ratio) | the **CP phase** (which makes $\varepsilon_{CP}$ nonzero, an $\mathcal{O}(1)$ input) and the **2-digit** ratio 1.12 — the **W2 pattern** applied to the baryon asymmetry |
+| **W6** | the **exact Yukawa** values (the 3-generation **hierarchy**, the **CKM** mixing) | the **structure** of the mass term is 0-parameter: the **10-Higgs** $16\to16\text{-bar}$ (Dirac, **off-diagonal, rank-16**), and the **democratic $3\times3$** is **derived** — the **3-fold family symmetry** (the 3 spatial directions $S_a$ are equivalent: $S_a^2=-I$, $\{S_a,S_b\}=0$, equal norm, so the 10-Higgs couples the 3 families equally) gives the all-ones matrix, eigenvalues $\{3,0,0\}$ (one heavy + a 2-fold light level). **Honest split (Theorem 13):** the unique heavy eigenvector $(1,1,1)/\sqrt3$ **derives** $\sin^2\theta_{12}=1/3$ (8% from the observed 0.307) — the only derived mixing angle; the 2-fold light degeneracy leaves an $O(2)$ freedom under which $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ **sweep $[0,2/3]$** (the TBM values $1/2,0$ are the $(23)$-adapted choice, and $(12),(13),(23)$ are equivalent symmetries); and with $H_u=H_d$ both democratic the computed **CKM is the identity** | the **values** of the 3-level mass hierarchy ($m_\mu/m_e$, $m_t/m_b$, the neutrino masses — the 10-Higgs vev), $\sin^2\theta_{23}$, $\sin^2\theta_{13}$ (the $O(2)$ choice of which $S_3$ transposition breaks), and the **non-trivial CKM** (it needs an up/down misalignment the democratic base does not supply) |
 | **W7** | the **sub-Planck** DM scale (the observed DM is **not** the Planck-mass soliton) | the **Planck-mass** soliton (the 0-parameter candidate) is **under**-abundant (the gap $\Omega_{\rm 0param}/\Omega_{\rm obs} \sim 10^{-52}$, quantified); the **resolved** sub-Planck scale is $m_{\rm DM} = M_P (1/16\pi)^{10} = 118$ GeV (the **WIMP/weak scale**, the **10-loop** factor) — the **same** 10-loop factor as W8 (two statements of one scale); the **abundance** is the standard thermal relic ($\langle\sigma v\rangle \sim 1/m^2$ at the 0-parameter mass scale — the WIMP miracle is a property of the freeze-out calculation, and the theory **selects** the scale) | the DM **identity** — the theory fixes the **mass scale**, not the *particle*: the 0-parameter candidate is the lightest stable soliton, but its *identification* with a specific observed particle is the residual (a 0-parameter theory gives a scale, not an identity) — and the exact **cross-section** (W9); the mass **scale** (118 GeV) and the abundance order are 0-parameter |
 | **W8** | the **derivation of the hierarchy exponent** ($v/E_P \sim 10^{-17}$) | the **0-parameter** scale of the gap is the **10-loop factor** $(1/16\pi)^{10} = 9.7\times10^{-18}$ — the **10** is **$2\times5$** (the 16/16-bar **chiral split** $\times$ the **5 qubits** of the 32-D module, $2^5=32$); the **same** 10-loop factor also gives the **DM mass** $m_{\rm DM} = M_P(1/16\pi)^{10} = 118$ GeV (W7) — **two statements of one scale** (the "9-to-1" of the root); the **exponent** $-17$ is **0-parameter-derived** | the **2-digit** coefficient ($2.08\times$ the 10-loop, giving $2.02\times10^{-17}$, **0.18%** of the observed $2.016\times10^{-17}$) — the *exact* value |
 | **W9** | the **quantum-gravity wall** (the QCA lattice RG to the measured cross-sections; the non-linear completion beyond the quadratic EH — classical **and** quantum) | the **0-parameter S-matrix** is **computed** (the QCA step **is** the time-evolution, the 't Hooft program — $S = U$ and $S^{(2)} = U\otimes U$ **exactly unitary**), **and** the **0-parameter cross-section** is **computed**: the QCA is **UV-finite** (the Planck cutoff bounds every cross-section to $\sigma_{\max} = 4\pi/M_P^2$), the 2→2 cross-section $\sigma_0 = P_2/M_P^2$ (nonzero, bounded, $P_2 = 1-\bar d^2$), the **0-parameter dispersion** (the 32-level spectrum $H = -i\log U$, UV-bounded $\lvert \omega\rvert \le \pi$, no 1-loop pairing), the **0-parameter optical theorem** (the inelastic $P_2$ **is** the cross-section, elastic + inelastic = 1), the **0-parameter Froissart-Martin bound** ($m_{\min}=M_P$: the QCA's *constant* cross-section sits **below** the $\ln^2$ growth at every scale above the cutoff — the **strongest** UV-finiteness), the 0-parameter QCA/perturbative ratio $R = 4\pi P_2/g_{10}^4$; **and the classical non-linear completion is complete** (the 4-D curvature from any metric; the 3+1 BSSN/Z4 NR) | the **matching** of the 0-parameter cross-section to the **measured** one (a **0-parameter prediction** — the 't Hooft program, a **falsifier**); the **open** part of W9 is the **quantum** completion (the UV of quantum gravity) |
@@ -1258,7 +1305,7 @@ program** (Section 12: the **local** QCA, the **EH action derived from the
 QCA dynamics**, the **0-parameter numbers derived from the root**, the
 **three families inside the dynamics**, the **baryon asymmetry at the right
 order**, the **0-parameter S-matrix**, and the **quantified dark-matter
-scale**).  **All 60 experiments pass** (Sections 11–12); the
+scale**).  **All 62 experiments pass** (Sections 11–12); the
 **U10 VERDICT is positive**.  The **hard** tiers (0–3: the single object,
 the kinematics, the dynamics, and — critically — the **anomaly-free**
 matter, the **$5/3$** coupling unification, and the **matter–gauge–gravity
@@ -1385,8 +1432,10 @@ seesaw with at least two inequivalent heavy $N$** — a single rank-1
 Yukawa has **no** CP-odd invariant, hence **no** CP violation).  The
 0-parameter
 GUT-leptogenesis kinematics then give the **right order** of
-$\Delta B$: the **factors** (the $28/79$ sphaleron, the $16\pi$, the
-loop counts $1+2=3$) are 0-parameter, the **rate** $g_0^4/16\pi$ is an
+$\Delta B$: the **factors** split by provenance — the $16\pi$ and the loop
+counts $1+2=3$ are 0-parameter numbers of the root, the $28/79$ sphaleron is
+an **input of the SM sector** (the left-handed d.o.f. count; a root number only
+conditional on V23), and the **rate** $g_0^4/16\pi$ is an
 **order-of-magnitude estimate** at the 0-parameter coupling
 $g_0 = 1/2^3$ (the **mapping** convention of the *convention* class),
 and $\varepsilon_{CP}$ is nonzero **only through the named CP phase**
@@ -1499,15 +1548,18 @@ have **0-parameter loop-factor** representations (the **loop count** a
   10-loop suppression of the single Planck scale.
 
 - **W5 (the baryon asymmetry / CP phase).**  The baryon asymmetry is a
-  **product of 0-parameter numbers**, the physical GUT-leptogenesis
+  **product of factors of three provenances**, the physical GUT-leptogenesis
   structure: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$, with the **SM
-  sphaleron** $28/79$, the **1-loop CP-odd** $\varepsilon_{CP} =
+  sphaleron** $28/79$ (an **input of the SM sector** — the LH d.o.f. count, a
+  root number only conditional on V23), the **1-loop CP-odd** $\varepsilon_{CP} =
   g_0^4/16\pi$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension), and
   the **2-loop dilution** $D = (1/16\pi)^2$ (loop counts $1 + 2 = 3$).
-  **Every number is 0-parameter** (root / QFT / SM).  The result is
+  **Every factor is 0-parameter in one of three senses** — a number of the
+  root ($16\pi$, the loop counts), a QFT loop factor ($\varepsilon_{CP}$,
+  $D$), or an **input of the SM sector** ($28/79$, conditional on V23).  The result is
   $\Delta B = 6.8\times10^{-10}$ — a **ratio 1.12** to the observed
   $6.1\times10^{-10}$ (improved from the 2.8 ratio).  This **refines**
-  Point 3: the baryon asymmetry is a product of 0-parameter numbers; the
+  Point 3: the baryon asymmetry is a product of factors of three provenances; the
   **named residual** is the CP **phase** (which makes $\varepsilon_{CP}$
   nonzero) and the 2-digit ratio 1.12.
 
@@ -1516,7 +1568,15 @@ have **0-parameter loop-factor** representations (the **loop count** a
   *mapping* of the audit's *convention* class) gives $\alpha_{10} =
   1/25 = 0.04$, **within a factor 1.65** of the **1-loop** GUT coupling
   (the mean of the three running to $M_P$, $0.024$) — the **right order**
-  (the 1-loop matching is the W4 named residual).
+  (the 1-loop matching is the W4 named residual).  **Honest scan:** scanning
+  the 0-parameter candidates $\alpha = 1/n^2$ ($n = 2\ldots8$) against that
+  1-loop value, the **data-optimal** $n$ is **6** ($1/36 = 0.0278$, gap $0.15$),
+  **not** the root $n = 5$ ($1/25 = 0.04$, gap $0.66$) — the data-optimal value
+  is $4.4\times$ closer than the root value.  The data check therefore
+  **confirms the order only**: it does **not** select $n$.  This is exactly what
+  makes the reading $1/n_{\rm qubits}$ a **mapping convention** rather than a
+  fit — $n = 5$ is chosen because it is the number of qubits of the 32-D module
+  ($10 = 2\times5$), not because the data prefer it (V56).
 
 - **W2 (the 2-step seesaw scale).**  The W2 open part now has a
   **0-parameter 10-loop representation**: **both** scales are numbers of
@@ -1626,7 +1686,8 @@ a generic $\delta$).  So the baryon asymmetry requires **one** CP
 phase — the **minimal** irreducible input — and the 0-parameter
 structure (the 2 $N$'s from the 2-step ladder, the 1-loop CP rate
 $g_0^4/16\pi$ at the 0-parameter coupling $g_0 = 1/2^3$ (the *mapping*
-convention), the $(1/16\pi)^2$ dilution, the $28/79$ sphaleron) gives
+convention) and the $(1/16\pi)^2$ dilution — while the $28/79$ sphaleron is an
+input of the SM sector rather than a number of the root) gives
 the **right order** $\Delta B \approx 6.8\times10^{-10}$ (ratio $1.12$
 to the observed $6.1\times10^{-10}$; the 0-parameter QCA *alone* gives
 **zero** by the CP-odd theorem — the phase is what switches it on).
@@ -1671,11 +1732,14 @@ baryon product is **Fig. 8**.
 
 ## Figures
 
-All **twenty-five** figures are **computed directly from the theory's quantities**
-(the generation script is in the repository; see the **technical** **reference**)
-— **no hand-drawn data**.  Each states the **0-parameter** content and, where relevant, the
-**named residual**, following the W2 pattern (Section 13: the 0-parameter
-*mechanism* is solved; the *exact* value is named).
+All **twenty-six** figures are **computed directly** (the generation scripts are in
+the repository; see the **technical** **reference**) — **no hand-drawn data**.  Each
+states the **0-parameter** content and, where relevant, the **named residual**,
+following the W2 pattern (Section 13: the 0-parameter *mechanism* is solved; the
+*exact* value is named).  **Fig. 26 is the one figure whose input is not the root**:
+the atom is the **real hydrogen** system (an input of atomic physics), and what the
+figure tests is the **photon sector** of the QCA.  Its provenance is stated in its
+caption and measured by **V61**.
 
 **Fig. 1 — the one 0-parameter object: the 32-level QCA spectrum.**
 
@@ -1768,12 +1832,14 @@ bound** as the quarks separate (**confinement**), in contrast to the
 $\Lambda_{\rm QCD}$ (the 10-loop ladder) sets the confinement scale
 (Section 15, the 10-loop ladder).
 
-**Fig. 8 — GUT leptogenesis: the baryon asymmetry as a product of 0-parameter numbers.**
+**Fig. 8 — GUT leptogenesis: the baryon asymmetry as a product of factors of
+three provenances (root / QFT / SM).**
 
 ![GUT leptogenesis.](figures/fig8_baryon_asymmetry.png)
 
-The baryon asymmetry is a **product of 0-parameter *factors***:
-$\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the **SM sphaleron** $28/79$,
+The baryon asymmetry is a **product of *factors* of three provenances**:
+$\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the **SM sphaleron** $28/79$ — an
+input of the SM sector,
 the **1-loop CP rate** $\varepsilon_{CP} = g_0^4/16\pi$ with
 $g_0 = 1/2^3$ (the *mapping* convention), and the **2-loop dilution**
 $D = (1/16\pi)^2$).  The **named** $\eta_{CP}=10^{-3}$ gives
@@ -1900,7 +1966,10 @@ two projections, **not** two independent constraints.  Scanning
 $n = 1\ldots20$, $n = 10$ ($= 2\times 5$; the bare qubit count
 $n_{\rm qubits} = 5$ satisfies *neither*) is the **nearest** to the observed
 $v/E_P$ (a factor $2.08$, *just outside* the strict factor-2 window) — a
-*nearest* selection within a decade, not an independent confirmation.
+*nearest* selection within a decade, not an independent confirmation.  (This
+is the **hierarchy-exponent** scan $n = 1\ldots20$; it is **distinct** from the
+$g_{10}$ **coupling** scan $\alpha = 1/n^2$, $n = 2\ldots8$ of Section 15, whose
+data-optimal value is $n = 6$, not the root $n = 5$.)
 One loop count, one scale, two projections — the two 2-digit coefficients
 ($2.08$, $1.18$) are the only named content.
 in the algebra + 3 named**: the GUT couplings ($g_{10}=1/5$, $g_0=1/8$)
@@ -2004,6 +2073,56 @@ individual reductions, one electron at a time (the Tonomura experiment).
 The Young experiment is thereby a **measurement process** of the CL10 root,
 not a separate physical input.
 
+**Fig. 26 — the 3-D hydrogen atom driven by the CL10 photon: the cloud deforms, the photon is absorbed on resonance and re-radiated.**
+
+![The CL10 hydrogen: the 3-D electron cloud |psi|^2 (left) and its mid-plane cut (right), driven by a photon packet of the CL10 free massless field.](figures/fig26_hydrogen.png)
+
+The **3-D hydrogen atom** run on the CL10 **photon**: the same 6-neighbour discrete
+massless field that carries the graviton (Section 6) and that ran the Young
+double-slit of Fig. 25.  **Left:** the electron cloud $|\psi|^2$ as a 3-D volume with
+its isosurface — a **sphere** in the $1s$, a **two-lobe dumbbell** in the $2p$, a
+**doughnut** in the $3d$; the excitation **deforms the shape**, as it does in the real
+atom.  **Right:** the mid-plane cut of the same cloud.  The corner panel reads the
+live state: the level populations, the atom energy in eV, the excited fraction, the
+dipole $D$ and the photon frequency.
+
+**What is measured (V61, not asserted).**  **a)** The **levels are the real hydrogen
+ones**: the gaps come out $1s\to 2p = 10.204$ eV, $1s\to 3p = 12.094$ eV,
+$2p\to 3d = 1.890$ eV — the Rydberg differences to a relative error of $0$
+(0-parameter in the sense that **nothing is fitted to atomic data**).  **b)** The **E1
+selection rules emerge from the lattice wavefunctions**: the dipole matrix elements
+$\langle i | z | j \rangle$ are computed by summing the lattice eigenfunctions, and the
+forbidden pairs come out zero — $1s\to 3d$ ($\Delta l = 2$): $-6.8\times10^{-19}$,
+$2p\to 3p$ ($\Delta l = 0$): $8.6\times10^{-18}$ — against $9.93$, $-3.00$, $22.97$ for
+the allowed $1s\to 2p$, $1s\to 3p$, $2p\to 3d$.  The rule is **not imposed**, it is
+measured from the shapes.  **c)** The **excitation is not imposed**: the atom alone
+excites to $0$ (the baseline), a photon fired exactly at the $1s\to 2p$ gap is absorbed
+(the excited fraction rises to $0.42$), and the absorption **follows the line shape** —
+at fixed amplitude, width and duration the excited fraction falls monotonically with the
+detuning, $0.42$, $0.35$, $0.15$, $0.035$, $0.011$ for detunings of $0$, $0.063$, $0.125$,
+$0.25$, $0.50$ rad/step: a measured **suppression of 38** on-resonance over far-off-
+resonance.  **d)** The excited atom
+**radiates and decays** (Einstein A): with no incoming field the $2p$ population falls
+$1.000\to0.201$ while the $1s$ rises $0.000\to0.799$, and the emitted field is
+non-zero — the atom does not merely lose population, it **sources an outgoing wave**
+at the gap frequency (the natural line).
+
+**The honest provenance.**  The **atom is an input**: its levels and shapes are the
+real hydrogen eigenstates, **not** derived from the Cl(10) root.  What the root
+supplies is the **photon** — its propagation, its resonance with the atom, and its
+emission.  So this figure **demonstrates the photon sector**, it is **not** a
+0-parameter derivation of hydrogen.  The three coupling knobs ($A$, $h$,
+$\gamma_{\rm sp}$) are physical parameters of the atom and are **not** fitted to any
+measured number.  Two limits are stated rather than hidden: the off-resonant
+absorption is **not zero** (the Fermi-golden-rule rate carries a Lorentzian tail —
+real physics, measured in the detuning scan), and a photon packet **wider than the box
+never leaves it**: it becomes a persistent bath that drives the atom off resonance.
+Measured at a detuning of half the $1s\to 2p$ gap in a $120$-cell box, the off-resonant
+excited fraction grows with the packet width — $0.037$ at $12$ cells ($0.10$ of the box),
+$0.135$ at $24$ ($0.20$), $0.326$ at $48$ ($0.40$) — because the field stops leaving the
+atom's neighbourhood.  The figure uses a localised packet ($20$ cells in a $296$ box,
+$0.07$ of the box).
+
 ---
 
 ## References
@@ -2031,8 +2150,8 @@ not a separate physical input.
    theorem — the status of the lattice chirality, Section 12).
 10. S. A. Khlebnikov and M. E. Shaposhnikov, "The Statistical Theory of
     Anomalous Fermion Number Nonconservation in the Standard Model,"
-    *Phys. Lett. B* **357**, 113 (1995) (the 0-parameter sphaleron
-    conversion factor $28/79$, Section 12).
+    *Phys. Lett. B* **357**, 113 (1995) (the SM sphaleron
+    conversion factor $28/79$ — an input of the SM sector, Section 12).
 
 11. (Prior art — the **matter content** is not new to CL10.)  The
     identification of the **16 of $\mathrm{Spin}(10)$** as **one full SM

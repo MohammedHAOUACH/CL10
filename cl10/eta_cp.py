@@ -12,7 +12,11 @@ structure):
 
     \Delta B \;=\; \frac{28}{79}\;\varepsilon_{CP}\;D
 
-with $\frac{28}{79}$ = the **SM sphaleron** (a 0-parameter SM number),
+with $\frac{28}{79}$ = the **SM sphaleron** conversion — an **input of the SM
+sector** (it counts the SM left-handed degrees of freedom, $n_{\rm gen}
+$\times$ the $\mathrm{SU}(2)$ doublets), **not** a number of the Cl(10) root:
+it is 0-parameter **only conditional** on the full derivation of the SM
+content (V23, a named residual),
 $\varepsilon_{CP} = g_0^4/16\pi$ = the **1-loop CP-odd rate**
 ($g_0 = 1/8 = 1/2^3$, the 0-parameter GUT coupling -- its *reading* is the
 audit's mapping convention), and $D = (1/16\pi)^2$ = the **2-loop
@@ -49,7 +53,9 @@ from . import walls
 # the 0-parameter constants
 G0 = walls.G0                  # 1/8 (the 0-parameter GUT coupling)
 LOOP = 1.0 / (16.0 * np.pi)   # the 0-parameter 1-loop QFT factor
-SPHALERON = 28.0 / 79.0        # the 0-parameter SM sphaleron conversion
+SPHALERON = 28.0 / 79.0        # the SM sphaleron conversion: an input of the SM
+#                                sector (the LH d.o.f. count), NOT a root number;
+#                                0-parameter only conditional on V23 (named residual)
 DELTA_B_OBS = 6.1e-10          # the observed baryon asymmetry
 ETA_CP_V40 = 1.0e-3            # the V40 named value (the observed range 1e-3..1e-2)
 
@@ -65,14 +71,17 @@ def cp_odd_loop_factor():
 
 
 def eta_cp():
-    r"""The W5 result: the baryon asymmetry as a **product of 0-parameter
-    factors** (the physical GUT-leptogenesis structure).
+    r"""The W5 result: the baryon asymmetry as a **product of factors of three
+    provenances** — root / QFT / SM (the physical GUT-leptogenesis structure).
 
     $$\Delta B \;=\; \frac{28}{79}\;\varepsilon_{CP}\;D$$
 
-    with the **physical factors** (each 0-parameter: root / QFT / SM):
+    with the **physical factors** (three provenance classes, NOT all of the
+    root):
 
-    - $\frac{28}{79}$: the **SM sphaleron** conversion (from the SM gauge
+    - $\frac{28}{79}$: the **SM sphaleron** conversion — provenance **SM**
+      (an input of the SM sector: the left-handed d.o.f. count; it is a root
+      number only if the SM content is derived, V23 = named residual).  From the SM gauge
       group).
     - $\varepsilon_{CP} = g_0^4/(16\pi)$: the **1-loop CP-odd decay
       rate**.  $g_0 = 1/8 = 1/2^3$ (the 0-parameter GUT coupling, Theorem
@@ -95,7 +104,10 @@ def eta_cp():
 
     a **ratio 1.12** to the observed $6.1e-10$ (a **12%** match) -- the
     2-digit ratio is a **named residual** (read from the data), as is
-    the CP phase; the factors themselves are 0-parameter.
+    the CP phase.  The factors are 0-parameter in three **different** senses:
+    numbers of the root ($16\pi$, the loop counts), QFT loop factors
+    ($\varepsilon_{CP}$, $D$), or an **input of the SM sector** ($28/79$,
+    conditional on V23).
 
     Returns the physical structure, the $\Delta B$ match, and the V40
     comparison.
@@ -112,7 +124,8 @@ def eta_cp():
 
     one_line = (
         "the baryon asymmetry Delta_B = (28/79) x eps_CP x D is a product of "
-        "0-parameter FACTORS (28/79 the SM sphaleron; eps_CP = g_0^4/16pi the "
+        "FACTORS of three provenances (28/79 the SM sphaleron = an input of the "
+        "SM sector, a root number only conditional on V23; eps_CP = g_0^4/16pi the "
         "1-loop CP-odd rate, g_0 = 1/2^3 a mapping convention; D = (1/16pi)^2 "
         "the 2-loop dilution): 6.8e-10, ratio 1.12 to the observed 6.1e-10.  "
         "The 0-parameter QCA alone gives eps_CP = 0 (the CP-odd theorem); the "

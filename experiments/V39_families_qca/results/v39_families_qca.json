@@ -27,7 +27,8 @@
       "s23": 0.5000000000000001,
       "s13": 0.0
     },
+    "tribimaximal_diagonalizes_democratic": true,
     "residual": "the why-3 (W3) and the family mass hierarchy (the 10-Higgs breaking) are the named residuals"
   },
-  "wall_time": 0.029
+  "wall_time": 0.085
 }
