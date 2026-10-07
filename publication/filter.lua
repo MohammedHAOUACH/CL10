@@ -192,7 +192,13 @@ function Div(el)
         for _, cell in ipairs(cells) do
           local t = latex_of(inlines_of(cell.contents))
           if bold then t = '\\textbf{' .. t .. '}' end
-          table.insert(parts, t)
+          -- p{} cells are justified by default: in narrow columns LaTeX
+          -- stretches word spaces to the right margin ("étalé"). Force
+          -- ragged-right inside each cell (array package is unavailable
+          -- with revtex4-2, so wrap the content instead of the column).
+          -- The explicit \par is required: the cell's implicit \par fires
+          -- after the group closes, which would discard \raggedright.
+          table.insert(parts, '{\\raggedright ' .. t .. '\\par}')
         end
         return table.concat(parts, ' & ') .. ' \\\\ \\addlinespace[2pt]'
       end
