@@ -1,0 +1,99 @@
+{
+  "experiment": "V72_block_rg",
+  "pass": true,
+  "status": "THE MISSING TOOL BUILT AND RUN: exact real-space block-spin decimation of the bond layer (Schur complement at eps = 1; U_BB = 0 exactly on the open chain, so the short-distance propagation is integrated with NO approximation), iterated 5 levels, 64 -> 2 sites. Level-1 identity verified exactly: the on-site block of the coarse step is (return paths) x (G R)^2 - two-hop paths accumulate two internal rotations: the kinematic doubling of V69 DERIVED from a spatial RG. At deeper levels the on-site block is a positive path polynomial in (G R)^2; the dimensionless Cartan content decays polynomially with level (phase wrapping of the composed angle: ratio 0.14 at p = 5 against the loop target 3e-9) for the factorized layer, and does NOT decay at all for a non-factorized bond gate with [G,R] != 0 (ratio 1.8 at p = 5). NO level of either flow follows the (16 pi)^-p law. VERDICT: every exact single-particle RG of the QCA COMPOSES internal angles (they add on the algebra, weighted by path counts); none can DIVIDE them by a loop factor. The 1/(16 pi) needs a trace over FLUCTUATING internal fields: a block RG on the many-cell space with a dynamical Spin(10) link variable on the bond (a gauged bond layer). The tool is now fully specified and its single-particle impotence is proven, not assumed.",
+  "data": {
+    "factorized (R = I)": {
+      "commutator_G_R": 0.0,
+      "rows": [
+        {
+          "p": 1,
+          "L": 32,
+          "alpha_dir": 0.012707255100053593,
+          "ratio_to_level1": 1.0,
+          "level1_identity_dev": 8.082545620880531e-16,
+          "target_16pi_pow_p": 0.019894367886486918
+        },
+        {
+          "p": 2,
+          "L": 16,
+          "alpha_dir": 0.008211524547353804,
+          "ratio_to_level1": 0.6462075784816166,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 0.00039578587360288194
+        },
+        {
+          "p": 3,
+          "L": 8,
+          "alpha_dir": 0.007415292668054481,
+          "ratio_to_level1": 0.5835479503376939,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 7.873909773730346e-06
+        },
+        {
+          "p": 4,
+          "L": 4,
+          "alpha_dir": 0.004327413155948987,
+          "ratio_to_level1": 0.3405466500732118,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 1.5664645774359644e-07
+        },
+        {
+          "p": 5,
+          "L": 2,
+          "alpha_dir": 0.0017339914718919726,
+          "ratio_to_level1": 0.13645680819649708,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 3.116382258466135e-09
+        }
+      ],
+      "loop_factor_law_found": false
+    },
+    "non-factorized ([G,R] != 0)": {
+      "commutator_G_R": 0.049713023660055526,
+      "rows": [
+        {
+          "p": 1,
+          "L": 32,
+          "alpha_dir": 0.014768082993891624,
+          "ratio_to_level1": 1.0,
+          "level1_identity_dev": 7.850462293418876e-16,
+          "target_16pi_pow_p": 0.019894367886486918
+        },
+        {
+          "p": 2,
+          "L": 16,
+          "alpha_dir": 0.011734643623635183,
+          "ratio_to_level1": 0.7945949131304901,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 0.00039578587360288194
+        },
+        {
+          "p": 3,
+          "L": 8,
+          "alpha_dir": 0.018495551274504363,
+          "ratio_to_level1": 1.2524002798572094,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 7.873909773730346e-06
+        },
+        {
+          "p": 4,
+          "L": 4,
+          "alpha_dir": 0.024955535418154293,
+          "ratio_to_level1": 1.6898290339021256,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 1.5664645774359644e-07
+        },
+        {
+          "p": 5,
+          "L": 2,
+          "alpha_dir": 0.026951849650664956,
+          "ratio_to_level1": 1.8250066485821337,
+          "level1_identity_dev": null,
+          "target_16pi_pow_p": 3.116382258466135e-09
+        }
+      ],
+      "loop_factor_law_found": false
+    }
+  }
+}

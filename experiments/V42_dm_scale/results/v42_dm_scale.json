@@ -7,7 +7,7 @@
   "status": "the_dm_candidate_is_stable_massive_neutral_at_the_planck_scale_the_abundance_gap_is_quantified",
   "tol": 1e-06,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "ode_residual": 4.766645134157699e-10,
     "mass_energy_E": 1.3333305333439112,
     "non_dispersive": true,

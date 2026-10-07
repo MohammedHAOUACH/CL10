@@ -1,0 +1,81 @@
+{
+  "experiment": "V69_w8_tower",
+  "pass": true,
+  "status": "W8 AUDIT: the tower U^(2^p) is KINEMATIC (phases multiply by 2^p mod 2pi exactly); the effective coupling does NOT fall with p (no (16 pi)^-p law at any level), the inelastic probability saturates. The tower proves UV-finiteness but GENERATES NO LOOP FACTOR. The 1/(16 pi) of the ladder is not derivable from the implemented formalism; the named missing tool is a genuine lattice RG (block-spin integration of the bond layer coupling internal states to momentum shells).",
+  "data": {
+    "tower": [
+      {
+        "p": 1,
+        "alpha_p": 2.4674011002723466,
+        "ratio_to_alpha10": 1.0000000000000027,
+        "P_p": 0.9683617643154158,
+        "target_16pi_pow_p": 0.019894367886486918
+      },
+      {
+        "p": 2,
+        "alpha_p": 2.4674011002723395,
+        "ratio_to_alpha10": 0.9999999999999998,
+        "P_p": 0.9480945978284813,
+        "target_16pi_pow_p": 0.00039578587360288194
+      },
+      {
+        "p": 3,
+        "alpha_p": 2.4674011002723395,
+        "ratio_to_alpha10": 0.9999999999999998,
+        "P_p": 0.9292951930906169,
+        "target_16pi_pow_p": 7.873909773730346e-06
+      },
+      {
+        "p": 4,
+        "alpha_p": 2.467401100272341,
+        "ratio_to_alpha10": 1.0000000000000004,
+        "P_p": 0.9929527449459602,
+        "target_16pi_pow_p": 1.5664645774359644e-07
+      },
+      {
+        "p": 5,
+        "alpha_p": 2.467401100272345,
+        "ratio_to_alpha10": 1.000000000000002,
+        "P_p": 0.95267390241167,
+        "target_16pi_pow_p": 3.116382258466135e-09
+      },
+      {
+        "p": 6,
+        "alpha_p": 2.467401100272454,
+        "ratio_to_alpha10": 1.0000000000000462,
+        "P_p": 0.9696096368109076,
+        "target_16pi_pow_p": 6.199845512484625e-11
+      },
+      {
+        "p": 7,
+        "alpha_p": 2.4674011002721934,
+        "ratio_to_alpha10": 0.9999999999999406,
+        "P_p": 0.9818639934528451,
+        "target_16pi_pow_p": 1.2334200746475415e-12
+      },
+      {
+        "p": 8,
+        "alpha_p": 2.4674011002717324,
+        "ratio_to_alpha10": 0.9999999999997538,
+        "P_p": 0.9557465140240087,
+        "target_16pi_pow_p": 2.4538112723616348e-14
+      },
+      {
+        "p": 9,
+        "alpha_p": 2.4674011002729848,
+        "ratio_to_alpha10": 1.0000000000002613,
+        "P_p": 0.9841780062959213,
+        "target_16pi_pow_p": 4.881702417637091e-16
+      },
+      {
+        "p": 10,
+        "alpha_p": 2.46740110027258,
+        "ratio_to_alpha10": 1.0000000000000975,
+        "P_p": 0.9769702914274909,
+        "target_16pi_pow_p": 9.711838380882489e-18
+      }
+    ],
+    "kinematic_verified": true,
+    "suppression_found": false
+  }
+}

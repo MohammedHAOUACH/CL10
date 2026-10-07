@@ -7,7 +7,7 @@
   "status": "the_w1_cancellation_and_the_hierarchy_value_the_derivations_are_the_named_residuals",
   "tol": 1e-09,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "n_even": 512,
     "n_odd": 512,
     "cancellation": true,

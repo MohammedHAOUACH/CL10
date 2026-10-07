@@ -13,13 +13,13 @@ of the ``kingdon`` Clifford-algebra library):
 
 **Point 1 — "0-parameter is partly conventional".**
 Every "0-parameter" number is **reclassified** into its true provenance
-(``provenance_table``), the audit's **$7+1+2+1+4$** split: **algebraic
+(``provenance_table``), the audit's **$7+1+1+2+4$** split: **algebraic
 0-param** (a property of the ``Cl(10)`` root: the 16/16-bar, the 45, the
 5/3, the anomalies, the 32-level spectrum, ``det U = 1``, the **16/16-bar
 spectral mirror**), **free 1-param** (the **one** free 't Hooft angle
 ``g_10 = 1/5`` — ``g10_status`` shows it is **not** fixed by the
 UV-finiteness / 2-loop Landau-pole condition, which lies below ``M_P`` for
-**every** ``g_10``), **convention** (``g_0 = 1/8`` and ``M_GUT = M_P`` —
+**every** ``g_10``), **convention** (``g_0 = 1/8`` —
 mapping / scale-identification choices, not predictions), **coincidence**
 (the ``v/E_P = 2.02e-17`` 0.18% match), and **named residual** (``eta_CP``,
 ``Lambda_obs``, the sub-Planck DM scale, the exact ``m_nu``).
@@ -103,14 +103,15 @@ def main():
         "residual": True,
         "pass": ok,
         "status": ("the_honest_parameter_audit: the '0-parameter' label is reclassified "
-                  "(the 7+1+2+1+4 split: algebraic 0-param / free 1-param / convention / "
+                  "(the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / "
                   "coincidence / named residual); the 0-parameter CP-odd invariants all "
                   "vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT "
                   "generate the baryon asymmetry - a theorem); the 16/16-bar spectra are "
                   "exact CPT mirrors (antimatter = time-reversed matter; holds for ALL "
-                  "g_10); g_10 is the one free 't Hooft angle (g_0 and "
-                  "M_GUT=M_P are conventions); the hierarchy exponent and the DM scale are "
-                  "NOT in the 0-parameter single-step spectrum (quantified residuals W8/W7)"),
+                  "g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a "
+                  "convention and M_GUT=M_P is abandoned by V64; the hierarchy "
+                  "exponent and the DM scale are NOT in the 0-parameter "
+                  "single-step spectrum (quantified residuals W8/W7)"),
         "tol": TOL,
         "data": {
             "backend": r["backend"],

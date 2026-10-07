@@ -1,0 +1,47 @@
+{
+  "experiment": "V73_bond_gate_loophole",
+  "pass": true,
+  "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. W8's missing tool is uniquely specified.",
+  "data": {
+    "random Spin(10) #1": {
+      "ratios": [
+        1.0,
+        1.012159915623919,
+        0.6044852807274022,
+        0.4608567235248497,
+        0.4662599534000083
+      ],
+      "loop_law_found": false
+    },
+    "random Spin(10) #2": {
+      "ratios": [
+        1.0,
+        0.9188716194598165,
+        0.5743382137505415,
+        0.7430521981978845,
+        0.48635390494686825
+      ],
+      "loop_law_found": false
+    },
+    "random Spin(10) #3": {
+      "ratios": [
+        1.0,
+        0.5470323756969496,
+        0.5087535735085349,
+        0.6904718756643471,
+        0.3139522436856825
+      ],
+      "loop_law_found": false
+    },
+    "R = G^dagger (inverse reverse hop)": {
+      "ratios": [
+        1.0,
+        0.6462075784816157,
+        0.5835479503376941,
+        0.3405466500732136,
+        0.1364568081964964
+      ],
+      "loop_law_found": false
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "experiment": "V66_dm_identity",
+  "pass": true,
+  "status": "W7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
+  "data": {
+    "mirror_Z2_leak": 1.04281487771315e-15,
+    "weights_conjugate": true,
+    "mirror_masses_equal": true,
+    "candidates": [
+      {
+        "name": "nu (ladder)",
+        "mass_GeV": 0.146,
+        "neutral": true,
+        "stable": "yes (lepton number)",
+        "verdict": "EXCLUDED: hot, sum m_nu < 0.12 eV"
+      },
+      {
+        "name": "desert fragments (V65)",
+        "mass_GeV": 133381456.37117833,
+        "neutral": false,
+        "stable": "no (chiral, decays)",
+        "verdict": "not DM: colored/chiral"
+      },
+      {
+        "name": "mirror Q-bar doubler",
+        "mass_GeV": 133381456.37117833,
+        "neutral": false,
+        "stable": "EXACT (16-bar Z2)",
+        "verdict": "EXCLUDED: stable COLORED relic"
+      },
+      {
+        "name": "mirror N-bar doubler",
+        "mass_GeV": 20302874503.446278,
+        "neutral": true,
+        "stable": "EXACT (16-bar Z2)",
+        "verdict": "viable ONLY if heavier than every other mirror state - NOT the case at the V65 root"
+      },
+      {
+        "name": "domain wall / Planck soliton (classical)",
+        "mass_GeV": 1.22e+19,
+        "neutral": true,
+        "stable": "classical",
+        "verdict": "EXCLUDED: Planck tension, overcloses"
+      }
+    ],
+    "sigma_v_est_GeV2": 1.8606973436223958e-56,
+    "omega_overclosure_factor": 1.612298749327828e+30
+  }
+}

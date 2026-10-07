@@ -493,9 +493,10 @@ def fig12_audit():
         ("free 1-param", c["free_1param"], C_GUT,
          r"$g_{10}=1/5$ (the one free 't Hooft angle; not UV-fixed)"),
         ("convention", c["convention"], C_SU2,
-         r"$g_0=1/8$ ($1/2^{n_{\rm space}}$ mapping); $M_{\rm GUT}=M_P$ (scale ID)"),
+         r"$g_0=1/8$ ($1/2^{n_{\rm space}}$ mapping)"),
         ("coincidence", c["coincidence"], C_ZERO,
-         r"$v/E_P = 2.02\times10^{-17}$ (the 2-digit 0.18% match)"),
+         r"$v/E_P = 2.02\times10^{-17}$ (the 2-digit 0.18% match); the desert "
+         r"thresholds $M_{10}, M_{(1,2)}$ (V64)"),
         ("named residual", c["named_residual"], "#7f7f7f",
          r"$\eta_{CP}$, $\Lambda_{\rm obs}$, the sub-Planck DM scale, the exact $m_\nu$"),
     ]
@@ -1354,6 +1355,153 @@ def fig25_young():
     _save(fig, "fig25_young.png")
 
 
+
+# ===========================================================================
+# Figure 27 — the desert solution: unification at the root value (V64)
+# ===========================================================================
+def fig27_desert():
+    import json
+    from cl10 import unification as u
+
+    with open(os.path.join(ROOT, "experiments", "V64_desert",
+                           "results", "v64_desert.json")) as f:
+        sel = json.load(f)["data"]["selected"]
+    MZ, MP, A10 = u.M_Z, u.M_P, u.ALPHA_10
+    M_X, M_A, M_B = sel["M_X_GeV"], sel["M_A_GeV"], sel["M_B_GeV"]
+    d10 = (6.0 / 5.0, 2.0, 2.0)          # one Dirac 10+10bar pair
+    d2 = (2.0 / 5.0, 2.0 / 3.0, 0.0)     # one Dirac (1,2)+(3bar,1)... (1,2) pair
+    n10 = 3
+    cols = [C_GUT, C_SU2, C_SU3]
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.5, 4.8),
+                                   gridspec_kw={"width_ratios": [1.45, 1.0]})
+    # (a) piecewise 1-loop running with the desert content vs SM-only
+    s = np.logspace(np.log10(MZ), np.log10(MP), 400)
+    L0 = np.log(np.maximum(s, MZ) / MZ)
+    LA = np.maximum(0.0, np.log(np.maximum(s, M_A) / M_A))
+    LB = np.maximum(0.0, np.log(np.maximum(s, M_B) / M_B))
+    for k in range(3):
+        sm = 1.0 / u.A_Z[k] - (u.B_SM[k] / (2.0 * np.pi)) * L0
+        axA.plot(np.log10(s), sm, color=cols[k], lw=1.0, ls="--", alpha=0.5)
+        ds = 1.0 / u.A_Z[k] - (1.0 / (2.0 * np.pi)) * (
+            u.B_SM[k] * L0 + n10 * d10[k] * LA + d2[k] * LB)
+        axA.plot(np.log10(s), ds, color=cols[k], lw=2.2)
+    axA.axhline(1.0 / A10, color=C_ZERO, ls="--", lw=1.4,
+                label=r"root value  $1/\alpha_X = 25$  (not refitted)")
+    axA.plot([np.log10(M_X)], [25.0], marker="*", ms=16, color=C_ROOT,
+             mec="k", mew=0.8, ls="none",
+             label=rf"meeting:  $M_X = {M_X:.1e}$ GeV")
+    for Mv, lab in ((M_A, rf"$M_{{10}} = {M_A:.1e}$"),
+                    (M_B, rf"$M_{{(1,2)}} = {M_B:.1e}$")):
+        axA.axvline(np.log10(Mv), color="0.45", ls=":", lw=1.2)
+        axA.text(np.log10(Mv) + 0.12, 55.5, lab, fontsize=7.5, color="0.35",
+                 rotation=90, va="top")
+    axA.axvline(np.log10(M_X), color=C_ROOT, ls="-", lw=1.0, alpha=0.6)
+    axA.axvline(np.log10(MP), color="0.2", ls="--", lw=1.4)
+    axA.text(np.log10(MP) - 0.15, 12.5, r"$M_{\rm GUT} = M_P$  abandoned",
+             fontsize=8, color="0.25", rotation=90, ha="right", va="bottom")
+    axA.set_xlabel(r"$\log_{10}(M/\mathrm{GeV})$")
+    axA.set_ylabel(r"$1/\alpha_i$  (1-loop, piecewise $\beta$)")
+    axA.set_xlim(np.log10(MZ) - 0.1, np.log10(MP) + 0.3)
+    axA.set_ylim(5, 62)
+    axA.set_title("(a)  desert content (solid) meets at $\\alpha_X = 1/25$;  "
+                  "SM-only (dashed) misses", fontsize=9.5)
+    axA.legend(fontsize=8, loc="upper right", framealpha=0.95)
+    # (b) proton lifetime: the desert point vs the bound and the old point
+    Ms = np.logspace(14, 19, 200)
+    ltau = np.log10(sel["tau_p_yr"]) + 4.0 * (np.log10(Ms) - np.log10(M_X))
+    axB.semilogy(Ms, 10.0 ** ltau, color=C_ROOT, lw=2.0,
+                 label=r"$\tau_p \propto M_X^4/\alpha_X^2$")
+    axB.axhline(2.4e34, color="k", lw=1.2, ls="--",
+                label="Super-K bound  $2.4\\times10^{34}$ yr")
+    axB.axhspan(1e35, 4e35, color=C_SU2, alpha=0.18)
+    axB.text(1.1e14, 1.4e35, "Hyper-K reach", fontsize=8, color="0.45")
+    axB.plot([M_X], [sel["tau_p_yr"]], marker="*", ms=16, color=C_ROOT,
+             mec="k", mew=0.8, ls="none")
+    axB.annotate(rf"CL10 desert:  $\tau_p = {sel['tau_p_yr']:.1e}$ yr",
+                 (M_X, sel["tau_p_yr"]), xytext=(-10, 18),
+                 textcoords="offset points", fontsize=8.5, color=C_ROOT,
+                 ha="right")
+    axB.plot([MP], [4e47], marker="o", ms=7, mfc="none", mec="0.4", ls="none",
+             label=r"$M_{\rm GUT} = M_P$  (abandoned)")
+    axB.set_xscale("log")
+    axB.set_xlabel(r"$M_X$  (GeV)")
+    axB.set_ylabel(r"$\tau_p$  (yr)")
+    axB.set_ylim(1e33, 3e48)
+    axB.set_title("(b)  the desert point sits $75\\times$ above the bound — "
+                  "F5 is live", fontsize=9.5)
+    axB.legend(fontsize=8, loc="upper left", framealpha=0.95)
+    fig.suptitle("The desert solution (V64):  three $\\mathbf{10}\\oplus"
+                 "\\overline{\\mathbf{10}}$ pairs + one $(1,2)$ pair unify at "
+                 "the root value", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.94])
+    _save(fig, "fig27_desert_unification.png")
+
+
+def fig28_wilson():
+    import json
+    from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+    from cl10 import brillouin as BR
+
+    with open(os.path.join(ROOT, "experiments", "V65_wilson",
+                           "results", "v65_wilson.json")) as f:
+        v65 = json.load(f)["data"]
+    gg = next(r for r in v65["part_B"].values()
+              if r["su5"] == "Georgi-Glashow")
+    root = next(r for r in gg["selective_roots"] if r["physical"])
+
+    fig = plt.figure(figsize=(12.5, 4.9))
+    axA = fig.add_subplot(1, 2, 1, projection="3d")
+    fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
+    split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
+             (0.0, np.pi / 2, np.pi / 2)}
+    for q in BR.DOUBLERS:
+        axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
+        col = fam_col[["x", "y", "z"][axis]]
+        is_split = tuple(abs(v) for v in q) in split
+        axA.scatter(*q, s=190 if is_split else 90, c=[col],
+                    edgecolors="black" if is_split else "none",
+                    linewidths=1.2, depthshade=False)
+    axA.set_xlim(-np.pi, np.pi)
+    axA.set_ylim(-np.pi, np.pi)
+    axA.set_zlim(-np.pi, np.pi)
+    axA.set_xlabel("qx")
+    axA.set_ylabel("qy")
+    axA.set_zlabel("qz")
+    axA.set_xticks([-np.pi / 2, 0, np.pi / 2])
+    axA.set_yticks([-np.pi / 2, 0, np.pi / 2])
+    axA.set_zticks([-np.pi / 2, 0, np.pi / 2])
+    axA.set_title("(a)  12 doubler nodes = 3 axis families of 4;\n"
+                  "    black: one split node per family (V65/V70)",
+                  fontsize=9.5)
+
+    axB = fig.add_subplot(1, 2, 2)
+    ths = root["thresholds_GeV"]
+    labels = list(ths)
+    vals = [ths[k] for k in labels]
+    ypos = np.arange(len(labels))
+    axB.barh(ypos, vals, color=C_ROOT, alpha=0.85, height=0.6)
+    axB.set_yticks(ypos)
+    axB.set_yticklabels([f"$f$ = {k}" for k in labels], fontsize=8.5)
+    axB.set_xscale("log")
+    axB.set_xlim(1e6, 1e19)
+    axB.axvline(root["M_X_GeV"], color=C_ZERO, lw=2.0,
+                label=f"Wilson root meeting $M_X$ = "
+                      f"{root['M_X_GeV']:.1e} GeV (excluded, F5)")
+    axB.axvline(1.8e16, color="0.35", lw=1.6, ls="--",
+                label="data-preferred $M_X$ = $1.8\\times10^{16}$ GeV (V64)")
+    axB.set_xlabel("fragment mass [GeV]")
+    axB.set_title(f"(b)  the six thresholds of the 3 split nodes\n"
+                  f"     ($\\theta$ = {root['theta_rad']:.3f}, "
+                  f"$w$ = {root['w']:.2e}): scale excluded", fontsize=9.5)
+    axB.legend(fontsize=8, loc="lower right", framealpha=0.95)
+    fig.suptitle("The internal Wilson factor (V65): pattern predicted, "
+                 "scale falsified", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig28_wilson_mechanism.png")
+
+
+
+
 def main(with_young=False):
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -1380,9 +1528,11 @@ def main(with_young=False):
     fig22_proton_channels()
     fig23_qca_wave()
     fig24_gravity_3d()
+    fig27_desert()
+    fig28_wilson()
     if with_young:
         fig25_young()
-    print(f"done: {25 if with_young else 24} figures.")
+    print(f"done: {27 if with_young else 26} figures.")
 
 
 if __name__ == "__main__":

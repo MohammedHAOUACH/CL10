@@ -45,11 +45,14 @@ once the source was fixed.
 1. **Coupling values fail the down-running** (Sec. 11.1). With
    $\alpha_{10}=1/25$ at $M_P$ and the SM one-loop $\beta$-functions,
    $\alpha_2(M_Z)$ lands $5.8\times$ above its measured value and
-   $\alpha_3$ hits a Landau pole at $2.2\times10^9$ GeV. The paper states
-   this; a referee will not accept a GUT claim whose single coupling cannot
-   reproduce the measured IR values. Needs either a two-loop + threshold
-   computation or an explicit statement that the SM field content between
-   $M_Z$ and $M_X$ is wrong.
+   $\alpha_3$ hits a Landau pole at $2.2\times10^9$ GeV. **RESOLVED
+   conditionally (2026-10-07, V64):** the SM field content between $M_Z$ and
+   $M_X$ IS wrong — with the theory's own vectorlike remnant matter (three
+   $10\oplus\overline{10}$ pairs at $1.2\times10^7$ GeV + one $(1,2)$ pair at
+   $1.0\times10^{12}$ GeV) the measured couplings meet at $\alpha_X=1/25$
+   **exactly** at $M_X=1.8\times10^{16}$ GeV; the spectrum is inferred, not
+   derived, and $M_{\rm GUT}=M_P$ is abandoned ($\tau_p=1.8\times10^{36}$ yr,
+   F5). The paper now states the repair and its cost (Sec. 11.1, W4, F2/F5).
 2. **Neutrino mass** (Sec. 12.2): $m_\nu=0.146$ eV vs $\Delta m_{31}^2$
    $\Rightarrow 0.050$ eV and $\sum m_\nu<0.12$ eV. 2.9× above the oscillation
    value; the paper already classifies the exact mass as W7.
@@ -91,9 +94,9 @@ does the same at the pandoc-AST level).
 - [x] Tables typeset with content-proportional column widths, `\scriptsize`
       when a cell would otherwise wrap into a tower, `\tabcolsep` tightened for
       4-column tables, no overfull boxes (see `column_widths`)
-- [x] Verification suite: 64 experiments validated on the GPU by the author;
-      the numpy-backend run reached 63/64 (V62 needs `matplotlib`, i.e. run the
-      suite with `.venv/bin/python`)
+- [x] Verification suite: 65 experiments validated on the GPU by the author
+      (65/65 PASS, 2026-10-07, cupy backend, incl. V62 production 296³ and
+      V64 desert); the numpy-backend run passes 64/65 (V62 needs the GPU)
 - [x] Cover letter, journal order, arXiv listing, suggested referees:
       were in `livrable/cover_letter.md` (removed with the old build; rewrite
       against the current `publication/publication.pdf` before submission)

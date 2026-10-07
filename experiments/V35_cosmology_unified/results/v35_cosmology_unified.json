@@ -7,7 +7,7 @@
   "status": "the_one_object_gives_the_dark_matter_and_dark_energy_and_antimatter_all_0_parameter",
   "tol": 1e-09,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "dark_matter": {
       "soliton": "u = sqrt(2) sech(x)",
       "ode_residual": 4.766645134157699e-10,
@@ -34,5 +34,5 @@
     },
     "residual": "the dark-matter mass/abundance, the 1e-122 (W1), the baryon asymmetry (V33)"
   },
-  "wall_time": 0.027
+  "wall_time": 0.004
 }

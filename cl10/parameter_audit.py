@@ -614,8 +614,11 @@ def provenance_table():
          "the **one** free 't Hooft angle; 1/n_qubits is a mapping choice"),
         ("g_0 = 1/8 (the Dirac coupling)", "0.125", "convention",
          "1/2^n_space; the mapping the theory calls 'derived' (a convention)"),
-        ("M_GUT = M_P", "1.22e19 GeV", "convention",
-         "identifying the GUT scale with the Planck cutoff"),
+        ("the desert thresholds (V64)", "1.2e7, 1.0e12 GeV", "coincidence",
+         "the two vectorlike thresholds that make the measured couplings meet "
+         "at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, "
+         "M_X = 1.8e16 GeV); inferred from the couplings, not derived; the "
+         "convention M_GUT = M_P is abandoned by this solution (W4, V64)"),
         ("v/E_P = 2.02e-17 (0.18% match)", "2.02e-17", "coincidence",
          "the **2-digit coefficient** (the 0.18% match) is a coincidence; the "
          "**exponent** -17 has a 0-parameter 10-loop representation, "

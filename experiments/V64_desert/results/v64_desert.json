@@ -1,0 +1,297 @@
+{
+  "experiment": "V64_desert",
+  "pass": true,
+  "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p is predicted near experimental reach",
+  "data": {
+    "alpha_X_fixed": 0.04,
+    "required_delta_b_family": [
+      {
+        "M_X_GeV": 100000000000000.0,
+        "delta_b": [
+          3.645,
+          4.206,
+          3.255
+        ]
+      },
+      {
+        "M_X_GeV": 1000000000000000.0,
+        "delta_b": [
+          3.051,
+          4.126,
+          3.542
+        ]
+      },
+      {
+        "M_X_GeV": 2000000000000000.0,
+        "delta_b": [
+          2.889,
+          4.105,
+          3.62
+        ]
+      },
+      {
+        "M_X_GeV": 1e+16,
+        "delta_b": [
+          2.541,
+          4.058,
+          3.788
+        ]
+      },
+      {
+        "M_X_GeV": 2e+16,
+        "delta_b": [
+          2.402,
+          4.039,
+          3.856
+        ]
+      },
+      {
+        "M_X_GeV": 5e+16,
+        "delta_b": [
+          2.226,
+          4.016,
+          3.941
+        ]
+      },
+      {
+        "M_X_GeV": 1e+17,
+        "delta_b": [
+          2.1,
+          3.999,
+          4.002
+        ]
+      },
+      {
+        "M_X_GeV": 1e+18,
+        "delta_b": [
+          1.713,
+          3.947,
+          4.189
+        ]
+      }
+    ],
+    "proportional_shift_nogo": {
+      "complete_16_shifts_are_proportional": true,
+      "no_meeting_for_any_complete_multiplet_count": true
+    },
+    "solutions": [
+      {
+        "content": "3x10+10bar + 1x(1,2)",
+        "delta_b": [
+          4.0,
+          6.667,
+          6.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 1.776711878020483e+16,
+        "M_A_GeV": 12417197.859403372,
+        "M_B_GeV": 1009220221584.5132,
+        "alpha_X": 0.04,
+        "tau_p_yr": 1.7887709449479684e+36,
+        "su3_down_pole_GeV": 1.073493239382037e-52,
+        "tau_p_in_HK_reach": true
+      },
+      {
+        "content": "3x10+10bar + 2x(1,2)",
+        "delta_b": [
+          4.4,
+          7.333,
+          6.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 1.776711878020483e+16,
+        "M_A_GeV": 12417197.859403372,
+        "M_B_GeV": 133906443281409.19,
+        "alpha_X": 0.04,
+        "tau_p_yr": 1.7887709449479684e+36,
+        "su3_down_pole_GeV": 1.073493239382037e-52,
+        "tau_p_in_HK_reach": true
+      },
+      {
+        "content": "3x10+10bar + 3x(1,2)",
+        "delta_b": [
+          4.8,
+          8.0,
+          6.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 1.7767118780204956e+16,
+        "M_A_GeV": 12417197.85940335,
+        "M_B_GeV": 682977901441723.5,
+        "alpha_X": 0.04,
+        "tau_p_yr": 1.7887709449480192e+36,
+        "su3_down_pole_GeV": 1.0734932393820445e-52,
+        "tau_p_in_HK_reach": true
+      },
+      {
+        "content": "3x10+10bar + 1x(3,1)",
+        "delta_b": [
+          3.867,
+          6.0,
+          6.667
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 2.511336050206477e+16,
+        "M_A_GeV": 4934646.734397736,
+        "M_B_GeV": 6.044785549582362e+19,
+        "alpha_X": 0.04,
+        "tau_p_yr": 7.140128582633204e+36,
+        "su3_down_pole_GeV": 5.5392600549817445e-189,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 3x(3,1)",
+        "delta_b": [
+          4.4,
+          6.0,
+          8.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 2.511336050206477e+16,
+        "M_A_GeV": 4934646.73439771,
+        "M_B_GeV": 3.365607912286234e+17,
+        "alpha_X": 0.04,
+        "tau_p_yr": 7.140128582633204e+36,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 2x(3,1)",
+        "delta_b": [
+          4.133,
+          6.0,
+          7.333
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 2.5113360502064944e+16,
+        "M_A_GeV": 4934646.73439771,
+        "M_B_GeV": 1.2320912249681116e+18,
+        "alpha_X": 0.04,
+        "tau_p_yr": 7.140128582633404e+36,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 1x(3,2)",
+        "delta_b": [
+          3.733,
+          8.0,
+          7.333
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 31504269.706294514,
+        "M_B_GeV": 333711681395360.8,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 1x(3b,1)",
+        "delta_b": [
+          4.667,
+          6.0,
+          6.667
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 6288399.447239182,
+        "M_B_GeV": 5.27651509289831e+18,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": 9.255635020892482e-189,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 2x(3,2)",
+        "delta_b": [
+          3.867,
+          10.0,
+          8.667
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 31504269.70629468,
+        "M_B_GeV": 3742099690664605.0,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 2x(3b,1)",
+        "delta_b": [
+          5.733,
+          6.0,
+          7.333
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 6288399.44723917,
+        "M_B_GeV": 4.705472513070303e+17,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x10+10bar + 3x(3,2)",
+        "delta_b": [
+          4.0,
+          12.0,
+          10.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 31504269.706294514,
+        "M_B_GeV": 8375871405617740.0,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": null,
+        "tau_p_in_HK_reach": false
+      },
+      {
+        "content": "3x(3,2) + 3x(3b,1)",
+        "delta_b": [
+          3.6,
+          6.0,
+          6.0
+        ],
+        "cl10_realizable": true,
+        "M_X_GeV": 4.1962301218583016e+16,
+        "M_A_GeV": 6288399.44723917,
+        "M_B_GeV": 31504269.706294738,
+        "alpha_X": 0.04,
+        "tau_p_yr": 5.565752584561138e+37,
+        "su3_down_pole_GeV": 2.5353715041996334e-52,
+        "tau_p_in_HK_reach": false
+      }
+    ],
+    "selected": {
+      "content": "3x10+10bar + 1x(1,2)",
+      "delta_b": [
+        4.0,
+        6.667,
+        6.0
+      ],
+      "cl10_realizable": true,
+      "M_X_GeV": 1.776711878020483e+16,
+      "M_A_GeV": 12417197.859403372,
+      "M_B_GeV": 1009220221584.5132,
+      "alpha_X": 0.04,
+      "tau_p_yr": 1.7887709449479684e+36,
+      "su3_down_pole_GeV": 1.073493239382037e-52,
+      "tau_p_in_HK_reach": true
+    },
+    "old_failure": {
+      "ratio_to_measured": [
+        1.1663410603904714,
+        5.772644406816298,
+        -0.44758914080013096
+      ],
+      "su3_down_pole_GeV": 2191868251.5164537
+    },
+    "residual": "the desert spectrum is REQUIRED by the couplings but not yet DERIVED from the automaton (breaking sector, W6); F2: precision couplings admit no content with alpha_X = 1/25; F5: proton decay at tau_p outside the predicted band refutes the solution"
+  }
+}
