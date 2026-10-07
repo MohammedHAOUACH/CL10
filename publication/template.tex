@@ -1,8 +1,21 @@
 \documentclass[aps,prd,twocolumn,amsmath,amssymb,superscriptaddress,nofootinbib,floatfix]{revtex4-2}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
+\usepackage{xcolor}
+\newcommand{\grayhline}{\noalign{\vskip1pt{\color{black!30}\hrule height 0.3pt}\color{black}\vskip3pt}}
 \usepackage[hidelinks]{hyperref}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% keep floats close to their first citation
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{6}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dblfloatpagefraction}{0.75}
 \begin{document}
 \title{$title$}
 \author{Mohammed Haouach}

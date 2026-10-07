@@ -1,8 +1,21 @@
 \documentclass[aps,prd,twocolumn,amsmath,amssymb,superscriptaddress,nofootinbib,floatfix]{revtex4-2}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage{booktabs}
+\usepackage{xcolor}
+\newcommand{\grayhline}{\noalign{\vskip1pt{\color{black!30}\hrule height 0.3pt}\color{black}\vskip3pt}}
 \usepackage[hidelinks]{hyperref}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% keep floats close to their first citation
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{6}
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.75}
+\renewcommand{\dblfloatpagefraction}{0.75}
 \begin{document}
 \title{Causal Clifford Theory (CL10): the Standard Model and gravity
 from a single Clifford root on a Planck-lattice quantum cellular
@@ -115,24 +128,30 @@ verdict on each.
 \caption{\textbf{The seven criteria against which the paper judges itself.}}
 \label{tabx1}
 \footnotesize
-\begin{tabular}{@{}p{0.067\textwidth}p{0.325\textwidth}p{0.578\textwidth}@{}}
+\begin{tabular}{@{}p{0.126\textwidth}p{0.306\textwidth}p{0.538\textwidth}@{}}
 \toprule
 \textbf{criterion} & \textbf{requirement} & \textbf{verdict here} \\ \addlinespace[2pt] \midrule
 \textbf{one object} & a single algebraic object, no added fields or structure & met for the internal space; the gravitational sector adds a symmetric
 tensor field \(g_{\mu\nu}(x)\) and the value \(G = 1\) (Section 9) \\ \addlinespace[2pt]
+\grayhline
 \textbf{kinematics} & spacetime, matter content, gauge group and statistics follow by
 representation theory & met (Sections 3--6) \\ \addlinespace[2pt]
+\grayhline
 \textbf{dynamics} & the object yields a unitary, causal evolution & met (Section 8: exactly unitary, \(\det U = 1\), measured front speed
 \(= 1\)) \\ \addlinespace[2pt]
+\grayhline
 \textbf{unification} & matter, gauge and gravity live in the same object, not glued from
 separate pieces & partial: matter and gauge are the same module and the same 45; gravity
 is the metric dynamics of a subalgebra of that module, with an added
 field \\ \addlinespace[2pt]
+\grayhline
 \textbf{consistency} & anomaly-free, unitary, causal, UV-bounded & met (Theorem 2, Theorem 5, the bounded 32-level spectrum, the bounded
 \(S^{(n)}\)); the doubler spectrum of Proposition 2 is a separate, named
 failure (W9) \\ \addlinespace[2pt]
+\grayhline
 \textbf{parameters} & every physical number fixed by the object, no fit & \textbf{not met}: one free 't Hooft angle, three conventions, three
 fitted coefficients (Table~\ref{tab:5}) \\ \addlinespace[2pt]
+\grayhline
 \textbf{falsifiability} & testable predictions, and the open problems named rather than hidden & met (Tables 4, 6, 7) \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
@@ -164,7 +183,12 @@ lattice of spacing \(\ell_P\) and time step \(t_P\). Each cell carries a
 copy of the Clifford algebra \(\mathrm{Cl}(10,0)\): ten mutually
 anticommuting Hermitian generators}
 
-\[h_a^\dagger = h_a,\qquad h_a^2 = I,\qquad \{h_a,h_b\} = 0 \quad (a\ne b),\qquad a,b = 1,\dots,10.\]
+\begin{multline}
+    h_a^\dagger = h_a,\qquad \\
+    h_a^2 = I,\qquad \\
+    \{h_a,h_b\} = 0 \quad (a\ne b),\qquad \\
+    a,b = 1,\dots,10.
+\end{multline}
 
 \emph{The state of the universe is a tensor product of the
 32-dimensional complex modules of these algebras, and the dynamics is a
@@ -302,12 +326,18 @@ mixed anomaly coefficients of the 16 vanish.}
 \toprule
 \textbf{coefficient} & \textbf{contribution of the 16} & \textbf{value} \\ \addlinespace[2pt] \midrule
 \([\mathrm{SU}(3)]^3\) & \(2A(\mathbf 3) + A(\bar{\mathbf 3}) + A(\bar{\mathbf 3}) = 1 - \tfrac12 - \tfrac12\) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \([\mathrm{SU}(2)]^3\) & \(A(\mathbf 2) = 0\) identically (\(d^{abc}=0\); the fundamental is
 pseudo-real) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \([\mathrm{U}(1)]^3\) & \(6(\tfrac16)^3 + 3(-\tfrac23)^3 + 3(\tfrac13)^3 + 2(-\tfrac12)^3 + 1(1)^3 = \tfrac1{36}-\tfrac89+\tfrac19-\tfrac14+1\) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \(\mathrm{U}(1)[\mathrm{SU}(3)]^2\) & \(\tfrac16\cdot\tfrac12\cdot 2 + (-\tfrac23)\cdot\tfrac12 + \tfrac13\cdot\tfrac12 = \tfrac16-\tfrac13+\tfrac16\) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \(\mathrm{U}(1)[\mathrm{SU}(2)]^2\) & \(\tfrac16\cdot\tfrac12\cdot 3 - \tfrac12\cdot\tfrac12 = \tfrac14-\tfrac14\) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \([\mathrm{grav}]^2\mathrm{U}(1)\) & \(\sum Y = 1 - 2 + 1 - 1 + 1\) & \(0\) \\ \addlinespace[2pt]
+\grayhline
 \([\mathrm{grav}]^2\mathrm{SU}(3)\), \([\mathrm{grav}]^2\mathrm{SU}(2)\) & traceless generators & \(0\) \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
@@ -324,7 +354,7 @@ This is the hardest consistency condition a chiral gauge theory has, and
 it is satisfied identically by the module content. It is the strongest
 single result in the paper (Fig.~\ref{fig:9}, Fig.~\ref{fig:15}).
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig15_matter_content.png}
 \caption{\textbf{the matter content of the 16.} The six left-handed Weyl fields
@@ -334,7 +364,7 @@ of one generation in the
 \label{fig:15}
 \end{figure*}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig9_anomaly_free.png}
 \caption{\textbf{anomaly cancellation.} The six fields' \(nY^3\) contributions to
@@ -429,7 +459,7 @@ the single-electron double-slit simulation (Fig.~\ref{fig:25})
 \(|\psi|^2\); the accumulated clicks reconstruct the fringe pattern, one
 electron at a time.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig25_young.png}
 \caption{\textbf{the double slit as a single-electron measurement.} The lattice
@@ -491,7 +521,7 @@ energy \(\sum_k \omega_k = \arg\det U\) vanishes. The pairing and
 of the algebra, not properties of the chosen coupling (Fig.~\ref{fig:1},
 Fig.~\ref{fig:13}).
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig13_cpt_mirror.png}
 \caption{\textbf{the matter/antimatter spectral mirror.}
@@ -501,7 +531,7 @@ property of the algebra, independent of the free parameter.}
 \label{fig:13}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig1_one_object_32spectrum.png}
 \caption{\textbf{the one object: the 32-level spectrum of the QCA step.} The
@@ -561,7 +591,7 @@ of the same scheme, where the CFL speed of that particular solver is
 \(c = 0.5\) lattice units --- a property of the solver, not of the
 axiom).
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig23_qca_wave.png}
 \caption{\textbf{the causal front of a lattice pulse.} A pulse in the discrete
@@ -694,14 +724,19 @@ cross-checked against independent analytic results (two routes):
 \caption{\textbf{The lattice-curvature cross-checks (two independent routes)}}
 \label{tab:2}
 \footnotesize
-\begin{tabular}{@{}p{0.308\textwidth}p{0.092\textwidth}p{0.287\textwidth}p{0.282\textwidth}@{}}
+\begin{tabular}{@{}p{0.305\textwidth}p{0.101\textwidth}p{0.286\textwidth}p{0.278\textwidth}@{}}
 \toprule
 \textbf{test} & \textbf{computed} & \textbf{analytic} & \textbf{residual} \\ \addlinespace[2pt] \midrule
 de Sitter \(R^\mu{}_{\nu\rho\sigma}\) (flat FRW, \(a = e^{Hx^0}/H\)) & finite differences & \(H^2(g_{\mu\rho}g_{\nu\sigma} - g_{\mu\sigma}g_{\nu\rho})\) & \(6.5\times10^{-7}\) (\(O(h^2)\)) \\ \addlinespace[2pt]
+\grayhline
 Einstein tensor of de Sitter & \(-3H^2 g_{\mu\nu}\) & same & \(O(h^2)\) \\ \addlinespace[2pt]
+\grayhline
 Schwarzschild Ricci / Einstein tensor & \(\simeq 0\) & vacuum \(G_{\mu\nu} = 0\) & satisfied by computation \\ \addlinespace[2pt]
+\grayhline
 Schwarzschild Kretschmann & \(48 M^2/r^6\) & \(48 M^2/r^6\) & ratio \(1.000009\); max relative deviation \(5.5\times10^{-5}\) \\ \addlinespace[2pt]
+\grayhline
 flat metric & \(R = G = K = 0\) & \(0\) & exact \\ \addlinespace[2pt]
+\grayhline
 2-sphere of radius \(r\) & \(R = 2/r^2\) & \(2/r^2\) & \(10^{-5}\) \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
@@ -715,7 +750,7 @@ a constraint violation to zero while the undamped one does not; the
 0-row is quadratic in \(K\), so superposition fails; all 3+1 quantities
 are bounded by the lattice cutoff (Fig.~\ref{fig:5}, Fig.~\ref{fig:24}).
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig24_gravity_3d.png}
 \caption{\textbf{the black hole recovered by computation.} Left: the potential
@@ -725,7 +760,7 @@ two-route Kretschmann invariant.}
 \label{fig:24}
 \end{figure*}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig5_gravity_kretschmann.png}
 \caption{\textbf{two-route curvature: computed Kretschmann vs analytic.} The
@@ -864,7 +899,7 @@ mass.
 One factor, four scales (Fig.~\ref{fig:3}, Fig.~\ref{fig:11},
 Fig.~\ref{fig:17}):
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig17_ladder_sm.png}
 \caption{\textbf{the CL10 ladder against the observed ladder.} Upper row: the
@@ -874,7 +909,7 @@ Section 14.}
 \label{fig:17}
 \end{figure*}
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig11_ladder_of_scales.png}
 \caption{\textbf{the ladder of scales.} Planck/GUT \(1.22\times10^{19}\) GeV,
@@ -884,7 +919,7 @@ is not produced by the ladder.}
 \label{fig:11}
 \end{figure*}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig3_10loop_ladder.png}
 \caption{\textbf{the loop ladder: one factor, two scales.} \((1/16\pi)^n\)
@@ -903,9 +938,13 @@ in the scan \(n = 1\dots20\).}
 \toprule
 \textbf{scale} & \textbf{CL10 expression} & \textbf{value} \\ \addlinespace[2pt] \midrule
 Planck / GUT & \(M_P\) (convention \(M_{\rm GUT} = M_P\)) & \(1.22\times10^{19}\) GeV \\ \addlinespace[2pt]
+\grayhline
 seesaw Majorana & \(M_P(1/16\pi)^3\) & \(9.6\times10^{13}\) GeV \\ \addlinespace[2pt]
+\grayhline
 electroweak & measured input \(v\) & \(246\) GeV \\ \addlinespace[2pt]
+\grayhline
 dark matter & \(M_P(1/16\pi)^{10}\) & \(118\) GeV \\ \addlinespace[2pt]
+\grayhline
 neutrino & \(M_P(1/16\pi)^{17}\) & \(0.146\) eV \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
@@ -947,7 +986,7 @@ That contrast is real but modest: a unitary finite-dimensional map is
 bounded by construction, and it does not by itself reproduce the
 observed running.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig19_uv_2loop.png}
 \caption{\textbf{the two-loop \(U(1)\) running against the bounded automaton.}
@@ -958,7 +997,7 @@ every level: the discrete flow has no pole.}
 \label{fig:19}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig2_unification_1loop.png}
 \caption{\textbf{one-loop running of the three SM couplings to the Planck scale.}
@@ -984,7 +1023,7 @@ The claimed unification therefore fails at the level of the couplings'
 values, even though the \(5/3\) normalisation is correct
 (Fig.~\ref{fig:16}). This is residual W4 and falsifier F2.
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig16_couplings_mz.png}
 \caption{\textbf{the GUT coupling and the \(5/3\).} (a) The three couplings run
@@ -1063,7 +1102,19 @@ A GUT-leptogenesis estimate \cite{ref39} is then built by hand:
 with \(g_0 = 1/2^3 = 1/8\) and the SM sphaleron conversion
 \(B = \tfrac{28}{79}(B-L)\) \cite{ref25,ref26}, giving
 \(\Delta B = 6.8\times10^{-10}\) against the measured
-\((6.1\pm0.04)\times10^{-10}\) \cite{ref14} --- a ratio \(1.12\).
+\((6.1\pm0.04)\times10^{-10}\) \cite{ref14} --- a ratio \(1.12\)
+(Fig.~\ref{fig:8}).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig8_baryon_asymmetry.png}
+\caption{\textbf{the baryon-asymmetry product.}
+\(\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}\)
+against the measured \(6.1\times10^{-10}\). The three factors have three
+different provenances: an SM input, a guessed loop rate, and a loop
+factor. The automaton alone gives zero.}
+\label{fig:8}
+\end{figure}
 
 Three problems, all previously under-stated. (i) \(\varepsilon_{CP}\) is
 not a computed vertex: the physical CP asymmetry of \(N\to \ell H\) is a
@@ -1087,7 +1138,10 @@ not selected''. At the model's own seesaw scale
 \(H = 1.66\sqrt{g_*}M_N^2/M_P\) gives \(y < 0.058\). The same Yukawa
 fixes the light neutrino mass through the same seesaw,
 
-\[m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad (y \le 0.058),\]
+\begin{multline}
+    m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad \\
+    (y \le 0.058),
+\end{multline}
 
 a bound of the same kind and size as the standard thermal-leptogenesis
 bound \cite{ref32}. The atmospheric splitting requires
@@ -1146,7 +1200,7 @@ by two-body phase space (Fig.~\ref{fig:22}); the rate scales as
 \(M_{\rm GUT}^{-4}\) in all of them. Observation of a GUT-pattern decay
 at any accessible rate would falsify \(M_{\rm GUT} = M_P\) (F5).
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig22_proton_channels.png}
 \caption{\textbf{the three GUT channels.} The stability margin for
@@ -1159,7 +1213,7 @@ The channels differ only by two-body phase space; the rate scales as
 \label{fig:22}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig21_proton_margin.png}
 \caption{\textbf{the decay rate normalised to the bound.}
@@ -1170,7 +1224,7 @@ the convention \(M_{\rm GUT} = M_P\).}
 \label{fig:21}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig20_proton_decay.png}
 \caption{\textbf{the proton lifetime against the GUT scale.}
@@ -1217,34 +1271,50 @@ degenerate at 0-parameter. All of this is residual W6.
 \caption{\textbf{The framework against data}}
 \label{tab:4}
 \footnotesize
-\begin{tabular}{@{}p{0.255\textwidth}p{0.316\textwidth}p{0.147\textwidth}p{0.251\textwidth}@{}}
+\begin{tabular}{@{}p{0.256\textwidth}p{0.268\textwidth}p{0.223\textwidth}p{0.223\textwidth}@{}}
 \toprule
 \textbf{quantity} & \textbf{CL10} & \textbf{measured} & \textbf{status} \\ \addlinespace[2pt] \midrule
 \([\mathrm{SU}(3)]^3\), \ldots, \([\mathrm{grav}]^2\mathrm{U}(1)\) (8) & \(0\) & --- & algebraic, satisfied \\ \addlinespace[2pt]
+\grayhline
 \(g_1^2/g'^2\) & \(5/3\) & \(5/3\) (GUT normalisation) & algebraic \\ \addlinespace[2pt]
+\grayhline
 \(\det U\), \(\pm\) pairing, \(16/\overline{16}\) mirror & \(1\), exact & --- & algebraic, \(g_{10}\)-independent \\ \addlinespace[2pt]
+\grayhline
 causal front speed & \(1.0\) & --- & dynamical, measured \\ \addlinespace[2pt]
+\grayhline
 16-sector Brillouin spectrum & zone centre gapped (\(0.0365\)); 12 gapless doubler nodes, \(\sum\)
 chirality \(= 0\) & --- & \textbf{doubling present} \\ \addlinespace[2pt]
+\grayhline
 \(v/M_P\) & \(2.08(1/16\pi)^{10}\) & \(2.016\times10^{-17}\) & coefficient fitted \\ \addlinespace[2pt]
+\grayhline
 \(m_{\rm DM}\) & \(118\) GeV & not measured & prediction, falsifiable \\ \addlinespace[2pt]
+\grayhline
 \(\Omega_{\rm DM}h^2\) & not computed & \(0.120\) \cite{ref14} & open \\ \addlinespace[2pt]
+\grayhline
 \(m_\nu\) & \(0.146\) eV (ladder); \(0.0487\) eV (\(\tfrac13\) candidate, Section
 10.3) & \(0.050\) eV; \(\sum m_\nu < 0.12\) eV & ladder \textbf{in tension}; candidate numerically good, not derived \\ \addlinespace[2pt]
+\grayhline
 \(\Delta B\) & \(6.8\times10^{-10}\) & \((6.1\pm0.04)\times10^{-10}\) & coincidental product \\ \addlinespace[2pt]
+\grayhline
 \(\tau_p/B\) & \(4\times10^{47}\) yr & \(>2.4\times10^{34}\) yr & consistent, falsifiable \\ \addlinespace[2pt]
+\grayhline
 \(\alpha_{10}\) & \(0.040\) & \(0.023\) (1-loop mean at \(M_P\)) & order only \\ \addlinespace[2pt]
+\grayhline
 \(\alpha_1(M_Z)\) from \(\alpha_{10}\) & \(-1.36\) (pole at 280 GeV) & \(0.0169\) & \textbf{fails} \\ \addlinespace[2pt]
+\grayhline
 \(\sin^2\theta_{12}\) & \(1/3\) & \(0.307\) & derived \\ \addlinespace[2pt]
+\grayhline
 \(\sin^2\theta_{23},\ \sin^2\theta_{13}\) & not fixed (\(O(2)\)) & \(0.579,\ 0.022\) \cite{ref17,ref50} & open \\ \addlinespace[2pt]
+\grayhline
 CKM & identity & \(\lambda = 0.225\) \cite{ref13,ref44} & \textbf{fails} \\ \addlinespace[2pt]
+\grayhline
 \(\Lambda\) & \(0\) (tree level) & \(\sim 10^{-122}M_P^4\) & open \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
 
 (Fig.~\ref{fig:10}, Fig.~\ref{fig:14}.)
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig14_sm_head2head.png}
 \caption{\textbf{head-to-head with the measured values.} The headline quantities,
@@ -1255,7 +1325,7 @@ orders.}
 \label{fig:14}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig10_predictions_vs_obs.png}
 \caption{\textbf{predictions versus observation.} Each prediction against its
@@ -1279,7 +1349,7 @@ and fermionic zero-point modes is not a physical mode counting --- the
 physical one-cell Hilbert space has 32 states, not 1024 --- and it is
 dropped here (Fig.~\ref{fig:6} keeps the grading, not the arithmetic).
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig6_512_512.png}
 \caption{\textbf{the \(\mathbb{Z}_2\) grading and the vanishing 0-point.} The
@@ -1337,7 +1407,7 @@ at 100 GeV; that is a definition, not a calculation, and it is removed
 here (Fig.~\ref{fig:4} shows the standard relic curve with the CL10 mass
 marked, not a computed abundance).
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig4_wimp_miracle.png}
 \caption{\textbf{the relic curve and the CL10 mass.} The standard
@@ -1395,7 +1465,7 @@ check, not a derivation. \(\Lambda_{\rm QCD}\) is not on the loop ladder
 confining \emph{phase} that the theory has not shown it is in
 (Fig.~\ref{fig:7}).
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig7_qcd_confinement.png}
 \caption{\textbf{the area law and the linear potential.} A Wilson loop with
@@ -1422,11 +1492,15 @@ obtained.
 \textbf{algebraic} (fixed by the root, no parameter) & 7 & the \(16/\overline{16}\) split; the 45; the \(5/3\); the 8 anomaly
 coefficients \(=0\); the 32-level spectrum; \(\det U = 1\); the
 \(16/\overline{16}\) spectral mirror \\ \addlinespace[2pt]
+\grayhline
 \textbf{free parameter} (one) & 1 & the 't Hooft angle \(g_{10}\) (value \(1/5\)) \\ \addlinespace[2pt]
+\grayhline
 \textbf{convention} (mapping or scale identification) & 3 & \(\alpha_{10} \equiv g_{10}^2\); \(g_0 = 1/2^{n_{\rm space}} = 1/8\);
 \(M_{\rm GUT} = M_P\) \\ \addlinespace[2pt]
+\grayhline
 \textbf{fitted coefficient} (read from data) & 3 & \(2.08\) (hierarchy), \(1.18\) (DM mass), \(n_{2\text{step}} = 3\)
 (seesaw) \\ \addlinespace[2pt]
+\grayhline
 \textbf{open} (not fixed) & 9 & W1--W9 of Section 15 \\ \addlinespace[2pt] \bottomrule
 \end{tabular}
 \end{table*}
@@ -1450,7 +1524,7 @@ root value. The reading \(1/n_{\rm qubits}\) is therefore a convention,
 and the theory is honestly \textbf{one-parameter in its dynamics,
 zero-parameter in its algebra} (Fig.~\ref{fig:12}).
 
-\begin{figure*}[htbp]
+\begin{figure*}[ht]
 \centering
 \includegraphics[width=\textwidth]{figures/fig12_parameter_audit.png}
 \caption{\textbf{the parameter audit.} The classification of Section 14: 7
@@ -1465,7 +1539,20 @@ invariants (the vanishing 0-point, \(\det U = 1\), the CPT mirror, the
 S-matrix \(S = U\)). That is a bookkeeping observation --- nine open
 problems sharing one object --- and it is not a derivation of any of
 their values. It should not be read as a reduction of the theory's
-difficulty.
+difficulty (Fig.~\ref{fig:18}).
+
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=\textwidth]{figures/fig18_residual_reduction.png}
+\caption{\textbf{the residual-set reduction.} (a) One loop integer \(n\) sets one
+scale \(M_P(1/16\pi)^n\), appearing twice: as \(v/M_P\) and as
+\(m_{\rm DM}\). These are one equation, \(v = 2.08\,m_{\rm DM}\), not
+two independent confirmations. (b) The scan \(n = 1\dots20\): \(n = 10\)
+is nearest, \(n = 9\) is \(1.4\) decades away. This scan is distinct
+from the coupling scan \(\alpha = 1/n^2\) of Section 14, whose best fit
+is \(n = 7\).}
+\label{fig:18}
+\end{figure*}
 
 \section{Open residuals and
 falsifiers}\label{open-residuals-and-falsifiers}
@@ -1474,18 +1561,21 @@ falsifiers}\label{open-residuals-and-falsifiers}
 \caption{\textbf{The nine open residuals}}
 \label{tab:6}
 \footnotesize
-\begin{tabular}{@{}p{0.067\textwidth}p{0.341\textwidth}p{0.562\textwidth}@{}}
+\begin{tabular}{@{}p{0.110\textwidth}p{0.336\textwidth}p{0.525\textwidth}@{}}
 \toprule
 \textbf{the residual} & \textbf{what the theory does supply} & \textbf{the gap} \\ \addlinespace[2pt] \midrule
 \textbf{W1} the cosmological constant & an exactly vanishing tree-level vacuum energy (\(\pm\)-paired spectrum,
 \(\det U = 1\)), natural in the technical sense & the observed \(10^{-122}M_P^4\); no breaking mechanism \\ \addlinespace[2pt]
+\grayhline
 \textbf{W2} the neutrino mass & the seesaw structure and the ladder
 \(m_\nu = M_P(1/16\pi)^{17} = 0.146\) eV; the derived \(\tfrac13\) as
 the coefficient that lands on the atmospheric scale & ladder value \(2.9\times\) too high and above \(\sum m_\nu < 0.12\) eV;
 the \(\tfrac13\) route (\(0.0487\) eV, \(2.6\%\) from data) is a
 candidate with no derivation; \(n_{2\text{step}} = 3\) chosen \\ \addlinespace[2pt]
+\grayhline
 \textbf{W3} the family number & the identification \(N_{\rm gen} = 3 = n_{\rm space}\), and a
 family-symmetric 96-D step \(\mathrm{blockdiag}(U,U,U)\) & no reason the family count equals the spatial dimension \\ \addlinespace[2pt]
+\grayhline
 \textbf{W4} coupling unification & the \(5/3\); a UV-finite discrete RG (the tower \(U^{2^p}\) stays
 unitary) & the three couplings do not meet (spread \(47\%\));
 \(\alpha_{10} = 1/25\) exceeds the maximum \(\alpha_1(M_P)\) compatible
@@ -1493,20 +1583,25 @@ with a weak-coupling IR (\(0.0389\)); no vectorlike-threshold fix (a
 complete \(10\oplus\bar{\mathbf 5}\) shifts all three \(b_i\) equally;
 scan \(n_V \le 8\), \(M_V \in [10^6,10^{19}]\) GeV: spread \(\ge 47\%\),
 worst deviation \(34\%\)) \\ \addlinespace[2pt]
+\grayhline
 \textbf{W5} the baryon asymmetry & a computed theorem: all CP-odd invariants vanish, no Sakharov condition
 is met; a quasi-degenerate (resonant) route enabled by the degenerate
 heavy spectrum & out-of-equilibrium decay (\(y < 0.058\)) and \(m_\nu \simeq 0.05\) eV
 are mutually incompatible at \(M_N = 9.6\times10^{13}\) GeV; the
 resonant route still needs a CP phase the algebra does not supply \\ \addlinespace[2pt]
+\grayhline
 \textbf{W6} masses and mixing & the Dirac structure (\(16\,\mathbf{10}_H\,\overline{16}\)), the
 democratic base, \(\sin^2\theta_{12} = 1/3\) & the 3-level hierarchy, \(\theta_{23},\theta_{13}\), a non-trivial CKM, a
 complete \(\mathrm{Spin}(10)\) breaking chain \\ \addlinespace[2pt]
+\grayhline
 \textbf{W7} dark matter & a mass scale, \(118\) GeV & the particle identity and the abundance
 (\(\langle\sigma v\rangle \simeq 1.4\times10^{-8}\) GeV\(^{-2}\)
 required); the candidate supplied by the classical sector is a domain
 wall \\ \addlinespace[2pt]
+\grayhline
 \textbf{W8} the hierarchy & the representation \(v/M_P = 2.08(1/16\pi)^{10}\) & the exponent is selected by the data; the coefficient is fitted; no loop
 calculation exists \\ \addlinespace[2pt]
+\grayhline
 \textbf{W9} the quantum sector & a unitary causal automaton, a classical GR limit, a bounded
 \(n\)-particle S-matrix \(S^{(n)} = U^{\otimes n}\), cross-sections
 bounded by \(4\pi/M_P^2\), a 16 sector closed by the full local step
@@ -1527,21 +1622,27 @@ cross-sections; the measurement postulate \\ \addlinespace[2pt] \bottomrule
 \textbf{\#} & \textbf{observation that refutes the theory} \\ \addlinespace[2pt] \midrule
 \textbf{F1} & any non-vanishing gauge anomaly in the chiral content (the 16 is claimed
 anomaly-free) \\ \addlinespace[2pt]
+\grayhline
 \textbf{F2} & a coupling-unification pattern incompatible with the \(5/3\)
 normalisation, or a measured running that cannot be matched from any UV
 boundary condition of the theory \\ \addlinespace[2pt]
+\grayhline
 \textbf{F3} & a neutrino mass spectrum outside the two ladder options: the bare ladder
 gives \(m_\nu \simeq 0.15\) eV (already excluded by
 \(\sum m_\nu < 0.12\) eV), the \(\tfrac13\) candidate gives normal
 ordering with \(\sum m_\nu \simeq 0.05\) eV and
 \(m_{\rm lightest} = 0\); a confirmed inverted ordering, or
 \(\sum m_\nu > 0.12\) eV, refutes both \\ \addlinespace[2pt]
+\grayhline
 \textbf{F4} & a massive graviton, a graviton dispersion violating \(c = 1\), or a UV
 divergence in the lattice gravitational sector \\ \addlinespace[2pt]
+\grayhline
 \textbf{F5} & observation of a GUT-pattern proton decay, which would force
 \(M_{\rm GUT} \lesssim 10^{16}\) GeV and refute \(M_{\rm GUT} = M_P\) \\ \addlinespace[2pt]
+\grayhline
 \textbf{F6} & a baryon asymmetry outside \(10^{-11}\)--\(10^{-9}\), or evidence that
 heavy-neutrino decays are in equilibrium \\ \addlinespace[2pt]
+\grayhline
 \textbf{F7} & a dark-matter particle with mass far from \(118\) GeV in the
 weakly-interacting thermal case, or a detected non-neutral/decaying dark
 sector \\ \addlinespace[2pt] \bottomrule
@@ -1696,20 +1797,22 @@ checks \(10^{-14}\).
 
 \textbf{Code availability.} The implementation, the 64-experiment
 verification suite and the figure generators are available at
-https://github.com/MohammedHAOUACH/CL10 (MIT licence). Every figure of
-this paper is produced by that code: \texttt{python3\ make\_figures.py}
-writes Figs. 1--24, \texttt{python3\ make\_figures.py\ -\/-young} adds
-Fig.~\ref{fig:25} (the Young double-slit simulation), and
-Fig.~\ref{fig:26} is a product of its own experiment run
-(\texttt{python3\ experiments/V62\_hydrogen\_production/V62\_hydrogen\_production.py}).
+\url{https://github.com/MohammedHAOUACH/CL10} (MIT licence). Every
+figure of this paper is produced by that code:
+\texttt{python3\ make\_figures.py} writes Figs. 1--24,
+\texttt{python3\ make\_figures.py\ -\/-young} adds Fig.~\ref{fig:25}
+(the Young double-slit simulation), and Fig.~\ref{fig:26} is a product
+of its own experiment run
+(\texttt{python3 experiments/\allowbreak{}V62\_\allowbreak{}hydrogen\_\allowbreak{}production/\allowbreak{}V62\_\allowbreak{}hydrogen\_\allowbreak{}production.\allowbreak{}py}).
 The suite is run by \texttt{python3\ run\_validation.py}, which writes
-\texttt{results/validation\_summary.json}; an experiment whose script
-exits with a non-zero status is recorded as a failure and any verdict
-left on disk by an earlier run is discarded. No measured value used in
-this paper is produced by the code: the comparison values are the
-published data of refs. \cite{ref13,ref14,ref15,ref16,ref17}.
+\texttt{results/\allowbreak{}validation\_\allowbreak{}summary.\allowbreak{}json};
+an experiment whose script exits with a non-zero status is recorded as a
+failure and any verdict left on disk by an earlier run is discarded. No
+measured value used in this paper is produced by the code: the
+comparison values are the published data of refs.
+\cite{ref13,ref14,ref15,ref16,ref17}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\columnwidth]{figures/fig26_hydrogen.png}
 \caption{\textbf{the hydrogen atom driven by the lattice photon.} A
@@ -1940,28 +2043,4 @@ theories, in strings and in branes,'' \emph{Phys. Rep.} \textbf{441},
 proton decay via \(p\to\nu K^+\) using 260 kiloton\(\cdot\)year data of
 Super-Kamiokande,'' \emph{Phys. Rev.~D} \textbf{90}, 072005 (2014).
 \end{thebibliography}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig8_baryon_asymmetry.png}
-\caption{\textbf{the baryon-asymmetry product.}
-\(\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}\)
-against the measured \(6.1\times10^{-10}\). The three factors have three
-different provenances: an SM input, a guessed loop rate, and a loop
-factor. The automaton alone gives zero.}
-\label{fig:8}
-\end{figure}
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/fig18_residual_reduction.png}
-\caption{\textbf{the residual-set reduction.} (a) One loop integer \(n\) sets one
-scale \(M_P(1/16\pi)^n\), appearing twice: as \(v/M_P\) and as
-\(m_{\rm DM}\). These are one equation, \(v = 2.08\,m_{\rm DM}\), not
-two independent confirmations. (b) The scan \(n = 1\dots20\): \(n = 10\)
-is nearest, \(n = 9\) is \(1.4\) decades away. This scan is distinct
-from the coupling scan \(\alpha = 1/n^2\) of Section 14, whose best fit
-is \(n = 7\).}
-\label{fig:18}
-\end{figure*}
 \end{document}

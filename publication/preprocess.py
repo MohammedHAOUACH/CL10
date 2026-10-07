@@ -121,7 +121,7 @@ def xform(s):
     # long display equations -> multline so they fit one column
     def multline(m):
         body = m.group(1).strip()
-        if len(body) < 100:
+        if len(body) < 80:
             return m.group(0)
         # split at \qquad, then each chunk at \oplus
         chunks = []
@@ -301,6 +301,21 @@ body_text = body_text.replace(
     "::: {.table id=tabx1}\n\n",
     "::: {.table id=tabx1}\n\n**The seven criteria against which the paper "
     "judges itself.**\n\n", 1)
+
+# two figures are never cited in the body (journal rule: every figure must
+# be referenced); add the citations at their natural anchor sentences
+body_text = body_text.replace(
+    "\u2014 a ratio $1.12$.",
+    "\u2014 a ratio $1.12$ (Fig. 8).", 1)
+body_text = body_text.replace(
+    "It should not be read as a reduction of the theory's difficulty.",
+    "It should not be read as a reduction of the theory's difficulty "
+    "(``Fig.~\\ref{fig:18}``).", 1)
+
+# bare URLs -> \url{} so hyperref can break them (avoids overfull lines)
+body_text = re.sub(
+    r"(?<!\S)(https?://[^\s)]+)",
+    lambda m: "``\\url{%s}``" % m.group(1), body_text)
 
 # ---------------------------------------------------------------- citations/refs
 body_text = xform(body_text)

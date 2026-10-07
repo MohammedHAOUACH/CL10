@@ -65,7 +65,12 @@ Planck units $\hbar = c = \ell_P = t_P = 1$ unless stated; $G = 1$. The metric s
 
 **Axiom 1 (the root).** *The universe is a $(1{+}3)$-dimensional causal quantum cellular automaton on a cubic lattice of spacing $\ell_P$ and time step $t_P$. Each cell carries a copy of the Clifford algebra $\mathrm{Cl}(10,0)$: ten mutually anticommuting Hermitian generators*
 
-$$h_a^\dagger = h_a,\qquad h_a^2 = I,\qquad \{h_a,h_b\} = 0 \quad (a\ne b),\qquad a,b = 1,\dots,10.$$
+\begin{multline}
+    h_a^\dagger = h_a,\qquad \\
+    h_a^2 = I,\qquad \\
+    \{h_a,h_b\} = 0 \quad (a\ne b),\qquad \\
+    a,b = 1,\dots,10.
+\end{multline}
 
 *The state of the universe is a tensor product of the 32-dimensional complex modules of these algebras, and the dynamics is a unitary, causal update built from the algebra.*
 
@@ -494,13 +499,23 @@ A GUT-leptogenesis estimate ``\cite{ref39}`` is then built by hand:
     D = \Big(\frac{1}{16\pi}\Big)^2 = 3.96\times10^{-4},
 \end{multline}
 
-with $g_0 = 1/2^3 = 1/8$ and the SM sphaleron conversion $B = \tfrac{28}{79}(B-L)$ ``\cite{ref25,ref26}``, giving $\Delta B = 6.8\times10^{-10}$ against the measured $(6.1\pm0.04)\times10^{-10}$ ``\cite{ref14}`` — a ratio $1.12$.
+with $g_0 = 1/2^3 = 1/8$ and the SM sphaleron conversion $B = \tfrac{28}{79}(B-L)$ ``\cite{ref25,ref26}``, giving $\Delta B = 6.8\times10^{-10}$ against the measured $(6.1\pm0.04)\times10^{-10}$ ``\cite{ref14}`` — a ratio $1.12$ (``Fig.~\ref{fig:8}``).
+
+::: {.figure id=fig:8 src=figures/fig8_baryon_asymmetry.png}
+
+**the baryon-asymmetry product.** $\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ against the measured $6.1\times10^{-10}$. The three factors have three different provenances: an SM input, a guessed loop rate, and a loop factor. The automaton alone gives zero.
+
+:::
+
 
 Three problems, all previously under-stated. (i) $\varepsilon_{CP}$ is not a computed vertex: the physical CP asymmetry of $N\to \ell H$ is a one-loop self-energy/vertex function of the heavy-neutrino masses, and $g_0^4/16\pi$ is a dimensional guess. (ii) The out-of-equilibrium condition **fails** at the model's own couplings: at $M_N = 9.6\times10^{13}$ GeV, $H = 1.66\sqrt{g_*}M_N^2/M_P = 1.3\times10^{10}$ GeV while $\Gamma_N = y^2 M_N/8\pi = 6.0\times10^{10}$ GeV for $y = 1/8$ ($1.9\times10^{12}$ GeV for $y = 0.71$), so $\Gamma_N/H \simeq 4.6$ ($\simeq 148$). Out-of-equilibrium decay requires $y \lesssim 0.06$, which the theory does not select. (iii) $28/79$ is an input of the SM sector, not a number of the root. The $12\%$ agreement is therefore a coincidence of chosen factors, not evidence (residual W5).
 
 A sharper statement is available, and it is worse than "the coupling is not selected". At the model's own seesaw scale $M_N = 9.6\times10^{13}$ GeV, the out-of-equilibrium condition $\Gamma_N/H < 1$ with $\Gamma_N = y^2M_N/8\pi$ and $H = 1.66\sqrt{g_*}M_N^2/M_P$ gives $y < 0.058$. The same Yukawa fixes the light neutrino mass through the same seesaw,
 
-$$m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad (y \le 0.058),$$
+\begin{multline}
+    m_\nu = \frac{y^2 v^2}{M_N} \le 2.1\times10^{-3}\ \mathrm{eV}\qquad \\
+    (y \le 0.058),
+\end{multline}
 
 a bound of the same kind and size as the standard thermal-leptogenesis bound ``\cite{ref32}``. The atmospheric splitting requires $m_\nu \simeq 0.050$ eV, i.e. $y \simeq 0.28$ with $m_D = yv$ and $v = 246$ GeV ($y \simeq 0.40$ in the $v_u = 174$ GeV convention), for which $\Gamma_N/H \simeq 23$. **At $M_N = 9.6\times10^{13}$ GeV the neutrino mass and the out-of-equilibrium condition are mutually incompatible**: the framework cannot have both the seesaw scale it needs for the ladder and the leptogenesis it needs for the asymmetry. (The model's own ladder sits at $m_D = 118$ GeV, i.e. $y = 0.48$, where $\Gamma_N/H \simeq 68$.)
 
@@ -682,7 +697,14 @@ The accompanying code reports the same classification over 15 headline numbers a
 :::
 
 
-**The status of the "9-to-1" reduction.** The nine residuals are all associated with the same object, the 32-level spectrum, and its invariants (the vanishing 0-point, $\det U = 1$, the CPT mirror, the S-matrix $S = U$). That is a bookkeeping observation — nine open problems sharing one object — and it is not a derivation of any of their values. It should not be read as a reduction of the theory's difficulty.
+**The status of the "9-to-1" reduction.** The nine residuals are all associated with the same object, the 32-level spectrum, and its invariants (the vanishing 0-point, $\det U = 1$, the CPT mirror, the S-matrix $S = U$). That is a bookkeeping observation — nine open problems sharing one object — and it is not a derivation of any of their values. It should not be read as a reduction of the theory's difficulty (``Fig.~\ref{fig:18}``).
+
+::: {.figurewide id=fig:18 src=figures/fig18_residual_reduction.png}
+
+**the residual-set reduction.** (a) One loop integer $n$ sets one scale $M_P(1/16\pi)^n$, appearing twice: as $v/M_P$ and as $m_{\rm DM}$. These are one equation, $v = 2.08\,m_{\rm DM}$, not two independent confirmations. (b) The scan $n = 1\dots20$: $n = 10$ is nearest, $n = 9$ is $1.4$ decades away. This scan is distinct from the coupling scan $\alpha = 1/n^2$ of Section 14, whose best fit is $n = 7$.
+
+:::
+
 
 
 # Open residuals and falsifiers
@@ -795,7 +817,7 @@ Two cautions about what those 64 passes mean. First, most of them check internal
 
 **Environment.** Python $\ge 3.11$; the array backend is selected once at import (GPU first, degrading to CPU; the $32\times32$ matrices are small). Tolerances: $\varepsilon = 10^{-12}$, machine-precision checks $10^{-14}$.
 
-**Code availability.** The implementation, the 64-experiment verification suite and the figure generators are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Every figure of this paper is produced by that code: `python3 make_figures.py` writes Figs. 1–24, `python3 make_figures.py --young` adds ``Fig.~\ref{fig:25}`` (the Young double-slit simulation), and ``Fig.~\ref{fig:26}`` is a product of its own experiment run (`python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py`). The suite is run by `python3 run_validation.py`, which writes `results/validation_summary.json`; an experiment whose script exits with a non-zero status is recorded as a failure and any verdict left on disk by an earlier run is discarded. No measured value used in this paper is produced by the code: the comparison values are the published data of refs. ``\cite{ref13,ref14,ref15,ref16,ref17}``.
+**Code availability.** The implementation, the 64-experiment verification suite and the figure generators are available at ``\url{https://github.com/MohammedHAOUACH/CL10}`` (MIT licence). Every figure of this paper is produced by that code: `python3 make_figures.py` writes Figs. 1–24, `python3 make_figures.py --young` adds ``Fig.~\ref{fig:25}`` (the Young double-slit simulation), and ``Fig.~\ref{fig:26}`` is a product of its own experiment run (`python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py`). The suite is run by `python3 run_validation.py`, which writes `results/validation_summary.json`; an experiment whose script exits with a non-zero status is recorded as a failure and any verdict left on disk by an earlier run is discarded. No measured value used in this paper is produced by the code: the comparison values are the published data of refs. ``\cite{ref13,ref14,ref15,ref16,ref17}``.
 
 ::: {.figure id=fig:26 src=figures/fig26_hydrogen.png}
 
@@ -868,18 +890,6 @@ Two cautions about what those 64 passes mean. First, most of them check internal
 51. M. Nath and P. Fileviez Pérez, "Proton stability in grand unified theories, in strings and in branes," *Phys. Rep.* **441**, 191 (2007).
 52. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).
 
-
-:::
-
-::: {.figure id=fig:8 src=figures/fig8_baryon_asymmetry.png}
-
-**the baryon-asymmetry product.** $\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ against the measured $6.1\times10^{-10}$. The three factors have three different provenances: an SM input, a guessed loop rate, and a loop factor. The automaton alone gives zero.
-
-:::
-
-::: {.figurewide id=fig:18 src=figures/fig18_residual_reduction.png}
-
-**the residual-set reduction.** (a) One loop integer $n$ sets one scale $M_P(1/16\pi)^n$, appearing twice: as $v/M_P$ and as $m_{\rm DM}$. These are one equation, $v = 2.08\,m_{\rm DM}$, not two independent confirmations. (b) The scan $n = 1\dots20$: $n = 10$ is nearest, $n = 9$ is $1.4$ decades away. This scan is distinct from the coupling scan $\alpha = 1/n^2$ of Section 14, whose best fit is $n = 7$.
 
 :::
 

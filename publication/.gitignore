@@ -1,0 +1,4 @@
+build/pages/
+build/*.aux
+build/*.log
+build/*.out
