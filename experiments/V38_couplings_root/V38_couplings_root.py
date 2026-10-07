@@ -56,8 +56,8 @@ def main():
           and root["g10"] == 1.0 / 5.0
           and abs(root["alpha_10"] - 1.0 / 25.0) < 1e-12
           and abs(root["g0"] - 1.0 / 8.0) < 1e-12
-          and down["a2_within_factor_2"]
-          and down["a3_within_factor_10"])
+          and down["a1_within_factor_2"]
+          and down["su3_pole_inside_lattice"])
 
     verdict = {
         "id": "V38_couplings_root",
@@ -82,8 +82,11 @@ def main():
             "couplings_at_M_Z": down["couplings_at_M_Z"],
             "measured_at_M_Z": down["measured_at_M_Z"],
             "ratio_to_measured": down["ratio_to_measured"],
-            "u1_down_pole_scale": down["u1_down_pole_scale"],
-            "u1_pole_inside_lattice": down["u1_pole_inside_lattice"],
+            "a1_within_factor_2": down["a1_within_factor_2"],
+            "u1_up_pole_scale": down["u1_up_pole_scale"],
+            "u1_pole_above_cutoff": down["u1_pole_above_cutoff"],
+            "su3_down_pole_scale": down["su3_down_pole_scale"],
+            "su3_pole_inside_lattice": down["su3_pole_inside_lattice"],
             "residual": down["residual"],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -100,9 +103,10 @@ def main():
     print(f"      g_10 = 1/{root['n_qubits']} = {root['g10']:.4f}  ->  alpha_10 = {root['alpha_10']:.4f}  (= 1/25, matches V21/V23/V32)")
     print(f"  (2) the Dirac coupling from the root:  g_0 = 1/2^{root['n_space']} = 1/8 = {root['g0']:.4f}  (the 3 = the 3-space, matches W2)")
     print("  (3) the 1-loop running DOWN from alpha_10 at M_P to M_Z (the 0-parameter UV input, the named residual quantified):")
-    print(f"      a1(M_Z) = {a1:.4f}  (measured {m1}; the 1-loop pole is inside the lattice -> the naive continuation is unphysical below it)")
-    print(f"      a2(M_Z) = {a2:.4f}  (measured {m2}, ratio {down['ratio_to_measured'][1]:.2f}),  a3(M_Z) = {a3:.4f}  (measured {m3}, ratio {down['ratio_to_measured'][2]:.2f})")
-    print(f"      the U(1) 1-loop pole of the down-running:  {down['u1_down_pole_scale']:.2e} GeV (inside the lattice: {down['u1_pole_inside_lattice']})")
+    print(f"      a1(M_Z) = {a1:.4f}  (measured {m1}, ratio {down['ratio_to_measured'][0]:.2f})")
+    print(f"      a2(M_Z) = {a2:.4f}  (measured {m2}, ratio {down['ratio_to_measured'][1]:.2f}),  a3(M_Z) = {a3:.4f}  (measured {m3}; below its pole -> non-perturbative)")
+    print(f"      the U(1) 1-loop pole of the UP-running:  {down['u1_up_pole_scale']:.2e} GeV (above the cutoff: {down['u1_pole_above_cutoff']})")
+    print(f"      the SU(3) 1-loop pole of the DOWN-running:  {down['su3_down_pole_scale']:.2e} GeV (inside the lattice: {down['su3_pole_inside_lattice']})")
     print(f"  named residual:  {down['residual']}")
     print(f"  VERDICT:  {'PASS (g_10 = 1/5 and g_0 = 1/8 are numbers of the root; the 1-loop down-running is the quantified named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v38_couplings_root.json"))

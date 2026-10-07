@@ -693,8 +693,8 @@ def fig16_couplings_mz():
     axB.set_xticklabels(names)
     axB.set_ylabel("$\\alpha_i$  at $M_Z$")
     axB.set_ylim(0, 0.145)
-    axB.set_title("(b)  at $M_Z$:  $\\alpha_2$ matches ($0.66\\times$);  "
-                  r"$\alpha_3$ order-of-mag;  $\alpha_1$ below the pole"
+    axB.set_title("(b)  at $M_Z$:  $\\alpha_1$ matches ($1.17\\times$);  "
+                  r"$\alpha_2$ $5.8\times$ too large;  $\alpha_3$ below its pole"
                   "\n(the 1-loop matching = the W4 named residual)", fontsize=8.5)
     axB.legend(fontsize=8, loc="upper right", framealpha=0.95)
     fig.suptitle("The 0-parameter GUT coupling $\\alpha_{10}=1/25$ and the $5/3$  —  "

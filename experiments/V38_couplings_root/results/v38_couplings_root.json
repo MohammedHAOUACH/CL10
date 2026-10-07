@@ -19,9 +19,9 @@
     "g0_matches_walls": true,
     "alpha_10_at_M_P": 0.04,
     "couplings_at_M_Z": [
-      -1.3648685414560662,
-      0.0222842082621704,
-      0.014506665507415462
+      0.019711163920598965,
+      0.19511538095039085,
+      -0.05281551861441545
     ],
     "measured_at_M_Z": [
       0.0169,
@@ -29,13 +29,16 @@
       0.118
     ],
     "ratio_to_measured": [
-      -80.76145215716369,
-      0.659296102431077,
-      0.12293784328318189
+      1.1663410603904714,
+      5.772644406816298,
+      -0.44758914080013096
     ],
-    "u1_down_pole_scale": 280.30045853710357,
-    "u1_pole_inside_lattice": true,
+    "a1_within_factor_2": true,
+    "u1_up_pole_scale": 5.3100162866946564e+35,
+    "u1_pole_above_cutoff": true,
+    "su3_down_pole_scale": 2191868251.5164537,
+    "su3_pole_inside_lattice": true,
     "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
   },
-  "wall_time": 0.001
+  "wall_time": 0.003
 }

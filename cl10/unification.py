@@ -102,8 +102,11 @@ def g10_from_root():
 
 
 def _run_down(a_uv, b, M, M_uv):
-    """The 1-loop running DOWN: 1/a(M) = 1/a(M_uv) - (b/2pi) ln(M_uv/M)."""
-    return 1.0 / a_uv - (b / (2.0 * np.pi)) * np.log(M_uv / M)
+    """The 1-loop running DOWN: 1/a(M) = 1/a(M_uv) + (b/2pi) ln(M_uv/M).
+    (Same RG solution as the up-running, evaluated at M < M_uv: a coupling
+    with b > 0 decreases toward the IR, a coupling with b < 0 grows and can
+    hit a Landau pole above M.)"""
+    return 1.0 / a_uv + (b / (2.0 * np.pi)) * np.log(M_uv / M)
 
 
 def running_down():
@@ -120,20 +123,27 @@ def running_down():
     a_uv = ALPHA_10
     a = [1.0 / _run_down(a_uv, B_SM[k], M_Z, M_P) for k in range(3)]
     ratios = [float(x / A_Z[k]) for k, x in enumerate(a)]
-    # the U(1) pole of the DOWN running (where 1/a1 -> 0): 1/a1 = 0 when
-    # ln(M_P / M_pole) = 2pi/(b1) * 1/a10
+    # the U(1) pole of the DOWN running: with b1 > 0 the 1/a1 grows toward
+    # the IR, so the down-running has no U(1) pole below M_P; the U(1) pole
+    # of the UP running (1/a1 -> 0 above M_P) is:
+    # ln(M_pole / M_P) = 2pi/(b1) * 1/a10
     ln_pole = (2.0 * np.pi / B_SM[0]) * (1.0 / a_uv)
-    pole_scale = M_P * float(np.exp(-ln_pole))
+    pole_scale = M_P * float(np.exp(ln_pole))
+    # the SU(3) pole of the DOWN running (b3 < 0: 1/a3 -> 0 at
+    # ln(M_P / M_pole) = 2pi/(|b3|) * 1/a10): below it a3 is non-perturbative
+    ln_qcd = (2.0 * np.pi / abs(B_SM[2])) * (1.0 / a_uv)
+    qcd_pole_scale = M_P * float(np.exp(-ln_qcd))
     return {
         "backend": E._BACKEND,
         "alpha_10_at_M_P": float(a_uv),
         "couplings_at_M_Z": [float(x) for x in a],
         "measured_at_M_Z": [float(x) for x in A_Z],
         "ratio_to_measured": ratios,
-        "a2_within_factor_2": bool(abs(ratios[1] - 1.0) < 1.0),
-        "a3_within_factor_10": bool(abs(ratios[2] - 1.0) < 9.0),
-        "u1_down_pole_scale": float(pole_scale),
-        "u1_pole_inside_lattice": bool(M_Z < pole_scale < M_P),
+        "a1_within_factor_2": bool(abs(ratios[0] - 1.0) < 1.0),
+        "u1_up_pole_scale": float(pole_scale),
+        "u1_pole_above_cutoff": bool(pole_scale > M_P),
+        "su3_down_pole_scale": float(qcd_pole_scale),
+        "su3_pole_inside_lattice": bool(M_Z < qcd_pole_scale < M_P),
         "residual": ("the 1-loop SM matching to the measured M_Z values (W4, now "
                      "quantified by the down-running); the QCA lattice RG is the open part"),
     }

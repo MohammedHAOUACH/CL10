@@ -194,7 +194,8 @@ bookkeeping that groups the residuals, not a derivation of any value.
 
 **Where the framework fails, stated plainly.**
 - Running $\alpha_{10} = 1/25$ down with the SM $\beta$-functions gives
-  $\alpha_1(M_Z) = -1.36$ and a $U(1)$ Landau pole at $280$ GeV (W4, F2).
+  $\alpha_2(M_Z) = 0.195$ ($5.8\times$ the measured value) and an
+  $\mathrm{SU}(3)$ Landau pole at $2.2\times10^9$ GeV (W4, F2).
 - $m_\nu = 0.146$ eV is $2.9\times$ the atmospheric scale and above
   $\sum m_\nu < 0.12$ eV (W2, F3).
 - The relic abundance is **normalised** to the measured value, not computed (W7).

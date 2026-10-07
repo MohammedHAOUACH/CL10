@@ -290,7 +290,7 @@ soliton, the Schwarzschild black hole), and — **V37** — the
 | symbol | signature | returns |
 |---|---|---|
 | `g10_from_root` | `()` | `{n_module=32, n_qubits=5, g10=1/5, alpha_10=1/25, n_space=3, g0=1/8, …}` — the proposed readings $g_{10}=1/n_{\rm qubits}$ (the 5 qubits of the 32-D module) and $g_0 = 1/2^{n_{\rm space}}$ (the 3-space).  Both are **conventions** (Table 5 of the paper): V56 shows the data prefer $n=6$ over the root $n=5$ |
-| `running_down` | `()` | `{alpha_10_at_M_P, couplings_at_M_Z, measured_at_M_Z, ratio_to_measured, u1_down_pole_scale, residual, …}` — the 1-loop running **down** from $\alpha_{10}=1/25$ at the cutoff to $M_Z$: $\alpha_1(M_Z) = -1.36$ and a $U(1)$ Landau pole at $280$ GeV.  This is a **failure of the coupling values** (W4, falsifier F2), not a loose match |
+| `running_down` | `()` | `{alpha_10_at_M_P, couplings_at_M_Z, measured_at_M_Z, ratio_to_measured, u1_up_pole_scale, su3_down_pole_scale, residual, …}` — the 1-loop running **down** from $\alpha_{10}=1/25$ at the cutoff to $M_Z$: $\alpha_1(M_Z) = 0.0197$ ($1.17\times$), $\alpha_2(M_Z) = 0.195$ ($5.8\times$), and an $\mathrm{SU}(3)$ Landau pole at $2.2\times10^9$ GeV.  This is a **failure of the coupling values** (W4, falsifier F2), not a loose match |
 
 **`cl10.family` — the 3 families inside the dynamics (V39).**
 

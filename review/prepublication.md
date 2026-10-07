@@ -42,10 +42,12 @@ once the source was fixed.
 
 ## 2. Physics blockers for a major journal
 
-1. **U(1) Landau pole at 280 GeV** (Sec. 11.1). With $\alpha_{10}=1/25$ at
-   $10^{18}$ GeV and the SM one-loop $\beta$-functions, $\alpha_1^{-1}$ reaches
-   zero at 280 GeV. The paper states this; a referee will not accept a GUT
-   claim with a pole below the $Z$ mass. Needs either a two-loop + threshold
+1. **Coupling values fail the down-running** (Sec. 11.1). With
+   $\alpha_{10}=1/25$ at $M_P$ and the SM one-loop $\beta$-functions,
+   $\alpha_2(M_Z)$ lands $5.8\times$ above its measured value and
+   $\alpha_3$ hits a Landau pole at $2.2\times10^9$ GeV. The paper states
+   this; a referee will not accept a GUT claim whose single coupling cannot
+   reproduce the measured IR values. Needs either a two-loop + threshold
    computation or an explicit statement that the SM field content between
    $M_Z$ and $M_X$ is wrong.
 2. **Neutrino mass** (Sec. 12.2): $m_\nu=0.146$ eV vs $\Delta m_{31}^2$
