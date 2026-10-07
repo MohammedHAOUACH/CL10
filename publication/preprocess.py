@@ -254,7 +254,8 @@ if len(parts) > 1:
                     seen_img = True
                     continue
             if seen_img:
-                if r.strip().startswith("---") or r.strip().startswith("#"):
+                if (r.strip().startswith("---") or r.strip().startswith("#")
+                        or r.strip().startswith("\\appendix")):
                     leftover.append(r)
                     continue
                 if leftover:
@@ -336,6 +337,17 @@ for num in sorted(divs, key=int):
     marker = "``Fig.~\\ref{fig:%s}``" % num
     if marker not in body_text:
         marker = "``Figs.~"  # range reference: place at first range mention
+    # fig 26 is cited in the code-availability paragraph at the very end
+    # of Appendix B: declaring it there forces the float past the
+    # bibliography. Anchor it at the start of Appendix B instead so it
+    # floats within the appendix pages, before REFERENCES.
+    if num == "26":
+        anchor = body_text.find("\\appendix\n\n# Numerical protocol")
+        if anchor != -1:
+            end = body_text.find("\n\n", anchor)
+            body_text = (body_text[:end] + "\n\n" + divs[num]
+                         + body_text[end:])
+            continue
     pos = body_text.find(marker)
     if pos == -1:
         body_text += "\n" + divs[num]

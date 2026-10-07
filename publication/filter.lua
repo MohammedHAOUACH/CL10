@@ -226,7 +226,7 @@ function Div(el)
         end
         table.insert(items, string.format('\\bibitem{ref%02d} %s', i, t))
       end
-      return '\\begin{thebibliography}{99}\n' .. table.concat(items, '\n\n') ..
+      return '\\clearpage\n\\begin{thebibliography}{99}\n' .. table.concat(items, '\n\n') ..
              '\n\\end{thebibliography}'
     end)
     return pandoc.RawBlock('latex', tok)
