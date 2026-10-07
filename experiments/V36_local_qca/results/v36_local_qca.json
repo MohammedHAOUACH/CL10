@@ -7,7 +7,7 @@
   "status": "the_causal_radius_1_is_implemented_the_light_cone_is_realized",
   "tol": 1e-09,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "g10": 0.2,
     "unitary_err": 1.5543122344752192e-15,
     "causal_ok": true,
@@ -36,5 +36,5 @@
     ],
     "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
   },
-  "wall_time": 0.342
+  "wall_time": 0.136
 }

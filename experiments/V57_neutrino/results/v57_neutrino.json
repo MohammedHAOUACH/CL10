@@ -7,7 +7,7 @@
   "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
   "tol": 1e-09,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_gen": 10,
     "n_2step": 3,
     "exp_2step": 17,
@@ -30,5 +30,5 @@
       "right_order": true
     }
   },
-  "wall_time": 0.002
+  "wall_time": 0.08
 }

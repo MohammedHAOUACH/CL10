@@ -7,12 +7,12 @@
   "status": "the_0_parameter_QCA_does_not_generate_the_baryon_asymmetry_the_GUT_ingredients_are_the_named_residual",
   "tol": 1e-09,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "b_violation_in_dynamics": false,
     "max_45_pseudoscalar_commutator": 0.0,
     "cpt_invariant": true,
     "in_equilibrium": true,
-    "unitary_err": 1.6653487242199808e-15,
+    "unitary_err": 1.6653345381979549e-15,
     "xy_proton_decay_process": true,
     "proton_lifetime_yr": 3.976729322368187e+47,
     "heavy_N_out_of_equilibrium": true,
@@ -20,5 +20,5 @@
     "pmns_cp_phase": true,
     "residual": "the baryon asymmetry (the 0-parameter QCA does not generate it; the GUT ingredients require a non-0-parameter out-of-equilibrium + CP-violating rate)"
   },
-  "wall_time": 0.006
+  "wall_time": 0.092
 }

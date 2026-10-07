@@ -41,11 +41,21 @@ def run_one(exp_dir):
     residir = os.path.join(exp_dir, "results")
     verdict = None
     if os.path.isdir(residir):
-        for jf in glob.glob(os.path.join(residir, "*.json")):
+        # un dossier peut contenir plusieurs JSON (verdict + meta de figures).
+        # glob() n'est PAS trie : on choisit deterministement le JSON qui
+        # EST un verdict (cle "pass" presente), en priorite celui nomme
+        # d'apres l'experience ; les meta (fig*.meta.json) sont ignorees.
+        jfs = sorted(glob.glob(os.path.join(residir, "*.json")))
+        preferred = [j for j in jfs
+                     if os.path.basename(j) == os.path.basename(exp_dir) + ".json"]
+        for jf in preferred + [j for j in jfs if j not in preferred]:
             try:
-                verdict = json.load(open(jf))
+                d = json.load(open(jf))
             except Exception:  # noqa: BLE001
-                pass
+                continue
+            if isinstance(d, dict) and "pass" in d:
+                verdict = d
+                break
     # un crash du script invalide tout verdict JSON deja present sur disque :
     # sans ce garde-fou, une experience qui plante herite du PASS de sa
     # precedente execution (un resultat perime compte comme valide).

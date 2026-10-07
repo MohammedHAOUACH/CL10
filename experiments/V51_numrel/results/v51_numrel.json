@@ -7,7 +7,7 @@
   "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
   "tol": 0.0001,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "two_route_0row": {
       "max_r00": 1.7630341631047486e-13,
       "max_r0i": 2.716958602544395e-13,
@@ -40,5 +40,5 @@
       "max_abs": 1.9718631545217424
     }
   },
-  "wall_time": 27.03288745880127
+  "wall_time": 17.809841632843018
 }

@@ -25,5 +25,5 @@
     "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
     "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
   },
-  "wall_time": 0.01
+  "wall_time": 0.031
 }

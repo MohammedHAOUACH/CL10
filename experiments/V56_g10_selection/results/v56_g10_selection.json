@@ -7,7 +7,7 @@
   "status": "the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.73_of_the_1_loop_GUT_coupling_0.023_at_M_P_the_1_loop_matching_is_the_W4_named_residual",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_qubits": 5,
     "g10": 0.2,
     "alpha_10_0param": 0.04000000000000001,
@@ -36,5 +36,5 @@
     "data_check_selects_n": false,
     "residual": "the 1-loop matching (W4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
   },
-  "wall_time": 0.001
+  "wall_time": 0.024
 }
