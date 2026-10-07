@@ -334,6 +334,18 @@ def grab(m):
 body_text = figdiv_re.sub(grab, body_text)
 
 for num in sorted(divs, key=int):
+    # fig 26: its caption block swallowed the "Provenance" paragraph, making
+    # a ~515pt float that fits nowhere; keep only the figure description in
+    # the caption, return the provenance paragraph to the appendix prose,
+    # and shrink the image so the float lands on the page with free space.
+    if num == "26" and "Provenance of" in divs[num]:
+        i = divs[num].find("**Provenance of")
+        j = divs[num].find("\n:::", i)
+        prov = divs[num][i:j].strip()
+        divs[num] = (divs[num][:i].rstrip() + "\n\n:::\n")
+        divs[num] = divs[num].replace(
+            "{.figure id=fig:26", '{.figure id=fig:26 width="0.85\\columnwidth"', 1)
+        divs[num + "_prov"] = prov + "\n"
     marker = "``Fig.~\\ref{fig:%s}``" % num
     if marker not in body_text:
         marker = "``Figs.~"  # range reference: place at first range mention
@@ -346,6 +358,7 @@ for num in sorted(divs, key=int):
         if anchor != -1:
             end = body_text.find("\n\n", anchor)
             body_text = (body_text[:end] + "\n\n" + divs[num]
+                         + ("\n" + divs.get("26_prov", ""))
                          + body_text[end:])
             continue
     pos = body_text.find(marker)

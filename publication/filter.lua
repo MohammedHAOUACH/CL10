@@ -107,6 +107,8 @@ function Div(el)
     local wide = el.classes:includes('figurewide')
     local id = el.identifier ~= '' and el.identifier or (el.attributes.id or '')
     local src = el.attributes.src or ''
+    local gwidth = el.attributes.width
+    if not gwidth then gwidth = wide and '\\textwidth' or '\\columnwidth' end
     local blocks = el.content
     local tok = stash(function(doc)
       doc.blocks = pandoc.Blocks{ pandoc.Para(rawify(inlines_of(blocks))) }
@@ -115,7 +117,7 @@ function Div(el)
         '\\begin{%s}[%s]\n\\centering\n\\includegraphics[width=%s]{%s}\n\\caption{%s}\n\\label{%s}\n\\end{%s}',
         wide and 'figure*' or 'figure',
         wide and 'ht' or 'ht',
-        wide and '\\textwidth' or '\\columnwidth',
+        gwidth,
         src, cap, id, wide and 'figure*' or 'figure')
     end)
     return pandoc.RawBlock('latex', tok)
