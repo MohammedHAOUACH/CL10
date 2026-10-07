@@ -118,27 +118,28 @@ def xform(s):
     masked = figrefs(masked)
     masked = tablerefs(masked)
     s = unmask(masked, store)
-    # long display equations -> multline so they fit one column
+    # long display equations -> equation + gathered (centered, one number).
+    # multline was wrong here: it left-aligns the first line and
+    # right-aligns the last, which reads as mis-positioned math.
     def multline(m):
         body = m.group(1).strip()
         if len(body) < 80:
             return m.group(0)
-        # split at \qquad, then each chunk at \oplus
-        chunks = []
-        for part in re.split(r"\\qquad\s*", body):
-            chunks += re.split(r"\\oplus\s*", part)
-        if len(chunks) < 2:
-            return m.group(0)
-        # re-attach the operators to the ends of lines
-        lines = []
-        for i, ch in enumerate(chunks):
-            ch = ch.strip()
-            if i < len(chunks) - 1:
-                src = body[body.index(ch) + len(ch):]
-                op = r" \oplus " if re.match(r"^\s*\\oplus", src) else r" \qquad "
-                ch = ch + op.strip() + r" \\"
-            lines.append(ch)
-        return "\\begin{multline}\n    " + "\n    ".join(lines) + "\n\\end{multline}"
+        if re.search(r"\\oplus\s", body):
+            # direct-sum chain: break after each \oplus (operator at EOL)
+            chunks = [c.strip() for c in re.split(r"\s*\\oplus\s*", body)]
+            if len(chunks) < 2:
+                return m.group(0)
+            lines = [c + r" {} \oplus" for c in chunks[:-1]] + [chunks[-1]]
+        else:
+            # system of conditions: break at each \qquad, centered
+            chunks = [c.strip() for c in re.split(r"\\qquad\s*", body)]
+            if len(chunks) < 2:
+                return m.group(0)
+            lines = chunks
+        return ("\\begin{equation}\n\\begin{gathered}\n    "
+                + "\n    \\\\\n".join(lines)
+                + "\n\\end{gathered}\n\\end{equation}")
 
     s = re.sub(r"\$\$(.*?)\$\$", multline, s, flags=re.S)
     return s
