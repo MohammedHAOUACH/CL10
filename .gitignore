@@ -5,7 +5,3 @@ __pycache__/
 results/*
 !results/validation_summary.json
 *.egg-info/
-livrable/preview/
-livrable/*.aux
-livrable/*.log
-livrable/*.out

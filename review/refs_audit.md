@@ -56,15 +56,23 @@ retenu que si titre, auteurs, journal, volume, page et année correspondent.
 [51] Nath-Fileviez Pérez (§11.4) · [52] SK ν̄K⁺ (Fig. 22).
 
 Toutes les 52 entrées sont citées dans le corps du texte (aucune référence
-orpheline). 46 DOIs vérifiés dans livrable/doi.json ; les 6 sans DOI sont des
+orpheline). 46 DOIs vérifiés (la liste vivait dans livrable/doi.json,
+supprimé avec l'ancien build — les mêmes DOIs sont re-vérifiables via
+review/verify_refs2.py) ; les 6 sans DOI sont des
 livres ([9], [11], [18], [41]), un arXiv-only ([30]) et un compte-rendu PoS
 avec arXiv ([50]).
+
+NB (2026-10-07) : le build est désormais publication/ (pandoc + REVTeX 4.2,
+bash publication/build.sh) ; l'ancien livrable/ est supprimé. La bibliographie
+compilée ne porte plus les DOIs en ligne — les réinjecter (via
+review/verify_refs2.py) est à faire avant soumission.
 
 ## Fichiers touchés
 
 - doc/publication.md : bibliographie réécrite (32→52), 23 citations insérées
   dans le texte, bornes/échelles corrigées.
 - make_figures.py : bornes fig20/21/22 + annotations ; figs 20-22 régénérées.
-- livrable/doi.json : 46 DOIs vérifiés.
+- livrable/doi.json : 46 DOIs vérifiés (dossier depuis supprimé).
 - livrable/publication.{tex,pdf} : recompilé (55 p., 52 bibitems, 46 DOIs,
-  aucun avertissement de citation non résolue).
+  aucun avertissement de citation non résolue) — remplacé par
+  publication/publication.pdf (24 p., deux colonnes).

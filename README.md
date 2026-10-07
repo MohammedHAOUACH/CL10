@@ -47,6 +47,12 @@ CL10/
 │   ├── publication.md        # the paper (the theory + the seven criteria + the 9 open residuals W1-W9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   └── api.md                # the complete CL10 API reference
+├── publication/              # the journal build: doc/publication.md -> REVTeX 4.2 PDF
+│   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
+│   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
+│   ├── filter.lua            # Divs -> figure / figure* / table* / thebibliography
+│   ├── template.tex          # revtex4-2, aps/prd, twocolumn
+│   └── publication.pdf       # the compiled paper (24 pages, 26 figures, 8 tables, 52 refs)
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
 │   ├── engine.py             # the single computation core (CuPy/JAX/NumPy)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
@@ -152,6 +158,9 @@ python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the 
 python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
                                  # the production hydrogen experiment (296^3, GPU):
                                  # regenerates doc/figures/fig26_hydrogen.png + the meta JSON
+bash publication/build.sh        # rebuild the journal PDF from doc/publication.md
+                                 # needs pandoc >= 3 and texlive-publishers (revtex4-2)
+                                 # -> publication/publication.pdf
 ```
 
 ## The verification program

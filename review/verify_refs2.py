@@ -37,7 +37,7 @@ def fmt(item):
             f"{', '.join(a.get('family','') for a in m.get('author',[])[:5])}")
 
 
-# --- A. claimed DOIs from livrable/doi.json: resolve each directly
+# --- A. claimed DOIs (formerly livrable/doi.json, now removed): resolve each directly
 CLAIMED_DOIS = {
     1: "10.1103/PhysRevLett.59.521", 2: "10.1103/PhysRevD.14.3432",
     3: "10.1007/BF02199356", 6: "10.1103/PhysRevLett.32.438",

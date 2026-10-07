@@ -1,18 +1,25 @@
 # Pre-publication audit — 2026-10-06
 
-Artifact: `livrable/publication.pdf` (55 pages, REVTeX 4-2 `aps,prd,preprint`,
-26 figures, 52 references, 46 with verified DOIs). Compile is clean:
+> **Build note (2026-10-07):** the old `livrable/` pipeline (`make_paper.py`)
+> has been removed and replaced by `publication/` — a pandoc + REVTeX 4.2
+> build (`bash publication/build.sh`, needs `pandoc` and `texlive-publishers`).
+> Current artifact: `publication/publication.pdf` (24 pages, `aps,prd,twocolumn`,
+> 26 figures, 8 tables, 52 references; 0 errors, 0 undefined references,
+> 0 stuck floats, 0 overfull boxes > 100pt). The DOI list that lived in
+> `livrable/doi.json` is no longer injected into the bibliography; the
+> verified DOIs remain recorded in `review/refs_audit.md` and
+> `review/verify_refs2.py`.
+
+Artifact at audit time: a 55-page REVTeX 4-2 `aps,prd,preprint` PDF,
+26 figures, 52 references, 46 with verified DOIs. Compile was clean:
 **0 errors, 0 undefined references, 0 stuck floats, 0 overfull boxes**
 (two `xelatex` passes).
-Build: `python3 livrable/make_paper.py --no-compile` then
-`bash ~/.claude/skills/latex-document-skill/scripts/compile_latex.sh livrable/publication.tex --engine xelatex --auto-fix`.
 
 `doc/publication.md` is the manuscript source and now carries the journal
 abstract, the repository URL and licence in the code-availability paragraph,
-and the corrected bibliography: the earlier `livrable/` overrides
+and the corrected bibliography: the earlier build-side overrides
 (`abstract.tex`, `code_availability.tex`, `references_fix.json`) were removed
-once the source was fixed. `livrable/doi.json` (DOIs) and `livrable/orcid.txt`
-(optional ORCID) remain.
+once the source was fixed.
 
 ## 1. Numbers re-derived from the code before compiling
 
@@ -61,11 +68,14 @@ bibliography was expanded 32 → 52 entries; every entry verified against
 Crossref/INSPIRE/arXiv; 11 real errors corrected at the source (wrong titles,
 invented DOIs for Sakharov/John/Nielsen–Ninomiya, a non-existent D'Ariano JCP
 paper, a wrong Gundlach reference, a wrong Hisano reference, wrong Regge
-initial, wrong SK bounds); 46 verified DOIs in `livrable/doi.json`. The
+initial, wrong SK bounds); 46 verified DOIs (the list lived in
+`livrable/doi.json`, now removed — the same DOIs are re-checked in
+`review/verify_refs2.py`). The
 in-text citations were previously rendered as literal `[n]` in the PDF
 (`citations()` was never called from `inline()`); fixed in
-`livrable/make_paper.py` — the compiled paper now has real `\cite{}` links,
-all 52 refs cited, 0 undefined citations.
+the old `livrable/make_paper.py` — the compiled paper now has real `\cite{}` links,
+all 52 refs cited, 0 undefined citations (the current `publication/` build
+does the same at the pandoc-AST level).
 
 ## 4. Submission checklist
 
@@ -83,9 +93,10 @@ all 52 refs cited, 0 undefined citations.
       the numpy-backend run reached 63/64 (V62 needs `matplotlib`, i.e. run the
       suite with `.venv/bin/python`)
 - [x] Cover letter, journal order, arXiv listing, suggested referees:
-      `livrable/cover_letter.md`
-- [ ] ORCID: put the number in `livrable/orcid.txt` (the build appends it to
-      the affiliation); nothing is invented in the paper
+      were in `livrable/cover_letter.md` (removed with the old build; rewrite
+      against the current `publication/publication.pdf` before submission)
+- [ ] ORCID: add it to `publication/template.tex` (`\author` block); nothing
+      is invented in the paper
 - [ ] Zenodo release + concept DOI added to the code-availability paragraph
 - [ ] The GitHub repository the paper asserts must be public before submission
 - [ ] Refs 13, 14, 15, 19, 23, 24, 29, 31, 32: confirm their DOIs by hand
