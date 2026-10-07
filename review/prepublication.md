@@ -6,9 +6,9 @@
 > Current artifact: `publication/publication.pdf` (24 pages, `aps,prd,twocolumn`,
 > 26 figures, 8 tables, 52 references; 0 errors, 0 undefined references,
 > 0 stuck floats, 0 overfull boxes > 100pt). The DOI list that lived in
-> `livrable/doi.json` is no longer injected into the bibliography; the
-> verified DOIs remain recorded in `review/refs_audit.md` and
-> `review/verify_refs2.py`.
+> `livrable/doi.json` is regenerated and re-verified against Crossref by
+> `publication/fetch_dois.py` (-> `publication/doi.json`) and re-injected
+> into the compiled bibliography as clickable https://doi.org/ links.
 
 Artifact at audit time: a 55-page REVTeX 4-2 `aps,prd,preprint` PDF,
 26 figures, 52 references, 46 with verified DOIs. Compile was clean:

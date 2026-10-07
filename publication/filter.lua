@@ -92,6 +92,16 @@ local function stash(fn)
   return string.format('\x01STASH%d\x01', #STASH)
 end
 
+-- DOI table: publication/doi.json (verified by fetch_dois.py against Crossref)
+local DOIS = {}
+do
+  local f = io.open('doi.json', 'r')
+  if f then
+    local s = f:read('*a'); f:close()
+    for k, v in s:gmatch('"(%d+)"%s*:%s*"([^"]+)"') do DOIS[tonumber(k)] = v end
+  end
+end
+
 function Div(el)
   if el.classes:includes('figure') or el.classes:includes('figurewide') then
     local wide = el.classes:includes('figurewide')
@@ -205,6 +215,9 @@ function Div(el)
       for i, blocks in ipairs(ol.content) do
         doc.blocks = pandoc.Blocks{ pandoc.Para(rawify(inlines_of(blocks))) }
         local t = pandoc.write(doc, 'latex'):gsub('\n+$', '')
+        if DOIS[i] then
+          t = t .. ' \\url{https://doi.org/' .. DOIS[i] .. '}'
+        end
         table.insert(items, string.format('\\bibitem{ref%02d} %s', i, t))
       end
       return '\\begin{thebibliography}{99}\n' .. table.concat(items, '\n\n') ..

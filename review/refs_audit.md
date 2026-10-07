@@ -63,9 +63,10 @@ livres ([9], [11], [18], [41]), un arXiv-only ([30]) et un compte-rendu PoS
 avec arXiv ([50]).
 
 NB (2026-10-07) : le build est désormais publication/ (pandoc + REVTeX 4.2,
-bash publication/build.sh) ; l'ancien livrable/ est supprimé. La bibliographie
-compilée ne porte plus les DOIs en ligne — les réinjecter (via
-review/verify_refs2.py) est à faire avant soumission.
+bash publication/build.sh) ; l'ancien livrable/ est supprimé. Les 46 DOIs
+vérifiés ont été régénérés et re-vérifiés contre Crossref
+(publication/fetch_dois.py -> publication/doi.json) et sont réinjectés en
+ligne dans la bibliographie du PDF (https://doi.org/..., cliquables).
 
 ## Fichiers touchés
 
