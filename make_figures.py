@@ -14,8 +14,9 @@ Writes PNGs to `doc/figures/` (the publication embeds them by relative path).
 The backend (CuPy/JAX/NumPy) is selected by `cl10.engine` at import; the
 32x32 objects are small, so this runs on the GPU or degrades to CPU.
 """
+import math
 import os
-
+import sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -29,6 +30,8 @@ plt.rcParams.update({
     "figure.figsize": (6.8, 4.6),
     "figure.dpi": 150,
     "savefig.dpi": 200,
+    "font.family": "serif",
+    "mathtext.fontset": "cm",
     "font.size": 11,
     "axes.titlesize": 12,
     "axes.labelsize": 11,
@@ -47,6 +50,12 @@ C_SU2 = "#ff7f0e"     # orange
 C_SU3 = "#2ca02c"     # green
 C_ROOT = "#7f1c8b"    # purple (the one object / the root)
 C_ZERO = "#d62728"    # red (the 0-parameter points / the measured)
+
+# provenance semantics (Section 14): ONE colour code across the paper
+C_ALG = "#1f4e79"     # algebraic (derived, 0-parameter)
+C_CONV = "#e67e22"    # conventional (mapping choices)
+C_FIT = "#c0392b"     # fitted coefficients
+C_OPEN = "#7f8c8d"    # open residuals
 
 os.makedirs(OUT, exist_ok=True)
 
@@ -1809,28 +1818,28 @@ def fig33_w4_closure():
         y = 4.85 - k * 1.55
         box(0.5, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
         box(0.5, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
-        ax.text(6.15, y + 0.36, "✗", fontsize=17, color=C_ZERO,
-                ha="center", va="center", weight="bold")
+        ax.text(6.15, y + 0.36, "$\\mathbf{\\times}$", fontsize=17,
+                color=C_ZERO, ha="center", va="center", weight="bold")
         arrow(3.8, 6.5, 3.2, y + 1.47)
     for k, (q, r) in enumerate(right):
         y = 4.85 - k * 1.55
         box(7.0, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
         box(7.0, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
-        ax.text(6.75, y + 0.36, "✗", fontsize=17, color=C_ZERO,
-                ha="center", va="center", weight="bold")
+        ax.text(6.75, y + 0.36, "$\\mathbf{\\times}$", fontsize=17,
+                color=C_ZERO, ha="center", va="center", weight="bold")
         arrow(9.0, 6.5, 9.7, y + 1.47)
 
     box(2.9, 0.35, 7.0, 0.85,
-        "SURVIVING REQUIREMENT (V84): $\\mathrm{SU}(5)$-FRAGMENT CONTENT\n"
-        "BEYOND THE NODE $\\mathbf{16}$ - new automaton content, "
-        "not new thresholds",
+        "CLOSED CONDITIONALLY BY V96: a flavour-dependent bond layer "
+        "($\\kappa_s$ per class) meets exactly at $M_X = 1.8\\times10^{16}$ "
+        "GeV for all $n = 3\\dots12$ - six named inputs (Fig. 39)",
         "#2c7a3f", "#eaf6ec", lw=2.0)
     for x in (3.2, 9.7):
         arrow(x, 1.75, 6.4, 1.2)
 
-    ax.set_title("W4: every exit from the automaton's own content is "
-                 "closed - the desert spectrum needs fragment content "
-                 "the root does not supply", fontsize=12)
+    ax.set_title("W4: every exit of the BASE automaton closed - the "
+                 "fragment content is feasible (V92) and the meeting "
+                 "closes conditionally (V96)", fontsize=12)
     fig.tight_layout()
     _save(fig, "fig33_w4_closure.png")
 
@@ -2146,6 +2155,280 @@ def fig37_w3_forcing():
 
 
 
+# ===========================================================================
+# Figure 38 - the graphical abstract: one object, five theorems
+# ===========================================================================
+def fig38_graphical_abstract():
+    from matplotlib.patches import FancyBboxPatch
+    fig, ax = plt.subplots(figsize=(11.5, 7.2))
+    ax.set_xlim(-6.0, 6.0)
+    ax.set_ylim(-3.9, 3.9)
+    ax.axis("off")
+    ax.set_aspect("equal")
+
+    # the root: Cl(10,0) with its ten generators
+    ax.add_patch(plt.Circle((0, 0), 1.35, fc="#f3ecf7", ec=C_ROOT,
+                            lw=2.4, zorder=3))
+    for k in range(10):
+        a = math.tau * k / 10 + math.tau / 40
+        ax.plot([0, 1.15 * math.cos(a)], [0, 1.15 * math.sin(a)],
+                color=C_ROOT, lw=2.2, zorder=4)
+        ax.text(1.58 * math.cos(a), 1.58 * math.sin(a), f"$h_{k + 1}$",
+                fontsize=8.5, color=C_ROOT, ha="center", va="center",
+                zorder=5)
+    ax.text(0, 0.16, "$\\mathrm{Cl}(10,0)$", ha="center", va="center",
+            fontsize=15, weight="bold", color=C_ROOT, zorder=5)
+    ax.text(0, -0.28, "$h_a^2=I$, $h_ah_b=-h_bh_a$", ha="center",
+            va="center", fontsize=8.5, color="0.3", zorder=5)
+
+    branches = [
+        (-4.6, 2.9, "(1+3) Minkowski\ncausal front $c=1.0$\n(Theorems 1, 5)"),
+        (4.6, 2.9, "$\\mathbf{16}$ Weyl = ONE generation\n8 anomalies $=0$\n(Theorems 2, 3)"),
+        (5.0, 0.0, "$\\mathbf{45}$ = Spin(10) adjoint\n$5/3$ normalisation\n(Theorem 4)"),
+        (4.6, -2.9, "gravity on the lattice\n$M_P = 1.22\\times10^{19}$ GeV\n(Section 9)"),
+        (-4.6, -2.9, "$\\mathbb{Z}_2$ grading\nstatistics from the root\n(Section 7)"),
+    ]
+    for (x, y, txt) in branches:
+        ax.add_patch(FancyBboxPatch((x - 1.75, y - 0.62), 3.5, 1.24,
+                                        boxstyle="round,pad=0.08",
+                                        fc="#eef3f8", ec=C_ALG, lw=1.6,
+                                        zorder=3))
+        ax.text(x, y, txt, ha="center", va="center", fontsize=9.2,
+                zorder=4)
+        r = math.hypot(x, y)
+        lam = min(1.85 / max(abs(x), 1e-9), 0.72 / max(abs(y), 1e-9))
+        ax.annotate("", xy=(x * (1 - lam), y * (1 - lam)),
+                    xytext=(1.45 * x / r, 1.45 * y / r),
+                    arrowprops=dict(arrowstyle="-|>", color="0.35",
+                                    lw=1.5), zorder=2)
+    ax.set_title("One Clifford root, five theorems - every entry is "
+                 "algebraic (blue) and 0-parameter", fontsize=13)
+    fig.tight_layout()
+    _save(fig, "fig38_graphical_abstract.png")
+
+
+# ===========================================================================
+# Figure 39 - W4: the node-16 fragment hull contains the data (V92)
+# ===========================================================================
+def fig39_w4_cone():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V92_w4_feasibility",
+                           "results", "v92_w4_feasibility.json")) as fh:
+        d92 = json.load(fh)["data"]
+    G = np.array(d92["db_generators"])          # (6, 3) fragment classes
+    Tp = np.array(d92["target_Tp"])             # data-preferred meeting
+    w = d92["witness_barycentric"]              # keys index {0, f_0..f_5}
+
+    # project the 7 vertices {0, f_0..f_5} onto their plane
+    V = np.vstack([np.zeros((1, 3)), G])
+    cen = V.mean(axis=0)
+    _u, sv, Vt = np.linalg.svd(V - cen, full_matrices=False)
+    P = Vt[:2].T
+    v2 = (V - cen) @ P
+    tp2 = (Tp - cen) @ P
+
+    def hull(pts):
+        pts = sorted(map(tuple, pts))
+        def half(Pts):
+            H = []
+            for p in Pts:
+                while len(H) >= 2 and \
+                        ((H[-1][0] - H[-2][0]) * (p[1] - H[-2][1])
+                         - (H[-1][1] - H[-2][1]) * (p[0] - H[-2][0])) <= 0:
+                    H.pop()
+                H.append(p)
+            return H
+        return half(pts) + half(reversed(pts))[1:-1]
+
+    fig, ax = plt.subplots(figsize=(8.2, 6.6))
+    h = hull(v2)
+    ax.add_patch(plt.Polygon(h, closed=True, fc="#dce9f5", ec=C_ALG,
+                             lw=1.8, zorder=1))
+    for i, p in enumerate(v2[1:], start=0):
+        ax.plot([v2[0][0], p[0]], [v2[0][1], p[1]], color=C_ALG, lw=1.1,
+                zorder=2)
+        ax.plot(*p, "o", color=C_ALG, ms=8, zorder=3)
+        ax.annotate(f"$f_{i}$", p, xytext=(p[0] + 0.05, p[1] + 0.05),
+                    fontsize=10, color=C_ALG)
+    ax.plot(*v2[0], "o", color="0.3", ms=8, zorder=3)
+    ax.annotate("$0$ (no extra content)", v2[0],
+                xytext=(v2[0][0] - 0.28, v2[0][1] - 0.12), fontsize=9,
+                color="0.3")
+    ax.plot(*tp2, marker="*", ms=24, color=C_FIT, markeredgecolor="black",
+            lw=0.7, zorder=4)
+    lam = ", ".join(
+        f"$\\lambda_0$={v}" if k == "0" else f"$\\lambda_{{f_{int(k) - 1}}}$={v}"
+        for k, v in w.items())
+    ax.annotate("data-preferred meeting $M_X=1.8\\times10^{16}$ GeV,\n"
+                f"$\\alpha_X=1/25$ - INSIDE the hull\nwitness: {lam}",
+                tp2, xytext=(tp2[0] - 1.35, tp2[1] - 0.55),
+                fontsize=9, color=C_FIT, ha="left",
+                arrowprops=dict(arrowstyle="->", color=C_FIT))
+    ax.set_title("V92: the desert content the data require lies INSIDE "
+                 "the hull of the node-$\\mathbf{16}$ fragments\n"
+                 "($\\beta$-contribution plane; feasibility $\\Rightarrow$ "
+                 "W4 is a realizability problem, not a no-go)",
+                 fontsize=11.5)
+    ax.set_xlabel("$\\beta_1,\\beta_2,\\beta_3$ plane (PCA)")
+    ax.grid(True, alpha=0.3, ls=":")
+    fig.tight_layout()
+    _save(fig, "fig39_w4_cone.png")
+
+
+# ===========================================================================
+# Figure 40 - the Brillouin-zone doublers: the doubling theorem, displayed
+# ===========================================================================
+def fig40_brillouin_doublers():
+    from cl10 import brillouin
+    r = brillouin.brillouin()
+    nodes = r["nodes"]
+    fig = plt.figure(figsize=(7.4, 6.2))
+    ax = fig.add_subplot(projection="3d")
+    pi = math.pi
+    for s, e in [((-pi, -pi, -pi), (pi, -pi, -pi)),
+                 ((pi, -pi, -pi), (pi, pi, -pi)),
+                 ((pi, pi, -pi), (-pi, pi, -pi)),
+                 ((-pi, pi, -pi), (-pi, -pi, -pi)),
+                 ((-pi, -pi, pi), (pi, -pi, pi)),
+                 ((pi, -pi, pi), (pi, pi, pi)),
+                 ((pi, pi, pi), (-pi, pi, pi)),
+                 ((-pi, pi, pi), (-pi, -pi, pi)),
+                 ((-pi, -pi, -pi), (-pi, -pi, pi)),
+                 ((pi, -pi, -pi), (pi, -pi, pi)),
+                 ((pi, pi, -pi), (pi, pi, pi)),
+                 ((-pi, pi, -pi), (-pi, pi, pi))]:
+        ax.plot([s[0], e[0]], [s[1], e[1]], [s[2], e[2]],
+                color="0.6", lw=0.8)
+    for n in nodes:
+        c = C_FIT if n["chirality"] > 0 else C_ALG
+        ax.scatter(*n["q"], color=c, s=90, edgecolor="black", lw=0.6,
+                   depthshade=False)
+    ax.scatter(0, 0, 0, color="#d4a017", s=130, marker="D",
+               edgecolor="black", lw=0.6, depthshade=False)
+    ax.text(0.25 * pi, 0.25 * pi, 0.25 * pi,
+            f"$\\Gamma$ gap {r['gap_q0_16']:.4f}", fontsize=9)
+    ax.set_xlim(-pi, pi)
+    ax.set_ylim(-pi, pi)
+    ax.set_zlim(-pi, pi)
+    ax.set_xlabel("$q_x$")
+    ax.set_ylabel("$q_y$")
+    ax.set_zlabel("$q_z$")
+    ax.set_title(f"{r['n_doubler_nodes']} gapless doubler nodes on the "
+                 f"zone edges ($\\sum$ chirality = "
+                 f"{r['chirality_sum']:.0f}) - the doubling theorem, "
+                 "displayed, not hidden", fontsize=10.5)
+    ax.view_init(elev=18, azim=-58)
+    fig.tight_layout()
+    _save(fig, "fig40_brillouin_doublers.png")
+
+
+# ===========================================================================
+# Figure 41 - the black hole by computation: three ray-traced frames
+# ===========================================================================
+def fig41_bh_frames():
+    import subprocess
+    import tempfile
+    from matplotlib import image as mpimg
+    vid = os.path.join(ROOT, "simulation", "blackhole", "video",
+                       "blackhole.mp4")
+    if not os.path.exists(vid):
+        return
+    times = [1.5, 4.0, 6.5]
+    with tempfile.TemporaryDirectory() as td:
+        frames = []
+        for k, t in enumerate(times):
+            p = os.path.join(td, f"f{k}.png")
+            subprocess.run(["ffmpeg", "-v", "error", "-ss", str(t),
+                            "-i", vid, "-frames:v", "1", p], check=True)
+            frames.append(mpimg.imread(p))
+    fig, axs = plt.subplots(1, 3, figsize=(12.6, 4.4))
+    caps = [f"$t = {t}$ s" for t in times]
+    for ax, im, cap in zip(axs, frames, caps):
+        ax.imshow(im)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_title(cap, fontsize=9.5)
+    fig.suptitle("Gravity rendered: null geodesics of the V6 metric, "
+                 "ray-traced (simulation/blackhole)", fontsize=12)
+    fig.tight_layout()
+    _save(fig, "fig41_bh_frames.png")
+
+
+# ===========================================================================
+# Figure 42 - the vertex-corrected area law and the first ground state
+# ===========================================================================
+def fig42_vertex_ground_state():
+    import json
+    p100 = os.path.join(ROOT, "experiments", "V100_vertex_correction",
+                        "results", "v100_vertex_correction.json")
+    p101 = os.path.join(ROOT, "experiments",
+                        "V101_bond_current_ground_state",
+                        "results", "v101_bond_current_ground_state.json")
+    d100 = json.load(open(p100))["data"]
+    d101 = json.load(open(p101))["data"]
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.6, 4.8))
+
+    # (a) the entropy of one Planck bond, from naive counting to Bekenstein
+    I6 = d100["I"]["6"][0]
+    Scap = d100["S_capacity"]
+    labels = ["$2\\ln 45$\nnaive (no vertices)",
+              "$S_{\\rm cap}$\nkernel capacity",
+              "$S_{\\rm cap}/2$\nper bond",
+              "$(1/3)\\ln I_6$\ncubic-lattice vertex coeff.",
+              "$1/4$\nBekenstein"]
+    vals = [2 * math.log(45), Scap, Scap / 2,
+            d100["vertex_coefficient"], 0.25]
+    cols = [C_OPEN, C_ALG, C_ALG, C_FIT, C_ZERO]
+    bars = ax1.bar(range(5), vals, color=cols, width=0.62)
+    for k, v in enumerate(vals):
+        ax1.text(k, v + 0.15, f"{v:.2f}", ha="center", fontsize=9.5)
+    ax1.axhline(0.25, color=C_ZERO, ls="--", lw=1.2)
+    ax1.set_xticks(range(5))
+    ax1.set_xticklabels(labels, fontsize=8.2)
+    ax1.set_ylabel("nats per Planck bond")
+    ax1.set_ylim(0, 8.6)
+    ax1.set_title("(a) the vertex correction: deficit factor "
+                  "$15.2 \\to 6.6$", fontsize=10.5)
+    ax1.text(0.02, 0.965,
+             "$I_n=\\dim(\\mathbf{45}^{\\otimes n})^G$: "
+             f"{round(d100['I']['2'][0])}, {round(d100['I']['3'][0])}, "
+             f"{round(d100['I']['4'][0])}, {round(d100['I']['5'][0])}, "
+             f"{round(I6)}",
+             transform=ax1.transAxes, fontsize=8.6, va="top",
+             color=C_ALG)
+
+    # (b) the 24-level spectrum of the bond-current Hamiltonian
+    spec = d101["spectrum"]
+    E0 = d101["E0"]
+    for k, e in enumerate(spec):
+        ax2.plot([k - 0.35, k + 0.35], [e, e], color=C_ALG, lw=2.2)
+    ax2.axhline(E0, color=C_FIT, ls="--", lw=1.1)
+    ax2.set_xlim(-0.8, len(spec) - 0.2)
+    ax2.set_ylim(E0 - 60, E0 + 180)
+    ax2.annotate(f"$E_0 = {E0:.1f}\\,\\eta$, deg. {d101['degeneracy']}",
+                 xy=(0.2, E0 + 8), xytext=(7.5, E0 + 12),
+                 fontsize=9, color=C_FIT)
+    ax2.annotate(f"gap $\\Delta = {d101['gap']:.1f}\\,\\eta$",
+                 xy=(2.6, E0 + d101["gap"] / 2), xytext=(0.0, E0 + 150),
+                 fontsize=9, color=C_ALG,
+                 arrowprops=dict(arrowstyle="<->", color=C_ALG, lw=1))
+    ax2.text(0.02, 0.06,
+             f"$S_{{\\rm GS}} = {d101['S_ground']:.4f} = \\ln 45$ "
+             "(middle cut)",
+             transform=ax2.transAxes, fontsize=9, va="bottom",
+             color=C_ALG)
+    ax2.set_xlabel("kernel state (Gram-orthonormalised)")
+    ax2.set_ylabel("$E$ (units of $\\eta$)")
+    ax2.set_title("(b) the first ground state: $J\\!\\cdot\\!L$ splits the "
+                  "kernel, $S_{\\rm GS} = \\ln 45$ (V101)", fontsize=10.5)
+    fig.suptitle("The gauged area law corrected by vertices, and the "
+                 "ground state of the gauged layer (V100, V101)",
+                 fontsize=12)
+    fig.tight_layout()
+    _save(fig, "fig42_vertex_ground_state.png")
+
+
+
 def main(with_young=False):
     print("Generating CL10 publication figures ->", OUT)
     fig1_one_object()
@@ -2183,9 +2466,14 @@ def main(with_young=False):
     fig35_loop_selection()
     fig36_w2_protection()
     fig37_w3_forcing()
+    fig38_graphical_abstract()
+    fig39_w4_cone()
+    fig40_brillouin_doublers()
+    fig41_bh_frames()
+    fig42_vertex_ground_state()
     if with_young:
         fig25_young()
-    print(f"done: {36 if with_young else 35} figures.")
+    print(f"done: {41 if with_young else 40} figures.")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,124 @@
+{
+  "experiment": "V93_cartan_junction",
+  "pass": true,
+  "status": "W4 NARROWED TO A PRECISE GAP. V92: the data-preferred meeting IS in the node-16 fragment hull (content exists). V93: with a GENERAL Cartan direction the meeting is realized exactly (6 solutions, thresholds in the desert) BUT those directions break 120 of 120 roots - including the SM roots: unphysical. The SM-preserving direction space has dimension 2 (the class-degenerate span{X,Y} family of V65/V76), and within it NO exact solution exists (the V86/V87 floor 0.81 confirmed as a property of class-degenerate directions). The witness needs PER-WEIGHT threshold splitting inside a fragment class; the named next ingredient is the OFF-DIAGONAL junction mixing (V76 structure) which splits class-degenerate thresholds while preserving the SM algebra.",
+  "data": {
+    "v92_feasible": true,
+    "sm_preserving_subspace_dim": 2,
+    "sm_preserving_basis": [
+      [
+        0.70596,
+        0.70596,
+        -0.03286,
+        -0.03286,
+        -0.03286
+      ],
+      [
+        0.04024,
+        0.04024,
+        0.57641,
+        0.57641,
+        0.57641
+      ]
+    ],
+    "n_solutions_free_direction": 6,
+    "solutions_free_direction": [
+      {
+        "c": [
+          0.50089,
+          0.51966,
+          0.50079,
+          0.47609,
+          -0.04012
+        ],
+        "z0": 30.2219,
+        "n_nodes": 11,
+        "unbroken_roots": 0,
+        "thresholds_GeV": [
+          2382000000000000.0,
+          102000000000000.0,
+          56040000000000.0,
+          101700000000000.0,
+          4074000000000.0,
+          1260000000000000.0,
+          41600000000000.0,
+          4321000000000.0,
+          1215000000000000.0,
+          1261000000000000.0,
+          1321000000000000.0,
+          2479000000000000.0,
+          1223000000000000.0,
+          1163000000000000.0,
+          1117000000000000.0,
+          1163000000000000.0
+        ]
+      },
+      {
+        "c": [
+          0.56395,
+          0.40879,
+          0.43893,
+          0.56698,
+          0.027
+        ],
+        "z0": 30.1936,
+        "n_nodes": 11,
+        "unbroken_roots": 0,
+        "thresholds_GeV": [
+          2372000000000000.0,
+          71170000000000.0,
+          141500000000.0,
+          366900000000000.0,
+          303000000000000.0,
+          974400000000000.0,
+          64000000000000.0,
+          7306000000000.0,
+          1341000000000000.0,
+          1270000000000000.0,
+          967200000000000.0,
+          2309000000000000.0,
+          1031000000000000.0,
+          1334000000000000.0,
+          1405000000000000.0,
+          1038000000000000.0
+        ]
+      },
+      {
+        "c": [
+          0.59224,
+          0.14208,
+          0.44909,
+          0.46751,
+          0.45696
+        ],
+        "z0": 30.3286,
+        "n_nodes": 12,
+        "unbroken_roots": 0,
+        "thresholds_GeV": [
+          2853000000000000.0,
+          865300000000000.0,
+          34150000000000.0,
+          1253000000000000.0,
+          15730000000000.0,
+          12840000000000.0,
+          1203000000000000.0,
+          371800000000000.0,
+          1232000000000000.0,
+          400400000000000.0,
+          350500000000000.0,
+          1616000000000000.0,
+          1588000000000000.0,
+          1638000000000000.0,
+          2469000000000000.0,
+          1250000000000000.0
+        ]
+      }
+    ],
+    "n_solutions_sm_preserving": 0,
+    "solutions_sm_preserving": [],
+    "breaking_at_solution": {
+      "unbroken_roots": 0,
+      "sm_preserving": false
+    }
+  }
+}

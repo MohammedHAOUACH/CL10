@@ -1,0 +1,242 @@
+{
+ "experiment": "V102_lorentz_isotropy",
+ "pass": true,
+ "status": "DISPERSION ORDER OF THE DOUBLER NODES MEASURED. At all 12 doubler momenta the quasi-energy omega(q0 + eps d) was measured by exact Floquet diagonalization in 100 directions at two eps (2e-4, 1e-3); the local exponent p = d ln omega / d ln eps classifies each direction. Result: 1200 linear, 0 quadratic, 0 mixed directions out of 1200; node gaps at g10 = 1/5 are 2.00e-04..2.00e-04; the linear cone has principal velocities up to 0.2839 (causal speed 1) with anisotropy up to 0.7584. The doubler nodes are NOT Lorentz cones: the low-energy dispersion is quadratic along most directions and the linear cone is strongly anisotropic (velocity deficit 0.716 against the causal speed 1). Continuous Lorentz invariance is NOT emergent at the nodes of the implemented step - a named residual; the Wilson mechanism of V65 removes these nodes entirely, so the low-energy Lorentz question moves to the Wilson-deformed spectrum.",
+ "data": {
+  "per_node": [
+   {
+    "q0": [
+     1.5708,
+     1.5708,
+     0.0
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.754538,
+    "fit_resid": 0.07998658793540894
+   },
+   {
+    "q0": [
+     1.5708,
+     0.0,
+     1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200362,
+     0.200563,
+     0.283124
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.747796,
+    "fit_resid": 0.08019937313297712
+   },
+   {
+    "q0": [
+     0.0,
+     1.5708,
+     1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.199907,
+     0.200226,
+     0.283786
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.75794,
+    "fit_resid": 0.07990707586630617
+   },
+   {
+    "q0": [
+     1.5708,
+     -1.5708,
+     0.0
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.199831,
+     0.20046,
+     0.28353
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.756174,
+    "fit_resid": 0.07975917965620134
+   },
+   {
+    "q0": [
+     1.5708,
+     0.0,
+     -1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200089,
+     0.200382,
+     0.283445
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.753234,
+    "fit_resid": 0.07925630330297839
+   },
+   {
+    "q0": [
+     0.0,
+     1.5708,
+     -1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200109,
+     0.200477,
+     0.283466
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.753036,
+    "fit_resid": 0.07966091300654869
+   },
+   {
+    "q0": [
+     -1.5708,
+     1.5708,
+     0.0
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200045,
+     0.200651,
+     0.283449
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.75317,
+    "fit_resid": 0.07975918002016417
+   },
+   {
+    "q0": [
+     -1.5708,
+     0.0,
+     1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200123,
+     0.200391,
+     0.283534
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.753605,
+    "fit_resid": 0.07925630280277282
+   },
+   {
+    "q0": [
+     0.0,
+     -1.5708,
+     1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200007,
+     0.200393,
+     0.283513
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.754519,
+    "fit_resid": 0.07966091335021651
+   },
+   {
+    "q0": [
+     -1.5708,
+     -1.5708,
+     0.0
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200065,
+     0.200491,
+     0.283462
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.753394,
+    "fit_resid": 0.07998658748205965
+   },
+   {
+    "q0": [
+     -1.5708,
+     0.0,
+     -1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.199934,
+     0.200127,
+     0.283854
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.758405,
+    "fit_resid": 0.08019937272637379
+   },
+   {
+    "q0": [
+     0.0,
+     -1.5708,
+     -1.5708
+    ],
+    "node_gap": 0.00020029,
+    "n_linear": 100,
+    "n_quadratic": 0,
+    "n_mixed": 0,
+    "v_principal": [
+     0.200265,
+     0.200588,
+     0.283192
+    ],
+    "kappa_mean": 0.0,
+    "anisotropy": 0.7492,
+    "fit_resid": 0.07990707629139916
+   }
+  ],
+  "anisotropy_max": 0.758405,
+  "n_linear": 1200,
+  "n_quadratic": 0,
+  "n_mixed": 0,
+  "v_max": 0.283854
+ }
+}

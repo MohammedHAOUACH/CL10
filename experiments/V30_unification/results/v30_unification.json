@@ -7,7 +7,7 @@
   "status": "the_0_parameter_5_3_and_GUT_coupling_with_GUT_range_running_at_M_P_and_UV_bounded",
   "tol": 0.2,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "alpha_10": 0.04,
     "five_thirds": 1.6666666666666665,
     "M_GUT_0param": 1.22e+19,

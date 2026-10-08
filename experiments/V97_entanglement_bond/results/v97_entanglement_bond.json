@@ -1,0 +1,40 @@
+{
+ "experiment": "V97_entanglement_bond",
+ "pass": true,
+ "status": "ENTANGLEMENT IS THE BOND LAYER, NOT THE SHARED CELL. (A) Two fermions sharing ONE cell carry ZERO spatial entanglement; the internal-only step keeps S_A = 0 to 0.0e+00 forever, while the full step generates S_A up to 0.783 - the swap-rotation gate P is the generator. The entanglement front crosses the Manhattan sphere of radius r at EXACTLY t = r (t*(r) = {1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7}): the causal radius of Theorem 5 bounds the spread of entanglement itself, speed 1.0. (B) The same-cell pair of the automaton is a Slater determinant: S = 0 across the 16/16-bar cut - antisymmetry and a shared cell give NO entanglement; a two-determinant superposition in the same cell gives S = ln 2: NON-SEPARABILITY is the criterion. (C) The implemented step is quadratic (orbitals stay orthonormal to 2.3e-15), so Slater inputs stay Slater and the measured S_A is exact mode entanglement; genuine interaction entanglement needs a two-body phase the implemented step does not contain - named gap (W9).",
+ "data": {
+  "A": {
+   "internal_only_max_S": 0.0,
+   "full_step_max_S": 0.7834729720688065,
+   "front_tstar": {
+    "1": 2,
+    "2": 3,
+    "3": 4,
+    "4": 5,
+    "5": 6,
+    "6": 7
+   },
+   "front_speed_one": true,
+   "orbital_orthonormality_err": 2.3314683517128287e-15,
+   "S_traj_r3": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    6.8e-05,
+    0.00029,
+    0.000771,
+    0.00169,
+    0.003517,
+    0.006846,
+    0.015218
+   ]
+  },
+  "B": {
+   "S_slater_16_vs_16bar": 0.0,
+   "S_slater_same_sector": 0.0,
+   "S_superposition": 0.6931471805599453,
+   "ln2": 0.6931471805599453
+  }
+ }
+}

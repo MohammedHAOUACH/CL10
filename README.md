@@ -92,7 +92,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (92 experiments, V0-V91)
+├── experiments/              # the verification program (102 experiments, V0-V101)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -150,6 +150,16 @@ CL10/
 ├── V89/                # the W8 selection rule measured to length 30: the closed-loop ratio F_n crosses 1/(16 pi) at EXACTLY n = 10 (the ladder length is the crossing); NO mod-4 plaquette selection (every length contributes); the geometric law F_n = A r^n (r = 0.698) extrapolates to F_170 = 1.1e-26 vs (1/16 pi)^17 = 1.2e-29 - the 17-factor composition misses by x929, a named residual of its own
 ├── V90/                # the W2 protection test: the cubic group induces ALL of S_3 on the junction triangle and its commutant is exactly span{I, J} (nullity 2) - no symmetry protects the democratic point; w0 and kappa share ONE Wilson period (38.19) so r = kappa/w0 is NOT quantized; the cosmological window sum m_nu < 0.12 eV is EXACTLY the point r = 2 (1 passing value in [1,3] at step 1e-4) - the sharpest form of the measure-zero tuning
 ├── V91/                # the W3 forcing test: the cubic group acts TRANSITIVELY on the 12 doubler nodes (one orbit of 12 - the V70 axis families are not orbits), so the only cubic-symmetric split is all 12 nodes; the rank-1 meeting rigidity holds for n = 4, 8, 12; the fixed scales M_X(3..12) = 8.9e14..2.9e15 GeV all miss the observed 2e16 (F5); the 3-node triangle has a cubic orbit of 8 - the family count 3 is a symmetry-BREAKING input, its symmetric alternative excluded by computation
+├── V92/                # the W4 feasibility test: the data-preferred meeting point (12.7, 21.2, 20.1) IS inside the convex hull of the six node-16 fragment beta-vectors (barycentric witness) - the required content exists; junction realizability was the remaining test
+├── V93/                # the W4 Cartan-junction test: a GENERAL Cartan direction realizes the meeting exactly (6 solutions, desert thresholds) but breaks 120/120 roots including the SM ones - unphysical; the SM-preserving direction space is 2-dimensional (the class-degenerate span{X,Y} family)
+├── V94/                # the W8 composition law: EXACT multiplicativity across LEGS (the x929 was a chain-vs-legs category error); on a CHAIN (MG)^{10k} is not multiplicative (R_17 = 2.0e+08) - legs and chains are different objects
+├── V95/                # the W4 junction-split test: NO exact meeting with a universal kappa (uniform span{X,Y}, n = 3..12, 300 starts) - the split is invisible at first order (sum_l 2cos(2 pi l/n) - 1 = -n); the V92 witness needs INDEPENDENT per-class thresholds
+├── V96/                # the W4 constructive closure: the flavour-dependent bond layer (kappa_s per fragment class, 6 fitted coefficients) supplies an EXACT meeting (residual < 1e-10) at M_X = 1.8e16 GeV, alpha_X = 1/25, for 10/10 node counts, all thresholds in the desert, tau_p = 1.9e36 yr, SM desert group preserved
+├── V97/                # the entanglement structure measured: entanglement is the BOND layer, not the shared cell - same-cell fermions carry S = 0 (Slater), the internal-only step keeps S_A = 0 forever, the full step drives it to 0.783, and the entanglement front crosses radius r at exactly t = r; the implemented step is QUADRATIC (Slater stays Slater) - the named gap to the area law
+├── V98/                # the PHYSICAL SECTOR of the gauged layer: CENTER OBSTRUCTION - dim ker = 0 with one 32/site (adjoint flux cannot screen a spinor; gap 146 on the two-site chain); minimal sector 2 matter/site: m_45(32x32) = 2, intertwiners dim 2, glued physical sector dim 4, all exact singlets (C2 < 1e-25); S(pair|link) = ln 45 exactly, bounded per bond and boundary-supported - the SHAPE of an area law, Bekenstein coefficient unnamed
+├── V99/                # the multi-bond area law of the gauged layer: 3-site chain physical sector dim ker = 24 (flux decomposition N_1 = N_45 = N_210 = 1, m = 2 each); additivity ln 45 across a single bond EXACT; two-bond region S = ln 45 not 2 ln 45 (vertex mutual information ln 45); Bekenstein gap as a number: ln 45 vs 1/4, factor 4 ln 45 = 15.23 - named, open
+├── V100/               # the vertex correction of the gauged area law: I_n = dim(45^⊗n)^G by Haar averaging = 1, 1, 6, 23, 141 (I_2 = I_3 = 1 validates); 24-state kernel orthonormalised by its Gram (rank 24); middle-cut capacity S_cap = 4.4998 nats vs naive 2 ln 45 = 7.613 (vertices subtract 3.11); per bond 2.25 nats, factor 9.0 from 1/4; cubic-lattice vertex-corrected coefficient (1/3) ln I_6 = 1.65 nats/bond, factor 6.6 - the Bekenstein deficit moved 15.2 -> 6.6
+├── V101/               # the first ground state of the gauged layer: bond-current Hamiltonian H = sum J.L of V79 diagonalised exactly (generalized eigenproblem, Gram metric) on the 24-state kernel; intertwiner identity I† J_A I = L_A/45 to 3e-17; the interaction SPLITS the kernel: E0 = -5819.18 eta, degeneracy 6, gap 58.59 eta; ground-state middle-cut entanglement S = 3.8067 = ln 45 exactly - the interaction selects the flux line
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
@@ -195,8 +205,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **92** experiments
-(V0–V91) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **102** experiments
+(V0–V101) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

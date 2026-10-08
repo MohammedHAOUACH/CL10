@@ -7,8 +7,8 @@
   "status": "the_qca_is_uvfinite_the_2step_is_unitary_and_the_2particle_is_bounded_the_perturbative_2loop_is_uvdivergent",
   "tol": 1e-08,
   "data": {
-    "backend": "cupy",
-    "qca_2step_unitary_residual": 2.109423884324694e-15,
+    "backend": "numpy",
+    "qca_2step_unitary_residual": 1.8873794903055345e-15,
     "qca_2particle_max_offdiag": 0.3320306396873518,
     "pert_1loop_landau_pole": 2.195930344862803e+41,
     "pert_2loop_landau_pole": 2473567583262.504,
@@ -16,5 +16,5 @@
     "uv_finite": true,
     "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
   },
-  "wall_time": 0.251
+  "wall_time": 0.049
 }

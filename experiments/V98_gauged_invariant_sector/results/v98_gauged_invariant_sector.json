@@ -1,0 +1,21 @@
+{
+ "experiment": "V98_gauged_invariant_sector",
+ "pass": true,
+ "status": "THE GAUGED BOND LAYER HAS NO ONE-BODY PHYSICAL STATES; ITS PHYSICAL SECTOR IS AN ENTANGLED MATTER-FLUX COMPLEX. (1) CENTER OBSTRUCTION: dim ker = 0 for 32 x 45, for 32 x 45 x 45, and for the two-site one-link chain with LOCAL Gauss constraints - adjoint flux carries even center charge and cannot screen a spinor, so EVERY site must carry an even number of spinors: the implemented one-32-per-site content admits NO gauge-invariant state on any graph. (2) MINIMAL PHYSICAL SECTOR: two matter fields per site: m_45(32 x 32) = 2 (C2 spectrum), intertwiner space dim 2, glued two-site sector dim 4, all exact Spin(10) singlets (C2 < 1e-8). (3) ENTANGLEMENT: each intertwiner is a maximal matter-flux singlet, Schmidt rank 45, S = ln 45 = 3.807; the glued physical state carries S(pair1|pair2) = 3.807 <= ln 45: entanglement BOUND per bond and carried by the bonds crossing the cut - the SHAPE of an area law (boundary-proportional, bounded per bond), Bekenstein coefficient unnamed. The quadratic step of V97 cannot produce any of this: the gauged layer is where the theory first gets non-Gaussian entanglement. Open (W9): multi-bond clusters (3-site, 2-link with paired matter is 2 x 10^10 dimensional) - the additivity of ln 45 per cut bond is a structural argument, not yet a measured scaling.",
+ "data": {
+  "ker_32x45": 0,
+  "ker_32x45x45": 0,
+  "ker_chain_local": 0,
+  "m45_pair": 2,
+  "n_intertwiners": 2,
+  "n_glued": 4,
+  "max_C2_glued": 1.116238208109356e-27,
+  "max_gauss_err": 3.697362563301521e-15,
+  "S_intertwiners": [
+   3.806662,
+   3.806662
+  ],
+  "S_glued": 3.806662,
+  "ln45": 3.8066624897703196
+ }
+}

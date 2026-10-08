@@ -1,0 +1,40 @@
+{
+ "experiment": "V99_three_site_chain",
+ "pass": true,
+ "status": "THE AREA LAW OF THE GAUGED LAYER HAS A VERTEX CORRECTION, AND THE BEKENSTEIN GAP IS A NAMED NUMBER. (1) The physical sector of the three-site, two-link chain with paired matter is dim ker = 24 (predicted 24 = m_45^2 x (m_1 N_1 + m_45 N_45 + m_210 N_210) = 4 x 6 from the measured flux decomposition of 45 x 45; links are adjoint-only, r labels the fusion channel at the middle vertex). (2) Constructed exactly: in the r = 1 sector (8 states) the middle pair is a product singlet (S(pair2|rest) = 0) while the end pairs stay entangled at ln 45 - the flux line threads through the chain; the r = 45 sector (8 states) is built from the V98 intertwiners and the adjoint Clebsch f_{gab} (vertex Gauss residual 3.7e-15). (3) ADDITIVITY HOLDS ACROSS A SINGLE BOND: S(pair1|rest) = ln 45 exactly. BUT the region with TWO boundary bonds carries S(pair2|rest) = ln 45, not 2 ln 45: the intertwiner constraint CORRELATES the two bonds meeting at the vertex (mutual information ln 45). The area law counts bonds; vertex correlations subtract - the subleading correction of the gauged layer, computed. (4) THE GAP TO BEKENSTEIN, AS A NUMBER: ln 45 = 3.80666 nats per Planck bond against 1/4 per Planck area: deficit 3.55666 nats, factor 15.2266. No element of the current construction produces 1/4; closing it needs either a superselection/truncation of the flux or a different horizon microstate count - named, open.",
+ "data": {
+  "dim_ker": 24,
+  "shared_channels": {
+   "0.0": [
+    1,
+    1
+   ],
+   "64.0": [
+    45,
+    1
+   ],
+   "96.0": [
+    210,
+    1
+   ]
+  },
+  "n_end_intertwiners": 2,
+  "n_middle_45": 2,
+  "vertex_gauss_residual": 3.6969490814341606e-15,
+  "S_r1": [
+   3.8066624897703165,
+   7.771561172376093e-16
+  ],
+  "S_r45_pair1": [
+   3.806662,
+   3.806662
+  ],
+  "S_r45_pair2": [
+   3.806662,
+   3.806662
+  ],
+  "ln45": 3.8066624897703196,
+  "bekenstein_deficit": 3.5566624897703196,
+  "bekenstein_factor": 15.226649959081278
+ }
+}

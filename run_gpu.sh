@@ -15,7 +15,9 @@ echo "backend: cupy | log: $LOG"
 .venv/bin/python -c "import cupy as cp; print('GPU:', cp.cuda.runtime.getDeviceProperties(0)['name'])" || {
   echo "cupy cannot see the GPU - aborting"; exit 1; }
 
-# the 92 experiments (V0..V91), name order, fresh verdicts
+# the 100 experiments (V0..V99), name order, fresh verdicts
+# (V98/V99 read CL10_BACKEND too: their Lanczos matvecs and dense
+#  diagonalizations run on the GPU)
 .venv/bin/python run_validation.py 2>&1 | tee "$LOG"
 rc=$?
 
