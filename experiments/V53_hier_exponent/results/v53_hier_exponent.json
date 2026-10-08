@@ -38,5 +38,5 @@
     },
     "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
   },
-  "wall_time": 0.085
+  "wall_time": 0.086
 }

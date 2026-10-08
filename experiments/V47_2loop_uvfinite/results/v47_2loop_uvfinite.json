@@ -16,5 +16,5 @@
     "uv_finite": true,
     "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
   },
-  "wall_time": 0.259
+  "wall_time": 0.257
 }
