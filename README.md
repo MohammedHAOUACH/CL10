@@ -92,7 +92,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (86 experiments, V0-V85)
+├── experiments/              # the verification program (87 experiments, V0-V86)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -143,7 +143,8 @@ CL10/
 │   ├── V82/                # the W4 content test CLOSED: full-weight / broken-flux / light-composite ansatz families and a relaxed alpha_X all fail (min residual >= 5.7, 0 physical solutions); the obstruction is the exact identity sum db1 = sum db2 = 144.0 (embedding index (3/5) sum Y^2 = sum T2 on 16 x 45) — the content shifts U(1) and SU(2) equally, the data require different shifts
 │   ├── V83/                # the W8 level-N test RUN: the bond hop factorizes through the joint Casimir T.L (three irreps 32+288+1120, projectors 1e-15), the traced-link decimation iterates exactly to level 4 (V80 reproduced to 2e-16); the division DOES NOT COMPOUND: F_p = 1.06, 1.90, 0.75, 1.01 at the root (7e6 above the loop law at p=4)
 │   ├── V84/                # the W4 EQUAL-SHIFT THEOREM: sum db1 = sum db2 is the index-proportionality of Tr Y^2 and Tr T3^2, verified over the 16, the flux 45, the vector 10 and the SU(5) 10 (ratios 1.0 to 1e-6); the meeting mismatch can only come from SU(5)-fragment content - the V64 repair's mismatch is carried entirely by its (1,2) pair (db1/db2 = 3/5), which the automaton does not supply
-│   └── V85/                # the W8 CLOSED-LOOP factor: the traced hop matrix contracts (rho(MG) = 0.776 vs 1) and closed n-hop loops suppress geometrically (r = 0.54); at the root coupling F_10 = 0.0192 vs 1/(16 pi) = 0.0199 - the loop factor at the ladder length 10 (3.6%); V80 regression 2e-16
+│   ├── V85/                # the W8 CLOSED-LOOP factor: the traced hop matrix contracts (rho(MG) = 0.776 vs 1) and closed n-hop loops suppress geometrically (r = 0.54); at the root coupling F_10 = 0.0192 vs 1/(16 pi) = 0.0199 - the loop factor at the ladder length 10 (3.6%); V80 regression 2e-16
+│   └── V86/                # the W4 constructive attempt: the junction-split triangle nodes as desert supplier - the Wilson direction splits the node 16 by a factor 55 (cQ +0.005, cL -0.015 vs partners ~0.82): the (3,2) and (1,2) repair states ARE automaton states (Q, L components of node 16's); the junction ratio rho breaks V74's rank-1 degeneracy; the fragment pattern is fabricated (Q, L at 4-8e15 GeV, partners above M_X) but the meeting misses: best physical residual 0.94, alpha_X = 0.030 vs 0.04 (n_nodes 3-12 scanned) - a named near-miss
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
@@ -189,8 +190,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **86** experiments
-(V0–V85) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **87** experiments
+(V0–V86) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
