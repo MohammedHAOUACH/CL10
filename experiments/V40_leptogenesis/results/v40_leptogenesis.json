@@ -22,5 +22,5 @@
     "0param_qca_satisfies_no_sakharov": true,
     "residual": "the exact eta_CP (the CP-violating magnitude in the N decay, the named input, observed range 1e-3..1e-2; taken 1e-3) and the exact Delta_B (the observed 6.1e-10): the mechanism is 0-parameter, the exact value is named (the W2 pattern)"
   },
-  "wall_time": 0.091
+  "wall_time": 0.094
 }

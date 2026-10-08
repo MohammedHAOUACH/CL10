@@ -1,0 +1,49 @@
+{
+  "experiment": "V85_closed_loop_factor",
+  "pass": true,
+  "status": "THE CLOSED-LOOP FACTOR IS MEASURED: at the root coupling the n-hop traced-loop ratios are F_n = 2.75822936, 0.2429872, 0.46564226, 0.1042476, 0.02987819, 0.3677866 (n = 2..7); the geometric ratio is r = 0.537397 (spectral radius MG = 0.775661 vs G = 1.0); the loop factor 1/(16 pi) = 0.019894 is reached at loop order n* = 7 if the geometric law holds. Closed traced-link loops are the true Feynman-loop analogue and their suppression law is now a measured number of the built gauged layer (W8).",
+  "data": {
+    "loops_root": {
+      "eta": 0.2,
+      "spectral_radius_MG": 0.775661,
+      "spectral_radius_G": 1.0,
+      "F_n": [
+        2.75822936,
+        0.2429872,
+        0.46564226,
+        0.1042476,
+        0.02987819,
+        0.3677866,
+        0.06358197,
+        0.03481135,
+        0.01918639
+      ],
+      "geometric_ratio": 0.537397,
+      "n_star_for_loop_factor": 7,
+      "loop_law": 0.019894
+    },
+    "loops_Fmin": {
+      "eta": 1.4423076923076923,
+      "spectral_radius_MG": 0.9094,
+      "spectral_radius_G": 1.0,
+      "F_n": [
+        3.79137236,
+        0.39159081,
+        0.87980113,
+        0.23093045,
+        0.07759835,
+        1.11989452,
+        0.22698557,
+        0.14570288,
+        0.09415071
+      ],
+      "geometric_ratio": 0.630055,
+      "n_star_for_loop_factor": 9,
+      "loop_law": 0.019894
+    },
+    "regression_v80": {
+      "F_backtrack_2hop": 1.0596866584601925,
+      "err": 0.0
+    }
+  }
+}
