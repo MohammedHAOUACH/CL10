@@ -19,5 +19,5 @@
     "gap": 9.999999999999999e-123,
     "residual": "the exact Lambda ~ 1e-122 (Planck units): the 0-parameter 4-D non-linear gravity (the Einstein tensor) gives the 0-parameter vacuum energy Lambda ~ M_P^4; the observed 1e-122 (the W1 wall) is the named residual"
   },
-  "wall_time": 0.263
+  "wall_time": 0.417
 }
