@@ -92,7 +92,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (89 experiments, V0-V88)
+├── experiments/              # the verification program (92 experiments, V0-V91)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -146,13 +146,16 @@ CL10/
 │   ├── V85/                # the W8 CLOSED-LOOP factor: the traced hop matrix contracts (rho(MG) = 0.776 vs 1) and closed n-hop loops suppress geometrically (r = 0.54); at the root coupling F_10 = 0.0192 vs 1/(16 pi) = 0.0199 - the loop factor at the ladder length 10 (3.6%); V80 regression 2e-16
 │   ├── V86/                # the W4 constructive attempt: the junction-split triangle nodes as desert supplier - the Wilson direction splits the node 16 by a factor 55 (cQ +0.005, cL -0.015 vs partners ~0.82): the (3,2) and (1,2) repair states ARE automaton states (Q, L components of node 16's); the junction ratio rho breaks V74's rank-1 degeneracy; the fragment pattern is fabricated (Q, L at 4-8e15 GeV, partners above M_X) but the meeting misses: best physical residual 0.94, alpha_X = 0.030 vs 0.04 (n_nodes 3-12 scanned) - a named near-miss
 │   ├── V87/                # the W4 coefficient-pattern release: the GENERAL zero-mean junction (three free branch scales a_i = 2 w0 (1 + r_i), r1 + r2 + r3 = 0) scanned over the full (r1, r2) plane + n_nodes + scale + angle: the best physical residual EQUALS the democratic floor (0.81), alpha_X = 0.090 (factor 2.3 off) - the near-miss is a property of the junction MECHANISM, not of the democratic ansatz; closure needs fragment content beyond the node 16
-│   └── V88/                # the W7 named fix BUILT and audited: the mirror-odd ladder scalar (118 GeV) is exactly stable under either portal (scalar parity (-1)^Ns, odd sector untouched); but the exact mirror Z2 forbids h* -> f f-bar: ss -> hh closed (gap 13.2 GeV, virtual cloud 1.5e-8 = theory), only ss -> hh* open: Omega h^2 = 0.120 needs lambda = 0.13, sigma_SI = 6.8e-46 cm^2 - EXCLUDED by direct detection; the V75 numbers (4e-4, 5e-51) hold only with a portal that BREAKS the mirror Z2 at O(lam) - a named tension (F7)
+├── V88/                # the W7 named fix BUILT and audited: the mirror-odd ladder scalar (118 GeV) is exactly stable under either portal (scalar parity (-1)^Ns, odd sector untouched); but the exact mirror Z2 forbids h* -> f f-bar: ss -> hh closed (gap 13.2 GeV, virtual cloud 1.5e-8 = theory), only ss -> hh* open: Omega h^2 = 0.120 needs lambda = 0.13, sigma_SI = 6.8e-46 cm^2 - EXCLUDED by direct detection; the V75 numbers (4e-4, 5e-51) hold only with a portal that BREAKS the mirror Z2 at O(lam) - a named tension (F7)
+├── V89/                # the W8 selection rule measured to length 30: the closed-loop ratio F_n crosses 1/(16 pi) at EXACTLY n = 10 (the ladder length is the crossing); NO mod-4 plaquette selection (every length contributes); the geometric law F_n = A r^n (r = 0.698) extrapolates to F_170 = 1.1e-26 vs (1/16 pi)^17 = 1.2e-29 - the 17-factor composition misses by x929, a named residual of its own
+├── V90/                # the W2 protection test: the cubic group induces ALL of S_3 on the junction triangle and its commutant is exactly span{I, J} (nullity 2) - no symmetry protects the democratic point; w0 and kappa share ONE Wilson period (38.19) so r = kappa/w0 is NOT quantized; the cosmological window sum m_nu < 0.12 eV is EXACTLY the point r = 2 (1 passing value in [1,3] at step 1e-4) - the sharpest form of the measure-zero tuning
+├── V91/                # the W3 forcing test: the cubic group acts TRANSITIVELY on the 12 doubler nodes (one orbit of 12 - the V70 axis families are not orbits), so the only cubic-symmetric split is all 12 nodes; the rank-1 meeting rigidity holds for n = 4, 8, 12; the fixed scales M_X(3..12) = 8.9e14..2.9e15 GeV all miss the observed 2e16 (F5); the 3-node triangle has a cubic orbit of 8 - the family count 3 is a symmetry-BREAKING input, its symmetric alternative excluded by computation
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
-├── run_validation.py         # the runner: runs all 86, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 92, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 86/86 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 92/92 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -176,8 +179,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 86 experiments, prints the hard-tier verdict
-python3 make_figures.py          # regenerates the 30 matplotlib figures (fig 1-24, 27-32) -> doc/figures/
+python3 run_validation.py        # runs all 92 experiments, prints the hard-tier verdict
+python3 make_figures.py          # regenerates the 35 matplotlib figures (fig 1-24, 27-37) -> doc/figures/
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
 python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
@@ -192,8 +195,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **89** experiments
-(V0–V88) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **92** experiments
+(V0–V91) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
