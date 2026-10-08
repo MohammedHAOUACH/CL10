@@ -1914,6 +1914,236 @@ def fig34_w7_portal():
     _save(fig, "fig34_w7_portal.png")
 
 
+# ===========================================================================
+# Fig. 35 - the ladder length IS the closed-loop crossing (V89)
+# ===========================================================================
+def fig35_loop_selection():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V89_loop_selection",
+                           "results", "v89_loop_selection.json")) as f:
+        d = json.load(f)["data"]
+    root = d["root"]
+    Fn = root["F_n"]
+    ns = np.arange(2, 31)
+    loop = d["loop_law"]
+    nstar = root["n_star_below_loop_factor"]
+    fit = root["geometric_fit"]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.6, 5.2),
+                                   gridspec_kw={"width_ratios": [1.3, 1.0]})
+
+    axA.semilogy(ns, Fn, "o-", color=C_GUT, ms=5, lw=1.6,
+                 label=r"$F_n$ = Cartan ratio, $(MG)^n$ (root coupling)")
+    nn = np.arange(10, 171)
+    axA.semilogy(nn, fit["A"] * fit["r"] ** nn, "--", color=C_ROOT, lw=1.4,
+                 label=fr"geometric law $A r^n$, $r = {fit['r']:.3f}$")
+    axA.axhline(loop, color=C_ZERO, ls="--", lw=1.8,
+                label=r"loop factor $1/(16\pi) = 0.0199$")
+    axA.axvline(10, color=C_ZERO, lw=1.2, alpha=0.6)
+    axA.plot([10], [Fn[8]], "*", ms=17, color=C_ZERO, zorder=6)
+    axA.annotate(f"crossing at EXACTLY $n = {nstar}$:\n"
+                 f"$F_{{10}} = {Fn[8]:.4f}$ vs $0.0199$",
+                 xy=(10, Fn[8]), xytext=(16, 0.05), fontsize=8.8,
+                 color=C_ZERO, weight="bold",
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    axA.annotate(f"$F_{{11}} = {Fn[9]:.2f}$ spike: no mod-4 rule\n"
+                 "(every length contributes)",
+                 xy=(11, Fn[9]), xytext=(14, 2.2), fontsize=8.4,
+                 color=C_SU2,
+                 arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.0))
+    axA.annotate(f"$F_{{170}} = {root['F_170_extrapolated']:.0e}$ vs "
+                 f"$(1/16\\pi)^{{17}} = {root['ladder_17_factor']:.0e}$\n"
+                 f"composition misses by x"
+                 f"{root['extrapolation_ratio']:.0e}",
+                 xy=(170, root["F_170_extrapolated"]),
+                 xytext=(60, 3e-6), fontsize=8.4, color=C_ROOT,
+                 arrowprops=dict(arrowstyle="->", color=C_ROOT, lw=1.0))
+    axA.set_xlabel("closed-loop length $n$")
+    axA.set_ylabel(r"Cartan-content ratio $F_n$")
+    axA.set_title("(a)  the ladder length 10 is the CROSSING of the\n"
+                  "     closed-loop suppression through $1/(16\\pi)$",
+                  fontsize=9.6)
+    axA.legend(loc="lower left", fontsize=8.2)
+
+    axB.axis("off")
+    axB.set_title("(b)  the selection rule, measured to $n = 30$ (V89)",
+                  fontsize=9.6)
+    rows = [
+        ("crossing $n_*$", f"EXACTLY {nstar} (ladder length)", "#2c7a3f"),
+        ("spectral-radius crossing", f"$n_\\rho = "
+         f"{root['n_rho_crossing']}$ (different object)", C_SU2),
+        ("mod-4 plaquette rule", "ABSENT (min per class "
+         f"{min(v['min'] for v in root['mod4_pattern_n8_30'].values()):.0e}"
+         " in every class)", C_ZERO),
+        ("geometric ratio", f"$r = {fit['r']:.3f}$ (fit over $n = 10..30$)",
+         C_GUT),
+        ("17-factor composition", f"misses by x"
+         f"{root['extrapolation_ratio']:.0e} - named residual", C_ZERO),
+    ]
+    for i, (k, v, c) in enumerate(rows):
+        y = 0.90 - i * 0.15
+        axB.text(0.02, y, k, fontsize=9.4, weight="bold", va="top")
+        axB.text(0.44, y, v, fontsize=9.4, color=c, va="top")
+    axB.text(0.02, 0.02,
+             "W8: the LENGTH-10 factor is selected by the crossing;\n"
+             "the COMPOSITION of 17 factors is not supplied by one\n"
+             "geometric law - the residual is now precisely named.",
+             fontsize=9.2, color=C_ROOT, weight="bold", va="bottom")
+
+    fig.suptitle("The closed-loop selection rule: the ladder length is "
+                 "the crossing (V89)", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig35_loop_selection.png")
+
+
+# ===========================================================================
+# Fig. 36 - the democratic neutrino point: exact, unprotected (V90)
+# ===========================================================================
+def fig36_w2_protection():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V90_w2_protection",
+                           "results", "v90_w2_protection.json")) as f:
+        d = json.load(f)["data"]
+    S17, bound = 0.146, 0.12
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.6, 5.2),
+                                   gridspec_kw={"width_ratios": [1.3, 1.0]})
+
+    r = np.linspace(1.0, 3.0, 4001)
+    with np.errstate(divide="ignore"):
+        s = S17 / (1 + r) + 2 * S17 / np.abs(2 - r)
+    axA.semilogy(r, s, color=C_GUT, lw=2.0,
+                 label=r"$\sum m_\nu(r) = \frac{S_{17}}{1+r} + "
+                       r"\frac{2 S_{17}}{|2-r|}$")
+    axA.axhline(bound, color=C_ZERO, ls="--", lw=1.8,
+                label=r"cosmological bound $\sum m_\nu < 0.12$ eV")
+    axA.axvline(2.0, color="#2c7a3f", lw=1.6)
+    axA.plot([2.0], [S17 / 3], "*", ms=17, color="#2c7a3f", zorder=6)
+    axA.annotate(f"the ONLY passing point:\n$r = 2$, "
+                 f"$\\sum m_\\nu = {S17/3:.4f}$ eV",
+                 xy=(2.0, S17 / 3), xytext=(2.18, 0.028), fontsize=8.8,
+                 color="#2c7a3f", weight="bold",
+                 arrowprops=dict(arrowstyle="->", color="#2c7a3f", lw=1.2))
+    axA.annotate("any deviation makes the\nmassless states heavy "
+                 "($1/|2-r|$)", xy=(2.05, 0.6), xytext=(2.3, 2.0),
+                 fontsize=8.4, color=C_SU2,
+                 arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.0))
+    axA.set_xlabel(r"junction ratio $r = \kappa / w_0$")
+    axA.set_ylabel(r"$\sum m_\nu$ [eV]")
+    axA.set_ylim(0.012, 2e3)
+    axA.set_title("(a)  the window is EXACTLY the point $r = 2$\n"
+                  "     (1 passing value in 20001 scanned)", fontsize=9.6)
+    axA.legend(loc="upper left", fontsize=8.2)
+
+    axB.axis("off")
+    axB.set_title("(b)  is the point protected? (V90)", fontsize=9.6)
+    rows = [
+        ("cubic action on triangle", "all of $S_3$ (6 permutations)",
+         C_GUT),
+        ("commutant", f"dim {d['commutant_nullity']} = "
+         r"$\operatorname{span}\{I, J\}$ - no larger family", C_ZERO),
+        ("quantization", f"one period "
+         f"{d['w_period_2pi_over_maxspacing']} for $w_0$ AND $\\kappa$: "
+         "ratio free", C_ZERO),
+        ("window width", f"{d['window_width']} (measure zero)", C_ZERO),
+        ("mass regression", f"{d['eigenvalue_regression']:.0e} vs V76",
+         "#2c7a3f"),
+    ]
+    for i, (k, v, c) in enumerate(rows):
+        y = 0.90 - i * 0.15
+        axB.text(0.02, y, k, fontsize=9.4, weight="bold", va="top")
+        axB.text(0.42, y, v, fontsize=9.4, color=c, va="top")
+    axB.text(0.02, 0.02,
+             "W2: no symmetry enlarges the stabilizer of $\\kappa = 2w_0$,\n"
+             "no quantization fixes the ratio, and the window is a\n"
+             "point - the tuning is ONE exact number, unprotected.",
+             fontsize=9.2, color=C_ROOT, weight="bold", va="bottom")
+
+    fig.suptitle("The democratic neutrino point: exact, unprotected, "
+                 "measure-zero (V90)", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig36_w2_protection.png")
+
+
+# ===========================================================================
+# Fig. 37 - the family count is not forced (V91)
+# ===========================================================================
+def fig37_w3_forcing():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V91_w3_forcing",
+                           "results", "v91_w3_forcing.json")) as f:
+        d = json.load(f)["data"]
+    mx = d["fixed_meeting_scale"]
+    obs = 2.0e16
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.6, 5.2),
+                                   gridspec_kw={"width_ratios": [1.15, 1.0]})
+
+    # (a) the 12 doubler nodes projected on (qx, qy), marker by zero axis
+    nodes = [(1.5708, 1.5708, "z"), (1.5708, 4.7124, "z"),
+             (4.7124, 1.5708, "z"), (4.7124, 4.7124, "z"),
+             (1.5708, 1.5708, "y"), (1.5708, 4.7124, "y"),
+             (4.7124, 1.5708, "y"), (4.7124, 4.7124, "y"),
+             (1.5708, 0.0, "x"), (4.7124, 0.0, "x"),
+             (0.0, 1.5708, "x"), (0.0, 4.7124, "x")]
+    seen = set()
+    for qx, qy, ax_ in nodes:
+        mk = {"x": "o", "y": "s", "z": "^"}[ax_]
+        col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}[ax_]
+        lab = f"zero axis {ax_}" if ax_ not in seen else None
+        seen.add(ax_)
+        jx = 0.10 if ax_ == "y" else (-0.10 if ax_ == "z" else 0.0)
+        jy = 0.10 if ax_ == "x" else 0.0
+        axA.plot(qx + jx, qy + jy, mk, ms=10, color=col, label=lab)
+    for qx, qy in [(1.5708, 1.5708), (1.5708, 4.7124), (4.7124, 1.5708)]:
+        axA.plot(qx, qy, "*", ms=19, color=C_ZERO, zorder=6)
+    axA.annotate("the 3-node triangle (V76):\nrealizable, but its cubic "
+                 "orbit\nhas 8 triangles - not invariant",
+                 xy=(1.5708, 1.5708), xytext=(0.2, 3.6), fontsize=8.6,
+                 color=C_ZERO, weight="bold",
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    axA.set_xticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 2 * np.pi])
+    axA.set_xticklabels(["0", r"$\pi/2$", r"$\pi$",
+                         r"$3\pi/2$", r"$2\pi$"])
+    axA.set_yticks([0, np.pi / 2, np.pi, 3 * np.pi / 2, 2 * np.pi])
+    axA.set_yticklabels(["0", r"$\pi/2$", r"$\pi$",
+                         r"$3\pi/2$", r"$2\pi$"])
+    axA.set_xlabel(r"$q_x$")
+    axA.set_ylabel(r"$q_y$")
+    axA.set_title("(a)  the 12 doubler nodes: ONE cubic orbit of 12\n"
+                  "     (the axis families are not orbits)", fontsize=9.6)
+    axA.legend(loc="upper center", fontsize=8.2)
+
+    # (b) fixed meeting scale vs size + verdict
+    ns = [3, 4, 8, 12]
+    vals = [mx[f"n_{n}"]["M_X_GeV"] for n in ns]
+    cols = ["#2c7a3f" if v and abs(np.log10(v / obs)) <= 0.5 else C_ZERO
+            for v in vals]
+    axB.bar([str(n) for n in ns], vals, color=cols, width=0.6)
+    axB.axhline(obs, color=C_ZERO, ls="--", lw=1.8,
+                label=r"observed unification $2\times10^{16}$ GeV (F5)")
+    for n, v in zip(ns, vals):
+        axB.text(str(n), v * 1.15, f"{v:.1e}", ha="center", fontsize=8.6)
+    axB.set_yscale("log")
+    axB.set_ylim(1e14, 1e18)
+    axB.set_xlabel("split-set size $n$ (cubic-symmetric: only 12)")
+    axB.set_ylabel(r"fixed meeting $M_X(n)$ [GeV]")
+    axB.set_title("(b)  every size misses the observed scale;\n"
+                  "     the rank-1 rigidity holds for $n = 4, 8, 12$",
+                  fontsize=9.6)
+    axB.legend(loc="upper left", fontsize=8.2)
+    axB.text(0.5, 0.45,
+             "W3: cubic-symmetric split (12 nodes) EXCLUDED; every proper\n"
+             "split BREAKS the cubic symmetry - the count 3 is an input.",
+             fontsize=8.8, color=C_ROOT, weight="bold", ha="center",
+             va="bottom", transform=axB.transAxes)
+
+    fig.suptitle("Is the family count 3 forced? No - the symmetric "
+                 "alternative is excluded (V91)", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig37_w3_forcing.png")
+
+
 
 
 def main(with_young=False):
@@ -1950,9 +2180,12 @@ def main(with_young=False):
     fig32_equal_shift()
     fig33_w4_closure()
     fig34_w7_portal()
+    fig35_loop_selection()
+    fig36_w2_protection()
+    fig37_w3_forcing()
     if with_young:
         fig25_young()
-    print(f"done: {33 if with_young else 32} figures.")
+    print(f"done: {36 if with_young else 35} figures.")
 
 
 if __name__ == "__main__":
