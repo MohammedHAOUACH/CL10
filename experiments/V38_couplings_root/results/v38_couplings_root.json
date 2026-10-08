@@ -40,5 +40,5 @@
     "su3_pole_inside_lattice": true,
     "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
   },
-  "wall_time": 0.027
+  "wall_time": 0.024
 }

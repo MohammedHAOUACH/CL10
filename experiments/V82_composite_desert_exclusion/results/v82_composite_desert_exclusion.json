@@ -1,0 +1,53 @@
+{
+  "experiment": "V82_composite_desert_exclusion",
+  "pass": true,
+  "status": "THE COMPOSITE CONTENT IS EXCLUDED AS THE DESERT SUPPLIER UNDER EVERY NATURAL MASS ANSATZ: full-weight min residual 5.68, broken-flux 6.12, light-composite 6.14 (target 0); relaxed-coupling pairwise meeting: 0 physical solutions. Structural reason measured: sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - the content shifts U(1) and SU(2) equally while the data require different shifts - and the no-contribution meeting scales differ (x_12 = 25.58 vs x_23 = 34.60). W4 is now closed in both directions: nodes excluded (V74), composites excluded (V81+V82); the V64 spectrum remains a named input.",
+  "data": {
+    "index_identity": {
+      "db1_total": 144.0,
+      "db2_total": 144.0,
+      "db3_total": 220.0,
+      "db1_minus_db2": 2.842170943040401e-14,
+      "db2_minus_db3_sum": -76.0,
+      "note": "sum db1 = sum db2 exactly: the embedding-index identity (3/5) sum Y^2 = sum T2 over 16 x 45; the content shifts U(1) and SU(2) EQUALLY - the data require different shifts: part of the structural obstruction"
+    },
+    "no_contribution_meetings": {
+      "x_12": 25.582,
+      "x_23": 34.603,
+      "note": "the U(1)-SU(2) and SU(2)-SU(3) no-contribution meeting scales differ: content contributions must reconcile them with threshold-weighted sums of the differences db_i - db_j"
+    },
+    "A2_full_weight": {
+      "min_max_residual": 5.682,
+      "arg": [
+        1.0383,
+        10.0,
+        25.0,
+        28.0
+      ]
+    },
+    "A3_broken_flux": {
+      "min_max_residual": 6.122,
+      "arg": [
+        0.5857,
+        0.001,
+        25.0,
+        26.0
+      ],
+      "n_broken_roots_at_best": 32
+    },
+    "A4_light_composites": {
+      "min_max_residual": 6.14,
+      "arg": [
+        1.4111,
+        0.05,
+        16.0,
+        28.5
+      ],
+      "n_selected_at_best": 30
+    },
+    "A5_relaxed_alpha": {
+      "n_physical_pairwise_solutions": 0,
+      "alpha_X_range": null
+    }
+  }
+}

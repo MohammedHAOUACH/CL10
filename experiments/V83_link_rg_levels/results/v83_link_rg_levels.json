@@ -1,0 +1,74 @@
+{
+  "experiment": "V83_link_rg_levels",
+  "pass": true,
+  "status": "THE TRACED-LINK DIVISION DOES NOT COMPOUND TO the loop law: at eta = 1/5 the level-p Cartan-content ratios are F_p = 1.060, 1.896, 0.749, 1.009 for p = 1..4 against the loop law (16 pi)^-p = 0.020, 3.96e-04, 7.87e-06, 1.57e-07: the deepest level sits a factor 6.4e+06 away (decay exponent -0.02 per level); at the V80 minimum eta = 1.4423 the level-4 ratio is 1.384. The compounding law of the traced adjoint link is measured, not assumed; whether the automaton reaches the loop factor at deeper levels or at a different coupling is the named residual (W8).",
+  "data": {
+    "projectors": {
+      "n_eigenvalues": 3,
+      "sum_P_err": 1.110223686524756e-15,
+      "idempotence_err": 1.1102232557393693e-15
+    },
+    "levels_root": {
+      "eta": 0.2,
+      "alpha_Bp": [
+        0.152347,
+        0.27251,
+        0.10765,
+        0.145031
+      ],
+      "F_p": [
+        1.059687,
+        1.895508,
+        0.748785,
+        1.008797
+      ],
+      "F_1_exact": 1.0596866584601927,
+      "loop_law": [
+        0.01989437,
+        0.00039579,
+        7.87e-06,
+        1.6e-07
+      ],
+      "geometric_F1_pow_p": [
+        1.059687,
+        1.122936,
+        1.18996,
+        1.260985
+      ],
+      "decay_exponent_p1_to_p4": -0.0164
+    },
+    "levels_Fmin": {
+      "eta": 1.4423,
+      "alpha_Bp": [
+        0.075069,
+        0.382194,
+        0.143613,
+        0.199017
+      ],
+      "F_p": [
+        0.52216,
+        2.658441,
+        0.998937,
+        1.384308
+      ],
+      "F_1_exact": 0.5221602310308119,
+      "loop_law": [
+        0.01989437,
+        0.00039579,
+        7.87e-06,
+        1.6e-07
+      ],
+      "geometric_F1_pow_p": [
+        0.52216,
+        0.272651,
+        0.142368,
+        0.074339
+      ],
+      "decay_exponent_p1_to_p4": 0.325
+    },
+    "regression_v80": {
+      "F_1_root": 1.0596866584601927,
+      "err": 2.220446049250313e-16
+    }
+  }
+}

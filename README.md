@@ -92,7 +92,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (82 experiments, V0-V81)
+├── experiments/              # the verification program (84 experiments, V0-V83)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -139,13 +139,15 @@ CL10/
 │   ├── V78/                # the W1 protection theorem: det U = 1 pins the quasi-energy sum against every traceless internal deformation (50 random Hermitian A, eps to 1: |S| < 4e-14); no branch crossing below eps = pi; the only internal knob is the U(1) trace phase — the observed Lambda is equivalent to a trace-phase breaking of size 1.6e-120
 │   ├── V79/                # the GAUGED BOND LAYER BUILT: one Spin(10) adjoint link d.o.f. per bond + matter 16 on sites — the local Gauss constraint closes as an exact operator identity (err 0), link algebra exact, Casimirs 64/45 exact, step unitary 3.8e-16, causal radius 1; gauge-invariant content 32 + 288 + 1120 = 1440 states, no singlet (triality); the single-site non-local control leaks at 1.9
 │   ├── V80/                # the W8 division on the ADJOINT link measured: the V77 qubit-link mechanism reproduces exactly (1.1e-16) and the traced two-hop contracts (max |eig| 0.59), but the level-1 factor at the root coupling is F = 1.06 and F_min = 0.52 over the anisotropy — a factor 26 above 1/(16 pi); level-N suppression is the named next test
-│   └── V81/                # the W4 content test: the gauged layer's composite fermions (16 x 45 = 720 states, five net chiral 16-copies, shifts (145.3, 145.3, 226.3), flux-pattern thresholds m = w(c0 + |alpha.v|)) do NOT deliver the data-preferred meeting at alpha_X = 1/25 — 0 physical solutions over the full scan of the breaking direction; the V64 spectrum is not the gauged layer's own content
+│   ├── V81/                # the W4 content test: the gauged layer's composite fermions (16 x 45 = 720 states, five net chiral 16-copies, shifts (145.3, 145.3, 226.3), flux-pattern thresholds m = w(c0 + |alpha.v|)) do NOT deliver the data-preferred meeting at alpha_X = 1/25 — 0 physical solutions over the full scan of the breaking direction; the V64 spectrum is not the gauged layer's own content
+│   ├── V82/                # the W4 content test CLOSED: full-weight / broken-flux / light-composite ansatz families and a relaxed alpha_X all fail (min residual >= 5.7, 0 physical solutions); the obstruction is the exact identity sum db1 = sum db2 = 144.0 (embedding index (3/5) sum Y^2 = sum T2 on 16 x 45) — the content shifts U(1) and SU(2) equally, the data require different shifts
+│   └── V83/                # the W8 level-N test RUN: the bond hop factorizes through the joint Casimir T.L (three irreps 32+288+1120, projectors 1e-15), the traced-link decimation iterates exactly to level 4 (V80 reproduced to 2e-16); the division DOES NOT COMPOUND: F_p = 1.06, 1.90, 0.75, 1.01 at the root (7e6 above the loop law at p=4)
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
-├── run_validation.py         # the runner: runs all 82, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 84, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 82/82 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 84/84 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -169,7 +171,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 82 experiments, prints the hard-tier verdict
+python3 run_validation.py        # runs all 84 experiments, prints the hard-tier verdict
 python3 make_figures.py          # regenerates the 28 matplotlib figures (fig 1-24, 27-30) -> doc/figures/
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
@@ -185,8 +187,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **82** experiments
-(V0–V81) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **84** experiments
+(V0–V83) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -194,7 +196,7 @@ falsifiers** (F1–F7).  `run_validation.py` runs all **82** experiments
 > cosmology (tier 4) and the falsifiability (tier 5) are supporting; the named
 > residuals are reported, not hidden.
 
-**What the 82 passes mean.**  Most of them check **internal consistency** —
+**What the 84 passes mean.**  Most of them check **internal consistency** —
 algebraic identities, unitarity of the step, agreement between two numerical
 routes — and would pass for any theory built on this root; they are not tests
 against nature.  The six comparisons against data ($v/M_P$, $m_\nu$,
