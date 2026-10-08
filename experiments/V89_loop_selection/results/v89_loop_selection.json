@@ -1,0 +1,145 @@
+{
+  "experiment": "V89_loop_selection",
+  "pass": true,
+  "status": "THE CLOSED-LOOP SELECTION RULE WAS MEASURED TO LENGTH 30 (regression vs V85: dev 1.0e-09). At the root coupling the Cartan-content ratio F_n crosses the loop factor 1/(16 pi) = 0.01989 at n_star = 10: the ladder length 10 is EXACTLY the crossing of the closed-loop suppression (spectral-radius crossing n_rho = 15.42). The mod-4 test over n = 8..30 shows NO selection rule: (MG)^n is a matrix power, every length contributes and no residue class vanishes (min per class: {'0': 0.0003829109, '1': 0.0001045112, '2': 0.0003236988, '3': 1.18849e-05}). The geometric law F_n = A r^n fits with r = 0.697826, and its extrapolation to the 17-factor ladder (length 170) gives F_170 = 1.1e-26 against (1/16 pi)^17 = 1.2e-29: a ratio of 9.3e+02 - the single-loop geometric law does NOT reproduce the full ladder exponent. W8: the length-10 factor is selected by the crossing; the 17-factor composition is a named residual of its own.",
+  "data": {
+    "regression_F10_vs_V85": {
+      "v85": 0.01918639,
+      "v89": 0.019186391,
+      "dev": 1e-09
+    },
+    "root": {
+      "eta": 0.2,
+      "spectral_radius_MG": 0.775661,
+      "F_n": [
+        2.7582293619,
+        0.2429872016,
+        0.4656422648,
+        0.1042475972,
+        0.0298781911,
+        0.3677866006,
+        0.0635819722,
+        0.0348113494,
+        0.019186391,
+        4.7388198389,
+        0.0733767166,
+        0.0356690458,
+        0.0120880528,
+        0.0150385486,
+        0.021070847,
+        0.0059952844,
+        0.0262386864,
+        0.0056007661,
+        0.0144086556,
+        0.0001045112,
+        0.0006828661,
+        1.18849e-05,
+        0.0003829109,
+        0.0002115564,
+        0.0003948867,
+        0.0001686583,
+        0.0004202234,
+        0.0020741361,
+        0.0003236988
+      ],
+      "n_star_below_loop_factor": 10,
+      "mod4_pattern_n8_30": {
+        "0": {
+          "min": 0.0003829109,
+          "max": 0.0733767166
+        },
+        "1": {
+          "min": 0.0001045112,
+          "max": 0.0356690458
+        },
+        "2": {
+          "min": 0.0003236988,
+          "max": 0.0262386864
+        },
+        "3": {
+          "min": 1.18849e-05,
+          "max": 4.7388198389
+        }
+      },
+      "geometric_fit": {
+        "A": 4.069629,
+        "r": 0.697826,
+        "n_fit_range": [
+          10,
+          30
+        ]
+      },
+      "F_170_extrapolated": 1.1131e-26,
+      "ladder_17_factor": 1.1979e-29,
+      "extrapolation_ratio": 929.2,
+      "n_rho_crossing": 15.42
+    },
+    "Fmin": {
+      "eta": 1.4423076923076923,
+      "spectral_radius_MG": 0.9094,
+      "F_n": [
+        3.7913723584,
+        0.3915908115,
+        0.8798011337,
+        0.2309304538,
+        0.0775983501,
+        1.1198945221,
+        0.2269855671,
+        0.1457028805,
+        0.0941507106,
+        27.2636212502,
+        0.4949423858,
+        0.2820790909,
+        0.1120775897,
+        0.1634750163,
+        0.2685409315,
+        0.089582116,
+        0.4596599323,
+        0.1150336844,
+        0.3469637341,
+        0.0029505725,
+        0.0226028009,
+        0.0004612159,
+        0.0174216981,
+        0.0112850126,
+        0.0246962675,
+        0.012366579,
+        0.0361247735,
+        0.2090475802,
+        0.0382500523
+      ],
+      "n_star_below_loop_factor": 21,
+      "mod4_pattern_n8_30": {
+        "0": {
+          "min": 0.0174216981,
+          "max": 0.4949423858
+        },
+        "1": {
+          "min": 0.0029505725,
+          "max": 0.2820790909
+        },
+        "2": {
+          "min": 0.0226028009,
+          "max": 0.4596599323
+        },
+        "3": {
+          "min": 0.0004612159,
+          "max": 27.2636212502
+        }
+      },
+      "geometric_fit": {
+        "A": 4.069629,
+        "r": 0.818144,
+        "n_fit_range": [
+          10,
+          30
+        ]
+      },
+      "F_170_extrapolated": 6.175e-15,
+      "ladder_17_factor": 1.1979e-29,
+      "extrapolation_ratio": 515500000000000.0,
+      "n_rho_crossing": 41.25
+    },
+    "loop_law": 0.01989437
+  }
+}

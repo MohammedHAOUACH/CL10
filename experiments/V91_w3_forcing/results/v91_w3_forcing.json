@@ -1,0 +1,45 @@
+{
+  "experiment": "V91_w3_forcing",
+  "pass": true,
+  "status": "THE COUNT 3 IS NOT FORCED - IT IS A SYMMETRY-BREAKING INPUT (V70 regression dev 6.2e-15). The cubic group acts TRANSITIVELY on the 12 nodes (one orbit of size 12; the V70 axis families are NOT cubic orbits), so the ONLY cubic-symmetric split set is the full set of 12 nodes (available sizes [12]). The desert meeting is rigid for every split: the n-node meeting Jacobian has rank {'n_4': 1, 'n_8': 1, 'n_12': 1} in the thresholds (the V74 rank-1 fact holds for every n), so M_X is fixed by the SUM of strengths, split-independent. The fixed scales: {'n_3': '8.9e+14 GeV', 'n_4': '9.7e+14 GeV', 'n_8': '1.5e+15 GeV', 'n_12': '2.9e+15 GeV'} against the observed unification 2e+16 GeV: every size n = 3, 4, 8, 12 FAILS to meet at the observed scale (F5). The count-3 triangle (V76 SEL) IS a set of nodes (verified) but is NOT cubic-invariant: its cubic orbit has 8 distinct triangles. W3, decided: the cubic-symmetric option (all 12 nodes) is excluded by the fixed meeting; every proper split (3, 4, 8 nodes) BREAKS the cubic symmetry of the split set, so the family count 3 is an input choice - not forced by the automaton - and its cubic-symmetric alternative is now excluded by computation.",
+  "data": {
+    "v70_regression": {
+      "fam_sizes": {
+        "z": 4,
+        "y": 4,
+        "x": 4
+      },
+      "within": 6.22e-15,
+      "across": 4.95e-15
+    },
+    "cubic_action_closed": true,
+    "orbit_sizes": [
+      12
+    ],
+    "meeting_jacobian_rank": {
+      "n_4": 1,
+      "n_8": 1,
+      "n_12": 1
+    },
+    "fixed_meeting_scale": {
+      "n_3": {
+        "M_X_GeV": 892690000000000.0,
+        "ratio_to_obs": 0.04463
+      },
+      "n_4": {
+        "M_X_GeV": 967710000000000.0,
+        "ratio_to_obs": 0.04839
+      },
+      "n_8": {
+        "M_X_GeV": 1540700000000000.0,
+        "ratio_to_obs": 0.07703
+      },
+      "n_12": {
+        "M_X_GeV": 2886600000000000.0,
+        "ratio_to_obs": 0.1443
+      }
+    },
+    "triangle_is_cubic_set": true,
+    "triangle_orbit_size": 8
+  }
+}
