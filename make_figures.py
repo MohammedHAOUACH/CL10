@@ -1745,6 +1745,174 @@ def fig32_equal_shift():
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     _save(fig, "fig32_equal_shift.png")
 
+# ===========================================================================
+# Figure 33 - W4: the map of closed exits (V74, V81, V82, V84, V86, V87)
+# ===========================================================================
+def fig33_w4_closure():
+    import json
+    def load(e, f):
+        with open(os.path.join(ROOT, "experiments", e, "results", f)) as fh:
+            return json.load(fh)["data"]
+    d74 = load("V74_multiscale_nodes", "v74_multiscale_nodes.json")
+    d81 = load("V81_link_desert_content", "v81_link_desert_content.json")
+    d82 = load("V82_composite_desert_exclusion",
+               "v82_composite_desert_exclusion.json")
+    d86 = load("V86_junction_desert", "v86_junction_desert.json")
+    d87 = load("V87_general_junction", "v87_general_junction.json")
+    mx74 = d74["M_X_node_GeV"]
+    res82 = d82["A2_full_weight"]["min_max_residual"]
+    n81 = d81["meeting"]["n_solutions"]
+    b86 = d86["best"]
+    b87 = d87["general_best"]
+
+    fig, ax = plt.subplots(figsize=(12.8, 7.4))
+    ax.set_xlim(0, 12.8)
+    ax.set_ylim(0, 7.4)
+    ax.axis("off")
+
+    def box(x, y, w, h, txt, ec, fc, lw=1.6):
+        ax.add_patch(plt.Rectangle((x, y), w, h, fill=True, fc=fc,
+                                   ec=ec, lw=lw, zorder=2))
+        ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center",
+                fontsize=9.2, zorder=3)
+
+    def arrow(x1, y1, x2, y2):
+        ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle="-|>", color="0.35", lw=1.4),
+                    zorder=1)
+
+    box(3.4, 6.5, 6.0, 0.7,
+        "W4: which content makes the measured couplings meet\n"
+        "at $\\alpha_X = 1/25$ with desert thresholds?  (forced: V73)",
+        C_ROOT, "#f3ecf7", lw=2.0)
+
+    left = [
+        ("three full $\\mathbf{16}$ nodes,\nany strengths  (V74)",
+         f"rank-1 Jacobian: meeting FORCED\n"
+         f"$M_X = {mx74:.1e}$ GeV - excluded by F5"),
+        ("gauged bond-layer composites\n$16 \\otimes 45$  (V81)",
+         f"{n81} solutions over the full scan\nof the breaking direction"),
+        ("mass-ansatz families,\nrelaxed $\\alpha_X$  (V82)",
+         f"min residual $\\geq {res82:.2f}$ (target 0);\n0 physical solutions"),
+    ]
+    right = [
+        ("any COMPLETE multiplet content\n(V84, theorem)",
+         "equal shift $\\sum db_1 = \\sum db_2$\nover every complete multiplet"),
+        ("junction-split nodes,\ndemocratic  (V86)",
+         f"pattern FABRICATED (split 55x);\nresidual {b86['residual']:.2f}, "
+         f"$\\alpha_X$ {b86['implied_alpha_X']:.3f}"),
+        ("junction-split nodes,\ngeneral ratios  (V87)",
+         f"floor UNCHANGED at {b87['residual']:.2f};\n"
+         f"$\\alpha_X$ {b87['implied_alpha_X']:.3f} (data 0.04)"),
+    ]
+    for k, (q, r) in enumerate(left):
+        y = 4.85 - k * 1.55
+        box(0.5, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
+        box(0.5, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
+        ax.text(6.15, y + 0.36, "✗", fontsize=17, color=C_ZERO,
+                ha="center", va="center", weight="bold")
+        arrow(3.8, 6.5, 3.2, y + 1.47)
+    for k, (q, r) in enumerate(right):
+        y = 4.85 - k * 1.55
+        box(7.0, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
+        box(7.0, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
+        ax.text(6.75, y + 0.36, "✗", fontsize=17, color=C_ZERO,
+                ha="center", va="center", weight="bold")
+        arrow(9.0, 6.5, 9.7, y + 1.47)
+
+    box(2.9, 0.35, 7.0, 0.85,
+        "SURVIVING REQUIREMENT (V84): $\\mathrm{SU}(5)$-FRAGMENT CONTENT\n"
+        "BEYOND THE NODE $\\mathbf{16}$ - new automaton content, "
+        "not new thresholds",
+        "#2c7a3f", "#eaf6ec", lw=2.0)
+    for x in (3.2, 9.7):
+        arrow(x, 1.75, 6.4, 1.2)
+
+    ax.set_title("W4: every exit from the automaton's own content is "
+                 "closed - the desert spectrum needs fragment content "
+                 "the root does not supply", fontsize=12)
+    fig.tight_layout()
+    _save(fig, "fig33_w4_closure.png")
+
+
+# ===========================================================================
+# Figure 34 - W7: the portal dilemma of the built scalar (V88)
+# ===========================================================================
+def fig34_w7_portal():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V88_mirror_scalar",
+                           "results", "v88_mirror_scalar.json")) as f:
+        d = json.load(f)["data"]
+    lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
+    lam1, sig1 = d["V1_lam_for_Omega"], d["V1_sigma_SI_cm2"]
+    lz = 2.0e-46
+    gap = d["ss_hh_gap_GeV"]
+    cloud = d["V1_virtual_Pmax"]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.6, 5.2),
+                                   gridspec_kw={"width_ratios": [1.25, 1.0]})
+
+    lam = np.logspace(-5, 0, 400)
+    f_N, m_N, M_H, M_DM = 0.30e-3, 0.939, 125.1, 118.0
+    mu = M_DM * m_N / (M_DM + m_N)
+    sig = lam ** 2 * f_N ** 2 * mu ** 2 / (np.pi * M_H ** 4) * 0.3894e-27
+    axA.loglog(lam, sig, color=C_ROOT, lw=2.2,
+               label=r"$\sigma_{\rm SI} = \lambda^2 f_N^2 \mu^2 / "
+                     r"(\pi m_h^4)$")
+    axA.axhline(lz, color=C_ZERO, ls="--", lw=1.8,
+                label=f"LZ-class bound $\\sim {lz:.0e}$ cm$^2$")
+    axA.fill_between([1e-5, 1], 1e-58, lz, color=C_ZERO, alpha=0.07)
+    axA.plot([lam2], [sig2], "o", ms=11, color=C_SU2, zorder=5)
+    axA.annotate(f"pair portal (Z2 BROKEN)\n$\\lambda_* = {lam2:.1e}$: "
+                 f"$\\Omega h^2 = 0.120$\n$\\sigma_{{\\rm SI}} = "
+                 f"{sig2:.0e}$ - below reach",
+                 xy=(lam2, sig2), xytext=(8e-4, 4e-49), fontsize=8.6,
+                 color=C_SU2,
+                 arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.2))
+    axA.plot([lam1], [sig1], "X", ms=13, color=C_ZERO, zorder=5)
+    axA.annotate(f"Higgs portal (Z2 EXACT)\n$\\lambda = {lam1:.2f}$: "
+                 f"$\\Omega h^2 = 0.120$\n$\\sigma_{{\\rm SI}} = "
+                 f"{sig1:.0e}$ - EXCLUDED",
+                 xy=(lam1, sig1), xytext=(2e-3, 6e-45), fontsize=8.6,
+                 color=C_ZERO,
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    axA.set_xlabel(r"portal coupling $\lambda$")
+    axA.set_ylabel(r"direct detection $\sigma_{\rm SI}$ [cm$^2$]")
+    axA.set_title("(a)  both portals reproduce the abundance - one is "
+                  "excluded,\n     the other breaks the exact mirror "
+                  "$\\mathbb{Z}_2$", fontsize=9.6)
+    axA.set_ylim(1e-58, 1e-42)
+    axA.legend(loc="upper left", fontsize=8.2)
+
+    rows = [
+        ("carrier stability", "EXACT (both portals)", "#2c7a3f"),
+        ("stabilizer", "scalar parity $(-1)^{N_s}$", "#2c7a3f"),
+        ("$s\\overline{s} \\to hh$", f"CLOSED (gap {gap:.1f} GeV;\n"
+         f"virtual cloud {cloud:.0e})", C_SU2),
+        ("$h^* \\to f\\overline{f}$", "FORBIDDEN if Z2 exact\n"
+         "(pairs are mirror-odd)", C_ZERO),
+        ("open channel (Z2 exact)", "$s\\overline{s} \\to hh^*$ only",
+         C_SU2),
+        ("mirror relic $\\overline{Q}$", "stable under both (V66 intact)",
+         "#2c7a3f"),
+    ]
+    axB.axis("off")
+    axB.set_title("(b)  the audit verdicts (V88)", fontsize=9.6)
+    for i, (k, v, c) in enumerate(rows):
+        y = 0.94 - i * 0.14
+        axB.text(0.02, y, k, fontsize=9.4, weight="bold", va="top")
+        axB.text(0.42, y, v, fontsize=9.4, color=c, va="top")
+    axB.text(0.02, 0.02,
+             "W7: the carrier EXISTS and is exactly stable; the observed\n"
+             "abundance and the exact mirror $\\mathbb{Z}_2$ cannot both "
+             "hold (F7).",
+             fontsize=9.2, color=C_ROOT, weight="bold", va="bottom")
+
+    fig.suptitle("The built dark-matter fix, audited against its own "
+                 "symmetry (V88)", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig34_w7_portal.png")
+
 
 
 
@@ -1780,9 +1948,11 @@ def main(with_young=False):
     fig30_composite()
     fig31_closed_loops()
     fig32_equal_shift()
+    fig33_w4_closure()
+    fig34_w7_portal()
     if with_young:
         fig25_young()
-    print(f"done: {31 if with_young else 30} figures.")
+    print(f"done: {33 if with_young else 32} figures.")
 
 
 if __name__ == "__main__":

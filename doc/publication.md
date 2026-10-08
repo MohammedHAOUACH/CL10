@@ -758,6 +758,18 @@ Closed traced-link loops of length $n$ on $n$ distinct bonds. (a) The Cartan-con
 
 (a) The one-loop ratio $\sum db_1/\sum db_2$ over the matter $\mathbf{16}$, the flux $\mathbf{45}$, the vector $\mathbf{10}$ and the $\mathrm{SU}(5)$ $\mathbf{10}$: exactly $1$ — the index-proportionality of $\mathrm{Tr}\,Y^2$ and $\mathrm{Tr}\,T_3^2$ — while the $(1,2)$ fragment gives $3/5$. (b) The V64 repair's total mismatch $\sum db_1 - \sum db_2$: the $10 \oplus \overline{\mathbf{10}}$ pairs contribute exactly zero, the whole mismatch is carried by the fragment pair. The desert content must be fragment content; the automaton supplies none (V84).
 
+**Fig. 33 - W4: the map of closed exits.**
+
+![W4 closure](figures/fig33_w4_closure.png)
+
+Every proposed supplier of the desert spectrum, and how each was closed. The measured couplings force the content (V73); the three-node mechanism is rank-1 degenerate (V74), the gauged bond layer's composites have no desert solution (V81), the mass-ansatz families leave residuals $\geq 5.68$ (V82), complete multiplets are excluded by the equal-shift theorem (V84), and the junction-split nodes - democratic (V86) and general (V87) - fabricate the fragment pattern but miss the meeting at a common floor. What survives, in green, is the V84 requirement: $\mathrm{SU}(5)$-fragment content beyond the node $\mathbf{16}$.
+
+**Fig. 34 - W7: the portal dilemma of the built scalar.**
+
+![W7 portal](figures/fig34_w7_portal.png)
+
+(a) The direct-detection line $\sigma_{\rm SI}(\lambda)$ with the two ways the built ladder scalar reproduces $\Omega_{\rm DM}h^2 = 0.120$: the fermion-pair portal ($\lambda_* = 3.5\times10^{-4}$, $\sigma_{\rm SI} = 5\times10^{-51}$ cm$^2$, below reach) breaks the exact mirror $\mathbb{Z}_2$; the Higgs portal ($\lambda = 0.13$, $\sigma_{\rm SI} = 7\times10^{-46}$ cm$^2$) preserves it and is excluded by the LZ-class bound. (b) The audit verdicts: stability exact under either portal (scalar parity), $s\overline{s} \to hh$ closed, $h^* \to f\overline{f}$ forbidden under exact $\mathbb{Z}_2$, the mirror relic unaffected. The observed abundance and the exact mirror $\mathbb{Z}_2$ cannot both hold (F7).
+
 ---
 
 ## Appendix A. The explicit 32-dimensional representation
@@ -780,7 +792,7 @@ The validation programme consists of 89 independent checks organised in seven ti
 
 Two cautions about what those 89 passes mean. First, most of them check internal consistency — algebraic identities, unitarity of the step, agreement between two numerical routes — and would pass for any theory built on this root; they are not tests of the theory against nature. Second, a passing check is only as good as its criterion: an early audit found a mixing matrix with the correct angles and the correct unitarity that did **not** diagonalise the mass matrix it was supposed to diagonalise, and the criteria were strengthened accordingly — and a check whose criterion is a tautology (a quantity compared to itself) is now itself an audit failure. The negative results are reported with the same rigour as the positive ones: the desert-content searches (V73, V74, V81, V82), the dark-matter carrier no-go (V75) and its built-fix tension (V88), the coupling-level factor-$26$ miss (V80), the non-compounding of the bond division (V83), and the junction near-misses (V86, V87) are checks that pass by *correctly reporting their own failure to close a gap*. The six comparisons against data — $v/M_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$ — are the phenomenological content, and each carries the residual honestly reported in Table 4.
 
-**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 25 from the double-slit simulation, Fig. 26 from the hydrogen experiment, Fig. 27 from the V64 desert scan, Fig. 28 from the V65/V70 Wilson-node scan, Fig. 29 from the V79 gauged bond layer, Fig. 30 from the V81 composite-content scan, Fig. 31 from the V85 closed-loop experiment, and Fig. 32 from the V84 equal-shift theorem. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
+**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 25 from the double-slit simulation, Fig. 26 from the hydrogen experiment, Fig. 27 from the V64 desert scan, Fig. 28 from the V65/V70 Wilson-node scan, Fig. 29 from the V79 gauged bond layer, Fig. 30 from the V81 composite-content scan, Fig. 31 from the V85 closed-loop experiment, Fig. 32 from the V84 equal-shift theorem, Fig. 33 from the V74/V81/V82/V86/V87 closure scans, and Fig. 34 from the V88 portal audit. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
 
 **Competing interests.** The author declares no competing interests.
 
