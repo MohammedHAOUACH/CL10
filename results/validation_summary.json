@@ -1,7 +1,7 @@
 {
   "n": 79,
-  "n_pass": 67,
-  "pass": false,
+  "n_pass": 79,
+  "pass": true,
   "u10": true,
   "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
   "named_residuals": [
@@ -81,7 +81,7 @@
       "status": "the_cl10_is_the_root",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.995,
+      "wall_time": 1.037,
       "verdict": {
         "id": "V0_root",
         "tier": 0,
@@ -97,7 +97,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.225
+        "wall_time": 0.077
       }
     },
     {
@@ -110,7 +110,7 @@
       "status": "the_16_16bar_CPT_pair_is_the_antimatter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.801,
+      "wall_time": 0.943,
       "verdict": {
         "id": "V10_antimatter",
         "tier": 4,
@@ -133,7 +133,7 @@
           "mass_degenerate": true,
           "baryon_asymmetry": "named residual (needs a CPT/CP-violating process; the 0-parameter QCA does not generate it)"
         },
-        "wall_time": 0.026
+        "wall_time": 0.03
       }
     },
     {
@@ -146,7 +146,7 @@
       "status": "the_16_weyl_is_anomaly_free",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.76,
+      "wall_time": 0.932,
       "verdict": {
         "id": "V11_anomaly",
         "tier": 3,
@@ -179,7 +179,7 @@
       "status": "the_couplings_unify_5_3",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.761,
+      "wall_time": 0.892,
       "verdict": {
         "id": "V12_unification",
         "tier": 3,
@@ -206,7 +206,7 @@
       "status": "matter_gauge_gravity_in_one_object",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.806,
+      "wall_time": 0.983,
       "verdict": {
         "id": "V13_gauge_gravity",
         "tier": 3,
@@ -221,7 +221,7 @@
           "n_generators": 10,
           "one_object": true
         },
-        "wall_time": 0.026
+        "wall_time": 0.031
       }
     },
     {
@@ -234,7 +234,7 @@
       "status": "the_proton_decay_prediction",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.766,
+      "wall_time": 0.938,
       "verdict": {
         "id": "V14_proton",
         "tier": 5,
@@ -260,7 +260,7 @@
       "status": "the_neutrino_mass_via_2step_seesaw",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.745,
+      "wall_time": 0.944,
       "verdict": {
         "id": "V15_seesaw",
         "tier": 5,
@@ -288,7 +288,7 @@
       "status": "the_3_families_reduced_by_3_space",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.745,
+      "wall_time": 0.927,
       "verdict": {
         "id": "V16_families",
         "tier": 5,
@@ -317,7 +317,7 @@
       "status": "the_w1_mechanism_z2_cancellation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.753,
+      "wall_time": 0.963,
       "verdict": {
         "id": "V17_w1_screening",
         "tier": 4,
@@ -345,7 +345,7 @@
       "status": "the_w2_mechanism_2step_seesaw",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.78,
+      "wall_time": 0.95,
       "verdict": {
         "id": "V18_w2_seesaw2step",
         "tier": 5,
@@ -377,7 +377,7 @@
       "status": "the_w3_mechanism_3_equals_3_space",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.748,
+      "wall_time": 0.902,
       "verdict": {
         "id": "V19_w3_families3",
         "tier": 5,
@@ -406,7 +406,7 @@
       "status": "the_13_is_inside_the_gut",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.777,
+      "wall_time": 0.966,
       "verdict": {
         "id": "V1_spacetime",
         "tier": 1,
@@ -422,7 +422,7 @@
           "ss": 0.0,
           "err": 0.0
         },
-        "wall_time": 0.026
+        "wall_time": 0.031
       }
     },
     {
@@ -435,7 +435,7 @@
       "status": "the_10_higgs_gives_the_0_parameter_mass_term",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.782,
+      "wall_time": 0.883,
       "verdict": {
         "id": "V20_massgen",
         "tier": 2,
@@ -455,7 +455,7 @@
           "sterile_N_in_16": true,
           "named_residuals": "the exact mass values (the 3-gen hierarchy, the mixing) are named"
         },
-        "wall_time": 0.026
+        "wall_time": 0.03
       }
     },
     {
@@ -468,7 +468,7 @@
       "status": "the_0_parameter_gut_coupling_and_1_loop_structure",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.772,
+      "wall_time": 0.919,
       "verdict": {
         "id": "V21_running",
         "tier": 3,
@@ -489,7 +489,7 @@
           "cleanly_unifies": false,
           "named_residual": "the 1-loop SM matching to the 0-parameter GUT scale"
         },
-        "wall_time": 0.0
+        "wall_time": 0.001
       }
     },
     {
@@ -502,7 +502,7 @@
       "status": "the_qca_does_not_generate_the_baryon_asymmetry",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.762,
+      "wall_time": 0.871,
       "verdict": {
         "id": "V22_baryon",
         "tier": 5,
@@ -532,7 +532,7 @@
       "status": "the_full_sm_is_a_0_parameter_unitary_qca",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.043,
+      "wall_time": 1.245,
       "verdict": {
         "id": "V23_full_sm_qca",
         "tier": 2,
@@ -562,7 +562,7 @@
           "n_module": 32,
           "named_residual": "the 3-family structure + the Yukawa matrix"
         },
-        "wall_time": 0.265
+        "wall_time": 0.267
       }
     },
     {
@@ -575,7 +575,7 @@
       "status": "the_16_16bar_are_cpt_conjugates_and_the_qca_is_cpt_symmetric",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.931,
+      "wall_time": 1.131,
       "verdict": {
         "id": "V24_cpt",
         "tier": 3,
@@ -599,7 +599,7 @@
           "cpt_equal_norm": true,
           "c16_into_16bar": 44.43441706294196
         },
-        "wall_time": 0.167
+        "wall_time": 0.199
       }
     },
     {
@@ -612,7 +612,7 @@
       "status": "the_qca_is_holographic_S_scales_with_area_not_volume",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.733,
+      "wall_time": 0.933,
       "verdict": {
         "id": "V25_holography",
         "tier": 4,
@@ -658,7 +658,7 @@
       "status": "the_3_generations_are_a_0_parameter_3_three_ways",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.753,
+      "wall_time": 0.948,
       "verdict": {
         "id": "V26_family",
         "tier": 1,
@@ -677,7 +677,7 @@
           "n_weyl_3gen": 48,
           "residual": "the 'why-3' full derivation (the 0-parameter candidate is 3, three ways)"
         },
-        "wall_time": 0.023
+        "wall_time": 0.03
       }
     },
     {
@@ -690,7 +690,7 @@
       "status": "the_qcd_is_confining_linear_potential_0_parameter_area_law",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.726,
+      "wall_time": 0.924,
       "verdict": {
         "id": "V27_qcd_confinement",
         "tier": 2,
@@ -742,7 +742,7 @@
       "status": "the_0_parameter_democratic_rank1_Dirac_mass_matrix_the_2_level_structure",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.778,
+      "wall_time": 0.952,
       "verdict": {
         "id": "V28_yukawa",
         "tier": 2,
@@ -770,7 +770,7 @@
           "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
         },
-        "wall_time": 0.03
+        "wall_time": 0.037
       }
     },
     {
@@ -783,7 +783,7 @@
       "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.897,
+      "wall_time": 1.053,
       "verdict": {
         "id": "V29_yukawa_hierarchy",
         "tier": 2,
@@ -836,7 +836,7 @@
           "degenerate_base": true,
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
         },
-        "wall_time": 0.165
+        "wall_time": 0.177
       }
     },
     {
@@ -849,7 +849,7 @@
       "status": "the_16_weyl_is_one_generation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.756,
+      "wall_time": 0.99,
       "verdict": {
         "id": "V2_matter",
         "tier": 1,
@@ -866,7 +866,7 @@
           "bl16": -1,
           "bl16bar": 1
         },
-        "wall_time": 0.023
+        "wall_time": 0.032
       }
     },
     {
@@ -879,7 +879,7 @@
       "status": "the_0_parameter_5_3_and_GUT_coupling_with_GUT_range_running_at_M_P_and_UV_bounded",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.769,
+      "wall_time": 0.938,
       "verdict": {
         "id": "V30_unification",
         "tier": 2,
@@ -918,7 +918,7 @@
       "status": "the_qca_metric_dynamics_gives_the_einstein_hilbert_the_massless_spin_2_the_computed_riemann_curvature_the_non_linear_soliton_and_the_schwarzschild_black_hole",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.841,
+      "wall_time": 1.025,
       "verdict": {
         "id": "V31_derive_gr",
         "tier": 2,
@@ -952,7 +952,7 @@
           "black_hole_R_vacuum": 0.0,
           "black_hole_Kretschmann": 0.06584362139917696
         },
-        "wall_time": 0.076
+        "wall_time": 0.085
       }
     },
     {
@@ -965,7 +965,7 @@
       "status": "the_qca_step_gives_the_sm_effective_action_with_the_0_parameter_electroweak_breaking",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.819,
+      "wall_time": 1.06,
       "verdict": {
         "id": "V32_qca_qft",
         "tier": 2,
@@ -989,7 +989,7 @@
           "mw_over_mz_0p": 0.7905694150420949,
           "residual": "the Higgs mass (not 0-parameter in the SM)"
         },
-        "wall_time": 0.079
+        "wall_time": 0.108
       }
     },
     {
@@ -1002,7 +1002,7 @@
       "status": "the_0_parameter_QCA_does_not_generate_the_baryon_asymmetry_the_GUT_ingredients_are_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.832,
+      "wall_time": 1.047,
       "verdict": {
         "id": "V33_baryogenesis",
         "tier": 2,
@@ -1025,7 +1025,7 @@
           "pmns_cp_phase": true,
           "residual": "the baryon asymmetry (the 0-parameter QCA does not generate it; the GUT ingredients require a non-0-parameter out-of-equilibrium + CP-violating rate)"
         },
-        "wall_time": 0.096
+        "wall_time": 0.11
       }
     },
     {
@@ -1038,7 +1038,7 @@
       "status": "the_w1_cancellation_and_the_hierarchy_value_the_derivations_are_the_named_residuals",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.732,
+      "wall_time": 0.956,
       "verdict": {
         "id": "V34_cosmology",
         "tier": 4,
@@ -1076,7 +1076,7 @@
       "status": "the_one_object_gives_the_dark_matter_and_dark_energy_and_antimatter_all_0_parameter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.768,
+      "wall_time": 0.926,
       "verdict": {
         "id": "V35_cosmology_unified",
         "tier": 4,
@@ -1113,7 +1113,7 @@
           },
           "residual": "the dark-matter mass/abundance, the 1e-122 (W1), the baryon asymmetry (V33)"
         },
-        "wall_time": 0.027
+        "wall_time": 0.03
       }
     },
     {
@@ -1126,7 +1126,7 @@
       "status": "the_causal_radius_1_is_implemented_the_light_cone_is_realized",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.9,
+      "wall_time": 1.128,
       "verdict": {
         "id": "V36_local_qca",
         "tier": 2,
@@ -1165,7 +1165,7 @@
           ],
           "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
         },
-        "wall_time": 0.139
+        "wall_time": 0.17
       }
     },
     {
@@ -1178,7 +1178,7 @@
       "status": "the_eh_action_derives_the_qca_metric_dynamics_the_direction_dynamics_from_action",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.807,
+      "wall_time": 0.96,
       "verdict": {
         "id": "V37_eh_action",
         "tier": 2,
@@ -1206,7 +1206,7 @@
           "continuum_ok": true,
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
-        "wall_time": 0.065
+        "wall_time": 0.073
       }
     },
     {
@@ -1219,7 +1219,7 @@
       "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.753,
+      "wall_time": 0.959,
       "verdict": {
         "id": "V38_couplings_root",
         "tier": 3,
@@ -1262,7 +1262,7 @@
           "su3_pole_inside_lattice": true,
           "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
         },
-        "wall_time": 0.024
+        "wall_time": 0.031
       }
     },
     {
@@ -1275,7 +1275,7 @@
       "status": "the_three_families_inside_the_qca_dynamics_the_96d_step_is_0_parameter_unitary_and_family_symmetric",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.857,
+      "wall_time": 1.035,
       "verdict": {
         "id": "V39_families_qca",
         "tier": 1,
@@ -1308,7 +1308,7 @@
           "tribimaximal_diagonalizes_democratic": true,
           "residual": "the why-3 (W3) and the family mass hierarchy (the 10-Higgs breaking) are the named residuals"
         },
-        "wall_time": 0.091
+        "wall_time": 0.113
       }
     },
     {
@@ -1321,7 +1321,7 @@
       "status": "the_45_is_the_spin10_adjoint",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.78,
+      "wall_time": 1.127,
       "verdict": {
         "id": "V3_gauge",
         "tier": 1,
@@ -1334,7 +1334,7 @@
           "n45": 45,
           "rank45": 45
         },
-        "wall_time": 0.034
+        "wall_time": 0.242
       }
     },
     {
@@ -1347,7 +1347,7 @@
       "status": "the_baryon_asymmetry_at_the_right_order_the_mechanism_is_0_parameter_the_exact_value_named",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.833,
+      "wall_time": 1.069,
       "verdict": {
         "id": "V40_leptogenesis",
         "tier": 2,
@@ -1372,7 +1372,7 @@
           "0param_qca_satisfies_no_sakharov": true,
           "residual": "the exact eta_CP (the CP-violating magnitude in the N decay, the named input, observed range 1e-3..1e-2; taken 1e-3) and the exact Delta_B (the observed 6.1e-10): the mechanism is 0-parameter, the exact value is named (the W2 pattern)"
         },
-        "wall_time": 0.091
+        "wall_time": 0.11
       }
     },
     {
@@ -1385,7 +1385,7 @@
       "status": "the_qca_step_is_the_0_parameter_S_matrix_the_first_processes_of_the_theory",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.891,
+      "wall_time": 1.071,
       "verdict": {
         "id": "V41_smatrix",
         "tier": 2,
@@ -1411,7 +1411,7 @@
           "s2_max_offdiag": 0.3320306396873518,
           "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.136
+        "wall_time": 0.167
       }
     },
     {
@@ -1424,7 +1424,7 @@
       "status": "the_dm_candidate_is_stable_massive_neutral_at_the_planck_scale_the_abundance_gap_is_quantified",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.733,
+      "wall_time": 0.875,
       "verdict": {
         "id": "V42_dm_scale",
         "tier": 4,
@@ -1460,7 +1460,7 @@
       "status": "the_9_to_1_reduction: one object (the 32-level QCA spectrum), nine named projections (W1-W9)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.832,
+      "wall_time": 1.045,
       "verdict": {
         "id": "V43_qca_spectrum",
         "tier": 4,
@@ -1539,7 +1539,7 @@
             }
           ]
         },
-        "wall_time": 0.084
+        "wall_time": 0.103
       }
     },
     {
@@ -1552,7 +1552,7 @@
       "status": "the_0_parameter_GUT_cross_section_is_UV_finite_nonzero_bounded_the_RG_matching_is_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.019,
+      "wall_time": 1.281,
       "verdict": {
         "id": "V44_lattice_rg",
         "tier": 2,
@@ -1597,7 +1597,7 @@
           "sigma_over_smax": 0.06277130086269622,
           "residual": "the lattice RG (running the cross-section from the Planck scale down to the physical scale: the non-trivial / anomalous part) and the matching of the 0-parameter amplitudes to the MEASURED cross-sections — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.263
+        "wall_time": 0.327
       }
     },
     {
@@ -1610,7 +1610,7 @@
       "status": "the_0_parameter_3x3_Yukawa_mass_matrix_democratic_base_the_TBM_mixing_the_2_level_structure_the_exact_hierarchy_is_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.102,
+      "wall_time": 1.319,
       "verdict": {
         "id": "V45_yukawa_matrix",
         "tier": 2,
@@ -1705,7 +1705,7 @@
           "s2_unitary_err": 1.6653345381979549e-15,
           "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (W6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
         },
-        "wall_time": 0.362
+        "wall_time": 0.391
       }
     },
     {
@@ -1718,7 +1718,7 @@
       "status": "the_4d_nonlinear_gravity_is_0parameter_the_einstein_space_identity_and_cosmological_constant_and_self_gravity_are_computed",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.233,
+      "wall_time": 1.455,
       "verdict": {
         "id": "V46_nonlinear_gravity",
         "tier": 2,
@@ -1740,7 +1740,7 @@
           "gap": 9.999999999999999e-123,
           "residual": "the exact Lambda ~ 1e-122 (Planck units): the 0-parameter 4-D non-linear gravity (the Einstein tensor) gives the 0-parameter vacuum energy Lambda ~ M_P^4; the observed 1e-122 (the W1 wall) is the named residual"
         },
-        "wall_time": 0.402
+        "wall_time": 0.422
       }
     },
     {
@@ -1753,7 +1753,7 @@
       "status": "the_qca_is_uvfinite_the_2step_is_unitary_and_the_2particle_is_bounded_the_perturbative_2loop_is_uvdivergent",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.046,
+      "wall_time": 1.265,
       "verdict": {
         "id": "V47_2loop_uvfinite",
         "tier": 1,
@@ -1772,7 +1772,7 @@
           "uv_finite": true,
           "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
         },
-        "wall_time": 0.248
+        "wall_time": 0.304
       }
     },
     {
@@ -1785,7 +1785,7 @@
       "status": "the_3and4particle_amplitudes_are_uvfinite_the_kronecker_product_property_the_nstep_is_bounded_for_all_n",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.943,
+      "wall_time": 1.172,
       "verdict": {
         "id": "V48_3particle",
         "tier": 3,
@@ -1804,7 +1804,7 @@
           "uv_finite": true,
           "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the W9 open part"
         },
-        "wall_time": 0.184
+        "wall_time": 0.222
       }
     },
     {
@@ -1817,7 +1817,7 @@
       "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.721,
+      "wall_time": 0.933,
       "verdict": {
         "id": "V49_quark_ckm",
         "tier": 4,
@@ -1870,7 +1870,7 @@
       "status": "the_z2_grading_is_the_statistics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.787,
+      "wall_time": 0.973,
       "verdict": {
         "id": "V4_statistics",
         "tier": 1,
@@ -1884,7 +1884,7 @@
           "n_even": 512,
           "n_odd": 512
         },
-        "wall_time": 0.062
+        "wall_time": 0.07
       }
     },
     {
@@ -1897,7 +1897,7 @@
       "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 3.0,
+      "wall_time": 3.332,
       "verdict": {
         "id": "V50_complete_gravity",
         "tier": 2,
@@ -1923,7 +1923,7 @@
           "nonlinear_qca_causal_ok": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of W9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 2.25
+        "wall_time": 2.382
       }
     },
     {
@@ -1936,7 +1936,7 @@
       "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 19.904,
+      "wall_time": 19.549,
       "verdict": {
         "id": "V51_numrel",
         "tier": 2,
@@ -1979,7 +1979,7 @@
             "max_abs": 1.9718631545217424
           }
         },
-        "wall_time": 19.086827278137207
+        "wall_time": 18.508459329605103
       }
     },
     {
@@ -1992,7 +1992,7 @@
       "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals W8/W7)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 10.299,
+      "wall_time": 11.19,
       "verdict": {
         "id": "V52_parameter_audit",
         "tier": 6,
@@ -2186,7 +2186,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 9.525
+        "wall_time": 10.225
       }
     },
     {
@@ -2199,7 +2199,7 @@
       "status": "the_hierarchy_exponent_-17_is_the_0_parameter_10_loop_suppression_(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root (= 2 x 5: the 16/16-bar chiral split x the 5 qubits of the 32-D module): predicted 9.7e-18 vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique best of the n=1..20 scan; not a raw n-step spectral level). One 0-parameter factor gives TWO results: the hierarchy AND the DM mass (118 GeV); the 2-digit coefficients are the named residual W8)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.848,
+      "wall_time": 1.091,
       "verdict": {
         "id": "V53_hier_exponent",
         "tier": 6,
@@ -2240,7 +2240,7 @@
           },
           "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
         },
-        "wall_time": 0.082
+        "wall_time": 0.1
       }
     },
     {
@@ -2253,7 +2253,7 @@
       "status": "the_sub_Planck_DM_mass_is_the_0_parameter_10_loop_suppression_of_the_Planck_scale_M_P*(1/16pi)^10=118_GeV_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_W8_hierarchy_the_V42_Planck_soliton_gap_1e-52_is_resolved_the_observed_DM_is_the_10_loop_relic",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.758,
+      "wall_time": 0.969,
       "verdict": {
         "id": "V54_dm_wimp",
         "tier": 6,
@@ -2291,7 +2291,7 @@
       "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.729,
+      "wall_time": 0.951,
       "verdict": {
         "id": "V55_eta_cp",
         "tier": 6,
@@ -2337,7 +2337,7 @@
       "status": "the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.73_of_the_1_loop_GUT_coupling_0.023_at_M_P_the_1_loop_matching_is_the_W4_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.758,
+      "wall_time": 0.994,
       "verdict": {
         "id": "V56_g10_selection",
         "tier": 6,
@@ -2376,7 +2376,7 @@
           "data_check_selects_n": false,
           "residual": "the 1-loop matching (W4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
         },
-        "wall_time": 0.024
+        "wall_time": 0.031
       }
     },
     {
@@ -2389,7 +2389,7 @@
       "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.823,
+      "wall_time": 1.004,
       "verdict": {
         "id": "V57_neutrino",
         "tier": 5,
@@ -2422,7 +2422,7 @@
             "right_order": true
           }
         },
-        "wall_time": 0.081
+        "wall_time": 0.095
       }
     },
     {
@@ -2435,7 +2435,7 @@
       "status": "the_w4_uvfinite_discrete_rg_resolves_the_1loop_nonunification",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.889,
+      "wall_time": 1.103,
       "verdict": {
         "id": "V58_uvr",
         "tier": 1,
@@ -2476,7 +2476,7 @@
             "w4_resolved": true
           }
         },
-        "wall_time": 0.135
+        "wall_time": 0.171
       }
     },
     {
@@ -2489,7 +2489,7 @@
       "status": "the_4_limits_reduce_to_0_free_parameters_IN_THE_ALGEBRA_(the_7_invariants_hold_for_every_g10)plus_1_t_Hooft_angle_of_the_dynamics_whose_selected_value_g10=1/5_is_a_0-parameter_selection_rule;the_4_limits_are_the_4_projections_of_one_0-parameter_invariant_10=2x5_plus_one_CP_phase;reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_read_from_data_and_1_CP_phase)_plus_2_mapping_conventions;unique_n=10_within_one_decade_of_both_statements_of_one_scale_(the_strict_factor2_test_is_empty);baryogenesis_needs_one_CP_phase_(the_0-param_QCA_alone_gives_zero_by_the_CP-odd_theorem);delta_is_INDEPENDENT_of_g10_(the_QCA_is_real/CP-even)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.83,
+      "wall_time": 1.042,
       "verdict": {
         "id": "V59_four_limits",
         "tier": 6,
@@ -2573,7 +2573,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the selected value g_10 = 1/5 is a 0-parameter SELECTION RULE (1/n_qubits; the reading is the mapping convention, not a derivation).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the ORDER is 0-param, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the 0-param QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.095
+        "wall_time": 0.115
       }
     },
     {
@@ -2586,7 +2586,7 @@
       "status": "the_0_param_hierarchy",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.022,
+      "wall_time": 0.031,
       "verdict": {
         "id": "V5_hierarchy",
         "tier": 2,
@@ -2613,7 +2613,7 @@
       "status": "the_TBM_diagonalizes_the_democratic_base_(the_check_the_old_suite_lacked); the_wrong_sign_matrix_is_caught; sin2_12=1/3_derived_0_parameter; sin2_23_and_sin2_13_sweep_[0,2/3]_(O2_choice); the_CKM_from_identical democratic_matrices_is_the_identity",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.848,
+      "wall_time": 1.016,
       "verdict": {
         "id": "V60_tbm_regression",
         "tier": 2,
@@ -2688,7 +2688,7 @@
           },
           "ok": true
         },
-        "wall_time": 0.127
+        "wall_time": 0.136
       }
     },
     {
@@ -2701,7 +2701,7 @@
       "status": "the CL10 photon resonates with the real hydrogen levels (absorbed on resonance, not off resonance), the E1 selection rules come out of the lattice wavefunctions, and the excited atom radiates and decays; the ATOM is an input (real hydrogen), the PHOTON is CL10",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 23.409,
+      "wall_time": 25.28,
       "verdict": {
         "id": "V61_hydrogen",
         "tier": 2,
@@ -2921,7 +2921,7 @@
           },
           "ok": true
         },
-        "wall_time": 23.056
+        "wall_time": 24.81
       }
     },
     {
@@ -2934,7 +2934,7 @@
       "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 26) is regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 208.356,
+      "wall_time": 212.075,
       "verdict": {
         "id": "V62_hydrogen_production",
         "tier": 2,
@@ -3177,7 +3177,7 @@
           },
           "ok": true
         },
-        "wall_time": 207.669
+        "wall_time": 211.157
       }
     },
     {
@@ -3190,7 +3190,7 @@
       "status": "chirality_is_a_dynamical_symmetry_but_the_doublers_are_present_12_gapless_nodes_at_the_zone_half_momenta_chirality_sum_0",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 2.445,
+      "wall_time": 3.062,
       "verdict": {
         "id": "V63_bz_chirality",
         "tier": 2,
@@ -3388,7 +3388,7 @@
           ],
           "residual": "the doublers are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
         },
-        "wall_time": 1.651
+        "wall_time": 2.071
       }
     },
     {
@@ -3401,7 +3401,7 @@
       "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p is predicted near experimental reach",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.74,
+      "wall_time": 0.958,
       "verdict": {
         "experiment": "V64_desert",
         "pass": true,
@@ -3706,12 +3706,275 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.757,
-      "verdict": null
+      "pass": true,
+      "status": [
+        "W9 MECHANISM FOUND: an internal Wilson factor of the SAME step, exactly unitary with W(0)=I, gaps all 12 doubler nodes; quasi-local (Bessel tails, Lieb-Robinson front measured); X and Y identified as Cartan combinations of the root (both SU(5) embeddings found); W4: uniform w overproduces (Delta b = 32), the selective 3-node reading has 4 physical roots"
+      ],
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 15.825,
+      "verdict": {
+        "experiment": "V65_wilson",
+        "pass": true,
+        "status": [
+          "W9 MECHANISM FOUND: an internal Wilson factor of the SAME step, exactly unitary with W(0)=I, gaps all 12 doubler nodes; quasi-local (Bessel tails, Lieb-Robinson front measured); X and Y identified as Cartan combinations of the root (both SU(5) embeddings found); W4: uniform w overproduces (Delta b = 32), the selective 3-node reading has 4 physical roots"
+        ],
+        "data": {
+          "cartan_offdiag": 2.348690892320364e-13,
+          "Y_coef": [
+            -0.25,
+            -0.25,
+            -0.16666666666666666,
+            -0.16666666666666666,
+            -0.16666666666666666
+          ],
+          "part_A_checks": {
+            "gap0": 0.03649939422882665,
+            "zone_centre_unchanged": true,
+            "unitarity": 3.330669692843082e-15,
+            "kernel_tail_r2_w01": 0.06664278519532366,
+            "kernel_tail_r4_w01": 0.0021732583677529916,
+            "kernel_tail_r4_wphys": 1.8325482985767314e-17,
+            "doubler_gaps_open": true,
+            "doubler_gaps": {
+              "0.01": 0.005735160080653837,
+              "0.05": 0.0068182078327723135,
+              "0.1": 0.006883517026971749,
+              "0.2": 0.014978687015399405
+            },
+            "front_radius_at_24": 21,
+            "amplitude_outside_LR_cone": 1.9522338926457537e-17
+          },
+          "part_B": {
+            "X_0": {
+              "X_coef": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "su5": "flipped",
+              "fragments": [
+                {
+                  "label": "(-3,-0.666667)",
+                  "X": -3.0,
+                  "Y": -0.666667,
+                  "n": 3,
+                  "db": [
+                    1.0667,
+                    0.0,
+                    0.6667
+                  ]
+                },
+                {
+                  "label": "(1,0.166667)",
+                  "X": 1.0,
+                  "Y": 0.166667,
+                  "n": 6,
+                  "db": [
+                    0.1333,
+                    2.0,
+                    1.3333
+                  ]
+                },
+                {
+                  "label": "(1,0.333333)",
+                  "X": 1.0,
+                  "Y": 0.333333,
+                  "n": 3,
+                  "db": [
+                    0.2667,
+                    0.0,
+                    0.6667
+                  ]
+                },
+                {
+                  "label": "L(1,2)",
+                  "X": -3.0,
+                  "Y": -0.5,
+                  "n": 2,
+                  "db": [
+                    0.4,
+                    0.6667,
+                    0.0
+                  ]
+                },
+                {
+                  "label": "N",
+                  "X": 1.0,
+                  "Y": -0.0,
+                  "n": 1,
+                  "db": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "label": "e^c",
+                  "X": 5.0,
+                  "Y": 1.0,
+                  "n": 1,
+                  "db": [
+                    0.8,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "uniform_overproduction_delta_b": [
+                32.0,
+                32.0,
+                32.0
+              ],
+              "selective_roots": [
+                {
+                  "theta_rad": 1.7348866750099292,
+                  "w": 3.0561055842335586e-08,
+                  "M_X_GeV": 892689869028175.4,
+                  "thresholds_GeV": {
+                    "(-3,-0.666667)": 20835442450.141376,
+                    "(1,0.166667)": 133386025.43469046,
+                    "(1,0.333333)": 20568670399.27202,
+                    "L(1,2)": 400035464.1073724,
+                    "N": 20302020960.59932,
+                    "e^c": 21102091888.814114
+                  },
+                  "physical": true
+                },
+                {
+                  "theta_rad": 1.7369675507072944,
+                  "w": 3.1472186542719564e-08,
+                  "M_X_GeV": 884621587318335.5,
+                  "thresholds_GeV": {
+                    "(-3,-0.666667)": 20639327366.09676,
+                    "(1,0.166667)": 132635674.22723144,
+                    "(1,0.333333)": 20904598714.551212,
+                    "L(1,2)": 398033246.5929219,
+                    "N": 21169996286.91696,
+                    "e^c": 20373929793.731056
+                  },
+                  "physical": true
+                }
+              ]
+            },
+            "X_1": {
+              "X_coef": [
+                1.0,
+                1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "su5": "Georgi-Glashow",
+              "fragments": [
+                {
+                  "label": "(-3,0.333333)",
+                  "X": -3.0,
+                  "Y": 0.333333,
+                  "n": 3,
+                  "db": [
+                    0.2667,
+                    0.0,
+                    0.6667
+                  ]
+                },
+                {
+                  "label": "(1,-0.666667)",
+                  "X": 1.0,
+                  "Y": -0.666667,
+                  "n": 3,
+                  "db": [
+                    1.0667,
+                    0.0,
+                    0.6667
+                  ]
+                },
+                {
+                  "label": "(1,0.166667)",
+                  "X": 1.0,
+                  "Y": 0.166667,
+                  "n": 6,
+                  "db": [
+                    0.1333,
+                    2.0,
+                    1.3333
+                  ]
+                },
+                {
+                  "label": "L(1,2)",
+                  "X": -3.0,
+                  "Y": -0.5,
+                  "n": 2,
+                  "db": [
+                    0.4,
+                    0.6667,
+                    0.0
+                  ]
+                },
+                {
+                  "label": "N",
+                  "X": 5.0,
+                  "Y": -0.0,
+                  "n": 1,
+                  "db": [
+                    0.0,
+                    0.0,
+                    0.0
+                  ]
+                },
+                {
+                  "label": "e^c",
+                  "X": 1.0,
+                  "Y": 1.0,
+                  "n": 1,
+                  "db": [
+                    0.8,
+                    0.0,
+                    0.0
+                  ]
+                }
+              ],
+              "uniform_overproduction_delta_b": [
+                32.0,
+                32.0,
+                32.0
+              ],
+              "selective_roots": [
+                {
+                  "theta_rad": 1.7307836435290485,
+                  "w": 6.267836723201504e-09,
+                  "M_X_GeV": 892729227453443.4,
+                  "thresholds_GeV": {
+                    "(-3,0.333333)": 20569612252.500828,
+                    "(1,-0.666667)": 20836375165.243168,
+                    "(1,0.166667)": 133381456.37117833,
+                    "L(1,2)": 400119205.42571735,
+                    "N": 20302874503.446278,
+                    "e^c": 21103112914.29772
+                  },
+                  "physical": true
+                },
+                {
+                  "theta_rad": 1.7411854123835075,
+                  "w": 6.139764937567165e-09,
+                  "M_X_GeV": 884581577903352.9,
+                  "thresholds_GeV": {
+                    "(-3,0.333333)": 20903610446.64073,
+                    "(1,-0.666667)": 20638329413.609478,
+                    "(1,0.166667)": 132640516.51563074,
+                    "L(1,2)": 397946156.3538838,
+                    "N": 21168916086.478954,
+                    "e^c": 20373023773.77122
+                  },
+                  "physical": true
+                }
+              ]
+            }
+          }
+        }
+      }
     },
     {
       "id": "V66_dm_identity",
@@ -3719,12 +3982,60 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.82,
-      "verdict": null
+      "pass": true,
+      "status": "W7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 1.528,
+      "verdict": {
+        "experiment": "V66_dm_identity",
+        "pass": true,
+        "status": "W7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
+        "data": {
+          "mirror_Z2_leak": 1.0299375384462996e-15,
+          "weights_conjugate": true,
+          "mirror_masses_equal": true,
+          "candidates": [
+            {
+              "name": "nu (ladder)",
+              "mass_GeV": 0.146,
+              "neutral": true,
+              "stable": "yes (lepton number)",
+              "verdict": "EXCLUDED: hot, sum m_nu < 0.12 eV"
+            },
+            {
+              "name": "desert fragments (V65)",
+              "mass_GeV": 133381456.37117833,
+              "neutral": false,
+              "stable": "no (chiral, decays)",
+              "verdict": "not DM: colored/chiral"
+            },
+            {
+              "name": "mirror Q-bar doubler",
+              "mass_GeV": 133381456.37117833,
+              "neutral": false,
+              "stable": "EXACT (16-bar Z2)",
+              "verdict": "EXCLUDED: stable COLORED relic"
+            },
+            {
+              "name": "mirror N-bar doubler",
+              "mass_GeV": 20302874503.446278,
+              "neutral": true,
+              "stable": "EXACT (16-bar Z2)",
+              "verdict": "viable ONLY if heavier than every other mirror state - NOT the case at the V65 root"
+            },
+            {
+              "name": "domain wall / Planck soliton (classical)",
+              "mass_GeV": 1.22e+19,
+              "neutral": true,
+              "stable": "classical",
+              "verdict": "EXCLUDED: Planck tension, overcloses"
+            }
+          ],
+          "sigma_v_est_GeV2": 1.8606973436223958e-56,
+          "omega_overclosure_factor": 1.612298749327828e+30
+        }
+      }
     },
     {
       "id": "V67_breaking_chain",
@@ -3732,12 +4043,38 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.746,
-      "verdict": null
+      "pass": true,
+      "status": "W6 BREAKING CHAIN FOUND AND CONSISTENT: the Wilson direction D = cos(theta) X + sin(theta) Y breaks Spin(10) to its commutant - 25 = SU(5)xU(1) at D = X, and 13 = SU(3)xSU(2)xU(1)^3 at the V65 root (theta = 1.731) and at every generic angle. Every unbroken root direction is intra-fragment (gluon and weak roots; zero cross-fragment roots): the Model algebra is PRESERVED by the V65 Wilson direction, and the 32 broken roots are exactly the leptoquark (X/Y-type) roots. The chain is Spin(10) ->(Wilson) SU(3)xSU(2)xU(1)^3 -> SM; residual: the two extra U(1)'s must be broken or hidden below the desert.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 5.102,
+      "verdict": {
+        "experiment": "V67_breaking_chain",
+        "pass": true,
+        "status": "W6 BREAKING CHAIN FOUND AND CONSISTENT: the Wilson direction D = cos(theta) X + sin(theta) Y breaks Spin(10) to its commutant - 25 = SU(5)xU(1) at D = X, and 13 = SU(3)xSU(2)xU(1)^3 at the V65 root (theta = 1.731) and at every generic angle. Every unbroken root direction is intra-fragment (gluon and weak roots; zero cross-fragment roots): the Model algebra is PRESERVED by the V65 Wilson direction, and the 32 broken roots are exactly the leptoquark (X/Y-type) roots. The chain is Spin(10) ->(Wilson) SU(3)xSU(2)xU(1)^3 -> SM; residual: the two extra U(1)'s must be broken or hidden below the desert.",
+        "data": {
+          "commutant_dim_by_theta": {
+            "25": [
+              0.0,
+              3.1416
+            ],
+            "13": [
+              0.0175,
+              0.0349,
+              0.0524,
+              0.0698,
+              0.0873,
+              0.1047
+            ]
+          },
+          "dim_D_equals_X": 25,
+          "dim_D_equals_Y": 13,
+          "dim_at_V65_root": 13,
+          "unbroken_roots": 10,
+          "cross_fragment_roots": 0,
+          "theta_root": 1.7307836435290485
+        }
+      }
     },
     {
       "id": "V68_w2_audit",
@@ -3745,12 +4082,51 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.749,
-      "verdict": null
+      "pass": true,
+      "status": "W2 AUDIT, SHARPENED: (1) node multiplicity - physical meeting roots need n_nodes >= 3 (counts {1: 0, 2: 0, 3: 2, 4: 2, 5: 2, 6: 2}): n_2step = 3 is a LOWER BOUND from unification (1 and 2 excluded), consistent with the spatial 3 but not uniquely selected. (2) coefficient - the diagonal (Wilson-generated, node-local) pattern gives only integer signed sums [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]; the democratic 3x3 gives EXACTLY 1/2 (eigenvalue 2M): prediction S(17)/2 = 0.073 eV, falsifiable. The exact 1/3 (0.0487 eV, 2.6% from data) requires a single Majorana eigenvalue 3M - NO natural node structure supplies it. W2 stays open; the 1/3 candidate is now pinned to a named missing structure (3x-enhanced Majorana eigenvalue), and the democratic alternative predicts 0.073 eV.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 6.051,
+      "verdict": {
+        "experiment": "V68_w2_audit",
+        "pass": true,
+        "status": "W2 AUDIT, SHARPENED: (1) node multiplicity - physical meeting roots need n_nodes >= 3 (counts {1: 0, 2: 0, 3: 2, 4: 2, 5: 2, 6: 2}): n_2step = 3 is a LOWER BOUND from unification (1 and 2 excluded), consistent with the spatial 3 but not uniquely selected. (2) coefficient - the diagonal (Wilson-generated, node-local) pattern gives only integer signed sums [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]; the democratic 3x3 gives EXACTLY 1/2 (eigenvalue 2M): prediction S(17)/2 = 0.073 eV, falsifiable. The exact 1/3 (0.0487 eV, 2.6% from data) requires a single Majorana eigenvalue 3M - NO natural node structure supplies it. W2 stays open; the 1/3 candidate is now pinned to a named missing structure (3x-enhanced Majorana eigenvalue), and the democratic alternative predicts 0.073 eV.",
+        "data": {
+          "physical_roots_by_n_nodes": {
+            "1": 0,
+            "2": 0,
+            "3": 2,
+            "4": 2,
+            "5": 2,
+            "6": 2
+          },
+          "diagonal_coefficients": [
+            -6,
+            -5,
+            -4,
+            -3,
+            -2,
+            -1,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "democratic_coefficients": {
+            "2": 1.0,
+            "3": 0.5,
+            "4": 0.3333333333333333,
+            "5": 0.25,
+            "6": 0.2
+          },
+          "m_ladder_eV": 0.14614107233269785,
+          "m_third_eV": 0.04871369077756595,
+          "m_atm_eV": 0.05
+        }
+      }
     },
     {
       "id": "V69_w8_tower",
@@ -3758,12 +4134,92 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.827,
-      "verdict": null
+      "pass": true,
+      "status": "W8 AUDIT: the tower U^(2^p) is KINEMATIC (phases multiply by 2^p mod 2pi exactly); the effective coupling does NOT fall with p (no (16 pi)^-p law at any level), the inelastic probability saturates. The tower proves UV-finiteness but GENERATES NO LOOP FACTOR. The 1/(16 pi) of the ladder is not derivable from the implemented formalism; the named missing tool is a genuine lattice RG (block-spin integration of the bond layer coupling internal states to momentum shells).",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 1.029,
+      "verdict": {
+        "experiment": "V69_w8_tower",
+        "pass": true,
+        "status": "W8 AUDIT: the tower U^(2^p) is KINEMATIC (phases multiply by 2^p mod 2pi exactly); the effective coupling does NOT fall with p (no (16 pi)^-p law at any level), the inelastic probability saturates. The tower proves UV-finiteness but GENERATES NO LOOP FACTOR. The 1/(16 pi) of the ladder is not derivable from the implemented formalism; the named missing tool is a genuine lattice RG (block-spin integration of the bond layer coupling internal states to momentum shells).",
+        "data": {
+          "tower": [
+            {
+              "p": 1,
+              "alpha_p": 2.467401100272346,
+              "ratio_to_alpha10": 1.0000000000000027,
+              "P_p": 0.9683617643154158,
+              "target_16pi_pow_p": 0.019894367886486918
+            },
+            {
+              "p": 2,
+              "alpha_p": 2.4674011002723395,
+              "ratio_to_alpha10": 1.0,
+              "P_p": 0.9480945978284813,
+              "target_16pi_pow_p": 0.00039578587360288194
+            },
+            {
+              "p": 3,
+              "alpha_p": 2.4674011002723395,
+              "ratio_to_alpha10": 1.0,
+              "P_p": 0.9292951930906169,
+              "target_16pi_pow_p": 7.873909773730346e-06
+            },
+            {
+              "p": 4,
+              "alpha_p": 2.467401100272343,
+              "ratio_to_alpha10": 1.0000000000000013,
+              "P_p": 0.9929527449459602,
+              "target_16pi_pow_p": 1.5664645774359644e-07
+            },
+            {
+              "p": 5,
+              "alpha_p": 2.4674011002723435,
+              "ratio_to_alpha10": 1.0000000000000016,
+              "P_p": 0.95267390241167,
+              "target_16pi_pow_p": 3.116382258466135e-09
+            },
+            {
+              "p": 6,
+              "alpha_p": 2.467401100272345,
+              "ratio_to_alpha10": 1.0000000000000022,
+              "P_p": 0.9696096368109076,
+              "target_16pi_pow_p": 6.199845512484625e-11
+            },
+            {
+              "p": 7,
+              "alpha_p": 2.467401100272145,
+              "ratio_to_alpha10": 0.9999999999999212,
+              "P_p": 0.9818639934528451,
+              "target_16pi_pow_p": 1.2334200746475415e-12
+            },
+            {
+              "p": 8,
+              "alpha_p": 2.46740110027224,
+              "ratio_to_alpha10": 0.9999999999999597,
+              "P_p": 0.955746514024009,
+              "target_16pi_pow_p": 2.4538112723616348e-14
+            },
+            {
+              "p": 9,
+              "alpha_p": 2.4674011002723395,
+              "ratio_to_alpha10": 1.0,
+              "P_p": 0.9841780062959217,
+              "target_16pi_pow_p": 4.881702417637091e-16
+            },
+            {
+              "p": 10,
+              "alpha_p": 2.4674011002722294,
+              "ratio_to_alpha10": 0.9999999999999554,
+              "P_p": 0.976970291427491,
+              "target_16pi_pow_p": 9.711838380882489e-18
+            }
+          ],
+          "kinematic_verified": true,
+          "suppression_found": false
+        }
+      }
     },
     {
       "id": "V6_gravity",
@@ -3775,7 +4231,7 @@
       "status": "the_gravity_is_the_13_metric_dynamics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.757,
+      "wall_time": 0.919,
       "verdict": {
         "id": "V6_gravity",
         "tier": 2,
@@ -3790,7 +4246,7 @@
           "speed_of_light": 1.0,
           "minkowski_ok": true
         },
-        "wall_time": 0.025
+        "wall_time": 0.028
       }
     },
     {
@@ -3803,7 +4259,7 @@
       "status": "W3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the cubic group acts transitively (identical Floquet spectra, dev 6.2e-15); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number (4 per family, 12 total are equally available). W3 stays a hypothesis, now with a named index.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.978,
+      "wall_time": 1.338,
       "verdict": {
         "experiment": "V70_w3_index",
         "pass": true,
@@ -3895,12 +4351,23 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.757,
-      "verdict": null
+      "pass": true,
+      "status": "W5/W1 STABILITY UNDER THE WILSON EXTENSION: the matter-antimatter mirror of the Wilson-extended step is exact (dev 1.7e-15), the union spectrum is +-paired (dev 1.7e-15) and the one-cell zero point stays 0 (sum = -2.2e-15; Tr D = 0.0e+00 because X, Y are traceless). The Sakharov no-go (W5) and the tree-level Lambda = 0 (W1) are UNCHANGED by V65: both remain blocked for the same named reasons, now proven stable under the new ingredient.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 1.027,
+      "verdict": {
+        "experiment": "V71_w5w1_stability",
+        "pass": true,
+        "status": "W5/W1 STABILITY UNDER THE WILSON EXTENSION: the matter-antimatter mirror of the Wilson-extended step is exact (dev 1.7e-15), the union spectrum is +-paired (dev 1.7e-15) and the one-cell zero point stays 0 (sum = -2.2e-15; Tr D = 0.0e+00 because X, Y are traceless). The Sakharov no-go (W5) and the tree-level Lambda = 0 (W1) are UNCHANGED by V65: both remain blocked for the same named reasons, now proven stable under the new ingredient.",
+        "data": {
+          "mirror_dev": 1.6653345369377348e-15,
+          "pairing_dev": 1.6653345369377348e-15,
+          "zero_point": -2.220446049250313e-15,
+          "trD": 0.0,
+          "phi": 1.2535673446403008e-08
+        }
+      }
     },
     {
       "id": "V72_block_rg",
@@ -3908,12 +4375,110 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.846,
-      "verdict": null
+      "pass": true,
+      "status": "THE MISSING TOOL BUILT AND RUN: exact real-space block-spin decimation of the bond layer (Schur complement at eps = 1; U_BB = 0 exactly on the open chain, so the short-distance propagation is integrated with NO approximation), iterated 5 levels, 64 -> 2 sites. Level-1 identity verified exactly: the on-site block of the coarse step is (return paths) x (G R)^2 - two-hop paths accumulate two internal rotations: the kinematic doubling of V69 DERIVED from a spatial RG. At deeper levels the on-site block is a positive path polynomial in (G R)^2; the dimensionless Cartan content decays polynomially with level (phase wrapping of the composed angle: ratio 0.14 at p = 5 against the loop target 3e-9) for the factorized layer, and does NOT decay at all for a non-factorized bond gate with [G,R] != 0 (ratio 1.8 at p = 5). NO level of either flow follows the (16 pi)^-p law. VERDICT: every exact single-particle RG of the QCA COMPOSES internal angles (they add on the algebra, weighted by path counts); none can DIVIDE them by a loop factor. The 1/(16 pi) needs a trace over FLUCTUATING internal fields: a block RG on the many-cell space with a dynamical Spin(10) link variable on the bond (a gauged bond layer). The tool is now fully specified and its single-particle impotence is proven, not assumed.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 2.15,
+      "verdict": {
+        "experiment": "V72_block_rg",
+        "pass": true,
+        "status": "THE MISSING TOOL BUILT AND RUN: exact real-space block-spin decimation of the bond layer (Schur complement at eps = 1; U_BB = 0 exactly on the open chain, so the short-distance propagation is integrated with NO approximation), iterated 5 levels, 64 -> 2 sites. Level-1 identity verified exactly: the on-site block of the coarse step is (return paths) x (G R)^2 - two-hop paths accumulate two internal rotations: the kinematic doubling of V69 DERIVED from a spatial RG. At deeper levels the on-site block is a positive path polynomial in (G R)^2; the dimensionless Cartan content decays polynomially with level (phase wrapping of the composed angle: ratio 0.14 at p = 5 against the loop target 3e-9) for the factorized layer, and does NOT decay at all for a non-factorized bond gate with [G,R] != 0 (ratio 1.8 at p = 5). NO level of either flow follows the (16 pi)^-p law. VERDICT: every exact single-particle RG of the QCA COMPOSES internal angles (they add on the algebra, weighted by path counts); none can DIVIDE them by a loop factor. The 1/(16 pi) needs a trace over FLUCTUATING internal fields: a block RG on the many-cell space with a dynamical Spin(10) link variable on the bond (a gauged bond layer). The tool is now fully specified and its single-particle impotence is proven, not assumed.",
+        "data": {
+          "factorized (R = I)": {
+            "commutator_G_R": 0.0,
+            "rows": [
+              {
+                "p": 1,
+                "L": 32,
+                "alpha_dir": 0.012707255100053588,
+                "ratio_to_level1": 1.0,
+                "level1_identity_dev": 8.886119947416683e-16,
+                "target_16pi_pow_p": 0.019894367886486918
+              },
+              {
+                "p": 2,
+                "L": 16,
+                "alpha_dir": 0.008211524547353799,
+                "ratio_to_level1": 0.6462075784816164,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 0.00039578587360288194
+              },
+              {
+                "p": 3,
+                "L": 8,
+                "alpha_dir": 0.007415292668054489,
+                "ratio_to_level1": 0.5835479503376947,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 7.873909773730346e-06
+              },
+              {
+                "p": 4,
+                "L": 4,
+                "alpha_dir": 0.004327413155949003,
+                "ratio_to_level1": 0.3405466500732132,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 1.5664645774359644e-07
+              },
+              {
+                "p": 5,
+                "L": 2,
+                "alpha_dir": 0.0017339914718919834,
+                "ratio_to_level1": 0.136456808196498,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 3.116382258466135e-09
+              }
+            ],
+            "loop_factor_law_found": false
+          },
+          "non-factorized ([G,R] != 0)": {
+            "commutator_G_R": 0.049713023660055526,
+            "rows": [
+              {
+                "p": 1,
+                "L": 32,
+                "alpha_dir": 0.014768082993891613,
+                "ratio_to_level1": 1.0,
+                "level1_identity_dev": 8.95090418262362e-16,
+                "target_16pi_pow_p": 0.019894367886486918
+              },
+              {
+                "p": 2,
+                "L": 16,
+                "alpha_dir": 0.011734643623635176,
+                "ratio_to_level1": 0.7945949131304902,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 0.00039578587360288194
+              },
+              {
+                "p": 3,
+                "L": 8,
+                "alpha_dir": 0.018495551274504366,
+                "ratio_to_level1": 1.2524002798572105,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 7.873909773730346e-06
+              },
+              {
+                "p": 4,
+                "L": 4,
+                "alpha_dir": 0.024955535418154293,
+                "ratio_to_level1": 1.689829033902127,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 1.5664645774359644e-07
+              },
+              {
+                "p": 5,
+                "L": 2,
+                "alpha_dir": 0.026951849650664942,
+                "ratio_to_level1": 1.8250066485821341,
+                "level1_identity_dev": null,
+                "target_16pi_pow_p": 3.116382258466135e-09
+              }
+            ],
+            "loop_factor_law_found": false
+          }
+        }
+      }
     },
     {
       "id": "V73_bond_gate_loophole",
@@ -3921,12 +4486,58 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.809,
-      "verdict": null
+      "pass": true,
+      "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. W8's missing tool is uniquely specified.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 3.719,
+      "verdict": {
+        "experiment": "V73_bond_gate_loophole",
+        "pass": true,
+        "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. W8's missing tool is uniquely specified.",
+        "data": {
+          "random Spin(10) #1": {
+            "ratios": [
+              1.0,
+              1.0121599156239185,
+              0.6044852807274018,
+              0.46085672352485046,
+              0.46625995340000553
+            ],
+            "loop_law_found": false
+          },
+          "random Spin(10) #2": {
+            "ratios": [
+              1.0,
+              0.9188716194598163,
+              0.5743382137505444,
+              0.7430521981978807,
+              0.4863539049468837
+            ],
+            "loop_law_found": false
+          },
+          "random Spin(10) #3": {
+            "ratios": [
+              1.0,
+              0.5470323756969491,
+              0.5087535735085379,
+              0.6904718756643358,
+              0.31395224368568303
+            ],
+            "loop_law_found": false
+          },
+          "R = G^dagger (inverse reverse hop)": {
+            "ratios": [
+              1.0,
+              0.6462075784816148,
+              0.5835479503376951,
+              0.3405466500732141,
+              0.13645680819649633
+            ],
+            "loop_law_found": false
+          }
+        }
+      }
     },
     {
       "id": "V74_multiscale_nodes",
@@ -3934,12 +4545,28 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.754,
-      "verdict": null
+      "pass": true,
+      "status": "MULTI-SCALE CANNOT MOVE M_X (structural): while all node thresholds sit below the meeting point the meeting equations depend on the three node strengths ONLY through their sum - the Jacobian has three identical columns (rank 1 at every configuration tested: [1, 1, 1, 1]); the residuals F_i are EXACTLY split-independent (dev 7.1e-15). A node above x decouples (V68: n < 3 has no root). Hence the node mechanism meets at M_X = 8.93e+14 GeV for EVERY split, tau_p = 1.1e+31 yr - EXCLUDED by F5. The V64 data-preferred spectrum (three 10+10bar sets at 1.2e7 + one (1,2) pair at 1e12) is not a three-full-16 pattern: the automaton supplies full split 16's per node, the couplings prefer partial suits. W4 is now a NAMED INCOMPATIBILITY (node content vs desert spectrum), not a fitting problem; closing it needs new automaton content, not new thresholds.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 6.663,
+      "verdict": {
+        "experiment": "V74_multiscale_nodes",
+        "pass": true,
+        "status": "MULTI-SCALE CANNOT MOVE M_X (structural): while all node thresholds sit below the meeting point the meeting equations depend on the three node strengths ONLY through their sum - the Jacobian has three identical columns (rank 1 at every configuration tested: [1, 1, 1, 1]); the residuals F_i are EXACTLY split-independent (dev 7.1e-15). A node above x decouples (V68: n < 3 has no root). Hence the node mechanism meets at M_X = 8.93e+14 GeV for EVERY split, tau_p = 1.1e+31 yr - EXCLUDED by F5. The V64 data-preferred spectrum (three 10+10bar sets at 1.2e7 + one (1,2) pair at 1e12) is not a three-full-16 pattern: the automaton supplies full split 16's per node, the couplings prefer partial suits. W4 is now a NAMED INCOMPATIBILITY (node content vs desert spectrum), not a fitting problem; closing it needs new automaton content, not new thresholds.",
+        "data": {
+          "jacobian_ranks": {
+            "V65 root, degenerate strengths": 1,
+            "V65 root, split strengths": 1,
+            "V64-like low thresholds": 1,
+            "generic theta": 1
+          },
+          "split_invariance_dev": 7.105427357601002e-15,
+          "M_X_node_GeV": 892689869028175.4,
+          "tau_p_yr": 1.139958741384208e+31,
+          "n_physical_roots": 2
+        }
+      }
     },
     {
       "id": "V75_dm_nogo_extension",
@@ -3947,12 +4574,22 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.758,
-      "verdict": null
+      "pass": true,
+      "status": "W7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a 118 GeV neutral mirror - for EVERY Wilson angle the same node puts a colored or charged fragment below 1 TeV (worst-case lightest bad fragment over the 720-angle scan: 27633 GeV << 1 TeV bound; survivors: 0); the ladder route sets masses only for classical fields; the solitons are superheavy. The implemented spectrum CANNOT contain the DM. (2) The minimal extension consistent with the exact mirror Z2 and the ladder: ONE real Z2-odd scalar at m = 118 GeV with Higgs portal lambda_* = 0.000 (freeze-out gives Omega h^2 = 0.120); PREDICTION: direct detection sigma_SI = 4.86e-51 cm^2 - BELOW the LZ/XENONnT window: the scalar is nearly decoupled; the falsifiable handle is the mass coincidence (F7: a weakly-interacting relic at 118 GeV and nothing else near it) and the absence of portal signal above 1e-50 cm^2. W7 residual: the scalar is an input field (one field, one coupling), not yet a state of the 32-level root.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 6.543,
+      "verdict": {
+        "experiment": "V75_dm_nogo_extension",
+        "pass": true,
+        "status": "W7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a 118 GeV neutral mirror - for EVERY Wilson angle the same node puts a colored or charged fragment below 1 TeV (worst-case lightest bad fragment over the 720-angle scan: 27633 GeV << 1 TeV bound; survivors: 0); the ladder route sets masses only for classical fields; the solitons are superheavy. The implemented spectrum CANNOT contain the DM. (2) The minimal extension consistent with the exact mirror Z2 and the ladder: ONE real Z2-odd scalar at m = 118 GeV with Higgs portal lambda_* = 0.000 (freeze-out gives Omega h^2 = 0.120); PREDICTION: direct detection sigma_SI = 4.86e-51 cm^2 - BELOW the LZ/XENONnT window: the scalar is nearly decoupled; the falsifiable handle is the mass coincidence (F7: a weakly-interacting relic at 118 GeV and nothing else near it) and the absence of portal signal above 1e-50 cm^2. W7 residual: the scalar is an input field (one field, one coupling), not yet a state of the 32-level root.",
+        "data": {
+          "nogo_survivors": 0,
+          "worst_light_bad_GeV": 27633.436305912463,
+          "lambda_star": 0.00035059739874211085,
+          "sigma_SI_cm2": 4.8587366212950516e-51
+        }
+      }
     },
     {
       "id": "V76_w2_mixing",
@@ -3960,12 +4597,262 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.757,
-      "verdict": null
+      "pass": true,
+      "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 1.983) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). W2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 6.615,
+      "verdict": {
+        "experiment": "V76_w2_mixing",
+        "pass": true,
+        "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 1.983) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). W2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
+        "data": {
+          "triangle_closed": true,
+          "components": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            [
+              9,
+              10,
+              11
+            ]
+          ],
+          "cubic_ok": true,
+          "zero_mean_ok": true,
+          "gap_dev": 0.01671654296001579,
+          "K_node": 1.9999999999999998,
+          "fourier_factor": 0.5,
+          "eigenvalues": {
+            "r_0.0": [
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.001504,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.047856,
+              0.047856,
+              0.047856,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.050864,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.053872,
+              0.05688,
+              0.05688,
+              0.05688
+            ],
+            "r_1.0": [
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.000752,
+              0.002256,
+              0.002256,
+              0.002256,
+              0.002256,
+              0.003008,
+              0.003008,
+              0.003008,
+              0.003008,
+              0.003008,
+              0.003008,
+              0.009024,
+              0.009024,
+              0.023928,
+              0.023928,
+              0.025432,
+              0.025432,
+              0.025432,
+              0.025432,
+              0.025432,
+              0.025432,
+              0.026936,
+              0.026936,
+              0.026936,
+              0.026936,
+              0.026936,
+              0.026936,
+              0.02844,
+              0.02844,
+              0.095712,
+              0.101727,
+              0.101727,
+              0.101727,
+              0.107743,
+              0.107743,
+              0.107743,
+              0.113759
+            ],
+            "r_2.0": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.004512,
+              0.013536,
+              0.013536,
+              0.143567,
+              0.152591,
+              0.152591,
+              0.152591,
+              0.161615,
+              0.161615,
+              0.161615,
+              0.170639
+            ]
+          },
+          "pattern": {
+            "r_-0.9": {
+              "m_nu_eV": [
+                1.46,
+                0.1007,
+                0.1007
+              ],
+              "sum_eV": 1.6614,
+              "ok_sum": false
+            },
+            "r_0.0": {
+              "m_nu_eV": [
+                0.146,
+                0.146,
+                0.146
+              ],
+              "sum_eV": 0.438,
+              "ok_sum": false
+            },
+            "r_0.5": {
+              "m_nu_eV": [
+                0.0973,
+                0.1947,
+                0.1947
+              ],
+              "sum_eV": 0.4867,
+              "ok_sum": false
+            },
+            "r_1.0": {
+              "m_nu_eV": [
+                0.073,
+                0.292,
+                0.292
+              ],
+              "sum_eV": 0.657,
+              "ok_sum": false
+            },
+            "r_1.5": {
+              "m_nu_eV": [
+                0.0584,
+                0.584,
+                0.584
+              ],
+              "sum_eV": 1.2264,
+              "ok_sum": false
+            },
+            "r_1.9": {
+              "m_nu_eV": [
+                0.0503,
+                2.92,
+                2.92
+              ],
+              "sum_eV": 5.8903,
+              "ok_sum": false
+            },
+            "r_2.0": {
+              "m_nu_eV": [
+                0.0487,
+                0.0,
+                0.0
+              ],
+              "sum_eV": 0.0487,
+              "ok_sum": true,
+              "note": "democratic point: two zero heavy eigenvalues; physical ONLY if m_D is also democratic (the antisymmetric N combinations decouple); else gapless node doublers for every weight"
+            }
+          }
+        }
+      }
     },
     {
       "id": "V77_link_division",
@@ -3973,12 +4860,46 @@
       "tier": null,
       "property": null,
       "residual": false,
-      "pass": false,
-      "status": "CRASH (rc=1): TypeError: Implicit conversion to a NumPy array is not allowed. Please use `.get()` to construct a NumPy array explicitly.",
-      "returncode": 1,
-      "crashed": true,
-      "wall_time": 0.817,
-      "verdict": null
+      "pass": true,
+      "status": "DIVISION DEMONSTRATED: with one quantum link d.o.f. per bond (qubit, U = exp(i theta sigma_x)) in the maximally mixed state, the traced on-site Cartan content at level 1 is EXACTLY cos(2 theta) times the V72 value (dev < 1e-9 for theta = pi/8 and pi/6) - the two-hop return composes U_link twice and the trace over the fluctuating bond d.o.f. DIVIDES by 1/cos(2 theta): the factor is a property of the traced d.o.f., not of any gate (V73). Deeper levels are modified by link group traces (path mixture cos2theta, cos4theta, ... - ratios away from 1), where the link-free control is untouched. This is the loop-factor mechanism in its smallest form; 1/(16 pi) is the value it takes for the dynamical Spin(10) adjoint link with the Gauss constraint - the gauged bond layer, now with a named mechanism.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 20.516,
+      "verdict": {
+        "experiment": "V77_link_division",
+        "pass": true,
+        "status": "DIVISION DEMONSTRATED: with one quantum link d.o.f. per bond (qubit, U = exp(i theta sigma_x)) in the maximally mixed state, the traced on-site Cartan content at level 1 is EXACTLY cos(2 theta) times the V72 value (dev < 1e-9 for theta = pi/8 and pi/6) - the two-hop return composes U_link twice and the trace over the fluctuating bond d.o.f. DIVIDES by 1/cos(2 theta): the factor is a property of the traced d.o.f., not of any gate (V73). Deeper levels are modified by link group traces (path mixture cos2theta, cos4theta, ... - ratios away from 1), where the link-free control is untouched. This is the loop-factor mechanism in its smallest form; 1/(16 pi) is the value it takes for the dynamical Spin(10) adjoint link with the Gauss constraint - the gauged bond layer, now with a named mechanism.",
+        "data": {
+          "control": [
+            0.14376618002424374,
+            0.04608518658511283
+          ],
+          "linked": {
+            "theta_0.3927": {
+              "alphas": [
+                0.10165804080042871,
+                0.031502139801146904
+              ],
+              "ratios_vs_control": [
+                0.7071067811865475,
+                0.6835632474432299
+              ],
+              "level1_dev": 1.1102230246251565e-16
+            },
+            "theta_0.5236": {
+              "alphas": [
+                0.07188309001212187,
+                0.6934327205561077
+              ],
+              "ratios_vs_control": [
+                0.5,
+                15.046759532489586
+              ],
+              "level1_dev": 1.1102230246251565e-16
+            }
+          }
+        }
+      }
     },
     {
       "id": "V78_w1_lambda",
@@ -3990,7 +4911,7 @@
       "status": "LAMBDA = 0 IS PROTECTED BY det U = 1: for 50 traceless perturbations exp(i eps A) U (any structure) at eps up to 1, the quasi-energy sum stays pinned at zero (max |S| = 3.4e-14); the ONLY internal knob is the U(1) trace phase: A = I gives S = 32.0 eps (linear); the first branch crossing along a generic traceless direction is at eps_cross = > pi (none found); weak perturbations cannot move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a trace-phase breaking eps Tr A ~ 1.6e-120. W1 is now a named bound: any internal U(1)-trace anomaly must satisfy |Tr A| eps < 1e-120, or Lambda lives outside the one-cell spectrum (geometry, measure postulate).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.981,
+      "wall_time": 1.191,
       "verdict": {
         "experiment": "V78_w1_lambda",
         "pass": true,
@@ -4014,7 +4935,7 @@
       "status": "the_qca_is_unitary",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.09,
+      "wall_time": 0.124,
       "verdict": {
         "id": "V7_qca",
         "tier": 2,
@@ -4028,7 +4949,7 @@
           "causal_radius": 1,
           "n_gates": 4
         },
-        "wall_time": 0.008
+        "wall_time": 0.009
       }
     },
     {
@@ -4041,7 +4962,7 @@
       "status": "the_stable_soliton_is_the_dark_matter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.083,
+      "wall_time": 0.125,
       "verdict": {
         "id": "V8_dark_matter",
         "tier": 4,
@@ -4062,7 +4983,7 @@
           "weakly_interacting": "couples only through the metric (gravity) -> dark",
           "relic": "a 0-parameter consequence of the QCA dynamics (the non-linear metric creates it)"
         },
-        "wall_time": 0.003
+        "wall_time": 0.002
       }
     },
     {
@@ -4075,7 +4996,7 @@
       "status": "the_qca_vacuum_reduced_by_z2_cancellation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.725,
+      "wall_time": 0.889,
       "verdict": {
         "id": "V9_dark_energy",
         "tier": 4,
