@@ -6,8 +6,8 @@
   "pass": true,
   "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 26) is regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
   "data": {
-    "backend": "numpy",
-    "gpu": "CPU (numpy)",
+    "backend": "cupy",
+    "gpu": "GPU cuda:1 (19921/24177 MiB)",
     "grid": [
       296,
       296,
@@ -30,12 +30,12 @@
             "peak_upper_pop": 0.9774830024102296,
             "final_excited": 0.277847449774005,
             "max_F_at_atom": 0.15055631191865232,
-            "max_F_out": 636395.672042636,
+            "max_F_out": 636395.672042635,
             "final_populations": {
               "1s": 0.722152550225995,
-              "2p": 0.26893345417672565,
-              "3p": 0.008466474927423003,
-              "3d": 0.0004475206698489191
+              "2p": 0.26893345417672554,
+              "3p": 0.008466474927422994,
+              "3d": 0.0004475206698489189
             },
             "decayed_after_peak": true
           },
@@ -47,13 +47,13 @@
             "t_end": 2232,
             "peak_excited": 0.9979867163403009,
             "peak_upper_pop": 0.9774830024102296,
-            "final_excited": 0.5063608056619203,
+            "final_excited": 0.5063608056619208,
             "max_F_at_atom": 0.15055631191865232,
-            "max_F_out": 636395.672042636,
+            "max_F_out": 636395.672042635,
             "final_populations": {
-              "1s": 0.4936391943380797,
-              "2p": 0.49058907325895557,
-              "3p": 0.014979883055695791,
+              "1s": 0.49363919433807923,
+              "2p": 0.49058907325895507,
+              "3p": 0.014979883055695751,
               "3d": 0.0007918493472601448
             },
             "decayed_after_peak": true
@@ -65,14 +65,14 @@
             "t_peak": 2515,
             "t_end": 2880,
             "peak_excited": 0.9980001064918819,
-            "peak_upper_pop": 0.9797265815738028,
-            "final_excited": 0.2768075523541732,
-            "max_F_at_atom": 0.1641224556622521,
-            "max_F_out": 59668.58527008918,
+            "peak_upper_pop": 0.9797265815738032,
+            "final_excited": 0.27680755235417354,
+            "max_F_at_atom": 0.16412245566225206,
+            "max_F_out": 59668.5852700891,
             "final_populations": {
-              "1s": 0.7231924476458268,
+              "1s": 0.7231924476458265,
               "2p": 0.018939113978051925,
-              "3p": 0.2578392012195125,
+              "3p": 0.25783920121951237,
               "3d": 2.9237156615671012e-05
             },
             "decayed_after_peak": true
@@ -84,15 +84,15 @@
             "t_peak": 2880,
             "t_end": 3312,
             "peak_excited": 1.0,
-            "peak_upper_pop": 0.33489525147360744,
+            "peak_upper_pop": 0.3348952514736073,
             "final_excited": 0.5379229483293106,
-            "max_F_at_atom": 0.04457083163883234,
-            "max_F_out": 14722264.702390324,
+            "max_F_at_atom": 0.04457083163883233,
+            "max_F_out": 14722264.702390308,
             "final_populations": {
               "1s": 0.4620770516706894,
               "2p": 0.29609700658226334,
               "3p": 0.0001550401643840364,
-              "3d": 0.24167090158267313
+              "3d": 0.24167090158267324
             },
             "decayed_after_peak": true
           },
@@ -105,8 +105,8 @@
             "peak_excited": 0.009285775545240016,
             "peak_upper_pop": 0.0,
             "final_excited": 0.009285719324612973,
-            "max_F_at_atom": 0.10048411528784909,
-            "max_F_out": 8935.105128561614,
+            "max_F_at_atom": 0.10048411528784904,
+            "max_F_out": 8935.10512856162,
             "final_populations": {
               "1s": 0.990714280675387,
               "2p": 0.0060623504375250156,
@@ -129,9 +129,9 @@
         "caveat": "not zero: the Fermi-golden-rule rate carries a Lorentzian tail (real physics, stated, not hidden)"
       },
       "shape_deformation": {
-        "anisotropy_1s_pure": 5.848411100621431e-17,
+        "anisotropy_1s_pure": -5.848411100621431e-17,
         "anisotropy_2p_pure": 0.3775114411881811,
-        "anisotropy_1s_measured": 5.848411100621431e-17,
+        "anisotropy_1s_measured": -5.848411100621431e-17,
         "lyman_alpha_peak_anisotropy": 0.3921769119525467,
         "the_excitation_deforms_the_cloud": true
       },
@@ -139,24 +139,24 @@
         "every_resonant_phase_radiates": true,
         "the_excited_population_decays": true,
         "max_F_out_per_phase": {
-          "resonant 1s->2p": 636395.672042636,
-          "resonant 1s->3p": 59668.58527008918,
-          "resonant 2p->3d": 14722264.702390324
+          "resonant 1s->2p": 636395.672042635,
+          "resonant 1s->3p": 59668.5852700891,
+          "resonant 2p->3d": 14722264.702390308
         },
         "pass": true
       },
       "stability": {
-        "norm_min": 0.9999999999999887,
+        "norm_min": 0.9999999999999876,
         "norm_max": 1.0000000000000129,
-        "field_max": 3836.9603467315537,
+        "field_max": 3836.9603467315515,
         "pass": true
       }
     },
     "figure": {
       "png": "/home/yo/Desktop/code/CL10/doc/figures/fig26_hydrogen.png",
       "meta": {
-        "backend": "numpy",
-        "gpu": "CPU (numpy)",
+        "backend": "cupy",
+        "gpu": "GPU cuda:1 (19921/24177 MiB)",
         "grid": [
           296,
           296,
@@ -208,22 +208,22 @@
         "instant_incoming_step": 541,
         "field_at_atom_at_incoming": 0.1499928542177298,
         "instant_absorbed_step": 788,
-        "absorbed_quadrupole_anisotropy": 0.3941428994760496,
+        "absorbed_quadrupole_anisotropy": 0.39414289947604964,
         "populations_at_absorption": {
-          "1s": 0.6318024433197226,
-          "2p": 0.34346965766212584,
-          "3p": 0.023476394197392666,
+          "1s": 0.6318024433197217,
+          "2p": 0.34346965766212506,
+          "3p": 0.023476394197392638,
           "3d": 0.0012515048207577823
         },
-        "excited_fraction_at_absorption": 0.3681975566802774,
+        "excited_fraction_at_absorption": 0.3681975566802783,
         "instant_emitted_step": 640,
         "populations_at_emission": {
-          "1s": 0.5100648439665024,
-          "2p": 0.45669399385178916,
-          "3p": 0.031558703089295724,
-          "3d": 0.0016824590924148291
+          "1s": 0.5100648439665016,
+          "2p": 0.4566939938517881,
+          "3p": 0.0315587030892957,
+          "3d": 0.0016824590924148285
         },
-        "excited_fraction_at_emission": 0.4899351560334976,
+        "excited_fraction_at_emission": 0.48993515603349835,
         "coupling_absorb": 0.02,
         "coupling_emit": 0.5,
         "reaction_gamma_max": 0.002,
@@ -240,5 +240,5 @@
     },
     "ok": true
   },
-  "wall_time": 5041.797
+  "wall_time": 207.669
 }

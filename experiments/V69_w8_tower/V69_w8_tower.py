@@ -48,7 +48,7 @@ def main():
     t0 = time.time()
     U = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(),
                                       G10)).astype(np.complex128)
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
 
     def alpha_of(M):

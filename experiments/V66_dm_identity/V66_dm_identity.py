@@ -57,7 +57,7 @@ def bar_blocks():
     of this basis is the conjugate of state s of the 16 basis (same order,
     opposite charges)."""
     B, U32, U16 = BR.blocks()
-    C = np.array(clifford.generators()[0], dtype=np.complex128)
+    C = E.asnumpy(clifford.generators()[0])
     Bb = C @ B
     return Bb, U32, Bb.conj().T @ U32 @ Bb
 
@@ -83,7 +83,7 @@ def bar_closure(n_steps=6, L=8):
 def bar_weights_qr():
     """The 16-bar Cartan weights in the -i eigenspace basis (QR): the
     multiset must be the negatives of the 16 weights."""
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     w = E.asnumpy(clifford.pseudoscalar()).astype(np.complex128)
     ev, evec = np.linalg.eig(w)
@@ -105,7 +105,7 @@ def main():
 
     # ---- mirror weights = -weights ------------------------------------------
     # the 16 weights, computed directly
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     B, _, U16 = BR.blocks()
     Dk = [B.conj().T @ C @ B for C in cartan]

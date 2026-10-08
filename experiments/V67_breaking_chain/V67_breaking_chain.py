@@ -42,6 +42,7 @@ import numpy as np
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import clifford
+from cl10 import engine as E
 from cl10 import brillouin as BR
 
 SM_DIM = 12
@@ -50,7 +51,7 @@ SM_DIM = 12
 def main():
     t0 = time.time()
 
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     planes = [(a, b) for a in range(10) for b in range(a + 1, 10)]
     T = [1j * (h[a] @ h[b]) for a, b in planes]          # 45 Hermitian
     # Gram matrix (orthogonal basis: Tr T_i T_j = 16 delta_ij)

@@ -61,7 +61,7 @@ def build_step_gates(L, G, gates):
 
 def random_spin10(rng):
     """Haar-ish random element of Spin(10): exp of a random bivector."""
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     A = np.zeros((32, 32), dtype=np.complex128)
     for a in range(10):
         for b in range(a + 1, 10):
@@ -95,7 +95,7 @@ def main():
     G = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(),
                                       sm_qca.G10)).astype(np.complex128)
     d = G.shape[0]
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
 
     rng = np.random.default_rng(20261008)

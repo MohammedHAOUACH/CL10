@@ -9,40 +9,40 @@
         {
           "p": 1,
           "L": 32,
-          "alpha_dir": 0.012707255100053593,
+          "alpha_dir": 0.012707255100053588,
           "ratio_to_level1": 1.0,
-          "level1_identity_dev": 8.082545620880531e-16,
+          "level1_identity_dev": 8.886119947416683e-16,
           "target_16pi_pow_p": 0.019894367886486918
         },
         {
           "p": 2,
           "L": 16,
-          "alpha_dir": 0.008211524547353804,
-          "ratio_to_level1": 0.6462075784816166,
+          "alpha_dir": 0.008211524547353799,
+          "ratio_to_level1": 0.6462075784816164,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 0.00039578587360288194
         },
         {
           "p": 3,
           "L": 8,
-          "alpha_dir": 0.007415292668054481,
-          "ratio_to_level1": 0.5835479503376939,
+          "alpha_dir": 0.007415292668054489,
+          "ratio_to_level1": 0.5835479503376947,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 7.873909773730346e-06
         },
         {
           "p": 4,
           "L": 4,
-          "alpha_dir": 0.004327413155948987,
-          "ratio_to_level1": 0.3405466500732118,
+          "alpha_dir": 0.004327413155949003,
+          "ratio_to_level1": 0.3405466500732132,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 1.5664645774359644e-07
         },
         {
           "p": 5,
           "L": 2,
-          "alpha_dir": 0.0017339914718919726,
-          "ratio_to_level1": 0.13645680819649708,
+          "alpha_dir": 0.0017339914718919834,
+          "ratio_to_level1": 0.136456808196498,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 3.116382258466135e-09
         }
@@ -55,24 +55,24 @@
         {
           "p": 1,
           "L": 32,
-          "alpha_dir": 0.014768082993891624,
+          "alpha_dir": 0.014768082993891613,
           "ratio_to_level1": 1.0,
-          "level1_identity_dev": 7.850462293418876e-16,
+          "level1_identity_dev": 8.95090418262362e-16,
           "target_16pi_pow_p": 0.019894367886486918
         },
         {
           "p": 2,
           "L": 16,
-          "alpha_dir": 0.011734643623635183,
-          "ratio_to_level1": 0.7945949131304901,
+          "alpha_dir": 0.011734643623635176,
+          "ratio_to_level1": 0.7945949131304902,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 0.00039578587360288194
         },
         {
           "p": 3,
           "L": 8,
-          "alpha_dir": 0.018495551274504363,
-          "ratio_to_level1": 1.2524002798572094,
+          "alpha_dir": 0.018495551274504366,
+          "ratio_to_level1": 1.2524002798572105,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 7.873909773730346e-06
         },
@@ -80,15 +80,15 @@
           "p": 4,
           "L": 4,
           "alpha_dir": 0.024955535418154293,
-          "ratio_to_level1": 1.6898290339021256,
+          "ratio_to_level1": 1.689829033902127,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 1.5664645774359644e-07
         },
         {
           "p": 5,
           "L": 2,
-          "alpha_dir": 0.026951849650664956,
-          "ratio_to_level1": 1.8250066485821337,
+          "alpha_dir": 0.026951849650664942,
+          "ratio_to_level1": 1.8250066485821341,
           "level1_identity_dev": null,
           "target_16pi_pow_p": 3.116382258466135e-09
         }

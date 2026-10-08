@@ -56,7 +56,7 @@ def main():
     # Cartan combinations of V65 acting on the whole module (the 16-bar
     # weights are automatically the negatives)
     phi = 2.0 * w
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     D32 = sum((np.cos(th) * xc + np.sin(th) * yc) * C
               for C, xc, yc in zip(cartan, x_coef, y_coef))

@@ -47,6 +47,7 @@ import numpy as np
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
 from cl10 import clifford
+from cl10 import engine as E
 from cl10 import brillouin as BR
 from cl10 import unification as UN
 
@@ -62,7 +63,7 @@ G10 = BR.G10
 # the Cartan of the root and the 16 weights
 # ---------------------------------------------------------------------------
 def cartan_weights():
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     B, _U32, _U16 = BR.blocks()
     Dk = [B.conj().T @ C @ B for C in cartan]

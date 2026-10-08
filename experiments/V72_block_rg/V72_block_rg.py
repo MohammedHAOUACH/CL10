@@ -94,7 +94,7 @@ def main():
     G = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(),
                                       sm_qca.G10)).astype(np.complex128)
     d = G.shape[0]
-    h = [np.array(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
 
     I32 = np.eye(d, dtype=np.complex128)

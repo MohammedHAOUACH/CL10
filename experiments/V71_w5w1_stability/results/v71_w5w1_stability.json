@@ -1,11 +1,11 @@
 {
   "experiment": "V71_w5w1_stability",
   "pass": true,
-  "status": "W5/W1 STABILITY UNDER THE WILSON EXTENSION: the matter-antimatter mirror of the Wilson-extended step is exact (dev 1.2e-15), the union spectrum is +-paired (dev 1.2e-15) and the one-cell zero point stays 0 (sum = -5.8e-15; Tr D = 0.0e+00 because X, Y are traceless). The Sakharov no-go (W5) and the tree-level Lambda = 0 (W1) are UNCHANGED by V65: both remain blocked for the same named reasons, now proven stable under the new ingredient.",
+  "status": "W5/W1 STABILITY UNDER THE WILSON EXTENSION: the matter-antimatter mirror of the Wilson-extended step is exact (dev 1.7e-15), the union spectrum is +-paired (dev 1.7e-15) and the one-cell zero point stays 0 (sum = -2.2e-15; Tr D = 0.0e+00 because X, Y are traceless). The Sakharov no-go (W5) and the tree-level Lambda = 0 (W1) are UNCHANGED by V65: both remain blocked for the same named reasons, now proven stable under the new ingredient.",
   "data": {
-    "mirror_dev": 1.2212453270876722e-15,
-    "pairing_dev": 1.2212453270876722e-15,
-    "zero_point": -5.773159728050814e-15,
+    "mirror_dev": 1.6653345369377348e-15,
+    "pairing_dev": 1.6653345369377348e-15,
+    "zero_point": -2.220446049250313e-15,
     "trD": 0.0,
     "phi": 1.2535673446403008e-08
   }
