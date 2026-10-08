@@ -1,0 +1,83 @@
+{
+  "experiment": "V79_gauged_bond_layer",
+  "pass": true,
+  "status": "GAUGED BOND LAYER BUILT: a Spin(10) ADJOINT quantum link per bond (C^45; link operators = the adjoint rep of so(10) extracted from the root's own 45 generators: f antisymmetric, Jacobi to 0.0e+00, [L^A,L^B] = i f L to 0.0e+00; Casimirs 64 (adjoint) / 45 (spinor) in the Tr T^2 = 32 normalization, ratio 64/45 = 8/(45/8) standard, errors 0.0e+00/0.0e+00) + bond gate K = exp(i g10 J.L), Hermitian generator (1.1e-16), exactly unitary (3.8e-16), commuting with the bond diagonal charge ([Q, J.L] = 1.1e-14) + Gauss constraint C_x = T_x + L_left - L_right with EXACT algebra (err 0.0e+00). CONTENT THEOREM: the dressed source 32 x 45 decomposes as 32 + 288 + 400 + 720 (Casimir spectrum [45.0, 85.0, 117.0], multiplicities [32, 288, 1120] exact): NO singlet - one adjoint flux cannot neutralize a spinor source (triality), isolated sources are confined, the physical fermion is the DRESSED 32, and V81 reads exactly this spectrum as desert content. The naive K preserves the BOND diagonal charge (Ad error 5.7e-16) but LEAKS the single-site Gauss charge (leak 1.92): the gauge-invariant local gate (Kogut-Susskind electric + dressed hopping) is the named open construction step. The step stays bond-local: causal radius 1. Zero new parameters: eta = g_10 = 1/5, link rep = adjoint, current = the root's T^A.",
+  "data": {
+    "link_algebra": {
+      "k_TrTT": 32.0,
+      "f_antisym_err": 0.0,
+      "jacobi_err": 0.0,
+      "L_commutator_err": 0.0,
+      "L_hermiticity_err": 0.0,
+      "adjoint_casimir": 64.0,
+      "adjoint_casimir_err": 0.0,
+      "note": "Casimirs in the Tr T^A T^B = 32 normalization; ratio 64/45 = 8/(45/8) is the standard so(10) h^vee/C2(spinor)"
+    },
+    "spinor_casimir": {
+      "value": 45.0,
+      "err": 0.0
+    },
+    "gauge_invariance": {
+      "eta": 0.2,
+      "H_hermiticity_err": 1.1102230246251565e-16,
+      "Q_commutes_H_err": 1.0805156823142814e-14
+    },
+    "gauss_algebra": {
+      "err": 0.0,
+      "note": "chain version C_x = T_x + L_left - L_right: commuting bond factors at different sites, same one-bond algebra"
+    },
+    "K": {
+      "unitarity_probe_err": 3.7626119496012644e-16
+    },
+    "content": {
+      "casimir_levels": [
+        45.0,
+        85.0,
+        117.0
+      ],
+      "multiplicities": [
+        32,
+        288,
+        1120
+      ],
+      "decomposition": "32 + 288 + 400 + 720 (400, 720 degenerate at C2 = 117)",
+      "singlets": 0,
+      "note": "no singlet in 32 x 45 (triality): isolated spinor source confined; Inv(32 x 32bar x 45) = mult of 32 in 32 x 45 = 1"
+    },
+    "K_gauss": {
+      "Ad_K_bond_charge_err": 5.692689245044887e-16,
+      "single_site_Gauss_leak": 1.9158370508713467,
+      "note": "K preserves the bond diagonal charge exactly but leaks the single-site Gauss charge: the gauge-invariant gate needs Kogut-Susskind dressing (named open step)"
+    },
+    "causality": {
+      "support_window": [
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "bond_local": true,
+      "radius_1": true
+    }
+  }
+}

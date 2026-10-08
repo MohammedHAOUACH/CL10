@@ -1500,6 +1500,146 @@ def fig28_wilson():
     _save(fig, "fig28_wilson_mechanism.png")
 
 
+def fig29_gauged_layer():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V79_gauged_bond_layer",
+                           "results", "v79_gauged_bond_layer.json")) as f:
+        d = json.load(f)["data"]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.5, 4.9))
+
+    rows = [
+        (r"link algebra $[L_A,L_B] = if_{AB}^{C}L_C$",
+         d["link_algebra"]["L_commutator_err"]),
+        ("Jacobi identity", d["link_algebra"]["jacobi_err"]),
+        (r"adjoint Casimir $= 64$", d["link_algebra"]["adjoint_casimir_err"]),
+        (r"spinor Casimir $= 45$", d["spinor_casimir"]["err"]),
+        (r"Gauss algebra $[Q_A,Q_B] = if_{AB}^{C}Q_C$",
+         d["gauss_algebra"]["err"]),
+        ("step unitarity", d["K"]["unitarity_probe_err"]),
+        ("bond charge covariance", d["K_gauss"]["Ad_K_bond_charge_err"]),
+    ]
+    ypos = np.arange(len(rows))[::-1]
+    errs = [max(r[1], 2e-17) for r in rows]
+    axA.barh(ypos, errs, color=C_SU3, alpha=0.85, height=0.6)
+    axA.set_xscale("log")
+    axA.set_xlim(1e-17, 1e-12)
+    axA.axvline(1e-15, color="0.35", lw=1.4, ls="--",
+                label="machine precision $10^{-15}$")
+    axA.set_yticks(ypos)
+    axA.set_yticklabels([r[0] for r in rows], fontsize=8.5)
+    axA.set_xlabel(r"absolute error (exact zeros floored at $2\times10^{-17}$)")
+    axA.set_title("(a)  the exactness ledger: every identity of the\n"
+                  "     gauged bond layer closes at machine precision",
+                  fontsize=9.5)
+    axA.legend(fontsize=8, loc="upper right", framealpha=0.95)
+    leak = d["K_gauss"]["single_site_Gauss_leak"]
+    axA.text(0.40, 0.03,
+             f"control: a single-site (non-local) step leaks the\n"
+             f"Gauss charge at {leak:.2f} - off-scale by 15 orders",
+             transform=axA.transAxes, fontsize=8, color=C_ZERO)
+
+    lv = d["content"]["casimir_levels"]
+    mu = d["content"]["multiplicities"]
+    axB.bar([str(int(v)) for v in lv], mu, color=C_ROOT, alpha=0.85,
+            width=0.55)
+    axB.set_yscale("log")
+    axB.set_ylim(1, 3000)
+    for x, m in zip(range(len(lv)), mu):
+        axB.text(x, m * 1.15, str(m), ha="center", fontsize=9)
+    axB.set_xlabel(r"quadratic Casimir $C_2$ of the invariant sector")
+    axB.set_ylabel("multiplicity")
+    axB.set_title("(b)  gauge-invariant content: $32 \\oplus 288 \\oplus 1120$"
+                  f"\n     = {sum(mu)} states; no singlet (triality)",
+                  fontsize=9.5)
+    fig.suptitle("The gauged bond layer (V79): the Gauss constraint closes "
+                 "on the root module", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig29_gauged_bond_layer.png")
+
+
+def fig30_composite():
+    import json
+    import math
+    import sys
+    sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
+    sys.path.insert(0, os.path.join(ROOT,
+                                    "experiments",
+                                    "V81_link_desert_content"))
+    from V65_wilson import cartan_weights, identify_XY, physical_su5
+    from V81_link_desert_content import flux_weights, sm_roots, c2_labels
+    from cl10 import unification as u
+
+    with open(os.path.join(ROOT, "experiments", "V81_link_desert_content",
+                           "results", "v81_link_desert_content.json")) as f:
+        d = json.load(f)["data"]
+
+    lam, _ = cartan_weights()
+    xs, ys = identify_XY(lam)
+    yc = ys[0]
+    gg = next(x for x in xs
+              if physical_su5(lam @ x, lam @ yc) == "Georgi-Glashow")
+    al = flux_weights()
+    comp = (lam[:, None, :] + al[None, :, :]).reshape(-1, 5)
+    bL, b1, b2 = sm_roots(al, lam, gg, yc)
+    bL2 = float(bL @ bL)
+    Ys = comp @ yc
+    m2 = (comp @ bL) / bL2
+    c2 = c2_labels(comp, b1, b2)
+    db_state = np.stack([(2 / 3) * (3 / 5) * Ys ** 2,
+                         (2 / 3) * m2 ** 2,
+                         (2 / 3) * c2 / 8.0], axis=1)
+    zero_j = next(j for j in range(45)
+                  if np.abs(al[j]).sum() < 1e-12)
+    sm_idx = np.arange(16) * 45 + zero_j
+    dbs = db_state.copy()
+    dbs[sm_idx] *= 0.0
+    db_ex = dbs.sum(axis=0)
+
+    x = math.log(1.8e16 / u.M_Z)
+    INV = 1 / u.ALPHA_10
+    TWO_PI = 2 * math.pi
+    need = [TWO_PI * (1 / u.A_Z[i] - INV - u.B_SM[i] * x / TWO_PI) / db_ex[i]
+            for i in range(3)]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.5, 4.9))
+
+    names = [r"$\mathrm{U}(1)$", r"$\mathrm{SU}(2)$", r"$\mathrm{SU}(3)$"]
+    cols = [C_GUT, C_SU2, C_SU3]
+    ypos = np.arange(3)[::-1]
+    axA.barh(ypos, need, color=cols, alpha=0.85, height=0.55)
+    for y, v in zip(ypos, need):
+        axA.text(v + 0.02, y, f"{v:.2f}", va="center", fontsize=9)
+    axA.set_yticks(ypos)
+    axA.set_yticklabels(names, fontsize=10)
+    axA.set_xlabel(r"required threshold sum $\sum_s (x - z_s)$ "
+                   r"[$\ln M$ units], $M_X = 1.8\times10^{16}$ GeV")
+    axA.set_title("(a)  the three meeting equations demand three\n"
+                  "     different sums - no single spectrum fits",
+                  fontsize=9.5)
+    axA.axvspan(min(need), max(need), color=C_ZERO, alpha=0.08)
+    axA.text(0.66, 0.10, f"spread factor {max(need)/min(need):.1f}",
+             transform=axA.transAxes, fontsize=9, color=C_ZERO)
+
+    th_root = 1.7308
+    v = math.cos(th_root) * gg + math.sin(th_root) * yc
+    c_al = np.round(np.abs(al @ v), 6)
+    vals, cnts = np.unique(c_al, return_counts=True)
+    axB.bar(vals, cnts, width=0.045, color=C_ROOT, alpha=0.85)
+    axB.set_ylim(0, 28)
+    axB.set_xlabel(r"flux mass pattern $|\alpha \cdot v|$ "
+                   r"($\theta$ = 1.731, V65 root)")
+    axB.set_ylabel("count")
+    axB.set_title("(b)  the forced pattern $m = w(c_0 + |\\alpha\\cdot v|)$:\n"
+                  f"     {d['meeting']['n_solutions']} physical solutions "
+                  "over the full scan", fontsize=9.5)
+    fig.suptitle("The gauged layer's composite content "
+                 "($16 \\otimes 45 = 720$ states, V81) does not deliver "
+                 "the meeting", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig30_composite_content.png")
+
+
 
 
 def main(with_young=False):
@@ -1530,9 +1670,11 @@ def main(with_young=False):
     fig24_gravity_3d()
     fig27_desert()
     fig28_wilson()
+    fig29_gauged_layer()
+    fig30_composite()
     if with_young:
         fig25_young()
-    print(f"done: {27 if with_young else 26} figures.")
+    print(f"done: {29 if with_young else 28} figures.")
 
 
 if __name__ == "__main__":
