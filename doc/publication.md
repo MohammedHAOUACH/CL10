@@ -746,6 +746,18 @@ One adjoint link d.o.f. per bond, matter $\mathbf{16}$ on the sites. Left: the e
 
 The $16 \otimes 45 = 720$ composite states of the gauged layer shift the one-loop coefficients by $(145.3, 145.3, 226.3)$. The three meeting equations for $\alpha_X = 1/25$ demand three different threshold sums at every breaking direction $v$ — the curves never cross — and the desert-constrained Newton scan over the full direction circle returns 0 physical solutions. The V64 repair spectrum (Fig. 27) is not the gauged layer's own content.
 
+**Fig. 31 — the closed-loop factor: the loop factor at the ladder length.**
+
+![Closed loops](figures/fig31_closed_loops.png)
+
+Closed traced-link loops of length $n$ on $n$ distinct bonds. (a) The Cartan-content ratio $F_n$ of the gauged bond layer at the root coupling and at the division-optimal coupling: geometric suppression with ratio $r = 0.54$, and at $n = 10$ the value $0.0192$ against $1/(16\pi) = 0.0199$ — the loop factor at the ladder exponent, measured (V85). (b) The traced hop matrix $MG$ has spectral radius $0.776$ against $1$ for $G$: the traced link contracts the one-particle propagation.
+
+**Fig. 32 — the equal-shift theorem.**
+
+![Equal shift](figures/fig32_equal_shift.png)
+
+(a) The one-loop ratio $\sum db_1/\sum db_2$ over the matter $\mathbf{16}$, the flux $\mathbf{45}$, the vector $\mathbf{10}$ and the $\mathrm{SU}(5)$ $\mathbf{10}$: exactly $1$ — the index-proportionality of $\mathrm{Tr}\,Y^2$ and $\mathrm{Tr}\,T_3^2$ — while the $(1,2)$ fragment gives $3/5$. (b) The V64 repair's total mismatch $\sum db_1 - \sum db_2$: the $10 \oplus \overline{\mathbf{10}}$ pairs contribute exactly zero, the whole mismatch is carried by the fragment pair. The desert content must be fragment content; the automaton supplies none (V84).
+
 ---
 
 ## Appendix A. The explicit 32-dimensional representation
@@ -768,7 +780,7 @@ The validation programme consists of 86 independent checks organised in seven ti
 
 Two cautions about what those 86 passes mean. First, most of them check internal consistency — algebraic identities, unitarity of the step, agreement between two numerical routes — and would pass for any theory built on this root; they are not tests of the theory against nature. Second, a passing check is only as good as its criterion: an early audit found a mixing matrix with the correct angles and the correct unitarity that did **not** diagonalise the mass matrix it was supposed to diagonalise, and the criteria were strengthened accordingly. The six comparisons against data — $v/M_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$ — are the phenomenological content, and each carries the residual honestly reported in Table 4.
 
-**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 25 from the double-slit simulation, Fig. 26 from the hydrogen experiment, Fig. 27 from the V64 desert scan, Fig. 28 from the V65/V70 Wilson-node scan, Fig. 29 from the V79 gauged bond layer, and Fig. 30 from the V81 composite-content scan. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
+**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 25 from the double-slit simulation, Fig. 26 from the hydrogen experiment, Fig. 27 from the V64 desert scan, Fig. 28 from the V65/V70 Wilson-node scan, Fig. 29 from the V79 gauged bond layer, Fig. 30 from the V81 composite-content scan, Fig. 31 from the V85 closed-loop experiment, and Fig. 32 from the V84 equal-shift theorem. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
 
 **Competing interests.** The author declares no competing interests.
 

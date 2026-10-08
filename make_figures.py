@@ -1639,6 +1639,112 @@ def fig30_composite():
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     _save(fig, "fig30_composite_content.png")
 
+def fig31_closed_loops():
+    import json
+    import math
+    with open(os.path.join(ROOT, "experiments", "V85_closed_loop_factor",
+                           "results", "v85_closed_loop_factor.json")) as f:
+        d = json.load(f)["data"]
+    root, fmin = d["loops_root"], d["loops_Fmin"]
+    ns = list(range(2, 11))
+    loop = 1 / (16 * math.pi)
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.5, 4.9))
+
+    axA.semilogy(ns, root["F_n"], "o-", color=C_ZERO, lw=1.8, ms=6,
+                 label=r"root coupling $\eta = 1/5$")
+    axA.semilogy(ns, fmin["F_n"], "s--", color=C_ROOT, lw=1.4, ms=5,
+                 alpha=0.8, label=r"division-optimal $\eta = 1.44$")
+    axA.axhline(loop, color="0.35", ls=":", lw=1.5)
+    axA.text(2.1, loop * 1.25, r"$1/(16\pi) = 0.0199$", fontsize=9,
+             color="0.3")
+    axA.plot([10], [root["F_n"][-1]], "*", ms=17, color=C_ZERO, zorder=5)
+    axA.annotate(f"$F_{{10}}$ = {root['F_n'][-1]:.4f}\nvs 0.0199 (3.6%)",
+                 xy=(10, root["F_n"][-1]), xytext=(6.1, 0.35),
+                 fontsize=9, color=C_ZERO,
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    axA.set_xlabel("closed-loop length $n$ (hops on $n$ distinct links)")
+    axA.set_ylabel(r"Cartan-content ratio $F_n = \alpha((MG)^n)/\alpha(G^n)$")
+    axA.set_ylim(0.01, 5)
+    axA.legend(fontsize=8.5, loc="upper right")
+    axA.set_title("(a)  closed traced loops: geometric suppression,\n"
+                  "     the loop factor at the ladder length 10", fontsize=9.5)
+
+    labels = [r"$G$", r"$MG$" + "\n(root)", r"$G$", r"$MG$" + "\n($\\eta$=1.44)"]
+    vals = [root["spectral_radius_G"], root["spectral_radius_MG"],
+            fmin["spectral_radius_G"], fmin["spectral_radius_MG"]]
+    cols = ["0.6", C_ZERO, "0.6", C_ROOT]
+    axB.bar(range(4), vals, color=cols, alpha=0.85, width=0.6)
+    for i, v in enumerate(vals):
+        axB.text(i, v + 0.02, f"{v:.3f}", ha="center", fontsize=9)
+    axB.axhline(1.0, color="0.35", ls=":", lw=1.2)
+    axB.set_xticks(range(4))
+    axB.set_xticklabels(labels, fontsize=9)
+    axB.set_ylim(0, 1.15)
+    axB.set_ylabel("spectral radius")
+    axB.set_title("(b)  the traced hop CONTRACTS the propagation:\n"
+                  f"     geometric ratio r = {root['geometric_ratio']}, "
+                  f"n* = {root['n_star_for_loop_factor']}", fontsize=9.5)
+
+    fig.suptitle("The closed-loop factor of the traced adjoint link (V85): "
+                 "$F_{10} = 0.0192$ vs $1/(16\\pi) = 0.0199$", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig31_closed_loops.png")
+
+
+def fig32_equal_shift():
+    import json
+    with open(os.path.join(ROOT, "experiments", "V84_equal_shift_theorem",
+                           "results", "v84_equal_shift_theorem.json")) as f:
+        d = json.load(f)["data"]
+    r16 = d["over_16"]["sum_db1"] / d["over_16"]["sum_db2"]
+    r45 = d["over_flux45"]["sum_db1"] / d["over_flux45"]["sum_db2"]
+    rv10 = d["vector10"]["ratio_db1_over_db2"]
+    v64 = d["V64_content"]
+
+    fig, (axA, axB) = plt.subplots(1, 2, figsize=(12.5, 4.9))
+
+    names = [r"matter $\mathbf{16}$", r"flux $\mathbf{45}$",
+             r"vector $\mathbf{10}$", r"SU(5) $\mathbf{10}$",
+             "(1,2) pair\n(fragment!)"]
+    ratios = [r16, r45, rv10,
+              v64["ratio_db1_over_db2_for_10"],
+              v64["ratio_db1_over_db2_for_(1,2)"]]
+    cols = [C_ROOT, C_ROOT, C_ROOT, C_ROOT, C_ZERO]
+    axA.bar(range(5), ratios, color=cols, alpha=0.85, width=0.6)
+    for i, v in enumerate(ratios):
+        axA.text(i, v + 0.03, f"{v:.2f}", ha="center", fontsize=9.5)
+    axA.axhline(1.0, color="0.35", ls=":", lw=1.4)
+    axA.text(0.02, 1.18, "equal shift: $\\sum db_1 = \\sum db_2$", fontsize=9,
+             color="0.3")
+    axA.set_xticks(range(5))
+    axA.set_xticklabels(names, fontsize=9)
+    axA.set_ylim(0, 1.3)
+    axA.set_ylabel(r"ratio $\sum db_1 / \sum db_2$")
+    axA.set_title("(a)  every COMPLETE multiplet shifts U(1) and SU(2)\n"
+                  "     equally - only the fragment evades the theorem",
+                  fontsize=9.5)
+
+    parts = [v64["mismatch_from_10s"], v64["mismatch_from_(1,2)"]]
+    axB.bar([0, 1], parts, color=[C_GUT, C_ZERO], alpha=0.85, width=0.5)
+    axB.text(0, 0.01, "exactly 0", ha="center", fontsize=9.5)
+    axB.text(1, parts[1] - 0.03, f"{parts[1]:.3f}", ha="center", fontsize=9.5,
+             color=C_ZERO)
+    axB.set_xticks([0, 1])
+    axB.set_xticklabels([r"$3\times(\mathbf{10} \oplus \overline{\mathbf{10}})$",
+                         r"$(1,2)$ pair"], fontsize=9.5)
+    axB.axhline(0, color="0.3", lw=1)
+    axB.set_ylim(-0.35, 0.12)
+    axB.set_ylabel(r"mismatch $\sum db_1 - \sum db_2$")
+    axB.set_title("(b)  the V64 repair's whole mismatch is carried by\n"
+                  "     its fragment pair - the automaton has none",
+                  fontsize=9.5)
+
+    fig.suptitle("The equal-shift theorem (V84): the desert content must be "
+                 "$\\mathrm{SU}(5)$-fragment content", fontsize=12)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    _save(fig, "fig32_equal_shift.png")
+
 
 
 
@@ -1672,9 +1778,11 @@ def main(with_young=False):
     fig28_wilson()
     fig29_gauged_layer()
     fig30_composite()
+    fig31_closed_loops()
+    fig32_equal_shift()
     if with_young:
         fig25_young()
-    print(f"done: {29 if with_young else 28} figures.")
+    print(f"done: {31 if with_young else 30} figures.")
 
 
 if __name__ == "__main__":

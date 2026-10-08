@@ -174,7 +174,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 86 experiments, prints the hard-tier verdict
-python3 make_figures.py          # regenerates the 28 matplotlib figures (fig 1-24, 27-30) -> doc/figures/
+python3 make_figures.py          # regenerates the 30 matplotlib figures (fig 1-24, 27-32) -> doc/figures/
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
 python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
