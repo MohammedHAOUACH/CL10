@@ -1,0 +1,17 @@
+{
+  "experiment": "V74_multiscale_nodes",
+  "pass": true,
+  "status": "MULTI-SCALE CANNOT MOVE M_X (structural): while all node thresholds sit below the meeting point the meeting equations depend on the three node strengths ONLY through their sum - the Jacobian has three identical columns (rank 1 at every configuration tested: [1, 1, 1, 1]); the residuals F_i are EXACTLY split-independent (dev 7.1e-15). A node above x decouples (V68: n < 3 has no root). Hence the node mechanism meets at M_X = 8.93e+14 GeV for EVERY split, tau_p = 1.1e+31 yr - EXCLUDED by F5. The V64 data-preferred spectrum (three 10+10bar sets at 1.2e7 + one (1,2) pair at 1e12) is not a three-full-16 pattern: the automaton supplies full split 16's per node, the couplings prefer partial suits. W4 is now a NAMED INCOMPATIBILITY (node content vs desert spectrum), not a fitting problem; closing it needs new automaton content, not new thresholds.",
+  "data": {
+    "jacobian_ranks": {
+      "V65 root, degenerate strengths": 1,
+      "V65 root, split strengths": 1,
+      "V64-like low thresholds": 1,
+      "generic theta": 1
+    },
+    "split_invariance_dev": 7.105427357601002e-15,
+    "M_X_node_GeV": 892689869028175.4,
+    "tau_p_yr": 1.139958741384208e+31,
+    "n_physical_roots": 2
+  }
+}

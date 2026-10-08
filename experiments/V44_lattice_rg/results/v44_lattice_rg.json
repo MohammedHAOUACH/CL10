@@ -42,5 +42,5 @@
     "sigma_over_smax": 0.06277130086269621,
     "residual": "the lattice RG (running the cross-section from the Planck scale down to the physical scale: the non-trivial / anomalous part) and the matching of the 0-parameter amplitudes to the MEASURED cross-sections — the open part of the 't Hooft program (W9)"
   },
-  "wall_time": 0.194
+  "wall_time": 0.253
 }

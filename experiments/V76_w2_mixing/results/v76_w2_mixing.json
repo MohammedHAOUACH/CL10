@@ -1,0 +1,251 @@
+{
+  "experiment": "V76_w2_mixing",
+  "pass": true,
+  "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 1.983) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). W2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
+  "data": {
+    "triangle_closed": true,
+    "components": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      [
+        9,
+        10,
+        11
+      ]
+    ],
+    "cubic_ok": true,
+    "zero_mean_ok": true,
+    "gap_dev": 0.016716542960323988,
+    "K_node": 1.9999999999999998,
+    "fourier_factor": 0.5,
+    "eigenvalues": {
+      "r_0.0": [
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.001504,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.047856,
+        0.047856,
+        0.047856,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.050864,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.053872,
+        0.05688,
+        0.05688,
+        0.05688
+      ],
+      "r_1.0": [
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.000752,
+        0.002256,
+        0.002256,
+        0.002256,
+        0.002256,
+        0.003008,
+        0.003008,
+        0.003008,
+        0.003008,
+        0.003008,
+        0.003008,
+        0.009024,
+        0.009024,
+        0.023928,
+        0.023928,
+        0.025432,
+        0.025432,
+        0.025432,
+        0.025432,
+        0.025432,
+        0.025432,
+        0.026936,
+        0.026936,
+        0.026936,
+        0.026936,
+        0.026936,
+        0.026936,
+        0.02844,
+        0.02844,
+        0.095712,
+        0.101727,
+        0.101727,
+        0.101727,
+        0.107743,
+        0.107743,
+        0.107743,
+        0.113759
+      ],
+      "r_2.0": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.004512,
+        0.013536,
+        0.013536,
+        0.143567,
+        0.152591,
+        0.152591,
+        0.152591,
+        0.161615,
+        0.161615,
+        0.161615,
+        0.170639
+      ]
+    },
+    "pattern": {
+      "r_-0.9": {
+        "m_nu_eV": [
+          1.46,
+          0.1007,
+          0.1007
+        ],
+        "sum_eV": 1.6614,
+        "ok_sum": false
+      },
+      "r_0.0": {
+        "m_nu_eV": [
+          0.146,
+          0.146,
+          0.146
+        ],
+        "sum_eV": 0.438,
+        "ok_sum": false
+      },
+      "r_0.5": {
+        "m_nu_eV": [
+          0.0973,
+          0.1947,
+          0.1947
+        ],
+        "sum_eV": 0.4867,
+        "ok_sum": false
+      },
+      "r_1.0": {
+        "m_nu_eV": [
+          0.073,
+          0.292,
+          0.292
+        ],
+        "sum_eV": 0.657,
+        "ok_sum": false
+      },
+      "r_1.5": {
+        "m_nu_eV": [
+          0.0584,
+          0.584,
+          0.584
+        ],
+        "sum_eV": 1.2264,
+        "ok_sum": false
+      },
+      "r_1.9": {
+        "m_nu_eV": [
+          0.0503,
+          2.92,
+          2.92
+        ],
+        "sum_eV": 5.8903,
+        "ok_sum": false
+      },
+      "r_2.0": {
+        "m_nu_eV": [
+          0.0487,
+          0.0,
+          0.0
+        ],
+        "sum_eV": 0.0487,
+        "ok_sum": true,
+        "note": "democratic point: two zero heavy eigenvalues; physical ONLY if m_D is also democratic (the antisymmetric N combinations decouple); else gapless node doublers for every weight"
+      }
+    }
+  }
+}

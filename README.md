@@ -92,7 +92,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (73 experiments, V0-V73)
+├── experiments/              # the verification program (79 experiments, V0-V78)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -131,13 +131,18 @@ CL10/
 │   ├── V70/                # the W3 audit: the 12 doubler nodes form 3 families of 4 labeled by the zero axis, cubic-transitive (spectra equal to 5e-15); the index 3 EXISTS and labels the unification-required 3 split nodes, but does not force the count
 │   ├── V71/                # the W5/W1 stability audit: the Wilson-extended step keeps the exact spectral mirror (1e-15), the +- pairing, and the zero point (Tr D = 0); the Sakharov no-go and the tree-level Lambda = 0 are UNCHANGED by V65
 │   ├── V72/                # the missing tool BUILT: exact block-spin RG of the bond layer (Schur decimation, U_BB = 0, no approximation), 5 levels; level-1 identity onsite = 2(GR)^2 exact; no level follows (16pi)^-p for the factorized OR the non-factorized ([G,R] != 0) gate — single-particle RG composes angles, never divides them; the loop factor needs a gauged bond layer (many-cell RG)
-│   └── V73/                # the bond-gate loophole closed: 3 Haar-random Spin(10) gates + structured R = G^dagger through the V72 decimation — no realization follows the (16pi)^-p law; the Cartan content depends only on path products; W8's missing tool uniquely specified
+│   ├── V73/                # the bond-gate loophole closed: 3 Haar-random Spin(10) gates + structured R = G^dagger through the V72 decimation — no realization follows the (16pi)^-p law; the Cartan content depends only on path products; W8's missing tool uniquely specified
+│   ├── V74/                # the W4 structural closure: while all node thresholds sit below M_X the meeting equations depend on the three node strengths ONLY through their sum — the Jacobian has three identical columns (rank 1, split-invariance exact to 1e-14); the node mechanism's meeting point M_X = 8.9e14 GeV (tau_p 1.1e31 yr, F5-excluded) is FORCED for every split; the data-preferred spectrum is not a three-full-16 pattern: a named incompatibility
+│   ├── V75/                # the W7 no-go completed: no Wilson node hosts a 118 GeV neutral mirror — for every Wilson angle the same node puts a stable colored/charged fragment below the desert (0 survivors over 720 angles); the minimal named fix: one mirror-odd ladder scalar, portal lambda_* = 4e-4 for Omega h^2 = 0.120, sigma_SI = 5e-51 cm^2 (nearly decoupled; falsified above 1e-50)
+│   ├── V76/                # the W2 junction BUILT: a cubic-symmetric zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle exactly (verified on the full 12x12 doubler difference table); node mass matrix c_s(2w0 I + kappa(J-I)), democratic at kappa = 2w0 ({3M,0,0}); the 1/3 candidate survives only at that measure-zero point and only with democratic m_D (else gapless colored doublers)
+│   ├── V77/                # the W8 division mechanism BUILT: one quantum link d.o.f. per bond (dimer), traced over — the level-1 Cartan content is exactly cos(2*theta) times the V72 value (dev < 1e-15, tunable); a traced FLUCTUATING bond d.o.f. divides angles where every gate only composes them; the gauged Spin(10) adjoint link is now backed by a demonstrated mechanism
+│   └── V78/                # the W1 protection theorem: det U = 1 pins the quasi-energy sum against every traceless internal deformation (50 random Hermitian A, eps to 1: |S| < 4e-14); no branch crossing below eps = pi; the only internal knob is the U(1) trace phase — the observed Lambda is equivalent to a trace-phase breaking of size 1.6e-120
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
-├── run_validation.py         # the runner: runs all 73, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 79, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 73/73 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 79/79 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -161,7 +166,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 73 experiments, prints the hard-tier verdict
+python3 run_validation.py        # runs all 79 experiments, prints the hard-tier verdict
 python3 make_figures.py          # regenerates the 26 matplotlib figures (fig 1-24, 27, 28) -> doc/figures/
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
@@ -177,8 +182,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **73** experiments
-(V0–V73) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **79** experiments
+(V0–V78) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -186,7 +191,7 @@ falsifiers** (F1–F7).  `run_validation.py` runs all **73** experiments
 > cosmology (tier 4) and the falsifiability (tier 5) are supporting; the named
 > residuals are reported, not hidden.
 
-**What the 73 passes mean.**  Most of them check **internal consistency** —
+**What the 79 passes mean.**  Most of them check **internal consistency** —
 algebraic identities, unitarity of the step, agreement between two numerical
 routes — and would pass for any theory built on this root; they are not tests
 against nature.  The six comparisons against data ($v/M_P$, $m_\nu$,
@@ -194,9 +199,10 @@ $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$) are the
 phenomenological content, and each carries the residual named in the paper.
 **The parameter audit** (Section 14, V52) classifies every headline number by
 provenance: **7 algebraic** invariants, **1 free** 't Hooft angle, **2
-conventions** ($\alpha_{10} \equiv g_{10}^2$, $g_0 = 1/8$), **5 fitted
-coefficients** ($2.08$, $1.18$, $n_{2\text{step}} = 3$, and the two V64 desert
-thresholds) and **9 open residuals**.  V59 (`cl10.four_limits`) adds the observation that the *same* loop
+conventions** ($\alpha_{10} \equiv g_{10}^2$, $g_0 = 1/8$), **6 fitted
+coefficients** ($2.08$, $1.18$, $n_{2\text{step}} = 3$, the two V64 desert
+thresholds, and the V75 DM portal $\lambda_* = 4\times10^{-4}$) and **9 open residuals**.
+V59 (`cl10.four_limits`) adds the observation that the *same* loop
 integer $n = 10$ organises the hierarchy, the DM mass and the seesaw ladder —
 bookkeeping that groups the residuals, not a derivation of any value.
 
@@ -212,16 +218,24 @@ bookkeeping that groups the residuals, not a derivation of any value.
   Wilson factor carry exactly the vectorlike split-$\mathbf{16}$ fragments;
   the Wilson direction completes the breaking chain; meeting roots need
   $n_{\rm nodes} \ge 3$), **but** the mechanism's own single-angle root meets
-  at $M_X = 8.9\times10^{14}$ GeV, excluded by Super-Kamiokande: the pattern
-  is derived, the scale is not, and the surviving solution keeps two fitted
-  thresholds with $M_{\rm GUT} = M_P$ abandoned (predicted
-  $\tau_p = 1.8\times10^{36}$ yr, F5).
+  at $M_X = 8.9\times10^{14}$ GeV, excluded by Super-Kamiokande — and V74
+  proves no redistribution of the three node strengths can move it (the
+  meeting equations depend on them only through their sum, rank-1 Jacobian):
+  the pattern is derived, the scale is forced-and-excluded, and the surviving
+  solution keeps two fitted thresholds with $M_{\rm GUT} = M_P$ abandoned
+  (predicted $\tau_p = 1.8\times10^{36}$ yr, F5).
 - $m_\nu = 0.146$ eV is $2.9\times$ the atmospheric scale and above
-  $\sum m_\nu < 0.12$ eV (W2, F3).
+  $\sum m_\nu < 0.12$ eV (W2, F3).  V76 BUILDS the node-mixing junction the
+  $\tfrac13$ candidate needs (cubic-symmetric, closes the node triangle
+  exactly; democratic point, eigenvalues $\{3M,0,0\}$) — the candidate
+  survives only at that measure-zero point, with democratic $m_D$.
 - The relic abundance is **normalised** to the measured value, not computed,
-  and the V66 scan finds **no viable carrier** at 118 GeV in the implemented
-  spectrum (the only exact-stability carrier, the mirror sector, sits at
-  $10^{8}$–$10^{10}$ GeV) (W7).
+  and the V66 scan plus the V75 completion find **no viable carrier** at
+  118 GeV anywhere in the implemented spectrum — no Wilson node can host a
+  stable neutral mirror at the ladder mass (0 survivors over 720 angles);
+  the minimal named fix is one mirror-odd ladder scalar, portal
+  $\lambda_* = 4\times10^{-4}$, predicted $\sigma_{\rm SI} = 5\times10^{-51}$
+  cm$^2$ — nearly decoupled (W7).
 - At the model's own couplings the heavy-neutrino decay is **in** equilibrium
   ($\Gamma_N/H \simeq 4.6$ at $y = 1/8$), so the third Sakharov condition fails
   (W5); the automaton itself satisfies **none** of the three (a computed
@@ -237,6 +251,11 @@ bookkeeping that groups the residuals, not a derivation of any value.
   internal Wilson factor that gaps all 12 nodes — but the choice of the
   desert-scale node set is an input and the scale it predicts is excluded
   (W9/W4).
+- The tree-level $\Lambda = 0$ is **protected**: V78 shows $\det U = 1$ pins
+  the quasi-energy sum against every traceless internal deformation
+  ($|S| < 4\times10^{-14}$ for random $e^{i\varepsilon A}U$, $\varepsilon \le 1$);
+  the observed $\Lambda$ is then equivalent to a trace-phase breaking of
+  $1.6\times10^{-120}$ — one named number, no mechanism (W1).
 
 **Gravity.**  V50 computes the general 4-D Riemann / Ricci / Einstein /
 Kretschmann from an **arbitrary** metric by finite differences, **2-route
@@ -254,11 +273,14 @@ internal Wilson factor gaps them all, with the split node set an input.
 $v/M_P = 2.08(1/16\pi)^{10}$ and the DM mass $1.18\,M_P(1/16\pi)^{10} = 118$
 GeV.  The integer $10$ is chosen so the two-digit coefficients land on the
 data: no loop expansion of the QCA exists; V69 proves the coarse-graining
-tower $U^{2^p}$ is purely kinematic, and V72–V73 BUILD the genuine
-block-spin RG (exact Schur decimation of the bond layer, any bond gate)
-and prove it composes internal angles but can never divide them — the
-loop factor needs a gauged bond layer (a many-cell RG with a dynamical
-Spin(10) link variable) (W8).
+tower $U^{2^p}$ is purely kinematic; V72–V73 BUILD the genuine block-spin
+RG (exact Schur decimation of the bond layer, any bond gate) and prove it
+composes internal angles but can never divide them; and V77 BUILDS the
+division mechanism in its smallest form — one quantum link d.o.f. per bond,
+traced over, multiplies the level-1 Cartan content by exactly $\cos 2\theta$
+(dev $<10^{-15}$).  The value $1/(16\pi)$ needs the dynamical Spin(10)
+adjoint link with the Gauss constraint (a many-cell RG with a gauged bond
+layer) (W8).
 
 Each experiment constructs its object from the **declared** inputs, computes the
 residual against the stated value, and writes a JSON verdict (`tier`,
