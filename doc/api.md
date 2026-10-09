@@ -601,8 +601,8 @@ values the theory does not derive — W1–W9: the cosmological constant, the se
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 100 experiments
-python3 run_validation.py V11 V12      # a subset
+python3 run_validation.py              # all 117 experiments (V0-V116), in parallel
+python3 run_validation.py V11 V12      # a subset (--jobs N caps the pool)
 ```
 
 ---

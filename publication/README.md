@@ -7,7 +7,7 @@ One manuscript source, one command, one PDF. `doc/publication.md` is the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 40 pages, 36 figures, 8 tables, 52 references, REVTeX 4.2
+Current artifact: 39 figures, 8 tables, 53 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references,
 0 stuck floats, 0 overfull boxes > 100 pt.
 

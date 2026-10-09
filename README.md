@@ -55,8 +55,8 @@ CL10/
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
 │   ├── fetch_dois.py         # resolves + verifies the 53 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (42 pages, 37 figures, 8 tables, 53 refs)
-├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 37 (see make_figures/README.md)
+│   └── publication.pdf       # the compiled paper (39 figures, 8 tables, 53 refs)
+├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 39 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
 │   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
@@ -164,7 +164,7 @@ CL10/
 ├── V99/                # the multi-bond area law of the gauged layer: 3-site chain physical sector dim ker = 24 (flux decomposition N_1 = N_45 = N_210 = 1, m = 2 each); additivity ln 45 across a single bond EXACT; two-bond region S = ln 45 not 2 ln 45 (vertex mutual information ln 45); Bekenstein gap as a number: ln 45 vs 1/4, factor 4 ln 45 = 15.23 - named, open
 ├── V100/               # the vertex correction of the gauged area law: I_n = dim(45^⊗n)^G by Haar averaging = 1, 1, 6, 23, 141 (I_2 = I_3 = 1 validates); 24-state kernel orthonormalised by its Gram (rank 24); middle-cut capacity S_cap = 4.4998 nats vs naive 2 ln 45 = 7.613 (vertices subtract 3.11); per bond 2.25 nats, factor 9.0 from 1/4; cubic-lattice vertex-corrected coefficient (1/3) ln I_6 = 1.65 nats/bond, factor 6.6 - the Bekenstein deficit moved 15.2 -> 6.6
 ├── V101/               # the first ground state of the gauged layer: bond-current Hamiltonian H = sum J.L of V79 diagonalised exactly (generalized eigenproblem, Gram metric) on the 24-state kernel; intertwiner identity I† J_A I = L_A/45 to 3e-17; the interaction SPLITS the kernel: E0 = -5819.18 eta, degeneracy 6, gap 58.59 eta; ground-state middle-cut entanglement S = 3.8067 = ln 45 exactly - the interaction selects the flux line
-├── V102/               # the node cone tensor measured: at all 12 doubler nodes and 1200 sampled directions the dispersion is LINEAR (p = 1.00) but strongly ANISOTROPIC - principal velocities (0.100, 0.100, 0.142), spread 0.75; node gap 2e-4 at the root angle
+├── V102/               # the node cone tensor measured: at all 12 doubler nodes and 1200 sampled directions the dispersion is LINEAR (p = 1.00) but strongly ANISOTROPIC - principal velocities (0.200, 0.200, 0.284), spread 0.75; node gap 2e-4 at the root angle (Fig. 38)
 ├── V103/               # the W2 re-audit with the IMPLEMENTED democratic rank-1 m_D (V28/V45): the V90 measure-zero point was an artifact of the identity-m_D assumption; the seesaw collapses to m3(r) = S17/(1+r), the massless pair is protected for EVERY r, the bound window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.91 (m3 = 0.0501 eV)
 ├── V104/               # the W6 mixing manifold: the three mixing deviations tested as ONE effect over the natural U6 vev placements (12 branches x 2 orientations, democratic base + rank-1 correction): every placement excluded (best residual 0.308 vs the needed pattern) - the deviations are not a natural-vev artifact; the U6 form itself is pending
 ├── V105/               # the W4 Cartan test: are V96's six kappa_s images of ONE Cartan element? NEGATIVE - SM preservation forces span{X,Y} at theta* (class-degenerate, meeting residual >= 0.43) and every Cartan element splitting the six classes breaks all 8 unbroken desert roots: the flavour dependence is off-diagonal bond structure, not a Cartan dressing
@@ -177,7 +177,7 @@ CL10/
 ├── V112/               # the W7 dark-U(1) portal: the extra U(1) of the V67 chain (E ~ (-1,-1,1,1,1)/sqrt5) has charged desert matter but is UNHIGGSABLE inside the spectrum (all E-charged 45-directions are colour triplets); the named dark-Higgs window is EMPTY (relic needs gD*eps >~ 0.02, direct detection allows <~ 1e-3)
 ├── V113/               # the W8 axis-family factorization MEASURED: the 12 node channels carry exactly equal loop factors (across-family spectral identity 0.00); the hierarchy coefficient is a node-set choice - one split node per family: 2.0881 vs 2.0765 observed (99.44%), all 12: 8.35, single: 0.696
 ├── V114/               # the W2 junction ratio r = kappa/w0 NOT derived: the V76 modulation's exact stabilizer is a 12-element subgroup (not the 24 chiral cubic); NO cubic-symmetric closed junction exists on (Z/4)^3 (closed space trivial); inside the V76 stabilizer the closed space is 2-dimensional - w0 independent of kappa: r stays free
-├── V115/               # the W9 cone-isotropy scan: the node gap g(w) of the V65 Wilson family located numerically (grid + golden-section) at 60 angles; the smallest cone anisotropy over all gapless points reported - no isotropy point on the family (W9 confirmed beyond the V65 root)
+├── V115/               # the W9 cone-isotropy scan: the node gap g(w) of the V65 Wilson family located at every zero (grid + golden-section) over 2 reps x 60 angles - 2726 gapless points, smallest cone anisotropy A = 0.997: no isotropy point on the family (W9 confirmed beyond the V65 root; Fig. 39)
 ├── V116/               # the W3 triangle orbit-8 audit: the 64 one-per-family triangles split into 4 cubic orbits (8, 8, 24, 24); a triangle's stabilizer is exactly S3 (order 6) - the split reduces O_h -> S3 and the 8 choices of an orbit are physically distinct vacua (8-fold degeneracy, domain walls)
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
@@ -210,7 +210,7 @@ cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 117 in parallel (--jobs N), prints the verdict
 ./run_gpu.sh                     # the full 117 on the GPU (cupy, 12 jobs); numpy fallback per experiment if the card is full
-python3 -m make_figures          # regenerates ALL 37 figures -> doc/figures/
+python3 -m make_figures          # regenerates ALL 39 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 20 scene)
