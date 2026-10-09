@@ -1,29 +1,29 @@
 {
   "experiment": "V87_general_junction",
   "pass": true,
-  "status": "THE GENERAL (NON-DEMOCRATIC) JUNCTION WAS SCANNED AS THE DESERT SUPPLIER: three independent branch scales a_i = 2 w0 (1 + r_i), r1 + r2 + r3 = 0, over n_nodes 3-12, the scale, and the Wilson angle. The democratic line reproduces V86 (residual 0.8097, alpha_X 0.09138). Best physical solution of the full family: residual 0.8097 at theta = 1.57 (r = -1.647, 1.9, -0.253; n = 12, S = 2615000000000000.0 GeV, z_min = 2020000000000.0 GeV), predicting alpha_X = 0.09044 against the data 0.04. W4 DOES NOT CLOSE even with the free coefficient pattern: the best residual of the general family EQUALS the democratic one (branch ratios do not move the floor) and alpha_X lands a factor 2.3 off the data value. The near-miss is a property of the junction mechanism itself: the mismatch is carried by the FIXED db pattern of the node 16's own fragments (V84), which threshold motion cannot repair. W4 needs fragment content beyond the node 16 - new automaton content, not new ratios.",
+  "status": "THE GENERAL (NON-DEMOCRATIC) JUNCTION WAS SCANNED AS THE DESERT SUPPLIER: three independent branch scales a_i = 2 w0 (1 + r_i), r1 + r2 + r3 = 0, over n_nodes 3-12, the scale, and the Wilson angle. The democratic line reproduces V86 (residual 0.8098, alpha_X 0.09264). Best physical solution of the full family: residual 0.8098 at theta = 1.57 (r = -1.647, 0.127, 1.52; n = 12, S = 2615000000000000.0 GeV, z_min = 2020000000000.0 GeV), predicting alpha_X = 0.08512 against the data 0.04. W4 DOES NOT CLOSE even with the free coefficient pattern: the best residual of the general family EQUALS the democratic one (branch ratios do not move the floor) and alpha_X lands a factor 2.3 off the data value. The near-miss is a property of the junction mechanism itself: the mismatch is carried by the FIXED db pattern of the node 16's own fragments (V84), which threshold motion cannot repair. W4 needs fragment content beyond the node 16 - new automaton content, not new ratios.",
   "data": {
     "democratic_best": {
-      "residual": 0.8097,
+      "residual": 0.8098,
       "theta": 1.57,
-      "r1": -1.45,
-      "r2": 0.725,
-      "r3": 0.725,
+      "r1": 1.3,
+      "r2": -0.65,
+      "r3": -0.65,
       "n_nodes": 12,
-      "S_GeV": 2615000000000000.0,
-      "z_min_GeV": 1406000000000.0,
-      "implied_alpha_X": 0.09138
+      "S_GeV": 4311000000000000.0,
+      "z_min_GeV": 1802000000000.0,
+      "implied_alpha_X": 0.09264
     },
     "general_best": {
-      "residual": 0.8097,
+      "residual": 0.8098,
       "theta": 1.57,
       "r1": -1.647,
-      "r2": 1.9,
-      "r3": -0.253,
+      "r2": 0.127,
+      "r3": 1.52,
       "n_nodes": 12,
       "S_GeV": 2615000000000000.0,
       "z_min_GeV": 2020000000000.0,
-      "implied_alpha_X": 0.09044
+      "implied_alpha_X": 0.08512
     },
     "closed": false
   }

@@ -7,7 +7,7 @@
   "status": "the_sub_Planck_DM_mass_is_the_0_parameter_10_loop_suppression_of_the_Planck_scale_M_P*(1/16pi)^10=118_GeV_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_W8_hierarchy_the_V42_Planck_soliton_gap_1e-52_is_resolved_the_observed_DM_is_the_10_loop_relic",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_gen": 10,
     "F10": 9.711838380882492e-18,
     "M_P_GeV": 1.22e+19,

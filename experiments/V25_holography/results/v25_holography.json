@@ -7,7 +7,7 @@
   "status": "the_qca_is_holographic_S_scales_with_area_not_volume",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "L_values": [
       2,
       4,

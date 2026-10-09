@@ -7,7 +7,7 @@
   "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
   "tol": 1e-09,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_module": 32,
     "n_qubits": 5,
     "g10": 0.2,
@@ -19,9 +19,9 @@
     "g0_matches_walls": true,
     "alpha_10_at_M_P": 0.04,
     "couplings_at_M_Z": [
-      0.019711163920598965,
-      0.19511538095039085,
-      -0.05281551861441545
+      0.01971112944719719,
+      0.19511798991191637,
+      -0.05281509604878839
     ],
     "measured_at_M_Z": [
       0.0169,
@@ -29,9 +29,9 @@
       0.118
     ],
     "ratio_to_measured": [
-      1.1663410603904714,
-      5.772644406816298,
-      -0.44758914080013096
+      1.1663390205442126,
+      5.772721595027112,
+      -0.44758555973549485
     ],
     "a1_within_factor_2": true,
     "u1_up_pole_scale": 5.3100162866946564e+35,
@@ -40,5 +40,5 @@
     "su3_pole_inside_lattice": true,
     "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
   },
-  "wall_time": 0.001
+  "wall_time": 0.024
 }

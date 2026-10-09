@@ -1,7 +1,7 @@
 {
   "experiment": "V86_junction_desert",
   "pass": true,
-  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9366 at theta = 1.56 (n = 12, rho = -0.05; 51 physical theta values), and the third equation predicts alpha_X = 0.03021 against the data 0.04 - a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
+  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9368 at theta = 1.56 (n = 12, rho = 0.35; 51 physical theta values), and the third equation predicts alpha_X = 0.03227 against the data 0.04 - a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
   "data": {
     "root_splitting": {
       "(np.float64(0.0), np.float64(0.0), np.float64(1.0))": 0.82768,
@@ -14,7 +14,7 @@
     "splitting_ratio": 55.0,
     "scan": {
       "1.731": {
-        "residual": 1.7617,
+        "residual": 1.7619,
         "n_nodes": 12,
         "rho": 0.45,
         "S_GeV": 3.682e+18,
@@ -23,52 +23,52 @@
         "physical": true
       },
       "1.5": {
-        "residual": 3.5797,
-        "n_nodes": 12,
-        "rho": -0.15,
-        "S_GeV": 4.09e+16,
-        "z_min_GeV": 1255000000000000.0,
-        "implied_alpha_X": 0.03255,
-        "physical": true
-      },
-      "1.51": {
-        "residual": 3.1158,
-        "n_nodes": 12,
-        "rho": -0.15,
-        "S_GeV": 5.252e+16,
-        "z_min_GeV": 2015000000000000.0,
-        "implied_alpha_X": 0.03051,
-        "physical": true
-      },
-      "1.52": {
-        "residual": 2.6728,
+        "residual": 3.5798,
         "n_nodes": 12,
         "rho": 0.0,
         "S_GeV": 5.252e+16,
-        "z_min_GeV": 2845000000000000.0,
-        "implied_alpha_X": 0.03038,
+        "z_min_GeV": 1895000000000000.0,
+        "implied_alpha_X": 0.0306,
         "physical": true
       },
-      "1.53": {
-        "residual": 2.2397,
+      "1.51": {
+        "residual": 3.116,
         "n_nodes": 12,
         "rho": -0.45,
         "S_GeV": 4.09e+16,
-        "z_min_GeV": 1376000000000000.0,
-        "implied_alpha_X": 0.03268,
+        "z_min_GeV": 1015000000000000.0,
+        "implied_alpha_X": 0.03288,
+        "physical": true
+      },
+      "1.52": {
+        "residual": 2.6729,
+        "n_nodes": 12,
+        "rho": -0.2,
+        "S_GeV": 4.09e+16,
+        "z_min_GeV": 1773000000000000.0,
+        "implied_alpha_X": 0.03233,
+        "physical": true
+      },
+      "1.53": {
+        "residual": 2.2398,
+        "n_nodes": 12,
+        "rho": -0.15,
+        "S_GeV": 5.252e+16,
+        "z_min_GeV": 2731000000000000.0,
+        "implied_alpha_X": 0.03035,
         "physical": true
       },
       "1.54": {
-        "residual": 1.8093,
+        "residual": 1.8094,
         "n_nodes": 12,
-        "rho": -0.25,
+        "rho": -0.7,
         "S_GeV": 4.09e+16,
-        "z_min_GeV": 1417000000000000.0,
-        "implied_alpha_X": 0.03225,
+        "z_min_GeV": 566800000000000.0,
+        "implied_alpha_X": 0.03378,
         "physical": true
       },
       "1.55": {
-        "residual": 1.3764,
+        "residual": 1.3766,
         "n_nodes": 12,
         "rho": 0.1,
         "S_GeV": 5.252e+16,
@@ -77,34 +77,34 @@
         "physical": true
       },
       "1.56": {
-        "residual": 0.9366,
+        "residual": 0.9368,
         "n_nodes": 12,
-        "rho": -0.05,
-        "S_GeV": 5.252e+16,
-        "z_min_GeV": 808000000000000.0,
-        "implied_alpha_X": 0.03021,
+        "rho": 0.35,
+        "S_GeV": 4.09e+16,
+        "z_min_GeV": 546500000000000.0,
+        "implied_alpha_X": 0.03227,
         "physical": true
       },
       "1.57": {
-        "residual": 0.8097,
+        "residual": 0.8098,
         "n_nodes": 12,
-        "rho": 1.85,
+        "rho": -0.95,
         "S_GeV": 485200000.0,
-        "z_min_GeV": 43460.0,
+        "z_min_GeV": 28980.0,
         "implied_alpha_X": null,
         "physical": false
       },
       "1.58": {
         "residual": 1.0111,
         "n_nodes": 12,
-        "rho": 1.5,
+        "rho": 1.45,
         "S_GeV": 5.252e+16,
-        "z_min_GeV": 181300000000000.0,
-        "implied_alpha_X": 0.03652,
+        "z_min_GeV": 199400000000000.0,
+        "implied_alpha_X": 0.03589,
         "physical": true
       },
       "1.59": {
-        "residual": 1.2076,
+        "residual": 1.2077,
         "n_nodes": 11,
         "rho": 0.95,
         "S_GeV": 6.744e+16,
@@ -122,7 +122,7 @@
         "physical": true
       },
       "1.61": {
-        "residual": 1.4843,
+        "residual": 1.4844,
         "n_nodes": 11,
         "rho": 1.45,
         "S_GeV": 1.112e+17,
@@ -131,7 +131,7 @@
         "physical": true
       },
       "1.62": {
-        "residual": 1.5492,
+        "residual": 1.5494,
         "n_nodes": 12,
         "rho": -0.75,
         "S_GeV": 1.428e+17,
@@ -140,7 +140,7 @@
         "physical": true
       },
       "1.63": {
-        "residual": 1.5994,
+        "residual": 1.5995,
         "n_nodes": 11,
         "rho": -0.7,
         "S_GeV": 1.428e+17,
@@ -149,7 +149,7 @@
         "physical": true
       },
       "1.64": {
-        "residual": 1.7033,
+        "residual": 1.7034,
         "n_nodes": 12,
         "rho": -0.95,
         "S_GeV": 1.833e+17,
@@ -158,7 +158,7 @@
         "physical": true
       },
       "1.65": {
-        "residual": 1.7465,
+        "residual": 1.7466,
         "n_nodes": 11,
         "rho": -0.25,
         "S_GeV": 1.833e+17,
@@ -167,7 +167,7 @@
         "physical": true
       },
       "1.66": {
-        "residual": 1.7397,
+        "residual": 1.7398,
         "n_nodes": 12,
         "rho": 0.4,
         "S_GeV": 2.354e+17,
@@ -176,7 +176,7 @@
         "physical": true
       },
       "1.67": {
-        "residual": 1.7445,
+        "residual": 1.7446,
         "n_nodes": 11,
         "rho": 0.1,
         "S_GeV": 2.354e+17,
@@ -185,7 +185,7 @@
         "physical": true
       },
       "1.68": {
-        "residual": 1.662,
+        "residual": 1.6622,
         "n_nodes": 12,
         "rho": 0.0,
         "S_GeV": 3.022e+17,
@@ -194,7 +194,7 @@
         "physical": true
       },
       "1.69": {
-        "residual": 1.7365,
+        "residual": 1.7366,
         "n_nodes": 12,
         "rho": -0.35,
         "S_GeV": 3.881e+17,
@@ -203,7 +203,7 @@
         "physical": true
       },
       "1.7": {
-        "residual": 1.7313,
+        "residual": 1.7314,
         "n_nodes": 12,
         "rho": 0.4,
         "S_GeV": 4.983e+17,
@@ -212,7 +212,7 @@
         "physical": true
       },
       "1.71": {
-        "residual": 1.7285,
+        "residual": 1.7286,
         "n_nodes": 12,
         "rho": 0.0,
         "S_GeV": 6.398e+17,
@@ -221,7 +221,7 @@
         "physical": true
       },
       "1.72": {
-        "residual": 1.678,
+        "residual": 1.6781,
         "n_nodes": 12,
         "rho": 0.0,
         "S_GeV": 1.055e+18,
@@ -230,7 +230,7 @@
         "physical": true
       },
       "1.73": {
-        "residual": 1.668,
+        "residual": 1.6681,
         "n_nodes": 12,
         "rho": -0.2,
         "S_GeV": 2.868e+18,
@@ -239,7 +239,7 @@
         "physical": true
       },
       "1.74": {
-        "residual": 1.8245,
+        "residual": 1.8247,
         "n_nodes": 12,
         "rho": 0.6,
         "S_GeV": 4.728e+18,
@@ -248,7 +248,7 @@
         "physical": true
       },
       "1.75": {
-        "residual": 1.7913,
+        "residual": 1.7914,
         "n_nodes": 12,
         "rho": 0.6,
         "S_GeV": 1.355e+18,
@@ -257,7 +257,7 @@
         "physical": true
       },
       "1.76": {
-        "residual": 1.7635,
+        "residual": 1.7636,
         "n_nodes": 11,
         "rho": 0.0,
         "S_GeV": 6.398e+17,
@@ -266,7 +266,7 @@
         "physical": true
       },
       "1.77": {
-        "residual": 1.6654,
+        "residual": 1.6655,
         "n_nodes": 12,
         "rho": 0.15,
         "S_GeV": 4.983e+17,
@@ -275,7 +275,7 @@
         "physical": true
       },
       "1.78": {
-        "residual": 1.6646,
+        "residual": 1.6648,
         "n_nodes": 12,
         "rho": -0.2,
         "S_GeV": 3.881e+17,
@@ -284,7 +284,7 @@
         "physical": true
       },
       "1.79": {
-        "residual": 1.7651,
+        "residual": 1.7652,
         "n_nodes": 11,
         "rho": -0.4,
         "S_GeV": 3.022e+17,
@@ -293,7 +293,7 @@
         "physical": true
       },
       "1.8": {
-        "residual": 1.813,
+        "residual": 1.8131,
         "n_nodes": 12,
         "rho": 0.65,
         "S_GeV": 3.022e+17,
@@ -302,7 +302,7 @@
         "physical": true
       },
       "1.81": {
-        "residual": 1.6808,
+        "residual": 1.6809,
         "n_nodes": 12,
         "rho": -0.3,
         "S_GeV": 2.354e+17,
@@ -311,7 +311,7 @@
         "physical": true
       },
       "1.82": {
-        "residual": 1.7633,
+        "residual": 1.7634,
         "n_nodes": 11,
         "rho": 0.0,
         "S_GeV": 1.833e+17,
@@ -320,7 +320,7 @@
         "physical": true
       },
       "1.83": {
-        "residual": 1.6693,
+        "residual": 1.6694,
         "n_nodes": 12,
         "rho": -0.25,
         "S_GeV": 1.833e+17,
@@ -329,7 +329,7 @@
         "physical": true
       },
       "1.84": {
-        "residual": 1.7908,
+        "residual": 1.7909,
         "n_nodes": 12,
         "rho": 0.6,
         "S_GeV": 1.833e+17,
@@ -338,7 +338,7 @@
         "physical": true
       },
       "1.85": {
-        "residual": 1.7519,
+        "residual": 1.7521,
         "n_nodes": 11,
         "rho": -0.4,
         "S_GeV": 1.428e+17,
@@ -347,7 +347,7 @@
         "physical": true
       },
       "1.86": {
-        "residual": 1.6932,
+        "residual": 1.6933,
         "n_nodes": 12,
         "rho": -0.35,
         "S_GeV": 1.428e+17,
@@ -356,7 +356,7 @@
         "physical": true
       },
       "1.87": {
-        "residual": 1.797,
+        "residual": 1.7972,
         "n_nodes": 12,
         "rho": 0.6,
         "S_GeV": 1.428e+17,
@@ -365,7 +365,7 @@
         "physical": true
       },
       "1.88": {
-        "residual": 1.7816,
+        "residual": 1.7817,
         "n_nodes": 11,
         "rho": 0.3,
         "S_GeV": 1.112e+17,
@@ -374,7 +374,7 @@
         "physical": true
       },
       "1.89": {
-        "residual": 1.6833,
+        "residual": 1.6834,
         "n_nodes": 12,
         "rho": 0.2,
         "S_GeV": 1.112e+17,
@@ -383,7 +383,7 @@
         "physical": true
       },
       "1.9": {
-        "residual": 1.8725,
+        "residual": 1.8726,
         "n_nodes": 12,
         "rho": 0.55,
         "S_GeV": 1.112e+17,
@@ -392,7 +392,7 @@
         "physical": true
       },
       "1.91": {
-        "residual": 1.8543,
+        "residual": 1.8544,
         "n_nodes": 11,
         "rho": 0.0,
         "S_GeV": 8.659e+16,
@@ -401,7 +401,7 @@
         "physical": true
       },
       "1.92": {
-        "residual": 1.9053,
+        "residual": 1.9054,
         "n_nodes": 12,
         "rho": 0.0,
         "S_GeV": 8.659e+16,
@@ -410,7 +410,7 @@
         "physical": true
       },
       "1.93": {
-        "residual": 1.8945,
+        "residual": 1.8947,
         "n_nodes": 12,
         "rho": -0.3,
         "S_GeV": 8.659e+16,
@@ -419,7 +419,7 @@
         "physical": true
       },
       "1.94": {
-        "residual": 2.0091,
+        "residual": 2.0092,
         "n_nodes": 12,
         "rho": -0.75,
         "S_GeV": 6.744e+16,
@@ -428,7 +428,7 @@
         "physical": true
       },
       "1.95": {
-        "residual": 2.0883,
+        "residual": 2.0884,
         "n_nodes": 12,
         "rho": -0.5,
         "S_GeV": 6.744e+16,
@@ -437,7 +437,7 @@
         "physical": true
       },
       "1.96": {
-        "residual": 2.1108,
+        "residual": 2.1109,
         "n_nodes": 12,
         "rho": -0.15,
         "S_GeV": 6.744e+16,
@@ -446,7 +446,7 @@
         "physical": true
       },
       "1.97": {
-        "residual": 2.2415,
+        "residual": 2.2416,
         "n_nodes": 12,
         "rho": -0.7,
         "S_GeV": 5.252e+16,
@@ -473,7 +473,7 @@
         "physical": true
       },
       "2.0": {
-        "residual": 2.5347,
+        "residual": 2.5349,
         "n_nodes": 12,
         "rho": -0.4,
         "S_GeV": 4.09e+16,
@@ -484,18 +484,18 @@
     },
     "best": {
       "theta": 1.56,
-      "residual": 0.9366,
+      "residual": 0.9368,
       "n_nodes": 12,
-      "rho": -0.05,
-      "S_GeV": 5.252e+16,
-      "z_min_GeV": 808000000000000.0,
-      "implied_alpha_X": 0.03021,
+      "rho": 0.35,
+      "S_GeV": 4.09e+16,
+      "z_min_GeV": 546500000000000.0,
+      "implied_alpha_X": 0.03227,
       "physical": true,
       "n_physical": 51
     },
     "root_solution": {
-      "F12_residual": 1.761702,
-      "F23_residual": 1.73667,
+      "F12_residual": 1.761859,
+      "F23_residual": 1.736753,
       "n_nodes": 12,
       "rho": 0.45,
       "S_GeV": 3.682e+18,

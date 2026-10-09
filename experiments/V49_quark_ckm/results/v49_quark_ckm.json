@@ -7,7 +7,7 @@
   "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
   "tol": 1e-08,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "up_eigenvalues": [
       0.0,
       9.064933036736789e-17,

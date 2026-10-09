@@ -16,21 +16,21 @@
       },
       {
         "name": "desert fragments (V65)",
-        "mass_GeV": 133381456.37117833,
+        "mass_GeV": 133363321.17316295,
         "neutral": false,
         "stable": "no (chiral, decays)",
         "verdict": "not DM: colored/chiral"
       },
       {
         "name": "mirror Q-bar doubler",
-        "mass_GeV": 133381456.37117833,
+        "mass_GeV": 133363321.17316295,
         "neutral": false,
         "stable": "EXACT (16-bar Z2)",
         "verdict": "EXCLUDED: stable COLORED relic"
       },
       {
         "name": "mirror N-bar doubler",
-        "mass_GeV": 20302874503.446278,
+        "mass_GeV": 20300114024.89537,
         "neutral": true,
         "stable": "EXACT (16-bar Z2)",
         "verdict": "viable ONLY if heavier than every other mirror state - NOT the case at the V65 root"
@@ -43,7 +43,7 @@
         "verdict": "EXCLUDED: Planck tension, overcloses"
       }
     ],
-    "sigma_v_est_GeV2": 1.8606973436223958e-56,
-    "omega_overclosure_factor": 1.612298749327828e+30
+    "sigma_v_est_GeV2": 1.860191398917885e-56,
+    "omega_overclosure_factor": 1.6127372708771622e+30
   }
 }
