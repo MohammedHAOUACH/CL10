@@ -21,13 +21,17 @@ import numpy as np
 _BACKEND = "numpy"
 _E = np
 
-try:  # the GPU backend (CuPy)
-    import cupy as _cp  # noqa: F401
-    _E = _cp
-    _BACKEND = "cupy"
-except Exception:  # noqa: BLE001
+if os.environ.get("CL10_BACKEND") == "numpy":
     _E = np
     _BACKEND = "numpy"
+else:
+    try:  # the GPU backend (CuPy)
+        import cupy as _cp  # noqa: F401
+        _E = _cp
+        _BACKEND = "cupy"
+    except Exception:  # noqa: BLE001
+        _E = np
+        _BACKEND = "numpy"
 
 # the array type (cp.ndarray | np.ndarray)
 Array = _E.ndarray

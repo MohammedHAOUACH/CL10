@@ -56,7 +56,7 @@ LOOP = 1.0 / (16.0 * np.pi)   # the 0-parameter 1-loop QFT factor
 SPHALERON = 28.0 / 79.0        # the SM sphaleron conversion: an input of the SM
 #                                sector (the LH d.o.f. count), NOT a root number;
 #                                0-parameter only conditional on V23 (named residual)
-DELTA_B_OBS = 6.1e-10          # the observed baryon asymmetry
+DELTA_B_OBS = 6.12e-10         # observed baryon asymmetry (Planck 2018; PDG 2024)
 ETA_CP_V40 = 1.0e-3            # the V40 named value (the observed range 1e-3..1e-2)
 
 

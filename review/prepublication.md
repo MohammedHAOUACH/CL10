@@ -75,7 +75,7 @@ invented DOIs for Sakharov/John/Nielsen–Ninomiya, a non-existent D'Ariano JCP
 paper, a wrong Gundlach reference, a wrong Hisano reference, wrong Regge
 initial, wrong SK bounds); 46 verified DOIs (the list lived in
 `livrable/doi.json`, now removed — the same DOIs are re-checked in
-`review/verify_refs2.py`). The
+`review/tools/verify_refs2.py`). The
 in-text citations were previously rendered as literal `[n]` in the PDF
 (`citations()` was never called from `inline()`); fixed in
 the old `livrable/make_paper.py` — the compiled paper now has real `\cite{}` links,

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-CL10 — V62: the production 3-D hydrogen experiment on the GPU (regenerates Fig. 26).
+CL10 — V62: the production 3-D hydrogen experiment on the GPU (regenerates Fig. 20).
 
 **What this experiment is.**  V61 runs the *same model* on a reduced ``120^3``
 grid as a fast check inside the validation suite.  This is the **production**
@@ -12,12 +12,12 @@ version: the full **296^3** simulation on the **GPU** (CuPy, the card pinned in
     Lyman-alpha (1s->2p)   Lyman-alpha again   1s->3p   2p->3d   off-resonant control
 
 the same sequence the headless video plays (``simulation/hydrogen/runner.py``).
-Every claim of Fig. 26 is measured at production resolution, and **the figure
+Every claim of Fig. 20 is measured at production resolution, and **the figure
 itself is regenerated here** (the four mid-plane panels + the meta JSON), so the
 published figure is a *product of the experiment*, like the other figures of the
 suite, not a screenshot and not a top-level script.
 
-**What is measured (the content of Fig. 26, on the production grid):**
+**What is measured (the content of Fig. 20, on the production grid):**
 
 1. **the baseline** — the atom alone (no photon) does not excite itself.
 2. **the resonant absorption** — a photon fired exactly at a gap is absorbed:
@@ -49,8 +49,8 @@ are physical parameters of the atom, **not** fitted to any measured number.
     python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
 
 -> the verdict ``experiments/V62_hydrogen_production/results/v62_hydrogen_production.json``
-+ the figure ``doc/figures/fig26_hydrogen.png`` and the run metadata
-``experiments/V62_hydrogen_production/results/fig26_hydrogen.meta.json``.
++ the figure ``doc/figures/fig20_hydrogen.png`` and the run metadata
+``experiments/V62_hydrogen_production/results/fig20_hydrogen.meta.json``.
 """
 
 import os
@@ -80,9 +80,9 @@ import matplotlib.pyplot as plt
 
 from simulation.hydrogen import runner, qca as QCA, backend as B
 
-OUT_PNG = os.path.join(ROOT, "doc", "figures", "fig26_hydrogen.png")
+OUT_PNG = os.path.join(ROOT, "doc", "figures", "fig20_hydrogen.png")
 OUT_META = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results",
-                        "fig26_hydrogen.meta.json")
+                        "fig20_hydrogen.meta.json")
 
 
 # ---------------------------------------------------------------------------
@@ -171,7 +171,7 @@ def run_production(cfg):
     cut_ground = midplane(B.asnumpy(sim.electron_density()))
     anis_1s, moments_1s = quadrupole_anisotropy(sim, sim.electron_density())
 
-    # the record holders for the fig26 panels (the first Lyman-alpha phase)
+    # the record holders for the fig20 panels (the first Lyman-alpha phase)
     best = {"incoming": (-1.0, 0, None), "absorbed": (0.0, 0, None),
             "emitted": (-1.0, 0, None)}
 
@@ -255,7 +255,7 @@ def run_production(cfg):
         cur["max_F_out"] = max(
             cur["max_F_out"], float(B.asnumpy((sim.F_out * sim.F_out).max())))
 
-        # the first Lyman-alpha phase carries the fig26 panels: keep only the
+        # the first Lyman-alpha phase carries the fig20 panels: keep only the
         # record holders (the density cut peaks between the node instants of
         # the real part of the superposition)
         if cur is phases[0] and t > cur["t_fire"] + flight:
@@ -401,7 +401,7 @@ def checks(r):
 
 
 # ---------------------------------------------------------------------------
-# the figure (the four mid-plane panels of Fig. 26)
+# the figure (the four mid-plane panels of Fig. 20)
 # ---------------------------------------------------------------------------
 def make_figure(r, cfg):
     a0 = float(cfg["bohr_radius"])
@@ -499,7 +499,7 @@ def main():
         "status": ("the production 296^3 hydrogen experiment on the GPU: the resonant "
                    "photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant "
                    "control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), "
-                   "the excited atom radiates and decays, and the figure (Fig. 26) is "
+                   "the excited atom radiates and decays, and the figure (Fig. 20) is "
                    "regenerated as a product of the experiment; the ATOM is an input "
                    "(real hydrogen), the PHOTON is CL10"),
         "data": {
@@ -535,7 +535,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 72)
-    print("V62 - the production 3-D hydrogen experiment on the GPU (Fig. 26)")
+    print("V62 - the production 3-D hydrogen experiment on the GPU (Fig. 20)")
     print("=" * 72)
     print("  backend: %s   gpu: %s   grid: %s"
           % (verdict["data"]["backend"], verdict["data"]["gpu"],

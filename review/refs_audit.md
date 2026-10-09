@@ -58,7 +58,7 @@ retenu que si titre, auteurs, journal, volume, page et année correspondent.
 Toutes les 52 entrées sont citées dans le corps du texte (aucune référence
 orpheline). 46 DOIs vérifiés (la liste vivait dans livrable/doi.json,
 supprimé avec l'ancien build — les mêmes DOIs sont re-vérifiables via
-review/verify_refs2.py) ; les 6 sans DOI sont des
+review/tools/verify_refs2.py) ; les 6 sans DOI sont des
 livres ([9], [11], [18], [41]), un arXiv-only ([30]) et un compte-rendu PoS
 avec arXiv ([50]).
 

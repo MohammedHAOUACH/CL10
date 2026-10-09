@@ -47,14 +47,18 @@ CL10/
 │   ├── publication.md        # the paper (the theory + the seven criteria + the 9 open residuals W1-W9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
-│   ├── figures/              # the 27 publication figures (make_figures.py; fig 26 = V62 product)
-│   └── figures_pro/          # the 15 jury-grade figures A-O (make_figures_pro.py; --dark -> dark/)
+│   ├── figures/              # the 36 publication figures (make_figures/; fig 19 = young QCA, fig 20 = V62 product)
 ├── publication/              # the journal build: doc/publication.md -> REVTeX 4.2 PDF
 │   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
 │   ├── filter.lua            # Divs -> figure / figure* / table* / thebibliography
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
-│   └── publication.pdf       # the compiled paper (25 pages, 27 figures, 8 tables, 52 refs)
+│   ├── fetch_dois.py         # resolves + verifies the 52 refs against Crossref -> doi.json (clickable DOIs in the PDF)
+│   ├── README.md             # the build pipeline, files, prerequisites
+│   └── publication.pdf       # the compiled paper (40 pages, 36 figures, 8 tables, 52 refs)
+├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 36 (see make_figures/README.md)
+│   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
+│   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
@@ -119,8 +123,8 @@ CL10/
 │   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
 │   ├── V59/                # the four limits and their common object (paper Section 14): 10 = 2 x 5 + one CP phase (bookkeeping)
 │   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
-│   ├── V61/                # the 3-D hydrogen atom (Fig. 26; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
-│   ├── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 26 claim measured at production resolution, the figure regenerated as a product of the experiment
+│   ├── V61/                # the 3-D hydrogen atom (Fig. 20; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
+│   ├── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 20 claim measured at production resolution, the figure regenerated as a product of the experiment
 │   ├── V63/                # the Brillouin-zone chirality test (W9): the 16 sector is closed by the FULL local step (leakage 1e-15), the Bloch Floquet matches the 4^3 torus (4e-15), the zone centre is GAPPED (0.0365), the 12 doubler momenta are GAPLESS (|v| = 0.142), the node chiralities sum to 0 — the doubling survives
 │   ├── V64/                # the desert inverse problem (W4, F2, F5): with alpha_X = 1/25 FIXED (the root value, not refitted), the inverse problem asks which vectorlike content makes the measured couplings meet; the required Delta b is non-universal; the lightest CL10-realizable solution (three 10+10bar + one (1,2) pair) meets at M_X = 1.8e16 GeV, cures the SU(3) down-pole, predicts tau_p = 1.8e36 yr; M_GUT = M_P is abandoned
 │   ├── V65/                # the internal Wilson factor (W9 -> W4): W(q) = exp[-i w sum(1-cos q_j)(cos(th) X + sin(th) Y)] from the root's own Cartan algebra; exactly unitary, W(0) = I, quasi-local (measured Lieb-Robinson front); gaps all 12 doubler nodes; X, Y identified by charge multisets (both SU(5) embeddings); the selective 3-node reading solves the meeting equations at M_X = 8.9e14 GeV — EXCLUDED by Super-K (reported, not hidden)
@@ -161,11 +165,11 @@ CL10/
 ├── V100/               # the vertex correction of the gauged area law: I_n = dim(45^⊗n)^G by Haar averaging = 1, 1, 6, 23, 141 (I_2 = I_3 = 1 validates); 24-state kernel orthonormalised by its Gram (rank 24); middle-cut capacity S_cap = 4.4998 nats vs naive 2 ln 45 = 7.613 (vertices subtract 3.11); per bond 2.25 nats, factor 9.0 from 1/4; cubic-lattice vertex-corrected coefficient (1/3) ln I_6 = 1.65 nats/bond, factor 6.6 - the Bekenstein deficit moved 15.2 -> 6.6
 ├── V101/               # the first ground state of the gauged layer: bond-current Hamiltonian H = sum J.L of V79 diagonalised exactly (generalized eigenproblem, Gram metric) on the 24-state kernel; intertwiner identity I† J_A I = L_A/45 to 3e-17; the interaction SPLITS the kernel: E0 = -5819.18 eta, degeneracy 6, gap 58.59 eta; ground-state middle-cut entanglement S = 3.8067 = ln 45 exactly - the interaction selects the flux line
 ├── simulation/               # the 3-D visualizations on the CL10 engine
-│   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 25)
-│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 26): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 26 panels are the V62 product
-├── run_validation.py         # the runner: runs all 92, writes the hard-tier verdict
+│   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
+│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 20): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 20 panels are the V62 product
+├── run_validation.py         # the runner: runs all 102, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 92/92 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 102/102 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -189,12 +193,12 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 92 experiments, prints the hard-tier verdict
-python3 make_figures.py          # regenerates the 35 matplotlib figures (fig 1-24, 27-37) -> doc/figures/
-python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 26 scene)
+python3 run_validation.py        # runs all 102 experiments, prints the hard-tier verdict
+python3 -m make_figures          # regenerates ALL 36 figures -> doc/figures/
+                                 # GPU if the pinned card is free, else numpy;
+                                 # --only N [N..] | --fast (skip 19+20) | --cpu
+python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 20 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
-python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
-                                 # the production hydrogen experiment (296^3, GPU):
 bash publication/build.sh        # rebuild the journal PDF from doc/publication.md
                                  # needs pandoc >= 3 and texlive-publishers (revtex4-2)
                                  # -> publication/publication.pdf

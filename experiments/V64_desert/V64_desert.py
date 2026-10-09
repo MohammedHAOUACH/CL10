@@ -162,7 +162,8 @@ def main():
                 "alpha_X": A10,
                 "tau_p_yr": tp,
                 "su3_down_pole_GeV": pole3,
-                "tau_p_in_HK_reach": 1e34 < tp < 4e36,
+                "tau_p_in_HK_20yr_reach": 1e34 < tp < 1e35,
+                "tau_p_refutable_by_HK": tp > 1e35,
             })
     solutions.sort(key=lambda s: (not s["cl10_realizable"],
                                   abs(math.log10(s["tau_p_yr"]) - 36.0)))
@@ -181,7 +182,9 @@ def main():
                    "root value, not refitted), CL10-realizable vectorlike "
                    "desert content makes the three measured couplings meet at "
                    "M_X < M_P; the convention M_GUT = M_P is abandoned; "
-                   "tau_p is predicted near experimental reach"
+                   "tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can "
+                   "REFUTE it by observing GUT-pattern decay but cannot "
+                   "confirm it; confirmation needs ~1e36 yr (megaton era)"
                    if ok else "no physical solution: W4 stands"),
         "data": {
             "alpha_X_fixed": A10,

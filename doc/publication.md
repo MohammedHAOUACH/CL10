@@ -129,7 +129,7 @@ This identification is not new to CL10: it is the standard $\mathrm{Spin}(10)$ a
 
 *Proof.* Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities in the table are the dimensions of the *other* group factors (the factor 2 on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor 3 in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ is its colour triplet nature), and $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$. The charges are those of Proposition 1, fixed by the $\mathrm{SU}(5)$ embedding.
 
-This is the hardest consistency condition a chiral gauge theory has, and it is satisfied identically by the module content. It is the strongest single result in the paper (Fig. 9, Fig. 15).
+This is the hardest consistency condition a chiral gauge theory has, and it is satisfied identically by the module content. It is the strongest single result in the paper (Fig. 6, Fig. 11).
 
 **The mass term.** A grade-1 element of the algebra anticommutes with $w$, so it is off-diagonal in the $16/\overline{16}$ split: it maps $16 \to \overline{16}$ and $\overline{16}\to 16$, while both diagonal blocks vanish. A scalar in the $\mathbf{10}$ of $\mathrm{Spin}(10)$ therefore produces a Dirac mass term $16\,\mathbf{10}_H\,\overline{16}$ and no Majorana mass for the charged fermions. The singlet $\nu^c$ is the built-in source of a seesaw (Section 10.3).
 
@@ -159,7 +159,7 @@ The $\mathbb{Z}_2$ grading splits the algebra into 512 even and 512 odd elements
 
 ## 7. Measurement
 
-Between measurements the automaton is exactly unitary (Section 8). A detection is modelled as the standard projection: a state $\sum_x \psi(x)|x\rangle$ is reduced to $|x_0\rangle$ with probability $|\psi(x_0)|^2$. The probability rule used throughout is the field intensity $|\psi|^2$ of the propagating lattice field, and the single-electron double-slit simulation (Fig. 25) [47] samples detections from the time-integrated on-screen $|\psi|^2$; the accumulated clicks reconstruct the fringe pattern, one electron at a time.
+Between measurements the automaton is exactly unitary (Section 8). A detection is modelled as the standard projection: a state $\sum_x \psi(x)|x\rangle$ is reduced to $|x_0\rangle$ with probability $|\psi(x_0)|^2$. The probability rule used throughout is the field intensity $|\psi|^2$ of the propagating lattice field, and the single-electron double-slit simulation (Fig. 19) [47] samples detections from the time-integrated on-screen $|\psi|^2$; the accumulated clicks reconstruct the fringe pattern, one electron at a time.
 
 This is quantum mechanics as usual. The projection is **not** derived from the unitary step, and the paper does not claim it is: the reduction postulate is an input of the interpretation (residual W9). What the QCA adds is only that the wave being sampled is a strictly causal, unitary, lattice field.
 
@@ -185,7 +185,7 @@ The 32 eigenphases $\omega_k$ of $U$ (the spectrum of $H = -i\log U$) are the si
 
 $$\omega \in \{\pm 0.01147,\ \pm 0.05447,\ \pm 0.15819,\ \dots,\ \pm 1.48638\},$$
 
-exactly $\pm$-paired to $1.7\times10^{-15}$, so the one-cell vacuum energy $\sum_k \omega_k = \arg\det U$ vanishes. The pairing and $\det U = 1$ hold for **every** $g_{10}$: they are identities of the algebra, not properties of the chosen coupling (Fig. 1, Fig. 13).
+exactly $\pm$-paired to $1.7\times10^{-15}$, so the one-cell vacuum energy $\sum_k \omega_k = \arg\det U$ vanishes. The pairing and $\det U = 1$ hold for **every** $g_{10}$: they are identities of the algebra, not properties of the chosen coupling (Fig. 1, Fig. 9).
 
 **Theorem 4 (the matter/antimatter spectral mirror).** *Because every $T_{ab}$ is even, $[U,w] = 0$ ($7\times10^{-16}$), so $U$ preserves the 16 and $\overline{16}$ eigenspaces. The antimatter spectrum is the exact mirror of the matter spectrum,*
 
@@ -203,7 +203,7 @@ $$U_{\rm local} = \prod_x U_{\rm GUT}(x)\ \prod_{\langle x,x'\rangle} P_{xx'},$$
 
 *the internal $\mathrm{Spin}(10)$ rotation per cell times a permutation (swap-rotation) gate $P_{xx'}$ on each bond, which carries no angle. The step is unitary to $1.6\times10^{-15}$, and a single-cell excitation after $n$ steps is supported only inside the $n$-cell light cone: the measured front speed is exactly $1.0$ over 1000 lattice steps, while a purely internal (non-local) step keeps the excitation on one cell forever.*
 
-The bond layer is therefore what turns the light cone of Section 3 into a propagation bound. This is the cleanest dynamical result in the paper (Fig. 23 shows the causal front of a pulse in a 2-D reduction of the same scheme, where the CFL speed of that particular solver is $c = 0.5$ lattice units — a property of the solver, not of the axiom).
+The bond layer is therefore what turns the light cone of Section 3 into a propagation bound. This is the cleanest dynamical result in the paper (Fig. 17 shows the causal front of a pulse in a 2-D reduction of the same scheme, where the CFL speed of that particular solver is $c = 0.5$ lattice units — a property of the solver, not of the axiom).
 
 The permutation gate is the classical shadow of a richer possibility: **a gauged bond layer exists on the same module (V79).** Put one $\mathrm{Spin}(10)$ adjoint link d.o.f. (a 45-dimensional link space) on each bond and the matter $\mathbf{16}$ on the sites, and the local Gauss constraint $Q_A(x) = q_A(x) + \sum_{b \ni x} L_A^{(b)}$ closes as an exact operator identity: $[Q_A, Q_B] = i f_{AB}{}^{C} Q_C$ with measured error $0$, the link algebra $[L_A, L_B] = i f_{AB}{}^{C} L_C$ exact, the adjoint quadratic Casimir $64$ and the spinor Casimir $45$ exact to machine precision. The step built from these links is unitary to $3.8\times10^{-16}$; the gauge-invariant content of one site with its six half-bonds is $1440$ states, decomposing as $32 \oplus 288 \oplus 1120$; an adjoint bond observable is gauge-covariant to $5.7\times10^{-16}$; and the causal radius stays at exactly one cell, while a deliberately single-site (non-local) step leaks at $1.9$. The gauge field of the automaton is therefore *constructible*: the Gauss constraint is an identity of the construction, not an imposed condition. What the constraint admits, however, is narrower than expected: with adjoint links the local kernel with one spinor per site is empty — a center obstruction, computed in V98 and detailed in Section 13.1 — so the physical states of this layer are neutral composites.
 
@@ -260,7 +260,7 @@ The Riemann, Ricci, Einstein and Kretschmann tensors are computed by central fin
 | flat metric | $R = G = K = 0$ | $0$ | exact |
 | 2-sphere of radius $r$ | $R = 2/r^2$ | $2/r^2$ | $10^{-5}$ |
 
-The 3+1 formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the 4-D Einstein tensor agrees, computed by the 4-D curvature and by the 3+1 $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution [34] drives a constraint violation to zero while the undamped one does not; the 0-row is quadratic in $K$, so superposition fails; all 3+1 quantities are bounded by the lattice cutoff (Fig. 5, Fig. 24).
+The 3+1 formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the 4-D Einstein tensor agrees, computed by the 4-D curvature and by the 3+1 $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution [34] drives a constraint violation to zero while the undamped one does not; the 0-row is quadratic in $K$, so superposition fails; all 3+1 quantities are bounded by the lattice cutoff (Fig. 18).
 
 **What this does and does not establish.** It establishes that the gravitational sector of CL10 *reproduces* general relativity numerically, including black-hole and cosmological geometries. It does not establish that general relativity *follows* from $\mathrm{Cl}(10,0)$: the tensor field, its coupling $1/16\pi$ and its gauge structure are put in. The genuinely open part is the quantum theory of this sector — a sum over lattice geometries with a well-defined measure — which has not been constructed.
 
@@ -328,7 +328,7 @@ The structure the candidate requires has now been built (V76). The missing ingre
 
 ### 10.4 The ladder
 
-One factor, four scales (Fig. 3, Fig. 11, Fig. 17):
+One factor, four scales (Fig. 7, Fig. 13):
 
 **Table 3. One loop factor, four scales.**
 
@@ -352,13 +352,13 @@ The theory's single gauge coupling is $\alpha_{10} \equiv g_{10}^2 = 1/25 = 0.04
 
 $$(\alpha_1,\alpha_2,\alpha_3) = (0.0299,\ 0.0202,\ 0.0191),\qquad \text{mean } 0.0231,\quad \text{spread } 47\%,$$
 
-so $\alpha_{10}$ is within a factor $1.73$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $2.2\times10^{41}$ GeV, above the cutoff, so the up-running is UV-bounded (Fig. 2). At two loops [49] the pole moves to $\sim 2.5\times10^{12}$ GeV, *below* the cutoff (Fig. 19): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
+so $\alpha_{10}$ is within a factor $1.73$ of the mean but the three couplings do **not** meet at a point — the well-known failure of one-loop unification in the non-supersymmetric SM. The $U(1)$ Landau pole of the up-running sits at $2.2\times10^{41}$ GeV, above the cutoff, so the up-running is UV-bounded. At two loops [49] the pole moves to $\sim 2.5\times10^{12}$ GeV, *below* the cutoff (Fig. 15): the perturbative expansion is UV-divergent inside the lattice, whereas the automaton's own coarse-graining tower $U^{2^p}$ ($p = 1\dots8$) stays unitary and bounded at every level, so the *discrete* RG has no Landau pole. That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and it does not by itself reproduce the observed running.
 
 The down-running must be stated plainly. Starting from $\alpha_{10} = 0.04$ at $M_P$ and running down with the SM $\beta$-functions gives, at $M_Z$,
 
 $$\alpha_1(M_Z) = 0.0197\ (1.17\times),\qquad \alpha_2(M_Z) = 0.195\ (5.8\times),\qquad \alpha_3:\ \text{Landau pole at } 2.2\times10^{9}\ \mathrm{GeV}.$$
 
-The hypercharge lands within $17\%$ of its measured value, but the $\mathrm{SU}(2)$ coupling overshoots by a factor $5.8$ and the $\mathrm{SU}(3)$ coupling becomes non-perturbative at $2.2\times10^{9}$ GeV, far above $M_Z$. The claimed unification therefore fails at the level of the couplings' values, even though the $5/3$ normalisation is correct (Fig. 16). This is residual W4 and falsifier F2.
+The hypercharge lands within $17\%$ of its measured value, but the $\mathrm{SU}(2)$ coupling overshoots by a factor $5.8$ and the $\mathrm{SU}(3)$ coupling becomes non-perturbative at $2.2\times10^{9}$ GeV, far above $M_Z$. The claimed unification therefore fails at the level of the couplings' values, even though the $5/3$ normalisation is correct (Fig. 12). This is residual W4 and falsifier F2.
 
 Two quantitative statements sharpen W4. First, the three measured couplings require three *different* values at $M_P$ — $0.0299$, $0.0202$, $0.0191$, the up-run values above — and the theory's single value $0.040$ matches none of them: it exceeds the hypercharge requirement by $34\%$ and the $\mathrm{SU}(3)$ requirement by a factor $2.1$. Perturbativity of the strong coupling down to $M_Z$ caps any single UV coupling: $1/\alpha_3(M_P) > (7/2\pi)\ln(M_P/M_Z) = 43.9$, i.e. $\alpha_3(M_P) < 0.0228$; the theory's $0.040$ exceeds the admissible maximum by $75\%$.
 
@@ -368,7 +368,7 @@ Third, that no-go covers only complete multiplets, and the *incomplete* content 
 
 $$M_X = 1.8\times10^{16}\ \mathrm{GeV},\qquad \alpha_X = 1/25\ \text{(exact)},\qquad M_{10} = 1.2\times10^{7}\ \mathrm{GeV},\qquad M_{(1,2)} = 1.0\times10^{12}\ \mathrm{GeV},$$
 
-and the $\mathrm{SU}(3)$ Landau pole of the down-running moves to $10^{-52}$ GeV: the disease above is cured (Fig. 27). Solutions with lighter content exist but predict $\tau_p \sim 10^{32}$ yr and are already excluded by Super-Kamiokande [52] — the data themselves select the CL10-realizable spectrum. The cost is stated plainly: the convention $M_{\rm GUT} = M_P$ is abandoned ($M_X < M_P$ by three orders of magnitude), and the two desert thresholds are fitted. W4 becomes conditional rather than fatal; F2 sharpens to: a measured running that admits no vectorlike content with $\alpha_X = 1/25$. The solution predicts $\tau_p \simeq M_X^4/(\alpha_X^2 m_p^5) = 1.8\times10^{36}$ yr (F5).
+and the $\mathrm{SU}(3)$ Landau pole of the down-running moves to $10^{-52}$ GeV: the disease above is cured (Fig. 21). Solutions with lighter content exist but predict $\tau_p \sim 10^{32}$ yr and are already excluded by Super-Kamiokande [52] — the data themselves select the CL10-realizable spectrum. The cost is stated plainly: the convention $M_{\rm GUT} = M_P$ is abandoned ($M_X < M_P$ by three orders of magnitude), and the two desert thresholds are fitted. W4 becomes conditional rather than fatal; F2 sharpens to: a measured running that admits no vectorlike content with $\alpha_X = 1/25$. The solution predicts $\tau_p \simeq M_X^4/(\alpha_X^2 m_p^5) = 1.8\times10^{36}$ yr (F5).
 
 Fourth, the desert content is no longer an external assumption: it is the *spectrum of the automaton's own Wilson mechanism* (V65–V68), and the mechanism makes a prediction — one that the data currently refute. The three split nodes of the selective reading carry exactly the vectorlike fragments of the split $\mathbf{16}$ with independent thresholds (the other nine nodes stay at the Planck cutoff), and the Wilson direction itself completes the breaking chain: at the V65 root $\theta = 1.731$ it leaves $\mathrm{Spin}(10)\to\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$, preserves the Model algebra (every unbroken root is intra-fragment; the 32 broken roots are exactly the leptoquark type), and the two extra $\mathrm{U}(1)$'s are the only open step to the SM group (V67). The multiplicity is bounded from below by unification itself: scanning $n_{\text{nodes}} = 1\dots6$, no meeting root at $\alpha_X = 1/25$ exists for one or two split nodes; the first physical roots appear at three (V68). But solving the meeting equations with the mechanism's own two parameters — one angle $\theta$, one scale $w$ — fixes the six fragment thresholds and lands the meeting at $M_X = 8.9\times10^{14}$ GeV, i.e. $\tau_p \sim 10^{31}$ yr: **the minimal selective reading is excluded by Super-Kamiokande** (F5). The data-preferred solution of the scan above ($M_X = 1.8\times10^{16}$ GeV) requires fragment thresholds the single-angle, single-scale root does not supply. The status of W4 is therefore: the *pattern* (vectorlike split-$\mathbf{16}$ fragments), the *chain* (V67) and the *multiplicity bound* ($n_{\text{nodes}} \ge 3$, V68) are consequences of the automaton; the *scale* is not — the minimal realization is falsified, and the surviving solution keeps two fitted thresholds.
 
@@ -376,7 +376,7 @@ Fifth, the obvious repair — redistribute the three nodes at different Wilson s
 
 Sixth, the desert content has now been tested against the *gauged bond layer's own spectrum* (V81) and fails. The composite fermions of the V79 layer — the matter $\mathbf{16}$ tensored with the adjoint link flux, $16 \otimes 45 = 720$ Weyl states carrying five net chiral $\mathbf{16}$-copies — shift the three one-loop coefficients by $(145.3, 145.3, 226.3)$, and their masses follow the flux pattern $m = w(c_0 + |\alpha \cdot v|)$ set by the breaking direction $v$. Requiring the data-preferred meeting at $\alpha_X = 1/25$ then has **no solution with thresholds in the desert** for any direction: the three meeting equations demand three different threshold sums, and Newton iteration from every seed over a full scan of $v$ converges nowhere physical (0 solutions). V82 closes the remaining ansatz families — full-weight thresholds $m = w(c_0 + |\nu \cdot v|)$, broken-flux-only content, light-composite selection, and even a relaxed meeting coupling $\alpha_X$ — with the minimum residual staying at $5.7$–$6.1$ against a target of $0$ and no physical solution in the relaxed scan. V84 upgrades the obstruction to a **theorem**: the identity $\sum db_1 = \sum db_2$ is the index-proportionality of $\mathrm{Tr}\,Y^2$ and $\mathrm{Tr}\,T_3^2$ — both proportional to the representation index, with the ratio fixed by the fundamental, $(3/5)\,\mathrm{Tr}_5\,Y^2 = \mathrm{Tr}_5\,T_3^2$ — and it holds over every complete $\mathrm{SU}(5)$ or $\mathrm{Spin}(10)$ multiplet, verified on the $\mathbf{16}$, the flux $\mathbf{45}$, the vector $\mathbf{10}$ and the $\mathbf{10}$ inside the $\mathbf{16}$ (all ratios $1.0$ to $10^{-6}$). The meeting mismatch can therefore come **only** from $\mathrm{SU}(5)$-fragment content or from split thresholds inside multiplets; computed from the same charge operators, the V64 repair's mismatch is carried entirely by its $(1,2)$ pair ($db_1/db_2 = 3/5$; the $10 \oplus \overline{\mathbf{10}}$ pairs contribute exactly zero mismatch), and the automaton supplies no fragment Weyl states. The constructive route — the junction-split triangle nodes of V76 — has then been attempted (V86): at the root the Wilson direction splits the node $\mathbf{16}$ by a factor $55$ ($c_Q = +0.005$, $c_L = -0.015$ against partners $\pm 0.82$), so the $(3,2)$ and $(1,2)$ states of the V64 repair **are** automaton states — the Q and L components of node $\mathbf{16}$'s with near-zero Wilson weights — and the junction branch ratio $\rho = \kappa/w_0$ breaks V74's rank-1 degeneracy. The fragment pattern is fabricated: at physical solutions Q and L sit at $4\times10^{15}$–$8\times10^{15}$ GeV with their partners above the meeting point. The meeting is not: over the full physical scan ($n_{\rm nodes}$ 3–12, $\rho$, scale, Wilson angle) the best residual of the two meeting equations is $0.94$ against a target of $0$, and the third equation predicts $\alpha_X = 0.030$ against the data value $0.04$ — a $33\%$ miss. V87 then released the coefficient pattern itself: a junction is a defect configuration, not a law, so the cubic-symmetric democratic form was replaced by the **general zero-mean junction** — three independent branch scales $a_i = 2w_0(1 + r_i)$, $r_1 + r_2 + r_3 = 0$ — scanned over the full $(r_1, r_2)$ plane, $n_{\rm nodes}$, scale and angle. The best physical residual is **identical to the democratic one** ($0.81$): the branch ratios do not move the floor, and $\alpha_X$ lands at $0.090$, a factor $2.3$ off the data value. The near-miss is therefore a property of the **junction mechanism itself**: the mismatch is carried by the fixed $db$ pattern of the node $\mathbf{16}$'s own fragments (V84), which threshold motion cannot repair. W4 stays open with a named near-miss and a named requirement: fragment content **beyond** the node $\mathbf{16}$ — new automaton content, not new branch ratios. The V64 repair spectrum remains, for now, a named input.
 
-Seventh, the question has been recast decisively (V92, V93, V95): *is the required desert content obtainable from the node $\mathbf{16}$ itself, with per-class thresholds?* V92 answers **yes for feasibility**: the data-preferred meeting point $(T_1, T_2, T_3) = (12.7, 21.2, 20.1)$ lies strictly INSIDE the convex hull of the six $\beta$-contribution vectors of the node-$\mathbf{16}$ fragments, with the explicit barycentric witness $\lambda_0 = 0.34$ (no extra content), $\lambda_{f_1} = 0.31$, $\lambda_{f_2} = 0.31$, $\lambda_{f_4} = 0.05$ (Fig. 39). The V84 requirement - "$\mathrm{SU}(5)$-fragment content beyond the node $\mathbf{16}$" - is thereby *softened*: the node-$\mathbf{16}$ fragments themselves suffice, provided they carry independent thresholds. V93 then localizes the remaining gap precisely: a general five-component Cartan Wilson direction realizes the meeting exactly (6 solutions, residual $< 10^{-10}$, desert thresholds, $\tau_p = 1.9\times10^{36}$ yr) but breaks all 40 roots - the SM algebra among them - and is unphysical; the SM-preserving direction space is exactly $\operatorname{span}\{X, Y\}$ (dimension 2, class-degenerate), and within it no solution exists - the V86/V87 floor is confirmed as a property of that family. V95 adds that off-diagonal junction splitting with a UNIVERSAL strength $\kappa$ cannot help either: $\sum_l (2\cos(2\pi l/n) - 1) = -n$ reabsorbs the split into $z_0$ at first order. W4 is therefore no longer a no-go but a **realizability problem with a named missing ingredient**: a flavour-dependent bond layer ($\kappa_s$ per fragment class) that splits class-degenerate thresholds while preserving the SM algebra.
+Seventh, the question has been recast decisively (V92, V93, V95): *is the required desert content obtainable from the node $\mathbf{16}$ itself, with per-class thresholds?* V92 answers **yes for feasibility**: the data-preferred meeting point $(T_1, T_2, T_3) = (12.7, 21.2, 20.1)$ lies strictly INSIDE the convex hull of the six $\beta$-contribution vectors of the node-$\mathbf{16}$ fragments, with the explicit barycentric witness $\lambda_0 = 0.34$ (no extra content), $\lambda_{f_1} = 0.31$, $\lambda_{f_2} = 0.31$, $\lambda_{f_4} = 0.05$ (Fig. 33). The V84 requirement - "$\mathrm{SU}(5)$-fragment content beyond the node $\mathbf{16}$" - is thereby *softened*: the node-$\mathbf{16}$ fragments themselves suffice, provided they carry independent thresholds. V93 then localizes the remaining gap precisely: a general five-component Cartan Wilson direction realizes the meeting exactly (6 solutions, residual $< 10^{-10}$, desert thresholds, $\tau_p = 1.9\times10^{36}$ yr) but breaks all 40 roots - the SM algebra among them - and is unphysical; the SM-preserving direction space is exactly $\operatorname{span}\{X, Y\}$ (dimension 2, class-degenerate), and within it no solution exists - the V86/V87 floor is confirmed as a property of that family. V95 adds that off-diagonal junction splitting with a UNIVERSAL strength $\kappa$ cannot help either: $\sum_l (2\cos(2\pi l/n) - 1) = -n$ reabsorbs the split into $z_0$ at first order. W4 is therefore no longer a no-go but a **realizability problem with a named missing ingredient**: a flavour-dependent bond layer ($\kappa_s$ per fragment class) that splits class-degenerate thresholds while preserving the SM algebra.
 
 Eighth, that named ingredient has now been built and tested (V96), and it **closes the meeting exactly - conditionally**. With the Wilson direction pinned to the V65 physical selective root (the direction V67 proved leaves $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$ unbroken) and per-class junction strengths $\kappa_s$ splitting the six fragment-class thresholds, the three coupling equations $F_i = 0$ become **exactly linear** in $(z_0, \kappa_s)$ once every threshold sits below $M_X$ (since $\sum_l \mu_l = -n$), and the desert box constraints make the search a linear program (HiGHS, exact). It admits solutions (residual $< 10^{-13}$) at $M_X = 1.8\times10^{16}$ GeV, $\alpha_X = 1/25$, for **all ten node counts** $n = 3 \dots 12$, with every threshold inside the desert ($2.0\times10^{3}$–$1.8\times10^{16}$ GeV, none above $M_X$) and $\tau_p = 1.9\times10^{36}$ yr. The first-order degeneracy of V95 is broken because the per-class sums $\kappa_s(-n)$ reabsorb into PER-CLASS offsets, not into $z_0$. The cost is stated plainly: the current bond layer has ONE gate $P$ with one strength; a flavour-dependent bond layer is an **extension** of the automaton, and its six $\kappa_s$ are new named inputs (three meeting conditions for six unknowns - a solution family, not a unique prediction). W4 is therefore closed **conditionally on that extension**: the desert content becomes the content of the *extended* automaton. Falsifier F2 stands unchanged.
 
@@ -392,9 +392,9 @@ A GUT-leptogenesis estimate [39] is then built by hand:
 
 $$\Delta B = \frac{28}{79}\,\varepsilon_{CP}\,D,\qquad \varepsilon_{CP} = \frac{g_0^4}{16\pi} = 4.9\times10^{-6},\qquad D = \Big(\frac{1}{16\pi}\Big)^2 = 3.96\times10^{-4},$$
 
-with $g_0 = 1/2^3 = 1/8$ and the SM sphaleron conversion $B = \tfrac{28}{79}(B-L)$ [25,26], giving $\Delta B = 6.8\times10^{-10}$ against the measured $(6.1\pm0.04)\times10^{-10}$ [14] — a ratio $1.12$.
+with $g_0 = 1/2^3 = 1/8$ and the SM sphaleron conversion $B = \tfrac{28}{79}(B-L)$ [25,26], giving $\Delta B = 6.8\times10^{-10}$ against the measured $(6.12\pm0.04)\times10^{-10}$ [14] — a ratio $1.11$.
 
-Three problems, all previously under-stated. (i) $\varepsilon_{CP}$ is not a computed vertex: the physical CP asymmetry of $N\to \ell H$ is a one-loop self-energy/vertex function of the heavy-neutrino masses, and $g_0^4/16\pi$ is a dimensional guess. (ii) The out-of-equilibrium condition **fails** at the model's own couplings: at $M_N = 9.6\times10^{13}$ GeV, $H = 1.66\sqrt{g_*}M_N^2/M_P = 1.3\times10^{10}$ GeV while $\Gamma_N = y^2 M_N/8\pi = 6.0\times10^{10}$ GeV for $y = 1/8$ ($1.9\times10^{12}$ GeV for $y = 0.71$), so $\Gamma_N/H \simeq 4.6$ ($\simeq 148$). Out-of-equilibrium decay requires $y \lesssim 0.06$, which the theory does not select. (iii) $28/79$ is an input of the SM sector, not a number of the root. The $12\%$ agreement is therefore a coincidence of chosen factors, not evidence (residual W5).
+Three problems, all previously under-stated. (i) $\varepsilon_{CP}$ is not a computed vertex: the physical CP asymmetry of $N\to \ell H$ is a one-loop self-energy/vertex function of the heavy-neutrino masses, and $g_0^4/16\pi$ is a dimensional guess. (ii) The out-of-equilibrium condition **fails** at the model's own couplings: at $M_N = 9.6\times10^{13}$ GeV, $H = 1.66\sqrt{g_*}M_N^2/M_P = 1.3\times10^{10}$ GeV while $\Gamma_N = y^2 M_N/8\pi = 6.0\times10^{10}$ GeV for $y = 1/8$ ($1.9\times10^{12}$ GeV for $y = 0.71$), so $\Gamma_N/H \simeq 4.6$ ($\simeq 148$). Out-of-equilibrium decay requires $y \lesssim 0.06$, which the theory does not select. (iii) $28/79$ is an input of the SM sector, not a number of the root. The $11\%$ agreement is therefore a coincidence of chosen factors, not evidence (residual W5).
 
 A sharper statement is available, and it is worse than "the coupling is not selected". At the model's own seesaw scale $M_N = 9.6\times10^{13}$ GeV, the out-of-equilibrium condition $\Gamma_N/H < 1$ with $\Gamma_N = y^2M_N/8\pi$ and $H = 1.66\sqrt{g_*}M_N^2/M_P$ gives $y < 0.058$. The same Yukawa fixes the light neutrino mass through the same seesaw,
 
@@ -410,7 +410,7 @@ Dimensional analysis of $X/Y$ exchange gives
 
 $$\tau_p \sim \frac{M_{\rm GUT}^4}{\alpha_{10}^2\, m_p^5} = 4.0\times10^{47}\ \mathrm{yr}\qquad (M_{\rm GUT} = M_P,\ \alpha_{10} = 1/25),$$
 
-against the Super-Kamiokande bound $\tau_p/B(p\to e^+\pi^0) > 2.4\times10^{34}$ yr [15] (Fig. 20, Fig. 21). The margin is 13 orders of magnitude, and it rests entirely on the convention $M_{\rm GUT} = M_P$: any GUT scale below $\sim 6\times10^{15}$ GeV is excluded by the same bound (Fig. 21). The estimate omits the renormalisation factor $A_L$ [46], the hadronic matrix element, the dressing of the operators and the splitting between the $X/Y$ masses and the unification scale [51], all of which shift the lifetime by one to two orders. The three channels $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ differ here only by two-body phase space (Fig. 22); the rate scales as $M_{\rm GUT}^{-4}$ in all of them. Observation of a GUT-pattern decay at any accessible rate would falsify $M_{\rm GUT} = M_P$ (F5).
+against the Super-Kamiokande bound $\tau_p/B(p\to e^+\pi^0) > 2.4\times10^{34}$ yr [15] (Fig. 21). The old $M_{\rm GUT} = M_P$ reading gave a margin of 13 orders of magnitude, resting entirely on that abandoned convention: any GUT scale below $\sim 6\times10^{15}$ GeV is excluded by the same bound. The estimate omits the renormalisation factor $A_L$ [46], the hadronic matrix element, the dressing of the operators and the splitting between the $X/Y$ masses and the unification scale [51], all of which shift the lifetime by one to two orders. The three channels $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ differ here only by two-body phase space (Fig. 16); the rate scales as $M_X^{-4}$ in all of them. Observation of a GUT-pattern decay far below $1.8\times10^{36}$ yr refutes the desert solution (F5).
 
 ### 11.5 Flavour
 
@@ -434,14 +434,14 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 | causal front speed | $1.0$ | — | dynamical, measured |
 | doubler cone Lorentz structure (V102) | linear in all 1200 sampled directions; anisotropic: $(0.100, 0.100, 0.142)$ lattice units, spread $0.75$; node gap $2\times10^{-4}$ at $g_{10} = 1/5$ | — | **not Lorentz-isotropic**; dynamical, measured |
 | 16-sector Brillouin spectrum | zone centre gapped ($0.0365$); 12 gapless doubler nodes, $\sum$ chirality $= 0$; all 12 gapped by the internal Wilson factor, 3-node selective reading | — | doubling **gapped by a mechanism of the step**; node set an input |
-| $v/M_P$ | $2.08(1/16\pi)^{10}$ | $2.016\times10^{-17}$ | coefficient fitted |
+| $v/M_P$ | $2.08(1/16\pi)^{10}$ | $2.0167\times10^{-17}$ [13] | coefficient fitted |
 | $m_{\rm DM}$ | $118$ GeV | not measured | prediction, falsifiable |
 | $\Omega_{\rm DM}h^2$ | not computed | $0.120$ [14] | open |
-| $m_\nu$ | $0.146$ eV (ladder); $0.0487$ eV ($\tfrac13$ candidate, Section 10.3) | $0.050$ eV; $\sum m_\nu < 0.12$ eV | ladder **in tension**; candidate numerically good, not derived |
-| $\Delta B$ | $6.8\times10^{-10}$ | $(6.1\pm0.04)\times10^{-10}$ | coincidental product |
-| $\tau_p/B$ | $1.8\times10^{36}$ yr (desert solution, V64); $4\times10^{47}$ yr at $M_{\rm GUT} = M_P$ (abandoned) | $>2.4\times10^{34}$ yr | falsifiable: decay near $10^{36}$ yr confirms, far from it refutes |
+| $m_\nu$ | $0.146$ eV (ladder); $0.0487$ eV ($\tfrac13$ candidate, Section 10.3) | $0.0501$ eV [50]; $\sum m_\nu < 0.12$ eV [14] | ladder **in tension**; candidate numerically good, not derived |
+| $\Delta B$ | $6.8\times10^{-10}$ | $(6.12\pm0.04)\times10^{-10}$ [14] | coincidental product |
+| $\tau_p/B$ | $1.8\times10^{36}$ yr (desert solution, V64); $4\times10^{47}$ yr at $M_{\rm GUT} = M_P$ (abandoned) | $>2.4\times10^{34}$ yr [15] | falsifiable: GUT-pattern decay at Hyper-K reach ($10^{35}$ yr) refutes; a null result past $10^{36}$ yr refutes; confirmation needs the megaton era |
 | $\alpha_{10}$ | $0.040$ | $0.023$ (1-loop mean at $M_P$); $0.040$ at $M_X = 1.8\times10^{16}$ GeV with the desert content (V64) | **exact at $M_X$**, given the inferred spectrum |
-| $\alpha_i(M_Z)$ from $\alpha_{10}$ | $0.0197$ / $0.195$ / pole at $2.2\times10^9$ GeV (SM running) | $0.0169,\ 0.0338,\ 0.118$ | **fails** under SM running; matched by the V64 desert spectrum |
+| $\alpha_i(M_Z)$ from $\alpha_{10}$ | $0.0197$ / $0.195$ / pole at $2.2\times10^9$ GeV (SM running) | $0.0169,\ 0.0338,\ 0.118$ [13] | **fails** under SM running; matched by the V64 desert spectrum |
 | Gauss constraint of the gauged bond layer | $[Q_A,Q_B] = i f_{AB}{}^{C} Q_C$, err $0$; content $32 \oplus 288 \oplus 1120$ | — | algebraic, V79 |
 | physical sector of the gauged layer | $\dim\ker = 0$ with one $\mathbf{32}$/site (center obstruction); minimal sector: 2 matter/site, 4 states, all singlets; $S = \ln 45$ per bond, bounded and boundary-supported | — | computed, V98 |
 | multi-bond scaling of the gauged layer | $\dim\ker(\text{3-site}) = 24$; additivity $\ln 45$ across a single bond; two-bond region $S = \ln 45$ (vertex mutual information $\ln 45$); Bekenstein deficit factor $4\ln 45 = 15.23$ | — | computed, V99 |
@@ -452,7 +452,7 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 | CKM | identity | $\lambda = 0.225$ [13,44] | **fails** |
 | $\Lambda$ | $0$ (tree level) | $\sim 10^{-122}M_P^4$ | open |
 
-(Fig. 10, Fig. 14.)
+(Fig. 10.)
 
 ---
 
@@ -460,7 +460,7 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 
 ### 12.1 Dark energy
 
-The vacuum energy of the automaton vanishes at the level of the single-cell spectrum: the 32 levels are $\pm$-paired for every $g_{10}$, so $\sum_k\omega_k = \arg\det U = 0$. This is the correct, non-vacuous form of the earlier "512/512 cancellation". The counting of the 512 even and 512 odd **elements of the algebra** as bosonic and fermionic zero-point modes is not a physical mode counting — the physical one-cell Hilbert space has 32 states, not 1024 — and it is dropped here (Fig. 6 keeps the grading, not the arithmetic).
+The vacuum energy of the automaton vanishes at the level of the single-cell spectrum: the 32 levels are $\pm$-paired for every $g_{10}$, so $\sum_k\omega_k = \arg\det U = 0$. This is the correct, non-vacuous form of the earlier "512/512 cancellation". The counting of the 512 even and 512 odd **elements of the algebra** as bosonic and fermionic zero-point modes is not a physical mode counting — the physical one-cell Hilbert space has 32 states, not 1024 — and it is dropped here (Fig. 3 keeps the grading, not the arithmetic).
 
 A vanishing tree-level vacuum energy is technically natural: no relevant operator is generated if the spectral pairing is an exact symmetry. The pairing survives the Wilson extension of Section 8.4 (V71: the extended spectrum stays $\pm$-paired to $10^{-15}$ and the one-cell zero point stays $0$, because the Wilson direction is a traceless Cartan combination), so the new ingredient neither breaks the zero nor moves it. What the theory does **not** do is produce the observed value. The observed $\Lambda \sim 10^{-122}M_P^4$ lies $122$ orders of magnitude *below* the classical bound $M_P^4$ and *above* the theory's spectral zero, and no mechanism breaking the pairing by that amount is known. Independently, the classical self-gravitating de Sitter vacuum of Section 9 has $G_{\mu\nu} = -3H^2 g_{\mu\nu}$, i.e. a vacuum energy bounded by $M_P^4$ on the lattice. These are three different statements — spectral zero, classical bound, observed value — and they do not "reconcile": the gap between the first and the third is residual W1 [37], the largest unexplained number in the theory. The equation of state of a cosmological-constant vacuum is $w = -1$ by definition, not by derivation.
 
@@ -474,7 +474,7 @@ What it does supply is a **mass scale**, $m_{\rm DM} = 118$ GeV (Section 10.2). 
 
 $$\Omega h^2 \simeq \frac{1.04\times10^9\, x_f\ \mathrm{GeV}^{-1}}{M_P\langle\sigma v\rangle},\qquad x_f \simeq 20,$$
 
-gives $\Omega h^2 \simeq 2\times10^{-5}$ for $\langle\sigma v\rangle = 1/m^2$ at $m = 118$ GeV (under-abundant), and $\Omega h^2 \sim 10^{29}$ for the theory's own Planck-suppressed cross-section $\sigma_0 = P_2/M_P^2 = 5.3\times10^{-39}$ GeV$^{-2}$ (the freeze-out approximation is then meaningless). The observed $\Omega h^2 = 0.120$ requires $\langle\sigma v\rangle \simeq 1.4\times10^{-8}$ GeV$^{-2}$, which the theory does not derive. Non-thermal production (freeze-in) is not considered here [42]. The "WIMP miracle" quoted in earlier versions was obtained by normalising the abundance to the measured value at 100 GeV; that is a definition, not a calculation, and it is removed here (Fig. 4 shows the standard relic curve with the CL10 mass marked, not a computed abundance).
+gives $\Omega h^2 \simeq 2\times10^{-5}$ for $\langle\sigma v\rangle = 1/m^2$ at $m = 118$ GeV (under-abundant), and $\Omega h^2 \sim 10^{29}$ for the theory's own Planck-suppressed cross-section $\sigma_0 = P_2/M_P^2 = 5.3\times10^{-39}$ GeV$^{-2}$ (the freeze-out approximation is then meaningless). The observed $\Omega h^2 = 0.120$ requires $\langle\sigma v\rangle \simeq 1.4\times10^{-8}$ GeV$^{-2}$, which the theory does not derive. Non-thermal production (freeze-in) is not considered here [42]. The "WIMP miracle" quoted in earlier versions was obtained by normalising the abundance to the measured value at 100 GeV; that is a definition, not a calculation, and it is removed here (Fig. 2 shows the standard relic curve with the CL10 mass marked, not a computed abundance).
 
 ### 12.3 Antimatter
 
@@ -500,7 +500,7 @@ The vertex correction that result (iii) left as a named number is now measured (
 
 ### 13.2 Confinement
 
-The structural hallmarks of a confining vacuum are present as assumptions: a Wilson loop with an area-law expectation value $\langle W(C)\rangle \propto e^{-\sigma\,\mathrm{Area}(C)}$ [28] implies a linear potential $V(r) = \sigma r$. But the string tension used is $\sigma = 1$ in Planck units, i.e. $\sigma = M_P^2 \simeq 1.5\times10^{38}$ GeV$^2$, against the physical $\sigma \simeq 0.18$ GeV$^2$ [38] — a discrepancy of 38 orders of magnitude. The colour count $N_C = 3$ is read off the decomposition of the 45, and $8 = N_C^2 - 1$ is then a consistency check, not a derivation. $\Lambda_{\rm QCD}$ is not on the loop ladder (it would need $n \simeq 11.6$). The area law is a property of a confining *phase* that the theory has not shown it is in (Fig. 7).
+The structural hallmarks of a confining vacuum are present as assumptions: a Wilson loop with an area-law expectation value $\langle W(C)\rangle \propto e^{-\sigma\,\mathrm{Area}(C)}$ [28] implies a linear potential $V(r) = \sigma r$. But the string tension used is $\sigma = 1$ in Planck units, i.e. $\sigma = M_P^2 \simeq 1.5\times10^{38}$ GeV$^2$, against the physical $\sigma \simeq 0.18$ GeV$^2$ [38] — a discrepancy of 38 orders of magnitude. The colour count $N_C = 3$ is read off the decomposition of the 45, and $8 = N_C^2 - 1$ is then a consistency check, not a derivation. $\Lambda_{\rm QCD}$ is not on the loop ladder (it would need $n \simeq 11.6$). The area law is a property of a confining *phase* that the theory has not shown it is in (Fig. 4).
 
 ---
 
@@ -520,7 +520,7 @@ Every number the theory calls a prediction is reclassified by how it was obtaine
 
 The validation programme reports the same classification over 15 headline numbers as 7 algebraic / 1 free angle / 1 convention / 2 coincidences / 4 named residuals; Table 5 is that accounting extended to the twelve fitted coefficients and to the nine residuals.
 
-**The status of $g_{10}$.** No condition inside the theory fixes it. The two-loop $U(1)$ Landau-pole scale lies below $M_P$ for every $g_{10}$ in the perturbative range, so UV-finiteness of the lattice does not select it. The proposed selection rule is $g_{10} = 1/n_{\rm qubits} = 1/5$, the 5 qubits of the 32-D module. The data do not support that choice: scanning the candidates $\alpha = 1/n^2$ for $n = 2\dots8$ against the one-loop GUT value $0.023$, the best fit is $n = 7$ ($1/49 = 0.020$, relative deviation $0.12$), not $n = 5$ ($1/25 = 0.040$, relative deviation $0.73$) — the data-optimal value is $6.4\times$ closer than the root value. The reading $1/n_{\rm qubits}$ is therefore a convention, and the theory is honestly **one-parameter in its dynamics, zero-parameter in its algebra** (Fig. 12).
+**The status of $g_{10}$.** No condition inside the theory fixes it. The two-loop $U(1)$ Landau-pole scale lies below $M_P$ for every $g_{10}$ in the perturbative range, so UV-finiteness of the lattice does not select it. The proposed selection rule is $g_{10} = 1/n_{\rm qubits} = 1/5$, the 5 qubits of the 32-D module. The data do not support that choice: scanning the candidates $\alpha = 1/n^2$ for $n = 2\dots8$ against the one-loop GUT value $0.023$, the best fit is $n = 7$ ($1/49 = 0.020$, relative deviation $0.12$), not $n = 5$ ($1/25 = 0.040$, relative deviation $0.73$) — the data-optimal value is $6.4\times$ closer than the root value. The reading $1/n_{\rm qubits}$ is therefore a convention, and the theory is honestly **one-parameter in its dynamics, zero-parameter in its algebra** (Fig. 8).
 
 **The status of the "9-to-1" reduction.** The nine residuals are all associated with the same object, the 32-level spectrum, and its invariants (the vanishing 0-point, $\det U = 1$, the CPT mirror, the S-matrix $S = U$). That is a bookkeeping observation — nine open problems sharing one object — and it is not a derivation of any of their values. It should not be read as a reduction of the theory's difficulty.
 
@@ -535,7 +535,7 @@ The validation programme reports the same classification over 15 headline number
 | **W1** the cosmological constant | an exactly vanishing tree-level vacuum energy ($\pm$-paired spectrum, $\det U = 1$), natural in the technical sense; the zero is **stable under the Wilson extension** (V71: $\operatorname{Tr} D = 0$, zero point $<10^{-14}$) and **protected by $\det U = 1$** (V78: for 50 random traceless Hermitian deformations $e^{i\varepsilon A}U$ at $\varepsilon$ up to 1 the quasi-energy sum stays pinned, $|S| < 4\times10^{-14}$; the only internal knob is the $\mathrm{U}(1)$ trace phase, and no branch crossing occurs below $\varepsilon = \pi$) | the observed $10^{-122}M_P^4$ is now **equivalent to a trace-phase breaking of size $\varepsilon\operatorname{Tr}A \sim 16\pi^2\times10^{-122} = 1.6\times10^{-120}$** — a named bound; the breaking mechanism itself is still missing |
 | **W2** the neutrino mass | the seesaw structure and the ladder $m_\nu = M_P(1/16\pi)^{17} = 0.146$ eV; $n_{\text{nodes}} = 3$ is now a **lower bound** from unification (V68); the missing ingredient V68 named — inter-node Majorana mixing — is **BUILT** (V76): a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle exactly (verified against the full $12\times12$ doubler difference table), giving the node mass matrix $c_s(2w_0\,I + \kappa(J-I))$, democratic at $\kappa = 2w_0$ with eigenvalues $\{3M,0,0\}$ | the $\tfrac13$ candidate ($0.0487$ eV, two massless neutrinos) survives **only at the measure-zero democratic point** and only with a democratic $m_D$ (else gapless colored doublers); every generic mixing ratio violates $\sum m_\nu < 0.12$ eV — the candidate is now a named, F3-falsifiable structure, not a coefficient; the tuning is now **proven exact and unprotected** (V90): the cubic group induces all of $S_3$ on the triangle and its commutant is exactly $\operatorname{span}\{I,J\}$ (nullity 2) — no symmetry enlarges the stabilizer of $\kappa = 2w_0$; $w_0$ and $\kappa$ share ONE Wilson period, so $r = \kappa/w_0$ is not quantized; and the window $\sum m_\nu < 0.12$ eV is **exactly the point** $r = 2$ (1 passing value in 20001 scanned over $[1,3]$) |
 | **W3** the family number | the identification $N_{\rm gen} = 3 = n_{\rm space}$, a family-symmetric 96-D step $\mathrm{blockdiag}(U,U,U)$, and a **named index of the step equal to 3** (V70): the 12 doubler nodes form 3 families of 4 labeled by the zero axis, cubic-transitive, and the unification-required 3 split nodes (V68) are realizable one per family at a single Wilson strength | the index labels the 3 copies but does not force the count; the forcing question is now **decided** (V91): the cubic group acts transitively on the 12 nodes (one orbit of 12 — the axis families are not orbits), so the only cubic-symmetric split is the full set of 12, whose rigid meeting lands at $M_X(12) = 2.9\times10^{15}$ GeV — excluded by F5 (the rank-1 rigidity holds for $n = 4, 8, 12$); the 3-node triangle has a cubic orbit of 8, so the count 3 is a **symmetry-breaking input** and its cubic-symmetric alternative is excluded by computation |
-| **W4** coupling unification | the $5/3$; **with the desert content the couplings meet at $\alpha_X = 1/25$ exactly** (V64): three $\mathbf{10}\oplus\overline{\mathbf{10}}$ pairs at $1.2\times10^7$ GeV plus one $(1,2)$ pair at $1.0\times10^{12}$ GeV give $M_X = 1.8\times10^{16}$ GeV; the content is **connected to the automaton** (V65/V67), $n_{\text{nodes}}\ge 3$ is forced (V68), the multi-scale hope is **closed structurally** (V74: rank-1 Jacobian, split-invariance exact to $10^{-14}$), the gauged bond layer's own composite content is **excluded** as the supplier (V81: 0 solutions over the full scan of the breaking direction), the remaining ansatz families leave residuals $5.7$–$6.1$ (V82), the equal-shift identity is a **theorem** over complete multiplets (V84), and the junction-split nodes **fabricate the fragment pattern** — the Wilson direction splits the node $\mathbf{16}$ by a factor $55$, the $(3,2)$ and $(1,2)$ repair states are automaton states — but **miss the meeting**: best physical residual $0.94$, $\alpha_X = 0.030$ vs $0.04$ (V86); releasing the coefficient pattern to a general zero-mean junction (three free branch scales) leaves the residual **at the same floor** ($0.81$) with $\alpha_X = 0.090$ (V87) | the node mechanism's meeting point is **forced**: $M_X = 8.9\times10^{14}$ GeV, $\tau_p = 1.1\times10^{31}$ yr, **excluded by F5**; the data-preferred spectrum needs partial suits while the automaton supplies full split $\mathbf{16}$'s per node; the mismatch can come **only** from $\mathrm{SU}(5)$-fragment content or split intra-multiplet thresholds (V84), and the junction route fails **mechanism-wide**, not just at the democratic point (V87); the question is now **recast** (V92): the data-preferred meeting lies INSIDE the node-$\mathbf{16}$ fragment hull — feasibility proved, explicit witness (Fig. 39) — and the gap is narrowed to **realizability**: SM-preserving Wilson directions are exactly $\operatorname{span}\{X,Y\}$ and class-degenerate, no solution (V93), and universal junction splitting is invisible at first order (V95); the named missing ingredient — a **flavour-dependent bond layer** $\kappa_s$ — is now **built and closes the meeting conditionally** (V96): at the V65 root direction, per-class $\kappa_s$ give exact meetings (residual $<10^{-13}$) for all $n = 3\dots12$ at $M_X = 1.8\times10^{16}$ GeV with every threshold in the desert, at the cost of six named inputs of the EXTENDED bond layer (a solution family, not unique); the V64 repair spectrum remains a named input |
+| **W4** coupling unification | the $5/3$; **with the desert content the couplings meet at $\alpha_X = 1/25$ exactly** (V64): three $\mathbf{10}\oplus\overline{\mathbf{10}}$ pairs at $1.2\times10^7$ GeV plus one $(1,2)$ pair at $1.0\times10^{12}$ GeV give $M_X = 1.8\times10^{16}$ GeV; the content is **connected to the automaton** (V65/V67), $n_{\text{nodes}}\ge 3$ is forced (V68), the multi-scale hope is **closed structurally** (V74: rank-1 Jacobian, split-invariance exact to $10^{-14}$), the gauged bond layer's own composite content is **excluded** as the supplier (V81: 0 solutions over the full scan of the breaking direction), the remaining ansatz families leave residuals $5.7$–$6.1$ (V82), the equal-shift identity is a **theorem** over complete multiplets (V84), and the junction-split nodes **fabricate the fragment pattern** — the Wilson direction splits the node $\mathbf{16}$ by a factor $55$, the $(3,2)$ and $(1,2)$ repair states are automaton states — but **miss the meeting**: best physical residual $0.94$, $\alpha_X = 0.030$ vs $0.04$ (V86); releasing the coefficient pattern to a general zero-mean junction (three free branch scales) leaves the residual **at the same floor** ($0.81$) with $\alpha_X = 0.090$ (V87) | the node mechanism's meeting point is **forced**: $M_X = 8.9\times10^{14}$ GeV, $\tau_p = 1.1\times10^{31}$ yr, **excluded by F5**; the data-preferred spectrum needs partial suits while the automaton supplies full split $\mathbf{16}$'s per node; the mismatch can come **only** from $\mathrm{SU}(5)$-fragment content or split intra-multiplet thresholds (V84), and the junction route fails **mechanism-wide**, not just at the democratic point (V87); the question is now **recast** (V92): the data-preferred meeting lies INSIDE the node-$\mathbf{16}$ fragment hull — feasibility proved, explicit witness (Fig. 33) — and the gap is narrowed to **realizability**: SM-preserving Wilson directions are exactly $\operatorname{span}\{X,Y\}$ and class-degenerate, no solution (V93), and universal junction splitting is invisible at first order (V95); the named missing ingredient — a **flavour-dependent bond layer** $\kappa_s$ — is now **built and closes the meeting conditionally** (V96): at the V65 root direction, per-class $\kappa_s$ give exact meetings (residual $<10^{-13}$) for all $n = 3\dots12$ at $M_X = 1.8\times10^{16}$ GeV with every threshold in the desert, at the cost of six named inputs of the EXTENDED bond layer (a solution family, not unique); the V64 repair spectrum remains a named input |
 | **W5** the baryon asymmetry | a computed theorem: all CP-odd invariants vanish, no Sakharov condition is met; the theorem is **stable under the Wilson extension** (V71: the spectral mirror of the extended step is exact to $10^{-15}$); a quasi-degenerate (resonant) route enabled by the degenerate heavy spectrum | out-of-equilibrium decay ($y < 0.058$) and $m_\nu \simeq 0.05$ eV are mutually incompatible at $M_N = 9.6\times10^{13}$ GeV; the resonant route still needs a CP phase the algebra does not supply |
 | **W6** masses and mixing | the Dirac structure ($16\,\mathbf{10}_H\,\overline{\mathbf{16}}$), the democratic base, $\sin^2\theta_{12} = 1/3$, and a **complete breaking chain** (V67): the Wilson direction at the V65 root leaves exactly $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$ with all 32 broken roots leptoquark-type, preserving the Model algebra | the 3-level hierarchy, $\theta_{23},\theta_{13}$, a non-trivial CKM; the two extra $\mathrm{U}(1)$'s unbroken by the Wilson direction |
 | **W7** dark matter | a mass scale, $118$ GeV; the mirror $\mathbb{Z}_2$ is the only exact-stability carrier (V66); the no-go is now **completed** (V75): no Wilson node can host a $118$ GeV neutral mirror — for every Wilson angle the same node puts a stable colored or charged fragment below the desert (0 survivors over 720 angles; a stable fractionally-charged thermal relic is excluded at any mass; the only escape is fine-tuning the angle to $10^{-4}$ of the decoupling pole); the named fix is now **built and audited** (V88): the ladder scalar is exactly stable under either portal (scalar parity $(-1)^{N_s}$, odd sector untouched) | the implemented spectrum **cannot contain** the DM; and the named fix is a **named tension** (V88): with the **exact** mirror $\mathbb{Z}_2$ the Higgs portal keeps $h^* \to f\overline{f}$ forbidden, $s\overline{s} \to hh$ is kinematically closed (gap $13.2$ GeV) and the only open channel $s\overline{s} \to hh^*$ needs $\lambda = 0.13$, predicting $\sigma_{\rm SI} = 6.8\times10^{-46}$ cm$^2$ — **excluded by direct detection**; the V75 numbers ($\lambda_* = 4\times10^{-4}$, $\sigma_{\rm SI} = 5\times10^{-51}$ cm$^2$) hold only with a portal that **breaks** the mirror $\mathbb{Z}_2$ at $O(\lambda)$; the scalar is an input field, not yet a state of the root |
@@ -554,7 +554,7 @@ The validation programme reports the same classification over 15 headline number
 | **F6** | a baryon asymmetry outside $10^{-11}$–$10^{-9}$, or evidence that heavy-neutrino decays are in equilibrium |
 | **F7** | a dark-matter particle with mass far from $118$ GeV in the weakly-interacting thermal case; a direct-detection portal signal above $10^{-50}$ cm$^2$ (the V75 extension predicts $5\times10^{-51}$); or a detected non-neutral/decaying dark sector |
 
-The most accessible tests are **F3** and **F5**: KATRIN currently gives $m_\beta < 0.45$ eV [16], so the bare ladder value $0.146$ eV survives a single-mass search, but the cosmological sum $\sum m_\nu < 0.12$ eV already excludes it, and the $\tfrac13$ candidate's normal-ordered pattern ($\sum m_\nu \simeq 0.05$ eV, $m_{\rm lightest} = 0$) is inside the reach of the next generation of oscillation and $\beta\beta$-decay data. The desert solution puts $\tau_p = 1.8\times10^{36}$ yr within reach of next-generation proton-decay searches: either side of the observation refutes or confirms it. **F7** has narrowed with V75: the carrier is not in the implemented spectrum and the named extension is nearly decoupled, so the test is the mass coincidence itself — a weakly-interacting thermal relic found at $118$ GeV, and the absence of any portal signal above $10^{-50}$ cm$^2$.
+The most accessible tests are **F3** and **F5**: KATRIN currently gives $m_\beta < 0.45$ eV [16], so the bare ladder value $0.146$ eV survives a single-mass search, but the cosmological sum $\sum m_\nu < 0.12$ eV already excludes it, and the $\tfrac13$ candidate's normal-ordered pattern ($\sum m_\nu \simeq 0.05$ eV, $m_{\rm lightest} = 0$) is inside the reach of the next generation of oscillation and $\beta\beta$-decay data. The desert solution predicts $\tau_p = 1.8\times10^{36}$ yr, about one decade beyond Hyper-Kamiokande's 20-year reach ($\sim 10^{35}$ yr [15-class exposure]): Hyper-K can **refute** it by observing GUT-pattern decay anywhere at its reach, and an exposure passing $10^{36}$ yr that sees nothing refutes it too; the confirmation window belongs to the megaton era. **F7** has narrowed with V75: the carrier is not in the implemented spectrum and the named extension is nearly decoupled, so the test is the mass coincidence itself — see Section 12.
 
 ---
 
@@ -588,251 +588,215 @@ All figures are computed from the construction (Appendix B); none contains hand-
 
 The eigenphases of $U$ at $g_{10} = 1/5$. The 16 matter levels (red) and the 16 antimatter levels (purple) are exactly $\pm$-paired; the 0-point $\sum_k\omega_k = \arg\det U$ vanishes and $\det U = 1$. The smallest level, $\omega_{\min} = 0.0115$, corresponds to $\omega_{\min}M_P = 1.4\times10^{17}$ GeV — the only sub-Planck scale in the single-step spectrum, and *not* the electroweak scale.
 
-**Fig. 2 — one-loop running of the three SM couplings to the Planck scale.**
+**Fig. 2 — the relic curve and the CL10 mass.**
 
-![One-loop running](figures/fig2_unification_1loop.png)
-
-$\alpha_1,\alpha_2,\alpha_3$ run from $M_Z$ to $M_P$ and reach $0.030, 0.020, 0.019$: the GUT range, but not a common point (spread $47\%$). The dashed line is $\alpha_{10} = 1/25$. The $U(1)$ Landau pole of the up-running, $2.2\times10^{41}$ GeV, lies above the lattice cutoff.
-
-**Fig. 3 — the loop ladder: one factor, two scales.**
-
-![The 10-loop ladder](figures/fig3_10loop_ladder.png)
-
-$(1/16\pi)^n$ connects $M_P$ ($n = 0$) to $118$ GeV ($n = 10$). The same factor is the order of $v/M_P$ (factor $2.08$ below the observed value). The integer $n = 10$ is the nearest to the observed hierarchy in the scan $n = 1\dots20$.
-
-**Fig. 4 — the relic curve and the CL10 mass.**
-
-![The WIMP curve](figures/fig4_wimp_miracle.png)
+![The WIMP curve](figures/fig2_wimp_miracle.png)
 
 The standard thermal-freeze-out curve $\Omega h^2(m)$ for $\langle\sigma v\rangle \sim 1/m^2$, with the observed $\Omega h^2 = 0.120$ and the CL10 mass $118$ GeV marked. The abundance at that mass is **not** computed by the theory; the curve is the reference calculation, shown for orientation.
 
-**Fig. 5 — two-route curvature: computed Kretschmann vs analytic.**
+**Fig. 3 — the $\mathbb{Z}_2$ grading and the vanishing 0-point.**
 
-![Two-route Kretschmann](figures/fig5_gravity_kretschmann.png)
-
-The Schwarzschild Kretschmann invariant computed by 4-D central differences from the metric (points) against $48M^2/r^6$ (line); maximum relative deviation $5.5\times10^{-5}$, the $O(h^2)$ finite-difference error. The computed Ricci tensor vanishes: the vacuum equation holds by computation.
-
-**Fig. 6 — the $\mathbb{Z}_2$ grading and the vanishing 0-point.**
-
-![The 512/512 grading](figures/fig6_512_512.png)
+![The 512/512 grading](figures/fig3_512_512.png)
 
 The algebra splits 512 even / 512 odd elements, and the physical 32-level spectrum is $\pm$-paired, so the one-cell vacuum energy is zero. The pairing is an identity of the algebra, holding for every $g_{10}$. The observed $\Lambda$ is $10^{-122}M_P^4$ above this value (W1).
 
-**Fig. 7 — the area law and the linear potential.**
+**Fig. 4 — the area law and the linear potential.**
 
-![Confinement](figures/fig7_qcd_confinement.png)
+![Confinement](figures/fig4_qcd_confinement.png)
 
 A Wilson loop with $\langle W\rangle \propto e^{-\sigma A}$ gives $V(r) = \sigma r$, contrasted with the Coulombic $1/r$. The tension shown is $\sigma = 1$ in Planck units ($= M_P^2$), not the QCD value $0.18$ GeV$^2$; the physical confinement scale is not reproduced (Section 13.2).
 
-**Fig. 8 — the baryon-asymmetry product.**
+**Fig. 5 — the baryon-asymmetry product.**
 
-![Baryon asymmetry](figures/fig8_baryon_asymmetry.png)
+![Baryon asymmetry](figures/fig5_baryon_asymmetry.png)
 
-$\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ against the measured $6.1\times10^{-10}$. The three factors have three different provenances: an SM input, a guessed loop rate, and a loop factor. The automaton alone gives zero.
+$\Delta B = (28/79)(g_0^4/16\pi)(1/16\pi)^2 = 6.8\times10^{-10}$ against the measured $6.12\times10^{-10}$ [14]. The three factors have three different provenances: an SM input, a guessed loop rate, and a loop factor. The automaton alone gives zero.
 
-**Fig. 9 — anomaly cancellation.**
+**Fig. 6 — anomaly cancellation.**
 
-![Anomaly cancellation](figures/fig9_anomaly_free.png)
+![Anomaly cancellation](figures/fig6_anomaly_free.png)
 
 The six fields' $nY^3$ contributions to $[\mathrm{U}(1)]^3$ — $1/36$, $-8/9$, $1/9$, $-1/4$, $1$, $0$ — sum to zero, as do all eight coefficients of Theorem 2 (Section 4).
 
-**Fig. 10 — predictions versus observation.**
+**Fig. 7 — the ladder of scales.**
 
-![Scoreboard](figures/fig10_predictions_vs_obs.png)
+![Ladder of scales](figures/fig7_ladder_of_scales.png)
 
-Each prediction against its measured value on a log-log scoreboard; the diagonal is exact agreement and the band is a factor of two. The proton lifetime is a lower bound (the prediction sits far above the bound); the neutrino mass and the DM abundance sit outside the band.
+Planck $1.22\times10^{19}$ GeV ($n = 0$), seesaw $9.6\times10^{13}$ GeV ($n = 3$), electroweak $246$ GeV (measured input), dark matter $118$ GeV ($n = 10$), neutrino ladder $0.146$ eV ($n = 17$), with the $\tfrac13$ candidate $0.0487$ eV marked. QCD is shown for reference only: it is not produced by the ladder.
 
-**Fig. 11 — the ladder of scales.**
+**Fig. 8 — the parameter audit.**
 
-![Ladder of scales](figures/fig11_ladder_of_scales.png)
-
-Planck/GUT $1.22\times10^{19}$ GeV, seesaw $9.6\times10^{13}$ GeV, electroweak $246$ GeV, dark matter $118$ GeV, neutrino $0.146$ eV. QCD is shown for reference only: it is not produced by the ladder.
-
-**Fig. 12 — the parameter audit.**
-
-![Parameter audit](figures/fig12_parameter_audit.png)
+![Parameter audit](figures/fig8_parameter_audit.png)
 
 The classification of Section 14: 7 algebraic invariants, 1 free angle, 1 convention, 2 coincidences (the hierarchy match; the V64 desert thresholds), 4 named residuals. Table 5 extends the accounting to the twelve fitted coefficients and the nine open residuals.
 
-**Fig. 13 — the matter/antimatter spectral mirror.**
+**Fig. 9 — the matter/antimatter spectral mirror.**
 
-![CPT mirror](figures/fig13_cpt_mirror.png)
+![CPT mirror](figures/fig9_cpt_mirror.png)
 
 $\omega_{\overline{16}} = -\omega_{16}$, verified to $1.8\times10^{-15}$ for every $g_{10}$ in $\{0.05,\dots,0.5\}$: a property of the algebra, independent of the free parameter.
 
-**Fig. 14 — head-to-head with the measured values.**
+**Fig. 10 — head-to-head with the measured values.**
 
-![Head to head](figures/fig14_sm_head2head.png)
+![Head to head](figures/fig10_sm_head2head.png)
 
-The headline quantities, CL10 (red) against measurement (grey). The baryon asymmetry and the hierarchy agree to a factor $\lesssim 2$; the DM abundance and the neutrino mass are the open gaps; the proton lifetime is consistent by 13 orders.
+The headline quantities, CL10 (red) against measurement (grey), with the provenance note per panel. Measured values: $\Delta B$, Planck 2018 [14]; $v/E_P = 246.22\,\mathrm{GeV}/1.2209\times10^{19}\,\mathrm{GeV}$, PDG 2024 [13]; $m_\nu = \sqrt{|\Delta m_{3\ell}^2|} = 0.0501$ eV, NuFIT 6.0 [50]; $\sum m_\nu < 0.12$ eV, Planck+BAO [14]; $\tau_p$ bound, Super-Kamiokande $p\to e^+\pi^0$ [15]. The baryon asymmetry and the hierarchy agree to a factor $\lesssim 2$; the bare ladder neutrino mass is excluded by $\sum m_\nu < 0.12$ eV while the $\tfrac13$ candidate sits inside the bound; the desert proton lifetime sits $75\times$ above the Super-Kamiokande bound (F5 live).
 
-**Fig. 15 — the matter content of the 16.**
+**Fig. 11 — the matter content of the 16.**
 
-![Matter content](figures/fig15_matter_content.png)
+![Matter content](figures/fig11_matter_content.png)
 
 The six left-handed Weyl fields of one generation in the $\mathbf{10}\oplus\bar{\mathbf{5}}\oplus\mathbf{1}$ of $\mathrm{SU}(5)$, with dimensions $6+3+1+3+2+1 = 16$.
 
-**Fig. 16 — the GUT coupling and the $5/3$.**
+**Fig. 12 — the GUT coupling and the $5/3$.**
 
-![Couplings](figures/fig16_couplings_mz.png)
+![Couplings](figures/fig12_couplings_mz.png)
 
-(a) The three couplings run toward $1/\alpha_{10} = 25$; (b) at $M_Z$ the down-run values against the measured ones: $\alpha_1$ within $1.17\times$, $\alpha_2$ $5.8\times$ too large, $\alpha_3$ negative because its pole sits at $2.2\times10^9$ GeV.
+At $M_Z$, the measured couplings (grey): $\alpha_1 = 0.0169$ (GUT-normalised, $\alpha_1^{-1} = 59.0$), $\alpha_2 = 0.0338$, $\alpha_3 = 0.118$ — PDG 2024 [13] ($\overline{\rm MS}$ inputs $\sin^2\hat\theta(M_Z) = 0.23129(4)$, $\alpha_s(m_Z) = 0.1180(9)$, $\alpha^{-1}(M_Z)\simeq 127.95$) — against the CL10 down-run from $\alpha_{10} = 1/25$ (red): $\alpha_1$ within $1.17\times$, $\alpha_2$ $5.8\times$ too large, $\alpha_3$ negative because its pole sits at $2.2\times10^9$ GeV. The $5/3$ normalisation is exact; the value matching is the named residual W4.
 
-**Fig. 17 — the CL10 ladder against the observed ladder.**
+**Fig. 13 — the CL10 ladder against the observed ladder.**
 
-![Ladder vs SM](figures/fig17_ladder_sm.png)
+![Ladder vs SM](figures/fig13_ladder_sm.png)
 
 Upper row: the CL10 loop ladder. Lower row: the measured SM scales. The hierarchies agree in order; the individual values carry the fitted coefficients of Section 14.
 
-**Fig. 18 — the residual-set reduction.**
+**Fig. 14 — the residual-set reduction.**
 
-![Residual reduction](figures/fig18_residual_reduction.png)
+![Residual reduction](figures/fig14_residual_reduction.png)
 
 (a) One loop integer $n$ sets one scale $M_P(1/16\pi)^n$, appearing twice: as $v/M_P$ and as $m_{\rm DM}$. These are one equation, $v = 2.08\,m_{\rm DM}$, not two independent confirmations. (b) The scan $n = 1\dots20$: $n = 10$ is nearest, $n = 9$ is $1.4$ decades away. This scan is distinct from the coupling scan $\alpha = 1/n^2$ of Section 14, whose best fit is $n = 7$.
 
-**Fig. 19 — the two-loop $U(1)$ running against the bounded automaton.**
+**Fig. 15 — the two-loop $U(1)$ running against the bounded automaton.**
 
-![Two-loop running](figures/fig19_uv_2loop.png)
+![Two-loop running](figures/fig15_uv_2loop.png)
 
 The two-loop perturbative running reaches a Landau pole at $2.5\times10^{12}$ GeV, below the cutoff; the one-loop pole is above it. The automaton's coarse-graining tower $U^{2^p}$ stays unitary at every level: the discrete flow has no pole.
 
-**Fig. 20 — the proton lifetime against the GUT scale.**
+**Fig. 16 — the three GUT channels.**
 
-![Proton lifetime](figures/fig20_proton_decay.png)
+![Proton channels](figures/fig16_proton_channels.png)
 
-$\tau_p \propto M_{\rm GUT}^4$. The point $M_{\rm GUT} = M_P$ gives $4\times10^{47}$ yr, $1.7\times10^{13}$ above the Super-Kamiokande bound $2.4\times10^{34}$ yr [15]. The desert solution (V64, Fig. 27) moves the CL10 point to $M_X = 1.8\times10^{16}$ GeV, $\tau_p = 1.8\times10^{36}$ yr — a factor $75$ above the bound.
+The stability margin $\tau_p^{\rm (pred)}/\tau_p^{\rm (bound)}$ for $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ at the desert point ($M_X = 1.8\times10^{16}$ GeV, $\tau_p = 1.8\times10^{36}$ yr) against their respective bounds ($2.4\times10^{34}$, $1.6\times10^{34}$ [15], $5.9\times10^{33}$ [52] yr; for the $K^+$ mode the $p\to\bar\nu K^+$ bound is used, the closest measured channel). The channels differ here only by two-body phase space; the rate scales as $M_X^{-4}$ in each.
 
-**Fig. 21 — the decay rate normalised to the bound.**
+**Fig. 17 — the causal front of a lattice pulse.**
 
-![Proton margin](figures/fig21_proton_margin.png)
-
-$\Gamma/\Gamma_{\rm bound} \propto M_{\rm GUT}^{-4}$. The shaded region $M_{\rm GUT} \lesssim 6\times10^{15}$ GeV is excluded; the CL10 point sits $10^{13}$ below the bound. The margin is a consequence of the convention $M_{\rm GUT} = M_P$; the desert solution (Fig. 27) moves the CL10 point to $M_X = 1.8\times10^{16}$ GeV, ten orders of magnitude closer to the bound.
-
-**Fig. 22 — the three GUT channels.**
-
-![Proton channels](figures/fig22_proton_channels.png)
-
-The stability margin for $p\to e^+\pi^0$, $p\to\mu^+\pi^0$, $p\to e^+K^+$ against their respective bounds ($2.4\times10^{34}$, $1.6\times10^{34}$ [15], $6.6\times10^{33}$ [52] yr; for the $K^+$ mode the $p\to\bar\nu K^+$ bound is used, the closest measured channel). The channels differ only by two-body phase space; the rate scales as $M_{\rm GUT}^{-4}$ in each.
-
-**Fig. 23 — the causal front of a lattice pulse.**
-
-![QCA wave](figures/fig23_qca_wave.png)
+![QCA wave](figures/fig17_qca_wave.png)
 
 A pulse in the discrete wave scheme: a causal front, then dispersive spreading with the peak falling as the norm is conserved. This 2-D reduction uses a four-neighbour solver at its CFL speed $c = 0.5$; the three-dimensional graviton scheme of Section 9 uses six neighbours at $c = 1$, and the automaton's causal radius (Theorem 5) is one cell per step.
 
-**Fig. 24 — the black hole recovered by computation.**
+**Fig. 18 — the black hole recovered by computation.**
 
-![Black hole](figures/fig24_gravity_3d.png)
+![Black hole](figures/fig18_gravity_3d.png)
 
 Left: the potential well with a geodesic rosette integrated through the finite-difference Christoffel symbols, and the horizon ring $r = 2M$. Right: the two-route Kretschmann invariant.
 
-**Fig. 25 — the double slit as a single-electron measurement.**
+**Fig. 19 — the double slit as a single-electron measurement.**
 
-![Young experiment](figures/fig25_young.png)
+![Young experiment](figures/fig19_young.png)
 
 The lattice wave through a double slit, run one electron at a time. (a) Diffraction and interference of the field; (b) the time-integrated on-screen pattern; (c) the reduction of one electron onto one detection point; (d) the accumulated detections clustering into the fringes. The detection probability is the field intensity $|\psi|^2$ (Section 7).
 
-**Fig. 26 — the hydrogen atom driven by the lattice photon.**
+**Fig. 20 — the hydrogen atom driven by the lattice photon.**
 
-![Hydrogen](figures/fig26_hydrogen.png)
+![Hydrogen](figures/fig20_hydrogen.png)
 
-A three-dimensional hydrogen atom coupled to the same discrete massless field that carries the graviton. Left: the electron cloud $|\psi|^2$ and its isosurface — spherical $1s$, dumbbell $2p$, torus $3d$; right: the mid-plane cut. Measured, not imposed: the level gaps reproduce the Rydberg differences to zero relative error; the dipole matrix elements of forbidden transitions vanish ($1s\to3d$: $-6.8\times10^{-19}$, $2p\to3p$: $8.6\times10^{-18}$, against $9.93$, $-3.00$, $22.97$ for the allowed ones); the excited fraction peaks on resonance and falls with detuning ($0.42$, $0.35$, $0.15$, $0.035$, $0.011$ at detunings $0$, $0.063$, $0.125$, $0.25$, $0.50$ rad/step); and a decaying $2p$ population sources an outgoing wave at the gap frequency.
+A three-dimensional hydrogen atom coupled to the same discrete massless field that carries the graviton, on the mid-plane cut through the nucleus, each panel normalised to its own peak: (a) the spherical ground state $|\psi|^2$; (b) the incoming CL10 photon $|F|^2$; (c) the cloud after resonant absorption — the deformation into the dumbbell $2p$; (d) the emitted field $|F_{\rm out}|^2$, the Einstein-$A$ radiation sourced by the decaying excited population. Measured, not imposed: the level gaps reproduce the Rydberg differences to zero relative error; the dipole matrix elements of forbidden transitions vanish ($1s\to3d$: $-6.8\times10^{-19}$, $2p\to3p$: $8.6\times10^{-18}$, against $9.93$, $-3.00$, $22.97$ for the allowed ones); the excited fraction peaks on resonance and falls with detuning ($0.42$, $0.35$, $0.15$, $0.035$, $0.011$ at detunings $0$, $0.063$, $0.125$, $0.25$, $0.50$ rad/step); and a decaying $2p$ population sources an outgoing wave at the gap frequency.
 
-**Provenance of Fig. 26.** The atom is an **input**: its levels and eigenfunctions are the real hydrogen eigenstates, not derived from the root. What the root supplies is the photon — its propagation, its resonant absorption, its re-emission. The figure demonstrates the photon sector; it is not a derivation of hydrogen. Two limits are stated rather than hidden: off-resonant absorption is not zero (the Fermi-golden-rule rate has a Lorentzian tail), and a wave packet wider than the simulation box never leaves it, becoming a persistent bath that drives the atom off resonance — measured at half-gap detuning in a 120-cell box as excited fractions $0.037$, $0.135$, $0.326$ for packet widths of 12, 24, 48 cells. The published figure uses a localised packet (20 cells in a 296-cell box).
+**Provenance of Fig. 20.** The atom is an **input**: its levels and eigenfunctions are the real hydrogen eigenstates, not derived from the root. What the root supplies is the photon — its propagation, its resonant absorption, its re-emission. The figure demonstrates the photon sector; it is not a derivation of hydrogen. Two limits are stated rather than hidden: off-resonant absorption is not zero (the Fermi-golden-rule rate has a Lorentzian tail), and a wave packet wider than the simulation box never leaves it, becoming a persistent bath that drives the atom off resonance — measured at half-gap detuning in a 120-cell box as excited fractions $0.037$, $0.135$, $0.326$ for packet widths of 12, 24, 48 cells. The published figure uses a localised packet (20 cells in a 296-cell box).
 
-**Fig. 27 — the desert solution: unification at the root value.**
+**Fig. 21 — the desert solution: unification at the root value.**
 
-![Desert unification](figures/fig27_desert_unification.png)
+![Desert unification](figures/fig21_desert_unification.png)
 
 The three measured couplings run up from $M_Z$ with the V64 desert content (solid) meet at $M_X = 1.8\times10^{16}$ GeV at $\alpha_X = 1/25$ — the root value, not refitted. The SM-only running (dashed) misses the point: spread $47\%$ at $M_P$. The thresholds $M_{10} = 1.2\times10^7$ GeV and $M_{(1,2)} = 1.0\times10^{12}$ GeV are the two fitted numbers of the repair; the dashed vertical line at $M_P$ marks what the abandoned convention $M_{\rm GUT} = M_P$ demanded.
 
-**Fig. 28 — the internal Wilson factor: pattern predicted, scale falsified.**
+**Fig. 22 — the internal Wilson factor: pattern predicted, scale falsified.**
 
-![Wilson mechanism](figures/fig28_wilson_mechanism.png)
+![Wilson mechanism](figures/fig22_wilson_mechanism.png)
 
-(a) The 12 doubler nodes of Proposition 2 in the supercell Brillouin zone, colored by axis family — the three families of four labeled by the zero component (V70); the three nodes ringed in black show the selective choice, one per family, realizable at a single Wilson strength. (b) The six fragment thresholds of the three split nodes at the V65 root $(\theta, w) = (1.731, 6.27\times10^{-9})$, computed from $M_f = w|\cos\theta\,X_f + \sin\theta\,Y_f|\,M_P/3$: the pattern is the vectorlike split $\mathbf{16}$ the RG repair requires, but the meeting scale $M_X = 8.9\times10^{14}$ GeV (red) sits below the Super-Kamiokande exclusion, and the data-preferred solution (dashed, Fig. 27) needs thresholds the single-angle, single-scale root does not supply.
+(a) The 12 doubler nodes of Proposition 2 in the supercell Brillouin zone, colored by axis family — the three families of four labeled by the zero component (V70); the three nodes ringed in black show the selective choice, one per family, realizable at a single Wilson strength. (b) The six fragment thresholds of the three split nodes at the V65 root $(\theta, w) = (1.731, 6.27\times10^{-9})$, computed from $M_f = w|\cos\theta\,X_f + \sin\theta\,Y_f|\,M_P/3$: the pattern is the vectorlike split $\mathbf{16}$ the RG repair requires, but the meeting scale $M_X = 8.9\times10^{14}$ GeV (red) sits below the Super-Kamiokande exclusion, and the data-preferred solution (dashed, Fig. 21) needs thresholds the single-angle, single-scale root does not supply.
 
-**Fig. 29 — the gauged bond layer: the Gauss constraint closes on the root module.**
+**Fig. 23 — the gauged bond layer: the Gauss constraint closes on the root module.**
 
-![Gauged bond layer](figures/fig29_gauged_bond_layer.png)
+![Gauged bond layer](figures/fig23_gauged_bond_layer.png)
 
 One adjoint link d.o.f. per bond, matter $\mathbf{16}$ on the sites. Left: the exactness ledger — link algebra, Gauss algebra, adjoint Casimir ($64$) and spinor Casimir ($45$) close to machine precision, the step is unitary to $3.8\times10^{-16}$, the causal radius stays at one cell, and the single-site non-local control step leaks at $1.9$ where the causal step leaks at $5.7\times10^{-16}$. Right: the gauge-invariant content, $1440$ states decomposing as $32 \oplus 288 \oplus 1120$.
 
-**Fig. 30 — the composite content does not deliver the meeting.**
+**Fig. 24 — the composite content does not deliver the meeting.**
 
-![Composite content exclusion](figures/fig30_composite_content.png)
+![Composite content exclusion](figures/fig24_composite_content.png)
 
-The $16 \otimes 45 = 720$ composite states of the gauged layer shift the one-loop coefficients by $(145.3, 145.3, 226.3)$. The three meeting equations for $\alpha_X = 1/25$ demand three different threshold sums at every breaking direction $v$ — the curves never cross — and the desert-constrained Newton scan over the full direction circle returns 0 physical solutions. The V64 repair spectrum (Fig. 27) is not the gauged layer's own content.
+The $16 \otimes 45 = 720$ composite states of the gauged layer shift the one-loop coefficients by $(145.3, 145.3, 226.3)$. The three meeting equations for $\alpha_X = 1/25$ demand three different threshold sums at every breaking direction $v$ — the curves never cross — and the desert-constrained Newton scan over the full direction circle returns 0 physical solutions. The V64 repair spectrum (Fig. 21) is not the gauged layer's own content.
 
-**Fig. 31 — the closed-loop factor: the loop factor at the ladder length.**
+**Fig. 25 — the closed-loop factor: the loop factor at the ladder length.**
 
-![Closed loops](figures/fig31_closed_loops.png)
+![Closed loops](figures/fig25_closed_loops.png)
 
 Closed traced-link loops of length $n$ on $n$ distinct bonds. (a) The Cartan-content ratio $F_n$ of the gauged bond layer at the root coupling and at the division-optimal coupling: geometric suppression with ratio $r = 0.54$, and at $n = 10$ the value $0.0192$ against $1/(16\pi) = 0.0199$ — the loop factor at the ladder exponent, measured (V85). (b) The traced hop matrix $MG$ has spectral radius $0.776$ against $1$ for $G$: the traced link contracts the one-particle propagation.
 
-**Fig. 32 — the equal-shift theorem.**
+**Fig. 26 — the equal-shift theorem.**
 
-![Equal shift](figures/fig32_equal_shift.png)
+![Equal shift](figures/fig26_equal_shift.png)
 
 (a) The one-loop ratio $\sum db_1/\sum db_2$ over the matter $\mathbf{16}$, the flux $\mathbf{45}$, the vector $\mathbf{10}$ and the $\mathrm{SU}(5)$ $\mathbf{10}$: exactly $1$ — the index-proportionality of $\mathrm{Tr}\,Y^2$ and $\mathrm{Tr}\,T_3^2$ — while the $(1,2)$ fragment gives $3/5$. (b) The V64 repair's total mismatch $\sum db_1 - \sum db_2$: the $10 \oplus \overline{\mathbf{10}}$ pairs contribute exactly zero, the whole mismatch is carried by the fragment pair. The desert content must be fragment content; the automaton supplies none (V84).
 
-**Fig. 33 — W4: the map of closed exits.**
+**Fig. 27 — W4: the map of closed exits.**
 
-![W4 closure](figures/fig33_w4_closure.png)
+![W4 closure](figures/fig27_w4_closure.png)
 
-Every proposed supplier of the desert spectrum, and how each was closed. The measured couplings force the content (V73); the three-node mechanism is rank-1 degenerate (V74), the gauged bond layer's composites have no desert solution (V81), the mass-ansatz families leave residuals $\geq 5.68$ (V82), complete multiplets are excluded by the equal-shift theorem (V84), and the junction-split nodes - democratic (V86) and general (V87) - fabricate the fragment pattern but miss the meeting at a common floor. The green requirement (V84) has since been **softened by V92**: the node-$\mathbf{16}$ fragments at independent thresholds suffice - feasibility is proved (Fig. 39). Realizability was then closed **conditionally**: the named flavour-dependent bond layer (per-class $\kappa_s$, V96) meets exactly at $M_X = 1.8\times10^{16}$ GeV for every node count $n = 3\dots12$, at the cost of six named inputs of the extended bond layer.
+Every proposed supplier of the desert spectrum, and how each was closed. The measured couplings force the content (V73); the three-node mechanism is rank-1 degenerate (V74), the gauged bond layer's composites have no desert solution (V81), the mass-ansatz families leave residuals $\geq 5.68$ (V82), complete multiplets are excluded by the equal-shift theorem (V84), and the junction-split nodes - democratic (V86) and general (V87) - fabricate the fragment pattern but miss the meeting at a common floor. The green requirement (V84) has since been **softened by V92**: the node-$\mathbf{16}$ fragments at independent thresholds suffice - feasibility is proved (Fig. 33). Realizability was then closed **conditionally**: the named flavour-dependent bond layer (per-class $\kappa_s$, V96) meets exactly at $M_X = 1.8\times10^{16}$ GeV for every node count $n = 3\dots12$, at the cost of six named inputs of the extended bond layer.
 
-**Fig. 34 — W7: the portal dilemma of the built scalar.**
+**Fig. 28 — W7: the portal dilemma of the built scalar.**
 
-![W7 portal](figures/fig34_w7_portal.png)
+![W7 portal](figures/fig28_w7_portal.png)
 
 (a) The direct-detection line $\sigma_{\rm SI}(\lambda)$ with the two ways the built ladder scalar reproduces $\Omega_{\rm DM}h^2 = 0.120$: the fermion-pair portal ($\lambda_* = 3.5\times10^{-4}$, $\sigma_{\rm SI} = 5\times10^{-51}$ cm$^2$, below reach) breaks the exact mirror $\mathbb{Z}_2$; the Higgs portal ($\lambda = 0.13$, $\sigma_{\rm SI} = 7\times10^{-46}$ cm$^2$) preserves it and is excluded by the LZ-class bound. (b) The audit verdicts: stability exact under either portal (scalar parity), $s\overline{s} \to hh$ closed, $h^* \to f\overline{f}$ forbidden under exact $\mathbb{Z}_2$, the mirror relic unaffected. The observed abundance and the exact mirror $\mathbb{Z}_2$ cannot both hold (F7).
 
-**Fig. 35 — W8: the ladder length is the closed-loop crossing.**
+**Fig. 29 — W8: the ladder length is the closed-loop crossing.**
 
-![Loop selection](figures/fig35_loop_selection.png)
+![Loop selection](figures/fig29_loop_selection.png)
 
 (a) The Cartan-content ratio $F_n$ of the closed traced loop, measured to $n = 30$ at the root coupling: it crosses the loop factor $1/(16\pi)$ at **exactly** $n = 10$ - the ladder length is the crossing. The $F_{11}$ spike shows there is no mod-4 plaquette selection rule: every length contributes. (b) The fitted geometric law $F_n = A r^n$ ($r = 0.698$) extrapolates to $F_{170} = 1.1\times10^{-26}$ against $(1/16\pi)^{17} = 1.2\times10^{-29}$: the 17-factor composition misses by a factor $9\times10^{2}$ - the length is selected, the composition is the named residual (V89).
 
-**Fig. 36 — W2: the democratic neutrino point, exact and unprotected.**
+**Fig. 30 — W2: the democratic neutrino point, exact and unprotected.**
 
-![W2 protection](figures/fig36_w2_protection.png)
+![W2 protection](figures/fig30_w2_protection.png)
 
 (a) $\sum m_\nu(r)$ for the junction mass matrix: the cosmological bound $\sum m_\nu < 0.12$ eV is satisfied at **exactly one** scanned value, $r = \kappa/w_0 = 2$ ($0.0487$ eV, two massless neutrinos); any deviation makes the massless states heavy as $1/|2 - r|$. (b) The protection audit: the cubic group induces all of $S_3$ on the triangle and its commutant is exactly $\operatorname{span}\{I, J\}$; $w_0$ and $\kappa$ share one Wilson period, so $r$ is not quantized. The tuning is one exact number with no symmetry to enforce it (V90).
 
-**Fig. 37 — W3: the family count is not forced.**
+**Fig. 31 — W3: the family count is not forced.**
 
-![W3 forcing](figures/fig37_w3_forcing.png)
+![W3 forcing](figures/fig31_w3_forcing.png)
 
 (a) The 12 doubler nodes in the $(q_x, q_y)$ plane: the cubic group acts transitively - one orbit of 12, so the axis families of V70 are not orbits and the only cubic-symmetric split set is the full set of 12. The 3-node triangle (stars) is realizable but its cubic orbit has 8 triangles: it breaks the cubic symmetry. (b) The rigid meeting scale $M_X(n)$ for split sizes $n = 3, 4, 8, 12$ (the rank-1 fact of V74 holds for every $n$): all miss the observed $2\times10^{16}$ GeV (F5). The count 3 is a symmetry-breaking input; its cubic-symmetric alternative is excluded by computation (V91).
 
-**Fig. 38 — the graphical abstract: one Clifford root, five theorems.**
+**Fig. 32 — the graphical abstract: one Clifford root, five theorems.**
 
-![Graphical abstract](figures/fig38_graphical_abstract.png)
+![Graphical abstract](figures/fig32_graphical_abstract.png)
 
 The ten anticommuting generators $h_a$ of $\mathrm{Cl}(10,0)$ at the centre, and the five derived structures: $(1{+}3)$ causality (front speed 1.0), one matter generation (the $\mathbf{16}$, anomalies zero), the $\mathrm{Spin}(10)$ adjoint (the $\mathbf{45}$, $5/3$), the Planck lattice scale, and the $\mathbb{Z}_2$ grading. Every entry is algebraic and 0-parameter.
 
-**Fig. 39 — W4: the required desert content lies INSIDE the node-$\mathbf{16}$ fragment hull.**
+**Fig. 33 — W4: the required desert content lies INSIDE the node-$\mathbf{16}$ fragment hull.**
 
-![W4 hull](figures/fig39_w4_cone.png)
+![W4 hull](figures/fig33_w4_cone.png)
 
 The six $\beta$-contribution vectors $f_i$ of the node-$\mathbf{16}$ fragments and the origin, projected onto their plane; the data-preferred meeting point (star) lies strictly inside the hull, with the explicit barycentric witness. Feasibility is proved (V92); realizability by an SM-preserving junction of the base automaton fails (V93/V95) and is closed conditionally by the flavour-dependent bond layer extension (V96, Section 11.1).
 
-**Fig. 40 — the Brillouin-zone doublers: the doubling theorem, displayed.**
+**Fig. 34 — the Brillouin-zone doublers: the doubling theorem, displayed.**
 
-![Brillouin doublers](figures/fig40_brillouin_doublers.png)
+![Brillouin doublers](figures/fig34_brillouin_doublers.png)
 
 The 12 gapless doubler nodes on the zone edges (red/blue $=$ chirality $\pm 1$, sum zero) and the gapped zone centre ($0.0365$) of the 16-sector Floquet spectrum (V63). The Nielsen-Ninomiya doubling is displayed, not hidden; its removal is a named residual.
 
-**Fig. 41 — gravity rendered: null geodesics of the computed metric.**
+**Fig. 35 — gravity rendered: null geodesics of the computed metric.**
 
-![BH frames](figures/fig41_bh_frames.png)
+![BH frames](figures/fig35_bh_frames.png)
 
 Three frames of the ray-tracing of the V6 compact-object metric (`simulation/blackhole`): the geodesic congruence and shadow structure computed from the automaton's gravity sector.
 
-**Fig. 42 — the vertex-corrected area law and the first ground state of the gauged layer.**
+**Fig. 36 — the vertex-corrected area law and the first ground state of the gauged layer.**
 
-![Vertex correction and ground state](figures/fig42_vertex_ground_state.png)
+![Vertex correction and ground state](figures/fig36_vertex_ground_state.png)
 
 (a) The entropy carried by one Planck bond, from naive counting to Bekenstein: $2\ln 45 = 7.61$ (no vertices), the Gram-orthonormalised kernel capacity $S_{\rm cap} = 4.50$, $2.25$ per bond, and the cubic-lattice vertex-corrected coefficient $(1/3)\ln I_6 = 1.65$ against the $1/4$ line — the deficit factor moves from $15.2$ to $6.6$. The vertex invariants $I_n = \dim(\mathbf{45}^{\otimes n})^G$ grow $1,1,6,23,141$ (V100). (b) The bond-current Hamiltonian $H = \sum_b J\!\cdot\!L$ on the 24-state kernel: three split levels, $E_0 = -5819.2\,\eta$ with degeneracy 6 and gap $58.6\,\eta$; the ground state's middle-cut entanglement is $S_{\rm GS} = 3.8067 = \ln 45$ — the interaction selects the flux line (V101).
 
@@ -858,7 +822,7 @@ The validation programme consists of 102 independent checks organised in seven t
 
 Two cautions about what those passes mean. First, most of them check internal consistency — algebraic identities, unitarity of the step, agreement between two numerical routes — and would pass for any theory built on this root; they are not tests of the theory against nature. Second, a passing check is only as good as its criterion: an early audit found a mixing matrix with the correct angles and the correct unitarity that did **not** diagonalise the mass matrix it was supposed to diagonalise, and the criteria were strengthened accordingly — and a check whose criterion is a tautology (a quantity compared to itself) is now itself an audit failure. The negative results are reported with the same rigour as the positive ones: the desert-content searches (V73, V74, V81, V82), the dark-matter carrier no-go (V75) and its built-fix tension (V88), the coupling-level factor-$26$ miss (V80), the non-compounding of the bond division (V83), the junction near-misses (V86, V87), the unprotected democratic neutrino point (V90), the non-forcing of the family count (V91), and the non-realizability of the V92 witness by SM-preserving junction families (V93, V95) are checks that pass by *correctly reporting their own failure to close a gap*. The one positive closure among them, V96's exact meeting, is likewise reported for what it is: exact, but **conditional** on a named extension of the bond layer whose six $\kappa_s$ are inputs, not derived numbers. The six comparisons against data — $v/M_P$, $m_\nu$, $\Delta B$, $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$ — are the phenomenological content, and each carries the residual honestly reported in Table 4.
 
-**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 25 from the double-slit simulation, Fig. 26 from the hydrogen experiment, Fig. 27 from the V64 desert scan, Fig. 28 from the V65/V70 Wilson-node scan, Fig. 29 from the V79 gauged bond layer, Fig. 30 from the V81 composite-content scan, Fig. 31 from the V85 closed-loop experiment, Fig. 32 from the V84 equal-shift theorem, Fig. 33 from the V74/V81/V82/V86/V87/V96 closure scans, Fig. 34 from the V88 portal audit, Fig. 35 from the V89 loop-selection scan, Fig. 36 from the V90 protection test, Fig. 37 from the V91 cubic-orbit analysis, Fig. 38 is a schematic of the root identities (no data), Fig. 39 from the V92 feasibility linear program, Fig. 40 from the V63 Brillouin-zone test, Fig. 41 from the black-hole ray-tracing simulation, and Fig. 42 from the V100/V101 vertex-correction and ground-state experiments. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
+**Code availability.** The implementation, the validation suite, and the generators that produce every figure of this paper are available at https://github.com/MohammedHAOUACH/CL10 (MIT licence). Figs. 1–24 are generated from the construction, Fig. 19 from the double-slit simulation, Fig. 20 from the hydrogen experiment, Fig. 21 from the V64 desert scan, Fig. 22 from the V65/V70 Wilson-node scan, Fig. 23 from the V79 gauged bond layer, Fig. 24 from the V81 composite-content scan, Fig. 25 from the V85 closed-loop experiment, Fig. 26 from the V84 equal-shift theorem, Fig. 27 from the V74/V81/V82/V86/V87/V96 closure scans, Fig. 28 from the V88 portal audit, Fig. 29 from the V89 loop-selection scan, Fig. 30 from the V90 protection test, Fig. 31 from the V91 cubic-orbit analysis, Fig. 32 is a schematic of the root identities (no data), Fig. 33 from the V92 feasibility linear program, Fig. 34 from the V63 Brillouin-zone test, Fig. 35 from the black-hole ray-tracing simulation, and Fig. 36 from the V100/V101 vertex-correction and ground-state experiments. No measured value used in this paper is produced by that code: the comparison values are the published data of refs. [13–17].
 
 **Competing interests.** The author declares no competing interests.
 

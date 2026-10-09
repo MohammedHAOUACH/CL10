@@ -1,7 +1,7 @@
 {
   "experiment": "V64_desert",
   "pass": true,
-  "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p is predicted near experimental reach",
+  "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can REFUTE it by observing GUT-pattern decay but cannot confirm it; confirmation needs ~1e36 yr (megaton era)",
   "data": {
     "alpha_X_fixed": 0.04,
     "required_delta_b_family": [
@@ -83,13 +83,14 @@
           6.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 1.776711878020483e+16,
-        "M_A_GeV": 12417197.859403372,
-        "M_B_GeV": 1009220221584.5132,
+        "M_X_GeV": 1.77647030754584e+16,
+        "M_A_GeV": 12415509.556185646,
+        "M_B_GeV": 1009083003045.6135,
         "alpha_X": 0.04,
-        "tau_p_yr": 1.7887709449479684e+36,
-        "su3_down_pole_GeV": 1.073493239382037e-52,
-        "tau_p_in_HK_reach": true
+        "tau_p_yr": 1.7877983029997312e+36,
+        "su3_down_pole_GeV": 1.0733472819679104e-52,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 2x(1,2)",
@@ -99,13 +100,14 @@
           6.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 1.776711878020483e+16,
-        "M_A_GeV": 12417197.859403372,
-        "M_B_GeV": 133906443281409.19,
+        "M_X_GeV": 1.77647030754584e+16,
+        "M_A_GeV": 12415509.556185646,
+        "M_B_GeV": 133888236703594.61,
         "alpha_X": 0.04,
-        "tau_p_yr": 1.7887709449479684e+36,
-        "su3_down_pole_GeV": 1.073493239382037e-52,
-        "tau_p_in_HK_reach": true
+        "tau_p_yr": 1.7877983029997312e+36,
+        "su3_down_pole_GeV": 1.0733472819679104e-52,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 3x(1,2)",
@@ -115,13 +117,14 @@
           6.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 1.7767118780204956e+16,
-        "M_A_GeV": 12417197.85940335,
-        "M_B_GeV": 682977901441723.5,
+        "M_X_GeV": 1.7764703075458526e+16,
+        "M_A_GeV": 12415509.556185624,
+        "M_B_GeV": 682885040411264.4,
         "alpha_X": 0.04,
-        "tau_p_yr": 1.7887709449480192e+36,
-        "su3_down_pole_GeV": 1.0734932393820445e-52,
-        "tau_p_in_HK_reach": true
+        "tau_p_yr": 1.787798302999782e+36,
+        "su3_down_pole_GeV": 1.073347281967918e-52,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 1x(3,1)",
@@ -131,13 +134,14 @@
           6.667
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 2.511336050206477e+16,
-        "M_A_GeV": 4934646.734397736,
-        "M_B_GeV": 6.044785549582362e+19,
+        "M_X_GeV": 2.510994596620703e+16,
+        "M_A_GeV": 4933975.795587358,
+        "M_B_GeV": 6.043963670845357e+19,
         "alpha_X": 0.04,
-        "tau_p_yr": 7.140128582633204e+36,
-        "su3_down_pole_GeV": 5.5392600549817445e-189,
-        "tau_p_in_HK_reach": false
+        "tau_p_yr": 7.136246146709873e+36,
+        "su3_down_pole_GeV": 5.538506909974269e-189,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 3x(3,1)",
@@ -147,13 +151,14 @@
           8.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 2.511336050206477e+16,
-        "M_A_GeV": 4934646.73439771,
-        "M_B_GeV": 3.365607912286234e+17,
+        "M_X_GeV": 2.510994596620703e+16,
+        "M_A_GeV": 4933975.795587331,
+        "M_B_GeV": 3.365150307701669e+17,
         "alpha_X": 0.04,
-        "tau_p_yr": 7.140128582633204e+36,
+        "tau_p_yr": 7.136246146709873e+36,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 2x(3,1)",
@@ -163,13 +168,14 @@
           7.333
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 2.5113360502064944e+16,
-        "M_A_GeV": 4934646.73439771,
-        "M_B_GeV": 1.2320912249681116e+18,
+        "M_X_GeV": 2.510994596620721e+16,
+        "M_A_GeV": 4933975.795587331,
+        "M_B_GeV": 1.231923703792787e+18,
         "alpha_X": 0.04,
-        "tau_p_yr": 7.140128582633404e+36,
+        "tau_p_yr": 7.136246146710073e+36,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 1x(3,2)",
@@ -179,13 +185,14 @@
           7.333
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 31504269.706294514,
-        "M_B_GeV": 333711681395360.8,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 31499986.23102743,
+        "M_B_GeV": 333666308315872.8,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
+        "tau_p_yr": 5.562726213603725e+37,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 1x(3b,1)",
@@ -195,13 +202,14 @@
           6.667
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 6288399.447239182,
-        "M_B_GeV": 5.27651509289831e+18,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 6287544.445559952,
+        "M_B_GeV": 5.275797671986556e+18,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
-        "su3_down_pole_GeV": 9.255635020892482e-189,
-        "tau_p_in_HK_reach": false
+        "tau_p_yr": 5.562726213603725e+37,
+        "su3_down_pole_GeV": 9.254376579288764e-189,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 2x(3,2)",
@@ -211,13 +219,14 @@
           8.667
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 31504269.70629468,
-        "M_B_GeV": 3742099690664605.0,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 31499986.231027596,
+        "M_B_GeV": 3741590896408418.0,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
+        "tau_p_yr": 5.562726213603725e+37,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 2x(3b,1)",
@@ -227,13 +236,14 @@
           7.333
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 6288399.44723917,
-        "M_B_GeV": 4.705472513070303e+17,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 6287544.44555994,
+        "M_B_GeV": 4.704832733912824e+17,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
+        "tau_p_yr": 5.562726213603725e+37,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x10+10bar + 3x(3,2)",
@@ -243,13 +253,14 @@
           10.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 31504269.706294514,
-        "M_B_GeV": 8375871405617740.0,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 31499986.23102743,
+        "M_B_GeV": 8374732580996801.0,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
+        "tau_p_yr": 5.562726213603725e+37,
         "su3_down_pole_GeV": null,
-        "tau_p_in_HK_reach": false
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       },
       {
         "content": "3x(3,2) + 3x(3b,1)",
@@ -259,13 +270,14 @@
           6.0
         ],
         "cl10_realizable": true,
-        "M_X_GeV": 4.1962301218583016e+16,
-        "M_A_GeV": 6288399.44723917,
-        "M_B_GeV": 31504269.706294738,
+        "M_X_GeV": 4.195659581797874e+16,
+        "M_A_GeV": 6287544.44555994,
+        "M_B_GeV": 31499986.231027655,
         "alpha_X": 0.04,
-        "tau_p_yr": 5.565752584561138e+37,
-        "su3_down_pole_GeV": 2.5353715041996334e-52,
-        "tau_p_in_HK_reach": false
+        "tau_p_yr": 5.562726213603725e+37,
+        "su3_down_pole_GeV": 2.535026782635466e-52,
+        "tau_p_in_HK_20yr_reach": false,
+        "tau_p_refutable_by_HK": true
       }
     ],
     "selected": {
@@ -276,19 +288,20 @@
         6.0
       ],
       "cl10_realizable": true,
-      "M_X_GeV": 1.776711878020483e+16,
-      "M_A_GeV": 12417197.859403372,
-      "M_B_GeV": 1009220221584.5132,
+      "M_X_GeV": 1.77647030754584e+16,
+      "M_A_GeV": 12415509.556185646,
+      "M_B_GeV": 1009083003045.6135,
       "alpha_X": 0.04,
-      "tau_p_yr": 1.7887709449479684e+36,
-      "su3_down_pole_GeV": 1.073493239382037e-52,
-      "tau_p_in_HK_reach": true
+      "tau_p_yr": 1.7877983029997312e+36,
+      "su3_down_pole_GeV": 1.0733472819679104e-52,
+      "tau_p_in_HK_20yr_reach": false,
+      "tau_p_refutable_by_HK": true
     },
     "old_failure": {
       "ratio_to_measured": [
-        1.1663410603904714,
-        5.772644406816298,
-        -0.44758914080013096
+        1.1663390205442126,
+        5.772721595027112,
+        -0.44758555973549485
       ],
       "su3_down_pole_GeV": 2191868251.5164537
     },

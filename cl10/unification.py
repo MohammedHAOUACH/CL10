@@ -36,13 +36,13 @@ from . import spacetime
 from . import u10pred
 from . import walls
 
-M_Z = 91.2                       # GeV
+M_Z = 91.1876                    # GeV (PDG 2024 world average)
 ALPHA_10 = u10pred.ALPHA_10      # 1/25 = 0.04 (the 0-parameter GUT coupling)
 M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the 0-parameter GUT = Planck scale)
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
 B_SM = (41 / 10, -19 / 6, -7)    # (b1, b2, b3)  (the SM particle content)
-A_Z = (0.0169, 0.0338, 0.118)    # (a1, a2, a3) at M_Z  (PDG: a1 GUT-normalised, a1^-1 = 59.0)
+A_Z = (0.0169, 0.0338, 0.118)    # (a1, a2, a3) at M_Z (PDG 2024: a1 GUT-normalised, a1^-1 = 59.0)
 # the 2-loop beta coefficients (n_f = 6, the SM particle content)
 B2_SM = (199/25, 25/2 - 27/50*6, -143/3 + 23/15*6)   # (b21, b22, b23)
 
