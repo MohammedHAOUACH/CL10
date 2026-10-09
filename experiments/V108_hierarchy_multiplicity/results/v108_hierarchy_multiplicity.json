@@ -4,7 +4,7 @@
  "status": "THE 2.08 IS NO LONGER A FITTED NUMBER (conditional): v/M_P = 3*F_10^10 with F_10 = 0.01918639 measured (V85), 3 = the three axis families (V70), 10 = the measured crossing (V89): predicted coefficient 2.0881 vs observed 2.0765, agreement 99.44%. CONDITIONAL: the per-level F_10 reading is the V85/V89 identification and the axis-family multiplicity 3 is not proven to factorize in the single-link construction; sensitivity dln(coef)/dln(F_10) = 10. W8 narrows: the coefficient is a product of measured root numbers, its derivation needs the axis-factorization of the closed-loop sum.",
  "data": {
   "F_10_root": 0.01918639,
-  "v89_crossing": null,
+  "v89_crossing": 10,
   "coefficient_predicted_3_F10_10": 2.088105749082429,
   "coefficient_observed": 2.07654710270376,
   "relative_error": 0.005566281816395748,

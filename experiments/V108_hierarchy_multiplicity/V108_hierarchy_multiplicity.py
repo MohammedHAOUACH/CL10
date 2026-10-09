@@ -51,19 +51,23 @@ def main():
     v89 = json.load(open(os.path.join(v89p, v89f[0])))["data"] if v89f else {}
 
     F10 = v85["loops_root"]["F_n"][-1]          # n = 10, root coupling
-    # V89's independent measurement of the crossing (if present)
+    # V89's independent measurement of the crossing
     cross = None
     for k, v in v89.items():
         if isinstance(v, dict):
-            for kk in ("n_star", "n_cross", "crossing"):
+            for kk in ("n_star_below_loop_factor", "n_star", "n_cross",
+                       "crossing"):
                 if kk in v:
                     cross = v[kk]
+                    break
+            if cross is not None:
+                break
 
     coef_pred = 3.0 * (LOOP ** -10) * F10 ** 10     # = 3*(16 pi F_10)^10
     coef_obs = V_OVER_MP / LOOP ** 10
     rel = abs(coef_pred - coef_obs) / coef_obs
 
-    ok = rel < 0.01
+    ok = rel < 0.01 and cross == 10
     status = (f"THE 2.08 IS NO LONGER A FITTED NUMBER (conditional): "
               f"v/M_P = 3*F_10^10 with F_10 = {F10} measured (V85), "
               f"3 = the three axis families (V70), 10 = the measured "
