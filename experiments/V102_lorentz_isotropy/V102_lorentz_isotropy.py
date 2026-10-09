@@ -120,6 +120,7 @@ def _node(q0):
     A, y = [], []
     nlin = nquad = nmix = 0
     kappas = []
+    vdirs = []
     for j, d in enumerate(dirs):
         w1 = max(float(w1s[j]), 1e-12)
         w2 = max(float(w2s[j]), 1e-12)
@@ -127,6 +128,7 @@ def _node(q0):
         if p < 1.3:
             nlin += 1
             v = w2 / EPS2
+            vdirs.append((d, float(v)))
             A.append([d[0] ** 2, d[1] ** 2, d[2] ** 2,
                       2 * d[0] * d[1], 2 * d[0] * d[2],
                       2 * d[1] * d[2]])
@@ -160,6 +162,8 @@ def _node(q0):
             "n_mixed": nmix,
             "v_principal": [round(float(x), 6)
                             for x in v],
+            "v_dirs": [[round(float(x), 5) for x in d]
+                       + [round(vv, 6)] for d, vv in vdirs],
             "kappa_mean": round(kmean, 4),
             "anisotropy": round(aniso, 6),
             "fit_resid": resid}

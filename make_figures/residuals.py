@@ -872,3 +872,152 @@ def fig37_residual_attacks():
                  "what they name", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.955])
     save(fig, "fig37_residual_attacks.png")
+
+
+def fig38_doubler_cones():
+    """V102: the twelve doubler cones are exactly linear but never round."""
+    import json
+    d = json.load(open(os.path.join(
+        ROOT, "experiments", "V102_lorentz_isotropy", "results",
+        "v102_lorentz_isotropy.json")))["data"]
+    nodes = d["per_node"]
+
+    fig = plt.figure(figsize=(13.6, 4.5))
+    gs = fig.add_gridspec(1, 3, wspace=0.30)
+
+    # (a) one node: the velocity surface v(n) over 100 directions,
+    #     inside the causal sphere |v| = 1
+    ax = fig.add_subplot(gs[0], projection="3d")
+    vd = np.array(nodes[0]["v_dirs"])
+    pts = vd[:, :3] * vd[:, 3:4]
+    ax.scatter(pts[:, 0], pts[:, 1], pts[:, 2], c=vd[:, 3],
+               cmap="viridis", s=16, depthshade=False)
+    u = np.linspace(0, 2 * np.pi, 25)
+    v = np.linspace(0, np.pi, 13)
+    sx, sy, sz = (np.outer(np.cos(u), np.sin(v)),
+                  np.outer(np.sin(u), np.sin(v)),
+                  np.outer(np.ones_like(u), np.cos(v)))
+    ax.plot_wireframe(sx, sy, sz, color=C_OPEN, lw=0.4, alpha=0.35)
+    ax.set_box_aspect((1, 1, 1))
+    ax.set_xlim(-1.05, 1.05); ax.set_ylim(-1.05, 1.05)
+    ax.set_zlim(-1.05, 1.05)
+    ax.set_xlabel(r"$\hat n_x$"); ax.set_ylabel(r"$\hat n_y$")
+    ax.set_zlabel(r"$\hat n_z$")
+    ax.view_init(elev=14, azim=32)
+    ax.set_title("(a) one node: raw $|v(\\hat n)|$ (min eigenphase)\n"
+                 "over 100 directions, inside the causal sphere\n"
+                 "(grey, speed 1) - never round (V102)", fontsize=12)
+
+    # (b) all 12 nodes: the 1200 measured velocities
+    ax2 = fig.add_subplot(gs[1])
+    for i, n in enumerate(nodes):
+        vv = np.array(n["v_dirs"])[:, 3]
+        ax2.scatter(np.full_like(vv, i) + 0.06 * ((i % 2) - 0.5), vv,
+                    s=10, color=C_GUT, alpha=0.55)
+    vp = np.array(nodes[0]["v_principal"])
+    ax2.axhspan(float(vp[0]), float(vp[2]), color=C_GUT, alpha=0.15)
+    ax2.annotate("tensor fit: principal band\n0.20 / 0.20 / 0.28",
+                 xy=(5.5, 0.26), xytext=(5.5, 0.62), ha="center",
+                 fontsize=10.5, color=C_GUT,
+                 arrowprops=dict(arrowstyle="->", color=C_GUT, lw=1))
+    ax2.axhline(1.0, color=C_ZERO, ls="--", lw=1.6)
+    ax2.text(11.4, 1.02, "causal speed 1", ha="right", fontsize=10.5,
+             color=C_ZERO)
+    ax2.axhline(0.0, color="k", lw=0.8)
+    ax2.set_xticks(range(12))
+    ax2.set_xticklabels([f"{i}" for i in range(12)], fontsize=10)
+    ax2.set_xlabel("doubler node (one $O_h$ orbit)")
+    ax2.set_ylabel(r"$|v(\hat n)|$  (lattice units)")
+    ax2.set_ylim(0, 1.08)
+    ax2.set_title("(b) 12 nodes x 100 directions: 1200/1200 linear;\n"
+                  "the velocity tensor fit gives principal cone\n"
+                  "0.20/0.20/0.28 - a factor ~4 below causal (V102)",
+                  fontsize=12)
+
+    # (c) anisotropy per node: the orbit is uniform
+    ax3 = fig.add_subplot(gs[2])
+    an = [n["anisotropy"] for n in nodes]
+    ax3.bar(range(12), an, color=C_FIT, width=0.62)
+    ax3.axhline(float(np.mean(an)), color=C_ALG, ls="--", lw=1.5)
+    ax3.text(11.4, np.mean(an) + 0.012, f"mean {np.mean(an):.3f}",
+             ha="right", fontsize=10.5, color=C_ALG)
+    ax3.set_ylim(0, 0.9)
+    ax3.set_xticks(range(12))
+    ax3.set_xticklabels([f"{i}" for i in range(12)], fontsize=10)
+    ax3.set_xlabel("doubler node")
+    ax3.set_ylabel("cone anisotropy (eigen-spread / mean)")
+    ax3.set_title("(c) every node of the orbit carries the SAME\n"
+                  "anisotropic cone: 0.748-0.758 - the lattice\n"
+                  "signature is universal, not a defect (V102)",
+                  fontsize=12)
+
+    fig.suptitle("The twelve doubler cones: exactly linear, never Lorentz-"
+                 "round (V102)", fontsize=14.5)
+    fig.subplots_adjust(left=0.03, right=0.99, bottom=0.12, top=0.79)
+    save(fig, "fig38_doubler_cones.png")
+
+
+def fig39_isotropy_search():
+    """V115: no isotropy point on the whole V65 Wilson family."""
+    import json
+    d = json.load(open(os.path.join(
+        ROOT, "experiments", "V115_w9_cone_isotropy", "results",
+        "v115_w9_cone_isotropy.json")))["data"]
+    pts = d["gapless_points"]
+    A = np.array([p[0] for p in pts])
+    th = np.array([p[2] for p in pts])
+    w = np.array([p[3] for p in pts])
+    n = len(A)
+
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13.6, 4.5))
+
+    # (a) the search space: every gapless point, and the empty target
+    ax1.axhspan(0.0, 1e-6, color=C_SU3, alpha=0.9)
+    ax1.axhspan(1e-6, 0.05, color=C_SU3, alpha=0.15)
+    sc = ax1.scatter(w, A, c=th, cmap="plasma", s=9, alpha=0.8)
+    fig.colorbar(sc, ax=ax1, pad=0.02, label=r"Wilson angle $\theta$")
+    ax1.annotate("Lorentz target $A<10^{-6}$:\n0 / %d points" % n,
+                 xy=(1.5, 0.035), xytext=(1.5, 0.30), fontsize=11.5,
+                 color=C_SU3, ha="center",
+                 arrowprops=dict(arrowstyle="->", color=C_SU3, lw=1.4))
+    amin = float(d["min_anisotropy"])
+    ax1.annotate(f"closest approach $A$ = {amin:.3f}", xy=(w[np.argmin(A)],
+                 amin), xytext=(0.35, 0.72), fontsize=11.5, color=C_ZERO,
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.4))
+    ax1.set_xlabel(r"Wilson strength $w$")
+    ax1.set_ylabel(r"cone anisotropy $A=\frac{v_{\max}-v_{\min}}{v_{\max}+v_{\min}}$")
+    ax1.set_ylim(0, 1.03)
+    ax1.set_title(f"(a) {n} gapless points of the family\n"
+                  "(2 reps x 60 angles, all zeros located):\n"
+                  "the isotropy band is empty (V115)", fontsize=12)
+
+    # (b) the distribution of A: pinned at full anisotropy
+    ax2.hist(A, bins=np.arange(0.90, 1.005, 0.01), color=C_FIT)
+    ax2.axvline(amin, color=C_ZERO, ls="--", lw=1.5)
+    ax2.text(amin - 0.004, ax2.get_ylim()[1] * 0.94,
+             f"min {amin:.3f}", ha="right", va="top", fontsize=11,
+             color=C_ZERO)
+    ax2.set_xlabel(r"cone anisotropy $A$")
+    ax2.set_ylabel("gapless points")
+    ax2.set_xlim(0.895, 1.005)
+    ax2.set_title("(b) every point sits at $A \\gtrsim 0.90$;\n"
+                  "isotropy ($A\\to 0$) is not approached\n"
+                  "anywhere on the family (V115)", fontsize=12)
+
+    # (c) no angle helps: A vs theta
+    ax3.scatter(th, A, c=w, cmap="viridis", s=9, alpha=0.8)
+    ax3.axhline(float(d["bare_cone_max_anisotropy"]), color=C_OPEN,
+                ls=":", lw=1.5)
+    ax3.text(6.15, float(d["bare_cone_max_anisotropy"]) + 0.004,
+             "bare cone (w = 0)", ha="right", fontsize=10.5, color=C_OPEN)
+    ax3.set_xlabel(r"Wilson angle $\theta$ (rad)")
+    ax3.set_ylabel(r"cone anisotropy $A$")
+    ax3.set_ylim(0.895, 1.005)
+    ax3.set_title("(c) all 60 angles x all strengths: the Wilson\n"
+                  "factor moves the zeros, never the cone's\n"
+                  "shape - W9 stays open (V115)", fontsize=12)
+
+    fig.suptitle("Is continuous Lorentz invariance emergent anywhere on "
+                 "the Wilson family? No (V115)", fontsize=14.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    save(fig, "fig39_isotropy_search.png")

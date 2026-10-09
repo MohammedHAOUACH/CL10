@@ -1,4 +1,4 @@
-"""CL10 publication figures: 37 figures, all computed from the construction.
+"""CL10 publication figures: 39 figures, all computed from the construction.
 
 One command regenerates everything:
 
@@ -65,6 +65,8 @@ FIGURES = [
     (35, dynamics.fig35_bh_frames),
     (36, residuals.fig36_vertex_ground_state),
     (37, residuals.fig37_residual_attacks),
+    (38, residuals.fig38_doubler_cones),
+    (39, residuals.fig39_isotropy_search),
 ]
 
 YOUNG = 19

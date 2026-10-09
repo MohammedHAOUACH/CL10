@@ -313,7 +313,12 @@ def main():
                     "best_point": [best[1], best[2], best[3],
                                    best[4], best[5]] if best else None,
                     "bare_cone_max_anisotropy": bare_A,
-                    "n_sphere_dirs": len(dirs)}}
+                    "n_sphere_dirs": len(dirs),
+                    # raw points for Fig. 39: [A, q, theta, w, vmax, vmin]
+                    "gapless_points": [[p[0], [float(x) for x in p[1]],
+                                        p[2], p[3], p[4], p[5]]
+                                       for p in allpts],
+                    "bare_cones": [[b[0], b[1], b[2]] for b in bare]}}
     residir = os.path.join(HERE, "results")
     os.makedirs(residir, exist_ok=True)
     with open(os.path.join(residir, "v115_w9_cone_isotropy.json"),
