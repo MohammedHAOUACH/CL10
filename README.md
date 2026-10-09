@@ -96,7 +96,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (102 experiments, V0-V101)
+├── experiments/              # the verification program (104 experiments, V0-V103)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -167,9 +167,9 @@ CL10/
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 20): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 20 panels are the V62 product
-├── run_validation.py         # the runner: runs all 102, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 104, writes the hard-tier verdict
 └── results/
-    └── validation_summary.json   # the 102/102 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 104/104 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -193,7 +193,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 102 experiments, prints the hard-tier verdict
+python3 run_validation.py        # runs all 104 experiments, prints the hard-tier verdict
 python3 -m make_figures          # regenerates ALL 36 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu

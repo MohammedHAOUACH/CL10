@@ -105,3 +105,32 @@ does the same at the pandoc-AST level).
 - [ ] Zenodo release + concept DOI added to the code-availability paragraph
 - [ ] The GitHub repository the paper asserts must be public before submission
 - [ ] Refs 13, 14, 15, 19, 23, 24, 29, 31, 32: confirm their DOIs by hand
+
+## 5. Addendum 2026-10-09 — W2 re-audit (V103)
+
+The V90 claim "the democratic neutrino point is an exact, unprotected,
+measure-zero tuning" was re-derived and found to rest on an assumption
+V90 never justified: a Dirac matrix proportional to the identity. The
+implemented 0-parameter structure (V28/V45, `cl10/yukawa.py`) is the
+democratic rank-1 $m_D = m_0 J$. Re-running the window scan with it
+(`experiments/V103_w2_democratic`, PASS):
+
+- $m_D^{\mathsf T} M^+ m_D = 3m_0^2 J/(2(w_0+\kappa))$ for every junction
+  ratio $r = \kappa/w_0$ (dev $<10^{-12}$, rank-deficient $r = 2$ via the
+  Moore–Penrose pseudo-inverse);
+- the two massless neutrinos are protected by the rank-1 family symmetry
+  for every $r$ — not only at $r = 2$;
+- $m_3(r) = S_{17}/(1+r)$ is finite everywhere; the cosmological window
+  is $r > 0.217$ (width $2.78$), and the atmospheric scale selects
+  $r = 1.91$; $r = 2$ ($S_{17}/3 = 0.0487$ eV) is a junction-amplitude
+  convention, not a tuning.
+
+What does NOT change: the candidate still requires a democratic $m_D$
+(else gapless coloured doublers, V76); the solar mass still needs the W6
+splitting; the ladder value $0.146$ eV is still in tension.
+
+Changes: `experiments/V103_w2_democratic` (new, PASS),
+`make_figures/residuals.py` (fig30 redrawn with both Dirac assumptions),
+`doc/publication.md` (Section 10.3, Table 4 $m_\nu$ row, W2 row, Fig. 30
+caption, audit-trail paragraph, code-availability line, check count
+102 → 104 — the count was already stale at 102 when V102 landed).

@@ -394,64 +394,79 @@ def fig30_w2_protection():
     import json
     with open(os.path.join(ROOT, "experiments", "V90_w2_protection",
                            "results", "v90_w2_protection.json")) as f:
-        d = json.load(f)["data"]
+        d90 = json.load(f)["data"]
+    with open(os.path.join(ROOT, "experiments", "V103_w2_democratic",
+                           "results", "v103_w2_democratic.json")) as f:
+        d103 = json.load(f)["data"]
     S17, bound = 0.146, 0.12
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.7),
                                    gridspec_kw={"width_ratios": [1.3, 1.0]})
 
-    r = np.linspace(1.0, 3.0, 4001)
+    r = np.linspace(0.05, 3.0, 4001)
     with np.errstate(divide="ignore"):
-        s = S17 / (1 + r) + 2 * S17 / np.abs(2 - r)
-    axA.semilogy(r, s, color=C_GUT, lw=2.0,
-                 label=r"$\sum m_\nu(r) = \frac{S_{17}}{1+r} + "
-                       r"\frac{2 S_{17}}{|2-r|}$")
+        s_id = S17 / (1 + r) + 2 * S17 / np.abs(2 - r)
+    s_demo = S17 / (1 + r)
+    axA.semilogy(r, s_id, color=C_GUT, lw=2.0,
+                 label=r"identity $m_D$ (V90): $\frac{S_{17}}{1+r} + "
+                       r"\frac{2S_{17}}{|2-r|}$")
+    axA.semilogy(r, s_demo, color="#2c7a3f", lw=2.4,
+                 label=r"democratic $m_D$ (V103): $m_3 = "
+                       r"\frac{S_{17}}{1+r}$, two massless for every $r$")
     axA.axhline(bound, color=C_ZERO, ls="--", lw=1.8,
                 label=r"cosmological bound $\sum m_\nu < 0.12$ eV")
-    axA.axvline(2.0, color="#2c7a3f", lw=1.6)
+    r_min = S17 / bound - 1.0
+    axA.axvspan(r_min, 3.0, color="#2c7a3f", alpha=0.07)
+    axA.axvline(2.0, color="#2c7a3f", lw=1.2, alpha=0.5)
     axA.plot([2.0], [S17 / 3], "*", ms=17, color="#2c7a3f", zorder=6)
-    axA.annotate(f"the ONLY passing point:\n$r = 2$, "
-                 f"$\\sum m_\\nu = {S17/3:.4f}$ eV",
-                 xy=(2.0, S17 / 3), xytext=(1.95, 0.02), fontsize=11.5,
-                 color="#2c7a3f", weight="bold", ha="right",
-                 arrowprops=dict(arrowstyle="->", color="#2c7a3f", lw=1.2))
-    axA.annotate("any deviation makes the\nmassless states heavy "
-                 "($1/|2-r|$)", xy=(2.05, 0.6), xytext=(2.3, 2.0),
+    r_atm = d103["r_atm"]
+    axA.plot([r_atm], [bound * 0.417], "o", ms=10, color=C_SU2, zorder=6)
+    axA.annotate(f"atmospheric scale selects\n$r = {r_atm:.2f}$ "
+                 f"($m_3 = {S17/(1+r_atm):.4f}$ eV)",
+                 xy=(r_atm, S17 / (1 + r_atm)), xytext=(0.35, 0.4),
                  fontsize=11, color=C_SU2,
                  arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.0))
+    axA.annotate(f"window $r > {r_min:.2f}$ (width "
+                 f"{d103['window_width_democratic']:.2f})",
+                 (2.6, 0.016), fontsize=11.5, color="#2c7a3f",
+                 weight="bold", ha="center")
     axA.set_xlabel(r"junction ratio $r = \kappa / w_0$")
     axA.set_ylabel(r"$\sum m_\nu$ [eV]")
     axA.set_ylim(0.012, 2e3)
-    axA.set_title("(a)  the window is EXACTLY the point $r = 2$\n"
-                  "     (1 passing value in 20001 scanned)", fontsize=12.5)
-    axA.legend(loc="upper left", fontsize=10.5)
+    axA.set_title("(a)  V90 scanned $m_D \\propto I$ (divergent, one point);\n"
+                  "     the implemented democratic $m_D$ gives a finite window",
+                  fontsize=12.5)
+    axA.legend(loc="upper left", fontsize=9.5)
 
     axB.axis("off")
-    axB.set_title("(b)  is the point protected? (V90)", fontsize=12.5)
+    axB.set_title("(b)  what protects what (V90 + V103)", fontsize=12.5)
     rows = [
-        ("cubic action", "all of $S_3$ (6 permutations)",
-         C_GUT),
-        ("commutant", f"dim {d['commutant_nullity']} = "
+        ("cubic action", "all of $S_3$ (6 permutations)", C_GUT),
+        ("commutant", f"dim {d90['commutant_nullity']} = "
          r"$\operatorname{span}\{I, J\}$ only", C_ZERO),
-        ("quantization", f"one period "
-         f"{d['w_period_2pi_over_maxspacing']:.2f} for $w_0$ AND $\\kappa$",
-         C_ZERO),
-        ("window width", f"{d['window_width']} (measure zero)", C_ZERO),
-        ("mass regression", f"{d['eigenvalue_regression']:.0e} vs V76",
+        ("$m_D$ (V28/V45)", "democratic, rank 1 - 0-parameter", "#2c7a3f"),
+        ("massless pair", "protected for EVERY $r$ (rank-1 $m_D$)",
          "#2c7a3f"),
+        ("window", f"$r > {r_min:.2f}$, width "
+         f"{d103['window_width_democratic']:.2f} (was: point)", "#2c7a3f"),
+        ("$r$ from data", f"atmospheric: $r = {r_atm:.2f}$; "
+         "$r = 2$: $S_{17}/3$", C_SU2),
     ]
     for i, (k, v, c) in enumerate(rows):
-        y = 0.92 - i * 0.14
-        axB.text(0.02, y, k, fontsize=11.5, weight="bold", va="top")
-        axB.text(0.52, y, v, fontsize=11.5, color=c, va="top")
+        y = 0.94 - i * 0.108
+        axB.text(0.02, y, k, fontsize=11, weight="bold", va="top")
+        axB.text(0.42, y, v, fontsize=11, color=c, va="top")
     axB.text(0.02, 0.02,
-             "W2: no symmetry enlarges the stabilizer of $\\kappa = 2w_0$,\n"
-             "no quantization fixes the ratio, and the window is a\n"
-             "point - the tuning is ONE exact number, unprotected.",
-             fontsize=11.5, color=C_ROOT, weight="bold", va="bottom")
+             "W2 re-audited: the measure-zero tuning was an artifact of\n"
+             "the identity-$m_D$ assumption. The structure (2 massless +\n"
+             "1 massive, NO) is protected by the same family symmetry\n"
+             "that derives $\\sin^2\\theta_{12} = 1/3$; the value sits in a\n"
+             "finite window. Solar mass still needs W6.",
+             fontsize=10, color=C_ROOT, weight="bold", va="bottom")
 
-    fig.suptitle("The democratic neutrino point: exact, unprotected, "
-                 "measure-zero (V90)", fontsize=13.5)
+    fig.suptitle("The democratic neutrino point: the V90 tuning is an "
+                 "artifact of the wrong Dirac assumption (V103)",
+                 fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig30_w2_protection.png")
 
