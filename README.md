@@ -55,8 +55,8 @@ CL10/
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
 │   ├── fetch_dois.py         # resolves + verifies the 52 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (40 pages, 36 figures, 8 tables, 52 refs)
-├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 36 (see make_figures/README.md)
+│   └── publication.pdf       # the compiled paper (42 pages, 37 figures, 8 tables, 52 refs)
+├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 37 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
 │   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
@@ -202,7 +202,7 @@ cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 109 experiments, prints the hard-tier verdict
 ./run_gpu.sh                     # the full 109 on the GPU (cupy); warns if the card is busy
-python3 -m make_figures          # regenerates ALL 36 figures -> doc/figures/
+python3 -m make_figures          # regenerates ALL 37 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 20 scene)

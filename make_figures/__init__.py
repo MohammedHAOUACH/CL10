@@ -1,4 +1,4 @@
-"""CL10 publication figures: 36 figures, all computed from the construction.
+"""CL10 publication figures: 37 figures, all computed from the construction.
 
 One command regenerates everything:
 
@@ -64,6 +64,7 @@ FIGURES = [
     (34, algebra.fig34_brillouin_doublers),
     (35, dynamics.fig35_bh_frames),
     (36, residuals.fig36_vertex_ground_state),
+    (37, residuals.fig37_named_gaps_tested),
 ]
 
 YOUNG = 19

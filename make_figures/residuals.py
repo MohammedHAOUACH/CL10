@@ -43,7 +43,7 @@ def fig8_audit():
         ("convention", C_CONV,
          [r"$\alpha_{10} \equiv g_{10}^2$", r"$g_0 = 1/2^{n_{\rm space}}$"]),
         ("fitted coefficient", C_FIT,
-         ["2.08 (hierarchy)", "1.18 (DM mass)", r"$n_{2\text{step}} = 3$",
+         ["2.08 (hierarchy; V108: $3F_{10}^{10}$, conditional)", "1.18 (DM mass)", r"$n_{2\text{step}} = 3$",
           r"$M_{10}$", r"$M_{(1,2)}$", r"$\lambda_* = 4{\times}10^{-4}$",
           r"$\kappa_1$", r"$\kappa_2$", r"$\kappa_3$", r"$\kappa_4$",
           r"$\kappa_5$", r"$\kappa_6$"]),
@@ -687,3 +687,128 @@ def fig36_vertex_ground_state():
                  fontsize=13.5)
     fig.tight_layout()
     save(fig, "fig36_vertex_ground_state.png")
+
+
+def fig37_named_gaps_tested():
+    """The named gaps, directly tested: V105 (W4 Cartan), V106 (W5 washout),
+    V107 (W6 mixing orthogonality), V108 (W8 coefficient product)."""
+    import json
+
+    def _load(v):
+        p = os.path.join(ROOT, "experiments", v, "results",
+                         v.lower() + ".json")
+        return json.load(open(p))["data"]
+
+    d105 = _load("V105_w4_cartan_kappas")
+    d106 = _load("V106_w5_washout_audit")
+    d107 = _load("V107_mixing_from_kappas")
+    d108 = _load("V108_hierarchy_multiplicity")
+
+    fig, axs = plt.subplots(2, 2, figsize=(11.8, 8.6))
+    (ax1, ax2), (ax3, ax4) = axs
+
+    # (a) V105: no Cartan element supplies the kappa_s
+    ns = sorted(int(k) for k in d105["models"]["A2_step_direction"])
+    rA2 = [d105["models"]["A2_step_direction"][str(n)]["residual"] for n in ns]
+    rA1 = [d105["models"]["A1_general_spanXY"][str(n)]["residual"] for n in ns]
+    ax1.plot(ns, rA2, "o-", color=C_FIT, label="step direction $\\theta^*$")
+    ax1.plot(ns, rA1, "s--", color=C_OPEN, label="general $\\operatorname{span}\\{X,Y\\}$")
+    ax1.axhline(0.0, color=C_ALG, lw=1.6)
+    ax1.annotate("V96 exact meeting: residual $<10^{-13}$\n(unreachable by any Cartan direction)",
+                 xy=(4.0, 0.02), xytext=(4.5, 1.75), fontsize=11, color=C_ALG,
+                 arrowprops=dict(arrowstyle="->", color=C_ALG, lw=1))
+    ax1.set_xlabel("desert pairs $n$")
+    ax1.set_ylabel("meeting residual")
+    ax1.set_ylim(-0.15, 3.6)
+    ax1.legend(loc="upper left", fontsize=10.5)
+    ax1.set_title("(a) W4: the six $\\kappa_s$ are NOT a Cartan image —\n"
+                  "class-degenerate directions miss by $\\geq 0.30$ (V105)",
+                  fontsize=12.5)
+    ax1.text(0.98, 0.02, "every Cartan splitting the six classes\n"
+             "breaks all 8 unbroken desert roots",
+             transform=ax1.transAxes, ha="right", va="bottom", fontsize=10.5,
+             color=C_FIT)
+
+    # (b) V106: the washout kills the baryon product
+    M_N = d106["M_N_GeV"]
+    H = d106["H_GeV"]
+    ys = np.logspace(np.log10(0.01), np.log10(1.2), 80)
+    K = ys ** 2 * M_N / (8 * math.pi * H)
+    ax2.plot(ys, K, color=C_ALG, lw=1.8, label="$\\Gamma_N/H = y^2 M_N / 8\\pi H$")
+    ax2.axhline(1.0, color=C_ZERO, ls="--", lw=1.4)
+    ax2.text(0.011, 1.35, "Sakharov 3: out of equilibrium needs $K < 1$",
+             fontsize=10.5, color=C_ZERO)
+    yb = d106["y_out_of_equilibrium_bound"]
+    ax2.axvline(yb, color=C_ZERO, ls=":", lw=1.4)
+    ax2.text(yb * 1.12, 0.02, "$y < 0.058$", fontsize=10.5, color=C_ZERO,
+             rotation=90, va="bottom")
+    for name, c in d106["cases"].items():
+        ax2.plot(c["y"], c["K"], "o", color=C_FIT, ms=7, zorder=5)
+    ax2.annotate("self-consistent $y = 0.399$\n($m_\\nu = 0.0501$ eV): $K = 46.9$\n"
+                 "IN equilibrium; $\\kappa_f = 5.4\\times10^{-3}$\nvs guessed "
+                 "$D = 4.0\\times10^{-4}$ ($14\\times$)",
+                 xy=(0.3987, 46.9), xytext=(0.02, 0.97),
+                 textcoords="axes fraction", ha="left", va="top",
+                 fontsize=10.5, color=C_FIT,
+                 arrowprops=dict(arrowstyle="->", color=C_FIT, lw=1))
+    ax2.set_xscale("log")
+    ax2.set_yscale("log")
+    ax2.set_xlabel("Yukawa $y$")
+    ax2.set_ylabel("$\\Gamma_N / H$ at $M_N = 9.6\\times10^{13}$ GeV")
+    ax2.set_title("(b) W5: the same $y$ that gives $m_\\nu$ puts the decay\n"
+                  "in equilibrium — the $\\Delta B$ product is an accident (V106)",
+                  fontsize=12.5)
+
+    # (c) V107: the kappa pattern is generation-blind
+    labels = ["$\\Delta\\sin^2\\theta_{12}$\nneeded", "$\\sin^2\\theta_{13}$\nneeded",
+              "$\\Delta\\sin^2\\theta_{23}$\nneeded",
+              "max shift under\nthe whole $\\kappa_s$ scan"]
+    vals = [abs(0.308 - 1 / 3), 0.0222, abs(0.470 - 0.5),
+            d107["max_angle_shift_over_eps_scan"]]
+    cols = [C_OPEN, C_OPEN, C_OPEN, C_ALG]
+    bars = ax3.bar(range(4), vals, color=cols, width=0.62)
+    ax3.set_yscale("log")
+    ax3.set_ylim(1e-15, 0.12)
+    for b, v in zip(bars, vals):
+        ax3.text(b.get_x() + b.get_width() / 2, v * 1.5,
+                 f"{v:.1e}" if v < 1e-3 else f"{v:.3f}",
+                 ha="center", va="bottom", fontsize=11)
+    ax3.annotate("$\\sim 11$ orders of magnitude apart",
+                 xy=(3, 2.3e-13), xytext=(1.2, 2e-11), fontsize=11,
+                 color=C_ALG, arrowprops=dict(arrowstyle="->", color=C_ALG, lw=1))
+    ax3.set_xticks(range(4))
+    ax3.set_xticklabels(labels, fontsize=10.5)
+    ax3.set_ylabel("mixing-angle shift")
+    ax3.set_title("(c) W6: the W4 bond-layer fix is generation-blind —\n"
+                  "PMNS/CKM exactly invariant (V107)", fontsize=12.5)
+
+    # (d) V108: the coefficient un-fitted
+    F10 = d108["F_10_root"]
+    pred = d108["coefficient_predicted_3_F10_10"]
+    obs = d108["coefficient_observed"]
+    sens = 0.10  # 1% of F_10 -> 10% of the coefficient
+    ax4.bar([0, 1], [pred, obs], color=[C_FIT, "#9a9a9a"], width=0.55,
+            edgecolor="k", lw=0.6)
+    ax4.errorbar(0, pred, yerr=sens * pred, color=C_FIT, lw=1.6, capsize=5)
+    ax4.text(0, pred * 1.045, f"{pred:.3f}", ha="center", va="bottom", fontsize=11.5)
+    ax4.text(1, obs * 1.045, f"{obs:.3f}", ha="center", va="bottom", fontsize=11.5)
+    ax4.set_xticks([0, 1])
+    ax4.set_xticklabels(["$3\\,F_{10}^{10}$\n$F_{10} = 0.01919$ measured",
+                         "observed\n$v/M_P\\,(16\\pi)^{10}$"], fontsize=11)
+    ax4.set_ylim(0, 3.0)
+    ax4.set_ylabel("hierarchy coefficient")
+    ax4.text(0.5, 0.98, f"agreement $1 - {d108['relative_error']:.4f}$ = "
+             f"{100 * (1 - d108['relative_error']):.2f}\\%\n"
+             "error bar: $\\pm 1\\%$ on $F_{10}$ "
+             "$\\Rightarrow \\pm 10\\%$\nCONDITIONAL on axis-family "
+             "factorization",
+             transform=ax4.transAxes, fontsize=10.5, va="top", ha="center",
+             color=C_FIT)
+    ax4.set_title("(d) W8: 2.08 is no longer fitted — $3F_{10}^{10}$ from\n"
+                  "measured root numbers (V85/V89/V70), V108", fontsize=12.5)
+
+    fig.suptitle("The named gaps, directly tested: what the extended "
+                 "automaton can and cannot supply (V105–V108)",
+                 fontsize=14)
+    fig.tight_layout(rect=[0, 0, 1, 0.965])
+    save(fig, "fig37_named_gaps_tested.png")

@@ -1,10 +1,10 @@
-# make_figures — the 36 publication figures, one command
+# make_figures — the 37 publication figures, one command
 
 Every figure in `doc/publication.md` is **computed from the construction**;
 none contains hand-entered data. This package is the single entry point.
 
 ```bash
-python3 -m make_figures                # all 36 figures -> doc/figures/
+python3 -m make_figures                # all 37 figures -> doc/figures/
 python3 -m make_figures --only 7 12    # a subset, by paper number
 python3 -m make_figures --fast         # skip the two slow GPU figures (19, 20)
 python3 -m make_figures --cpu          # force the numpy backend
@@ -18,7 +18,7 @@ python3 -m make_figures --cpu          # force the numpy backend
    missing, or the pinned card has less than 2 GiB free (checked via
    `nvidia-smi`, since creating a CUDA context can itself OOM), the run
    falls back to numpy with a printed notice — never a crash.
-2. **The registry** (`__init__.py`, `FIGURES`) runs the 35 matplotlib
+2. **The registry** (`__init__.py`, `FIGURES`) runs the 36 matplotlib
    figures in paper order, grouped by subject:
 
    | module | figures |
@@ -28,7 +28,7 @@ python3 -m make_figures --cpu          # force the numpy backend
    | `couplings.py` | 12, 15, 21, 22, 24, 25, 26 — running, 2-loop UV, desert, Wilson, composites, closed loops, equal shift |
    | `proton.py` | 16 — the three decay channels at the desert point |
    | `dynamics.py` | 17, 18, 19, 35 — QCA causal front, 3+1 gravity, **young double-slit**, black-hole frames |
-   | `residuals.py` | 8, 23, 27-31, 33, 36 — parameter audit, gauged layer, W2-W9 closures, fragment hull, vertex ground state |
+   | `residuals.py` | 8, 23, 27-31, 33, 36, 37 — parameter audit, gauged layer, W2-W9 closures, fragment hull, vertex ground state, named-gap tests |
 
 3. **Fig. 19 (young)** runs the `simulation/young` QCA (wave + collapse,
    GPU through the same backend switch). It is the slowest figure (~15 min

@@ -184,7 +184,7 @@ def fig10_sm_head2head():
                  fontsize=14, y=0.995)
     _pair(axs[0, 0], "baryon asymmetry  $\\Delta B$", "$\\times10^{-10}$",
           6.12, 6.8, False, left="Planck",
-          note="coincidental product (W5)")
+          note="coincidental product (W5);\nwashout at self-consistent $y$:\n$K = 47$, in equilibrium (V106)")
     _pair(axs[0, 1], "dark-matter mass  $m_{\\rm DM}$", "GeV",
           100.0, d["m_DM_GeV"], False, left="weak scale",
           note="mass coincidence (W7);\n$\\Omega h^2$ not computed")
