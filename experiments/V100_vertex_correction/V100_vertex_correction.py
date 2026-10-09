@@ -71,26 +71,54 @@ V79 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(V79)
 
 
+def _jax_batch():
+    """JAX (x64) for the batched 10x10 QRs: numpy's stacked QR loops per
+    matrix (~3 us each, 30 s for 10M); XLA vectorizes across the batch.
+    Returns jnp or None (GPU busy / jax absent)."""
+    try:
+        os.environ.setdefault("XLA_PYTHON_CLIENT_MEM_FRACTION", "0.25")
+        import jax
+        jax.config.update("jax_enable_x64", True)
+        if not jax.devices():
+            return None
+        import jax.numpy as jnp
+        return jnp
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def haar_chi_moments(ns, n_samples, rng):
-    """E[chi_adj^n] over Haar SO(10), n in ns: (mean, stderr) each."""
-    if HAVE_GPU:
-        xp, crng = cp, cp.random.default_rng(20261008)
-        batch = 1_000_000
-    else:
-        xp, crng, batch = np, rng, 100_000
+    """E[chi_adj^n] over Haar SO(10), n in ns: (mean, stderr) each.
+    The Gaussian stream stays numpy (identical samples either way);
+    only the batched QR moves to JAX when the GPU is free."""
+    jnp = _jax_batch()
+    xp, crng, batch = np, rng, 100_000
     acc = {n: xp.zeros(2) for n in ns}
     done = 0
     while done < n_samples:
         m = min(batch, n_samples - done)
         G = crng.standard_normal((m, 10, 10))
-        Q, R = xp.linalg.qr(G)
-        d = xp.sign(xp.diagonal(R, axis1=1, axis2=2))
-        Q = Q * d[:, None, :]
-        det = xp.sign(xp.linalg.det(Q))
-        Q[:, 0, :] *= det[:, None]
-        tr = xp.einsum("mii->m", Q)
-        tr2 = xp.einsum("mij,mji->m", Q, Q)
-        chi = 0.5 * (tr * tr - tr2)
+        if jnp is not None:
+            try:
+                Q, R = jnp.linalg.qr(jnp.asarray(G))
+                d = jnp.sign(jnp.diagonal(R, axis1=1, axis2=2))
+                Q = Q * d[:, None, :]
+                det = jnp.sign(jnp.linalg.det(Q))
+                Q = Q.at[:, 0, :].multiply(det[:, None])
+                tr = jnp.einsum("mii->m", Q)
+                tr2 = jnp.einsum("mij,mji->m", Q, Q)
+                chi = np.asarray(0.5 * (tr * tr - tr2))
+            except Exception:  # noqa: BLE001  (OOM mid-run: numpy path)
+                jnp = None
+        if jnp is None:
+            Q, R = xp.linalg.qr(G)
+            d = xp.sign(xp.diagonal(R, axis1=1, axis2=2))
+            Q = Q * d[:, None, :]
+            det = xp.sign(xp.linalg.det(Q))
+            Q[:, 0, :] *= det[:, None]
+            tr = xp.einsum("mii->m", Q)
+            tr2 = xp.einsum("mij,mji->m", Q, Q)
+            chi = 0.5 * (tr * tr - tr2)
         for n in ns:
             x = chi ** n
             acc[n] += xp.array([x.sum(), (x * x).sum()])
@@ -259,24 +287,13 @@ def main():
     C = (O @ O.conj().T) / rank  # max-mixed weights in glued basis
 
     # ---- 3. capacity: max-mixed entropy, middle cut ------------------------
-    Gm = np.zeros((1024, 1024), dtype=np.complex128)
-    si = 0
-    for a in range(nI):
-        for t in range(nT):
-            for b in range(nI):
-                sj = 0
-                for a2 in range(nI):
-                    for t2 in range(nT):
-                        for b2 in range(nI):
-                            w = C[si, sj]
-                            if abs(w) > 1e-15:
-                                kk = K[a, a2, t, t2].conj()
-                                Gm += w * np.einsum(
-                                    "b,kb,lb->kl", kk,
-                                    Is[b], Is[b2].conj())
-                            sj += 1
-                si += 1
-    Gm = (Gm + Gm.conj().T) / 2
+    # vectorized: Gm[k,l] = sum_{a,t,b,c,u,v} C[(a,t,b),(c,u,v)]
+    #   * conj(K[a,c,t,u,q]) * Is[b][k,q] * conj(Is[v][l,q]),
+    # summed over the shared leg q (K index order (x,y,t,u,beta)).
+    C6 = C.reshape(nI, nT, nI, nI, nT, nI)          # (a,t,b,c,u,v)
+    Kc = K.conj()                                    # (a,c,t,u,q)
+    M = np.einsum("atbcuv,actuq->bvq", C6, Kc)
+    Gm = np.einsum("bvq,bkq,vlq->kl", M, Is, Is.conj(), optimize=True)
     ev = np.linalg.eigvalsh(Gm)
     tr = float(np.real(np.sum(ev[np.abs(ev) > 1e-12])))
     ev = ev[ev > 1e-14]

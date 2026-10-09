@@ -8,20 +8,22 @@ JSON verdict, and writes a single summary to ``results/validation_summary.json``
 
 Usage::
 
-    python3 run_validation.py          # run all experiments
-    python3 run_validation.py V0 V1    # run a subset
-
+    python3 run_validation.py              # run all experiments, in parallel
+    python3 run_validation.py V0 V1        # run a subset
+    python3 run_validation.py --jobs 4     # cap the worker pool (default: cores)
 Each experiment is a **0-parameter** check: it confirms a prediction of the
 publication (Section 10) or reports an honest residual.  The verdict JSON has
 ``pass``, ``status``, the 0-parameter number, and ``wall_time``.
 """
 
+import argparse
 import glob
 import json
 import os
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 EXPS = os.path.join(ROOT, "experiments")
@@ -34,10 +36,16 @@ def find_experiments():
 
 def run_one(exp_dir):
     script = os.path.join(exp_dir, os.path.basename(exp_dir) + ".py")
+    # one BLAS thread per subprocess: with --jobs 12 on 12 cores, the
+    # default nested threading (12 jobs x 12 BLAS threads) thrashes and
+    # made V110 8x slower inside the suite than standalone.
+    env = os.environ.copy()
+    for v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+              "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+        env[v] = "1"
     t0 = time.time()
     proc = subprocess.run([sys.executable, script], capture_output=True,
-                          text=True, cwd=ROOT)
-    time_ = time.time() - t0
+                          text=True, cwd=ROOT, env=env)
     residir = os.path.join(exp_dir, "results")
     verdict = None
     if os.path.isdir(residir):
@@ -82,20 +90,41 @@ def run_one(exp_dir):
 
 
 def main():
-    only = set(sys.argv[1:])
+    ap = argparse.ArgumentParser(description="the CL10 validation runner")
+    ap.add_argument("--jobs", type=int, default=min(12, os.cpu_count() or 4),
+                    help="parallel experiment workers (subprocesses)")
+    ap.add_argument("only", nargs="*", help="experiment dir names to run")
+    args = ap.parse_args()
+    only = set(args.only)
     exps = [d for d in find_experiments() if not only or os.path.basename(d) in only]
     print("=" * 68)
     print("CL10  —  0-parameter verification program  (the GPU engine)")
     print("=" * 68)
     import cl10.engine as E
-    print("  backend:", E._BACKEND)
-    results = []
-    for d in exps:
-        r = run_one(d)
-        results.append(r)
-        mark = "PASS" if r["pass"] else "FAIL"
-        tier = f"T{r['tier']}" if r["tier"] is not None else "   "
-        print(f"  [{mark}]  {r['id']:18s}  {tier}  {r['status']}  ({r['wall_time']} s)")
+    print(f"  backend: {E._BACKEND}   jobs: {args.jobs}")
+    # experiments are independent subprocesses writing to their own
+    # results/ dir: run them concurrently, REPORT EACH AS IT FINISHES so a
+    # slow experiment is visible live; everything is also logged to
+    # results/run_log.txt.
+    t_start = time.time()
+    logp = os.path.join(ROOT, "results", "run_log.txt")
+    with open(logp, "w") as logf:
+        def emit(line):
+            print(line, flush=True)
+            logf.write(line + "\n")
+            logf.flush()
+        done = []
+        with ThreadPoolExecutor(max_workers=args.jobs) as pool:
+            futs = [pool.submit(run_one, d) for d in exps]
+            for fut in as_completed(futs):
+                r = fut.result()
+                done.append(r)
+                mark = "PASS" if r["pass"] else "FAIL"
+                tier = f"T{r['tier']}" if r["tier"] is not None else "   "
+                el = time.time() - t_start
+                emit(f" [{el:7.1f}s] [{mark}]  {r['id']:34s} {tier} "
+                     f"{r['status']}  ({r['wall_time']} s)")
+        results = sorted(done, key=lambda r: r["id"])
     n_pass = sum(1 for r in results if r["pass"])
     n = len(results)
     # the U10 verdict: the hard tiers (0-3) all PASS (V0-V7 + V11-V13).

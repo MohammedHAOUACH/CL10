@@ -114,33 +114,34 @@ def main():
                 if C[k, m] > 0]
     K = len(channels)
 
+    ch_k = np.array([k for (k, m) in channels])
+    ch_m = np.array([m for (k, m) in channels])
+    ch_mult = np.array([C[k, m] for (k, m) in channels])
+    _dzdiag = np.eye(nk)
+
     def kappas_from(c2, z0):
         """Second-order level repulsion of the class channels."""
-        kap = np.zeros(nk)
+        Cc = np.zeros((nk, nk))
+        Cc[ch_k, ch_m] = ch_mult * c2
+        Cc[ch_m, ch_k] = ch_mult * c2
         z = z0 + lp_s
-        for (k, m), cc in zip(channels, c2):
-            dz = z[k] - z[m]
-            kap[k] += C[k, m] * cc / dz
-            kap[m] += C[m, k] * cc / (-dz)
-        return kap
+        dz = z[:, None] - z[None, :] + _dzdiag  # diag unused (Cc diag 0)
+        return (Cc / dz).sum(axis=1)
 
     def mu_of(n):
         return np.array([2.0 * math.cos(2.0 * math.pi * l / n) - 1.0
                          for l in range(n)])
 
+    S0 = INV_A10 + np.array(B_SM) * xs / TWO_PI
+    LI = li_all  # (3, nk)
+
     def meeting_residual(z0, kappas, n):
-        F = np.zeros(3)
-        for i in range(3):
-            li = li_all[i]
-            s = INV_A10 + B_SM[i] * xs / TWO_PI
-            s += float(n / TWO_PI * (li @ (xs - lp_s - z0))
-                       + n / TWO_PI * li @ kappas)
-            F[i] = s - 1.0 / A_Z[i]
-        return F
+        s = S0 + n / TWO_PI * (LI @ (xs - lp_s - z0) + LI @ kappas)
+        return s - 1.0 / np.array(A_Z)
 
     def desert_ok(z0, kappas, n):
         mu = mu_of(n)
-        allz = [z0 + lp_s[k] + kappas[k] * m for k in range(nk) for m in mu]
+        allz = (z0 + lp_s[:, None] + kappas[:, None] * mu[None, :]).ravel()
         return min(allz) >= -1e-9 and max(allz) <= Z_MAX + 1e-9
 
     # ---- sign structure: what level repulsion can and cannot do ------------
@@ -167,12 +168,10 @@ def main():
             z0, c2 = x[0], np.abs(x[1:])
             kap = kappas_from(c2, z0)
             F = meeting_residual(z0, kap, n)
-            pen = 0.0
             mu = mu_of(n)
-            for k in range(nk):
-                z = z0 + lp_s[k] + kap[k] * mu
-                pen += 10.0 * (np.sum(np.maximum(0.0, -z))
-                               + np.sum(np.maximum(0.0, z - Z_MAX)))
+            z = z0 + lp_s[:, None] + kap[:, None] * mu[None, :]
+            pen = 10.0 * (np.sum(np.maximum(0.0, -z))
+                          + np.sum(np.maximum(0.0, z - Z_MAX)))
             return float(np.max(np.abs(F))) + pen
 
         best = None

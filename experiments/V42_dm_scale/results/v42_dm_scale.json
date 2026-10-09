@@ -20,5 +20,5 @@
     "under_abundant": true,
     "residual": "the sub-Planck DM scale that gives the observed abundance: the 0-parameter Planck-mass / Planck-cross-section relic is under-abundant (computed gap Omega_0param/Omega_obs ~= 5.5e-52 < 1e-20) — the W7 wall, now quantified"
   },
-  "wall_time": 0.002
+  "wall_time": 0.011
 }

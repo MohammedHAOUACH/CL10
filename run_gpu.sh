@@ -11,14 +11,14 @@ nvidia-smi --query-gpu=name,memory.used,memory.total,utilization.gpu --format=cs
 used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits | head -1)
 total=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits | head -1)
 if [ "${used:-0}" -gt $(( total * 3 / 10 )) ]; then
-    echo "WARNING: GPU already ${used}/${total} MiB used - another process"
-    echo "may OOM cupy (this killed the last run). Ctrl-C now if so."
+    echo "NOTE: GPU already ${used}/${total} MiB used - the engine probe"
+    echo "falls back to numpy per experiment instead of OOM-crashing."
 fi
 
 echo
-echo "== running run_validation.py (cupy) =="
-.venv/bin/python run_validation.py
-rc=$?
+echo "== running run_validation.py (cupy, ${JOBS:-12} parallel jobs) =="
+.venv/bin/python run_validation.py --jobs "${JOBS:-12}" 2>&1 | tee results/run_console.txt
+rc=${PIPESTATUS[0]}
 
 echo
 echo "== summary (results/validation_summary.json) =="
