@@ -53,9 +53,9 @@ CL10/
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
 │   ├── filter.lua            # Divs -> figure / figure* / table* / thebibliography
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
-│   ├── fetch_dois.py         # resolves + verifies the 52 refs against Crossref -> doi.json (clickable DOIs in the PDF)
+│   ├── fetch_dois.py         # resolves + verifies the 53 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (42 pages, 37 figures, 8 tables, 52 refs)
+│   └── publication.pdf       # the compiled paper (42 pages, 37 figures, 8 tables, 53 refs)
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 37 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
 │   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
@@ -96,7 +96,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (109 experiments, V0-V108)
+├── experiments/              # the verification program (117 experiments, V0-V116)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -171,12 +171,20 @@ CL10/
 ├── V106/               # the W5 washout audit: at the SAME Yukawa giving m_nu = 0.0501 eV (y = 0.40) the decay is IN equilibrium (Gamma/H = 47) and the physical efficiency kappa_f = 5.4e-3 (Buchmuller-Di Bari-Plumacher) sits 14x from the guessed dilution (1/16pi)^2 - the 11% Delta B agreement is an accident of two wrong factors
 ├── V107/               # the W6 orthogonality test: V96's kappa_s are per-GAUGE-class (generation-blind) - PMNS/CKM exactly invariant under the whole kappa pattern (max angle shift 2e-13): the W4 bond-layer fix cannot supply the mixing deviations; W6 needs generation-space structure
 ├── V108/               # the hierarchy coefficient un-fitted: v/M_P = 3*F_10^10 with F_10 = 0.019186 measured (V85), 3 = the axis families (V70), 10 = the crossing (V89): 2.088 vs 2.076 observed (99.4%) - conditional on the axis-family factorization of the closed-loop sum
+├── V109/               # the W5 CP search in the EXTENDED structure: the mirror is the CP-forbidding structure - the Wilson extension preserves the +- pairing (2.4e-15, V71 regression) and supplies NO phase; every class-dependent dressing (general kappa_s layer, general real-symmetric bond generator, both mirror sign conventions) BREAKS the one-cell mirror (dev ~ 1): a CP phase costs Theorem 4
+├── V110/               # the W4 off-diagonal bond program V105 demanded: 80 root-vector bond channels, one Hermitian bond operator (12 parameters) - the meeting does NOT close (floor 30.4 at n=3 over n=3..12); level repulsion forces 2 of the 6 kappa_s signs: the pattern stays a named input
+├── V111/               # the W6 generation-space dressing: a scalar dressing is exactly blind (1.4e-13); a COMMON non-abelian family dressing (7 parameters) reaches the measured mixing triple; chiral-asymmetric (13 parameters) reaches it as a fit - W6 is reachable only at named-input cost
+├── V112/               # the W7 dark-U(1) portal: the extra U(1) of the V67 chain (E ~ (-1,-1,1,1,1)/sqrt5) has charged desert matter but is UNHIGGSABLE inside the spectrum (all E-charged 45-directions are colour triplets); the named dark-Higgs window is EMPTY (relic needs gD*eps >~ 0.02, direct detection allows <~ 1e-3)
+├── V113/               # the W8 axis-family factorization MEASURED: the 12 node channels carry exactly equal loop factors (across-family spectral identity 0.00); the hierarchy coefficient is a node-set choice - one split node per family: 2.0881 vs 2.0765 observed (99.44%), all 12: 8.35, single: 0.696
+├── V114/               # the W2 junction ratio r = kappa/w0 NOT derived: the V76 modulation's exact stabilizer is a 12-element subgroup (not the 24 chiral cubic); NO cubic-symmetric closed junction exists on (Z/4)^3 (closed space trivial); inside the V76 stabilizer the closed space is 2-dimensional - w0 independent of kappa: r stays free
+├── V115/               # the W9 cone-isotropy scan: the node gap g(w) of the V65 Wilson family located numerically (grid + golden-section) at 60 angles; the smallest cone anisotropy over all gapless points reported - no isotropy point on the family (W9 confirmed beyond the V65 root)
+├── V116/               # the W3 triangle orbit-8 audit: the 64 one-per-family triangles split into 4 cubic orbits (8, 8, 24, 24); a triangle's stabilizer is exactly S3 (order 6) - the split reduces O_h -> S3 and the 8 choices of an orbit are physically distinct vacua (8-fold degeneracy, domain walls)
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 20): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 20 panels are the V62 product
-├── run_validation.py         # the runner: runs all 109, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 117, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 └── results/
-    └── validation_summary.json   # the 109/109 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 117/117 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -200,8 +208,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 109 experiments, prints the hard-tier verdict
-./run_gpu.sh                     # the full 109 on the GPU (cupy); warns if the card is busy
+python3 run_validation.py        # runs all 117 experiments, prints the hard-tier verdict
+./run_gpu.sh                     # the full 117 on the GPU (cupy); warns if the card is busy
 python3 -m make_figures          # regenerates ALL 37 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu
@@ -217,8 +225,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **109** experiments
-(V0–V108) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **117** experiments
+(V0–V116) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

@@ -689,9 +689,10 @@ def fig36_vertex_ground_state():
     save(fig, "fig36_vertex_ground_state.png")
 
 
-def fig37_named_gaps_tested():
-    """The named gaps, directly tested: V105 (W4 Cartan), V106 (W5 washout),
-    V107 (W6 mixing orthogonality), V108 (W8 coefficient product)."""
+def fig37_residual_attacks():
+    """Attacking the residuals head-on: V109 (W5 CP/mirror), V110 (W4 bond
+    off-diagonal), V111 (W6 generation dressing), V112 (W7 dark U(1)),
+    V113 (W8 axis factorization), V116 (W3 triangle orbit-8)."""
     import json
 
     def _load(v):
@@ -699,116 +700,175 @@ def fig37_named_gaps_tested():
                          v.lower() + ".json")
         return json.load(open(p))["data"]
 
-    d105 = _load("V105_w4_cartan_kappas")
-    d106 = _load("V106_w5_washout_audit")
-    d107 = _load("V107_mixing_from_kappas")
-    d108 = _load("V108_hierarchy_multiplicity")
+    d109 = _load("V109_w5_cp_search")
+    d110 = _load("V110_w4_offdiagonal_bond")
+    d111 = _load("V111_w6_generation_bond")
+    d112 = _load("V112_w7_dark_u1_portal")
+    d113 = _load("V113_w8_axis_factorization")
+    d116 = _load("V116_w3_triangle_orbit8")
 
-    fig, axs = plt.subplots(2, 2, figsize=(11.8, 8.6))
-    (ax1, ax2), (ax3, ax4) = axs
+    fig, axs = plt.subplots(2, 3, figsize=(14.4, 8.8))
+    (ax1, ax2, ax3), (ax4, ax5, ax6) = axs
 
-    # (a) V105: no Cartan element supplies the kappa_s
-    ns = sorted(int(k) for k in d105["models"]["A2_step_direction"])
-    rA2 = [d105["models"]["A2_step_direction"][str(n)]["residual"] for n in ns]
-    rA1 = [d105["models"]["A1_general_spanXY"][str(n)]["residual"] for n in ns]
-    ax1.plot(ns, rA2, "o-", color=C_FIT, label="step direction $\\theta^*$")
-    ax1.plot(ns, rA1, "s--", color=C_OPEN, label="general $\\operatorname{span}\\{X,Y\\}$")
-    ax1.axhline(0.0, color=C_ALG, lw=1.6)
-    ax1.annotate("V96 exact meeting: residual $<10^{-13}$\n(unreachable by any Cartan direction)",
-                 xy=(4.0, 0.02), xytext=(4.5, 1.75), fontsize=11, color=C_ALG,
+    # (a) V109: the mirror is the CP-forbidding structure
+    cases = d109["per_case_worst"]
+    names = ["Wilson\n(V71)", r"$\kappa_s$ anti", r"$\kappa_s$ sym",
+             "dressing\nanti", "dressing\nsym", "combined"]
+    keys = ["kappa_antisym", "kappa_sym", "dressing_antisym",
+            "dressing_sym", "both"]
+    vals = [d109["base_pairing_dev"]] + [cases[k] for k in keys]
+    cols = [C_ALG] + [C_OPEN] * 5
+    bars = ax1.bar(range(6), vals, color=cols, width=0.62)
+    ax1.set_yscale("log")
+    ax1.set_ylim(1e-17, 60)
+    for j, (b, v) in enumerate(zip(bars, vals)):
+        if j == 0:
+            ax1.text(b.get_x() + b.get_width() / 2, v * 2.0, f"{v:.1e}",
+                     ha="center", va="bottom", fontsize=10)
+        else:
+            ax1.text(b.get_x() + b.get_width() / 2, v * 0.35, f"{v:.1e}",
+                     ha="center", va="top", fontsize=10, color="white",
+                     rotation=90)
+    ax1.axhline(1e-10, color=C_ZERO, ls="--", lw=1.2)
+    ax1.text(0.02, 4e-10, "mirror preserved", fontsize=10, color=C_ZERO)
+    ax1.set_xticks(range(6))
+    ax1.set_xticklabels(names, fontsize=9, rotation=28, ha="left")
+    ax1.set_ylabel(r"$\pm$-pairing deviation of the 32 spectrum")
+    ax1.set_title("(a) W5: the mirror forbids CP — only Cartan-type\n"
+                  "extensions preserve it; class-dependent dressings\n"
+                  "break Theorem 4 (V109)", fontsize=12)
+
+    # (b) V110: the off-diagonal bond floor
+    per_n = d110["per_n"]
+    ns = sorted(int(k) for k in per_n)
+    res = [per_n[str(n)]["residual"] for n in ns]
+    ax2.plot(ns, res, "o-", color=C_OPEN, lw=1.8)
+    ax2.axhline(0.0, color=C_ALG, lw=1.6)
+    ax2.annotate(f"floor {min(res):.1f} at n={ns[res.index(min(res))]}\n"
+                 "the meeting does NOT close",
+                 xy=(ns[res.index(min(res))], min(res)), xytext=(6.5, 12),
+                 fontsize=10.5, color=C_OPEN,
+                 arrowprops=dict(arrowstyle="->", color=C_OPEN, lw=1))
+    nforced = sum(1 for f in d110["forced_signs"]
+                  if f["reachable_sign"] != "mixed")
+    ax2.text(0.02, 0.97, f"level repulsion forces {nforced}/6 signs;\n"
+             r"the six $\kappa_s$ remain a named input",
+             transform=ax2.transAxes, ha="left", va="top", fontsize=10.5,
+             color=C_FIT)
+    ax2.set_xlabel("desert pairs $n$")
+    ax2.set_ylabel("meeting residual")
+    ax2.set_title("(b) W4: one Hermitian bond operator with 12\n"
+                  "parameters does not close the meeting (V110)",
+                  fontsize=12)
+
+    # (c) V111: named-parameter cost of reaching the measured mixing
+    labels = ["scalar dressing\n(exactly blind)",
+              "common family\ndressing",
+              "chiral-asymmetric\ndressing"]
+    costs = [float("nan"), 7, 13]
+    ax3.bar([1, 2], [7, 13], color=[C_FIT, C_FIT], width=0.55)
+    ax3.bar([0], [1], color=C_ALG, width=0.55, hatch="///")
+    ax3.text(0, 8.4, "never reached\n(0 parameters help)", ha="center",
+             fontsize=10, color=C_ALG)
+    ax3.text(1, 7.3, "7 parameters\nREACHED", ha="center", fontsize=10.5)
+    ax3.text(2, 13.3, "13 parameters\nREACHED as a fit", ha="center",
+             fontsize=10.5)
+    ax3.axhline(3, color=C_ZERO, ls="--", lw=1.3)
+    ax3.text(0.52, 3.45, "3 constraints\n(measured angles)", fontsize=9,
+             color=C_ZERO, ha="left", va="bottom")
+    ax3.set_xticks(range(3))
+    ax3.set_xticklabels(labels, fontsize=10)
+    ax3.set_ylim(0, 17.5)
+    ax3.set_ylabel("named parameters needed")
+    ax3.set_title("(c) W6: generation-space dressing moves the\n"
+                  "mixing — but every entry is a named input (V111)",
+                  fontsize=12)
+
+    # (d) V112: the dark-U(1) window squeeze
+    e2 = 4 * math.pi / 127.9
+    mu_N, ms = 0.94, 118.0
+    target_sv = 2.2e-26 / 1.168e-17
+    dd_lim = 2.0e-47 / 0.3894e-27
+    mzp = np.geomspace(20.0, 5000.0, 200)
+    gD = 1.0
+    eps_relic = np.sqrt(target_sv * math.pi
+                        * (mzp ** 2 + ms ** 2) ** 2
+                        / (gD ** 2 * e2 * 3.0 * 4 * ms ** 2))
+    eps_dd = np.sqrt(dd_lim * math.pi * mzp ** 4
+                     / (gD ** 2 * e2 * mu_N ** 2))
+    ax4.plot(mzp, eps_relic, color=C_FIT, lw=1.8,
+             label=r"relic $\Omega h^2$: $\varepsilon$ needed")
+    ax4.plot(mzp, eps_dd, color=C_OPEN, lw=1.8,
+             label=r"DD bound $\sigma_{\rm SI} < 2\times10^{-47}$: ceiling")
+    ax4.fill_between(mzp, eps_dd, eps_relic, facecolor="none",
+                     edgecolor=C_OPEN, hatch="///", alpha=0.6,
+                     label="no overlap: window empty")
+    ax4.axvspan(20, 2900, ymin=0.93, color=C_CONV, alpha=0.3)
+    ax4.text(0.03, 0.90, "LEP-class $Z'$ reach", fontsize=9.5,
+             color=C_CONV, transform=ax4.transAxes, va="top")
+    ax4.set_xscale("log")
+    ax4.set_yscale("log")
+    ax4.set_ylim(1e-8, 1e-1)
+    ax4.set_xlabel(r"$m_{Z'}$ [GeV]  ($g_D = 1$)")
+    ax4.set_ylabel("kinetic mixing $\\varepsilon$")
+    ax4.legend(fontsize=9.5, loc="lower left")
+    ax4.set_title("(d) W7: dark U(1) portal — relic needs\n"
+                  r"$g_D\varepsilon \gtrsim 0.02$, DD allows "
+                  r"$\lesssim 10^{-3}$:" "\nwindow EMPTY (V112)",
+                  fontsize=12)
+
+    # (e) V113: the coefficient 3 is the node-set choice
+    sets = ["all 12\nnodes", "one split node\nper family", "single\nnode"]
+    coef = [d113["coef_all12"], d113["coef_one_per_family"],
+            d113["coef_single"]]
+    obs = d113["coef_observed"]
+    cols = [C_OPEN, C_ALG, C_OPEN]
+    bars = ax5.bar(range(3), coef, color=cols, width=0.58)
+    ax5.axhline(obs, color="#9a9a9a", ls="--", lw=1.6)
+    ax5.text(2.42, obs * 1.03, f"observed {obs:.4f}", fontsize=10.5,
+             color="#666", ha="right", va="bottom")
+    for b, v in zip(bars, coef):
+        ax5.text(b.get_x() + b.get_width() / 2, v + 0.12, f"{v:.4f}",
+                 ha="center", fontsize=10.5)
+    ax5.set_xticks(range(3))
+    ax5.set_xticklabels(sets, fontsize=10)
+    ax5.set_ylim(0, 9.6)
+    ax5.set_ylabel(r"hierarchy coefficient $\sum$-nodes")
+    ax5.set_title("(e) W8: node contributions EXACTLY equal across\n"
+                  "families (0.00e+00); the coefficient 3 IS the choice\n"
+                  "one-per-family — 99.4% agreement (V113)", fontsize=12)
+
+    # (f) V116: the triangle and its orbit-8
+    nodes = [(x, y) for x in (0, 1, -1) for y in (0, 1, -1)
+             if (x != 0) + (y != 0) == 2]
+    # plot the 12 nodes projected: (qx,qy) plane shows 8; mark families
+    h = math.pi / 2
+    plane = [(a * h, b * h) for a in (1, -1) for b in (1, -1)]
+    outz = [(0.0, 0.0)]
+    ax6.scatter([p[0] for p in plane], [p[1] for p in plane], s=90,
+                color="#9a9a9a", zorder=3)
+    tri = [(h, h), (h, 0.0), (0.0, h)]
+    ax6.scatter([p[0] for p in tri], [p[1] for p in tri], s=170,
+                marker="*", color=C_ALG, zorder=4)
+    ax6.plot([p[0] for p in tri] + [tri[0][0]],
+             [p[1] for p in tri] + [tri[0][1]], color=C_ALG, lw=1.4,
+             zorder=2)
+    for p in [(-h, h), (h, -h), (-h, -h)]:
+        ax6.scatter([p[0]], [p[1]], s=90, color="#9a9a9a", zorder=3)
+    ax6.annotate("orbit of 8 triangles\nstabilizer $S_3$ (order 6)",
+                 xy=(h, h), xytext=(-h * 0.9, h * 0.55), fontsize=10.5,
+                 color=C_ALG,
                  arrowprops=dict(arrowstyle="->", color=C_ALG, lw=1))
-    ax1.set_xlabel("desert pairs $n$")
-    ax1.set_ylabel("meeting residual")
-    ax1.set_ylim(-0.15, 3.6)
-    ax1.legend(loc="upper left", fontsize=10.5)
-    ax1.set_title("(a) W4: the six $\\kappa_s$ are NOT a Cartan image —\n"
-                  "class-degenerate directions miss by $\\geq 0.30$ (V105)",
-                  fontsize=12.5)
-    ax1.text(0.98, 0.02, "every Cartan splitting the six classes\n"
-             "breaks all 8 unbroken desert roots",
-             transform=ax1.transAxes, ha="right", va="bottom", fontsize=10.5,
-             color=C_FIT)
+    ax6.set_xlim(-2.2, 2.2)
+    ax6.set_ylim(-2.2, 2.2)
+    ax6.set_xlabel(r"$q_x$")
+    ax6.set_ylabel(r"$q_y$")
+    ax6.set_title("(f) W3: 64 triangles → 4 cubic orbits "
+                  "(8, 8, 24, 24);\n"
+                  r"each choice breaks $O_h \to S_3$ — 8 distinct "
+                  "vacua (V116)", fontsize=12)
 
-    # (b) V106: the washout kills the baryon product
-    M_N = d106["M_N_GeV"]
-    H = d106["H_GeV"]
-    ys = np.logspace(np.log10(0.01), np.log10(1.2), 80)
-    K = ys ** 2 * M_N / (8 * math.pi * H)
-    ax2.plot(ys, K, color=C_ALG, lw=1.8, label="$\\Gamma_N/H = y^2 M_N / 8\\pi H$")
-    ax2.axhline(1.0, color=C_ZERO, ls="--", lw=1.4)
-    ax2.text(0.011, 1.35, "Sakharov 3: out of equilibrium needs $K < 1$",
-             fontsize=10.5, color=C_ZERO)
-    yb = d106["y_out_of_equilibrium_bound"]
-    ax2.axvline(yb, color=C_ZERO, ls=":", lw=1.4)
-    ax2.text(yb * 1.12, 0.02, "$y < 0.058$", fontsize=10.5, color=C_ZERO,
-             rotation=90, va="bottom")
-    for name, c in d106["cases"].items():
-        ax2.plot(c["y"], c["K"], "o", color=C_FIT, ms=7, zorder=5)
-    ax2.annotate("self-consistent $y = 0.399$\n($m_\\nu = 0.0501$ eV): $K = 46.9$\n"
-                 "IN equilibrium; $\\kappa_f = 5.4\\times10^{-3}$\nvs guessed "
-                 "$D = 4.0\\times10^{-4}$ ($14\\times$)",
-                 xy=(0.3987, 46.9), xytext=(0.02, 0.97),
-                 textcoords="axes fraction", ha="left", va="top",
-                 fontsize=10.5, color=C_FIT,
-                 arrowprops=dict(arrowstyle="->", color=C_FIT, lw=1))
-    ax2.set_xscale("log")
-    ax2.set_yscale("log")
-    ax2.set_xlabel("Yukawa $y$")
-    ax2.set_ylabel("$\\Gamma_N / H$ at $M_N = 9.6\\times10^{13}$ GeV")
-    ax2.set_title("(b) W5: the same $y$ that gives $m_\\nu$ puts the decay\n"
-                  "in equilibrium — the $\\Delta B$ product is an accident (V106)",
-                  fontsize=12.5)
-
-    # (c) V107: the kappa pattern is generation-blind
-    labels = ["$\\Delta\\sin^2\\theta_{12}$\nneeded", "$\\sin^2\\theta_{13}$\nneeded",
-              "$\\Delta\\sin^2\\theta_{23}$\nneeded",
-              "max shift under\nthe whole $\\kappa_s$ scan"]
-    vals = [abs(0.308 - 1 / 3), 0.0222, abs(0.470 - 0.5),
-            d107["max_angle_shift_over_eps_scan"]]
-    cols = [C_OPEN, C_OPEN, C_OPEN, C_ALG]
-    bars = ax3.bar(range(4), vals, color=cols, width=0.62)
-    ax3.set_yscale("log")
-    ax3.set_ylim(1e-15, 0.12)
-    for b, v in zip(bars, vals):
-        ax3.text(b.get_x() + b.get_width() / 2, v * 1.5,
-                 f"{v:.1e}" if v < 1e-3 else f"{v:.3f}",
-                 ha="center", va="bottom", fontsize=11)
-    ax3.annotate("$\\sim 11$ orders of magnitude apart",
-                 xy=(3, 2.3e-13), xytext=(1.2, 2e-11), fontsize=11,
-                 color=C_ALG, arrowprops=dict(arrowstyle="->", color=C_ALG, lw=1))
-    ax3.set_xticks(range(4))
-    ax3.set_xticklabels(labels, fontsize=10.5)
-    ax3.set_ylabel("mixing-angle shift")
-    ax3.set_title("(c) W6: the W4 bond-layer fix is generation-blind —\n"
-                  "PMNS/CKM exactly invariant (V107)", fontsize=12.5)
-
-    # (d) V108: the coefficient un-fitted
-    F10 = d108["F_10_root"]
-    pred = d108["coefficient_predicted_3_F10_10"]
-    obs = d108["coefficient_observed"]
-    sens = 0.10  # 1% of F_10 -> 10% of the coefficient
-    ax4.bar([0, 1], [pred, obs], color=[C_FIT, "#9a9a9a"], width=0.55,
-            edgecolor="k", lw=0.6)
-    ax4.errorbar(0, pred, yerr=sens * pred, color=C_FIT, lw=1.6, capsize=5)
-    ax4.text(0, pred * 1.045, f"{pred:.3f}", ha="center", va="bottom", fontsize=11.5)
-    ax4.text(1, obs * 1.045, f"{obs:.3f}", ha="center", va="bottom", fontsize=11.5)
-    ax4.set_xticks([0, 1])
-    ax4.set_xticklabels(["$3\\,F_{10}^{10}$\n$F_{10} = 0.01919$ measured",
-                         "observed\n$v/M_P\\,(16\\pi)^{10}$"], fontsize=11)
-    ax4.set_ylim(0, 3.0)
-    ax4.set_ylabel("hierarchy coefficient")
-    ax4.text(0.5, 0.98, f"agreement $1 - {d108['relative_error']:.4f}$ = "
-             f"{100 * (1 - d108['relative_error']):.2f}\\%\n"
-             "error bar: $\\pm 1\\%$ on $F_{10}$ "
-             "$\\Rightarrow \\pm 10\\%$\nCONDITIONAL on axis-family "
-             "factorization",
-             transform=ax4.transAxes, fontsize=10.5, va="top", ha="center",
-             color=C_FIT)
-    ax4.set_title("(d) W8: 2.08 is no longer fitted — $3F_{10}^{10}$ from\n"
-                  "measured root numbers (V85/V89/V70), V108", fontsize=12.5)
-
-    fig.suptitle("The named gaps, directly tested: what the extended "
-                 "automaton can and cannot supply (V105–V108)",
-                 fontsize=14)
-    fig.tight_layout(rect=[0, 0, 1, 0.965])
-    save(fig, "fig37_named_gaps_tested.png")
+    fig.suptitle("Attacking the residuals head-on: what V109-V116 close, "
+                 "what they name", fontsize=14.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.955])
+    save(fig, "fig37_residual_attacks.png")

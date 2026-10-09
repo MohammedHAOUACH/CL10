@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_gpu.sh - the full 109-experiment validation on the GPU (cupy backend).
+# run_gpu.sh - the full 117-experiment validation on the GPU (cupy backend).
 # Usage: ./run_gpu.sh          (run when the GPU is free)
 set -uo pipefail
 cd "$(dirname "$0")"

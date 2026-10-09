@@ -64,7 +64,7 @@ FIGURES = [
     (34, algebra.fig34_brillouin_doublers),
     (35, dynamics.fig35_bh_frames),
     (36, residuals.fig36_vertex_ground_state),
-    (37, residuals.fig37_named_gaps_tested),
+    (37, residuals.fig37_residual_attacks),
 ]
 
 YOUNG = 19

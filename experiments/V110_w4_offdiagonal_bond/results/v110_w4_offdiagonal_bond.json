@@ -1,0 +1,212 @@
+{
+ "experiment": "V110_w4_offdiagonal_bond",
+ "pass": true,
+ "status": "OFF-DIAGONAL BOND REALIZABILITY TEST: the bond graph has 80 root-vector pairs and 11 class-pair channels (degeneracies 64 total). Level repulsion forces the sign of kappa_k by the energy ordering: 2 of 6 classes have a FORCED sign (0:mixed, 1:mixed, 2:mixed, 3:negative only, 4:mixed, 5:positive only). the meeting does NOT close under bond level repulsion: best residual over n=3..12 is 3.045e+01 at n=3 (desert_ok=False), verified to 3.045e+01; the closed set is []. The six kappa_s of V96 remain a NAMED input of the bond layer: one Hermitian bond operator with 12 parameters either reproduces the meeting (closed: []) or the sign/size structure obstructs it (floor 3.045e+01).",
+ "data": {
+  "theta_star": 1.730784,
+  "lp_classes": [
+   -1.7135,
+   -4.1542,
+   -1.8369,
+   -5.2529,
+   -1.7733,
+   -1.657
+  ],
+  "n_root_pairs": 80,
+  "n_channels": 11,
+  "channel_degeneracies": {
+   "0-1": 6,
+   "0-2": 3,
+   "0-3": 12,
+   "0-4": 3,
+   "1-3": 6,
+   "1-4": 6,
+   "2-3": 6,
+   "2-5": 1,
+   "3-4": 12,
+   "3-5": 6,
+   "4-5": 3
+  },
+  "forced_signs": [
+   {
+    "class": 0,
+    "lp": -1.7135,
+    "rank": 4,
+    "reachable_sign": "mixed"
+   },
+   {
+    "class": 1,
+    "lp": -4.1542,
+    "rank": 1,
+    "reachable_sign": "mixed"
+   },
+   {
+    "class": 2,
+    "lp": -1.8369,
+    "rank": 2,
+    "reachable_sign": "mixed"
+   },
+   {
+    "class": 3,
+    "lp": -5.2529,
+    "rank": 0,
+    "reachable_sign": "negative only"
+   },
+   {
+    "class": 4,
+    "lp": -1.7733,
+    "rank": 3,
+    "reachable_sign": "mixed"
+   },
+   {
+    "class": 5,
+    "lp": -1.657,
+    "rank": 5,
+    "reachable_sign": "positive only"
+   }
+  ],
+  "per_n": {
+   "3": {
+    "residual": 30.447018244860303,
+    "desert_ok": false,
+    "z0": 5.0962,
+    "kappas": [
+     1.6913,
+     0.471,
+     1.6287,
+     -18.1533,
+     1.6606,
+     12.7017
+    ]
+   },
+   "4": {
+    "residual": 46.53215938976065,
+    "desert_ok": false,
+    "z0": 3.7406,
+    "kappas": [
+     4.3418,
+     -0.9142,
+     0.6345,
+     -13.454,
+     1.3974,
+     7.9944
+    ]
+   },
+   "5": {
+    "residual": 35.49225267311374,
+    "desert_ok": false,
+    "z0": 14.6098,
+    "kappas": [
+     5.5993,
+     -10.4977,
+     5.8822,
+     -11.0582,
+     4.9,
+     5.1744
+    ]
+   },
+   "6": {
+    "residual": 72.52597712936488,
+    "desert_ok": false,
+    "z0": 4.5904,
+    "kappas": [
+     4.3005,
+     -3.8422,
+     -0.101,
+     -8.5553,
+     1.4085,
+     6.7895
+    ]
+   },
+   "7": {
+    "residual": 75.53702525130178,
+    "desert_ok": false,
+    "z0": 8.9013,
+    "kappas": [
+     7.5927,
+     0.3966,
+     1.3937,
+     -14.6581,
+     2.5439,
+     2.7312
+    ]
+   },
+   "8": {
+    "residual": 86.97210862447817,
+    "desert_ok": false,
+    "z0": 7.3406,
+    "kappas": [
+     2.8323,
+     -1.0397,
+     1.1798,
+     -7.6368,
+     2.3103,
+     2.3542
+    ]
+   },
+   "9": {
+    "residual": 108.45276221843999,
+    "desert_ok": false,
+    "z0": 8.1341,
+    "kappas": [
+     13.3346,
+     -10.7427,
+     2.1872,
+     -12.1416,
+     3.1804,
+     4.182
+    ]
+   },
+   "10": {
+    "residual": 118.60157402793747,
+    "desert_ok": false,
+    "z0": 6.3429,
+    "kappas": [
+     5.5558,
+     -4.459,
+     0.0647,
+     -6.4246,
+     3.4733,
+     1.7898
+    ]
+   },
+   "11": {
+    "residual": 147.6193740788296,
+    "desert_ok": false,
+    "z0": 6.14,
+    "kappas": [
+     12.1736,
+     1.2061,
+     -4.7097,
+     -12.6671,
+     1.4962,
+     2.5009
+    ]
+   },
+   "12": {
+    "residual": 170.82994718185364,
+    "desert_ok": false,
+    "z0": 0.2038,
+    "kappas": [
+     1.8302,
+     -1.8417,
+     -0.0696,
+     -3.641,
+     1.5695,
+     2.1527
+    ]
+   }
+  },
+  "closed_n": [],
+  "best_n": 3,
+  "verify_residual": 30.446967212058652,
+  "v96_kappas": [
+   -4.5312,
+   -5.7516,
+   9.1859,
+   7.6557,
+   9.1222,
+   5.848
+  ]
+ }
+}
