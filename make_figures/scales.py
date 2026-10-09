@@ -196,7 +196,7 @@ def fig10_sm_head2head():
           note="2.9$\\times$ obs; excluded by\n$\\sum m_\\nu < 0.12$ eV (W2, F3)", ok=False)
     _pair(axs[1, 1], r"$\sum m_\nu$: $\frac{1}{3}$ candidate", "eV",
           0.12, 0.0487, True, left="Planck+BAO bound",
-          note="inside the bound; one exact\npoint, unprotected (W2)", ok=True)
+          note="inside the bound; finite window,\nstructure protected (V103)", ok=True)
     _pair(axs[1, 2], "proton lifetime  $\\tau_p$ (desert)", "yr",
           2.4e34, tau_desert, True, left="SK bound",
           note=f"{tau_desert / 2.4e34:.0f}$\\times$ above the bound\n(F5 live)", ok=True)

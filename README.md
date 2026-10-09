@@ -164,6 +164,9 @@ CL10/
 ├── V99/                # the multi-bond area law of the gauged layer: 3-site chain physical sector dim ker = 24 (flux decomposition N_1 = N_45 = N_210 = 1, m = 2 each); additivity ln 45 across a single bond EXACT; two-bond region S = ln 45 not 2 ln 45 (vertex mutual information ln 45); Bekenstein gap as a number: ln 45 vs 1/4, factor 4 ln 45 = 15.23 - named, open
 ├── V100/               # the vertex correction of the gauged area law: I_n = dim(45^⊗n)^G by Haar averaging = 1, 1, 6, 23, 141 (I_2 = I_3 = 1 validates); 24-state kernel orthonormalised by its Gram (rank 24); middle-cut capacity S_cap = 4.4998 nats vs naive 2 ln 45 = 7.613 (vertices subtract 3.11); per bond 2.25 nats, factor 9.0 from 1/4; cubic-lattice vertex-corrected coefficient (1/3) ln I_6 = 1.65 nats/bond, factor 6.6 - the Bekenstein deficit moved 15.2 -> 6.6
 ├── V101/               # the first ground state of the gauged layer: bond-current Hamiltonian H = sum J.L of V79 diagonalised exactly (generalized eigenproblem, Gram metric) on the 24-state kernel; intertwiner identity I† J_A I = L_A/45 to 3e-17; the interaction SPLITS the kernel: E0 = -5819.18 eta, degeneracy 6, gap 58.59 eta; ground-state middle-cut entanglement S = 3.8067 = ln 45 exactly - the interaction selects the flux line
+├── V102/               # the node cone tensor measured: at all 12 doubler nodes and 1200 sampled directions the dispersion is LINEAR (p = 1.00) but strongly ANISOTROPIC - principal velocities (0.100, 0.100, 0.142), spread 0.75; node gap 2e-4 at the root angle
+├── V103/               # the W2 re-audit with the IMPLEMENTED democratic rank-1 m_D (V28/V45): the V90 measure-zero point was an artifact of the identity-m_D assumption; the seesaw collapses to m3(r) = S17/(1+r), the massless pair is protected for EVERY r, the bound window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.91 (m3 = 0.0501 eV)
+├── V104/               # the W6 mixing manifold: the three mixing deviations tested as ONE effect over the natural U6 vev placements (12 branches x 2 orientations, democratic base + rank-1 correction): every placement excluded (best residual 0.308 vs the needed pattern) - the deviations are not a natural-vev artifact; the U6 form itself is pending
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 20): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 20 panels are the V62 product
@@ -209,8 +212,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **102** experiments
-(V0–V101) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **105** experiments
+(V0–V104) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
@@ -254,8 +257,10 @@ bookkeeping that groups the residuals, not a derivation of any value.
 - $m_\nu = 0.146$ eV is $2.9\times$ the atmospheric scale and above
   $\sum m_\nu < 0.12$ eV (W2, F3).  V76 BUILDS the node-mixing junction the
   $\tfrac13$ candidate needs (cubic-symmetric, closes the node triangle
-  exactly; democratic point, eigenvalues $\{3M,0,0\}$) — the candidate
-  survives only at that measure-zero point, with democratic $m_D$.
+  exactly; democratic point, eigenvalues $\{3M,0,0\}$).  V103 re-audited its
+  protection with the IMPLEMENTED democratic rank-1 $m_D$: the massless pair is
+  protected for every junction ratio and the candidate sits in a finite window
+  ($r > 0.217$), the atmospheric scale selecting $r = 1.91$.
 - The relic abundance is **normalised** to the measured value, not computed,
   and the V66 scan plus the V75 completion find **no viable carrier** at
   118 GeV anywhere in the implemented spectrum — no Wilson node can host a
