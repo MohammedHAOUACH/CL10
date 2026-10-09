@@ -134,3 +134,32 @@ Changes: `experiments/V103_w2_democratic` (new, PASS),
 `doc/publication.md` (Section 10.3, Table 4 $m_\nu$ row, W2 row, Fig. 30
 caption, audit-trail paragraph, code-availability line, check count
 102 → 104 — the count was already stale at 102 when V102 landed).
+
+## 6. Addendum 2026-10-09 — W6 vev placements (V104)
+
+The three mixing deviations ($\sin^2\theta_{12} = 1/3$ vs $0.308$,
+$\theta_{13} \neq 0$, CKM = identity vs $\lambda = 0.225$) were tested
+as ONE effect: the named W6 10-Higgs vev. `experiments/V104_w6_mixing_manifold`
+(PASS, negative result):
+
+- **Branch A (charged-lepton vev)**: democratic base + rank-$\le2$
+  correction at the PDG spectrum. The determinant lemma (bilinear
+  form, rank-1 update) reduces the constraint to
+  $\sum_i (p_i^*)^2 e^{-it_i}/D_i = 1/\sum D$ with $p = W^T v$; the
+  lightest family decouples from the democratic direction, and that
+  direction IS the TBM solar column: $\sin^2\theta_{12} \le 0.005$,
+  excluded at $23\sigma$.
+- **Branch B (free-direction neutrino rank-1 vev)**: 4 parameters vs
+  3 angles — covers the whole angle cube, predicts nothing.
+- **Branch C (cubic-axis neutrino vev, the symmetry-natural choice)**:
+  0-parameter prediction; 12 branches, best $20.3\sigma$ from NuFIT.
+
+Net: the W6 residual is narrowed by computation — the vev must live
+in the neutrino sector, with a non-cubic direction, and $\ge 2$ vev
+terms in generic relative orientation are needed. No natural form of
+the single named 10-Higgs input explains the deviations; they remain
+named residuals, now with their mechanism-space bounded.
+
+Changes: `experiments/V104_w6_mixing_manifold` (new, PASS),
+`doc/publication.md` (W6 row, Table 4 $\sin^2\theta_{12}$ row,
+audit-trail paragraph, check count 104 → 105).
