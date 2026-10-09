@@ -208,8 +208,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 117 experiments, prints the hard-tier verdict
-./run_gpu.sh                     # the full 117 on the GPU (cupy); warns if the card is busy
+python3 run_validation.py        # runs all 117 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 117 on the GPU (cupy, 12 jobs); numpy fallback per experiment if the card is full
 python3 -m make_figures          # regenerates ALL 37 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu

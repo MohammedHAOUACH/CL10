@@ -29,17 +29,27 @@ T3: report min A over all gapless points, and the bare (w = 0) cone
 
 PASS = T1 verified; the verdict reports the minimum anisotropy found
 (an isotropy point would need A < 1e-6).
+
+Performance (the CL10 GPU engine, cupy when the card is free):
+the gap of a UNITARY M is the smallest singular value of M - I
+(singular values of M - I are |lambda - 1| = 2|sin(angle/2)|). So the
+scan never calls eigvals - the slow path on every backend for
+128x128. The w-grid (240 matrices) and the cone scan (162 matrices)
+are batched: one inv + 24 power iterations per batch. The golden
+section keeps the exact numpy eigvals gap (a few hundred calls).
 """
 import json
 import math
 import os
-
-# All matrices here are 16x16/32x32: cupy only queues behind other GPU
-# tenants (the scan took >1 h on a busy card vs ~15 min on numpy), so the
-# check pins the CPU backend regardless of CL10_BACKEND.
-os.environ["CL10_BACKEND"] = "numpy"
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor
+# one BLAS thread: with the host busy (e.g. a model server), OpenBLAS
+# spin-waiting threads turn micro-matmuls into multi-second stalls.
+# The GPU path bypasses BLAS entirely.
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+           "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+    os.environ.setdefault(_v, "1")
 
 import numpy as np
 
@@ -49,6 +59,18 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 import V65_wilson as V65  # noqa: E402
 from cl10 import brillouin as BR  # noqa: E402
+import cl10.engine as E  # noqa: E402
+
+# the CL10 engine backend: cupy when the card is free, else numpy.
+# (the engine's jax fallback is skipped here: float32 default.)
+_XP = E._E if E._BACKEND == "cupy" else np
+_GPU = E._BACKEND == "cupy"
+
+_I128 = np.eye(128, dtype=complex)
+_I128B = _XP.asarray(_I128)
+_X0 = (np.random.default_rng(115).standard_normal(128)
+       + 1j * np.random.default_rng(116).standard_normal(128))
+_X0 /= np.linalg.norm(_X0)
 
 
 def sphere_dirs(n=6):
@@ -62,99 +84,207 @@ def sphere_dirs(n=6):
     return dirs
 
 
-def main():
-    t0 = time.time()
+_W = {}
+
+
+def _init_worker():
+    if _W:
+        return
     _B, _U32, U16 = BR.blocks()
     lam, _off = V65.cartan_weights()
-    v63 = json.load(open(os.path.join(ROOT, "experiments", "V63_bz_chirality",
-                                      "results", "v63_bz_chirality.json")))
-    v63_gap = v63["data"]["max_doubler_gap"]
     v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                       "results", "v65_wilson.json")))
     gg = next(r for r in v65["data"]["part_B"].values()
               if r["su5"] == "Georgi-Glashow")
-    x_coef = np.array(gg["X_coef"])
-    y_coef = np.array(v65["data"]["Y_coef"])
+    _W.update(U16=U16, lam=lam,
+              x_coef=np.array(gg["X_coef"]),
+              y_coef=np.array(v65["data"]["Y_coef"]),
+              Fcache={}, Dcache={})
 
-    def ddiag(th):
-        coef = math.cos(th) * x_coef + math.sin(th) * y_coef
-        return lam @ coef
 
-    def gap_at(q, w, th):
-        M = V65.floquet_wilson(q, U16, w, ddiag(th))
-        return V65.gap_of(M)
+def _ddiag(th):
+    coef = math.cos(th) * _W["x_coef"] + math.sin(th) * _W["y_coef"]
+    return _W["lam"] @ coef
+
+
+def _d_of(th):
+    d = _W["Dcache"].get(th)
+    if d is None:
+        d = _ddiag(th)
+        _W["Dcache"][th] = d
+    return d
+
+
+def _F_of(q):
+    F = _W["Fcache"].get(q)
+    if F is None:
+        F = BR.floquet(q, _W["U16"])
+        _W["Fcache"][q] = F
+    return F
+
+
+def _gap_at(q, w, th):
+    """exact gap (numpy eigvals) - golden section and T1 only."""
+    F = _F_of(q)
+    d = _d_of(th)
+    ph = w * sum(1.0 - math.cos(qj) for qj in q)
+    M = np.exp(-1j * ph * np.tile(d, 8))[:, None] * F
+    return V65.gap_of(M)
+
+
+def _smin_gaps(q, ws, th):
+    """gap proxy over the w grid, batched on the engine backend:
+    sigma_min(M(w) - I) = min |lambda - 1| = 2|sin(angle/2)|, via one
+    batched inv + 24 power iterations (no eigvals)."""
+    F = _F_of(q)
+    d = _d_of(th)
+    s = sum(1.0 - math.cos(qj) for qj in q)
+    ph = np.asarray(ws) * s
+    A = (np.exp(-1j * ph[:, None, None]
+                * np.tile(d, 8)[None, None, :]) * F[None, :, :] - _I128)
+    A = _XP.asarray(A)
+    B = _XP.linalg.inv(A)
+    x = _XP.asarray(np.repeat(_X0[None, :], len(ws), axis=0))
+    x = x[:, :, None]
+    for _ in range(24):
+        y = _XP.matmul(B, x)
+        nrm = _XP.linalg.norm(y, axis=1, keepdims=True)
+        x = y / nrm
+    return np.asarray(E.asnumpy(1.0 / nrm)).ravel()
+
+
+def _floquet_batch(qs):
+    """BR.floquet for a batch of momenta, on the engine backend: the
+    8x8 bond layers are tiny (numpy kron, transfer), the six 128x128
+    matmuls per momentum run batched on the GPU."""
+    U16 = _W["U16"]
+    M = _XP.broadcast_to(_XP.eye(128, dtype=complex),
+                         (len(qs), 128, 128)).copy()
+    for even, j in BR.ORDER:
+        L = _XP.asarray(np.stack([np.kron(BR._layer(even, j, q[j], 8,
+                                                   BR.G10), U16)
+                                  for q in qs]))
+        M = L @ M
+    return M
+
+
+def _cone_vs(q, w_star, d, dirs, dq):
+    """min |eigenphase| / dq over the sphere directions, fully on the
+    engine backend: batched Floquet + batched sigma_min(M - I),
+    angle = 2 asin(sigma_min/2) exactly."""
+    qs = [tuple(qj + dq * nk for qj, nk in zip(q, nd)) for nd in dirs]
+    F = _floquet_batch(qs)
+    phs = _XP.asarray(np.array([sum(1.0 - math.cos(qj) for qj in qq)
+                                for qq in qs]) * w_star)
+    A = (_XP.exp(-1j * phs[:, None, None]
+                 * _XP.tile(_XP.asarray(d), 8)[None, None, :]) * F - _I128B)
+    B = _XP.linalg.inv(A)
+    x = _XP.asarray(np.repeat(_X0[None, :], len(dirs), axis=0))
+    x = x[:, :, None]
+    for _ in range(24):
+        y = _XP.matmul(B, x)
+        nrm = _XP.linalg.norm(y, axis=1, keepdims=True)
+        x = y / nrm
+    sig = np.clip(E.asnumpy(1.0 / nrm).ravel() / 2.0, 0.0, 1.0)
+    return 2.0 * np.arcsin(sig) / dq
+
+
+def _scan(task):
+    """All gapless points of one (node representative, angle) pair."""
+    q, it = task
+    th = 2 * math.pi * it / 60
+    d = _d_of(th)
+    ws = np.linspace(0.02, 3.0, 240)
+    sig = _smin_gaps(q, ws, th)
+    # candidate windows from the proxy; the local-minimum test itself
+    # runs on the EXACT eigvals gap, so the published numbers are the
+    # same as the all-eigvals scan.
+    gs = {}
+    for i in range(1, len(ws) - 1):
+        if sig[i] < 0.15:
+            for j in (i - 1, i, i + 1):
+                if j not in gs:
+                    gs[j] = _gap_at(q, ws[j], th)
+    gr = (math.sqrt(5.0) - 1.0) / 2.0
+    dirs = sphere_dirs(6)
+    dq = 1e-3
+    pts = []
+    for i in range(1, len(ws) - 1):
+        if i not in gs:
+            continue
+        if not (gs[i] <= gs[i - 1] and gs[i] <= gs[i + 1]
+                and gs[i] < 0.05):
+            continue
+        a, b = ws[i - 1], ws[i + 1]
+        c1, c2 = b - gr * (b - a), a + gr * (b - a)
+        f1, f2 = _gap_at(q, c1, th), _gap_at(q, c2, th)
+        for _ in range(40):
+            if f1 < f2:
+                b, c2, f2 = c2, c1, f1
+                c1 = b - gr * (b - a)
+                f1 = _gap_at(q, c1, th)
+            else:
+                a, c1, f1 = c1, c2, f2
+                c2 = a + gr * (b - a)
+                f2 = _gap_at(q, c2, th)
+        w_star = 0.5 * (a + b)
+        if _gap_at(q, w_star, th) > 1e-7:
+            continue
+        vs = _cone_vs(q, w_star, d, dirs, dq)
+        vmax, vmin = float(max(vs)), float(min(vs))
+        pts.append(((vmax - vmin) / (vmax + vmin), q, round(th, 4),
+                    round(w_star, 6), vmax, vmin))
+    return pts
+
+
+def main():
+    t0 = time.time()
+    _init_worker()
+    U16 = _W["U16"]
+    v63 = json.load(open(os.path.join(ROOT, "experiments", "V63_bz_chirality",
+                                      "results", "v63_bz_chirality.json")))
+    v63_gap = v63["data"]["max_doubler_gap"]
+    print(f"  backend: {E._BACKEND}")
 
     # ---- T1: regression - V63's doubler gap at w = 0 ---------------------
     t1_err = 0.0
     for q in BR.DOUBLERS:
-        t1_err = max(t1_err, abs(gap_at(q, 0.0, 0.7) - v63_gap))
+        t1_err = max(t1_err, abs(_gap_at(q, 0.0, 0.7) - v63_gap))
 
     # ---- T2: gapless points and cone anisotropy ---------------------------
     # the node gap g(w) = min eigenphase distance of W(q*) U(q*) is a
     # piecewise-analytic function of w with isolated zeros; locate them
     # numerically (grid + golden-section) and measure the cone there.
-    dirs = sphere_dirs(6)                     # 162 directions
-    dq = 1e-3
-    best = None
-    n_points = 0
     # all 12 nodes are (+-pi/2, +-pi/2, 0) permutations: one O_h
     # orbit; two representatives (aligned and opposite signs)
     h = math.pi / 2
     reps = [(h, h, 0.0), (h, -h, 0.0)]
-    gr = (math.sqrt(5.0) - 1.0) / 2.0
-    for q in reps:
-        for it in range(60):
-            th = 2 * math.pi * it / 60
-            d = ddiag(th)
-            ws = np.linspace(0.02, 3.0, 240)
-            gs = [gap_at(q, w, th) for w in ws]
-            found = False
-            for i in range(1, len(ws) - 1):
-                if found:
-                    break
-                if not (gs[i] <= gs[i - 1] and gs[i] <= gs[i + 1]
-                        and gs[i] < 0.05):
-                    continue
-                a, b = ws[i - 1], ws[i + 1]
-                c1, c2 = b - gr * (b - a), a + gr * (b - a)
-                f1, f2 = gap_at(q, c1, th), gap_at(q, c2, th)
-                for _ in range(40):
-                    if f1 < f2:
-                        b, c2, f2 = c2, c1, f1
-                        c1 = b - gr * (b - a)
-                        f1 = gap_at(q, c1, th)
-                    else:
-                        a, c1, f1 = c1, c2, f2
-                        c2 = a + gr * (b - a)
-                        f2 = gap_at(q, c2, th)
-                w_star = 0.5 * (a + b)
-                if gap_at(q, w_star, th) > 1e-7:
-                    continue
-                n_points += 1
-                vs = []
-                for nd in dirs:
-                    M = V65.floquet_wilson(
-                        tuple(qj + dq * nk for qj, nk in zip(q, nd)),
-                        U16, w_star, d)
-                    an = np.sort(np.abs(np.angle(
-                        np.linalg.eigvals(M))))
-                    vs.append(an[0] / dq)
-                vmax, vmin = max(vs), min(vs)
-                A = (vmax - vmin) / (vmax + vmin)
-                if best is None or A < best[0]:
-                    best = (A, q, round(th, 4), round(w_star, 6),
-                            vmax, vmin)
+    tasks = [(q, it) for q in reps for it in range(60)]
+    if _GPU:
+        # cupy: single process (fork would break the CUDA context);
+        # the batches keep the GPU busy anyway.
+        allpts = [p for t in tasks for p in _scan(t)]
+    else:
+        with ProcessPoolExecutor(max_workers=min(8, os.cpu_count() or 4),
+                                 initializer=_init_worker) as ex:
+            # ex.map preserves task order: the min-A tie-break below
+            # sees the points in exactly the serial scan order.
+            allpts = [p for pts in ex.map(_scan, tasks) for p in pts]
+    n_points = len(allpts)
+    best = None
+    for p in allpts:
+        if best is None or p[0] < best[0]:
+            best = p
 
     # ---- T3: bare cones (w = 0) -------------------------------------------
+    dirs = sphere_dirs(6)                     # 162 directions
+    dq = 1e-3
     bare = []
     for q in BR.DOUBLERS[:4]:
-        vs = []
-        for nd in dirs:
-            M = BR.floquet(tuple(qj + dq * nk for qj, nk in zip(q, nd)),
-                           U16)
-            an = np.sort(np.abs(np.angle(np.linalg.eigvals(M))))
-            vs.append(an[0] / dq)
-        vmax, vmin = max(vs), min(vs)
+        # w = 0: the Wilson factor is the identity, so _cone_vs on the
+        # plain Floquet is exactly the bare cone.
+        vs = _cone_vs(q, 0.0, _d_of(0.0), dirs, dq)
+        vmax, vmin = float(max(vs)), float(min(vs))
         bare.append((vmax, vmin, (vmax - vmin) / (vmax + vmin)))
     bare_A = max(b[2] for b in bare)
 

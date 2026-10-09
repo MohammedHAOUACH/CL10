@@ -33,22 +33,47 @@ _E = np
 # occupé par un autre processus).  Par défaut : aucun effet, le GPU reste choisi.
 _FORCE_CPU = os.environ.get("CL10_BACKEND", "").strip().lower() in ("numpy", "cpu")
 
+_CUPY_PRESENT = False
 try:  # the preferred GPU backend (CuPy)
     if _FORCE_CPU:
         raise ImportError("CL10_BACKEND=numpy (the CPU override)")
     import cupy as _cp
+    _CUPY_PRESENT = True
+    # free-memory gate: a saturated card (another tenant at work) lets
+    # tiny probe ops slip through but queues real work indefinitely -
+    # require >= 2 GiB free before committing to the GPU.
+    _free, _total = _cp.cuda.runtime.memGetInfo()
+    if _free < 2 * (1 << 30):
+        raise RuntimeError(f"GPU busy: {_free >> 20} MiB free")
+    # probe: cuBLAS + cuSOLVER handles too - a full card must fall
+    # back to numpy, not die later on CUBLAS_STATUS_ALLOC_FAILED.
+    _probe = _cp.empty(1 << 22, dtype=_cp.float64)
+    _cp.add(_probe[:1], _probe[1:2])
+    del _probe
+    _pa = _cp.eye(64, dtype=_cp.complex128)
+    _cp.matmul(_pa, _pa)
+    _cp.linalg.inv(_pa)
+    del _pa
     _E = _cp
     _BACKEND = "cupy"
 except Exception:  # noqa: BLE001
-    try:  # the second GPU backend (JAX / XLA)
-        if _FORCE_CPU:
-            raise ImportError("CL10_BACKEND=numpy (the CPU override)")
-        import jax
-        import jax.numpy as _jnp
-        jax.config.update("jax_platform_name", "gpu")
-        _E = _jnp
-        _BACKEND = "jax"
-    except Exception:  # noqa: BLE001
+    # cupy importable but the probe failed => the card is CUDA-busy,
+    # not absent: JAX would OOM the same way (and spams XLA retries).
+    if not _FORCE_CPU and not _CUPY_PRESENT:
+        try:  # the second GPU backend (JAX / XLA)
+            os.environ.setdefault("XLA_PYTHON_CLIENT_MEM_FRACTION", "0.5")
+            import jax
+            import jax.numpy as _jnp
+            jax.config.update("jax_platform_name", "gpu")
+            _pj = _jnp.eye(64, dtype=_jnp.complex128)
+            (_pj @ _pj).block_until_ready()
+            del _pj
+            _E = _jnp
+            _BACKEND = "jax"
+        except Exception:  # noqa: BLE001
+            _E = np
+            _BACKEND = "numpy"
+    else:
         _E = np
         _BACKEND = "numpy"
 

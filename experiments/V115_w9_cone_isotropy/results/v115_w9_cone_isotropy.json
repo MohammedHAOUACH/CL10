@@ -1,0 +1,23 @@
+{
+ "experiment": "V115_w9_cone_isotropy",
+ "pass": true,
+ "status": "NODE-CONE ISOTROPY SCAN (W9). T1 (regression): every node carries exactly V63's doubler gap at w = 0 (max deviation 2.8e-15 from 2.0029e-04 over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is a piecewise-analytic function of w with isolated zeros; 2726 gapless points located (grid + golden-section, tolerance 1e-7) over the node-orbit representatives x 60 angles; the SMALLEST cone anisotropy found is A = 0.997 (v in [0.012, 0.000] at node (1.5707963267948966, -1.5707963267948966, 0.0), theta = 2.1991, w = 0.68625). T3: the bare (w = 0) cones have anisotropy up to 0.998. No isotropy point (A < 1e-6) exists on the V65 Wilson family: every gapless cone is anisotropic - W9's 'continuous Lorentz invariance is not emergent' is confirmed on the full family, not just the V65 root.",
+ "data": {
+  "w0_gap_vs_v63_max_dev": 2.8293610943724845e-15,
+  "n_gapless_points": 2726,
+  "min_anisotropy": 0.9971028860496166,
+  "best_point": [
+   [
+    1.5707963267948966,
+    -1.5707963267948966,
+    0.0
+   ],
+   2.1991,
+   0.68625,
+   0.011679477768742948,
+   1.6942931790534015e-05
+  ],
+  "bare_cone_max_anisotropy": 0.9979846405797613,
+  "n_sphere_dirs": 179
+ }
+}
