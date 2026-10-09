@@ -91,3 +91,22 @@ exactly; $\tau_p = 1.8\times10^{36}$ yr), V81/V82 (the composite content
 is excluded as the desert supplier), V86 (the meeting is not yet derived
 from the root). Fig. 12 shows the 0-parameter SM-content failure;
 Fig. 21 shows the desert resolution.
+
+## 6. Second sweep — KATRIN, NuFIT angles, weak mixing, LZ (same day)
+
+| quantity | value used | source checked | verdict |
+|---|---|---|---|
+| KATRIN $m_\beta$ | $< 0.45$ eV (90% CL) | KATRIN, Science **388**, 180 (2025), 259 days [16] | confirmed; ref [16] is already the 2025 paper |
+| $\sin^2\theta_{12}$ | $0.307$ | NuFIT 6.0 (IC24+SK): $0.308$ [50] | **corrected** to $0.308$ [50] |
+| $\sin^2\theta_{23}$ | $0.579$ | NuFIT 6.0 NO best fit $0.470$, octant unresolved (3σ $0.435$–$0.585$) [50] | **corrected**: $0.579$ was the old second-octant best fit |
+| $\sin^2\theta_{13}$ | $0.022$ | NuFIT 6.0 NO: $0.02215$ [50] | confirmed, quoted $0.0222$ |
+| $\sin^2\hat\theta(M_Z)$ | $0.2312$ | PDG 2024 constants: $0.23129(4)$ ($\overline{\rm MS}$) [13] | **corrected** to $0.23129(4)$ |
+| $m_W/m_Z$-implied $\sin^2\theta_W$ | $0.224$ | $1-m_W^2/m_Z^2 = 0.223$ (PDG $m_W = 80.3692(133)$, $m_Z = 91.1880(20)$) [13] | **corrected** to $0.223$ |
+| $\Delta m^2_{21}$ | (used as $0.0086$ eV) | NuFIT 6.0: $7.49\times10^{-5}$ eV$^2$ → $0.00865$ eV [50] | confirmed |
+| SK $p\to\mu^+\pi^0$ bound | $1.6\times10^{34}$ yr | SK 2020 [15] | confirmed |
+| LZ direct-detection bound | was $2.0\times10^{-46}$ cm$^2$ ("LZ-class") | LZ 4.2 t yr, PRL **135**, 011802 (2025) [53]: min $2.2\times10^{-48}$ at 40 GeV, $\approx1.5\times10^{-47}$ at 118 GeV | **corrected**: `V88` `LZ_BOUND` and `fig28` now use $1.5\times10^{-47}$; the Higgs-portal point $7\times10^{-46}$ stays excluded (now by a factor ~47, not ~3) |
+
+Changes: `experiments/V88_mirror_scalar` (LZ_BOUND, rerun, verdict
+unchanged), `make_figures/residuals.py` (fig28 LZ line + legend moved
+below the frame), `doc/publication.md` (Table 4 neutrino rows, Section
+11.2, Fig. 28 caption, new reference 53).

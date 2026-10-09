@@ -183,7 +183,8 @@ def main():
                           / (2 * M_DM)))
     sig_SI_V1 = (lam_Z2 ** 2 * f_N ** 2 * mu_red ** 2
                  / (math.pi * M_H ** 4)) * 0.3894e-27
-    LZ_BOUND = 2.0e-46   # cm^2: LZ/XENONnT-class reach at ~118 GeV
+    LZ_BOUND = 1.5e-47   # cm^2: LZ SI limit at ~118 GeV (4.2 t yr,
+                         # PRL 135, 011802 (2025); min 2.2e-48 at 40 GeV)
     checks["V2_lam_star"] = lam_star
     checks["V2_sigma_SI_cm2"] = sig_SI_V2
     checks["V1_lam_for_Omega"] = lam_Z2

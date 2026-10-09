@@ -248,7 +248,7 @@ def fig28_w7_portal():
         d = json.load(f)["data"]
     lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
     lam1, sig1 = d["V1_lam_for_Omega"], d["V1_sigma_SI_cm2"]
-    lz = 2.0e-46
+    lz = 1.5e-47
     gap = d["ss_hh_gap_GeV"]
     cloud = d["V1_virtual_Pmax"]
 
@@ -263,7 +263,8 @@ def fig28_w7_portal():
                label=r"$\sigma_{\rm SI} = \lambda^2 f_N^2 \mu^2 / "
                      r"(\pi m_h^4)$")
     axA.axhline(lz, color=C_ZERO, ls="--", lw=1.8,
-                label=f"LZ-class bound $\\sim {lz:.0e}$ cm$^2$")
+                label=r"LZ bound (4.2 t yr): $2.2\times10^{-48}$ min "
+                      r"(40 GeV), $\approx1.5\times10^{-47}$ at 118 GeV")
     axA.fill_between([1e-5, 1], 1e-58, lz, color=C_ZERO, alpha=0.07)
     axA.plot([lam2], [sig2], "o", ms=11, color=C_SU2, zorder=5)
     axA.annotate(f"pair portal (Z2 BROKEN)\n$\\lambda_* = {lam2:.1e}$: "
@@ -285,7 +286,8 @@ def fig28_w7_portal():
                   "excluded,\n     the other breaks the exact mirror "
                   "$\\mathbb{Z}_2$", fontsize=12.5)
     axA.set_ylim(1e-58, 1e-42)
-    axA.legend(loc="lower left", fontsize=10.5)
+    axA.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24),
+               fontsize=9.5, framealpha=0.95)
 
     rows = [
         ("carrier stability", "EXACT (both portals)", "#2c7a3f"),
@@ -314,7 +316,7 @@ def fig28_w7_portal():
 
     fig.suptitle("The built dark-matter fix, audited against its own "
                  "symmetry (V88)", fontsize=13.5)
-    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.34)
     save(fig, "fig28_w7_portal.png")
 
 def fig29_loop_selection():

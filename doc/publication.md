@@ -382,7 +382,7 @@ Eighth, that named ingredient has now been built and tested (V96), and it **clos
 
 ### 11.2 Electroweak mixing
 
-$\sin^2\theta_W = 3/8$ is the tree-level $\mathrm{SU}(5)/\mathrm{Spin}(10)$ boundary condition **at the unification scale**, not a low-energy prediction. Run to $M_Z$ it becomes $\simeq 0.23$, close to the measured $0.2312$; the measured ratio $m_W/m_Z = 0.881$ corresponds to $\sin^2\theta_W \simeq 0.224$, not to $\sqrt{5/8} = 0.791$. Earlier versions of this work quoted $m_W/m_Z = \sqrt{5/8}$ as a prediction; that is incorrect, and the correct statement is the standard one: the GUT-scale boundary condition $\sin^2\theta_W = 3/8$, whose low-energy value is obtained by running — running which, as just shown, the theory does not currently perform consistently.
+$\sin^2\theta_W = 3/8$ is the tree-level $\mathrm{SU}(5)/\mathrm{Spin}(10)$ boundary condition **at the unification scale**, not a low-energy prediction. Run to $M_Z$ it becomes $\simeq 0.23$, close to the measured $0.23129(4)$ ($\overline{\rm MS}$, PDG 2024 [13]); the measured ratio $m_W/m_Z = 0.881$ corresponds to $\sin^2\theta_W \simeq 0.223$, not to $\sqrt{5/8} = 0.791$. Earlier versions of this work quoted $m_W/m_Z = \sqrt{5/8}$ as a prediction; that is incorrect, and the correct statement is the standard one: the GUT-scale boundary condition $\sin^2\theta_W = 3/8$, whose low-energy value is obtained by running — running which, as just shown, the theory does not currently perform consistently.
 
 ### 11.3 Baryon asymmetry
 
@@ -447,8 +447,8 @@ In the quark sector the CKM matrix is the misalignment of the up- and down-type 
 | multi-bond scaling of the gauged layer | $\dim\ker(\text{3-site}) = 24$; additivity $\ln 45$ across a single bond; two-bond region $S = \ln 45$ (vertex mutual information $\ln 45$); Bekenstein deficit factor $4\ln 45 = 15.23$ | — | computed, V99 |
 | vertex correction and ground state of the gauged layer | $I_n = \dim(\mathbf{45}^{\otimes n})^G = 1,1,6,23,141$; kernel capacity $S_{\rm cap} = 4.4998$ nats (factor $9.0$ from $1/4$ per bond); vertex-corrected coefficient $(1/3)\ln I_6 = 1.65$ nats/bond (factor $6.6$); $E_0 = -5819.18\,\eta$, degeneracy $6$, gap $58.59\,\eta$, $S_{\rm GS} = \ln 45$ | — | computed, V100+V101 |
 | desert spectrum from the gauged layer's content | no solution (0 over full direction scan); all mass-ansatz families excluded, min residual $\ge 5.7$; **equal-shift theorem**: $\sum db_1 = \sum db_2$ over every complete multiplet (index proportionality, verified on $\mathbf{16}, \mathbf{45}, \mathbf{10}$); the data's mismatch requires $\mathrm{SU}(5)$-fragment content, which the automaton does not supply | — | **excluded**, V81+V82+V84 |
-| $\sin^2\theta_{12}$ | $1/3$ | $0.307$ | derived |
-| $\sin^2\theta_{23},\ \sin^2\theta_{13}$ | not fixed ($O(2)$) | $0.579,\ 0.022$ [17,50] | open |
+| $\sin^2\theta_{12}$ | $1/3$ | $0.308$ [50] | derived |
+| $\sin^2\theta_{23},\ \sin^2\theta_{13}$ | not fixed ($O(2)$) | $0.470$ (octant unresolved, 3σ $0.435$–$0.585$), $0.0222$ [50] | open |
 | CKM | identity | $\lambda = 0.225$ [13,44] | **fails** |
 | $\Lambda$ | $0$ (tree level) | $\sim 10^{-122}M_P^4$ | open |
 
@@ -750,7 +750,7 @@ Every proposed supplier of the desert spectrum, and how each was closed. The mea
 
 ![W7 portal](figures/fig28_w7_portal.png)
 
-(a) The direct-detection line $\sigma_{\rm SI}(\lambda)$ with the two ways the built ladder scalar reproduces $\Omega_{\rm DM}h^2 = 0.120$: the fermion-pair portal ($\lambda_* = 3.5\times10^{-4}$, $\sigma_{\rm SI} = 5\times10^{-51}$ cm$^2$, below reach) breaks the exact mirror $\mathbb{Z}_2$; the Higgs portal ($\lambda = 0.13$, $\sigma_{\rm SI} = 7\times10^{-46}$ cm$^2$) preserves it and is excluded by the LZ-class bound. (b) The audit verdicts: stability exact under either portal (scalar parity), $s\overline{s} \to hh$ closed, $h^* \to f\overline{f}$ forbidden under exact $\mathbb{Z}_2$, the mirror relic unaffected. The observed abundance and the exact mirror $\mathbb{Z}_2$ cannot both hold (F7).
+(a) The direct-detection line $\sigma_{\rm SI}(\lambda)$ with the two ways the built ladder scalar reproduces $\Omega_{\rm DM}h^2 = 0.120$: the fermion-pair portal ($\lambda_* = 3.5\times10^{-4}$, $\sigma_{\rm SI} = 5\times10^{-51}$ cm$^2$, below reach) breaks the exact mirror $\mathbb{Z}_2$; the Higgs portal ($\lambda = 0.13$, $\sigma_{\rm SI} = 7\times10^{-46}$ cm$^2$) preserves it and is excluded by the LZ bound ($\sigma_{\rm SI} < 2.2\times10^{-48}$ cm$^2$ at 40 GeV, $\approx 1.5\times10^{-47}$ at 118 GeV; 4.2 t yr, PRL **135**, 011802 (2025) [53]). (b) The audit verdicts: stability exact under either portal (scalar parity), $s\overline{s} \to hh$ closed, $h^* \to f\overline{f}$ forbidden under exact $\mathbb{Z}_2$, the mirror relic unaffected. The observed abundance and the exact mirror $\mathbb{Z}_2$ cannot both hold (F7).
 
 **Fig. 29 — W8: the ladder length is the closed-loop crossing.**
 
@@ -882,3 +882,5 @@ Two cautions about what those passes mean. First, most of them check internal co
 50. I. Esteban, M. C. Gonzalez-Garcia, M. Maltoni, I. Martinez-Soler, and T. Schwetz, "NuFIT 6.0: Updated global analysis of three-flavor neutrino oscillations," *PoS ICHEP2024*, 446 (2025), arXiv:2410.05380.
 51. M. Nath and P. Fileviez Pérez, "Proton stability in grand unified theories, in strings and in branes," *Phys. Rep.* **441**, 191 (2007).
 52. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).
+
+53. LUX-ZEPLIN Collaboration (J. Aalbers *et al.*), "Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment," *Phys. Rev. Lett.* **135**, 011802 (2025), arXiv:2410.17036.
