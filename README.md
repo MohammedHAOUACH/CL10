@@ -96,7 +96,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (105 experiments, V0-V104)
+├── experiments/              # the verification program (109 experiments, V0-V108)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -167,12 +167,16 @@ CL10/
 ├── V102/               # the node cone tensor measured: at all 12 doubler nodes and 1200 sampled directions the dispersion is LINEAR (p = 1.00) but strongly ANISOTROPIC - principal velocities (0.100, 0.100, 0.142), spread 0.75; node gap 2e-4 at the root angle
 ├── V103/               # the W2 re-audit with the IMPLEMENTED democratic rank-1 m_D (V28/V45): the V90 measure-zero point was an artifact of the identity-m_D assumption; the seesaw collapses to m3(r) = S17/(1+r), the massless pair is protected for EVERY r, the bound window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.91 (m3 = 0.0501 eV)
 ├── V104/               # the W6 mixing manifold: the three mixing deviations tested as ONE effect over the natural U6 vev placements (12 branches x 2 orientations, democratic base + rank-1 correction): every placement excluded (best residual 0.308 vs the needed pattern) - the deviations are not a natural-vev artifact; the U6 form itself is pending
+├── V105/               # the W4 Cartan test: are V96's six kappa_s images of ONE Cartan element? NEGATIVE - SM preservation forces span{X,Y} at theta* (class-degenerate, meeting residual >= 0.43) and every Cartan element splitting the six classes breaks all 8 unbroken desert roots: the flavour dependence is off-diagonal bond structure, not a Cartan dressing
+├── V106/               # the W5 washout audit: at the SAME Yukawa giving m_nu = 0.0501 eV (y = 0.40) the decay is IN equilibrium (Gamma/H = 47) and the physical efficiency kappa_f = 5.4e-3 (Buchmuller-Di Bari-Plumacher) sits 14x from the guessed dilution (1/16pi)^2 - the 11% Delta B agreement is an accident of two wrong factors
+├── V107/               # the W6 orthogonality test: V96's kappa_s are per-GAUGE-class (generation-blind) - PMNS/CKM exactly invariant under the whole kappa pattern (max angle shift 2e-13): the W4 bond-layer fix cannot supply the mixing deviations; W6 needs generation-space structure
+├── V108/               # the hierarchy coefficient un-fitted: v/M_P = 3*F_10^10 with F_10 = 0.019186 measured (V85), 3 = the axis families (V70), 10 = the crossing (V89): 2.088 vs 2.076 observed (99.4%) - conditional on the axis-family factorization of the closed-loop sum
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 19)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 20): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 20 panels are the V62 product
-├── run_validation.py         # the runner: runs all 105, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 109, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 └── results/
-    └── validation_summary.json   # the 105/105 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 109/109 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -196,7 +200,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 105 experiments, prints the hard-tier verdict
+python3 run_validation.py        # runs all 109 experiments, prints the hard-tier verdict
+./run_gpu.sh                     # the full 109 on the GPU (cupy); warns if the card is busy
 python3 -m make_figures          # regenerates ALL 36 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu
@@ -212,8 +217,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **105** experiments
-(V0–V104) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **109** experiments
+(V0–V108) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

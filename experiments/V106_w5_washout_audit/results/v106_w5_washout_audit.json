@@ -1,0 +1,46 @@
+{
+ "experiment": "V106_w5_washout_audit",
+ "pass": true,
+ "status": "AUDIT PASSES BY REPORTING ITS OWN FAILURE: at the SAME Yukawa that gives m_nu = 0.0501 eV (y = 0.3987), the decay is IN equilibrium (K = 46.9 >> 1, Sakharov 3 fails) and the physical washout efficiency is kappa_f = 0.0054 - 14x the guessed dilution D = (1/16pi)^2 = 4.0e-04 the product formula uses. Out-of-equilibrium decay needs y < 0.058, capping m_nu at 1.069e-03 eV, 47x below the atmospheric splitting. W5's 11% agreement is an accident of two wrong factors, not a near-miss: at M_N = 9.6e13 GeV the mechanism cannot supply both the neutrino mass and the asymmetry.",
+ "data": {
+  "M_N_GeV": 96061699239510.22,
+  "H_GeV": 12963207280.130121,
+  "cases": {
+   "y=g0=1/8": {
+    "y": 0.125,
+    "K": 4.61,
+    "f": 0.1241,
+    "z_B": 3.5,
+    "DB_product": 6.813361404286049e-10,
+    "DB_washed": 2.136734327415581e-07
+   },
+   "y=atmospheric(v=174)": {
+    "y": 0.3987,
+    "K": 46.9,
+    "f": 0.0054,
+    "z_B": 7.83
+   },
+   "y=atmospheric(v=246)": {
+    "y": 0.282,
+    "K": 23.4,
+    "f": 0.0126,
+    "z_B": 6.78
+   },
+   "y=ladder(v=174)": {
+    "y": 0.6809,
+    "K": 136.7,
+    "f": 0.0016,
+    "z_B": 9.34
+   },
+   "y=ladder(v=246)": {
+    "y": 0.4816,
+    "K": 68.4,
+    "f": 0.0035,
+    "z_B": 8.38
+   }
+  },
+  "y_out_of_equilibrium_bound": 0.05823727294452743,
+  "m_nu_max_eV": 0.0010689325265151263,
+  "fit": "Buchmuller-Di Bari-Plumacher, Ann. Phys. 315, 305 (2005), hep-ph/0401240, strong-washout kappa_f = 2/(z_B K)(1-exp(-z_B K/2))"
+ }
+}
