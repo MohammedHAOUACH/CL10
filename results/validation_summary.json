@@ -1,7 +1,7 @@
 {
-  "n": 109,
-  "n_pass": 109,
-  "pass": true,
+  "n": 117,
+  "n_pass": 116,
+  "pass": false,
   "u10": true,
   "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
   "named_residuals": [
@@ -83,7 +83,7 @@
       "status": "the_cl10_is_the_root",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.872,
+      "wall_time": 1.01,
       "verdict": {
         "id": "V0_root",
         "tier": 0,
@@ -99,7 +99,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.08
+        "wall_time": 0.23
       }
     },
     {
@@ -112,7 +112,7 @@
       "status": "VERTEX CORRECTION DATA FOR THE GAUGED AREA LAW. I_n = dim (45^otimes n)^G by Haar averaging over SO(10): I_2 = 1, I_3 = 1, I_4 = 6, I_5 = 23, I_6 = 142 (MC errors in data). I_6 counts the gauge-invariant states at a cubic-lattice vertex with six adjoint legs: the vertex-corrected area-law coefficient is (1/3) ln I_6 = 1.652 nats/bond against ln 45 = 3.807 with no vertices: the vertex constraint removes a factor 45^3 / I_6 = 642.0 per bond. The r = 210 fusion channel is constructed (2 bond tensors, Gauss-checked), completing the 24-state kernel of V99 (Gram rank 24/24); the capacity of the two-bond region is S = 4.500 nats (2.250 per bond), a factor 9.0 above the Bekenstein 1/4 - the gap is reduced from 15.23 (naive ln 45) to this number under the physical-sector counting, and remains an open residual.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1401.25,
+      "wall_time": 1268.168,
       "verdict": {
         "experiment": "V100_vertex_correction",
         "pass": true,
@@ -159,7 +159,7 @@
       "status": "FIRST GROUND STATE OF THE GAUGED LAYER. The bond-current Hamiltonian H = sum_b J.L of V79 is diagonalized exactly (generalized, Gram rank 24/24) on the physical kernel of the three-site chain: E0 = -5836.6706 eta, degeneracy 6, gap 75.6765 eta. The ground state carries middle-cut entanglement S = 3.8067 nats. The bond-current interaction SPLITS the 24-state kernel: the ground state is a specific entangled gauged state, selected by the interaction.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 188.127,
+      "wall_time": 56.981,
       "verdict": {
         "experiment": "V101_bond_current_ground_state",
         "pass": true,
@@ -211,7 +211,7 @@
       "status": "DISPERSION ORDER OF THE DOUBLER NODES MEASURED. At all 12 doubler momenta the quasi-energy omega(q0 + eps d) was measured by exact Floquet diagonalization in 100 directions at two eps (2e-4, 1e-3); the local exponent p = d ln omega / d ln eps classifies each direction. Result: 1200 linear, 0 quadratic, 0 mixed directions out of 1200; node gaps at g10 = 1/5 are 2.00e-04..2.00e-04; the linear cone has principal velocities up to 0.2839 (causal speed 1) with anisotropy up to 0.7584. The doubler nodes are NOT Lorentz cones: the low-energy dispersion is quadratic along most directions and the linear cone is strongly anisotropic (velocity deficit 0.716 against the causal speed 1). Continuous Lorentz invariance is NOT emergent at the nodes of the implemented step - a named residual; the Wilson mechanism of V65 removes these nodes entirely, so the low-energy Lorentz question moves to the Wilson-deformed spectrum.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 33.824,
+      "wall_time": 31.914,
       "verdict": {
         "experiment": "V102_lorentz_isotropy",
         "pass": true,
@@ -465,7 +465,7 @@
       "status": "W2 RE-AUDITED: the measure-zero tuning of V90 is an artifact of the identity-Dirac assumption. With the implemented democratic rank-1 m_D (V28/V45) the two massless neutrinos are protected for EVERY junction ratio r, m_3(r) = S17/(1+r) is finite everywhere, the cosmological window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.914; the exact r = 2 (S17/3 = 0.0487 eV) is a junction amplitude convention, not a tuning. Solar mass still W6.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.109,
+      "wall_time": 0.132,
       "verdict": {
         "id": "V103_w2_democratic",
         "tier": 5,
@@ -495,7 +495,7 @@
       "status": "the natural forms of the W6 splitting are EXCLUDED or VACUOUS - the mixing deviations are a genuine structural gap, not an artifact: (A) charged-lepton democratic + rank-2 forces sin2(12) <= 0.0047 (the lightest family decouples from the democratic direction, which IS the TBM solar column) - excluded at 23 sigma; (B) one rank-1 vev with a free direction has 4 free parameters against 3 angles - it covers the whole angle cube (s12 in [0.000, 0.998]) and predicts nothing; (C) the symmetry-natural choice - vev along a CUBIC AXIS - is 0-parameter and EXCLUDED: 12 distinct branches, best 20.3 sigma from NuFIT. W6 is narrowed by computation: the vev must live in the NEUTRINO sector, with a NON-CUBIC direction - reproducing (0.308, 0.0222, 0.470) needs at least two vev terms in generic relative orientation, more than the single named 10-Higgs input.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 150.521,
+      "wall_time": 153.717,
       "verdict": {
         "id": "V104_w6_mixing_manifold",
         "tier": 5,
@@ -626,7 +626,7 @@
       "status": "NEGATIVE - the six kappa_s of V96 are NOT obtainable from any on-site algebra element: SM preservation forces the bond direction into span{X,Y} at theta* (V93), whose class-degenerate charges miss the meeting (A2 residual >= 0.43), and every Cartan element that splits the six classes breaks all desert SM roots (B: unbroken 0 != 8). The flavour dependence V96 needs is off-diagonal bond structure, not a Cartan dressing.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.328,
+      "wall_time": 6.437,
       "verdict": {
         "experiment": "V105_w4_cartan_kappas",
         "pass": true,
@@ -1017,7 +1017,7 @@
       "status": "AUDIT PASSES BY REPORTING ITS OWN FAILURE: at the SAME Yukawa that gives m_nu = 0.0501 eV (y = 0.3987), the decay is IN equilibrium (K = 46.9 >> 1, Sakharov 3 fails) and the physical washout efficiency is kappa_f = 0.0054 - 14x the guessed dilution D = (1/16pi)^2 = 4.0e-04 the product formula uses. Out-of-equilibrium decay needs y < 0.058, capping m_nu at 1.069e-03 eV, 47x below the atmospheric splitting. W5's 11% agreement is an accident of two wrong factors, not a near-miss: at M_N = 9.6e13 GeV the mechanism cannot supply both the neutrino mass and the asymmetry.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.023,
+      "wall_time": 0.027,
       "verdict": {
         "experiment": "V106_w5_washout_audit",
         "pass": true,
@@ -1075,7 +1075,7 @@
       "status": "NEGATIVE (structural): V96's kappa_s are per-GAUGE-class couplings - generation-blind - so they rescale each Yukawa block uniformly and leave PMNS/CKM EXACTLY invariant (max angle shift 2.3e-13 over eps in [0,10]). The W4 bond-layer flavour dependence lives in gauge-class space, W6 in generation space: V96 cannot supply the mixing deviations; W6 needs generation-space structure (V104: >= 2 vev terms, non-cubic).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.12,
+      "wall_time": 0.095,
       "verdict": {
         "experiment": "V107_mixing_from_kappas",
         "pass": true,
@@ -1119,14 +1119,14 @@
       "status": "THE 2.08 IS NO LONGER A FITTED NUMBER (conditional): v/M_P = 3*F_10^10 with F_10 = 0.01918639 measured (V85), 3 = the three axis families (V70), 10 = the measured crossing (V89): predicted coefficient 2.0881 vs observed 2.0765, agreement 99.44%. CONDITIONAL: the per-level F_10 reading is the V85/V89 identification and the axis-family multiplicity 3 is not proven to factorize in the single-link construction; sensitivity dln(coef)/dln(F_10) = 10. W8 narrows: the coefficient is a product of measured root numbers, its derivation needs the axis-factorization of the closed-loop sum.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.022,
+      "wall_time": 0.025,
       "verdict": {
         "experiment": "V108_hierarchy_multiplicity",
         "pass": true,
         "status": "THE 2.08 IS NO LONGER A FITTED NUMBER (conditional): v/M_P = 3*F_10^10 with F_10 = 0.01918639 measured (V85), 3 = the three axis families (V70), 10 = the measured crossing (V89): predicted coefficient 2.0881 vs observed 2.0765, agreement 99.44%. CONDITIONAL: the per-level F_10 reading is the V85/V89 identification and the axis-family multiplicity 3 is not proven to factorize in the single-link construction; sensitivity dln(coef)/dln(F_10) = 10. W8 narrows: the coefficient is a product of measured root numbers, its derivation needs the axis-factorization of the closed-loop sum.",
         "data": {
           "F_10_root": 0.01918639,
-          "v89_crossing": null,
+          "v89_crossing": 10,
           "coefficient_predicted_3_F10_10": 2.088105749082429,
           "coefficient_observed": 2.07654710270376,
           "relative_error": 0.005566281816395748,
@@ -1140,6 +1140,38 @@
       }
     },
     {
+      "id": "V109_w5_cp_search",
+      "dir": "V109_w5_cp_search",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "CP AUDIT, TWO PARTS. (1) MIRROR-PRESERVING EXTENSIONS SUPPLY NO PHASE: the exact matter-antimatter mirror (+- pairing of the 32-level spectrum, Theorem 4) is preserved by the V65 Wilson extension (base dev 2.1e-15, V71 regression), and the mirror is exactly the structure forcing every CP-odd invariant to vanish - every mirror-preserving extension leaves W5's CP phase at zero. (2) EVERY CLASS-DEPENDENT DRESSING BREAKS THE ONE-CELL MIRROR: the most general per-class kappa_s diagonal (both mirror sign conventions: 9.7e-01, 2.9e+00) and the most general real-symmetric off-diagonal bond generator (both conventions: 1.2e+00, 1.5e+00) destroy the +- pairing over 60 draws (combined 1.0e+00); extensions unitary to 2.7e-14. The V96 bond layer therefore either (a) acts only in the BOND layer, where the mirror test must be redone at the lattice level (open), or (b) breaks Theorem 4 - the theory's cleanest structural result - and buys a CP phase at that named cost. W5 additionally needs the out-of-equilibrium dynamics V106 showed the thermal route lacks.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 1.252,
+      "verdict": {
+        "experiment": "V109_w5_cp_search",
+        "pass": true,
+        "status": "CP AUDIT, TWO PARTS. (1) MIRROR-PRESERVING EXTENSIONS SUPPLY NO PHASE: the exact matter-antimatter mirror (+- pairing of the 32-level spectrum, Theorem 4) is preserved by the V65 Wilson extension (base dev 2.1e-15, V71 regression), and the mirror is exactly the structure forcing every CP-odd invariant to vanish - every mirror-preserving extension leaves W5's CP phase at zero. (2) EVERY CLASS-DEPENDENT DRESSING BREAKS THE ONE-CELL MIRROR: the most general per-class kappa_s diagonal (both mirror sign conventions: 9.7e-01, 2.9e+00) and the most general real-symmetric off-diagonal bond generator (both conventions: 1.2e+00, 1.5e+00) destroy the +- pairing over 60 draws (combined 1.0e+00); extensions unitary to 2.7e-14. The V96 bond layer therefore either (a) acts only in the BOND layer, where the mirror test must be redone at the lattice level (open), or (b) breaks Theorem 4 - the theory's cleanest structural result - and buys a CP phase at that named cost. W5 additionally needs the out-of-equilibrium dynamics V106 showed the thermal route lacks.",
+        "data": {
+          "base_pairing_dev": 2.1094237467877974e-15,
+          "worst_pairing_dev": 2.8905698200160246,
+          "per_case_worst": {
+            "kappa_antisym": 0.9729102369209015,
+            "kappa_sym": 2.8905698200160246,
+            "dressing_antisym": 1.2231770784976996,
+            "dressing_sym": 1.502115821936499,
+            "both": 1.0085018739753076
+          },
+          "unitarity_max_dev": 2.7311486406145526e-14,
+          "n_classes": 6,
+          "n_draws": 60,
+          "verdict": "mirror-preserving extensions supply no CP phase; one-cell class-dependent dressings break the mirror"
+        }
+      }
+    },
+    {
       "id": "V10_antimatter",
       "dir": "V10_antimatter",
       "tier": 4,
@@ -1149,7 +1181,7 @@
       "status": "the_16_16bar_CPT_pair_is_the_antimatter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.788,
+      "wall_time": 0.819,
       "verdict": {
         "id": "V10_antimatter",
         "tier": 4,
@@ -1176,6 +1208,525 @@
       }
     },
     {
+      "id": "V110_w4_offdiagonal_bond",
+      "dir": "V110_w4_offdiagonal_bond",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "OFF-DIAGONAL BOND REALIZABILITY TEST: the bond graph has 80 root-vector pairs and 11 class-pair channels (degeneracies 64 total). Level repulsion forces the sign of kappa_k by the energy ordering: 2 of 6 classes have a FORCED sign (0:mixed, 1:mixed, 2:mixed, 3:negative only, 4:mixed, 5:positive only). the meeting does NOT close under bond level repulsion: best residual over n=3..12 is 3.045e+01 at n=3 (desert_ok=False), verified to 3.045e+01; the closed set is []. The six kappa_s of V96 remain a NAMED input of the bond layer: one Hermitian bond operator with 12 parameters either reproduces the meeting (closed: []) or the sign/size structure obstructs it (floor 3.045e+01).",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 191.274,
+      "verdict": {
+        "experiment": "V110_w4_offdiagonal_bond",
+        "pass": true,
+        "status": "OFF-DIAGONAL BOND REALIZABILITY TEST: the bond graph has 80 root-vector pairs and 11 class-pair channels (degeneracies 64 total). Level repulsion forces the sign of kappa_k by the energy ordering: 2 of 6 classes have a FORCED sign (0:mixed, 1:mixed, 2:mixed, 3:negative only, 4:mixed, 5:positive only). the meeting does NOT close under bond level repulsion: best residual over n=3..12 is 3.045e+01 at n=3 (desert_ok=False), verified to 3.045e+01; the closed set is []. The six kappa_s of V96 remain a NAMED input of the bond layer: one Hermitian bond operator with 12 parameters either reproduces the meeting (closed: []) or the sign/size structure obstructs it (floor 3.045e+01).",
+        "data": {
+          "theta_star": 1.730784,
+          "lp_classes": [
+            -1.7135,
+            -4.1542,
+            -1.8369,
+            -5.2529,
+            -1.7733,
+            -1.657
+          ],
+          "n_root_pairs": 80,
+          "n_channels": 11,
+          "channel_degeneracies": {
+            "0-1": 6,
+            "0-2": 3,
+            "0-3": 12,
+            "0-4": 3,
+            "1-3": 6,
+            "1-4": 6,
+            "2-3": 6,
+            "2-5": 1,
+            "3-4": 12,
+            "3-5": 6,
+            "4-5": 3
+          },
+          "forced_signs": [
+            {
+              "class": 0,
+              "lp": -1.7135,
+              "rank": 4,
+              "reachable_sign": "mixed"
+            },
+            {
+              "class": 1,
+              "lp": -4.1542,
+              "rank": 1,
+              "reachable_sign": "mixed"
+            },
+            {
+              "class": 2,
+              "lp": -1.8369,
+              "rank": 2,
+              "reachable_sign": "mixed"
+            },
+            {
+              "class": 3,
+              "lp": -5.2529,
+              "rank": 0,
+              "reachable_sign": "negative only"
+            },
+            {
+              "class": 4,
+              "lp": -1.7733,
+              "rank": 3,
+              "reachable_sign": "mixed"
+            },
+            {
+              "class": 5,
+              "lp": -1.657,
+              "rank": 5,
+              "reachable_sign": "positive only"
+            }
+          ],
+          "per_n": {
+            "3": {
+              "residual": 30.447018244860303,
+              "desert_ok": false,
+              "z0": 5.0962,
+              "kappas": [
+                1.6913,
+                0.471,
+                1.6287,
+                -18.1533,
+                1.6606,
+                12.7017
+              ]
+            },
+            "4": {
+              "residual": 46.53215938976065,
+              "desert_ok": false,
+              "z0": 3.7406,
+              "kappas": [
+                4.3418,
+                -0.9142,
+                0.6345,
+                -13.454,
+                1.3974,
+                7.9944
+              ]
+            },
+            "5": {
+              "residual": 35.49225267311374,
+              "desert_ok": false,
+              "z0": 14.6098,
+              "kappas": [
+                5.5993,
+                -10.4977,
+                5.8822,
+                -11.0582,
+                4.9,
+                5.1744
+              ]
+            },
+            "6": {
+              "residual": 72.52597712936488,
+              "desert_ok": false,
+              "z0": 4.5904,
+              "kappas": [
+                4.3005,
+                -3.8422,
+                -0.101,
+                -8.5553,
+                1.4085,
+                6.7895
+              ]
+            },
+            "7": {
+              "residual": 75.53702525130178,
+              "desert_ok": false,
+              "z0": 8.9013,
+              "kappas": [
+                7.5927,
+                0.3966,
+                1.3937,
+                -14.6581,
+                2.5439,
+                2.7312
+              ]
+            },
+            "8": {
+              "residual": 86.97210862447817,
+              "desert_ok": false,
+              "z0": 7.3406,
+              "kappas": [
+                2.8323,
+                -1.0397,
+                1.1798,
+                -7.6368,
+                2.3103,
+                2.3542
+              ]
+            },
+            "9": {
+              "residual": 108.45276221843999,
+              "desert_ok": false,
+              "z0": 8.1341,
+              "kappas": [
+                13.3346,
+                -10.7427,
+                2.1872,
+                -12.1416,
+                3.1804,
+                4.182
+              ]
+            },
+            "10": {
+              "residual": 118.60157402793747,
+              "desert_ok": false,
+              "z0": 6.3429,
+              "kappas": [
+                5.5558,
+                -4.459,
+                0.0647,
+                -6.4246,
+                3.4733,
+                1.7898
+              ]
+            },
+            "11": {
+              "residual": 147.6193740788296,
+              "desert_ok": false,
+              "z0": 6.14,
+              "kappas": [
+                12.1736,
+                1.2061,
+                -4.7097,
+                -12.6671,
+                1.4962,
+                2.5009
+              ]
+            },
+            "12": {
+              "residual": 170.82994718185364,
+              "desert_ok": false,
+              "z0": 0.2038,
+              "kappas": [
+                1.8302,
+                -1.8417,
+                -0.0696,
+                -3.641,
+                1.5695,
+                2.1527
+              ]
+            }
+          },
+          "closed_n": [],
+          "best_n": 3,
+          "verify_residual": 30.446967212058652,
+          "v96_kappas": [
+            -4.5312,
+            -5.7516,
+            9.1859,
+            7.6557,
+            9.1222,
+            5.848
+          ]
+        }
+      }
+    },
+    {
+      "id": "V111_w6_generation_bond",
+      "dir": "V111_w6_generation_bond",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "GENERATION-SPACE BOND DRESSING AUDIT. T1 (V107 case, verified): a uniform scalar dressing is EXACTLY blind - max mixing shift 1.38e-13 over 200 draws. T2: one COMMON non-abelian family dressing (7 parameters - the bond layer sees generation but not chirality): REACHED. T3: chiral-ASYMMETRIC dressings (13 parameters): REACHED as a 13-parameter FIT (12 family entries + 1 coupling against 3 constraints - every entry a named input, a worse cost than V104's >= 2 vev terms). Target (0.308, 0.0222, 0.47) from the base (0.9924, 0.0, 0.9886). Verdict: generation-space structure DOES move the mixing (unlike the gauge-class-blind V96 layer), but reaching the measured triple requires a chiral-asymmetric family dressing whose every entry is a named input - W6 remains open: the required structure is not a consequence of the root.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 6.019,
+      "verdict": {
+        "experiment": "V111_w6_generation_bond",
+        "pass": true,
+        "status": "GENERATION-SPACE BOND DRESSING AUDIT. T1 (V107 case, verified): a uniform scalar dressing is EXACTLY blind - max mixing shift 1.38e-13 over 200 draws. T2: one COMMON non-abelian family dressing (7 parameters - the bond layer sees generation but not chirality): REACHED. T3: chiral-ASYMMETRIC dressings (13 parameters): REACHED as a 13-parameter FIT (12 family entries + 1 coupling against 3 constraints - every entry a named input, a worse cost than V104's >= 2 vev terms). Target (0.308, 0.0222, 0.47) from the base (0.9924, 0.0, 0.9886). Verdict: generation-space structure DOES move the mixing (unlike the gauge-class-blind V96 layer), but reaching the measured triple requires a chiral-asymmetric family dressing whose every entry is a named input - W6 remains open: the required structure is not a consequence of the root.",
+        "data": {
+          "max_shift_scalar": 1.3811174426336947e-13,
+          "residual_common_dressing": 2.1248722968503554e-09,
+          "residual_chiral_asymmetric": 4.407201538827577e-11,
+          "base_angles": [
+            0.9924,
+            0.0,
+            0.9886
+          ],
+          "target": [
+            0.308,
+            0.0222,
+            0.47
+          ],
+          "n_trials_T1": 200,
+          "n_restarts": 80
+        }
+      }
+    },
+    {
+      "id": "V112_w7_dark_u1_portal",
+      "dir": "V112_w7_dark_u1_portal",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "DARK-U(1) PORTAL AUDIT (W7). T1: the extra U(1) of the V67 chain is constructed - hypercharge fixed by the Q and L classes PREDICTS the full SM pattern [(1, 1.0), (1, -0.0), (6, 0.166667), (3, 0.333333), (3, -0.666667), (2, -0.5)] on the six weight classes (all match: True); E is orthogonal to all 10 unbroken roots (max 8.9e-16). T2: the desert matter IS charged under E (max |q_E| over the 16 weights = 2.236) - an UNBROKEN extra U(1) is a massless Z' coupled to desert matter: it must be broken before nucleosynthesis. T3 (theorem): it cannot be broken inside the implemented spectrum - 40/45 generators of the 45 are E-charged and every broken root is cross-fragment (color-triplet leptoquark: 98/120 broken weight-pair directions connect fragments), so no SM-singlet scalar of the 45 carries E-charge: the extra U(1) is UNHIGGSABLE by the implemented spectrum. T4: with a dark Higgs OUTSIDE the spectrum (named input) breaking U(1)_D at v_D, the thermal relic window (Omega h^2 = 0.120 via Z' annihilation, LZ-class sigma_SI < 2e-47 cm^2, LEP-class Z' reach) contains 0 grid points in (g_D, m_Z', eps): the relic density needs g_D*eps >~ 0.02 while Z'-mediated direct detection bounds g_D*eps <~ 1e-3 at m_Z' ~ 2 m_s - the named-input dark-U(1) window is EMPTY in the minimal 118 GeV scalar setup. Verdict: the extra U(1) cannot serve as the W7 portal - inside the implemented spectrum it is unbroken and the ladder scalar is E-neutral, and the named extension that Higgses it closes itself by relic/direct-detection squeeze. W7 stays open.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 1.083,
+      "verdict": {
+        "experiment": "V112_w7_dark_u1_portal",
+        "pass": true,
+        "status": "DARK-U(1) PORTAL AUDIT (W7). T1: the extra U(1) of the V67 chain is constructed - hypercharge fixed by the Q and L classes PREDICTS the full SM pattern [(1, 1.0), (1, -0.0), (6, 0.166667), (3, 0.333333), (3, -0.666667), (2, -0.5)] on the six weight classes (all match: True); E is orthogonal to all 10 unbroken roots (max 8.9e-16). T2: the desert matter IS charged under E (max |q_E| over the 16 weights = 2.236) - an UNBROKEN extra U(1) is a massless Z' coupled to desert matter: it must be broken before nucleosynthesis. T3 (theorem): it cannot be broken inside the implemented spectrum - 40/45 generators of the 45 are E-charged and every broken root is cross-fragment (color-triplet leptoquark: 98/120 broken weight-pair directions connect fragments), so no SM-singlet scalar of the 45 carries E-charge: the extra U(1) is UNHIGGSABLE by the implemented spectrum. T4: with a dark Higgs OUTSIDE the spectrum (named input) breaking U(1)_D at v_D, the thermal relic window (Omega h^2 = 0.120 via Z' annihilation, LZ-class sigma_SI < 2e-47 cm^2, LEP-class Z' reach) contains 0 grid points in (g_D, m_Z', eps): the relic density needs g_D*eps >~ 0.02 while Z'-mediated direct detection bounds g_D*eps <~ 1e-3 at m_Z' ~ 2 m_s - the named-input dark-U(1) window is EMPTY in the minimal 118 GeV scalar setup. Verdict: the extra U(1) cannot serve as the W7 portal - inside the implemented spectrum it is unbroken and the ladder scalar is E-neutral, and the named extension that Higgses it closes itself by relic/direct-detection squeeze. W7 stays open.",
+        "data": {
+          "hypercharge_by_class_multiplicity": [
+            [
+              1,
+              1.0
+            ],
+            [
+              1,
+              -0.0
+            ],
+            [
+              6,
+              0.166667
+            ],
+            [
+              3,
+              0.333333
+            ],
+            [
+              3,
+              -0.666667
+            ],
+            [
+              2,
+              -0.5
+            ]
+          ],
+          "hypercharge_pattern_ok": true,
+          "E_orthogonality_roots": 8.881784197001252e-16,
+          "n_unbroken_roots": 10,
+          "matter_max_E_charge": 2.2360679774997894,
+          "E_charges_16": [
+            -0.4472,
+            -2.2361,
+            -0.4472,
+            -0.4472,
+            -0.4472,
+            -0.4472,
+            -0.4472,
+            1.3416,
+            -0.4472,
+            1.3416,
+            1.3416,
+            -0.4472,
+            -0.4472,
+            -0.4472,
+            1.3416,
+            1.3416
+          ],
+          "E_charged_generators_of_45": 40,
+          "broken_cross_fragment_roots": 98,
+          "broken_roots_total": 120,
+          "named_input_window_points": 0,
+          "window_sample": []
+        }
+      }
+    },
+    {
+      "id": "V113_w8_axis_factorization",
+      "dir": "V113_w8_axis_factorization",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "AXIS-FAMILY FACTORIZATION AUDIT: F_10 reproduced at 0.01918639 (V85 regression 1.03e-09). The 12 doubler nodes form 3 axis families of 4; the Floquet spectra are identical WITHIN families to 0.00e+00 and ACROSS families to 0.00e+00 - every node channel carries the same link-local loop factor, so per-node contributions are EQUAL. The sum is then a NODE-SET choice: all 12 nodes give coefficient 8.3524 (4.02x the observed 2.0765); one split node per family (the V68/V96 selective reading) gives 2.0881 (99.44% agreement); a single node gives 0.6960. VERDICT: the factorization is CONFIRMED as family symmetry (equal contributions) but the coefficient 3 is EXACTLY the choice of one split node per axis family - V108's conditionality is W9's split-node-set input, not a factorization theorem.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 4.124,
+      "verdict": {
+        "experiment": "V113_w8_axis_factorization",
+        "pass": true,
+        "status": "AXIS-FAMILY FACTORIZATION AUDIT: F_10 reproduced at 0.01918639 (V85 regression 1.03e-09). The 12 doubler nodes form 3 axis families of 4; the Floquet spectra are identical WITHIN families to 0.00e+00 and ACROSS families to 0.00e+00 - every node channel carries the same link-local loop factor, so per-node contributions are EQUAL. The sum is then a NODE-SET choice: all 12 nodes give coefficient 8.3524 (4.02x the observed 2.0765); one split node per family (the V68/V96 selective reading) gives 2.0881 (99.44% agreement); a single node gives 0.6960. VERDICT: the factorization is CONFIRMED as family symmetry (equal contributions) but the coefficient 3 is EXACTLY the choice of one split node per axis family - V108's conditionality is W9's split-node-set input, not a factorization theorem.",
+        "data": {
+          "F_10_measured": 0.01918639,
+          "regression_vs_V85": 1.0261845262427016e-09,
+          "n_nodes": 12,
+          "families": {
+            "x": [
+              [
+                0.0,
+                1.5708,
+                1.5708
+              ],
+              [
+                0.0,
+                1.5708,
+                -1.5708
+              ],
+              [
+                0.0,
+                -1.5708,
+                1.5708
+              ],
+              [
+                0.0,
+                -1.5708,
+                -1.5708
+              ]
+            ],
+            "y": [
+              [
+                1.5708,
+                0.0,
+                1.5708
+              ],
+              [
+                1.5708,
+                0.0,
+                -1.5708
+              ],
+              [
+                -1.5708,
+                0.0,
+                1.5708
+              ],
+              [
+                -1.5708,
+                0.0,
+                -1.5708
+              ]
+            ],
+            "z": [
+              [
+                1.5708,
+                1.5708,
+                0.0
+              ],
+              [
+                1.5708,
+                -1.5708,
+                0.0
+              ],
+              [
+                -1.5708,
+                1.5708,
+                0.0
+              ],
+              [
+                -1.5708,
+                -1.5708,
+                0.0
+              ]
+            ]
+          },
+          "spectral_equality_within": 0.0,
+          "spectral_equality_across": 0.0,
+          "coef_all12": 8.3524,
+          "coef_one_per_family": 2.0881,
+          "coef_single": 0.696,
+          "coef_observed": 2.07654710270376,
+          "agreement_one_per_family": 0.99443
+        }
+      }
+    },
+    {
+      "id": "V114_w2_junction_r",
+      "dir": "V114_w2_junction_r",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "JUNCTION RATIO AUDIT on (Z/4)^3: the V76 modulation's exact stabilizer in the 48-element signed-permutation group has 12 elements (6 of them chiral) - NOT the 24-element chiral cubic group: V76's 'cubic symmetric' holds only for the triangle SUPPORT (an orbit), not for the profile. The cubic-symmetric closed space (24 rotations + Fourier closure) has dimension 1 (modulation 0): the V76 profile lies outside it to 3.00e+00 - NO cubic-symmetric closed junction exists on the period-4 lattice. Inside the V76 stabilizer the closed space has dimension 2 (modulation 1, V76 shape error 8.55e-15, basis verified to 2.78e-16): the constant w0 is an independent direction, so r = kappa/w0 is NOT DERIVED - the conditions fix at most the shape, never the amplitude ratio. W2's r = 2 (democratic) and r = 1.91 (atmospheric) remain named inputs; F3 measures the outcome.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 0.159,
+      "verdict": {
+        "experiment": "V114_w2_junction_r",
+        "pass": true,
+        "status": "JUNCTION RATIO AUDIT on (Z/4)^3: the V76 modulation's exact stabilizer in the 48-element signed-permutation group has 12 elements (6 of them chiral) - NOT the 24-element chiral cubic group: V76's 'cubic symmetric' holds only for the triangle SUPPORT (an orbit), not for the profile. The cubic-symmetric closed space (24 rotations + Fourier closure) has dimension 1 (modulation 0): the V76 profile lies outside it to 3.00e+00 - NO cubic-symmetric closed junction exists on the period-4 lattice. Inside the V76 stabilizer the closed space has dimension 2 (modulation 1, V76 shape error 8.55e-15, basis verified to 2.78e-16): the constant w0 is an independent direction, so r = kappa/w0 is NOT DERIVED - the conditions fix at most the shape, never the amplitude ratio. W2's r = 2 (democratic) and r = 1.91 (atmospheric) remain named inputs; F3 measures the outcome.",
+        "data": {
+          "stabilizer_size": 12,
+          "stabilizer_chiral": 6,
+          "dim_cubic_closed": 1,
+          "dim_cubic_mod": 0,
+          "dim_stab_closed": 2,
+          "dim_stab_mod": 1,
+          "v76_in_cubic_err": 2.9999999999999996,
+          "v76_in_stab_err": 3.552713678800501e-15,
+          "v76_shape_err": 8.547433047200445e-15,
+          "verify": 2.7755575615628914e-16,
+          "r_verdict": "NOT DERIVED"
+        }
+      }
+    },
+    {
+      "id": "V115_w9_cone_isotropy",
+      "dir": "V115_w9_cone_isotropy",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": false,
+      "status": "CRASH (rc=1): NameError: name 'x_coef' is not defined",
+      "returncode": 1,
+      "crashed": true,
+      "wall_time": 0.879,
+      "verdict": null
+    },
+    {
+      "id": "V116_w3_triangle_orbit8",
+      "dir": "V116_w3_triangle_orbit8",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "TRIANGLE ORBIT-8 AUDIT (W3). T1: O_h (48 signed permutations) permutes the 12 nodes and is transitive (one orbit of 12): True. T2: the 220 node triples split into 9 cubic orbits (sizes [8, 8, 12, 24, 24, 24, 24, 48, 48]); the one-per-family triangles number 64 and split into 4 cubic orbits (sizes [8, 8, 24, 24]); the V68/V91 triangle orbit has 8 members. T3: the stabilizer of a triangle has order 6 with element orders {1: 1, 2: 3, 3: 2} - exactly S3 (axis permutations): the 3-node split breaks the cubic symmetry O_h -> S3, and the 9 unsplit nodes share that residual S3. T4: the stabilizer of one triangle maps it only to itself (1 reachable image): the other 7 triangles of its orbit are NOT stabilizer-equivalent - the triangle choice is an 8-fold degenerate set of PHYSICALLY DISTINCT vacua, related by broken cubic generators, with domain walls between them. Verdict: the W3 triangle is not a hidden-symmetry relabeling: it is a named input that reduces the crystal symmetry of the low-energy doubler spectrum from O_h to S3 and leaves 8 distinct choices.",
+      "returncode": 0,
+      "crashed": false,
+      "wall_time": 0.933,
+      "verdict": {
+        "experiment": "V116_w3_triangle_orbit8",
+        "pass": true,
+        "status": "TRIANGLE ORBIT-8 AUDIT (W3). T1: O_h (48 signed permutations) permutes the 12 nodes and is transitive (one orbit of 12): True. T2: the 220 node triples split into 9 cubic orbits (sizes [8, 8, 12, 24, 24, 24, 24, 48, 48]); the one-per-family triangles number 64 and split into 4 cubic orbits (sizes [8, 8, 24, 24]); the V68/V91 triangle orbit has 8 members. T3: the stabilizer of a triangle has order 6 with element orders {1: 1, 2: 3, 3: 2} - exactly S3 (axis permutations): the 3-node split breaks the cubic symmetry O_h -> S3, and the 9 unsplit nodes share that residual S3. T4: the stabilizer of one triangle maps it only to itself (1 reachable image): the other 7 triangles of its orbit are NOT stabilizer-equivalent - the triangle choice is an 8-fold degenerate set of PHYSICALLY DISTINCT vacua, related by broken cubic generators, with domain walls between them. Verdict: the W3 triangle is not a hidden-symmetry relabeling: it is a named input that reduces the crystal symmetry of the low-energy doubler spectrum from O_h to S3 and leaves 8 distinct choices.",
+        "data": {
+          "group_order": 48,
+          "transitive": true,
+          "n_triple_orbits": 9,
+          "orbit_sizes": [
+            8,
+            8,
+            12,
+            24,
+            24,
+            24,
+            24,
+            48,
+            48
+          ],
+          "n_triangles": 64,
+          "n_triangle_orbits": 4,
+          "triangle_orbit_sizes": [
+            8,
+            8,
+            24,
+            24
+          ],
+          "triangle_orbit_size": 8,
+          "stabilizer_order": 6,
+          "stabilizer_element_orders": {
+            "1": 1,
+            "2": 3,
+            "3": 2
+          },
+          "stabilizer_is_S3": true
+        }
+      }
+    },
+    {
       "id": "V11_anomaly",
       "dir": "V11_anomaly",
       "tier": 3,
@@ -1185,7 +1736,7 @@
       "status": "the_16_weyl_is_anomaly_free",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.765,
+      "wall_time": 0.77,
       "verdict": {
         "id": "V11_anomaly",
         "tier": 3,
@@ -1218,7 +1769,7 @@
       "status": "the_couplings_unify_5_3",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.761,
+      "wall_time": 0.749,
       "verdict": {
         "id": "V12_unification",
         "tier": 3,
@@ -1245,7 +1796,7 @@
       "status": "matter_gauge_gravity_in_one_object",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.791,
+      "wall_time": 0.782,
       "verdict": {
         "id": "V13_gauge_gravity",
         "tier": 3,
@@ -1273,7 +1824,7 @@
       "status": "the_proton_decay_prediction",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.747,
+      "wall_time": 0.799,
       "verdict": {
         "id": "V14_proton",
         "tier": 5,
@@ -1299,7 +1850,7 @@
       "status": "the_neutrino_mass_via_2step_seesaw",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.775,
+      "wall_time": 0.742,
       "verdict": {
         "id": "V15_seesaw",
         "tier": 5,
@@ -1327,7 +1878,7 @@
       "status": "the_3_families_reduced_by_3_space",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.77,
+      "wall_time": 0.817,
       "verdict": {
         "id": "V16_families",
         "tier": 5,
@@ -1356,7 +1907,7 @@
       "status": "the_w1_mechanism_z2_cancellation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.771,
+      "wall_time": 0.767,
       "verdict": {
         "id": "V17_w1_screening",
         "tier": 4,
@@ -1384,7 +1935,7 @@
       "status": "the_w2_mechanism_2step_seesaw",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.755,
+      "wall_time": 0.785,
       "verdict": {
         "id": "V18_w2_seesaw2step",
         "tier": 5,
@@ -1416,7 +1967,7 @@
       "status": "the_w3_mechanism_3_equals_3_space",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.772,
+      "wall_time": 0.801,
       "verdict": {
         "id": "V19_w3_families3",
         "tier": 5,
@@ -1445,7 +1996,7 @@
       "status": "the_13_is_inside_the_gut",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.783,
+      "wall_time": 0.838,
       "verdict": {
         "id": "V1_spacetime",
         "tier": 1,
@@ -1461,7 +2012,7 @@
           "ss": 0.0,
           "err": 0.0
         },
-        "wall_time": 0.027
+        "wall_time": 0.03
       }
     },
     {
@@ -1474,7 +2025,7 @@
       "status": "the_10_higgs_gives_the_0_parameter_mass_term",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.794,
+      "wall_time": 0.827,
       "verdict": {
         "id": "V20_massgen",
         "tier": 2,
@@ -1494,7 +2045,7 @@
           "sterile_N_in_16": true,
           "named_residuals": "the exact mass values (the 3-gen hierarchy, the mixing) are named"
         },
-        "wall_time": 0.026
+        "wall_time": 0.027
       }
     },
     {
@@ -1507,7 +2058,7 @@
       "status": "the_0_parameter_gut_coupling_and_1_loop_structure",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.755,
+      "wall_time": 0.76,
       "verdict": {
         "id": "V21_running",
         "tier": 3,
@@ -1541,7 +2092,7 @@
       "status": "the_qca_does_not_generate_the_baryon_asymmetry",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.787,
+      "wall_time": 0.761,
       "verdict": {
         "id": "V22_baryon",
         "tier": 5,
@@ -1571,7 +2122,7 @@
       "status": "the_full_sm_is_a_0_parameter_unitary_qca",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.967,
+      "wall_time": 1.002,
       "verdict": {
         "id": "V23_full_sm_qca",
         "tier": 2,
@@ -1601,7 +2152,7 @@
           "n_module": 32,
           "named_residual": "the 3-family structure + the Yukawa matrix"
         },
-        "wall_time": 0.176
+        "wall_time": 0.195
       }
     },
     {
@@ -1614,7 +2165,7 @@
       "status": "the_16_16bar_are_cpt_conjugates_and_the_qca_is_cpt_symmetric",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.97,
+      "wall_time": 0.993,
       "verdict": {
         "id": "V24_cpt",
         "tier": 3,
@@ -1638,7 +2189,7 @@
           "cpt_equal_norm": true,
           "c16_into_16bar": 44.43441706294196
         },
-        "wall_time": 0.165
+        "wall_time": 0.17
       }
     },
     {
@@ -1651,7 +2202,7 @@
       "status": "the_qca_is_holographic_S_scales_with_area_not_volume",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.753,
+      "wall_time": 0.779,
       "verdict": {
         "id": "V25_holography",
         "tier": 4,
@@ -1697,7 +2248,7 @@
       "status": "the_3_generations_are_a_0_parameter_3_three_ways",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.794,
+      "wall_time": 0.814,
       "verdict": {
         "id": "V26_family",
         "tier": 1,
@@ -1716,7 +2267,7 @@
           "n_weyl_3gen": 48,
           "residual": "the 'why-3' full derivation (the 0-parameter candidate is 3, three ways)"
         },
-        "wall_time": 0.023
+        "wall_time": 0.025
       }
     },
     {
@@ -1729,7 +2280,7 @@
       "status": "the_qcd_is_confining_linear_potential_0_parameter_area_law",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.739,
+      "wall_time": 0.787,
       "verdict": {
         "id": "V27_qcd_confinement",
         "tier": 2,
@@ -1781,7 +2332,7 @@
       "status": "the_0_parameter_democratic_rank1_Dirac_mass_matrix_the_2_level_structure",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.815,
+      "wall_time": 0.828,
       "verdict": {
         "id": "V28_yukawa",
         "tier": 2,
@@ -1809,7 +2360,7 @@
           "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
         },
-        "wall_time": 0.034
+        "wall_time": 0.031
       }
     },
     {
@@ -1822,7 +2373,7 @@
       "status": "the_democratic_base_derives_sin2_12=1/3_0_parameter_(8%_from_observed);_sin2_23_and_sin2_13_sweep_[0,2/3]_under_the_O2_freedom_(the_TBM_is_the_23-adapted_choice)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.953,
+      "wall_time": 0.938,
       "verdict": {
         "id": "V29_yukawa_hierarchy",
         "tier": 2,
@@ -1875,7 +2426,7 @@
           "degenerate_base": true,
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)"
         },
-        "wall_time": 0.167
+        "wall_time": 0.164
       }
     },
     {
@@ -1888,7 +2439,7 @@
       "status": "the_16_weyl_is_one_generation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.795,
+      "wall_time": 0.797,
       "verdict": {
         "id": "V2_matter",
         "tier": 1,
@@ -1918,7 +2469,7 @@
       "status": "the_0_parameter_5_3_and_GUT_coupling_with_GUT_range_running_at_M_P_and_UV_bounded",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.769,
+      "wall_time": 0.778,
       "verdict": {
         "id": "V30_unification",
         "tier": 2,
@@ -1957,7 +2508,7 @@
       "status": "the_qca_metric_dynamics_gives_the_einstein_hilbert_the_massless_spin_2_the_computed_riemann_curvature_the_non_linear_soliton_and_the_schwarzschild_black_hole",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.834,
+      "wall_time": 0.851,
       "verdict": {
         "id": "V31_derive_gr",
         "tier": 2,
@@ -1991,7 +2542,7 @@
           "black_hole_R_vacuum": 0.0,
           "black_hole_Kretschmann": 0.06584362139917696
         },
-        "wall_time": 0.074
+        "wall_time": 0.075
       }
     },
     {
@@ -2004,7 +2555,7 @@
       "status": "the_qca_step_gives_the_sm_effective_action_with_the_0_parameter_electroweak_breaking",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.876,
+      "wall_time": 0.893,
       "verdict": {
         "id": "V32_qca_qft",
         "tier": 2,
@@ -2028,7 +2579,7 @@
           "mw_over_mz_0p": 0.7905694150420949,
           "residual": "the Higgs mass (not 0-parameter in the SM)"
         },
-        "wall_time": 0.109
+        "wall_time": 0.088
       }
     },
     {
@@ -2041,7 +2592,7 @@
       "status": "the_0_parameter_QCA_does_not_generate_the_baryon_asymmetry_the_GUT_ingredients_are_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.857,
+      "wall_time": 0.881,
       "verdict": {
         "id": "V33_baryogenesis",
         "tier": 2,
@@ -2064,7 +2615,7 @@
           "pmns_cp_phase": true,
           "residual": "the baryon asymmetry (the 0-parameter QCA does not generate it; the GUT ingredients require a non-0-parameter out-of-equilibrium + CP-violating rate)"
         },
-        "wall_time": 0.097
+        "wall_time": 0.101
       }
     },
     {
@@ -2077,7 +2628,7 @@
       "status": "the_w1_cancellation_and_the_hierarchy_value_the_derivations_are_the_named_residuals",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.777,
+      "wall_time": 0.76,
       "verdict": {
         "id": "V34_cosmology",
         "tier": 4,
@@ -2115,7 +2666,7 @@
       "status": "the_one_object_gives_the_dark_matter_and_dark_energy_and_antimatter_all_0_parameter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.779,
+      "wall_time": 0.817,
       "verdict": {
         "id": "V35_cosmology_unified",
         "tier": 4,
@@ -2152,7 +2703,7 @@
           },
           "residual": "the dark-matter mass/abundance, the 1e-122 (W1), the baryon asymmetry (V33)"
         },
-        "wall_time": 0.027
+        "wall_time": 0.028
       }
     },
     {
@@ -2165,7 +2716,7 @@
       "status": "the_causal_radius_1_is_implemented_the_light_cone_is_realized",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.932,
+      "wall_time": 0.943,
       "verdict": {
         "id": "V36_local_qca",
         "tier": 2,
@@ -2204,7 +2755,7 @@
           ],
           "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
         },
-        "wall_time": 0.145
+        "wall_time": 0.149
       }
     },
     {
@@ -2217,7 +2768,7 @@
       "status": "the_eh_action_derives_the_qca_metric_dynamics_the_direction_dynamics_from_action",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.823,
+      "wall_time": 0.866,
       "verdict": {
         "id": "V37_eh_action",
         "tier": 2,
@@ -2245,7 +2796,7 @@
           "continuum_ok": true,
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
-        "wall_time": 0.066
+        "wall_time": 0.067
       }
     },
     {
@@ -2258,7 +2809,7 @@
       "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.793,
+      "wall_time": 0.799,
       "verdict": {
         "id": "V38_couplings_root",
         "tier": 3,
@@ -2301,7 +2852,7 @@
           "su3_pole_inside_lattice": true,
           "residual": "the 1-loop SM matching to the measured M_Z values (W4, now quantified by the down-running); the QCA lattice RG is the open part"
         },
-        "wall_time": 0.024
+        "wall_time": 0.029
       }
     },
     {
@@ -2314,7 +2865,7 @@
       "status": "the_three_families_inside_the_qca_dynamics_the_96d_step_is_0_parameter_unitary_and_family_symmetric",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.866,
+      "wall_time": 0.899,
       "verdict": {
         "id": "V39_families_qca",
         "tier": 1,
@@ -2347,7 +2898,7 @@
           "tribimaximal_diagonalizes_democratic": true,
           "residual": "the why-3 (W3) and the family mass hierarchy (the 10-Higgs breaking) are the named residuals"
         },
-        "wall_time": 0.094
+        "wall_time": 0.096
       }
     },
     {
@@ -2360,7 +2911,7 @@
       "status": "the_45_is_the_spin10_adjoint",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.811,
+      "wall_time": 0.858,
       "verdict": {
         "id": "V3_gauge",
         "tier": 1,
@@ -2373,7 +2924,7 @@
           "n45": 45,
           "rank45": 45
         },
-        "wall_time": 0.035
+        "wall_time": 0.036
       }
     },
     {
@@ -2386,7 +2937,7 @@
       "status": "the_baryon_asymmetry_at_the_right_order_the_mechanism_is_0_parameter_the_exact_value_named",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.848,
+      "wall_time": 0.888,
       "verdict": {
         "id": "V40_leptogenesis",
         "tier": 2,
@@ -2411,7 +2962,7 @@
           "0param_qca_satisfies_no_sakharov": true,
           "residual": "the exact eta_CP (the CP-violating magnitude in the N decay, the named input, observed range 1e-3..1e-2; taken 1e-3) and the exact Delta_B (the observed 6.1e-10): the mechanism is 0-parameter, the exact value is named (the W2 pattern)"
         },
-        "wall_time": 0.094
+        "wall_time": 0.095
       }
     },
     {
@@ -2424,7 +2975,7 @@
       "status": "the_qca_step_is_the_0_parameter_S_matrix_the_first_processes_of_the_theory",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.93,
+      "wall_time": 0.955,
       "verdict": {
         "id": "V41_smatrix",
         "tier": 2,
@@ -2450,7 +3001,7 @@
           "s2_max_offdiag": 0.3320306396873518,
           "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.132
+        "wall_time": 0.137
       }
     },
     {
@@ -2463,7 +3014,7 @@
       "status": "the_dm_candidate_is_stable_massive_neutral_at_the_planck_scale_the_abundance_gap_is_quantified",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.775,
+      "wall_time": 0.767,
       "verdict": {
         "id": "V42_dm_scale",
         "tier": 4,
@@ -2499,7 +3050,7 @@
       "status": "the_9_to_1_reduction: one object (the 32-level QCA spectrum), nine named projections (W1-W9)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.847,
+      "wall_time": 0.9,
       "verdict": {
         "id": "V43_qca_spectrum",
         "tier": 4,
@@ -2578,7 +3129,7 @@
             }
           ]
         },
-        "wall_time": 0.087
+        "wall_time": 0.092
       }
     },
     {
@@ -2591,7 +3142,7 @@
       "status": "the_0_parameter_GUT_cross_section_is_UV_finite_nonzero_bounded_the_RG_matching_is_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.051,
+      "wall_time": 1.069,
       "verdict": {
         "id": "V44_lattice_rg",
         "tier": 2,
@@ -2636,7 +3187,7 @@
           "sigma_over_smax": 0.06277130086269622,
           "residual": "the lattice RG (running the cross-section from the Planck scale down to the physical scale: the non-trivial / anomalous part) and the matching of the 0-parameter amplitudes to the MEASURED cross-sections — the open part of the 't Hooft program (W9)"
         },
-        "wall_time": 0.275
+        "wall_time": 0.259
       }
     },
     {
@@ -2649,7 +3200,7 @@
       "status": "the_0_parameter_3x3_Yukawa_mass_matrix_democratic_base_the_TBM_mixing_the_2_level_structure_the_exact_hierarchy_is_the_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.144,
+      "wall_time": 1.179,
       "verdict": {
         "id": "V45_yukawa_matrix",
         "tier": 2,
@@ -2744,7 +3295,7 @@
           "s2_unitary_err": 1.6653345381979549e-15,
           "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (W6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
         },
-        "wall_time": 0.373
+        "wall_time": 0.367
       }
     },
     {
@@ -2757,7 +3308,7 @@
       "status": "the_4d_nonlinear_gravity_is_0parameter_the_einstein_space_identity_and_cosmological_constant_and_self_gravity_are_computed",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.097,
+      "wall_time": 1.082,
       "verdict": {
         "id": "V46_nonlinear_gravity",
         "tier": 2,
@@ -2779,7 +3330,7 @@
           "gap": 9.999999999999999e-123,
           "residual": "the exact Lambda ~ 1e-122 (Planck units): the 0-parameter 4-D non-linear gravity (the Einstein tensor) gives the 0-parameter vacuum energy Lambda ~ M_P^4; the observed 1e-122 (the W1 wall) is the named residual"
         },
-        "wall_time": 0.279
+        "wall_time": 0.275
       }
     },
     {
@@ -2792,7 +3343,7 @@
       "status": "the_qca_is_uvfinite_the_2step_is_unitary_and_the_2particle_is_bounded_the_perturbative_2loop_is_uvdivergent",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.051,
+      "wall_time": 1.082,
       "verdict": {
         "id": "V47_2loop_uvfinite",
         "tier": 1,
@@ -2811,7 +3362,7 @@
           "uv_finite": true,
           "residual": "the 2-loop UV completion: the QCA 2-step is unitary (finite), the 2-particle is bounded (UV-finite); the perturbative 2-loop has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, the perturbative is UV-divergent (the W4 completion)"
         },
-        "wall_time": 0.249
+        "wall_time": 0.25
       }
     },
     {
@@ -2824,7 +3375,7 @@
       "status": "the_3and4particle_amplitudes_are_uvfinite_the_kronecker_product_property_the_nstep_is_bounded_for_all_n",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.987,
+      "wall_time": 1.019,
       "verdict": {
         "id": "V48_3particle",
         "tier": 3,
@@ -2843,7 +3394,7 @@
           "uv_finite": true,
           "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the W9 open part"
         },
-        "wall_time": 0.195
+        "wall_time": 0.199
       }
     },
     {
@@ -2909,7 +3460,7 @@
       "status": "the_z2_grading_is_the_statistics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.82,
+      "wall_time": 0.877,
       "verdict": {
         "id": "V4_statistics",
         "tier": 1,
@@ -2936,7 +3487,7 @@
       "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 3.083,
+      "wall_time": 3.078,
       "verdict": {
         "id": "V50_complete_gravity",
         "tier": 2,
@@ -2962,7 +3513,7 @@
           "nonlinear_qca_causal_ok": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of W9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 2.274
+        "wall_time": 2.273
       }
     },
     {
@@ -2975,7 +3526,7 @@
       "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 18.715,
+      "wall_time": 18.698,
       "verdict": {
         "id": "V51_numrel",
         "tier": 2,
@@ -3018,7 +3569,7 @@
             "max_abs": 1.9718631545217424
           }
         },
-        "wall_time": 17.836310148239136
+        "wall_time": 17.85665488243103
       }
     },
     {
@@ -3031,7 +3582,7 @@
       "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals W8/W7)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 10.778,
+      "wall_time": 10.702,
       "verdict": {
         "id": "V52_parameter_audit",
         "tier": 6,
@@ -3225,7 +3776,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 9.93
+        "wall_time": 9.892
       }
     },
     {
@@ -3238,7 +3789,7 @@
       "status": "the_hierarchy_exponent_-17_is_the_0_parameter_10_loop_suppression_(1/16pi)^10_with_10_the_n_gen_of_the_Cl10_root (= 2 x 5: the 16/16-bar chiral split x the 5 qubits of the 32-D module): predicted 9.7e-18 vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique best of the n=1..20 scan; not a raw n-step spectral level). One 0-parameter factor gives TWO results: the hierarchy AND the DM mass (118 GeV); the 2-digit coefficients are the named residual W8)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.863,
+      "wall_time": 0.883,
       "verdict": {
         "id": "V53_hier_exponent",
         "tier": 6,
@@ -3279,7 +3830,7 @@
           },
           "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
         },
-        "wall_time": 0.086
+        "wall_time": 0.088
       }
     },
     {
@@ -3292,7 +3843,7 @@
       "status": "the_sub_Planck_DM_mass_is_the_0_parameter_10_loop_suppression_of_the_Planck_scale_M_P*(1/16pi)^10=118_GeV_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_W8_hierarchy_the_V42_Planck_soliton_gap_1e-52_is_resolved_the_observed_DM_is_the_10_loop_relic",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.778,
+      "wall_time": 0.792,
       "verdict": {
         "id": "V54_dm_wimp",
         "tier": 6,
@@ -3330,7 +3881,7 @@
       "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.772,
+      "wall_time": 0.805,
       "verdict": {
         "id": "V55_eta_cp",
         "tier": 6,
@@ -3376,7 +3927,7 @@
       "status": "the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.73_of_the_1_loop_GUT_coupling_0.023_at_M_P_the_1_loop_matching_is_the_W4_named_residual",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.769,
+      "wall_time": 0.824,
       "verdict": {
         "id": "V56_g10_selection",
         "tier": 6,
@@ -3415,7 +3966,7 @@
           "data_check_selects_n": false,
           "residual": "the 1-loop matching (W4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
         },
-        "wall_time": 0.026
+        "wall_time": 0.025
       }
     },
     {
@@ -3428,7 +3979,7 @@
       "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.9,
+      "wall_time": 0.854,
       "verdict": {
         "id": "V57_neutrino",
         "tier": 5,
@@ -3461,7 +4012,7 @@
             "right_order": true
           }
         },
-        "wall_time": 0.087
+        "wall_time": 0.088
       }
     },
     {
@@ -3474,7 +4025,7 @@
       "status": "the_w4_uvfinite_discrete_rg_resolves_the_1loop_nonunification",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.914,
+      "wall_time": 0.991,
       "verdict": {
         "id": "V58_uvr",
         "tier": 1,
@@ -3515,7 +4066,7 @@
             "w4_resolved": true
           }
         },
-        "wall_time": 0.136
+        "wall_time": 0.155
       }
     },
     {
@@ -3528,7 +4079,7 @@
       "status": "the_4_limits_reduce_to_0_free_parameters_IN_THE_ALGEBRA_(the_7_invariants_hold_for_every_g10)plus_1_t_Hooft_angle_of_the_dynamics_whose_selected_value_g10=1/5_is_a_0-parameter_selection_rule;the_4_limits_are_the_4_projections_of_one_0-parameter_invariant_10=2x5_plus_one_CP_phase;reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_read_from_data_and_1_CP_phase)_plus_2_mapping_conventions;unique_n=10_within_one_decade_of_both_statements_of_one_scale_(the_strict_factor2_test_is_empty);baryogenesis_needs_one_CP_phase_(the_0-param_QCA_alone_gives_zero_by_the_CP-odd_theorem);delta_is_INDEPENDENT_of_g10_(the_QCA_is_real/CP-even)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.883,
+      "wall_time": 0.886,
       "verdict": {
         "id": "V59_four_limits",
         "tier": 6,
@@ -3612,7 +4163,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the selected value g_10 = 1/5 is a 0-parameter SELECTION RULE (1/n_qubits; the reading is the mapping convention, not a derivation).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the ORDER is 0-param, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the 0-param QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.102
+        "wall_time": 0.103
       }
     },
     {
@@ -3625,7 +4176,7 @@
       "status": "the_0_param_hierarchy",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.022,
+      "wall_time": 0.029,
       "verdict": {
         "id": "V5_hierarchy",
         "tier": 2,
@@ -3652,7 +4203,7 @@
       "status": "the_TBM_diagonalizes_the_democratic_base_(the_check_the_old_suite_lacked); the_wrong_sign_matrix_is_caught; sin2_12=1/3_derived_0_parameter; sin2_23_and_sin2_13_sweep_[0,2/3]_(O2_choice); the_CKM_from_identical democratic_matrices_is_the_identity",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.87,
+      "wall_time": 0.933,
       "verdict": {
         "id": "V60_tbm_regression",
         "tier": 2,
@@ -3727,7 +4278,7 @@
           },
           "ok": true
         },
-        "wall_time": 0.127
+        "wall_time": 0.131
       }
     },
     {
@@ -3740,7 +4291,7 @@
       "status": "the CL10 photon resonates with the real hydrogen levels (absorbed on resonance, not off resonance), the E1 selection rules come out of the lattice wavefunctions, and the excited atom radiates and decays; the ATOM is an input (real hydrogen), the PHOTON is CL10",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 22.992,
+      "wall_time": 23.113,
       "verdict": {
         "id": "V61_hydrogen",
         "tier": 2,
@@ -3960,7 +4511,7 @@
           },
           "ok": true
         },
-        "wall_time": 22.625
+        "wall_time": 22.727
       }
     },
     {
@@ -3973,7 +4524,7 @@
       "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 20) is regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 164.921,
+      "wall_time": 166.038,
       "verdict": {
         "id": "V62_hydrogen_production",
         "tier": 2,
@@ -4216,7 +4767,7 @@
           },
           "ok": true
         },
-        "wall_time": 164.217
+        "wall_time": 165.317
       }
     },
     {
@@ -4229,7 +4780,7 @@
       "status": "chirality_is_a_dynamical_symmetry_but_the_doublers_are_present_12_gapless_nodes_at_the_zone_half_momenta_chirality_sum_0",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 2.566,
+      "wall_time": 2.609,
       "verdict": {
         "id": "V63_bz_chirality",
         "tier": 2,
@@ -4427,7 +4978,7 @@
           ],
           "residual": "the doublers are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
         },
-        "wall_time": 1.727
+        "wall_time": 1.764
       }
     },
     {
@@ -4440,7 +4991,7 @@
       "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can REFUTE it by observing GUT-pattern decay but cannot confirm it; confirmation needs ~1e36 yr (megaton era)",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.752,
+      "wall_time": 0.774,
       "verdict": {
         "experiment": "V64_desert",
         "pass": true,
@@ -4764,7 +5315,7 @@
       ],
       "returncode": 0,
       "crashed": false,
-      "wall_time": 13.644,
+      "wall_time": 13.716,
       "verdict": {
         "experiment": "V65_wilson",
         "pass": true,
@@ -5038,7 +5589,7 @@
       "status": "W7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.343,
+      "wall_time": 1.325,
       "verdict": {
         "experiment": "V66_dm_identity",
         "pass": true,
@@ -5099,7 +5650,7 @@
       "status": "W6 BREAKING CHAIN FOUND AND CONSISTENT: the Wilson direction D = cos(theta) X + sin(theta) Y breaks Spin(10) to its commutant - 25 = SU(5)xU(1) at D = X, and 13 = SU(3)xSU(2)xU(1)^3 at the V65 root (theta = 1.731) and at every generic angle. Every unbroken root direction is intra-fragment (gluon and weak roots; zero cross-fragment roots): the Model algebra is PRESERVED by the V65 Wilson direction, and the 32 broken roots are exactly the leptoquark (X/Y-type) roots. The chain is Spin(10) ->(Wilson) SU(3)xSU(2)xU(1)^3 -> SM; residual: the two extra U(1)'s must be broken or hidden below the desert.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 4.637,
+      "wall_time": 4.692,
       "verdict": {
         "experiment": "V67_breaking_chain",
         "pass": true,
@@ -5138,7 +5689,7 @@
       "status": "W2 AUDIT, SHARPENED: (1) node multiplicity - physical meeting roots need n_nodes >= 3 (counts {1: 0, 2: 0, 3: 2, 4: 2, 5: 2, 6: 2}): n_2step = 3 is a LOWER BOUND from unification (1 and 2 excluded), consistent with the spatial 3 but not uniquely selected. (2) coefficient - the diagonal (Wilson-generated, node-local) pattern gives only integer signed sums [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]; the democratic 3x3 gives EXACTLY 1/2 (eigenvalue 2M): prediction S(17)/2 = 0.073 eV, falsifiable. The exact 1/3 (0.0487 eV, 2.6% from data) requires a single Majorana eigenvalue 3M - NO natural node structure supplies it. W2 stays open; the 1/3 candidate is now pinned to a named missing structure (3x-enhanced Majorana eigenvalue), and the democratic alternative predicts 0.073 eV.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 5.677,
+      "wall_time": 5.678,
       "verdict": {
         "experiment": "V68_w2_audit",
         "pass": true,
@@ -5190,7 +5741,7 @@
       "status": "W8 AUDIT: the tower U^(2^p) is KINEMATIC (phases multiply by 2^p mod 2pi exactly); the effective coupling does NOT fall with p (no (16 pi)^-p law at any level), the inelastic probability saturates. The tower proves UV-finiteness but GENERATES NO LOOP FACTOR. The 1/(16 pi) of the ladder is not derivable from the implemented formalism; the named missing tool is a genuine lattice RG (block-spin integration of the bond layer coupling internal states to momentum shells).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.888,
+      "wall_time": 0.914,
       "verdict": {
         "experiment": "V69_w8_tower",
         "pass": true,
@@ -5283,7 +5834,7 @@
       "status": "the_gravity_is_the_13_metric_dynamics",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.795,
+      "wall_time": 0.791,
       "verdict": {
         "id": "V6_gravity",
         "tier": 2,
@@ -5311,7 +5862,7 @@
       "status": "W3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the cubic group acts transitively (identical Floquet spectra, dev 6.2e-15); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number (4 per family, 12 total are equally available). W3 stays a hypothesis, now with a named index.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.027,
+      "wall_time": 1.059,
       "verdict": {
         "experiment": "V70_w3_index",
         "pass": true,
@@ -5407,7 +5958,7 @@
       "status": "W5/W1 STABILITY UNDER THE WILSON EXTENSION: the matter-antimatter mirror of the Wilson-extended step is exact (dev 2.1e-15), the union spectrum is +-paired (dev 2.1e-15) and the one-cell zero point stays 0 (sum = -2.7e-15; Tr D = 0.0e+00 because X, Y are traceless). The Sakharov no-go (W5) and the tree-level Lambda = 0 (W1) are UNCHANGED by V65: both remain blocked for the same named reasons, now proven stable under the new ingredient.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.893,
+      "wall_time": 0.894,
       "verdict": {
         "experiment": "V71_w5w1_stability",
         "pass": true,
@@ -5431,7 +5982,7 @@
       "status": "THE MISSING TOOL BUILT AND RUN: exact real-space block-spin decimation of the bond layer (Schur complement at eps = 1; U_BB = 0 exactly on the open chain, so the short-distance propagation is integrated with NO approximation), iterated 5 levels, 64 -> 2 sites. Level-1 identity verified exactly: the on-site block of the coarse step is (return paths) x (G R)^2 - two-hop paths accumulate two internal rotations: the kinematic doubling of V69 DERIVED from a spatial RG. At deeper levels the on-site block is a positive path polynomial in (G R)^2; the dimensionless Cartan content decays polynomially with level (phase wrapping of the composed angle: ratio 0.14 at p = 5 against the loop target 3e-9) for the factorized layer, and does NOT decay at all for a non-factorized bond gate with [G,R] != 0 (ratio 1.8 at p = 5). NO level of either flow follows the (16 pi)^-p law. VERDICT: every exact single-particle RG of the QCA COMPOSES internal angles (they add on the algebra, weighted by path counts); none can DIVIDE them by a loop factor. The 1/(16 pi) needs a trace over FLUCTUATING internal fields: a block RG on the many-cell space with a dynamical Spin(10) link variable on the bond (a gauged bond layer). The tool is now fully specified and its single-particle impotence is proven, not assumed.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.821,
+      "wall_time": 1.902,
       "verdict": {
         "experiment": "V72_block_rg",
         "pass": true,
@@ -5542,7 +6093,7 @@
       "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. W8's missing tool is uniquely specified.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 3.198,
+      "wall_time": 3.235,
       "verdict": {
         "experiment": "V73_bond_gate_loophole",
         "pass": true,
@@ -5601,7 +6152,7 @@
       "status": "MULTI-SCALE CANNOT MOVE M_X (structural): while all node thresholds sit below the meeting point the meeting equations depend on the three node strengths ONLY through their sum - the Jacobian has three identical columns (rank 1 at every configuration tested: [1, 1, 1, 1]); the residuals F_i are EXACTLY split-independent (dev 7.1e-15). A node above x decouples (V68: n < 3 has no root). Hence the node mechanism meets at M_X = 8.93e+14 GeV for EVERY split, tau_p = 1.1e+31 yr - EXCLUDED by F5. The V64 data-preferred spectrum (three 10+10bar sets at 1.2e7 + one (1,2) pair at 1e12) is not a three-full-16 pattern: the automaton supplies full split 16's per node, the couplings prefer partial suits. W4 is now a NAMED INCOMPATIBILITY (node content vs desert spectrum), not a fitting problem; closing it needs new automaton content, not new thresholds.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.199,
+      "wall_time": 6.191,
       "verdict": {
         "experiment": "V74_multiscale_nodes",
         "pass": true,
@@ -5630,7 +6181,7 @@
       "status": "W7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a 118 GeV neutral mirror - for EVERY Wilson angle the same node puts a colored or charged fragment below 1 TeV (worst-case lightest bad fragment over the 720-angle scan: 27633 GeV << 1 TeV bound; survivors: 0); the ladder route sets masses only for classical fields; the solitons are superheavy. The implemented spectrum CANNOT contain the DM. (2) The minimal extension consistent with the exact mirror Z2 and the ladder: ONE real Z2-odd scalar at m = 118 GeV with Higgs portal lambda_* = 0.000 (freeze-out gives Omega h^2 = 0.120); PREDICTION: direct detection sigma_SI = 4.86e-51 cm^2 - BELOW the LZ/XENONnT window: the scalar is nearly decoupled; the falsifiable handle is the mass coincidence (F7: a weakly-interacting relic at 118 GeV and nothing else near it) and the absence of portal signal above 1e-50 cm^2. W7 residual: the scalar is an input field (one field, one coupling), not yet a state of the 32-level root.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.202,
+      "wall_time": 6.16,
       "verdict": {
         "experiment": "V75_dm_nogo_extension",
         "pass": true,
@@ -5653,7 +6204,7 @@
       "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 1.983) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). W2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.288,
+      "wall_time": 6.191,
       "verdict": {
         "experiment": "V76_w2_mixing",
         "pass": true,
@@ -5916,7 +6467,7 @@
       "status": "DIVISION DEMONSTRATED: with one quantum link d.o.f. per bond (qubit, U = exp(i theta sigma_x)) in the maximally mixed state, the traced on-site Cartan content at level 1 is EXACTLY cos(2 theta) times the V72 value (dev < 1e-9 for theta = pi/8 and pi/6) - the two-hop return composes U_link twice and the trace over the fluctuating bond d.o.f. DIVIDES by 1/cos(2 theta): the factor is a property of the traced d.o.f., not of any gate (V73). Deeper levels are modified by link group traces (path mixture cos2theta, cos4theta, ... - ratios away from 1), where the link-free control is untouched. This is the loop-factor mechanism in its smallest form; 1/(16 pi) is the value it takes for the dynamical Spin(10) adjoint link with the Gauss constraint - the gauged bond layer, now with a named mechanism.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 19.033,
+      "wall_time": 18.22,
       "verdict": {
         "experiment": "V77_link_division",
         "pass": true,
@@ -5963,7 +6514,7 @@
       "status": "LAMBDA = 0 IS PROTECTED BY det U = 1: for 50 traceless perturbations exp(i eps A) U (any structure) at eps up to 1, the quasi-energy sum stays pinned at zero (max |S| = 3.4e-14); the ONLY internal knob is the U(1) trace phase: A = I gives S = 32.0 eps (linear); the first branch crossing along a generic traceless direction is at eps_cross = > pi (none found); weak perturbations cannot move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a trace-phase breaking eps Tr A ~ 1.6e-120. W1 is now a named bound: any internal U(1)-trace anomaly must satisfy |Tr A| eps < 1e-120, or Lambda lives outside the one-cell spectrum (geometry, measure postulate).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.067,
+      "wall_time": 1.095,
       "verdict": {
         "experiment": "V78_w1_lambda",
         "pass": true,
@@ -5987,7 +6538,7 @@
       "status": "GAUGED BOND LAYER BUILT: a Spin(10) ADJOINT quantum link per bond (C^45; link operators = the adjoint rep of so(10) extracted from the root's own 45 generators: f antisymmetric, Jacobi to 0.0e+00, [L^A,L^B] = i f L to 0.0e+00; Casimirs 64 (adjoint) / 45 (spinor) in the Tr T^2 = 32 normalization, ratio 64/45 = 8/(45/8) standard, errors 0.0e+00/0.0e+00) + bond gate K = exp(i g10 J.L), Hermitian generator (1.1e-16), exactly unitary (3.8e-16), commuting with the bond diagonal charge ([Q, J.L] = 1.1e-14) + Gauss constraint C_x = T_x + L_left - L_right with EXACT algebra (err 0.0e+00). CONTENT THEOREM: the dressed source 32 x 45 decomposes as 32 + 288 + 400 + 720 (Casimir spectrum [45.0, 85.0, 117.0], multiplicities [32, 288, 1120] exact): NO singlet - one adjoint flux cannot neutralize a spinor source (triality), isolated sources are confined, the physical fermion is the DRESSED 32, and V81 reads exactly this spectrum as desert content. The naive K preserves the BOND diagonal charge (Ad error 5.7e-16) but LEAKS the single-site Gauss charge (leak 1.92): the gauge-invariant local gate (Kogut-Susskind electric + dressed hopping) is the named open construction step. The step stays bond-local: causal radius 1. Zero new parameters: eta = g_10 = 1/5, link rep = adjoint, current = the root's T^A.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 128.243,
+      "wall_time": 121.127,
       "verdict": {
         "experiment": "V79_gauged_bond_layer",
         "pass": true,
@@ -6082,7 +6633,7 @@
       "status": "the_qca_is_unitary",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.136,
+      "wall_time": 0.11,
       "verdict": {
         "id": "V7_qca",
         "tier": 2,
@@ -6096,7 +6647,7 @@
           "causal_radius": 1,
           "n_gates": 4
         },
-        "wall_time": 0.007
+        "wall_time": 0.008
       }
     },
     {
@@ -6109,7 +6660,7 @@
       "status": "THE GAUGED LINK DIVIDES BUT NOT TO THE LOOP FACTOR: the V77 machinery reproduced on the qubit link (F = cos 2 theta to 1.1e-16); for the Spin(10) ADJOINT link the exact level-1 factor at the root coupling is F(g10 = 1/5) = 1.0597 and the measured minimum over eta in [0.01, 4] is F_min = 0.5221 at eta = 1.44: the loop target 1/(16 pi) = 0.0199 is NOT reached at any coupling - the division mechanism EXISTS (the traced two-hop contracts, max |eig| = 0.5917 <= 1) but falls short by a factor 26.2. W8 stays open with this measured gap; higher-loop/level-N suppression is the named next test.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 76.752,
+      "wall_time": 72.233,
       "verdict": {
         "experiment": "V80_adjoint_link_division",
         "pass": true,
@@ -6170,7 +6721,7 @@
       "status": "DESERT CONTENT OF THE GAUGED LAYER: the composite spectrum (db = (np.float64(145.33), np.float64(145.33), np.float64(226.33))) does NOT meet the three couplings at alpha_X = 1/25 for any (w, c0, theta) with desert thresholds: W4 stays open, now with the composite content excluded by name.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 14.776,
+      "wall_time": 15.144,
       "verdict": {
         "experiment": "V81_link_desert_content",
         "pass": true,
@@ -6245,7 +6796,7 @@
       "status": "THE COMPOSITE CONTENT IS EXCLUDED AS THE DESERT SUPPLIER UNDER EVERY NATURAL MASS ANSATZ: full-weight min residual 5.68, broken-flux 6.12, light-composite 6.14 (target 0); relaxed-coupling pairwise meeting: 0 physical solutions. Structural reason measured: sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - the content shifts U(1) and SU(2) equally while the data require different shifts - and the no-contribution meeting scales differ (x_12 = 25.58 vs x_23 = 34.60). W4 is now closed in both directions: nodes excluded (V74), composites excluded (V81+V82); the V64 spectrum remains a named input.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 22.029,
+      "wall_time": 22.385,
       "verdict": {
         "experiment": "V82_composite_desert_exclusion",
         "pass": true,
@@ -6310,7 +6861,7 @@
       "status": "THE TRACED-LINK DIVISION DOES NOT COMPOUND TO the loop law: at eta = 1/5 the level-p Cartan-content ratios are F_p = 1.060, 1.896, 0.749, 1.009 for p = 1..4 against the loop law (16 pi)^-p = 0.020, 3.96e-04, 7.87e-06, 1.57e-07: the deepest level sits a factor 6.4e+06 away (decay exponent -0.02 per level); at the V80 minimum eta = 1.4423 the level-4 ratio is 1.384. The compounding law of the traced adjoint link is measured, not assumed; whether the automaton reaches the loop factor at deeper levels or at a different coupling is the named residual (W8).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 47.213,
+      "wall_time": 45.197,
       "verdict": {
         "experiment": "V83_link_rg_levels",
         "pass": true,
@@ -6396,7 +6947,7 @@
       "status": "THE EQUAL-SHIFT THEOREM IS VERIFIED AND UNIVERSAL: over the matter 16 sum db1 = sum db2 = 1.333333; the identity also holds over the flux 45, over the SO(10) vector 10, and over the SU(5) 10 inside the 16 - it is the index-proportionality of Tr Y^2 and Tr T3^2: both are proportional to the representation index and their ratio is fixed by the fundamental, (3/5) Tr_5 Y^2 = Tr_5 T3^2. Hence EVERY complete-multiplet content at common thresholds - in particular every fermionic content of the automaton (full 16's x any breaking-sector flux) - shifts U(1) and SU(2) EQUALLY and cannot reconcile x12 = 25.582 with x23 = 34.603. The V64 repair's mismatch is carried ENTIRELY by its (1,2) pair (db1/db2 = 3/5, mismatch_from_10s = 0, mismatch_from_(1,2) = -0.2667): the desert content MUST contain SU(5)-fragment Weyl states (or split thresholds inside multiplets, excluded for every natural ansatz by V82). The automaton supplies only complete Spin(10) multiplets: W4 is now a structural no-go - the desert spectrum is provably not automaton content, and a fragment-producing mechanism is the named open problem.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.295,
+      "wall_time": 6.313,
       "verdict": {
         "experiment": "V84_equal_shift_theorem",
         "pass": true,
@@ -6472,7 +7023,7 @@
       "status": "THE CLOSED-LOOP FACTOR IS MEASURED: at the root coupling the n-hop traced-loop ratios are F_n = 2.75822936, 0.2429872, 0.46564226, 0.1042476, 0.02987819, 0.3677866 (n = 2..7); the geometric ratio is r = 0.537397 (spectral radius MG = 0.775661 vs G = 1.0); the loop factor 1/(16 pi) = 0.019894 is reached at loop order n* = 7 if the geometric law holds. Closed traced-link loops are the true Feynman-loop analogue and their suppression law is now a measured number of the built gauged layer (W8).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 4.533,
+      "wall_time": 3.937,
       "verdict": {
         "experiment": "V85_closed_loop_factor",
         "pass": true,
@@ -6533,7 +7084,7 @@
       "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9368 at theta = 1.56 (n = 12, rho = 0.35; 51 physical theta values), and the third equation predicts alpha_X = 0.03227 against the data 0.04 - a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 121.404,
+      "wall_time": 121.42,
       "verdict": {
         "experiment": "V86_junction_desert",
         "pass": true,
@@ -7064,7 +7615,7 @@
       "status": "THE GENERAL (NON-DEMOCRATIC) JUNCTION WAS SCANNED AS THE DESERT SUPPLIER: three independent branch scales a_i = 2 w0 (1 + r_i), r1 + r2 + r3 = 0, over n_nodes 3-12, the scale, and the Wilson angle. The democratic line reproduces V86 (residual 0.8098, alpha_X 0.09264). Best physical solution of the full family: residual 0.8098 at theta = 1.57 (r = -1.647, 0.127, 1.52; n = 12, S = 2615000000000000.0 GeV, z_min = 2020000000000.0 GeV), predicting alpha_X = 0.08512 against the data 0.04. W4 DOES NOT CLOSE even with the free coefficient pattern: the best residual of the general family EQUALS the democratic one (branch ratios do not move the floor) and alpha_X lands a factor 2.3 off the data value. The near-miss is a property of the junction mechanism itself: the mismatch is carried by the FIXED db pattern of the node 16's own fragments (V84), which threshold motion cannot repair. W4 needs fragment content beyond the node 16 - new automaton content, not new ratios.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 15.605,
+      "wall_time": 15.659,
       "verdict": {
         "experiment": "V87_general_junction",
         "pass": true,
@@ -7106,7 +7657,7 @@
       "status": "THE NAMED FIX WAS BUILT AND AUDITED AGAINST ITS OWN SYMMETRY: the ladder scalar (118 GeV) is stable under BOTH portals - scalar parity (-1)^Ns is exact (phi^2 structure: the odd sector is untouched, a single s cannot decay). But the two portals split the physics. The Higgs portal V1 = phi_s^2 phi_h^2 PRESERVES the exact mirror Z2 (commutator 0.0e+00), and then h* -> f f-bar is FORBIDDEN (fermion pairs are mirror-odd, V66): ss -> hh is kinematically closed (gap 13.2 GeV; virtual cloud P_max = 1.5e-08 vs theory 1.5e-08) and the only open annihilation is the invisible ss -> h h*: Omega h^2 = 0.120 then needs lam = 1.31e-01, predicting sigma_SI = 6.75e-46 cm^2 - ABOVE the LZ-class bound 2e-47: the EXACT-Z2 version of the named fix is EXCLUDED by direct detection. The V75 numbers (lam_* = 3.5e-04, sigma_SI = 4.9e-51 cm^2, below reach) hold ONLY with the fermion-pair portal V2, which BREAKS the mirror Z2 at O(lam) (anticommutator 0.0e+00; real pair channel P = 5.12e-06 at t = 1 GeV^-1). The mirror colored relic Q-bar (1.3e8 GeV) stays stable under both portals (Q-bar -> Q s s closed by 237 GeV): V66's exclusion of the mirror thermal relic is unchanged. W7 verdict: the carrier EXISTS and is exactly stable; but the named fix is a NAMED TENSION - exact mirror Z2 excludes it by direct detection, and the version that reproduces Omega h^2 = 0.120 with a falsifiable cross section breaks the exact mirror Z2 that V66/V75 rest on (F7).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.806,
+      "wall_time": 0.854,
       "verdict": {
         "experiment": "V88_mirror_scalar",
         "pass": true,
@@ -7141,7 +7692,7 @@
       "status": "THE CLOSED-LOOP SELECTION RULE WAS MEASURED TO LENGTH 30 (regression vs V85: dev 1.0e-09). At the root coupling the Cartan-content ratio F_n crosses the loop factor 1/(16 pi) = 0.01989 at n_star = 10: the ladder length 10 is EXACTLY the crossing of the closed-loop suppression (spectral-radius crossing n_rho = 15.42). The mod-4 test over n = 8..30 shows NO selection rule: (MG)^n is a matrix power, every length contributes and no residue class vanishes (min per class: {'0': 0.0003829109, '1': 0.0001045112, '2': 0.0003236988, '3': 1.18849e-05}). The geometric law F_n = A r^n fits with r = 0.697826, and its extrapolation to the 17-factor ladder (length 170) gives F_170 = 1.1e-26 against (1/16 pi)^17 = 1.2e-29: a ratio of 9.3e+02 - the single-loop geometric law does NOT reproduce the full ladder exponent. W8: the length-10 factor is selected by the crossing; the 17-factor composition is a named residual of its own.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 4.413,
+      "wall_time": 3.654,
       "verdict": {
         "experiment": "V89_loop_selection",
         "pass": true,
@@ -7298,7 +7849,7 @@
       "status": "the_stable_soliton_is_the_dark_matter",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.084,
+      "wall_time": 0.114,
       "verdict": {
         "id": "V8_dark_matter",
         "tier": 4,
@@ -7319,7 +7870,7 @@
           "weakly_interacting": "couples only through the metric (gravity) -> dark",
           "relic": "a 0-parameter consequence of the QCA dynamics (the non-linear metric creates it)"
         },
-        "wall_time": 0.003
+        "wall_time": 0.002
       }
     },
     {
@@ -7332,7 +7883,7 @@
       "status": "THE DEMOCRATIC POINT IS NOT PROTECTED - IT IS AN EXACT ONE-NUMBER TUNING (eigenvalue regression 2.4e-16). The cubic group induces ALL of S_3 on the triangle (6 permutations), and the commutant of that action has dimension 2 (smallest singular value 1.9e-16), spanned by I and J: the most general symmetry-preserving junction is EXACTLY c_s(2 w0 I + kappa'(J - I)) - no symmetry enlarges the stabilizer of r = 2, the tuning lives inside the symmetric family itself. No quantization fixes it either: the Wilson generator G has eigenvalue range [-0.1796, 0.1896], so w0 and kappa share the SAME period 38.1881 and the ratio r = kappa/w0 is a free continuous parameter. The cosmological window is EXACTLY the point: over r in [1, 3] at step 1e-4, 1 value passes sum m_nu < 0.12 eV (r = 2: 0.0487 eV; at r = 2.0001 the sum is 5840.049 eV - the would-be massless states go heavy as 1/|2 - r|). W2: the 1/3 candidate requires r = 2 EXACTLY, with no symmetry or quantization to enforce it - the sharpest form of the measure-zero residual.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.06,
+      "wall_time": 6.103,
       "verdict": {
         "experiment": "V90_w2_protection",
         "pass": true,
@@ -7396,7 +7947,7 @@
       "status": "THE COUNT 3 IS NOT FORCED - IT IS A SYMMETRY-BREAKING INPUT (V70 regression dev 6.2e-15). The cubic group acts TRANSITIVELY on the 12 nodes (one orbit of size 12; the V70 axis families are NOT cubic orbits), so the ONLY cubic-symmetric split set is the full set of 12 nodes (available sizes [12]). The desert meeting is rigid for every split: the n-node meeting Jacobian has rank {'n_4': 1, 'n_8': 1, 'n_12': 1} in the thresholds (the V74 rank-1 fact holds for every n), so M_X is fixed by the SUM of strengths, split-independent. The fixed scales: {'n_3': '8.9e+14 GeV', 'n_4': '9.7e+14 GeV', 'n_8': '1.5e+15 GeV', 'n_12': '2.9e+15 GeV'} against the observed unification 2e+16 GeV: every size n = 3, 4, 8, 12 FAILS to meet at the observed scale (F5). The count-3 triangle (V76 SEL) IS a set of nodes (verified) but is NOT cubic-invariant: its cubic orbit has 8 distinct triangles. W3, decided: the cubic-symmetric option (all 12 nodes) is excluded by the fixed meeting; every proper split (3, 4, 8 nodes) BREAKS the cubic symmetry of the split set, so the family count 3 is an input choice - not forced by the automaton - and its cubic-symmetric alternative is now excluded by computation.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.591,
+      "wall_time": 6.612,
       "verdict": {
         "experiment": "V91_w3_forcing",
         "pass": true,
@@ -7453,7 +8004,7 @@
       "status": "NODE-16 CONTENT CAN REACH THE DATA-PREFERRED MEETING: the target is inside the fragment-threshold convex hull (witness barycentric {0: 0.3415, 1: 0.3058, 2: 0.3061, 4: 0.0465}). The required thresholds are computed; junction realizability is the remaining test (best order agreement over 720 Wilson angles: 0.5).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.22,
+      "wall_time": 6.239,
       "verdict": {
         "experiment": "V92_w4_feasibility",
         "pass": true,
@@ -7538,7 +8089,7 @@
       "status": "W4 NARROWED TO A PRECISE GAP. V92: the data-preferred meeting IS in the node-16 fragment hull (content exists). V93: with a GENERAL Cartan direction the meeting is realized exactly (6 solutions, thresholds in the desert) BUT those directions break 120 of 120 roots - including the SM roots: unphysical. The SM-preserving direction space has dimension 2 (the class-degenerate span{X,Y} family of V65/V76), and within it NO exact solution exists (the V86/V87 floor 0.81 confirmed as a property of class-degenerate directions). The witness needs PER-WEIGHT threshold splitting inside a fragment class; the named next ingredient is the OFF-DIAGONAL junction mixing (V76 structure) which splits class-degenerate thresholds while preserving the SM algebra.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 12.812,
+      "wall_time": 12.898,
       "verdict": {
         "experiment": "V93_cartan_junction",
         "pass": true,
@@ -7674,7 +8225,7 @@
       "status": "THE COMPOSITION LAW IS EXACT MULTIPLICATIVITY ACROSS LEGS - the x929 was a CHAIN-VS-LEGS category error (regressions 1.0e-09). (i) CHAIN: on one line, (MG)^{10k} is NOT multiplicative: R_k = F_{10k}/(F_10)^k grows to R_17 = 2.0e+08 - consecutive hops interact through the propagation and the suppression is WEAKER than the product (measured F_170 = 1.3e-21 vs (F_10)^17 = 6.5e-30). (ii) LEGS: the traced hop is a ONE-particle operator - Tr_L[(P_a (x) I)(G (x) G (x) I_L)] = 45(M_a (x) G) verified to 6.72e-16, and the 10+10-step two-loop object factorizes into leg blocks to 1.98e-15: amplitudes of loops on different particles factorize EXACTLY, so their suppressions MULTIPLY. (iii) DISCRIMINATOR: M_P F_170 (chain) = 1.6e+07 eV - 8 orders above the neutrino scale; M_P (F_10)^17 (legs) = 0.079 eV, within a factor 0.541 of the 0.146 eV ladder. W8-composition: the 17 factors MULTIPLY, each selected at the length-10 crossing; the named requirement is that the 17 insertions dress DIFFERENT lines (the standard reading of the ladder operator) - the composition law itself is now a verified theorem of the traced-link formalism.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 4.719,
+      "wall_time": 4.117,
       "verdict": {
         "experiment": "V94_composition_law",
         "pass": true,
@@ -7788,7 +8339,7 @@
       "status": "NO EXACT MEETING in the junction-split family (uniform span{X,Y} direction + universal kappa, n = 3..12, 300 starts each, thresholds >= M_Z). Structural reason: for UNIVERSAL kappa the split is invisible at first order - sum_l (2cos(2 pi l/n) - 1) = -n reabsorbs into z0, so the meeting sees only the second-order spread, which the desert constraint caps. The V92 witness needs INDEPENDENT per-class thresholds; the named next ingredient is a FLAVOUR-DEPENDENT bond layer (kappa_s per fragment class): 8 parameters vs 3 equations would close the meeting trivially, but that is an EXTENSION of the automaton, not its current content - W4 stays open, now sharply characterized.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 18.121,
+      "wall_time": 18.201,
       "verdict": {
         "experiment": "V95_junction_split",
         "pass": true,
@@ -7811,7 +8362,7 @@
       "status": "W4 CLOSES CONSTRUCTIVELY WITH A NAMED EXTENSION: the flavour-dependent bond layer (kappa_s per fragment class) supplies an EXACT meeting (residual < 1e-10) at M_X = 1.8e+16 GeV, alpha_X = 1/25, for 10/10 node counts n = 3..12, all thresholds in the desert (1.4e+04 .. 1.8e+16 GeV), tau_p = 1.9e+36 yr. The SM desert group is preserved by construction: the Wilson direction is the V65 physical selective root (theta = 1.7308), the same direction V67 proved leaves SU(3) x SU(2) x U(1)^3 unbroken (8/40 weight-pair roots unbroken, all intra-fragment). The first-order degeneracy of V95 is broken because the per-class sums kappa_s*(-n) reabsorb into PER-CLASS offsets. THE COST, STATED PLAINLY: the six kappa_s are new automaton INPUT - the current bond layer has ONE gate P with one strength; a flavour-dependent bond layer is an EXTENSION of the automaton, and the desert content becomes the content of the EXTENDED automaton with six named (fitted) junction numbers. W4 is closed conditionally on that extension; falsifier F2 stands.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 6.327,
+      "wall_time": 6.341,
       "verdict": {
         "experiment": "V96_kappa_s_bond",
         "pass": true,
@@ -8474,7 +9025,7 @@
       "status": "ENTANGLEMENT IS THE BOND LAYER, NOT THE SHARED CELL. (A) Two fermions sharing ONE cell carry ZERO spatial entanglement; the internal-only step keeps S_A = 0 to 0.0e+00 forever, while the full step generates S_A up to 0.783 - the swap-rotation gate P is the generator. The entanglement front crosses the Manhattan sphere of radius r at EXACTLY t = r (t*(r) = {1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7}): the causal radius of Theorem 5 bounds the spread of entanglement itself, speed 1.0. (B) The same-cell pair of the automaton is a Slater determinant: S = 0 across the 16/16-bar cut - antisymmetry and a shared cell give NO entanglement; a two-determinant superposition in the same cell gives S = ln 2: NON-SEPARABILITY is the criterion. (C) The implemented step is quadratic (orbitals stay orthonormal to 2.0e-15), so Slater inputs stay Slater and the measured S_A is exact mode entanglement; genuine interaction entanglement needs a two-body phase the implemented step does not contain - named gap (W9).",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 1.309,
+      "wall_time": 1.139,
       "verdict": {
         "experiment": "V97_entanglement_bond",
         "pass": true,
@@ -8526,7 +9077,7 @@
       "status": "THE GAUGED BOND LAYER HAS NO ONE-BODY PHYSICAL STATES; ITS PHYSICAL SECTOR IS AN ENTANGLED MATTER-FLUX COMPLEX. (1) CENTER OBSTRUCTION: dim ker = 0 for 32 x 45, for 32 x 45 x 45, and for the two-site one-link chain with LOCAL Gauss constraints - adjoint flux carries even center charge and cannot screen a spinor, so EVERY site must carry an even number of spinors: the implemented one-32-per-site content admits NO gauge-invariant state on any graph. (2) MINIMAL PHYSICAL SECTOR: two matter fields per site: m_45(32 x 32) = 2 (C2 spectrum), intertwiner space dim 2, glued two-site sector dim 4, all exact Spin(10) singlets (C2 < 1e-8). (3) ENTANGLEMENT: each intertwiner is a maximal matter-flux singlet, Schmidt rank 45, S = ln 45 = 3.807; the glued physical state carries S(pair1|pair2) = 3.807 <= ln 45: entanglement BOUND per bond and carried by the bonds crossing the cut - the SHAPE of an area law (boundary-proportional, bounded per bond), Bekenstein coefficient unnamed. The quadratic step of V97 cannot produce any of this: the gauged layer is where the theory first gets non-Gaussian entanglement. Open (W9): multi-bond clusters (3-site, 2-link with paired matter is 2 x 10^10 dimensional) - the additivity of ln 45 per cut bond is a structural argument, not yet a measured scaling.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 78.661,
+      "wall_time": 78.49,
       "verdict": {
         "experiment": "V98_gauged_invariant_sector",
         "pass": true,
@@ -8559,7 +9110,7 @@
       "status": "THE AREA LAW OF THE GAUGED LAYER HAS A VERTEX CORRECTION, AND THE BEKENSTEIN GAP IS A NAMED NUMBER. (1) The physical sector of the three-site, two-link chain with paired matter is dim ker = 24 (predicted 24 = m_45^2 x (m_1 N_1 + m_45 N_45 + m_210 N_210) = 4 x 6 from the measured flux decomposition of 45 x 45; links are adjoint-only, r labels the fusion channel at the middle vertex). (2) Constructed exactly: in the r = 1 sector (8 states) the middle pair is a product singlet (S(pair2|rest) = 0) while the end pairs stay entangled at ln 45 - the flux line threads through the chain; the r = 45 sector (8 states) is built from the V98 intertwiners and the adjoint Clebsch f_{gab} (vertex Gauss residual 3.7e-15). (3) ADDITIVITY HOLDS ACROSS A SINGLE BOND: S(pair1|rest) = ln 45 exactly. BUT the region with TWO boundary bonds carries S(pair2|rest) = ln 45, not 2 ln 45: the intertwiner constraint CORRELATES the two bonds meeting at the vertex (mutual information ln 45). The area law counts bonds; vertex correlations subtract - the subleading correction of the gauged layer, computed. (4) THE GAP TO BEKENSTEIN, AS A NUMBER: ln 45 = 3.80666 nats per Planck bond against 1/4 per Planck area: deficit 3.55666 nats, factor 15.2266. No element of the current construction produces 1/4; closing it needs either a superselection/truncation of the flux or a different horizon microstate count - named, open.",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 109.464,
+      "wall_time": 109.397,
       "verdict": {
         "experiment": "V99_three_site_chain",
         "pass": true,
@@ -8611,7 +9162,7 @@
       "status": "the_qca_vacuum_reduced_by_z2_cancellation",
       "returncode": 0,
       "crashed": false,
-      "wall_time": 0.785,
+      "wall_time": 0.776,
       "verdict": {
         "id": "V9_dark_energy",
         "tier": 4,

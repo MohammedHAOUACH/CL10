@@ -33,6 +33,11 @@ PASS = T1 verified; the verdict reports the minimum anisotropy found
 import json
 import math
 import os
+
+# All matrices here are 16x16/32x32: cupy only queues behind other GPU
+# tenants (the scan took >1 h on a busy card vs ~15 min on numpy), so the
+# check pins the CPU backend regardless of CL10_BACKEND.
+os.environ["CL10_BACKEND"] = "numpy"
 import sys
 import time
 
@@ -66,6 +71,10 @@ def main():
     v63_gap = v63["data"]["max_doubler_gap"]
     v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                       "results", "v65_wilson.json")))
+    gg = next(r for r in v65["data"]["part_B"].values()
+              if r["su5"] == "Georgi-Glashow")
+    x_coef = np.array(gg["X_coef"])
+    y_coef = np.array(v65["data"]["Y_coef"])
 
     def ddiag(th):
         coef = math.cos(th) * x_coef + math.sin(th) * y_coef

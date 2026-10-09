@@ -195,5 +195,5 @@
     ],
     "residual": "the doublers are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
   },
-  "wall_time": 1.727
+  "wall_time": 1.764
 }
