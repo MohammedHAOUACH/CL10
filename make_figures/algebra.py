@@ -217,10 +217,25 @@ def fig31_graphical_abstract():
     fig.tight_layout(pad=0.4)
     save(fig, "fig31_graphical_abstract.png")
 
-def fig33_brillouin_doublers():
-    from cl10 import brillouin
-    r = brillouin.brillouin()
-    nodes = r["nodes"]
+def fig33_block_zone_nodes():
+    from cl10 import supercell as SC
+    _, _, U16 = SC.sectors()
+    gap0 = SC.gap(SC.GAMMA, U16)
+    nodes = []
+    for q in SC.M_POINTS:
+        sl = []
+        for ax in range(3):
+            if abs(q[ax]) < 1e-12:
+                continue
+            dq = 1e-4
+            qa = list(q); qa[ax] -= dq
+            qb = list(q); qb[ax] += dq
+            pa = np.angle(np.linalg.eigvals(SC.bloch(tuple(qa), U16)))
+            pb = np.angle(np.linalg.eigvals(SC.bloch(tuple(qb), U16)))
+            sl.append((pb[np.argmin(np.abs(pb))]
+                       - pa[np.argmin(np.abs(pa))]) / (2 * dq))
+        nodes.append((q, float(np.sign(sl[0] * sl[1]))))
+    chir_sum = sum(c for _, c in nodes)
     fig = plt.figure(figsize=(6.2, 5.2))
     ax = fig.add_subplot(projection="3d")
     pi = math.pi
@@ -238,24 +253,27 @@ def fig33_brillouin_doublers():
                  ((-pi, pi, -pi), (-pi, pi, pi))]:
         ax.plot([s[0], e[0]], [s[1], e[1]], [s[2], e[2]],
                 color="0.6", lw=0.8)
-    for n in nodes:
-        c = C_FIT if n["chirality"] > 0 else C_ALG
-        ax.scatter(*n["q"], color=c, s=90, edgecolor="black", lw=0.6,
+    for q, ch in nodes:
+        c = C_FIT if ch > 0 else C_ALG
+        ax.scatter(*q, color=c, s=90, edgecolor="black", lw=0.6,
                    depthshade=False)
+    for q in SC.R_POINTS:
+        ax.scatter(*q, color="none", s=150, marker="^", edgecolor=C_GUT,
+                   lw=1.2, depthshade=False)
     ax.scatter(0, 0, 0, color="#d4a017", s=130, marker="D",
                edgecolor="black", lw=0.6, depthshade=False)
     ax.text(-0.2 * pi, -0.2 * pi, 0.78 * pi,
-            f"$\\Gamma$ gap {r['gap_q0_16']:.4f}", fontsize=12)
+            f"$\\Gamma$ gap {gap0:.4f}", fontsize=12)
     ax.set_xlim(-pi, pi)
     ax.set_ylim(-pi, pi)
     ax.set_zlim(-pi, pi)
     ax.set_xlabel("$q_x$")
     ax.set_ylabel("$q_y$")
     ax.set_zlabel("$q_z$")
-    ax.set_title(f"{r['n_doubler_nodes']} gapless doubler nodes on the "
-                 f"zone edges ($\\sum$ chirality = "
-                 f"{r['chirality_sum']:.0f}) - the doubling theorem, "
-                 "displayed, not hidden", fontsize=13)
+    ax.set_title("12 gapless half-zone nodes at the edge midpoints of the\n"
+                 f"block zone ($\\sum$ chirality = {chir_sum:.0f}); the 8 R corners\n"
+                 "carry exactly 3-fold multiplets - the doubling of the\n"
+                 "block cell, displayed, not hidden", fontsize=13)
     ax.view_init(elev=18, azim=-58)
     fig.tight_layout()
     save(fig, "fig33_brillouin_doublers.png")

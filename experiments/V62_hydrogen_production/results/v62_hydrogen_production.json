@@ -4,10 +4,10 @@
   "property": "P2",
   "residual": true,
   "pass": true,
-  "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 20) is regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
+  "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 19) is regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
   "data": {
     "backend": "cupy",
-    "gpu": "GPU cuda:1 (19921/24177 MiB)",
+    "gpu": "GPU cuda:1 (19464/24177 MiB)",
     "grid": [
       296,
       296,
@@ -153,10 +153,10 @@
       }
     },
     "figure": {
-      "png": "/home/yo/Desktop/code/CL10/doc/figures/fig20_hydrogen.png",
+      "png": "/home/yo/Desktop/code/CL10/doc/figures/fig19_hydrogen.png",
       "meta": {
         "backend": "cupy",
-        "gpu": "GPU cuda:1 (19921/24177 MiB)",
+        "gpu": "GPU cuda:1 (19464/24177 MiB)",
         "grid": [
           296,
           296,
@@ -240,5 +240,5 @@
     },
     "ok": true
   },
-  "wall_time": 342.911
+  "wall_time": 210.442
 }

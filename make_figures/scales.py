@@ -306,12 +306,12 @@ def fig13_residual_reduction():
                  xytext=(19.5, 2.5), ha="right",
                  fontsize=11.5, color=C_ZERO,
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.1))
-    axB.annotate(f"$n = {n_best - 1}$: 1.4 decades away",
+    axB.annotate(f"$n = {n_best - 1}$: {worst[n_best - 1]:.1f} decades away",
                  xy=(str(n_best - 1), worst[n_best - 1]), xytext=(1.2, 2.5),
                  fontsize=11.5, color="#e07b00",
                  arrowprops=dict(arrowstyle="->", color="#e07b00", lw=1.1))
-    axB.set_title("The scan $n = 1\\dots20$: $n = 10$ is nearest\n"
-                  "($n = 9$ is 1.4 decades away)", fontsize=12)
+    axB.set_title(f"The scan $n = 1\\dots20$: $n = {n_best}$ is nearest\n"
+                  f"($n = {n_best - 1}$ is {worst[n_best - 1]:.1f} decades away)", fontsize=12)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     fig.subplots_adjust(bottom=0.34)
     save(fig, "fig13_residual_reduction.png")

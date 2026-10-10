@@ -828,7 +828,7 @@ def fig37_doubler_cones():
                     s=10, color=C_GUT, alpha=0.55)
     vp = np.array(nodes[0]["v_principal"])
     ax2.axhspan(float(vp[0]), float(vp[2]), color=C_GUT, alpha=0.15)
-    ax2.annotate("tensor fit: principal band\n0.20 / 0.20 / 0.28",
+    ax2.annotate(f"tensor fit: principal band\n{vp[0]:.2f} / {vp[1]:.2f} / {vp[2]:.2f}",
                  xy=(5.5, 0.26), xytext=(5.5, 0.62), ha="center",
                  fontsize=10.5, color=C_GUT,
                  arrowprops=dict(arrowstyle="->", color=C_GUT, lw=1))
@@ -841,9 +841,11 @@ def fig37_doubler_cones():
     ax2.set_xlabel("doubler node (one $O_h$ orbit)")
     ax2.set_ylabel(r"$|v(\hat n)|$  (lattice units)")
     ax2.set_ylim(0, 1.08)
-    ax2.set_title("(b) 12 nodes x 100 directions: 1200/1200 linear;\n"
+    ax2.set_title("(b) 12 nodes x 100 directions: "
+                  f"{d['n_linear']}/{d['n_linear'] + d['n_quadratic'] + d['n_mixed']} linear;\n"
                   "the velocity tensor fit gives principal cone\n"
-                  "0.20/0.20/0.28 - a factor ~4 below causal (V102)",
+                  f"{vp[0]:.2f}/{vp[1]:.2f}/{vp[2]:.2f} - a factor ~{1.0 / float(vp[2]):.0f}"
+                  " below causal (V102)",
                   fontsize=12)
 
     # (c) anisotropy per node: the orbit is uniform
@@ -859,7 +861,7 @@ def fig37_doubler_cones():
     ax3.set_xlabel("doubler node")
     ax3.set_ylabel("cone anisotropy (eigen-spread / mean)")
     ax3.set_title("(c) every node of the orbit carries the SAME\n"
-                  "anisotropic cone: 0.748-0.758 - the lattice\n"
+                  f"anisotropic cone: {min(an):.3f}-{max(an):.3f} - the lattice\n"
                   "signature is universal, not a defect (V102)",
                   fontsize=12)
 
@@ -904,15 +906,15 @@ def fig38_isotropy_search():
                   "the isotropy band is empty (V115)", fontsize=12)
 
     # (b) the distribution of A: pinned at full anisotropy
-    ax2.hist(A, bins=np.arange(0.90, 1.005, 0.01), color=C_FIT)
+    ax2.hist(A, bins=np.arange(0.996, 1.0001, 0.0005), color=C_FIT)
     ax2.axvline(amin, color=C_ZERO, ls="--", lw=1.5)
-    ax2.text(amin - 0.004, ax2.get_ylim()[1] * 0.94,
-             f"min {amin:.3f}", ha="right", va="top", fontsize=11,
+    ax2.text(amin + 0.0006, ax2.get_ylim()[1] * 0.45,
+             f"min {amin:.3f}", ha="left", va="center", fontsize=11,
              color=C_ZERO)
     ax2.set_xlabel(r"cone anisotropy $A$")
     ax2.set_ylabel("gapless points")
-    ax2.set_xlim(0.895, 1.005)
-    ax2.set_title("(b) every point sits at $A \\gtrsim 0.90$;\n"
+    ax2.set_xlim(0.9955, 1.0005)
+    ax2.set_title(f"(b) every point sits at $A \\gtrsim {amin:.3f}$;\n"
                   "isotropy ($A\\to 0$) is not approached\n"
                   "anywhere on the family (V115)", fontsize=12)
 
@@ -924,7 +926,7 @@ def fig38_isotropy_search():
              "bare cone (w = 0)", ha="right", fontsize=10.5, color=C_OPEN)
     ax3.set_xlabel(r"Wilson angle $\theta$ (rad)")
     ax3.set_ylabel(r"cone anisotropy $A$")
-    ax3.set_ylim(0.895, 1.005)
+    ax3.set_ylim(0.9955, 1.0025)
     ax3.set_title("(c) all 60 angles x all strengths: the Wilson\n"
                   "factor moves the zeros, never the cone's\n"
                   "shape - W9 stays open (V115)", fontsize=12)
@@ -960,10 +962,10 @@ def fig39_tangent_algebra():
             d = np.array([-v[1], v[0]]) / nrm
             ax1.plot([-d[0], d[0]], [-d[1], d[1]], color=cols[a], lw=1.4,
                      ls="--")
-        ax1.text(1.04 * v[0], 1.04 * v[1],
+        ax1.text((1.04 + 0.17 * a) * v[0], (1.04 + 0.17 * a) * v[1],
                  r"$v_%d=(%.2f,\,%.2f)$" % (a + 1, v[0], v[1]),
                  fontsize=9.5, color=cols[a], ha="left", va="bottom")
-    ax1.set_xlim(-1.25, 1.55)
+    ax1.set_xlim(-1.25, 1.95)
     ax1.set_ylim(-1.25, 1.25)
     ax1.set_aspect("equal")
     ax1.set_xlabel(r"$k_x$ (lattice units)")
@@ -988,10 +990,11 @@ def fig39_tangent_algebra():
     ax2.set_xticklabels([r"$[S_1,S_2]$", r"$[S_2,S_3]$", r"$[S_3,S_1]$"])
     ax2.set_ylabel(r"$\|[S_i,S_j]\|$ (lattice units)")
     ax2.set_title("(b) the three tangent velocity operators COMMUTE:\n"
-                  "max $\\|[S_i,S_j]\\|$ = %.1e, twelve orders below the scale\n"
+                  "max $\\|[S_i,S_j]\\|$ = %.1e, %.0f orders below the scale\n"
                   "a Weyl cone requires; $\\sum_j S_j^2$ is a scalar (%.2f)\n"
                   "and each branch is planar to %.1e (V118)"
-                  % (max(comm), t["sum_Sj2_scalar"], t["planar_branch_err"]),
+                  % (max(comm), -math.log10(max(comm) / t["sum_Sj2_scalar"]),
+                     t["sum_Sj2_scalar"], t["planar_branch_err"]),
                   fontsize=12)
 
     # (c) the entangling bond layer: the right direction, nowhere near enough
@@ -1017,10 +1020,10 @@ def fig39_tangent_algebra():
     ax3.legend(h1 + h2, l1 + l2, fontsize=9, loc="lower right")
     ax3.set_title("(c) a non-Abelian Peierls bond layer entangling cell and\n"
                   "internal indices (regression to the implemented step %.0e)\n"
-                  "raises the planarity defect by eleven orders and switches\n"
-                  "the commutator on to only 0.07 of its natural scale; $A$\n"
+                  "raises the planarity defect from %.0e to %.0e and switches\n"
+                  "the commutator on to only %.2f of its natural scale; $A$\n"
                   "never leaves $0.996$-$0.9999$ - W9 stays open (V120)"
-                  % d120["regression"]["phi0_vs_implemented"], fontsize=12)
+                  % (d120["regression"]["phi0_vs_implemented"], pl[0], max(pl), max(cm)), fontsize=12)
 
     fig.suptitle("Why the doubler node is never a Weyl cone: the tangent "
                  "velocities commute (V118, V120)", fontsize=14.5)

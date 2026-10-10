@@ -60,7 +60,7 @@ FIGURES = [
     (30, residuals.fig30_w3_forcing),
     (31, algebra.fig31_graphical_abstract),
     (32, residuals.fig32_w4_cone),
-    (33, algebra.fig33_brillouin_doublers),
+    (33, algebra.fig33_block_zone_nodes),
     (34, dynamics.fig34_bh_frames),
     (35, residuals.fig35_vertex_ground_state),
     (36, residuals.fig36_residual_attacks),

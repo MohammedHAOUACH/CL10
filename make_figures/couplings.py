@@ -179,7 +179,7 @@ def fig20_desert():
 def fig21_wilson():
     import json
     from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-    from cl10 import brillouin as BR
+    from cl10 import supercell as SC
 
     with open(os.path.join(ROOT, "experiments", "V65_wilson",
                            "results", "v65_wilson.json")) as f:
@@ -193,7 +193,7 @@ def fig21_wilson():
     fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
     split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
              (0.0, np.pi / 2, np.pi / 2)}
-    for q in BR.DOUBLERS:
+    for q in SC.M_POINTS:
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         col = fam_col[["x", "y", "z"][axis]]
         is_split = tuple(abs(v) for v in q) in split
@@ -209,7 +209,7 @@ def fig21_wilson():
     axA.set_xticks([0, np.pi / 2])
     axA.set_yticks([0, np.pi / 2])
     axA.set_zticks([0, np.pi / 2])
-    axA.set_title("(a)  12 doubler nodes = 3 axis families of 4;\n"
+    axA.set_title("(a)  12 half-zone nodes = 3 axis families of 4;\n"
                   "    black: one split node per family (V65/V70)",
                   fontsize=11.5)
 

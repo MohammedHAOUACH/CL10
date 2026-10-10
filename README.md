@@ -47,7 +47,7 @@ CL10/
 │   ├── publication.md        # the paper (the theory + the seven criteria + the 9 open residuals W1-W9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
-│   ├── figures/              # the 39 publication figures (make_figures/; fig 19 = young QCA, fig 20 = V62 product)
+│   ├── figures/              # the 39 publication figures (make_figures/; fig 18 = young QCA, fig 19 = V62 hydrogen product)
 ├── publication/              # the journal build: doc/publication.md -> REVTeX 4.2 PDF
 │   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
@@ -68,7 +68,7 @@ CL10/
 │   ├── u10pred.py            # the headline numbers (proton, seesaw, families)
 │   ├── walls.py              # the 3 reduced walls (W1/W2/W3) + the baryon asymmetry
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
-│   ├── local_qca.py          # the LOCAL QCA (V36): the causal radius implemented
+│   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x 32 = C^256), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
 │   ├── smatrix.py            # the S-matrix of the QCA (V41): the first processes
 │   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one object + its invariants (V43)
 │   ├── unification.py        # the 5/3, the coupling readings from the root (V38, conventions), the running
@@ -94,8 +94,7 @@ CL10/
 │   ├── g10_selection.py      # the 1-loop data check of g_10 = 1/5 (V56, W4: the data prefer n = 7)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
-│   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
-│   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
+│   └── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 ├── experiments/              # the verification program (121 experiments, V0-V120)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
@@ -103,7 +102,7 @@ CL10/
 │   ├── V20..V24/             # the deepening: the 10-Higgs, the GUT running, the Sakharov, the full SM QCA, the CPT
 │   ├── V25..V29/             # holography, the family construct, QCD, the Yukawa, the tribimaximal PMNS
 │   ├── V30..V35/             # the GUT completion: the running at M_P, the QCA->GR, the 't Hooft program, the baryon, the cosmology capstones
-│   ├── V36..V42/             # the construction modules: the local QCA, the EH action from the dynamics,
+│   ├── V36..V42/             # the construction modules: the block-lattice automaton, the EH action from the dynamics,
 │                             #   the coupling readings, the 3 families in the dynamics, leptogenesis, the S-matrix, the DM scale
 │   ├── V43/                  # the 32-level QCA spectrum as the one object; the nine residuals are its named projections
 │   ├── V44/                  # the QCA lattice RG: the S-matrix to the cross-sections (W9, the UV-finite 0-parameter GUT cross-section)
@@ -125,7 +124,7 @@ CL10/
 │   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
 │   ├── V61/                # the 3-D hydrogen atom (Fig. 19; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
 │   ├── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 19 claim measured at production resolution, the figure regenerated as a product of the experiment
-│   ├── V63/                # the Brillouin-zone chirality test (W9): the 16 sector is closed by the FULL local step (leakage 1e-15), the Bloch Floquet matches the 4^3 torus (4e-15), the zone centre is GAPPED (0.0365), the 12 doubler momenta are GAPLESS (|v| = 0.142), the node chiralities sum to 0 — the doubling survives
+│   ├── V63/                # the Brillouin-zone chirality test (W9): the 16 sector is closed by the FULL step (leakage 5.7e-16), the one-step Bloch matrix matches the 2^3-block torus (6.6e-15), the zone centre is GAPPED (0.0365 per step), the 12 M-point momenta are GAPLESS (|v| = 0.142), the node chiralities sum to 0 — the doubling survives
 │   ├── V64/                # the desert inverse problem (W4, F2, F5): with alpha_X = 1/25 FIXED (the root value, not refitted), the inverse problem asks which vectorlike content makes the measured couplings meet; the required Delta b is non-universal; the lightest CL10-realizable solution (three 10+10bar + one (1,2) pair) meets at M_X = 1.8e16 GeV, cures the SU(3) down-pole, predicts tau_p = 1.8e36 yr; M_GUT = M_P is abandoned
 │   ├── V65/                # the internal Wilson factor (W9 -> W4): W(q) = exp[-i w sum(1-cos q_j)(cos(th) X + sin(th) Y)] from the root's own Cartan algebra; exactly unitary, W(0) = I, quasi-local (measured Lieb-Robinson front); gaps all 12 doubler nodes; X, Y identified by charge multisets (both SU(5) embeddings); the selective 3-node reading solves the meeting equations at M_X = 8.9e14 GeV — EXCLUDED by Super-K (reported, not hidden)
 │   ├── V66/                # the dark-matter identity scan (W7): the mirror Z2 is exact (leak 1e-15), the 16bar weights are exact conjugates; the only exact-stability carrier is the mirror sector, lightest state a colored Qbar at 1.3e8 GeV (excluded); NO viable 118 GeV carrier in the implemented spectrum
@@ -187,6 +186,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
 ├── run_validation.py         # the runner: runs all 121, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_figures.sh            # the 39 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     └── validation_summary.json   # the 121/121 PASS + the hard-tier verdict
 
@@ -213,10 +213,13 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 121 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 121 on the GPU (cupy, 12 jobs); numpy fallback per experiment if the card is full
-python3 -m make_figures          # regenerates ALL 39 figures -> doc/figures/
-                                 # GPU if the pinned card is free, else numpy;
-                                 # --only N [N..] | --fast (skip 19+20) | --cpu
+./run_gpu.sh                     # the full 121 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+./run_figures.sh                   # the 39 figures on the GPU card make_figures pins; it
+                                   # ABORTS if that card has < 2 GiB free, so the figures
+                                   # never silently become numpy products (FORCE=1 to run
+                                   # anyway, NEED=MiB to move the gate)
+python3 -m make_figures            # the same generator without the card check:
+                                   # --only N [N..] | --fast (skip 18+19) | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 19 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
 bash publication/build.sh        # rebuild the journal PDF from doc/publication.md
@@ -313,7 +316,7 @@ Schwarzschild Ricci $= 0$ and the Kretschmann $48M^2/r^6$ recovered **by
 computation**; V51 does the same for the 3+1 constraint 0-row with Z4 damping.
 Newton's constant is an **input** ($G = 1$).  The open part of W9 is the sum
 over geometries and the quantum completion — and, since V63, the **lattice
-chirality** of the implemented step: the 16-sector Brillouin-zone Floquet
+chirality** of the implemented step: the 16-sector block-Brillouin one-step
 spectrum is gapped at the zone centre ($0.0365$) and gapless at the 12 doubler
 momenta $(\pm\pi/2,\pm\pi/2,0)$ with node chiralities summing to $0$; V65's
 internal Wilson factor gaps them all, with the split node set an input.
