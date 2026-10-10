@@ -1,0 +1,195 @@
+{
+ "experiment": "V120_w9_entangling_bond",
+ "data": {
+  "regression": {
+   "phi0_vs_implemented": 3.356589068483857e-16,
+   "unitarity": 3.1086253010546335e-15
+  },
+  "scan": [
+   {
+    "phi": 0.0,
+    "w": 2.896981677300512,
+    "theta": 1.6617594308987322,
+    "gap": 5.611475362897986e-07,
+    "spread": 4.800287119229442e-16,
+    "dim": 3,
+    "max_speed": 0.8103915757513608,
+    "min_nonzero_speed": 0.0002906272324578472,
+    "anisotropy": 0.9992830057662838,
+    "commutator_over_norm": 3.194512290730023e-12,
+    "planar_err": 3.695696926264702e-08,
+    "branch_velocity_vectors": [
+     [
+      0.3541107540700419,
+      0.35411075406909615,
+      0.6378856828338577
+     ],
+     [
+      0.35411075407230325,
+      0.6378856828326652,
+      0.354110754068505
+     ],
+     [
+      0.6378856828350709,
+      0.3541107540681609,
+      0.3541107540684979
+     ]
+    ],
+    "zero_branch_dirs": 36,
+    "n_branch_dirs": 6588
+   },
+   {
+    "phi": 0.1,
+    "w": 0.9994632544730627,
+    "theta": 2.1499619996002697e-07,
+    "gap": 0.00032838389706678605,
+    "spread": 0.0010343331838103041,
+    "dim": 3,
+    "max_speed": 0.7294866328307784,
+    "min_nonzero_speed": 2.781355669603007e-05,
+    "anisotropy": 0.9999237477562405,
+    "commutator_over_norm": 0.0016983297587761243,
+    "planar_err": 0.001384609278253568,
+    "branch_velocity_vectors": [
+     [
+      -0.4783309647112298,
+      -0.47852530050391906,
+      -0.19744802713249165
+     ],
+     [
+      -0.49338919119742913,
+      -0.21252564098681204,
+      -0.49306842600904477
+     ],
+     [
+      -0.20511265964895034,
+      -0.48642315552444215,
+      -0.48597483659631413
+     ]
+    ],
+    "zero_branch_dirs": 0,
+    "n_branch_dirs": 6588
+   },
+   {
+    "phi": 0.3,
+    "w": 1.6359303917091514,
+    "theta": 1.1527151156600648,
+    "gap": 0.0012163431047465057,
+    "spread": 0.02150374120321266,
+    "dim": 3,
+    "max_speed": 0.8807409490128046,
+    "min_nonzero_speed": 9.485979076610987e-05,
+    "anisotropy": 0.9997846141362148,
+    "commutator_over_norm": 0.014098880321697718,
+    "planar_err": 0.011295894949325924,
+    "branch_velocity_vectors": [
+     [
+      0.10756328039354277,
+      0.10812696658343235,
+      -0.15555148987762954
+     ],
+     [
+      0.2887618914968663,
+      0.3236830825404444,
+      0.35163071198534046
+     ],
+     [
+      0.5177615110279844,
+      0.5096746010390644,
+      0.49802295027987586
+     ]
+    ],
+    "zero_branch_dirs": 0,
+    "n_branch_dirs": 6588
+   },
+   {
+    "phi": 0.6,
+    "w": 2.3762256904702532,
+    "theta": 3.141592520714834,
+    "gap": 0.007084005873048928,
+    "spread": 0.004670153803006129,
+    "dim": 3,
+    "max_speed": 2.2554660154182153,
+    "min_nonzero_speed": 0.0005721598815950263,
+    "anisotropy": 0.9994927746455186,
+    "commutator_over_norm": 0.04139787704684377,
+    "planar_err": 0.03610873218338996,
+    "branch_velocity_vectors": [
+     [
+      -1.2444679478536775,
+      -1.4236511956667204,
+      -1.228200408008354
+     ],
+     [
+      -0.8935303571517748,
+      -0.7977629795703938,
+      -0.908645627355966
+     ],
+     [
+      -0.20481758987062348,
+      -0.18876108477248985,
+      -0.27597604731575504
+     ]
+    ],
+    "zero_branch_dirs": 0,
+    "n_branch_dirs": 6588
+   },
+   {
+    "phi": 1.0,
+    "w": 1.2628159849975837,
+    "theta": 4.296101754898439,
+    "gap": 0.0020696075863796794,
+    "spread": 0.02908537150488449,
+    "dim": 3,
+    "max_speed": 0.38241718894693966,
+    "min_nonzero_speed": 0.000766388447094491,
+    "anisotropy": 0.9959998888662893,
+    "commutator_over_norm": 0.07071091460605174,
+    "planar_err": 0.04024241015017343,
+    "branch_velocity_vectors": [
+     [
+      -0.20680686206773352,
+      -0.20940191050531215,
+      -0.12049944114019939
+     ],
+     [
+      0.10080563671224287,
+      0.11309680429295604,
+      0.083514424356368
+     ],
+     [
+      0.20001954019036172,
+      0.24127776628851003,
+      0.21750931522941186
+     ]
+    ],
+    "zero_branch_dirs": 0,
+    "n_branch_dirs": 6588
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 phi=0 reproduces the implemented step, exactly unitary",
+   "pass": true
+  },
+  {
+   "name": "T1 the corner triplet is exactly degenerate only at phi = 0 (spread < 1e-6 there, > 1e-4 for phi > 0)",
+   "pass": true
+  },
+  {
+   "name": "T2 the scan finds NO gapless corner point for phi > 0 (best top level > 1e-4)",
+   "pass": true
+  },
+  {
+   "name": "T3 the tangent velocities stay COMMUTING: comm/|S| < 0.1 at every phi (a cone needs ~1)",
+   "pass": true
+  },
+  {
+   "name": "T4 the crossing stays anisotropic: A > 0.99 at every phi",
+   "pass": true
+  }
+ ],
+ "pass": true,
+ "status": "ENTANGLING BOND LAYER AND THE TANGENT ALGEBRA (W9). phi = 0 reproduces the implemented step to 3.4e-16 and is unitary to 3.1e-15. Scanning the non-Abelian Peierls phase phi and retuning (theta,w) at the cubic corner: phi=0.00 gap=5.6e-07 spread=4.8e-16 dim 3 maxv 0.810 minv 2.9e-04 A 0.9993 comm/|S| 0.000 planar 3.7e-08; phi=0.10 gap=3.3e-04 spread=1.0e-03 dim 3 maxv 0.729 minv 2.8e-05 A 0.9999 comm/|S| 0.002 planar 1.4e-03; phi=0.30 gap=1.2e-03 spread=2.2e-02 dim 3 maxv 0.881 minv 9.5e-05 A 0.9998 comm/|S| 0.014 planar 1.1e-02; phi=0.60 gap=7.1e-03 spread=4.7e-03 dim 3 maxv 2.255 minv 5.7e-04 A 0.9995 comm/|S| 0.041 planar 3.6e-02; phi=1.00 gap=2.1e-03 spread=2.9e-02 dim 3 maxv 0.382 minv 7.7e-04 A 0.9960 comm/|S| 0.071 planar 4.0e-02. VERDICT: the phase lifts the corner triplet off zero and breaks exact planarity (defect 4.0e-02 at phi > 0 against 3.7e-08 at phi = 0), but the commutator never exceeds 0.071 of its natural scale and the anisotropy never leaves [0.9960, 0.9999]: a single non-Abelian Peierls phase does NOT supply the Clifford-type bond V118 requires - the bond itself must carry the rotation in all three axes at once."
+}

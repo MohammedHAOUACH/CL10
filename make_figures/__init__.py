@@ -66,6 +66,7 @@ FIGURES = [
     (36, residuals.fig36_residual_attacks),
     (37, residuals.fig37_doubler_cones),
     (38, residuals.fig38_isotropy_search),
+    (39, residuals.fig39_tangent_algebra),
 ]
 
 YOUNG = 18

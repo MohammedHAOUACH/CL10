@@ -121,7 +121,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V116 under `experiments/`):
+**The protocol.**  Each experiment (V0–V120 under `experiments/`):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -132,7 +132,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    a **FAIL** and any JSON verdict already on disk is **discarded**: an
    experiment never inherits the verdict of a previous run.
 
-`run_validation.py` runs all **117** experiments (V0–V116) in name order,
+`run_validation.py` runs all **121** experiments (V0–V120) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the runner's hard-tier verdict (the runner labels it `U10`; the paper
@@ -236,9 +236,10 @@ F4xx/F5xx are enforced).
  The registry in `make_figures/__init__.py` maps every figure number to its
  generator (`algebra`, `scales`, `couplings`, `proton`, `dynamics`,
  `residuals`); the per-figure provenance - which experiment or module
- computes which figure, including **Fig. 37** (V102 doubler cones) and
- **Fig. 38** (V115 isotropy search) - is listed in the paper's Code
- availability statement and in `make_figures/README.md`.  Two figures are
+ computes which figure, including **Fig. 37** (V102 doubler cones),
+ **Fig. 38** (V115 isotropy search) and **Fig. 39** (V118/V120 tangent
+ velocity algebra) - is listed in the paper's Code
+availability statement and in `make_figures/README.md`.  Two figures are
  produced by the simulation engines rather than computed inline: **Fig. 18**
  (the Young double-slit, the `simulation/young` 3-D QCA wave) and **Fig. 19**
  (hydrogen, the **V62** production $296^3$ run of the `simulation/hydrogen`

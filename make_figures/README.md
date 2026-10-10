@@ -18,7 +18,7 @@ python3 -m make_figures --cpu          # force the numpy backend
    missing, or the pinned card has less than 2 GiB free (checked via
    `nvidia-smi`, since creating a CUDA context can itself OOM), the run
    falls back to numpy with a printed notice — never a crash.
-2. **The registry** (`__init__.py`, `FIGURES`) runs the 38 matplotlib
+2. **The registry** (`__init__.py`, `FIGURES`) runs the 39 matplotlib
    figures in paper order, grouped by subject:
 
    | module | figures |
@@ -28,7 +28,7 @@ python3 -m make_figures --cpu          # force the numpy backend
    | `couplings.py` | 12, 15, 21, 22, 24, 25, 26 — running, 2-loop UV, desert, Wilson, composites, closed loops, equal shift |
    | `proton.py` | 16 — the three decay channels at the desert point |
    | `dynamics.py` | 17, 18, 19, 35 — QCA causal front, 3+1 gravity, **young double-slit**, black-hole frames |
-   | `residuals.py` | 8, 23, 27-31, 33, 36-39 — parameter audit, gauged layer, W2-W9 closures, fragment hull, vertex ground state, named-gap tests, doubler cones, isotropy search |
+   | `residuals.py` | 8, 23, 27-31, 33, 36-39 — parameter audit, gauged layer, W2-W9 closures, fragment hull, vertex ground state, named-gap tests, doubler cones, isotropy search, tangent velocity algebra |
 
 3. **Fig. 19 (young)** runs the `simulation/young` QCA (wave + collapse,
    GPU through the same backend switch). It is the slowest figure (~15 min

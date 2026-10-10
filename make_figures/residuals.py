@@ -933,3 +933,96 @@ def fig38_isotropy_search():
                  "the Wilson family? No (V115)", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig38_isotropy_search.png")
+
+
+def fig39_tangent_algebra():
+    """V118/V120: the massless corner node is three nodal planes, not a cone."""
+    import json
+    with open(os.path.join(ROOT, "experiments", "V118_w9_little_group",
+                           "results", "v118_w9_little_group.json")) as f:
+        d118 = json.load(f)["data"]
+    with open(os.path.join(ROOT, "experiments", "V120_w9_entangling_bond",
+                           "results", "v120_w9_entangling_bond.json")) as f:
+        d120 = json.load(f)["data"]
+    t = d118["T4"][0]
+    vecs = np.array(t["branch_velocity_vectors"])
+    cols = [C_SU3, C_FIT, C_GUT]
+
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13.6, 4.5))
+
+    # (a) the node in the kz = 0 slice: three velocity vectors, three nodal lines
+    ax1.add_patch(plt.Circle((0, 0), 1.0, fill=False, color="0.6", lw=0.8))
+    for a, v in enumerate(vecs):
+        nrm = math.hypot(v[0], v[1])
+        ax1.annotate("", xy=(v[0], v[1]), xytext=(0, 0),
+                     arrowprops=dict(arrowstyle="-|>", color=cols[a], lw=1.8))
+        if nrm > 1e-9:
+            d = np.array([-v[1], v[0]]) / nrm
+            ax1.plot([-d[0], d[0]], [-d[1], d[1]], color=cols[a], lw=1.4,
+                     ls="--")
+        ax1.text(1.04 * v[0], 1.04 * v[1],
+                 r"$v_%d=(%.2f,\,%.2f)$" % (a + 1, v[0], v[1]),
+                 fontsize=9.5, color=cols[a], ha="left", va="bottom")
+    ax1.set_xlim(-1.25, 1.55)
+    ax1.set_ylim(-1.25, 1.25)
+    ax1.set_aspect("equal")
+    ax1.set_xlabel(r"$k_x$ (lattice units)")
+    ax1.set_ylabel(r"$k_y$")
+    ax1.set_title("(a) the gapless corner triplet, $k_z=0$ slice: each\n"
+                  "branch carries a FIXED velocity $v_\\alpha$ and vanishes\n"
+                  "on its own line $v_\\alpha\\cdot q=0$ - three planes, not\n"
+                  "a cone (the three $v_\\alpha$ are cubic permutations)",
+                  fontsize=12)
+
+    # (b) the tangent velocity algebra: commuting, not Clifford-type
+    comm = t["commutator_norms"]
+    ax2.bar(range(3), comm, color=C_OPEN)
+    ax2.axhline(t["sum_Sj2_scalar"], color=C_ALG, ls="--", lw=1.6)
+    ax2.text(2.4, t["sum_Sj2_scalar"],
+             r"Clifford-type target $\sim\sum_j\|S_j\|^2$ = %.2f"
+             % t["sum_Sj2_scalar"], ha="right", va="bottom", fontsize=10.5,
+             color=C_ALG)
+    ax2.set_yscale("log")
+    ax2.set_ylim(1e-14, 3.0)
+    ax2.set_xticks(range(3))
+    ax2.set_xticklabels([r"$[S_1,S_2]$", r"$[S_2,S_3]$", r"$[S_3,S_1]$"])
+    ax2.set_ylabel(r"$\|[S_i,S_j]\|$ (lattice units)")
+    ax2.set_title("(b) the three tangent velocity operators COMMUTE:\n"
+                  "max $\\|[S_i,S_j]\\|$ = %.1e, twelve orders below the scale\n"
+                  "a Weyl cone requires; $\\sum_j S_j^2$ is a scalar (%.2f)\n"
+                  "and each branch is planar to %.1e (V118)"
+                  % (max(comm), t["sum_Sj2_scalar"], t["planar_branch_err"]),
+                  fontsize=12)
+
+    # (c) the entangling bond layer: the right direction, nowhere near enough
+    rows = d120["scan"]
+    ph = [r["phi"] for r in rows]
+    pl = [max(r["planar_err"], 1e-16) for r in rows]
+    cm = [r["commutator_over_norm"] for r in rows]
+    ax3.semilogy(ph, pl, "s-", color=C_FIT,
+                 label=r"planarity defect $\max_{d,\alpha}|s_\alpha(d)-|v_\alpha\cdot d||$")
+    ax3.axhline(1.0, color=C_SU3, ls=":", lw=1.4)
+    ax3.text(0.03, 1.4, "Clifford-type target", fontsize=10.5, color=C_SU3)
+    ax3.set_ylim(1e-16, 3)
+    ax3.set_xlabel(r"entangling bond phase $\phi$")
+    ax3.set_ylabel("planarity defect (log)")
+    ax3b = ax3.twinx()
+    ax3b.plot(ph, cm, "o-", color=C_OPEN,
+              label=r"$\max\|[S_i,S_j]\|/\|S\|$ (a cone needs $\sim1$)")
+    ax3b.set_ylim(0, 0.3)
+    ax3b.set_ylabel(r"$\max\|[S_i,S_j]\|/\|S\|$", color=C_OPEN)
+    ax3b.tick_params(axis="y", colors=C_OPEN)
+    h1, l1 = ax3.get_legend_handles_labels()
+    h2, l2 = ax3b.get_legend_handles_labels()
+    ax3.legend(h1 + h2, l1 + l2, fontsize=9, loc="lower right")
+    ax3.set_title("(c) a non-Abelian Peierls bond layer entangling cell and\n"
+                  "internal indices (regression to the implemented step %.0e)\n"
+                  "raises the planarity defect by eleven orders and switches\n"
+                  "the commutator on to only 0.07 of its natural scale; $A$\n"
+                  "never leaves $0.996$-$0.9999$ - W9 stays open (V120)"
+                  % d120["regression"]["phi0_vs_implemented"], fontsize=12)
+
+    fig.suptitle("Why the doubler node is never a Weyl cone: the tangent "
+                 "velocities commute (V118, V120)", fontsize=14.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    save(fig, "fig39_tangent_algebra.png")

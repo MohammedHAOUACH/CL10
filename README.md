@@ -47,7 +47,7 @@ CL10/
 │   ├── publication.md        # the paper (the theory + the seven criteria + the 9 open residuals W1-W9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
-│   ├── figures/              # the 36 publication figures (make_figures/; fig 19 = young QCA, fig 20 = V62 product)
+│   ├── figures/              # the 39 publication figures (make_figures/; fig 19 = young QCA, fig 20 = V62 product)
 ├── publication/              # the journal build: doc/publication.md -> REVTeX 4.2 PDF
 │   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
@@ -55,8 +55,8 @@ CL10/
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
 │   ├── fetch_dois.py         # resolves + verifies the 53 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (38 figures, 8 tables, 53 refs)
-├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 38 (see make_figures/README.md)
+│   └── publication.pdf       # the compiled paper (39 figures, 8 tables, 53 refs)
+├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 39 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
 │   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
@@ -96,7 +96,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── brillouin.py          # the 16-sector Brillouin-zone Floquet spectrum: the 2x2x2 supercell momenta, the doubler nodes, the node chiralities, the g10 scan (V63, W9)
-├── experiments/              # the verification program (117 experiments, V0-V116)
+├── experiments/              # the verification program (121 experiments, V0-V120)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -179,12 +179,16 @@ CL10/
 ├── V114/               # the W2 junction ratio r = kappa/w0 NOT derived: the V76 modulation's exact stabilizer is a 12-element subgroup (not the 24 chiral cubic); NO cubic-symmetric closed junction exists on (Z/4)^3 (closed space trivial); inside the V76 stabilizer the closed space is 2-dimensional - w0 independent of kappa: r stays free
 ├── V115/               # the W9 cone-isotropy scan: the node gap g(w) of the V65 Wilson family located at every zero (grid + golden-section) over 2 reps x 60 angles - 2726 gapless points, smallest cone anisotropy A = 0.997: no isotropy point on the family (W9 confirmed beyond the V65 root; Fig. 38)
 ├── V116/               # the W3 triangle orbit-8 audit: the 64 one-per-family triangles split into 4 cubic orbits (8, 8, 24, 24); a triangle's stabilizer is exactly S3 (order 6) - the split reduces O_h -> S3 and the 8 choices of an orbit are physically distinct vacua (8-fold degeneracy, domain walls)
+├── V117/               # the W5 CP lock, scoped: the 32-D module is of REAL type (intertwiner unique, J^2 = +1, Q h Q^dag = h^*, Q T Q^dag = -T^*); the Frobenius-Schur scan of all 11 roots p+q = 10 shows the real form is a CHOICE (Cl(8,2), Cl(7,3), Cl(4,6), Cl(3,7), Cl(0,10) quaternionic) and the spectral mirror survives on the quaternionic root (step unitary to 6.7e-16, pairing 2.6e-15); the pairing is ONE-CELL (the 128-level band spectrum is not conjugation-closed, 0.95) and a complex bond layer makes the gauge-invariant plaquette holonomy CP-odd (Im 1e-3) at machine-precision unitarity - the CP phase is a named bond-layer input, not a forbidden quantity
+├── V118/               # the W9 tangent velocity algebra: the 12 doubler nodes measured AT the tangent - principal velocities (0.14189, 0.14189, 0), the third exactly zero, V115's finite-difference exponents 0.00 (linear) and -1.00 (flat) so the anisotropy is not a dq artifact; little groups (zone edge C2v; supercell corner O_h with exactly 3-fold multiplets); the V65 factor drives a corner cubic triplet exactly gapless (1e-10, a one-parameter family); on it [S_i,S_j] = 0 to 2e-12, sum_j S_j^2 is a scalar, and each branch is exactly planar, E = |v_alpha . q| to 6e-12 with the v_alpha the cubic permutations of (0.704, 0.421, 0.421) - three nodal planes, not a cone (Fig. 39)
+├── V119/               # the W9 double-multiplet escape closed: the two corner multiplets cannot be driven to zero simultaneously anywhere on the V65 Wilson family (best pair gap 7.2e-5, gapless dim 3 < 6); the touching that is reachable is linear but anisotropic (A = 0.996)
+├── V120/               # the W9 remedy built and tested: a non-Abelian Peierls bond layer entangling cell and internal indices (a hop carries exp(+-i phi D16), sign by hop direction; exactly unitary, radius-1 causal, reproduces the implemented step to 3.4e-16 at phi = 0) - it breaks exact planarity (5e-16 -> 4e-2) and switches the commutator on to 0.071 of its natural scale, but lifts the corner triplet off zero and A stays 0.996-0.9999: entanglement is necessary, a single phase is not sufficient (Fig. 39)
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
-├── run_validation.py         # the runner: runs all 117, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 121, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 └── results/
-    └── validation_summary.json   # the 117/117 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 121/121 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -208,9 +212,9 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 117 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 117 on the GPU (cupy, 12 jobs); numpy fallback per experiment if the card is full
-python3 -m make_figures          # regenerates ALL 38 figures -> doc/figures/
+python3 run_validation.py        # runs all 121 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 121 on the GPU (cupy, 12 jobs); numpy fallback per experiment if the card is full
+python3 -m make_figures          # regenerates ALL 39 figures -> doc/figures/
                                  # GPU if the pinned card is free, else numpy;
                                  # --only N [N..] | --fast (skip 19+20) | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 19 scene)
@@ -225,8 +229,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **117** experiments
-(V0–V116) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **121** experiments
+(V0–V120) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the
