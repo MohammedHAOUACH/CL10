@@ -1,5 +1,4 @@
 """Figure module: dynamics."""
-import math
 import os
 
 import matplotlib.pyplot as plt
@@ -257,10 +256,14 @@ def fig18_young():
         * (1.0 + (pkmax - 1.0) * f / (nframe - 1)) for f in range(nframe)])
 
     fig = plt.figure(figsize=(12.6, 6.6), facecolor="white")
-    gs = fig.add_gridspec(2, 2, hspace=0.62, wspace=0.26,
+    # three rows: the profile strip under panel (b) gets its own row instead of
+    # being pasted over that panel's tick labels; panel (a) spans rows 0-1 so it
+    # keeps its height.
+    gs = fig.add_gridspec(3, 2, height_ratios=[1.0, 0.22, 1.0],
+                          hspace=0.34, wspace=0.26,
                           left=0.05, right=0.97, top=0.89, bottom=0.08)
     # (a) the wave: the propagation + double-slit diffraction (x-z slice)
-    ax1 = fig.add_subplot(gs[0, 0])
+    ax1 = fig.add_subplot(gs[0:2, 0])
     ax1.imshow(np.sqrt(norm(xz_slice)), cmap=C, origin="lower", aspect="auto",
                extent=[0, Lz, 0, Lx])
     ax1.axvline(bar_z, color="w", ls="--", lw=1.4, alpha=0.9)
@@ -284,8 +287,19 @@ def fig18_young():
     ax2.set_title("(b) the interference: the time-integrated screen", color=TXT)
     blackize(ax2)
     prof = time_pattern.mean(axis=1)
+    axp = fig.add_subplot(gs[1, 1], facecolor="#1a1a1a")
+    axp.plot(prof, color=C_ZERO, lw=1.3)
+    axp.set_xlim(0, Lx)
+    axp.set_ylim(0, prof.max() * 1.2)
+    axp.set_xticks([0, Lx // 2, Lx])
+    axp.set_yticks([])
+    axp.set_title("profile along $x$ (the fringe groups)", fontsize=11,
+                  color=LIGHT, pad=2)
+    for sp in axp.spines.values():
+        sp.set_color("#444")
+    axp.tick_params(colors=LIGHT, labelsize=8)
     # (c) the collapse: one electron reduces onto a point
-    ax3 = fig.add_subplot(gs[1, 0])
+    ax3 = fig.add_subplot(gs[2, 0])
     base = norm(time_pattern)
     ax3.imshow(base.T, cmap=C, origin="lower", aspect="auto",
                extent=[0, Lx, 0, Ly], alpha=0.55, vmin=0, vmax=1)
@@ -310,7 +324,7 @@ def fig18_young():
         for sp in sax.spines.values():
             sp.set_color("#444")
     # (d) the reality: the single-electron detections cluster into the fringes
-    ax4 = fig.add_subplot(gs[1, 1])
+    ax4 = fig.add_subplot(gs[2, 1])
     ax4.imshow(base.T, cmap=C, origin="lower", aspect="auto",
                extent=[0, Lx, 0, Ly], alpha=0.30, vmin=0, vmax=1)
     xs = det[:, 0]; ys = Ly - det[:, 1]
@@ -324,17 +338,6 @@ def fig18_young():
                  "one electron at a time, each reduced onto a point (Tonomura flow)",
                  fontsize=14, color="#111")
     fig.tight_layout(rect=[0, 0, 1, 0.95])
-    pos = ax2.get_position()
-    inset = fig.add_axes([pos.x0 + 0.10 * pos.width, pos.y0 - 0.150,
-                          0.80 * pos.width, 0.125], facecolor="#1a1a1a")
-    inset.plot(prof, color=C_ZERO, lw=1.3)
-    inset.set_xlim(0, Lx); inset.set_ylim(0, prof.max() * 1.2)
-    inset.set_xticks([0, Lx // 2, Lx]); inset.set_yticks([])
-    inset.set_title("profile along $x$ (the fringe groups)", fontsize=11,
-                    color=LIGHT, pad=1)
-    for sp in inset.spines.values():
-        sp.set_color("#444")
-    inset.tick_params(colors=LIGHT, labelsize=6.5)
     save(fig, "fig18_young.png")
 
 def fig34_bh_frames():

@@ -1,8 +1,8 @@
-"""CL10 publication figures: 38 figures, all computed from the construction.
+"""CL10 publication figures: 39 figures, all computed from the construction.
 
 One command regenerates everything:
 
-    .venv/bin/python -m make_figures            # all 38, GPU if cupy is there
+    .venv/bin/python -m make_figures            # all 39, GPU if cupy is there
     .venv/bin/python -m make_figures --only 7 12 19   # a subset
     .venv/bin/python -m make_figures --cpu      # force the numpy backend
     .venv/bin/python -m make_figures --fast     # skip the two slow GPU figures
