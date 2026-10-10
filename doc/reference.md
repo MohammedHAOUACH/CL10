@@ -74,8 +74,8 @@ signatures are in `doc/api.md`):
 | the **complete** 4-D non-linear gravity (§9.3, W9; V50) | `cl10.gravity` | the **general** 4-D Riemann / Ricci / Einstein / Kretschmann **computed by central finite differences from an *arbitrary* metric** $g_{\mu\nu}(x)$ (no hard-coded Christoffels, not restricted to one solution); **2-route verified**: the computed de Sitter $R^{\mu}_{\nu\rho\sigma}$ **matches** the independent analytic Riemann (`cl10.nonlinear_gravity`) to $O(h^2)$, the **Schwarzschild** Ricci is $0$ (the vacuum equation $G=0$ is satisfied **by computation**) and the **computed** Kretschmann is $48M^2/r^6$ (the **black hole recovered**); the discrete EH action $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}(R(x)-2\Lambda)$ ($G=1$, a **convention**: Newton's constant is an input of this sector) whose **functional derivative** (the numerical Euler–Lagrange) **is** the non-linear Einstein equation (dynamics $\leftarrow$ action); and the **non-linear** (state-dependent) QCA metric evolution (the 't Hooft non-linear completion: the GUT angle is modulated by the local $\Gamma\Gamma$ curvature — unitary/UV-finite, causal $c=1$, superposition fails) |
 | the **3+1 BSSN/Z4 numerical relativity** (§9, W9; V51) | `cl10.numrel` | the **3+1** Ricci **0-row** $(R_{00}, R_{0i})$ (the **constraints** $H, M$ of the 4-D Einstein tensor) by **2 routes** — the **4-D Riemann** (`cl10.gravity`, the general curvature) and the **3+1** $(\gamma, K)$ decomposition ($K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, the 3+1 Christoffels $\Gamma^{(3)}$) — agreeing to $O(h^2)$ (residual $\sim 10^{-13}$); the **Z4** constraint-damping (a perturbed constraint decays to 0; the undamped case does not), the **non-linearity** (the Ricci 0-row is quadratic in $K$, so superposition fails), and the **UV-finite** property (the 3+1 quantities are bounded by the lattice cutoff) — the **classical** 3+1 sector is therefore **implemented and cross-checked**; the open part of W9 remains the **sum over geometries**, the **lattice chirality check** and the **quantum** completion |
 | the 4-D non-linear gravity (analytic de Sitter, §9.1, §12.1; V46) | `cl10.nonlinear_gravity` | the de Sitter metric (flat FRW: $g_{00}=-1$, $g_{ij}=a^2\delta_{ij}$, $a=(1/H)e^{Hx^0}$); the **full 4-D Riemann tensor** (analytic Christoffel $\Gamma^0_{ij}=Ha^2\delta_{ij}$, $\Gamma^i_{0j}=\Gamma^i_{j0}=H\delta_{ij}$ and $\partial_0\Gamma$); the **Einstein tensor** $G_{\mu\nu}=R_{\mu\nu}-\tfrac12 g_{\mu\nu}R=-3H^2 g_{\mu\nu}$ (the vacuum energy **of this metric**, not the observed $\Lambda$); the **nonzero** $\Gamma\Gamma$ (cubic) self-gravity; at the Planck Hubble the vacuum energy $\Lambda\sim M_P^4$ (the W1 named residual).  This is the **analytic reference** that `cl10.gravity` (V50) cross-checks against (the 2-route verification) |
-| the full SM QCA step (§8.1) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
-| the local QCA (§8.2, Theorem 5) | `cl10.local_qca` | the **internal** layer (the 45 rotations per cell) + the **staggered** 2-cell **swap-rotation** layer $U_{\rm bond} = \cos g_{10}\, I - i\sin g_{10}\, P$ along one spatial axis per time step ($P$ = the swap of two adjacent cells — a permutation, no angle); the measured front speed is **exactly 1** lattice unit per step |
+| the internal layer of the step (§8.1) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
+| the automaton: the block cell, the step, the causal radius (§8.1, Theorem 5) | `cl10.supercell` | the cell is the **2×2×2 block** (8 sub-sites × the 32-D module = $\mathbb{C}^{256}$); one **time-independent step** of six stages, each the internal layer on every sub-site plus one **bond stage** $\cos g_{10}\, I - i\sin g_{10}\,P$ on the four disjoint pairs of one parity along one axis (three intra-block, three inter-block); the exact Bloch matrix $M(q)$ ($256\times256$; $128\times128$ on the 16) on the block zone; the measured front speed is **exactly 1 Planck cell per stage** |
 | the EH action from the dynamics (§9.2) | `cl10.einstein.einstein_hilbert_from_dynamics` | the **discrete** quadratic action $S_{\rm EH} = \frac{1}{16\pi}\frac12\sum_{x,t}\, u_t\big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2 u_t\big]$ ($G = 1$, $dt^2 = \tfrac14$, $\nabla^2$ = the 6-neighbour Laplacian); the **Euler–Lagrange equation** is the **numerical** functional derivative (the central finite difference of the action) evaluated on the GPU |
 | the numbers of the root (§8.1, §14) | `cl10.unification` | $n_{\rm qubits} = \log_2 32 = 5$ $\Rightarrow$ $g_{10} = 1/5$, $\alpha_{10} \equiv g_{10}^2 = 1/25$; $g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ ($n_{\rm space} = 3$ = the spatial dimension of the $(1,3)$).  Both readings are **conventions** (Table 5 of the publication), not derivations; the **down-running** is the 1-loop $1/a(M) = 1/a(M_{\rm UV}) + (b/2\pi)\ln(M_{\rm UV}/M)$ |
 | the 3-family step (§4, §11.5) | `cl10.family` | the 96-D internal space $= \bigoplus_{k=1}^3 H_{32}$; $U_{96} = \mathrm{blockdiag}(U_{32}, U_{32}, U_{32})$ at the **same** $g_{10}$ (the family symmetry); the tribimaximal PMNS (V29) is a property of the **Yukawa** sector, not of the time-evolution step; only $\sin^2\theta_{12}=1/3$ is a **derived number** (§11.5) |
@@ -125,12 +125,15 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
-   status, data, wall_time}` to `experiments/<id>/results/`;
+   status, data, wall_time}` to `experiments/<id>/results/` — `tier` ($0$–$6$)
+   is written by the 66 tiered checks (V0–V104); the 55 residual-attack checks
+   (V64–V120) record their verdict against a named residual and omit it;
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 5. a **crash** of the experiment script (non-zero exit code) is recorded as
-   a **FAIL** and any JSON verdict already on disk is **discarded**: an
-   experiment never inherits the verdict of a previous run.
+   a **FAIL**, any JSON verdict already on disk is **discarded** (an experiment
+   never inherits the verdict of a previous run), and the **full** traceback is
+   kept in `results/crashes/<id>.log`.
 
 `run_validation.py` runs all **121** experiments (V0–V120) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
@@ -141,7 +144,7 @@ does not use that label):
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (117/117, 2026-10-10).**  Every experiment **passes** on the
+**The result (121/121, 2026-10-10).**  Every experiment **passes** on the
 GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
 (Appendix B): most of these checks are **internal consistency** (they
 would pass for any theory built on this root), and a pass is only as good
@@ -211,7 +214,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (117/117)
+python3 run_validation.py            # -> results/validation_summary.json (121/121)
 python3 run_validation.py V11 V12    # a subset
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 ```
@@ -266,7 +269,7 @@ availability statement and in `make_figures/README.md`.  Two figures are
 
 ## 5. The status of two theorems (the honest wording)
 
-**The Nielsen–Ninomiya status (V63, `cl10.brillouin`).**  The lattice
+**The Nielsen–Ninomiya status (V63, `cl10.supercell`).**  The lattice
 **chirality** is **not** realised by a naive lattice Dirac operator: the 16 Weyl
 is a **module** of $\mathrm{Cl}(10)$ (the pseudoscalar splits the 32 into
 16/16-bar), and the QCA is a 't Hooft-type **finite-state** theory (one
@@ -275,36 +278,40 @@ Hermitian, translation-invariant** lattice Dirac operator, so it does not by
 itself forbid this construction.  **What the theorem leaves open has now been
 computed** rather than asserted.
 
-*Protocol.*  The implemented step (`cl10.local_qca`) is **internal layer +
-staggered bond layer**, with the bond axis $j(t) = t \bmod 3$ and the bond
-parity alternating with $t \bmod 2$; the 6-step cycle
-`[(even,0),(odd,1),(even,2),(odd,0),(even,1),(odd,2)]` is therefore periodic in
-space with period 2 in each direction, so the unit cell is the **$2\times2\times2$
-cell** (8 sites) and the good quantum number is the **supercell momentum**
-$q \in [-\pi,\pi]^3$.  On the 8-site cell the bond layer along axis $j$ is
-$S = \mathbb{1}$ except on the pairs $(e, e \oplus 2^j)$ selected by the parity,
-where $S_{ee} = S_{oo} = \cos g_{10}$, $S_{eo} = -i\sin g_{10}\,\phi$,
-$S_{oe} = -i\sin g_{10}\,\phi^*$ with $\phi = 1$ on the even layer and
-$\phi = e^{+iq_j}$ ($e^{-iq_j}$) on the odd layer according to which member of
-the pair carries the cell-crossing bond.  The Bloch Floquet is
-$U_{\mathrm{F}}(q) = \prod_{t=0}^{5}\big(S_{j(t),p(t)}(q)\otimes U_{16}\big)$,
-$U_{16} = B^\dagger U_{32}B$ the internal step in the $+i$ eigenspace $B$ of the
-pseudoscalar, built exactly ($8\times8$ bond $\otimes$ $16\times16$ internal =
-$128\times128$).  It is cross-validated against the **real-space** 6-step
-Floquet on a $4^3$ torus: maximum deviation $4.4\times10^{-15}$.
+*Protocol.*  The automaton (`cl10.supercell`) is written on the **cell = the
+$2\times2\times2$ block**: eight sub-sites $e \in \{0,1\}^3$, each carrying the
+32-D module.  One **step** is six stages in the fixed order
+`[(intra,0),(inter,1),(intra,2),(inter,0),(intra,1),(inter,2)]`, each stage the
+internal layer on every sub-site followed by one bond stage; the staggering of
+the one-cell description is the sub-lattice structure of the cell, so the step
+is **time-independent** and the good quantum number is the **block crystal
+momentum** $q \in [-\pi,\pi]^3$.  On the eight sub-sites the bond stage along
+axis $j$ is $S = \mathbb{1}$ except on the pairs $(e, e \oplus 2^j)$ selected by
+the parity, where $S_{ee} = S_{oo} = \cos g_{10}$,
+$S_{eo} = -i\sin g_{10}\,\phi$, $S_{oe} = -i\sin g_{10}\,\phi^*$ with $\phi = 1$
+on the intra-block stage and $\phi = e^{+iq_j}$ ($e^{-iq_j}$) on the inter-block
+stage according to which member of the pair crosses the cell face.  The one-step
+Bloch matrix is $M(q) = \prod_{s=1}^{6}\big(S_s(q)\otimes U_{16}\big)$,
+$U_{16} = B^\dagger U_{32}B$ the internal factor in the $+i$ eigenspace $B$ of
+the pseudoscalar, built exactly ($8\times8$ bond $\otimes$ $16\times16$ internal
+= $128\times128$; $256\times256$ on the full module).  It is cross-validated
+against the **real-space** step on a $2^3$-block torus: maximum deviation
+$9.8\times10^{-15}$ (numpy backend) / $7.4\times10^{-15}$ (cupy backend).
 
 *Results (V63, tier 2, named residual).*  (1) 16-sector closure of the
-implemented evolution: $16\to\overline{16}$ leakage $9.7\times10^{-16}$ over six
-steps — chirality is a **dynamical** symmetry, not only an on-site one.
-(2) Zone centre: $\min_a|\omega_a(0)| = 0.036499$ (16 sector) and $0.036499$
-(32 sector) — **gapped**.  (3) The 12 momenta $(\pm\pi/2,\pm\pi/2,0)$ and their
+step: $16\to\overline{16}$ leakage $5.7\times10^{-16}$ (numpy) / $7.0\times10^{-16}$ (cupy) — chirality is a
+**dynamical** symmetry, not only an on-site one.  (2) Zone centre:
+$\min_a|\omega_a(0)| = 0.036499$ per step (16 sector) and $0.036499$ (32
+sector) — **gapped**.  (3) The 12 M-point momenta $(\pm\pi/2,\pm\pi/2,0)$ and their
 permutations: maximum gap $2.0\times10^{-4}$, linear slopes $|v| = 0.1419$, node
 chiralities $\pm1$ with sum exactly $0$.  (4) $g_{10}$ scan:
 $\mathrm{gap}(0)/\mathrm{gap}(\text{doubler}) = 0.0365/0.0002$ at $g_{10}=0.2$,
 $0.0715/0.0430$ at $0.15$, $2.3548/2.4722$ at $0.1$ — the zone-centre gap is not
-protected.  **The doublers are present**; the construction contains no Wilson,
-overlap or domain-wall term that removes them.  This is the lattice-chirality
-item of W9, and the paper reports it as a **negative** result (Section 8.4).
+protected.  **The doublers are present in the bare step**; the internal Wilson
+factor of V65 gaps all twelve (Section 8.4), and the choice of the split node
+set is what remains.  This is the lattice-chirality item of W9: the paper
+reports the doubling as a **negative** result, and its removal by a mechanism of
+the step itself in Section 8.4.
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the
