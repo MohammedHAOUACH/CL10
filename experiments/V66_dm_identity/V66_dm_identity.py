@@ -43,8 +43,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, ROOT)
 from cl10 import clifford
 from cl10 import engine as E
-from cl10 import brillouin as BR
-from cl10 import local_qca
+from cl10 import supercell as SC
 from cl10 import sm_qca
 from cl10 import unification as UN
 
@@ -56,26 +55,29 @@ def bar_blocks():
     anticommutes with w, so C maps the +i to the -i eigenspace, and state s
     of this basis is the conjugate of state s of the 16 basis (same order,
     opposite charges)."""
-    B, U32, U16 = BR.blocks()
+    B, U32, U16 = SC.sectors()
     C = E.asnumpy(clifford.generators()[0])
     Bb = C @ B
     return Bb, U32, Bb.conj().T @ U32 @ Bb
 
 
-def bar_closure(n_steps=6, L=8):
-    """16-bar closure of the IMPLEMENTED local step: leakage into the 16."""
+def bar_closure(n_stages=6, Lb=4):
+    """16-bar closure of the IMPLEMENTED automaton step: leakage into the 16.
+    The field lives on the block lattice, (Lb,Lb,Lb,8,32); the six stages of
+    one step are applied one by one and the leakage is measured after each."""
     Bb, U32, _ = bar_blocks()
-    B, _, _ = BR.blocks()
-    Pb = Bb @ Bb.conj().T
+    B, _, _ = SC.sectors()
+    Pb = np.kron(np.eye(SC.NSUB), Bb @ Bb.conj().T).reshape(
+        SC.NSUB, 32, SC.NSUB, 32)
     rng = np.random.default_rng(1)
     v = rng.standard_normal(16) + 1j * rng.standard_normal(16)
-    f = np.zeros((L, L, L, 32), dtype=complex)
-    f[L // 2, L // 2, L // 2] = Bb @ v
+    f = np.zeros((Lb, Lb, Lb, SC.NSUB, 32), dtype=complex)
+    f[Lb // 2, Lb // 2, Lb // 2, 0] = Bb @ v
     leak = 0.0
-    for t in range(n_steps):
-        f = local_qca.internal_layer(f, U32)
-        f = local_qca.bond_layer(f, t % 3, t % 2 == 0, BR.G10)
-        comp = np.einsum("ab,...b->...a", Pb, f)
+    for even, j in SC.STAGES[:n_stages]:
+        f = SC.internal_layer(f, U32)
+        f = SC.bond_layer(f, even, j, SC.G10)
+        comp = np.einsum("aibj,...bj->...ai", Pb, f)
         leak = max(leak, float(np.linalg.norm(f - comp) / np.linalg.norm(f)))
     return leak
 
@@ -107,7 +109,7 @@ def main():
     # the 16 weights, computed directly
     h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
-    B, _, U16 = BR.blocks()
+    B, _, U16 = SC.sectors()
     Dk = [B.conj().T @ C @ B for C in cartan]
     Mm = sum(math.sqrt(p) * Dk[k] for k, p in enumerate((1, 2, 3, 5, 7)))
     _ev, V = np.linalg.eigh(Mm)
@@ -120,7 +122,7 @@ def main():
     conjugate = s16 == sbar
 
     # ---- mirror doubler masses = desert thresholds --------------------------
-    # Wilson factor on the 16-bar Floquet with the V65 GG root charges
+    # Wilson factor on the 16-bar one-step matrix with the V65 GG root charges
     v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                       "results", "v65_wilson.json")))
     gg = next(r for r in v65["data"]["part_B"].values()
@@ -135,14 +137,14 @@ def main():
     evq, evecq = np.linalg.eig(wmat)
     Bbq = np.linalg.qr(evecq[:, np.argsort(-np.imag(evq))[16:]])[0]
     U16b = Bbq.conj().T @ E.asnumpy(sm_qca.gut_qca_step(
-        sm_qca.plane_generators(), BR.G10)).astype(np.complex128) @ Bbq
-    # the 16-bar Floquet with CONJUGATE Wilson charges has the same phase
-    # spectrum as the 16 Floquet (mirror Z2 + charge conjugation): the
+        sm_qca.plane_generators(), SC.G10)).astype(np.complex128) @ Bbq
+    # the 16-bar step matrix with CONJUGATE Wilson charges has the same phase
+    # spectrum as the 16 one-step matrix (mirror Z2 + charge conjugation): the
     # mirror doubler masses EQUAL the desert thresholds
     def node_phases(U, ddiag):
         out = []
-        for q in BR.DOUBLERS:
-            M = BR.floquet(q, U)
+        for q in SC.M_POINTS:
+            M = SC.bloch(q, U)
             ph = w * sum(1.0 - math.cos(qj) for qj in q)
             M = np.kron(np.eye(8, dtype=complex),
                         np.diag(np.exp(-1j * ph * ddiag))) @ M

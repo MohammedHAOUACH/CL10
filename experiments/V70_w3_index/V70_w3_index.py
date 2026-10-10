@@ -42,16 +42,16 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 
 
 def main():
     t0 = time.time()
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
 
     # 1. families by zero axis; spectra identical within and across
     fam = defaultdict(list)
-    for q in BR.DOUBLERS:
+    for q in SC.M_POINTS:
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         key = ["x", "y", "z"][axis]
         fam[key].append(q)
@@ -59,7 +59,7 @@ def main():
     fam_sizes = {k: len(v) for k, v in fam.items()}
 
     def spectrum(q):
-        return np.sort(np.angle(np.linalg.eigvals(BR.floquet(q, U16))))
+        return np.sort(np.angle(np.linalg.eigvals(SC.bloch(q, U16))))
     per_family = {k: [spectrum(q) for q in v] for k, v in fam.items()}
     within = max(float(np.abs(a - b).max())
                  for v in per_family.values() for a, b in zip(v, v[1:]))
@@ -71,11 +71,11 @@ def main():
     # the Wilson phase at a node is w * sum(1 - cos q_j) = 2w for EVERY
     # node, so any 3 chosen nodes (one per family) get the SAME splitting
     # at a single w - consistent with the V65 n_nodes = 3 roots.
-    phase_at = {q: sum(1.0 - math.cos(qj) for qj in q) for q in BR.DOUBLERS}
+    phase_at = {q: sum(1.0 - math.cos(qj) for qj in q) for q in SC.M_POINTS}
     all_same = len(set(round(v, 12) for v in phase_at.values())) == 1
 
     # 3. the counts
-    counts = {"nodes": len(BR.DOUBLERS), "families": len(fam),
+    counts = {"nodes": len(SC.M_POINTS), "families": len(fam),
               "per_family": 4, "bond_period": 3}
 
     ok = cubic and all_same and fam_sizes == {"x": 4, "y": 4, "z": 4}

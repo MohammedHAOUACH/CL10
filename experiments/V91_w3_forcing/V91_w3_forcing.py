@@ -52,7 +52,7 @@ sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V74_multiscale_nodes"))
 import V65_wilson as V65  # noqa: E402
 from V74_multiscale_nodes import fragments  # noqa: E402
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
@@ -71,17 +71,17 @@ def fold(q):
 def main():
     t0 = time.time()
     checks = {}
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
 
     # --- 1. regression V70 -------------------------------------------------
     fam = defaultdict(list)
-    for q in BR.DOUBLERS:
+    for q in SC.M_POINTS:
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         fam[["x", "y", "z"][axis]].append(q)
     fam_sizes = {k: len(v) for k, v in fam.items()}
 
     def spectrum(q):
-        return np.sort(np.angle(np.linalg.eigvals(BR.floquet(q, U16))))
+        return np.sort(np.angle(np.linalg.eigvals(SC.bloch(q, U16))))
     per_family = {k: [spectrum(q) for q in v] for k, v in fam.items()}
     within = max(float(np.abs(a - b).max())
                  for v in per_family.values() for a, b in zip(v, v[1:]))
@@ -101,7 +101,7 @@ def main():
             for i, (p, s) in enumerate(zip(perm, signs)):
                 R[i, p] = s
             cub.append(R)
-    nodes = [fold(q) for q in BR.DOUBLERS]
+    nodes = [fold(q) for q in SC.M_POINTS]
 
     def image(q, R):
         Rq = fold(tuple(np.dot(R, q)))

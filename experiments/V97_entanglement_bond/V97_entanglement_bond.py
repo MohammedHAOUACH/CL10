@@ -7,7 +7,7 @@ memory cell, with shared properties." The automaton's tensor structure
 H = (x)_cells C^32 answers precisely: sharing a cell is where correlations
 LIVE, but entanglement is NON-SEPARABILITY, and the only operator of the
 step that creates it across cells is the bond gate U_bond = cos(g10) I
-- i sin(g10) P (local_qca). Three measurements:
+- i sin(g10) P (cl10.supercell). Three measurements:
 
 A. SPATIAL ENTANGLEMENT AND ITS FRONT. Two orthonormal orbitals (two
    fermions), both wavepackets on ONE source cell of an (L,L,1) lattice,
@@ -54,7 +54,7 @@ else:
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, ROOT)
 
-from cl10 import clifford, local_qca as LQ  # noqa: E402
+from cl10 import clifford, supercell as SC  # noqa: E402
 
 
 def _arrmod(a):
@@ -71,8 +71,9 @@ def entropy_from_nus(nus, tol=1e-15):
 
 
 def region_entropy(phi_a, phi_b, mask):
-    """Entanglement entropy across the mode bipartition 'mask' (bool over
-    cells) for the Slater pair of orthonormal orbitals (L,L,1,32)."""
+    """Entanglement entropy across the mode bipartition 'mask' (bool over the
+    sub-sites of the block lattice) for the Slater pair of orthonormal
+    orbitals (Lb,Lb,Lb,8,32)."""
     ga = phi_a[mask].reshape(-1, 32)     # (nA, 32)
     gb = phi_b[mask].reshape(-1, 32)
     m = _arrmod(ga)
@@ -83,37 +84,43 @@ def region_entropy(phi_a, phi_b, mask):
 
 
 def part_a(lattice=16, n_steps=10, rmax=6):
-    """Bond-generated spatial entanglement + front speed."""
-    L = lattice
-    U = LQ.internal_unitary()
-    src = (L // 2, L // 2, 0)
+    """Bond-generated spatial entanglement + front speed (per stage)."""
+    L = lattice                                  # Planck cells per side
+    Lb = L // 2                                  # blocks per side
+    U = SC.internal()
+    src = (L // 2, L // 2, 0)                    # the source CELL
     # two orthonormal internal states, both wavepackets on the source cell
     e1 = np.zeros(32, dtype=complex)
     e2 = np.zeros(32, dtype=complex)
     e1[0] = 1.0
     e2[16] = 1.0
     def initial(e):
-        f = np.zeros((L, L, L, 32), dtype=complex)
-        f[src] = e
+        f = np.zeros((Lb, Lb, Lb, SC.NSUB, 32), dtype=complex)
+        f[src[0] // 2, src[1] // 2, src[2] // 2, 0] = e
         return f
     phis_full = [initial(e1), initial(e2)]
     phis_int = [initial(e1), initial(e2)]
 
-    # masks: A = outside the Manhattan ball of radius r
-    # the lattice is a TORUS (local_qca): the Manhattan distance is the
-    # torus-aware one (the odd bond layer includes the wrap bond (L-1,0))
+    # masks: A = outside the Manhattan ball of radius r, measured in CELLS
+    # (the cell of the automaton is the block: cell coordinate = 2R + e)
+    # the lattice is a TORUS: the Manhattan distance is the torus-aware one
+    # (the inter-block bond includes the wrap bond)
     def _md(d, n=L):
         return np.minimum(np.abs(d), n - np.abs(d))
-    xs, ys, zs = np.meshgrid(np.arange(L), np.arange(L), np.arange(L),
-                             indexing="ij")
-    dist = _md(xs - src[0]) + _md(ys - src[1]) + _md(zs - src[2])
+    rs = np.arange(Lb)
+    sub = np.arange(SC.NSUB)
+    ex, ey, ez = sub & 1, (sub >> 1) & 1, (sub >> 2) & 1
+    cx = 2 * rs[:, None, None, None] + ex
+    cy = 2 * rs[None, :, None, None] + ey
+    cz = 2 * rs[None, None, :, None] + ez
+    dist = _md(cx - src[0]) + _md(cy - src[1]) + _md(cz - src[2])
     masks = {r: (dist > r) for r in range(1, rmax + 1)}
 
     # internal-only control: S_A must stay 0 exactly
     s_int_max = 0.0
     for t in range(n_steps + 1):
         if t:
-            phis_int = [LQ.internal_layer(f, U) for f in phis_int]
+            phis_int = [SC.internal_layer(f, U) for f in phis_int]
         for r in range(1, rmax + 1):
             s_int_max = max(s_int_max,
                             region_entropy(phis_int[0], phis_int[1], masks[r]))
@@ -124,7 +131,7 @@ def part_a(lattice=16, n_steps=10, rmax=6):
     gram_err = 0.0
     for t in range(n_steps + 1):
         if t:
-            phis_full = [LQ.local_step(f, U, t - 1) for f in phis_full]
+            phis_full = [SC.stage(f, U, t - 1) for f in phis_full]
         fa = [f.reshape(-1, 32) for f in phis_full]
         m = _arrmod(fa[0])
         ov = np.array([[complex(m.vdot(fa[i], fa[j]))

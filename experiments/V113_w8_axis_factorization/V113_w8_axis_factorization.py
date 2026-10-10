@@ -49,7 +49,7 @@ from V85_closed_loop_factor import cartan_norm, projectors  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 
 D_L = 45
 F10_REF = 0.01918639          # V85 / V108
@@ -82,15 +82,15 @@ def main():
     reg_err = abs(F10 - F10_REF)
 
     # ---- 2. the 12 nodes: axis families and Floquet equality --------------
-    nodes = [tuple(float(v) for v in q) for q in BR.DOUBLERS]
+    nodes = [tuple(float(v) for v in q) for q in SC.M_POINTS]
     fam = {"x": [], "y": [], "z": []}
     for q in nodes:
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         fam[["x", "y", "z"][axis]].append(q)
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
 
     def spectrum(q):
-        ph = np.sort(np.angle(BR._phases(BR.floquet(np.array(q), U16))))
+        ph = np.sort(np.angle(SC.phases(SC.bloch(np.array(q), U16))))
         return ph
 
     within = 0.0

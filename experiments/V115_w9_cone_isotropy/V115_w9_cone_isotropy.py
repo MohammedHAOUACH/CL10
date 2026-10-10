@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 r"""V115 - is there a Wilson point where a node cone is isotropic? (W9)
 
-**Why (W9 + V65).** V65's internal Wilson factor W(q) gaps the 12
-doubler nodes; the selective reading keeps some nodes massless at the
+**Why (W9 + V65).** V65's internal Wilson factor W(q) gaps the 12 half-zone
+nodes; the selective reading keeps some nodes massless at the
 cutoff. Either way the low-energy cones of the lattice spectrum are
 the only carriers of "Lorentz" physics, and W9 states that
 continuous Lorentz invariance is NOT emergent. Sharpening: along the
 V65 family W(q) = exp[-i w (3 - cos qx - cos qy - cos qz) D(theta)],
 D = cos(theta) X + sin(theta) Y, the node gap g(w) is a
 piecewise-analytic function of w with isolated zeros (the node
-Floquet is NOT diagonal in the 16 basis, so the zeros are not the
+one-step matrix is NOT diagonal in the 16 internal basis, so the zeros are not the
 naive phase grid 2 w d_j = 2 pi k - they must be located
 numerically). Question: at ANY zero of ANY node, is the cone
 velocity v(n) over directions n isotropic?
 
 **The test.**
-T1: regression - every node carries exactly V63's doubler gap at
+T1: regression - every node carries exactly V63's half-zone gap at
     w = 0 (2.0029e-4 at g10 = 1/5; the full step is not exactly
     gapless at the nodes - V63/V102).
 T2: locate the zeros of g(w) for the node-orbit representatives at
@@ -58,7 +58,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 import V65_wilson as V65  # noqa: E402
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 import cl10.engine as E  # noqa: E402
 
 # the CL10 engine backend: cupy when the card is free, else numpy.
@@ -90,7 +90,7 @@ _W = {}
 def _init_worker():
     if _W:
         return
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
     lam, _off = V65.cartan_weights()
     v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                       "results", "v65_wilson.json")))
@@ -118,7 +118,7 @@ def _d_of(th):
 def _F_of(q):
     F = _W["Fcache"].get(q)
     if F is None:
-        F = BR.floquet(q, _W["U16"])
+        F = SC.bloch(q, _W["U16"])
         _W["Fcache"][q] = F
     return F
 
@@ -153,16 +153,16 @@ def _smin_gaps(q, ws, th):
     return np.asarray(E.asnumpy(1.0 / nrm)).ravel()
 
 
-def _floquet_batch(qs):
-    """BR.floquet for a batch of momenta, on the engine backend: the
-    8x8 bond layers are tiny (numpy kron, transfer), the six 128x128
+def _step_batch(qs):
+    """The one-step Bloch matrix for a batch of momenta, on the engine backend:
+    the 8x8 bond stages are tiny (numpy kron, transfer), the six 128x128
     matmuls per momentum run batched on the GPU."""
     U16 = _W["U16"]
     M = _XP.broadcast_to(_XP.eye(128, dtype=complex),
                          (len(qs), 128, 128)).copy()
-    for even, j in BR.ORDER:
-        L = _XP.asarray(np.stack([np.kron(BR._layer(even, j, q[j], 8,
-                                                   BR.G10), U16)
+    for even, j in SC.STAGES:
+        L = _XP.asarray(np.stack([np.kron(SC.stage_matrix(even, j, q[j],
+                                                          SC.G10), U16)
                                   for q in qs]))
         M = L @ M
     return M
@@ -173,7 +173,7 @@ def _cone_vs(q, w_star, d, dirs, dq):
     engine backend: batched Floquet + batched sigma_min(M - I),
     angle = 2 asin(sigma_min/2) exactly."""
     qs = [tuple(qj + dq * nk for qj, nk in zip(q, nd)) for nd in dirs]
-    F = _floquet_batch(qs)
+    F = _step_batch(qs)
     phs = _XP.asarray(np.array([sum(1.0 - math.cos(qj) for qj in qq)
                                 for qq in qs]) * w_star)
     A = (_XP.exp(-1j * phs[:, None, None]
@@ -243,12 +243,12 @@ def main():
     U16 = _W["U16"]
     v63 = json.load(open(os.path.join(ROOT, "experiments", "V63_bz_chirality",
                                       "results", "v63_bz_chirality.json")))
-    v63_gap = v63["data"]["max_doubler_gap"]
+    v63_gap = v63["data"]["max_M_node_gap"]
     print(f"  backend: {E._BACKEND}")
 
     # ---- T1: regression - V63's doubler gap at w = 0 ---------------------
     t1_err = 0.0
-    for q in BR.DOUBLERS:
+    for q in SC.M_POINTS:
         t1_err = max(t1_err, abs(_gap_at(q, 0.0, 0.7) - v63_gap))
 
     # ---- T2: gapless points and cone anisotropy ---------------------------
@@ -280,7 +280,7 @@ def main():
     dirs = sphere_dirs(6)                     # 162 directions
     dq = 1e-3
     bare = []
-    for q in BR.DOUBLERS[:4]:
+    for q in SC.M_POINTS[:4]:
         # w = 0: the Wilson factor is the identity, so _cone_vs on the
         # plain Floquet is exactly the bare cone.
         vs = _cone_vs(q, 0.0, _d_of(0.0), dirs, dq)

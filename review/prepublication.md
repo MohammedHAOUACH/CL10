@@ -29,8 +29,8 @@ once the source was fixed.
 | 45 generators, 12 SM bosons, 16 broken | 45 / 12 / 16 | `cl10.gauge` |
 | $\mathrm{tr}(Y^2)=24$, $5/3$ normalisation | 24.000000000000004 | `cl10.gauge` |
 | 8 anomaly coefficients | all $1.1\times10^{-13}$ | `cl10.gauge.anomaly_coefficients` |
-| $\det U$, unitarity, causality, $\theta$-periodicity | $1+0i$, $1.1\cdot10^{-13}$, exact, $2\pi$ | `cl10.local_qca` |
-| $\omega_{16}=\omega_{16\text{-bar}}$ | $1.1102230246251565\times10^{-16}$ | `cl10.brillouin.spectral_mirror_residual` |
+| $\det U$, unitarity, causality, $\theta$-periodicity | $1+0i$, $1.1\cdot10^{-13}$, exact, $2\pi$ | `cl10.supercell` |
+| $\omega_{16}=\omega_{16\text{-bar}}$ | $1.1102230246251565\times10^{-16}$ | `cl10.parameter_audit.spectral_mirror` |
 | $\Delta_{\rm dyn}=1.1800000000000002$ | 1.18 | `cl10.uvrunning` |
 | $v_{\rm CFT}=1/2$ | 0.5 | `simulation/young` |
 | $m_W=79.98$ GeV, $m_H=139.5$ GeV | 79.98 / 139.5 | `cl10.unification` |

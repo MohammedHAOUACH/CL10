@@ -42,9 +42,9 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 
 import V65_wilson as V65                      # noqa: E402
-from cl10 import brillouin as BR              # noqa: E402
+from cl10 import supercell as SC              # noqa: E402
 
-_, _, U16 = BR.blocks()
+_, _, U16 = SC.sectors()
 _lam, _off = V65.cartan_weights()
 _v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                    "results", "v65_wilson.json")))
@@ -62,7 +62,7 @@ def ddiag(th):
 def M(q, w, th):
     ph = w * sum(1.0 - math.cos(qj) for qj in q)
     return np.kron(np.eye(8, dtype=complex),
-                   np.diag(np.exp(-1j * ph * ddiag(th)))) @ BR.floquet(q, U16)
+                   np.diag(np.exp(-1j * ph * ddiag(th)))) @ SC.bloch(q, U16)
 
 
 def corner_phases(w, th):

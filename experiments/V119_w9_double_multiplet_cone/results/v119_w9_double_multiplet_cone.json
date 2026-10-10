@@ -4,27 +4,27 @@
   "grid": {
    "best_seeds": [
     [
-     0.004596184111572826,
+     0.004596184111581867,
      2.533333333333333,
      0.1308996938995747
     ],
     [
-     0.006609288451121421,
+     0.0066092884511251265,
      2.8666666666666667,
      1.5707963267948966
     ],
     [
-     0.006637714790445463,
+     0.006637714790446405,
      2.8,
      1.5707963267948966
     ],
     [
-     0.00999729510962916,
+     0.009997295109629871,
      2.933333333333333,
      1.5707963267948966
     ],
     [
-     0.010656694120871727,
+     0.010656694120869987,
      2.7333333333333334,
      1.5707963267948966
     ]
@@ -34,107 +34,107 @@
    {
     "w": 2.534152270867639,
     "theta": 0.1308996933172476,
-    "pair_gap": 0.00371663824761349,
+    "pair_gap": 0.0037166382476212373,
     "multiplets": [
      {
-      "level": 3.4679272802205786e-12,
+      "level": 3.4669227124556334e-12,
       "deg": 3
      },
      {
-      "level": 0.0037166382441442907,
+      "level": 0.0037166382441527887,
       "deg": 3
      },
      {
-      "level": 0.12718619975574158,
+      "level": 0.12718619975573556,
       "deg": 1
      },
      {
-      "level": 0.13956773327600355,
+      "level": 0.13956773327600297,
       "deg": 1
      },
      {
-      "level": 0.24007977567200378,
+      "level": 0.24007977567201352,
       "deg": 1
      }
     ]
    },
    {
-    "w": 2.792586798998092,
-    "theta": 1.6151986323994854,
-    "pair_gap": 7.158606615161685e-05,
+    "w": 2.7925867996977054,
+    "theta": 1.6151986323393472,
+    "pair_gap": 7.158610874332816e-05,
     "multiplets": [
      {
-      "level": 3.1463720517876896e-12,
+      "level": 2.1039614495066417e-11,
       "deg": 3
      },
      {
-      "level": 7.158606300453073e-05,
+      "level": 7.158608770315832e-05,
       "deg": 3
      },
      {
-      "level": 0.044261809468665265,
+      "level": 0.04426180964724127,
       "deg": 1
      },
      {
-      "level": 0.13761113512062972,
+      "level": 0.13761113527442176,
       "deg": 1
      },
      {
-      "level": 0.19625555091790525,
+      "level": 0.19625555082559196,
       "deg": 1
      }
     ]
    },
    {
-    "w": 2.7925867989967696,
-    "theta": 1.615198632399485,
-    "pair_gap": 7.158606526208589e-05,
+    "w": 2.7925867989206417,
+    "theta": 1.6151986324065404,
+    "pair_gap": 7.158606918950599e-05,
     "multiplets": [
      {
-      "level": 2.7371581563795442e-12,
+      "level": 7.405947404943333e-12,
       "deg": 3
      },
      {
-      "level": 7.158606252432223e-05,
+      "level": 7.158606178276867e-05,
       "deg": 3
      },
      {
-      "level": 0.04426180946865723,
+      "level": 0.04426180944773788,
       "deg": 1
      },
      {
-      "level": 0.13761113512035206,
+      "level": 0.137611135103553,
       "deg": 1
      },
      {
-      "level": 0.19625555091789806,
+      "level": 0.19625555092875208,
       "deg": 1
      }
     ]
    },
    {
-    "w": 2.7925867989973177,
-    "theta": 1.6151986323994854,
-    "pair_gap": 7.158606563189983e-05,
+    "w": 2.7925868003125185,
+    "theta": 1.615198632291299,
+    "pair_gap": 7.158615083350466e-05,
     "multiplets": [
      {
-      "level": 2.9072261091556148e-12,
+      "level": 2.316613580164697e-11,
       "deg": 3
      },
      {
-      "level": 7.158606272380647e-05,
+      "level": 7.158612766601417e-05,
       "deg": 3
      },
      {
-      "level": 0.04426180946866007,
+      "level": 0.04426180979021022,
       "deg": 1
      },
      {
-      "level": 0.1376111351204684,
+      "level": 0.13761113540897055,
       "deg": 1
      },
      {
-      "level": 0.19625555091790142,
+      "level": 0.19625555075206272,
       "deg": 1
      }
     ]
@@ -143,10 +143,10 @@
   "cone": {
    "gapless_dim": 3,
    "n_directions": 2196,
-   "max_tangent_speed": 0.47492813653271343,
-   "nonzero_speeds_min": 0.0008490488113386098,
-   "nonzero_speeds_max": 0.47492813653271343,
-   "anisotropy": 0.9964308973297042
+   "max_tangent_speed": 0.47492813649310794,
+   "nonzero_speeds_min": 0.0008490488029305502,
+   "nonzero_speeds_max": 0.47492813649310794,
+   "anisotropy": 0.9964308973646886
   }
  },
  "checks": [
@@ -168,5 +168,5 @@
   }
  ],
  "pass": true,
- "status": "DOUBLE-MULTIPLET ISOTROPIC CONE AT THE CUBIC CORNER (W9). Best point w = 2.792586799, theta = 1.615198632: pair gap 7.16e-05, gapless subspace dimension 3, corner multiplets [(2.7371581563795442e-12, 3), (7.158606252432223e-05, 3), (0.04426180946865723, 1)]. Tangent cone over 2196 directions: max speed 4.749e-01, nonzero speeds in [8.490e-04, 4.749e-01], anisotropy 9.96e-01. VERDICT: no six-component touching point exists on the V65 Wilson family - the two corner multiplets cannot be tuned to zero at once (best pair gap 7.16e-05, gapless dim 3) - and the touching that IS reachable is linear but anisotropic: the obstruction is the orbital content of the step, not parity."
+ "status": "DOUBLE-MULTIPLET ISOTROPIC CONE AT THE CUBIC CORNER (W9). Best point w = 2.792586799, theta = 1.615198632: pair gap 7.16e-05, gapless subspace dimension 3, corner multiplets [(7.405947404943333e-12, 3), (7.158606178276867e-05, 3), (0.04426180944773788, 1)]. Tangent cone over 2196 directions: max speed 4.749e-01, nonzero speeds in [8.490e-04, 4.749e-01], anisotropy 9.96e-01. VERDICT: no six-component touching point exists on the V65 Wilson family - the two corner multiplets cannot be tuned to zero at once (best pair gap 7.16e-05, gapless dim 3) - and the touching that IS reachable is linear but anisotropic: the obstruction is the orbital content of the step, not parity."
 }

@@ -35,7 +35,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 PI = round(float(np.pi / 2), 9)
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 
 
 
@@ -55,7 +55,7 @@ def cubic_group():
 
 
 def main():
-    nodes = [tuple(round(float(x), 9) for x in q) for q in BR.DOUBLERS]
+    nodes = [tuple(round(float(x), 9) for x in q) for q in SC.M_POINTS]
     assert len(nodes) == 12
     G = cubic_group()
     assert len(G) == 48

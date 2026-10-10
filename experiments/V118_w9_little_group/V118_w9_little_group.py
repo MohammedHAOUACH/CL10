@@ -12,7 +12,7 @@ exactly, and then asks which symmetry the node has.
 
 **Four measurements.**
 
-T1 - the tangent cone, exactly.  At a node q0 the Floquet M(q0) has a gapless
+T1 - the tangent cone, exactly.  At a node q0 the one-step matrix M(q0) has a gapless
     eigenvalue; the tangent velocities are the eigenvalues of
     Q^H (d M / d q_j) Q on the gapless subspace Q.  At the 12 V63 doubler
     momenta (w = 0) the three principal tangent velocities are
@@ -21,14 +21,14 @@ T1 - the tangent cone, exactly.  At a node q0 the Floquet M(q0) has a gapless
     constants as dq -> 0 (exponent alpha = 0 for the linear branches, alpha = 1
     for the flat one), so A_tangent = 1 at the node itself.
 
-T2 - the reason is the little group.  The V63 nodes sit at zone-EDGE momenta
-    (pi/2, pi/2, 0) and permutations: their little group is C2v, which permits
-    two independent velocities and a vanishing third - exactly what is
-    measured (the two pi/2 axes are equal to 1e-16, the zero axis differs).
-    At the supercell zone CORNER (pi/2, pi/2, pi/2) the little group is the
-    full octahedral group O_h, and the 128 Floquet levels fall into exactly
-    3-fold degenerate multiplets (splitting < 1e-15): the cubic symmetry is
-    realised on the node.
+T2 - the reason is the little group.  The V63 nodes sit at half-zone
+    momenta (pi/2, pi/2, 0) and permutations: their little group is C2v,
+    which permits two independent velocities and a vanishing third -
+    exactly what is measured (the two pi/2 axes are equal to 1e-16, the
+    zero axis differs).  At the eight R points (pi/2, pi/2, pi/2) - one
+    cubic star, little group C3v - the 128 one-step levels fall into
+    exactly 3-fold degenerate multiplets (grouped at a 1e-12 tolerance): the cubic
+    symmetry is realised on the node.
 
 T3 - the Wilson factor can put a CUBIC MULTIPLET exactly at zero.  Scanning
     the V65 Wilson family (theta, w) for the lowest exactly-3-fold-degenerate
@@ -37,21 +37,25 @@ T3 - the Wilson factor can put a CUBIC MULTIPLET exactly at zero.  Scanning
     theta = 2.513274121) - the first exactly massless cubic multiplet found
     in the model.  One condition on two parameters: a one-parameter family.
 
-T4 - but the touching is quadratic, not conical.  On the 3-dimensional gapless
-    subspace of those points the tangent velocity matrices vanish
-    (|v| < 1e-9 in every direction): the linear term is absent, so the
-    crossing is a quadratic band touching, not a Weyl or Dirac cone.  The
-    obstruction is representation-theoretic: an isotropic linear cone at a
-    point with little group G requires the gapless multiplet to carry the
-    cubic vector coupling sum_i k_i S_i (a 4-dimensional double-valued irrep,
-    or a triplet whose other tensor factor supplies the vector), and the
-    multiplets the implemented step can make gapless do not.
+T4 - and the touching is linear but PLANAR, not conical.  On the
+    3-dimensional gapless subspace S_j = i dM/dq_j is nonzero (max speed
+    0.92), so the crossing IS linear; but [S_i, S_j] = 0 to 2e-12 and
+    sum_j S_j^2 is a scalar to 6e-12.  The three branches therefore carry
+    three FIXED velocity vectors - the cubic permutations of
+    (0.704, 0.421, 0.421) - and each branch speed is exactly |v_alpha . d|:
+    the node is a crossing of three NODAL PLANES, not a Weyl or Dirac cone
+    (36 of 6588 sampled directions are exactly gapless - the intersections
+    of those planes).  The obstruction is the Kronecker form of the bond
+    layer, (sub-site index) x (internal algebra): the three momentum
+    derivatives act on one factor and commute.
 
 **Verdict.**  Continuous Lorentz invariance fails at the nodes for a
-symmetry reason, not a tuning reason: the node's little group permits the
-anisotropy it shows, and the only massless multiplets the step supplies carry
-no linear cubic invariant.  Closing W9 requires changing the orbital content
-of the step (which multiplet sits at the node), not scanning Wilson angles.
+structural reason, not a tuning reason: the node's little group permits the
+anisotropy it shows, the Wilson family can make a cubic multiplet exactly
+massless but only as a crossing of three nodal planes, and no tuning of the
+Wilson angle turns three planes into a cone.  Closing W9 requires changing
+the bond layer itself - entangling the sub-site and internal indices - not
+scanning Wilson angles.
 """
 import json
 import math
@@ -66,9 +70,9 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 
 import V65_wilson as V65                      # noqa: E402
-from cl10 import brillouin as BR              # noqa: E402
+from cl10 import supercell as SC              # noqa: E402
 
-_, _, U16 = BR.blocks()
+_, _, U16 = SC.sectors()
 _lam, _off = V65.cartan_weights()
 _v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                    "results", "v65_wilson.json")))
@@ -83,7 +87,7 @@ def ddiag(th):
 
 
 def M(q, w=0.0, th=0.0):
-    base = BR.floquet(q, U16)
+    base = SC.bloch(q, U16)
     if w == 0.0:
         return base
     ph = w * sum(1.0 - math.cos(qj) for qj in q)
@@ -136,7 +140,7 @@ def main():
 
     # ---- T1: the exact tangent cone at the 12 doubler nodes ---------------
     rows = []
-    for q in BR.DOUBLERS:
+    for q in SC.M_POINTS:
         Vj, m = tangent_matrices(q, 0.0, 0.0, tol=1e-3)
         vs = sorted(float(np.abs(np.linalg.eigvals(A)).max()) for A in Vj)
         A_t = 1.0 if vs[-1] == 0.0 else (vs[-1] - vs[0]) / (vs[-1] + vs[0])
@@ -194,7 +198,7 @@ def main():
             mult.append({"level": float(p[i]), "degeneracy": j - i + 1})
         i = j + 1
     out["data"]["T2"] = {"corner_gap": gap(C), "corner_degenerate_multiplets": mult[:6],
-                         "edge_gap": gap(BR.DOUBLERS[0])}
+                         "edge_gap": gap(SC.M_POINTS[0])}
     checks.append(("T2 corner levels fall in exactly 3-fold multiplets (O_h)",
                    any(m2["degeneracy"] == 3 and m2["level"] < 0.1 for m2 in mult)))
 

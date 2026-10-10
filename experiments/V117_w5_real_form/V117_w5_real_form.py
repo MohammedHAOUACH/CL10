@@ -66,8 +66,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 
-from cl10 import brillouin as BR            # noqa: E402
+from cl10 import supercell as SC            # noqa: E402
 from cl10 import clifford, sm_qca           # noqa: E402
+from cl10 import engine as E                # noqa: E402
 
 X = np.array([[0, 1], [1, 0]], dtype=complex)
 Y = np.array([[0, -1j], [1j, 0]], dtype=complex)
@@ -114,7 +115,7 @@ def main():
     checks = []
 
     # ---- T1: the implemented module is of real (Majorana) type -------------
-    h = [np.asarray(np.array(m)) for m in clifford.generators()]
+    h = [E.asnumpy(m) for m in clifford.generators()]
     typ, j2 = fs_indicator(h)
     In32 = np.eye(32, dtype=complex)
     Mat = np.vstack([np.kron(A.T, In32) - np.kron(In32, np.conj(A)) for A in h])
@@ -125,9 +126,10 @@ def main():
     Uu, _, Vh = np.linalg.svd(C)
     Q = Uu @ Vh
     jcomm = max(np.abs(Q @ A @ Q.conj().T - np.conj(A)).max() for A in h)
-    T45 = [np.asarray(np.array(x)) for x in sm_qca.plane_generators()]
+    T45_gpu = sm_qca.plane_generators()          # the active backend's arrays
+    T45 = [E.asnumpy(x) for x in T45_gpu]        # host copies for the numpy algebra
     jcomm45 = max(np.abs(Q @ A @ Q.conj().T + np.conj(A)).max() for A in T45)
-    U = sm_qca.gut_qca_step(T45, 0.2)
+    U = E.asnumpy(sm_qca.gut_qca_step(T45_gpu, 0.2))
     jcommU = np.abs(Q @ U @ Q.conj().T - np.conj(U)).max()
     jinvU = float(np.abs(Q.conj().T @ U.conj() @ Q - np.linalg.inv(U)).max())
     out["data"]["T1"] = {
@@ -208,10 +210,10 @@ def main():
                    and abs(np.linalg.det(U73) - 1) < 1e-12))
 
     # ---- T4a: the pairing is a one-cell statement, not a band one ---------
-    _, _, U16 = BR.blocks()
+    _, _, U16 = SC.sectors()
     band = {}
     for k in ((0.3, 0.4, 0.5), (1.1, -0.7, 0.2), (math.pi / 2, math.pi / 3, -0.9)):
-        Mm = BR.floquet(k, U16)
+        Mm = SC.bloch(k, U16)
         p = np.sort(np.angle(np.linalg.eigvals(Mm)))
         band["k=%s" % (k,)] = {"conj_closed": conj_closed(Mm),
                                "sum_omega": float(p.sum())}
@@ -223,7 +225,7 @@ def main():
                    and band["one_cell_32"]["conj_closed"] < 1e-12))
 
     # ---- T4b: a complex bond layer leaves every on-site invariant alone ---
-    G10, ORDER = BR.G10, BR.ORDER
+    G10, ORDER = SC.G10, SC.STAGES
 
     def layer(even, j, q, Phi):
         c, s = math.cos(G10), math.sin(G10)

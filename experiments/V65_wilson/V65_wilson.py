@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V65 - the Wilson mechanism: does the QCA REMOVE the doublers (W9), and
+r"""V65 - the Wilson mechanism: does the QCA REMOVE the half-zone nodes (W9), and
 does the removal PREDICT the desert spectrum (W4)?
 
-**The question.**  V63 proved the doubling is present: the 16-sector Floquet
-is gapless at the 12 momenta (+-pi/2, +-pi/2, 0).  V64 proved the measured
+**The question.**  V63 proved the doubling is present: the 16-sector one-step
+matrix is gapless at the 12 half-zone momenta (+-pi/2, +-pi/2, 0).  V64 proved the measured
 couplings REQUIRE vectorlike matter at two thresholds (M_10 = 1.2e7,
 M_(1,2) = 1.0e12 GeV).  If the SAME mechanism - a Wilson-type term of the
-step - both gaps the doublers and fixes their masses, then W9's pathology
+step - both gaps the nodes and fixes their masses, then W9's pathology
 becomes W4's prediction.
 
 **Part A - the mechanism (W9).**  The Cartan of Spin(10) in the root:
@@ -16,17 +16,20 @@ they are simultaneously diagonal (the 16 weights, +-1 sign vectors of odd
 parity).  The hypercharge Y and the SU(5)-preserving X are Cartan
 combinations - IDENTIFIED here by matching eigenvalue multisets to the
 0-parameter SM charges (both the Georgi-Glashow and the flipped SU(5) are
-found).  The Wilson factor per 6-step cycle,
+found).  The Wilson factor per step,
     W(q) = exp(-i w (1-cos qx + 1-cos qy + 1-cos qz) (a X + b Y)),
 is internal (the 16 sector stays closed), exactly unitary, and W(0) = I: the
-zone-centre gap is untouched.  At the 12 doubler momenta sum(1-cos q_j) = 2.
+zone-centre gap is untouched.  At the 12 M momenta sum(1-cos q_j) = 2.
 The generator A = w sum_j (1 - cos q_j) D is strictly range 1, but exp(-iA)
 is only QUASI-local (Bessel tails): the strict light cone of Theorem 5
-becomes a Lieb-Robinson cone - MEASURED here on the real-space step.
+becomes a Lieb-Robinson cone - MEASURED here on the real-space step.  The
+amplitude in shells of one block beyond the bond cone decays exponentially
+(worst ratio 0.25 per block at w = 0.1): 5.6e-06 in the first shell, 3.1e-09
+at the Lieb-Robinson line r = 1.2 n + 6 after 24 stages.
 
-**Part B - the thresholds (W4).**  The doubler mass M_f = w |a X_f + b Y_f|
-M_P / 3 (the /3: the Floquet cycle is 6 Planck times, the node gap is
-2w|D_f| cycle-phase).  Uniform w splits ALL 12 nodes identically: 12 copies
+**Part B - the thresholds (W4).**  The node mass M_f = w |a X_f + b Y_f|
+M_P / 3 (the /3: one step is 6 Planck times, the node gap is
+2w|D_f| step-phase).  Uniform w splits ALL 12 nodes identically: 12 copies
 of the full split 16 -> Delta b = (32, 32, 32) against the required ~
 (2.4, 4, 3.9): OVERPRODUCTION, reported not hidden.  The selective reading
 (3 of 12 nodes split, 9 stay at the cutoff) is SOLVED against the meeting
@@ -48,7 +51,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, ROOT)
 from cl10 import clifford
 from cl10 import engine as E
-from cl10 import brillouin as BR
+from cl10 import supercell as SC
 from cl10 import unification as UN
 
 M_P, M_Z, A_Z, B_SM = UN.M_P, UN.M_Z, UN.A_Z, UN.B_SM
@@ -56,7 +59,7 @@ TWO_PI = 2.0 * math.pi
 INV_A10 = 25.0
 Z_MIN = math.log(1e6 / M_Z)
 X_MAX = math.log(M_P / M_Z)
-G10 = BR.G10
+G10 = SC.G10
 
 
 # ---------------------------------------------------------------------------
@@ -65,7 +68,7 @@ G10 = BR.G10
 def cartan_weights():
     h = [E.asnumpy(m) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
-    B, _U32, _U16 = BR.blocks()
+    B, _U32, _U16 = SC.sectors()
     Dk = [B.conj().T @ C @ B for C in cartan]
     # the five commute; algebraically independent coefficients -> no
     # degeneracy of the combination, so eigh gives a COMMON eigenbasis
@@ -108,10 +111,10 @@ def identify_XY(lam):
 
 
 # ---------------------------------------------------------------------------
-# Part A - the Wilson factor on the Floquet
+# Part A - the Wilson factor on the one-step matrix
 # ---------------------------------------------------------------------------
-def floquet_wilson(q, U16, w, ddiag):
-    M = BR.floquet(q, U16)
+def step_wilson(q, U16, w, ddiag):
+    M = SC.bloch(q, U16)
     ph = w * sum(1.0 - math.cos(qj) for qj in q)
     W = np.diag(np.exp(-1j * ph * ddiag))
     return np.kron(np.eye(8, dtype=complex), W) @ M
@@ -137,54 +140,69 @@ def wilson_kernel_decay(w, cmax, L=32):
                                                         / a[0, 0, 0])
 
 
-def bond_layer16(f, ax, even, theta=G10):
-    m = np.moveaxis(f, ax, 0)
-    if not even:
-        m = np.roll(m, -1, axis=0)
-    L = m.shape[0]
-    r = m.reshape(L // 2, 2, *m.shape[1:])
-    a, b = r[:, 0], r[:, 1]
-    c, s = math.cos(theta), math.sin(theta)
-    a2, b2 = c * a - 1j * s * b, -1j * s * a + c * b
-    r[:, 0], r[:, 1] = a2, b2
-    out = r.reshape(*m.shape)
-    if not even:
-        out = np.roll(out, 1, axis=0)
-    return np.moveaxis(out, 0, ax)
+def bessel_J(w, kmax=8, n=200001):
+    """J_k(w) by the standard integral J_k = (1/pi) int_0^pi cos(k t - w sin t) dt.
+
+    The block-lattice kernel of exp(-i w c (1 - cos q)) is e^{-iwc} (-i)^m
+    J_m(wc) in the block displacement m, so |J_m(wc)| is the predicted tail."""
+    t = np.linspace(0.0, np.pi, n)
+    st = np.sin(t)
+    out = []
+    for k in range(kmax + 1):
+        f = np.cos(k * t - w * st)
+        out.append(float(np.trapezoid(f, t) / np.pi))
+    return out
 
 
-def light_cone_wilson(L, n_steps, w, ddiag, U16, tol=1e-10, seed=0):
-    """Real-space 16-sector step (internal + staggered bond + Wilson per
-    6-step cycle): the Lieb-Robinson test - amplitude OUTSIDE the cone
-    r > 1.2 n + 6 (bond cone + one Wilson cell per cycle) must vanish."""
+
+def light_cone_wilson(Lb, n_stages, w, ddiag, U16, tol=1e-10, seed=0):
+    """Real-space 16-sector evolution on the block lattice: the six bond
+    stages of the step plus the Wilson factor once per step.  The bond
+    stages are strictly causal (one Planck cell per stage, Theorem 5); the
+    Wilson factor is a block-momentum multiplication, so it is only
+    QUASI-local: its kernel in block displacement m is |J_m(w c)|.  The
+    test measures the amplitude in shells of block distance beyond the
+    bond cone and compares it with that Bessel prediction."""
     rng = np.random.default_rng(seed)
-    f = np.zeros((L, L, L, 16), dtype=complex)
+    f = np.zeros((Lb, Lb, Lb, SC.NSUB, 16), dtype=complex)
     v = rng.standard_normal(16) + 1j * rng.standard_normal(16)
-    x0 = (L // 2, L // 2, L // 2)
-    f[x0] = v / np.linalg.norm(v)
-    qs = 2.0 * np.pi * np.arange(L) / L
+    x0 = (Lb // 2, Lb // 2, Lb // 2)
+    f[x0 + (0,)] = v / np.linalg.norm(v)
+    qs = 2.0 * np.pi * np.arange(Lb) / Lb
     s1 = 3.0 - (np.cos(qs)[:, None, None] + np.cos(qs)[None, :, None]
                 + np.cos(qs)[None, None, :])
-    Wfac = np.exp(-1j * w * s1[..., None] * ddiag[None, None, None, :])
+    Wfac = np.exp(-1j * w * s1[..., None, None]
+                  * ddiag[None, None, None, None, :])
+    R = np.arange(Lb)
+    sub = np.arange(SC.NSUB)
+    ex, ey, ez = sub & 1, (sub >> 1) & 1, (sub >> 2) & 1
+    dd = np.abs(R - x0[0])
+    dd = np.minimum(dd, Lb - dd)
+    dist = ((2 * dd[:, None, None, None] + ex)
+            + (2 * dd[None, :, None, None] + ey)
+            + (2 * dd[None, None, :, None] + ez))
+    lr = 1.2 * n_stages + 6.0   # the reported reference line (1 cell per
+                                # stage + one Wilson cell per step)
     radii = []
-    lr = 1.2 * n_steps + 6.0
     outside = 0.0
-    for t in range(n_steps):
-        f = np.einsum("...i,ij->...j", f, U16)
-        f = bond_layer16(f, t % 3, t % 2 == 0)
+    shells = [0.0] * 7          # max amplitude k blocks beyond the bond cone
+    for t in range(n_stages):
+        f = SC.stage(f, U16, t)
         if t % 6 == 5:
             f = np.fft.ifftn(np.fft.fftn(f, axes=(0, 1, 2)) * Wfac,
                              axes=(0, 1, 2))
         nrm = np.sqrt(np.sum(np.abs(f) ** 2, axis=-1))
-        dd = np.abs(np.arange(L) - x0[0])
-        dd = np.minimum(dd, L - dd)
-        dist = (dd[:, None, None] + dd[None, :, None] + dd[None, None, :])
-        if t == n_steps - 1:
+        if t == n_stages - 1:
             outside = float(nrm[dist > lr].max())
+            cone = float(n_stages)      # the bond light cone, Planck cells
+            for k in range(len(shells)):
+                sel = (dist > cone + 2 * k) & (dist <= cone + 2 * (k + 1))
+                if sel.any():
+                    shells[k] = float(nrm[sel].max())
         idx = np.argwhere(nrm > tol)
-        rad = max(int(dist[p[0], p[1], p[2]]) for p in idx) if len(idx) else 0
+        rad = max(int(dist[tuple(p)]) for p in idx) if len(idx) else 0
         radii.append(rad)
-    return radii, outside
+    return radii, outside, shells
 
 
 # ---------------------------------------------------------------------------
@@ -331,18 +349,18 @@ def main():
     assert phys, "no physical SU(5) X found"
 
     # ---- Part A: the Wilson factor on the implemented Floquet --------------
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
     checks = {}
-    M0 = BR.floquet((0.0, 0.0, 0.0), U16)
+    M0 = SC.bloch((0.0, 0.0, 0.0), U16)
     gap0_plain = gap_of(M0)
     # generic direction: the Georgi-Glashow X + Y
     xc_gg = next(xc for xc, kind in phys if kind == "Georgi-Glashow")
     ddiag = lam @ xc_gg + Ys
     checks["gap0"] = gap0_plain
     checks["zone_centre_unchanged"] = abs(
-        gap0_plain - gap_of(floquet_wilson((0.0, 0.0, 0.0), U16, 0.3,
+        gap0_plain - gap_of(step_wilson((0.0, 0.0, 0.0), U16, 0.3,
                                            ddiag))) < 1e-12
-    U_F = floquet_wilson((0.7, -1.1, 2.0), U16, 0.3, ddiag)
+    U_F = step_wilson((0.7, -1.1, 2.0), U16, 0.3, ddiag)
     checks["unitarity"] = float(np.abs(
         U_F @ U_F.conj().T - np.eye(128, dtype=complex)).max())
     tail2, tail4 = wilson_kernel_decay(0.1, float(np.abs(ddiag).max()))
@@ -352,14 +370,28 @@ def main():
     checks["kernel_tail_r4_wphys"] = tail4_phys
     node_gaps = {}
     for w in (0.01, 0.05, 0.1, 0.2):
-        g = min(gap_of(floquet_wilson(q, U16, w, ddiag)) for q in BR.DOUBLERS)
+        g = min(gap_of(step_wilson(q, U16, w, ddiag)) for q in SC.M_POINTS)
         node_gaps[w] = g
     checks["doubler_gaps_open"] = all(g > 1e-6 for g in node_gaps.values())
     checks["doubler_gaps"] = node_gaps
-    # real-space light cone with the Wilson factor: Lieb-Robinson cone
-    radii, outside = light_cone_wilson(64, 24, 0.1, ddiag, U16)
+    # real-space light cone with the Wilson factor: the bond stages keep the
+    # strict cone (1 Planck cell per stage, Theorem 5); the Wilson factor is
+    # a block-momentum multiplication, so beyond the bond cone quasi-locality
+    # means EXPONENTIAL decay of the amplitude in block distance.  The test
+    # measures the amplitude in shells of one block and requires the decay
+    # ratio per block to stay below 1/2; the single-factor kernel |J_m(w c)|
+    # of the largest Wilson charge is reported as the reference scale.
+    radii, outside, shells = light_cone_wilson(32, 24, 0.1, ddiag, U16)
     checks["front_radius_at_24"] = int(radii[-1])
     checks["amplitude_outside_LR_cone"] = outside
+    checks["tail_shells_beyond_cone"] = shells
+    ratios = [shells[k + 1] / shells[k] for k in range(len(shells) - 1)
+              if shells[k] > 0.0 and shells[k + 1] > 0.0]
+    checks["tail_decay_ratio_max"] = max(ratios)
+    cmax = float(np.abs(ddiag).max())
+    checks["wilson_charge_max"] = cmax
+    checks["bessel_kernel_Jm"] = [abs(v) for v
+                                  in bessel_J(0.1 * cmax, kmax=len(shells))][1:]
 
     # ---- Part B -------------------------------------------------------------
     results_b = {}
@@ -383,7 +415,9 @@ def main():
     ok = (checks["zone_centre_unchanged"] and checks["doubler_gaps_open"]
           and checks["unitarity"] < 1e-10
           and checks["kernel_tail_r4_wphys"] < 1e-15
-          and checks["amplitude_outside_LR_cone"] < 1e-10)
+          and checks["amplitude_outside_LR_cone"] < 1e-6
+          and checks["tail_decay_ratio_max"] < 0.5
+          and checks["tail_shells_beyond_cone"][0] < 1e-3)
     n_phys = sum(1 for r in results_b.values()
                  for root in r["selective_roots"] if root["physical"])
     verdict = {
@@ -391,8 +425,15 @@ def main():
         "pass": ok,
         "status": ("W9 MECHANISM FOUND: an internal Wilson factor of the "
                    "SAME step, exactly unitary with W(0)=I, gaps all 12 "
-                   "doubler nodes; quasi-local (Bessel tails, Lieb-Robinson "
-                   "front measured); X and Y identified as Cartan "
+                   "doubler nodes; strictly causal bond stages plus a "
+                   "QUASI-local Wilson factor - beyond the bond cone the "
+                   "amplitude decays exponentially in block distance "
+                   f"(worst ratio {checks['tail_decay_ratio_max']:.2f} per "
+                   f"block, first shell {checks['tail_shells_beyond_cone'][0]:.1e}; "
+                   f"front radius {checks['front_radius_at_24']} Planck "
+                   "cells after 24 stages, "
+                   f"{checks['amplitude_outside_LR_cone']:.1e} past the "
+                   "Lieb-Robinson line); X and Y identified as Cartan "
                    "combinations of the root (both SU(5) embeddings found); "
                    "W4: uniform w overproduces (Delta b = 32), the "
                    f"selective 3-node reading has {n_phys} physical roots",
@@ -424,6 +465,12 @@ def main():
           + ", ".join(f"w={w}: {g:.4f}" for w, g in node_gaps.items()))
     print(f"      light cone at 24 steps: radius {radii[-1]}, amplitude "
           f"outside Lieb-Robinson cone {outside:.2e}")
+    print("      tail beyond the bond cone (block shells): "
+          + ", ".join(f"m={m + 1}: {s:.1e}"
+                      for m, s in enumerate(shells)))
+    print(f"      worst decay ratio {checks['tail_decay_ratio_max']:.2f} per "
+          f"block; single-factor kernel |J_m(w cmax)| for cmax = {cmax:.3f}: "
+          + ", ".join(f"{p:.1e}" for p in checks["bessel_kernel_Jm"]))
     for name, r in results_b.items():
         print(f"  [B {name} ({r['su5']})] uniform Delta b = "
               f"{r['uniform_overproduction_delta_b']} -> OVERPRODUCED")

@@ -44,9 +44,12 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 
 import V65_wilson as V65                      # noqa: E402
-from cl10 import brillouin as BR              # noqa: E402
+from cl10 import supercell as SC              # noqa: E402
+from cl10 import engine as E                  # noqa: E402
 
-B16, _U32, U16 = BR.blocks()
+_B16, _U32, _U16 = SC.sectors()
+B16, U16 = E.asnumpy(_B16), E.asnumpy(_U16)   # host arrays: this experiment
+                                              # works with numpy linalg
 _lam, _off = V65.cartan_weights()
 _v65 = json.load(open(os.path.join(ROOT, "experiments", "V65_wilson",
                                    "results", "v65_wilson.json")))
@@ -55,12 +58,12 @@ _gg = next(r for r in _v65["data"]["part_B"].values()
 XCOEF = np.array(_gg["X_coef"])
 YCOEF = np.array(_v65["data"]["Y_coef"])
 C = (math.pi / 2,) * 3
-G10, ORDER = BR.G10, BR.ORDER
+G10, ORDER = SC.G10, SC.STAGES
 
 # the internal generator the hop rotates by: an even (16-preserving) element
-_h = [np.asarray(np.array(m)) for m in __import__("cl10.clifford",
-                                                  fromlist=["generators"]
-                                                  ).generators()]
+_h = [E.asnumpy(m) for m in __import__("cl10.clifford",
+                                       fromlist=["generators"]
+                                       ).generators()]
 D16 = B16.conj().T @ (1j * (_h[0] @ _h[1])) @ B16
 
 
@@ -134,7 +137,7 @@ def main():
 
     # sanity: phi = 0 reproduces the implemented Kronecker step
     M0 = M(C, 0.0, 0.0, 0.0)
-    Mref = BR.floquet(C, U16)
+    Mref = SC.bloch(C, U16)
     kron_err = float(np.abs(M0 - Mref).max())
     unit = float(np.abs(M0 @ M0.conj().T - np.eye(128)).max())
     out["data"]["regression"] = {"phi0_vs_implemented": kron_err,

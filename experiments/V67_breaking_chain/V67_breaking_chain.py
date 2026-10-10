@@ -43,7 +43,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, ROOT)
 from cl10 import clifford
 from cl10 import engine as E
-from cl10 import brillouin as BR
+from cl10 import supercell as SC
 
 SM_DIM = 12
 
@@ -59,7 +59,7 @@ def main():
     assert abs(np.linalg.cond(G) - 1) < 1e-6, "plane basis not orthogonal"
 
     # Cartan weights machinery (as in V65)
-    B, _U32, _U16 = BR.blocks()
+    B, _U32, _U16 = SC.sectors()
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     Dk = [B.conj().T @ C @ B for C in cartan]
     M = sum(math.sqrt(p) * Dk[k] for k, p in enumerate((1, 2, 3, 5, 7)))

@@ -1,19 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V102 - emergent Lorentz test: the Fermi velocity tensor at the 12
-doubler nodes.
+half-zone nodes.
 
 **Why.** The paper claims a strictly causal automaton (front speed 1.0,
 Theorem 5) but does NOT claim continuous Lorentz invariance of the
 lattice spectrum - a named weakness. The low-energy excitations of the
-implemented step live at the 12 doubler nodes q* of the 2x2x2
-supercell zone (brillouin.DOUBLERS). Near a node the quasi-energy is
+automaton live at the 12 half-zone nodes q* of the block Brillouin zone
+(cl10.supercell.M_POINTS). Near a node the quasi-energy is
 linear, omega(q* + eps d) = eps sqrt(d^T M d) + O(eps^2): the
 symmetric tensor M is the squared Fermi velocity. Continuous Lorentz
 invariance of the low-energy theory REQUIRES M = v^2 I at every node
 (isotropy), and v = 1 (the causal speed) for exact lattice-Lorentz
 compatibility. This experiment measures M at the nodes by exact
-Floquet diagonalization: 200 directions per node, least-squares
+one-step diagonalization: 200 directions per node, least-squares
 tensor, eigenvalue spread as the anisotropy number.
 
 Verdict: PASS = protocol valid; the physics verdict is the measured
@@ -21,7 +21,7 @@ anisotropy and the velocity deficit |v - 1| - named numbers either
 way.
 
 Performance (the CL10 GPU engine, cupy when the card is free): the
-quasi-energy of a UNITARY Floquet matrix is 2 asin(sigma_min(M - I)/2)
+quasi-energy of a UNITARY one-step matrix is 2 asin(sigma_min(M - I)/2)
 exactly (singular values of M - I are |lambda - 1|). The 100
 directions per eps are batched: one inv + 24 power iterations, no
 eigvals. GPU: single process (fork would break the CUDA context);
@@ -47,7 +47,7 @@ import numpy as np
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, ROOT)
 
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 import cl10.engine as E  # noqa: E402
 
 _XP = E._E if E._BACKEND == "cupy" else np
@@ -67,7 +67,7 @@ _W = {}
 def _init_worker():
     if _W:
         return
-    _B, _U32, U = BR.blocks()
+    _B, _U32, U = SC.sectors()
     _W["U"] = U
 
 
@@ -79,14 +79,14 @@ def _fib_dirs(n=N_DIRS):
                      np.cos(phi)], axis=1)
 
 
-def _floquet_batch(qs):
-    """BR.floquet for a batch of momenta, on the engine backend."""
+def _step_batch(qs):
+    """The one-step Bloch matrix for a batch of momenta, on the engine backend."""
     U = _W["U"]
     M = _XP.broadcast_to(_XP.eye(128, dtype=complex),
                          (len(qs), 128, 128)).copy()
-    for even, j in BR.ORDER:
-        L = _XP.asarray(np.stack([np.kron(BR._layer(even, j, q[j], 8,
-                                                   BR.G10), U)
+    for even, j in SC.STAGES:
+        L = _XP.asarray(np.stack([np.kron(SC.stage_matrix(even, j, q[j],
+                                                          SC.G10), U)
                                   for q in qs]))
         M = L @ M
     return M
@@ -108,14 +108,14 @@ def _quasi_energies(Mg):
 
 
 def _node(q0):
-    """Fermi velocity tensor of one doubler node (worker)."""
+    """Fermi velocity tensor of one half-zone node (worker)."""
     U = _W["U"]
     dirs = _fib_dirs()
     q0 = np.array(q0, dtype=float)
-    gap0 = float(np.abs(BR._phases(BR.floquet(q0, U))).min())
-    w1s = _quasi_energies(_floquet_batch([tuple(q0 + EPS1 * d)
+    gap0 = float(np.abs(SC.phases(SC.bloch(q0, U))).min())
+    w1s = _quasi_energies(_step_batch([tuple(q0 + EPS1 * d)
                                           for d in dirs]))
-    w2s = _quasi_energies(_floquet_batch([tuple(q0 + EPS2 * d)
+    w2s = _quasi_energies(_step_batch([tuple(q0 + EPS2 * d)
                                           for d in dirs]))
     A, y = [], []
     nlin = nquad = nmix = 0
@@ -176,12 +176,12 @@ def main():
     print(f"  backend: {E._BACKEND}")
     n = N_DIRS
     if _GPU:
-        per_node = [_node(q0) for q0 in BR.DOUBLERS]
+        per_node = [_node(q0) for q0 in SC.M_POINTS]
     else:
         with ProcessPoolExecutor(max_workers=min(8, os.cpu_count() or 4),
                                  initializer=_init_worker) as ex:
             # map preserves order: per_node keeps the DOUBLERS order.
-            per_node = list(ex.map(_node, BR.DOUBLERS))
+            per_node = list(ex.map(_node, SC.M_POINTS))
     for p in per_node:
         print(f"  node {tuple(round(x, 3) for x in p['q0'])}: "
               f"gap = {p['node_gap']:.2e}  lin/quad/mix = "

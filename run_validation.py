@@ -46,6 +46,7 @@ def run_one(exp_dir):
     t0 = time.time()
     proc = subprocess.run([sys.executable, script], capture_output=True,
                           text=True, cwd=ROOT, env=env)
+    time_ = time.time() - t0
     residir = os.path.join(exp_dir, "results")
     verdict = None
     if os.path.isdir(residir):
@@ -72,6 +73,15 @@ def run_one(exp_dir):
         tail = (proc.stderr or "").strip().splitlines()
         verdict = None
         status = f"CRASH (rc={proc.returncode}): {tail[-1] if tail else 'no stderr'}"
+        # the one-line status cannot localise a backend-dependent crash: the
+        # full traceback is kept next to the summary, per experiment.
+        crashdir = os.path.join(ROOT, "results", "crashes")
+        os.makedirs(crashdir, exist_ok=True)
+        with open(os.path.join(crashdir, os.path.basename(exp_dir) + ".log"),
+                  "w") as cf:
+            cf.write(f"rc={proc.returncode}  backend={env.get('CL10_BACKEND', 'auto')}\n")
+            cf.write(f"script={script}\n\n--- stderr ---\n{proc.stderr or ''}\n")
+            cf.write(f"--- stdout ---\n{proc.stdout or ''}\n")
     else:
         status = verdict.get("status", "no_verdict") if verdict else "no_verdict"
     return {

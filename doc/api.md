@@ -261,17 +261,17 @@ the DM scale.  Each function is **backend-agnostic** (the GPU engine), takes no
 fit unless a coefficient is explicitly named, and the matching experiment
 writes a JSON verdict.
 
-**`cl10.local_qca` — the local QCA (V36).**  The **local** QCA step on
-the $(L,L,L)\times32$ lattice: the 45 Spin(10) plane rotations **per cell**
-plus the **0-parameter exchange (swap) gates** between **adjacent** cells
-(the 't Hooft swap-gate structure).  The **causal radius 1 is
-implemented**, not an axiom: a single-cell excitation after $n$ steps is
-supported **only** inside the $n$-cell light cone (the front speed is
-**exactly 1**).
-
-| symbol | signature | returns |
-|---|---|---|
-| `local_qca` | `(L, n_steps, seed=0)` | `{unitary_residual, support, front_speed, structural_ok, causal_radius_1, …}` — the local step + the realized light cone (V36) |
+**`cl10.supercell` — the automaton (V36).**  The cell is the **$2{\times}2{\times}2$
+block** of Planck sites (eight sub-sites, each carrying the 32-D module:
+on-site space $\mathbb{C}^{256}$), and the dynamics is **one time-independent
+step of six stages**: the 45 Spin(10) plane rotations on every sub-site, each
+followed by one 0-parameter swap-rotation bond stage on the four disjoint
+pairs of one parity along one axis (three intra-block, three inter-block —
+the 't Hooft swap-gate structure read as the sub-lattice of the cell).  The
+**causal radius 1 is implemented**, not an axiom: every bond stage couples
+sub-sites at Planck-cell distance $\le 1$, so after $n$ stages the support is
+inside the $n$-cell light cone (front speed **exactly 1** cell per stage).
+The full API is Section 13.9.
 
 **`cl10.einstein` — gravity.**  The metric dynamics of the $(1,3)$
 sub-algebra: the massless spin-2 (2 polarizations, $c=1$, UV-bounded), the
@@ -563,22 +563,27 @@ their values (paper Section 14).
 
 ---
 
-## 13.9. `cl10.brillouin` — the Brillouin-zone chirality test (V63, W9)
+## 13.9. `cl10.supercell` — the automaton: the block cell, the step, the zone (V36, V63, W9)
 
 The lattice-chirality check the suite had never run: does the **implemented**
-local step carry a single chiral 16 sector, or does the Nielsen–Ninomiya
-doubling survive?  It does not evade the theorem by hypothesis (no lattice
-Dirac operator), so the question is answered on the spectrum.  Protocol and
-cross-validation: `doc/reference.md` §5.
+step carry a single chiral 16 sector, or does the Nielsen–Ninomiya doubling
+survive?  It does not evade the theorem by hypothesis (no lattice Dirac
+operator), so the question is answered on the spectrum.  Because the step is
+one time-independent operator on the block lattice, its Bloch decomposition is
+exact at every step.  Protocol and cross-validation: `doc/reference.md` §5.
 
 | symbol | signature | returns |
 |---|---|---|
-| `blocks` | `(g10=G10)` | `(B, U32, U16)` — the pseudoscalar $+i$ basis $B$ (the 16), the internal 't Hooft step on the 32, and $U_{16} = B^\dagger U_{32}B$ |
-| `floquet` | `(q, U, order=ORDER, g10=G10)` | the exact $128\times128$ Bloch Floquet $U_{\mathrm{F}}(q) = \prod_{t=0..5}\big(S_{j(t),p(t)}(q)\otimes U\big)$ over the 6-step cycle, on the $2\times2\times2$ supercell (8 sites) at supercell momentum $q \in [-\pi,\pi]^3$ |
-| `sector_closure` | `(n_steps=6, L=8)` | the $16\to\overline{16}$ leakage of the **implemented** evolution (internal layer + staggered bond layer, `cl10.local_qca`): $9.7\times10^{-16}$ — chirality is a dynamical symmetry |
-| `torus_validation` | `()` | the maximum phase-spectrum deviation between the Bloch Floquet and the real-space 6-step Floquet on a $4^3$ torus, over the 8 supercell momenta $\{0,\pi\}^3$: $4.4\times10^{-15}$ |
-| `brillouin` | `()` | `{backend, g10, floquet_cycle=6, sector_leakage_16_to_16bar, bloch_vs_torus_dev, gap_q0_16=0.036499, gap_q0_32=0.036499, n_doubler_nodes=12, max_doubler_gap=2.0e-4, nodes[{q, gap, slope, chirality}], chirality_sum=0.0, v_typical=0.1419, g10_scan[{g10, gap_q0, gap_doubler}]}` — the zone centre is **gapped**, the 12 momenta $(\pm\pi/2,\pm\pi/2,0)$ are **gapless** with paired chiralities |
-| `verify` | `(tol=1e-9)` | the verdict dict with `ok`: leakage $<\varepsilon$, Bloch-vs-torus $<10^{-9}$, $\mathrm{gap}(0) > 10^{-3}$, $\max\mathrm{gap}(\text{doubler}) < 10^{-3}$, $\sum\text{chirality} = 0$, 12 nodes.  `ok` is a statement about the **computation**; its physics content is a **negative** result for the theory (the doublers are present, W9) |
+| `NSUB`, `NINT`, `NONSITE`, `NSECTOR_ONSITE` | — | 8, 32, 256, 128 — the cell content |
+| `STAGES` | — | the six stages `[(intra,0),(inter,1),(intra,2),(inter,0),(intra,1),(inter,2)]` |
+| `internal` | `(g10=G10)` | the 32×32 internal unitary |
+| `sectors` | `(g10=G10)` | `(B, U32, U16)` — the pseudoscalar $+i$ basis $B$ (the 16), the internal step on the 32, and $U_{16} = B^\dagger U_{32}B$ |
+| `stage_matrix` | `(even, j, q, g10=G10)` | the 8×8 sub-site matrix of one bond stage at block momentum $q$ (an inter-block pair carries $e^{\pm iq_j}$) |
+| `bloch` | `(q, U, g10=G10, stages=STAGES)` | the exact one-step Bloch matrix $M(q)$ — $256\times256$ on the module, $128\times128$ on the 16 |
+| `phases`, `gap`, `degeneracy` | `(q, U, \dots)` | the one-step eigenphases, the gap, the multiplet structure at $q$ |
+| `internal_layer`, `bond_layer`, `stage`, `step`, `run` | `(fields, U, \dots)` | the real-space evolution on an $(L,L,L)$ block torus (fields of shape $(L,L,L,8,n)$) |
+| `GAMMA`, `X_POINTS`, `M_POINTS`, `R_POINTS`, `HIGH_SYM`, `star`, `stabilizer_order` | — | the block-zone high-symmetry momenta with their cubic stars and little groups (M: star 12, $C_{2v}$ — the gapless nodes; R: star 8, $C_{3v}$ — the exactly 3-fold multiplets) |
+| `verify` | `(tol=1e-9)` | the V63 verdict: sector leakage $<10^{-15}$, Bloch-vs-torus $<10^{-14}$ (both backend-dependent: $5.7$–$7.0\times10^{-16}$ and $7.4$–$9.8\times10^{-15}$ on cupy/numpy), $\mathrm{gap}(\Gamma) = 0.036499$ per step, 12 M-point nodes with gap $2.0\times10^{-4}$ and chirality sum $0$, the R-corner 3-fold multiplets, the $g_{10}$ scan.  `ok` is a statement about the **computation**; its physics content is a **negative** result for the bare step (the doublers are present, W9) |
 
 ---
 
@@ -588,7 +593,7 @@ cross-validation: `doc/reference.md` §5.
 | symbol | signature | returns |
 |---|---|---|
 | `find_experiments` | `()` | a list of the experiment directories under `experiments/` |
-| `run_one` | `(exp_dir)` | `{id, dir, tier, property, residual, pass, status, returncode, wall_time, verdict}` — runs one experiment and reads its JSON verdict |
+| `run_one` | `(exp_dir)` | `{id, dir, tier, property, residual, pass, status, returncode, crashed, wall_time, verdict}` — runs one experiment and reads its JSON verdict |
 | `main` | `()` | runs all experiments (or a subset from `argv`), writes `results/validation_summary.json`, prints the hard-tier verdict, returns `0` if all pass |
 
 **The summary** (`results/validation_summary.json`) has:
@@ -598,10 +603,16 @@ the paper does not use the `U10` label) and
 `named_residuals` lists **all** the named/quantified residuals (the exact
 values the theory does not derive — W1–W9: the cosmological constant, the seesaw, the families, the running, the Yukawa, the baryon asymmetry, the dark-matter scale, the hierarchy, the quantum sector).
 
+A **crash** (`returncode != 0`) invalidates any verdict JSON left on disk from a
+previous run — the runner reports `CRASH (rc=…): <last stderr line>` instead of a
+stale PASS, and writes the **full** traceback to
+`results/crashes/<experiment>.log` (the one-line status cannot localise a
+backend-dependent failure).
+
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 117 experiments (V0-V116), in parallel
+python3 run_validation.py              # all 121 experiments (V0-V120), in parallel
 python3 run_validation.py V11 V12      # a subset (--jobs N caps the pool)
 ```
 

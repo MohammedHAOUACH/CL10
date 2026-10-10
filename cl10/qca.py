@@ -12,8 +12,10 @@ discrete Laplacian as the spatial operator.  The graviton is **massless**
 finite).  The **soliton** (a stable finite-energy lump of the non-linear metric)
 is the dark-matter candidate.
 
-The QCA dynamics is a product of **local unitaries** (the gates act on the
-16-D internal / Weyl space); the causal radius is 1 cell per step.
+The QCA dynamics is a product of **local unitaries**: the on-site internal
+factor acts on the 32-D module of every sub-site of the block cell, and the
+bond layer (swap-rotations inside the cell, one link d.o.f. per bond) is what
+couples neighbouring cells - the causal radius is 1 cell per step (Theorem 5).
 """
 
 from . import engine as E
@@ -45,10 +47,11 @@ def wave_step(u, dt=0.5):
 
 
 def qca_step_internal(gates, fields):
-    """One QCA step: apply the product of local unitaries on the internal space.
+    """One on-site QCA step: the product of local internal unitaries.
 
     ``gates`` is a list of (n x n) unitaries acting on the last (internal) axis
-    of ``fields`` (shape ``(L, L, L, n)``).
+    of ``fields`` (shape ``(L, L, L, n)``).  This is the internal factor of the
+    implemented step; the bond layer lives in ``cl10.supercell``.
     """
     out = fields
     for U in gates:

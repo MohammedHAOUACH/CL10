@@ -71,7 +71,7 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, ROOT)
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
@@ -169,7 +169,7 @@ def main():
     checks["spinor_casimir"] = {"value": 45.0, "err": cas32_err}
 
     # ---- 3. gauge invariance of the coupling on 16 x 16 x 45 ---------------
-    B, _U32, _U16 = BR.blocks()
+    B, _U32, _U16 = SC.sectors()
     Ts16 = [B.conj().T @ T @ B for T in Ts]
     eta = sm_qca.G10
     H = bond_current_link(Ts16, Ls, eta)

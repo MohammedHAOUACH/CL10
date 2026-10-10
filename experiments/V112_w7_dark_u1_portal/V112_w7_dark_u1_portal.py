@@ -45,7 +45,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 
 
 def main():
@@ -55,7 +55,7 @@ def main():
     T45 = [1j * (h[a] @ h[b]) for a, b in planes]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
 
-    B, _U32, _U16 = BR.blocks()
+    B, _U32, _U16 = SC.sectors()
     Dk = [B.conj().T @ C @ B for C in cartan]
     M = sum(math.sqrt(p) * Dk[k] for k, p in enumerate((1, 2, 3, 5, 7)))
     _ev, V = np.linalg.eigh(M)

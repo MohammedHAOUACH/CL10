@@ -11,10 +11,10 @@ inter-node mixing?
 
 **The construction.**  Modulate the Wilson strength in real space,
   w(x) = w0 + kappa [cos(pi(y-z)/2) + cos(pi(x-z)/2) + cos(pi(x-y)/2)]
-(in the supercell momenta of cl10.brillouin).  The profile is exactly
+(in the block momenta of cl10.supercell).  The profile is exactly
 cubic-symmetric and zero-mean, and its Fourier support
 +-(0,pi/2,-pi/2), +-(pi/2,0,-pi/2), +-(pi/2,-pi/2,0) is checked against
-the FULL 12x12 doubler difference table: it contains the differences of
+the FULL 12x12 node difference table: it contains the differences of
 the selected triangle A=(pi/2,pi/2,0), B=(pi/2,0,pi/2), C=(0,pi/2,pi/2)
 (one node per V70 family) and NO edge leaving that triangle.  (The
 other 9 nodes organize as a 6-cycle under the same support - reported,
@@ -22,13 +22,13 @@ not used.)
 
 **The mass matrix (exact resonant matrix elements).**  The diagonal
 node gap of the UNMODULATED step is verified numerically against the
-supercell Floquet: gap_s(node) = 2 w0 |c_s|, c_s = Cartan weight of the
+one-step Bloch matrix: gap_s(node) = 2 w0 |c_s|, c_s = Cartan weight of the
 Wilson direction (V65 conventions).  The modulation is exactly
 resonant (its wavevectors ARE the node differences), so the node-basis
-mass matrix is exact to first order in kappa with exact supercell
+mass matrix is exact to first order in kappa with exact block
 matrix elements: K_q(node) = 3 - sum cos q_j = 2 (computed), and the
-supercell Fourier factor (1/8) sum_{x in {0,1}^3} exp(i Delta.x) = 1/2
-(computed over the 8 supercell cells).  Off-resonant leakage is
+block Fourier factor (1/8) sum_{e in {0,1}^3} exp(i Delta.e) = 1/2
+(computed over the 8 sub-sites of the cell).  Off-resonant leakage is
 O(kappa^2 / gap).  Hence per weight s:
   M = c_s (2 w0 I + kappa (J - I)),  eigenvalues
   c_s {2w0 + 2kappa, 2w0 - kappa, 2w0 - kappa}
@@ -59,7 +59,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 import V65_wilson as V65  # noqa: E402
-from cl10 import brillouin as BR  # noqa: E402
+from cl10 import supercell as SC  # noqa: E402
 
 W0 = 0.15                   # lattice units; the structure is scale-free
 THETA = 1.731               # the V65 root direction
@@ -85,7 +85,7 @@ def main():
     c_s = lam @ ddir
 
     # --- combinatorics: the support closes the SEL triangle, no exits ----
-    nodes = BR.DOUBLERS
+    nodes = SC.M_POINTS
     edges = []
     for i, j in itertools.combinations(range(12), 2):
         d = tuple(round((nodes[i][a] - nodes[j][a]) / (math.pi / 2))
@@ -125,12 +125,12 @@ def main():
                       for z in range(4))) < 1e-12
 
     # --- diagonal: the node gap opens linearly in w0 (V65 mechanism) -----
-    _B, _U32, U16 = BR.blocks()
+    _B, _U32, U16 = SC.sectors()
     gaps_at = {}
     for w in (W0, 2 * W0):
         gaps_at[w] = min(
             float(np.min(np.abs(np.angle(
-                np.linalg.eigvals(V65.floquet_wilson(q, U16, w, c_s))))))
+                np.linalg.eigvals(V65.step_wilson(q, U16, w, c_s))))))
             for q in SEL)
     gap_dev = abs(gaps_at[2 * W0] / gaps_at[W0] - 2.0)
     gap_open_ok = gaps_at[W0] > 1e-6 and gap_dev < 0.05

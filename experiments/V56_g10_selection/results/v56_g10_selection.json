@@ -36,5 +36,5 @@
     "data_check_selects_n": false,
     "residual": "the 1-loop matching (W4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
   },
-  "wall_time": 0.023
+  "wall_time": 0.007
 }
