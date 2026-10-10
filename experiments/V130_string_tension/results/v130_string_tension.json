@@ -1,0 +1,55 @@
+{
+ "experiment": "V130_string_tension",
+ "data": {
+  "link": {
+   "C2": 64.0,
+   "spread": 0.0,
+   "pairing_residual": 1.7763568394002505e-15,
+   "n_singlets": 1,
+   "killing_trace": 2880.0,
+   "link_commutator_max": 4.0,
+   "n_invariants": 0
+  },
+  "vertex": {
+   "dim": 4050,
+   "ker": 2,
+   "m45": 2,
+   "gap": 63.99999999999967,
+   "C2_45": 64.0
+  },
+  "scale": {
+   "sigma_lattice": 64.0,
+   "sigma_GeV_per_MPl": 7.81376e+20,
+   "sigma_GeV2": 9.539819584e+39,
+   "sqrt_sigma_GeV": 9.7672e+19,
+   "sigma_qcd_GeV2": 0.17639999999999997,
+   "ratio": 5.408060988662132e+40
+  },
+  "step_loops": {
+   "stage_commutator_max": 0.0,
+   "stage_pairs": 12,
+   "plaquette_dev": 3.3306690738754696e-16,
+   "plaquette_W_min": 1.0
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T1 the link space is an irreducible adjoint: C2 = sum_A L_A^2 has a single eigenvalue 64.000000 (spread 0.00e+00 over the 45 states); the Killing form K_ab = f_acd f_bcd is annihilated by the singlet operator of 45 (x) 45 to 1.78e-15 and the singlet space has dimension 1, so adjacent links pair into it uniquely; the link operators do not commute (max [L_a,L_b] = 4.000) - the layer carries a non-Abelian field strength and the trivial flux channel is unavailable on a link",
+   "pass": true
+  },
+  {
+   "name": "T2 a link cannot be flux-free: the invariant subspace of the adjoint link is 0-dimensional (ker of sum_A L_A^dag L_A = C2(45) I), so every link of a gauge-invariant chain carries one adjoint flux quantum and the electric energy of R links is exactly R x 64.0000 - the static potential is LINEAR with tension sigma = C2(45). The vertex Gauss Laplacian on (pair-adjoint) (x) link has kernel 2 = m_45 = 2 (the V98/V99 intertwiner space; the glued two-site sector is m_45^2 = 4) and gap 64.0000 = C2(45)",
+   "pass": true
+  },
+  {
+   "name": "T3 the tension is sigma = C2(45) = 64.0000 lattice units of electric energy per Planck link = 7.8138e+20 GeV per Planck length = 9.540e+39 GeV^2 (sqrt(sigma) = 9.767e+19 GeV), against the QCD string tension 0.176 GeV^2: the layer confines 5.41e+40 times too hard to be the QCD string",
+   "pass": true
+  },
+  {
+   "name": "T4 the implemented step carries NO field strength: its 12 stage pairs acting on different axes commute to 0.00e+00, so every elementary plaquette of the step is the identity to 3.33e-16 and <W_square> = 1.000000: an area law would need <W_square> < 1 with an exponent proportional to the enclosed area, so the step cannot confine",
+   "pass": true
+  }
+ ],
+ "status": "THE GAUGED LAYER CONFINES, AT THE PLANCK SCALE (I). Its link space is the irreducible adjoint (C2 = 64.0000, spread 0.0e+00) and carries NO invariant vector (0 link singlets), so no link of a gauge-invariant chain can be flux-free: every link carries one adjoint flux quantum and the electric energy of R links is exactly R C2(45) - the static potential is linear with string tension sigma = C2(45) = 64.0000 lattice units = 9.540e+39 GeV^2, 5.41e+40 times the QCD string tension. The vertex Gauss Laplacian confirms the scale: kernel 2 = m_45 (the V98/V99 intertwiner space) and gap 64.0000 = C2(45). The step itself has commuting stage operators on different axes (max commutator 0.0e+00, every plaquette the identity, <W_square> = 1.000000): no field strength, no area law, no confinement. Confinement is therefore PRESENT in the construction - in the gauged bond layer - but its string is a Planck string: the residual of Section 13 is no longer a missing phase, it is a measured tension forty orders of magnitude too large, and Lambda_QCD is not produced."
+}

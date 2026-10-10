@@ -121,13 +121,13 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V120 under `experiments/`):
+**The protocol.**  Each experiment (V0–V130 under `experiments/`):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
    status, data, wall_time}` to `experiments/<id>/results/` — `tier` ($0$–$6$)
-   is written by the 66 tiered checks (V0–V104); the 55 residual-attack checks
-   (V64–V120) record their verdict against a named residual and omit it;
+   is written by the 66 tiered checks (V0–V104); the 65 residual-attack checks
+   (V64–V130) record their verdict against a named residual and omit it;
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 5. a **crash** of the experiment script (non-zero exit code) is recorded as
@@ -135,7 +135,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **121** experiments (V0–V120) in name order,
+`run_validation.py` runs all **131** experiments (V0–V130) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the runner's hard-tier verdict (the runner labels it `U10`; the paper

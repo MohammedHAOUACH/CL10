@@ -612,7 +612,7 @@ backend-dependent failure).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 121 experiments (V0-V120), in parallel
+python3 run_validation.py              # all 131 experiments (V0-V130), in parallel
 python3 run_validation.py V11 V12      # a subset (--jobs N caps the pool)
 ```
 

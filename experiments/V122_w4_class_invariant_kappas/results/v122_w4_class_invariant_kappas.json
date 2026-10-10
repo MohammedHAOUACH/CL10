@@ -1,0 +1,1698 @@
+{
+ "experiment": "V122_w4_class_invariant_kappas",
+ "data": {
+  "embeddings": {
+   "flipped": {
+    "su5": "flipped",
+    "theta_star": 1.73078,
+    "classes": [
+     {
+      "label": "u^c",
+      "X": -3.0,
+      "Y": -0.666667,
+      "n": 3
+     },
+     {
+      "label": "L(1,2)",
+      "X": -3.0,
+      "Y": -0.5,
+      "n": 2
+     },
+     {
+      "label": "N",
+      "X": 1.0,
+      "Y": -0.0,
+      "n": 1
+     },
+     {
+      "label": "Q(3,2)",
+      "X": 1.0,
+      "Y": 0.166667,
+      "n": 6
+     },
+     {
+      "label": "d^c",
+      "X": 1.0,
+      "Y": 0.333333,
+      "n": 3
+     },
+     {
+      "label": "e^c",
+      "X": 5.0,
+      "Y": 1.0,
+      "n": 1
+     }
+    ],
+    "free_kappa": {
+     "n_closed": 10,
+     "rows": [
+      {
+       "n": 3,
+       "residual": 7.105427357601002e-15,
+       "z_min": 5.003,
+       "z_max": 32.9162,
+       "kappas": [
+        -4.5312,
+        -5.7516,
+        9.1859,
+        7.6557,
+        9.1222,
+        5.848
+       ],
+       "closed": true
+      },
+      {
+       "n": 4,
+       "residual": 8.881784197001252e-15,
+       "z_min": 3.1074,
+       "z_max": 32.9162,
+       "kappas": [
+        4.2669,
+        -2.2359,
+        4.3903,
+        7.3342,
+        4.3267,
+        1.6893
+       ],
+       "closed": true
+      },
+      {
+       "n": 5,
+       "residual": 1.5987211554602254e-14,
+       "z_min": 12.3774,
+       "z_max": 32.9162,
+       "kappas": [
+        -2.1212,
+        -3.0535,
+        5.6768,
+        2.5652,
+        5.6132,
+        1.7089
+       ],
+       "closed": true
+      },
+      {
+       "n": 6,
+       "residual": 1.4210854715202004e-14,
+       "z_min": 13.6381,
+       "z_max": 32.9162,
+       "kappas": [
+        -1.5654,
+        -2.379,
+        4.8195,
+        1.2659,
+        4.7559,
+        0.6675
+       ],
+       "closed": true
+      },
+      {
+       "n": 7,
+       "residual": 7.105427357601002e-15,
+       "z_min": 16.9181,
+       "z_max": 32.9162,
+       "kappas": [
+        -1.4577,
+        -2.3288,
+        4.2079,
+        0.4808,
+        4.1443,
+        0.4989
+       ],
+       "closed": true
+      },
+      {
+       "n": 8,
+       "residual": 1.7763568394002505e-14,
+       "z_min": 16.6941,
+       "z_max": 32.9162,
+       "kappas": [
+        -1.3107,
+        -1.1195,
+        4.0555,
+        -0.907,
+        3.9919,
+        -1.2919
+       ],
+       "closed": true
+      },
+      {
+       "n": 9,
+       "residual": 7.105427357601002e-15,
+       "z_min": 24.541,
+       "z_max": 32.9162,
+       "kappas": [
+        2.0355,
+        -1.5546,
+        2.1589,
+        0.8428,
+        2.0953,
+        -0.2579
+       ],
+       "closed": true
+      },
+      {
+       "n": 10,
+       "residual": 4.973799150320701e-14,
+       "z_min": 19.8562,
+       "z_max": 32.9162,
+       "kappas": [
+        -1.0472,
+        -1.3602,
+        3.265,
+        -1.4359,
+        3.2014,
+        -1.0284
+       ],
+       "closed": true
+      },
+      {
+       "n": 11,
+       "residual": 4.796163466380676e-14,
+       "z_min": 20.5846,
+       "z_max": 32.9162,
+       "kappas": [
+        -1.0357,
+        -1.8719,
+        3.1466,
+        -1.7123,
+        2.49,
+        -1.0164
+       ],
+       "closed": true
+      },
+      {
+       "n": 12,
+       "residual": 3.552713678800501e-14,
+       "z_min": 22.1616,
+       "z_max": 32.9162,
+       "kappas": [
+        -0.8551,
+        -1.6687,
+        2.6887,
+        -1.6733,
+        2.625,
+        -0.6389
+       ],
+       "closed": true
+      }
+     ]
+    },
+    "single_invariant": [
+     {
+      "invariant": "T1",
+      "label_vector": [
+       0.8,
+       0.3,
+       0.0,
+       0.1,
+       0.2,
+       0.6
+      ],
+      "best": {
+       "z0": 22.2809,
+       "g": [
+        -4.7939
+       ],
+       "residual": 1.7148100680577798,
+       "z_min": 12.2342,
+       "z_max": 30.1552,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T2",
+      "label_vector": [
+       0.0,
+       0.5,
+       0.0,
+       1.5,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 23.7706,
+       "g": [
+        4.3254
+       ],
+       "residual": 2.0806393856649716,
+       "z_min": 9.8669,
+       "z_max": 24.5852,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T3",
+      "label_vector": [
+       0.5,
+       0.0,
+       0.0,
+       1.0,
+       0.5,
+       0.0
+      ],
+      "best": {
+       "z0": 24.8771,
+       "g": [
+        6.3193
+       ],
+       "residual": 0.42763180808292667,
+       "z_min": 6.9856,
+       "z_max": 29.5394,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T_sum",
+      "label_vector": [
+       1.3,
+       0.8,
+       0.0,
+       2.6,
+       0.7,
+       0.6
+      ],
+      "best": {
+       "z0": 24.8987,
+       "g": [
+        6.2114
+       ],
+       "residual": 1.5295094261876354,
+       "z_min": 7.223,
+       "z_max": 30.826,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "C2_SU3",
+      "label_vector": [
+       1.3333,
+       0.0,
+       0.0,
+       1.3333,
+       1.3333,
+       0.0
+      ],
+      "best": {
+       "z0": 30.4184,
+       "g": [
+        1.8724
+       ],
+       "residual": 0.24624478122574445,
+       "z_min": 19.5483,
+       "z_max": 34.3787,
+       "desert": true,
+       "n": 6
+      }
+     },
+     {
+      "invariant": "C2_SU2",
+      "label_vector": [
+       0.0,
+       0.75,
+       0.0,
+       0.75,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 32.6147,
+       "g": [
+        -0.9723
+       ],
+       "residual": 2.032542397825952,
+       "z_min": 26.3895,
+       "z_max": 31.4438,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "C2_sum",
+      "label_vector": [
+       1.3333,
+       0.75,
+       0.0,
+       2.0833,
+       1.3333,
+       0.0
+      ],
+      "best": {
+       "z0": 25.0046,
+       "g": [
+        5.8387
+       ],
+       "residual": 0.5741848093618334,
+       "z_min": 8.0744,
+       "z_max": 32.5226,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "index_x_Casimir",
+      "label_vector": [
+       1.7333,
+       0.6,
+       0.0,
+       5.4167,
+       0.9333,
+       0.0
+      ],
+      "best": {
+       "z0": 24.463,
+       "g": [
+        5.7289
+       ],
+       "residual": 1.3865666491629023,
+       "z_min": 7.7523,
+       "z_max": 26.9833,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "n_mult",
+      "label_vector": [
+       3.0,
+       2.0,
+       1.0,
+       6.0,
+       3.0,
+       1.0
+      ],
+      "best": {
+       "z0": 24.5742,
+       "g": [
+        5.7047
+       ],
+       "residual": 1.0758371983199764,
+       "z_min": 7.912,
+       "z_max": 28.6219,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "X",
+      "label_vector": [
+       -3.0,
+       -3.0,
+       1.0,
+       1.0,
+       1.0,
+       5.0
+      ],
+      "best": {
+       "z0": -25937.1341,
+       "g": [
+        363564.3132
+       ],
+       "residual": 721813.5311683031,
+       "z_min": -1072780.5088,
+       "z_max": 721805.2365,
+       "desert": false,
+       "n": 9
+      }
+     },
+     {
+      "invariant": "Y_dir",
+      "label_vector": [
+       -0.6667,
+       -0.5,
+       -0.0,
+       0.1667,
+       0.3333,
+       1.0
+      ],
+      "best": {
+       "z0": 2531.2361,
+       "g": [
+        -42500.8221
+       ],
+       "residual": 76591.13740676726,
+       "z_min": -94972.3952,
+       "z_max": 130032.0455,
+       "desert": false,
+       "n": 8
+      }
+     },
+     {
+      "invariant": "X2",
+      "label_vector": [
+       9.0,
+       9.0,
+       1.0,
+       1.0,
+       1.0,
+       25.0
+      ],
+      "best": {
+       "z0": 26.2973,
+       "g": [
+        -4.8769
+       ],
+       "residual": 0.8090894548193717,
+       "z_min": 15.4173,
+       "z_max": 39.2708,
+       "desert": true,
+       "n": 4
+      }
+     },
+     {
+      "invariant": "Y2",
+      "label_vector": [
+       0.4444,
+       0.25,
+       0.0,
+       0.0278,
+       0.1111,
+       1.0
+      ],
+      "best": {
+       "z0": 22.858,
+       "g": [
+        -6.9356
+       ],
+       "residual": 0.9428240609536678,
+       "z_min": 12.0567,
+       "z_max": 35.0722,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "X2_plus_Y2",
+      "label_vector": [
+       9.4444,
+       9.25,
+       1.0,
+       1.0278,
+       1.1111,
+       26.0
+      ],
+      "best": {
+       "z0": 26.2934,
+       "g": [
+        -4.8563
+       ],
+       "residual": 0.8059875396984637,
+       "z_min": 15.4285,
+       "z_max": 39.2052,
+       "desert": true,
+       "n": 4
+      }
+     },
+     {
+      "invariant": "X_times_Y",
+      "label_vector": [
+       2.0,
+       1.5,
+       -0.0,
+       0.1667,
+       0.3333,
+       5.0
+      ],
+      "best": {
+       "z0": 22.8907,
+       "g": [
+        -7.4135
+       ],
+       "residual": 0.8555335616634139,
+       "z_min": 11.9895,
+       "z_max": 36.0606,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "B",
+      "label_vector": [
+       -0.3333,
+       0.0,
+       0.0,
+       0.3333,
+       -0.3333,
+       0.0
+      ],
+      "best": {
+       "z0": 32.6957,
+       "g": [
+        -1.1344
+       ],
+       "residual": 2.0325423978260098,
+       "z_min": 26.3085,
+       "z_max": 31.7925,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "L",
+      "label_vector": [
+       0.0,
+       1.0,
+       -1.0,
+       0.0,
+       0.0,
+       -1.0
+      ],
+      "best": {
+       "z0": 32.1197,
+       "g": [
+        -2.9978
+       ],
+       "residual": 2.0956778970039025,
+       "z_min": 24.0324,
+       "z_max": 36.7161,
+       "desert": true,
+       "n": 11
+      }
+     },
+     {
+      "invariant": "B_minus_L",
+      "label_vector": [
+       -0.3333,
+       -1.0,
+       1.0,
+       0.3333,
+       -0.3333,
+       1.0
+      ],
+      "best": {
+       "z0": 29.1285,
+       "g": [
+        2.9129
+       ],
+       "residual": 2.3345746697484087,
+       "z_min": 20.3007,
+       "z_max": 33.7128,
+       "desert": true,
+       "n": 6
+      }
+     },
+     {
+      "invariant": "B_plus_L",
+      "label_vector": [
+       -0.3333,
+       1.0,
+       -1.0,
+       0.3333,
+       -0.3333,
+       -1.0
+      ],
+      "best": {
+       "z0": 32.5337,
+       "g": [
+        -1.7826
+       ],
+       "residual": 2.032542397826022,
+       "z_min": 26.4705,
+       "z_max": 33.7272,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "triality",
+      "label_vector": [
+       -1.0,
+       0.0,
+       0.0,
+       1.0,
+       -1.0,
+       0.0
+      ],
+      "best": {
+       "z0": 32.6957,
+       "g": [
+        -1.1344
+       ],
+       "residual": 2.0325423978259813,
+       "z_min": 26.3085,
+       "z_max": 31.7925,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "db_sum",
+      "label_vector": [
+       0.5778,
+       0.5333,
+       0.0,
+       0.5778,
+       0.3111,
+       0.8
+      ],
+      "best": {
+       "z0": 29.1891,
+       "g": [
+        -6.0128
+       ],
+       "residual": 1.4252629591292774,
+       "z_min": 10.5047,
+       "z_max": 39.566,
+       "desert": false,
+       "n": 7
+      }
+     },
+     {
+      "invariant": "db1",
+      "label_vector": [
+       0.3556,
+       0.2,
+       0.0,
+       0.0222,
+       0.0889,
+       0.8
+      ],
+      "best": {
+       "z0": 22.858,
+       "g": [
+        -6.9356
+       ],
+       "residual": 0.9428240609536669,
+       "z_min": 12.0567,
+       "z_max": 35.0722,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "db3",
+      "label_vector": [
+       0.2222,
+       0.0,
+       0.0,
+       0.2222,
+       0.2222,
+       0.0
+      ],
+      "best": {
+       "z0": 30.4184,
+       "g": [
+        1.8724
+       ],
+       "residual": 0.24624478122574445,
+       "z_min": 19.5483,
+       "z_max": 34.3787,
+       "desert": true,
+       "n": 6
+      }
+     }
+    ],
+    "closed_by_single": [],
+    "best_single": {
+     "invariant": "C2_SU3",
+     "label_vector": [
+      1.3333,
+      0.0,
+      0.0,
+      1.3333,
+      1.3333,
+      0.0
+     ],
+     "best": {
+      "z0": 30.4184,
+      "g": [
+       1.8724
+      ],
+      "residual": 0.24624478122574445,
+      "z_min": 19.5483,
+      "z_max": 34.3787,
+      "desert": true,
+      "n": 6
+     }
+    },
+    "two_coupling": {
+     "n_pairs_desert_valid": 124,
+     "best": [
+      {
+       "z0": 25.0762,
+       "g": [
+        5.0257,
+        1.3434
+       ],
+       "residual": 0.0,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "C2_SU3"
+       ]
+      },
+      {
+       "z0": 25.0762,
+       "g": [
+        5.0257,
+        1.3434
+       ],
+       "residual": 0.0,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "db3"
+       ]
+      },
+      {
+       "z0": 25.0762,
+       "g": [
+        4.1704,
+        2.1987
+       ],
+       "residual": 0.0,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "C2_SU3",
+        "triality"
+       ]
+      },
+      {
+       "z0": 24.9224,
+       "g": [
+        7.2982,
+        -4.3511
+       ],
+       "residual": 0.0,
+       "z_min": 6.3164,
+       "z_max": 31.5555,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "C2_sum",
+        "L"
+       ]
+      },
+      {
+       "z0": 25.0762,
+       "g": [
+        2.1987,
+        4.1704
+       ],
+       "residual": 0.0,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "B",
+        "db3"
+       ]
+      },
+      {
+       "z0": 25.0762,
+       "g": [
+        2.1987,
+        4.1704
+       ],
+       "residual": 0.0,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "triality",
+        "db3"
+       ]
+      },
+      {
+       "z0": 24.9603,
+       "g": [
+        9.4637,
+        -3.1837
+       ],
+       "residual": 1.7763568394002505e-15,
+       "z_min": 7.1475,
+       "z_max": 30.4455,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "index_x_Casimir"
+       ]
+      },
+      {
+       "z0": 25.0762,
+       "g": [
+        7.414,
+        -1.0449
+       ],
+       "residual": 1.7763568394002505e-15,
+       "z_min": 7.0851,
+       "z_max": 31.1317,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "triality"
+       ]
+      }
+     ]
+    }
+   },
+   "Georgi-Glashow": {
+    "su5": "Georgi-Glashow",
+    "theta_star": 1.73078,
+    "classes": [
+     {
+      "label": "L(1,2)",
+      "X": -3.0,
+      "Y": -0.5,
+      "n": 2
+     },
+     {
+      "label": "d^c",
+      "X": -3.0,
+      "Y": 0.333333,
+      "n": 3
+     },
+     {
+      "label": "u^c",
+      "X": 1.0,
+      "Y": -0.666667,
+      "n": 3
+     },
+     {
+      "label": "Q(3,2)",
+      "X": 1.0,
+      "Y": 0.166667,
+      "n": 6
+     },
+     {
+      "label": "e^c",
+      "X": 1.0,
+      "Y": 1.0,
+      "n": 1
+     },
+     {
+      "label": "N",
+      "X": 5.0,
+      "Y": -0.0,
+      "n": 1
+     }
+    ],
+    "free_kappa": {
+     "n_closed": 5,
+     "rows": [
+      {
+       "n": 3,
+       "residual": 8.881784197001252e-15,
+       "z_min": 2.3379,
+       "z_max": 32.9162,
+       "kappas": [
+        -4.6907,
+        5.5399,
+        5.527,
+        10.0,
+        3.4585,
+        5.553
+       ],
+       "closed": true
+      },
+      {
+       "n": 4,
+       "residual": 1.7763568394002505e-14,
+       "z_min": 7.7136,
+       "z_max": 32.9162,
+       "kappas": [
+        -2.8117,
+        4.4951,
+        4.4823,
+        5.223,
+        0.2317,
+        4.5082
+       ],
+       "closed": true
+      },
+      {
+       "n": 5,
+       "residual": 1.0658141036401503e-14,
+       "z_min": 16.186,
+       "z_max": 32.9162,
+       "kappas": [
+        -2.8903,
+        3.6271,
+        3.6142,
+        3.0805,
+        -0.0158,
+        3.6401
+       ],
+       "closed": true
+      },
+      {
+       "n": 6,
+       "residual": 2.842170943040401e-14,
+       "z_min": 12.6496,
+       "z_max": 32.9162,
+       "kappas": [
+        -2.9978,
+        5.0536,
+        -1.6802,
+        -1.0032,
+        -0.7758,
+        5.0667
+       ],
+       "closed": true
+      },
+      {
+       "n": 7,
+       "residual": 1.4210854715202004e-14,
+       "z_min": 21.2326,
+       "z_max": 32.9162,
+       "kappas": [
+        -2.4982,
+        3.06,
+        1.9516,
+        -0.0955,
+        -1.083,
+        3.0731
+       ],
+       "closed": true
+      },
+      {
+       "n": 8,
+       "note": "LP infeasible"
+      },
+      {
+       "n": 9,
+       "note": "LP infeasible"
+      },
+      {
+       "n": 10,
+       "note": "LP infeasible"
+      },
+      {
+       "n": 11,
+       "note": "LP infeasible"
+      },
+      {
+       "n": 12,
+       "note": "LP infeasible"
+      }
+     ]
+    },
+    "single_invariant": [
+     {
+      "invariant": "T1",
+      "label_vector": [
+       0.3,
+       0.2,
+       0.8,
+       0.1,
+       0.6,
+       0.0
+      ],
+      "best": {
+       "z0": 21.6427,
+       "g": [
+        -3.5291
+       ],
+       "residual": 1.9947142191771814,
+       "z_min": 12.8608,
+       "z_max": 28.4994,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T2",
+      "label_vector": [
+       0.5,
+       0.0,
+       0.0,
+       1.5,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 22.7004,
+       "g": [
+        3.0657
+       ],
+       "residual": 2.2683363041055546,
+       "z_min": 11.3162,
+       "z_max": 24.2634,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T3",
+      "label_vector": [
+       0.0,
+       0.5,
+       0.5,
+       1.0,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 23.7366,
+       "g": [
+        5.1086
+       ],
+       "residual": 0.9163649258949116,
+       "z_min": 8.2666,
+       "z_max": 28.6563,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "T_sum",
+      "label_vector": [
+       0.8,
+       0.7,
+       1.3,
+       2.6,
+       0.6,
+       0.0
+      ],
+      "best": {
+       "z0": 23.6001,
+       "g": [
+        4.6463
+       ],
+       "residual": 1.8499002348132922,
+       "z_min": 9.0546,
+       "z_max": 29.1804,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "C2_SU3",
+      "label_vector": [
+       0.0,
+       1.3333,
+       1.3333,
+       1.3333,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 26.8371,
+       "g": [
+        3.0164
+       ],
+       "residual": 0.26707720171827276,
+       "z_min": 12.535,
+       "z_max": 35.6975,
+       "desert": true,
+       "n": 4
+      }
+     },
+     {
+      "invariant": "C2_SU2",
+      "label_vector": [
+       0.75,
+       0.0,
+       0.0,
+       0.75,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 31.6073,
+       "g": [
+        -1.9756
+       ],
+       "residual": 2.0890753932233626,
+       "z_min": 24.3789,
+       "z_max": 33.3798,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "C2_sum",
+      "label_vector": [
+       0.75,
+       1.3333,
+       1.3333,
+       2.0833,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 23.8189,
+       "g": [
+        4.6744
+       ],
+       "residual": 1.0478321617435915,
+       "z_min": 9.2172,
+       "z_max": 30.9755,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "index_x_Casimir",
+      "label_vector": [
+       0.6,
+       0.9333,
+       1.7333,
+       5.4167,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 23.2922,
+       "g": [
+        4.3344
+       ],
+       "residual": 1.7356889443865615,
+       "z_min": 9.3706,
+       "z_max": 26.2639,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "n_mult",
+      "label_vector": [
+       2.0,
+       3.0,
+       3.0,
+       6.0,
+       1.0,
+       1.0
+      ],
+      "best": {
+       "z0": 23.4152,
+       "g": [
+        4.4155
+       ],
+       "residual": 1.48035176210331,
+       "z_min": 9.3314,
+       "z_max": 27.6418,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "X",
+      "label_vector": [
+       -3.0,
+       -3.0,
+       1.0,
+       1.0,
+       1.0,
+       5.0
+      ],
+      "best": {
+       "z0": -35463.7518,
+       "g": [
+        496909.9521
+       ],
+       "residual": 316112.2919707819,
+       "z_min": -1427774.7253,
+       "z_max": 959043.7095,
+       "desert": false,
+       "n": 7
+      }
+     },
+     {
+      "invariant": "Y_dir",
+      "label_vector": [
+       -0.5,
+       0.3333,
+       -0.6667,
+       0.1667,
+       1.0,
+       -0.0
+      ],
+      "best": {
+       "z0": 23887.1213,
+       "g": [
+        -405592.0251
+       ],
+       "residual": 511345.4032895955,
+       "z_min": -906589.2058,
+       "z_max": 1240663.0079,
+       "desert": false,
+       "n": 6
+      }
+     },
+     {
+      "invariant": "X2",
+      "label_vector": [
+       9.0,
+       9.0,
+       1.0,
+       1.0,
+       1.0,
+       25.0
+      ],
+      "best": {
+       "z0": 248484.7906,
+       "g": [
+        -922832.762
+       ],
+       "residual": 643293.3125911836,
+       "z_min": -746028.1314,
+       "z_max": 2834204.5028,
+       "desert": false,
+       "n": 7
+      }
+     },
+     {
+      "invariant": "Y2",
+      "label_vector": [
+       0.25,
+       0.1111,
+       0.4444,
+       0.0278,
+       1.0,
+       0.0
+      ],
+      "best": {
+       "z0": 22.0904,
+       "g": [
+        -5.4177
+       ],
+       "residual": 1.3681526862375408,
+       "z_min": 12.5034,
+       "z_max": 32.737,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "X2_plus_Y2",
+      "label_vector": [
+       9.25,
+       9.1111,
+       1.4444,
+       1.0278,
+       2.0,
+       25.0
+      ],
+      "best": {
+       "z0": 29.7202,
+       "g": [
+        -3.4529
+       ],
+       "residual": 2.5657229718394037,
+       "z_min": 20.2427,
+       "z_max": 39.8514,
+       "desert": false,
+       "n": 6
+      }
+     },
+     {
+      "invariant": "X_times_Y",
+      "label_vector": [
+       1.5,
+       -1.0,
+       -0.6667,
+       0.1667,
+       1.0,
+       -0.0
+      ],
+      "best": {
+       "z0": 28.8876,
+       "g": [
+        -2.9782
+       ],
+       "residual": 0.44780246982018923,
+       "z_min": 20.8555,
+       "z_max": 34.2828,
+       "desert": true,
+       "n": 6
+      }
+     },
+     {
+      "invariant": "B",
+      "label_vector": [
+       0.0,
+       -0.3333,
+       -0.3333,
+       0.3333,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 31.7719,
+       "g": [
+        -2.3048
+       ],
+       "residual": 1.9169043016331564,
+       "z_min": 24.2142,
+       "z_max": 33.4336,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "L",
+      "label_vector": [
+       1.0,
+       0.0,
+       0.0,
+       0.0,
+       -1.0,
+       -1.0
+      ],
+      "best": {
+       "z0": 29.1342,
+       "g": [
+        -3.7299
+       ],
+       "residual": 2.3811974743641073,
+       "z_min": 21.25,
+       "z_max": 35.4309,
+       "desert": true,
+       "n": 7
+      }
+     },
+     {
+      "invariant": "B_minus_L",
+      "label_vector": [
+       -1.0,
+       -0.3333,
+       -0.3333,
+       0.3333,
+       1.0,
+       1.0
+      ],
+      "best": {
+       "z0": 24.9785,
+       "g": [
+        2.4979
+       ],
+       "residual": 2.459346748456566,
+       "z_min": 18.227,
+       "z_max": 28.3179,
+       "desert": true,
+       "n": 4
+      }
+     },
+     {
+      "invariant": "B_plus_L",
+      "label_vector": [
+       1.0,
+       -0.3333,
+       -0.3333,
+       0.3333,
+       -1.0,
+       -1.0
+      ],
+      "best": {
+       "z0": 31.1715,
+       "g": [
+        -3.4096
+       ],
+       "residual": 2.1474998094516877,
+       "z_min": 23.6076,
+       "z_max": 36.9697,
+       "desert": true,
+       "n": 11
+      }
+     },
+     {
+      "invariant": "triality",
+      "label_vector": [
+       0.0,
+       -1.0,
+       -1.0,
+       1.0,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 31.7719,
+       "g": [
+        -2.3048
+       ],
+       "residual": 1.9169043016331218,
+       "z_min": 24.2142,
+       "z_max": 33.4336,
+       "desert": true,
+       "n": 12
+      }
+     },
+     {
+      "invariant": "db_sum",
+      "label_vector": [
+       0.5333,
+       0.3111,
+       0.5778,
+       0.5778,
+       0.8,
+       0.0
+      ],
+      "best": {
+       "z0": 25.5375,
+       "g": [
+        -8.7808
+       ],
+       "residual": 1.6688101907041073,
+       "z_min": 2.3215,
+       "z_max": 41.7691,
+       "desert": false,
+       "n": 5
+      }
+     },
+     {
+      "invariant": "db1",
+      "label_vector": [
+       0.2,
+       0.0889,
+       0.3556,
+       0.0222,
+       0.8,
+       0.0
+      ],
+      "best": {
+       "z0": 22.0904,
+       "g": [
+        -5.4177
+       ],
+       "residual": 1.3681526862375408,
+       "z_min": 12.5034,
+       "z_max": 32.737,
+       "desert": true,
+       "n": 3
+      }
+     },
+     {
+      "invariant": "db3",
+      "label_vector": [
+       0.0,
+       0.2222,
+       0.2222,
+       0.2222,
+       0.0,
+       0.0
+      ],
+      "best": {
+       "z0": 26.8371,
+       "g": [
+        3.0164
+       ],
+       "residual": 0.26707720171827276,
+       "z_min": 12.535,
+       "z_max": 35.6975,
+       "desert": true,
+       "n": 4
+      }
+     }
+    ],
+    "closed_by_single": [],
+    "best_single": {
+     "invariant": "C2_SU3",
+     "label_vector": [
+      0.0,
+      1.3333,
+      1.3333,
+      1.3333,
+      0.0,
+      0.0
+     ],
+     "best": {
+      "z0": 26.8371,
+      "g": [
+       3.0164
+      ],
+      "residual": 0.26707720171827276,
+      "z_min": 12.535,
+      "z_max": 35.6975,
+      "desert": true,
+      "n": 4
+     }
+    },
+    "two_coupling": {
+     "n_pairs_desert_valid": 93,
+     "best": [
+      {
+       "z0": 23.3189,
+       "g": [
+        4.2834,
+        -5.2403
+       ],
+       "residual": 1.7763568394002505e-15,
+       "z_min": 9.4992,
+       "z_max": 32.128,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T2",
+        "X_times_Y"
+       ]
+      },
+      {
+       "z0": 24.1923,
+       "g": [
+        -7.9439,
+        13.1007
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 8.6258,
+       "z_max": 32.5647,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T2",
+        "n_mult"
+       ]
+      },
+      {
+       "z0": 23.3634,
+       "g": [
+        10.9272,
+        -6.5802
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 9.4166,
+       "z_max": 30.8116,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "T_sum"
+       ]
+      },
+      {
+       "z0": 24.0031,
+       "g": [
+        15.1312,
+        -9.5962
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 7.6801,
+       "z_max": 31.1416,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "T3",
+        "n_mult"
+       ]
+      },
+      {
+       "z0": 24.224,
+       "g": [
+        3.5861,
+        1.676
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 8.447,
+       "z_max": 32.4295,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "C2_SU3",
+        "index_x_Casimir"
+       ]
+      },
+      {
+       "z0": 24.0031,
+       "g": [
+        -3.7828,
+        9.3179
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 7.6801,
+       "z_max": 31.1416,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "C2_SU2",
+        "n_mult"
+       ]
+      },
+      {
+       "z0": 24.224,
+       "g": [
+        1.676,
+        3.5861
+       ],
+       "residual": 3.552713678800501e-15,
+       "z_min": 8.447,
+       "z_max": 32.4295,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "index_x_Casimir",
+        "db3"
+       ]
+      },
+      {
+       "z0": 23.6292,
+       "g": [
+        4.8045,
+        -3.925
+       ],
+       "residual": 5.329070518200751e-15,
+       "z_min": 8.7673,
+       "z_max": 31.85,
+       "desert": true,
+       "n": 3,
+       "pair": [
+        "index_x_Casimir",
+        "X_times_Y"
+       ]
+      }
+     ]
+    }
+   }
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 V96's closure reproduces with free kappa_s in the embedding V96 actually used (flipped: 10/10 node counts close exactly, residual < 1e-10, thresholds in the desert)",
+   "pass": true
+  },
+  {
+   "name": "T4 the closure is embedding-specific: the Georgi-Glashow split of the 16 closes for 5/10 node counts under the same desert floor, so V96's closure is a property of the flipped embedding it selected implicitly",
+   "pass": true
+  },
+  {
+   "name": "T1 no single class invariant of the root closes the meeting (best residual > 1e-10 over 46 invariant x embedding combinations x 10 node counts)",
+   "pass": true
+  },
+  {
+   "name": "T2 the linear Cartan controls X, Y reproduce V105's failure (residual > 1e-6 in every embedding)",
+   "pass": true
+  },
+  {
+   "name": "T3 the two-coupling relaxation is reported as a reduction (six named inputs -> two couplings) whenever it is desert-valid, never as a derivation",
+   "pass": true
+  }
+ ],
+ "status": "CLASS INVARIANTS AS THE SOURCE OF THE SIX kappa_s (W4). V96's exact closure reproduces with free kappa_s in the flipped embedding V96 used (10/10 node counts, residual < 1e-10, thresholds inside the desert); the Georgi-Glashow split closes only 5/10 under the same desert floor, so the closure is embedding-specific. Scanning 46 class invariants of the fragment classes (Dynkin indices T1,T2,T3 and sum, Casimirs C2(SU3),C2(SU2), multiplicity, the Wilson charges X,Y and X^2,Y^2,X^2+Y^2,XY, B, L, B-L, B+L, colour triality, beta-function coefficients) as kappa_s = g f_s: none closes the meeting. Best single invariant C2_SU3 (flipped) at residual 2.462e-01 (n = 6, g = 1.872, desert True); the linear Cartan controls X, Y sit at flipped/X 7.22e+05; flipped/Y_dir 7.66e+04; Georgi-Glashow/X 3.16e+05; Georgi-Glashow/Y_dir 5.11e+05, reproducing V105. Two-coupling relaxation kappa = g1 f + g2 f': 217 of 506 candidate pairs keep every threshold in the desert, best T3+C2_SU3 at residual 0.000e+00. VERDICT: no representation-level invariant of the fragment classes supplies the junction strengths, in either embedding: V105's no-go extends from Cartan charges to class invariants, and V96's six named kappa_s stay irreducibly named automaton inputs. The two-coupling relaxation is a reduction (6 named -> 2 couplings), not a derivation."
+}

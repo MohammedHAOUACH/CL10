@@ -1,0 +1,97 @@
+{
+ "experiment": "V129_gauged_layer_gap",
+ "data": {
+  "channels": {
+   "pair": {
+    "-0.0": 2,
+    "36.0": 20,
+    "64.0": 90,
+    "84.0": 240,
+    "96.0": 420,
+    "100.0": 252
+   },
+   "shared": {
+    "0.0": [
+     1,
+     1,
+     2
+    ],
+    "64.0": [
+     45,
+     1,
+     2
+    ],
+    "96.0": [
+     210,
+     1,
+     2
+    ]
+   },
+   "sum_m_r_N_r": 6,
+   "dim_ker_predicted": 24
+  },
+  "three_site": {
+   "dim": 4050,
+   "ker": 2,
+   "C2_45": 64.0,
+   "gap": 63.99999999999967,
+   "gap_next": 63.99999999999984,
+   "low": [
+    1.4738210651898997e-14,
+    6.032636074167728e-14,
+    63.99999999999967,
+    63.99999999999981,
+    63.99999999999984,
+    63.99999999999984,
+    63.999999999999844,
+    63.99999999999985
+   ]
+  },
+  "two_site": {
+   "dim": 90,
+   "ker": 0,
+   "gap": 63.9999999999999,
+   "low": [
+    63.9999999999999,
+    63.99999999999991,
+    63.999999999999915,
+    63.999999999999915,
+    63.999999999999915,
+    63.99999999999993
+   ]
+  },
+  "entanglement": {
+   "n_ground": 2,
+   "S_mixture": 4.4998096703302695,
+   "ln_pair_bound": 4.499809670330265,
+   "purity_mixture": 0.01111111111111109,
+   "S_typical": 3.806662489770316,
+   "S_sd": 4.1003168222129877e-16,
+   "S_min": 3.806662489770315,
+   "S_max": 3.8066624897703165,
+   "ln45": 3.8066624897703196,
+   "saturation": 0.9999999999999992,
+   "bekenstein_deficit": 15.226649959081278
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T1 the flux data reproduce V99: pair channels with m_1 = 2 singlets and m_45 = 2 adjoints, shared with 45 (x) 45 over 3 channels (C2, d_r, N_r, m_r) = [(0.0, 1, 1, 2), (64.0, 45, 1, 2), (96.0, 210, 1, 2)], so the three-site chain has dim ker = m_45^2 sum_r m_r N_r = 4 x 6 = 24",
+   "pass": true
+  },
+  {
+   "name": "T2 the vertex Gauss Laplacian on (pair-adjoint) (x) link has kernel dimension 2 = m_45 (the V98/V99 intertwiner space; the glued two-site sector is m_45^2 = 4) and a gap of 64.0000 lattice units = C2(45) = 64.0000, the electric energy of one adjoint flux quantum (lowest four nonzero levels [np.float64(64.0), np.float64(64.0), np.float64(64.0), np.float64(64.0)])",
+   "pass": true
+  },
+  {
+   "name": "T3 the one-link chain with the matter pair in the SINGLET channel has 0 gauge-invariant state(s) - adjoint flux cannot screen singlet matter, the V98 centre obstruction - and its gap is 64.0000 = C2(45), identical to the three-site value 64.0000: the gap does NOT fall with the chain length",
+   "pass": true
+  },
+  {
+   "name": "T4 the bond cut saturates both bounds: the mixture over the 2 kernel states has S = 4.499810 against the pair-side bound ln 90 = 4.499810 (purity 0.011111), while EVERY single physical state carries S = 3.806662 +- 0.000000 nats over 400 random choices, in [3.806662, 3.806662] = the link bound ln 45 = 3.806662 of V99: the intertwiner sector is maximally entangled across the bond, one ln 45 per bond, and the Bekenstein coefficient 1/4 per Planck area is short by the factor 4 ln 45 = 15.2266",
+   "pass": true
+  }
+ ],
+ "status": "THE GAUGED BOND LAYER IS MASSIVE AND ITS BOND ENTROPY IS EXACTLY SATURATED (H). The vertex Gauss Laplacian has kernel dimension 2 = m_45 (the V98/V99 intertwiner space; the three-site channel count is 24 = m_45^2 sum_r m_r N_r) and a gap of 64.0000 lattice units = C2(45), identical to the one-link value 64.0000 and unchanged when the chain is extended: one adjoint flux quantum sets the scale of the layer, so it supplies no light vector sector. Across the bond EVERY single physical state of that sector saturates the link bound, S = 3.806662 +- 0.000000 = ln 45 = 3.806662 over 400 random choices, and the mixture over the kernel reaches 4.499810, the pair-side bound ln 90 = 4.499810 (purity 0.011111). The area law of Section 9 is therefore exact on the physical sector - one ln 45 per bond - and the Bekenstein coefficient 1/4 per Planck area remains short by the factor 4 ln 45 = 15.2266. VERDICT: Planck-scale massive physics with a saturated bond entropy, not a source of massless gauge bosons."
+}
