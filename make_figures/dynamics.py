@@ -156,8 +156,7 @@ def fig18_young():
     the two diffracted waves interfering), (b) the time-integrated interference
     pattern + its x-profile (the fringe groups), (c) the 9-to-1 collapse of one
     electron onto a point, (d) the reality -- the accumulated single-electron
-    detections cluster into the fringe groups.  Opt-in (--young); its PNG is
-    committed."""
+    detections cluster into the fringe groups."""
     import matplotlib.patches as mpatches
     np.random.seed(2026)
     from simulation.young import collapse as Coll
@@ -193,7 +192,7 @@ def fig18_young():
 
     # -- (a) the wave: a *separate* driven sheet beam (continuous mode) so the
     # x-z slice shows the full field diffracting through the two slits and the
-    # two waves interfering (like fig25) -- a single electron's small packet
+    # two waves interfering -- a single electron's small packet
     # would only show a little blob.
     sim_a = wave.WaveSim(dict(cfg, source_mode="continuous",
                               source_shape="sheet"))

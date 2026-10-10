@@ -142,7 +142,7 @@ def fig26_w4_closure():
     box(1.9, 0.30, 9.0, 0.95,
         "CLOSED CONDITIONALLY BY V96: a flavour-dependent bond layer "
         "($\\kappa_s$ per class)\nmeets exactly at $M_X = 1.8\\times10^{16}$ "
-        "GeV for all $n = 3\\dots12$ - six named inputs (Fig. 33)",
+        "GeV for all $n = 3\\dots12$ - six named inputs (Section 11.1)",
         "#2c7a3f", "#eaf6ec", lw=2.0, fs=11.5)
     for x in (3.2, 9.7):
         arrow(x, 1.75, 6.4, 1.2)

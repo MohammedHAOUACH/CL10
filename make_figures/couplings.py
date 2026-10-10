@@ -166,7 +166,8 @@ def fig20_desert():
     axB.set_xlabel(r"$M_X$  (GeV)")
     axB.set_ylabel(r"$\tau_p$  (yr)")
     axB.set_ylim(1e33, 3e48)
-    axB.set_title("(b)  the desert point sits $75\\times$ above the bound — "
+    axB.set_title(f"(b)  the desert point sits "
+                  f"{sel['tau_p_yr'] / 2.4e34:.0f}$\\times$ above the bound — "
                   "F5 is live", fontsize=11.5)
     axB.legend(fontsize=10, loc="upper left", framealpha=0.95)
     fig.suptitle("The desert solution (V64):  three $\\mathbf{10}\\oplus"
