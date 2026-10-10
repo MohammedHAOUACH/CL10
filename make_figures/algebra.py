@@ -103,7 +103,7 @@ def fig6_anomaly():
                  "\ncancel ($\\sum = 0$) — the 16 Weyl is anomaly-free")
     save(fig, "fig6_anomaly_free.png")
 
-def fig9_cpt_mirror():
+def fig8_cpt_mirror():
     from cl10 import qca_spectrum as qs
 
     p = qs.cpt_block_phases()
@@ -126,9 +126,9 @@ def fig9_cpt_mirror():
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.26), ncol=3,
               framealpha=0.95, fontsize=10.5)
     fig.subplots_adjust(bottom=0.24)
-    save(fig, "fig9_cpt_mirror.png")
+    save(fig, "fig8_cpt_mirror.png")
 
-def fig11_matter_content():
+def fig10_matter_content():
 
     items = [
         (r"$Q$",   6, r"$(3,2,+1/6)$",   "10", C_SU3),
@@ -161,9 +161,9 @@ def fig11_matter_content():
     ax.set_title(r"The 16 Weyl $= $ one full SM generation $= \mathbf{10} \oplus \mathbf{\bar 5} \oplus \mathbf{1}$ of $\mathrm{SU}(5)$"
                  r"  —  the six left-handed fields, total dimension $16$ (exact, 0-parameter)",
                  fontsize=12)
-    save(fig, "fig11_matter_content.png")
+    save(fig, "fig10_matter_content.png")
 
-def fig32_graphical_abstract():
+def fig31_graphical_abstract():
     from matplotlib.patches import FancyBboxPatch
     fig, ax = plt.subplots(figsize=(10.6, 6.0))
     ax.set_xlim(-5.95, 5.95)
@@ -215,9 +215,9 @@ def fig32_graphical_abstract():
     ax.set_title("One Clifford root, five theorems — every entry is "
                  "algebraic and 0-parameter", fontsize=14)
     fig.tight_layout(pad=0.4)
-    save(fig, "fig32_graphical_abstract.png")
+    save(fig, "fig31_graphical_abstract.png")
 
-def fig34_brillouin_doublers():
+def fig33_brillouin_doublers():
     from cl10 import brillouin
     r = brillouin.brillouin()
     nodes = r["nodes"]
@@ -258,4 +258,4 @@ def fig34_brillouin_doublers():
                  "displayed, not hidden", fontsize=13)
     ax.view_init(elev=18, azim=-58)
     fig.tight_layout()
-    save(fig, "fig34_brillouin_doublers.png")
+    save(fig, "fig33_brillouin_doublers.png")

@@ -49,8 +49,8 @@ are physical parameters of the atom, **not** fitted to any measured number.
     python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py
 
 -> the verdict ``experiments/V62_hydrogen_production/results/v62_hydrogen_production.json``
-+ the figure ``doc/figures/fig20_hydrogen.png`` and the run metadata
-``experiments/V62_hydrogen_production/results/fig20_hydrogen.meta.json``.
++ the figure ``doc/figures/fig19_hydrogen.png`` and the run metadata
+``experiments/V62_hydrogen_production/results/fig19_hydrogen.meta.json``.
 """
 
 import os
@@ -80,9 +80,9 @@ import matplotlib.pyplot as plt
 
 from simulation.hydrogen import runner, qca as QCA, backend as B
 
-OUT_PNG = os.path.join(ROOT, "doc", "figures", "fig20_hydrogen.png")
+OUT_PNG = os.path.join(ROOT, "doc", "figures", "fig19_hydrogen.png")
 OUT_META = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results",
-                        "fig20_hydrogen.meta.json")
+                        "fig19_hydrogen.meta.json")
 
 
 # ---------------------------------------------------------------------------

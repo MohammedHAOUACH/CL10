@@ -9,95 +9,7 @@ from .style import ROOT, save
 from .style import C_ALG, C_CONV, C_FIT, C_GUT, C_OPEN, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
-def _treemap(items, x, y, w, h, out):
-    """Binary treemap: items [(idx, size)] laid out in the rect (x, y, w, h)."""
-    if not items:
-        return
-    if len(items) == 1:
-        out.append((items[0][0], x, y, w, h))
-        return
-    tot = sum(s for _, s in items)
-    best, best_ratio, acc = 1, None, 0
-    for k in range(1, len(items)):
-        acc += items[k - 1][1]
-        r = max(acc / (tot - acc), (tot - acc) / acc)
-        if best_ratio is None or r < best_ratio:
-            best_ratio, best = r, k
-    frac = sum(s for _, s in items[:best]) / tot
-    if w >= h:
-        _treemap(items[:best], x, y, w * frac, h, out)
-        _treemap(items[best:], x + w * frac, y, w * (1 - frac), h, out)
-    else:
-        _treemap(items[:best], x, y, w, h * frac, out)
-        _treemap(items[best:], x, y + h * frac, w, h * (1 - frac), out)
-
-
-def fig8_audit():
-    """The parameter audit as a treemap: every headline number of Table 5 is
-    one equal-area cell; cells are grouped and coloured by provenance."""
-    classes = [  # (label, color, the numbers themselves)
-        ("algebraic — 0-parameter", C_ALG,
-         [r"$16/\overline{16}$", "the $45$", "the $5/3$", "8 anomalies",
-          "32-spectrum", r"$\det U = 1$", "CPT mirror"]),
-        ("free parameter", C_ROOT, [r"$g_{10} = 1/5$"]),
-        ("convention", C_CONV,
-         [r"$\alpha_{10} \equiv g_{10}^2$", r"$g_0 = 1/2^{n_{\rm space}}$"]),
-        ("fitted coefficient", C_FIT,
-         ["2.08 (hierarchy; V108: $3F_{10}^{10}$, conditional)", "1.18 (DM mass)", r"$n_{2\text{step}} = 3$",
-          r"$M_{10}$", r"$M_{(1,2)}$", r"$\lambda_* = 4{\times}10^{-4}$",
-          r"$\kappa_1$", r"$\kappa_2$", r"$\kappa_3$", r"$\kappa_4$",
-          r"$\kappa_5$", r"$\kappa_6$"]),
-        ("open residual", C_OPEN,
-         ["W1 $\\Lambda$", "W2 $m_\\nu$", "W3 $N_{\\rm gen}$", "W4 unification",
-          "W5 $\\Delta B$", "W6 masses", "W7 DM", "W8 hierarchy", "W9 quantum"]),
-    ]
-    items = [(ci, len(nums)) for ci, (_, _, nums) in enumerate(classes)]
-    rects = []
-    _treemap(items, 0, 0, 12.0, 5.6, rects)
-
-    fig, ax = plt.subplots(figsize=(12.2, 6.1))
-    ax.set_xlim(0, 12.0)
-    ax.set_ylim(0, 5.6)
-    ax.axis("off")
-    ax.set_aspect("equal")
-
-    for (ci, x, y, w, h) in rects:
-        lab, col, nums = classes[ci]
-        ax.add_patch(plt.Rectangle((x, y), w, h, fc=col, ec="white",
-                                   lw=2.0, alpha=0.92, zorder=2))
-        hdr = 0.30
-        fs_h = 12 if w >= 2.2 else 8
-        ax.text(x + 0.08, y + h - hdr / 2 - 0.03, f"{lab}  ({len(nums)})",
-                fontsize=fs_h, weight="bold", color="white",
-                ha="left", va="center", zorder=4)
-        # equal-area cells inside the block: pick the grid that wastes the
-        # fewest slots and keeps cells closest to square
-        n = len(nums)
-        iw, ih = w - 0.16, h - hdr - 0.16
-        cols = min(range(1, n + 1),
-                   key=lambda c: abs(math.log((iw / c) / (ih / math.ceil(n / c))))
-                                 + 0.15 * (math.ceil(n / c) * c - n))
-        rows = math.ceil(n / cols)
-        cw = (w - 0.16) / cols
-        ch = (h - hdr - 0.16) / rows
-        for i, name in enumerate(nums):
-            r_, c_ = divmod(i, cols)
-            cx = x + 0.08 + c_ * cw
-            cy = y + h - hdr - 0.08 - (r_ + 1) * ch
-            ax.add_patch(plt.Rectangle((cx + 0.02, cy + 0.02),
-                                       cw - 0.04, ch - 0.04,
-                                       fc="white", ec=col, lw=1.0,
-                                       alpha=0.96, zorder=3))
-            fs = 11 if min(cw, ch) > 0.7 else 9.5
-            ax.text(cx + cw / 2, cy + ch / 2, name, fontsize=fs,
-                    ha="center", va="center", color="0.15", zorder=4)
-    ax.set_title("The parameter audit, by area: 31 headline numbers, five provenance classes\n"
-                 "(Table 5 — the algebraic block is 0-parameter and $g_{10}$-independent; "
-                 "everything else is named)", fontsize=13.5)
-    fig.tight_layout(pad=0.5)
-    save(fig, "fig8_parameter_audit.png")
-
-def fig23_gauged_layer():
+def fig22_gauged_layer():
     import json
     with open(os.path.join(ROOT, "experiments", "V79_gauged_bond_layer",
                            "results", "v79_gauged_bond_layer.json")) as f:
@@ -153,9 +65,9 @@ def fig23_gauged_layer():
     fig.suptitle("The gauged bond layer (V79): the Gauss constraint closes "
                  "on the root module", fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig23_gauged_bond_layer.png")
+    save(fig, "fig22_gauged_bond_layer.png")
 
-def fig27_w4_closure():
+def fig26_w4_closure():
     import json
     def load(e, f):
         with open(os.path.join(ROOT, "experiments", e, "results", f)) as fh:
@@ -239,9 +151,9 @@ def fig27_w4_closure():
                  "fragment content is feasible (V92) and the meeting "
                  "closes conditionally (V96)", fontsize=13.5)
     fig.tight_layout()
-    save(fig, "fig27_w4_closure.png")
+    save(fig, "fig26_w4_closure.png")
 
-def fig28_w7_portal():
+def fig27_w7_portal():
     import json
     with open(os.path.join(ROOT, "experiments", "V88_mirror_scalar",
                            "results", "v88_mirror_scalar.json")) as f:
@@ -317,9 +229,9 @@ def fig28_w7_portal():
     fig.suptitle("The built dark-matter fix, audited against its own "
                  "symmetry (V88)", fontsize=13.5)
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.34)
-    save(fig, "fig28_w7_portal.png")
+    save(fig, "fig27_w7_portal.png")
 
-def fig29_loop_selection():
+def fig28_loop_selection():
     import json
     with open(os.path.join(ROOT, "experiments", "V89_loop_selection",
                            "results", "v89_loop_selection.json")) as f:
@@ -388,9 +300,9 @@ def fig29_loop_selection():
              f"composition misses by x{root['extrapolation_ratio']:.0e}",
              fontsize=10.5, color="0.25", va="bottom")
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.30)
-    save(fig, "fig29_loop_selection.png")
+    save(fig, "fig28_loop_selection.png")
 
-def fig30_w2_protection():
+def fig29_w2_protection():
     import json
     with open(os.path.join(ROOT, "experiments", "V90_w2_protection",
                            "results", "v90_w2_protection.json")) as f:
@@ -468,9 +380,9 @@ def fig30_w2_protection():
                  "artifact of the wrong Dirac assumption (V103)",
                  fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig30_w2_protection.png")
+    save(fig, "fig29_w2_protection.png")
 
-def fig31_w3_forcing():
+def fig30_w3_forcing():
     import json
     with open(os.path.join(ROOT, "experiments", "V91_w3_forcing",
                            "results", "v91_w3_forcing.json")) as f:
@@ -543,9 +455,9 @@ def fig31_w3_forcing():
     fig.suptitle("Is the family count 3 forced? No - the symmetric "
                  "alternative is excluded (V91)", fontsize=13.5)
     fig.tight_layout(rect=[0, 0.13, 1, 0.93])
-    save(fig, "fig31_w3_forcing.png")
+    save(fig, "fig30_w3_forcing.png")
 
-def fig33_w4_cone():
+def fig32_w4_cone():
     import json
     with open(os.path.join(ROOT, "experiments", "V92_w4_feasibility",
                            "results", "v92_w4_feasibility.json")) as fh:
@@ -616,9 +528,9 @@ def fig33_w4_cone():
     ax.set_xlim(v2[:, 0].min() - 0.35, v2[:, 0].max() + 1.85)
     ax.set_ylim(v2[:, 1].min() - 1.45, v2[:, 1].max() + 0.30)
     fig.tight_layout()
-    save(fig, "fig33_w4_cone.png")
+    save(fig, "fig32_w4_cone.png")
 
-def fig36_vertex_ground_state():
+def fig35_vertex_ground_state():
     import json
     p100 = os.path.join(ROOT, "experiments", "V100_vertex_correction",
                         "results", "v100_vertex_correction.json")
@@ -686,10 +598,10 @@ def fig36_vertex_ground_state():
                  "ground state of the gauged layer (V100, V101)",
                  fontsize=13.5)
     fig.tight_layout()
-    save(fig, "fig36_vertex_ground_state.png")
+    save(fig, "fig35_vertex_ground_state.png")
 
 
-def fig37_residual_attacks():
+def fig36_residual_attacks():
     """Attacking the residuals head-on: V109 (W5 CP/mirror), V110 (W4 bond
     off-diagonal), V111 (W6 generation dressing), V112 (W7 dark U(1)),
     V113 (W8 axis factorization), V116 (W3 triangle orbit-8)."""
@@ -871,10 +783,10 @@ def fig37_residual_attacks():
     fig.suptitle("Attacking the residuals head-on: what V109-V116 close, "
                  "what they name", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.955])
-    save(fig, "fig37_residual_attacks.png")
+    save(fig, "fig36_residual_attacks.png")
 
 
-def fig38_doubler_cones():
+def fig37_doubler_cones():
     """V102: the twelve doubler cones are exactly linear but never round."""
     import json
     d = json.load(open(os.path.join(
@@ -954,10 +866,10 @@ def fig38_doubler_cones():
     fig.suptitle("The twelve doubler cones: exactly linear, never Lorentz-"
                  "round (V102)", fontsize=14.5)
     fig.subplots_adjust(left=0.03, right=0.99, bottom=0.12, top=0.79)
-    save(fig, "fig38_doubler_cones.png")
+    save(fig, "fig37_doubler_cones.png")
 
 
-def fig39_isotropy_search():
+def fig38_isotropy_search():
     """V115: no isotropy point on the whole V65 Wilson family."""
     import json
     d = json.load(open(os.path.join(
@@ -1020,4 +932,4 @@ def fig39_isotropy_search():
     fig.suptitle("Is continuous Lorentz invariance emergent anywhere on "
                  "the Wilson family? No (V115)", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig39_isotropy_search.png")
+    save(fig, "fig38_isotropy_search.png")

@@ -3,7 +3,7 @@
 """
 The 3-D black hole -- the **live** VisPy visualizer (CL10).
 
-The scene (the fig24 left panel, made live):
+The scene (the fig17 left panel, made live):
 
   * the **embedding well** Phi = -M/r (the capped Schwarzschild time-time
     part) as a translucent surface;
@@ -17,7 +17,7 @@ The scene (the fig24 left panel, made live):
 
 Keys
 ----
-- **1** : fire the **rosette** (fig24's orbit: slightly bound, it precesses).
+- **1** : fire the **rosette** (fig17's orbit: slightly bound, it precesses).
 - **2** : fire the **tight rosette** (closer: the precession per turn is
   much larger -- the rosette visibly rotates).
 - **3** : fire the **plunge** (below the circular speed: it spirals in).
@@ -31,7 +31,7 @@ Keys
 
 Nothing is fitted: M = 1 (the 0-parameter Planck-mass hole, G = c = 1), the
 Christoffels are the CL10 central finite differences (H_FD = 1e-3), the
-geodesic is the CL10 gravity ODE -- the same code path as fig24.
+geodesic is the CL10 gravity ODE -- the same code path as fig17.
 """
 
 import numpy as np

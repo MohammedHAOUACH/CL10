@@ -36,8 +36,8 @@ python3 -m make_figures --cpu          # force the numpy backend
 4. **Fig. 20 (hydrogen)** is *not* a matplotlib figure of this package: it
    is the product of `experiments/V62_hydrogen_production` (production
    296³ GPU run), invoked here as a subprocess so it re-pins its own card
-   and writes `doc/figures/fig20_hydrogen.png` +
-   `experiments/V62_hydrogen_production/results/fig20_hydrogen.meta.json`
+   and writes `doc/figures/fig19_hydrogen.png` +
+   `experiments/V62_hydrogen_production/results/fig19_hydrogen.meta.json`
    itself. A nonzero V62 exit code fails the whole run.
 
 ## Conventions

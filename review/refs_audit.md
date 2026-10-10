@@ -1,4 +1,4 @@
-# Audit bibliographique — doc/publication.md (52 références)
+# Audit bibliographique — doc/publication.md (53 références)
 
 Date : 2026-10-06. Méthode : chaque entrée vérifiée contre Crossref (DOI direct
 ou query titre+auteur+volume+page), INSPIRE HEP et l'API arXiv. Un DOI n'est
@@ -68,6 +68,45 @@ vérifiés ont été régénérés et re-vérifiés contre Crossref
 (publication/fetch_dois.py -> publication/doi.json) et sont réinjectés en
 ligne dans la bibliographie du PDF (https://doi.org/..., cliquables).
 
+## Re-audit complet (2026-10-10) — 53 entrées
+
+La bibliographie est passée de 52 à 53 entrées (ajout de [53] LZ 4.2 t·yr,
+PRL 135, 011802 (2025), arXiv:2410.17036). Deux corrections :
+
+- **[50] NuFIT 6.0** : la référence PoS ICHEP2024, 446 (2025) citée dans
+  l'article n'existe pas comme publication PoS. La version publiée est
+  Esteban, Gonzalez-Garcia, Maltoni, Martinez-Soler, Schwetz,
+  **JHEP 12, 216 (2024)**, DOI 10.1007/JHEP12(2024)216 (arXiv:2410.05380).
+  Bibliographie et CLAIMS de verify_refs.py corrigés.
+- **[5] D'Ariano-Perinotti** : DOI correct 10.1007/s11467-016-0616-z
+  (Front. Phys. 12, 120301), vérifié Crossref+INSPIRE.
+
+Méthode renforcée (passe 7, ad hoc) : plutôt qu'une recherche floue par
+titre, chaque DOI enregistré dans `publication/doi.json` a été résolu
+directement (doi.org / Crossref works API) et comparé à l'entrée imprimée
+(journal, volume, page, année). La recherche floue de la passe 1 signale 8
+faux positifs (titres génériques : PDG, Planck, SK, LZ, Sakharov, 't Hooft,
+Machacek-Vaughn) ; le contrôle par DOI direct les confirme **12/12** (les 4
+autres DOI-entrées contrôlées passent aussi). Le contrôle est reproductible
+avec les DOIs de doi.json ; les 9 DOIs confirmés à la main (Crossref works
+API / INSPIRE) sont désormais figés dans `publication/fetch_dois.py`
+(MANUAL_DOIS), doi.json est donc stable aux régénérations.
+
+doi.json régénéré : **47 DOIs vérifiés sur 53**. Les 6 sans DOI sont des
+livres ([9], [11], [18], [41]), un arXiv-only ([30]) et Sakharov [24]
+(Pisma Zh.Eksp.Teor.Fiz. 5, 24 (1967), non indexé Crossref ; le DOI
+10.1070/PU1991v034n05ABEH002497 est celui de la traduction anglaise
+Sov. Phys. Uspekhi 34, 392 (1991), confirmé INSPIRE).
+
+Incident de réécriture corrigé : l'entrée [24] Sakharov avait été supprimée
+par erreur lors de la réorganisation de la bibliographie (suppression de la
+mauvaise ligne dupliquée) ; le build PDF ne produisait que 52 bibitems et
+laissait `ref53` non résolu. Entrée restaurée à sa place (entre [23] et
+[25]) — numérotation 1-53 cohérente dans le PDF.
+
+Build vérifié (2026-10-10) : `publication/publication.pdf` 40 p.,
+0 erreur LaTeX, 0 citation non résolue, 53 bibitems, 47 liens DOI cliquables.
+
 ## Fichiers touchés
 
 - doc/publication.md : bibliographie réécrite (32→52), 23 citations insérées
@@ -77,3 +116,6 @@ ligne dans la bibliographie du PDF (https://doi.org/..., cliquables).
 - livrable/publication.{tex,pdf} : recompilé (55 p., 52 bibitems, 46 DOIs,
   aucun avertissement de citation non résolue) — remplacé par
   publication/publication.pdf (24 p., deux colonnes).
+- (2026-10-10) publication/fetch_dois.py : bloc MANUAL_DOIS (9 DOIs confirmés
+  à la main) ; publication/doi.json : 47 DOIs régénérés ; doc/publication.md :
+  [50] corrigé en JHEP 12, 216 (2024), [24] restauré.

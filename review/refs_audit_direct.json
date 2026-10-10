@@ -1,0 +1,105 @@
+[
+  {
+    "n": 13,
+    "verdict": "CHECK",
+    "method": "direct DOI",
+    "doi": "10.1103/PhysRevD.110.030001",
+    "crossref_title": "Review of Particle Physics",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "110",
+    "crossref_page": null,
+    "crossref_year": 2024,
+    "problems": [
+      "title True journal False vol True page False year True"
+    ]
+  },
+  {
+    "n": 14,
+    "verdict": "CHECK",
+    "method": "direct DOI",
+    "doi": "10.1051/0004-6361/201833910",
+    "crossref_title": "<i>Planck</i>\n                    2018 results",
+    "crossref_journal": "Astronomy &amp; Astrophysics",
+    "crossref_volume": "641",
+    "crossref_page": "A6",
+    "crossref_year": 2020,
+    "problems": [
+      "title False journal False vol True page True year True"
+    ]
+  },
+  {
+    "n": 15,
+    "verdict": "CHECK",
+    "method": "direct DOI",
+    "doi": "10.1103/PhysRevD.102.112011",
+    "crossref_title": "Search for proton decay via\n                    <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\">\n                      <mml:mi>p</mml:mi>\n                      <mml:mo stretchy=\"false\">→</mml:mo>\n                      <mml:msup>\n                        <mml:mi>e</mml:mi>\n                        <mml:mo>+</mml:mo>\n                      </mml:msup>\n                      <mml:msup>\n                        <mml:mi>π</mml:mi>\n                        <mml:mn>0</mml:mn>\n                      </mml:msup>\n                    </mml:math>\n                    and\n                    <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\">\n                      <mml:mi>p</mml:mi>\n                      <mml:mo stretchy=\"false\">→</mml:mo>\n                      <mml:msup>\n                        <mml:mi>μ</mml:mi>\n                        <mml:mo>+</mml:mo>\n                      </mml:msup>\n                      <mml:msup>\n                        <mml:mi>π</mml:mi>\n                        <mml:mn>0</mml:mn>\n                      </mml:msup>\n                    </mml:math>\n                    with an enlarged fiducial volume in Super-Kamiokande I-IV",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "102",
+    "crossref_page": null,
+    "crossref_year": 2020,
+    "problems": [
+      "title False journal True vol True page False year True"
+    ]
+  },
+  {
+    "n": 16,
+    "verdict": "API_ERROR",
+    "method": "direct DOI",
+    "doi": "10.1126/science.adq3270",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "n": 24,
+    "verdict": "API_ERROR",
+    "method": "direct DOI",
+    "doi": "10.1070/1967v005p0024",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "n": 35,
+    "verdict": "OK",
+    "method": "direct DOI",
+    "doi": "10.1103/PhysRevD.7.2333",
+    "crossref_title": "Black Holes and Entropy",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "7",
+    "crossref_page": "2333-2346",
+    "crossref_year": 1973,
+    "problems": []
+  },
+  {
+    "n": 50,
+    "verdict": "CHECK",
+    "method": "direct DOI",
+    "doi": "10.22323/1.476.0446",
+    "crossref_title": "New results from analyses of rare kaon and pion decays at the NA62 experiment",
+    "crossref_journal": "Proceedings of 42nd International Conference on High Energy Physics — PoS(ICHEP2024)",
+    "crossref_volume": null,
+    "crossref_page": "446",
+    "crossref_year": 2024,
+    "problems": [
+      "title False journal False vol True page True year True"
+    ]
+  },
+  {
+    "n": 52,
+    "verdict": "CHECK",
+    "method": "direct DOI",
+    "doi": "10.1103/PhysRevD.90.072005",
+    "crossref_title": "Search for proton decay via\n                    <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\">\n                      <mml:mi>p</mml:mi>\n                      <mml:mo stretchy=\"false\">→</mml:mo>\n                      <mml:mi>ν</mml:mi>\n                      <mml:msup>\n                        <mml:mi>K</mml:mi>\n                        <mml:mo>+</mml:mo>\n                      </mml:msup>\n                    </mml:math>\n                    using\n                    <mml:math xmlns:mml=\"http://www.w3.org/1998/Math/MathML\" display=\"inline\">\n                      <mml:mrow>\n                        <mml:mn>260</mml:mn>\n                        <mml:mtext> </mml:mtext>\n                        <mml:mtext> </mml:mtext>\n                        <mml:mi>kiloton</mml:mi>\n                        <mml:mo>·</mml:mo>\n                        <mml:mi>year</mml:mi>\n                      </mml:mrow>\n                    </mml:math>\n                    data of Super-Kamiokande",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "90",
+    "crossref_page": null,
+    "crossref_year": 2014,
+    "problems": [
+      "title False journal True vol True page False year True"
+    ]
+  },
+  {
+    "n": 53,
+    "verdict": "API_ERROR",
+    "method": "direct DOI",
+    "doi": "10.1103/t7hr-tr4v",
+    "error": "HTTP Error 404: Not Found"
+  }
+]

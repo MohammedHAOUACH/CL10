@@ -9,7 +9,7 @@ from .style import ROOT, save
 from .style import C_ZERO
 
 
-def fig17_qca_wave():
+def fig16_qca_wave():
     """The 0-parameter QCA field (the same 4-neighbour discrete wave equation
     as the CL10 graviton): a pulse emits a **causal light-cone** — the signal
     propagates at the lattice speed $c=0.5$ and never faster (the QCA is
@@ -53,9 +53,9 @@ def fig17_qca_wave():
                  "drops $\\propto 1/\\mathrm{area}$ as the causal support expands at $c=0.5$ "
                  "(the unitary norm is conserved)", fontsize=12.5, y=0.985)
     fig.subplots_adjust(top=0.88, left=0.05, right=0.98, wspace=0.12, hspace=0.45)
-    save(fig, "fig17_qca_wave.png")
+    save(fig, "fig16_qca_wave.png")
 
-def fig18_gravity_3d():
+def fig17_gravity_3d():
     """The Planck-mass black hole, recovered by computation.  Left: the 3-D
     gravity well with the **geodesic** integrated through the CL10
     finite-difference Christoffel symbols (the precessing rosette) and the
@@ -143,9 +143,9 @@ def fig18_gravity_3d():
     fig.suptitle("The black hole recovered by computation: the well + geodesic "
                  "(left), the 2-route Kretschmann (right)", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig18_gravity_3d.png")
+    save(fig, "fig17_gravity_3d.png")
 
-def fig19_young():
+def fig18_young():
     """The Young double-slit as a single-electron measurement
     (the Tonomura flow).  The emitter fires one localized electron at a time;
     each one diffracts through the slits and is detected at a *single point*
@@ -336,32 +336,87 @@ def fig19_young():
     for sp in inset.spines.values():
         sp.set_color("#444")
     inset.tick_params(colors=LIGHT, labelsize=6.5)
-    save(fig, "fig19_young.png")
+    save(fig, "fig18_young.png")
 
-def fig35_bh_frames():
-    import subprocess
-    import tempfile
-    from matplotlib import image as mpimg
-    vid = os.path.join(ROOT, "simulation", "blackhole", "video",
-                       "blackhole.mp4")
-    if not os.path.exists(vid):
-        return
-    times = [1.5, 4.0, 6.5]
-    with tempfile.TemporaryDirectory() as td:
-        frames = []
-        for k, t in enumerate(times):
-            p = os.path.join(td, f"f{k}.png")
-            subprocess.run(["ffmpeg", "-v", "error", "-ss", str(t),
-                            "-i", vid, "-frames:v", "1", p], check=True)
-            frames.append(mpimg.imread(p))
+def fig34_bh_frames():
+    """Three frames of the scripted geodesic sequence of
+    ``simulation/blackhole`` (the headless video, re-rendered without the
+    HUD): six test particles fired one second apart on the Schwarzschild
+    embedding well of the CL10 gravity sector (M = 1, 0-parameter), each
+    geodesic integrated incrementally through the CL10 finite-difference
+    Christoffels - the same physics as Fig. 17, fixed-step RK4.  The
+    frames show the geodesics being constructed: the precessing rosette,
+    the plunge through the horizon ring, the deflected fly-by, the radial
+    infall, and the near-photon family grazing the photon sphere."""
+    import pyvista as pv
+    import yaml
+    from simulation.blackhole import geodesic as G
+
+    bh_dir = os.path.join(ROOT, "simulation", "blackhole")
+    with open(os.path.join(bh_dir, "config.yaml")) as f:
+        cfg = yaml.safe_load(f)
+    script = [(int(fr), str(k)) for fr, k in cfg["script"]]
+    # 5x the video's chunk: the printed frames need trails long enough to
+    # read (same fixed-step RK4, same script - only the affine-parameter
+    # sampling per rendered frame changes)
+    spf = 60
+    n_frames = int(cfg.get("n_video_frames", 240))
+    fps = int(cfg.get("fps", 30))
+    shots = {n_frames // 4 - 1, n_frames // 2 - 1, n_frames - 1}
+
+    pv.OFF_SCREEN = True
+    bh = G.BlackHole(cfg)
+    R = float(cfg.get("well_radius", 16.0))
+    plotter = pv.Plotter(off_screen=True, border=False,
+                         window_size=tuple(cfg.get("window_size", (1280, 800))))
+    plotter.set_background("#05050f")
+    X, Y, Phi = bh.well(R, n=90)
+    grid = pv.StructuredGrid(X, Y, Phi)
+    grid["depth"] = Phi.ravel()
+    plotter.add_mesh(grid, scalars="depth", cmap="coolwarm", opacity=0.5,
+                     show_edges=False, lighting=True, show_scalar_bar=False)
+    hx, hy, hz = bh.horizon_ring()
+    plotter.add_mesh(pv.MultipleLines(np.column_stack([hx, hy, hz])),
+                     color="white", line_width=2)
+    lines = {}
+
+    def refresh(p):
+        pts = np.array(p.trail)
+        if len(pts) < 2:
+            return
+        if id(p) in lines:
+            lines[id(p)].mapper.SetInputData(pv.MultipleLines(pts))
+        else:
+            lines[id(p)] = plotter.add_mesh(pv.MultipleLines(pts),
+                                            color=p.color, line_width=2.5)
+
+    # the runner's camera; no HUD text (the video carries one, the figure
+    # must not)
+    plotter.camera_position = [(0.9 * R, -1.9 * R, 1.15 * R), (0, 0, -6.0),
+                               (0, 0, 1)]
+    frames = {}
+    for frame in range(n_frames):
+        for fr, k in script:
+            if fr == frame:
+                bh.fire(k)
+        bh.advance(spf)
+        for p in bh.particles:
+            refresh(p)
+        if frame in shots:
+            frames[frame] = plotter.screenshot(None, return_img=True)
+    plotter.close()
+
+    times = [fr / fps for fr in sorted(frames)]
     fig, axs = plt.subplots(1, 3, figsize=(12.6, 4.4))
-    caps = [f"$t = {t}$ s" for t in times]
-    for ax, im, cap in zip(axs, frames, caps):
-        ax.imshow(im)
+    for ax, fr, t in zip(axs, sorted(frames), times):
+        ax.imshow(frames[fr])
         ax.set_xticks([])
         ax.set_yticks([])
-        ax.set_title(cap, fontsize=12)
-    fig.suptitle("Gravity rendered: null geodesics of the V6 metric, "
-                 "ray-traced (simulation/blackhole)", fontsize=13.5)
-    fig.tight_layout()
-    save(fig, "fig35_bh_frames.png")
+        ax.set_title(f"$t = {t:.1f}$ s", fontsize=12)
+    handles = [plt.Line2D([], [], color=p["color"], lw=2,
+                          label=p["name"].split(" (")[0])
+               for p in cfg["presets"].values()]
+    fig.legend(handles=handles, loc="lower center", ncol=6, frameon=False,
+               fontsize=10.5, bbox_to_anchor=(0.5, -0.02))
+    fig.tight_layout(rect=(0, 0.05, 1, 1))
+    save(fig, "fig34_bh_frames.png")

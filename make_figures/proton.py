@@ -9,7 +9,7 @@ from .style import ROOT, save
 from .style import C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
-def fig16_proton_channels():
+def fig15_proton_channels():
     """The partial lifetimes of the three GUT channels p -> e+ pi0,
     p -> mu+ pi0, p -> e+ K+ at the desert point (V64: M_X = 1.8e16 GeV,
     tau_p = 1.8e36 yr).  The rate is set by the two-body phase space
@@ -52,4 +52,4 @@ def fig16_proton_channels():
     ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.22),
               framealpha=0.95, fontsize=10.5)
     fig.subplots_adjust(bottom=0.30)
-    save(fig, "fig16_proton_channels.png")
+    save(fig, "fig15_proton_channels.png")

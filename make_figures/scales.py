@@ -138,7 +138,7 @@ def fig7_ladder():
                  r"(QCD is shown for reference only: it is not produced by the ladder)", fontsize=13)
     save(fig, "fig7_ladder_of_scales.png")
 
-def fig10_sm_head2head():
+def fig9_sm_head2head():
     import json
     from cl10 import eta_cp as ep, dm_wimp as dw, hier_exponent as he
     e = ep.eta_cp()
@@ -201,9 +201,9 @@ def fig10_sm_head2head():
           2.4e34, tau_desert, True, left="SK bound",
           note=f"{tau_desert / 2.4e34:.0f}$\\times$ above the bound\n(F5 live)", ok=True)
     fig.tight_layout(rect=[0, 0, 1, 0.965])
-    save(fig, "fig10_sm_head2head.png")
+    save(fig, "fig9_sm_head2head.png")
 
-def fig13_ladder_sm():
+def fig12_ladder_sm():
     from cl10 import dm_wimp as dw, u10pred as tp
 
     M_P = tp.M_PLANCK
@@ -258,9 +258,9 @@ def fig13_ladder_sm():
                   fontsize=12)
     ax.set_title("The CL10 ladder vs the SM ladder: the same hierarchy,"
                  " from the Planck scale down to the neutrino", fontsize=13)
-    save(fig, "fig13_ladder_sm.png")
+    save(fig, "fig12_ladder_sm.png")
 
-def fig14_residual_reduction():
+def fig13_residual_reduction():
     from cl10 import four_limits as fl
 
     r = fl.unique_10loop()
@@ -314,4 +314,4 @@ def fig14_residual_reduction():
                   "($n = 9$ is 1.4 decades away)", fontsize=12)
     fig.tight_layout(rect=[0, 0, 1, 0.95])
     fig.subplots_adjust(bottom=0.34)
-    save(fig, "fig14_residual_reduction.png")
+    save(fig, "fig13_residual_reduction.png")

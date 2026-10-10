@@ -9,7 +9,7 @@ from .style import ROOT, save
 from .style import C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
-def fig12_couplings_mz():
+def fig11_couplings_mz():
     from cl10 import unification as u
 
     rd = u.running_down()
@@ -45,9 +45,9 @@ def fig12_couplings_mz():
     fig.suptitle("The root coupling $\\alpha_{10} = 1/25$ and the $5/3$ normalisation",
                  fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig12_couplings_mz.png")
+    save(fig, "fig11_couplings_mz.png")
 
-def fig15_uv_2loop():
+def fig14_uv_2loop():
     """The 2-loop running of the U(1) coupling: the perturbative QFT reaches a
     Landau pole below M_P, the 1-loop running stays bounded, and the unitary QCA
     step remains bounded at every order."""
@@ -96,9 +96,9 @@ def fig15_uv_2loop():
               columnspacing=1.2, handlelength=1.6,
               framealpha=0.95, fontsize=9.5)
     fig.subplots_adjust(bottom=0.38)
-    save(fig, "fig15_uv_2loop.png")
+    save(fig, "fig14_uv_2loop.png")
 
-def fig21_desert():
+def fig20_desert():
     import json
     from cl10 import unification as u
 
@@ -173,9 +173,9 @@ def fig21_desert():
                  "\\overline{\\mathbf{10}}$ pairs + one $(1,2)$ pair unify at "
                  "the root value", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
-    save(fig, "fig21_desert_unification.png")
+    save(fig, "fig20_desert_unification.png")
 
-def fig22_wilson():
+def fig21_wilson():
     import json
     from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
     from cl10 import brillouin as BR
@@ -237,9 +237,9 @@ def fig22_wilson():
                  "scale falsified", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.subplots_adjust(bottom=0.34)
-    save(fig, "fig22_wilson_mechanism.png")
+    save(fig, "fig21_wilson_mechanism.png")
 
-def fig24_composite():
+def fig23_composite():
     import json
     import math
     import sys
@@ -318,9 +318,9 @@ def fig24_composite():
                  "($16 \\otimes 45 = 720$ states, V81) does not deliver "
                  "the meeting", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig24_composite_content.png")
+    save(fig, "fig23_composite_content.png")
 
-def fig25_closed_loops():
+def fig24_closed_loops():
     import json
     import math
     with open(os.path.join(ROOT, "experiments", "V85_closed_loop_factor",
@@ -370,9 +370,9 @@ def fig25_closed_loops():
     fig.suptitle("The closed-loop factor of the traced adjoint link (V85): "
                  "$F_{10} = 0.0192$ vs $1/(16\\pi) = 0.0199$", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig25_closed_loops.png")
+    save(fig, "fig24_closed_loops.png")
 
-def fig26_equal_shift():
+def fig25_equal_shift():
     import json
     with open(os.path.join(ROOT, "experiments", "V84_equal_shift_theorem",
                            "results", "v84_equal_shift_theorem.json")) as f:
@@ -423,4 +423,4 @@ def fig26_equal_shift():
     fig.suptitle("The equal-shift theorem (V84): the desert content must be "
                  "$\\mathrm{SU}(5)$-fragment content", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig26_equal_shift.png")
+    save(fig, "fig25_equal_shift.png")

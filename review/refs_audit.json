@@ -43,13 +43,9 @@
   },
   {
     "n": 4,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 11, Crossref 18",
-      "page: claimed 546, Crossref 885",
-      "year: claimed 2012, Crossref 2019"
-    ],
-    "score": 0.9,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
     "crossref_title": "An overview of quantum cellular automata",
     "crossref_journal": "Natural Computing",
     "crossref_volume": "18",
@@ -57,24 +53,21 @@
     "crossref_year": 2019,
     "crossref_doi": "10.1007/s11047-019-09762-6",
     "crossref_authors": "P. Arrighi",
-    "claim": "Arrighi, An introduction to quantum cellular automata, Nat. Comput. 11, 546 (2012)"
+    "claim": "Arrighi, An overview of quantum cellular automata, Nat. Comput. 18, 885 (2019)"
   },
   {
     "n": 5,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 390, Crossref None",
-      "year: claimed 2019, Crossref None"
-    ],
-    "score": 0.8,
-    "crossref_title": "Complex electronic circuits design with quantum-dot cellular automata",
-    "crossref_journal": "",
-    "crossref_volume": null,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Quantum cellular automata and free quantum field theory",
+    "crossref_journal": "Frontiers of Physics",
+    "crossref_volume": "12",
     "crossref_page": null,
-    "crossref_year": null,
-    "crossref_doi": "10.12681/eadd/49975",
-    "crossref_authors": "Ορέστης Λιώλης",
-    "claim": "D'Ariano, Equivalence of quantum cellular automata and circuits, J. Comput. Phys. 390, 198 (2019)"
+    "crossref_year": 2016,
+    "crossref_doi": "10.1007/s11467-016-0616-z",
+    "crossref_authors": "Giacomo Mauro D’Ariano, Paolo Perinotti",
+    "claim": "D'Ariano, Quantum cellular automata and free quantum field theory, Front. Phys. 12, 120301 (2016)"
   },
   {
     "n": 6,
@@ -92,21 +85,17 @@
   },
   {
     "n": 7,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 93, Crossref None",
-      "page: claimed 193, Crossref 165",
-      "year: claimed 1975, Crossref 1978"
-    ],
-    "score": 0.72,
-    "crossref_title": "Unified Interactions of Leptons and Quarks",
-    "crossref_journal": "Many Degrees of Freedom in Particle Theory",
-    "crossref_volume": null,
-    "crossref_page": "165-237",
-    "crossref_year": 1978,
-    "crossref_doi": "10.1007/978-1-4684-2814-8_6",
-    "crossref_authors": "H. Fritzsch",
-    "claim": "Fritzsch, Unified interactions of strong and electroweak forces of quarks and leptons, Ann. Phys. 93, 193 (1975)"
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Unified interactions of leptons and hadrons",
+    "crossref_journal": "Annals of Physics",
+    "crossref_volume": "93",
+    "crossref_page": "193-266",
+    "crossref_year": 1975,
+    "crossref_doi": "10.1016/0003-4916(75)90211-0",
+    "crossref_authors": "Harald Fritzsch, Peter Minkowski",
+    "claim": "Fritzsch, Unified interactions of leptons and hadrons, Ann. Phys. 93, 193 (1975)"
   },
   {
     "n": 8,
@@ -158,14 +147,14 @@
     "crossref_year": 2014,
     "crossref_doi": "10.1139/cjp-2013-0686",
     "crossref_authors": "Carlos Castro",
-    "claim": "Castro, A Clifford algebra-based grand unification program of gravity and the Standard Model, Can. J. Phys. 92, 1501 (2014)"
+    "claim": "Castro, A Clifford algebra-based grand unification program of gravity and the Standard Model: a review study, Can. J. Phys. 92, 1501 (2014)"
   },
   {
     "n": 13,
     "verdict": "MISMATCH",
     "problems": [
       "volume: claimed 110, Crossref None",
-      "page: claimed 70001, Crossref 213",
+      "page: claimed 30001, Crossref 213",
       "year: claimed 2024, Crossref 2003"
     ],
     "score": 0.67,
@@ -176,7 +165,7 @@
     "crossref_year": 2003,
     "crossref_doi": "10.1142/9789812704948_0027",
     "crossref_authors": "P.M. Watkins",
-    "claim": "Navas, Review of Particle Physics, Phys. Rev. D 110, 70001 (2024)"
+    "claim": "Navas, Review of Particle Physics, Phys. Rev. D 110, 30001 (2024)"
   },
   {
     "n": 14,
@@ -200,19 +189,18 @@
     "n": 15,
     "verdict": "MISMATCH",
     "problems": [
-      "title match weak (0.25)",
-      "volume: claimed 102, Crossref None",
-      "year: claimed 2020, Crossref 1999"
+      "volume: claimed 102, Crossref 1468",
+      "page: claimed 112011, Crossref 12160"
     ],
-    "score": 0.25,
-    "crossref_title": "Search for the Decay KL -&amp;gt;pi0 mu+ mu-",
-    "crossref_journal": "",
-    "crossref_volume": null,
-    "crossref_page": null,
-    "crossref_year": 1999,
-    "crossref_doi": "10.2172/1421477",
-    "crossref_authors": "Masayoshi Sadamoto",
-    "claim": "Abe, Search for proton decay via p to e+ pi0 and p to mu+ pi0 in 0.37 megaton-years exposure of Super-Kamiokande, Phys. Rev. D 102, 12006 (2020)"
+    "score": 0.92,
+    "crossref_title": "Proton Decay Search Sensitivity with the Enlarged Fiducial Mass of Super-Kamiokande",
+    "crossref_journal": "Journal of Physics: Conference Series",
+    "crossref_volume": "1468",
+    "crossref_page": "012160",
+    "crossref_year": 2020,
+    "crossref_doi": "10.1088/1742-6596/1468/1/012160",
+    "crossref_authors": "Akira Takenaka, Masato Shiozawa, Hidekazu Tanaka",
+    "claim": "Takenaka, Search for proton decay via p to e+ pi0 and p to mu+ pi0 with an enlarged fiducial volume in 0.37 megaton-years exposure of Super-Kamiokande, Phys. Rev. D 102, 112011 (2020)"
   },
   {
     "n": 16,
@@ -253,20 +241,17 @@
   },
   {
     "n": 19,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 105, Crossref 111",
-      "year: claimed 1981, Crossref 2013"
-    ],
-    "score": 0.71,
-    "crossref_title": "Gauge theory generalization of the fermion doubling theorem",
-    "crossref_journal": "Physical Review Letters",
-    "crossref_volume": "111",
-    "crossref_page": null,
-    "crossref_year": 2013,
-    "crossref_doi": "10.1103/physrevlett.111.161603",
-    "crossref_authors": "S. M. Kravec, John McGreevy",
-    "claim": "Nielsen, A no-go theorem to avoid the fermion doubling in lattice gauge theory, Phys. Lett. B 105, 219 (1981)"
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "A no-go theorem for regularizing chiral fermions",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "105",
+    "crossref_page": "219-223",
+    "crossref_year": 1981,
+    "crossref_doi": "10.1016/0370-2693(81)91026-1",
+    "crossref_authors": "H.B. Nielsen, M. Ninomiya",
+    "claim": "Nielsen, A no-go theorem for regularizing chiral fermions, Phys. Lett. B 105, 219 (1981)"
   },
   {
     "n": 20,
@@ -312,21 +297,17 @@
   },
   {
     "n": 23,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 23, Crossref None",
-      "page: claimed 377, Crossref 532",
-      "year: claimed 1970, Crossref 1985"
-    ],
-    "score": 1.15,
-    "crossref_title": "Blow-Up of Solutions of Nonlinear Wave Equations in Three Space Dimensions",
-    "crossref_journal": "Fritz John",
-    "crossref_volume": null,
-    "crossref_page": "532-565",
-    "crossref_year": 1985,
-    "crossref_doi": "10.1007/978-1-4612-5409-6_38",
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Blow-up of solutions of nonlinear wave equations in three space dimensions",
+    "crossref_journal": "Manuscripta Mathematica",
+    "crossref_volume": "28",
+    "crossref_page": "235-268",
+    "crossref_year": 1979,
+    "crossref_doi": "10.1007/bf01647974",
     "crossref_authors": "Fritz John",
-    "claim": "John, Blow-up of solutions of nonlinear wave equations in three space dimensions, Comm. Pure Appl. Math. 23, 377 (1970)"
+    "claim": "John, Blow-up of solutions of nonlinear wave equations in three space dimensions, Manuscripta Math. 28, 235 (1979)"
   },
   {
     "n": 24,
@@ -336,7 +317,7 @@
       "page: claimed 24, Crossref 84",
       "year: claimed 1967, Crossref 1998"
     ],
-    "score": 0.95,
+    "score": 1.15,
     "crossref_title": "VIOLATION OF CP-INVARIANCE, C-ASYMMETRY, AND BARYON ASYMMETRY OF THE UNIVERSE",
     "crossref_journal": "In the Intermissions…",
     "crossref_volume": null,
@@ -344,7 +325,7 @@
     "crossref_year": 1998,
     "crossref_doi": "10.1142/9789812815941_0013",
     "crossref_authors": "A. D. SAKHAROV",
-    "claim": "Sakharov, Violation of CP invariance, C asymmetry, and baryogenesis of the universe, JETP Lett. 5, 24 (1967)"
+    "claim": "Sakharov, Violation of CP invariance, C asymmetry, and baryon asymmetry of the universe, JETP Lett. 5, 24 (1967)"
   },
   {
     "n": 25,
@@ -404,21 +385,17 @@
   },
   {
     "n": 29,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 364, Crossref None",
-      "page: claimed 357, Crossref 49",
-      "year: claimed 1996, Crossref 2016"
-    ],
-    "score": 0.75,
-    "crossref_title": "Deterministic Quantum Mechanics",
-    "crossref_journal": "Fundamental Theories of Physics",
-    "crossref_volume": null,
-    "crossref_page": "49-56",
-    "crossref_year": 2016,
-    "crossref_doi": "10.1007/978-3-319-41285-6_4",
-    "crossref_authors": "Gerard ’t Hooft",
-    "claim": "'t Hooft, Deterministic quantum mechanics and field theories, Phys. Lett. B 364, 357 (1996)"
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "On the quantum structure of a black hole",
+    "crossref_journal": "Nuclear Physics B",
+    "crossref_volume": "256",
+    "crossref_page": "727-745",
+    "crossref_year": 1985,
+    "crossref_doi": "10.1016/0550-3213(85)90418-3",
+    "crossref_authors": "Gerard 't Hooft",
+    "claim": "'t Hooft, On the quantum structure of a black hole, Nucl. Phys. B 256, 727 (1985)"
   },
   {
     "n": 30,
@@ -427,36 +404,328 @@
   },
   {
     "n": 31,
-    "verdict": "MISMATCH",
-    "problems": [
-      "volume: claimed 110, Crossref 83",
-      "year: claimed 2013, Crossref 2023"
-    ],
-    "score": 1.0,
-    "crossref_title": "On different approaches to freeze-in and freeze-out leptogenesis with quasi-degenerate neutrinos",
-    "crossref_journal": "The European Physical Journal C",
-    "crossref_volume": "83",
-    "crossref_page": null,
-    "crossref_year": 2023,
-    "crossref_doi": "10.1140/epjc/s10052-023-11321-4",
-    "crossref_authors": "J. Racker",
-    "claim": "Blanchet, Leptogenesis with quasi-degenerate neutrinos, Phys. Rev. Lett. 110, 191601 (2013)"
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "The minimal scenario of leptogenesis",
+    "crossref_journal": "New Journal of Physics",
+    "crossref_volume": "14",
+    "crossref_page": "125012",
+    "crossref_year": 2012,
+    "crossref_doi": "10.1088/1367-2630/14/12/125012",
+    "crossref_authors": "Steve Blanchet, Pasquale Di Bari",
+    "claim": "Blanchet, The minimal scenario of leptogenesis, New J. Phys. 14, 125012 (2012)"
   },
   {
     "n": 32,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "A lower bound on the right-handed neutrino mass from leptogenesis",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "535",
+    "crossref_page": "25-32",
+    "crossref_year": 2002,
+    "crossref_doi": "10.1016/s0370-2693(02)01735-5",
+    "crossref_authors": "Sacha Davidson, Alejandro Ibarra",
+    "claim": "Davidson, A lower bound on the right-handed neutrino mass from leptogenesis, Phys. Lett. B 535, 25 (2002)"
+  },
+  {
+    "n": 33,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "General relativity without coordinates",
+    "crossref_journal": "Il Nuovo Cimento",
+    "crossref_volume": "19",
+    "crossref_page": "558-571",
+    "crossref_year": 1961,
+    "crossref_doi": "10.1007/bf02733251",
+    "crossref_authors": "T. Regge",
+    "claim": "Regge, General relativity without coordinates, Il Nuovo Cimento 19, 558 (1961)"
+  },
+  {
+    "n": 34,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Constraint damping in the Z4 formulation and harmonic gauge",
+    "crossref_journal": "Classical and Quantum Gravity",
+    "crossref_volume": "22",
+    "crossref_page": "3767-3773",
+    "crossref_year": 2005,
+    "crossref_doi": "10.1088/0264-9381/22/17/025",
+    "crossref_authors": "Carsten Gundlach, Gioel Calabrese, Ian Hinder, José M Martín-García",
+    "claim": "Gundlach, Constraint damping in the Z4 formulation and harmonic gauge, Class. Quantum Grav. 22, 3767 (2005)"
+  },
+  {
+    "n": 35,
     "verdict": "MISMATCH",
     "problems": [
-      "volume: claimed 776, Crossref 99",
-      "year: claimed 2007, Crossref 2019"
+      "volume: claimed 7, Crossref None",
+      "page: claimed 2333, Crossref 307",
+      "year: claimed 1973, Crossref 2019"
     ],
-    "score": 0.67,
-    "crossref_title": "TeV-scale neutrino mass generation, minimal inelastic dark matter, and high scale leptogenesis",
-    "crossref_journal": "Physical Review D",
-    "crossref_volume": "99",
-    "crossref_page": null,
+    "score": 1.15,
+    "crossref_title": "Black Holes and Entropy",
+    "crossref_journal": "Jacob Bekenstein",
+    "crossref_volume": null,
+    "crossref_page": "307-320",
     "crossref_year": 2019,
-    "crossref_doi": "10.1103/physrevd.99.015025",
-    "crossref_authors": "Pei-Hong Gu, Hong-Jian He",
-    "claim": "Barbieri, Minimal thermal leptogenesis: the neutrino mass spectrum, Nucl. Phys. B 776, 77 (2007)"
+    "crossref_doi": "10.1142/9789811203961_0023",
+    "crossref_authors": "Jacob D. Bekenstein",
+    "claim": "Bekenstein, Black holes and entropy, Phys. Rev. D 7, 2333 (1973)"
+  },
+  {
+    "n": 36,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "The world as a hologram",
+    "crossref_journal": "Journal of Mathematical Physics",
+    "crossref_volume": "36",
+    "crossref_page": "6377-6396",
+    "crossref_year": 1995,
+    "crossref_doi": "10.1063/1.531249",
+    "crossref_authors": "Leonard Susskind",
+    "claim": "Susskind, The world as a hologram, J. Math. Phys. 36, 6377 (1995)"
+  },
+  {
+    "n": 37,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "The cosmological constant problem",
+    "crossref_journal": "Reviews of Modern Physics",
+    "crossref_volume": "61",
+    "crossref_page": "1-23",
+    "crossref_year": 1989,
+    "crossref_doi": "10.1103/revmodphys.61.1",
+    "crossref_authors": "Steven Weinberg",
+    "claim": "Weinberg, The cosmological constant problem, Rev. Mod. Phys. 61, 1 (1989)"
+  },
+  {
+    "n": 38,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Glueball spectrum from an anisotropic lattice study",
+    "crossref_journal": "Physical Review D",
+    "crossref_volume": "60",
+    "crossref_page": null,
+    "crossref_year": 1999,
+    "crossref_doi": "10.1103/physrevd.60.034509",
+    "crossref_authors": "Colin J. Morningstar, Mike Peardon",
+    "claim": "Morningstar, The glueball spectrum from an anisotropic lattice study, Phys. Rev. D 60, 34509 (1999)"
+  },
+  {
+    "n": 39,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Baryogenesis through leptogenesis",
+    "crossref_journal": "Nuclear Physics B",
+    "crossref_volume": "575",
+    "crossref_page": "61-77",
+    "crossref_year": 2000,
+    "crossref_doi": "10.1016/s0550-3213(00)00011-0",
+    "crossref_authors": "Riccardo Barbieri, Paolo Creminelli, Alessandro Strumia, Nikolaos Tetradis",
+    "claim": "Barbieri, Baryogenesis through leptogenesis, Nucl. Phys. B 575, 61 (2000)"
+  },
+  {
+    "n": 40,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Resonant leptogenesis",
+    "crossref_journal": "Nuclear Physics B",
+    "crossref_volume": "692",
+    "crossref_page": "303-345",
+    "crossref_year": 2004,
+    "crossref_doi": "10.1016/j.nuclphysb.2004.05.029",
+    "crossref_authors": "Apostolos Pilaftsis, Thomas E.J. Underwood",
+    "claim": "Pilaftsis, Resonant leptogenesis, Nucl. Phys. B 692, 303 (2004)"
+  },
+  {
+    "n": 41,
+    "verdict": "BOOK (not Crossref-checked)",
+    "claim": "Kolb, The Early Universe (1990)"
+  },
+  {
+    "n": 42,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Freeze-in production of FIMP dark matter",
+    "crossref_journal": "Journal of High Energy Physics",
+    "crossref_volume": "2010",
+    "crossref_page": null,
+    "crossref_year": 2010,
+    "crossref_doi": "10.1007/jhep03(2010)080",
+    "crossref_authors": "Lawrence J. Hall, Karsten Jedamzik, John March-Russell, Stephen M. West",
+    "claim": "Hall, Freeze-in production of FIMP dark matter, JHEP 2010, 80 (2010)"
+  },
+  {
+    "n": 43,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Weak-interaction mixing in the six-quark theory",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "73",
+    "crossref_page": "317-322",
+    "crossref_year": 1978,
+    "crossref_doi": "10.1016/0370-2693(78)90524-5",
+    "crossref_authors": "H. Fritzsch",
+    "claim": "Fritzsch, Weak-interaction mixing in the six-quark theory, Phys. Lett. B 73, 317 (1978)"
+  },
+  {
+    "n": 44,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Parametrization of the Kobayashi-Maskawa Matrix",
+    "crossref_journal": "Physical Review Letters",
+    "crossref_volume": "51",
+    "crossref_page": "1945-1947",
+    "crossref_year": 1983,
+    "crossref_doi": "10.1103/physrevlett.51.1945",
+    "crossref_authors": "Lincoln Wolfenstein",
+    "claim": "Wolfenstein, Parametrization of the Kobayashi-Maskawa matrix, Phys. Rev. Lett. 51, 1945 (1983)"
+  },
+  {
+    "n": 45,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Supersymmetric dark matter",
+    "crossref_journal": "Physics Reports",
+    "crossref_volume": "267",
+    "crossref_page": "195-373",
+    "crossref_year": 1996,
+    "crossref_doi": "10.1016/0370-1573(95)00058-5",
+    "crossref_authors": "Gerard Jungman, Marc Kamionkowski, Kim Griest",
+    "claim": "Jungman, Supersymmetric dark matter, Phys. Rep. 267, 195 (1996)"
+  },
+  {
+    "n": 46,
+    "verdict": "OK",
+    "problems": [],
+    "score": 0.98,
+    "crossref_title": "Two-loop renormalization factors of dimension-six proton decay operators in the supersymmetric standard models",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "724",
+    "crossref_page": "283-287",
+    "crossref_year": 2013,
+    "crossref_doi": "10.1016/j.physletb.2013.06.030",
+    "crossref_authors": "Junji Hisano, Daiki Kobayashi, Yu Muramatsu, Natsumi Nagata",
+    "claim": "Hisano, Two-loop renormalization factors of dimension-six proton decay operators in the minimal supersymmetric SU(5) gauge theory, Phys. Lett. B 724, 283 (2013)"
+  },
+  {
+    "n": 47,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Demonstration of single-electron buildup of an interference pattern",
+    "crossref_journal": "American Journal of Physics",
+    "crossref_volume": "57",
+    "crossref_page": "117-120",
+    "crossref_year": 1989,
+    "crossref_doi": "10.1119/1.16104",
+    "crossref_authors": "A. Tonomura, J. Endo, T. Matsuda, T. Kawasaki, H. Ezawa",
+    "claim": "Tonomura, Demonstration of single-electron buildup of an interference pattern, Am. J. Phys. 57, 117 (1989)"
+  },
+  {
+    "n": 48,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "A method for simulating chiral fermions on the lattice",
+    "crossref_journal": "Physics Letters B",
+    "crossref_volume": "288",
+    "crossref_page": "342-347",
+    "crossref_year": 1992,
+    "crossref_doi": "10.1016/0370-2693(92)91112-m",
+    "crossref_authors": "David B. Kaplan",
+    "claim": "Kaplan, A method for simulating chiral fermions on the lattice, Phys. Lett. B 288, 342 (1992)"
+  },
+  {
+    "n": 49,
+    "verdict": "OK",
+    "problems": [],
+    "score": 0.98,
+    "crossref_title": "Two-loop renormalization group equations in a general quantum field theory",
+    "crossref_journal": "Nuclear Physics B",
+    "crossref_volume": "222",
+    "crossref_page": "83-103",
+    "crossref_year": 1983,
+    "crossref_doi": "10.1016/0550-3213(83)90610-7",
+    "crossref_authors": "Marie E. Machacek, Michael T. Vaughn",
+    "claim": "Machacek, Two-loop renormalization group equations in a general quantum field theory. I. Proof of the equivalence theorem, Nucl. Phys. B 222, 83 (1983)"
+  },
+  {
+    "n": 50,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "NuFit-6.0: updated global analysis of three-flavor neutrino oscillations",
+    "crossref_journal": "Journal of High Energy Physics",
+    "crossref_volume": "2024",
+    "crossref_page": null,
+    "crossref_year": 2024,
+    "crossref_doi": "10.1007/jhep12(2024)216",
+    "crossref_authors": "Ivan Esteban, M. C. Gonzalez-Garcia, Michele Maltoni, Ivan Martinez-Soler, João Paulo Pinheiro, Thomas Schwetz",
+    "claim": "Esteban, NuFIT 6.0: Updated global analysis of three-flavor neutrino oscillations, JHEP 2024, 216 (2024)"
+  },
+  {
+    "n": 51,
+    "verdict": "OK",
+    "problems": [],
+    "score": 1.25,
+    "crossref_title": "Proton stability in grand unified theories, in strings and in branes",
+    "crossref_journal": "Physics Reports",
+    "crossref_volume": "441",
+    "crossref_page": "191-317",
+    "crossref_year": 2007,
+    "crossref_doi": "10.1016/j.physrep.2007.02.010",
+    "crossref_authors": "Pran Nath, Pavel Fileviez Pérez",
+    "claim": "Nath, Proton stability in grand unified theories, in strings and in branes, Phys. Rep. 441, 191 (2007)"
+  },
+  {
+    "n": 52,
+    "verdict": "MISMATCH",
+    "problems": [
+      "title match weak (0.44)",
+      "volume: claimed 90, Crossref None",
+      "page: claimed 72005, Crossref 1027",
+      "year: claimed 2014, Crossref 2023"
+    ],
+    "score": 0.44,
+    "crossref_title": "Sensitivity study for proton decay via $p→e^+ π^0 π^0$ and $p→μ^+ π^0 π^0$ in the Super-Kamiokande Detector",
+    "crossref_journal": "Proceedings of 41st International Conference on High Energy physics — PoS(ICHEP2022)",
+    "crossref_volume": null,
+    "crossref_page": "1027",
+    "crossref_year": 2023,
+    "crossref_doi": "10.22323/1.414.1027",
+    "crossref_authors": "Ji-Woong Seo, Kwon Eunhyang, ",
+    "claim": "Abe, Search for proton decay via p to nu K+ using 260 kiloton year data of Super-Kamiokande, Phys. Rev. D 90, 72005 (2014)"
+  },
+  {
+    "n": 53,
+    "verdict": "MISMATCH",
+    "problems": [
+      "title match weak (0.40)",
+      "volume: claimed 135, Crossref None",
+      "year: claimed 2025, Crossref None"
+    ],
+    "score": 0.4,
+    "crossref_title": "Modeling The Wall Background In The Lux-Zeplin (Lz) Dark Matter Experiment",
+    "crossref_journal": "",
+    "crossref_volume": null,
+    "crossref_page": null,
+    "crossref_year": null,
+    "crossref_doi": "10.54014/ry56-9h4c",
+    "crossref_authors": ", Nishat Parveen",
+    "claim": "Aalbers, Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment, Phys. Rev. Lett. 135, 11802 (2025)"
   }
 ]

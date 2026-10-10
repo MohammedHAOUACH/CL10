@@ -16,7 +16,7 @@ The runner for the 3-D black hole (CL10).
     that fire the particles (you choose what to send and watch the geodesic
     build in real time).
 
-The physics is fig24's: the CL10 Schwarzschild metric, the CL10 finite-
+The physics is fig17's: the CL10 Schwarzschild metric, the CL10 finite-
 difference Christoffels, the geodesic ODE.  M = 1, nothing fitted.
 """
 
@@ -106,7 +106,7 @@ def headless(cfg):
         c = bh.counts()
         hud.set_text("upper_left",
                      "CL10 black hole 3-D   M = 1 (0-parameter)\n"
-                     "geodesics via the CL10 Christoffels (fig24 physics)\n"
+                     "geodesics via the CL10 Christoffels (fig17 physics)\n"
                      "particles: %d  (%d live, %d captured, %d escaped)"
                      % (len(bh.particles), c["orbiting"], c["captured"],
                         c["escaped"]))
