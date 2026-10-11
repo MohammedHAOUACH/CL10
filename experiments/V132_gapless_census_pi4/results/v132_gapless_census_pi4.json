@@ -1,6 +1,7 @@
 {
  "experiment": "V132_gapless_census_pi4",
  "tol": 1e-09,
+ "backend": "numpy",
  "data": {
   "census": {
    "angle": 0.7853981633974483,
@@ -336,6 +337,6 @@
  ],
  "verdict": "PASS",
  "pass": true,
- "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 2.2e-16 along each, 73 grid points vs 0 at 1/5); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (naive sum -2 vs exact 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with four 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
- "wall_s": 11.179950952529907
+ "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 2.2e-16 along each; 0 of the 15^3 grid's gapless points lie off the lines); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (the naive sum is -2 - sign noise, backend-dependent - where V63 measured exactly 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with 4 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
+ "wall_s": 18.342708349227905
 }

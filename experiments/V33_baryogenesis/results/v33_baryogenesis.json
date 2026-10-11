@@ -20,5 +20,5 @@
     "pmns_cp_phase": true,
     "residual": "the baryon asymmetry (the 0-parameter QCA does not generate it; the GUT ingredients require a non-0-parameter out-of-equilibrium + CP-violating rate)"
   },
-  "wall_time": 0.32
+  "wall_time": 0.328
 }

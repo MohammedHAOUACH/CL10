@@ -36,6 +36,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 
 from cl10 import unification as UN                                    # noqa: E402
+from cl10 import engine as E                                      # noqa: E402
 
 TWO_PI = 2.0 * math.pi
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
@@ -47,7 +48,8 @@ A_ROOT = 1.0 / 25.0                      # g = 1/5 in the same units
 
 def main():
     t0 = time.time()
-    out = {"experiment": "V135_coupling_selection_closed", "data": {}}
+    out = {"experiment": "V135_coupling_selection_closed",
+           "backend": E._BACKEND, "data": {}}
     checks = []
 
     # --------------------------------------- T1 the one-loop target and scan

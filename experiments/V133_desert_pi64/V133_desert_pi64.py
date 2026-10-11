@@ -42,6 +42,7 @@ sys.path.insert(0, os.path.join(ROOT, "experiments", "V64_desert"))
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
 
 from cl10 import unification as UN                              # noqa: E402
+from cl10 import engine as E                                      # noqa: E402
 import V64_desert as V64                                        # noqa: E402
 import V65_wilson as V65                                        # noqa: E402
 
@@ -146,7 +147,7 @@ def kappa_lp(alpha_X, n, TH_STAR, lam, lam_db, classes, members, lp_s):
 
 def main():
     t0 = time.time()
-    out = {"experiment": "V133_desert_pi64", "data": {}}
+    out = {"experiment": "V133_desert_pi64", "backend": E._BACKEND, "data": {}}
     checks = []
 
     # -------------------------------------------------- T1 control at 1/25

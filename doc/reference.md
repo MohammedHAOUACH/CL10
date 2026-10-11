@@ -145,7 +145,7 @@ does not use that label):
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (131/131 on the last full GPU run, 2026-10-10; the four closed-angle checks V132–V135 pass individually, `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed`).**  Every experiment **passes** on the GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
+**The result (136/136, 2026-10-11, cupy backend).**  Every experiment **passes** on the GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
 (Appendix B): most of these checks are **internal consistency** (they
 would pass for any theory built on this root), and a pass is only as good
 as its criterion.  (For the *meaning* of each pass — which residuals are
@@ -334,7 +334,7 @@ exponents being a permutation of $(1,1,2)$ at all twelve nodes.  The
 **chirality protocol above therefore does not apply**: it needs isolated zeros,
 and at 12/12 nodes the gap along the line through the node stays below
 $10^{-9}$ at steps $10^{-3},10^{-2},10^{-1}$, so the $\pm1$ charges whose sum
-was exactly $0$ become sign noise (naive sum $-2$).  The Nielsen–Ninomiya count
+was exactly $0$ become sign noise — the naive sum is no longer quantized ($-2$ on the numpy backend, $-6$ on cupy).  The Nielsen–Ninomiya count
 at the closed angle must be redone **per line**, and has not been.  At the other
 closed angle $\pi/2$ the bond layer is diagonal to $1.2\times10^{-16}$ with the
 identity permutation and the eight corner shifts $\{\pm1\}^3$ — a pure lattice

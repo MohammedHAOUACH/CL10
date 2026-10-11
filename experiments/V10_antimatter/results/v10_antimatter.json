@@ -20,5 +20,5 @@
     "mass_degenerate": true,
     "baryon_asymmetry": "named residual (needs a CPT/CP-violating process; the 0-parameter QCA does not generate it)"
   },
-  "wall_time": 0.006
+  "wall_time": 0.014
 }

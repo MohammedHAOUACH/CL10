@@ -41,6 +41,7 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, ROOT)
 
 from cl10 import supercell as SC                                    # noqa: E402
+from cl10 import engine as E                                      # noqa: E402
 
 PI = math.pi
 G4 = math.pi / 4
@@ -109,7 +110,7 @@ def census(g, grid=GRID):
 
 def main():
     t0 = time.time()
-    out = {"experiment": "V134_pi2_branch", "data": {}}
+    out = {"experiment": "V134_pi2_branch", "backend": E._BACKEND, "data": {}}
     checks = []
     rng = np.random.default_rng(134)
     qs = [tuple(float(x) for x in rng.uniform(-PI, PI, 3)) for _ in range(6)]

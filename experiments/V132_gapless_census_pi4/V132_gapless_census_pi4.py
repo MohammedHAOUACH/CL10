@@ -53,6 +53,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "experiments", "V128_f4_graviton_content"))
 
 from cl10 import supercell as SC                                    # noqa: E402
+from cl10 import engine as E                                      # noqa: E402
 from V128_f4_graviton_content import (R_g, gq_of)                   # noqa: E402
 
 PI = math.pi
@@ -153,7 +154,8 @@ def irrep_content(reps, k):
 
 def main():
     t0 = time.time()
-    out = {"experiment": "V132_gapless_census_pi4", "tol": TOL_GAP, "data": {}}
+    out = {"experiment": "V132_gapless_census_pi4", "tol": TOL_GAP,
+           "backend": E._BACKEND, "data": {}}
     checks = []
     rng = np.random.default_rng(132)
     U16_4 = SC.sectors(g10=G4)[2]
@@ -415,14 +417,18 @@ def main():
     out["verdict"] = "PASS" if ok else "FAIL"
     out["pass"] = ok
     out["status"] = ("the gapless census at pi/4 is GAMMA plus six "
-                     "face-diagonal nodal lines (max gap 2.2e-16 along each, "
-                     "73 grid points vs 0 at 1/5); quadratic touching "
-                     "(transverse exponents 1 and 2, slope 0.577); the V63 "
-                     "point-node chirality convention is inapplicable at "
-                     "12/12 nodes (naive sum -2 vs exact 0 at 1/5); the "
-                     "gapless subspace at GAMMA is 64 of 128 with four "
-                     "1-dimensional bond constituents - no 2-dim irrep, no "
-                     "helicity candidate")
+                     "face-diagonal nodal lines (max gap %.1e along each; %d "
+                     "of the %d^3 grid's gapless points lie off the lines); "
+                     "quadratic touching (transverse exponents 1 and 2, slope "
+                     "%.3f); the V63 point-node chirality convention is "
+                     "inapplicable at %d/12 nodes (the naive sum is %.0f - "
+                     "sign noise, backend-dependent - where V63 measured "
+                     "exactly 0 at 1/5); the gapless subspace at GAMMA is %d "
+                     "of 128 with %d 1-dimensional bond constituents - no "
+                     "2-dim irrep, no helicity candidate"
+                     % (line_max, off_line, GRID,
+                        struct["transverse (1,-1,0)"]["slope"], nonisolated,
+                        naive_sum, k, len(comp)))
     out["wall_s"] = time.time() - t0
     outdir = os.path.join(HERE, "results")
     os.makedirs(outdir, exist_ok=True)
