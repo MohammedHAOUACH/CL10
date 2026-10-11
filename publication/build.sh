@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build the journal PDF from doc/publication.md (read-only) using pandoc + REVTeX 4.2.
+# Build the journal PDF from doc/final_publication.md (read-only) using pandoc + REVTeX 4.2.
 # Requires: pandoc >= 3, texlive (pdflatex), texlive-publishers (revtex4-2).
 set -euo pipefail
 cd "$(dirname "$0")"

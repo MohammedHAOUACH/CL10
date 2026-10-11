@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-r"""Preprocess doc/publication.md into pandoc-friendly markdown for REVTeX.
+r"""Preprocess doc/final_publication.md into pandoc-friendly markdown for REVTeX.
 
 Read-only on doc/. Writes build/publication_gen.md:
   - YAML metadata (title, abstract, keywords)
@@ -13,7 +13,7 @@ import re
 import struct
 import sys
 
-SRC = sys.argv[1] if len(sys.argv) > 1 else "../doc/publication.md"
+SRC = sys.argv[1] if len(sys.argv) > 1 else "../doc/final_publication.md"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "build/publication_gen.md"
 
 text = open(SRC, encoding="utf-8").read()
@@ -303,16 +303,6 @@ body_text = body_text.replace(
     "::: {.table id=tabx1}\n\n",
     "::: {.table id=tabx1}\n\n**The seven criteria against which the paper "
     "judges itself.**\n\n", 1)
-
-# two figures are never cited in the body (journal rule: every figure must
-# be referenced); add the citations at their natural anchor sentences
-body_text = body_text.replace(
-    "\u2014 a ratio $1.12$.",
-    "\u2014 a ratio $1.12$ (Fig. 8).", 1)
-body_text = body_text.replace(
-    "It should not be read as a reduction of the theory's difficulty.",
-    "It should not be read as a reduction of the theory's difficulty "
-    "(``Fig.~\\ref{fig:18}``).", 1)
 
 # bare URLs -> \url{} so hyperref can break them (avoids overfull lines)
 body_text = re.sub(

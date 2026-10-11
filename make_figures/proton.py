@@ -1,11 +1,10 @@
 """Figure module: proton."""
 import math
-import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from .style import ROOT, save
+from .style import exp, save
 from .style import C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
@@ -15,7 +14,7 @@ def fig15_proton_channels():
     tau_p = 1.8e36 yr).  The rate is set by the two-body phase space
     (Gamma ~ pf, so tau ~ 1/pf; the hadronic matrix element is O(1))."""
     import json
-    with open(os.path.join(ROOT, "experiments", "V64_desert", "results",
+    with open(exp("V64_desert", "results",
                            "v64_desert.json")) as fh:
         tau0 = json.load(fh)["data"]["selected"]["tau_p_yr"]
     mp, me, mmu, mpi, mk = 938.272, 0.511, 105.658, 134.977, 493.677

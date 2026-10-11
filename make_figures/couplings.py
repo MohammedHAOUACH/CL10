@@ -1,11 +1,10 @@
 """Figure module: couplings."""
 import math
-import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from .style import ROOT, save
+from .style import exp, save
 from .style import C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
@@ -102,7 +101,7 @@ def fig20_desert():
     import json
     from cl10 import unification as u
 
-    with open(os.path.join(ROOT, "experiments", "V64_desert",
+    with open(exp("V64_desert",
                            "results", "v64_desert.json")) as f:
         sel = json.load(f)["data"]["selected"]
     MZ, MP, A10 = u.M_Z, u.M_P, u.ALPHA_10
@@ -181,7 +180,7 @@ def fig21_wilson():
     from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
     from cl10 import supercell as SC
 
-    with open(os.path.join(ROOT, "experiments", "V65_wilson",
+    with open(exp("V65_wilson",
                            "results", "v65_wilson.json")) as f:
         v65 = json.load(f)["data"]
     gg = next(r for r in v65["part_B"].values()
@@ -244,15 +243,13 @@ def fig23_composite():
     import json
     import math
     import sys
-    sys.path.insert(0, os.path.join(ROOT, "experiments", "V65_wilson"))
-    sys.path.insert(0, os.path.join(ROOT,
-                                    "experiments",
-                                    "V81_link_desert_content"))
+    sys.path.insert(0, exp("V65_wilson"))
+    sys.path.insert(0, exp("V81_link_desert_content"))
     from V65_wilson import cartan_weights, identify_XY, physical_su5
     from V81_link_desert_content import flux_weights, sm_roots, c2_labels
     from cl10 import unification as u
 
-    with open(os.path.join(ROOT, "experiments", "V81_link_desert_content",
+    with open(exp("V81_link_desert_content",
                            "results", "v81_link_desert_content.json")) as f:
         d = json.load(f)["data"]
 
@@ -324,7 +321,7 @@ def fig23_composite():
 def fig24_closed_loops():
     import json
     import math
-    with open(os.path.join(ROOT, "experiments", "V85_closed_loop_factor",
+    with open(exp("V85_closed_loop_factor",
                            "results", "v85_closed_loop_factor.json")) as f:
         d = json.load(f)["data"]
     root, fmin = d["loops_root"], d["loops_Fmin"]
@@ -375,7 +372,7 @@ def fig24_closed_loops():
 
 def fig25_equal_shift():
     import json
-    with open(os.path.join(ROOT, "experiments", "V84_equal_shift_theorem",
+    with open(exp("V84_equal_shift_theorem",
                            "results", "v84_equal_shift_theorem.json")) as f:
         d = json.load(f)["data"]
     r16 = d["over_16"]["sum_db1"] / d["over_16"]["sum_db2"]

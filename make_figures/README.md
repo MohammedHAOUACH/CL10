@@ -28,24 +28,24 @@ python3 -m make_figures --cpu          # force the numpy backend
    | `couplings.py` | 12, 15, 21, 22, 24, 25, 26 — running, 2-loop UV, desert, Wilson, composites, closed loops, equal shift |
    | `proton.py` | 16 — the three decay channels at the desert point |
    | `dynamics.py` | 17, 18, 19, 35 — QCA causal front, 3+1 gravity, **young double-slit**, black-hole frames |
-   | `residuals.py` | 8, 23, 27-31, 33, 36-39 — parameter audit, gauged layer, W2-W9 closures, fragment hull, vertex ground state, named-gap tests, doubler cones, isotropy search, tangent velocity algebra |
+   | `residuals.py` | 8, 23, 27-31, 33, 36-39 — parameter audit, gauged layer, the open-problem closures (O1–O9), fragment hull, vertex ground state, named-gap tests, doubler cones, isotropy search, tangent velocity algebra |
 
-3. **Fig. 19 (young)** runs the `simulation/young` QCA (wave + collapse,
+3. **Fig. 18 (young)** runs the `simulation/young` QCA (wave + collapse,
    GPU through the same backend switch). It is the slowest figure (~15 min
    on an RTX 3090); `--fast` skips it.
-4. **Fig. 20 (hydrogen)** is *not* a matplotlib figure of this package: it
-   is the product of `experiments/V62_hydrogen_production` (production
-   296³ GPU run), invoked here as a subprocess so it re-pins its own card
-   and writes `doc/figures/fig19_hydrogen.png` +
-   `experiments/V62_hydrogen_production/results/fig19_hydrogen.meta.json`
+4. **Fig. 19 (hydrogen)** is *not* a matplotlib figure of this package: it
+   is the product of `experiments/phenomenology/V62_hydrogen_production`
+   (production 296³ GPU run), invoked here as a subprocess so it re-pins its
+   own card and writes `doc/figures/fig19_hydrogen.png` +
+   `experiments/phenomenology/V62_hydrogen_production/results/fig19_hydrogen.meta.json`
    itself. A nonzero V62 exit code fails the whole run.
 
 ## Conventions
 
 - Each function is named `fig<N>_<slug>` and `save()`s exactly
   `doc/figures/fig<N>_<slug>.png`, the number used in the paper. The
-  registry numbers must match the `**Fig. N —**` blocks of
-  `doc/publication.md`; the paper references every figure exactly once.
+  registry numbers must match the `![...](figures/fig<N>_<slug>.png)`
+  placements of `doc/final_publication.md`; each figure appears once.
 - Measured values appearing in figures (PDG, Planck, Super-Kamiokande,
   KATRIN, NuFIT) are reference data, not fits.
 - Style and the output directory live in `style.py` (`OUT`).

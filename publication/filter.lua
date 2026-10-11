@@ -102,6 +102,15 @@ do
   end
 end
 
+-- inline images: the final manuscript places its figures in place, so bound them
+-- to the column width (the float Divs below set their own width and are untouched).
+function Image(el)
+  if el.attributes.width == nil and el.attributes.height == nil then
+    el.attributes.width = "0.9\\columnwidth"
+  end
+  return el
+end
+
 function Div(el)
   if el.classes:includes('figure') or el.classes:includes('figurewide') then
     local wide = el.classes:includes('figurewide')

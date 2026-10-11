@@ -6,8 +6,11 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
+from cl10.paths import exp  # noqa: E402,F401  re-exported for the figure modules
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "doc", "figures")
+
 
 plt.rcParams.update({
     "figure.figsize": (5.4, 3.8),

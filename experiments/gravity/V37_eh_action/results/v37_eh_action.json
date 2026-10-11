@@ -1,0 +1,29 @@
+{
+  "id": "V37_eh_action",
+  "tier": 2,
+  "property": "P2,P4",
+  "residual": false,
+  "pass": true,
+  "status": "the_eh_action_derives_the_qca_metric_dynamics_the_direction_dynamics_from_action",
+  "tol": 1e-06,
+  "data": {
+    "backend": "cupy",
+    "L": 8,
+    "T": 24,
+    "n_probe": 16,
+    "G": 1.0,
+    "coupler": 0.019894367886486918,
+    "elm_on_qca_trajectory": 2.855439162172796e-12,
+    "stationary_ok": true,
+    "elm_off_dynamics": 0.012756445854709808,
+    "selects_ok": true,
+    "coeff_ok": true,
+    "continuum_ratio": [
+      0.9996987582324486,
+      0.9987944895452575
+    ],
+    "continuum_ok": true,
+    "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
+  },
+  "wall_time": 0.394
+}

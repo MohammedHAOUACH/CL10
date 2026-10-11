@@ -30,7 +30,7 @@ EXPS = os.path.join(ROOT, "experiments")
 
 
 def find_experiments():
-    dirs = sorted(os.path.dirname(p) for p in glob.glob(os.path.join(EXPS, "*", "*.py")))
+    dirs = sorted(os.path.dirname(p) for p in glob.glob(os.path.join(EXPS, "*", "*", "*.py")))
     return [d for d in dirs if d != EXPS]
 
 

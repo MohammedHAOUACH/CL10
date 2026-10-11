@@ -1,0 +1,31 @@
+{
+  "id": "V23_full_sm_qca",
+  "tier": 2,
+  "property": "P2,P3,P4",
+  "residual": true,
+  "pass": true,
+  "status": "the_full_sm_is_a_0_parameter_unitary_qca",
+  "tol": 1e-12,
+  "data": {
+    "backend": "cupy",
+    "n_planes": 45,
+    "g10": 0.2,
+    "plane_square_to_I_err": 0.0,
+    "step_unitary_err": 1.6653345381979549e-15,
+    "n_steps": 50,
+    "norm_before": 180.61652446349362,
+    "norm_after": 180.6165244634923,
+    "norm_rel_err": 7.238532784760992e-15,
+    "causal_radius": 1,
+    "sm_gauge_bosons": 12,
+    "n_gluon": 8,
+    "n_w": 3,
+    "n_b": 1,
+    "n_heavy_x_y": 33,
+    "n_matter_16": 16,
+    "n_antimatter_16bar": 16,
+    "n_module": 32,
+    "named_residual": "the 3-family structure + the Yukawa matrix"
+  },
+  "wall_time": 0.053
+}

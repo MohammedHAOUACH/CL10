@@ -1,0 +1,353 @@
+{
+ "experiment": "V134_pi2_branch",
+ "backend": "cupy",
+ "data": {
+  "pure_translation": {
+   "max_offdiagonal": 1.2245369790905181e-16,
+   "permutation_is_identity_err": 0.0,
+   "phase_slopes_per_subsite": [
+    [
+     -1,
+     1,
+     -1
+    ],
+    [
+     1,
+     1,
+     -1
+    ],
+    [
+     -1,
+     -1,
+     -1
+    ],
+    [
+     1,
+     -1,
+     -1
+    ],
+    [
+     -1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     -1,
+     -1,
+     1
+    ],
+    [
+     1,
+     -1,
+     1
+    ]
+   ],
+   "bit_patterns": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     0
+    ],
+    [
+     1,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1
+    ]
+   ],
+   "expected_shifts_2e_minus_1": [
+    [
+     -1,
+     -1,
+     -1
+    ],
+    [
+     1,
+     -1,
+     -1
+    ],
+    [
+     -1,
+     1,
+     -1
+    ],
+    [
+     1,
+     1,
+     -1
+    ],
+    [
+     -1,
+     -1,
+     1
+    ],
+    [
+     1,
+     -1,
+     1
+    ],
+    [
+     -1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1
+    ]
+   ],
+   "shift_set_is_corner_set": true,
+   "axiswise_matches_to_bit_reading": [
+    8,
+    0,
+    8
+   ]
+  },
+  "involution": {
+   "M0_sq_dev_pi2": 8.02730632557773e-15,
+   "M0_sq_dev_pi4": 7.391586503204494e-15,
+   "M0_eq_identity_dev_pi2": 4.013653162788865e-15,
+   "eigenphase_zero": 128,
+   "eigenphase_pi": 0,
+   "eigenphase_zero_at_pi4": 64
+  },
+  "census_pi2": {
+   "grid": 13,
+   "gapless_count": 513,
+   "gapless_per_qz_slice": {
+    "-3.1416": 24,
+    "-2.618": 44,
+    "-2.0944": 44,
+    "-1.5708": 44,
+    "-1.0472": 44,
+    "-0.5236": 44,
+    "0.0": 25,
+    "0.5236": 44,
+    "1.0472": 44,
+    "1.5708": 44,
+    "2.0944": 44,
+    "2.618": 44,
+    "3.1416": 24
+   },
+   "grid_min_nonzero_gap": 0.5235987755982943,
+   "grid_min_nonzero_at": [
+    1.5707963267948966,
+    1.0471975511965974,
+    1.0471975511965974
+   ],
+   "line_max_gaps": {
+    "q_x=+q_y, q_z=0": 4.440892098500626e-16,
+    "q_x=-q_y, q_z=0": 4.440892098500626e-16,
+    "q_x=+q_z, q_y=0": 2.4492935982947064e-16,
+    "q_x=-q_z, q_y=0": 4.440892098500626e-16,
+    "q_y=+q_z, q_x=0": 2.4492935982947064e-16,
+    "q_y=-q_z, q_x=0": 4.440892098500626e-16
+   },
+   "gamma_gap": 2.4492935982947064e-16,
+   "M_gap_min": 2.4492935982947064e-16,
+   "X_gap_min": 1.570796326794893,
+   "R_gap_min": 1.5707963267948932
+  },
+  "census_pi4": {
+   "grid": 13,
+   "gapless_count": 73,
+   "gapless_per_qz_slice": {
+    "-3.1416": 4,
+    "-2.618": 4,
+    "-2.0944": 4,
+    "-1.5708": 4,
+    "-1.0472": 4,
+    "-0.5236": 4,
+    "0.0": 25,
+    "0.5236": 4,
+    "1.0472": 4,
+    "1.5708": 4,
+    "2.0944": 4,
+    "2.618": 4,
+    "3.1416": 4
+   },
+   "grid_min_nonzero_gap": 0.018238265314131755,
+   "grid_min_nonzero_at": [
+    -1.5707963267948966,
+    -1.0471975511965979,
+    1.0471975511965974
+   ],
+   "line_max_gaps": {
+    "q_x=+q_y, q_z=0": 6.661338147750939e-16,
+    "q_x=-q_y, q_z=0": 4.440892098500626e-16,
+    "q_x=+q_z, q_y=0": 4.440892098500626e-16,
+    "q_x=-q_z, q_y=0": 4.440892098500626e-16,
+    "q_y=+q_z, q_x=0": 4.440892098500626e-16,
+    "q_y=-q_z, q_x=0": 4.440892098500626e-16
+   },
+   "gamma_gap": 2.220446049250313e-16,
+   "M_gap_min": 0.0,
+   "X_gap_min": 0.5235987755982892,
+   "R_gap_min": 0.5235987755982896
+  },
+  "census_1_5": {
+   "grid": 13,
+   "gapless_count": 0,
+   "gapless_per_qz_slice": {
+    "-3.1416": 0,
+    "-2.618": 0,
+    "-2.0944": 0,
+    "-1.5708": 0,
+    "-1.0472": 0,
+    "-0.5236": 0,
+    "0.0": 0,
+    "0.5236": 0,
+    "1.0472": 0,
+    "1.5708": 0,
+    "2.0944": 0,
+    "2.618": 0,
+    "3.1416": 0
+   },
+   "grid_min_nonzero_gap": 0.0001257031379852669,
+   "grid_min_nonzero_at": [
+    -0.5235987755982987,
+    3.141592653589793,
+    -2.6179938779914944
+   ],
+   "line_max_gaps": {
+    "q_x=+q_y, q_z=0": 0.07319123598588884,
+    "q_x=-q_y, q_z=0": 0.07319123598588884,
+    "q_x=+q_z, q_y=0": 0.07319123598588877,
+    "q_x=-q_z, q_y=0": 0.07319123598588877,
+    "q_y=+q_z, q_x=0": 0.07319123598588889,
+    "q_y=-q_z, q_x=0": 0.07319123598588889
+   },
+   "gamma_gap": 0.03649939422882853,
+   "M_gap_min": 0.00020028952953021761,
+   "X_gap_min": 0.001292025223620985,
+   "R_gap_min": 0.001292025223620985
+  },
+  "network_lines_pi2": {
+   "q_x+q_y=+pi/2 (q_z=pi/2)": 4.440892098500626e-16,
+   "q_x+q_y=-pi/2 (q_z=pi/2)": 4.440892098500626e-16,
+   "q_x-q_y=+pi/2 (q_z=pi/2)": 4.440892098500626e-16,
+   "q_x-q_y=-pi/2 (q_z=pi/2)": 2.4492935982947064e-16
+  },
+  "band_velocities": {
+   "per_axis_max_min_slope": [
+    [
+     1.0000000000016662,
+     -1.0000000000021103
+    ],
+    [
+     1.0000000000021103,
+     -1.0000000000012221
+    ],
+    [
+     1.0000000000016662,
+     -1.0000000000012221
+    ],
+    [
+     1.0000000000014442,
+     -1.000000000001
+    ],
+    [
+     1.0000000000012221,
+     -1.0000000000016662
+    ],
+    [
+     1.000000000000778,
+     -1.0000000000012221
+    ],
+    [
+     1.0000000000012221,
+     -1.000000000001
+    ],
+    [
+     1.0000000000014442,
+     -1.0000000000021103
+    ],
+    [
+     1.0000000000011111,
+     -1.0000000000017772
+    ],
+    [
+     1.000000000001,
+     -1.0000000000012221
+    ],
+    [
+     1.0000000000012221,
+     -1.0000000000016662
+    ],
+    [
+     1.0000000000016662,
+     -1.0000000000039977
+    ]
+   ],
+   "step_h": 0.001
+  },
+  "verdict_data": {
+   "gapless_grid_pi2": 513,
+   "gapless_grid_pi4": 73,
+   "gapless_grid_1_5": 0,
+   "bond_diagonal_pi2": true,
+   "M0_identity_pi2": true
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 at pi/2 the six-stage bond matrix is DIAGONAL at every sampled momentum (max off-diagonal 1.2e-16) and its permutation part is the identity (deviation 0.0e+00): the six swap-rotations compose to nothing but a shift. Each sub-site's phase is linear in q with integer slopes [[-1, 1, -1], [1, 1, -1], [-1, -1, -1], [1, -1, -1], [-1, 1, 1], [1, 1, 1], [-1, -1, 1], [1, -1, 1]], and the eight shift vectors are exactly the eight corners {+-1}^3 of the block (set equality: True); they match the naive (2e-1) bit reading on axes 0 and 2 (8 and 8 of 8) and on axis 1 for 0 of 8 - the y inter-block stage carries the opposite sign convention - so the bond layer at the half angle is a pure lattice translation onto the eight block corners: no mixing, no interference",
+   "pass": true
+  },
+  {
+   "name": "T2 at pi/2 the one-step Bloch matrix at GAMMA is not just an involution but the IDENTITY (deviation 4.0e-15 from I; M(0)^2 = I to 8.0e-15, and at pi/4 to 7.4e-15): all 128 eigenphases sit at 0 and 0 at pi, where at pi/4 only 64 of 128 sit at 0 - the whole internal space is gapless at the zone centre on the half-angle branch",
+   "pass": true
+  },
+  {
+   "name": "T3 the doubling at pi/2 is a NETWORK, not a set of nodes: 513 of the 13^3 grid points are exactly gapless (per q_z slice [24, 44, 44, 44, 44, 44, 25, 44, 44, 44, 44, 44, 24]), and the gapless set contains, besides the six face diagonals, the line network q_x -+ q_y = +-pi/2 in the plane q_z = pi/2 (max gap on each sampled line [0.0, 0.0, 0.0, 0.0]); compare pi/4 (73 gapless grid points, 6 face diagonals gapless) and 1/5 (0 gapless, min nonzero gap 1.257e-04) - the half-angle branch has 7.0x the doublers of the closed angle, sitting in the special planes q_j in (pi/2) Z",
+   "pass": true
+  },
+  {
+   "name": "T4 the bands at pi/2 are exactly linear in q with slope of modulus 1 along every axis (per-axis max/min slope [[1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0], [1.0, -1.0]] over sampled momenta) - the translation of T1 read in the spectrum: every mode moves ballistically at the lattice speed, so no mass term, no gap and no interference is available anywhere in the zone",
+   "pass": true
+  },
+  {
+   "name": "T5 the closure axiom has two roots and they are not equivalent: at pi/2 the bond layer is a pure translation (diagonal to 1e-16), M(0) = I on the whole 128-dimensional internal space, and the gapless set is a line network with 513 grid points against 73 at pi/4 and 0 at 1/5; a translation-only automaton has no mixing, hence no mass generation and no chiral structure, so the theory is on the pi/4 branch - the paper's one-sentence dismissal of pi/2 is now a measurement",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "pass": true,
+ "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
+ "wall_s": 1.6621720790863037
+}

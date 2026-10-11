@@ -22,7 +22,7 @@ echo "== GPU =="
 printf '%s\n' "${GPUS[@]}"
 free0=$(awk -F', ' 'NR==1{print $3-$2}' <<<"${GPUS[0]}")
 need=$(( 2048 * JOBS ))            # the engine gate: 2 GiB free per worker
-nexp=$(find experiments -mindepth 2 -maxdepth 2 -name '*.py' | xargs -n1 dirname | sort -u | wc -l)
+nexp=$(find experiments -mindepth 3 -maxdepth 3 -name '*.py' | xargs -n1 dirname | sort -u | wc -l)
 echo "experiments: ${nexp}"
 
 if [ "${free0}" -lt "${need}" ] && [ "${FORCE}" != 1 ]; then

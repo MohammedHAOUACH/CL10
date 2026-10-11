@@ -6,6 +6,8 @@
 \newcommand{\grayhline}{\noalign{\vskip1pt{\color{black!30}\hrule height 0.3pt}\color{black}\vskip3pt}}
 \usepackage[hidelinks]{hyperref}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+% inline images (the final manuscript places its figures in place, not as floats)
+\providecommand{\pandocbounded}[1]{#1}
 % keep floats close to their first citation
 \setcounter{topnumber}{3}
 \setcounter{dbltopnumber}{3}

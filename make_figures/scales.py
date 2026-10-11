@@ -1,12 +1,11 @@
 """Figure module: scales."""
 import math
-import os
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 import numpy as np
 
-from .style import ROOT, save
+from .style import exp, save
 from .style import C_FIT, C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
@@ -144,7 +143,7 @@ def fig9_sm_head2head():
     e = ep.eta_cp()
     d = dw.dm_wimp()
     h = he.hierarchy17()
-    with open(os.path.join(ROOT, "experiments", "V64_desert", "results",
+    with open(exp("V64_desert", "results",
                            "v64_desert.json")) as fh:
         tau_desert = json.load(fh)["data"]["selected"]["tau_p_yr"]
 

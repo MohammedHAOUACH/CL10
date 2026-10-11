@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify every bibliography entry of doc/publication.md against Crossref.
+"""Verify every bibliography entry of doc/final_publication.md against Crossref.
 
 For each claimed entry we query Crossref by title (+ author) and compare the
 top hit's title / container / volume / first page / year against the claim.
@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, os.pardir, "refs_audit.json")
 UA = {"User-Agent": "CL10-bibliography-audit/1.0 (mailto:haouach.mohammed@gmail.com)"}
 
-# The 53 entries exactly as printed in doc/publication.md (2026-10-10 rewrite).
+# The 53 entries exactly as printed in doc/final_publication.md (2026-10-10 rewrite).
 # Multi-paper entries are claimed on their FIRST paper; the second paper is
 # checked by verify_refs3/5 where needed. Books are not Crossref-checked.
 CLAIMS = [

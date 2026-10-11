@@ -5,4 +5,4 @@ __pycache__/
 results/*
 !results/validation_summary.json
 *.egg-info/
-experiments/*/results/kernel.npz
+experiments/**/results/kernel.npz

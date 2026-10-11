@@ -1,20 +1,20 @@
 # publication — the journal build
 
-One manuscript source, one command, one PDF. `doc/publication.md` is the
+One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 **only** source of the paper; nothing in this directory edits it.
 
 ```bash
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 39 figures, 8 tables, 53 references, REVTeX 4.2
+Current artifact: 45 pp., 39 figures, 8 tables, 53 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references,
 0 stuck floats, 0 overfull boxes > 100 pt.
 
 ## The pipeline
 
 ```
-doc/publication.md
+doc/final_publication.md
   └─ preprocess.py     manuscript -> build/publication_gen.md
                        (Divs around figures / tables / the bibliography)
   └─ pandoc            build/publication_gen.md

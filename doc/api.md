@@ -190,7 +190,7 @@ $\theta = \pi/4$ (order 8; the internal spectrum exactly
 $\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, leak below $5\times10^{-16}$). Five
 shuffled orderings break both, so the ordering of the product carries the
 quantization. The implemented $g_{10} = 1/5$ is the **fallback** theory; the
-closed-angle consequences are measured in `experiments/V132..V135` (the gapless
+closed-angle consequences are measured in `V132`–`V135` under `experiments/` (the gapless
 census, the desert re-closure at $\alpha_X = \pi/64$, the $\pi/2$ branch, the
 coupling contact), and `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed` runs that batch on the GPU.
 
@@ -198,12 +198,12 @@ coupling contact), and `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V1
 `sm_qca.plane_generators()` returns the 45 adjoint factors, and in the Clifford
 basis each acts as an exact signed permutation on the 1024 basis elements — so
 products of them are enumerable without matrices.
-`experiments/V136_w2_majorana_word` uses that to grade the $\Delta L = 2$
+`experiments/neutrino/V136_w2_majorana_word` uses that to grade the $\Delta L = 2$
 operator (weight $2\lambda_\nu$, Clifford grade 5, the 126-type channel, a
 1-dimensional weight space) and to prove the parity obstruction: multiplication
 shifts grade by $\pm2$, so no product of grade-2 factors reaches an odd-grade
 target and $n_{2\text{step}}$ is not a word length.
-`experiments/V137_w4_broken_flux` uses the same 45 to build the centralizer of
+`experiments/couplings_unification/V137_w4_broken_flux` uses the same 45 to build the centralizer of
 the Wilson direction (the Cartan of `clifford.generators()`) and the
 broken-generator flux $45 - C_2^{\rm unbroken}(s)$ per fragment class.
 
@@ -658,14 +658,14 @@ backend-dependent failure).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 138 experiments (V0-V137), in parallel
-python3 run_validation.py V11 V12      # a subset: **exact directory names** (--jobs N caps the pool)
+python3 run_validation.py              # all 103 experiments, in 12 categories, in parallel
+python3 run_validation.py V11 V24      # a subset: **exact directory names** (--jobs N caps the pool)
 python3 run_validation.py --report-only  # roll up the verdict JSONs on disk, run nothing
 ```
 
 ---
 
-## 15. The simulation packages (V61, V62)
+## 15. The simulation packages (V62)
 
 **`simulation.young` — the double slit as a single-electron measurement (Fig. 18).**
 
@@ -690,8 +690,7 @@ python -m simulation.young --interactive   # live VisPy window
 
 ```bash
 python -m simulation.hydrogen     # -> simulation/hydrogen/video/ (stills + mp4; git-ignored)
-python3 experiments/V61_hydrogen/V61_hydrogen.py        # the fast 120^3 check (part of the suite)
-python3 experiments/V62_hydrogen_production/V62_hydrogen_production.py   # the production run -> Fig. 19
+python3 experiments/phenomenology/V62_hydrogen_production/V62_hydrogen_production.py   # the production run -> Fig. 19
 ```
 
 The atom's knobs (`A`, `h`, `gamma`) are physical parameters of the atom, not

@@ -1,17 +1,16 @@
 """Figure module: residuals."""
 import math
-import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from .style import ROOT, save
+from .style import exp, save
 from .style import C_ALG, C_CONV, C_FIT, C_GUT, C_OPEN, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
 def fig22_gauged_layer():
     import json
-    with open(os.path.join(ROOT, "experiments", "V79_gauged_bond_layer",
+    with open(exp("V79_gauged_bond_layer",
                            "results", "v79_gauged_bond_layer.json")) as f:
         d = json.load(f)["data"]
 
@@ -70,7 +69,7 @@ def fig22_gauged_layer():
 def fig26_w4_closure():
     import json
     def load(e, f):
-        with open(os.path.join(ROOT, "experiments", e, "results", f)) as fh:
+        with open(exp(e, "results", f)) as fh:
             return json.load(fh)["data"]
     d74 = load("V74_multiscale_nodes", "v74_multiscale_nodes.json")
     d81 = load("V81_link_desert_content", "v81_link_desert_content.json")
@@ -155,7 +154,7 @@ def fig26_w4_closure():
 
 def fig27_w7_portal():
     import json
-    with open(os.path.join(ROOT, "experiments", "V88_mirror_scalar",
+    with open(exp("V88_mirror_scalar",
                            "results", "v88_mirror_scalar.json")) as f:
         d = json.load(f)["data"]
     lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
@@ -233,7 +232,7 @@ def fig27_w7_portal():
 
 def fig28_loop_selection():
     import json
-    with open(os.path.join(ROOT, "experiments", "V89_loop_selection",
+    with open(exp("V89_loop_selection",
                            "results", "v89_loop_selection.json")) as f:
         d = json.load(f)["data"]
     root = d["root"]
@@ -304,10 +303,10 @@ def fig28_loop_selection():
 
 def fig29_w2_protection():
     import json
-    with open(os.path.join(ROOT, "experiments", "V90_w2_protection",
+    with open(exp("V90_w2_protection",
                            "results", "v90_w2_protection.json")) as f:
         d90 = json.load(f)["data"]
-    with open(os.path.join(ROOT, "experiments", "V103_w2_democratic",
+    with open(exp("V103_w2_democratic",
                            "results", "v103_w2_democratic.json")) as f:
         d103 = json.load(f)["data"]
     S17, bound = 0.146, 0.12
@@ -384,7 +383,7 @@ def fig29_w2_protection():
 
 def fig30_w3_forcing():
     import json
-    with open(os.path.join(ROOT, "experiments", "V91_w3_forcing",
+    with open(exp("V91_w3_forcing",
                            "results", "v91_w3_forcing.json")) as f:
         d = json.load(f)["data"]
     mx = d["fixed_meeting_scale"]
@@ -459,7 +458,7 @@ def fig30_w3_forcing():
 
 def fig32_w4_cone():
     import json
-    with open(os.path.join(ROOT, "experiments", "V92_w4_feasibility",
+    with open(exp("V92_w4_feasibility",
                            "results", "v92_w4_feasibility.json")) as fh:
         d92 = json.load(fh)["data"]
     G = np.array(d92["db_generators"])          # (6, 3) fragment classes
@@ -532,11 +531,10 @@ def fig32_w4_cone():
 
 def fig35_vertex_ground_state():
     import json
-    p100 = os.path.join(ROOT, "experiments", "V100_vertex_correction",
+    p100 = exp("V100_vertex_correction",
                         "results", "v100_vertex_correction.json")
-    p101 = os.path.join(ROOT, "experiments",
-                        "V101_bond_current_ground_state",
-                        "results", "v101_bond_current_ground_state.json")
+    p101 = exp("V101_bond_current_ground_state",
+    "results", "v101_bond_current_ground_state.json")
     d100 = json.load(open(p100))["data"]
     d101 = json.load(open(p101))["data"]
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 4.4))
@@ -608,7 +606,7 @@ def fig36_residual_attacks():
     import json
 
     def _load(v):
-        p = os.path.join(ROOT, "experiments", v, "results",
+        p = exp(v, "results",
                          v.lower() + ".json")
         return json.load(open(p))["data"]
 
@@ -789,9 +787,8 @@ def fig36_residual_attacks():
 def fig37_doubler_cones():
     """V102: the twelve doubler cones are exactly linear but never round."""
     import json
-    d = json.load(open(os.path.join(
-        ROOT, "experiments", "V102_lorentz_isotropy", "results",
-        "v102_lorentz_isotropy.json")))["data"]
+    d = json.load(open(exp("V102_lorentz_isotropy", "results",
+    "v102_lorentz_isotropy.json")))["data"]
     nodes = d["per_node"]
 
     fig = plt.figure(figsize=(13.6, 4.5))
@@ -874,9 +871,8 @@ def fig37_doubler_cones():
 def fig38_isotropy_search():
     """V115: no isotropy point on the whole V65 Wilson family."""
     import json
-    d = json.load(open(os.path.join(
-        ROOT, "experiments", "V115_w9_cone_isotropy", "results",
-        "v115_w9_cone_isotropy.json")))["data"]
+    d = json.load(open(exp("V115_w9_cone_isotropy", "results",
+    "v115_w9_cone_isotropy.json")))["data"]
     pts = d["gapless_points"]
     A = np.array([p[0] for p in pts])
     th = np.array([p[2] for p in pts])
@@ -940,10 +936,10 @@ def fig38_isotropy_search():
 def fig39_tangent_algebra():
     """V118/V120: the massless corner node is three nodal planes, not a cone."""
     import json
-    with open(os.path.join(ROOT, "experiments", "V118_w9_little_group",
+    with open(exp("V118_w9_little_group",
                            "results", "v118_w9_little_group.json")) as f:
         d118 = json.load(f)["data"]
-    with open(os.path.join(ROOT, "experiments", "V120_w9_entangling_bond",
+    with open(exp("V120_w9_entangling_bond",
                            "results", "v120_w9_entangling_bond.json")) as f:
         d120 = json.load(f)["data"]
     t = d118["T4"][0]

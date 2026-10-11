@@ -44,11 +44,11 @@ $h_1,\dots,h_{10}$ with $h_a^2 = I$:
 CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
-│   ├── publication.md        # the paper (the theory + the seven criteria + the 9 open residuals W1-W9 + the 7 falsifiers)
+│   ├── final_publication.md  # the paper (the theory + the seven criteria + the 9 open problems O1-O9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
 │   ├── figures/              # the 39 publication figures (make_figures/; fig 18 = young QCA, fig 19 = V62 hydrogen product)
-├── publication/              # the journal build: doc/publication.md -> REVTeX 4.2 PDF
+├── publication/              # the journal build: doc/final_publication.md -> REVTeX 4.2 PDF
 │   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
 │   ├── filter.lua            # Divs -> figure / figure* / table* / thebibliography
@@ -94,118 +94,31 @@ CL10/
 │   ├── g10_selection.py      # the 1-loop data check of g_10 = 1/5 (V56, W4: the data prefer n = 7)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
-│   └── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
-├── experiments/              # the verification program (138 experiments, V0-V137)
-│   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
-│   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
-│   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
-│   ├── V20..V24/             # the deepening: the 10-Higgs, the GUT running, the Sakharov, the full SM QCA, the CPT
-│   ├── V25..V29/             # holography, the family construct, QCD, the Yukawa, the tribimaximal PMNS
-│   ├── V30..V35/             # the GUT completion: the running at M_P, the QCA->GR, the 't Hooft program, the baryon, the cosmology capstones
-│   ├── V36..V42/             # the construction modules: the block-lattice automaton, the EH action from the dynamics,
-│                             #   the coupling readings, the 3 families in the dynamics, leptogenesis, the S-matrix, the DM scale
-│   ├── V43/                  # the 32-level QCA spectrum as the one object; the nine residuals are its named projections
-│   ├── V44/                  # the QCA lattice RG: the S-matrix to the cross-sections (W9, the UV-finite 0-parameter GUT cross-section)
-│   ├── V45/                  # the 3-gen Yukawa mass matrix (W6, the democratic base + the TBM mixing)
-│   ├── V46/                  # the 4-D non-linear gravity: the analytic de Sitter reference
-│   ├── V47/                  # the 2-loop running: the UV-finite QCA vs the UV-divergent perturbative (W4)
-│   ├── V48/                  # the 3- and 4-particle amplitudes: the UV-finite property (W9)
-│   ├── V49/                  # the quark CKM, honestly: the democratic 2-level base is fixed, the computed CKM is the identity (W6)
-│   ├── V50/                  # the 4-D non-linear gravity (W9): the general Riemann COMPUTED from any metric, the 2-route verification, the black hole recovered by computation, the non-linear QCA dynamics
-│   ├── V51/                  # the 3+1 BSSN/Z4 numerical relativity (W9): the 2-route 0-row (R_00, R_0i) by 4-D Riemann vs 3+1 gamma/K, the constraints, Z4 damping, non-linear + UV-finite
-│   ├── V52/                  # the parameter audit: the 2-route root (kingdon symbolic vs Pauli), the 16/16-bar spectral mirror, the CP-odd theorem, g10 as the free 't Hooft angle, the provenance table
-│   ├── V53/                  # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (W8)
-│   ├── V54/                  # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (W7)
-│   ├── V55/                  # the CP-violating factor = the 2-loop factor (1/16pi)^2 (W5)
-│   ├── V56/                # the 1-loop data check of g_10 = 1/5 (W4)
-│   ├── V57/                # the 2-step seesaw on the 10-loop ladder: m_nu = M_P*(1/16pi)^17 (W2)
-│   ├── V58/                # the UV-finite discrete RG: the bounded tower U^(2^p) (W4)
-│   ├── V59/                # the four limits and their common object (paper Section 14): 10 = 2 x 5 + one CP phase (bookkeeping)
-│   ├── V60/                # the TBM regression test: the TBM DIAGONALIZES the democratic base (the check the old suite lacked), the wrong-sign matrix is caught, sin^2_12 = 1/3 derived, sin^2_23 / sin^2_13 sweep [0, 2/3], the CKM from identical democratic matrices is the identity
-│   ├── V61/                # the 3-D hydrogen atom (Fig. 19; fast 120^3 check): the gaps ARE the Rydberg differences (rel. error 0), the E1 selection rules come out of the lattice wavefunctions, the absorption peaks on the gap and falls with the detuning, the excited atom radiates while it decays.  The ATOM is an input (real hydrogen); the PHOTON is CL10
-│   ├── V62/                # the PRODUCTION hydrogen experiment on the GPU (296^3, the full photon script): every Fig. 19 claim measured at production resolution, the figure regenerated as a product of the experiment
-│   ├── V63/                # the Brillouin-zone chirality test (W9): the 16 sector is closed by the FULL step (leakage 5.7e-16), the one-step Bloch matrix matches the 2^3-block torus (6.6e-15), the zone centre is GAPPED (0.0365 per step), the 12 M-point momenta are GAPLESS (|v| = 0.142), the node chiralities sum to 0 — the doubling survives
-│   ├── V64/                # the desert inverse problem (W4, F2, F5): with alpha_X = 1/25 FIXED (the root value, not refitted), the inverse problem asks which vectorlike content makes the measured couplings meet; the required Delta b is non-universal; the lightest CL10-realizable solution (three 10+10bar + one (1,2) pair) meets at M_X = 1.8e16 GeV, cures the SU(3) down-pole, predicts tau_p = 1.8e36 yr; M_GUT = M_P is abandoned
-│   ├── V65/                # the internal Wilson factor (W9 -> W4): W(q) = exp[-i w sum(1-cos q_j)(cos(th) X + sin(th) Y)] from the root's own Cartan algebra; exactly unitary, W(0) = I, quasi-local (measured Lieb-Robinson front); gaps all 12 doubler nodes; X, Y identified by charge multisets (both SU(5) embeddings); the selective 3-node reading solves the meeting equations at M_X = 8.9e14 GeV — EXCLUDED by Super-K (reported, not hidden)
-│   ├── V66/                # the dark-matter identity scan (W7): the mirror Z2 is exact (leak 1e-15), the 16bar weights are exact conjugates; the only exact-stability carrier is the mirror sector, lightest state a colored Qbar at 1.3e8 GeV (excluded); NO viable 118 GeV carrier in the implemented spectrum
-│   ├── V67/                # the breaking chain (W6): the Wilson direction at the V65 root leaves Spin(10) -> SU(3)xSU(2)xU(1)^3; every unbroken root is intra-fragment (the Model algebra is preserved), the 32 broken roots are exactly leptoquark-type; residual: two extra U(1)'s
-│   ├── V68/                # the W2 audit: meeting roots need n_nodes >= 3 (1 and 2 excluded — a lower bound from unification); the diagonal node pattern gives only integer seesaw coefficients, the democratic one exactly 1/2 (0.073 eV, falsifiable); the exact 1/3 needs a 3x-enhanced Majorana eigenvalue no node structure supplies
-│   ├── V69/                # the W8 audit: the tower U^(2^p) is exactly kinematic (phases 2^p w mod 2pi, verified p <= 10); no (16pi)^-p suppression at any level — the tower generates NO loop factor; the missing tool is named (a genuine lattice RG)
-│   ├── V70/                # the W3 audit: the 12 doubler nodes form 3 families of 4 labeled by the zero axis, cubic-transitive (spectra equal to 5e-15); the index 3 EXISTS and labels the unification-required 3 split nodes, but does not force the count
-│   ├── V71/                # the W5/W1 stability audit: the Wilson-extended step keeps the exact spectral mirror (1e-15), the +- pairing, and the zero point (Tr D = 0); the Sakharov no-go and the tree-level Lambda = 0 are UNCHANGED by V65
-│   ├── V72/                # the missing tool BUILT: exact block-spin RG of the bond layer (Schur decimation, U_BB = 0, no approximation), 5 levels; level-1 identity onsite = 2(GR)^2 exact; no level follows (16pi)^-p for the factorized OR the non-factorized ([G,R] != 0) gate — single-particle RG composes angles, never divides them; the loop factor needs a gauged bond layer (many-cell RG)
-│   ├── V73/                # the bond-gate loophole closed: 3 Haar-random Spin(10) gates + structured R = G^dagger through the V72 decimation — no realization follows the (16pi)^-p law; the Cartan content depends only on path products; W8's missing tool uniquely specified
-│   ├── V74/                # the W4 structural closure: while all node thresholds sit below M_X the meeting equations depend on the three node strengths ONLY through their sum — the Jacobian has three identical columns (rank 1, split-invariance exact to 1e-14); the node mechanism's meeting point M_X = 8.9e14 GeV (tau_p 1.1e31 yr, F5-excluded) is FORCED for every split; the data-preferred spectrum is not a three-full-16 pattern: a named incompatibility
-│   ├── V75/                # the W7 no-go completed: no Wilson node hosts a 118 GeV neutral mirror — for every Wilson angle the same node puts a stable colored/charged fragment below the desert (0 survivors over 720 angles); the minimal named fix: one mirror-odd ladder scalar, portal lambda_* = 4e-4 for Omega h^2 = 0.120, sigma_SI = 5e-51 cm^2 (nearly decoupled; falsified above 1e-50)
-│   ├── V76/                # the W2 junction BUILT: a cubic-symmetric zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle exactly (verified on the full 12x12 doubler difference table); node mass matrix c_s(2w0 I + kappa(J-I)), democratic at kappa = 2w0 ({3M,0,0}); the 1/3 candidate survives only at that measure-zero point and only with democratic m_D (else gapless colored doublers)
-│   ├── V77/                # the W8 division mechanism BUILT: one quantum link d.o.f. per bond (dimer), traced over — the level-1 Cartan content is exactly cos(2*theta) times the V72 value (dev < 1e-15, tunable); a traced FLUCTUATING bond d.o.f. divides angles where every gate only composes them; the gauged Spin(10) adjoint link is now backed by a demonstrated mechanism
-│   ├── V78/                # the W1 protection theorem: det U = 1 pins the quasi-energy sum against every traceless internal deformation (50 random Hermitian A, eps to 1: |S| < 4e-14); no branch crossing below eps = pi; the only internal knob is the U(1) trace phase — the observed Lambda is equivalent to a trace-phase breaking of size 1.6e-120
-│   ├── V79/                # the GAUGED BOND LAYER BUILT: one Spin(10) adjoint link d.o.f. per bond + matter 16 on sites — the local Gauss constraint closes as an exact operator identity (err 0), link algebra exact, Casimirs 64/45 exact, step unitary 3.8e-16, causal radius 1; gauge-invariant content 32 + 288 + 1120 = 1440 states, no singlet (triality); the single-site non-local control leaks at 1.9
-│   ├── V80/                # the W8 division on the ADJOINT link measured: the V77 qubit-link mechanism reproduces exactly (1.1e-16) and the traced two-hop contracts (max |eig| 0.59), but the level-1 factor at the root coupling is F = 1.06 and F_min = 0.52 over the anisotropy — a factor 26 above 1/(16 pi); level-N suppression is the named next test
-│   ├── V81/                # the W4 content test: the gauged layer's composite fermions (16 x 45 = 720 states, five net chiral 16-copies, shifts (145.3, 145.3, 226.3), flux-pattern thresholds m = w(c0 + |alpha.v|)) do NOT deliver the data-preferred meeting at alpha_X = 1/25 — 0 physical solutions over the full scan of the breaking direction; the V64 spectrum is not the gauged layer's own content
-│   ├── V82/                # the W4 content test CLOSED: full-weight / broken-flux / light-composite ansatz families and a relaxed alpha_X all fail (min residual >= 5.7, 0 physical solutions); the obstruction is the exact identity sum db1 = sum db2 = 144.0 (embedding index (3/5) sum Y^2 = sum T2 on 16 x 45) — the content shifts U(1) and SU(2) equally, the data require different shifts
-│   ├── V83/                # the W8 level-N test RUN: the bond hop factorizes through the joint Casimir T.L (three irreps 32+288+1120, projectors 1e-15), the traced-link decimation iterates exactly to level 4 (V80 reproduced to 2e-16); the division DOES NOT COMPOUND: F_p = 1.06, 1.90, 0.75, 1.01 at the root (7e6 above the loop law at p=4)
-│   ├── V84/                # the W4 EQUAL-SHIFT THEOREM: sum db1 = sum db2 is the index-proportionality of Tr Y^2 and Tr T3^2, verified over the 16, the flux 45, the vector 10 and the SU(5) 10 (ratios 1.0 to 1e-6); the meeting mismatch can only come from SU(5)-fragment content - the V64 repair's mismatch is carried entirely by its (1,2) pair (db1/db2 = 3/5), which the automaton does not supply
-│   ├── V85/                # the W8 CLOSED-LOOP factor: the traced hop matrix contracts (rho(MG) = 0.776 vs 1) and closed n-hop loops suppress geometrically (r = 0.54); at the root coupling F_10 = 0.0192 vs 1/(16 pi) = 0.0199 - the loop factor at the ladder length 10 (3.6%); V80 regression 2e-16
-│   ├── V86/                # the W4 constructive attempt: the junction-split triangle nodes as desert supplier - the Wilson direction splits the node 16 by a factor 55 (cQ +0.005, cL -0.015 vs partners ~0.82): the (3,2) and (1,2) repair states ARE automaton states (Q, L components of node 16's); the junction ratio rho breaks V74's rank-1 degeneracy; the fragment pattern is fabricated (Q, L at 4-8e15 GeV, partners above M_X) but the meeting misses: best physical residual 0.94, alpha_X = 0.030 vs 0.04 (n_nodes 3-12 scanned) - a named near-miss
-│   ├── V87/                # the W4 coefficient-pattern release: the GENERAL zero-mean junction (three free branch scales a_i = 2 w0 (1 + r_i), r1 + r2 + r3 = 0) scanned over the full (r1, r2) plane + n_nodes + scale + angle: the best physical residual EQUALS the democratic floor (0.81), alpha_X = 0.090 (factor 2.3 off) - the near-miss is a property of the junction MECHANISM, not of the democratic ansatz; closure needs fragment content beyond the node 16
-├── V88/                # the W7 named fix BUILT and audited: the mirror-odd ladder scalar (118 GeV) is exactly stable under either portal (scalar parity (-1)^Ns, odd sector untouched); but the exact mirror Z2 forbids h* -> f f-bar: ss -> hh closed (gap 13.2 GeV, virtual cloud 1.5e-8 = theory), only ss -> hh* open: Omega h^2 = 0.120 needs lambda = 0.13, sigma_SI = 6.8e-46 cm^2 - EXCLUDED by direct detection; the V75 numbers (4e-4, 5e-51) hold only with a portal that BREAKS the mirror Z2 at O(lam) - a named tension (F7)
-├── V89/                # the W8 selection rule measured to length 30: the closed-loop ratio F_n crosses 1/(16 pi) at EXACTLY n = 10 (the ladder length is the crossing); NO mod-4 plaquette selection (every length contributes); the geometric law F_n = A r^n (r = 0.698) extrapolates to F_170 = 1.1e-26 vs (1/16 pi)^17 = 1.2e-29 - the 17-factor composition misses by x929, a named residual of its own
-├── V90/                # the W2 protection test: the cubic group induces ALL of S_3 on the junction triangle and its commutant is exactly span{I, J} (nullity 2) - no symmetry protects the democratic point; w0 and kappa share ONE Wilson period (38.19) so r = kappa/w0 is NOT quantized; the cosmological window sum m_nu < 0.12 eV is EXACTLY the point r = 2 (1 passing value in [1,3] at step 1e-4) - the sharpest form of the measure-zero tuning
-├── V91/                # the W3 forcing test: the cubic group acts TRANSITIVELY on the 12 doubler nodes (one orbit of 12 - the V70 axis families are not orbits), so the only cubic-symmetric split is all 12 nodes; the rank-1 meeting rigidity holds for n = 4, 8, 12; the fixed scales M_X(3..12) = 8.9e14..2.9e15 GeV all miss the observed 2e16 (F5); the 3-node triangle has a cubic orbit of 8 - the family count 3 is a symmetry-BREAKING input, its symmetric alternative excluded by computation
-├── V92/                # the W4 feasibility test: the data-preferred meeting point (12.7, 21.2, 20.1) IS inside the convex hull of the six node-16 fragment beta-vectors (barycentric witness) - the required content exists; junction realizability was the remaining test
-├── V93/                # the W4 Cartan-junction test: a GENERAL Cartan direction realizes the meeting exactly (6 solutions, desert thresholds) but breaks 120/120 roots including the SM ones - unphysical; the SM-preserving direction space is 2-dimensional (the class-degenerate span{X,Y} family)
-├── V94/                # the W8 composition law: EXACT multiplicativity across LEGS (the x929 was a chain-vs-legs category error); on a CHAIN (MG)^{10k} is not multiplicative (R_17 = 2.0e+08) - legs and chains are different objects
-├── V95/                # the W4 junction-split test: NO exact meeting with a universal kappa (uniform span{X,Y}, n = 3..12, 300 starts) - the split is invisible at first order (sum_l 2cos(2 pi l/n) - 1 = -n); the V92 witness needs INDEPENDENT per-class thresholds
-├── V96/                # the W4 constructive closure: the flavour-dependent bond layer (kappa_s per fragment class, 6 fitted coefficients) supplies an EXACT meeting (residual < 1e-10) at M_X = 1.8e16 GeV, alpha_X = 1/25, for 10/10 node counts, all thresholds in the desert, tau_p = 1.9e36 yr, SM desert group preserved
-├── V97/                # the entanglement structure measured: entanglement is the BOND layer, not the shared cell - same-cell fermions carry S = 0 (Slater), the internal-only step keeps S_A = 0 forever, the full step drives it to 0.783, and the entanglement front crosses radius r at exactly t = r; the implemented step is QUADRATIC (Slater stays Slater) - the named gap to the area law
-├── V98/                # the PHYSICAL SECTOR of the gauged layer: CENTER OBSTRUCTION - dim ker = 0 with one 32/site (adjoint flux cannot screen a spinor; gap 146 on the two-site chain); minimal sector 2 matter/site: m_45(32x32) = 2, intertwiners dim 2, glued physical sector dim 4, all exact singlets (C2 < 1e-25); S(pair|link) = ln 45 exactly, bounded per bond and boundary-supported - the SHAPE of an area law, Bekenstein coefficient unnamed
-├── V99/                # the multi-bond area law of the gauged layer: 3-site chain physical sector dim ker = 24 (flux decomposition N_1 = N_45 = N_210 = 1, m = 2 each); additivity ln 45 across a single bond EXACT; two-bond region S = ln 45 not 2 ln 45 (vertex mutual information ln 45); Bekenstein gap as a number: ln 45 vs 1/4, factor 4 ln 45 = 15.23 - named, open
-├── V100/               # the vertex correction of the gauged area law: I_n = dim(45^⊗n)^G by Haar averaging = 1, 1, 6, 23, 141 (I_2 = I_3 = 1 validates); 24-state kernel orthonormalised by its Gram (rank 24); middle-cut capacity S_cap = 4.4998 nats vs naive 2 ln 45 = 7.613 (vertices subtract 3.11); per bond 2.25 nats, factor 9.0 from 1/4; cubic-lattice vertex-corrected coefficient (1/3) ln I_6 = 1.65 nats/bond, factor 6.6 - the Bekenstein deficit moved 15.2 -> 6.6
-├── V101/               # the first ground state of the gauged layer: bond-current Hamiltonian H = sum J.L of V79 diagonalised exactly (generalized eigenproblem, Gram metric) on the 24-state kernel; intertwiner identity I† J_A I = L_A/45 to 3e-17; the interaction SPLITS the kernel: E0 = -5819.18 eta, degeneracy 6, gap 58.59 eta; ground-state middle-cut entanglement S = 3.8067 = ln 45 exactly - the interaction selects the flux line
-├── V102/               # the node cone tensor measured: at all 12 doubler nodes and 1200 sampled directions the dispersion is LINEAR (p = 1.00) but strongly ANISOTROPIC - principal velocities (0.200, 0.200, 0.284), spread 0.75; node gap 2e-4 at the root angle (Fig. 37)
-├── V103/               # the W2 re-audit with the IMPLEMENTED democratic rank-1 m_D (V28/V45): the V90 measure-zero point was an artifact of the identity-m_D assumption; the seesaw collapses to m3(r) = S17/(1+r), the massless pair is protected for EVERY r, the bound window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.91 (m3 = 0.0501 eV)
-├── V104/               # the W6 mixing manifold: the three mixing deviations tested as ONE effect over the natural U6 vev placements (12 branches x 2 orientations, democratic base + rank-1 correction): every placement excluded (best residual 0.308 vs the needed pattern) - the deviations are not a natural-vev artifact; the U6 form itself is pending
-├── V105/               # the W4 Cartan test: are V96's six kappa_s images of ONE Cartan element? NEGATIVE - SM preservation forces span{X,Y} at theta* (class-degenerate, meeting residual >= 0.43) and every Cartan element splitting the six classes breaks all 8 unbroken desert roots: the flavour dependence is off-diagonal bond structure, not a Cartan dressing
-├── V106/               # the W5 washout audit: at the SAME Yukawa giving m_nu = 0.0501 eV (y = 0.40) the decay is IN equilibrium (Gamma/H = 47) and the physical efficiency kappa_f = 5.4e-3 (Buchmuller-Di Bari-Plumacher) sits 14x from the guessed dilution (1/16pi)^2 - the 11% Delta B agreement is an accident of two wrong factors
-├── V107/               # the W6 orthogonality test: V96's kappa_s are per-GAUGE-class (generation-blind) - PMNS/CKM exactly invariant under the whole kappa pattern (max angle shift 2e-13): the W4 bond-layer fix cannot supply the mixing deviations; W6 needs generation-space structure
-├── V108/               # the hierarchy coefficient un-fitted: v/M_P = 3*F_10^10 with F_10 = 0.019186 measured (V85), 3 = the axis families (V70), 10 = the crossing (V89): 2.088 vs 2.076 observed (99.4%) - conditional on the axis-family factorization of the closed-loop sum
-├── V109/               # the W5 CP search in the EXTENDED structure: the mirror is the CP-forbidding structure - the Wilson extension preserves the +- pairing (2.4e-15, V71 regression) and supplies NO phase; every class-dependent dressing (general kappa_s layer, general real-symmetric bond generator, both mirror sign conventions) BREAKS the one-cell mirror (dev ~ 1): a CP phase costs Theorem 4
-├── V110/               # the W4 off-diagonal bond program V105 demanded: 80 root-vector bond channels, one Hermitian bond operator (12 parameters) - the meeting does NOT close (floor 30.4 at n=3 over n=3..12); level repulsion forces 2 of the 6 kappa_s signs: the pattern stays a named input
-├── V111/               # the W6 generation-space dressing: a scalar dressing is exactly blind (1.4e-13); a COMMON non-abelian family dressing (7 parameters) reaches the measured mixing triple; chiral-asymmetric (13 parameters) reaches it as a fit - W6 is reachable only at named-input cost
-├── V112/               # the W7 dark-U(1) portal: the extra U(1) of the V67 chain (E ~ (-1,-1,1,1,1)/sqrt5) has charged desert matter but is UNHIGGSABLE inside the spectrum (all E-charged 45-directions are colour triplets); the named dark-Higgs window is EMPTY (relic needs gD*eps >~ 0.02, direct detection allows <~ 1e-3)
-├── V113/               # the W8 axis-family factorization MEASURED: the 12 node channels carry exactly equal loop factors (across-family spectral identity 0.00); the hierarchy coefficient is a node-set choice - one split node per family: 2.0881 vs 2.0765 observed (99.44%), all 12: 8.35, single: 0.696
-├── V114/               # the W2 junction ratio r = kappa/w0 NOT derived: the V76 modulation's exact stabilizer is a 12-element subgroup (not the 24 chiral cubic); NO cubic-symmetric closed junction exists on (Z/4)^3 (closed space trivial); inside the V76 stabilizer the closed space is 2-dimensional - w0 independent of kappa: r stays free
-├── V115/               # the W9 cone-isotropy scan: the node gap g(w) of the V65 Wilson family located at every zero (grid + golden-section) over 2 reps x 60 angles - 2726 gapless points, smallest cone anisotropy A = 0.997: no isotropy point on the family (W9 confirmed beyond the V65 root; Fig. 38)
-├── V116/               # the W3 triangle orbit-8 audit: the 64 one-per-family triangles split into 4 cubic orbits (8, 8, 24, 24); a triangle's stabilizer is exactly S3 (order 6) - the split reduces O_h -> S3 and the 8 choices of an orbit are physically distinct vacua (8-fold degeneracy, domain walls)
-├── V117/               # the W5 CP lock, scoped: the 32-D module is of REAL type (intertwiner unique, J^2 = +1, Q h Q^dag = h^*, Q T Q^dag = -T^*); the Frobenius-Schur scan of all 11 roots p+q = 10 shows the real form is a CHOICE (Cl(8,2), Cl(7,3), Cl(4,6), Cl(3,7), Cl(0,10) quaternionic) and the spectral mirror survives on the quaternionic root (step unitary to 6.7e-16, pairing 2.6e-15); the pairing is ONE-CELL (the 128-level band spectrum is not conjugation-closed, 0.95) and a complex bond layer makes the gauge-invariant plaquette holonomy CP-odd (Im 1e-3) at machine-precision unitarity - the CP phase is a named bond-layer input, not a forbidden quantity
-├── V118/               # the W9 tangent velocity algebra: the 12 doubler nodes measured AT the tangent - principal velocities (0.14189, 0.14189, 0), the third exactly zero, V115's finite-difference exponents 0.00 (linear) and -1.00 (flat) so the anisotropy is not a dq artifact; little groups (zone edge C2v; supercell corner O_h with exactly 3-fold multiplets); the V65 factor drives a corner cubic triplet exactly gapless (1e-10, a one-parameter family); on it [S_i,S_j] = 0 to 2e-12, sum_j S_j^2 is a scalar, and each branch is exactly planar, E = |v_alpha . q| to 6e-12 with the v_alpha the cubic permutations of (0.704, 0.421, 0.421) - three nodal planes, not a cone (Fig. 39)
-├── V119/               # the W9 double-multiplet escape closed: the two corner multiplets cannot be driven to zero simultaneously anywhere on the V65 Wilson family (best pair gap 7.2e-5, gapless dim 3 < 6); the touching that is reachable is linear but anisotropic (A = 0.996)
-├── V120/               # the W9 remedy built and tested: a non-Abelian Peierls bond layer entangling cell and internal indices (a hop carries exp(+-i phi D16), sign by hop direction; exactly unitary, radius-1 causal, reproduces the implemented step to 3.4e-16 at phi = 0) - it breaks exact planarity (5e-16 -> 4e-2) and switches the commutator on to 0.071 of its natural scale, but lifts the corner triplet off zero and A stays 0.996-0.9999: entanglement is necessary, a single phase is not sufficient (Fig. 39)
-├── V121/               # the W9 three-axis non-abelian bond layer: it costs causality and closes nothing
-├── V122/               # the W4 class invariants as the source of the six kappa_s: the V96 closure reproduces with free kappa_s in the flipped embedding
-├── V123/               # the W7 relic abundance computed: freeze-out integral, and no root coupling gives Omega h^2 = 0.120 at the ladder mass
-├── V124/               # the W7 exact Z2 gradings of the step: the mirror is the pseudoscalar, G^2 = I, [G, U32] = 7e-16
-├── V125/               # the W5 CP flux spent on the asymmetry: unitary, det U = 1 at every flux, the asymmetry fails only on out-of-equilibrium
-├── V126/               # the W8 which loops supply the ladder factor: the T.L Casimir has exactly 3 eigenspaces, the n-hop traced link factorizes
-├── V127/               # the W3 energies of the 8 triangle vacua: the V116 eightfold is not a junction degeneracy
-├── V128/               # the F4 massless spin content: M(q) = P(q) (x) U16^6 exactly, no exactly gapless band, no 2-dim irrep at any node - no helicity pair
-├── V129/               # the gauged bond layer is massive and its bond entropy exactly saturated: vertex Gauss Laplacian kernel = m_45, first level C2(45)
-├── V130/               # the gauged layer confines, at the Planck scale: irreducible adjoint link, no invariant vector, exactly linear potential
-├── V131/               # the algebraic closure of the step: the only exactly closed 45-plane products are pi/2 (= w, ordering-independent) and pi/4 (order 8) - the root quantizes its own clock, at the price of the n* = 10 crossing and the alpha = 1/25 meeting
-├── V132/               # the gapless census at pi/4: GAMMA plus six face-diagonal nodal lines (73 grid points against 0 at 1/5), quadratic touching, the V63 point-node chirality convention inapplicable, no helicity candidate at GAMMA
-├── V133/               # the desert re-closure at the closed coupling alpha_X = pi/64: exists but leaves the desert (M_X = 1.24e17 GeV, tau_p = 2.8e39 yr); 1.8e16 needs alpha_X = 0.040050
-├── V134/               # the pi/2 branch measured: bond layer diagonal with the identity permutation and corner shifts {+-1}^3 - a pure lattice translation, M(0) = I, 513 gapless grid points, no mass generation
-├── V135/               # the closed coupling against the data: pi/64 has relative gap 1.128 to the one-loop mean where 1/25 had 0.734 (1.54x worse), and is not of the 1/n^2 form
-├── V136/               # the Delta L = 2 operator inside the root: weight 2 lambda_nu, 1-dimensional weight space, Clifford grade 5 (the 126-type channel) - but multiplication shifts grade by +-2, so no product of adjoint link factors reaches it: n_2step is not a link-word length
-├── V137/               # the per-class bond number the gauged layer supplies: 13-dimensional centralizer at theta*, broken-generator flux 45 - C_2^unbroken = (32,36,40,28,32,40), the complete adjoint sum exactly class-blind (= 45 for every weight) - misses the V96 meeting at residual 0.605
+│   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
+│   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
+├── experiments/              # the verification program: 103 experiments in 12 categories
+│   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
+│   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
+│   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry
+│   ├── gauged_layer/         # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement
+│   ├── gravity/              # the discrete EH action, curvature from any metric, 3+1 evolution
+│   ├── scales_loopfactor/    # the closed-loop factor, the ladder length, the composition law
+│   ├── couplings_unification/# alpha_10 = 1/25, the desert solution, the proton lifetime, the supplier search
+│   ├── neutrino/             # the seesaw ladder, the 1/3 candidate, the protection, the Delta L = 2 no-go
+│   ├── cosmology_darkmatter/ # the 118 GeV ladder mass, the carrier no-go, the relic abundance, the portal
+│   ├── baryogenesis/         # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
+│   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
+│   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 19)
+│   └── README.md             # every experiment, its verdict, and the paper section it validates
+├── archive/                  # superseded material: 35 earlier experiments, the previous manuscript, its PDF
+│   └── README.md             # what was superseded, and by what
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
-├── run_validation.py         # the runner: runs all 138, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 103, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 39 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
-    └── validation_summary.json   # the 138/138 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 103/103 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -229,8 +142,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 138 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 138 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+python3 run_validation.py        # runs all 103 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 103 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V131_algebraic_closure V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed
                                    # the closed-angle batch alone (the runner takes **exact** directory names)
 ./run_figures.sh                   # the 39 figures on the GPU card make_figures pins; it
@@ -241,24 +154,23 @@ python3 -m make_figures            # the same generator without the card check:
                                    # --only N [N..] | --fast (skip 18+19) | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 19 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
-bash publication/build.sh        # rebuild the journal PDF from doc/publication.md
+bash publication/build.sh        # rebuild the journal PDF from doc/final_publication.md
                                  # needs pandoc >= 3 and texlive-publishers (revtex4-2)
                                  # -> publication/publication.pdf
 ```
 
 ## The verification program
 
-`doc/publication.md` states the **seven criteria** a unification claim must
-meet (Section 1.2, with the paper's own verdict on each), the **tiered**
-validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **138** experiments
-(V0–V137) across the seven tiers and writes
+`doc/final_publication.md` states the **seven criteria** a unification claim must
+meet (Section 1, with the paper's own verdict on each), the **nine open problems**
+(O1–O9) and the **seven falsifiers** (F1–F7).  `run_validation.py` runs the **103**
+experiments of `experiments/` (12 categories, catalogued in `experiments/README.md`)
+and writes
 
-> **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
-> object, the kinematics, the dynamics, the **anomaly-free** matter, the
-> **$5/3$ normalisation**, and **matter–gauge–gravity in one algebra**.  The
-> cosmology (tier 4) and the falsifiability (tier 5) are supporting; the named
-> residuals are reported, not hidden.
+> **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
+> kinematics, the dynamics, the **anomaly-free** matter and the **$5/3$
+> normalisation**.  The cosmology and falsifiability tiers are supporting; the
+> open problems are reported, not hidden.
 
 **What the 86 passes mean.**  Most of them check **internal consistency** —
 algebraic identities, unitarity of the step, agreement between two numerical

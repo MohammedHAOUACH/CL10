@@ -1,0 +1,26 @@
+{
+  "id": "V54_dm_wimp",
+  "tier": 6,
+  "property": "P5,P6",
+  "residual": true,
+  "pass": true,
+  "status": "the_sub_Planck_DM_mass_is_the_0_parameter_10_loop_suppression_of_the_Planck_scale_M_P*(1/16pi)^10=118_GeV_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_W8_hierarchy_the_V42_Planck_soliton_gap_1e-52_is_resolved_the_observed_DM_is_the_10_loop_relic",
+  "tol": 1e-12,
+  "data": {
+    "backend": "cupy",
+    "n_gen": 10,
+    "F10": 9.711838380882492e-18,
+    "M_P_GeV": 1.22e+19,
+    "m_DM_GeV": 118.4844282467664,
+    "weak_scale_GeV": 100.0,
+    "m_over_weak": 1.184844282467664,
+    "omega_DM": 0.07214353430094018,
+    "omega_obs": 0.12,
+    "omega_ratio_to_observed": 0.6011961191745016,
+    "v42_planck_omega": 6.608482648327392e-53,
+    "v42_planck_gap": 5.50706887360616e-52,
+    "v42_quantified_gap": 5.5070688736061614e-52,
+    "residual": "the DM identity (which particle) and the exact cross-section (the RG running, W9) — the sub-Planck mass scale (118 GeV) and the abundance order are 0-parameter (the 10-loop factor x M_P)"
+  },
+  "wall_time": 0.003
+}

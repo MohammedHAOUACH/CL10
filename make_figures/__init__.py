@@ -12,7 +12,7 @@ Modules group the figures by subject; each figure function is named
 ``fig<N>_<slug>`` and writes ``doc/figures/fig<N>_<slug>.png`` with the
 number used in ``doc/publication.md``.  Fig. 18 (young double-slit) runs the
 ``simulation/young`` QCA; Fig. 19 (hydrogen) is produced by
-``experiments/V62_hydrogen_production``, invoked here as a subprocess so it
+``experiments/phenomenology/V62_hydrogen_production``, invoked here as a
 re-pins its own GPU and writes its PNG + meta JSON itself.
 
 The GPU id is pinned from ``simulation/young/config.yaml`` *before* any CuPy
@@ -24,6 +24,7 @@ import subprocess
 import sys
 
 from . import algebra, couplings, dynamics, proton, residuals, scales
+from .style import exp
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -70,7 +71,7 @@ FIGURES = [
 ]
 
 YOUNG = 18
-HYDROGEN = 19  # produced by experiments/V62_hydrogen_production
+HYDROGEN = 19  # produced by experiments/phenomenology/V62_hydrogen_production
 
 
 def setup_gpu(force_cpu=False):
@@ -112,8 +113,7 @@ def setup_gpu(force_cpu=False):
 
 def run_v62():
     """Fig. 19: the production hydrogen experiment writes its own PNG + meta."""
-    script = os.path.join(ROOT, "experiments", "V62_hydrogen_production",
-                          "V62_hydrogen_production.py")
+    script = exp("V62_hydrogen_production", "V62_hydrogen_production.py")
     rc = subprocess.call([sys.executable, script], cwd=ROOT)
     if rc != 0:
         raise SystemExit(f"V62 failed (rc={rc}): fig19_hydrogen.png NOT regenerated")

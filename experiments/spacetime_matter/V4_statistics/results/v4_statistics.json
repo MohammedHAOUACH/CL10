@@ -1,0 +1,15 @@
+{
+  "id": "V4_statistics",
+  "tier": 1,
+  "property": "P1",
+  "residual": false,
+  "pass": true,
+  "status": "the_z2_grading_is_the_statistics",
+  "tol": 1e-12,
+  "data": {
+    "total": 1024,
+    "n_even": 512,
+    "n_odd": 512
+  },
+  "wall_time": 0.053
+}

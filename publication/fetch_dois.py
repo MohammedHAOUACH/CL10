@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resolve and verify DOIs for the 52 references in doc/publication.md.
+"""Resolve and verify DOIs for the 53 references in doc/final_publication.md.
 
 For each numbered reference: search Crossref by the quoted title (math
 stripped), verify title similarity + year + (when present) volume/page.
@@ -15,7 +15,7 @@ import time
 import urllib.parse
 import urllib.request
 
-SRC = "../doc/publication.md"
+SRC = "../doc/final_publication.md"
 OUT = "doi.json"
 
 text = open(SRC, encoding="utf-8").read()
