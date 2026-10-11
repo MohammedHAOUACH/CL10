@@ -204,45 +204,63 @@ def fig6_wilson():
     gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.30], wspace=0.16)
     axA = fig.add_subplot(gs[0], projection="3d")
     fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
+    # the selective reading rings three of the twelve nodes, one per axis
+    # family.  which three is an input (Section 8.1), so the ring marks one
+    # signed representative per family -- the abs() that used to test
+    # membership matched all four members of every family and ringed all 12
     split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
              (0.0, np.pi / 2, np.pi / 2)}
-    for q in SC.M_POINTS:
+    # the ringed nodes are drawn last: in projection they overlap other nodes
+    # and their black ring must never be hidden behind one
+    keyed = [(q in split, q) for q in SC.M_POINTS]
+    for is_split, q in sorted(keyed, key=lambda k: k[0]):
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         col = fam_col[["x", "y", "z"][axis]]
-        is_split = tuple(abs(v) for v in q) in split
-        axA.scatter(*q, s=210 if is_split else 85, c=[col],
-                    alpha=1.0 if is_split else 0.85,
+        axA.scatter(*q, s=230 if is_split else 85, c=[col],
+                    alpha=1.0 if is_split else 0.85, zorder=5 if is_split else 3,
                     edgecolors="black" if is_split else "white",
-                    linewidths=1.7 if is_split else 0.5, depthshade=False)
-    # the zone is [-pi, pi]^3 but every node sits in the half zone: draw the
-    # cube that actually carries the twelve points, with pi/2 ticks
-    axA.set_xlim(-np.pi / 2, np.pi)
-    axA.set_ylim(-np.pi / 2, np.pi)
-    axA.set_zlim(-np.pi / 2, np.pi)
+                    linewidths=1.9 if is_split else 0.5, depthshade=False)
+    # the block zone is [-pi,pi]^3 and the twelve M points are the edge
+    # centres of the inner half-zone cube: draw both, so no node can sit on
+    # or outside a pane boundary
+    h = np.pi / 2
+    for a in (-h, h):
+        for b in (-h, h):
+            axA.plot([a, a], [b, b], [-h, h], color="0.55", lw=0.9, alpha=0.8)
+            axA.plot([a, a], [-h, h], [b, b], color="0.55", lw=0.9, alpha=0.8)
+            axA.plot([-h, h], [a, a], [b, b], color="0.55", lw=0.9, alpha=0.8)
+    axA.set_xlim(-np.pi, np.pi)
+    axA.set_ylim(-np.pi, np.pi)
+    axA.set_zlim(-np.pi, np.pi)
     from matplotlib.ticker import FixedFormatter, FixedLocator
     for axis in (axA.xaxis, axA.yaxis, axA.zaxis):
-        axis.set_major_locator(FixedLocator([0.0, np.pi / 2]))
-        axis.set_major_formatter(FixedFormatter(["0", r"$\pi/2$"]))
+        axis.set_major_locator(FixedLocator([-h, 0.0, h]))
+        axis.set_major_formatter(FixedFormatter([r"$-\pi/2$", "0",
+                                                 r"$\pi/2$"]))
         axis.set_tick_params(labelsize=10)
     axA.set_xlabel("$q_x$", fontsize=11, labelpad=1)
     axA.set_ylabel("$q_y$", fontsize=11, labelpad=1)
     axA.set_zlabel("$q_z$", fontsize=11, labelpad=1)
     axA.view_init(elev=16, azim=-58)
     axA.set_box_aspect((1, 1, 1))
-    for pane in (axA.xaxis.pane, axA.yaxis.pane, axA.zaxis.pane):
-        pane.fill = False
-        pane.set_edgecolor("0.72")
-        pane.set_linewidth(0.8)
-    axA.grid(True, alpha=0.35, linestyle=":")
+    for axis in (axA.xaxis, axA.yaxis, axA.zaxis):
+        axis.pane.fill = False
+        axis.pane.set_edgecolor("0.78")
+        axis.pane.set_linewidth(0.8)
+        axis.line.set_color("0.6")      # the box edges, not black rules
+    axA.grid(False)
     axA.legend(
         handles=[plt.Line2D([], [], marker="o", ls="", ms=9, color=c,
                             label=f"{n} family")
                  for c, n in ((C_SU3, "$x$"), (C_SU2, "$y$"), (C_GUT, "$z$"))]
-        + [plt.Line2D([], [], marker="o", ls="", ms=11, mfc="none",
-                      mec="black", mew=1.7, label="split node")],
+        + [plt.Line2D([], [], marker="o", ls="", ms=11, mfc="0.8",
+                      mec="black", mew=1.8,
+                      label="ringed: selective node (one per family)")],
         fontsize=9.5, ncol=4, loc="upper center", frameon=False,
         bbox_to_anchor=(0.5, -0.13))
-    axA.set_title("(a)  12 half-zone nodes = 3 axis families of 4",
+    axA.set_title("(a)  12 M points: the edge centres of the half-zone\n"
+                  r"cube $[-\pi/2,\pi/2]^3$ inside the zone $[-\pi,\pi]^3$"
+                  "\n(which three split is an input, not derived)",
                   fontsize=11.5)
 
     axB = fig.add_subplot(gs[1])
