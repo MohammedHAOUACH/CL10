@@ -92,6 +92,7 @@ sys.path.insert(0, os.path.join(ROOT, "experiments", "V79_gauged_bond_layer"))
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
                                    root_generators, structure_constants)
 from cl10 import clifford  # noqa: E402
+from cl10 import engine as E  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -125,7 +126,7 @@ def main():
            "data": {}}
     checks = []
 
-    gens = [np.asarray(m, dtype=np.complex128) for m in clifford.generators()]
+    gens = [E.asnumpy(m).astype(np.complex128) for m in clifford.generators()]
     planes = [1j * (gens[a] @ gens[b])
               for a in range(10) for b in range(a + 1, 10)]
     planes_lex = list(planes)  # the canonical (Appendix A) ordering
@@ -295,7 +296,7 @@ def main():
 
     # -------------------------------------------------------------- T6
     # the traced-link hop quantizes; odd loops cancel exactly
-    h = [np.asarray(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m).astype(np.complex128) for m in clifford.generators()]
     cartan = [1j * (h[a] @ h[a + 1]) for a in (0, 2, 4, 6, 8)]
     Ts = root_generators()
     f, _k, _as = structure_constants(Ts)
