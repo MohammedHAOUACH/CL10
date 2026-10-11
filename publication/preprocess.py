@@ -291,8 +291,8 @@ body_text = re.sub(
 # taller than a page (a table* taller than \textheight spills past the
 # bottom margin onto the next page)
 CHAR, LINE, PAD = 4.1, 11.4, 6.0      # footnotesize pt/char, pt/line, pt/cell
-COLW, TEXTW = 244.0, 504.0            # column and page width in pt
-MAXCOL, MAXFULL = 400.0, 470.0        # tallest one-column / full-width float
+COLW, TEXTW = 246.0, 510.0            # revtex PRD column and page width
+MAXCOL, MAXFULL = 400.0, 560.0        # tallest one-column / full-width float
 
 
 def _cells(row):
@@ -300,11 +300,34 @@ def _cells(row):
 
 
 def _plain(s):
-    # mimic pandoc's stringify: commands lose their names but keep their
-    # arguments, so an inline formula stays one long unbreakable word
-    s = re.sub(r"\\[a-zA-Z]+\*?\{([^{}]*)\}", r"\1", s)
-    s = re.sub(r"\\[a-zA-Z]+\*?", "", s)
-    return re.sub(r"[{}&$\\]", "", s)
+    # mimic pandoc's stringify: markdown emphasis goes, TeX stays verbatim
+    # (a formula is one long unbreakable word, exactly as LaTeX sees it)
+    s = re.sub(r"\*\*|`|(?<!\\)_", "", s)
+    return re.sub(r"[{}&\\]", "", s)
+
+
+def _lines(text, wchars):
+    """Lines a p{} column of wchars characters needs: real word wrapping,
+    because a long unbreakable formula costs a whole line of its own."""
+    n = 0
+    for para in text.split("\n"):
+        words = para.split()
+        if not words:
+            n += 1
+            continue
+        line, cur = 1, 0
+        for w in words:
+            lw = len(w)
+            if lw > wchars:
+                line += 2 if cur else 1
+                cur = 0
+            elif cur + lw > wchars:
+                line += 1
+                cur = lw + 1
+            else:
+                cur += lw + 1
+        n += line
+    return n
 
 
 def _height(rows, unit):
@@ -334,7 +357,7 @@ def _height(rows, unit):
         lines = 1
         for j, c in enumerate(_cells(r)[:ncol]):
             avail = max(f[j] * unit - PAD, 20.0)
-            lines = max(lines, math.ceil(len(_plain(c)) * CHAR / avail))
+            lines = max(lines, _lines(_plain(c), max(int(avail / CHAR), 4)))
         h += lines * LINE + 4.0
     return h
 
@@ -357,13 +380,24 @@ def size_table(m):
     elif _height(rows, TEXTW) <= MAXFULL:
         cls = "tablewide"
     else:
-        cut = len(body) + 1              # rows kept in the first float
-        while cut > 1 and _height([head, sep] + body[:cut], TEXTW) > MAXFULL:
-            cut -= 1
-        return ("::: {.tablewide id=%s}\n\n%s\n\n%s\n\n:::\n\n"
-                "::: {.tablecont id=%s_cont}\n\n%s\n\n:::\n"
-                % (tid, cap, "\n".join([head, sep] + body[:cut]),
-                   tid, "\n".join([head, sep] + body[cut:])))
+        # taller than one page: pack the body into as many full-width
+        # floats as needed, each repeating the header row. one continuation
+        # is not enough for a nine-row table of paragraph-sized cells --
+        # a table* taller than the page is clipped, rows simply vanish
+        chunks, cur = [], [head, sep]
+        for r in body:
+            if len(cur) > 2 and _height(cur + [r], TEXTW) > 0.97 * MAXFULL:
+                chunks.append(cur)
+                cur = [head, sep, r]
+            else:
+                cur.append(r)
+        chunks.append(cur)
+        out = ("::: {.tablewide id=%s}\n\n%s\n\n%s\n\n:::\n"
+               % (tid, cap, "\n".join(chunks[0])))
+        for k, ch in enumerate(chunks[1:], 1):
+            out += ("\n::: {.tablecont id=%s_cont%d}\n\n%s\n\n:::\n"
+                    % (tid, k, "\n".join(ch)))
+        return out
     return "::: {.%s id=%s}\n\n%s\n\n%s\n\n:::\n" % (cls, tid, cap,
                                                      "\n".join(rows))
 
