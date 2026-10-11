@@ -39,12 +39,16 @@ fi
 log="results/v131_gpu_$(date +%Y%m%d_%H%M%S).log"
 mkdir -p results
 echo "== V131_algebraic_closure  (log: ${log}) =="
+.venv/bin/python -c "from cl10 import engine as E; print('engine backend:', E._BACKEND)"
 .venv/bin/python experiments/V131_algebraic_closure/V131_algebraic_closure.py 2>&1 | tee "${log}"
 rc=${PIPESTATUS[0]}
 
 echo
-echo "== results (experiments/V131_algebraic_closure/results/v131_algebraic_closure.json) =="
-.venv/bin/python - <<'EOF'
+if [ "${rc}" -ne 0 ]; then
+    echo "== the run FAILED - the results JSON on disk is from an EARLIER run, not this one =="
+else
+    echo "== results (experiments/V131_algebraic_closure/results/v131_algebraic_closure.json) =="
+    .venv/bin/python - <<'EOF'
 import json
 d = json.load(open("experiments/V131_algebraic_closure/results/v131_algebraic_closure.json"))
 n = len(d["checks"])
@@ -56,6 +60,7 @@ for c in d["checks"]:
 print("closed angles:", sorted(d["data"]["closure_scan"]["exactly_closed"].keys()),
       "(pi/2 order 4, pi/4 order 8)")
 EOF
+fi
 echo
 echo "log: ${log}"
 exit $rc
