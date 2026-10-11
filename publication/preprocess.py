@@ -482,7 +482,15 @@ for num in sorted(divs, key=int, reverse=True):
     body_text = body_text[:end] + "\n\n" + div + body_text[end:]
 
 # ---------------------------------------------------------------- emit
-yaml = ["---", "title: |", "  " + title,
+# a ": " in the title becomes a hard line break (backslash-newline in the
+# literal block, pandoc's markdown hard break); titleplain keeps the one-line
+# form for the PDF metadata
+title_block = title
+if ": " in title:
+    head, rest = title.split(": ", 1)
+    title_block = head + ":\\\n  " + rest
+yaml = ["---", "title: |", "  " + title_block,
+        'titleplain: "%s"' % title,
         "abstract: |", "  " + "\n\n  ".join(abstract_lines),
         "keywords: |", "  " + keyword_line, "---", ""]
 
