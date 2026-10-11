@@ -93,6 +93,7 @@ the reason recorded in `../archive/README.md`.
 | `V129_gauged_layer_gap` | the layer is massive and its bond entropy is exactly saturated |
 | `V130_string_tension` | the layer confines, at the Planck scale |
 | `V140_dressed_gate_quintet` | the dressed gate on the directed-link network: the KS electric gate is exactly invariant, the dressed hopping is obstructed; the quintet disperses massless, linear, isotropic |
+| `V141_regular_link_quintet_coupling` | the regular link of the root's finite group closes the hopping obstruction exactly and the dressed hop runs at v = 1; the quintet–matter coupling gaps the Eg half |
 
 ### `gravity`
 | id | verdict |
