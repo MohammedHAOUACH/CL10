@@ -230,45 +230,25 @@ body.append(":::")
 body_text = "\n".join(body)
 
 # ---------------------------------------------------------------- figures
-FIG_TITLE = re.compile(r"^\*\*Fig\. (\d+) \u2014 (.+)\.\*\*$", re.M)
-IMG = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$", re.M)
+# the paper places each figure as an image line immediately followed by its
+# italic caption line; bind the pair into a float div. images wider than
+# 1.8:1 span both columns (figure*), the rest take one column.
+FIGPAIR = re.compile(
+    r"^!\[[^\]]*\]\((figures/fig(\d+)_\w+\.png)\)\n\*([^\n]+)\*[ \t]*$", re.M)
 
-# split the figure region on Fig. headers
-parts = FIG_TITLE.split(body_text)
-# parts: [pre, num, title, mid, num, title, mid, ...]
-if len(parts) > 1:
-    rebuilt = [parts[0]]
-    for k in range(1, len(parts), 3):
-        num, ftitle, mid = parts[k], parts[k + 1], parts[k + 2]
-        mi = IMG.search(mid)
-        if not mi:
-            rebuilt.append("**Fig. %s \u2014 %s.**\n%s" % (num, ftitle, mid))
-            continue
-        img = mi.group(2)
-        cap_lines = []
-        leftover = []
-        seen_img = False
-        for r in mid.split("\n"):
-            if not seen_img:
-                if r.strip() == mi.group(0).strip():
-                    seen_img = True
-                    continue
-            if seen_img:
-                if (r.strip().startswith("---") or r.strip().startswith("#")
-                        or r.strip().startswith("\\appendix")):
-                    leftover.append(r)
-                    continue
-                if leftover:
-                    leftover.append(r)
-                    continue
-            if r.strip():
-                cap_lines.append(r.strip())
-        wide = png_ratio(img) > 1.8
-        cls = "figurewide" if wide else "figure"
-        cap = "**%s.** %s" % (ftitle, "\n\n".join(cap_lines))
-        rebuilt.append("::: {.%s id=fig:%s src=%s}\n\n%s\n\n:::\n%s\n"
-                       % (cls, num, img, cap, "\n".join(leftover)))
-    body_text = "".join(rebuilt)
+
+def _ratio(img):
+    # png_ratio resolves against ../doc/ and falls back to 1.0
+    return png_ratio(img)
+
+
+def _figdiv(m):
+    img, num, cap = m.group(1), m.group(2), m.group(3).strip()
+    cls = "figurewide" if _ratio(img) > 1.8 else "figure"
+    return ("::: {.%s id=fig:%s src=%s}\n\n%s\n\n:::" % (cls, num, img, cap))
+
+
+body_text = FIGPAIR.sub(_figdiv, body_text)
 
 # ---------------------------------------------------------------- tables
 # wrap every bare pipe-table block first, then merge "**Table N. title.**"
@@ -314,52 +294,33 @@ body_text = xform(body_text)
 
 # ---------------------------------------------------------------- place figures
 # move each figure div right after the paragraph of its first textual
-# reference (Fig.~\ref{fig:N}); unreferenced figures stay at the end
+# reference (Fig.~\ref{fig:N}); a figure with no textual reference stays
+# where the paper put it
 figdiv_re = re.compile(
     r"::: \{\.figure(?:wide)? id=fig:(\d+) src=[^\n]*\}\n\n(?:.|\n)*?\n:::\n")
 divs = {}
+
+
 def grab(m):
-    divs[m.group(1)] = m.group(0)
+    divs[m.group(1)] = (m.group(0), m.start())
     return ""
+
+
 body_text = figdiv_re.sub(grab, body_text)
 
-for num in sorted(divs, key=int):
-    # fig 26: its caption block swallowed the "Provenance" paragraph, making
-    # a ~515pt float that fits nowhere; keep only the figure description in
-    # the caption, return the provenance paragraph to the appendix prose,
-    # and shrink the image so the float lands on the page with free space.
-    if num == "26" and "Provenance of" in divs[num]:
-        i = divs[num].find("**Provenance of")
-        j = divs[num].find("\n:::", i)
-        prov = divs[num][i:j].strip()
-        divs[num] = (divs[num][:i].rstrip() + "\n\n:::\n")
-        divs[num] = divs[num].replace(
-            "{.figure id=fig:26", '{.figure id=fig:26 width="0.85\\columnwidth"', 1)
-        divs[num + "_prov"] = prov + "\n"
-    marker = "``Fig.~\\ref{fig:%s}``" % num
-    if marker not in body_text:
-        marker = "``Figs.~"  # range reference: place at first range mention
-    # fig 26 is cited in the code-availability paragraph at the very end
-    # of Appendix B: declaring it there forces the float past the
-    # bibliography. Anchor it at the start of Appendix B instead so it
-    # floats within the appendix pages, before REFERENCES.
-    if num == "26":
-        anchor = body_text.find("\\appendix\n\n# Numerical protocol")
-        if anchor != -1:
-            end = body_text.find("\n\n", anchor)
-            body_text = (body_text[:end] + "\n\n" + divs[num]
-                         + ("\n" + divs.get("26_prov", ""))
-                         + body_text[end:])
-            continue
-    pos = body_text.find(marker)
+# descending: figures sharing one anchor paragraph end up in ascending
+# order at that anchor (each insert lands before the previous one)
+for num in sorted(divs, key=int, reverse=True):
+    div, orig = divs[num]
+    # the raw span may be singular ("``Fig.~\ref{fig:9}``") or plural
+    # ("``Figs.~\ref{fig:7}, \ref{fig:8}``"): match the \ref itself
+    pos = body_text.find("\\ref{fig:%s}" % num)
     if pos == -1:
-        body_text += "\n" + divs[num]
-        continue
-    # end of the paragraph containing the reference
+        pos = min(orig, len(body_text))
     end = body_text.find("\n\n", pos)
     if end == -1:
         end = len(body_text)
-    body_text = body_text[:end] + "\n\n" + divs[num] + body_text[end:]
+    body_text = body_text[:end] + "\n\n" + div + body_text[end:]
 
 # ---------------------------------------------------------------- emit
 yaml = ["---", "title: |", "  " + title,

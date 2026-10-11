@@ -125,7 +125,7 @@ function Div(el)
       return string.format(
         '\\begin{%s}[%s]\n\\centering\n\\includegraphics[width=%s]{%s}\n\\caption{%s}\n\\label{%s}\n\\end{%s}',
         wide and 'figure*' or 'figure',
-        wide and 'ht' or 'ht',
+        wide and '!t' or '!ht',
         gwidth,
         src, cap, id, wide and 'figure*' or 'figure')
     end)

@@ -7,9 +7,10 @@ One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 40 pp., 25 figures, 8 tables, 53 references, REVTeX 4.2
-`aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references,
-0 stuck floats; the remaining overfull hboxes are the dense display-math paragraphs.
+Current artifact: 37 pp., 25 figures, 8 tables, 53 references, REVTeX 4.2
+`aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
+25 floats placed in ascending order within two pages of their first textual
+reference; the remaining overfull hboxes are the dense display-math paragraphs.
 
 ## The pipeline
 
@@ -49,6 +50,15 @@ doc/final_publication.md
 The figures live in `doc/figures/` and are generated from the construction
 by `python -m make_figures` (see `make_figures/README.md`). Regenerate the
 figures first, then rebuild the PDF — `build.sh` copies them into `build/`.
+
+In the manuscript each figure is an image line followed by its italic caption
+line, and every figure is cited in the prose (`(Fig. 7)` / `(Figs. 13, 14)`).
+`preprocess.py` binds each pair into a `{.figure}` / `{.figurewide}` Div (the
+wide class is chosen from the PNG aspect ratio, > 1.8:1) and moves it after
+the paragraph of its first `\ref{fig:N}`; `filter.lua` emits
+`\begin{figure}[!ht]` / `\begin{figure*}[!t]` with `\caption` + `\label`.
+Adding a figure therefore needs no LaTeX in the manuscript: image, caption,
+and one in-text reference.
 
 ## Checks after a build
 
