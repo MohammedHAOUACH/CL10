@@ -84,14 +84,19 @@ def fig18_residual_reduction():
             width=0.7)
     axB.set_xlabel(r"scan $n$  (distinct from the coupling scan $\alpha = 1/n^2$)")
     axB.set_ylabel(r"worst deviation of the two scales (e-folds)")
-    axB.set_ylim(0, 2.75)
+    axB.set_ylim(0, 3.4)
+    axB.tick_params(axis="x", labelsize=8)
     axB.annotate(f"$n = {n_best}$: nearest", xy=(str(n_best), worst[n_best]),
-                 xytext=(19.5, 2.5), ha="right",
+                 xytext=(19.5, 3.15), ha="right",
                  fontsize=11.5, color=C_ZERO,
+                 bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="none",
+                           alpha=0.92),
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.1))
     axB.annotate(f"$n = {n_best - 1}$: {worst[n_best - 1]:.1f} decades away",
-                 xy=(str(n_best - 1), worst[n_best - 1]), xytext=(1.2, 2.5),
+                 xy=(str(n_best - 1), worst[n_best - 1]), xytext=(1.2, 3.15),
                  fontsize=11.5, color="#e07b00",
+                 bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="none",
+                           alpha=0.92),
                  arrowprops=dict(arrowstyle="->", color="#e07b00", lw=1.1))
     axB.set_title(f"The scan $n = 1\\dots20$: $n = {n_best}$ is nearest\n"
                   f"($n = {n_best - 1}$ is {worst[n_best - 1]:.1f} decades away)", fontsize=12)

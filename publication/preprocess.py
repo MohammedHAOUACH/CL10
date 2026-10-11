@@ -254,6 +254,9 @@ def _ratio(img):
 
 def _figdiv(m):
     img, num, cap = m.group(1), m.group(2), m.group(3).strip()
+    # a caption opening with "(a)" parses as a fancy ordered list and the Div
+    # handler then loses it: escape the opening parenthesis
+    cap = re.sub(r"^\((\w+)\)", r"\\(\1)", cap)
     cls = "figurewide" if _ratio(img) > 1.8 else "figure"
     return ("::: {.%s id=fig:%s src=%s}\n\n%s\n\n:::" % (cls, num, img, cap))
 
