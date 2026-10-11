@@ -2,7 +2,7 @@
 # run_gpu.sh - the CL10 validation suite on the GPU (cupy backend).
 #
 #   ./run_gpu.sh                    # every experiment under experiments/
-#   ./run_gpu.sh V63 V102 V118      # a subset (dir names)
+#   ./run_gpu.sh V63_bz_chirality V102_lorentz_isotropy   # a subset (**exact** dir names)
 #   JOBS=6 ./run_gpu.sh             # worker pool (default 8)
 #   FORCE=1 ./run_gpu.sh            # launch even if the card looks busy
 #

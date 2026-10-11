@@ -95,7 +95,7 @@ CL10/
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   └── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
-├── experiments/              # the verification program (131 experiments, V0-V130)
+├── experiments/              # the verification program (136 experiments, V0-V135)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -182,13 +182,28 @@ CL10/
 ├── V118/               # the W9 tangent velocity algebra: the 12 doubler nodes measured AT the tangent - principal velocities (0.14189, 0.14189, 0), the third exactly zero, V115's finite-difference exponents 0.00 (linear) and -1.00 (flat) so the anisotropy is not a dq artifact; little groups (zone edge C2v; supercell corner O_h with exactly 3-fold multiplets); the V65 factor drives a corner cubic triplet exactly gapless (1e-10, a one-parameter family); on it [S_i,S_j] = 0 to 2e-12, sum_j S_j^2 is a scalar, and each branch is exactly planar, E = |v_alpha . q| to 6e-12 with the v_alpha the cubic permutations of (0.704, 0.421, 0.421) - three nodal planes, not a cone (Fig. 39)
 ├── V119/               # the W9 double-multiplet escape closed: the two corner multiplets cannot be driven to zero simultaneously anywhere on the V65 Wilson family (best pair gap 7.2e-5, gapless dim 3 < 6); the touching that is reachable is linear but anisotropic (A = 0.996)
 ├── V120/               # the W9 remedy built and tested: a non-Abelian Peierls bond layer entangling cell and internal indices (a hop carries exp(+-i phi D16), sign by hop direction; exactly unitary, radius-1 causal, reproduces the implemented step to 3.4e-16 at phi = 0) - it breaks exact planarity (5e-16 -> 4e-2) and switches the commutator on to 0.071 of its natural scale, but lifts the corner triplet off zero and A stays 0.996-0.9999: entanglement is necessary, a single phase is not sufficient (Fig. 39)
+├── V121/               # the W9 three-axis non-abelian bond layer: it costs causality and closes nothing
+├── V122/               # the W4 class invariants as the source of the six kappa_s: the V96 closure reproduces with free kappa_s in the flipped embedding
+├── V123/               # the W7 relic abundance computed: freeze-out integral, and no root coupling gives Omega h^2 = 0.120 at the ladder mass
+├── V124/               # the W7 exact Z2 gradings of the step: the mirror is the pseudoscalar, G^2 = I, [G, U32] = 7e-16
+├── V125/               # the W5 CP flux spent on the asymmetry: unitary, det U = 1 at every flux, the asymmetry fails only on out-of-equilibrium
+├── V126/               # the W8 which loops supply the ladder factor: the T.L Casimir has exactly 3 eigenspaces, the n-hop traced link factorizes
+├── V127/               # the W3 energies of the 8 triangle vacua: the V116 eightfold is not a junction degeneracy
+├── V128/               # the F4 massless spin content: M(q) = P(q) (x) U16^6 exactly, no exactly gapless band, no 2-dim irrep at any node - no helicity pair
+├── V129/               # the gauged bond layer is massive and its bond entropy exactly saturated: vertex Gauss Laplacian kernel = m_45, first level C2(45)
+├── V130/               # the gauged layer confines, at the Planck scale: irreducible adjoint link, no invariant vector, exactly linear potential
+├── V131/               # the algebraic closure of the step: the only exactly closed 45-plane products are pi/2 (= w, ordering-independent) and pi/4 (order 8) - the root quantizes its own clock, at the price of the n* = 10 crossing and the alpha = 1/25 meeting
+├── V132/               # the gapless census at pi/4: GAMMA plus six face-diagonal nodal lines (73 grid points against 0 at 1/5), quadratic touching, the V63 point-node chirality convention inapplicable, no helicity candidate at GAMMA
+├── V133/               # the desert re-closure at the closed coupling alpha_X = pi/64: exists but leaves the desert (M_X = 1.24e17 GeV, tau_p = 2.8e39 yr); 1.8e16 needs alpha_X = 0.040050
+├── V134/               # the pi/2 branch measured: bond layer diagonal with the identity permutation and corner shifts {+-1}^3 - a pure lattice translation, M(0) = I, 513 gapless grid points, no mass generation
+├── V135/               # the closed coupling against the data: pi/64 has relative gap 1.128 to the one-loop mean where 1/25 had 0.734 (1.54x worse), and is not of the 1/n^2 form
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
-├── run_validation.py         # the runner: runs all 131, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 136, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 39 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
-    └── validation_summary.json   # the 131/131 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 136/136 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -212,8 +227,10 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 131 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 131 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+python3 run_validation.py        # runs all 136 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 136 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+./run_gpu.sh V131_algebraic_closure V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed
+                                   # the closed-angle batch alone (the runner takes **exact** directory names)
 ./run_figures.sh                   # the 39 figures on the GPU card make_figures pins; it
                                    # ABORTS if that card has < 2 GiB free, so the figures
                                    # never silently become numpy products (FORCE=1 to run
@@ -232,8 +249,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **131** experiments
-(V0–V130) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **136** experiments
+(V0–V135) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

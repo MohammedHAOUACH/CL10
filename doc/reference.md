@@ -76,6 +76,7 @@ signatures are in `doc/api.md`):
 | the 4-D non-linear gravity (analytic de Sitter, §9.1, §12.1; V46) | `cl10.nonlinear_gravity` | the de Sitter metric (flat FRW: $g_{00}=-1$, $g_{ij}=a^2\delta_{ij}$, $a=(1/H)e^{Hx^0}$); the **full 4-D Riemann tensor** (analytic Christoffel $\Gamma^0_{ij}=Ha^2\delta_{ij}$, $\Gamma^i_{0j}=\Gamma^i_{j0}=H\delta_{ij}$ and $\partial_0\Gamma$); the **Einstein tensor** $G_{\mu\nu}=R_{\mu\nu}-\tfrac12 g_{\mu\nu}R=-3H^2 g_{\mu\nu}$ (the vacuum energy **of this metric**, not the observed $\Lambda$); the **nonzero** $\Gamma\Gamma$ (cubic) self-gravity; at the Planck Hubble the vacuum energy $\Lambda\sim M_P^4$ (the W1 named residual).  This is the **analytic reference** that `cl10.gravity` (V50) cross-checks against (the 2-route verification) |
 | the internal layer of the step (§8.1) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
 | the automaton: the block cell, the step, the causal radius (§8.1, Theorem 5) | `cl10.supercell` | the cell is the **2×2×2 block** (8 sub-sites × the 32-D module = $\mathbb{C}^{256}$); one **time-independent step** of six stages, each the internal layer on every sub-site plus one **bond stage** $\cos g_{10}\, I - i\sin g_{10}\,P$ on the four disjoint pairs of one parity along one axis (three intra-block, three inter-block); the exact Bloch matrix $M(q)$ ($256\times256$; $128\times128$ on the 16) on the block zone; the measured front speed is **exactly 1 Planck cell per stage** |
+| the **closure of the step** (§8.5; V131–V135) | `cl10.sm_qca`, `cl10.supercell` | the same 45-plane product at a **general** angle $g$; the closure test is $U^{k} = \pm I$ on the module (internal layer) and $M(0)^2 = I$ on the exact block Bloch matrix at the zone centre. The **only** exactly closed angles of the canonical Appendix-A ordering are $g = \pi/2$ (the step **is** the pseudoscalar $w$, ordering-independent) and $g = \pi/4$ (order 8; internal spectrum exactly $\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, leak below $5\times10^{-16}$); five shuffled factor orderings break it (deviation $\sim1$) — the ordering, already an input of the step, carries the quantization. The closed-angle consequences are measured, not assumed: the gapless census (V132, `cl10.supercell`), the $\pi/2$ branch (V134), the desert re-closure at $\alpha_X = \pi/64$ (V133, `cl10.unification` + the V64 inverse problem), the coupling contact against the one-loop mean (V135, `cl10.g10_selection`) |
 | the EH action from the dynamics (§9.2) | `cl10.einstein.einstein_hilbert_from_dynamics` | the **discrete** quadratic action $S_{\rm EH} = \frac{1}{16\pi}\frac12\sum_{x,t}\, u_t\big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2 u_t\big]$ ($G = 1$, $dt^2 = \tfrac14$, $\nabla^2$ = the 6-neighbour Laplacian); the **Euler–Lagrange equation** is the **numerical** functional derivative (the central finite difference of the action) evaluated on the GPU |
 | the numbers of the root (§8.1, §14) | `cl10.unification` | $n_{\rm qubits} = \log_2 32 = 5$ $\Rightarrow$ $g_{10} = 1/5$, $\alpha_{10} \equiv g_{10}^2 = 1/25$; $g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ ($n_{\rm space} = 3$ = the spatial dimension of the $(1,3)$).  Both readings are **conventions** (Table 5 of the publication), not derivations; the **down-running** is the 1-loop $1/a(M) = 1/a(M_{\rm UV}) + (b/2\pi)\ln(M_{\rm UV}/M)$ |
 | the 3-family step (§4, §11.5) | `cl10.family` | the 96-D internal space $= \bigoplus_{k=1}^3 H_{32}$; $U_{96} = \mathrm{blockdiag}(U_{32}, U_{32}, U_{32})$ at the **same** $g_{10}$ (the family symmetry); the tribimaximal PMNS (V29) is a property of the **Yukawa** sector, not of the time-evolution step; only $\sin^2\theta_{12}=1/3$ is a **derived number** (§11.5) |
@@ -121,13 +122,13 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V130 under `experiments/`):
+**The protocol.**  Each experiment (V0–V135 under `experiments/`):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
    status, data, wall_time}` to `experiments/<id>/results/` — `tier` ($0$–$6$)
-   is written by the 66 tiered checks (V0–V104); the 65 residual-attack checks
-   (V64–V130) record their verdict against a named residual and omit it;
+   is written by the 66 tiered checks (V0–V104); the 70 residual-attack checks
+   (V64–V135) record their verdict against a named residual and omit it;
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 5. a **crash** of the experiment script (non-zero exit code) is recorded as
@@ -135,7 +136,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **131** experiments (V0–V130) in name order,
+`run_validation.py` runs all **136** experiments (V0–V135) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**,
 and the runner's hard-tier verdict (the runner labels it `U10`; the paper
@@ -144,8 +145,7 @@ does not use that label):
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (121/121, 2026-10-10).**  Every experiment **passes** on the
-GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
+**The result (131/131 on the last full GPU run, 2026-10-10; the four closed-angle checks V132–V135 pass individually, `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed`).**  Every experiment **passes** on the GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
 (Appendix B): most of these checks are **internal consistency** (they
 would pass for any theory built on this root), and a pass is only as good
 as its criterion.  (For the *meaning* of each pass — which residuals are
@@ -197,7 +197,13 @@ over 15 rows as 7 algebraic / 1 free angle / 2 conventions / 1 coincidence
 $g_{10} = 1/5$ is the theory's **one free parameter**: V52 flags it as such
 and V56 shows the data prefer $n = 7$ over the root $n = 5$.  The **algebra**
 has no free parameter; that is not the same as the **dynamics** being
-parameter-free.
+parameter-free — until the **closure axiom** (V131) is imposed: requiring the
+fundamental step to be an element of the root ($U^k = \pm I$) leaves exactly
+$g = \pi/2$ and $g = \pi/4$ (the canonical Appendix-A ordering), so the angle
+becomes a discrete index and the implemented $1/5$ is the **fallback** theory.
+What the quantization costs is measured: the closed coupling $\alpha = \pi/64$
+sits a factor $1.54$ further from the one-loop mean than $1/25$ did (V135), and
+the desert meeting at the closed value leaves the desert (V133).
 
 ---
 
@@ -214,7 +220,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (121/121)
+python3 run_validation.py            # -> results/validation_summary.json (136/136)
 python3 run_validation.py V11 V12    # a subset
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 ```
@@ -232,7 +238,7 @@ F4xx/F5xx are enforced).
  the `make_figures` **package**:
 
  ```bash
- python3 -m make_figures            # -> doc/figures/fig1..fig38_*.png (GPU if the pinned card is free, else numpy)
+ python3 -m make_figures            # -> doc/figures/fig1..fig39_*.png (GPU if the pinned card is free, else numpy)
  python3 -m simulation.hydrogen     # -> simulation/hydrogen/video/ (the Fig. 19 stills + the mp4; git-ignored)
  ```
 
@@ -312,6 +318,28 @@ factor of V65 gaps all twelve (Section 8.4), and the choice of the split node
 set is what remains.  This is the lattice-chirality item of W9: the paper
 reports the doubling as a **negative** result, and its removal by a mechanism of
 the step itself in Section 8.4.
+
+*The closed angle changes the census (V131, V132, V134).*  The closure axiom
+(Section 8.5 of the publication) replaces the implemented $g_{10} = 1/5$ by
+$g = \pi/4$, and the doubling picture changes with it.  At $\pi/4$ the exact
+block step satisfies $M(0)^2 = I$ below $1\times10^{-14}$, and the **exactly
+gapless set** of the block zone is $\Gamma$ together with the **six
+face-diagonal lines** $\{(\pm t, \pm t, 0)\}$ and its axis permutations — the
+twelve M points are only the high-symmetry points lying on them (gaps
+$0$–$2.2\times10^{-16}$), X and R stay gapped at $0.5236$, and a $13^3$ grid
+counts 73 gapless points against 0 at $1/5$ (V132).  The touching is
+**quadratic**: through a node the gap is zero along the line, linear in one
+transverse direction (slope $0.577$) and quadratic in the other, the three axis
+exponents being a permutation of $(1,1,2)$ at all twelve nodes.  The
+**chirality protocol above therefore does not apply**: it needs isolated zeros,
+and at 12/12 nodes the gap along the line through the node stays below
+$10^{-9}$ at steps $10^{-3},10^{-2},10^{-1}$, so the $\pm1$ charges whose sum
+was exactly $0$ become sign noise (naive sum $-2$).  The Nielsen–Ninomiya count
+at the closed angle must be redone **per line**, and has not been.  At the other
+closed angle $\pi/2$ the bond layer is diagonal to $1.2\times10^{-16}$ with the
+identity permutation and the eight corner shifts $\{\pm1\}^3$ — a pure lattice
+translation, $M(0) = I$ on all 128 internal states, bands exactly linear with
+slope $\pm1$, 513 gapless grid points: no mixing, no mass generation (V134).
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the

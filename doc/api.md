@@ -181,6 +181,19 @@ is the product of the **45 Spin(10) plane rotations** $T_{ab} = i\,h_a h_b$
 | `sm_qca` | `(n_steps, L)` | `{n_planes, g10, plane_square_to_I_err, step_unitary_err, norm_before, norm_after, norm_rel_err, backend, causal_radius}` — the full SM QCA verdict (V23) |
 | `main` | `()` | runs the V23 self-check |
 
+**The closure of the step (V131).** `gut_qca_step(planes, theta)` takes the angle
+as an argument, so the **closed** angles are reachable: the axiom that the
+fundamental step be an element of the root ($U^k = \pm I$ on the 32-D module) has
+exactly **two** solutions for the canonical Appendix-A factor ordering,
+$\theta = \pi/2$ (the step **is** the pseudoscalar $w$, ordering-independent) and
+$\theta = \pi/4$ (order 8; the internal spectrum exactly
+$\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, leak below $5\times10^{-16}$). Five
+shuffled orderings break both, so the ordering of the product carries the
+quantization. The implemented $g_{10} = 1/5$ is the **fallback** theory; the
+closed-angle consequences are measured in `experiments/V132..V135` (the gapless
+census, the desert re-closure at $\alpha_X = \pi/64$, the $\pi/2$ branch, the
+coupling contact), and `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed` runs that batch on the GPU.
+
 ---
 
 ## 10. `cl10.cpt` — the CPT theorem (the 16/16-bar are CPT conjugates)
@@ -501,6 +514,14 @@ on the **CuPy** GPU engine.
 | `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.73** of the 1-loop GUT coupling; **honest scan**: the data-optimal candidate is $n=7$ (gap 0.12), **not** the root $n=5$ (gap 0.73) — `data_check_selects_n = False`, so the reading $1/n_{\rm qubits}$ is a **mapping convention**, not a fit |
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
 
+**Re-scored at the closed coupling (V135).** The same `gut_1loop` mean (0.023068)
+is compared against the coupling the closure axiom forces: at $g = \pi/4$ the
+rotation-squared convention gives $\alpha_{10} = \pi^2/16$ in rotation units,
+$\pi/64 = 0.049087$ in the SM normalisation, whose relative gap to the one-loop
+mean is **1.128** against **0.734** for $1/25$ — the closure worsens the tension
+by $1.54\times$ — and $\pi/64 = 1/n^2$ needs $n = 4.51$, so the $1/n^2$ selection
+rule and the closure axiom cannot both hold.
+
 **`cl10.neutrino` — the 2-step seesaw on the 10-loop ladder (V57, W2).**
 
 | symbol | signature | returns |
@@ -585,6 +606,18 @@ exact at every step.  Protocol and cross-validation: `doc/reference.md` §5.
 | `GAMMA`, `X_POINTS`, `M_POINTS`, `R_POINTS`, `HIGH_SYM`, `star`, `stabilizer_order` | — | the block-zone high-symmetry momenta with their cubic stars and little groups (M: star 12, $C_{2v}$ — the gapless nodes; R: star 8, $C_{3v}$ — the exactly 3-fold multiplets) |
 | `verify` | `(tol=1e-9)` | the V63 verdict: sector leakage $<10^{-15}$, Bloch-vs-torus $<10^{-14}$ (both backend-dependent: $5.7$–$7.0\times10^{-16}$ and $7.4$–$9.8\times10^{-15}$ on cupy/numpy), $\mathrm{gap}(\Gamma) = 0.036499$ per step, 12 M-point nodes with gap $2.0\times10^{-4}$ and chirality sum $0$, the R-corner 3-fold multiplets, the $g_{10}$ scan.  `ok` is a statement about the **computation**; its physics content is a **negative** result for the bare step (the doublers are present, W9) |
 
+**At the closed angle (V132, V134).** Every symbol above takes the internal step
+as an argument (`U`, `g10`), so the closed angles are reached by
+`U = internal(g10=pi/4)` (or `pi/2`): `bloch` then gives the exactly closing
+step ($M(0)^2 = I$ below $1\times10^{-14}$), `gap`/`phases` give the **gapless
+census** — $\Gamma$ plus the six face-diagonal lines, 73 gapless points on a
+$13^3$ grid against 0 at $1/5$ — and the little-group data at $\Gamma$ (gapless
+subspace 64 of 128, four 1-dimensional bond constituents). At $\pi/2$ the bond
+layer is diagonal with the identity permutation: the step is a pure lattice
+translation, $M(0) = I$. The **chirality** part of `verify` (the $\pm1$ node
+charges and their sum) is a **point-node** convention and does not apply at
+$\pi/4$, where the nodes are not isolated; the count there is open (V132).
+
 ---
 
 
@@ -612,8 +645,8 @@ backend-dependent failure).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 131 experiments (V0-V130), in parallel
-python3 run_validation.py V11 V12      # a subset (--jobs N caps the pool)
+python3 run_validation.py              # all 136 experiments (V0-V135), in parallel
+python3 run_validation.py V11 V12      # a subset: **exact directory names** (--jobs N caps the pool)
 ```
 
 ---

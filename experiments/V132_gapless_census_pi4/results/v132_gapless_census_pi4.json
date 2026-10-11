@@ -1,0 +1,341 @@
+{
+ "experiment": "V132_gapless_census_pi4",
+ "tol": 1e-09,
+ "data": {
+  "census": {
+   "angle": 0.7853981633974483,
+   "factorisation_err": 3.9968028886505635e-15,
+   "lines": {
+    "q_x=+q_y, q_z=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    },
+    "q_x=-q_y, q_z=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    },
+    "q_x=+q_z, q_y=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    },
+    "q_x=-q_z, q_y=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    },
+    "q_y=+q_z, q_x=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    },
+    "q_y=-q_z, q_x=0": {
+     "max_gap_on_line": 2.220446049250313e-16,
+     "n_samples": 25
+    }
+   },
+   "line_max_gap": 2.220446049250313e-16,
+   "gamma_gap": 2.220446049250313e-16,
+   "M_gaps": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "X_gap_min": 0.5235987755982863,
+   "R_gap_min": 0.523598775598286,
+   "body_diagonal_gaps": [
+    0.022333612022112925,
+    0.23192236883056605,
+    0.7812942612807308
+   ],
+   "grid": 15,
+   "grid_gapless_off_lines": 0,
+   "grid_min_nonzero_gap": 0.00746579982544504,
+   "grid_min_nonzero_at": [
+    -2.243994752564138,
+    -2.6927937030769655,
+    2.243994752564138
+   ]
+  },
+  "transverse": {
+   "M0": {
+    "along (1,1,0)": {
+     "gap_1e-1": 0.0,
+     "gap_1e-2": 2.220446049250313e-16,
+     "gap_1e-3": 0.0,
+     "exponent": null,
+     "slope": 0.0
+    },
+    "transverse (1,-1,0)": {
+     "gap_1e-1": 0.08162697700599075,
+     "gap_1e-2": 0.008164943128798232,
+     "gap_1e-3": 0.0008164965582353467,
+     "exponent": 1.0,
+     "slope": 0.57735
+    },
+    "transverse (0,0,1)": {
+     "gap_1e-1": 0.002497919958645678,
+     "gap_1e-2": 2.499979165770938e-05,
+     "gap_1e-3": 2.4999996695029836e-07,
+     "exponent": 2.0,
+     "slope": 0.00025
+    }
+   },
+   "per_node_axis_exponents": {
+    "[1.5708, 1.5708, 0.0]": [
+     1.0,
+     1.0,
+     2.0
+    ],
+    "[1.5708, 0.0, 1.5708]": [
+     1.0,
+     2.0,
+     1.0
+    ],
+    "[0.0, 1.5708, 1.5708]": [
+     2.0,
+     1.0,
+     1.0
+    ],
+    "[1.5708, -1.5708, 0.0]": [
+     1.0,
+     1.0,
+     2.0
+    ],
+    "[1.5708, 0.0, -1.5708]": [
+     1.0,
+     2.0,
+     1.0
+    ],
+    "[0.0, 1.5708, -1.5708]": [
+     2.0,
+     1.0,
+     1.0
+    ],
+    "[-1.5708, 1.5708, 0.0]": [
+     1.0,
+     1.0,
+     2.0
+    ],
+    "[-1.5708, 0.0, 1.5708]": [
+     1.0,
+     2.0,
+     1.0
+    ],
+    "[0.0, -1.5708, 1.5708]": [
+     2.0,
+     1.0,
+     1.0
+    ],
+    "[-1.5708, -1.5708, 0.0]": [
+     1.0,
+     1.0,
+     2.0
+    ],
+    "[-1.5708, 0.0, -1.5708]": [
+     1.0,
+     2.0,
+     1.0
+    ],
+    "[0.0, -1.5708, -1.5708]": [
+     2.0,
+     1.0,
+     1.0
+    ]
+   },
+   "distinct_patterns": [
+    [
+     1.0,
+     1.0,
+     2.0
+    ],
+    [
+     1.0,
+     2.0,
+     1.0
+    ],
+    [
+     2.0,
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  "chirality": {
+   "naive_V63_sum": -2.0,
+   "naive_per_node": [
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    -1.0,
+    1.0,
+    1.0,
+    -1.0,
+    1.0,
+    -1.0,
+    -1.0,
+    -1.0
+   ],
+   "nonisolated_nodes": 12,
+   "gap_along_line_per_node": {
+    "[1.5708, 1.5708, 0.0]": [
+     0.0,
+     2.220446049250313e-16,
+     0.0
+    ],
+    "[1.5708, 0.0, 1.5708]": [
+     2.220446049250313e-16,
+     0.0,
+     0.0
+    ],
+    "[0.0, 1.5708, 1.5708]": [
+     0.0,
+     2.220446049250313e-16,
+     0.0
+    ],
+    "[1.5708, -1.5708, 0.0]": [
+     0.0,
+     0.0,
+     2.220446049250313e-16
+    ],
+    "[1.5708, 0.0, -1.5708]": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "[0.0, 1.5708, -1.5708]": [
+     2.220446049250313e-16,
+     2.220446049250313e-16,
+     2.220446049250313e-16
+    ],
+    "[-1.5708, 1.5708, 0.0]": [
+     0.0,
+     0.0,
+     2.220446049250313e-16
+    ],
+    "[-1.5708, 0.0, 1.5708]": [
+     0.0,
+     2.220446049250313e-16,
+     2.220446049250313e-16
+    ],
+    "[0.0, -1.5708, 1.5708]": [
+     0.0,
+     2.220446049250313e-16,
+     0.0
+    ],
+    "[-1.5708, -1.5708, 0.0]": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "[-1.5708, 0.0, -1.5708]": [
+     0.0,
+     2.220446049250313e-16,
+     2.220446049250313e-16
+    ],
+    "[0.0, -1.5708, -1.5708]": [
+     0.0,
+     2.220446049250313e-16,
+     2.220446049250313e-16
+    ]
+   },
+   "gamma_axis_slopes": [
+    -0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "little_group_gamma": {
+   "point_group_order": 16,
+   "point_group_order_at_1_5": 16,
+   "gapless_subspace_dim": 64,
+   "intertwiner_leak_max": 9.185748434820775e-15,
+   "character_inner_product_full": 768.0,
+   "bond_gapless_dim": 4,
+   "bond_isotypic_components": [
+    {
+     "dim": 1,
+     "self_inner": 1.0,
+     "multiplicity": 1,
+     "irrep_dim": 1.0
+    },
+    {
+     "dim": 1,
+     "self_inner": 1.0,
+     "multiplicity": 1,
+     "irrep_dim": 1.0
+    },
+    {
+     "dim": 1,
+     "self_inner": 0.5,
+     "multiplicity": null,
+     "irrep_dim": null
+    },
+    {
+     "dim": 1,
+     "self_inner": 0.5,
+     "multiplicity": null,
+     "irrep_dim": null
+    }
+   ],
+   "constituent_irrep_dims": [
+    1.0
+   ],
+   "two_dim_irrep_present": false
+  },
+  "control_1_5": {
+   "grid_min_gap": 0.0005085414602747917,
+   "grid_min_at": [
+    -0.4487989505128276,
+    1.3463968515384828,
+    1.7951958020513095
+   ],
+   "M_gap_min": 0.0002002895295311058,
+   "M_gap_max": 0.00020028952953232704,
+   "gamma_gap": 0.03649939422882498,
+   "gapless_count": 0,
+   "point_group_order": 16,
+   "face_diagonal_min_gap": 0.07319123598588934
+  },
+  "pi_2_pure_swap": {
+   "worst_deviation": 6.123233995736766e-17
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 at pi/4 the step still factorises as kron(P(q), U16^6) (4.0e-15), and the exactly gapless set of the zone is NOT 13 points: the SIX face-diagonal lines {(+-t,+-t,0)} and its axis permutations are gapless along their whole length (max gap on any line 2.2e-16, 25 samples each), GAMMA is their common point (2.2e-16), the 12 M points are only the high-symmetry points on them (gaps [0.0e+00, 2.2e-16]); X and R stay gapped (0.5236, 0.5236), the body diagonal is gapped away from GAMMA ([0.022, 0.232, 0.781]), and of the 15^3 grid's gapless points 0 lie off the lines",
+   "pass": true
+  },
+  {
+   "name": "T1 the nodal line is QUADRATIC, not a linear crossing: through an M point the gap stays 0 along the line (['0.0e+00', '2.2e-16', '0.0e+00']), grows LINEARLY in one transverse direction (exponent 1.00, slope 0.577) and QUADRATICALLY in the other (exponent 2.00); per node the three axis exponents form the pattern [(1.0, 1.0, 2.0), (1.0, 2.0, 1.0), (2.0, 1.0, 1.0)] - the quadratic axis is the zero component - the same at all 12 nodes",
+   "pass": true
+  },
+  {
+   "name": "T2 the V63 point-node chirality convention no longer applies: at 12 of the 12 M nodes the gap stays below 1e-09 along the line through the node at ALL of the steps 1e-3, 1e-2, 1e-1 - the node is not an isolated zero, so the charge V63 assigns to it is sign noise (the naive sum is -2 where V63 measured exactly 0 at 1/5); at GAMMA the three axis slopes are [-0.0, 0.0, 0.0] (quadratic touching, not a linear one) - GAMMA is a line crossing - so the Nielsen-Ninomiya bookkeeping must be redone per line, not per node",
+   "pass": true
+  },
+  {
+   "name": "T3 at pi/4 the step's point group is 16 of the 48 signed permutations (the same index-3 subgroup as at 1/5: 16) and GAMMA is fixed by all of them; the exactly gapless subspace of M(0) has dimension 64 of 128 (intertwiner leak 9.2e-15, <chi,chi> = 768); since the internal 16 is inert the content is that of the 4-dimensional bond factor, whose isotypic constituents have dimensions [1.0] - it carries NO a 2-dimensional irrep, so at the new gapless point no helicity +/-1 or +/-2 candidate (V128's negative answer was for the C2v of an M node)",
+   "pass": true
+  },
+  {
+   "name": "T4 control at the implemented 1/5 reproduces V128: over the 15^3 grid the smallest quasi-energy is 5.085e-04 (at [-0.4488, 1.3464, 1.7952]), the 12 M nodes lie in [2.003e-04, 2.003e-04], GAMMA is 0.0365, the best gap along a face diagonal is 7.319e-02, and there are 0 exactly gapless modes - the census the paper quotes today",
+   "pass": true
+  },
+  {
+   "name": "T5 at pi/2 every bond stage is exactly a monomial - one unit-modulus entry per row and column, diagonal vanishing to 6.1e-17 (cos(pi/2) = 6.1e-17) - over the six stages at three momenta: the stage is a pure swap times Bloch phases, no mixing at all, so the half-angle branch carries no bond dynamics - 'the bond layer collapses to pure swaps' is now measured",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "pass": true,
+ "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 2.2e-16 along each, 73 grid points vs 0 at 1/5); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (naive sum -2 vs exact 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with four 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
+ "wall_s": 11.179950952529907
+}
