@@ -389,7 +389,7 @@ The obstruction of Section 10.2 is a statement about the qubit link. The channel
 
 **The orientation convention is computed, not chosen.** The vertex Gauss charge of a two-link star — one link arriving, one departing — closes as an exact $\mathrm{Spin}(10)$ algebra, $[\hat C^A, \hat C^B] = i f^{ABC} \hat C^C$ to $5\times10^{-16}$, only when the departing tail carries $+L^A$ and the arriving head carries the **conjugate** generator $-\bar L^A$; the naive chain convention — the same generator at both ends with opposite signs — leaks at $4.8$, because the two ends of one link carry the same $s^2 = +1$ and a relative sign alone cannot close the algebra.
 
-**The electric part of the Section 10.2 obstruction is closed.** The Kogut–Susskind electric gate $\exp(i g_{10} \hat C_x^2)$, built from the closing vertex charge, commutes with all $45$ vertex charges to $6.5\times10^{-15}$ and is unitary to $1.5\times10^{-14}$; its spectrum *is* the content theorem of Section 10.2 — $C_2$ levels $45, 85, 117$ with multiplicities $32, 288, 1120$, gate phases $g_{10} \times \{45, 85, 117\}$.
+**The electric part of the Section 10.2 obstruction is closed.** The Kogut–Susskind electric gate [56] $\exp(i g_{10} \hat C_x^2)$, built from the closing vertex charge, commutes with all $45$ vertex charges to $6.5\times10^{-15}$ and is unitary to $1.5\times10^{-14}$; its spectrum *is* the content theorem of Section 10.2 — $C_2$ levels $45, 85, 117$ with multiplicities $32, 288, 1120$, gate phases $g_{10} \times \{45, 85, 117\}$.
 
 **The hopping part is obstructed on the fixed-representation link.** Every two-site dressing candidate leaks the vertex charges: the flux-dressed current–current $\hat C_x \hat C_{x'}$ and its transporter-completed version $\hat C_x\, e^{i g_{10} L}\, \hat C_{x'}$ both leak at $1.25\times10^{1}$. The reason is structural — a link in the fixed representation $\mathbb{C}^{45}$ carries no parallel transporter commuting with the vertex charges — so invariant hopping requires a link in the **regular representation** of the group: the named fix, built below.
 
@@ -929,4 +929,5 @@ The construction is verified by a second, independent route: the exact symbolic 
 53. M. Nath and P. Fileviez Pérez, "Proton stability in grand unified theories, in strings and in branes," *Phys. Rep.* **441**, 191 (2007).
 54. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).
 55. LUX-ZEPLIN Collaboration (J. Aalbers *et al.*), "Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment," *Phys. Rev. Lett.* **135**, 011802 (2025), arXiv:2410.17036.
+56. J. B. Kogut and L. Susskind, "Hamiltonian formulation of Wilson's lattice gauge theories," *Phys. Rev. D* **11**, 395 (1975).
 **Competing interests.** The author declares no competing interests.
