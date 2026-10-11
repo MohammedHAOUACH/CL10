@@ -294,6 +294,13 @@ CHAR, LINE, PAD = 4.1, 11.4, 6.0      # footnotesize pt/char, pt/line, pt/cell
 COLW, TEXTW = 246.0, 510.0            # revtex PRD column and page width
 MAXCOL, MAXFULL = 400.0, 560.0        # tallest one-column / full-width float
 
+# the page-reserved group is set scriptsize with arraystretch 0.92; these are
+# the measured scale (rendered rule-to-rule heights of a nine-row table) and
+# the usable body height of one full-width float page: text area 672pt less
+# caption, repeated header row and rules
+CHART, LINET = 3.6, 7.0
+MAXPAGE = 600.0
+
 
 def _cells(row):
     return [c.strip() for c in row.strip().strip("|").split("|")]
@@ -330,8 +337,8 @@ def _lines(text, wchars):
     return n
 
 
-def _height(rows, unit):
-    """Estimated float height in pt for the pipe rows at the given width."""
+def _fracs(rows, unit, char):
+    """Column fractions the filter will emit, or None if a word cannot fit."""
     ncol = len(_cells(rows[0]))
     maxlen = [0] * ncol
     maxword = [0] * ncol
@@ -341,9 +348,9 @@ def _height(rows, unit):
             maxlen[j] = max(maxlen[j], len(p))
             maxword[j] = max(maxword[j], max((len(w) for w in p.split()),
                                              default=0))
-    fmin = [(maxword[j] * CHAR + PAD) / unit for j in range(ncol)]
+    fmin = [(maxword[j] * char + PAD) / unit for j in range(ncol)]
     if sum(fmin) > 0.97:
-        return 1e9                    # a word cannot fit this width at all
+        return None
     total = sum(maxlen) or 1
     f = [max(maxlen[j] / total, fmin[j]) for j in range(ncol)]
     s = sum(f)
@@ -352,14 +359,23 @@ def _height(rows, unit):
         excess = s - 0.97
         f = [max(fmin[j], f[j] - excess * max(0.0, f[j] - fmin[j]) / flex)
              for j in range(ncol)]
-    h = 0.0
-    for r in rows:
-        lines = 1
-        for j, c in enumerate(_cells(r)[:ncol]):
-            avail = max(f[j] * unit - PAD, 20.0)
-            lines = max(lines, _lines(_plain(c), max(int(avail / CHAR), 4)))
-        h += lines * LINE + 4.0
-    return h
+    return f
+
+
+def _rowh(r, f, unit, char, line):
+    lines = 1
+    for j, c in enumerate(_cells(r)[:len(f)]):
+        avail = max(f[j] * unit - PAD, 20.0)
+        lines = max(lines, _lines(_plain(c), max(int(avail / char), 4)))
+    return lines * line + 4.0
+
+
+def _height(rows, unit, char=CHAR, line=LINE):
+    """Estimated float height in pt for the pipe rows at the given width."""
+    f = _fracs(rows, unit, char)
+    if f is None:
+        return 1e9
+    return sum(_rowh(r, f, unit, char, line) for r in rows)
 
 
 TABLEDIV = re.compile(r"::: \{\.table id=([^}\s]+)\}\n\n((?:.|\n)*?)\n:::\n")
@@ -380,23 +396,46 @@ def size_table(m):
     elif _height(rows, TEXTW) <= MAXFULL:
         cls = "tablewide"
     else:
-        # taller than one page: pack the body into as many full-width
-        # floats as needed, each repeating the header row. one continuation
-        # is not enough for a nine-row table of paragraph-sized cells --
-        # a table* taller than the page is clipped, rows simply vanish
-        chunks, cur = [], [head, sep]
-        for r in body:
-            if len(cur) > 2 and _height(cur + [r], TEXTW) > 0.97 * MAXFULL:
-                chunks.append(cur)
-                cur = [head, sep, r]
-            else:
-                cur.append(r)
-        chunks.append(cur)
-        out = ("::: {.tablewide id=%s}\n\n%s\n\n%s\n\n:::\n"
-               % (tid, cap, "\n".join(chunks[0])))
+        # taller than one float: a page-reserved group. the body is split
+        # into K full-width floats, each repeating the header row. K is the
+        # smallest count that fits the page budget and the split is the one
+        # that minimises the tallest float (DP over row boundaries): greedy
+        # filling lands on a split a point over budget and buys a page the
+        # table does not need, and a table* taller than the page is clipped
+        # -- rows simply vanish
+        f = _fracs(rows, TEXTW, CHART)
+        hs = [_rowh(r, f, TEXTW, CHART, LINET) for r in body]
+        n = len(hs)
+        K = min(n, max(2, math.ceil(sum(hs) / MAXPAGE)))
+        while True:
+            inf = float("inf")
+            dp = [[inf] * (n + 1) for _ in range(K + 1)]
+            cut = [[n] * (n + 1) for _ in range(K + 1)]
+            for i in range(n):
+                dp[1][i] = sum(hs[i:])
+            for k in range(2, K + 1):
+                for i in range(n - 1, -1, -1):
+                    acc = 0.0
+                    for j in range(i, n - 1):
+                        acc += hs[j]
+                        cand = max(acc, dp[k - 1][j + 1])
+                        if cand < dp[k][i]:
+                            dp[k][i] = cand
+                            cut[k][i] = j + 1
+            if K >= n or dp[K][0] <= MAXPAGE:
+                break
+            K += 1
+        chunks, at, k = [], 0, K
+        while k > 1 and at < n:
+            chunks.append(body[at:cut[k][at]])
+            at = cut[k][at]
+            k -= 1
+        chunks.append(body[at:])
+        out = ("::: {.tablepage id=%s}\n\n%s\n\n%s\n\n:::\n"
+               % (tid, cap, "\n".join([head, sep] + chunks[0])))
         for k, ch in enumerate(chunks[1:], 1):
-            out += ("\n::: {.tablecont id=%s_cont%d}\n\n%s\n\n:::\n"
-                    % (tid, k, "\n".join(ch)))
+            out += ("\n::: {.tablecont .tablepage id=%s_cont%d}\n\n%s\n\n:::\n"
+                    % (tid, k, "\n".join([head, sep] + ch)))
         return out
     return "::: {.%s id=%s}\n\n%s\n\n%s\n\n:::\n" % (cls, tid, cap,
                                                      "\n".join(rows))

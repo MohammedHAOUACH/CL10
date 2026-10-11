@@ -7,8 +7,8 @@ One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 38 pp., 25 figures, 8 tables (two of them split across a
-page break with a "(continued)" header), 53 references, REVTeX 4.2
+Current artifact: 39 pp., 25 figures, 8 tables (Table 5 split across a page
+break, Table 7 given two pages of its own), 53 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
@@ -61,13 +61,20 @@ the paragraph of its first `\ref{fig:N}`; `filter.lua` emits
 Adding a figure therefore needs no LaTeX in the manuscript: image, caption,
 and one in-text reference.
 
-Tables are sized the same way, from an estimate of the wrapped height: a
-one-column `{.table}` float when the table fits a column, a full-width
-`{.tablewide}` float otherwise, and when it is taller than a page it is split
-at a row boundary into `{.tablewide}` + `{.tablecont}` — the continuation
-float repeats the header row and carries an italic "Table N (continued)"
-line without consuming a table number. A `table*` taller than `\textheight`
-spills past the bottom margin, which is what the split prevents.
+Tables are sized the same way, from an estimate of the wrapped height (real
+word wrapping per cell, TeX kept verbatim the way pandoc's `stringify` does):
+a one-column `{.table}` float when the table fits a column, a full-width
+`{.tablewide}` float otherwise. A table taller than one float becomes a
+**page-reserved group**: `{.tablepage}` + `{.tablecont .tablepage}` floats
+emitted with `[p]` placement (their own pages, no interleaved text, no blank
+page from a `\clearpage` flushing unrelated figures), set `\scriptsize` with
+`\arraystretch` 0.90, each repeating the header row, the continuation carrying
+an italic "Table N (continued)" line without consuming a table number. The
+number of floats `K` is the smallest that fits the page budget and the row
+boundary is the DP-optimal one minimising the tallest float: a greedy fill
+lands a point over budget and buys a page the table does not need, and a
+`table*` taller than the page is **clipped** — rows silently vanish, which is
+the bug this group exists to prevent.
 
 ## Checks after a build
 
