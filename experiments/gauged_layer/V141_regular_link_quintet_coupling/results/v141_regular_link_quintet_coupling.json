@@ -32,7 +32,7 @@
       ],
       "projector_form_err": 4.1486496693216255e-15,
       "projector_invariance_err": 4.481476029445426e-15,
-      "fixed_link_min_eig_sumCdagC": 44.99999999999975
+      "fixed_link_min_eig_sumCdagC": 44.99999999999981
     },
     "hopping": {
       "tail_invariance_err": 0.0,
@@ -50,13 +50,13 @@
     "coupling": {
       "t2g_axis_coefficient": 0.0,
       "Pi_Eg_eigenvalues": [
-        -4.915254791999326,
-        -4.593243260164996
+        -5.011680670364816,
+        -4.468712553240427
       ],
       "Pi_T2g_max": 0.0,
       "mass_shift_at_lambda_g10": [
-        -0.09830509583998653,
-        -0.09186486520329995
+        -0.10023361340729635,
+        -0.08937425106480855
       ],
       "note": "nearest-neighbour bonds carry only the diagonal (Eg) quintet components; the T2g half has no nearest-neighbour coupling (named gap: diagonal bonds needed); the Eg bubble is nonzero so the coupling gives the Eg half a mass lambda^2*Pi/2"
     },
@@ -64,6 +64,16 @@
       "group_order": 1024,
       "spin10_centralizer_dim": 0,
       "note": "no Spin(10) generator commutes with the GAMMA action: gauging the root's finite monomial group breaks Spin(10); v = 1 (T3) belongs to the dressed matter hop, not to the quintet branches (V140: g10*{1,2}); the Eg half of the quintet is gapped by the coupling (T4)"
+    },
+    "trilemma": {
+      "hop_only_top_spread": 0.32362039026498235,
+      "hop_only_top_max": 0.9986203902649825,
+      "dressing_only_spread": 4.212596382835443e-10,
+      "dressing_only_speed": 0.3999999993963157,
+      "best_product_spread": 0.24253950883230158,
+      "best_product_g": 0.2454369260617026,
+      "equivariant_permutation_coins": 2,
+      "coin_acoustic_slope": 0.0
     }
   },
   "checks": [
@@ -71,8 +81,9 @@
     "T1 content theorem: a vertex with k = 1,2,3 regular links has exactly [32, 32768, 33554432] gauge-invariant states (character sum), the explicit projector lands on the form rho(h)u to 4.1e-15 and is gauge-invariant to 4.5e-15; the fixed adjoint link has NO gauge-invariant one-matter state (min eig of sum C^dag C = 45.0000, ker = 0): the centre obstruction is exactly what the regular link removes",
     "T2 the V140 hopping obstruction is CLOSED on the regular link: tail invariance 0.0e+00, head invariance 0.0e+00, rho(h)^2 = sign(h^2) I to 0.0e+00, and the dressed hop maps head-invariant to tail-invariant exactly (0.0e+00) - versus the V140 fixed-link leak 1.25e+01; the descent is the identity on the matter index",
     "T3 the dressing is velocity-blind: the bare hop front speed is exactly 1.000000 (half-angle step: the bond layer is a pure lattice translation, all directions), the electric Cayley Laplacian acts on the dressed sector as the scalar 45 per link to 3.0e-14, so the gauge-invariant hop propagates at the root's bare v = 1, 0-parameter",
-    "T4 the quintet-matter coupling: the stress vertex of the exact current J_d = i(d_d M)M^dag vanishes identically on the T2g half (axis-bond coefficient max 0.0e+00, bubble max 0.0e+00 - nearest-neighbour bonds cannot carry T2g), and couples the Eg half with polarization bubble eigenvalues [-4.915, -4.593] at GAMMA: at lambda = g10 the Eg half acquires a mass shift [-0.0983, -0.0919] - gaplessness of the full quintet is NOT protected by this coupling",
-    "T5 ledger: |GAMMA| = 1024 (finite 2-group), centralizer of GAMMA in the Spin(10) algebra = 0: the regular link gauges the root's own finite group, NOT Spin(10); the three named steps do not close together - hopping fix exact (T2/T3), coupling gaps the Eg half (T4), v = 1 is the matter front speed, not the quintet speed"
+    "T4 the quintet-matter coupling: the stress vertex of the exact current J_d = i(d_d M)M^dag vanishes identically on the T2g half (axis-bond coefficient max 0.0e+00, bubble max 0.0e+00 - nearest-neighbour bonds cannot carry T2g), and couples the Eg half with polarization bubble eigenvalues [-5.012, -4.469] at GAMMA: at lambda = g10 the Eg half acquires a mass shift [-0.1002, -0.0894] - gaplessness of the full quintet is NOT protected by this coupling",
+    "T5 ledger: |GAMMA| = 1024 (finite 2-group), centralizer of GAMMA in the Spin(10) algebra = 0: the regular link gauges the root's own finite group, NOT Spin(10); the three named steps do not close together - hopping fix exact (T2/T3), coupling gaps the Eg half (T4), v = 1 is the matter front speed, not the quintet speed",
+    "T6 the velocity trilemma closes on the directional module: the hop alone is anisotropic (top speed 0.999, direction spread 0.324), the dressing alone is isotropic at v = 2 g10 = 0.400 (spread 4.2e-10), NO angle makes the product isotropic (best spread 0.243 at g = 0.245 over 33 angles in [0, pi/2]), and the O_h-equivariant permutation coins (identity and antipode) give the hop and flat acoustic bands (antipode slope 0.0e+00): isotropy and v = 1 are never supplied together"
   ],
   "pass": true,
   "status": "the regular link of the root's own finite group closes the V140 hopping obstruction exactly and the dressed hop runs at the bare v = 1 (0-parameter), but the quintet-matter coupling gaps the Eg half at order lambda^2 and the gauge group is the finite monomial group (order 1024, Spin(10) centralizer 0): the named steps are built, measured, and one is a computed no-go"

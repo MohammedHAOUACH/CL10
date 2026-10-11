@@ -48,12 +48,14 @@ Spin(10), it breaks it. The three named steps do not close together: the
 hopping fix is exact (A), the coupling exists but gaps the Eg half (B), and
 v = 1 belongs to the dressed matter hop, not to the quintet branches.
 """
+import itertools
 import json
 import math
 import os
 import sys
 
 import numpy as np
+from scipy.linalg import expm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -406,6 +408,112 @@ def main():
                    "exact (T2/T3), coupling gaps the Eg half (T4), v = 1 is "
                    "the matter front speed, not the quintet speed"
                   % (n, len(cen)), t5ok))
+
+    # ---- T6 the velocity trilemma on the 6-bond directional module -------
+    lev = {(0, 1, 2): 1, (1, 2, 0): 1, (2, 0, 1): 1,
+           (1, 0, 2): -1, (2, 1, 0): -1, (0, 2, 1): -1}
+    AA = []
+    for k in range(3):
+        M = np.zeros((3, 3))
+        for i in range(3):
+            for j in range(3):
+                M[i, j] = -lev.get((k, i, j), 0)
+        AA.append(M)
+    J6 = []
+    for k in range(3):
+        M = np.zeros((6, 6), dtype=complex)
+        for b in range(6):
+            act = 1j * (AA[k] @ SB[b] - SB[b] @ AA[k])
+            for a in range(6):
+                M[a, b] = np.trace(SB[a].T @ act)
+        J6.append(M)
+
+    DIRS = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
+    OHS = [(p, s) for p in itertools.permutations(range(3))
+           for s in itertools.product((1, -1), repeat=3)]
+    Pg = []
+    for (p, s) in OHS:
+        R = np.zeros((3, 3))
+        for i in range(3):
+            R[i, p[i]] = s[i]
+        Pm = np.zeros((6, 6))
+        for j, d in enumerate(DIRS):
+            Rd = tuple(int(round(x)) for x in R @ np.array(d))
+            Pm[DIRS.index(Rd), j] = 1.0
+        Pg.append(Pm)
+    coins = []
+    for perm in itertools.permutations(range(6)):
+        X = np.zeros((6, 6))
+        for j in range(6):
+            X[perm[j], j] = 1.0
+        if all(np.abs(X @ P - P @ X).max() < 1e-12 for P in Pg):
+            coins.append(X)
+
+    eps = 1e-4
+    ga = (1 + math.sqrt(5)) / 2
+    dirs6 = []
+    for i in range(40):
+        z = 1 - 2 * (i + 0.5) / 40
+        r = math.sqrt(max(0.0, 1 - z * z))
+        th = 2 * math.pi * i / ga
+        dirs6.append(np.array([r * math.cos(th), r * math.sin(th), z]))
+
+    def top_slopes(g, with_hop=True):
+        tops = []
+        for n in dirs6:
+            dg = np.array([n[0], -n[0], n[1], -n[1], n[2], -n[2]])
+            Hq = sum(math.sin(eps * n[k]) * J6[k] for k in range(3))
+            Mq = (np.diag(np.exp(1j * eps * dg)) if with_hop
+                  else np.eye(6, dtype=complex)) @ expm(-1j * g * Hq)
+            w = np.sort(np.abs(np.angle(np.linalg.eigvals(Mq)))) / eps
+            tops.append(w[-1])
+        return np.array(tops)
+
+    coin_flat = 0.0
+    for X in coins:
+        if np.abs(X - np.eye(6)).max() < 1e-12:
+            continue                    # the identity coin is the bare hop
+        for n in dirs6[:8]:
+            dg = np.array([n[0], -n[0], n[1], -n[1], n[2], -n[2]])
+            Mq = X @ np.diag(np.exp(1j * eps * dg))
+            sl = np.sort(np.abs(np.angle(np.linalg.eigvals(Mq)))) / eps
+            coin_flat = max(coin_flat, float(np.min(sl)))
+    best_spread, best_g = 9.9, None
+    for g in np.linspace(0.0, math.pi / 2, 33):
+        t = top_slopes(float(g))
+        sp = float(t.max() - t.min())
+        if sp < best_spread:
+            best_spread, best_g = sp, float(g)
+    t_hop = top_slopes(0.0)
+    t_drs = top_slopes(G10, with_hop=False)
+    t6ok = (len(coins) == 2 and coin_flat < 1e-6
+            and float(t_hop.max()) <= 1.0 + 1e-6
+            and float(t_hop.max() - t_hop.min()) > 0.2
+            and float(t_drs.max() - t_drs.min()) < 1e-6
+            and abs(float(t_drs[0]) - 2 * G10) < 1e-3
+            and best_spread > 0.2)
+    out["data"]["trilemma"] = {
+        "hop_only_top_spread": float(t_hop.max() - t_hop.min()),
+        "hop_only_top_max": float(t_hop.max()),
+        "dressing_only_spread": float(t_drs.max() - t_drs.min()),
+        "dressing_only_speed": float(t_drs[0]),
+        "best_product_spread": best_spread, "best_product_g": best_g,
+        "equivariant_permutation_coins": len(coins),
+        "coin_acoustic_slope": coin_flat}
+    checks.append(("T6 the velocity trilemma closes on the directional "
+                   "module: the hop alone is anisotropic (top speed %.3f, "
+                   "direction spread %.3f), the dressing alone is isotropic "
+                   "at v = 2 g10 = %.3f (spread %.1e), NO angle makes the "
+                   "product isotropic (best spread %.3f at g = %.3f over 33 "
+                   "angles in [0, pi/2]), and the O_h-equivariant "
+                   "permutation coins (identity and antipode) give the hop "
+                   "and flat acoustic bands (antipode slope %.1e): isotropy "
+                   "and v = 1 are never supplied together" % (float(t_hop.max()),
+                                 float(t_hop.max() - t_hop.min()),
+                                 float(t_drs[0]),
+                                 float(t_drs.max() - t_drs.min()),
+                                 best_spread, best_g, coin_flat),
+                  t6ok))
 
     # -----------------------------------------------------------------------
     ok = all(p for _, p in checks)
