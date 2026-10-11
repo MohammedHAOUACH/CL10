@@ -1,4 +1,4 @@
-# CL10 — The Standard Model as a Single Clifford Root
+# CL10 — The Universe as a Quantum Cellular Automaton: the Standard Model and Gravity from a Single Clifford Algebra
 
 **Mohammed Haouach** — independent researcher  \haouach.mohammed@gmail.com\
 
@@ -53,9 +53,9 @@ CL10/
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
 │   ├── filter.lua            # Divs -> figure / figure* / table* / thebibliography
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
-│   ├── fetch_dois.py         # resolves + verifies the 53 refs against Crossref -> doi.json (clickable DOIs in the PDF)
+│   ├── fetch_dois.py         # resolves + verifies the 55 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (25 figures, 8 tables, 53 refs)
+│   └── publication.pdf       # the compiled paper (25 figures, 8 tables, 55 refs)
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
 │   └── algebra/scales/couplings/dynamics/residuals/style .py
