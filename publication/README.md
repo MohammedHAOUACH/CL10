@@ -7,9 +7,10 @@ One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 37 pp., 25 figures, 8 tables, 53 references, REVTeX 4.2
+Current artifact: 38 pp., 25 figures, 8 tables (two of them split across a
+page break with a "(continued)" header), 53 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
-25 floats placed in ascending order within two pages of their first textual
+floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
 
 ## The pipeline
@@ -59,6 +60,14 @@ the paragraph of its first `\ref{fig:N}`; `filter.lua` emits
 `\begin{figure}[!ht]` / `\begin{figure*}[!t]` with `\caption` + `\label`.
 Adding a figure therefore needs no LaTeX in the manuscript: image, caption,
 and one in-text reference.
+
+Tables are sized the same way, from an estimate of the wrapped height: a
+one-column `{.table}` float when the table fits a column, a full-width
+`{.tablewide}` float otherwise, and when it is taller than a page it is split
+at a row boundary into `{.tablewide}` + `{.tablecont}` — the continuation
+float repeats the header row and carries an italic "Table N (continued)"
+line without consuming a table number. A `table*` taller than `\textheight`
+spills past the bottom margin, which is what the split prevents.
 
 ## Checks after a build
 

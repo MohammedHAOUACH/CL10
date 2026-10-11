@@ -9,6 +9,7 @@ Read-only on doc/. Writes build/publication_gen.md:
   - **Table N. title.** + pipe table -> .table Div
   - References ordered list -> .bibliography Div
 """
+import math
 import re
 import struct
 import sys
@@ -283,6 +284,89 @@ body_text = body_text.replace(
     "::: {.table id=tabx1}\n\n",
     "::: {.table id=tabx1}\n\n**The seven criteria against which the paper "
     "judges itself.**\n\n", 1)
+
+# ---------------------------------------------------------------- table sizing
+# one-column float when the table fits a column, a full-width float when it
+# does not, and a full-width float plus a continuation float when it is
+# taller than a page (a table* taller than \textheight spills past the
+# bottom margin onto the next page)
+CHAR, LINE, PAD = 4.1, 11.4, 6.0      # footnotesize pt/char, pt/line, pt/cell
+COLW, TEXTW = 244.0, 504.0            # column and page width in pt
+MAXCOL, MAXFULL = 400.0, 470.0        # tallest one-column / full-width float
+
+
+def _cells(row):
+    return [c.strip() for c in row.strip().strip("|").split("|")]
+
+
+def _plain(s):
+    s = re.sub(r"\$[^$]*\$", "x", s)
+    s = re.sub(r"\\[a-zA-Z]+\*?", "x", s)
+    return re.sub(r"[{}&\\]", "", s)
+
+
+def _height(rows, unit):
+    """Estimated float height in pt for the pipe rows at the given width."""
+    ncol = len(_cells(rows[0]))
+    maxlen = [0] * ncol
+    maxword = [0] * ncol
+    for r in rows:
+        for j, c in enumerate(_cells(r)[:ncol]):
+            p = _plain(c)
+            maxlen[j] = max(maxlen[j], len(p))
+            maxword[j] = max(maxword[j], max((len(w) for w in p.split()),
+                                             default=0))
+    fmin = [(maxword[j] * CHAR + PAD) / unit for j in range(ncol)]
+    if sum(fmin) > 0.97:
+        return 1e9                    # a word cannot fit this width at all
+    total = sum(maxlen) or 1
+    f = [max(maxlen[j] / total, fmin[j]) for j in range(ncol)]
+    s = sum(f)
+    if s > 0.97:
+        flex = sum(max(0.0, f[j] - fmin[j]) for j in range(ncol)) or 1.0
+        excess = s - 0.97
+        f = [max(fmin[j], f[j] - excess * max(0.0, f[j] - fmin[j]) / flex)
+             for j in range(ncol)]
+    h = 0.0
+    for r in rows:
+        lines = 1
+        for j, c in enumerate(_cells(r)[:ncol]):
+            avail = max(f[j] * unit - PAD, 20.0)
+            lines = max(lines, math.ceil(len(_plain(c)) * CHAR / avail))
+        h += lines * LINE + 4.0
+    return h
+
+
+TABLEDIV = re.compile(r"::: \{\.table id=([^}\s]+)\}\n\n((?:.|\n)*?)\n:::\n")
+
+
+def size_table(m):
+    tid, inner = m.group(1), m.group(2)
+    cap = ""
+    mm = re.match(r"(\*\*.*?\*\*)\n\n", inner)
+    if mm:
+        cap, inner = mm.group(1), inner[mm.end():]
+    rows = [r for r in inner.split("\n") if r.strip()]
+    if len(rows) < 3:
+        return m.group(0)
+    head, sep, body = rows[0], rows[1], rows[2:]
+    if _height(rows, COLW) <= MAXCOL:
+        cls = "table"
+    elif _height(rows, TEXTW) <= MAXFULL:
+        cls = "tablewide"
+    else:
+        cut = len(body) + 1              # rows kept in the first float
+        while cut > 1 and _height([head, sep] + body[:cut], TEXTW) > MAXFULL:
+            cut -= 1
+        return ("::: {.tablewide id=%s}\n\n%s\n\n%s\n\n:::\n\n"
+                "::: {.tablecont id=%s_cont}\n\n%s\n\n:::\n"
+                % (tid, cap, "\n".join([head, sep] + body[:cut]),
+                   tid, "\n".join([head, sep] + body[cut:])))
+    return "::: {.%s id=%s}\n\n%s\n\n%s\n\n:::\n" % (cls, tid, cap,
+                                                     "\n".join(rows))
+
+
+body_text = TABLEDIV.sub(size_table, body_text)
 
 # bare URLs -> \url{} so hyperref can break them (avoids overfull lines)
 body_text = re.sub(

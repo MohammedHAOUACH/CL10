@@ -132,7 +132,12 @@ function Div(el)
     return pandoc.RawBlock('latex', tok)
   end
 
-  if el.classes:includes('table') then
+  if el.classes:includes('table') or el.classes:includes('tablewide')
+     or el.classes:includes('tablecont') then
+    local cont = el.classes:includes('tablecont')
+    local onecol = el.classes:includes('table')
+    local unit = onecol and '\\columnwidth' or '\\textwidth'
+    local pagew = onecol and 244 or 504
     local id = el.identifier ~= '' and el.identifier or (el.attributes.id or '')
     local title, tbl = nil, nil
     for _, b in ipairs(el.content) do
@@ -170,11 +175,11 @@ function Div(el)
     for j = 1, ncol do s = s + frac[j] end
     local f = {}
     for j = 1, ncol do f[j] = frac[j] / s * 0.97 end
-    -- footnotesize ~4.1pt/char; +6pt cell padding; textwidth ~504pt
+    -- footnotesize ~4.1pt/char; +6pt cell padding; the float's own width
     local fmin = {}
     local sum, sumflex = 0, 0
     for j = 1, ncol do
-      fmin[j] = (maxword[j] * 4.1 + 6) / 504
+      fmin[j] = (maxword[j] * 4.1 + 6) / pagew
       f[j] = math.max(f[j], fmin[j])
       sum = sum + f[j]
     end
@@ -190,7 +195,7 @@ function Div(el)
     end
     local cols = {}
     for j = 1, ncol do
-      cols[j] = string.format('p{%.3f\\textwidth}', f[j])
+      cols[j] = string.format('p{%.3f%s}', f[j], unit)
     end
 
     local tok = stash(function(doc)
@@ -215,11 +220,27 @@ function Div(el)
       end
       local body = {}
       for _, row in ipairs(body_rows(tbl)) do table.insert(body, rowlatex(row.cells, false)) end
+      -- one-column floats may sit beside text ([!ht]); full-width floats can
+      -- only take a page top ([!t]); a continuation float carries no caption
+      -- of its own (it must not consume a table number)
+      local env = onecol and 'table' or 'table*'
+      local spec = onecol and '!ht' or '!t'
+      local head
+      if cont then
+        -- the number is the div id's digits: the same ordinal LaTeX gives the
+        -- first float, and no \ref is involved (the continuation must not
+        -- consume or point at a table counter)
+        local n = id:match('(%d+)') or ''
+        head = string.format('{\\small\\itshape Table~%s (continued)'
+                             .. '\\par\\vspace{3pt}}', n)
+      else
+        head = '\\caption{' .. latex_of(title_inlines) .. '}\n\\label{' .. id .. '}'
+      end
       return string.format(
-        '\\begin{table*}[t]\n\\caption{%s}\n\\label{%s}\n\\footnotesize\n\\begin{tabular}{@{}%s@{}}\n\\toprule\n%s \\midrule\n%s \\bottomrule\n\\end{tabular}\n\\end{table*}',
-        latex_of(title_inlines), id, table.concat(cols, ''),
+        '\\begin{%s}[%s]\n%s\n\\footnotesize\n\\begin{tabular}{@{}%s@{}}\n\\toprule\n%s \\midrule\n%s \\bottomrule\n\\end{tabular}\n\\end{%s}',
+        env, spec, head, table.concat(cols, ''),
         rowlatex(tbl.head.rows[1].cells, true),
-        table.concat(body, '\n\\grayhline\n'))
+        table.concat(body, '\n\\grayhline\n'), env)
     end)
     return pandoc.RawBlock('latex', tok)
   end
