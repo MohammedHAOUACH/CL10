@@ -146,8 +146,8 @@ to NumPy only without a GPU):
 - `experiments/phenomenology/V62_hydrogen_production/` — the **production
   experiment**: the full `296^3` run on the **GPU** with the complete photon
   script (Lyman-alpha twice, `1s→3p`, `2p→3d`, one off-resonant control).  It
-  measures every claim of Fig. 19 at production resolution (including the
+  measures every claim of Fig. 2 at production resolution (including the
   deformation of the cloud, as the density quadrupole: sphere in the `1s`,
   two-lobe dumbbell after the `1s→2p` excitation) and **regenerates the
-  publication figure** (`doc/figures/fig19_hydrogen.png` + the meta JSON) as a
+  publication figure** (`doc/figures/fig2_hydrogen.png` + the meta JSON) as a
   product of the

@@ -8,7 +8,7 @@ from .style import exp, save
 from .style import C_ALG, C_CONV, C_FIT, C_GUT, C_OPEN, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
-def fig22_gauged_layer():
+def fig10_gauged_layer():
     import json
     with open(exp("V79_gauged_bond_layer",
                            "results", "v79_gauged_bond_layer.json")) as f:
@@ -61,98 +61,12 @@ def fig22_gauged_layer():
     axB.set_title("(b)  gauge-invariant content: $32 \\oplus 288 \\oplus 1120$"
                   f"\n     = {sum(mu)} states; no singlet (triality)",
                   fontsize=12)
-    fig.suptitle("The gauged bond layer (V79): the Gauss constraint closes "
+    fig.suptitle("The gauged bond layer: the Gauss constraint closes "
                  "on the root module", fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig22_gauged_bond_layer.png")
+    save(fig, "fig10_gauged_bond_layer.png")
 
-def fig26_w4_closure():
-    import json
-    def load(e, f):
-        with open(exp(e, "results", f)) as fh:
-            return json.load(fh)["data"]
-    d74 = load("V74_multiscale_nodes", "v74_multiscale_nodes.json")
-    d81 = load("V81_link_desert_content", "v81_link_desert_content.json")
-    d82 = load("V82_composite_desert_exclusion",
-               "v82_composite_desert_exclusion.json")
-    d86 = load("V86_junction_desert", "v86_junction_desert.json")
-    d87 = load("V87_general_junction", "v87_general_junction.json")
-    mx74 = d74["M_X_node_GeV"]
-    res82 = d82["A2_full_weight"]["min_max_residual"]
-    n81 = d81["meeting"]["n_solutions"]
-    b86 = d86["best"]
-    b87 = d87["general_best"]
-
-    fig, ax = plt.subplots(figsize=(12.8, 6.6))
-    ax.set_xlim(0, 12.8)
-    ax.set_ylim(0, 7.4)
-    ax.axis("off")
-
-    def box(x, y, w, h, txt, ec, fc, lw=1.6, fs=12):
-        ax.add_patch(plt.Rectangle((x, y), w, h, fill=True, fc=fc,
-                                   ec=ec, lw=lw, zorder=2))
-        ax.text(x + w / 2, y + h / 2, txt, ha="center", va="center",
-                fontsize=fs, zorder=3)
-
-    def arrow(x1, y1, x2, y2):
-        ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
-                    arrowprops=dict(arrowstyle="-|>", color="0.35", lw=1.4),
-                    zorder=1)
-
-    box(3.4, 6.5, 6.0, 0.7,
-        "W4: which content makes the measured couplings meet\n"
-        "at $\\alpha_X = 1/25$ with desert thresholds?  (forced: V73)",
-        C_ROOT, "#f3ecf7", lw=2.0, fs=11)
-
-    left = [
-        ("three full $\\mathbf{16}$ nodes,\nany strengths  (V74)",
-         f"rank-1 Jacobian: meeting FORCED\n"
-         f"$M_X = {mx74:.1e}$ GeV - excluded by F5"),
-        ("gauged bond-layer composites\n$16 \\otimes 45$  (V81)",
-         f"{n81} solutions over the full scan\nof the breaking direction"),
-        ("mass-ansatz families,\nrelaxed $\\alpha_X$  (V82)",
-         f"min residual $\\geq {res82:.2f}$ (target 0);\n0 physical solutions"),
-    ]
-    right = [
-        ("any COMPLETE multiplet content\n(V84, theorem)",
-         "equal shift $\\sum db_1 = \\sum db_2$\nover every complete multiplet"),
-        ("junction-split nodes,\ndemocratic  (V86)",
-         f"pattern FABRICATED (split 55x);\nresidual {b86['residual']:.2f}, "
-         f"$\\alpha_X$ {b86['implied_alpha_X']:.3f}"),
-        ("junction-split nodes,\ngeneral ratios  (V87)",
-         f"floor UNCHANGED at {b87['residual']:.2f};\n"
-         f"$\\alpha_X$ {b87['implied_alpha_X']:.3f} (data 0.04)"),
-    ]
-    for k, (q, r) in enumerate(left):
-        y = 4.85 - k * 1.55
-        box(0.5, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
-        box(0.5, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
-        ax.text(6.15, y + 0.36, "$\\mathbf{\\times}$", fontsize=19,
-                color=C_ZERO, ha="center", va="center", weight="bold")
-        arrow(3.8, 6.5, 3.2, y + 1.47)
-    for k, (q, r) in enumerate(right):
-        y = 4.85 - k * 1.55
-        box(7.0, y + 0.85, 5.4, 0.62, q, "0.25", "#eef3f8")
-        box(7.0, y, 5.4, 0.72, r, C_ZERO, "#fbeeee")
-        ax.text(6.75, y + 0.36, "$\\mathbf{\\times}$", fontsize=19,
-                color=C_ZERO, ha="center", va="center", weight="bold")
-        arrow(9.0, 6.5, 9.7, y + 1.47)
-
-    box(1.9, 0.30, 9.0, 0.95,
-        "CLOSED CONDITIONALLY BY V96: a flavour-dependent bond layer "
-        "($\\kappa_s$ per class)\nmeets exactly at $M_X = 1.8\\times10^{16}$ "
-        "GeV for all $n = 3\\dots12$ - six named inputs (Section 11.1)",
-        "#2c7a3f", "#eaf6ec", lw=2.0, fs=11.5)
-    for x in (3.2, 9.7):
-        arrow(x, 1.75, 6.4, 1.2)
-
-    ax.set_title("W4: every exit of the BASE automaton closed - the "
-                 "fragment content is feasible (V92) and the meeting "
-                 "closes conditionally (V96)", fontsize=13.5)
-    fig.tight_layout()
-    save(fig, "fig26_w4_closure.png")
-
-def fig27_w7_portal():
+def fig15_w7_portal():
     import json
     with open(exp("V88_mirror_scalar",
                            "results", "v88_mirror_scalar.json")) as f:
@@ -209,11 +123,11 @@ def fig27_w7_portal():
          "(pairs are mirror-odd)", C_ZERO),
         ("open channel", "$s\\overline{s} \\to hh^*$ only (Z2 exact)",
          C_SU2),
-        ("mirror relic $\\overline{Q}$", "stable under both (V66 intact)",
+        ("mirror relic $\\overline{Q}$", "stable under both portals",
          "#2c7a3f"),
     ]
     axB.axis("off")
-    axB.set_title("(b)  the audit verdicts (V88)", fontsize=12.5)
+    axB.set_title("(b)  the audit verdicts", fontsize=12.5)
     y = 0.98
     for (k, v, c) in rows:
         axB.text(0.02, y, k, fontsize=10.5, weight="bold", va="top")
@@ -226,11 +140,11 @@ def fig27_w7_portal():
              fontsize=10.5, color=C_ROOT, weight="bold", va="bottom")
 
     fig.suptitle("The built dark-matter fix, audited against its own "
-                 "symmetry (V88)", fontsize=13.5)
+                 "symmetry", fontsize=13.5)
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.34)
-    save(fig, "fig27_w7_portal.png")
+    save(fig, "fig15_w7_portal.png")
 
-def fig28_loop_selection():
+def fig14_loop_selection():
     import json
     with open(exp("V89_loop_selection",
                            "results", "v89_loop_selection.json")) as f:
@@ -266,7 +180,7 @@ def fig28_loop_selection():
     axA.legend(loc="lower left", fontsize=9.5, framealpha=0.95)
 
     axB.axis("off")
-    axB.set_title("(b)  the selection rule, measured to $n = 30$ (V89)",
+    axB.set_title("(b)  the selection rule, measured to $n = 30$",
                   fontsize=12.5)
     rows = [
         ("crossing $n_*$", f"EXACTLY {nstar} (ladder length)", "#2c7a3f"),
@@ -299,9 +213,9 @@ def fig28_loop_selection():
              f"composition misses by x{root['extrapolation_ratio']:.0e}",
              fontsize=10.5, color="0.25", va="bottom")
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.30)
-    save(fig, "fig28_loop_selection.png")
+    save(fig, "fig14_loop_selection.png")
 
-def fig29_w2_protection():
+def fig16_w2_protection():
     import json
     with open(exp("V90_w2_protection",
                            "results", "v90_w2_protection.json")) as f:
@@ -319,10 +233,10 @@ def fig29_w2_protection():
         s_id = S17 / (1 + r) + 2 * S17 / np.abs(2 - r)
     s_demo = S17 / (1 + r)
     axA.semilogy(r, s_id, color=C_GUT, lw=2.0,
-                 label=r"identity $m_D$ (V90): $\frac{S_{17}}{1+r} + "
+                 label=r"identity $m_D$: $\frac{S_{17}}{1+r} + "
                        r"\frac{2S_{17}}{|2-r|}$")
     axA.semilogy(r, s_demo, color="#2c7a3f", lw=2.4,
-                 label=r"democratic $m_D$ (V103): $m_3 = "
+                 label=r"democratic $m_D$: $m_3 = "
                        r"\frac{S_{17}}{1+r}$, two massless for every $r$")
     axA.axhline(bound, color=C_ZERO, ls="--", lw=1.8,
                 label=r"cosmological bound $\sum m_\nu < 0.12$ eV")
@@ -344,18 +258,18 @@ def fig29_w2_protection():
     axA.set_xlabel(r"junction ratio $r = \kappa / w_0$")
     axA.set_ylabel(r"$\sum m_\nu$ [eV]")
     axA.set_ylim(0.012, 2e3)
-    axA.set_title("(a)  V90 scanned $m_D \\propto I$ (divergent, one point);\n"
+    axA.set_title("(a)  the identity $m_D$ scan (divergent, one point);\n"
                   "     the implemented democratic $m_D$ gives a finite window",
                   fontsize=12.5)
     axA.legend(loc="upper left", fontsize=9.5)
 
     axB.axis("off")
-    axB.set_title("(b)  what protects what (V90 + V103)", fontsize=12.5)
+    axB.set_title("(b)  what protects what", fontsize=12.5)
     rows = [
         ("cubic action", "all of $S_3$ (6 permutations)", C_GUT),
         ("commutant", f"dim {d90['commutant_nullity']} = "
          r"$\operatorname{span}\{I, J\}$ only", C_ZERO),
-        ("$m_D$ (V28/V45)", "democratic, rank 1 - 0-parameter", "#2c7a3f"),
+        ("$m_D$", "democratic, rank 1 - 0-parameter", "#2c7a3f"),
         ("massless pair", "protected for EVERY $r$ (rank-1 $m_D$)",
          "#2c7a3f"),
         ("window", f"$r > {r_min:.2f}$, width "
@@ -375,13 +289,13 @@ def fig29_w2_protection():
              "finite window. Solar mass still needs W6.",
              fontsize=10, color=C_ROOT, weight="bold", va="bottom")
 
-    fig.suptitle("The democratic neutrino point: the V90 tuning is an "
-                 "artifact of the wrong Dirac assumption (V103)",
+    fig.suptitle("The democratic neutrino point: the identity-$m_D$ tuning is an "
+                 "artifact of the wrong Dirac assumption",
                  fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig29_w2_protection.png")
+    save(fig, "fig16_w2_protection.png")
 
-def fig30_w3_forcing():
+def fig24_w3_forcing():
     import json
     with open(exp("V91_w3_forcing",
                            "results", "v91_w3_forcing.json")) as f:
@@ -410,7 +324,7 @@ def fig30_w3_forcing():
         axA.plot(qx + jx, qy + jy, mk, ms=10, color=col, label=lab)
     for qx, qy in [(1.5708, 1.5708), (1.5708, 4.7124), (4.7124, 1.5708)]:
         axA.plot(qx, qy, "*", ms=19, color=C_ZERO, zorder=6)
-    axA.annotate("the 3-node triangle (V76): realizable,\n"
+    axA.annotate("the 3-node triangle: realizable,\n"
                  "but its cubic orbit has 8 triangles",
                  xy=(1.5708, 1.5708), xytext=(0.3, 2.3), fontsize=11,
                  color=C_ZERO, weight="bold",
@@ -452,11 +366,11 @@ def fig30_w3_forcing():
              va="bottom")
 
     fig.suptitle("Is the family count 3 forced? No - the symmetric "
-                 "alternative is excluded (V91)", fontsize=13.5)
+                 "alternative is excluded", fontsize=13.5)
     fig.tight_layout(rect=[0, 0.13, 1, 0.93])
-    save(fig, "fig30_w3_forcing.png")
+    save(fig, "fig24_w3_forcing.png")
 
-def fig32_w4_cone():
+def fig23_w4_cone():
     import json
     with open(exp("V92_w4_feasibility",
                            "results", "v92_w4_feasibility.json")) as fh:
@@ -510,14 +424,14 @@ def fig32_w4_cone():
         f"$\\lambda_0$={v:.2f}" if k == "0"
         else f"$\\lambda_{{f_{int(k) - 1}}}$={v:.2f}"
         for k, v in w.items())
-    ax.annotate("data-preferred meeting (V64):\n"
+    ax.annotate("data-preferred meeting:\n"
                 f"$M_X=1.8\\times10^{{16}}$ GeV, $\\alpha_X=1/25$ -\n"
                 "INSIDE the hull.\n"
                 f"witness: {lam}",
                 tp2, xytext=(-2.0, -1.55),
                 fontsize=12, color=C_FIT, ha="left",
                 arrowprops=dict(arrowstyle="->", color=C_FIT))
-    ax.set_title("V92: the desert content the data require lies INSIDE "
+    ax.set_title("The desert content the data require lies INSIDE "
                  "the hull of the node-$\\mathbf{16}$ fragments\n"
                  "($\\beta$-contribution plane; feasibility $\\Rightarrow$ "
                  "W4 is a realizability problem, not a no-go)",
@@ -527,9 +441,9 @@ def fig32_w4_cone():
     ax.set_xlim(v2[:, 0].min() - 0.35, v2[:, 0].max() + 1.85)
     ax.set_ylim(v2[:, 1].min() - 1.45, v2[:, 1].max() + 0.30)
     fig.tight_layout()
-    save(fig, "fig32_w4_cone.png")
+    save(fig, "fig23_w4_cone.png")
 
-def fig35_vertex_ground_state():
+def fig11_vertex_ground_state():
     import json
     p100 = exp("V100_vertex_correction",
                         "results", "v100_vertex_correction.json")
@@ -591,15 +505,15 @@ def fig35_vertex_ground_state():
     ax2.set_xlabel("kernel state (Gram-orthonormalised)")
     ax2.set_ylabel("$E$ (units of $\\eta$)")
     ax2.set_title("(b) the first ground state: $J\\!\\cdot\\!L$ splits the "
-                  "kernel, $S_{\\rm GS} = \\ln 45$ (V101)", fontsize=13)
+                  "kernel, $S_{\\rm GS} = \\ln 45$", fontsize=13)
     fig.suptitle("The gauged area law corrected by vertices, and the "
-                 "ground state of the gauged layer (V100, V101)",
+                 "ground state of the gauged layer",
                  fontsize=13.5)
     fig.tight_layout()
-    save(fig, "fig35_vertex_ground_state.png")
+    save(fig, "fig11_vertex_ground_state.png")
 
 
-def fig36_residual_attacks():
+def fig25_residual_attacks():
     """Attacking the residuals head-on: V109 (W5 CP/mirror), V110 (W4 bond
     off-diagonal), V111 (W6 generation dressing), V112 (W7 dark U(1)),
     V113 (W8 axis factorization), V116 (W3 triangle orbit-8)."""
@@ -622,7 +536,7 @@ def fig36_residual_attacks():
 
     # (a) V109: the mirror is the CP-forbidding structure
     cases = d109["per_case_worst"]
-    names = ["Wilson\n(V71)", r"$\kappa_s$ anti", r"$\kappa_s$ sym",
+    names = ["Wilson", r"$\kappa_s$ anti", r"$\kappa_s$ sym",
              "dressing\nanti", "dressing\nsym", "combined"]
     keys = ["kappa_antisym", "kappa_sym", "dressing_antisym",
             "dressing_sym", "both"]
@@ -646,7 +560,7 @@ def fig36_residual_attacks():
     ax1.set_ylabel(r"$\pm$-pairing deviation of the 32 spectrum")
     ax1.set_title("(a) W5: the mirror forbids CP — only Cartan-type\n"
                   "extensions preserve it; class-dependent dressings\n"
-                  "break Theorem 4 (V109)", fontsize=12)
+                  "break Theorem 4", fontsize=12)
 
     # (b) V110: the off-diagonal bond floor
     per_n = d110["per_n"]
@@ -668,7 +582,7 @@ def fig36_residual_attacks():
     ax2.set_xlabel("desert pairs $n$")
     ax2.set_ylabel("meeting residual")
     ax2.set_title("(b) W4: one Hermitian bond operator with 12\n"
-                  "parameters does not close the meeting (V110)",
+                  "parameters does not close the meeting",
                   fontsize=12)
 
     # (c) V111: named-parameter cost of reaching the measured mixing
@@ -691,7 +605,7 @@ def fig36_residual_attacks():
     ax3.set_ylim(0, 17.5)
     ax3.set_ylabel("named parameters needed")
     ax3.set_title("(c) W6: generation-space dressing moves the\n"
-                  "mixing — but every entry is a named input (V111)",
+                  "mixing — but every entry is a named input",
                   fontsize=12)
 
     # (d) V112: the dark-U(1) window squeeze
@@ -724,7 +638,7 @@ def fig36_residual_attacks():
     ax4.legend(fontsize=9.5, loc="lower left")
     ax4.set_title("(d) W7: dark U(1) portal — relic needs\n"
                   r"$g_D\varepsilon \gtrsim 0.02$, DD allows "
-                  r"$\lesssim 10^{-3}$:" "\nwindow EMPTY (V112)",
+                  r"$\lesssim 10^{-3}$:" "\nwindow EMPTY",
                   fontsize=12)
 
     # (e) V113: the coefficient 3 is the node-set choice
@@ -746,7 +660,7 @@ def fig36_residual_attacks():
     ax5.set_ylabel(r"hierarchy coefficient $\sum$-nodes")
     ax5.set_title("(e) W8: node contributions EXACTLY equal across\n"
                   "families (0.00e+00); the coefficient 3 IS the choice\n"
-                  "one-per-family — 99.4% agreement (V113)", fontsize=12)
+                  "one-per-family — 99.4% agreement", fontsize=12)
 
     # (f) V116: the triangle and its orbit-8
     nodes = [(x, y) for x in (0, 1, -1) for y in (0, 1, -1)
@@ -776,15 +690,15 @@ def fig36_residual_attacks():
     ax6.set_title("(f) W3: 64 triangles → 4 cubic orbits "
                   "(8, 8, 24, 24);\n"
                   r"each choice breaks $O_h \to S_3$ — 8 distinct "
-                  "vacua (V116)", fontsize=12)
+                  "vacua", fontsize=12)
 
-    fig.suptitle("Attacking the residuals head-on: what V109-V116 close, "
+    fig.suptitle("Attacking the residuals head-on: what the named tests close, "
                  "what they name", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.955])
-    save(fig, "fig36_residual_attacks.png")
+    save(fig, "fig25_residual_attacks.png")
 
 
-def fig37_doubler_cones():
+def fig7_doubler_cones():
     """V102: the twelve doubler cones are exactly linear but never round."""
     import json
     d = json.load(open(exp("V102_lorentz_isotropy", "results",
@@ -815,7 +729,7 @@ def fig37_doubler_cones():
     ax.view_init(elev=14, azim=32)
     ax.set_title("(a) one node: raw $|v(\\hat n)|$ (min eigenphase)\n"
                  "over 100 directions, inside the causal sphere\n"
-                 "(grey, speed 1) - never round (V102)", fontsize=12)
+                 "(grey, speed 1) - never round", fontsize=12)
 
     # (b) all 12 nodes: the 1200 measured velocities
     ax2 = fig.add_subplot(gs[1])
@@ -842,7 +756,7 @@ def fig37_doubler_cones():
                   f"{d['n_linear']}/{d['n_linear'] + d['n_quadratic'] + d['n_mixed']} linear;\n"
                   "the velocity tensor fit gives principal cone\n"
                   f"{vp[0]:.2f}/{vp[1]:.2f}/{vp[2]:.2f} - a factor ~{1.0 / float(vp[2]):.0f}"
-                  " below causal (V102)",
+                  " below causal",
                   fontsize=12)
 
     # (c) anisotropy per node: the orbit is uniform
@@ -859,16 +773,16 @@ def fig37_doubler_cones():
     ax3.set_ylabel("cone anisotropy (eigen-spread / mean)")
     ax3.set_title("(c) every node of the orbit carries the SAME\n"
                   f"anisotropic cone: {min(an):.3f}-{max(an):.3f} - the lattice\n"
-                  "signature is universal, not a defect (V102)",
+                  "signature is universal, not a defect",
                   fontsize=12)
 
     fig.suptitle("The twelve doubler cones: exactly linear, never Lorentz-"
-                 "round (V102)", fontsize=14.5)
+                 "round", fontsize=14.5)
     fig.subplots_adjust(left=0.03, right=0.99, bottom=0.12, top=0.79)
-    save(fig, "fig37_doubler_cones.png")
+    save(fig, "fig7_doubler_cones.png")
 
 
-def fig38_isotropy_search():
+def fig8_isotropy_search():
     """V115: no isotropy point on the whole V65 Wilson family."""
     import json
     d = json.load(open(exp("V115_w9_cone_isotropy", "results",
@@ -899,7 +813,7 @@ def fig38_isotropy_search():
     ax1.set_ylim(0, 1.03)
     ax1.set_title(f"(a) {n} gapless points of the family\n"
                   "(2 reps x 60 angles, all zeros located):\n"
-                  "the isotropy band is empty (V115)", fontsize=12)
+                  "the isotropy band is empty", fontsize=12)
 
     # (b) the distribution of A: pinned at full anisotropy
     ax2.hist(A, bins=np.arange(0.996, 1.0001, 0.0005), color=C_FIT)
@@ -912,7 +826,7 @@ def fig38_isotropy_search():
     ax2.set_xlim(0.9955, 1.0005)
     ax2.set_title(f"(b) every point sits at $A \\gtrsim {amin:.3f}$;\n"
                   "isotropy ($A\\to 0$) is not approached\n"
-                  "anywhere on the family (V115)", fontsize=12)
+                  "anywhere on the family", fontsize=12)
 
     # (c) no angle helps: A vs theta
     ax3.scatter(th, A, c=w, cmap="viridis", s=9, alpha=0.8)
@@ -925,15 +839,15 @@ def fig38_isotropy_search():
     ax3.set_ylim(0.9955, 1.0025)
     ax3.set_title("(c) all 60 angles x all strengths: the Wilson\n"
                   "factor moves the zeros, never the cone's\n"
-                  "shape - W9 stays open (V115)", fontsize=12)
+                  "shape - W9 stays open", fontsize=12)
 
     fig.suptitle("Is continuous Lorentz invariance emergent anywhere on "
-                 "the Wilson family? No (V115)", fontsize=14.5)
+                 "the Wilson family? No", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig38_isotropy_search.png")
+    save(fig, "fig8_isotropy_search.png")
 
 
-def fig39_tangent_algebra():
+def fig9_tangent_algebra():
     """V118/V120: the massless corner node is three nodal planes, not a cone."""
     import json
     with open(exp("V118_w9_little_group",
@@ -988,7 +902,7 @@ def fig39_tangent_algebra():
     ax2.set_title("(b) the three tangent velocity operators COMMUTE:\n"
                   "max $\\|[S_i,S_j]\\|$ = %.1e, %.0f orders below the scale\n"
                   "a Weyl cone requires; $\\sum_j S_j^2$ is a scalar (%.2f)\n"
-                  "and each branch is planar to %.1e (V118)"
+                  "and each branch is planar to %.1e"
                   % (max(comm), -math.log10(max(comm) / t["sum_Sj2_scalar"]),
                      t["sum_Sj2_scalar"], t["planar_branch_err"]),
                   fontsize=12)
@@ -1018,10 +932,10 @@ def fig39_tangent_algebra():
                   "internal indices (regression to the implemented step %.0e)\n"
                   "raises the planarity defect from %.0e to %.0e and switches\n"
                   "the commutator on to only %.2f of its natural scale; $A$\n"
-                  "never leaves $0.996$-$0.9999$ - W9 stays open (V120)"
+                  "never leaves $0.996$-$0.9999$ - W9 stays open"
                   % (d120["regression"]["phi0_vs_implemented"], pl[0], max(pl), max(cm)), fontsize=12)
 
     fig.suptitle("Why the doubler node is never a Weyl cone: the tangent "
-                 "velocities commute (V118, V120)", fontsize=14.5)
+                 "velocities commute", fontsize=14.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig39_tangent_algebra.png")
+    save(fig, "fig9_tangent_algebra.png")

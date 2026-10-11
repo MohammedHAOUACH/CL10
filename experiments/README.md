@@ -27,7 +27,7 @@ the reason recorded in `../archive/README.md`.
 | `cosmology_darkmatter` | the $118$ GeV ladder mass, the carrier no-go, the built scalar, the relic abundance, the portal window | §12.2, §14.2 |
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
-| `phenomenology` | the lattice photon driven through hydrogen (Fig. 19) | §6 |
+| `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
 
 ## The experiments
 
@@ -180,4 +180,4 @@ the reason recorded in `../archive/README.md`.
 ### `phenomenology`
 | id | verdict |
 |---|---|
-| `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 19) |
+| `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |

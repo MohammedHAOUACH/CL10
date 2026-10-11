@@ -1,19 +1,19 @@
-"""CL10 publication figures: 39 figures, all computed from the construction.
+"""CL10 publication figures: 25 figures, all computed from the construction.
 
 One command regenerates everything:
 
-    .venv/bin/python -m make_figures            # all 39, GPU if cupy is there
+    .venv/bin/python -m make_figures            # all 25, GPU if cupy is there
     .venv/bin/python -m make_figures --only 7 12 19   # a subset
     .venv/bin/python -m make_figures --cpu      # force the numpy backend
     .venv/bin/python -m make_figures --fast     # skip the two slow GPU figures
-                                              # (18 young, 19 hydrogen/V62)
+                                              # (1 young, 2 hydrogen)
 
 Modules group the figures by subject; each figure function is named
 ``fig<N>_<slug>`` and writes ``doc/figures/fig<N>_<slug>.png`` with the
-number used in ``doc/publication.md``.  Fig. 18 (young double-slit) runs the
-``simulation/young`` QCA; Fig. 19 (hydrogen) is produced by
+number used in ``doc/final_publication.md``.  Fig. 1 (young double-slit) runs
+the ``simulation/young`` QCA; Fig. 2 (hydrogen) is produced by
 ``experiments/phenomenology/V62_hydrogen_production``, invoked here as a
-re-pins its own GPU and writes its PNG + meta JSON itself.
+subprocess: it re-pins its own GPU and writes its PNG + meta JSON itself.
 
 The GPU id is pinned from ``simulation/young/config.yaml`` *before* any CuPy
 import (mirrors ``simulation/*/__main__.py``); ``CL10_BACKEND=numpy`` (or
@@ -23,55 +23,41 @@ import os
 import subprocess
 import sys
 
-from . import algebra, couplings, dynamics, proton, residuals, scales
+from . import algebra, couplings, dynamics, residuals, scales
 from .style import exp
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # (number, callable) in paper order
 FIGURES = [
-    (1, algebra.fig1_one_object),
-    (2, scales.fig2_wimp_miracle),
-    (3, algebra.fig3_512_512),
-    (4, scales.fig4_qcd),
-    (5, scales.fig5_baryon),
-    (6, algebra.fig6_anomaly),
-    (7, scales.fig7_ladder),
-    (8, algebra.fig8_cpt_mirror),
-    (9, scales.fig9_sm_head2head),
-    (10, algebra.fig10_matter_content),
-    (11, couplings.fig11_couplings_mz),
-    (12, scales.fig12_ladder_sm),
-    (13, scales.fig13_residual_reduction),
-    (14, couplings.fig14_uv_2loop),
-    (15, proton.fig15_proton_channels),
-    (16, dynamics.fig16_qca_wave),
-    (17, dynamics.fig17_gravity_3d),
-    (18, dynamics.fig18_young),
+    (1, dynamics.fig1_young),
+    (3, algebra.fig3_one_object),
+    (4, couplings.fig4_uv_2loop),
+    (5, algebra.fig5_brillouin_doublers),
+    (6, couplings.fig6_wilson),
+    (7, residuals.fig7_doubler_cones),
+    (8, residuals.fig8_isotropy_search),
+    (9, residuals.fig9_tangent_algebra),
+    (10, residuals.fig10_gauged_layer),
+    (11, residuals.fig11_vertex_ground_state),
+    (12, dynamics.fig12_gravity_3d),
+    (13, couplings.fig13_closed_loops),
+    (14, residuals.fig14_loop_selection),
+    (15, residuals.fig15_w7_portal),
+    (16, residuals.fig16_w2_protection),
+    (17, scales.fig17_ladder),
+    (18, scales.fig18_residual_reduction),
+    (19, couplings.fig19_couplings_mz),
     (20, couplings.fig20_desert),
-    (21, couplings.fig21_wilson),
-    (22, residuals.fig22_gauged_layer),
-    (23, couplings.fig23_composite),
-    (24, couplings.fig24_closed_loops),
-    (25, couplings.fig25_equal_shift),
-    (26, residuals.fig26_w4_closure),
-    (27, residuals.fig27_w7_portal),
-    (28, residuals.fig28_loop_selection),
-    (29, residuals.fig29_w2_protection),
-    (30, residuals.fig30_w3_forcing),
-    (31, algebra.fig31_graphical_abstract),
-    (32, residuals.fig32_w4_cone),
-    (33, algebra.fig33_block_zone_nodes),
-    (34, dynamics.fig34_bh_frames),
-    (35, residuals.fig35_vertex_ground_state),
-    (36, residuals.fig36_residual_attacks),
-    (37, residuals.fig37_doubler_cones),
-    (38, residuals.fig38_isotropy_search),
-    (39, residuals.fig39_tangent_algebra),
+    (21, couplings.fig21_equal_shift),
+    (22, couplings.fig22_composite),
+    (23, residuals.fig23_w4_cone),
+    (24, residuals.fig24_w3_forcing),
+    (25, residuals.fig25_residual_attacks),
 ]
 
-YOUNG = 18
-HYDROGEN = 19  # produced by experiments/phenomenology/V62_hydrogen_production
+YOUNG = 1
+HYDROGEN = 2  # produced by experiments/phenomenology/V62_hydrogen_production
 
 
 def setup_gpu(force_cpu=False):
@@ -112,11 +98,11 @@ def setup_gpu(force_cpu=False):
 
 
 def run_v62():
-    """Fig. 19: the production hydrogen experiment writes its own PNG + meta."""
+    """Fig. 2: the production hydrogen experiment writes its own PNG + meta."""
     script = exp("V62_hydrogen_production", "V62_hydrogen_production.py")
     rc = subprocess.call([sys.executable, script], cwd=ROOT)
     if rc != 0:
-        raise SystemExit(f"V62 failed (rc={rc}): fig19_hydrogen.png NOT regenerated")
+        raise SystemExit(f"V62 failed (rc={rc}): fig2_hydrogen.png NOT regenerated")
 
 
 def main(only=None, cpu=False, fast=False):

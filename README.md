@@ -47,7 +47,7 @@ CL10/
 │   ├── final_publication.md  # the paper (the theory + the seven criteria + the 9 open problems O1-O9 + the 7 falsifiers)
 │   ├── reference.md          # the technical reference (the exact constructions, the numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
-│   ├── figures/              # the 39 publication figures (make_figures/; fig 18 = young QCA, fig 19 = V62 hydrogen product)
+│   ├── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = V62 hydrogen product)
 ├── publication/              # the journal build: doc/final_publication.md -> REVTeX 4.2 PDF
 │   ├── build.sh              # one command: preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py         # manuscript -> pandoc-friendly markdown (Divs for figures/tables/refs)
@@ -55,10 +55,10 @@ CL10/
 │   ├── template.tex          # revtex4-2, aps/prd, twocolumn
 │   ├── fetch_dois.py         # resolves + verifies the 53 refs against Crossref -> doi.json (clickable DOIs in the PDF)
 │   ├── README.md             # the build pipeline, files, prerequisites
-│   └── publication.pdf       # the compiled paper (39 figures, 8 tables, 53 refs)
-├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 39 (see make_figures/README.md)
-│   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 20)
-│   └── algebra/scales/couplings/proton/dynamics/residuals/style .py
+│   └── publication.pdf       # the compiled paper (25 figures, 8 tables, 53 refs)
+├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
+│   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
+│   └── algebra/scales/couplings/dynamics/residuals/style .py
 ├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
@@ -108,15 +108,15 @@ CL10/
 │   ├── cosmology_darkmatter/ # the 118 GeV ladder mass, the carrier no-go, the relic abundance, the portal
 │   ├── baryogenesis/         # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
 │   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
-│   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 19)
+│   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
 │   └── README.md             # every experiment, its verdict, and the paper section it validates
 ├── archive/                  # superseded material: 35 earlier experiments, the previous manuscript, its PDF
 │   └── README.md             # what was superseded, and by what
 ├── simulation/               # the 3-D visualizations on the CL10 engine
-│   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
-│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
+│   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
+│   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 ├── run_validation.py         # the runner: runs all 103, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
-├── run_figures.sh            # the 39 figures on the pinned GPU card (aborts if the card is too full for cupy)
+├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     └── validation_summary.json   # the 103/103 PASS + the hard-tier verdict
 
@@ -146,13 +146,13 @@ python3 run_validation.py        # runs all 103 in parallel (--jobs N), prints t
 ./run_gpu.sh                     # the full 103 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V131_algebraic_closure V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed
                                    # the closed-angle batch alone (the runner takes **exact** directory names)
-./run_figures.sh                   # the 39 figures on the GPU card make_figures pins; it
+./run_figures.sh                   # the 25 figures on the GPU card make_figures pins; it
                                    # ABORTS if that card has < 2 GiB free, so the figures
                                    # never silently become numpy products (FORCE=1 to run
                                    # anyway, NEED=MiB to move the gate)
 python3 -m make_figures            # the same generator without the card check:
-                                   # --only N [N..] | --fast (skip 18+19) | --cpu
-python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 19 scene)
+                                   # --only N [N..] | --fast (skip 1+2) | --cpu
+python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 2 scene)
                                  # -> simulation/hydrogen/video/  (git-ignored)
 bash publication/build.sh        # rebuild the journal PDF from doc/final_publication.md
                                  # needs pandoc >= 3 and texlive-publishers (revtex4-2)

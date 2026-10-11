@@ -667,7 +667,7 @@ python3 run_validation.py --report-only  # roll up the verdict JSONs on disk, ru
 
 ## 15. The simulation packages (V62)
 
-**`simulation.young` — the double slit as a single-electron measurement (Fig. 18).**
+**`simulation.young` — the double slit as a single-electron measurement (Fig. 1).**
 
 | symbol | signature | role |
 |---|---|---|
@@ -680,7 +680,7 @@ python -m simulation.young                 # headless -> simulation/young/video/
 python -m simulation.young --interactive   # live VisPy window
 ```
 
-**`simulation.hydrogen` — the hydrogen atom driven by the lattice photon (V61, V62; Fig. 19).**
+**`simulation.hydrogen` — the hydrogen atom driven by the lattice photon (V61, V62; Fig. 2).**
 
 | symbol | signature | role |
 |---|---|---|
@@ -690,7 +690,7 @@ python -m simulation.young --interactive   # live VisPy window
 
 ```bash
 python -m simulation.hydrogen     # -> simulation/hydrogen/video/ (stills + mp4; git-ignored)
-python3 experiments/phenomenology/V62_hydrogen_production/V62_hydrogen_production.py   # the production run -> Fig. 19
+python3 experiments/phenomenology/V62_hydrogen_production/V62_hydrogen_production.py   # the production run -> Fig. 2
 ```
 
 The atom's knobs (`A`, `h`, `gamma`) are physical parameters of the atom, not

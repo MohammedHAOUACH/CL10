@@ -4,24 +4,24 @@ The black-hole twin of `simulation/hydrogen`: a **3-D live simulation** in
 which you **send particles with the keyboard** and watch the **geodesic
 construct itself in real time** on the embedding well.
 
-The physics is **exactly fig17's left panel** (`make_figures.fig17_gravity_3d`):
+The physics is **exactly fig12's left panel** (`make_figures.fig12_gravity_3d`):
 the Schwarzschild metric of `cl10.gravity` (`metric_schwarzschild`, M = 1 —
 the 0-parameter Planck-mass hole, G = c = 1), the Christoffel symbols by
 **central finite difference** (`_christoffel_at`, H_FD = 1e-3), and the
 geodesic equation `d²x/dλ² = −Γ dx/dλ dx/dλ`.  The difference is the
-integration: fig17 hands the ODE to `solve_ivp` and draws the finished
+integration: fig12 hands the ODE to `solve_ivp` and draws the finished
 curve; here the same ODE is integrated **incrementally (fixed-step RK4)**,
 one chunk per rendered frame, so every fired particle leaves a **trail that
 grows live** — you see the rosette precess, the plunge cross the horizon,
 the fly-by deflect.
 
-**Verified against fig17**: with fig17's initial conditions (r₀ = 10,
+**Verified against fig12**: with fig12's initial conditions (r₀ = 10,
 v_t = 0.34), the fixed-step RK4 reproduces the DOP853 reference to
 r(λ=600) = 7.170386 on both sides (relative agreement ~1e-4 along the way).
 
 Nothing is fitted: the constants of motion (E, L) emerge from the geometry —
 the initial 4-velocity is built from a local orthonormal (v_r, v_t) exactly
-as in fig17.
+as in fig12.
 
 ## Run
 
@@ -39,7 +39,7 @@ python -m simulation.blackhole
 
 | key | fires | what you watch |
 |-----|-------|----------------|
-| `1` | rosette (fig17's orbit, r₀=10, v=0.34) | the **precessing rosette** building turn by turn |
+| `1` | rosette (fig12's orbit, r₀=10, v=0.34) | the **precessing rosette** building turn by turn |
 | `2` | tight rosette (r₀=8, v=0.42) | a much larger **advance per turn** (GR strong field) |
 | `3` | plunge (r₀=8, v=0.18) | the **spiral in** through the horizon ring |
 | `4` | radial infall (r₀=20, v_r only) | zero angular momentum: **straight down** the well |

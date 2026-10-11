@@ -8,7 +8,7 @@ from .style import exp, save
 from .style import C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
 
 
-def fig11_couplings_mz():
+def fig19_couplings_mz():
     from cl10 import unification as u
 
     rd = u.running_down()
@@ -44,9 +44,9 @@ def fig11_couplings_mz():
     fig.suptitle("The root coupling $\\alpha_{10} = 1/25$ and the $5/3$ normalisation",
                  fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig11_couplings_mz.png")
+    save(fig, "fig19_couplings_mz.png")
 
-def fig14_uv_2loop():
+def fig4_uv_2loop():
     """The 2-loop running of the U(1) coupling: the perturbative QFT reaches a
     Landau pole below M_P, the 1-loop running stays bounded, and the unitary QCA
     step remains bounded at every order."""
@@ -95,7 +95,7 @@ def fig14_uv_2loop():
               columnspacing=1.2, handlelength=1.6,
               framealpha=0.95, fontsize=9.5)
     fig.subplots_adjust(bottom=0.38)
-    save(fig, "fig14_uv_2loop.png")
+    save(fig, "fig4_uv_2loop.png")
 
 def fig20_desert():
     import json
@@ -169,13 +169,13 @@ def fig20_desert():
                   f"{sel['tau_p_yr'] / 2.4e34:.0f}$\\times$ above the bound — "
                   "F5 is live", fontsize=11.5)
     axB.legend(fontsize=10, loc="upper left", framealpha=0.95)
-    fig.suptitle("The desert solution (V64):  three $\\mathbf{10}\\oplus"
+    fig.suptitle("The desert solution:  three $\\mathbf{10}\\oplus"
                  "\\overline{\\mathbf{10}}$ pairs + one $(1,2)$ pair unify at "
                  "the root value", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     save(fig, "fig20_desert_unification.png")
 
-def fig21_wilson():
+def fig6_wilson():
     import json
     from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
     from cl10 import supercell as SC
@@ -209,7 +209,7 @@ def fig21_wilson():
     axA.set_yticks([0, np.pi / 2])
     axA.set_zticks([0, np.pi / 2])
     axA.set_title("(a)  12 half-zone nodes = 3 axis families of 4;\n"
-                  "    black: one split node per family (V65/V70)",
+                  "    black: one split node per family",
                   fontsize=11.5)
 
     axB = fig.add_subplot(1, 2, 2)
@@ -226,22 +226,21 @@ def fig21_wilson():
                 label=f"Wilson root meeting $M_X$ = "
                       f"{root['M_X_GeV']:.1e} GeV (excluded, F5)")
     axB.axvline(1.8e16, color="0.35", lw=1.6, ls="--",
-                label="data-preferred $M_X$ = $1.8\\times10^{16}$ GeV (V64)")
+                label="data-preferred $M_X$ = $1.8\\times10^{16}$ GeV")
     axB.set_xlabel("fragment mass [GeV]")
     axB.set_title(f"(b)  the six thresholds of the 3 split nodes\n"
                   f"     ($\\theta$ = {root['theta_rad']:.3f}, "
                   f"$w$ = {root['w']:.2e}): scale excluded", fontsize=11.5)
     axB.legend(fontsize=9.5, loc="upper center",
                bbox_to_anchor=(0.5, -0.50), framealpha=0.95)
-    fig.suptitle("The internal Wilson factor (V65): pattern predicted, "
+    fig.suptitle("The internal Wilson factor: pattern predicted, "
                  "scale falsified", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     fig.subplots_adjust(bottom=0.34)
-    save(fig, "fig21_wilson_mechanism.png")
+    save(fig, "fig6_wilson_mechanism.png")
 
-def fig23_composite():
+def fig22_composite():
     import json
-    import math
     import sys
     sys.path.insert(0, exp("V65_wilson"))
     sys.path.insert(0, exp("V81_link_desert_content"))
@@ -307,20 +306,19 @@ def fig23_composite():
     axB.bar(vals, cnts, width=0.045, color=C_ROOT, alpha=0.85)
     axB.set_ylim(0, 28)
     axB.set_xlabel(r"flux mass pattern $|\alpha \cdot v|$ "
-                   r"($\theta$ = 1.731, V65 root)")
+                   r"($\theta$ = 1.731, the root angle)")
     axB.set_ylabel("count")
     axB.set_title("(b)  the forced pattern $m = w(c_0 + |\\alpha\\cdot v|)$:\n"
                   f"     {d['meeting']['n_solutions']} physical solutions "
                   "over the full scan", fontsize=11.5)
     fig.suptitle("The gauged layer's composite content "
-                 "($16 \\otimes 45 = 720$ states, V81) does not deliver "
+                 "($16 \\otimes 45 = 720$ states) does not deliver "
                  "the meeting", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig23_composite_content.png")
+    save(fig, "fig22_composite_content.png")
 
-def fig24_closed_loops():
+def fig13_closed_loops():
     import json
-    import math
     with open(exp("V85_closed_loop_factor",
                            "results", "v85_closed_loop_factor.json")) as f:
         d = json.load(f)["data"]
@@ -365,12 +363,12 @@ def fig24_closed_loops():
                   f"     geometric ratio r = {root['geometric_ratio']}, "
                   f"n* = {root['n_star_for_loop_factor']}", fontsize=11.5)
 
-    fig.suptitle("The closed-loop factor of the traced adjoint link (V85): "
+    fig.suptitle("The closed-loop factor of the traced adjoint link: "
                  "$F_{10} = 0.0192$ vs $1/(16\\pi) = 0.0199$", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig24_closed_loops.png")
+    save(fig, "fig13_closed_loops.png")
 
-def fig25_equal_shift():
+def fig21_equal_shift():
     import json
     with open(exp("V84_equal_shift_theorem",
                            "results", "v84_equal_shift_theorem.json")) as f:
@@ -414,11 +412,11 @@ def fig25_equal_shift():
     axB.axhline(0, color="0.3", lw=1)
     axB.set_ylim(-0.35, 0.12)
     axB.set_ylabel(r"mismatch $\sum db_1 - \sum db_2$")
-    axB.set_title("(b)  the V64 repair's whole mismatch is carried by\n"
+    axB.set_title("(b)  the desert repair's whole mismatch is carried by\n"
                   "     its fragment pair - the automaton has none",
                   fontsize=11.5)
 
-    fig.suptitle("The equal-shift theorem (V84): the desert content must be "
+    fig.suptitle("The equal-shift theorem: the desert content must be "
                  "$\\mathrm{SU}(5)$-fragment content", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig25_equal_shift.png")
+    save(fig, "fig21_equal_shift.png")

@@ -3,13 +3,13 @@
 """
 The geodesic engine of the 3-D black-hole simulation.
 
-The physics is **the same as fig17** (``make_figures.fig17_gravity_3d``):
+The physics is **the same as fig12** (``make_figures.fig12_gravity_3d``):
 the Schwarzschild metric ``metric_schwarzschild(M, x)`` from
 ``cl10.gravity``, the Christoffel symbols by **central finite difference**
 (``gravity._christoffel_at`` with the 0-parameter step ``H_FD``), and the
 geodesic equation ``d^2 x^m/dl^2 = -Gamma^m_{ab} dx^a/dl dx^b/dl``.
 
-The difference is the *integration*: fig17 hands the whole problem to
+The difference is the *integration*: fig12 hands the whole problem to
 ``solve_ivp`` (DOP853) and draws the finished curve.  Here the same ODE is
 integrated **incrementally with a fixed-step RK4**, one chunk per rendered
 frame, so each fired particle leaves a **trail that grows in real time** —
@@ -18,7 +18,7 @@ plunge through the horizon, the deflected fly-by).
 
 A particle is a timelike geodesic: the initial 4-velocity is built from a
 LOCAL orthonormal velocity (v_r, v_t) at the start event, exactly as in
-fig17 (``gamma / sqrt(1-2M/r0)`` for the t-component, ``gamma*v/r0`` for the
+fig12 (``gamma / sqrt(1-2M/r0)`` for the t-component, ``gamma*v/r0`` for the
 phi-component), so the constants of motion (E, L) emerge from the geometry,
 they are never imposed.
 
@@ -31,7 +31,7 @@ import numpy as np
 
 from cl10 import gravity
 
-H = gravity.H_FD          # the 0-parameter finite-difference step (fig17)
+H = gravity.H_FD          # the 0-parameter finite-difference step (fig12)
 
 
 class Particle:
@@ -49,7 +49,7 @@ class Particle:
         gamma = 1.0 / np.sqrt(1.0 - v2)
         f0 = 1.0 - 2.0 * M / r0
         ph0 = float(preset.get("phi0", 0.0))
-        # the local orthonormal -> coordinate 4-velocity (fig17's recipe)
+        # the local orthonormal -> coordinate 4-velocity (fig12's recipe)
         self.u = np.array([0.0, r0, np.pi / 2, ph0,
                            gamma / np.sqrt(f0), vr * gamma,
                            0.0, vt * gamma / r0], dtype=float)
@@ -176,7 +176,7 @@ class BlackHole:
 
     def well(self, R, n=90):
         """The embedding well: X, Y, Phi = -M/r capped at the horizon
-        (identical to fig17's left panel)."""
+        (identical to fig12's left panel)."""
         g = np.linspace(-R, R, n)
         X, Y = np.meshgrid(g, g)
         rr = np.sqrt(X ** 2 + Y ** 2)

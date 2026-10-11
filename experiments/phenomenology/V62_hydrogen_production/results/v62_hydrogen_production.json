@@ -153,7 +153,7 @@
       }
     },
     "figure": {
-      "png": "/home/yo/Desktop/code/CL10/doc/figures/fig19_hydrogen.png",
+      "png": "/home/yo/Desktop/code/CL10/doc/figures/fig2_hydrogen.png",
       "meta": {
         "backend": "cupy",
         "gpu": "GPU cuda:1 (19893/24177 MiB)",

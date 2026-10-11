@@ -1,150 +1,13 @@
 """Figure module: dynamics."""
-import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from .style import ROOT, save
+from .style import save
 from .style import C_ZERO
 
 
-def fig16_qca_wave():
-    """The 0-parameter QCA field (the same 4-neighbour discrete wave equation
-    as the CL10 graviton): a pulse emits a **causal light-cone** — the signal
-    propagates at the lattice speed $c=0.5$ and never faster (the QCA is
-    causal).  A 2x4 grid of $|\\psi|^2$ heatmaps over time (each panel
-    normalised to its own peak, so the expanding ring is always resolved)."""
-    Lx, Ly = 200, 140
-    r2 = 0.25                                   # (c dt/dx)^2, c=0.5 (the CFL limit)
-    x, y = np.meshgrid(np.arange(Lx), np.arange(Ly), indexing="ij")
-    cx, cy, sig = Lx // 2, Ly // 2, 3
-    psi = np.exp(-0.5 * ((x - cx)**2 + (y - cy)**2) / sig**2)   # a sharp pulse
-    psi_m1 = psi.copy()                          # zero initial velocity
-    exL = x / (0.12 * Lx); exR = (Lx - 1 - x) / (0.12 * Lx)
-    edgeY = np.minimum(y, Ly - 1 - y) / (0.12 * Ly)
-    s = np.clip(np.minimum(np.minimum(exL, exR), edgeY), 0.0, 1.0)
-    times = [0, 25, 50, 75, 100, 125, 150, 175]
-    frames = []
-    for t in range(180):
-        lap = np.zeros((Lx, Ly))
-        lap[:, 1:] += psi[:, :-1]; lap[:, :-1] += psi[:, 1:]
-        lap[1:, :] += psi[:-1, :]; lap[:-1, :] += psi[1:, :]
-        lap -= 4 * psi
-        psi = (2 * psi - psi_m1 + r2 * lap) * s
-        psi_m1 = psi
-        if t in times:
-            frames.append((t, psi * psi))
-    fig, axes = plt.subplots(2, 4, figsize=(11.8, 5.4), sharex=True, sharey=True,
-                             gridspec_kw={"wspace": 0.12, "hspace": 0.42})
-    cmap = plt.get_cmap("inferno")
-    for i, (t, f) in enumerate(frames):
-        ax = axes[i // 4, i % 4]
-        ax.set_facecolor("black")
-        m = float(f.max())
-        ax.imshow((f / m).T, origin="lower", extent=[0, Lx, 0, Ly],
-                  cmap=cmap, vmin=0.0, vmax=1.0, aspect="auto")
-        ax.set_title(f"t = {t}    (peak $\\times$ {m:.1e})", fontsize=11.5, color="k")
-    for ax in axes[-1]:
-        ax.set_xlabel(r"space $x$  (lattice units)")
-    for ax in axes[:, 0]:
-        ax.set_ylabel(r"space $y$")
-    fig.suptitle("The 0-parameter QCA wave: the dispersive spreading of a pulse — the peak "
-                 "drops $\\propto 1/\\mathrm{area}$ as the causal support expands at $c=0.5$ "
-                 "(the unitary norm is conserved)", fontsize=12.5, y=0.985)
-    fig.subplots_adjust(top=0.88, left=0.05, right=0.98, wspace=0.12, hspace=0.45)
-    save(fig, "fig16_qca_wave.png")
-
-def fig17_gravity_3d():
-    """The Planck-mass black hole, recovered by computation.  Left: the 3-D
-    gravity well with the **geodesic** integrated through the CL10
-    finite-difference Christoffel symbols (the precessing rosette) and the
-    horizon ring.  Right: the **2-route** verification — the Kretschmann
-    *computed from the metric* (4-D central finite differences) equals the
-    analytic 48M^2/r^6 (the black hole is recovered by computation).  Both
-    panels are computed from ``cl10.gravity`` (``metric_schwarzschild``,
-    ``_christoffel_at``, ``riemann_4d``/``kretschmann_4d``)."""
-    from cl10 import gravity
-    from scipy.integrate import solve_ivp
-
-    M = 1.0                        # the 0-parameter black-hole mass (Planck units)
-    R = 13.0
-    H = gravity.H_FD
-
-    def sw(x):
-        return gravity.metric_schwarzschild(M, x)
-
-    # ---- LEFT: the 3-D well + the geodesic (via the CL10 Christoffels) ----
-    g = np.linspace(-R, R, 90)
-    X, Y = np.meshgrid(g, g)
-    rr = np.sqrt(X**2 + Y**2)
-    # the well: the metric's time-time part g_00 = -(1 - 2M/r) gives, in the
-    # weak-field limit, the potential Phi = -M/r (capped at the horizon).
-    Phi = -M / np.maximum(rr, 2 * M)
-
-    def geodesic(lam, u):
-        t, r, th, ph, td, rd, thd, phd = u
-        G = gravity._christoffel_at(sw, np.array([t, r, th, ph]), H)
-        v = np.array([td, rd, thd, phd])
-        dv = -np.einsum("mab,a,b->m", G, v, v)
-        return [td, rd, thd, phd, dv[0], dv[1], dv[2], dv[3]]
-
-    r0, vt = 10.0, 0.34
-    gamma = 1.0 / np.sqrt(1 - vt**2)
-    u0 = [0.0, r0, np.pi / 2, 0.0, gamma / np.sqrt(1 - 2 * M / r0), 0.0,
-          0.0, gamma * vt / r0]
-    sol = solve_ivp(geodesic, [0.0, 600.0], u0, method="DOP853",
-                    rtol=1e-8, atol=1e-8, max_step=0.5)
-    r = sol.y[1]; ph = sol.y[3]
-    tx = r * np.cos(ph); ty = r * np.sin(ph); tz = -M / np.maximum(r, 2 * M)
-
-    a = np.linspace(0, 2 * np.pi, 200)
-    hpx, hpy = 2 * M * np.cos(a), 2 * M * np.sin(a)
-
-    # ---- RIGHT: the 2-route Kretschmann (computed vs analytic) ----
-    rv = np.linspace(2.3, 20.0, 12)
-    Kc, Ka = [], []
-    for ri in rv:
-        x = np.array([0.0, ri, 0.5, 0.7])
-        Rm = gravity.riemann_4d(sw, x, H)
-        gm, _ = gravity._metric_and_dg(sw, x, H)
-        Kc.append(gravity.kretschmann_4d(Rm, gm))
-        Ka.append(48.0 * M**2 / ri**6)
-    Kc, Ka = np.array(Kc), np.array(Ka)
-
-    fig = plt.figure(figsize=(11.5, 5.2))
-    ax1 = fig.add_subplot(1, 2, 1, projection="3d")
-    ax1.set_proj_type("ortho")
-    ax1.plot_surface(X, Y, Phi, cmap="viridis", alpha=0.4, rstride=3, cstride=3)
-    ax1.plot(tx, ty, tz, color=C_ZERO, lw=1.5,
-             label="the geodesic (CL10 Christoffels)")
-    ax1.plot(hpx, hpy, np.full_like(hpx, -M / (2 * M)), color="w", ls="--",
-             lw=1.4, label=r"the horizon $r=2M$")
-    ax1.scatter([tx[0]], [ty[0]], [tz[0]], color="w", s=20, zorder=5,
-                label="start")
-    ax1.set_zlabel(r"$\Phi=-M/r$"); ax1.set_title("the well + the geodesic",
-                                                 fontsize=12)
-    ax1.view_init(elev=55, azim=-40)
-    ax1.legend(loc="upper left", fontsize=10)
-
-    ax2 = fig.add_subplot(1, 2, 2)
-    ax2.loglog(rv, Ka, "-", color="k", lw=1.6, label=r"analytic $K=48M^2/r^6$")
-    ax2.loglog(rv, Kc, "o", color=C_ZERO, ms=5,
-               label="computed from the CL10 metric")
-    resid = float(np.abs(Kc / Ka - 1.0).max())
-    ax2.text(0.03, 0.05, f"2-route residual = {resid:.1e}\n(the black hole is "
-             "recovered by computation)", transform=ax2.transAxes, fontsize=11,
-             bbox=dict(boxstyle="round", fc="#f2f2f2", ec="#888", alpha=0.95))
-    ax2.set_xlabel(r"radius $r$  ($M=1$, $r>2M$)")
-    ax2.set_ylabel("Kretschmann $K = R^{mnpq}R_{mnpq}$")
-    ax2.set_title("2-route: the computed Kretschmann", fontsize=12)
-    ax2.legend(loc="upper right", fontsize=10.5)
-
-    fig.suptitle("The black hole recovered by computation: the well + geodesic "
-                 "(left), the 2-route Kretschmann (right)", fontsize=13)
-    fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig17_gravity_3d.png")
-
-def fig18_young():
+def fig1_young():
     """The Young double-slit as a single-electron measurement
     (the Tonomura flow).  The emitter fires one localized electron at a time;
     each one diffracts through the slits and is detected at a *single point*
@@ -338,87 +201,95 @@ def fig18_young():
                  "one electron at a time, each reduced onto a point (Tonomura flow)",
                  fontsize=14, color="#111")
     fig.tight_layout(rect=[0, 0, 1, 0.95])
-    save(fig, "fig18_young.png")
+    save(fig, "fig1_young.png")
 
-def fig34_bh_frames():
-    """Three frames of the scripted geodesic sequence of
-    ``simulation/blackhole`` (the headless video, re-rendered without the
-    HUD): six test particles fired one second apart on the Schwarzschild
-    embedding well of the CL10 gravity sector (M = 1, 0-parameter), each
-    geodesic integrated incrementally through the CL10 finite-difference
-    Christoffels - the same physics as Fig. 17, fixed-step RK4.  The
-    frames show the geodesics being constructed: the precessing rosette,
-    the plunge through the horizon ring, the deflected fly-by, the radial
-    infall, and the near-photon family grazing the photon sphere."""
-    import pyvista as pv
-    import yaml
-    from simulation.blackhole import geodesic as G
+def fig12_gravity_3d():
+    """The Planck-mass black hole, recovered by computation.  Left: the 3-D
+    gravity well with the **geodesic** integrated through the CL10
+    finite-difference Christoffel symbols (the precessing rosette) and the
+    horizon ring.  Right: the **2-route** verification — the Kretschmann
+    *computed from the metric* (4-D central finite differences) equals the
+    analytic 48M^2/r^6 (the black hole is recovered by computation).  Both
+    panels are computed from ``cl10.gravity`` (``metric_schwarzschild``,
+    ``_christoffel_at``, ``riemann_4d``/``kretschmann_4d``)."""
+    from cl10 import gravity
+    from scipy.integrate import solve_ivp
 
-    bh_dir = os.path.join(ROOT, "simulation", "blackhole")
-    with open(os.path.join(bh_dir, "config.yaml")) as f:
-        cfg = yaml.safe_load(f)
-    script = [(int(fr), str(k)) for fr, k in cfg["script"]]
-    # 5x the video's chunk: the printed frames need trails long enough to
-    # read (same fixed-step RK4, same script - only the affine-parameter
-    # sampling per rendered frame changes)
-    spf = 60
-    n_frames = int(cfg.get("n_video_frames", 240))
-    fps = int(cfg.get("fps", 30))
-    shots = {n_frames // 4 - 1, n_frames // 2 - 1, n_frames - 1}
+    M = 1.0                        # the 0-parameter black-hole mass (Planck units)
+    R = 13.0
+    H = gravity.H_FD
 
-    pv.OFF_SCREEN = True
-    bh = G.BlackHole(cfg)
-    R = float(cfg.get("well_radius", 16.0))
-    plotter = pv.Plotter(off_screen=True, border=False,
-                         window_size=tuple(cfg.get("window_size", (1280, 800))))
-    plotter.set_background("#05050f")
-    X, Y, Phi = bh.well(R, n=90)
-    grid = pv.StructuredGrid(X, Y, Phi)
-    grid["depth"] = Phi.ravel()
-    plotter.add_mesh(grid, scalars="depth", cmap="coolwarm", opacity=0.5,
-                     show_edges=False, lighting=True, show_scalar_bar=False)
-    hx, hy, hz = bh.horizon_ring()
-    plotter.add_mesh(pv.MultipleLines(np.column_stack([hx, hy, hz])),
-                     color="white", line_width=2)
-    lines = {}
+    def sw(x):
+        return gravity.metric_schwarzschild(M, x)
 
-    def refresh(p):
-        pts = np.array(p.trail)
-        if len(pts) < 2:
-            return
-        if id(p) in lines:
-            lines[id(p)].mapper.SetInputData(pv.MultipleLines(pts))
-        else:
-            lines[id(p)] = plotter.add_mesh(pv.MultipleLines(pts),
-                                            color=p.color, line_width=2.5)
+    # ---- LEFT: the 3-D well + the geodesic (via the CL10 Christoffels) ----
+    g = np.linspace(-R, R, 90)
+    X, Y = np.meshgrid(g, g)
+    rr = np.sqrt(X**2 + Y**2)
+    # the well: the metric's time-time part g_00 = -(1 - 2M/r) gives, in the
+    # weak-field limit, the potential Phi = -M/r (capped at the horizon).
+    Phi = -M / np.maximum(rr, 2 * M)
 
-    # the runner's camera; no HUD text (the video carries one, the figure
-    # must not)
-    plotter.camera_position = [(0.9 * R, -1.9 * R, 1.15 * R), (0, 0, -6.0),
-                               (0, 0, 1)]
-    frames = {}
-    for frame in range(n_frames):
-        for fr, k in script:
-            if fr == frame:
-                bh.fire(k)
-        bh.advance(spf)
-        for p in bh.particles:
-            refresh(p)
-        if frame in shots:
-            frames[frame] = plotter.screenshot(None, return_img=True)
-    plotter.close()
+    def geodesic(lam, u):
+        t, r, th, ph, td, rd, thd, phd = u
+        G = gravity._christoffel_at(sw, np.array([t, r, th, ph]), H)
+        v = np.array([td, rd, thd, phd])
+        dv = -np.einsum("mab,a,b->m", G, v, v)
+        return [td, rd, thd, phd, dv[0], dv[1], dv[2], dv[3]]
 
-    times = [fr / fps for fr in sorted(frames)]
-    fig, axs = plt.subplots(1, 3, figsize=(12.6, 4.4))
-    for ax, fr, t in zip(axs, sorted(frames), times):
-        ax.imshow(frames[fr])
-        ax.set_xticks([])
-        ax.set_yticks([])
-        ax.set_title(f"$t = {t:.1f}$ s", fontsize=12)
-    handles = [plt.Line2D([], [], color=p["color"], lw=2,
-                          label=p["name"].split(" (")[0])
-               for p in cfg["presets"].values()]
-    fig.legend(handles=handles, loc="lower center", ncol=6, frameon=False,
-               fontsize=10.5, bbox_to_anchor=(0.5, -0.02))
-    fig.tight_layout(rect=(0, 0.05, 1, 1))
-    save(fig, "fig34_bh_frames.png")
+    r0, vt = 10.0, 0.34
+    gamma = 1.0 / np.sqrt(1 - vt**2)
+    u0 = [0.0, r0, np.pi / 2, 0.0, gamma / np.sqrt(1 - 2 * M / r0), 0.0,
+          0.0, gamma * vt / r0]
+    sol = solve_ivp(geodesic, [0.0, 600.0], u0, method="DOP853",
+                    rtol=1e-8, atol=1e-8, max_step=0.5)
+    r = sol.y[1]; ph = sol.y[3]
+    tx = r * np.cos(ph); ty = r * np.sin(ph); tz = -M / np.maximum(r, 2 * M)
+
+    a = np.linspace(0, 2 * np.pi, 200)
+    hpx, hpy = 2 * M * np.cos(a), 2 * M * np.sin(a)
+
+    # ---- RIGHT: the 2-route Kretschmann (computed vs analytic) ----
+    rv = np.linspace(2.3, 20.0, 12)
+    Kc, Ka = [], []
+    for ri in rv:
+        x = np.array([0.0, ri, 0.5, 0.7])
+        Rm = gravity.riemann_4d(sw, x, H)
+        gm, _ = gravity._metric_and_dg(sw, x, H)
+        Kc.append(gravity.kretschmann_4d(Rm, gm))
+        Ka.append(48.0 * M**2 / ri**6)
+    Kc, Ka = np.array(Kc), np.array(Ka)
+
+    fig = plt.figure(figsize=(11.5, 5.2))
+    ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+    ax1.set_proj_type("ortho")
+    ax1.plot_surface(X, Y, Phi, cmap="viridis", alpha=0.4, rstride=3, cstride=3)
+    ax1.plot(tx, ty, tz, color=C_ZERO, lw=1.5,
+             label="the geodesic (CL10 Christoffels)")
+    ax1.plot(hpx, hpy, np.full_like(hpx, -M / (2 * M)), color="w", ls="--",
+             lw=1.4, label=r"the horizon $r=2M$")
+    ax1.scatter([tx[0]], [ty[0]], [tz[0]], color="w", s=20, zorder=5,
+                label="start")
+    ax1.set_zlabel(r"$\Phi=-M/r$"); ax1.set_title("the well + the geodesic",
+                                                 fontsize=12)
+    ax1.view_init(elev=55, azim=-40)
+    ax1.legend(loc="upper left", fontsize=10)
+
+    ax2 = fig.add_subplot(1, 2, 2)
+    ax2.loglog(rv, Ka, "-", color="k", lw=1.6, label=r"analytic $K=48M^2/r^6$")
+    ax2.loglog(rv, Kc, "o", color=C_ZERO, ms=5,
+               label="computed from the CL10 metric")
+    resid = float(np.abs(Kc / Ka - 1.0).max())
+    ax2.text(0.03, 0.05, f"2-route residual = {resid:.1e}\n(the black hole is "
+             "recovered by computation)", transform=ax2.transAxes, fontsize=11,
+             bbox=dict(boxstyle="round", fc="#f2f2f2", ec="#888", alpha=0.95))
+    ax2.set_xlabel(r"radius $r$  ($M=1$, $r>2M$)")
+    ax2.set_ylabel("Kretschmann $K = R^{mnpq}R_{mnpq}$")
+    ax2.set_title("2-route: the computed Kretschmann", fontsize=12)
+    ax2.legend(loc="upper right", fontsize=10.5)
+
+    fig.suptitle("The black hole recovered by computation: the well + geodesic "
+                 "(left), the 2-route Kretschmann (right)", fontsize=13)
+    fig.tight_layout(rect=[0, 0, 1, 0.93])
+    save(fig, "fig12_gravity_3d.png")
+

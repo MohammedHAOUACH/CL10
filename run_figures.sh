@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # run_figures.sh - the CL10 publication figures on the GPU (cupy backend).
 #
-#   ./run_figures.sh                     # all 39 figures -> doc/figures/
-#   ./run_figures.sh --only 36 37 38 39  # a subset of figure numbers
-#   ./run_figures.sh --fast              # skip the young double-slit (fig 18)
+#   ./run_figures.sh                     # all 25 figures -> doc/figures/
+#   ./run_figures.sh --only 22 23 24     # a subset of figure numbers
+#   ./run_figures.sh --fast              # skip the young double-slit (fig 1)
 #   ./run_figures.sh --cpu               # force the numpy backend on purpose
 #   FORCE=1 ./run_figures.sh             # launch even if the card looks busy
 #   NEED=4096 ./run_figures.sh           # raise the free-memory gate (MiB)
