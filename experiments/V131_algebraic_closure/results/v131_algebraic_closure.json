@@ -32,14 +32,14 @@
   "quantized_step_pi_4": {
    "U4_minus_minusI": 2.48114158201048e-15,
    "U8_minus_I": 4.96228316402096e-15,
-   "max_phase_resid_k_pi4": 1.7763568394002505e-15,
+   "max_phase_resid_k_pi4": 2.220446049250313e-15,
    "multiplicities_pi4_units": {
     "-3": 6,
     "-1": 10,
     "1": 10,
     "3": 6
    },
-   "zero_point": 1.7763568394002505e-15,
+   "zero_point": 1.2212453270876722e-15,
    "det_U": [
     0.999999999999981,
     -1.1423948755293003e-16
@@ -50,18 +50,18 @@
   "zone_centre_involution": {
    "M0_squared_minus_I_16sector": 8.326672684688674e-15,
    "M0_squared_minus_I_full256": 7.662109826310647e-15,
-   "sector_leak": 3.9487373731136153e-16,
+   "sector_leak": 3.9487373731136163e-16,
    "at_1_5_contrast": {
     "M0_squared_minus_I": 1.1090237803692355,
-    "Gamma_gap_0_0365": 0.03649939422882537
+    "Gamma_gap_0_0365": 0.0364993942288255
    }
   },
   "doublers_repaired": {
-   "M_node_min_gap_pi_4": 1.3877787807814497e-17,
+   "M_node_min_gap_pi_4": 7.80625564189565e-18,
    "exactly_gapless_nodes": 12,
-   "M_node_min_gap_1_5": 0.0002002895295305092,
+   "M_node_min_gap_1_5": 0.00020028952952999416,
    "defect_at_1_5": 0.0002003,
-   "Gamma_gap_pi_4": 1.4311468676808636e-16
+   "Gamma_gap_pi_4": 0.0
   },
   "loop_machinery_pi_4": {
    "hop_phases": [
@@ -79,75 +79,75 @@
     ]
    ],
    "hop_phase_quantization_resid": 2.266215559059192e-15,
-   "odd_loop_max_Fn": 6.604315738469786e-15,
+   "odd_loop_max_Fn": 6.487348449121487e-15,
    "even_crossing_first_n_below_1_over_16pi": 208,
    "even_sequences_sample": [
     [
      2,
-     64.370445
+     64.305109
     ],
     [
      4,
-     1.829426
+     1.827569
     ],
     [
      6,
-     58.897342
+     58.837562
     ],
     [
      8,
-     1.673879
+     1.67218
     ],
     [
      10,
-     53.889591
+     53.834893
     ],
     [
      12,
-     1.531557
+     1.530003
     ],
     [
      14,
-     49.307623
+     49.257576
     ],
     [
      16,
-     1.401336
+     1.399914
     ],
     [
      18,
-     45.115238
+     45.069447
     ],
     [
      20,
-     1.282188
+     1.280886
     ],
     [
      22,
-     41.279311
+     41.237413
     ],
     [
      24,
-     1.17317
+     1.171979
     ],
     [
      26,
-     37.769534
+     37.731198
     ],
     [
      28,
-     1.073421
+     1.072331
     ],
     [
      30,
-     34.558176
+     34.5231
     ],
     [
      32,
-     0.982153
+     0.981156
     ]
    ],
-   "even_decay_per_step": 0.9780302704295718,
+   "even_decay_per_step": 0.9780302704295719,
    "note": "at 1/5 the crossing was n* = 10 = 2 n_qubits (V89, W8): the ladder-length selection does NOT survive the quantized angle - W8 must be re-derived with the new exact odd-loop cancellation"
   },
   "coupling_convention": {
@@ -168,7 +168,7 @@
    "pass": true
   },
   {
-   "name": "T3 the quantized step: U(pi/4)^8 = I exactly (err 5.0e-15, U^4 = -I to 2.5e-15), the 32 levels are EXACTLY {+-pi/4 (10), +-3pi/4 (6)} (resid 1.8e-15), +- paired, zero point 1.8e-15, det U = 1: the internal spectrum becomes pure algebra; the order-8 needs the canonical Appendix-A ordering (shuffles break it, err ~ 1.0)",
+   "name": "T3 the quantized step: U(pi/4)^8 = I exactly (err 5.0e-15, U^4 = -I to 2.5e-15), the 32 levels are EXACTLY {+-pi/4 (10), +-3pi/4 (6)} (resid 2.2e-15), +- paired, zero point 1.2e-15, det U = 1: the internal spectrum becomes pure algebra; the order-8 needs the canonical Appendix-A ordering (shuffles break it, err ~ 1.0)",
    "pass": true
   },
   {
@@ -176,11 +176,11 @@
    "pass": true
   },
   {
-   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 1.4e-17, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
+   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 7.8e-18, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
    "pass": true
   },
   {
-   "name": "T6 the loop machinery quantizes: the traced-link hop phases are exactly {1, i, i} (resid 2.3e-15) and a NEW exact selection rule appears - F_n = 0 for EVERY odd n (max 6.6e-15); the cost: the crossing of 1/(16pi) moves from n* = 10 to the first even n below it at n = 208 (small-branch decay 0.978 per step): W8's ladder-length selection does not survive the quantized angle",
+   "name": "T6 the loop machinery quantizes: the traced-link hop phases are exactly {1, i, i} (resid 2.3e-15) and a NEW exact selection rule appears - F_n = 0 for EVERY odd n (max 6.5e-15); the cost: the crossing of 1/(16pi) moves from n* = 10 to the first even n below it at n = 208 (small-branch decay 0.978 per step): W8's ladder-length selection does not survive the quantized angle",
    "pass": true
   },
   {
