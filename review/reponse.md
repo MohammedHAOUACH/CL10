@@ -77,6 +77,25 @@ numériquement un secteur qui *implémente* la RG (Table 3, l. 412), mais la phr
 comme une dérivation. Le correctif est une reformulation, pas un ajout de contenu ; il
 dépend du choix de titre (S10).
 
+**Ajout post-rapport (calcul nouveau, pas une réponse au rapporteur).** La question
+« le graviton est-il ailleurs dans le spectre ? » a depuis reçu une réponse calculée, au
+centre de zone où le petit groupe est $O_h$ tout entier et où un spin 2 de réseau est un
+multiplet sans gap portant le quintet symétrique sans trace $E_g \oplus T_{2g}$ :
+- le facteur de liaison de 8 dimensions, qui porte à lui seul l'action cubique, est
+  $A_{1g} \oplus T_{2g} \oplus A_{2u} \oplus T_{1u}$ : il contient $T_{2g}$, jamais $E_g$ ;
+- $\Gamma$ est exactement sans gap en $g_{10} = \pi/8, \pi/6, \pi/4, \pi/3$ (jamais en
+  $1/5$, gapé de $3.65\times10^{-2}$) ; en chacun de ces angles son espace nul est
+  covariant cubique et sans $E_g$ — $16\times(A_{1g}\oplus T_{2g})$, dimension 64, en
+  $\pi/4$ — et sa dispersion est plate, $\omega/|\mathbf q|\to0$ ;
+- l'espace symétrique de rang 2 des directions de liaison porte, lui,
+  $A_{1g}\oplus E_g\oplus T_{2g}$ : le quintet existe sur le réseau, il est dans la couche
+  de liaison directionnelle (§10), pas dans le lien qubit.
+
+« Spin 2 est posé, non dérivé » devient donc un **énoncé calculé à deux obstructions**
+(absence de $E_g$ à tout couplage ; bandes plates aux couplages sans gap) muni d'une voie
+de sortie nommée. §8.3, §11.1 et le paragraphe « Where the construction is weakest » ont
+été mis à jour en ce sens ; la revendication de titre (S10) reste une décision d'auteur.
+
 ## 4. M4 — les facteurs de boucle
 
 Les faits du rapport sont exacts, vérifiés au manuscrit : $F_{10} = 0.019186$ mesuré
