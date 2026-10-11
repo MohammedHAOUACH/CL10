@@ -96,7 +96,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 104 experiments in 12 categories
+├── experiments/              # the verification program: 105 experiments in 12 categories
 │   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry
@@ -115,10 +115,10 @@ CL10/
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
-├── run_validation.py         # the runner: runs all 104, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 105, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
-    └── validation_summary.json   # the 104/104 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 105/105 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -142,8 +142,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 104 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 104 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+python3 run_validation.py        # runs all 105 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 105 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V131_algebraic_closure V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed
                                    # the closed-angle batch alone (the runner takes **exact** directory names)
 ./run_figures.sh                   # the 25 figures on the GPU card make_figures pins; it
@@ -163,7 +163,7 @@ bash publication/build.sh        # rebuild the journal PDF from doc/final_public
 
 `doc/final_publication.md` states the **seven criteria** a unification claim must
 meet (Section 1, with the paper's own verdict on each), the **nine open problems**
-(O1–O9) and the **seven falsifiers** (F1–F7).  `run_validation.py` runs the **104**
+(O1–O9) and the **seven falsifiers** (F1–F7).  `run_validation.py` runs the **105**
 experiments of `experiments/` (12 categories, catalogued in `experiments/README.md`)
 and writes
 

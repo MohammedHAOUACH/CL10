@@ -1,6 +1,6 @@
 # The verification program
 
-103 experiments, grouped by the part of `doc/final_publication.md` they validate.
+105 experiments, grouped by the part of `doc/final_publication.md` they validate.
 Each experiment is a 0-parameter check: it recomputes a published number from the
 construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time`)
 to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
@@ -78,6 +78,8 @@ the reason recorded in `../archive/README.md`.
 | `V121_w9_three_axis_bond` | the three-axis covariant bond reaches $0.658$ and costs the causal front |
 | `V128_f4_graviton_content` | no massless spin-2 content in the implemented spectrum (**F4**) |
 | `V132_gapless_census_pi4` | at $\pi/4$: $\Gamma$ plus six face-diagonal nodal lines |
+| `V138_gamma_spin2` | the zone centre carries $T_{2g}$ but never $E_g$: no lattice spin-2 in the qubit link, the quintet lives in the directional link layer |
+| `V139_nodal_plane_crossing` | the grid census was too coarse: an exactly gapless orbit of $24$ points on the nodal planes at $g_{10} = 1/5$, little group of order $2$ |
 
 ### `gauged_layer`
 | id | verdict |

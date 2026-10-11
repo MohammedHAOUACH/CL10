@@ -4,29 +4,29 @@
   "status": "DIVISION DEMONSTRATED: with one quantum link d.o.f. per bond (qubit, U = exp(i theta sigma_x)) in the maximally mixed state, the traced on-site Cartan content at level 1 is EXACTLY cos(2 theta) times the V72 value (dev < 1e-9 for theta = pi/8 and pi/6) - the two-hop return composes U_link twice and the trace over the fluctuating bond d.o.f. DIVIDES by 1/cos(2 theta): the factor is a property of the traced d.o.f., not of any gate (V73). Deeper levels are modified by link group traces (path mixture cos2theta, cos4theta, ... - ratios away from 1), where the link-free control is untouched. This is the loop-factor mechanism in its smallest form; 1/(16 pi) is the value it takes for the dynamical Spin(10) adjoint link with the Gauss constraint - the gauged bond layer, now with a named mechanism.",
   "data": {
     "control": [
-      0.1437661800242437,
-      0.046085186585112924
+      0.14376618002424377,
+      0.046085186585112896
     ],
     "linked": {
       "theta_0.3927": {
         "alphas": [
-          0.10165804080042871,
-          0.03150213980114691
+          0.10165804080042881,
+          0.03150213980114696
         ],
         "ratios_vs_control": [
-          0.7071067811865477,
-          0.6835632474432287
+          0.707106781186548,
+          0.6835632474432302
         ],
-        "level1_dev": 1.1102230246251565e-16
+        "level1_dev": 4.440892098500626e-16
       },
       "theta_0.5236": {
         "alphas": [
-          0.07188309001212187,
-          0.6934327205561119
+          0.0718830900121219,
+          0.6934327205561086
         ],
         "ratios_vs_control": [
           0.5000000000000001,
-          15.046759532489649
+          15.046759532489585
         ],
         "level1_dev": 0.0
       }

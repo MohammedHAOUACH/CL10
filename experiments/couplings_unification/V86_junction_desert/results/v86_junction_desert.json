@@ -1,7 +1,7 @@
 {
   "experiment": "V86_junction_desert",
   "pass": true,
-  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9368 at theta = 1.56 (n = 12, rho = 0.35; 51 physical theta values), and the third equation predicts alpha_X = 0.03227 against the data 0.04 - a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
+  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.8098 at theta = 1.57 (n = 12, rho = 0.95; 45 physical theta values), and the third equation predicts alpha_X = 0.034 against the data 0.04 - a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
   "data": {
     "root_splitting": {
       "(np.float64(0.0), np.float64(0.0), np.float64(1.0))": 0.82768,
@@ -25,74 +25,74 @@
       "1.5": {
         "residual": 3.5798,
         "n_nodes": 12,
-        "rho": 0.0,
-        "S_GeV": 5.252e+16,
-        "z_min_GeV": 1895000000000000.0,
-        "implied_alpha_X": 0.0306,
-        "physical": true
+        "rho": -0.8,
+        "S_GeV": 1027000000.0,
+        "z_min_GeV": 7413000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.51": {
         "residual": 3.116,
         "n_nodes": 12,
-        "rho": -0.45,
-        "S_GeV": 4.09e+16,
-        "z_min_GeV": 1015000000000000.0,
-        "implied_alpha_X": 0.03288,
-        "physical": true
+        "rho": 1.65,
+        "S_GeV": 623000000.0,
+        "z_min_GeV": 4920000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.52": {
         "residual": 2.6729,
         "n_nodes": 12,
-        "rho": -0.2,
-        "S_GeV": 4.09e+16,
-        "z_min_GeV": 1773000000000000.0,
-        "implied_alpha_X": 0.03233,
-        "physical": true
+        "rho": -0.7,
+        "S_GeV": 485200000.0,
+        "z_min_GeV": 7885000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.53": {
         "residual": 2.2398,
         "n_nodes": 12,
-        "rho": -0.15,
-        "S_GeV": 5.252e+16,
-        "z_min_GeV": 2731000000000000.0,
-        "implied_alpha_X": 0.03035,
-        "physical": true
+        "rho": -0.8,
+        "S_GeV": 485200000.0,
+        "z_min_GeV": 5936000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.54": {
         "residual": 1.8094,
         "n_nodes": 12,
-        "rho": -0.7,
-        "S_GeV": 4.09e+16,
-        "z_min_GeV": 566800000000000.0,
-        "implied_alpha_X": 0.03378,
-        "physical": true
+        "rho": 1.25,
+        "S_GeV": 799900000.0,
+        "z_min_GeV": 13850000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.55": {
         "residual": 1.3766,
         "n_nodes": 12,
-        "rho": 0.1,
-        "S_GeV": 5.252e+16,
-        "z_min_GeV": 1556000000000000.0,
-        "implied_alpha_X": 0.03024,
-        "physical": true
+        "rho": 0.65,
+        "S_GeV": 485200000.0,
+        "z_min_GeV": 10220000.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.56": {
         "residual": 0.9368,
         "n_nodes": 12,
-        "rho": 0.35,
-        "S_GeV": 4.09e+16,
-        "z_min_GeV": 546500000000000.0,
-        "implied_alpha_X": 0.03227,
-        "physical": true
+        "rho": -0.95,
+        "S_GeV": 485200000.0,
+        "z_min_GeV": 392800.0,
+        "implied_alpha_X": null,
+        "physical": false
       },
       "1.57": {
         "residual": 0.8098,
         "n_nodes": 12,
-        "rho": -0.95,
-        "S_GeV": 485200000.0,
-        "z_min_GeV": 28980.0,
-        "implied_alpha_X": null,
-        "physical": false
+        "rho": 0.95,
+        "S_GeV": 4.09e+16,
+        "z_min_GeV": 25650000000000.0,
+        "implied_alpha_X": 0.034,
+        "physical": true
       },
       "1.58": {
         "residual": 1.0111,
@@ -483,15 +483,15 @@
       }
     },
     "best": {
-      "theta": 1.56,
-      "residual": 0.9368,
+      "theta": 1.57,
+      "residual": 0.8098,
       "n_nodes": 12,
-      "rho": 0.35,
+      "rho": 0.95,
       "S_GeV": 4.09e+16,
-      "z_min_GeV": 546500000000000.0,
-      "implied_alpha_X": 0.03227,
+      "z_min_GeV": 25650000000000.0,
+      "implied_alpha_X": 0.034,
       "physical": true,
-      "n_physical": 51
+      "n_physical": 45
     },
     "root_solution": {
       "F12_residual": 1.761859,

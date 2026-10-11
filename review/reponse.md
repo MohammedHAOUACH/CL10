@@ -96,6 +96,20 @@ multiplet sans gap portant le quintet symétrique sans trace $E_g \oplus T_{2g}$
 de sortie nommée. §8.3, §11.1 et le paragraphe « Where the construction is weakest » ont
 été mis à jour en ce sens ; la revendication de titre (S10) reste une décision d'auteur.
 
+**Le recensement « pas de mode exactement sans gap » était faux, et le rapporteur ne
+l'a pas vu non plus.** V128 l'avait établi sur une grille $15^3$ (minimum de zone
+$5.1\times10^{-4}$). V139 raffine à l'intérieur des trois plans nodaux : le pas de $1/5$
+a une **orbite exactement sans gap de 24 points**, représentant
+$q_0 = (-2.1890561, -1.4445961, 0)$, gap $4\times10^{-14}$, résidu au plancher de bruit
+sous raffinement alors qu'un déplacement de $5\times10^{-2}$ dans le plan coûte
+$8.8\times10^{-3}$ ; petit groupe d'ordre $2$ ; dispersion linéaire dans le plan,
+$v\in[0.031, 0.219]$ (anisotropie $0.857$), gap linéaire hors du plan. Donc : des
+excitations exactement sans masse existent à $g_{10}=1/5$ — l'abstract le niait, il est
+corrigé — et le no-go spin-2 tient quand même : un petit groupe d'ordre 2 n'a que des
+irreps de dimension 1, donc pas de paire d'hélicités. L'anisotropie du pas est mesurée
+$0.857$ sur la branche exactement sans masse, et non $0.252$ (qui était celle des nœuds M
+quasi sans gap). §8.3, Table 5 et Table 7 (O9) suivent.
+
 ## 4. M4 — les facteurs de boucle
 
 Les faits du rapport sont exacts, vérifiés au manuscrit : $F_{10} = 0.019186$ mesuré
