@@ -34,6 +34,47 @@ def find_experiments():
     return [d for d in dirs if d != EXPS]
 
 
+def read_verdict(exp_dir):
+    residir = os.path.join(exp_dir, "results")
+    if not os.path.isdir(residir):
+        return None
+    # un dossier peut contenir plusieurs JSON (verdict + meta de figures).
+    # glob() n'est PAS trie : on choisit deterministement le JSON qui
+    # EST un verdict (cle "pass" presente), en priorite celui nomme
+    # d'apres l'experience ; les meta (fig*.meta.json) sont ignorees.
+    jfs = sorted(glob.glob(os.path.join(residir, "*.json")))
+    preferred = [j for j in jfs
+                 if os.path.basename(j) == os.path.basename(exp_dir) + ".json"]
+    for jf in preferred + [j for j in jfs if j not in preferred]:
+        try:
+            d = json.load(open(jf))
+        except Exception:  # noqa: BLE001
+            continue
+        if isinstance(d, dict) and "pass" in d:
+            return d
+    return None
+
+
+def report_one(exp_dir):
+    # --report-only: le verdict deja ecrit sur disque, sans relancer le
+    # script. Le resume global est un rollup des JSON: un run partiel ne
+    # doit pas obliger a relancer les 138 experiences pour le reecrire.
+    verdict = read_verdict(exp_dir)
+    return {
+        "id": os.path.basename(exp_dir),
+        "dir": os.path.basename(exp_dir),
+        "tier": verdict.get("tier") if verdict else None,
+        "property": verdict.get("property") if verdict else None,
+        "residual": bool(verdict.get("residual")) if verdict else False,
+        "pass": bool(verdict["pass"]) if verdict else False,
+        "status": verdict.get("status", "no_verdict") if verdict else "no_verdict",
+        "returncode": None,
+        "crashed": False,
+        "wall_time": verdict.get("wall_time") if verdict else None,
+        "verdict": verdict,
+    }
+
+
 def run_one(exp_dir):
     script = os.path.join(exp_dir, os.path.basename(exp_dir) + ".py")
     # one BLAS thread per subprocess: with --jobs 12 on 12 cores, the
@@ -47,24 +88,7 @@ def run_one(exp_dir):
     proc = subprocess.run([sys.executable, script], capture_output=True,
                           text=True, cwd=ROOT, env=env)
     time_ = time.time() - t0
-    residir = os.path.join(exp_dir, "results")
-    verdict = None
-    if os.path.isdir(residir):
-        # un dossier peut contenir plusieurs JSON (verdict + meta de figures).
-        # glob() n'est PAS trie : on choisit deterministement le JSON qui
-        # EST un verdict (cle "pass" presente), en priorite celui nomme
-        # d'apres l'experience ; les meta (fig*.meta.json) sont ignorees.
-        jfs = sorted(glob.glob(os.path.join(residir, "*.json")))
-        preferred = [j for j in jfs
-                     if os.path.basename(j) == os.path.basename(exp_dir) + ".json"]
-        for jf in preferred + [j for j in jfs if j not in preferred]:
-            try:
-                d = json.load(open(jf))
-            except Exception:  # noqa: BLE001
-                continue
-            if isinstance(d, dict) and "pass" in d:
-                verdict = d
-                break
+    verdict = read_verdict(exp_dir)
     # un crash du script invalide tout verdict JSON deja present sur disque :
     # sans ce garde-fou, une experience qui plante herite du PASS de sa
     # precedente execution (un resultat perime compte comme valide).
@@ -104,6 +128,8 @@ def main():
     ap.add_argument("--jobs", type=int, default=min(12, os.cpu_count() or 4),
                     help="parallel experiment workers (subprocesses)")
     ap.add_argument("only", nargs="*", help="experiment dir names to run")
+    ap.add_argument("--report-only", action="store_true",
+                    help="roll up the verdict JSONs already on disk; run nothing")
     args = ap.parse_args()
     only = set(args.only)
     exps = [d for d in find_experiments() if not only or os.path.basename(d) in only]
@@ -125,7 +151,8 @@ def main():
             logf.flush()
         done = []
         with ThreadPoolExecutor(max_workers=args.jobs) as pool:
-            futs = [pool.submit(run_one, d) for d in exps]
+            pick = report_one if args.report_only else run_one
+            futs = [pool.submit(pick, d) for d in exps]
             for fut in as_completed(futs):
                 r = fut.result()
                 done.append(r)

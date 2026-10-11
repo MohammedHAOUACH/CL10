@@ -1,0 +1,109 @@
+{
+ "experiment": "V136_w2_majorana_word",
+ "backend": "numpy",
+ "tol": 1e-09,
+ "data": {
+  "weights": {
+   "n_weights": 243,
+   "norm2_set": [
+    0.0,
+    4.0,
+    8.0,
+    12.0,
+    16.0,
+    20.0
+   ],
+   "cartan_commutant_dim": 32,
+   "roots45": 25,
+   "cartan45": 5,
+   "root_norm2": [
+    8.0
+   ]
+  },
+  "majorana": {
+   "weight": [
+    2.0,
+    -2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "norm2": 20.0000000000001,
+   "weight_space_dim": 1,
+   "grade": 5,
+   "grade_components": 32,
+   "X_charge": -6.000000000000014,
+   "Y_charge": -1.0000000000000024,
+   "doublet_indices": [
+    14,
+    15
+   ]
+  },
+  "word": {
+   "dims_Sk": {
+    "1": 45,
+    "2": 126,
+    "3": 208,
+    "4": 291,
+    "5": 352,
+    "6": 407
+   },
+   "content_Sk": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0
+   },
+   "odd_Sk": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.0,
+    "6": 0.0
+   },
+   "parity_table_ok": true,
+   "k_star": null,
+   "k_vector10": null,
+   "grades_vector10": [
+    1,
+    3,
+    5,
+    7,
+    9
+   ],
+   "weight_space_dim_vector10": 16,
+   "generator_order_ok": true
+  },
+  "n_2step_fitted": 3,
+  "n_2step_derived": false
+ },
+ "checks": [
+  {
+   "name": "T1 the weight system of the root: the 16 weights all have norm^2 [np.float64(5.0)] (spread 0.0e+00), the 45 adjoint factors split into 40 root-weight vectors at norm^2 [8.0] plus 5 Cartan ones, and the full 1024-D algebra carries 243 weights with norm^2 in [0.0, 4.0, 8.0, 12.0, 16.0, 20.0] and a 32-dimensional Cartan commutant (ad Hermitian to 0.0e+00, commuting to 0.0e+00, joint diagonalisation off-diagonal 3.4e-12)",
+   "pass": true
+  },
+  {
+   "name": "T2 the Delta L = 2 Majorana operator EXISTS in the root's own algebra: the weight 2 lambda_nu = [2.0, -2.0, 2.0, 2.0, 2.0] (norm^2 20.0) has an algebra weight space of dimension exactly 1, and it sits in Clifford grade 5 - the 5-form channel of Spin(10) (the 126-type object of the type-II seesaw), with no field outside the root. The lepton doublet is the two weights with X = -3, Y = -1/2: [14, 15]",
+   "pass": true
+  },
+  {
+   "name": "T3 the Majorana weight is NOT an SM singlet and the 10-Higgs cannot make it one: its X-charge is -6.000 and its Y-charge -1.000, and over all 160 vector weights (norm^2 4) the closest two-insertion neutralisation leaves a residual weight of norm 4.472 - the norm mismatch is exact (|2 lambda_nu| = 4.472 against 2 x 2 = 4), so the Delta L = 2 neutralisation must come from the grade-5 (126-type) channel itself, not from the Higgs of Section 11.5",
+   "pass": true
+  },
+  {
+   "name": "T4 the parity theorem: the Clifford multiplication table maps grade g to grade g +- 2 only (exact on all 45 x 1024 entries: True), so every product of adjoint (grade-2) factors is EVEN-grade; the cumulative span S_k has dimensions [45, 126, 208, 291, 352, 407] with odd-grade content ['0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00'] and content along the Majorana direction ['0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00', '0.0e+00'], hence k* = None - the Delta L = 2 operator (grade 5, odd) is NEVER an adjoint composite",
+   "pass": true
+  },
+  {
+   "name": "T5 the same obstruction for the Higgs: the vector-10 weight (norm^2 4) has a weight space of dimension 16 carried entirely by ODD Clifford grades [1, 3, 5, 7, 9], and it is reached at k = None, while the adjoint channel (grade 2, even) is at k = 1 by construction - the two odd channels of the ladder, the 10-Higgs and the 126-type Majorana operator, are matter-layer objects, not gauge-link composites; the fitted n_2step = 3 is therefore NOT a link-word length",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "pass": true,
+ "status": "THE DELTA L = 2 OPERATOR IS NOT A GAUGE-LINK COMPOSITE (W2). The operator exists inside the root: the weight 2 lambda_nu (norm^2 20.0) has a 1-dimensional algebra weight space sitting in Clifford grade 5 - the 126-type channel - with no field outside the root. But Clifford multiplication changes grade by +-2, so products of the 45 adjoint link factors are always EVEN-grade (exact on the whole table) and the span S_k (dims [45, 126, 208, 291, 352, 407]) never contains it: k* = None for every k, and the vector-10 Higgs weight (grades [1, 3, 5, 7, 9], all odd) is likewise unreachable (k = None). The ladder exponent n_2step = 3 is therefore NOT the length of an adjoint word: the seesaw operator belongs to the odd (matter) half of the Clifford module, and W2 stays open",
+ "wall_s": 81.1471312046051
+}

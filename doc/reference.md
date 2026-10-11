@@ -93,7 +93,7 @@ signatures are in `doc/api.md`):
 | the sub-Planck DM scale (§10.2, W7; V54) | `cl10.dm_wimp` | the **10-loop suppression** of the Planck scale: $m_{\rm DM} = 1.18\,M_P (1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale; the **same** 10-loop factor as V53, the $1.18$ **fitted**); the **V42** Planck-mass soliton is under-abundant (the $10^{-52}$ gap, quantified); the abundance $\Omega h^2$ is **not computed** — the code normalises it to the observed $0.120$ at $100$ GeV, so there is **no WIMP-miracle prediction**, only a mass scale |
 | the baryon asymmetry (§11.3, W5; V55) | `cl10.eta_cp` | a **product of factors of three provenances**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ — an **input of the SM sector**, the LH d.o.f. count; the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/8 = 1/2^3$, a dimensional guess; and the **2-loop dilution** $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12** to the observed $6.1\times10^{-10}$, improved from V40's 2.8); the **CP phase** and the 2-digit ratio are the named residual |
 | the $g_{10}$ 1-loop data check (§11.1, §14; V56) | `cl10.g10_selection` | $g_{10} = 1/5$ (the 32-D module, 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$, **within a factor 1.73** of the **1-loop** GUT coupling (the mean of the three running to $M_P$, $0.0231$, from the PDG inputs $\alpha_1(M_Z) = 0.0169$, $\alpha_2 = 0.0338$, $\alpha_3 = 0.118$); the 1-loop matching is the W4 named residual; **honest scan**: the data-optimal candidate is $n=7$ ($\alpha = 1/49 = 0.020$, relative deviation $0.12$), **not** the root $n=5$ (deviation $0.73$) — the data check confirms the **order only** and does **not** select $n$ |
-| the 2-step seesaw on the 10-loop ladder (§10.3, W2; V57) | `cl10.neutrino` | the 2-step seesaw on the **loop ladder**: the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3} = 9.6\times10^{13}$ GeV (**replacing the hard-coded $10^{14}$** of V15/V18) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.146$ eV — **2.9×** the atmospheric $0.050$ eV and **in tension** with $\sum m_\nu < 0.12$ eV; $n_{2\text{step}}=3$ and the 2-digit coefficient are **fitted**; the **2-step** $U^2$ is a **unitary** of the GUT QCA |
+| the 2-step seesaw on the 10-loop ladder (§10.3, W2; V57) | `cl10.neutrino` | the 2-step seesaw on the **loop ladder**: the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3} = 9.6\times10^{13}$ GeV (**replacing the hard-coded $10^{14}$** of V15/V18) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.146$ eV — **2.9×** the atmospheric $0.050$ eV and **in tension** with $\sum m_\nu < 0.12$ eV; $n_{2\text{step}}=3$ and the 2-digit coefficient are **fitted**; the **2-step** $U^2$ is a **unitary** of the GUT QCA; **V136** shows the exponent is not a link-word length: the $\Delta L=2$ operator is a grade-5 (126-type) element of the root's own $1024$-D algebra with a 1-dimensional weight space, while products of the grade-2 adjoint link factors are always even-grade (the multiplication table shifts grade by $\pm2$ exactly), so no word in the 45 reaches it |
 | the UV-finite *discrete RG* (§11.1, W4; V58) | `cl10.uvrunning` | the **W4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff; and run *down* from $\alpha_{10}=1/25$ the $\mathrm{SU}(3)$ coupling hits its pole at $2.2\times10^9$ GeV, §11.1); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.47$) is a **failure of the coupling values**, not a feature to be dismissed; the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
 | the **four limits and their common object** (§14; V59) | `cl10.four_limits` | the four "limits" of the theory are the **four projections of one invariant** $10 = 2\times5$ (the chiral $16/16$-bar split $\times$ the 5 qubits of the 32-D module) **plus one irreducible CP phase** — computed on the GPU: (L1) the 7 algebraic invariants are **$g_{10}$-invariant** (the CPT-mirror residual stays $\sim1.8\times10^{-15}$ for $g_{10}=0.1..0.5$); (L2+L4) the **same** $n=10$ is the **unique** $n\in1..20$ within **one decade** of **both** closures: the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — **two statements of one scale**; (L3) the **rank-1** (1 $N$) Yukawa has **0** CP phases (no baryon) while the **2-step** (2 $N$) has **1** irreducible CP phase ($\mathrm{Im}\det(Y)=|\sin\delta|$) — so baryogenesis needs **one** phase, $\Delta B=6.8\times10^{-10}$ (ratio 1.12).  **Bookkeeping, not a derivation:** the algebra has no free parameter, but $g_{10}=1/5$ and $g_0=1/2^3$ are **conventions**, and the named residual set is **2 two-digit coefficients** (2.08, 1.18, read from the data) **+ 1 CP phase + 1 't Hooft angle** |
 | the **3-D hydrogen atom** driven by the CL10 photon (Fig. 19; V61, V62) | `simulation.hydrogen` | the hydrogen atom (the **real** Rydberg levels $E_n=-13.606/n^2$ and the eigenfunctions $R_{nl}(r)Y_{lm}$ drawn on a $296^3$ lattice — an **input of atomic physics**, NOT derived from the root) coupled to the **CL10 free massless 3-D field** (the 6-neighbour leapfrog FDTD, the same engine as `simulation.young`): the **Fermi-golden-rule** dipole drive $A\,|F|^2\,L(\delta)$ with a **Lorentzian** line shape (a photon *at* a gap is absorbed, one far from every gap mostly is not — the **tail is real**, not zero), the **Einstein-A** emission (the transition dipole sources an outgoing wave at the gap frequency and the population relaxes), the **sponge** absorbing boundary, and the observables (`populations`, `atom_energy`, `excited_fraction`, `electron_density` $=|\psi|^2$, `photon_density` $=|F|^2+|F_{\rm out}|^2$).  **V61** measures: the gaps equal the Rydberg differences (relative error $0$), the **E1 selection rules come out of the lattice wavefunctions** (the forbidden dipoles $6.8\times10^{-19}$ and $8.6\times10^{-18}$, against $9.93$/$-3.00$/$22.97$ for the allowed ones), the absorption **peaks on the gap and falls with the detuning**, and the excited atom **radiates while it decays**.  The knobs $A$, $h$, $\gamma_{\rm sp}$ are physical parameters of the atom, **not fitted**.  **V62** is the production run ($296^3$, the full photon script) that regenerates the Fig. 19 figure. |
@@ -122,13 +122,13 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (V0–V135 under `experiments/`):
+**The protocol.**  Each experiment (V0–V137 under `experiments/`):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
    status, data, wall_time}` to `experiments/<id>/results/` — `tier` ($0$–$6$)
-   is written by the 66 tiered checks (V0–V104); the 70 residual-attack checks
-   (V64–V135) record their verdict against a named residual and omit it;
+   is written by the 66 tiered checks (V0–V104); the 72 residual-attack checks
+   (V64–V137) record their verdict against a named residual and omit it;
 4. **passes** iff the residual is below the stated tolerance
    (`tol`; default $\varepsilon = 10^{-12}$).
 5. a **crash** of the experiment script (non-zero exit code) is recorded as
@@ -136,16 +136,18 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **136** experiments (V0–V135) in name order,
+`run_validation.py` runs all **138** experiments (V0–V137) in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
-per-experiment verdicts, the **reduced walls**, the **named residuals**,
-and the runner's hard-tier verdict (the runner labels it `U10`; the paper
-does not use that label):
+per-experiment verdicts, the **reduced walls**, the **named residuals**, and
+the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
+the verdict JSONs already on disk: a partial rerun never forces the whole
+suite to be re-executed just to rewrite the summary.  The runner labels the
+hard-tier verdict `U10`; the paper does not use that label:
 
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11..13\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (136/136, 2026-10-11, cupy backend).**  Every experiment **passes** on the GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
+**The result (138/138, 2026-10-11, cupy backend).**  Every experiment **passes** on the GPU; the hard-tier verdict is positive.  Two cautions, stated in the paper
 (Appendix B): most of these checks are **internal consistency** (they
 would pass for any theory built on this root), and a pass is only as good
 as its criterion.  (For the *meaning* of each pass — which residuals are
@@ -220,9 +222,10 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (136/136)
+python3 run_validation.py            # -> results/validation_summary.json (138/138)
 python3 run_validation.py V11 V12    # a subset
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
+python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
 ```
 
 `CL10_BACKEND=numpy` overrides the GPU-first backend selection in

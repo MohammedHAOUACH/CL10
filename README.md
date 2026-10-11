@@ -95,7 +95,7 @@ CL10/
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder: m_D=M_P*(1/16pi)^10, M_N=M_P*(1/16pi)^3, m_nu=M_P*(1/16pi)^17 (V57, W2)
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   └── four_limits.py        # the four limits and their common object (V59, paper Section 14): 10 = 2 x 5 (2 = 16/16-bar chiral split, 5 = qubits) + one CP phase — bookkeeping that groups the residuals, not a derivation
-├── experiments/              # the verification program (136 experiments, V0-V135)
+├── experiments/              # the verification program (138 experiments, V0-V137)
 │   ├── V0..V10/              # T0-T1: the root, the kinematics, the dynamics (V8-V10: the cosmology)
 │   ├── V11..V13/             # T3: anomaly-free, the 5/3, matter+gauge+gravity in one object
 │   ├── V14..V19/             # T5: the falsifiable predictions + the 3 REDUCED walls (W1/W2/W3)
@@ -197,13 +197,15 @@ CL10/
 ├── V133/               # the desert re-closure at the closed coupling alpha_X = pi/64: exists but leaves the desert (M_X = 1.24e17 GeV, tau_p = 2.8e39 yr); 1.8e16 needs alpha_X = 0.040050
 ├── V134/               # the pi/2 branch measured: bond layer diagonal with the identity permutation and corner shifts {+-1}^3 - a pure lattice translation, M(0) = I, 513 gapless grid points, no mass generation
 ├── V135/               # the closed coupling against the data: pi/64 has relative gap 1.128 to the one-loop mean where 1/25 had 0.734 (1.54x worse), and is not of the 1/n^2 form
+├── V136/               # the Delta L = 2 operator inside the root: weight 2 lambda_nu, 1-dimensional weight space, Clifford grade 5 (the 126-type channel) - but multiplication shifts grade by +-2, so no product of adjoint link factors reaches it: n_2step is not a link-word length
+├── V137/               # the per-class bond number the gauged layer supplies: 13-dimensional centralizer at theta*, broken-generator flux 45 - C_2^unbroken = (32,36,40,28,32,40), the complete adjoint sum exactly class-blind (= 45 for every weight) - misses the V96 meeting at residual 0.605
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 18)
 │   └── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 19): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 19 panels are the V62 product
-├── run_validation.py         # the runner: runs all 136, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 138, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 39 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
-    └── validation_summary.json   # the 136/136 PASS + the hard-tier verdict
+    └── validation_summary.json   # the 138/138 PASS + the hard-tier verdict
 
 ## The engine: GPU-first, one core
 
@@ -227,8 +229,8 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 136 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full 136 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
+python3 run_validation.py        # runs all 138 in parallel (--jobs N), prints the verdict
+./run_gpu.sh                     # the full 138 on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V131_algebraic_closure V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed
                                    # the closed-angle batch alone (the runner takes **exact** directory names)
 ./run_figures.sh                   # the 39 figures on the GPU card make_figures pins; it
@@ -249,8 +251,8 @@ bash publication/build.sh        # rebuild the journal PDF from doc/publication.
 `doc/publication.md` states the **seven criteria** a unification claim must
 meet (Section 1.2, with the paper's own verdict on each), the **tiered**
 validation against them, the **nine open residuals** (W1–W9) and the **seven
-falsifiers** (F1–F7).  `run_validation.py` runs all **136** experiments
-(V0–V135) across the seven tiers and writes
+falsifiers** (F1–F7).  `run_validation.py` runs all **138** experiments
+(V0–V137) across the seven tiers and writes
 
 > **hard-tier verdict** = all of tiers 0–3 (V0–V7, V11–V13) PASS — the single
 > object, the kinematics, the dynamics, the **anomaly-free** matter, the

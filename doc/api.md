@@ -194,6 +194,19 @@ closed-angle consequences are measured in `experiments/V132..V135` (the gapless
 census, the desert re-closure at $\alpha_X = \pi/64$, the $\pi/2$ branch, the
 coupling contact), and `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed` runs that batch on the GPU.
 
+**The two ladder exponents, asked of the algebra (V136, V137).**
+`sm_qca.plane_generators()` returns the 45 adjoint factors, and in the Clifford
+basis each acts as an exact signed permutation on the 1024 basis elements — so
+products of them are enumerable without matrices.
+`experiments/V136_w2_majorana_word` uses that to grade the $\Delta L = 2$
+operator (weight $2\lambda_\nu$, Clifford grade 5, the 126-type channel, a
+1-dimensional weight space) and to prove the parity obstruction: multiplication
+shifts grade by $\pm2$, so no product of grade-2 factors reaches an odd-grade
+target and $n_{2\text{step}}$ is not a word length.
+`experiments/V137_w4_broken_flux` uses the same 45 to build the centralizer of
+the Wilson direction (the Cartan of `clifford.generators()`) and the
+broken-generator flux $45 - C_2^{\rm unbroken}(s)$ per fragment class.
+
 ---
 
 ## 10. `cl10.cpt` — the CPT theorem (the 16/16-bar are CPT conjugates)
@@ -645,8 +658,9 @@ backend-dependent failure).
 **Usage:**
 
 ```bash
-python3 run_validation.py              # all 136 experiments (V0-V135), in parallel
+python3 run_validation.py              # all 138 experiments (V0-V137), in parallel
 python3 run_validation.py V11 V12      # a subset: **exact directory names** (--jobs N caps the pool)
+python3 run_validation.py --report-only  # roll up the verdict JSONs on disk, run nothing
 ```
 
 ---
