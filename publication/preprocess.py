@@ -124,7 +124,8 @@ def xform(s):
     # right-aligns the last, which reads as mis-positioned math.
     def multline(m):
         body = m.group(1).strip()
-        if len(body) < 80:
+        if len(body) < 80 or "\\begin{" in body:
+            # already laid out by the manuscript: do not re-wrap it
             return m.group(0)
         if re.search(r"\\oplus\s", body):
             # direct-sum chain: break after each \oplus (operator at EOL)
@@ -275,15 +276,14 @@ def table_block(m):
             % (num, ttitle, inner.strip()))
 
 
+# the manuscript writes "**Table N.** title" (the number is LaTeX's job)
+body_text = re.sub(
+    r"^\*\*Table (\d+)\.\*\* (.+?)\n\n::: \{\.table id=tabx\d+\}\n\n((?:\|[^\n]*\n)+)\n:::\n",
+    table_block, body_text, flags=re.M)
+# the older form, caption inside the bold
 body_text = re.sub(
     r"^\*\*Table (\d+)\. (.+?)\.\*\*\n\n::: \{\.table id=tabx\d+\}\n\n((?:\|[^\n]*\n)+)\n:::\n",
     table_block, body_text, flags=re.M)
-
-# the one caption-less table (the seven criteria) gets a real caption
-body_text = body_text.replace(
-    "::: {.table id=tabx1}\n\n",
-    "::: {.table id=tabx1}\n\n**The seven criteria against which the paper "
-    "judges itself.**\n\n", 1)
 
 # ---------------------------------------------------------------- table sizing
 # one-column float when the table fits a column, a full-width float when it
@@ -300,9 +300,11 @@ def _cells(row):
 
 
 def _plain(s):
-    s = re.sub(r"\$[^$]*\$", "x", s)
-    s = re.sub(r"\\[a-zA-Z]+\*?", "x", s)
-    return re.sub(r"[{}&\\]", "", s)
+    # mimic pandoc's stringify: commands lose their names but keep their
+    # arguments, so an inline formula stays one long unbreakable word
+    s = re.sub(r"\\[a-zA-Z]+\*?\{([^{}]*)\}", r"\1", s)
+    s = re.sub(r"\\[a-zA-Z]+\*?", "", s)
+    return re.sub(r"[{}&$\\]", "", s)
 
 
 def _height(rows, unit):

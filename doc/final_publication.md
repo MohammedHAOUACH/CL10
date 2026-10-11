@@ -93,7 +93,7 @@ Everything derived below is representation theory of this one object plus the dy
 $$T^2 = +I,\qquad S_a^2 = -I,\qquad \{T,S_a\} = 0,\qquad \{S_a,S_b\} = 0 .$$
 *The real span of $\{T, S_1, S_2, S_3\}$ inside the grade-1 part of the algebra, with the quadratic form induced by the Clifford product, is Minkowski space $\mathbb{R}^{1,3}$.*
 
-*Proof.* The four generators $h_1,\dots,h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, $v^2 = (v_0^2 - \sum_a v_a^2)I$. $\blacksquare$
+*Proof.* The four generators $h_1,\dots,h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, $v^2 = (v_0^2 - \sum_a v_a^2)I$.
 
 **Corollary 1 (the light cone).** *A vector $v$ in that real span is null, $v^2 = 0$, if and only if $v_0^2 = \sum_a v_a^2$. The null cone of this quadratic form is the light cone of the lattice.*
 
@@ -129,7 +129,7 @@ The assignment is the standard one [6–9,12]. What the automaton adds is that t
 | $[\mathrm{grav}]^2\mathrm{U}(1)$ | $\sum Y = 1 - 2 + 1 - 1 + 1$ | $0$ |
 | $[\mathrm{grav}]^2\mathrm{SU}(3)$, $[\mathrm{grav}]^2\mathrm{SU}(2)$ | traceless generators | $0$ |
 
-*Proof.* Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities are the dimensions of the *other* group factors (the factor $2$ on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor $3$ in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ its colour-triplet nature), with $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$ and the charges of Proposition 1. $\blacksquare$
+*Proof.* Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities are the dimensions of the *other* group factors (the factor $2$ on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor $3$ in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ its colour-triplet nature), with $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$ and the charges of Proposition 1.
 
 This is the hardest consistency condition a chiral gauge theory has, and it is satisfied identically by the module content. It is the strongest single result of the theory, and it is independent of the coupling: the cancellation is a property of the algebra, not of a tuned parameter.
 
@@ -147,7 +147,7 @@ The $45$ generators $h_a h_b$ ($a<b$) close on the $\mathrm{Spin}(10)$ adjoint. 
 
 **Theorem 3 (the $5/3$).** *In the $\mathbf 5$ of $\mathrm{SU}(5)$ the hypercharge is $Y = \mathrm{diag}(-\tfrac13,-\tfrac13,-\tfrac13,+\tfrac12,+\tfrac12)$ with $\mathrm{Tr}\,Y^2 = \tfrac56$, while the non-Abelian generators obey $\mathrm{Tr}\,T_aT_b = \tfrac12\delta_{ab}$. Requiring a single unified coupling $g_5$ for all generators gives $g_1^2/g'^2 = 5/3$, where $g'$ is the Standard Model hypercharge coupling and $g_1 \equiv g_5$.*
 
-*Proof.* $\mathrm{Tr}\,Y^2 = 3\cdot\tfrac19 + 2\cdot\tfrac14 = \tfrac56$. Rescaling $Y \to \sqrt{3/5}\,Y$ normalises it to $\tfrac12$; then $g_5 (\sqrt{3/5}Y) = g' Y$ gives $g' = g_5\sqrt{3/5}$. $\blacksquare$
+*Proof.* $\mathrm{Tr}\,Y^2 = 3\cdot\tfrac19 + 2\cdot\tfrac14 = \tfrac56$. Rescaling $Y \to \sqrt{3/5}\,Y$ normalises it to $\tfrac12$; then $g_5 (\sqrt{3/5}Y) = g' Y$ gives $g' = g_5\sqrt{3/5}$.
 
 This is an algebraic fact of the root: no parameter enters. It anchors the coupling discussion of Section 13.1, where it will be seen that the *normalisation* of the unified coupling is under control while its *value* is not.
 
@@ -217,7 +217,7 @@ The mechanism of the pairing is understood, and its scope is limited. The intert
 
 ### 7.3 Locality and the causal radius
 
-**Theorem 5 (the causal radius is implemented).** *On an $(L_b,L_b,L_b)$ torus of cells the step is a product of two-cell operators: every bond stage couples sub-sites at Planck-cell distance $\le 1$ — an intra-block pair joins neighbouring sub-sites of one cell, an inter-block pair joins neighbouring cells. Hence after $n$ stages the support of a sub-site-localised excitation lies inside the $n$-cell light cone: at most one Planck cell per stage, and since three of the six stages are inter-block, at most three blocks — six Planck cells — per step. Numerically: the norm of a random cell state is preserved to $10^{-15}$; on an $8^3$-cell torus the support radius after $n$ stages is exactly $n$ Planck cells for every $n \le 12$ — the front *saturates* the cone, front speed $1.0$; on a $32^3$-cell torus run for $30$ stages the front reaches $21$ cells, and no site of the support and no amplitude ever appears outside the $n$-cell cone ($0$, to machine precision); the same cone is realised at $g = 0.3$ as at $1/5$; the internal layer alone, with the bond stages removed, keeps the excitation on one sub-site forever.*
+**Theorem 5 (the causal radius is implemented).** *On an $(L_b,L_b,L_b)$ torus of cells the step is a product of two-cell operators: every bond stage couples sub-sites at Planck-cell distance $\le 1$ — an intra-block pair joins neighbouring sub-sites of one cell, an inter-block pair joins neighbouring cells. Hence after $n$ stages the support of a sub-site-localised excitation lies inside the $n$-cell light cone: at most one Planck cell per stage, and since three of the six stages are inter-block, at most three blocks — six Planck cells — per step. Numerically: the norm of a random cell state is preserved to $10^{-15}$; on an $8^3$-cell torus the support radius after $n$ stages is exactly $n$ Planck cells for every $n \le 12$ — the front _saturates_ the cone, front speed $1.0$; on a $32^3$-cell torus run for $30$ stages the front reaches $21$ cells, and no site of the support and no amplitude ever appears outside the $n$-cell cone ($0$, to machine precision); the same cone is realised at $g = 0.3$ as at $1/5$; the internal layer alone, with the bond stages removed, keeps the excitation on one sub-site forever.*
 
 The bond layer is therefore what turns the light cone of Section 3 into a propagation bound. This is the cleanest dynamical result of the theory.
 
@@ -237,7 +237,7 @@ The Nielsen–Ninomiya theorem forbids a single chiral fermion in a theory with 
 
 That is *not* the same as having evaded it, and the question is decidable by computation. The step is one time-independent operator on the cell lattice, so the good quantum number is the **block crystal momentum** $q$ — the phase under a translation by one automaton cell, $2\pi$-periodic, zone $q \in [-\pi,\pi]^3$ — and the eight sub-sites are the internal structure of the Bloch matrix. The $16$-sector one-step matrix $M(q)$ is computed exactly at $128 \times 128$ and cross-checked against the real-space step on a $2^3$-block torus (agreement $10^{-14}$). The cubic high-symmetry momenta carry the whole spectrum: $\Gamma = (0,0,0)$; $\mathrm{X} = (\pm\tfrac\pi2,0,0)$, star $6$; $\mathrm{M} = (\pm\tfrac\pi2,\pm\tfrac\pi2,0)$, star $12$, little group $C_{2v}$; $\mathrm{R} = (\pm\tfrac\pi2,\pm\tfrac\pi2,\pm\tfrac\pi2)$, star $8$, little group $C_{3v}$.
 
-**Proposition 2 (lattice chirality).** *(i) The $16$ sector is closed by the full step, not only by the internal layer:* the bond layer acts on the sub-site index and commutes with $w$, so a state initialised in the $\mathbf{16}$ leaves it by less than $10^{-15}$. Chirality is a dynamical symmetry of the automaton. *(ii) The zone centre is gapped:* $\min_a|\omega_a(q=0)| = 0.0365$ per step, so the would-be massless matter is **not** at $q = 0$. *(iii) The gapless points are the doublers:* the $16$-sector one-step spectrum is gapless at the $12$ momenta $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$ and their permutations — the $\mathrm{M}$ points of the block zone, at half-zone momentum, whose Planck-cell momenta are $p = q/2$ — with node chiralities summing to $0$, as Nielsen–Ninomiya requires; at $g = 1/5$ the nodes still carry a small gap, $2.0\times10^{-4}$. The gap at $q = 0$ is not protected: it moves from $0.036$ at $g = 0.2$ to $0.072$ at $g = 0.15$ and to $2.35$ at $g = 0.1$.*
+**Proposition 2 (lattice chirality).** *(i) The $16$ sector is closed by the full step, not only by the internal layer:* the bond layer acts on the sub-site index and commutes with $w$, so a state initialised in the $\mathbf{16}$ leaves it by less than $10^{-15}$. Chirality is a dynamical symmetry of the automaton. *(ii) The zone centre is gapped:* $\min_a|\omega_a(q=0)| = 0.0365$ per step, so the would-be massless matter is **not** at $q = 0$. *(iii) The gapless points are the doublers:* the $16$-sector one-step spectrum is gapless at the $12$ momenta $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$ and their permutations — the $\mathrm{M}$ points of the block zone, at half-zone momentum, whose Planck-cell momenta are $p = q/2$ — with node chiralities summing to $0$, as Nielsen–Ninomiya requires; at $g = 1/5$ the nodes still carry a small gap, $2.0\times10^{-4}$. The gap at $q = 0$ is not protected: it moves from $0.036$ at $g = 0.2$ to $0.072$ at $g = 0.15$ and to $2.35$ at $g = 0.1$.
 
 The doubling therefore **survives** the automaton: "the $\mathbf{16}$ is a single chiral generation" is a property of the *internal module*, while the *lattice spectrum*, which is what couples to low-energy physics, contains twelve gapless nodes.
 (Fig. 5).
@@ -300,7 +300,7 @@ The parameter audit of Section 16 classes the rotation angle as the one free con
 
 **Theorem 6 (the two closed steps).** *Over every rational angle $g = p\pi/q$ ($q \le 16$) and every candidate of the implemented rule ($1/5$, $\pi/5$, $\pi/10$, $\pi/8$, $3\pi/8$, $\pi/6$, $\pi/3$), the internal step $U(g)$ is exactly periodic at precisely two angles: $g = \pi/2$, of order $4$, and $g = \pi/4$, of order $8$. At the implemented $g = 1/5$ the internal clock is irrational: the smallest level is $0.011466$ rad per step, $2\pi/\omega_{\min} = 548.0$, and no order $\le 64$ exists (deviation $0.45$).*
 
-*Proof of the $\pi/2$ case, and a stronger statement.* Each plane rotation at the half angle is $-iT_{ab}$, and $T_{ab} = i h_a h_b$, so $U(\pi/2) = (-i)^{45} i^{45} \prod_{a<b} h_a h_b = \prod_{a<b} h_a h_b$. The product of all $45$ pairs in ascending order reduces — numerically to $6.1\times10^{-17}$ in the $1024$-element algebra basis, with every other basis coefficient below $10^{-8}$ — to the single monomial $h_0 h_1 \cdots h_9$, the pseudoscalar $w$; since $w^2 = -I$, $U(\pi/2)^4 = I$. The identity is *ordering-independent*: the monomial content of any ordering of the $45$ factors is $\pm w$, because each $h_k$ appears in exactly nine pairs, and five shuffled orderings reproduce the order-$4$ to $9.8\times10^{-16}$. The step at the half angle *is* the root's chirality operator. $\blacksquare$
+*Proof of the $\pi/2$ case, and a stronger statement.* Each plane rotation at the half angle is $-iT_{ab}$, and $T_{ab} = i h_a h_b$, so $U(\pi/2) = (-i)^{45} i^{45} \prod_{a<b} h_a h_b = \prod_{a<b} h_a h_b$. The product of all $45$ pairs in ascending order reduces — numerically to $6.1\times10^{-17}$ in the $1024$-element algebra basis, with every other basis coefficient below $10^{-8}$ — to the single monomial $h_0 h_1 \cdots h_9$, the pseudoscalar $w$; since $w^2 = -I$, $U(\pi/2)^4 = I$. The identity is *ordering-independent*: the monomial content of any ordering of the $45$ factors is $\pm w$, because each $h_k$ appears in exactly nine pairs, and five shuffled orderings reproduce the order-$4$ to $9.8\times10^{-16}$. The step at the half angle *is* the root's chirality operator.
 
 **The quantized step ($g = \pi/4$).** $U(\pi/4)^4 = -I$ and $U(\pi/4)^8 = I$ exactly ($5.0\times10^{-15}$), and the $32$ internal levels are exactly the algebraic set
 
@@ -364,7 +364,12 @@ The layer has a Hamiltonian — the electric Laplacian $H = \sum_A Q_A^\dagger Q
 
 The string tension follows. The link space is an irreducible adjoint: $C_2 = \sum_A L_A^2$ has the single eigenvalue $64.000000$ with zero spread, the Killing form $K_{ab} = f_{acd}f_{bcd}$ is annihilated by the pair Casimir of $\mathbf{45} \otimes \mathbf{45}$ to $3\times10^{-15}$ and its singlet space is one-dimensional (adjacent links pair into it uniquely), and the link operators do not commute ($\max[L_a,L_b] = 4.0$) — the layer carries a non-Abelian field strength. Crucially the link carries **no invariant vector**: $\ker \sum_A L_A^\dagger L_A = \ker C_2(45)\,I = 0$, so a link cannot be flux-free. Every link of a gauge-invariant chain therefore carries one adjoint flux quantum, the electric energy of $R$ links is exactly $R\,C_2(45)$, and the static potential is linear with tension
 
-$$\sigma = C_2(45) = 64\ \text{lattice units} = 7.81\times10^{20}\ \text{GeV per Planck length} = 9.54\times10^{39}\ \text{GeV}^2 \qquad (\sqrt\sigma = 9.77\times10^{19}\ \text{GeV}),$$
+$$\begin{gathered}
+\sigma = C_2(45) = 64\ \text{lattice units}\\
+= 7.81\times10^{20}\ \text{GeV per Planck length}\\
+= 9.54\times10^{39}\ \text{GeV}^2\\
+(\sqrt\sigma = 9.77\times10^{19}\ \text{GeV}),
+\end{gathered}$$
 
 $5.4\times10^{40}$ times the QCD string tension [38]. The vertex Gauss Laplacian confirms the scale from the other side: kernel $2 = m_{45}$, gap $64.0000$.
 
@@ -451,7 +456,10 @@ a factor $2.08$ apart; $2.08\,(1/16\pi)^{10} = 2.02\times10^{-17}$ reproduces th
 
 **Closed loops do reproduce the number.** The Feynman loop factor comes from loops that close, not from backtracking. Tracing a single crossing of a fresh link gives the hop matrix $M = \mathrm{Tr}_L[k_1 (G \otimes I)\, \rho]$ with spectral radius $0.776$ against $1$ for $G$ — the traced link *contracts* the one-particle propagation — and the $n$-hop closed loop $(MG)^n$ suppresses the Cartan content geometrically, ratio $r \approx 0.54$. At the root coupling the measured ratios are
 
-$$F_3 = 0.24,\ F_4 = 0.47,\ F_5 = 0.10,\ F_6 = 0.030,\ F_7 = 0.37,\ F_8 = 0.064,\ F_9 = 0.035,\ F_{10} = 0.0192,$$
+$$\begin{gathered}
+F_3 = 0.24,\ F_4 = 0.47,\ F_5 = 0.10,\ F_6 = 0.030,\\
+F_7 = 0.37,\ F_8 = 0.064,\ F_9 = 0.035,\ F_{10} = 0.0192,
+\end{gathered}$$
 
 against $1/(16\pi) = 0.0199$: **the loop factor is reproduced to $3.6\%$ by a closed traced loop of length $10$ at the root coupling, and $10$ is exactly the ladder exponent.** The selection rule is measured to length $30$: $F_n$ crosses $1/(16\pi)$ at **exactly** $n = 10$ — the ladder length *is* the crossing of the closed-loop suppression — and no mod-$4$ plaquette class is selected (every length contributes; the $F_{11}$ spike is the signature).
 (Figs. 13, 14).
@@ -606,7 +614,10 @@ and the $\mathrm{SU}(3)$ Landau pole of the down-running moves to $10^{-52}$ GeV
 
 Finally, the canonical per-class number the gauged layer does supply is not the one that closes the meeting. At $\theta^*$ the Wilson direction leaves a $13$-dimensional centralizer in $\mathfrak{so}(10)$ (the $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$ of the breaking chain, Hermitian orthonormal basis to $10^{-15}$), and the flux of BROKEN generators through a fragment class,
 
-$$K_s = C_2(\mathbf{32}) - C_2^{\rm unbroken}(s) = 45 - C_2^{\rm unbroken}(s) = (32,36,40,28,32,40)$$
+$$\begin{gathered}
+K_s = C_2(\mathbf{32}) - C_2^{\rm unbroken}(s) = 45 - C_2^{\rm unbroken}(s)\\
+= (32,36,40,28,32,40)
+\end{gathered}$$
 
 (unbroken Casimirs $(13,9,5,17,13,5)$), is an integer invariant with no free parameter, constant within a class to $3\times10^{-14}$ — the gauged layer **does** distinguish the fragment classes. The companion identity says why the naive second-order link shift cannot use it: summed over the complete adjoint, $\sum_A\sum_t \lvert\langle t\lvert T^A\lvert s\rangle\rvert^2 = 45$ for every weight $s$ (spread $10^{-13}$) — the class degeneracy as an identity. Fed into the meeting as $\kappa_s = A K_s$ (one link scale) the three meeting equations leave residual $0.605$ at best ($n = 3$) and close in the desert for $0/10$ node counts; against the six $\kappa_s$ that close the meeting, the flux explains at best $R^2 = 0.015$ of their variance ($\lvert r\rvert \le 0.31$). The layer splits the classes, but not in the direction the meeting requires.
 

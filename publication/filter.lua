@@ -193,6 +193,13 @@ function Div(el)
         end
       end
     end
+    -- hard cap: the tabular must never exceed the float's width, even when
+    -- an unbreakable inline formula wants a wider column than exists
+    local tot = 0
+    for j = 1, ncol do tot = tot + f[j] end
+    if tot > 0.97 then
+      for j = 1, ncol do f[j] = f[j] * 0.97 / tot end
+    end
     local cols = {}
     for j = 1, ncol do
       cols[j] = string.format('p{%.3f%s}', f[j], unit)
