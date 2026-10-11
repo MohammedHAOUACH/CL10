@@ -929,4 +929,7 @@ The construction is verified by a second, independent route: the exact symbolic 
 53. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).
 54. LUX-ZEPLIN Collaboration (J. Aalbers *et al.*), "Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment," *Phys. Rev. Lett.* **135**, 011802 (2025), arXiv:2410.17036.
 55. J. B. Kogut and L. Susskind, "Hamiltonian formulation of Wilson's lattice gauge theories," *Phys. Rev. D* **11**, 395 (1975).
+
+**Code and data availability.** All the experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10. Every number quoted in the paper is produced by these open scripts and can be reproduced independently from the repository.
+
 **Competing interests.** The author declares no competing interests.

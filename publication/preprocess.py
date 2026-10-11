@@ -181,6 +181,7 @@ assert title and abstract_lines and keyword_line, "metadata extraction failed"
 # ---------------------------------------------------------------- body
 body = []
 in_refs = False
+bib_open = False
 in_abstract = False
 for ln in lines:
     if ln.startswith("# "):
@@ -208,7 +209,13 @@ for ln in lines:
         body.append("")
         body.append("::: {.bibliography}")
         body.append("")
+        bib_open = True
         continue
+    if in_refs and bib_open and ln.strip() and not re.match(r"^\d{1,2}\. ", ln):
+        body.append("")
+        body.append(":::")
+        body.append("")
+        bib_open = False
     if ln.startswith("### "):
         sub = re.sub(r"^\d+\.\d+\s+", "", ln[4:])
         body.append("## " + sub)  # ### -> ##, numbers auto by LaTeX
@@ -226,8 +233,9 @@ for ln in lines:
         continue
     body.append(ln)
 assert in_refs, "references section not found"
-body.append("")
-body.append(":::")
+if bib_open:
+    body.append("")
+    body.append(":::")
 
 body_text = "\n".join(body)
 
