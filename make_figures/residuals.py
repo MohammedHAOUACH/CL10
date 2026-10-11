@@ -860,9 +860,11 @@ def fig9_tangent_algebra():
     vecs = np.array(t["branch_velocity_vectors"])
     cols = [C_SU3, C_FIT, C_GUT]
 
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13.6, 4.5))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(13.6, 4.6))
 
-    # (a) the node in the kz = 0 slice: three velocity vectors, three nodal lines
+    # (a) the node in the kz = 0 slice: three velocity vectors, three nodal
+    # lines. the three velocity labels go in the empty right-hand corner: at
+    # the arrow heads they sit on top of one another
     ax1.add_patch(plt.Circle((0, 0), 1.0, fill=False, color="0.6", lw=0.8))
     for a, v in enumerate(vecs):
         nrm = math.hypot(v[0], v[1])
@@ -872,40 +874,40 @@ def fig9_tangent_algebra():
             d = np.array([-v[1], v[0]]) / nrm
             ax1.plot([-d[0], d[0]], [-d[1], d[1]], color=cols[a], lw=1.4,
                      ls="--")
-        ax1.text((1.04 + 0.17 * a) * v[0], (1.04 + 0.17 * a) * v[1],
+        ax1.text(2.02, -0.30 - 0.32 * a,
                  r"$v_%d=(%.2f,\,%.2f)$" % (a + 1, v[0], v[1]),
-                 fontsize=9.5, color=cols[a], ha="left", va="bottom")
-    ax1.set_xlim(-1.25, 1.95)
+                 fontsize=10, color=cols[a], ha="right", va="center")
+    ax1.text(2.02, 1.12, r"dashed: nodal line $v_\alpha\cdot q=0$",
+             fontsize=9.5, color="0.35", ha="right", va="center")
+    ax1.set_xlim(-1.3, 2.05)
     ax1.set_ylim(-1.25, 1.25)
     ax1.set_aspect("equal")
     ax1.set_xlabel(r"$k_x$ (lattice units)")
     ax1.set_ylabel(r"$k_y$")
-    ax1.set_title("(a) the gapless corner triplet, $k_z=0$ slice: each\n"
-                  "branch carries a FIXED velocity $v_\\alpha$ and vanishes\n"
-                  "on its own line $v_\\alpha\\cdot q=0$ - three planes, not\n"
-                  "a cone (the three $v_\\alpha$ are cubic permutations)",
-                  fontsize=12)
+    ax1.set_title("(a) the gapless corner triplet, $k_z=0$ slice:\n"
+                  "three planes through the node, not a cone", fontsize=11.5)
 
     # (b) the tangent velocity algebra: commuting, not Clifford-type
     comm = t["commutator_norms"]
     ax2.bar(range(3), comm, color=C_OPEN)
     ax2.axhline(t["sum_Sj2_scalar"], color=C_ALG, ls="--", lw=1.6)
-    ax2.text(2.4, t["sum_Sj2_scalar"],
-             r"Clifford-type target $\sim\sum_j\|S_j\|^2$ = %.2f"
-             % t["sum_Sj2_scalar"], ha="right", va="bottom", fontsize=10.5,
+    ax2.text(2.45, t["sum_Sj2_scalar"] * 0.5,
+             r"Clifford-type scale $\sum_j\|S_j\|^2 = %.2f$"
+             % t["sum_Sj2_scalar"], ha="right", va="top", fontsize=10,
              color=C_ALG)
+    ax2.text(0.03, 0.34,
+             "$\\sum_j S_j^2$ is a scalar;\neach branch planar to %.1e"
+             % t["planar_branch_err"], transform=ax2.transAxes, fontsize=10,
+             ha="left", va="bottom")
     ax2.set_yscale("log")
     ax2.set_ylim(1e-14, 3.0)
     ax2.set_xticks(range(3))
     ax2.set_xticklabels([r"$[S_1,S_2]$", r"$[S_2,S_3]$", r"$[S_3,S_1]$"])
     ax2.set_ylabel(r"$\|[S_i,S_j]\|$ (lattice units)")
-    ax2.set_title("(b) the three tangent velocity operators COMMUTE:\n"
-                  "max $\\|[S_i,S_j]\\|$ = %.1e, %.0f orders below the scale\n"
-                  "a Weyl cone requires; $\\sum_j S_j^2$ is a scalar (%.2f)\n"
-                  "and each branch is planar to %.1e"
-                  % (max(comm), -math.log10(max(comm) / t["sum_Sj2_scalar"]),
-                     t["sum_Sj2_scalar"], t["planar_branch_err"]),
-                  fontsize=12)
+    ax2.set_title("(b) the tangent velocity operators COMMUTE:\n"
+                  "max $\\|[S_i,S_j]\\|$ = %.1e, %.0f orders below the cone scale"
+                  % (max(comm), -math.log10(max(comm) / t["sum_Sj2_scalar"])),
+                  fontsize=11.5)
 
     # (c) the entangling bond layer: the right direction, nowhere near enough
     rows = d120["scan"]
@@ -915,7 +917,8 @@ def fig9_tangent_algebra():
     ax3.semilogy(ph, pl, "s-", color=C_FIT,
                  label=r"planarity defect $\max_{d,\alpha}|s_\alpha(d)-|v_\alpha\cdot d||$")
     ax3.axhline(1.0, color=C_SU3, ls=":", lw=1.4)
-    ax3.text(0.03, 1.4, "Clifford-type target", fontsize=10.5, color=C_SU3)
+    ax3.text(0.02, 0.45, "Clifford-type target", fontsize=9.5, color=C_SU3,
+             ha="left", va="top")
     ax3.set_ylim(1e-16, 3)
     ax3.set_xlabel(r"entangling bond phase $\phi$")
     ax3.set_ylabel("planarity defect (log)")
@@ -927,13 +930,11 @@ def fig9_tangent_algebra():
     ax3b.tick_params(axis="y", colors=C_OPEN)
     h1, l1 = ax3.get_legend_handles_labels()
     h2, l2 = ax3b.get_legend_handles_labels()
-    ax3.legend(h1 + h2, l1 + l2, fontsize=9, loc="lower right")
-    ax3.set_title("(c) a non-Abelian Peierls bond layer entangling cell and\n"
-                  "internal indices (regression to the implemented step %.0e)\n"
-                  "raises the planarity defect from %.0e to %.0e and switches\n"
-                  "the commutator on to only %.2f of its natural scale; $A$\n"
-                  "never leaves $0.996$-$0.9999$ - W9 stays open"
-                  % (d120["regression"]["phi0_vs_implemented"], pl[0], max(pl), max(cm)), fontsize=12)
+    ax3.legend(h1 + h2, l1 + l2, fontsize=9, loc="center right",
+               framealpha=0.95)
+    ax3.set_title("(c) an entangling bond layer: the right mechanism,\n"
+                  "not enough of it (defect %.0e, commutator %.2f)"
+                  % (max(pl), max(cm)), fontsize=11.5)
 
     fig.suptitle("Why the doubler node is never a Weyl cone: the tangent "
                  "velocities commute", fontsize=14.5)

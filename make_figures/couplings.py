@@ -175,6 +175,17 @@ def fig20_desert():
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     save(fig, "fig20_desert_unification.png")
 
+def _frag_label(k):
+    """fragment key -> label with the Cartan charges as exact fractions"""
+    from fractions import Fraction
+    if k.startswith("(") and k.endswith(")"):
+        a, b = (p.strip() for p in k[1:-1].split(","))
+        fr = Fraction(float(b)).limit_denominator(12)
+        bs = (str(abs(fr.numerator)) if fr.denominator == 1
+                  else r"\frac{%d}{%d}" % (abs(fr.numerator), fr.denominator))
+        return r"$f = (%s,\,%s%s)$" % (a, "-" if fr < 0 else "", bs)
+    return r"$f = %s$" % k
+
 def fig6_wilson():
     import json
     from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
@@ -187,8 +198,11 @@ def fig6_wilson():
               if r["su5"] == "Georgi-Glashow")
     root = next(r for r in gg["selective_roots"] if r["physical"])
 
-    fig = plt.figure(figsize=(11.5, 4.5))
-    axA = fig.add_subplot(1, 2, 1, projection="3d")
+    # sized so the full-width float stays under the page budget: three figure
+    # floats share one page in the two-column layout
+    fig = plt.figure(figsize=(11.8, 4.25))
+    gs = fig.add_gridspec(1, 2, width_ratios=[1.0, 1.30], wspace=0.16)
+    axA = fig.add_subplot(gs[0], projection="3d")
     fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
     split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
              (0.0, np.pi / 2, np.pi / 2)}
@@ -196,47 +210,71 @@ def fig6_wilson():
         axis = next(j for j in range(3) if abs(q[j]) < 1e-9)
         col = fam_col[["x", "y", "z"][axis]]
         is_split = tuple(abs(v) for v in q) in split
-        axA.scatter(*q, s=190 if is_split else 90, c=[col],
-                    edgecolors="black" if is_split else "none",
-                    linewidths=1.2, depthshade=False)
-    axA.set_xlim(-np.pi, np.pi)
-    axA.set_ylim(-np.pi, np.pi)
-    axA.set_zlim(-np.pi, np.pi)
-    axA.set_xlabel("qx")
-    axA.set_ylabel("qy")
-    axA.set_zlabel("qz")
-    axA.set_xticks([0, np.pi / 2])
-    axA.set_yticks([0, np.pi / 2])
-    axA.set_zticks([0, np.pi / 2])
-    axA.set_title("(a)  12 half-zone nodes = 3 axis families of 4;\n"
-                  "    black: one split node per family",
+        axA.scatter(*q, s=210 if is_split else 85, c=[col],
+                    alpha=1.0 if is_split else 0.85,
+                    edgecolors="black" if is_split else "white",
+                    linewidths=1.7 if is_split else 0.5, depthshade=False)
+    # the zone is [-pi, pi]^3 but every node sits in the half zone: draw the
+    # cube that actually carries the twelve points, with pi/2 ticks
+    axA.set_xlim(-np.pi / 2, np.pi)
+    axA.set_ylim(-np.pi / 2, np.pi)
+    axA.set_zlim(-np.pi / 2, np.pi)
+    from matplotlib.ticker import FixedFormatter, FixedLocator
+    for axis in (axA.xaxis, axA.yaxis, axA.zaxis):
+        axis.set_major_locator(FixedLocator([0.0, np.pi / 2]))
+        axis.set_major_formatter(FixedFormatter(["0", r"$\pi/2$"]))
+        axis.set_tick_params(labelsize=10)
+    axA.set_xlabel("$q_x$", fontsize=11, labelpad=1)
+    axA.set_ylabel("$q_y$", fontsize=11, labelpad=1)
+    axA.set_zlabel("$q_z$", fontsize=11, labelpad=1)
+    axA.view_init(elev=16, azim=-58)
+    axA.set_box_aspect((1, 1, 1))
+    for pane in (axA.xaxis.pane, axA.yaxis.pane, axA.zaxis.pane):
+        pane.fill = False
+        pane.set_edgecolor("0.72")
+        pane.set_linewidth(0.8)
+    axA.grid(True, alpha=0.35, linestyle=":")
+    axA.legend(
+        handles=[plt.Line2D([], [], marker="o", ls="", ms=9, color=c,
+                            label=f"{n} family")
+                 for c, n in ((C_SU3, "$x$"), (C_SU2, "$y$"), (C_GUT, "$z$"))]
+        + [plt.Line2D([], [], marker="o", ls="", ms=11, mfc="none",
+                      mec="black", mew=1.7, label="split node")],
+        fontsize=9.5, ncol=4, loc="upper center", frameon=False,
+        bbox_to_anchor=(0.5, -0.13))
+    axA.set_title("(a)  12 half-zone nodes = 3 axis families of 4",
                   fontsize=11.5)
 
-    axB = fig.add_subplot(1, 2, 2)
+    axB = fig.add_subplot(gs[1])
     ths = root["thresholds_GeV"]
     labels = list(ths)
     vals = [ths[k] for k in labels]
     ypos = np.arange(len(labels))
     axB.barh(ypos, vals, color=C_ROOT, alpha=0.85, height=0.6)
     axB.set_yticks(ypos)
-    axB.set_yticklabels([f"$f$ = {k}" for k in labels], fontsize=10.5)
+    axB.set_yticklabels([_frag_label(k) for k in labels], fontsize=10.5)
     axB.set_xscale("log")
     axB.set_xlim(1e6, 1e19)
-    axB.axvline(root["M_X_GeV"], color=C_ZERO, lw=2.0,
-                label=f"Wilson root meeting $M_X$ = "
-                      f"{root['M_X_GeV']:.1e} GeV (excluded, F5)")
-    axB.axvline(1.8e16, color="0.35", lw=1.6, ls="--",
-                label="data-preferred $M_X$ = $1.8\\times10^{16}$ GeV")
+    axB.axvline(root["M_X_GeV"], color=C_ZERO, lw=2.0)
+    axB.axvline(1.8e16, color="0.35", lw=1.6, ls="--")
+    axB.text(root["M_X_GeV"] * 1.5, 2.5,
+             f"Wilson root meeting\n$M_X$ = {root['M_X_GeV']:.1e} GeV\n"
+             "(excluded, F5)", color=C_ZERO, fontsize=9.5, ha="left",
+             va="center", rotation=90, linespacing=1.3)
+    axB.text(1.8e16 * 1.5, 2.5,
+             "data-preferred\n$M_X = 1.8\\times10^{16}$ GeV",
+             color="0.3", fontsize=9.5, ha="left", va="center", rotation=90,
+             linespacing=1.3)
     axB.set_xlabel("fragment mass [GeV]")
-    axB.set_title(f"(b)  the six thresholds of the 3 split nodes\n"
+    axB.set_title("(b)  the six thresholds of the 3 split nodes\n"
                   f"     ($\\theta$ = {root['theta_rad']:.3f}, "
                   f"$w$ = {root['w']:.2e}): scale excluded", fontsize=11.5)
-    axB.legend(fontsize=9.5, loc="upper center",
-               bbox_to_anchor=(0.5, -0.50), framealpha=0.95)
     fig.suptitle("The internal Wilson factor: pattern predicted, "
                  "scale falsified", fontsize=13)
-    fig.tight_layout(rect=[0, 0, 1, 0.93])
-    fig.subplots_adjust(bottom=0.34)
+    # tight_layout cannot see the 3D axes: the geometry is set by hand so the
+    # suptitle clears the panel titles and the family legend clears the labels
+    fig.subplots_adjust(left=0.045, right=0.985, top=0.795, bottom=0.205,
+                        wspace=0.24)
     save(fig, "fig6_wilson_mechanism.png")
 
 def fig22_composite():
