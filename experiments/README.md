@@ -1,6 +1,6 @@
 # The verification program
 
-105 experiments, grouped by the part of `doc/final_publication.md` they validate.
+108 experiments, grouped by the part of `doc/final_publication.md` they validate.
 Each experiment is a 0-parameter check: it recomputes a published number from the
 construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time`)
 to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
@@ -18,7 +18,7 @@ the reason recorded in `../archive/README.md`.
 |---|---|---|
 | `algebra_root` | the root itself, the closure of the coupling, the provenance audit | §2, §9, §16 |
 | `spacetime_matter` | the $(1{+}3)$ subalgebra, one anomaly-free generation, the $45$, the statistics, the spectral mirror, the flavour structure | §3–§6, §13.5 |
-| `dynamics_spectrum` | unitarity, the causal radius, the $n$-particle sector, the doubling and its Wilson gap, the node geometry, the graviton content | §7, §8, §9 |
+| `dynamics_spectrum` | unitarity, the causal radius, the $n$-particle sector, the doubling and its Wilson gap, the node geometry, the cone-isotropy no-gos, the graviton content | §7, §8, §9 |
 | `gauged_layer` | the adjoint bond layer: Gauss constraint, centre obstruction, area law, vertex correction, ground state, confinement | §10 |
 | `gravity` | the discrete Einstein–Hilbert action, curvature from an arbitrary metric, $3{+}1$ evolution | §11 |
 | `scales_loopfactor` | where a loop factor can come from, the closed-loop factor, the ladder length, the composition law | §12.1 |
@@ -80,6 +80,7 @@ the reason recorded in `../archive/README.md`.
 | `V132_gapless_census_pi4` | at $\pi/4$: $\Gamma$ plus six face-diagonal nodal lines |
 | `V138_gamma_spin2` | the zone centre carries $T_{2g}$ but never $E_g$: no lattice spin-2 in the qubit link, the quintet lives in the directional link layer |
 | `V139_nodal_plane_crossing` | the grid census was too coarse: an exactly gapless orbit of $24$ points on the nodal planes at $g_{10} = 1/5$, little group of order $2$ |
+| `V142_w9_frame_averaging` | frame averaging cannot restore the cone: the cubic group has no invariant positive combination of the three nodal planes (extremal rays, exact); the only $O_h$-invariant linear cone speed is $0$ |
 
 ### `gauged_layer`
 | id | verdict |

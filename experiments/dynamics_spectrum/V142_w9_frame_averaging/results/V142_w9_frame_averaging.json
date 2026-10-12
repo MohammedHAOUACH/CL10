@@ -1,0 +1,84 @@
+{
+ "experiment": "V142_w9_frame_averaging",
+ "pass": true,
+ "status": "T1 regression OK (A_identity 0.7545, 100/100 linear); T2 frame blindness OK (max dA 0.0000 < 0.02, max dgap 1.83e-15); T3 planes in every frame OK (max comm 9.32e-12). Frame averaging over the 10 generators is blind to the cone anisotropy: the momentum dependence lives entirely in the sub-site factor of the Kronecker bond layer.",
+ "data": {
+  "frames": [
+   {
+    "frame": "identity",
+    "unitarity_err": 1.6653487242199808e-15,
+    "w_leak": 7.791361360319882e-16,
+    "node_gap": 0.00020028952953165372,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "anisotropy": 0.754538,
+    "n_linear": 100,
+    "max_tangent_commutator": 9.31975560410447e-12
+   },
+   {
+    "frame": "random_SO10_0",
+    "unitarity_err": 5.551115864786956e-15,
+    "w_leak": 4.5208584541911716e-15,
+    "node_gap": 0.000200289529533488,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "anisotropy": 0.754538,
+    "n_linear": 100,
+    "max_tangent_commutator": 4.587595555881424e-12
+   },
+   {
+    "frame": "random_SO10_1",
+    "unitarity_err": 3.8857962251598856e-15,
+    "w_leak": 1.907072653828599e-15,
+    "node_gap": 0.00020028952953094075,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "anisotropy": 0.754538,
+    "n_linear": 100,
+    "max_tangent_commutator": 7.285006218034632e-12
+   },
+   {
+    "frame": "random_SO10_2",
+    "unitarity_err": 4.440903951457377e-15,
+    "w_leak": 2.563148888826738e-15,
+    "node_gap": 0.0002002895295324334,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "anisotropy": 0.754538,
+    "n_linear": 100,
+    "max_tangent_commutator": 5.661907675996325e-12
+   },
+   {
+    "frame": "random_SO10_3",
+    "unitarity_err": 3.2196480793620306e-15,
+    "w_leak": 2.1556631856153973e-15,
+    "node_gap": 0.0002002895295306001,
+    "v_principal": [
+     0.2,
+     0.20043,
+     0.283516
+    ],
+    "anisotropy": 0.754538,
+    "n_linear": 100,
+    "max_tangent_commutator": 6.087395786217111e-12
+   }
+  ],
+  "A_identity": 0.754538,
+  "max_frame_shift_dA": 0.0,
+  "max_frame_shift_dgap": 1.8342803404652885e-15,
+  "max_commutator": 9.31975560410447e-12
+ },
+ "wall_time": 9.265195846557617
+}
