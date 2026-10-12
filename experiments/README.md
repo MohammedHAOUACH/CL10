@@ -80,7 +80,7 @@ the reason recorded in `../archive/README.md`.
 | `V132_gapless_census_pi4` | at $\pi/4$: $\Gamma$ plus six face-diagonal nodal lines |
 | `V138_gamma_spin2` | the zone centre carries $T_{2g}$ but never $E_g$: no lattice spin-2 in the qubit link, the quintet lives in the directional link layer |
 | `V139_nodal_plane_crossing` | the grid census was too coarse: an exactly gapless orbit of $24$ points on the nodal planes at $g_{10} = 1/5$, little group of order $2$ |
-| `V142_w9_frame_averaging` | frame averaging cannot restore the cone: the cubic group has no invariant positive combination of the three nodal planes (extremal rays, exact); the only $O_h$-invariant linear cone speed is $0$ |
+| `V142_w9_frame_averaging` | frame averaging over the ten generators is exactly blind to the cone anisotropy: in four random SO(10) frames the node gap moves by 1.8e-15, the anisotropy by 0, the tangent commutators stay at the noise floor — all momentum dependence lives in the sub-site factor of the Kronecker bond layer |
 
 ### `gauged_layer`
 | id | verdict |

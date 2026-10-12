@@ -206,10 +206,11 @@ from measured inputs); **9 open residuals** (O1–O9).
   direction but anisotropic; no isotropy point exists on the full Wilson family
   (V115), the node little groups give three nodal planes, not a cone (V118,
   V139), the entangling bond layers reach at most $0.658$ of the required
-  commutator (V120/V121), and **frame averaging over the ten generators cannot
-  restore the cone** — the cubic group admits no invariant positive combination
-  of the three nodal planes, and the only $O_h$-invariant linear cone speed is
-  $0$ (V142, extremal-ray proof, exact).
+  commutator (V120/V121), and **frame averaging over the ten generators is
+  exactly blind to the anisotropy**: rebuilt in four random $\mathrm{SO}(10)$
+  frames the node gap moves by $1.8\times10^{-15}$, the anisotropy by $0$, the
+  tangent commutators stay at the noise floor — all momentum dependence lives
+  in the sub-site factor of the Kronecker bond layer (V142).
 - **Unification (W4/F5).** In the standard normalisation $\alpha = g^2/4\pi$,
   running $\alpha_{10} = 1/25$ down gives $\alpha_2(M_Z) = 0.0086$ and an
   SU(3) Landau pole; the desert solution (three $10\oplus\overline{10}$ pairs
