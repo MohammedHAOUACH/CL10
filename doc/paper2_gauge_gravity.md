@@ -3,6 +3,8 @@
 **Mohammed Haouach**
 *Independent researcher; correspondence: haouach.mohammed@gmail.com*
 
+**Keywords.** lattice gauge theory; Gauss constraint; area law; confinement; spin-2 lattice field; causal automaton.
+
 ---
 
 ## Abstract

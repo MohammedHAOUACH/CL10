@@ -3,6 +3,8 @@
 **Mohammed Haouach**
 *Independent researcher; correspondence: haouach.mohammed@gmail.com*
 
+**Keywords.** Clifford algebra; quantum cellular automaton; Spin(10) grand unification; anomaly cancellation; exact unitarity; causal dynamics; fermion doubling; lattice spacing.
+
 ---
 
 ## Abstract

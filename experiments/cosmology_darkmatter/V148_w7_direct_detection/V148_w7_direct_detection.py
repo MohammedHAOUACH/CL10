@@ -108,7 +108,7 @@ def main():
     n_excl = sum(1 for c in cands if c["sigma_cm2"] > LZ_BOUND)
     checks.append(("T2 as portal strengths, the bond numbers give sigma_SI "
                    "from %.1e to %.1e cm^2: %d of %d candidates exceed the "
-                   "LZ-class bound %.0e cm^2; only the inverted V75 portal "
+                   "LZ-class bound %.1e cm^2; only the inverted V75 portal "
                    "(%.1e) sits below it"
                    % (min(c["sigma_cm2"] for c in cands),
                       max(c["sigma_cm2"] for c in cands), n_excl, len(cands),
@@ -150,7 +150,7 @@ def main():
         "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (W7/F6). With V88's "
         "formula (regression to %.0e), every bond number of the layer read "
         "as the Higgs-portal strength predicts sigma_SI = %s cm^2 - %d of "
-        "%d exceed the LZ-class bound %.0e cm^2. The portal strength the "
+        "%d exceed the LZ-class bound %.1e cm^2. The portal strength the "
         "relic itself needs (kappa = %.4f) predicts %.2e cm^2, %s the bound. "
         "The only portal that survives both the relic and direct detection "
         "is the V75 pair portal with its FITTED lambda_* = %.2e (sigma_SI = "

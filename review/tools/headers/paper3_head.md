@@ -3,6 +3,8 @@
 **Mohammed Haouach**
 *Independent researcher; correspondence: haouach.mohammed@gmail.com*
 
+**Keywords.** coupling unification; proton decay; dark matter; neutrino mass; loop factor; provenance audit; falsifiability.
+
 ---
 
 ## Abstract

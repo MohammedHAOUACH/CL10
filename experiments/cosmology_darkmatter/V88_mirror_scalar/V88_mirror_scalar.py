@@ -217,7 +217,7 @@ def main():
         f"invisible ss -> h h*: Omega h^2 = 0.120 then needs "
         f"lam = {lam_Z2:.2e}, predicting sigma_SI = "
         f"{sig_SI_V1:.2e} cm^2 - ABOVE the LZ-class bound "
-        f"{LZ_BOUND:.0e}: the EXACT-Z2 version of the named fix is "
+        f"{LZ_BOUND:.1e}: the EXACT-Z2 version of the named fix is "
         f"EXCLUDED by direct detection. The V75 numbers (lam_* = "
         f"{lam_star:.1e}, sigma_SI = {sig_SI_V2:.1e} cm^2, below "
         f"reach) hold ONLY with the fermion-pair portal V2, which "
