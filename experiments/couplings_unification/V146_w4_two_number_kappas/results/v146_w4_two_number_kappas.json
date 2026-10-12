@@ -1,0 +1,194 @@
+{
+ "experiment": "V146_w4_two_number_kappas",
+ "backend": "numpy",
+ "data": {
+  "classes": [
+   [
+    [
+     -3.0,
+     -0.666667
+    ],
+    3
+   ],
+   [
+    [
+     -3.0,
+     -0.5
+    ],
+    2
+   ],
+   [
+    [
+     1.0,
+     -0.0
+    ],
+    1
+   ],
+   [
+    [
+     1.0,
+     0.166667
+    ],
+    6
+   ],
+   [
+    [
+     1.0,
+     0.333333
+    ],
+    3
+   ],
+   [
+    [
+     5.0,
+     1.0
+    ],
+    1
+   ]
+  ],
+  "theta_star": 1.730784,
+  "superexchange_per_class": [
+   0.000161,
+   -0.130038,
+   -0.253431,
+   0.127066,
+   0.00128,
+   -0.25321
+  ],
+  "broken_flux_per_class": [
+   32.0,
+   36.0,
+   40.0,
+   28.0,
+   32.0,
+   40.0
+  ],
+  "cartan_shift_per_class": [
+   0.0,
+   -0.0,
+   0.0,
+   0.0,
+   -0.0,
+   0.0
+  ],
+  "mu_max": 5.551115123125783e-17,
+  "joint": {
+   "A": 1085.96741,
+   "B": 34.409147,
+   "C": -0.0,
+   "residual": 3.459004729985459,
+   "n_desert": 0,
+   "per_n": [
+    {
+     "n": 3,
+     "z0": 1123.3473,
+     "in_desert": false,
+     "min_threshold": -1084.7969,
+     "max_threshold": 2224.0567
+    },
+    {
+     "n": 4,
+     "z0": 1126.8825,
+     "in_desert": false,
+     "min_threshold": -2182.7074,
+     "max_threshold": 2227.5919
+    },
+    {
+     "n": 5,
+     "z0": 1129.0036,
+     "in_desert": false,
+     "min_threshold": -1759.8715,
+     "max_threshold": 2229.713
+    },
+    {
+     "n": 6,
+     "z0": 1130.4177,
+     "in_desert": false,
+     "min_threshold": -2179.1722,
+     "max_threshold": 2231.1271
+    },
+    {
+     "n": 7,
+     "z0": 1131.4277,
+     "in_desert": false,
+     "min_threshold": -1960.0073,
+     "max_threshold": 2232.1372
+    },
+    {
+     "n": 8,
+     "z0": 1132.1853,
+     "in_desert": false,
+     "min_threshold": -2177.4046,
+     "max_threshold": 2232.8947
+    },
+    {
+     "n": 9,
+     "z0": 1132.7745,
+     "in_desert": false,
+     "min_threshold": -2043.9648,
+     "max_threshold": 2233.4839
+    },
+    {
+     "n": 10,
+     "z0": 1133.2458,
+     "in_desert": false,
+     "min_threshold": -2176.344,
+     "max_threshold": 2233.9553
+    },
+    {
+     "n": 11,
+     "z0": 1133.6315,
+     "in_desert": false,
+     "min_threshold": -2086.7258,
+     "max_threshold": 2234.3409
+    },
+    {
+     "n": 12,
+     "z0": 1133.9529,
+     "in_desert": false,
+     "min_threshold": -2175.637,
+     "max_threshold": 2234.6623
+    }
+   ]
+  },
+  "best_r2_two_number": 0.3007,
+  "best_fit": {
+   "n": 4,
+   "AB": [
+    15.734,
+    0.1336
+   ]
+  },
+  "v96_regression_max_residual": 0.000268679514661585
+ },
+ "checks": [
+  {
+   "name": "T1a 6 fragment classes with multiplicities [3, 2, 1, 6, 3, 1], theta* = 1.730784",
+   "pass": true
+  },
+  {
+   "name": "T2 the broken flux recomputed here [32.0, 36.0, 40.0, 28.0, 32.0, 40.0] equals V137's stored per-class values [32.0, 36.0, 40.0, 28.0, 32.0, 40.0] to 2.8e-14",
+   "pass": true
+  },
+  {
+   "name": "T3a the superexchange pattern loaded from V145: [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (V145 verdict PASS)",
+   "pass": true
+  },
+  {
+   "name": "T3b the V101 ground state (E0 = -5802.3982 eta, degeneracy 6, matching V101's stored E0 = -5802.3982) carries bond flux mu^A with max |mu| = 5.6e-17 - the Gauss law's zero - so the Cartan class shift F_s is identically zero (per class [0.0, -0.0, 0.0, 0.0, -0.0, 0.0])",
+   "pass": true
+  },
+  {
+   "name": "T4 the joint meeting with ONE (A, B, C) = (1085.9674, 34.4091, -0.0000) across all node counts leaves residual 3.459e+00 and keeps every threshold in the desert for 0/10 node counts",
+   "pass": true
+  },
+  {
+   "name": "T5 the meeting equations assembled here reproduce V96's ten exact closures at its fitted (z0, kappa_s) to 2.7e-04; the two-number combination (kappa~, K) explains at best R^2 = 0.3007 of the variance of V96's fitted kappa_s (best n = 4, (A,B) = [15.734, 0.1336])",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "pass": true,
+ "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE W4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 6e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
+ "wall_s": 63.4288272857666
+}

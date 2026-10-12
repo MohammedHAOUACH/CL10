@@ -1,0 +1,120 @@
+{
+ "experiment": "V148_w7_direct_detection",
+ "data": {
+  "mu_red_GeV": 0.9316168507055577,
+  "LZ_bound_cm2": 1.5e-47,
+  "candidates": [
+   {
+    "name": "V96 kappa_singlet (n = 3)",
+    "lam": 9.1859,
+    "sigma_cm2": 3.3356e-42,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 4)",
+    "lam": 4.3903,
+    "sigma_cm2": 7.6194e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 5)",
+    "lam": 5.6768,
+    "sigma_cm2": 1.2739e-42,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 6)",
+    "lam": 4.8195,
+    "sigma_cm2": 9.182e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 7)",
+    "lam": 4.2079,
+    "sigma_cm2": 6.9995e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 8)",
+    "lam": 4.0555,
+    "sigma_cm2": 6.5016e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 9)",
+    "lam": 2.1589,
+    "sigma_cm2": 1.8425e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 10)",
+    "lam": 3.265,
+    "sigma_cm2": 4.2141e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 11)",
+    "lam": 3.1466,
+    "sigma_cm2": 3.914e-43,
+    "excluded": true
+   },
+   {
+    "name": "V96 kappa_singlet (n = 12)",
+    "lam": 2.6887,
+    "sigma_cm2": 2.8577e-43,
+    "excluded": true
+   },
+   {
+    "name": "V145 superexchange kappa~",
+    "lam": -0.253431,
+    "sigma_cm2": 2.5389e-45,
+    "excluded": true
+   },
+   {
+    "name": "V137 broken flux K",
+    "lam": 40.0,
+    "sigma_cm2": 6.3249e-41,
+    "excluded": true
+   },
+   {
+    "name": "V103 junction ratio r",
+    "lam": 1.914172,
+    "sigma_cm2": 1.4484e-43,
+    "excluded": true
+   },
+   {
+    "name": "V75 pair portal lambda_*",
+    "lam": 0.000353,
+    "sigma_cm2": 4.9303e-51,
+    "excluded": false
+   },
+   {
+    "name": "V88 exact-Z2 portal",
+    "lam": 0.130695,
+    "sigma_cm2": 6.7523e-46,
+    "excluded": true
+   }
+  ],
+  "n_excluded": 14,
+  "kappa_required_by_relic": 0.329592,
+  "sigma_SI_required_cm2": 4.2942e-45
+ },
+ "checks": [
+  {
+   "name": "T1 regression on V88: sigma_SI(lambda_*) = 4.930e-51 cm^2 (stored 4.930e-51, rel 0.0e+00) and sigma_SI(lambda_Z2) = 6.752e-46 cm^2 (stored 6.752e-46, rel 0.0e+00)",
+   "pass": true
+  },
+  {
+   "name": "T2 as portal strengths, the bond numbers give sigma_SI from 4.9e-51 to 6.3e-41 cm^2: 14 of 15 candidates exceed the LZ-class bound 2e-47 cm^2; only the inverted V75 portal (4.9e-51) sits below it",
+   "pass": true
+  },
+  {
+   "name": "T3 the relic (V123/V147) needs sigma v = 1.98e-26 cm^3/s; read as a bond-strength portal sigma v = kappa^4/(16 pi^3 m^2) that is kappa = 0.3296, whose sigma_SI = 4.29e-45 cm^2 is ABOVE the LZ-class bound",
+   "pass": true
+  }
+ ],
+ "verdict": "PASS",
+ "pass": true,
+ "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (W7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.8e-46] cm^2 - 14 of 15 exceed the LZ-class bound 2e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3296) predicts 4.29e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. W7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
+ "wall_s": 6.343892335891724
+}

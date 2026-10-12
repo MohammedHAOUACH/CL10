@@ -1,6 +1,6 @@
 # The verification program
 
-108 experiments, grouped by the part of `doc/final_publication.md` they validate.
+112 experiments, grouped by the part of `doc/final_publication.md` they validate.
 Each experiment is a 0-parameter check: it recomputes a published number from the
 construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time`)
 to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
@@ -141,6 +141,8 @@ the reason recorded in `../archive/README.md`.
 | `V122_w4_class_invariant_kappas` | class invariants as the source of the $\kappa_s$: excluded |
 | `V133_desert_pi64` | the desert re-closure at $\alpha_X = \pi/64$ leaves the desert |
 | `V137_w4_broken_flux` | the broken-generator flux is a per-class bond number, but not the one that closes |
+| `V145_w4_superexchange_kappas` | the second-order bond-current (superexchange) shift is a class-constant $\tilde\kappa_s$ but misses the meeting: residual 0.577, 0/10 desert closures |
+| `V146_w4_two_number_kappas` | superexchange + broken flux + ground-state Cartan shift solved jointly over all node counts: residual 3.46, $R^2 \le 0.30$ — the supplier space is exhausted |
 
 ### `neutrino`
 | id | verdict |
@@ -163,6 +165,8 @@ the reason recorded in `../archive/README.md`.
 | `V112_w7_dark_u1_portal` | the dark-$\mathrm{U}(1)$ portal window is empty |
 | `V123_w7_relic_abundance` | the relic abundance computed from the couplings the root supplies |
 | `V124_w7_z2_gradings` | the exact $\mathbb{Z}_2$ gradings of the step: the mirror is the pseudoscalar |
+| `V147_w7_relic_from_bond` | every bond number of the scalar class as annihilation strength: $\Omega h^2$ lands at $10^{-12}$–$10^{-3}$ with $D$, never $0.120$ |
+| `V148_w7_direct_detection` | the same numbers as Higgs-portal strength: $\sigma_{\rm SI} = 2.5\times10^{-45}$–$6.3\times10^{-41}$ cm$^2$, all above the LZ-class bound — the bond-strength portal is excluded |
 
 ### `baryogenesis`
 | id | verdict |

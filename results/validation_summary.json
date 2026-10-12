@@ -1,6 +1,6 @@
 {
-  "n": 108,
-  "n_pass": 108,
+  "n": 112,
+  "n_pass": 112,
   "pass": true,
   "u10": true,
   "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
@@ -49731,6 +49731,966 @@
           "max_commutator": 9.31975560410447e-12
         },
         "wall_time": 9.265195846557617
+      }
+    },
+    {
+      "id": "V145_w4_superexchange_kappas",
+      "dir": "V145_w4_superexchange_kappas",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE W4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": null,
+      "verdict": {
+        "experiment": "V145_w4_superexchange_kappas",
+        "backend": "numpy",
+        "data": {
+          "classes": [
+            [
+              [
+                -3.0,
+                -0.666667
+              ],
+              3
+            ],
+            [
+              [
+                -3.0,
+                -0.5
+              ],
+              2
+            ],
+            [
+              [
+                1.0,
+                -0.0
+              ],
+              1
+            ],
+            [
+              [
+                1.0,
+                0.166667
+              ],
+              6
+            ],
+            [
+              [
+                1.0,
+                0.333333
+              ],
+              3
+            ],
+            [
+              [
+                5.0,
+                1.0
+              ],
+              1
+            ]
+          ],
+          "theta_star": 1.730784,
+          "channel_casimirs": [
+            45.0,
+            85.0,
+            117.0
+          ],
+          "channel_dims": [
+            16,
+            144,
+            560
+          ],
+          "channel_energies": [
+            -32.0,
+            -12.0,
+            4.0
+          ],
+          "denominators": [
+            0.0,
+            20.0,
+            36.0
+          ],
+          "superexchange_per_class": [
+            0.000161,
+            -0.130038,
+            -0.253431,
+            0.127066,
+            0.00128,
+            -0.25321
+          ],
+          "superexchange_per_weight": [
+            -0.25321,
+            -0.253431,
+            0.125679,
+            0.128472,
+            0.128605,
+            0.126135,
+            0.126348,
+            0.000989,
+            0.127156,
+            0.002302,
+            0.000548,
+            -0.000622,
+            0.002613,
+            -0.00151,
+            -0.129241,
+            -0.130835
+          ],
+          "meeting": [
+            {
+              "n": 3,
+              "residual": 0.5769302090468387,
+              "z0": 22.7023,
+              "A": 7.1054,
+              "kappa_s": [
+                0.0045,
+                -3.6459,
+                -7.1054,
+                3.5625,
+                0.0359,
+                -7.0992
+              ],
+              "thresholds_in_desert": false,
+              "min_threshold": 10.3244,
+              "max_threshold": 35.2437
+            },
+            {
+              "n": 4,
+              "residual": 1.0254328338009673,
+              "z0": 26.1083,
+              "A": 4.5034,
+              "kappa_s": [
+                0.0029,
+                -2.3107,
+                -4.5034,
+                2.2579,
+                0.0227,
+                -4.4994
+              ],
+              "thresholds_in_desert": false,
+              "min_threshold": 14.0817,
+              "max_threshold": 37.9495
+            },
+            {
+              "n": 5,
+              "residual": 1.4739354585551034,
+              "z0": 28.1519,
+              "A": 2.9421,
+              "kappa_s": [
+                0.0019,
+                -1.5096,
+                -2.9421,
+                1.4751,
+                0.0149,
+                -2.9395
+              ],
+              "thresholds_in_desert": false,
+              "min_threshold": 19.0371,
+              "max_threshold": 34.1906
+            },
+            {
+              "n": 6,
+              "residual": 1.9224380833092447,
+              "z0": 29.5142,
+              "A": 1.9013,
+              "kappa_s": [
+                0.0012,
+                -0.9756,
+                -1.9013,
+                0.9533,
+                0.0096,
+                -1.8996
+              ],
+              "thresholds_in_desert": false,
+              "min_threshold": 21.4016,
+              "max_threshold": 33.556
+            },
+            {
+              "n": 7,
+              "residual": 2.3709407080633658,
+              "z0": 30.4874,
+              "A": 1.1578,
+              "kappa_s": [
+                0.0007,
+                -0.5941,
+                -1.1578,
+                0.5805,
+                0.0058,
+                -1.1568
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 23.608,
+              "max_threshold": 32.0716
+            },
+            {
+              "n": 8,
+              "residual": 2.8194433328174973,
+              "z0": 31.2172,
+              "A": 0.6002,
+              "kappa_s": [
+                0.0004,
+                -0.308,
+                -0.6002,
+                0.3009,
+                0.003,
+                -0.5997
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 25.0615,
+              "max_threshold": 31.3593
+            },
+            {
+              "n": 9,
+              "residual": 3.267945957571638,
+              "z0": 31.7849,
+              "A": 0.1665,
+              "kappa_s": [
+                0.0001,
+                -0.0855,
+                -0.1665,
+                0.0835,
+                0.0008,
+                -0.1664
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 26.2916,
+              "max_threshold": 30.607
+            },
+            {
+              "n": 10,
+              "residual": 3.7164485823257487,
+              "z0": 32.239,
+              "A": -0.1804,
+              "kappa_s": [
+                -0.0001,
+                0.0926,
+                0.1804,
+                -0.0904,
+                -0.0009,
+                0.1802
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 26.8957,
+              "max_threshold": 30.7622
+            },
+            {
+              "n": 11,
+              "residual": 4.164951207079921,
+              "z0": 32.6106,
+              "A": -0.4643,
+              "kappa_s": [
+                -0.0003,
+                0.2382,
+                0.4643,
+                -0.2328,
+                -0.0023,
+                0.4639
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 27.1249,
+              "max_threshold": 31.4174
+            },
+            {
+              "n": 12,
+              "residual": 4.613453831834032,
+              "z0": 32.9202,
+              "A": -0.7008,
+              "kappa_s": [
+                -0.0004,
+                0.3596,
+                0.7008,
+                -0.3514,
+                -0.0035,
+                0.7002
+              ],
+              "thresholds_in_desert": true,
+              "min_threshold": 27.316,
+              "max_threshold": 31.9634
+            }
+          ],
+          "best": {
+            "n": 3,
+            "residual": 0.5769302090468387,
+            "z0": 22.7023,
+            "A": 7.1054,
+            "kappa_s": [
+              0.0045,
+              -3.6459,
+              -7.1054,
+              3.5625,
+              0.0359,
+              -7.0992
+            ],
+            "thresholds_in_desert": false,
+            "min_threshold": 10.3244,
+            "max_threshold": 35.2437
+          },
+          "n_closed": 0,
+          "against_v96_fit": [
+            {
+              "n": 3,
+              "pearson_r": -0.0479,
+              "R2_proportional": -0.2134,
+              "kappas": [
+                -4.5312,
+                -5.7516,
+                9.1859,
+                7.6557,
+                9.1222,
+                5.848
+              ]
+            },
+            {
+              "n": 4,
+              "pearson_r": 0.5458,
+              "R2_proportional": -1.225,
+              "kappas": [
+                4.2669,
+                -2.2359,
+                4.3903,
+                7.3342,
+                4.3267,
+                1.6893
+              ]
+            },
+            {
+              "n": 5,
+              "pearson_r": -0.0915,
+              "R2_proportional": -0.1436,
+              "kappas": [
+                -2.1212,
+                -3.0535,
+                5.6768,
+                2.5652,
+                5.6132,
+                1.7089
+              ]
+            },
+            {
+              "n": 6,
+              "pearson_r": -0.1167,
+              "R2_proportional": -0.0938,
+              "kappas": [
+                -1.5654,
+                -2.379,
+                4.8195,
+                1.2659,
+                4.7559,
+                0.6675
+              ]
+            },
+            {
+              "n": 7,
+              "pearson_r": -0.1674,
+              "R2_proportional": -0.0244,
+              "kappas": [
+                -1.4577,
+                -2.3288,
+                4.2079,
+                0.4808,
+                4.1443,
+                0.4989
+              ]
+            },
+            {
+              "n": 8,
+              "pearson_r": -0.1824,
+              "R2_proportional": 0.0222,
+              "kappas": [
+                -1.3107,
+                -1.1195,
+                4.0555,
+                -0.907,
+                3.9919,
+                -1.2919
+              ]
+            },
+            {
+              "n": 9,
+              "pearson_r": 0.2391,
+              "R2_proportional": -0.3889,
+              "kappas": [
+                2.0355,
+                -1.5546,
+                2.1589,
+                0.8428,
+                2.0953,
+                -0.2579
+              ]
+            },
+            {
+              "n": 10,
+              "pearson_r": -0.2446,
+              "R2_proportional": 0.0595,
+              "kappas": [
+                -1.0472,
+                -1.3602,
+                3.265,
+                -1.4359,
+                3.2014,
+                -1.0284
+              ]
+            },
+            {
+              "n": 11,
+              "pearson_r": -0.2993,
+              "R2_proportional": 0.0657,
+              "kappas": [
+                -1.0357,
+                -1.8719,
+                3.1466,
+                -1.7123,
+                2.49,
+                -1.0164
+              ]
+            },
+            {
+              "n": 12,
+              "pearson_r": -0.3005,
+              "R2_proportional": 0.0762,
+              "kappas": [
+                -0.8551,
+                -1.6687,
+                2.6887,
+                -1.6733,
+                2.625,
+                -0.6389
+              ]
+            }
+          ],
+          "best_r2": 0.0762,
+          "v96_regression_max_residual": 0.000268679514661585
+        },
+        "checks": [
+          {
+            "name": "T1 regression on V96: 6 fragment classes with multiplicities [3, 2, 1, 6, 3, 1], theta* = 1.730784 rad from the V65 physical selective root",
+            "pass": true
+          },
+          {
+            "name": "T2 the broken basis: 32 generators orthonormal to 1.1e-15 in the Tr/32 pairing, Hermitian to 0.0e+00, complement of the 13-dimensional unbroken centralizer",
+            "pass": true
+          },
+          {
+            "name": "T3 the pair space 45 x 16 decomposes into 3 Casimir clusters [np.float64(45.0), np.float64(85.0), np.float64(117.0)] with dimensions [16, 144, 560] (against 16+144+560 = 720 and C2 = 45, 85, 117 predicted by the D5 Casimirs at C2(45) = 64); projectors resolve the identity to 1.1e-15; C2(45) = 64 imposed to 0.0e+00",
+            "pass": true
+          },
+          {
+            "name": "T4 the superexchange shift kappa~_s is class-constant to 4.1e-03 (relative to the class scale 0.253): per class [0.000161, -0.130038, -0.253431, 0.127066, 0.00128, -0.25321] (spread within a class 4.1e-03); 6 distinct values over the six classes - the channel CG weights depend on the pair state, not only the class, so the class-constant part is the mean over the class",
+            "pass": true
+          },
+          {
+            "name": "T5 the meeting test: kappa_s = A kappa~_s leaves a residual of 5.769e-01 (best over n = 3..12: n = 3, A = 7.1054, z0 = 22.7023, thresholds in the desert: False); 0 of 10 node counts close exactly with every threshold in the desert",
+            "pass": true
+          },
+          {
+            "name": "T6 the meeting equations assembled here reproduce V96's ten exact closures at its fitted (z0, kappa_s) to 2.7e-04 (its stored values are rounded to 1e-4); the superexchange pattern against the V96 fits gives best R^2 0.0762",
+            "pass": true
+          }
+        ],
+        "verdict": "PASS",
+        "pass": true,
+        "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE W4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
+        "wall_s": 6.902963399887085
+      }
+    },
+    {
+      "id": "V146_w4_two_number_kappas",
+      "dir": "V146_w4_two_number_kappas",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE W4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 6e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": null,
+      "verdict": {
+        "experiment": "V146_w4_two_number_kappas",
+        "backend": "numpy",
+        "data": {
+          "classes": [
+            [
+              [
+                -3.0,
+                -0.666667
+              ],
+              3
+            ],
+            [
+              [
+                -3.0,
+                -0.5
+              ],
+              2
+            ],
+            [
+              [
+                1.0,
+                -0.0
+              ],
+              1
+            ],
+            [
+              [
+                1.0,
+                0.166667
+              ],
+              6
+            ],
+            [
+              [
+                1.0,
+                0.333333
+              ],
+              3
+            ],
+            [
+              [
+                5.0,
+                1.0
+              ],
+              1
+            ]
+          ],
+          "theta_star": 1.730784,
+          "superexchange_per_class": [
+            0.000161,
+            -0.130038,
+            -0.253431,
+            0.127066,
+            0.00128,
+            -0.25321
+          ],
+          "broken_flux_per_class": [
+            32.0,
+            36.0,
+            40.0,
+            28.0,
+            32.0,
+            40.0
+          ],
+          "cartan_shift_per_class": [
+            0.0,
+            -0.0,
+            0.0,
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "mu_max": 5.551115123125783e-17,
+          "joint": {
+            "A": 1085.96741,
+            "B": 34.409147,
+            "C": -0.0,
+            "residual": 3.459004729985459,
+            "n_desert": 0,
+            "per_n": [
+              {
+                "n": 3,
+                "z0": 1123.3473,
+                "in_desert": false,
+                "min_threshold": -1084.7969,
+                "max_threshold": 2224.0567
+              },
+              {
+                "n": 4,
+                "z0": 1126.8825,
+                "in_desert": false,
+                "min_threshold": -2182.7074,
+                "max_threshold": 2227.5919
+              },
+              {
+                "n": 5,
+                "z0": 1129.0036,
+                "in_desert": false,
+                "min_threshold": -1759.8715,
+                "max_threshold": 2229.713
+              },
+              {
+                "n": 6,
+                "z0": 1130.4177,
+                "in_desert": false,
+                "min_threshold": -2179.1722,
+                "max_threshold": 2231.1271
+              },
+              {
+                "n": 7,
+                "z0": 1131.4277,
+                "in_desert": false,
+                "min_threshold": -1960.0073,
+                "max_threshold": 2232.1372
+              },
+              {
+                "n": 8,
+                "z0": 1132.1853,
+                "in_desert": false,
+                "min_threshold": -2177.4046,
+                "max_threshold": 2232.8947
+              },
+              {
+                "n": 9,
+                "z0": 1132.7745,
+                "in_desert": false,
+                "min_threshold": -2043.9648,
+                "max_threshold": 2233.4839
+              },
+              {
+                "n": 10,
+                "z0": 1133.2458,
+                "in_desert": false,
+                "min_threshold": -2176.344,
+                "max_threshold": 2233.9553
+              },
+              {
+                "n": 11,
+                "z0": 1133.6315,
+                "in_desert": false,
+                "min_threshold": -2086.7258,
+                "max_threshold": 2234.3409
+              },
+              {
+                "n": 12,
+                "z0": 1133.9529,
+                "in_desert": false,
+                "min_threshold": -2175.637,
+                "max_threshold": 2234.6623
+              }
+            ]
+          },
+          "best_r2_two_number": 0.3007,
+          "best_fit": {
+            "n": 4,
+            "AB": [
+              15.734,
+              0.1336
+            ]
+          },
+          "v96_regression_max_residual": 0.000268679514661585
+        },
+        "checks": [
+          {
+            "name": "T1a 6 fragment classes with multiplicities [3, 2, 1, 6, 3, 1], theta* = 1.730784",
+            "pass": true
+          },
+          {
+            "name": "T2 the broken flux recomputed here [32.0, 36.0, 40.0, 28.0, 32.0, 40.0] equals V137's stored per-class values [32.0, 36.0, 40.0, 28.0, 32.0, 40.0] to 2.8e-14",
+            "pass": true
+          },
+          {
+            "name": "T3a the superexchange pattern loaded from V145: [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (V145 verdict PASS)",
+            "pass": true
+          },
+          {
+            "name": "T3b the V101 ground state (E0 = -5802.3982 eta, degeneracy 6, matching V101's stored E0 = -5802.3982) carries bond flux mu^A with max |mu| = 5.6e-17 - the Gauss law's zero - so the Cartan class shift F_s is identically zero (per class [0.0, -0.0, 0.0, 0.0, -0.0, 0.0])",
+            "pass": true
+          },
+          {
+            "name": "T4 the joint meeting with ONE (A, B, C) = (1085.9674, 34.4091, -0.0000) across all node counts leaves residual 3.459e+00 and keeps every threshold in the desert for 0/10 node counts",
+            "pass": true
+          },
+          {
+            "name": "T5 the meeting equations assembled here reproduce V96's ten exact closures at its fitted (z0, kappa_s) to 2.7e-04; the two-number combination (kappa~, K) explains at best R^2 = 0.3007 of the variance of V96's fitted kappa_s (best n = 4, (A,B) = [15.734, 0.1336])",
+            "pass": true
+          }
+        ],
+        "verdict": "PASS",
+        "pass": true,
+        "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE W4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 6e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
+        "wall_s": 63.4288272857666
+      }
+    },
+    {
+      "id": "V147_w7_relic_from_bond",
+      "dir": "V147_w7_relic_from_bond",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "THE BOND COUPLING DOES NOT SET THE RELIC ABUNDANCE: every candidate kappa_singlet - the ten V96 values that close the meeting ([9.186, 4.39, 5.677, 4.819, 4.208, 4.056, 2.159, 3.265, 3.147, 2.689]), the superexchange -0.2534, the broken flux 40, the junction ratio 1.914 - gives, through alpha = kappa^2/4pi and sigma v = alpha^2/(pi m^2) with D = 1485, an Omega h^2 between 9.55e-13 and 0.000759; the closest is root g10^2/4pi at 0.0008 (|dOmega| = 0.119). The measured 0.120 needs alpha_eff = 0.0086 without D or 0.00022 with D - no bond number of the layer lands there. W7's portal remains named, not derived.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": null,
+      "verdict": {
+        "experiment": "V147_w7_relic_from_bond",
+        "data": {
+          "m_DM_GeV": 118.4844282467664,
+          "D": 1485.2658492995783,
+          "alpha_required": 0.008644570151925513,
+          "alpha_required_with_D": 0.00022430621410206408,
+          "singlet_class_index": 2,
+          "candidates": [
+            {
+              "name": "V96 kappa_singlet (n = 3)",
+              "kappa": 9.1859,
+              "alpha": 6.714807,
+              "Omega": 0.0,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 4)",
+              "kappa": 4.3903,
+              "alpha": 1.533835,
+              "Omega": 6e-06,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 5)",
+              "kappa": 5.6768,
+              "alpha": 2.564468,
+              "Omega": 2e-06,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 6)",
+              "kappa": 4.8195,
+              "alpha": 1.848392,
+              "Omega": 4e-06,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 7)",
+              "kappa": 4.2079,
+              "alpha": 1.409032,
+              "Omega": 7e-06,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 8)",
+              "kappa": 4.0555,
+              "alpha": 1.308817,
+              "Omega": 8e-06,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 9)",
+              "kappa": 2.1589,
+              "alpha": 0.370899,
+              "Omega": 9.1e-05,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 10)",
+              "kappa": 3.265,
+              "alpha": 0.848314,
+              "Omega": 1.8e-05,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 11)",
+              "kappa": 3.1466,
+              "alpha": 0.787904,
+              "Omega": 2.1e-05,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V96 kappa_singlet (n = 12)",
+              "kappa": 2.6887,
+              "alpha": 0.575274,
+              "Omega": 3.9e-05,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V145 superexchange kappa~",
+              "kappa": -0.253431,
+              "alpha": 0.005111,
+              "Omega": 0.325363,
+              "Omega_D": 0.000306
+            },
+            {
+              "name": "V137 broken flux K",
+              "kappa": 40.0,
+              "alpha": 127.323954,
+              "Omega": 0.0,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "V103 junction ratio r",
+              "kappa": 1.914172,
+              "alpha": 0.291576,
+              "Omega": 0.000144,
+              "Omega_D": 0.0
+            },
+            {
+              "name": "loop factor 1/16pi",
+              "kappa": null,
+              "alpha": 0.019894,
+              "Omega": 0.024564,
+              "Omega_D": 2.2e-05
+            },
+            {
+              "name": "root g10^2/4pi",
+              "kappa": null,
+              "alpha": 0.003183,
+              "Omega": 0.79773,
+              "Omega_D": 0.000759
+            }
+          ],
+          "n_hits": 0,
+          "best": {
+            "name": "root g10^2/4pi",
+            "kappa": null,
+            "alpha": 0.003183,
+            "Omega": 0.79773,
+            "Omega_D": 0.000759
+          }
+        },
+        "checks": [
+          {
+            "name": "T0 regression on V123: Omega h^2 = 0.080 at 100 GeV with sigma v = 3e-26, and alpha_eff = 0.0086 required at the ladder mass m = 118.5 GeV",
+            "pass": true
+          },
+          {
+            "name": "T1 the nodal-plane enhancement recomputed here: 12 nodes, D = 1485.3, matching V123's stored 1485.3 to 2.0e-08",
+            "pass": true
+          },
+          {
+            "name": "T2 the singlet fragment class (X, Y) = (1, 0) is class index 2 of six: multiplicity 1, K_singlet = 40.0, kappa~_singlet = -0.2534",
+            "pass": true
+          },
+          {
+            "name": "T3 the relic for every candidate: 15 candidates evaluated; closest to 0.120 with the doubler enhancement: root g10^2/4pi (alpha = 0.0032, Omega h^2 = 0.0008, |dOmega| = 0.1192); 0 candidates hit within 0.01; the measured abundance needs alpha_eff = 0.0086 without D, 0.00022 with D",
+            "pass": true
+          }
+        ],
+        "verdict": "PASS",
+        "pass": true,
+        "status": "THE BOND COUPLING DOES NOT SET THE RELIC ABUNDANCE: every candidate kappa_singlet - the ten V96 values that close the meeting ([9.186, 4.39, 5.677, 4.819, 4.208, 4.056, 2.159, 3.265, 3.147, 2.689]), the superexchange -0.2534, the broken flux 40, the junction ratio 1.914 - gives, through alpha = kappa^2/4pi and sigma v = alpha^2/(pi m^2) with D = 1485, an Omega h^2 between 9.55e-13 and 0.000759; the closest is root g10^2/4pi at 0.0008 (|dOmega| = 0.119). The measured 0.120 needs alpha_eff = 0.0086 without D or 0.00022 with D - no bond number of the layer lands there. W7's portal remains named, not derived.",
+        "wall_s": 16.56684923171997
+      }
+    },
+    {
+      "id": "V148_w7_direct_detection",
+      "dir": "V148_w7_direct_detection",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": true,
+      "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (W7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.8e-46] cm^2 - 14 of 15 exceed the LZ-class bound 2e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3296) predicts 4.29e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. W7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": null,
+      "verdict": {
+        "experiment": "V148_w7_direct_detection",
+        "data": {
+          "mu_red_GeV": 0.9316168507055577,
+          "LZ_bound_cm2": 1.5e-47,
+          "candidates": [
+            {
+              "name": "V96 kappa_singlet (n = 3)",
+              "lam": 9.1859,
+              "sigma_cm2": 3.3356e-42,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 4)",
+              "lam": 4.3903,
+              "sigma_cm2": 7.6194e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 5)",
+              "lam": 5.6768,
+              "sigma_cm2": 1.2739e-42,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 6)",
+              "lam": 4.8195,
+              "sigma_cm2": 9.182e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 7)",
+              "lam": 4.2079,
+              "sigma_cm2": 6.9995e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 8)",
+              "lam": 4.0555,
+              "sigma_cm2": 6.5016e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 9)",
+              "lam": 2.1589,
+              "sigma_cm2": 1.8425e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 10)",
+              "lam": 3.265,
+              "sigma_cm2": 4.2141e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 11)",
+              "lam": 3.1466,
+              "sigma_cm2": 3.914e-43,
+              "excluded": true
+            },
+            {
+              "name": "V96 kappa_singlet (n = 12)",
+              "lam": 2.6887,
+              "sigma_cm2": 2.8577e-43,
+              "excluded": true
+            },
+            {
+              "name": "V145 superexchange kappa~",
+              "lam": -0.253431,
+              "sigma_cm2": 2.5389e-45,
+              "excluded": true
+            },
+            {
+              "name": "V137 broken flux K",
+              "lam": 40.0,
+              "sigma_cm2": 6.3249e-41,
+              "excluded": true
+            },
+            {
+              "name": "V103 junction ratio r",
+              "lam": 1.914172,
+              "sigma_cm2": 1.4484e-43,
+              "excluded": true
+            },
+            {
+              "name": "V75 pair portal lambda_*",
+              "lam": 0.000353,
+              "sigma_cm2": 4.9303e-51,
+              "excluded": false
+            },
+            {
+              "name": "V88 exact-Z2 portal",
+              "lam": 0.130695,
+              "sigma_cm2": 6.7523e-46,
+              "excluded": true
+            }
+          ],
+          "n_excluded": 14,
+          "kappa_required_by_relic": 0.329592,
+          "sigma_SI_required_cm2": 4.2942e-45
+        },
+        "checks": [
+          {
+            "name": "T1 regression on V88: sigma_SI(lambda_*) = 4.930e-51 cm^2 (stored 4.930e-51, rel 0.0e+00) and sigma_SI(lambda_Z2) = 6.752e-46 cm^2 (stored 6.752e-46, rel 0.0e+00)",
+            "pass": true
+          },
+          {
+            "name": "T2 as portal strengths, the bond numbers give sigma_SI from 4.9e-51 to 6.3e-41 cm^2: 14 of 15 candidates exceed the LZ-class bound 2e-47 cm^2; only the inverted V75 portal (4.9e-51) sits below it",
+            "pass": true
+          },
+          {
+            "name": "T3 the relic (V123/V147) needs sigma v = 1.98e-26 cm^3/s; read as a bond-strength portal sigma v = kappa^4/(16 pi^3 m^2) that is kappa = 0.3296, whose sigma_SI = 4.29e-45 cm^2 is ABOVE the LZ-class bound",
+            "pass": true
+          }
+        ],
+        "verdict": "PASS",
+        "pass": true,
+        "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (W7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.8e-46] cm^2 - 14 of 15 exceed the LZ-class bound 2e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3296) predicts 4.29e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. W7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
+        "wall_s": 6.343892335891724
       }
     },
     {

@@ -335,8 +335,6 @@ Re-running the desert inverse problem at the quantized value with the same conte
 **The verdict on the parameter criterion.** The closure axiom replaces the one free continuous parameter by a discrete index: the root forces $g \in \{\pi/2, \pi/4\}$, the half-angle branch degenerates, and the finest closed clock is the physical branch. A discrete index of the root is not a parameter in the sense of [Paper III Section 5] — the family number $3$ is already an index of the same kind. What the theory loses is empirical: the $n^* = 10$ ladder crossing and the desert threshold ordering were the two places the data spoke to the angle's consequences, and both move. What it gains is structural: an on-site dynamics with **zero continuous unfixed numbers** — a finite algebraic spectrum, a fundamental step of finite order, and the point-doubler defect replaced by an exactly gapless nodal-line network. The claim is scoped: the junction amplitude $r$ ([Paper III Section 2.3]), the split-node set (O9) and the bond-layer couplings $\kappa_s$ ([Paper III Section 3.1]) remain continuous inputs of the *extended* construction, and [Paper III Section 5] counts them. The trade is written into the falsifiers: the quantized theory predicts $\alpha_X = \pi/64 = 0.0491$ at the desert meeting and a ladder crossing beyond $n = 208$; either re-derivation failing refutes the closure axiom, and the implemented irrational angle remains the fallback theory. The falsifiers F1, F3–F7 are angle-independent: anomalies, spectral mirror, $\det U$ and the causal radius hold at both closed angles.
 
 
----
-
 ## Appendix A. The explicit 32-dimensional representation
 
 The ten generators are built on five qubits by the standard symplectic Pauli pattern: for $k = 0,\dots,4$,
@@ -344,6 +342,8 @@ The ten generators are built on five qubits by the standard symplectic Pauli pat
 $$g_{2k} = Y^{\otimes k}\otimes X\otimes I^{\otimes(4-k)},\qquad g_{2k+1} = Y^{\otimes k}\otimes Z\otimes I^{\otimes(4-k)}.$$
 
 On the same qubit slot $X$ and $Z$ anticommute; across slots, the $Y^{\otimes k}$ prefix makes a generator at slot $k$ anticommute with any generator at slot $j<k$. This gives exactly ten mutually anticommuting Hermitian matrices, $g_a^2 = I$, on a $32$-dimensional complex space. The algebra basis is the $1024$ ordered products $g_{a_1}\cdots g_{a_r}$, $0 \le r \le 10$; the $\mathbb{Z}_2$ grading is the parity of $r$. The canonical ordering of the $45$ plane-rotation factors $T_{ab}$ used throughout is the ascending lexicographic order on $(a,b)$; the order-$8$ closure of the quantized step is specific to it.
+
+The construction is verified by a second, independent route: the exact symbolic $\mathrm{Cl}(10,0)$ of a computer-algebra Clifford package, where $e_a^2 = 1$, $\{e_a,e_b\} = 0$ and $w^2 = -1$ hold as identities with no floating-point arithmetic, cross-checked against the numeric $32\times32$ representation. The two agree, so the root is not an artefact of one construction.
 
 
 ---

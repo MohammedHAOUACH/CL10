@@ -19,6 +19,30 @@ def rng(a, b):
     return "\n".join(lines[a - 1:b])
 
 
+# ------------------------------------------------- section boundaries (dynamic)
+def sect_line(title):
+    return next(i + 1 for i, l in enumerate(lines) if l.strip() == title)
+
+
+def body_end(heading_line):
+    """last line before the '---' separator preceding this heading"""
+    sep = next(i for i in range(heading_line - 1, 0, -1)
+               if lines[i - 1].strip() == "---")
+    return sep - 1
+
+
+H10 = sect_line("## 10. The gauged bond layer")
+H12 = sect_line("## 12. The loop factor and the scale ladder")
+H18 = sect_line("## 18. Discussion")
+P1 = (24, body_end(H10))
+P2 = (H10, body_end(H12))
+P3 = (H12, body_end(H18))
+HA = sect_line("## Appendix A. The explicit 32-dimensional representation")
+REF = sect_line("## References")
+HA_END = next(i for i in range(HA + 1, REF)
+              if lines[i - 1].strip() == "---") - 1
+
+
 # ---------------------------------------------------------------- reference list
 ref_start = next(i for i, l in enumerate(lines) if l.strip() == "## References")
 refs = {}
@@ -146,7 +170,7 @@ def build(out_path, head, body_ranges, foot, smap, fmap, tmap, with_appendix):
     order = {}
     body = [rng(a, b) for a, b in body_ranges]
     if with_appendix:
-        body.append(rng(875, 884))
+        body.append(rng(HA, HA_END))
     body = "\n\n".join(body)
     body = renumber_headings(body, smap)
     body = remap_sections(body, smap)
@@ -179,7 +203,7 @@ t1 = {1: "Table 1", 2: "Table 2", 3: f"[{II}, Table 1]",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
       6: f"[{III}, Table 3]", 7: f"[{III}, Table 4]",
       8: f"[{III}, Table 5]"}
-build("doc/paper1_core.md", f"{HDR}/paper1_head.md", [(24, 340)],
+build("doc/paper1_core.md", f"{HDR}/paper1_head.md", [P1],
       f"{HDR}/paper1_foot.md", s1, f1, t1, True)
 
 # Paper II: body = Sections 10-11 (343-482)
@@ -195,7 +219,7 @@ t2 = {1: f"[{I}, Table 1]", 2: f"[{I}, Table 2]", 3: "Table 1",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
       6: f"[{III}, Table 3]", 7: f"[{III}, Table 4]",
       8: f"[{III}, Table 5]"}
-build("doc/paper2_gauge_gravity.md", f"{HDR}/paper2_head.md", [(343, 481)],
+build("doc/paper2_gauge_gravity.md", f"{HDR}/paper2_head.md", [P2],
       f"{HDR}/paper2_foot.md", s2, f2, t2, False)
 
 # Paper III: body = Sections 12-17 (484-849)
@@ -210,5 +234,5 @@ f3.update({13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 19: 7, 20: 8,
 t3 = {1: f"[{I}, Table 1]", 2: f"[{I}, Table 2]",
       3: f"[{II}, Table 1]", 4: "Table 1", 5: "Table 2", 6: "Table 3",
       7: "Table 4", 8: "Table 5"}
-build("doc/paper3_phenomenology.md", f"{HDR}/paper3_head.md", [(484, 848)],
+build("doc/paper3_phenomenology.md", f"{HDR}/paper3_head.md", [P3],
       f"{HDR}/paper3_foot.md", s3, f3, t3, False)

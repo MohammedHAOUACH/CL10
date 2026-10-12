@@ -109,7 +109,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 108 experiments in 12 categories
+├── experiments/              # the verification program: 112 experiments in 12 categories
 │   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -129,7 +129,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 108, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 112, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     └── validation_summary.json   # the full-suite verdict + the hard-tier verdict
@@ -157,7 +157,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 108 in parallel (--jobs N), prints the verdict
+python3 run_validation.py        # runs all 112 in parallel (--jobs N), prints the verdict
 ./run_gpu.sh                     # the full suite on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V142_w9_frame_averaging V141_regular_link_quintet_coupling
                                  # single experiments by exact directory name
@@ -175,7 +175,7 @@ bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the m
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
-**seven falsifiers** (F1–F7). `run_validation.py` runs the **108** experiments
+**seven falsifiers** (F1–F7). `run_validation.py` runs the **112** experiments
 of `experiments/` (12 categories, catalogued in `experiments/README.md`) and
 writes
 
@@ -218,13 +218,22 @@ from measured inputs); **9 open residuals** (O1–O9).
   exactly at $M_X = 1.8\times10^{16}$ GeV but keeps two fitted thresholds; the
   mechanism's own single-angle root meets at $8.9\times10^{14}$ GeV, excluded
   by proton decay (V64–V74); the bond-layer fix closes the meeting for all
-  $n = 3..12$ at the cost of six named $\kappa_i$ (residual 0.005–0.065).
+  $n = 3..12$ at the cost of six named $\kappa_i$ (residual 0.005–0.065); the
+  supplier space is exhausted — the $\kappa_i$ come from no on-site algebra
+  element (V105), no class invariant (V122), the broken flux (V137, residual
+  0.605), and no second-order bond number: the superexchange shift misses at
+  0.577 and its combination with flux and Cartan shift at 3.46, $R^2 \le 0.30$
+  (V145/V146).
 - **Dark matter (W7/F6).** No state of the implemented spectrum is a viable
   carrier at 118 GeV (0 survivors over 720 angles, V66/V75); the relic
   abundance is a **computed** number: at the two supplied couplings
   $\Omega h^2 = 0.081$–$0.156$, not $0.120$ for any coupling the root supplies;
   the nodal-plane density $D = 1485$ enhances the final-state phase space by
-  $(100/m)^3$-type factors the standard curve cannot see.
+  $(100/m)^3$-type factors the standard curve cannot see; and the bond-strength
+  portal is closed — read as annihilation strength no bond number of the scalar
+  class lands on $0.120$ (V147), and read as Higgs portal every one of them
+  predicts $\sigma_{\rm SI} = 2.5\times10^{-45}$–$6.3\times10^{-41}$ cm$^2$,
+  above the LZ-class bound (V148).
 - **Baryogenesis (W5/F7).** The heavy-neutrino decay is in equilibrium
   ($\Gamma_N/H \simeq 4.6$ at $y = 1/8$); the automaton satisfies **none** of
   the three Sakharov conditions (a computed theorem: every CP-odd invariant
