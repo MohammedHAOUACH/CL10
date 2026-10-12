@@ -5,7 +5,7 @@
     "W9 MECHANISM FOUND: an internal Wilson factor of the SAME step, exactly unitary with W(0)=I, gaps all 12 doubler nodes; strictly causal bond stages plus a QUASI-local Wilson factor - beyond the bond cone the amplitude decays exponentially in block distance (worst ratio 0.26 per block, first shell 5.6e-06; front radius 39 Planck cells after 24 stages, 3.1e-09 past the Lieb-Robinson line); X and Y identified as Cartan combinations of the root (both SU(5) embeddings found); W4: uniform w overproduces (Delta b = 32), the selective 3-node reading has 4 physical roots"
   ],
   "data": {
-    "cartan_offdiag": 3.339353453676033e-13,
+    "cartan_offdiag": 2.348690892320364e-13,
     "Y_coef": [
       -0.25,
       -0.25,
@@ -14,40 +14,40 @@
       -0.16666666666666666
     ],
     "part_A_checks": {
-      "gap0": 0.036499394228824596,
+      "gap0": 0.036499394228824276,
       "zone_centre_unchanged": true,
-      "unitarity": 3.4416954795264893e-15,
-      "kernel_tail_r2_w01": 0.0666427851953236,
-      "kernel_tail_r4_w01": 0.0021732583677529847,
-      "kernel_tail_r4_wphys": 1.832548133140613e-17,
+      "unitarity": 3.441697575442318e-15,
+      "kernel_tail_r2_w01": 0.06664278519532366,
+      "kernel_tail_r4_w01": 0.0021732583677529916,
+      "kernel_tail_r4_wphys": 1.8325482985767314e-17,
       "doubler_gaps_open": true,
       "doubler_gaps": {
-        "0.01": 0.005735160080654744,
-        "0.05": 0.0068182078327729745,
-        "0.1": 0.0068835170269712104,
-        "0.2": 0.014978687015400054
+        "0.01": 0.005735160080654341,
+        "0.05": 0.006818207832772055,
+        "0.1": 0.006883517026971239,
+        "0.2": 0.014978687015400309
       },
       "front_radius_at_24": 39,
-      "amplitude_outside_LR_cone": 3.143190164601179e-09,
+      "amplitude_outside_LR_cone": 3.1431901644148007e-09,
       "tail_shells_beyond_cone": [
-        5.559851417468677e-06,
-        1.4226445992398383e-06,
-        3.0330938848454497e-07,
-        6.915706028130842e-08,
-        1.6400990083650895e-08,
-        3.143190164601179e-09,
-        6.101708606047501e-10
+        5.559851417468846e-06,
+        1.4226445992396356e-06,
+        3.0330938848478537e-07,
+        6.91570602810532e-08,
+        1.640099008321143e-08,
+        3.1431901644148007e-09,
+        6.101708605712062e-10
       ],
-      "tail_decay_ratio_max": 0.25587816875285285,
-      "wilson_charge_max": 4.999999999999998,
+      "tail_decay_ratio_max": 0.25587816875280867,
+      "wilson_charge_max": 5.0,
       "bessel_kernel_Jm": [
-        0.2422684576748738,
-        0.030604023458682628,
-        0.0025637299945872796,
+        0.24226845767487398,
+        0.030604023458682645,
+        0.0025637299945872618,
         0.00016073647636424053,
-        8.053627241408617e-06,
-        3.360684628185991e-07,
-        1.2015867373043341e-08
+        8.053627241373278e-06,
+        3.360684628539386e-07,
+        1.2015867355373593e-08
       ]
     },
     "part_B": {

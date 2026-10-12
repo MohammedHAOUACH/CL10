@@ -349,5 +349,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
- "wall_s": 1.6621720790863037
+ "wall_s": 1.707789421081543
 }

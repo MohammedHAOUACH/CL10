@@ -26,7 +26,7 @@
     ],
     "cubic_ok": true,
     "zero_mean_ok": true,
-    "gap_dev": 0.016716542959925196,
+    "gap_dev": 0.01671654296022651,
     "K_node": 1.9999999999999998,
     "fourier_factor": 0.5,
     "eigenvalues": {

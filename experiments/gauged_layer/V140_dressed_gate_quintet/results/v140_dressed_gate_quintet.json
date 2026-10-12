@@ -24,16 +24,16 @@
   },
   "gauss_convention": {
    "naive_sign_leak": 4.7788177224808575,
-   "conjugate_leak": 5.009506536652746e-16,
+   "conjugate_leak": 5.00950653665275e-16,
    "note": "same-link commutator carries s^2 = +1: the head must carry the conjugate generator -Lbar, not -L"
   },
   "bare_gate": {
-   "vertex_leak": 1.9234248168435848
+   "vertex_leak": 1.9234248168435868
   },
   "dressed_electric_gate": {
    "generator_hermiticity_err": 0.0,
-   "unitarity_err": 1.4765968876836008e-14,
-   "gauss_invariance_err_max45": 6.469860162452969e-15,
+   "unitarity_err": 1.1213253404392898e-14,
+   "gauss_invariance_err_max45": 6.047878473744942e-15,
    "C2_levels": [
     45.0,
     85.0,
@@ -51,10 +51,10 @@
    ]
   },
   "hopping_obstruction": {
-   "current_current_leak_tail": 12.47374060136699,
-   "current_current_leak_head": 12.489010619937693,
-   "transporter_leak_tail": 12.473740601366991,
-   "transporter_leak_head": 12.489010619937694,
+   "current_current_leak_tail": 12.473740601366993,
+   "current_current_leak_head": 12.489010619937712,
+   "transporter_leak_tail": 12.473740601366993,
+   "transporter_leak_head": 12.489010619937712,
    "note": "no exactly invariant two-site gate on the fixed adjoint link; the invariant hopping needs a regular-representation (group-algebra) link with a true parallel transporter"
   },
   "directional_gate": {
@@ -218,7 +218,7 @@
    "pass": true
   },
   {
-   "name": "T3 the Kogut-Susskind ELECTRIC gate K_E = exp(i g10 C_x^2) is EXACTLY gauge-invariant: [C^A, K_E] = 0 for all 45 A to 6.5e-15, unitary to 1.5e-14, and its spectrum is the V79 content theorem: C2 levels [44.99999999999981, 84.99999999999928, 116.99999999999902] with multiplicities [32, 288, 1120] (phases g10 x {45,85,117})",
+   "name": "T3 the Kogut-Susskind ELECTRIC gate K_E = exp(i g10 C_x^2) is EXACTLY gauge-invariant: [C^A, K_E] = 0 for all 45 A to 6.0e-15, unitary to 1.1e-14, and its spectrum is the V79 content theorem: C2 levels [44.99999999999975, 84.99999999999946, 116.99999999999903] with multiplicities [32, 288, 1120] (phases g10 x {45,85,117})",
    "pass": true
   },
   {
@@ -239,5 +239,5 @@
   }
  ],
  "pass": true,
- "status": "THE DRESSED GAUGE GATE ON THE DIRECTED-LINK NETWORK, AND THE QUINTET DISPERSION. Part A (the V79 open step, split by computation): the directed-link Gauss charge closes ONLY with the conjugate head convention (tail +L, head -Lbar) - the naive chain sign convention leaks 4.8e+00 on the two-link star (T1); the bare bond gate leaks the vertex charge 1.92 (T2); the Kogut-Susskind ELECTRIC gate exp(i g10 C_x^2) is exactly gauge-invariant (max over all 45 charges 6.5e-15) and its spectrum IS the V79 content theorem, phases g10 x {45, 85, 117} with multiplicities 32, 288, 1120 (T3); every two-site dressed-hopping candidate on the fixed adjoint link leaks (min 1.25e+01) - the invariant hopping needs a regular-representation link (T4). Part B (the V138 T5 escape route, run): on the directional network the flux is the link orientation (a c-number), the dressed hop exists exactly, and the step M(q) = exp(-i g10 sin(q).J) is unitary and O_h-covariant (improper elements invert the step: the network is chiral, T5). At GAMMA it is the identity: six gapless bands with content A1g + Eg + T2g - the quintet is present where the qubit link never had Eg (T6). Its dispersion is massless, linear (exponent 1.00), EXACTLY isotropic to leading order (direction spread O(eps^2)), with the helicity ladder speeds {0, g10, 2 g10} - the m = 0 branch and the A1g trace do not propagate - and UV-bounded by 2 g10 sqrt(3) (T7). VERDICT: the directional bond layer supplies the kinematics the qubit link was proved not to have (V138: no Eg, flat bands; V139: anisotropy 0.857): a massless, linear, isotropic quintet at the zone centre. What is NOT derived: the directional network's gauge group is the lattice direction group O_h, not Spin(10); the Spin(10)-invariant dressed hopping is obstructed on the fixed adjoint link (T4); the ladder speeds g10 x {1,2} = {0.2, 0.4} are not 1 (the dressing angle per hop is an input); the coupling of the quintet to the matter layer and the non-linear completion are not constructed."
+ "status": "THE DRESSED GAUGE GATE ON THE DIRECTED-LINK NETWORK, AND THE QUINTET DISPERSION. Part A (the V79 open step, split by computation): the directed-link Gauss charge closes ONLY with the conjugate head convention (tail +L, head -Lbar) - the naive chain sign convention leaks 4.8e+00 on the two-link star (T1); the bare bond gate leaks the vertex charge 1.92 (T2); the Kogut-Susskind ELECTRIC gate exp(i g10 C_x^2) is exactly gauge-invariant (max over all 45 charges 6.0e-15) and its spectrum IS the V79 content theorem, phases g10 x {45, 85, 117} with multiplicities 32, 288, 1120 (T3); every two-site dressed-hopping candidate on the fixed adjoint link leaks (min 1.25e+01) - the invariant hopping needs a regular-representation link (T4). Part B (the V138 T5 escape route, run): on the directional network the flux is the link orientation (a c-number), the dressed hop exists exactly, and the step M(q) = exp(-i g10 sin(q).J) is unitary and O_h-covariant (improper elements invert the step: the network is chiral, T5). At GAMMA it is the identity: six gapless bands with content A1g + Eg + T2g - the quintet is present where the qubit link never had Eg (T6). Its dispersion is massless, linear (exponent 1.00), EXACTLY isotropic to leading order (direction spread O(eps^2)), with the helicity ladder speeds {0, g10, 2 g10} - the m = 0 branch and the A1g trace do not propagate - and UV-bounded by 2 g10 sqrt(3) (T7). VERDICT: the directional bond layer supplies the kinematics the qubit link was proved not to have (V138: no Eg, flat bands; V139: anisotropy 0.857): a massless, linear, isotropic quintet at the zone centre. What is NOT derived: the directional network's gauge group is the lattice direction group O_h, not Spin(10); the Spin(10)-invariant dressed hopping is obstructed on the fixed adjoint link (T4); the ladder speeds g10 x {1,2} = {0.2, 0.4} are not 1 (the dressing angle per hop is an input); the coupling of the quintet to the matter layer and the non-linear completion are not constructed."
 }

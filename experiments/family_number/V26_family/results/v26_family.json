@@ -16,5 +16,5 @@
     "n_weyl_3gen": 48,
     "residual": "the 'why-3' full derivation (the 0-parameter candidate is 3, three ways)"
   },
-  "wall_time": 0.001
+  "wall_time": 0.004
 }
