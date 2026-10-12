@@ -1,0 +1,184 @@
+# The gauged bond layer of Causal Clifford Theory: exact Gauss constraint, bounded area law, string tension, and the lattice gravitational sector
+
+**Mohammed Haouach**
+*Independent researcher; correspondence: haouach.mohammed@gmail.com*
+
+---
+
+## Abstract
+
+The cell of the Causal Clifford Theory automaton (Paper I) carries the Clifford algebra $\mathrm{Cl}(10,0)$; this paper constructs the gauge and gravitational sectors built on the same module and states precisely what they derive and what they assume. Putting one $\mathrm{Spin}(10)$ adjoint link degree of freedom per bond, the local Gauss constraint closes as an exact operator identity (measured error $0$), the link algebra and the Casimirs $64$ and $45$ are exact, and the gauge-invariant content of one site is $1440$ states, $32 \oplus 288 \oplus 1120$. The constraint also obstructs: with one $\mathbf{32}$ per site the physical kernel is empty (centre obstruction), so the physical sector is the space of neutral composites, where the entanglement is bounded per bond, $S = \ln 45$, boundary-supported — an area law whose coefficient is a factor $4\ln 45 = 15.23$ from Bekenstein's $1/4$, moving to a factor $6.6$ after the vertex correction. The layer carries no light vector sector (gap $64\,M_P$) and a string tension $5.4\times10^{40}$ times QCD: confinement is present in the layer and absent from the implemented step. On the directed-link network a dressed gate carries the symmetric-traceless quintet gaplessly at $\Gamma$, massless, linear and leading-order isotropic, but with gauge group $O_h$, speeds $g_{10}\{1,2\} \ne 1$, and an $E_g$ mass shift from the matter coupling — named defects, not the graviton. The gravitational sector adds a symmetric tensor field $g_{\mu\nu}$ and $G = 1$ by hand on the $(1{+}3)$ subalgebra; it reproduces general relativity on de Sitter, Schwarzschild and $3{+}1$ evolutions to $O(h^2)$ (Kretschmann ratio $1.000009$, maximum relative deviation $5.5\times10^{-5}$) — not to machine precision — and spin $2$ is declared, not derived: the implemented one-particle spectrum provably carries no massless spin-$2$ candidate.
+
+## 1. Introduction
+
+Paper I fixes the root: the Clifford algebra $\mathrm{Cl}(10,0)$ carried by the eight sub-sites of a $2{\times}2{\times}2$ cell of a Planck lattice, updated by one six-stage step of $\mathrm{Spin}(10)$ plane rotations and swap-rotations, exactly unitary, strictly causal, with the doubling of the lattice spectrum displayed and gapped by a Wilson factor of the root's own algebra, and with the rotation angle quantized to $g \in \{\pi/2,\pi/4\}$ by the closure axiom. This paper asks what the same module supplies as a gauge sector and as a gravitational sector, and it answers under the provenance discipline inherited from Paper I: a statement is *algebraic* if the root fixes it, *conventional* if it comes from a mapping, *fitted* if a coefficient was read from data, and *open* if the theory does not fix it; and every numerical claim is made at a stated tolerance, with finite-difference truncation errors never reported as machine precision.
+
+Four results and four named failures. The results: the exact Gauss closure of an adjoint bond layer on the same module (Section 2); the centre obstruction and the bounded area law $S = \ln 45$ of the physical sector, with the vertex correction computed (Section 2.1); the content theorem — no light vector sector — and the exact string tension of the layer (Section 2.2); and the dressed gate of the directed-link network, whose quintet dispersion is the computed kinematics of a lattice spin-2 (Section 2.4). The failures, stated with their numbers: the layer's string tension is $5.4\times10^{40}$ times the QCD value and $\Lambda_{\rm QCD}$ is not produced; the quintet's gauge group is $O_h$, its speeds are $g_{10}\{1,2\} \ne 1$, and the matter coupling shifts its $E_g$ half off zero; the metric field $g_{\mu\nu}$ and Newton's constant $G = 1$ are inputs of the gravitational sector, not numbers of the root; and diffeomorphism invariance is not derived. The gravitational sector reproduces general relativity to $O(h^2)$ (Section 3), and the implemented one-particle spectrum carries no massless spin-2 candidate — a computed statement, not an unfinished search. The phenomenological consequences of both sectors — the desert unification, the loop factor, the relic abundance — are audited in Paper III.
+
+---
+
+## 2. The gauged bond layer
+
+The swap-rotation gate of [Paper I Section 7] is the classical shadow of a richer possibility: a **gauged bond layer exists on the same module**. Put one $\mathrm{Spin}(10)$ adjoint link degree of freedom (a $45$-dimensional link space) on each bond and the matter $\mathbf{16}$ on the sites, and the local Gauss constraint
+
+$$Q_A(x) = q_A(x) + \sum_{b \ni x} L_A^{(b)}$$
+
+closes as an exact operator identity: $[Q_A, Q_B] = i f_{AB}{}^{C} Q_C$ with measured error $0$, the link algebra $[L_A, L_B] = i f_{AB}{}^{C} L_C$ exact, the adjoint quadratic Casimir $64$ and the spinor Casimir $45$ exact to machine precision. The step built from these links is unitary to $9.3\times10^{-16}$; the gauge-invariant content of one site with its six half-bonds is $1440$ states, decomposing as $32 \oplus 288 \oplus 1120$; an adjoint bond observable is gauge-covariant to $5.5\times10^{-16}$; and the causal radius stays at exactly one cell, while a deliberately single-site (non-local) control step leaks at $1.9$. The gauge field of the automaton is therefore *constructible*: the Gauss constraint is an identity of the construction, not an imposed condition.
+(Fig. 1).
+
+![Gauged bond layer](figures/fig10_gauged_bond_layer.png)
+*One adjoint link degree of freedom per bond, matter $\mathbf{16}$ on the sites. Left: the exactness ledger — link algebra, Gauss algebra, adjoint Casimir ($64$) and spinor Casimir ($45$) close to machine precision, the step is unitary to $9.3\times10^{-16}$, the causal radius stays at one cell, and the non-local control step leaks at $1.9$ where the causal step leaks at $5.5\times10^{-16}$. Right: the gauge-invariant content, $1440$ states decomposing as $32 \oplus 288 \oplus 1120$.*
+
+### 2.1 The centre obstruction and the physical sector
+
+A generic automaton with $d$ internal states per cell has $d^{L^3}$ states in an $L^3$ region and a volume-law entropy; nothing in the raw counting of the bond layer is special. The area law is a property of the *gauge-invariant* sector: once the physical Hilbert space of a region is restricted to states satisfying the Gauss constraint at every site, the entanglement entropy is expected to scale with the boundary area [1,2]. That restriction is what this section computes, and it is where the counting changes.
+
+What the constraint admits is narrower than expected. With the implemented content — one $\mathbf{32}$ per site, one adjoint $\mathbf{45}$ link per bond — the local Gauss constraint has **no solution**: $\dim\ker = 0$ on $\mathbf{32}\otimes\mathbf{45}$, on $\mathbf{32}\otimes\mathbf{45}\otimes\mathbf{45}$, and on the two-site one-link chain with local constraints at both sites (spectral gap $146$). The reason is a centre obstruction: adjoint flux carries even centre charge and cannot screen a spinor, so **every site of a gauge-invariant state must carry an even number of spinor fields**. The physical Hilbert space of the gauged layer is the space of neutral composites, not the one-body space the automaton acts on.
+
+The minimal physical system, two matter fields per site, is constructed exactly: $m_{45}(\mathbf{32}\otimes\mathbf{32}) = 2$ ($90$ states at $C_2 = 64$), a $2$-dimensional intertwiner space $\ker(T_1 + T_2 + L)$, and a $4$-dimensional two-site physical sector obtained by gluing intertwiners over the link index — all exact $\mathrm{Spin}(10)$ singlets ($C_2 < 10^{-25}$). Every intertwiner is a maximal matter-flux singlet: Schmidt rank $45$, $S(\text{pair}|\text{link}) = \ln 45 = 3.807$ exactly, and the glued states carry $S(\text{pair}_1|\text{pair}_2) = \ln 45$. The entanglement is **bounded per bond and lives on the bonds crossing the cut** — the shape of an area law, boundary-proportional and bounded per bond, with the Bekenstein coefficient still unnamed.
+
+On the smallest system with two bonds — the three-site, two-link chain with paired matter — the physical sector is small once the flux decomposition is used: the middle vertex fuses the two adjoint links into channels $r$ with multiplicities $N_r$ read from the $\mathbf{45}\otimes\mathbf{45}$ Casimir spectrum ($N_1 = N_{45} = N_{210} = 1$), against $m_r$ from the pair spectrum ($m_1 = m_{45} = m_{210} = 2$), giving $\dim\ker = m_{45}^2\sum_r m_r N_r = 24$, verified by explicit construction of the $r = 1$ and $r = \mathbf{45}$ sectors (vertex Gauss residual $4\times 10^{-15}$). Three results follow.
+
+1. **Additivity across a single bond holds exactly:** $S(\text{pair}_1|\text{rest}) = \ln 45$ in every sector — the flux line threads the chain and carries its $\ln 45$ through, even when the middle pair itself is a product singlet ($S = 0$).
+2. **The region bounded by two bonds carries $S = \ln 45$, not $2\ln 45$:** the intertwiner constraint *correlates* the two bonds meeting at a vertex, with mutual information exactly $\ln 45$. The area law counts bonds; vertex correlations subtract.
+3. **The gap to Bekenstein is a named number:** $\ln 45 = 3.8067$ nats per Planck bond against $1/4$ per Planck area — a deficit of $3.5567$ nats, factor $4\ln 45 = 15.23$. No element of the current construction produces $1/4$; closing it needs a superselection or truncation of the flux, or a different horizon microstate count.
+
+The vertex correction moves the number. The invariant count of an $n$-bond vertex, $I_n = \dim(\mathbf{45}^{\otimes n})^G$, computed by Haar averaging over $\mathrm{SO}(10)$, is $I_2 = 1$, $I_3 = 1$, $I_4 = 6$, $I_5 = 23$, $I_6 = 141$ (Monte-Carlo error below $3$; $I_2 = I_3 = 1$ reproduces the single-channel fusion above). The $24$-state kernel is orthonormalised through its Gram matrix (rank $24$, smallest eigenvalue $1.1\times10^{-5}$), and the capacity of the middle cut — the entropy of the maximally mixed physical state — is $S_{\rm cap} = 4.4998$ nats against the naive $2\ln 45 = 7.613$: the two vertices at the ends of the region subtract $3.11$ nats. Per bond that is $2.25$ nats, a factor $9.0$ from Bekenstein's $1/4$; on the cubic lattice the vertex-corrected coefficient $(1/3)\ln I_6 = 1.65$ nats/bond sits a factor $6.6$ from $1/4$. The deficit has moved from $15.2$ to $6.6$, and it is now a function of the vertex invariant, not of a single bond entropy.
+
+The ground state of the layer is then constructed: the bond-current Hamiltonian $H = \sum_b J\!\cdot\!L$ is diagonalised exactly — a generalised eigenproblem in the Gram metric of the kernel — and the intertwiner identity $I^\dagger J_A I = L_A/45$ holds to $3\times10^{-17}$. The interaction splits the kernel: $E_0 = -5802.40\,\eta$, degeneracy $6$, gap $42.09\,\eta$, and the ground state's middle-cut entanglement is $S = 3.8067$ nats — exactly $\ln 45$, one adjoint link, selected by the interaction. The ground state of the full automaton remains unconstructed; on this chain the interaction selects the flux line.
+(Fig. 2).
+
+![Vertex correction and ground state](figures/fig11_vertex_ground_state.png)
+*(a) The entropy carried by one Planck bond, from naive counting to Bekenstein: $2\ln 45 = 7.61$ (no vertices), the Gram-orthonormalised kernel capacity $S_{\rm cap} = 4.50$, $2.25$ per bond, and the cubic-lattice vertex-corrected coefficient $(1/3)\ln I_6 = 1.65$ against the $1/4$ line — the deficit factor moves from $15.2$ to $6.6$. The vertex invariants $I_n$ grow $1,1,6,23,141$. (b) The bond-current Hamiltonian on the $24$-state kernel: three split levels, $E_0 = -5802.4\,\eta$ with degeneracy $6$ and gap $42.1\,\eta$; the ground state's middle-cut entanglement is $S_{\rm GS} = 3.8067 = \ln 45$ — the interaction selects the flux line.*
+
+### 2.2 The spectrum of the layer, and confinement
+
+The layer has a Hamiltonian — the electric Laplacian $H = \sum_A Q_A^\dagger Q_A$ built from the vertex Gauss operator — and its spectrum is computed. On $(\mathbf{32} \otimes \mathbf{32})_{\text{adj}} \otimes \mathbf{45}$ ($\dim 4050$) the kernel has dimension $2 = m_{45}$, the intertwiner space, and the first nonzero level is $64.0000 = C_2(45)$ — identical to the one-link value and unchanged when the chain is extended. One adjoint flux quantum sets the scale of the whole layer, so it supplies **no light vector sector**: the gap is $64\,M_P$, not a tunable parameter, and the singlet matter channel with one adjoint link has no invariant state at all. Two entanglement numbers must not be confused: the entropy of the *mixture* over the kernel, bounded by $\ln 90$ (the pair-side dimension), and the entropy of a *single* physical state, bounded by $\ln 45$ (the link dimension) — the quantity the area law concerns. Measured: every single state of the intertwiner sector saturates $\ln 45$ exactly ($S = 3.806662 \pm 10^{-16}$ over $400$ random choices), and the mixture reaches $\ln 90 = 4.499810$ (purity $1/90$). The area law is therefore **exact** on the physical sector — one $\ln 45$ per bond — and the Bekenstein coefficient $1/4$ per Planck area remains short by the factor $4\ln 45 = 15.23$.
+
+The string tension follows. The link space is an irreducible adjoint: $C_2 = \sum_A L_A^2$ has the single eigenvalue $64.000000$ with zero spread, the Killing form $K_{ab} = f_{acd}f_{bcd}$ is annihilated by the pair Casimir of $\mathbf{45} \otimes \mathbf{45}$ to $3\times10^{-15}$ and its singlet space is one-dimensional (adjacent links pair into it uniquely), and the link operators do not commute ($\max[L_a,L_b] = 4.0$) — the layer carries a non-Abelian field strength. Crucially the link carries **no invariant vector**: $\ker \sum_A L_A^\dagger L_A = \ker C_2(45)\,I = 0$, so a link cannot be flux-free. Every link of a gauge-invariant chain therefore carries one adjoint flux quantum, the electric energy of $R$ links is exactly $R\,C_2(45)$, and the static potential is linear with tension
+
+$$\begin{gathered}
+\sigma = C_2(45) = 64\ \text{lattice units}\\
+= 7.81\times10^{20}\ \text{GeV per Planck length}\\
+= 9.54\times10^{39}\ \text{GeV}^2\\
+(\sqrt\sigma = 9.77\times10^{19}\ \text{GeV}),
+\end{gathered}$$
+
+$5.4\times10^{40}$ times the QCD string tension [3]. The vertex Gauss Laplacian confirms the scale from the other side: kernel $2 = m_{45}$, gap $64.0000$.
+
+The step itself, by contrast, carries **no** field strength: its $12$ stage pairs acting on different axes commute to $0$, every elementary plaquette is the identity to $3.3\times10^{-16}$ and $\langle W_\square\rangle = 1.000000$, where an area law would need $\langle W_\square\rangle < 1$ with an exponent proportional to the enclosed area [4]. Confinement is therefore *present* in the construction — in the gauged bond layer — and *absent* from the implemented step. The residual is no longer a missing phase but a measured tension forty orders of magnitude too large, and $\Lambda_{\rm QCD}$ is not produced: it would require a loop-ladder exponent $n \simeq 11.6$, which is not an integer ([Paper III Section 2.4]).
+
+### 2.3 Entanglement is the bond layer
+
+The entanglement structure of the bare automaton is equally sharp. Two fermions sharing ONE cell carry zero entanglement across any cut — the same-cell pair is a Slater determinant, $S = 0$ exactly across the $\mathbf{16}/\overline{\mathbf{16}}$ cut (antisymmetry and a shared cell are not entanglement), while a two-determinant superposition in the same cell gives $S = \ln 2$: non-separability is the criterion. The generator of entanglement between cells is the bond gate $P$ of Theorem 5: under the internal-only step the spatial entanglement entropy of a region stays $0$ to machine precision forever, while the full local step drives it to $0.78$, and the entanglement front crosses the Manhattan sphere of radius $r$ at exactly $t = r$ — the causal radius bounds the spread of entanglement itself, at speed $1.0$. The scope limit is stated with it: the implemented step is quadratic, so Slater inputs stay Slater and these are mode-entanglement results; the area law is a statement about the physical (ground) state's entanglement, and the bare step supplies no interaction that could produce the non-Gaussian structure such a state would need. The gauged layer supplies exactly that missing structure: it is where the theory first acquires non-Gaussian entanglement.
+
+### 2.4 The dressed gate on the directed-link network, and the quintet dispersion
+
+The obstruction of Section 2.2 is a statement about the qubit link. The channel named by the census of [Paper I Section 8.3] — the symmetric rank-2 space of the link directions — is now constructed, and its dressed gate and dispersion are computed. Put the adjoint link on every **oriented** bond: the six bond directions per site (three axes with parity) become twelve directed links per block, each carrying one $\mathbf{45}$.
+
+**The orientation convention is computed, not chosen.** The vertex Gauss charge of a two-link star — one link arriving, one departing — closes as an exact $\mathrm{Spin}(10)$ algebra, $[\hat C^A, \hat C^B] = i f^{ABC} \hat C^C$ to $5\times10^{-16}$, only when the departing tail carries $+L^A$ and the arriving head carries the **conjugate** generator $-\bar L^A$; the naive chain convention — the same generator at both ends with opposite signs — leaks at $4.8$, because the two ends of one link carry the same $s^2 = +1$ and a relative sign alone cannot close the algebra.
+
+**The electric part of the Section 2.2 obstruction is closed.** The Kogut–Susskind electric gate [5] $\exp(i g_{10} \hat C_x^2)$, built from the closing vertex charge, commutes with all $45$ vertex charges to $6.5\times10^{-15}$ and is unitary to $1.5\times10^{-14}$; its spectrum *is* the content theorem of Section 2.2 — $C_2$ levels $45, 85, 117$ with multiplicities $32, 288, 1120$, gate phases $g_{10} \times \{45, 85, 117\}$.
+
+**The hopping part is obstructed on the fixed-representation link.** Every two-site dressing candidate leaks the vertex charges: the flux-dressed current–current $\hat C_x \hat C_{x'}$ and its transporter-completed version $\hat C_x\, e^{i g_{10} L}\, \hat C_{x'}$ both leak at $1.25\times10^{1}$. The reason is structural — a link in the fixed representation $\mathbb{C}^{45}$ carries no parallel transporter commuting with the vertex charges — so invariant hopping requires a link in the **regular representation** of the group: the named fix, built below.
+
+**The named fix is now built, on the root's own finite group.** The $45$ biflections $h_ah_b$ of the Clifford generators generate the even Clifford monomials — a finite group $\Gamma$ of order $1024$ with centre $\{\pm1,\pm w\}$, whose centre acts as $\{\pm1,\pm i\}$ on each chiral half. Put the regular link $\mathbb{C}[\Gamma]$ on each bond. The content theorem is replaced: a vertex with $k$ regular links has exactly $32\cdot1024^{k-1}$ gauge-invariant states (character sum; the explicit projector lands on the dressed form $\rho(h)u$ to $4\times10^{-15}$) where the fixed adjoint link had **none** — the centre obstruction is exactly what the regular link removes. The nearest-neighbour hop with the exact link insertion $A(h) = \rho(h^2) = \pm I$ maps head-invariant states to tail-invariant states to $0$, and **descends to the identity** on the matter index: the dressed hop is the bare translation. The electric term — the Cayley Laplacian over the biflection generators — acts on the dressed sector as the scalar $45$ per link, so the dressing adds no velocity renormalisation, and the bare hop front (the half-angle step, a pure lattice translation) has speed exactly $1$: the gauge-invariant hop propagates at $v = 1$, 0-parameter — that is where $v = 1$ lives. The cost is exact too: $\Gamma$ is finite and its centralizer in the $\mathrm{Spin}(10)$ algebra is $0$ — gauging the root's monomial group breaks $\mathrm{Spin}(10)$, and the $\mathrm{Spin}(10)$-invariant hopping on a genuine adjoint regular link remains out of reach.
+
+**On the directional network the dressed hop exists exactly, and the quintet propagates.** There the flux is the orientation of the link, a classical sign, and the dressed directional step
+
+$$M(\mathbf{q}) = \exp\big(-i g_{10}\, \sin(\mathbf{q}) \cdot \mathbf{J}\big),$$
+
+with $\mathbf{J}$ the spin-2 generators of the symmetric-traceless direction space, is unitary to $2\times10^{-16}$ and $O_h$-covariant: $D(g) M(\mathbf{q}) D(g)^\dagger = M(g\mathbf{q})$ for the $24$ proper rotations to $5.6\times10^{-16}$, while the $24$ improper ones give $M(g\mathbf{q})^\dagger$ — the directed network is **chiral**: reversing the link orientation inverts the step. At $\Gamma$ the step is the identity and the layer carries **six gapless bands**, content $A_{1g} \oplus E_g \oplus T_{2g}$: the quintet is present in the directional layer, where the qubit bond factor never carried $E_g$ ([Paper I Section 8.3]). Its dispersion is **massless and linear** — local exponent $1.00$ along $\Gamma$-X, $\Gamma$-M and $\Gamma$-R — with a **helicity ladder** of speeds
+
+$$v = \{0,\ g_{10},\ 2 g_{10}\} = \{0,\ 0.2,\ 0.4\},$$
+
+the $m = 0$ branch and the trace $A_{1g}$ not propagating; **isotropic to leading order** — the direction spread of the top speed is $4\times10^{-8}$ at $|\mathbf{q}| = 10^{-3}$, the spin-2 spectrum theorem: $\hat{\mathbf{q}} \cdot \mathbf{J}$ has exactly the spectrum $\{-2,-1,0,1,2\}$ in every direction; and UV-bounded by $2 g_{10} \sqrt{3} = 0.693$.
+
+**The quintet–matter coupling exists, and it gaps the $E_g$ half.** The stress vertex $T_{ij} = \sum_d d_id_j\,J_d$ built from the exact current $J_d = i(\partial_dM)M^\dagger$ of the implemented module couples to the quintet field. On nearest-neighbour bonds the coupling vanishes identically on the $T_{2g}$ half ($d^TE^{(\mathrm{off})}d = 0$ on every axis bond — the $T_{2g}$ coupling needs diagonal bonds, a named gap), and couples the $E_g$ half with a nonzero polarization bubble at $\Gamma$ (eigenvalues $-5.01$, $-4.47$): at $\lambda = g_{10}$ the $E_g$ half acquires a mass shift $\lambda^2\Pi/2 = -0.10,\,-0.09$. Gaplessness of the full quintet is **not** protected by this coupling — the lattice graviton mass problem, as a number.
+
+**What this does not derive.** The gauge group of the directional network is $O_h$, not $\mathrm{Spin}(10)$; the $\mathrm{Spin}(10)$-invariant dressed hopping remains obstructed on the fixed link, and the built regular-link fix gauges the root's finite group, whose $\mathrm{Spin}(10)$ centralizer is $0$; the quintet speeds are $g_{10} \times \{1, 2\} \ne 1$ — the dressing angle per hop is a construction input, not a derived velocity, and $v = 1$ belongs to the dressed matter hop, not to the quintet branches, a computed trilemma on the $6$-bond module rather than an oversight: the bare hop is anisotropic (top speed $1.00$, direction spread $0.32$), the dressing alone is isotropic at $v = 2g_{10} = 0.40$, no angle makes the product isotropic (best spread $0.24$ over $33$ angles in $[0, \pi/2]$), and the only $O_h$-equivariant permutation coin beyond the identity flattens the bands; and the quintet–matter coupling, now built, gaps the $E_g$ half at order $\lambda^2$. The kinematics of a massless lattice spin-2 is computed; the step from there to the graviton of Section 3 remains the declared one.
+
+---
+
+## 3. Gravity on the lattice
+
+### 3.1 What is assumed and what is computed
+
+The gravitational sector is a symmetric rank-2 field $h^{\mu\nu} = g^{\mu\nu} - \eta^{\mu\nu}$ living on the $(1{+}3)$ subalgebra of [Paper I Section 3], with $\eta = \mathrm{diag}(1,-1,-1,-1)$ as the vacuum. Its linearised dynamics is the discrete wave equation
+
+$$\partial_t^2 h^{\mu\nu} - \nabla^2_{(6)} h^{\mu\nu} = 0,$$
+
+on the Planck sites — the sub-lattice of the automaton's cells, spacing $\ell_P$ — with the $6$-neighbour lattice Laplacian and the leapfrog step $u_{t+1} = 2u_t - u_{t-1} + c^2 dt^2\,\nabla^2 u_t$ at $dt = \tfrac12$ (the CFL value giving $c = 1$ in Planck units, the same front speed as Theorem 5).
+
+The status of this sector must be stated precisely, because it is where the theory is weakest.
+
+- **Masslessness and UV boundedness are computed.** The discrete dispersion is $\omega = |\mathbf{k}|_{\rm lat}$ with $|\mathbf{k}|_{\rm lat} \le \pi$, so the graviton is massless ($\omega/|\mathbf{k}| \to 1$ as $k \to 0$, lattice deviation $\le 0.25\,k^2$) and the spectrum is bounded by the cutoff.
+- **Spin 2 is declared, not derived — and the implemented spectrum cannot supply it, by two computed obstructions.** The field is *assumed* to be a symmetric tensor with two helicity states. Nothing in $\mathrm{Cl}(10,0)$ forces a massless spin-2 excitation; the standard arguments that a massless spin-2 field must couple as general relativity [6] apply to a field whose existence and representation content are already granted. The Weinberg–Witten obstruction to a composite graviton carrying a Lorentz-covariant stress tensor [7] is not addressed. The one-particle route closes negatively at the nodes: the near-gapless M nodes carry little group $C_{2v}$, whose action on the bond subspace has no $2$-dimensional irrep, so no helicity $\pm1$ or $\pm2$ pair exists there. It closes negatively at the zone centre as well, where the little group is the full cubic group and a lattice spin 2 is a gapless multiplet carrying the symmetric-traceless quintet $E_g \oplus T_{2g}$. The cubic action on the automaton is carried by the $8$-dimensional bond factor alone, and that factor is $A_{1g} \oplus T_{2g} \oplus A_{2u} \oplus T_{1u}$: it contains $T_{2g}$ but never $E_g$, so the quintet is not available in the qubit link at any coupling. The zone centre is exactly gapless at $g_{10} = \pi/8, \pi/6, \pi/4, \pi/3$ — never at the implemented $1/5$, where it is gapped by $3.65\times10^{-2}$ — and at each of those couplings its null space is cubic-covariant and $E_g$-free ($16 \times (A_{1g} \oplus T_{2g})$, of dimension $64$, at $\pi/4$), with a flat dispersion: $\omega/|\mathbf{q}| \to 0$, not a linear branch. The channel that does carry $E_g \oplus T_{2g}$ is the symmetric rank-2 space of the link directions, $A_{1g} \oplus E_g \oplus T_{2g}$: the graviton, if it is to be derived, belongs to the directional bond layer of Section 2 and not to the qubit link.
+- **The escape route is now a computed construction, and it still stops short of the graviton.** Section 2.4 builds the directional bond layer — the adjoint link on every oriented bond — with its dressed gate: the vertex Gauss algebra closes only with the conjugate-head convention, the Kogut–Susskind electric gate is exactly invariant with the content-theorem spectrum, and the dressed directional step carries $A_{1g} \oplus E_g \oplus T_{2g}$ gaplessly at $\Gamma$, with massless, linear, leading-order-isotropic dispersion and helicity-ladder speeds $g_{10}\{0,1,2\}$. The remaining gaps are named: the gauge group of that network is $O_h$, not $\mathrm{Spin}(10)$; its $\mathrm{Spin}(10)$-invariant hopping is obstructed on the fixed-representation link — the named regular-link fix is now built on the root's own finite group (order $1024$), where the hop closes exactly and runs at $v = 1$, but the gauged group is finite and its $\mathrm{Spin}(10)$ centralizer is $0$; its speeds are $g_{10}\{1,2\} \ne 1$ — a computed velocity trilemma: on the $6$-bond module the hop alone is anisotropic, the dressing alone isotropic at $2g_{10}$, and no angle makes the product isotropic; and its coupling to the matter layer, now built, gaps the $E_g$ half at order $\lambda^2$ (Section 2.4).
+- **Diffeomorphism invariance is not derived.** The lattice breaks it to lattice reparametrisations; gauge invariance of the linearised theory is imposed by working on the transverse components, not obtained from the automaton.
+
+### 3.2 The discrete Einstein–Hilbert action
+
+The quadratic action [8]
+
+$$S_{\rm EH} = \frac{1}{16\pi}\cdot\frac12\sum_{x,t} u_t\Big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2_{(6)} u_t\Big],\qquad dt^2 = \tfrac14,$$
+
+has the lattice wave equation as its Euler–Lagrange equation: the numerical functional derivative vanishes on a QCA trajectory to $3\times10^{-12}$ and is non-zero off it. The full discrete action $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}\,(R(x) - 2\Lambda)$ is evaluated with $R$ computed from the metric. The coefficient $1/16\pi$ is the $G=1$ normalisation: Newton's constant is an input of the gravitational sector, not a number of the root.
+
+### 3.3 Curvature computed from an arbitrary metric
+
+The Riemann, Ricci, Einstein and Kretschmann tensors are computed by central finite differences from an arbitrary prescribed $g_{\mu\nu}(x)$, with no hard-coded Christoffel symbols, and cross-checked against independent analytic results by two routes.
+
+**Table 1.** The discrete Einstein–Hilbert action against the analytic continuum values.
+
+| test | computed | analytic | residual |
+|------------------------------|---------------------|-----------------|---------------------------------|
+| de Sitter $R^\mu{}_{\nu\rho\sigma}$ (flat FRW, $a = e^{Hx^0}/H$) | finite differences | $H^2(g_{\mu\rho}g_{\nu\sigma} - g_{\mu\sigma}g_{\nu\rho})$ | $6.5\times10^{-7}$ ($O(h^2)$) |
+| Einstein tensor of de Sitter | $-3H^2 g_{\mu\nu}$ | same | $O(h^2)$ |
+| Schwarzschild Ricci / Einstein tensor | $\simeq 0$ | vacuum $G_{\mu\nu} = 0$ | satisfied by computation |
+| Schwarzschild Kretschmann | $48 M^2/r^6$ | $48 M^2/r^6$ | ratio $1.000009$; max relative deviation $5.5\times10^{-5}$ |
+| flat metric | $R = G = K = 0$ | $0$ | exact |
+| 2-sphere of radius $r$ | $R = 2/r^2$ | $2/r^2$ | $10^{-5}$ |
+
+The $3{+}1$ formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the $4$-D Einstein tensor agrees, computed by the $4$-D curvature and by the $3{+}1$ $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution [9] drives a constraint violation to zero while the undamped one does not; the $0$-row is quadratic in $K$, so superposition fails; all $3{+}1$ quantities are bounded by the lattice cutoff.
+(Fig. 3).
+
+**What this does and does not establish.** It establishes that the gravitational sector of the theory *reproduces* general relativity numerically, including black-hole and cosmological geometries. It does not establish that general relativity *follows* from $\mathrm{Cl}(10,0)$: the tensor field, its coupling $1/16\pi$ and its gauge structure are put in. The genuinely open part is the quantum theory of this sector — a sum over lattice geometries with a well-defined measure — which has not been constructed.
+
+![Black hole](figures/fig12_gravity_3d.png)
+*Left: the potential well with a geodesic rosette integrated through the finite-difference Christoffel symbols, and the horizon ring $r = 2M$. Right: the two-route Kretschmann invariant.*
+
+### 3.4 A self-interacting scalar completion
+
+Beyond the quadratic theory the model includes $\partial_t^2\phi - \nabla^2\phi - g\phi^3 = 0$. Its static solutions obey $u'' = u - u^3$ and include the exact finite-energy kink
+
+$$u(x) = \sqrt{2}\,\mathrm{sech}\,x,$$
+
+verified to a fourth-order residual of $5\times10^{-10}$. Two corrections are needed. This is the $\phi^4$ kink (a domain wall), not the Choptuik system: Choptuik critical collapse is a *massless scalar minimally coupled to gravity* [10], and the analogy is not a derivation. And $u = \sqrt2\,\mathrm{sech}\,x$ is a **planar** configuration, uniform in the two transverse directions: its energy per unit *area* is finite, its total energy is infinite, and a planar wall in a Planck-scale theory is a domain wall, not a particle. Finite-time blow-up for supercritical data in cubic wave equations is a real phenomenon [11], but it is not evidence about black-hole formation here.
+
+
+---
+
+## 4. Discussion: what is derived, what is assumed
+
+Derived, as operator identities of the construction: the Gauss algebra of the adjoint bond layer and its content theorem ($32 \oplus 288 \oplus 1120$; no invariant vector on the link, hence no flux-free link and an exactly linear electric area law); the centre obstruction and the structure of the minimal physical sector; the bounded per-bond entanglement $\ln 45$ and the vertex correction to the area-law coefficient; the exactness of the dressed directional gate and the spin-2 spectrum theorem of $\hat{\mathbf{q}}\cdot\mathbf{J}$; and the consistency of the discrete gravitational sector with general relativity to the stated $O(h^2)$ tolerances on de Sitter, Schwarzschild and $3{+}1$ evolutions.
+
+Assumed, and named as such: the choice of the link representation (adjoint, then regular, then directional — each a construction input with a measured cost); the symmetric tensor field $g_{\mu\nu}$ and the value $G = 1$; the transverse gauge fixing of the linearised theory; and the dressing angle of the directional gate, which sets the quintet speeds. Three open numbers remain: the Bekenstein deficit (factor $6.6$ per bond after the vertex correction, no element of the construction produces $1/4$), the string tension ($5.4\times10^{40}$ times QCD, with $\Lambda_{\rm QCD}$ off the ladder), and the velocity trilemma of the dressed hop (isotropy and $v = 1$ never supplied together on the $6$-bond module). The quantum theory of the gravitational sector — a sum over lattice geometries with a well-defined measure — has not been constructed. The phenomenology of both sectors is audited in Paper III.
+
+## References
+
+1. J. D. Bekenstein, "Black holes and entropy," *Phys. Rev. D* **7**, 2333 (1973); S. W. Hawking, "Particle creation by black holes," *Commun. Math. Phys.* **43**, 199 (1975).
+2. L. Susskind, "The world as a hologram," *J. Math. Phys.* **36**, 6377 (1995).
+3. C. Morningstar and M. Peardon, "The glueball spectrum from an anisotropic lattice study," *Phys. Rev. D* **60**, 034509 (1999).
+4. K. G. Wilson, "Confinement of quarks," *Phys. Rev. D* **10**, 2445 (1974).
+5. J. B. Kogut and L. Susskind, "Hamiltonian formulation of Wilson's lattice gauge theories," *Phys. Rev. D* **11**, 395 (1975).
+6. S. Weinberg, "Photons and gravitons in perturbation theory: Derivation of Maxwell's and Einstein's equations," *Phys. Rev.* **138**, B988 (1965).
+7. S. Weinberg and E. Witten, "Limits on massless particles," *Phys. Lett. B* **96**, 59 (1980).
+8. T. Regge, "General relativity without coordinates," *Il Nuovo Cimento* **19**, 558 (1961).
+9. H. Gundlach, J. M. Martin-Garcia, G. Calabrese, and I. Hinder, "Constraint damping in the Z4 formulation and harmonic gauge," *Class. Quantum Grav.* **22**, 3767 (2005).
+10. M. W. Choptuik, "Universality and scaling in gravitational collapse of a massless scalar field," *Phys. Rev. Lett.* **70**, 9 (1993).
+11. F. John, "Blow-up of solutions of nonlinear wave equations in three space dimensions," *Manuscripta Math.* **28**, 235 (1979).
+
+**Code and data availability.** All the experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10. Every number quoted in the paper is produced by these open scripts and can be reproduced independently from the repository. The verification status is stated as the audit found it: the numbers were verified internally (spot-checks against the text, the second symbolic construction of [Paper I] Appendix A, the exact $3^n$-word loop enumeration); the pipeline was not independently executed by a second party, and independent re-execution is invited.
+
+**Competing interests.** The author declares no competing interests.

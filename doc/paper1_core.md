@@ -1,0 +1,400 @@
+# Causal Clifford Theory (CL10): Minkowski kinematics, one anomaly-free generation, and exactly unitary causal dynamics from a single Clifford algebra
+
+**Mohammed Haouach**
+*Independent researcher; correspondence: haouach.mohammed@gmail.com*
+
+---
+
+## Abstract
+
+A quantum cellular automaton is defined on a Planck lattice whose $2{\times}2{\times}2$ cells carry the Clifford algebra $\mathrm{Cl}(10,0)$ on eight sub-sites (on-site space $\mathbb{C}^{256}$) and are updated by one six-stage product of $\mathrm{Spin}(10)$ plane rotations and swap-rotations. From this root follow, with no added field: a $(1{+}3)$ Minkowski subalgebra; the $16$-component Weyl module whose charges are exactly one Standard Model generation, all eight gauge and mixed anomalies cancelling; the $\mathbf{45}$ adjoint containing the twelve gauge bosons; the $5/3$ hypercharge normalisation. The step is exactly unitary ($\det U = 1$, $\pm$-paired spectrum, exact matter/antimatter spectral mirror) and strictly causal, with measured front speed exactly one Planck cell per stage. The doubling of the lattice spectrum is displayed, not hidden: twelve gapless nodes at the half-zone momenta, gapped by a Wilson factor of the root's own algebra, with the split-node set an input (O9). The closure axiom — the update must be an element of the root — quantizes the rotation angle to $g \in \{\pi/2,\pi/4\}$: the fundamental step has order $8$, the internal spectrum is the finite algebraic set $\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, and the on-site update has zero continuous unfixed numbers. The tensions are named, not hidden: the doubler cones are linear in every sampled direction but anisotropic (velocity-tensor anisotropy $0.748$–$0.758$; $0$ of $2726$ gapless points of the Wilson family reach $A < 10^{-6}$; three nodal planes, not a cone, at the exactly gapless corner multiplet; frame averaging over the ten generators is blind to the anisotropy), and at the closed angle the gapless set becomes six nodal lines and the per-node chirality bookkeeping must be redone. The gauged bond layer, the gravitational sector and the phenomenology of this root are constructed and audited in companion papers [Paper II, Paper III].
+
+### Summary of results
+
+The determinism claim is interpretive: one time-independent local rule fixes every future state of the lattice — 't Hooft's cellular-automaton determinism exact at the fundamental update — with randomness entering only through the measurement projection; the projection and the Born rule are inputs of the interpretation (O9), not derived from the unitary step. The spin–statistics identification (even sector bosonic, odd sector fermionic) is likewise a postulate of the interpretation, not a derived theorem.
+
+The results of this paper are the kinematics (Theorem 1), the matter content and anomaly freedom (Proposition 1, Theorem 2), the gauge content and the $5/3$ (Theorem 3), the exact unitarity and the causal radius (Section 7, Theorem 5), the spectral mirror (Theorem 4), the doubling and its Wilson gapping (Proposition 2, Section 8.1), the Lorentz structure at the nodes with its measured anisotropy (Section 8.2), the massless-mode census (Section 8.3), and the quantized clock with its measured costs (Theorem 6, Section 9). The loop-factor ladder, the coupling unification, the dark-matter and neutrino audits, and the full provenance audit are carried by Paper III; the gauged bond layer and the lattice gravitational sector by Paper II.
+
+---
+
+## 1. Introduction
+
+### 1.1 The picture
+
+Two habits of language do most of the misleading. The first calls $c$ the speed of light. Light is one traveller at that speed; the constant is the speed of causality. The second is wave–particle duality, taught as a paradox. On a lattice it dissolves: there is one wave, always; what a detector registers is a single localised event, because the detector is itself a lattice of cells changing state one cell at a time. The ontology contains no particles — only waves that deliver their energy in quanta.
+
+Quantum field theory replaced particles by fields but multiplied the fields, one per species, glued together by hand. The viewpoint here is the opposite one, elementary in computer science: a cellular automaton — a lattice of cells, each holding a finite packet of information, all updated in parallel by one local rule. If the world is such an automaton, everything physical is a wave of information over that lattice, and the theory reduces to two questions: what is the information structure of a single cell, and what is the rule that updates it. Causal Clifford Theory (CL10) answers both concretely: the cell is the spinor module of $\mathrm{Cl}(10,0)$, and the rule is a product of $\mathrm{Spin}(10)$ plane rotations interleaved with nearest-neighbour swap-rotations.
+
+### 1.2 Two literatures, one construction
+
+Discrete models of quantum dynamics and grand unification have developed independently. Causal sets, lattice gauge theory and quantum cellular automata treat spacetime as a finite, causal, unitary dynamical system [1,2,3,4,5]. The observation that one generation of quarks and leptons fits exactly into the $16$-dimensional spinor of $\mathrm{Spin}(10)$, with the $5/3$ hypercharge normalisation and anomaly cancellation following from the embedding, has been standard since 1974 [6,7,8,9]; Clifford-algebra formulations of this unification exist [10,11,12,13]. 't Hooft's cellular-automaton interpretation supplies a deterministic unitary dynamics but no unification [14,15].
+
+CL10 puts these on a single footing: the internal space of every sub-site of the automaton's cell **is** the spinor module of $\mathrm{Cl}(10,0)$, and the update **is** an element of the corresponding spin group. Nothing else is added by hand: no extra scalar, no extra gauge factor, no second algebra.
+
+### 1.3 Claims, non-claims, and the provenance discipline
+
+**Claimed and demonstrated.** The kinematics of one Standard Model generation, its anomaly freedom, the grand-unified gauge content and the $5/3$, and a unitary causal automaton whose gravitational sector reproduces general relativity on the lattice to $O(h^2)$ ([Paper II, Table 1]; Sections 3–7, 3).
+
+**Claimed as an order-of-magnitude statement.** The electroweak/Planck hierarchy, the dark-matter mass scale, the neutrino mass and the baryon asymmetry, all expressed through the loop factor $(1/16\pi)^n$ with $n$ a small integer ([Paper III Section 2]). The integers are chosen to land near the measured values; the two-digit coefficients are read from the data.
+
+**Not claimed.** A derivation of the family number, of the fermion masses and mixings, of the cosmological constant, of the dark-matter particle, of the baryon asymmetry, of the spin-2 character of the graviton, of diffeomorphism invariance, or of the Born rule. Each is listed in [Paper III Section 6] — for the gravitational ones, in [Paper II Sections 2.4, 3 and [Paper II Discussion]] — with the size of the gap quantified.
+
+The organising discipline of the paper is therefore a **provenance discipline**: a number is *algebraic* if the root fixes it, *conventional* if it comes from a mapping or scale identification, *fitted* if a coefficient was read from data, and *open* if the theory does not fix it. [Paper III Section 5] tabulates every headline number under this classification.
+
+**The seven criteria.** A unification claim has to be checkable, so the theory is judged against stated criteria, with its own verdict on each.
+
+**Table 1.** The seven criteria and the verdict of this paper.
+
+| criterion | requirement | verdict |
+|--------------------|-----------------------------|---------------------------------------------------|
+| **one object** | a single algebraic object, no added fields or structure | met for the internal space; the gravitational sector adds a symmetric tensor field $g_{\mu\nu}(x)$ and the value $G = 1$ ([Paper II Section 3]) |
+| **kinematics** | spacetime, matter content, gauge group and statistics follow by representation theory | met (Sections 3–6) |
+| **dynamics** | the object yields a unitary, causal evolution | met (Section 7: exactly unitary, $\det U = 1$, measured front speed $= 1$) |
+| **unification** | matter, gauge and gravity live in the same object | partial: matter and gauge are the same module and the same $\mathbf{45}$; gravity is the metric dynamics of a subalgebra of that module, with an added field |
+| **consistency** | anomaly-free, unitary, causal, UV-bounded | met (Theorem 2, Theorem 5, the bounded $32$-level spectrum, the bounded $n$-particle $S$-matrix); the doublers of Proposition 2 are gapped by an internal Wilson factor (Section 8), with the split node set an input (O9) |
+| **parameters** | every physical number fixed by the object, no fit | **not met**: two conventions, eleven fitted coefficients, one conditional coefficient ([Paper III Section 5]). The closure axiom (Section 9) removes the one free continuous parameter of the dynamics at the price of moving that parameter's two empirical contacts |
+| **falsifiability** | testable predictions, and the open problems named rather than hidden | met ([Paper III Sections 6–7]) |
+
+The theory passes the structural criteria and fails the parameter one. The closure axiom repairs the parameter criterion algebraically and worsens it phenomenologically: at the quantized angle the doubler census becomes a six-line nodal network rather than twelve points, the desert unification solution leaves the desert with $\tau_p = 2.8\times10^{39}$ yr, and the meeting coupling moves from $12.6\times$ below the data-preferred value (implemented angle, standard normalisation) to $1.23\times$ above it (closed angle) — closer to the meeting value, but with the threshold ordering the desert solution assumes destroyed (Section 9.2). The chirality analysis of Section 8 shows that even the structural pass is partial: continuous Lorentz invariance does not emerge at the nodes of the implemented step.
+
+### 1.4 Conventions
+
+Planck units $\hbar = c = \ell_P = t_P = 1$ unless stated; $G = 1$. Metric signature $(+,-,-,-)$, $Q = T_3 + Y$. $\mathrm{Cl}(10,0)$ is the real algebra of ten generators with $h_a^2 = +I$; the module is over its complexification $\mathrm{Cl}_{10}(\mathbb{C}) \simeq M_{32}(\mathbb{C})$. "Generation" means one set of left-handed Weyl fields. **Coupling notation, one convention:** $g$ (equivalently $g_{10}$) denotes the rotation angle of the step — $1/5$ implemented, $\pi/4$ closed — and $\alpha$ always denotes the standard-normalised coupling $\alpha = g^2/4\pi$ wherever a coupling is compared with running; the alternative reading $\alpha_{10} \equiv g^2$ is a factor-$4\pi$ convention and is invoked only where explicitly named (Sections 7.1, 9.2, 3.1, 5). Numerical statements are made at tolerance $10^{-12}$, machine-precision identities at $10^{-14}$ or below; every quoted residual is the deviation of a computed quantity from a stated value, computed in double precision on the explicit representation of Appendix A. Two tolerances are kept apart. A residual at or below $10^{-15}$ on an identity that is **expected to vanish exactly** ($\det U - 1$, a commutator, a projector sum) is an **upper bound**, not a measurement: double precision ($\epsilon \simeq 2\times10^{-16}$) cannot resolve it, and it is quoted as evidence that the identity holds, never as an independent number. A tolerance on a **search** — a root scan, a gap location, a direction grid — is a resolution, is stated where used ($10^{-7}$ for the $2726$-point gap scan of Section 8.2, $10^{-6}$ for the isotropy threshold), and is never quoted as machine precision. Reference data: PDG 2024 [16], Planck 2018 [17], Super-Kamiokande [18,19], KATRIN [20], NuFIT [21,22], LZ [23].
+
+---
+
+## 2. The axiom
+
+**Axiom 1 (the root).** *The universe is a $(1{+}3)$-dimensional causal quantum cellular automaton. Its cell is a $2{\times}2{\times}2$ block of Planck sites — site spacing $\ell_P$, so the cells tile a cubic lattice of spacing $2\ell_P$ — and each of the eight sub-sites carries a copy of the Clifford algebra $\mathrm{Cl}(10,0)$: ten mutually anticommuting Hermitian generators*
+
+$$h_a^\dagger = h_a,\qquad h_a^2 = I,\qquad \{h_a,h_b\} = 0 \quad (a\ne b),\qquad a,b = 1,\dots,10.$$
+
+*The state of the universe is a tensor product of these modules over the sub-sites, so the cell's on-site space is $\mathbb{C}^{256}$, and the dynamics is one time-independent unitary **step** of six **stages** built from the algebra (Section 7.1). The elementary time is the stage, $t_P$; one step is $6t_P$.*
+
+**Why the cell is a block.** The bond part of the update pairs neighbouring sub-sites, and the pairing that treats the three directions alike has six stages: three pair sub-sites *inside* the cell, three pair sub-sites *across* cells. Written on a single Planck site the same rule alternates between bonds inside and outside the site, which forces a two-cell spatial period and a six-periodic time dependence; on the block it is one time-independent rule, and the block is the smallest region on which the update acts as a single unitary. The staggering is therefore not a time dependence of the law but the sub-lattice structure of the cell, and the Bloch decomposition of the step is exact at every step.
+
+Three structural facts about the root, all standard [10,24]:
+
+1. $\mathrm{Cl}(10,0)$ is $2^{10} = 1024$-dimensional; its complexification is $M_{32}(\mathbb{C})$, so it has a single irreducible complex module of dimension $32$, the Dirac module.
+2. The volume element $w = h_1 h_2 \cdots h_{10}$ satisfies
+   $$w^2 = (-1)^{10\cdot 9/2}\prod_a h_a^2 = (-1)^{45} = -I,\qquad w^\dagger = -w,$$
+   so $w$ is anti-Hermitian with eigenvalues $\pm i$, each of multiplicity $16$. The projectors $P_{16} = \tfrac12(I - i w)$ and $P_{\overline{16}} = \tfrac12(I + i w)$ split the Dirac module into two inequivalent $16$-dimensional Weyl modules.
+3. The algebra is $\mathbb{Z}_2$-graded by the parity of the number of generators in a product: $512$ even and $512$ odd elements.
+
+Everything derived below is representation theory of this one object plus the dynamics of Section 7.
+
+**Why $10$.** The number $10$ is the smallest $n$ for which a single complex Clifford algebra simultaneously provides (i) a pseudoscalar splitting a Dirac module into two *inequivalent* Weyl modules of dimension $16$ — at $n = 8$ the Weyl modules are $8$-dimensional ($\mathrm{Spin}(8)$ triality: $8_v, 8_s, 8_c$; the $16$-dimensional representations are reducible) — and (ii) an adjoint of dimension $\binom{10}{2} = 45$ large enough to contain $\mathfrak{su}(5)$ and hence the Standard Model algebra. At $n = 9$, $\mathrm{Cl}_9(\mathbb{C}) \simeq M_{16}\oplus M_{16}$ does have $16$-dimensional irreducibles, but they are the two simple factors of the algebra rather than a pseudoscalar split, and $\mathfrak{so}(9)$ does not contain $\mathfrak{su}(5)$. The root is therefore selected by the requirement of a single chiral generation with a unified gauge algebra, not chosen.
+
+---
+
+## 3. Spacetime as a subalgebra
+
+**Theorem 1.** *Let $T = h_1$ and $S_a = i h_{a+1}$ for $a = 1,2,3$. Then*
+$$T^2 = +I,\qquad S_a^2 = -I,\qquad \{T,S_a\} = 0,\qquad \{S_a,S_b\} = 0 .$$
+*The real span of $\{T, S_1, S_2, S_3\}$ inside the grade-1 part of the algebra, with the quadratic form induced by the Clifford product, is Minkowski space $\mathbb{R}^{1,3}$.*
+
+*Proof.* The four generators $h_1,\dots,h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, $v^2 = (v_0^2 - \sum_a v_a^2)I$.
+
+**Corollary 1 (the light cone).** *A vector $v$ in that real span is null, $v^2 = 0$, if and only if $v_0^2 = \sum_a v_a^2$. The null cone of this quadratic form is the light cone of the lattice.*
+
+Two qualifications. The null cone is a **cone in the grade-1 part**, not a subalgebra: it is not closed under the Clifford product, since $(T+S_1)(T-S_1) = 2I - 2TS_1$ is a grade-0 plus grade-2 element. And the choice of *which* four of the ten generators play the role of spacetime is a choice of frame in the $10$-dimensional generator space, not a prediction: the algebra supplies a family of equivalent $(1{+}3)$ subalgebras related by orthogonal transformations of the generator space. The remaining six generators are inert under the Lorentz generators $\Sigma_{\mu\nu} = \tfrac14[\Gamma_\mu,\Gamma_\nu]$ built from $\Gamma_\mu \in \{T,S_a\}$.
+
+**Causality is a postulate with a dynamical content.** The light cone by itself does not bound signal propagation: a unitary on-site rotation alone has infinite propagation speed. The bound is supplied by the update of Section 7, where the causal radius is *implemented* by the bond stages and *measured* to be exactly one Planck cell per stage (Theorem 5). The light cone and the causal radius are distinct statements, and only the second is a property of the dynamics.
+
+---
+
+## 4. Matter: the 16 Weyl spinor
+
+**Proposition 1.** *Under $\mathrm{SU}(3)_c\times\mathrm{SU}(2)_L\times\mathrm{U}(1)_Y$ the $16$-dimensional Weyl module is the six left-handed fields of one Standard Model generation:*
+
+$$16 = Q(\mathbf{3},\mathbf{2},+\tfrac16) \oplus u^c(\bar{\mathbf{3}},\mathbf{1},-\tfrac23) \oplus d^c(\bar{\mathbf{3}},\mathbf{1},+\tfrac13) \oplus L(\mathbf{1},\mathbf{2},-\tfrac12) \oplus e^c(\mathbf{1},\mathbf{1},+1) \oplus \nu^c(\mathbf{1},\mathbf{1},0),$$
+
+*with $6+3+3+2+1+1 = 16$. Under $\mathrm{SU}(5)$ this is $\mathbf{10}\oplus\bar{\mathbf{5}}\oplus\mathbf{1}$, the $\mathbf{1}$ being the sterile $\nu^c$.*
+
+The assignment is the standard one [6,7,8,9,12]. What the automaton adds is that the $\mathbf{16}$ is not put in by hand but is the Weyl eigenspace of the pseudoscalar of the same algebra that carries the gauge group and the spacetime.
+
+**$B-L$.** $B-L$ is a generator of $\mathfrak{so}(10)$, so it is *not* a single number on the $\mathbf{16}$. Its values on the six fields are $Q: \tfrac13$, $u^c: -\tfrac13$, $d^c: -\tfrac13$, $L: -1$, $e^c: +1$, $\nu^c: +1$; the $\overline{\mathbf{16}}$ carries the negatives of all of them. Under $\mathrm{Spin}(10) \supset \mathrm{SU}(5)\times \mathrm{U}(1)_\chi$, $16 \to \mathbf{10}_{-1}\oplus\bar{\mathbf{5}}_{+2}\oplus\mathbf{1}_{+3}$, and $B-L$ is a linear combination of $\chi$ and the diagonal $\mathrm{SU}(5)$ generator, not $\chi$ itself.
+
+**Theorem 2 (anomaly cancellation).** *All eight gauge and mixed anomaly coefficients of the $\mathbf{16}$ vanish.*
+
+**Table 2.** The eight anomaly coefficients of one $\mathbf{16}$.
+
+| coefficient | contribution of the $\mathbf{16}$ | value |
+|------------------------------------|--------------------------------------------------------|-------|
+| $[\mathrm{SU}(3)]^3$ | $2A(\mathbf 3) + A(\bar{\mathbf 3}) + A(\bar{\mathbf 3}) = 1 - \tfrac12 - \tfrac12$ | $0$ |
+| $[\mathrm{SU}(2)]^3$ | $A(\mathbf 2) = 0$ identically ($d^{abc}=0$; the fundamental is pseudo-real) | $0$ |
+| $[\mathrm{U}(1)]^3$ | $6(\tfrac16)^3 + 3(-\tfrac23)^3 + 3(\tfrac13)^3 + 2(-\tfrac12)^3 + 1(1)^3 = \tfrac1{36}-\tfrac89+\tfrac19-\tfrac14+1$ | $0$ |
+| $\mathrm{U}(1)[\mathrm{SU}(3)]^2$ | $\tfrac16\cdot\tfrac12\cdot 2 + (-\tfrac23)\cdot\tfrac12 + \tfrac13\cdot\tfrac12 = \tfrac16-\tfrac13+\tfrac16$ | $0$ |
+| $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ | $\tfrac16\cdot\tfrac12\cdot 3 - \tfrac12\cdot\tfrac12 = \tfrac14-\tfrac14$ | $0$ |
+| $[\mathrm{grav}]^2\mathrm{U}(1)$ | $\sum Y = 1 - 2 + 1 - 1 + 1$ | $0$ |
+| $[\mathrm{grav}]^2\mathrm{SU}(3)$, $[\mathrm{grav}]^2\mathrm{SU}(2)$ | traceless generators | $0$ |
+
+*Proof.* Each coefficient is a cubic trace over the left-handed Weyl fields; the multiplicities are the dimensions of the *other* group factors (the factor $2$ on $Q$ in $[\mathrm{SU}(3)]^3$ is its $\mathrm{SU}(2)$ doublet nature, the factor $3$ in $\mathrm{U}(1)[\mathrm{SU}(2)]^2$ its colour-triplet nature), with $A(\mathbf 3) = T(\mathbf 3) = \tfrac12$ and the charges of Proposition 1.
+
+This is the hardest consistency condition a chiral gauge theory has, and it is satisfied identically by the module content. It is the strongest single result of the theory, and it is independent of the coupling: the cancellation is a property of the algebra, not of a tuned parameter.
+
+**The mass term.** A grade-1 element of the algebra anticommutes with $w$, so it is off-diagonal in the $16/\overline{16}$ split: it maps $16 \to \overline{16}$ and $\overline{16}\to 16$, and both diagonal blocks vanish. A scalar in the $\mathbf{10}$ of $\mathrm{Spin}(10)$ therefore produces a Dirac mass term $16\,\mathbf{10}_H\,\overline{16}$ and no Majorana mass for the charged fermions. The singlet $\nu^c$ is the built-in source of a seesaw ([Paper III Section 2.3]).
+
+Two caveats. A vev in the $\mathbf{10}$ has stabiliser $\mathrm{SO}(9)$: it breaks $\mathrm{Spin}(10)\to\mathrm{SO}(9)$, and $\mathrm{SO}(9)$ is not the Standard Model group. The chain is completed instead by the Wilson direction of Section 8, which at its physical root leaves exactly $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$ and breaks precisely the leptoquark roots; the two extra $\mathrm{U}(1)$'s must still be broken or hidden. And the $\mathbf{10}$ contains no Standard Model singlet, so the vev that generates masses necessarily breaks the unified group further. This is open problem O6.
+
+**The three families.** The $\mathbf{16}$ is *one* generation. The theory identifies the observed family number with the number $3$ of spatial directions of the $(1{+}3)$ subalgebra, equivalently $\binom{3}{2}$ spatial two-planes, equivalently the rank of the spatial metric: one number stated three ways, not three derivations. The identification has a structural hook: the twelve doubler nodes of Section 8 organise into **three families of four labeled by the zero axis**, one family per spatial direction, with identical one-step spectra (deviation $0$), and the three copies of vectorlike matter required by unification are realizable by taking one node from each family at a single Wilson strength. The index $3$ exists and *labels* the three copies; it does not force the count (O3).
+
+---
+
+## 5. Gauge: the 45 and the 5/3
+
+The $45$ generators $h_a h_b$ ($a<b$) close on the $\mathrm{Spin}(10)$ adjoint. They are even in the $\mathbb{Z}_2$ grading, hence commute with $w$ and preserve the $16/\overline{16}$ split. Under $\mathrm{Spin}(10)\supset\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)$ the $\mathbf{45}$ decomposes as $12$ Standard Model gauge bosons $+$ $12$ leptoquark $X/Y$ bosons $+$ $20$ bosons in the $\mathbf{10}\oplus\overline{\mathbf{10}}$ of $\mathrm{SU}(5)$ $+$ the $\mathrm{U}(1)_{B-L}$ generator; the $33$ broken generators mediate proton decay ([Paper III Section 3.4]).
+
+**Theorem 3 (the $5/3$).** *In the $\mathbf 5$ of $\mathrm{SU}(5)$ the hypercharge is $Y = \mathrm{diag}(-\tfrac13,-\tfrac13,-\tfrac13,+\tfrac12,+\tfrac12)$ with $\mathrm{Tr}\,Y^2 = \tfrac56$, while the non-Abelian generators obey $\mathrm{Tr}\,T_aT_b = \tfrac12\delta_{ab}$. Requiring a single unified coupling $g_5$ for all generators gives $g_1^2/g'^2 = 5/3$, where $g'$ is the Standard Model hypercharge coupling and $g_1 \equiv g_5$.*
+
+*Proof.* $\mathrm{Tr}\,Y^2 = 3\cdot\tfrac19 + 2\cdot\tfrac14 = \tfrac56$. Rescaling $Y \to \sqrt{3/5}\,Y$ normalises it to $\tfrac12$; then $g_5 (\sqrt{3/5}Y) = g' Y$ gives $g' = g_5\sqrt{3/5}$.
+
+This is an algebraic fact of the root: no parameter enters. It anchors the coupling discussion of [Paper III Section 3.1], where it will be seen that the *normalisation* of the unified coupling is under control while its *value* is not.
+
+---
+
+## 6. Statistics and measurement
+
+The $\mathbb{Z}_2$ grading splits the algebra into $512$ even and $512$ odd elements. The even sector is identified with bosons and the odd sector with fermions. This is a *kinematic* grading of the operator algebra: a postulate of the interpretation, not a derivation of the spin–statistics theorem, and not a claim of dynamical supersymmetry. No supercharge exists in the construction and no superpartner is predicted.
+
+Between measurements the automaton is exactly unitary. A detection is modelled as the standard projection: $\sum_x \psi(x)|x\rangle$ reduces to $|x_0\rangle$ with probability $|\psi(x_0)|^2$, the probability rule being the intensity $|\psi|^2$ of the propagating lattice field — the one-electron-at-a-time build-up of the interference fringes is the Tonomura experiment [25]. The projection is **not** derived from the unitary step and the theory does not claim it is: the reduction postulate is an input of the interpretation (O9). What the automaton adds is only that the wave being sampled is a strictly causal, unitary, lattice field.
+(Fig. 1).
+
+![Double slit](figures/fig1_young.png)
+*(a) diffraction and interference of the field; (b) the time-integrated on-screen pattern; (c) the reduction of one electron onto one detection point — the projection is an input of the interpretation (O9), not a consequence of the unitary step; (d) the accumulated detections clustering into the fringes, the Tonomura sequence [25].*
+
+The same field drives atomic physics: coupled to a prescribed hydrogen spectrum, the lattice photon reproduces resonant absorption, the $1s\to 2p$ deformation, and re-emission at the gap frequency, with forbidden dipole matrix elements vanishing to $10^{-18}$ ($1s\to3d$: $1.7\times10^{-18}$, $2p\to3p$: $1.2\times10^{-17}$, against $9.93$, $-3.00$, $22.97$ for the allowed transitions) and the excited fraction falling with detuning ($0.42$, $0.35$, $0.15$, $0.035$, $0.011$ at detunings $0$, $0.063$, $0.125$, $0.25$, $0.50$ rad/step). The atom is an **input** — its levels are the real hydrogen eigenstates — and the figure demonstrates the photon sector, not a derivation of hydrogen. Two limits are stated rather than hidden: off-resonant absorption has a Lorentzian tail, and a wave packet wider than the simulation box never leaves it, becoming a persistent bath that drives the atom off resonance (measured at half-gap detuning in a 120-cell box as excited fractions $0.037$, $0.135$, $0.326$ for packet widths of 12, 24, 48 cells; the published figure uses a localised packet, 20 cells in a 296-cell box).
+(Fig. 2).
+
+![Hydrogen](figures/fig2_hydrogen.png)
+*A three-dimensional hydrogen atom coupled to the same discrete massless field that carries the graviton, on the mid-plane cut through the nucleus: (a) the spherical ground state $|\psi|^2$; (b) the incoming lattice photon $|F|^2$; (c) the cloud after resonant absorption, deformed into the dumbbell $2p$; (d) the emitted field $|F_{\rm out}|^2$. The atom is an input; the figure tests the photon sector, not hydrogen.*
+
+---
+
+## 7. The step: unitarity, spectrum, causality
+
+### 7.1 The update
+
+The step has six stages, and every stage is the same two layers: the internal rotation applied to every sub-site, then one bond stage. The internal factor is built from the $\mathrm{Spin}(10)$ plane-rotation generators $T_{ab} = i\,h_a h_b$ ($a<b$) in the $32$-dimensional module — each $T_{ab}$ Hermitian, squaring to $I$, traceless (sixteen $+1$ and sixteen $-1$ eigenvalues):
+
+$$U(g) \;=\; \prod_{a<b}\Big(\cos g\, I - i \sin g\, T_{ab}\Big).$$
+
+A sub-site is labelled by $e = (e_1,e_2,e_3) \in \{0,1\}^3$, the bit of axis $j$ being $2^j$. A **bond stage** acts on the four disjoint pairs $(e,\, e \oplus 2^j)$: an *intra-block* stage takes the pairs with $e_j = 0$, inside the cell; an *inter-block* stage takes the pairs joining $e_j = 1$ of one cell to $e_j = 0$ of the next cell along $\hat e_j$ — still a two-cell operator, now between neighbouring cells. On each pair the gate is the swap-rotation $\cos g\, I - i\sin g\,(|e\rangle\langle o| + |o\rangle\langle e|)$, carrying the same single angle and no other parameter. The six stages run in the fixed order (intra $x$, inter $y$, intra $z$, inter $x$, intra $y$, inter $z$). One step is therefore
+
+$$M \;=\; \prod_{s=1}^{6} \big(P_s \otimes U(g)\big),$$
+
+an operator on the cell's on-site space $\mathbb{C}^{256}$ ($P_s$ on the eight sub-sites, $U$ on the internal module). At block crystal momentum $q$ an inter-block pair carries the phase $e^{\pm iq}$, $M(q)$ is $256 \times 256$, and on the $16$ sector it is $128 \times 128$.
+
+Every factor is special unitary: the $45$ internal factors have $\det = \exp(-i g\,\mathrm{Tr}\,T_{ab}) = 1$, and each bond pair block $\left(\begin{smallmatrix} c & -is\\ -is & c\end{smallmatrix}\right)$ has determinant $c^2 + s^2 = 1$ (the inter-block phases cancel). Hence
+
+$$U U^\dagger = I,\quad \det U = 1, \qquad M M^\dagger = I,\quad \det M = 1 \qquad \text{for every } g,$$
+
+verified numerically: internal unitarity and $|\det U - 1|$ at the $10^{-15}$ level; for the full cell matrix $\|MM^\dagger - I\| \le 5\times10^{-15}$ and $|\det M - 1| \le 3\times10^{-13}$ at the zone centre, at a generic momentum and at the two high-symmetry points; the real-space six-stage step preserves the norm of a random cell state to $10^{-15}$. Two structural inputs must be named: the $45$ factors do not commute, so $U$ depends on the *ordering* of the product, and the six stages have a fixed order. The algebra does not select either order.
+
+The angle $g$ is the one continuous number of the dynamics. Two readings of it coexist and are kept apart throughout. The **implemented** value $g = 1/5$ is the one on which the phenomenology of [Paper III Sections 2–4] is computed; it comes from the proposed rule $g = 1/n_{\rm qubits}$, the five qubits of the $32$-dimensional module, which the data do not support ([Paper III Section 5]). The **closed** values $g = \pi/2$ and $g = \pi/4$ are the only ones for which the step is an element of the root (Section 9). The two readings disagree by a measured amount, and both are reported. **Coupling convention (used once, everywhere):** all couplings compared with renormalisation-group running are in the standard normalisation $\alpha = g^2/4\pi$ — the implemented angle gives $\alpha = 1/100\pi = 0.00318$, the closed angle $\alpha = \pi/64 = 0.0491$. The alternative reading $\alpha_{10} \equiv g^2$, under which the implemented angle equals the desert meeting value $1/25$ exactly, is a factor-$4\pi$ convention and is invoked only where explicitly named (Sections 9.2, 3.1, 5).
+(Fig. 3).
+
+![The 32-level spectrum](figures/fig3_one_object_32spectrum.png)
+*The eigenphases of $U$ at $g = 1/5$. The $16$ matter levels and the $16$ antimatter levels are exactly $\pm$-paired; the $0$-point $\sum_k\omega_k = \arg\det U$ vanishes and $\det U = 1$. The smallest level, $\omega_{\min} = 0.0115$, corresponds to $\omega_{\min}M_P = 1.4\times10^{17}$ GeV — the only sub-Planck scale of the internal spectrum, and *not* the electroweak scale.*
+
+### 7.2 The single-particle spectrum
+
+The $32$ eigenphases $\omega_k$ of $U$ (the spectrum of $H = -i\log U$) are the energies of one sub-site per stage, in units of $1/t_P$; the spectrum of the cell at block momentum $q$ is the set of eigenphases of $M(q)$, $128$ of them on the $16$ sector. At $g = 1/5$ the internal levels are
+
+$$\omega \in \{\pm 0.01147,\ \pm 0.05447,\ \pm 0.15819,\ \dots,\ \pm 1.48638\},$$
+
+exactly $\pm$-paired to $2\times10^{-15}$, so the single-sub-site vacuum energy $\sum_k \omega_k = \arg\det U$ vanishes. The pairing and $\det U = 1$ hold for **every** $g$: they are identities of the algebra, not properties of a chosen coupling.
+
+**Theorem 4 (the matter/antimatter spectral mirror).** *Because every $T_{ab}$ is even, $[U,w] = 0$ to $10^{-15}$, so $U$ preserves the $16$ and $\overline{16}$ eigenspaces, and*
+
+$$\omega_{\overline{16}} = -\omega_{16},\qquad \mathrm{spec}\big(U\big|_{\overline{16}}\big) = \mathrm{spec}\big(U\big|_{16}^\dagger\big),$$
+
+*verified to $2\times10^{-15}$ over the grid $g \in \{0.05,\dots,0.5\}$.*
+
+This is the honest content of "CPT" in this theory: a **spectral** statement — the antiparticle levels are the negatives of the particle levels, so the antimatter evolution has the same spectrum as the time-reversed matter evolution. It is not the full CPT theorem: no antiunitary time-reversal operator is constructed on the many-cell Hilbert space and no spin-statistics connection is derived. A unitary involution $C = h_1$ maps the $\mathbf{16}$ onto the $\overline{\mathbf{16}}$ (it anticommutes with $w$), but calling $C\cdot T$ "CPT" overstates what has been built.
+
+The mechanism of the pairing is understood, and its scope is limited. The intertwiner between the $32$-dimensional module and its conjugate is unique (nullity $1$, rank $32$); it satisfies $Q h_a Q^\dagger = h_a^*$ to $2\times10^{-15}$ for the ten generators and $Q T_{ab} Q^\dagger = -T_{ab}^*$ to the same bound for the $45$, and the associated antiunitary $\mathcal J$ has $\mathcal J^2 = +1$. That is the content of $\mathrm{Cl}(10,0)\simeq M_{32}(\mathbb{R})$: $\mathrm{Spin}(10)$ lands in $\mathrm{SO}(32)$, and a real form of $\mathrm{U}(32)$ carries no CP-odd invariant. Over all eleven signatures $p+q = 10$ the Frobenius–Schur indicator is $+1$ for $p-q \equiv 0,2 \bmod 8$ and $-1$ for $p-q \equiv 4,6$ (validated on $\mathrm{Cl}(2,0) \simeq M_2(\mathbb{R})$ and $\mathrm{Cl}(0,2) \simeq \mathbb{H}$), so $\mathrm{Cl}(8,2)$, $\mathrm{Cl}(7,3)$, $\mathrm{Cl}(4,6)$, $\mathrm{Cl}(3,7)$, $\mathrm{Cl}(0,10)$ are quaternionic — and on the quaternionic root the $21$ mixed even products $h'_a h'_b$ are Hermitian traceless involutions generating an exactly unitary step ($6.7\times10^{-16}$, $\det U = 1$) whose spectrum is still exactly conjugation-closed ($3\times10^{-15}$): the mirror is not a privilege of reality. Two scope limits come with it. The antiunitary inverts every single factor ($\mathcal J F \mathcal J^{-1} = F^{-1}$) but reverses the order of the ordered product, so $\mathcal J U \mathcal J^{-1} \ne U^{-1}$ (deviation $0.58$ for $\mathrm{Cl}(7,3)$, $0.81$ for $\mathrm{Cl}(10,0)$): the pairing is a property of the whole ordered step. And the pairing is an **internal** statement: the implemented $128$-level one-step spectrum at generic block momentum is not conjugation-closed at all (deviation $0.95$–$0.99$), while the internal $32$ spectrum is exact ($5\times10^{-15}$).
+
+### 7.3 Locality and the causal radius
+
+**Theorem 5 (the causal radius is implemented).** *On an $(L_b,L_b,L_b)$ torus of cells the step is a product of two-cell operators: every bond stage couples sub-sites at Planck-cell distance $\le 1$ — an intra-block pair joins neighbouring sub-sites of one cell, an inter-block pair joins neighbouring cells. Hence after $n$ stages the support of a sub-site-localised excitation lies inside the $n$-cell light cone: at most one Planck cell per stage, and since three of the six stages are inter-block, at most three blocks — six Planck cells — per step. Numerically: the norm of a random cell state is preserved to $10^{-15}$; on an $8^3$-cell torus the support radius after $n$ stages is exactly $n$ Planck cells for every $n \le 12$ — the front saturates the cone, front speed exactly $1$; on a $32^3$-cell torus run for $30$ stages the front reaches $21$ cells, and no site of the support and no amplitude ever appears outside the $n$-cell cone ($0$, to machine precision); the same cone is realised at $g = 0.3$ as at $1/5$; the internal layer alone, with the bond stages removed, keeps the excitation on one sub-site forever.*
+
+The bond layer is therefore what turns the light cone of Section 3 into a propagation bound. This is the cleanest dynamical result of the theory.
+
+### 7.4 The $n$-particle sector
+
+The $n$-particle $S$-matrix of the automaton is $S^{(n)} = U^{\otimes n}$ on the antisymmetrised $n$-particle space: elastic, bounded, with cross-sections bounded by $4\pi/M_P^2$. There is no inelastic channel at the one-cell level, and no renormalisation of the step: the coarse-graining tower $U^{2^p}$ ($p = 1\dots 8$) stays unitary and bounded at every level, so the *discrete* flow has no Landau pole — in contrast with the perturbative field-theory running of the same couplings, which does ([Paper III Section 3.1]). That contrast is real but modest: a unitary finite-dimensional map is bounded by construction, and boundedness alone does not reproduce the observed running.
+(Fig. 4).
+
+![Two-loop running against the bounded automaton](figures/fig4_uv_2loop.png)
+*The two-loop perturbative running reaches a Landau pole at $2.5\times10^{12}$ GeV, below the cutoff; the one-loop pole is above it. The automaton's coarse-graining tower $U^{2^p}$ stays unitary at every level: the discrete flow has no pole.*
+
+---
+
+## 8. Lattice chirality and the doubling problem
+
+The Nielsen–Ninomiya theorem forbids a single chiral fermion in a theory with a *local, translation-invariant, Hermitian* lattice Dirac operator and a bounded spectrum [26]. CL10 uses no lattice Dirac operator: chirality is a property of the on-site module (the pseudoscalar eigenspaces) and the update is a finite-dimensional unitary. The theorem's hypotheses are therefore not all present, and the theorem does not by itself forbid the construction.
+
+That is *not* the same as having evaded it, and the question is decidable by computation. The step is one time-independent operator on the cell lattice, so the good quantum number is the **block crystal momentum** $q$ — the phase under a translation by one automaton cell, $2\pi$-periodic, zone $q \in [-\pi,\pi]^3$ — and the eight sub-sites are the internal structure of the Bloch matrix. The $16$-sector one-step matrix $M(q)$ is computed exactly at $128 \times 128$ and cross-checked against the real-space step on a $2^3$-block torus (agreement $10^{-14}$). The cubic high-symmetry momenta carry the whole spectrum: $\Gamma = (0,0,0)$; $\mathrm{X} = (\pm\tfrac\pi2,0,0)$, star $6$; $\mathrm{M} = (\pm\tfrac\pi2,\pm\tfrac\pi2,0)$, star $12$, little group $C_{2v}$; $\mathrm{R} = (\pm\tfrac\pi2,\pm\tfrac\pi2,\pm\tfrac\pi2)$, star $8$, little group $C_{3v}$.
+
+**Proposition 2 (lattice chirality).** *(i) The $16$ sector is closed by the full step, not only by the internal layer:* the bond layer acts on the sub-site index and commutes with $w$, so a state initialised in the $\mathbf{16}$ leaves it by less than $10^{-15}$. Chirality is a dynamical symmetry of the automaton. *(ii) The zone centre is gapped:* $\min_a|\omega_a(q=0)| = 0.0365$ per step, so the would-be massless matter is **not** at $q = 0$. *(iii) The gapless points are the doublers:* the $16$-sector one-step spectrum is gapless at the $12$ momenta $(\pm\tfrac\pi2,\pm\tfrac\pi2,0)$ and their permutations — the $\mathrm{M}$ points of the block zone, at half-zone momentum, whose Planck-cell momenta are $p = q/2$ — with node chiralities summing to $0$, as Nielsen–Ninomiya requires; at $g = 1/5$ the nodes still carry a small gap, $2.0\times10^{-4}$. The gap at $q = 0$ is not protected: it moves from $0.036$ at $g = 0.2$ to $0.072$ at $g = 0.15$ and to $2.35$ at $g = 0.1$.
+
+The doubling therefore **survives** the automaton: "the $\mathbf{16}$ is a single chiral generation" is a property of the *internal module*, while the *lattice spectrum*, which is what couples to low-energy physics, contains twelve gapless nodes.
+(Fig. 5).
+
+![Brillouin-zone doublers](figures/fig5_brillouin_doublers.png)
+*The twelve gapless doubler nodes at the half-zone momenta of the block zone (chirality $\pm1$, sum zero) and the gapped zone centre ($0.0365$ per step) of the $16$-sector one-step spectrum. The doubling is displayed, not hidden.*
+
+### 8.1 The Wilson mechanism
+
+The remedy is part of the construction. A Wilson-type term built from the root's own algebra — an internal factor
+
+$$W(q) = \exp\Big[-i\,w\sum_j(1-\cos q_j)\,\big(\cos\theta\,X + \sin\theta\,Y\big)\Big],$$
+
+with $X, Y$ the unification Cartan directions identified in [Paper III Section 3.1] and $q$ the block momentum, applied once per step — multiplies the one-step matrix without touching its unitarity ($W(0) = I$, $\det = 1$; deformed step unitary to $3.3\times10^{-15}$) and leaves the bond stages strictly causal. The factor itself is not local: as a function of the block momentum it is a multiplication, so its real-space kernel is a Bessel tail in **block** displacement — $6.7\times10^{-2}$ at block radius $\ge 2$ and $2.2\times10^{-3}$ at $\ge 4$ for $w = 0.1$, and $1.8\times10^{-17}$ at $\ge 4$ at the physical strength. The real-space front after $24$ stages sits at radius $39$ Planck cells, and beyond the bond cone the amplitude decays exponentially in block distance: $5.6\times10^{-6}$ in the first block shell, $3.1\times10^{-9}$ at the Lieb–Robinson line $r = 1.2n + 6$, with a decay ratio $\le 0.26$ per block. The Wilson factor replaces the light cone of Theorem 5 by a Lieb–Robinson bound [27].
+
+It gaps all twelve nodes — the minimum node gap rises from $2.0\times10^{-4}$ to $5.7\times10^{-3}$ ($w = 0.01$) through $1.5\times10^{-2}$ ($w = 0.2$) — with fragment masses
+
+$$M_f = w\,\lvert\cos\theta\,X_f + \sin\theta\,Y_f\rvert\,M_P/3 ;$$
+
+a *selective* reading splits exactly three nodes at desert scales and leaves the other nine at the Planck cutoff. What remains input is the *choice* of the split node set: unification forces $n_{\text{nodes}} \ge 3$ but does not select which three, and the meeting scale the mechanism then predicts is in conflict with proton decay ([Paper III Section 3.1]).
+
+At the physical root $\theta = 1.731$ the Wilson direction completes the breaking chain: it leaves $\mathrm{Spin}(10)\to\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)^3$, preserves the Model algebra (every unbroken root is intra-fragment; the $32$ broken roots are exactly the leptoquark type), and the two extra $\mathrm{U}(1)$'s are the only open step to the Standard Model group.
+(Fig. 6).
+
+![The Wilson mechanism](figures/fig6_wilson_mechanism.png)
+*(a) The twelve doubler nodes at the M points of the block Brillouin zone, coloured by axis family — three families of four labelled by the zero component; the three ringed nodes show the selective choice, one per family, realizable at a single Wilson strength. (b) The six fragment thresholds of the three split nodes at the root $(\theta, w) = (1.731, 6.27\times10^{-9})$: the pattern is the vectorlike split $\mathbf{16}$ the renormalisation-group repair requires, but the meeting scale $M_X = 8.9\times10^{14}$ GeV sits below the Super-Kamiokande exclusion.*
+
+### 8.2 Lorentz structure at the nodes
+
+The causal front speed of Theorem 5 is exactly $1$ Planck cell per stage; that is the statement the automaton proves. What the *low-energy spectrum* of the implemented step does not have is continuous Lorentz invariance.
+
+At all twelve nodes and in all $1200$ sampled directions the dispersion is **linear** (local exponent $p = 1.00$, no quadratic band touching), but the cone is strongly **anisotropic**: principal velocities $(0.200, 0.200, 0.284)$ per unit block momentum — $(0.100, 0.100, 0.142)$ in Planck-cell units — anisotropy $0.748$–$0.758$, the same at every node of the $O_h$ orbit. The lattice signature is universal, not a defect. Exhaustive scanning of the whole Wilson family closes the hope that isotropy emerges somewhere: the node gap is located at every zero over the two orbit representatives $\times$ $60$ angles ($2726$ gapless points, tolerance $10^{-7}$) and the cone anisotropy $A = (v_{\max}-v_{\min})/(v_{\max}+v_{\min})$ measured over $162$ directions at each point; the Lorentz target $A < 10^{-6}$ contains $0$ of the $2726$ points, the closest approach being $A = 0.997$.
+
+Frame averaging over the internal frames is blind to the failure, and this closes the last proposed escape of this kind: rebuilding the internal step in four random $\mathrm{SO}(10)$ frames of the ten generators (the product of the $45$ plane rotations taken in the rotated frame's lexicographic order) leaves the node gap $2.003\times10^{-4}$, the principal velocities $(0.200, 0.200, 0.284)$ and the anisotropy $0.7545$ unchanged to $3\times10^{-15}$, and the tangent commutators at the noise floor ($\le 9\times10^{-12}$) in every frame. The momentum dependence lives entirely in the sub-site factor of the Kronecker bond layer, so no choice or averaging of the internal frame can move the cone (experiment V142).
+(Figs. 7, 8).
+
+![Doubler cones](figures/fig7_doubler_cones.png)
+*(a) The minimum-eigenphase velocity $\lvert v(\hat n)\rvert$ over $100$ Fibonacci directions at one doubler node, inside the causal sphere of Theorem 5 (grey, speed $1$): the cone is elongated, never round. (b) All twelve nodes $\times$ $100$ directions: $1200/1200$ linear; the velocity-tensor fit gives $0.200/0.200/0.284$ per unit block momentum, a factor $\sim 4$ below the causal speed. (c) The anisotropy is the same at every node of the orbit.*
+
+![Isotropy search](figures/fig8_isotropy_search.png)
+*The escape route "continuous Lorentz invariance emerges at some gapless point of the Wilson family" is closed by exhaustive scan: $0$ of $2726$ gapless points reach $A < 10^{-6}$; the distribution of $A$ is pinned at $0.997$–$1.000$; no angle $\theta$ and no strength $w$ moves a cone toward isotropy.*
+
+The failure is structural, not a finite-radius artefact. At the tangent, the twelve doubler nodes carry speeds $(0,\ 0.14189,\ 0.14189)$ along the three axis directions: one axis direction is exactly flat (the gap there is quadratic), the other two equal. The little group explains the equality — the nodes sit at half-zone momenta, whose little group is $C_{2v}$: two equal velocities and a free third. At the eight $\mathrm{R}$ points the full cubic symmetry is realised (exactly $3$-fold multiplets, splitting $<10^{-12}$; the gap of the lowest triplet is the same at all eight corners to $10^{-15}$), and the Wilson factor drives one of them exactly gapless ($10^{-10}$, a one-parameter family): the Wilson family does supply massless cubic matter, and the touching there is linear — $dM/dq_j$ is anti-Hermitian and $S_j = i\,dM/dq_j$ is nonzero (max speed $0.92$). But the three tangent velocity operators commute ($[S_i,S_j] = 0$ to $3\times10^{-12}$ against the scale $\sum_j\lVert S_j\rVert^2 = 0.85$), $\sum_j S_j^2$ is a scalar to $7\times10^{-12}$, and each branch speed is exactly $\lvert v_\alpha \cdot q\rvert$ to $6\times10^{-12}$ with the $v_\alpha$ the cubic permutations of $(0.704, 0.421, 0.421)$: the node is a crossing of three **nodal planes**, and no tuning of the Wilson angle turns three planes into a cone. The two corner multiplets cannot be driven to zero simultaneously (best pair gap $7.2\times10^{-5}$, six orders above the $10^{-10}$ a single multiplet reaches), so no six-component touching point exists there either.
+
+The cause is the Kronecker form of the bond layer, (sub-site index) $\otimes$ (internal algebra): the three momentum derivatives act on one factor and commute. Two remedies have been built and measured. A non-Abelian Peierls bond layer in which a hop carries an internal rotation $\exp(\pm i\phi D_{16})$ whose sign follows the hop direction — exactly unitary, still radius-1 causal, reproducing the implemented step to $6\times10^{-16}$ at $\phi = 0$ — raises the planarity defect from $3.6\times10^{-8}$ to $4.0\times10^{-2}$ and switches the tangent commutator on to $0.071$ of its natural scale, while the anisotropy never leaves $0.996$–$0.9999$ and the corner triplet is lifted off zero (best top level $3.3\times10^{-4}$, against $5.6\times10^{-7}$ at $\phi = 0$). A three-axis covariant bond $\exp(\pm i\phi_j \Sigma_j)$ with $\Sigma_1 = ih_1h_2$, $\Sigma_2 = ih_2h_3$, $\Sigma_3 = ih_3h_1$ — an exact $\mathfrak{su}(2)$ triplet of even Clifford elements, $[\Sigma_a,\Sigma_b] = -2i\epsilon_{abc}\Sigma_c$ to $1.5\times10^{-15}$, unitary to $10^{-15}$, equal to the implemented step at $\phi = 0$ — takes the tangent commutator to $0.658$ of its natural scale, nine times further, and still leaves the anisotropy at $0.9990$ with no gapless bond point in the scan; and it breaks the degree-1 Fourier support that proves Theorem 5 (leakage $0.27$). The remedy has a measured price: the tangent algebra moves a long way, no cone appears, and exact causality is what pays for it.
+(Fig. 9).
+
+![Tangent velocity algebra](figures/fig9_tangent_algebra.png)
+*(a) The R-point cubic multiplet driven exactly gapless by the Wilson factor, in the $k_z = 0$ slice: each branch carries a fixed velocity $v_\alpha$ and vanishes on its own line $v_\alpha\cdot q = 0$ — three planes through the node, not a cone. (b) The three tangent velocity operators commute, $\max\lVert[S_i,S_j]\rVert \le 3\times10^{-12}$ against the scale $0.85$ a Clifford-type algebra would set. (c) The entangling Peierls bond raises the planarity defect to $4.0\times10^{-2}$ and the commutator to $0.071$ of its natural scale, while the anisotropy stays in $0.996$–$0.9999$: the right mechanism, not yet enough of it.*
+
+### 8.3 The massless-mode census
+
+On the grid the implemented step seems to have **no exactly gapless mode anywhere**: the smallest quasi-energy over a $15^3$ zone grid is $5.1\times10^{-4}$ lattice units, and at the twelve M nodes it is $2.003\times10^{-4}$. The grid is too coarse. Refined inside the three nodal planes, the step has an **exactly gapless orbit of $24$ points** — representative $q_0 = (-2.1890561,\,-1.4445961,\,0)$, gap $4\times10^{-14}$, the residual falling to the noise floor under refinement while a displacement of $5\times10^{-2}$ in the plane costs $8.8\times10^{-3}$ — with little group of order $2$. The branch is linear in every in-plane direction with $v \in [0.031, 0.219]$ (anisotropy $0.857$), and leaving the plane costs a gap linear in $q_z$ ($5.1\times10^{-4}$ at $q_z = 10^{-2}$): a massless point node confined to the nodal plane, not a line and not a gapped touching. The M nodes themselves stay massive, little group $C_{2v}$ (order $4$), largest character $1.0$ on the near-gapless bond subspace — no $2$-dimensional irrep there either. So the implemented spectrum does contain exactly massless excitations at $g_{10} = 1/5$, and it still contains no massless spin-2 candidate: a little group of order $2$ has only $1$-dimensional irreps, so the new nodes carry no helicity $\pm1$ or $\pm2$ pair, and the step's own anisotropy is now measured at $0.857$ on the exactly massless branch, not the $0.252$ of the near-miss M nodes.
+
+The near-miss is the signature of the irrational internal clock, not a structure: at the closed angle $g = \pi/4$ the twelve nodes are exactly gapless (minimum gap below $3\times10^{-17}$, $12/12$) and the zone-centre step is an exact involution — and the census redone there finds not thirteen points but $\Gamma$ plus **six gapless face-diagonal lines** carrying those nodes, with the per-node chirality convention inapplicable and the helicity answer unchanged (Section 9).
+
+The same census settles the spin question at the zone centre. There the little group is the full cubic group $O_h$ — at $q = 0$ the intertwiner is exact for all $48$ signed permutations — and a lattice spin 2 has a precise meaning: a gapless multiplet carrying the symmetric-traceless quintet $E_g \oplus T_{2g}$. The bond factor that carries the cubic action is $A_{1g} \oplus T_{2g} \oplus A_{2u} \oplus T_{1u}$: it has $T_{2g}$ and no $E_g$, so the quintet is unavailable in the qubit link at any coupling. $\Gamma$ is exactly gapless at $g = \pi/8, \pi/6, \pi/4, \pi/3$ and nowhere near the implemented $1/5$ (gapped by $3.65\times10^{-2}$); at each of those angles its null space is cubic-covariant and $E_g$-free — $16 \times (A_{1g} \oplus T_{2g})$, dimension $64$, at $\pi/4$ — and its dispersion is flat, $\omega/|\mathbf{q}| \to 0$. The symmetric rank-2 space of the link directions does carry $A_{1g} \oplus E_g \oplus T_{2g}$: the quintet lives in the directional bond layer of [Paper II Section 2], not in the qubit link ([Paper II Section 3.1]).
+
+That route is no longer a blank: the directional bond layer, its dressed gate and the quintet dispersion are constructed and computed in [Paper II Section 2.4].
+
+---
+
+## 9. The quantized clock: the root closes its own parameter
+
+The parameter audit of [Paper III Section 5] classes the rotation angle as the one free continuous parameter of the dynamics and classes the rule $g = 1/n_{\rm qubits}$ as a convention the data reject. There is a sharper condition, and the algebra itself enforces it. A cellular-automaton ontology demands that the fundamental update be *algebraic*, not analytic: the step must be an element of the root — a member of the Clifford group generated by the $h_a$, which for the plane-rotation product means $e^{ig}$ a root of unity. Call this the **closure axiom**: no continuous phase may enter the dynamics.
+
+**Theorem 6 (the two closed steps).** *Over every rational angle $g = p\pi/q$ ($q \le 16$) and every candidate of the implemented rule ($1/5$, $\pi/5$, $\pi/10$, $\pi/8$, $3\pi/8$, $\pi/6$, $\pi/3$), the internal step $U(g)$ is exactly periodic at precisely two angles: $g = \pi/2$, of order $4$, and $g = \pi/4$, of order $8$. At the implemented $g = 1/5$ the internal clock is irrational: the smallest level is $0.011466$ rad per step, $2\pi/\omega_{\min} = 548.0$, and no order $\le 64$ exists (deviation $0.45$).*
+
+*Proof of the $\pi/2$ case, and a stronger statement.* Each plane rotation at the half angle is $-iT_{ab}$, and $T_{ab} = i h_a h_b$, so $U(\pi/2) = (-i)^{45} i^{45} \prod_{a<b} h_a h_b = \prod_{a<b} h_a h_b$. The product of all $45$ pairs in ascending order reduces — numerically to $6.1\times10^{-17}$ in the $1024$-element algebra basis, with every other basis coefficient below $10^{-8}$ — to the single monomial $h_0 h_1 \cdots h_9$, the pseudoscalar $w$; since $w^2 = -I$, $U(\pi/2)^4 = I$. The identity is *ordering-independent*: the monomial content of any ordering of the $45$ factors is $\pm w$, because each $h_k$ appears in exactly nine pairs, and five shuffled orderings reproduce the order-$4$ to $9.8\times10^{-16}$. The step at the half angle *is* the root's chirality operator.
+
+**The quantized step ($g = \pi/4$).** $U(\pi/4)^4 = -I$ and $U(\pi/4)^8 = I$ exactly ($5.0\times10^{-15}$), and the $32$ internal levels are exactly the algebraic set
+
+$$\omega \in \{\pm\tfrac{\pi}{4}\ (10),\ \pm\tfrac{3\pi}{4}\ (6)\},\qquad \max_k\big|\omega_k - k\pi/4\big| < 3\times10^{-15},$$
+
+$\pm$-paired, zero point below $2\times10^{-15}$, $\det U = 1$: the internal spectrum becomes pure algebra, with no continuous number anywhere. The invariants that hold for every $g$ (the $16/\overline{16}$ split, the mirror, $\det U = 1$) are untouched. The order-$8$ requires the canonical Appendix-A ordering of the $45$ factors — five shuffled orderings break it (deviation $\sim 1$) — so the ordering, already an input of the step, carries the quantization.
+
+**The full step closes too.** At $g = \pi/4$ the exact one-step Bloch matrix of the $16$ sector at the zone centre satisfies $M(0)^2 = I$ below $1\times10^{-14}$ (and on the full $256$-dimensional module below $1\times10^{-14}$; $16$-sector closure leak below $5\times10^{-16}$): the fundamental dynamics is a finite-state machine, 't Hooft's determinism exact at the fundamental update. The doubler defect of Section 8.3 is repaired, but the repaired census is not a set of points. At $g = \pi/4$ the exactly gapless set of the block zone is $\Gamma$ together with the **six face-diagonal lines** $\{(\pm t, \pm t, 0)\}$ and its axis permutations: every point of every line is gapless below $7\times10^{-16}$ over its whole length, the twelve M points are only the high-symmetry points that happen to sit on them (their gaps $0$–$2.2\times10^{-16}$), X and R stay gapped at $0.5236$, the body diagonal is gapped away from $\Gamma$ ($0.022$ at $t = 0.3$), and none of the gapless points of a $15^3$ grid lies off the lines — where the implemented angle finds no gapless point at all. The step still factorises as $M(q) = P(q) \otimes U_{16}^{6}$ there ($4.0\times10^{-15}$).
+
+The touching is **quadratic**: through an M point the gap stays zero along the line, grows linearly in one transverse direction (slope $0.577$) and quadratically in the other, and the three axis exponents at every one of the twelve nodes are a permutation of $(1,1,2)$. The chirality bookkeeping of Proposition 2 then fails as stated: it needs isolated zeros, and at $12/12$ M nodes the gap along the line through the node stays below $10^{-9}$ at steps $10^{-3}, 10^{-2}, 10^{-1}$ — the charges whose sum is exactly $0$ at $g = 1/5$ become sign noise, and their naive sum is no longer quantized ($-2$ or $-6$ depending on the arithmetic route), so the Nielsen–Ninomiya count must be redone per line, not per node.
+
+The helicity question re-asked at the new gapless point answers as it did at an M node: the step's point group at $\pi/4$ is the same $16$-element index-$3$ subgroup of the $48$ signed permutations and $\Gamma$ is fixed by all of it; the exactly gapless subspace of $M(0)$ has dimension $64$ of $128$ (intertwiner leak below $10^{-13}$, $\langle\chi,\chi\rangle = 768$), and since the internal $\mathbf{16}$ is inert the content is that of the $4$-dimensional bond factor, whose isotypic constituents are four $1$-dimensional irreps — no $2$-dimensional irrep, hence no helicity $\pm1$ or $\pm2$ candidate at $\Gamma$ either.
+
+### 9.1 The half-angle branch
+
+At $g = \pi/2$ the six-stage bond matrix is diagonal to $1.2\times10^{-16}$ at every sampled momentum, its permutation part is the identity, and the eight sub-site phases are linear in $q$ with slopes the eight corner vectors $\{\pm1\}^3$: the bond layer is a pure lattice translation, no mixing, no interference. The bands are exactly linear with slope $\pm1$ along every axis, $M(0) = I$ on the whole $128$-dimensional internal space (all $128$ eigenphases at $0$, against $64$ of $128$ at $\pi/4$), and the gapless set is a line network: $513$ gapless points on a $13^3$ grid, including the lines $q_x \mp q_y = \pm\pi/2$ in the plane $q_z = \pi/2$ — $7.0\times$ the $73$ of the $\pi/4$ branch, against the $0$ of $g = 1/5$. The half-angle branch has no mixing and therefore no mass generation: it is degenerate, and the finest closed clock $\pi/4$ is the physical branch.
+
+### 9.2 What the closure costs
+
+The loop machinery quantizes, and pays. The traced-link hop phases of [Paper III Section 2.1] — built from the joint Casimir eigenvalues $-32,-12,+4$ — become exactly $\{1, i, i\}$ at $g = \pi/4$ (below $3\times10^{-15}$), and a new exact selection rule appears: $F_n = 0$ below $7\times10^{-15}$ for **every odd $n$** (the odd closed loops cancel identically; at $g = 1/5$ no such selection rule exists). The even-$n$ suppression then decays by $0.978$ per step, so the crossing of $1/(16\pi)$ moves from $n^* = 10$ to $n^* = 208$: the ladder-length selection of [Paper III Section 2.1] does not survive the quantized angle, and the hierarchy mechanism must be re-derived with the new cancellation rule.
+
+The coupling convention pays too, and the accounting must be done in one normalisation. At the closed angle the rotation-squared coupling is $\pi^2/16$, i.e. $\alpha = \pi/64 = 0.0491$ in the standard normalisation $\alpha = g^2/4\pi$, against the $0.040050$ at which the desert solution meets ([Paper III Section 3.1]): the closed value is a factor $1.226$ above the meeting value. In the same normalisation the implemented angle gives $\alpha = 1/100\pi = 0.00318$, a factor $12.6$ **below** it — the "exact" match of [Paper III Section 3.1] is the convention $\alpha_{10} \equiv g^2$, not a number of the standard running.
+
+Re-running the desert inverse problem at the quantized value with the same content still has a unique one-loop solution — $M_X = 1.235\times10^{17}$ GeV, $M_{10} = 7.1\times10^{4}$ GeV, $M_{(1,2)} = 4.9\times10^{17}$ GeV — but it is no longer a *desert* solution: the $(1,2)$ threshold sits **above** the unification scale, the threshold ordering the solution assumed is destroyed, and the proton lifetime jumps to $\tau_p = 2.8\times10^{39}$ yr. Conversely, holding $M_X$ at the data-preferred $1.8\times10^{16}$ GeV requires $\alpha_X = 0.040050$: the meeting coupling is rigidly tied to $M_X$ by that content. Against the one-loop target — the three couplings run to $M_P$, mean $0.023068$ — the closed value has relative gap $1.128$; the implemented angle in the standard normalisation has relative gap $0.862$, so closure moves the relative gap by a factor $1.31$ while moving the coupling from $12.6\times$ below to $1.23\times$ above the meeting value — a factor $2.6$ **closer** in log-distance. (The factor $1.54$ sometimes quoted compares the closed value in the standard normalisation against $1/25$ in the $g^2$ convention: it is a convention artefact and is retired here.) The closed value sits $2.41\times$ above the data-optimal $1/7^2 = 0.0204$ and is not of the $1/n^2$ form at all ($\pi/64 = 1/n^2$ needs $n = 4.51$; the nearest integers miss by $18.5\%$ and $27.3\%$).
+
+**The verdict on the parameter criterion.** The closure axiom replaces the one free continuous parameter by a discrete index: the root forces $g \in \{\pi/2, \pi/4\}$, the half-angle branch degenerates, and the finest closed clock is the physical branch. A discrete index of the root is not a parameter in the sense of [Paper III Section 5] — the family number $3$ is already an index of the same kind. What the theory loses is empirical: the $n^* = 10$ ladder crossing and the desert threshold ordering were the two places the data spoke to the angle's consequences, and both move. What it gains is structural: an on-site dynamics with **zero continuous unfixed numbers** — a finite algebraic spectrum, a fundamental step of finite order, and the point-doubler defect replaced by an exactly gapless nodal-line network. The claim is scoped: the junction amplitude $r$ ([Paper III Section 2.3]), the split-node set (O9) and the bond-layer couplings $\kappa_s$ ([Paper III Section 3.1]) remain continuous inputs of the *extended* construction, and [Paper III Section 5] counts them. The trade is written into the falsifiers: the quantized theory predicts $\alpha_X = \pi/64 = 0.0491$ at the desert meeting and a ladder crossing beyond $n = 208$; either re-derivation failing refutes the closure axiom, and the implemented irrational angle remains the fallback theory. The falsifiers F1, F3–F7 are angle-independent: anomalies, spectral mirror, $\det U$ and the causal radius hold at both closed angles.
+
+
+---
+
+## Appendix A. The explicit 32-dimensional representation
+
+The ten generators are built on five qubits by the standard symplectic Pauli pattern: for $k = 0,\dots,4$,
+
+$$g_{2k} = Y^{\otimes k}\otimes X\otimes I^{\otimes(4-k)},\qquad g_{2k+1} = Y^{\otimes k}\otimes Z\otimes I^{\otimes(4-k)}.$$
+
+On the same qubit slot $X$ and $Z$ anticommute; across slots, the $Y^{\otimes k}$ prefix makes a generator at slot $k$ anticommute with any generator at slot $j<k$. This gives exactly ten mutually anticommuting Hermitian matrices, $g_a^2 = I$, on a $32$-dimensional complex space. The algebra basis is the $1024$ ordered products $g_{a_1}\cdots g_{a_r}$, $0 \le r \le 10$; the $\mathbb{Z}_2$ grading is the parity of $r$. The canonical ordering of the $45$ plane-rotation factors $T_{ab}$ used throughout is the ascending lexicographic order on $(a,b)$; the order-$8$ closure of the quantized step is specific to it.
+
+
+---
+
+## 10. Companion results
+
+The same root carries two further constructions, developed and audited in the companion papers. **Paper II** puts one $\mathrm{Spin}(10)$ adjoint link degree of freedom per bond: the local Gauss constraint then closes as an exact operator identity (measured error $0$), the gauge-invariant content of one site is $1440$ states ($32 \oplus 288 \oplus 1120$), and the physical sector — empty for one matter field per site, by a centre obstruction — carries a bounded area law $S = \ln 45$ per bond, with a Bekenstein deficit factor $4\ln 45 = 15.23$ moving to $6.6$ after the vertex correction. The layer supplies no light vector sector (gap $64\,M_P$) and a string tension $5.4\times10^{40}$ times QCD — a named tension — and on the directed-link network a gapless, linear, leading-order-isotropic symmetric-traceless quintet whose gauge group is $O_h$, whose speeds are $g_{10}\{1,2\} \ne 1$ and whose $E_g$ half acquires a mass shift from the matter coupling: the kinematics of a lattice spin-2, computed, not the graviton. The gravitational sector adds a symmetric tensor field $g_{\mu\nu}$ and $G = 1$ by hand and reproduces general relativity on de Sitter, Schwarzschild and $3{+}1$ evolutions to $O(h^2)$.
+
+**Paper III** organises four scales through one loop factor $(1/16\pi)^n$ — the electroweak hierarchy with coefficient $3F_{10}^{10} = 2.0881$ against $2.0765$ observed, the dark-matter mass scale $118$ GeV, the seesaw $9.6\times10^{13}$ GeV, the neutrino ladder — with the loop factor itself reproduced to $3.6\%$ by a closed traced loop of length $10$ in the gauged layer, under an exact $3^n$-word census. Coupling unification at $\alpha_X = 1/25$ (standard normalisation) holds only for a desert spectrum with two fitted thresholds; the automaton's own Wilson mechanism forces the excluded $M_X = 8.9\times10^{14}$ GeV, and the surviving solution requires a flavour-dependent bond layer with six fitted couplings. Nine tensions with observation are reported there, and every headline number is classified by provenance.
+
+## 11. Falsifiers of the core
+
+| # | observation that refutes the core construction |
+|--------|--------------------------------------------------------------------------------------------|
+| **C1** | any non-vanishing gauge anomaly in the chiral content (the $\mathbf{16}$ is claimed anomaly-free; Theorem 2) |
+| **C2** | a measured front speed different from exactly one Planck cell per stage, or any amplitude outside the $n$-cell support bound of Theorem 5 |
+| **C3** | an isotropic light cone measured at the doubler nodes of the implemented step, or at any gapless point of the Wilson family or of any internal frame (Section 8.2 refutes all three routes by exhaustive scan and by the frame-averaging no-go) |
+| **C4** | failure of the exact selection rules of the quantized branch: $F_n = 0$ for every odd $n$ and the ladder crossing at $n^* = 208$ (Section 9.2; the loop measurement is in Paper III) |
+
+The falsifiers of the phenomenology (proton decay, the neutrino mass pattern, the dark-matter mass, the coupling running) are stated in Paper III; the falsifier of the gravitational sector (a massive graviton, a dispersion violating $c = 1$) in Paper II.
+
+## References
+
+1. L. Bombelli, J. Lee, D. Meyer, and R. D. Sorkin, "Space-time as a causal set," *Phys. Rev. Lett.* **59**, 521 (1987); R. D. Sorkin, "Causal sets: Discrete gravity," *arXiv:gr-qc/0309009* (2003).
+2. K. G. Wilson, "Confinement of quarks," *Phys. Rev. D* **10**, 2445 (1974).
+3. D. A. Meyer, "From quantum cellular automata to quantum lattice gases," *J. Stat. Phys.* **85**, 551 (1996).
+4. P. Arrighi, "An overview of quantum cellular automata," *Nat. Comput.* **18**, 885 (2019).
+5. A. Bisio, G. M. D'Ariano, and P. Perinotti, "Quantum cellular automata and free quantum field theory," *Front. Phys.* **12**, 120301 (2016); A. Bisio, G. M. D'Ariano, P. Perinotti, and A. Tosini, "Weyl, Dirac and Maxwell quantum cellular automata," *Found. Phys.* **45**, 1203 (2015).
+6. H. Georgi and S. L. Glashow, "Unity of all elementary-particle forces," *Phys. Rev. Lett.* **32**, 438 (1974).
+7. H. Fritzsch and P. Minkowski, "Unified interactions of leptons and hadrons," *Ann. Phys. (N.Y.)* **93**, 193 (1975).
+8. R. Slansky, "Group theory for unified model building," *Phys. Rep.* **79**, 1 (1981).
+9. H. Georgi, *Lie Algebras in Particle Physics*, 2nd ed. (Westview, 1999).
+10. M. F. Atiyah, R. Bott, and I. M. Shapiro, "Clifford modules," *Topology* **3**, 3 (1964).
+11. R. Penrose and W. Rindler, *Spinors and Space-Time*, Vol. I (Cambridge University Press, 1984).
+12. C. Castro, "A Clifford algebra-based grand unification program of gravity and the Standard Model: a review study," *Can. J. Phys.* **92**, 1501 (2014); C. Castro, "Note on a Clifford algebra based grand unification program of gravity and the Standard Model," *Adv. Appl. Clifford Algebras* **26**, 573 (2015).
+13. N. Furey, "Generations: Three Prints, in Colour," *J. High Energy Phys.* **10**, 046 (2014), arXiv:1405.4601.
+14. G. 't Hooft, "On the quantum structure of a black hole," *Nucl. Phys. B* **256**, 727 (1985).
+15. G. 't Hooft, *The Cellular Automaton Interpretation of Quantum Mechanics* (Springer, 2016), arXiv:1405.1548.
+16. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics," *Phys. Rev. D* **110**, 030001 (2024).
+17. Planck Collaboration (N. Aghanim *et al.*), "Planck 2018 results. VI. Cosmological parameters," *Astron. Astrophys.* **641**, A6 (2020).
+18. Super-Kamiokande Collaboration (A. Takenaka *et al.*), "Search for proton decay via $p\to e^+\pi^0$ and $p\to\mu^+\pi^0$ with an enlarged fiducial volume in 0.37 megaton-years exposure of Super-Kamiokande," *Phys. Rev. D* **102**, 112011 (2020).
+19. Super-Kamiokande Collaboration (K. Abe *et al.*), "Search for proton decay via $p\to\nu K^+$ using 260 kiloton$\cdot$year data of Super-Kamiokande," *Phys. Rev. D* **90**, 072005 (2014).
+20. KATRIN Collaboration (M. Aker *et al.*), "Direct neutrino-mass measurement based on 259 days of KATRIN data," *Science* **388**, 180 (2025).
+21. I. Esteban, M. C. Gonzalez-Garcia, M. Maltoni, T. Schwetz, and A. Zhou, "The fate of hints: updated global analysis of three-flavor neutrino oscillations," *JHEP* **09**, 178 (2020).
+22. I. Esteban, M. C. Gonzalez-Garcia, M. Maltoni, I. Martinez-Soler, J. P. Pinheiro, and T. Schwetz, "NuFit-6.0: Updated global analysis of three-flavor neutrino oscillations," *JHEP* **12**, 216 (2024), arXiv:2410.05380.
+23. LUX-ZEPLIN Collaboration (J. Aalbers *et al.*), "Dark Matter Search Results from 4.2 Tonne-Years of Exposure of the LUX-ZEPLIN (LZ) Experiment," *Phys. Rev. Lett.* **135**, 011802 (2025), arXiv:2410.17036.
+24. S. Weinberg, *The Quantum Theory of Fields*, Vol. I (Cambridge University Press, 1995), Ch. 5.
+25. M. Tonomura, J. Endo, T. Matsuda, T. Kawasaki, and H. Ezawa, "Demonstration of single-electron buildup of an interference pattern," *Am. J. Phys.* **57**, 117 (1989).
+26. H. B. Nielsen and M. Ninomiya, "A no-go theorem for regularizing chiral fermions," *Phys. Lett. B* **105**, 219 (1981); "Absence of neutrinos on a lattice. I. Proof by homotopy theory," *Nucl. Phys. B* **185**, 20 (1981); "Absence of neutrinos on a lattice. II. Intuitive topological proof," *Nucl. Phys. B* **193**, 173 (1981).
+27. E. H. Lieb and D. W. Robinson, "The finite group velocity of quantum spin systems," *Commun. Math. Phys.* **28**, 251 (1972).
+
+**Code and data availability.** All the experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10. Every number quoted in the paper is produced by these open scripts and can be reproduced independently from the repository. The verification status is stated as the audit found it: the numbers were verified internally (spot-checks against the text, the second symbolic construction of Appendix A, the exact $3^n$-word loop enumeration); the pipeline was not independently executed by a second party, and independent re-execution is invited.
+
+**Competing interests.** The author declares no competing interests.

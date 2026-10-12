@@ -52,5 +52,6 @@ python3 -m make_figures --cpu          # force the numpy backend
 
 ## After regenerating
 
-Rebuild the PDF: `bash publication/build.sh` (it copies `doc/figures/`
-into `publication/build/`).
+Rebuild the PDFs: `./review/tools/build_pdfs.sh` (the three companion papers +
+the master, `doc/*.pdf`), or `bash publication/build.sh` for the REVTeX build
+of the master (it copies `doc/figures/` into `publication/build/`).

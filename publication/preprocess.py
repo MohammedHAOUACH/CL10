@@ -164,8 +164,8 @@ abstract_lines, keyword_line = [], None
 i = 0
 while i < len(lines):
     ln = lines[i]
-    if title is None and ln.startswith("# "):
-        title = ln[2:].strip()
+    if title is None and ln.strip() and (ln.startswith("# ") or not ln.startswith(("#", "**", "*", "---"))):
+        title = ln[2:].strip() if ln.startswith("# ") else ln.strip()
     elif ln == "## Abstract":
         i += 1
         while i < len(lines) and not lines[i].startswith("**Keywords.**"):
@@ -500,8 +500,10 @@ title_block = title
 if ": " in title:
     head, rest = title.split(": ", 1)
     title_block = head + ":\\\n  " + rest
+title_plain = re.sub(r"\\(?:mathrm|mathbf|text|operatorname)\{([^{}]*)\}", r"\1", title)
+title_plain = re.sub(r"\\[a-zA-Z]+|[$&^_{}\\]", "", title_plain)
 yaml = ["---", "title: |", "  " + title_block,
-        'titleplain: "%s"' % title,
+        'titleplain: "%s"' % title_plain.replace('"', "'"),
         "abstract: |", "  " + "\n\n  ".join(abstract_lines),
         "keywords: |", "  " + keyword_line, "---", ""]
 

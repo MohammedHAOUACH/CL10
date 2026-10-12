@@ -7,11 +7,14 @@ One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 41 pp., 25 figures, 8 tables (Table 5 split across a page
-break, Table 7 given two pages of its own), 55 references, REVTeX 4.2
+Current artifact: 42 pp., 25 figures, 10 tables, 55 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
+The three companion papers (`doc/paper1_core.md`, `paper2_gauge_gravity.md`,
+`paper3_phenomenology.md`) are built by the other pipeline,
+`review/tools/build_pdfs.sh` (pandoc + xelatex); this directory builds only
+the unified master.
 
 ## The pipeline
 
