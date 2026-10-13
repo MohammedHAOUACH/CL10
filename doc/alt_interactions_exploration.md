@@ -130,12 +130,21 @@ collision.
 ## GPU route
 
 The heavy grid pass (batched 128x128 Bloch eigendecomposition) has a
-numba CUDA implementation in `cl10/altgpu.py` (batched cyclic
-Jacobi-Schur: 2x2 unitary similarities diagonalize the unitary step;
-gtc2017-numba style). `run_altgpu.sh` verifies it against numpy
-(eigenphases 1e-8, projectors 1e-7) and re-runs the Fock grid on the
-GPU (agreement < 1e-6 confirms the route). It is a verification route,
-not a verdict; the CPU verdicts above are the record.
+numba CUDA implementation in `cl10/altgpu.py` (batched cyclic Jacobi
+for normal matrices: each 2x2 core is diagonalized by the unitary
+polar factor G = X(X^dagger X)^{-1/2} of its eigenvector matrix,
+applied as U <- G^dagger U G; gtc2017-numba style, one thread block
+per matrix). `run_altgpu.sh` verifies it: CONFIRMED - eigenphase error
+1.2e-11 and projector error 2.8e-15 vs numpy eig on random unitaries,
+and the Fock self-energy on the grid-16 pass agrees GPU vs numpy on
+the actual Bloch matrices to 2.9e-13. The verification exposed a
+structural fact: the automaton's anti-unitary symmetry pairs the
+spectrum in +-theta, so at 1315/4095 grid points the two smallest
+|theta| coincide exactly and the single-mode projector of V172 is an
+arbitrary basis choice there (the subspace projector is canonical);
+the comparison uses the subspace convention at degenerate points. It
+is a verification route, not a verdict; the CPU verdicts above are
+the record.
 
 ## Boundary
 
