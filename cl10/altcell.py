@@ -689,6 +689,201 @@ def frame_residual(q, time_idx, space_idx):
     return float(np.abs(actual - target).max())
 
 
+# ---------------------------------------------------------------------------
+# 7. interactions: effective Hamiltonian, cone modes, cubic harmonics,
+#    downfolding, Fock self-energy (V171-V173)
+# ---------------------------------------------------------------------------
+
+
+def effective_hamiltonian(bloch_fn, q):
+    """``H(q) = i log U(q)``: the Hermitian generator of the step with the
+    eigenphases ``theta_a = angle(eigvals(U))`` in ``(-pi, pi]``."""
+    U = bloch_fn(q)
+    z, V = np.linalg.eig(U)
+    th = np.angle(z)
+    H = (V * th) @ V.conj().T
+    return 0.5 * (H + H.conj().T)
+
+
+def _gauge_fix_cols(V):
+    """Gauge-fix columns: the largest-|component| real positive."""
+    W = V.copy()
+    for j in range(W.shape[1]):
+        p = int(np.argmax(np.abs(W[:, j])))
+        W[:, j] *= np.exp(-1j * np.angle(W[p, j]))
+    return W
+
+
+def node_modes(bloch_fn, q_star, n=4, cut=None):
+    """The cone subspace at ``q_star``: the modes of ``H(q_star)`` with
+    ``|theta| < cut`` (energy window - the well-isolated definition), or
+    the ``n`` smallest ``|theta|`` when ``cut`` is None.  Orthonormal,
+    gauge-fixed; returns ``(U, theta)``."""
+    H = effective_hamiltonian(bloch_fn, q_star)
+    th, V = np.linalg.eigh(H)
+    if cut is not None:
+        idx = np.where(np.abs(th) < cut)[0]
+    else:
+        idx = np.argsort(np.abs(th))[:n]
+    return _gauge_fix_cols(V[:, idx]), th[idx]
+
+
+def oh_group():
+    """The 24 proper rotations of the cube as 3x3 integer matrices."""
+    mats = []
+    for perm in itertools.permutations(range(3)):
+        for signs in itertools.product((1, -1), repeat=3):
+            M = np.zeros((3, 3), int)
+            for i, (p, s) in enumerate(zip(perm, signs)):
+                M[i, p] = s
+            if int(round(np.linalg.det(M))) == 1:
+                mats.append(M)
+    return mats
+
+
+def _oh_class(R):
+    """0: e, 1: 90 deg face, 2: 180 deg face, 3: 120 deg body,
+    4: 180 deg edge."""
+    I3 = np.eye(3, dtype=int)
+    tr = int(np.trace(R))
+    if tr == 3:
+        return 0
+    if tr == 1:
+        return 1
+    if tr == 0:
+        return 3
+    return 2 if np.count_nonzero(R - np.diag(np.diag(R))) == 0 else 4
+
+
+_OH_CHARS = {"A1g": (1, 1, 1, 1, 1), "Eg": (2, 0, 2, -1, 0),
+             "T2g": (3, -1, -1, 0, 1)}
+_OH_DIM = {"A1g": 1, "Eg": 2, "T2g": 3}
+
+
+def oh26_dirs():
+    """The 26-direction O_h-invariant set: 6 axes, 12 face diagonals,
+    8 body diagonals, normalized."""
+    out = set()
+    for rep in ((1.0, 0.0, 0.0), (1.0, 1.0, 0.0), (1.0, 1.0, 1.0)):
+        for v in set(itertools.permutations(rep)):
+            for signs in itertools.product((1, -1), repeat=3):
+                w = tuple(a * s for a, s in zip(v, signs))
+                if any(w):
+                    out.add(tuple(np.round(np.array(w) / np.linalg.norm(w), 12)))
+    return sorted(out)
+
+
+def cubic_harmonic_weights(values, dirs):
+    """Decompose a real function on a direction set into the O_h irreps:
+    ``w_G = (d_G/24) sum_R chi_G(R) sum_dir f(dir) f(R^-1 dir)``, normalized
+    by ``sum_dir f^2`` (so ``sum_G w_G = 1`` for a class function).  Returns
+    the fractions ``{A1g, Eg, T2g}``."""
+    f = np.asarray(values, float)
+    D = [np.array(d, float) for d in dirs]
+    idx = {}
+    for i, d in enumerate(D):
+        idx[tuple(np.round(d, 9))] = i
+    norm = float(f @ f)
+    if norm <= 0:
+        return {g: 0.0 for g in _OH_CHARS}
+    out = {}
+    for g, chi in _OH_CHARS.items():
+        acc = 0.0
+        for R in oh_group():
+            c = _oh_class(R)
+            if chi[c] == 0:
+                continue
+            s = 0.0
+            for i, d in enumerate(D):
+                j = idx[tuple(np.round(R.T @ d, 9))]
+                s += f[i] * f[j]
+            acc += chi[c] * s
+        out[g] = _OH_DIM[g] * acc / (24.0 * norm)
+    return out
+
+
+def lowdin_downfold(bloch_fn, q, q_ref, n_low=4, cut=None):
+    """Downfold ``H(q)`` onto the low subspace DEFINED AT ``q_ref`` (the
+    ``n_low`` smallest-``|theta|`` modes there, or all modes with
+    ``|theta| < cut``): ``H_eff = P H P - P H Q (Q H Q)^+ Q H P`` (static,
+    ``+`` the pseudo-inverse).  Returns ``(H_eff, eigvals)``."""
+    H = effective_hamiltonian(bloch_fn, q)
+    Hr = effective_hamiltonian(bloch_fn, q_ref)
+    th, V = np.linalg.eigh(Hr)
+    keep = np.abs(th) < cut if cut is not None else None
+    if keep is None:
+        keep = np.zeros(len(th), bool)
+        keep[np.argsort(np.abs(th))[:n_low]] = True
+    P = V[:, keep]
+    Hll = P.conj().T @ H @ P
+    HlQ = P.conj().T @ H @ (np.eye(H.shape[0]) - P @ P.conj().T)
+    HQl = (np.eye(H.shape[0]) - P @ P.conj().T) @ H @ P
+    HQQ = (np.eye(H.shape[0]) - P @ P.conj().T) @ H @ (np.eye(H.shape[0]) - P @ P.conj().T)
+    G = np.linalg.pinv(HQQ, rcond=1e-10)
+    Heff = Hll - HlQ @ G @ HQl
+    return 0.5 * (Heff + Heff.conj().T), np.linalg.eigvalsh(Heff)
+
+
+def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
+                     n_modes=1, r_excl=0.15, sub=None, nodes=None):
+    """The static Fock (exchange) self-energy of the block-contact collision
+    on the node cone: ``Sigma_ab(k) = -(U_c/N) sum_q G0(q) M_ab(k,q)`` with
+    ``G0(q) = -1/omega0(q)`` (principal value, ``|q - p| < r_excl`` excluded
+    for every gapless point ``p`` in ``nodes``, default ``[q_star]`` - the
+    12 M nodes all carry the same 1/omega singularity, V63),
+    ``M_ab(k,q) = sum_c <u_a(k)|u_c(q)> <u_c(q)|u_b(k)>``, the ``u`` the
+    gauge-fixed cone modes (the gapless branch is a SINGLE mode at the M
+    node).  ``sub = (r0, r1)`` applies the symmetric RAY subtraction
+    relative to the NEAREST node inside ``|q - p| < r1``: ``G0 =
+    -(1/omega0(q) - 1/omega0(p + r0 n))`` - it cancels the 1/v(direction)
+    singularity of the flat cone axes (V118) and makes the sum
+    grid-convergent.  Returns the list of Hermitian ``n_modes x n_modes``
+    ``Sigma`` at ``k = q_star + kappa``."""
+    N = grid_n ** 3
+    g = np.arange(grid_n) * (2 * math.pi / grid_n) - math.pi
+    nodes = [q_star] if nodes is None else list(nodes)
+    Uk = np.stack([node_modes(bloch_fn,
+                              tuple(a + b for a, b in zip(q_star, kap)),
+                              n=n_modes)[0] for kap in kappas])   # (K, D, n)
+    S = np.zeros((len(kappas), n_modes, n_modes), complex)
+
+    def _row(qx):
+        Sr = np.zeros_like(S)
+        nr = 0
+        for qy in g:
+            for qz in g:
+                q = (float(qx), float(qy), float(qz))
+                near = min(nodes, key=lambda p: sum((a - b) ** 2
+                                                    for a, b in zip(q, p)))
+                d = math.sqrt(sum((a - b) ** 2 for a, b in zip(q, near)))
+                if d < r_excl:
+                    continue
+                H = effective_hamiltonian(bloch_fn, q)
+                th, V = np.linalg.eigh(H)
+                idx = np.argsort(np.abs(th))[:n_modes]
+                Uq = _gauge_fix_cols(V[:, idx])
+                w = float(np.min(np.abs(th)))
+                if sub is not None and d < sub[1]:
+                    qr = tuple(b + sub[0] * (a - b) / d
+                               for a, b in zip(q, near))
+                    wr = gap_at(bloch_fn(qr))
+                    g0 = -(1.0 / w - 1.0 / wr)
+                else:
+                    g0 = -1.0 / w
+                ov = Uk.conj().transpose(0, 2, 1) @ Uq
+                Sr += g0 * (ov @ ov.conj().transpose(0, 2, 1))
+                nr += 1
+        return Sr, nr
+
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        res = list(ex.map(_row, g))
+    S = sum(r[0] for r in res)
+    n_eff = sum(r[1] for r in res)
+    S *= -U_c / n_eff
+    return [0.5 * (s + s.conj().T) for s in S]
+
+
 def main():
     import sys
     # the regression anchor: the generalized stage matrix equals
@@ -736,8 +931,44 @@ def main():
         abs(fs1["n_outside_lightcone"] - fs2["n_outside_lightcone"])
     print(f"altcell anchor: front_speed_stages vs front_speed "
           f"diff = {err_fs:.2e}")
+    # the interaction anchors (V171-V173 helpers)
+    bf = lambda qq: bloch_cell(c, U16, SC.G10, st, qq)
+    Mq = SC.M_POINTS[0]
+    qtest = (0.3, -1.1, 2.0)
+    Ht = effective_hamiltonian(bf, qtest)
+    err_h = float(np.abs(np.sort(np.linalg.eigvalsh(Ht))
+                         - np.sort(np.angle(np.linalg.eigvals(bf(qtest))))).max())
+    print(f"altcell anchor: effective_hamiltonian eigenphases "
+          f"err = {err_h:.2e}")
+    us_m, th_m = node_modes(bf, Mq, n=4)
+    err_nm = abs(float(np.min(np.abs(th_m))) - 2.0029e-4)
+    print(f"altcell anchor: node_modes M gap = {np.min(np.abs(th_m)):.6e} "
+          f"(V63 2.0029e-4, dev {err_nm:.2e})")
+    D26 = oh26_dirs()
+    w_const = cubic_harmonic_weights(np.ones(len(D26)), D26)
+    f4 = np.array([d[2] ** 4 for d in D26])   # z^4: not O_h-invariant
+    w_4 = cubic_harmonic_weights(f4, D26)
+    err_ch = abs(w_const["A1g"] - 1.0) + abs(w_const["Eg"]) + abs(w_const["T2g"])
+    print(f"altcell anchor: cubic harmonics const A1g = {w_const['A1g']:.12f} "
+          f"(err {err_ch:.2e}); z^4: A1g = {w_4['A1g']:.4f}, "
+          f"Eg = {w_4['Eg']:.4f}, T2g = {w_4['T2g']:.4f}")
+    Heff, ev = lowdin_downfold(bf, tuple(a + b for a, b in zip(Mq, (1e-3, 0, 0))),
+                               Mq, n_low=1)
+    err_df = abs(float(np.min(np.abs(ev))) - gap_at(bf(tuple(
+        a + b for a, b in zip(Mq, (1e-3, 0, 0))))))
+    print(f"altcell anchor: lowdin_downfold cone speed vs gap_at "
+          f"err = {err_df:.2e}")
+    s1 = fock_self_energy(bf, Mq, 1.0, 6, [(1e-3, 0.0, 0.0)])[0]
+    s2 = fock_self_energy(bf, Mq, 2.0, 6, [(1e-3, 0.0, 0.0)])[0]
+    err_fs2 = float(np.abs(s2 - 2 * s1).max()) + float(np.abs(
+        s1 - s1.conj().T).max())
+    print(f"altcell anchor: fock_self_energy hermitian + linear in U_c "
+          f"err = {err_fs2:.2e}")
     sys.exit(0 if err < 1e-14 and err_bloch == 0.0
-             and err_step < 1e-14 and err_fs == 0.0 else 1)
+             and err_step < 1e-14 and err_fs == 0.0
+             and err_h < 1e-12 and err_nm < 1e-6 and err_ch < 1e-12
+             and err_df < 1e-6 and err_fs2 < 1e-12
+             and w_4["A1g"] < 1.0 and (w_4["Eg"] + w_4["T2g"]) > 0.05 else 1)
 
 
 if __name__ == "__main__":

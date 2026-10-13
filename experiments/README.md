@@ -1,6 +1,6 @@
 # The verification program
 
-134 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` exploration, branch-only), grouped by
+138 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` exploration, branch-only), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment is a
 0-parameter check: it recomputes a published number from the construction and
 writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
@@ -39,6 +39,7 @@ the reason recorded in `../archive/README.md`.
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
 | `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
 | `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
+| `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
 
 ## The experiments
 
@@ -231,3 +232,11 @@ the reason recorded in `../archive/README.md`.
 | `V168_unification_dynamics` | 509 candidate spectra: zero forced meetings (the node content is one mode per node, not a complete 16+16-bar per node at a single momentum) - V64's no-go stands for every motion |
 | `V169_cp_dynamics` | 1336 candidates: every effective internal unitary is real type (J^2 = +1); no motion admits a CP phase - the q=0 CP obstruction is motion-independent |
 | `V170_dm_dynamics` | 509 candidate spectra: the mirror Z2 survives every motion; the lightest mode of every candidate is a gapless node and no light mode is isolated from its spectrum - no 118 GeV carrier from any motion |
+
+### `alt_interactions` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V171_collision_vertex` | block-contact collision U_c in {g_10, pi/4, pi/2}: the vertex is O_h-scalar and its node-mode form factor is irrelevant on the cone (anisotropic weight ~ k^2.00, A1g = 1.0000) - the interaction adds no anisotropy but a scalar vertex cannot remove the propagator's |
+| `V172_self_energy_flow` | one-loop Fock self-energy of the contact: anisotropic part ~ |k|^1.00 = MARGINAL (same power as the cone); dressed anisotropy not grid-convergent (dev 0.019-0.66) - the flat tangent axis (V118) is IR-singular against the collision; one-loop flow inconclusive |
+| `V173_block_rg` | energy-window downfold at b = 1, 2, 4: A(b) = 0.9980 exactly, bare and with the self-energy insertion - the cubic anisotropy is MARGINAL under coarse-graining (2-route 3.5e-13) |
+| `V174_isotropy_gate` | 18 census rows, 0 candidates (3 unconverged rows excluded): the minimal admissible collision does not isotropize the W9 cone - only the non-perturbative gauged-layer fixed point (V79-V101) remains |
