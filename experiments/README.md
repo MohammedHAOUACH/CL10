@@ -1,6 +1,6 @@
 # The verification program
 
-143 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` + 5 `alt_gauged` exploration, branch-only), grouped by
+147 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` + 5 `alt_gauged` + 4 `alt_nonpert` exploration, branch-only), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment is a
 0-parameter check: it recomputes a published number from the construction and
 writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
@@ -41,6 +41,7 @@ the reason recorded in `../archive/README.md`.
 | `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
 | `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
 | `alt_gauged` | the exploration branch: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4, never merged) | §17 (W9) |
+| `alt_nonpert` | the exploration branch: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4, never merged) | §17 (W9) |
 
 ## The experiments
 
@@ -250,3 +251,11 @@ the reason recorded in `../archive/README.md`.
 | `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.199), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 2.2e-2, flat-axis IR, V172 precedent) |
 | `V178_gauged_block_rg` | block RG b = 1, 2, 4 with the gauged insertion: A(b) = 0.997985 EXACTLY unchanged (bare = gauged at every scale) - anisotropy stays marginal (2-route 1.3e-12) |
 | `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9656): the gauged bond-current interaction does not isotropize the W9 cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |
+
+### `alt_nonpert` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V180_cone_flux_dressing` | exact cone dressing by the 24 gauged flux operators: A_np - A_free = +2.1e-12 (2-route 8.5e-13, eta->0 dev 0) - the flux dressing does NOT move the W9 anisotropy at one dressing order |
+| `V181_ring_kernel_smatrix` | the 4-site gauged kernels exist: chain 144 (full rank, E0 -1664197.02, gap 12787.60 eta) and ring 1296 (Gram rank 976, E0 -6.08e8, gap 2.75e8 eta); S unitary to 2.7e-15/4.2e-15, 2-route phase dev within the whitening-noise bound; chain channels preserved (mixing 3e-11), ring channels mixed (~8) |
+| `V182_ir_decoupling` | INCONCLUSIVE under the pre-registered clauses: gap grows 42.09 -> 12787.60 (chain) -> 2.75e8 (ring) eta, drift >> 1 - the LIGHT branch is decisively false; V101 eta-units are not extensive (Gram shrinks ~30x/link), gap/\|E0\| ~ 0.0073-0.0077 at every volume |
+| `V183_nonpert_isotropy_gate` | 9 census rows, 0 candidates: no non-perturbative gauged-sector mechanism isotropizes the W9 cone - the flux sector is massive at every volume probed; W9 stays open |

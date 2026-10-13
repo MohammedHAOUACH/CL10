@@ -1,0 +1,16 @@
+{
+  "id": "V183_nonpert_isotropy_gate",
+  "tier": 4,
+  "property": "hard-tier gate on the non-perturbative census V180-V182: dressed anisotropy A_np < 1e-6 or |A_np - A_free| > 0.5, or a light two-fermion mode gap < 1e-2 eta",
+  "residual": null,
+  "pass": true,
+  "status": "NON-PERTURBATIVE ISOTROPY GATE. 9 census rows scanned (V180-V182); minimum dressed anisotropy 0.1002 (dressing shift |dA| <= 1.3e-11); minimum two-fermion gap 42.0906 eta. ZERO candidates: the exact bond-current dressing of the cone (all orders in eta, fixed adjoint link) does not move the W9 anisotropy, and the gauged flux sector has no light mode at any volume probed. The non-perturbative route of the gauged sector closes without an isotropizing mechanism; W9 remains open.",
+  "data": {
+    "n_rows": 9,
+    "min_A_np": 0.10018473015000194,
+    "min_gap": 42.09063148320547,
+    "candidates": [],
+    "gates": []
+  },
+  "wall_time": 0.001
+}

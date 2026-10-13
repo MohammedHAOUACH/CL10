@@ -1,0 +1,100 @@
+{
+  "id": "V180_cone_flux_dressing",
+  "tier": 4,
+  "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the W9 cone by the gauged bond-current flux in the static-source approximation: cone-slope anisotropy A_np vs A_free, eps cubic weights and k-exponent",
+  "residual": null,
+  "pass": true,
+  "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 2.8e-16, 2-route A_np 8.5e-13.",
+  "data": {
+    "rows": [
+      {
+        "dq": 0.01,
+        "A_free": 0.8463067887070069,
+        "A_np": 0.8463067887090681,
+        "dA": 2.061129045216603e-12
+      },
+      {
+        "dq": 0.001,
+        "A_free": 0.997984640580528,
+        "A_np": 0.9979846405937579,
+        "dA": 1.3229861650643215e-11
+      },
+      {
+        "dq": 0.0001,
+        "A_free": 0.10018473014090674,
+        "A_np": 0.10018473015000194,
+        "dA": 9.095196817909823e-12
+      }
+    ],
+    "eps_node": -4.8000000000000025,
+    "sum_rule_ratio": 6.0,
+    "eps_k": [
+      {
+        "kappa": 0.05,
+        "eps_mean": -1.468910463350207e-15,
+        "w_A1g": 0.3534621578099839,
+        "w_Eg": 0.15861513687600645,
+        "w_T2g": 0.0785024154589372,
+        "aniso": 6.5246953139509205e-15
+      },
+      {
+        "kappa": 0.1,
+        "eps_mean": -1.7080354225002409e-15,
+        "w_A1g": 0.6261973180076629,
+        "w_Eg": 0.05842911877394636,
+        "w_T2g": 0.15014367816091953,
+        "aniso": 3.4843922619004915e-15
+      },
+      {
+        "kappa": 0.2,
+        "eps_mean": -1.3664283380001927e-15,
+        "w_A1g": 0.5208333333333334,
+        "w_Eg": 0.1953551912568306,
+        "w_T2g": 0.10553278688524591,
+        "aniso": 3.0744637605004336e-15
+      },
+      {
+        "kappa": 0.4,
+        "eps_mean": -1.6397140056002313e-15,
+        "w_A1g": 0.49298245614035086,
+        "w_Eg": 0.04649122807017544,
+        "w_T2g": 0.2986842105263158,
+        "aniso": 4.304249264700607e-15
+      }
+    ],
+    "stage_sums": [
+      {
+        "label": "node",
+        "sums": [
+          -0.8000000000000005,
+          -0.8000000000000005,
+          -0.8000000000000006,
+          -0.8000000000000005,
+          -0.8000000000000005,
+          -0.8000000000000006
+        ]
+      },
+      {
+        "label": "k0.4_x",
+        "sums": [
+          -0.8000000000000008,
+          -0.8000000000000009,
+          -0.8000000000000007,
+          -0.8000000000000008,
+          -0.8000000000000009,
+          -0.8000000000000007
+        ]
+      }
+    ],
+    "alpha_eps_aniso": -9.677323336341917e-15,
+    "alpha_eps_iso": -9.677323336341917e-15,
+    "casimir_err": 2.2565282975506307e-14,
+    "eta0_dev": 0.0,
+    "v115_dev": 1.5359419471949742e-05,
+    "eps_route_dev": 2.7755575615628914e-16,
+    "aniso_route_dev": 8.453238109495942e-13,
+    "stage_sum_err": 8.881784197001252e-16,
+    "n_bonds": 24
+  },
+  "wall_time": 57.776
+}
