@@ -2,7 +2,7 @@
 
 **Mohammed Haouach** — independent researcher  \haouach.mohammed@gmail.com\
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Publication & citation
 
@@ -26,9 +26,9 @@
 }
 ```
 
-**Licence.** The code and documentation of the repository are under the **MIT
-licence** ([LICENSE](LICENSE)); the four paper PDFs and the Zenodo record are
-deposited under **CC BY 4.0** (the record's licence).
+**Licence.** Everything in this repository — code, documentation, papers and
+figures — is under the **CC BY 4.0** licence ([LICENSE](LICENSE)), the same
+licence as the [Zenodo record](https://zenodo.org/records/23321228).
 
 **The root object.** The theory is a unitary quantum cellular automaton (QCA)
 on a Planck lattice whose 2x2x2 cells carry the Clifford algebra
