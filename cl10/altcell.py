@@ -824,8 +824,37 @@ def lowdin_downfold(bloch_fn, q, q_ref, n_low=4, cut=None):
     return 0.5 * (Heff + Heff.conj().T), np.linalg.eigvalsh(Heff)
 
 
+def _structure_constants(Ts):
+    """f^{ABC} from [T^A,T^B] = i f^{ABC} T^C, Tr T^A T^B = k delta^AB
+    (the V79 trace formula)."""
+    n = len(Ts)
+    k = float(np.real(np.trace(Ts[0] @ Ts[0])))
+    f = np.zeros((n, n, n))
+    for a in range(n):
+        for b in range(a + 1, n):
+            comm = Ts[a] @ Ts[b] - Ts[b] @ Ts[a]
+            for c in range(n):
+                v = float(np.real(-1j * np.trace(comm @ Ts[c]) / k))
+                f[a, b, c] = v
+                f[a, c, b] = -v
+                f[b, a, c] = -v
+    return f, k
+
+
+def weyl_generators():
+    """The 45 Spin(10) generators on the 16-D Weyl sector:
+    ``T^A_16 = B^dag T^A_32 B`` (the planes are even, so the Weyl split is
+    invariant - ``sectors_sig``), with the structure constants recomputed
+    from T16. Returns ``(B, T16, f)``."""
+    B = sectors_sig(0)[0]
+    T16 = [B.conj().T @ T @ B for T in plane_generators_sig(0)]
+    f, _k = _structure_constants(T16)
+    return B, T16, f
+
+
 def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
-                     n_modes=1, r_excl=0.15, sub=None, nodes=None):
+                     n_modes=1, r_excl=0.15, sub=None, nodes=None,
+                     current_vertex=False):
     """The static Fock (exchange) self-energy of the block-contact collision
     on the node cone: ``Sigma_ab(k) = -(U_c/N) sum_q G0(q) M_ab(k,q)`` with
     ``G0(q) = -1/omega0(q)`` (principal value, ``|q - p| < r_excl`` excluded
@@ -838,13 +867,21 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
     -(1/omega0(q) - 1/omega0(p + r0 n))`` - it cancels the 1/v(direction)
     singularity of the flat cone axes (V118) and makes the sum
     grid-convergent.  Returns the list of Hermitian ``n_modes x n_modes``
-    ``Sigma`` at ``k = q_star + kappa``."""
+    ``Sigma`` at ``k = q_star + kappa``.  ``current_vertex=True`` replaces
+    the contact form factor by the gauged bond-current vertex ``M_ab =
+    sum_A (Uk^dag Gamma^A Uq)_a (Uk^dag Gamma^A Uq)^*_b`` with ``Gamma^A =
+    I_(D/16) (x) T^A_16`` the 45 Weyl currents on the Bloch space
+    (``weyl_generators``); the default False is the V172 contact vertex."""
     N = grid_n ** 3
     g = np.arange(grid_n) * (2 * math.pi / grid_n) - math.pi
     nodes = [q_star] if nodes is None else list(nodes)
     Uk = np.stack([node_modes(bloch_fn,
                               tuple(a + b for a, b in zip(q_star, kap)),
                               n=n_modes)[0] for kap in kappas])   # (K, D, n)
+    Gammas = None
+    if current_vertex:
+        D = Uk.shape[1]
+        Gammas = [np.kron(np.eye(D // 16), T) for T in weyl_generators()[1]]
     S = np.zeros((len(kappas), n_modes, n_modes), complex)
 
     def _row(qx):
@@ -870,8 +907,15 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
                     g0 = -(1.0 / w - 1.0 / wr)
                 else:
                     g0 = -1.0 / w
-                ov = Uk.conj().transpose(0, 2, 1) @ Uq
-                Sr += g0 * (ov @ ov.conj().transpose(0, 2, 1))
+                if current_vertex:
+                    acc = np.zeros((len(kappas), n_modes, n_modes), complex)
+                    for G in Gammas:
+                        ovA = Uk.conj().transpose(0, 2, 1) @ (G @ Uq)
+                        acc += ovA @ ovA.conj().transpose(0, 2, 1)
+                    Sr += g0 * acc
+                else:
+                    ov = Uk.conj().transpose(0, 2, 1) @ Uq
+                    Sr += g0 * (ov @ ov.conj().transpose(0, 2, 1))
                 nr += 1
         return Sr, nr
 
@@ -964,10 +1008,39 @@ def main():
         s1 - s1.conj().T).max())
     print(f"altcell anchor: fock_self_energy hermitian + linear in U_c "
           f"err = {err_fs2:.2e}")
+    # gauged vertex anchors (V175-V177 helpers)
+    Bw, T16, fw = weyl_generators()
+    err_alg = 0.0
+    for a in range(0, 45, 7):
+        for b in range(a + 1, 45, 11):
+            comm = T16[a] @ T16[b] - T16[b] @ T16[a]
+            rhs = sum(1j * fw[a, b, c] * T16[c] for c in range(45))
+            err_alg = max(err_alg, float(np.abs(comm - rhs).max()))
+    err_cas = float(np.abs(sum(T @ T for T in T16)
+                            - 45.0 * np.eye(16)).max())
+    f32, k32 = _structure_constants(plane_generators_sig(0))
+    err_f = float(np.abs(fw - f32).max())
+    err_up = float(np.abs(plane_product(T16, SC.G10) - U16).max())
+    print(f"altcell anchor: Weyl generators [T16,T16]=i f T16 err = "
+          f"{err_alg:.2e}; f vs 32-D module {err_f:.2e}; Casimir = 45 I "
+          f"err {err_cas:.2e}; plane_product(T16) = U16 err {err_up:.2e}")
+    Gammas = [np.kron(np.eye(8), T) for T in T16]
+    err_gc = float(np.abs(sum(G @ G for G in Gammas)
+                           - 45.0 * np.eye(128)).max())
+    s_cv = fock_self_energy(bf, Mq, 1.0, 6, [(1e-3, 0.0, 0.0)],
+                            current_vertex=True)[0]
+    err_cv = float(np.abs(s_cv - s_cv.conj().T).max())
+    d_cv = float(np.abs(s_cv - s1).max())
+    print(f"altcell anchor: gauged Casimir on Bloch 45 I err {err_gc:.2e}; "
+          f"Sigma_cv hermitian err {err_cv:.2e}; "
+          f"|Sigma_cv - Sigma_contact| = {d_cv:.3e}")
     sys.exit(0 if err < 1e-14 and err_bloch == 0.0
              and err_step < 1e-14 and err_fs == 0.0
              and err_h < 1e-12 and err_nm < 1e-6 and err_ch < 1e-12
              and err_df < 1e-6 and err_fs2 < 1e-12
+             and err_alg < 1e-12 and err_f < 1e-10 and err_cas < 1e-9
+             and err_up < 1e-12 and err_gc < 1e-9 and err_cv < 1e-12
+             and d_cv > 1e-6
              and w_4["A1g"] < 1.0 and (w_4["Eg"] + w_4["T2g"]) > 0.05 else 1)
 
 

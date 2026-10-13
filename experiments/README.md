@@ -1,6 +1,6 @@
 # The verification program
 
-138 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` exploration, branch-only), grouped by
+143 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` + 5 `alt_gauged` exploration, branch-only), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment is a
 0-parameter check: it recomputes a published number from the construction and
 writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
@@ -40,6 +40,7 @@ the reason recorded in `../archive/README.md`.
 | `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
 | `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
 | `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
+| `alt_gauged` | the exploration branch: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4, never merged) | §17 (W9) |
 
 ## The experiments
 
@@ -240,3 +241,12 @@ the reason recorded in `../archive/README.md`.
 | `V172_self_energy_flow` | one-loop Fock self-energy of the contact: anisotropic part ~ |k|^1.00 = MARGINAL (same power as the cone); dressed anisotropy not grid-convergent (dev 0.019-0.66) - the flat tangent axis (V118) is IR-singular against the collision; one-loop flow inconclusive |
 | `V173_block_rg` | energy-window downfold at b = 1, 2, 4: A(b) = 0.9980 exactly, bare and with the self-energy insertion - the cubic anisotropy is MARGINAL under coarse-graining (2-route 3.5e-13) |
 | `V174_isotropy_gate` | 18 census rows, 0 candidates (3 unconverged rows excluded): the minimal admissible collision does not isotropize the W9 cone - only the non-perturbative gauged-layer fixed point (V79-V101) remains |
+
+### `alt_gauged` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V175_gauged_smatrix` | THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS: S = exp(-i g_10 L^-1 H L^-dagger) on the 24-state three-site kernel, unitary to 2.4e-13, spectrum = V101 to 7.8e-16, fusion channels preserved (mixing ~1e-29), eta->0 gives S = I |
+| `V176_gauged_vertex_content` | the gauged current vertex is NOT a scalar: Eg + T2g weight 5/6 at |k| = 0.4 (vs contact A1g = 1.0000), anisotropic part scale-independent (alpha = 0 - MARGINAL, vs contact alpha = 2); on-node current F(0) = 5.000000 |
+| `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.199), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 2.2e-2, flat-axis IR, V172 precedent) |
+| `V178_gauged_block_rg` | block RG b = 1, 2, 4 with the gauged insertion: A(b) = 0.997985 EXACTLY unchanged (bare = gauged at every scale) - anisotropy stays marginal (2-route 1.3e-12) |
+| `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9656): the gauged bond-current interaction does not isotropize the W9 cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |

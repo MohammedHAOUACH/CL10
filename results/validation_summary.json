@@ -1,6 +1,6 @@
 {
-  "n": 138,
-  "n_pass": 138,
+  "n": 143,
+  "n_pass": 143,
   "pass": true,
   "u10": true,
   "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
@@ -19,6 +19,8 @@
     "V171_collision_vertex",
     "V172_self_energy_flow",
     "V173_block_rg",
+    "V177_gauged_self_energy_flow",
+    "V178_gauged_block_rg",
     "V23_full_sm_qca",
     "V26_family",
     "V28_yukawa",
@@ -352571,6 +352573,365 @@
           "n_rows": 18,
           "min_A": 0.997984640577518,
           "excluded_unconverged": 3,
+          "candidates": [],
+          "gates": []
+        },
+        "wall_time": 0.001
+      }
+    },
+    {
+      "id": "V175_gauged_smatrix",
+      "dir": "V175_gauged_smatrix",
+      "tier": 4,
+      "property": "exact two-fermion S-matrix of the gauged bond layer on the 24-state three-site kernel: S = exp(-i g_10 L^-1 H L^-dagger), Gram-whitened; fusion-channel block structure",
+      "residual": false,
+      "pass": true,
+      "status": "THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS. On the minimal physical two-fermion system (V98: no one-body states; V99 kernel, 24 states, Gram rank 24/24) the bond-current interaction exponentiates to an exactly unitary S = exp(-i g_10 H_orth): unitarity err 2.4e-13, 2-route (einsum/per-generator vs explicit-sum/per-bond, Cholesky vs orthogonal whitening) dev 5.8e-11, spectrum matches V101 to 7.8e-16. E0 = -5802.3982 eta, degeneracy 6, gap 42.0906 eta. Fusion-channel mixing (r = 1, 45, 210): ['2.8e-30', '6.1e-29', '6.1e-29'] - the interaction PRESERVES the channels. eta -> 0: S = I exactly.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": 41.458,
+      "verdict": {
+        "id": "V175_gauged_smatrix",
+        "tier": 4,
+        "property": "exact two-fermion S-matrix of the gauged bond layer on the 24-state three-site kernel: S = exp(-i g_10 L^-1 H L^-dagger), Gram-whitened; fusion-channel block structure",
+        "residual": null,
+        "pass": true,
+        "status": "THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS. On the minimal physical two-fermion system (V98: no one-body states; V99 kernel, 24 states, Gram rank 24/24) the bond-current interaction exponentiates to an exactly unitary S = exp(-i g_10 H_orth): unitarity err 2.4e-13, 2-route (einsum/per-generator vs explicit-sum/per-bond, Cholesky vs orthogonal whitening) dev 5.8e-11, spectrum matches V101 to 7.8e-16. E0 = -5802.3982 eta, degeneracy 6, gap 42.0906 eta. Fusion-channel mixing (r = 1, 45, 210): ['2.8e-30', '6.1e-29', '6.1e-29'] - the interaction PRESERVES the channels. eta -> 0: S = I exactly.",
+        "data": {
+          "rows": [
+            {
+              "r": 1,
+              "n_states": 8,
+              "mean_phase": 0.667803801965288,
+              "diag_block_norm": 2.8284271247462556,
+              "mixing_out_norm": 2.8057091325143456e-30
+            },
+            {
+              "r": 45,
+              "n_states": 8,
+              "mean_phase": 0.6678038019604721,
+              "diag_block_norm": 2.828427124746236,
+              "mixing_out_norm": 6.087864903515736e-29
+            },
+            {
+              "r": 210,
+              "n_states": 8,
+              "mean_phase": 0.667803801992654,
+              "diag_block_norm": 2.828427124746188,
+              "mixing_out_norm": 6.093796242586355e-29
+            }
+          ],
+          "phases": [
+            -1.9096441889641331,
+            -1.9096441889639755,
+            -1.9096441889615403,
+            -1.9096441889579667,
+            -1.9096441889579523,
+            -1.9096441888967879,
+            0.10365913929272703,
+            0.10365913929282078,
+            0.10365913929524483,
+            0.10365913929873657,
+            0.10365913929874736,
+            0.10365913935897257,
+            2.2386001287537933,
+            2.2386001287541126,
+            2.2386001287543187,
+            2.2386001287543897,
+            2.2386001287564743,
+            2.238600128756817,
+            2.238600128760031,
+            2.2386001287601256,
+            2.2386001287602313,
+            2.23860012876035,
+            2.2386001288198742,
+            2.238600128821896
+          ],
+          "spectrum": [
+            -5802.3981881966365,
+            -5802.398188196327,
+            -5802.398188196326,
+            -5802.398188196309,
+            -5802.398188196297,
+            -5802.398188196295,
+            -5760.307556713427,
+            -5760.307556713425,
+            -5760.307556713123,
+            -5760.307556713122,
+            -5760.307556713121,
+            -5760.30755671312,
+            -5760.30755671311,
+            -5760.307556713106,
+            -5760.307556713096,
+            -5760.307556713093,
+            -5760.307556713092,
+            -5760.307556713087,
+            -5718.216925230223,
+            -5718.216925229916,
+            -5718.216925229916,
+            -5718.2169252299,
+            -5718.216925229887,
+            -5718.2169252298845
+          ],
+          "E0": -5802.3981881966365,
+          "degeneracy": 6,
+          "gap": 42.09063148320911,
+          "unitarity_err": 2.4202861949325363e-13,
+          "route_spec_dev": 2.53749021794647e-10,
+          "spec_dev_vs_v101": 7.8372310230539e-16,
+          "gram_rank": 24,
+          "eta": 0.2
+        },
+        "wall_time": 41.458
+      }
+    },
+    {
+      "id": "V176_gauged_vertex_content",
+      "dir": "V176_gauged_vertex_content",
+      "tier": 4,
+      "property": "O_h (cubic-harmonic) content of the gauged bond-current vertex Gamma^A = I_8 (x) T^A_16 on the W9 node cone: form factor sum_A |<u(q*)|Gamma^A|u(q*+k n)>|^2 over 26 directions, 4 |k| values",
+      "residual": false,
+      "pass": true,
+      "status": "GAUGED VERTEX CONTENT ON THE CONE (4 rows). The on-node current expectation F(0) = 5.000000 (the cone mode carries Spin(10) charge). The form factor decomposes as A1g = 0.1667, Eg = 0.3333, T2g = 0.5000 at |k| = 0.4: the gauged vertex is NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked. Anisotropic part scales as k^0.01, the A1g shift as k^0.90 (V171 contact: alpha_aniso = 2, A1g = 1.0000). Casimir anchor 45 I_128 err 7.1e-15; 2-route (16-D vs 32-D module) dev 8.9e-16.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": 4.012,
+      "verdict": {
+        "id": "V176_gauged_vertex_content",
+        "tier": 4,
+        "property": "O_h (cubic-harmonic) content of the gauged bond-current vertex Gamma^A = I_8 (x) T^A_16 on the W9 node cone: form factor sum_A |<u(q*)|Gamma^A|u(q*+k n)>|^2 over 26 directions, 4 |k| values",
+        "residual": null,
+        "pass": true,
+        "status": "GAUGED VERTEX CONTENT ON THE CONE (4 rows). The on-node current expectation F(0) = 5.000000 (the cone mode carries Spin(10) charge). The form factor decomposes as A1g = 0.1667, Eg = 0.3333, T2g = 0.5000 at |k| = 0.4: the gauged vertex is NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked. Anisotropic part scales as k^0.01, the A1g shift as k^0.90 (V171 contact: alpha_aniso = 2, A1g = 1.0000). Casimir anchor 45 I_128 err 7.1e-15; 2-route (16-D vs 32-D module) dev 8.9e-16.",
+        "data": {
+          "rows": [
+            {
+              "kappa": 0.05,
+              "F_mean": 4.422376124523547,
+              "w_A1g": 0.894927533325331,
+              "w_Eg": 0.007246223354286611,
+              "w_T2g": 0.04347837138059227,
+              "aniso_max": 4.422376124523547,
+              "iso_shift": 0.5776238754764531
+            },
+            {
+              "kappa": 0.1,
+              "F_mean": 3.2671577837994956,
+              "w_A1g": 0.6617646297923027,
+              "w_Eg": 0.02941084939315006,
+              "w_T2g": 0.05882343310161896,
+              "aniso_max": 3.2671577837994956,
+              "iso_shift": 1.7328422162005044
+            },
+            {
+              "kappa": 0.2,
+              "F_mean": 3.2609413313184126,
+              "w_A1g": 0.66176464333871,
+              "w_Eg": 0.029408424406540647,
+              "w_T2g": 0.05882351106990938,
+              "aniso_max": 3.2609413313184126,
+              "iso_shift": 1.7390586686815874
+            },
+            {
+              "kappa": 0.4,
+              "F_mean": 0.3808081499089949,
+              "w_A1g": 0.16667337340327942,
+              "w_Eg": 0.33334674614658555,
+              "w_T2g": 0.4999798804500958,
+              "aniso_max": 4.569418356366748,
+              "iso_shift": 4.619191850091005
+            }
+          ],
+          "F0": 5.0,
+          "alpha_aniso": 0.01388187660305499,
+          "alpha_iso": 0.900348086726181,
+          "casimir_err": 7.105427357601002e-15,
+          "route_dev": 8.881784197001252e-16,
+          "spin2_weight_k04": 0.8333266265966813
+        },
+        "wall_time": 4.012
+      }
+    },
+    {
+      "id": "V177_gauged_self_energy_flow",
+      "dir": "V177_gauged_self_energy_flow",
+      "tier": 4,
+      "property": "static Fock self-energy of the GAUGED bond-current vertex (Gamma^A = I_8 (x) T^A_16, U_c = g_10) on the M-node cone: dressed anisotropy A(dq), cubic-harmonic content and |k| scaling of Sigma, grids 16 vs 24",
+      "residual": true,
+      "pass": true,
+      "status": "ONE-LOOP GAUGED-VERTEX FLOW (2 rows, grids 16/24, normal-ordered, 12 M-node singularities ray-subtracted - V172 protocol, vertex replaced by the Spin(10) current). Sigma is NOT zero (max |Sigma - tadpole| = 1.99e-01): the gauged vertex reaches the cone. Its anisotropic part scales as |k|^1.00 (V172 contact: 1.00 - MARGINAL) with aniso weight 0.0000 at dq=1e-4. A_dressed(1e-4) = 0.9656 vs bare 0.1002: flow dA = +0.8654. Grid drift 16 vs 24 on A_dressed(1e-3) = 2.2e-02 (IR-sensitive, V172 flat-axis precedent - drift recorded, not a failure).",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": 475.992,
+      "verdict": {
+        "id": "V177_gauged_self_energy_flow",
+        "tier": 4,
+        "property": "static Fock self-energy of the GAUGED bond-current vertex (Gamma^A = I_8 (x) T^A_16, U_c = g_10) on the M-node cone: dressed anisotropy A(dq), cubic-harmonic content and |k| scaling of Sigma, grids 16 vs 24",
+        "residual": true,
+        "pass": true,
+        "status": "ONE-LOOP GAUGED-VERTEX FLOW (2 rows, grids 16/24, normal-ordered, 12 M-node singularities ray-subtracted - V172 protocol, vertex replaced by the Spin(10) current). Sigma is NOT zero (max |Sigma - tadpole| = 1.99e-01): the gauged vertex reaches the cone. Its anisotropic part scales as |k|^1.00 (V172 contact: 1.00 - MARGINAL) with aniso weight 0.0000 at dq=1e-4. A_dressed(1e-4) = 0.9656 vs bare 0.1002: flow dA = +0.8654. Grid drift 16 vs 24 on A_dressed(1e-3) = 2.2e-02 (IR-sensitive, V172 flat-axis precedent - drift recorded, not a failure).",
+        "data": {
+          "rows": [
+            {
+              "grid": 16,
+              "U_c": 0.2,
+              "A_dressed": {
+                "0.01": 0.9974962573837043,
+                "0.001": 0.9968579860155589,
+                "0.0001": 0.9997631068249739
+              },
+              "A_bare": {
+                "0.01": 0.8463067688404411,
+                "0.001": 0.9979846405809569,
+                "0.0001": 0.1001847301405756
+              },
+              "dA_vs_free": 0.8995783766843983,
+              "w_A1g_Sigma": {
+                "0.01": 1.770854074048174e-05,
+                "0.001": 1.7708816537449962e-07,
+                "0.0001": 1.7708847926295532e-09
+              },
+              "w_aniso_Sigma": {
+                "0.01": 9.002979233126162e-08,
+                "0.001": 9.003233216840465e-10,
+                "0.0001": 9.003141986191246e-12
+              },
+              "alpha_aniso_Sigma": 1.0000092120440047,
+              "isotropic": false
+            },
+            {
+              "grid": 24,
+              "U_c": 0.2,
+              "A_dressed": {
+                "0.01": 0.9985268211561464,
+                "0.001": 0.9747868931675402,
+                "0.0001": 0.9656109066030784
+              },
+              "A_bare": {
+                "0.01": 0.8463067688404411,
+                "0.001": 0.9979846405809569,
+                "0.0001": 0.1001847301405756
+              },
+              "dA_vs_free": 0.8654261764625027,
+              "w_A1g_Sigma": {
+                "0.01": 1.1878337924093515e-05,
+                "0.001": 1.1878447299580145e-07,
+                "0.0001": 1.1878478953457353e-09
+              },
+              "w_aniso_Sigma": {
+                "0.01": 1.9577737153370335e-07,
+                "0.001": 1.957811947073304e-09,
+                "0.0001": 1.9578191558343735e-11
+              },
+              "alpha_aniso_Sigma": 1.0000322773122667,
+              "isotropic": false
+            }
+          ],
+          "node": [
+            1.5707963267948966,
+            1.5707963267948966,
+            0.0
+          ],
+          "dqs": [
+            0.01,
+            0.001,
+            0.0001
+          ],
+          "route_dev": [
+            0.02207109284801867
+          ],
+          "sigma_nonzero": 0.19930735279606893,
+          "candidates": []
+        },
+        "wall_time": 475.992
+      }
+    },
+    {
+      "id": "V178_gauged_block_rg",
+      "dir": "V178_gauged_block_rg",
+      "tier": 4,
+      "property": "energy-window downfold of H(q) = i log U(q) onto the node subspace at cuts pi/2, pi/4, pi/8 (b = 1, 2, 4): cone anisotropy A(b), bare and with the GAUGED bond-current self-energy (U_c = g_10, grid 16)",
+      "residual": true,
+      "pass": true,
+      "status": "GAUGED BLOCK-RG FLOW (6 rows). A(b) = 0.9980, 0.9980, 0.9980 (bare) and 0.9980, 0.9980, 0.9980 with the gauged self-energy: the cubic anisotropy is MARGINAL under coarse-graining (gauged-bare shifts -7.95e-13..-7.68e-13); the gauged vertex does NOT restore isotropy at this order. Subspace sizes n_low = 71, 39, 17, window margins 4.0e-02, 7.1e-05, 2.7e-03. 2-route (b=1 downfold vs full gap_at) dev 1.3e-12.",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": 96.51,
+      "verdict": {
+        "id": "V178_gauged_block_rg",
+        "tier": 4,
+        "property": "energy-window downfold of H(q) = i log U(q) onto the node subspace at cuts pi/2, pi/4, pi/8 (b = 1, 2, 4): cone anisotropy A(b), bare and with the GAUGED bond-current self-energy (U_c = g_10, grid 16)",
+        "residual": true,
+        "pass": true,
+        "status": "GAUGED BLOCK-RG FLOW (6 rows). A(b) = 0.9980, 0.9980, 0.9980 (bare) and 0.9980, 0.9980, 0.9980 with the gauged self-energy: the cubic anisotropy is MARGINAL under coarse-graining (gauged-bare shifts -7.95e-13..-7.68e-13); the gauged vertex does NOT restore isotropy at this order. Subspace sizes n_low = 71, 39, 17, window margins 4.0e-02, 7.1e-05, 2.7e-03. 2-route (b=1 downfold vs full gap_at) dev 1.3e-12.",
+        "data": {
+          "rows": [
+            {
+              "b": 1,
+              "cut": 1.5707963267948966,
+              "n_low": 71,
+              "window_margin": 0.03950617219956065,
+              "A_bare": 0.9979846405818692,
+              "A_gauged": 0.9979846405810742,
+              "isotropic": false
+            },
+            {
+              "b": 2,
+              "cut": 0.7853981633974483,
+              "n_low": 39,
+              "window_margin": 7.080883322829745e-05,
+              "A_bare": 0.9979846405815194,
+              "A_gauged": 0.9979846405811015,
+              "isotropic": false
+            },
+            {
+              "b": 4,
+              "cut": 0.39269908169872414,
+              "n_low": 17,
+              "window_margin": 0.0027080126704124297,
+              "A_bare": 0.9979846405811731,
+              "A_gauged": 0.997984640581088,
+              "isotropic": false
+            }
+          ],
+          "node": [
+            1.5707963267948966,
+            1.5707963267948966,
+            0.0
+          ],
+          "dq": 0.001,
+          "U_c": 0.2,
+          "grid": 16,
+          "A_full": 0.997984640580528,
+          "route_dev": 1.341149413747189e-12,
+          "candidates": []
+        },
+        "wall_time": 96.51
+      }
+    },
+    {
+      "id": "V179_gauged_isotropy_gate",
+      "dir": "V179_gauged_isotropy_gate",
+      "tier": 4,
+      "property": "hard-tier gate on the gauged census V175-V178: isotropy A < 1e-6 or flow toward isotropy > 0.5 across two decades",
+      "residual": false,
+      "pass": true,
+      "status": "GAUGED ISOTROPY GATE. 12 census rows scanned (V175 S-matrix channels, V176 vertex content, V177 one-loop flow, V178 block RG); 2 rows excluded from candidacy (V177 grid drift 2.2e-02 >= 1e-6 - an unconverged measurement cannot nominate); minimum anisotropy 0.9656; ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5): NO CANDIDATE - the gauged bond-current interaction (the only interaction in the theory, S-matrix now built in V175) does not isotropize the W9 cone at one loop or under coarse-graining. The non-perturbative fixed point remains beyond this order (V129: the flux sector is massive, gap 64 eta).",
+      "returncode": null,
+      "crashed": false,
+      "wall_time": 0.001,
+      "verdict": {
+        "id": "V179_gauged_isotropy_gate",
+        "tier": 4,
+        "property": "hard-tier gate on the gauged census V175-V178: isotropy A < 1e-6 or flow toward isotropy > 0.5 across two decades",
+        "residual": null,
+        "pass": true,
+        "status": "GAUGED ISOTROPY GATE. 12 census rows scanned (V175 S-matrix channels, V176 vertex content, V177 one-loop flow, V178 block RG); 2 rows excluded from candidacy (V177 grid drift 2.2e-02 >= 1e-6 - an unconverged measurement cannot nominate); minimum anisotropy 0.9656; ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5): NO CANDIDATE - the gauged bond-current interaction (the only interaction in the theory, S-matrix now built in V175) does not isotropize the W9 cone at one loop or under coarse-graining. The non-perturbative fixed point remains beyond this order (V129: the flux sector is massive, gap 64 eta).",
+        "data": {
+          "n_rows": 12,
+          "min_A": 0.9656109066030784,
+          "v177_grid_drift": 0.02207109284801867,
+          "excluded_unconverged": 2,
           "candidates": [],
           "gates": []
         },
