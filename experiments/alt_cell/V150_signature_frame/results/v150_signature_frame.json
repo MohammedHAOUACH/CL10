@@ -1,0 +1,1096 @@
+{
+  "id": "V150_signature_frame",
+  "tier": 4,
+  "property": "the (1+3) frame census: w^2, the 16/16 split and the Minkowski-subalgebra residual per signature x frame class",
+  "residual": null,
+  "pass": true,
+  "status": "FRAME CENSUS. q=0 baseline reproduces the implemented selection (time h_1, space i h_2,3,4: residual 0.0e+00, w^2 = -1, 16/16). The 16/16 split survives every signature (w^2 = -(-1)^q). Exact (1+3) frame realizable for: ['Cl(10-0,0)', 'Cl(10-1,1)', 'Cl(10-2,2)', 'Cl(10-3,3)', 'Cl(10-4,4)', 'Cl(10-5,5)', 'Cl(10-6,6)'] (needs at least four +I generators); q >= 7 best residual 4. The frame axis alone does not force q = 0; with V149 (unitary product only q = 0, 10) the Euclidean signature is the only one with both.",
+  "data": {
+    "rows": [
+      {
+        "signature": "Cl(10-0,0)",
+        "q": 0,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 0.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-1,1)",
+        "q": 1,
+        "w2": 1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 7.771561172376096e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              1,
+              [
+                2,
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              1,
+              [
+                0,
+                2,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-2,2)",
+        "q": 2,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              2,
+              [
+                3,
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              2,
+              [
+                0,
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              2,
+              [
+                0,
+                1,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                2,
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-3,3)",
+        "q": 3,
+        "w2": 1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 7.771561172376096e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              3,
+              [
+                4,
+                5,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              3,
+              [
+                0,
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              3,
+              [
+                0,
+                1,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              3,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                3,
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                3,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-4,4)",
+        "q": 4,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              4,
+              [
+                5,
+                6,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              4,
+              [
+                0,
+                5,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              4,
+              [
+                0,
+                1,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              4,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                4,
+                5,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                4,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                4
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-5,5)",
+        "q": 5,
+        "w2": 1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 7.771561172376096e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              5,
+              [
+                6,
+                7,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              5,
+              [
+                0,
+                6,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              5,
+              [
+                0,
+                1,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              5,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                5,
+                6,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                5,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                5
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-6,6)",
+        "q": 6,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              6,
+              [
+                7,
+                8,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              6,
+              [
+                0,
+                7,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              6,
+              [
+                0,
+                1,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              6,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                6,
+                7,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                6,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                6
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 0.0
+      },
+      {
+        "signature": "Cl(10-7,7)",
+        "q": 7,
+        "w2": 1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 7.771561172376096e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              7,
+              [
+                0,
+                8,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              7,
+              [
+                0,
+                1,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              7,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                7,
+                8,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                7,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                7
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 4.0
+      },
+      {
+        "signature": "Cl(10-8,8)",
+        "q": 8,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              8,
+              [
+                0,
+                1,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              8,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                8,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                8
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 4.0
+      },
+      {
+        "signature": "Cl(10-9,9)",
+        "q": 9,
+        "w2": 1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 7.771561172376096e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              9,
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                9
+              ]
+            ]
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 4.0
+      },
+      {
+        "signature": "Cl(10-10,10)",
+        "q": 10,
+        "w2": -1.0,
+        "weyl_dims": [
+          16,
+          16
+        ],
+        "split_err": 5.551115123125783e-16,
+        "canonical_residual": 4.0,
+        "frame_classes": [
+          {
+            "time_sign": 1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": 1,
+            "space_minus": 3,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 0,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 1,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 2,
+            "realizable": false,
+            "frame": null
+          },
+          {
+            "time_sign": -1,
+            "space_minus": 3,
+            "realizable": true,
+            "frame": [
+              0,
+              [
+                1,
+                2,
+                3
+              ]
+            ]
+          }
+        ],
+        "best_frame_residual": 4.0
+      }
+    ],
+    "minkowski_signatures": [
+      "Cl(10-0,0)",
+      "Cl(10-1,1)",
+      "Cl(10-2,2)",
+      "Cl(10-3,3)",
+      "Cl(10-4,4)",
+      "Cl(10-5,5)",
+      "Cl(10-6,6)"
+    ]
+  },
+  "wall_time": 1.727
+}

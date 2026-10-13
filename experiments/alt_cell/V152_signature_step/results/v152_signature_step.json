@@ -1,0 +1,216 @@
+{
+  "id": "V152_signature_step",
+  "tier": 4,
+  "property": "the node census per unitary signature on the implemented cell (V63/V115 method)",
+  "residual": true,
+  "pass": true,
+  "status": "SIGNATURE STEP CENSUS. Survivors of the unitarity gate at g_10: [0, 10]. q=0 reproduces the anchors (12 M nodes, node gap 2.0029e-04, GAMMA 0.0365, chirality sum 0). q=10 (charge conjugate): gapped at all 27 sampled momenta (M gap 0.0310) - but it has no (1+3) frame (V150) and conjugated charges (V151). No signature with a Minkowski frame removes the nodes or isotropizes the cones (best A 0.998 >> 1e-6).",
+  "data": {
+    "rows": [
+      {
+        "signature": "Cl(10-0,0)",
+        "q": 0,
+        "bloch_vs_torus_dev": 9.769962616701378e-15,
+        "mirror_leakage": 5.748631361078881e-16,
+        "U16_unitarity_err": 8.881784197001252e-16,
+        "gap_by_star": {
+          "GAMMA": 0.03649939422882611,
+          "X": 0.0012920252236225673,
+          "M": 0.00020028952953104998,
+          "R": 0.001292025223621564
+        },
+        "n_nodes": 12,
+        "chirality_sum": 0.0,
+        "single_orbit": true,
+        "best_anisotropy_A": 0.9979846405739633,
+        "nodes": [
+          {
+            "q": [
+              1.570796,
+              1.570796,
+              0.0
+            ],
+            "chirality": 1.0,
+            "A": 0.997984640580528,
+            "v_max": 0.40091394392751134,
+            "v_min": 0.0004044003526759482
+          },
+          {
+            "q": [
+              1.570796,
+              0.0,
+              1.570796
+            ],
+            "chirality": 1.0,
+            "A": 0.9979846405764595,
+            "v_max": 0.4009139439272426,
+            "v_min": 0.0004044003534929502
+          },
+          {
+            "q": [
+              0.0,
+              1.570796,
+              1.570796
+            ],
+            "chirality": 1.0,
+            "A": 0.9979846405807846,
+            "v_max": 0.400913943927583,
+            "v_min": 0.00040440035262451245
+          },
+          {
+            "q": [
+              1.570796,
+              -1.570796,
+              0.0
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405827373,
+            "v_max": 0.40091394392827406,
+            "v_min": 0.0004044003522330037
+          },
+          {
+            "q": [
+              1.570796,
+              0.0,
+              -1.570796
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405772127,
+            "v_max": 0.4009139439274305,
+            "v_min": 0.00040440035334181047
+          },
+          {
+            "q": [
+              0.0,
+              1.570796,
+              -1.570796
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405761708,
+            "v_max": 0.4009139439274806,
+            "v_min": 0.0004044003535511742
+          },
+          {
+            "q": [
+              -1.570796,
+              1.570796,
+              0.0
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405797527,
+            "v_max": 0.40091394392795354,
+            "v_min": 0.0004044003528321952
+          },
+          {
+            "q": [
+              -1.570796,
+              0.0,
+              1.570796
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405739633,
+            "v_max": 0.4009139439291496,
+            "v_min": 0.00040440035399624157
+          },
+          {
+            "q": [
+              0.0,
+              -1.570796,
+              1.570796
+            ],
+            "chirality": -1.0,
+            "A": 0.9979846405756876,
+            "v_max": 0.40091394392778046,
+            "v_min": 0.0004044003536485382
+          },
+          {
+            "q": [
+              -1.570796,
+              -1.570796,
+              0.0
+            ],
+            "chirality": 1.0,
+            "A": 0.9979846405800213,
+            "v_max": 0.40091394392648155,
+            "v_min": 0.0004044003527767182
+          },
+          {
+            "q": [
+              -1.570796,
+              0.0,
+              -1.570796
+            ],
+            "chirality": 1.0,
+            "A": 0.9979846405750392,
+            "v_max": 0.40091394392772584,
+            "v_min": 0.0004044003537786761
+          },
+          {
+            "q": [
+              0.0,
+              -1.570796,
+              -1.570796
+            ],
+            "chirality": 1.0,
+            "A": 0.9979846405846005,
+            "v_max": 0.4009139439275444,
+            "v_min": 0.00040440035185799604
+          }
+        ]
+      },
+      {
+        "signature": "Cl(10-10,10)",
+        "q": 10,
+        "bloch_vs_torus_dev": 7.549516567451064e-15,
+        "mirror_leakage": 3.950762287251439e-16,
+        "U16_unitarity_err": 6.661338147750939e-16,
+        "gap_by_star": {
+          "GAMMA": 0.03102653956732009,
+          "X": 0.0012920252236215738,
+          "M": 0.03102653956731856,
+          "R": 0.0012920252236217364
+        },
+        "n_nodes": 0,
+        "chirality_sum": 0.0,
+        "single_orbit": false,
+        "best_anisotropy_A": null,
+        "nodes": []
+      }
+    ],
+    "candidates": [
+      {
+        "name": "Cl(10-0,0)",
+        "signature_q": 0,
+        "cell": "2x2x2",
+        "unitary_err": 8.881784197001252e-16,
+        "n_nodes": 12,
+        "node_star_size": 12,
+        "single_orbit": true,
+        "anisotropy_A": 0.9979846405739633,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "Cl(10-10,10)",
+        "signature_q": 10,
+        "cell": "2x2x2",
+        "unitary_err": 6.661338147750939e-16,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      }
+    ],
+    "unitary_survivors": [
+      0,
+      10
+    ]
+  },
+  "wall_time": 119.916
+}

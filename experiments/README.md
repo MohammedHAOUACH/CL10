@@ -1,10 +1,11 @@
 # The verification program
 
-112 experiments, grouped by the part of `doc/final_publication.md` they validate.
-Each experiment is a 0-parameter check: it recomputes a published number from the
-construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time`)
-to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
-the verdicts up into `results/validation_summary.json`.
+124 experiments (112 master + 12 `alt_cell` exploration, branch-only), grouped by
+the part of `doc/final_publication.md` they validate.  Each experiment is a
+0-parameter check: it recomputes a published number from the construction and
+writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
+`wall_time`) to `<experiment>/results/`. `python3 run_validation.py` runs all
+of them and rolls the verdicts up into `results/validation_summary.json`.
 
 The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
 [Paper II](../doc/paper2_gauge_gravity.md) · [Paper III](../doc/paper3_phenomenology.md) ·
@@ -36,6 +37,7 @@ the reason recorded in `../archive/README.md`.
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
+| `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
 
 ## The experiments
 
@@ -198,3 +200,19 @@ the reason recorded in `../archive/README.md`.
 | id | verdict |
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
+
+### `alt_cell` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V149_signature_algebra` | only Cl(10,0) and Cl(0,10) keep the 45-plane product exactly unitary; mixed signatures give anti-Hermitian planes and an O(1) unitarity residual |
+| `V150_signature_frame` | the 16/16 split survives every signature; the exact (1+3) frame needs four +I generators (q <= 6): with V149 the Euclidean root is the only signature with both |
+| `V151_signature_anomaly` | only q=0 reproduces the SM charge table; q=4 permutes the fields, q=10 conjugates the charges, odd q break the multiplets (complex hypercharges) |
+| `V152_signature_step` | q=10 gaps the sampled M nodes but has no (1+3) frame; no signature with a frame removes the 12 nodes or isotropizes a cone |
+| `V153_stage_cycle_census` | all 720 stage orderings: none removes the half-zone nodes, none reaches A < 1e-6 - the order is not the cause |
+| `V154_block_census` | blocks {2,3}^3: front speed exactly 1 everywhere, no isotropy; the (2,2,2) cell keeps its 12 M nodes under both cycles |
+| `V155_fcc_diamond` | 524 FCC/diamond 1-factorizations: zero gapless at the FCC high-symmetry points - the graphene mechanism does not transfer |
+| `V156_node_forcing` | the 12-node set is one orbit (split forced) for the implemented cell; no candidate combines a forced split with an isotropic cone |
+| `V157_hardtier` | zero census survivors; all 722 algebraically eligible near-misses pass the five hard gates (every one a restatement of the root cell) - the hard tier is jointly satisfiable but the isotropy gate eliminates everything |
+| `V158_unification_forced` | the node content is a complete 16+16-bar per node: V64's proportional-shift no-go kills the meeting for every candidate |
+| `V159_cp_census` | real type at q=0; q=10 is quaternionic AND unitary (a CP window) but has no frame: the CP phase and the Minkowski frame are mutually exclusive |
+| `V160_dm_spectrum` | the lightest mode of every candidate is a gapless node with paired mirror content: no 118 GeV carrier from geometry |

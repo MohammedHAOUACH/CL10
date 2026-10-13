@@ -1,0 +1,56 @@
+{
+  "id": "V156_node_forcing",
+  "tier": 4,
+  "property": "is the node set a single point-group orbit (the O3/O9 split forced) for any Phase-B candidate?",
+  "residual": null,
+  "pass": true,
+  "status": "NODE FORCING TABLE. 1254 candidates read from ['V152_signature_step', 'V153_stage_cycle_census', 'V154_block_census', 'V155_fcc_diamond']; 722 gapless. Orbit structure recomputed on the representative candidates: 4 single-orbit (split forced: only empty or full - all restatements of the root cell), 0 several orbits. V153's census independently found 720/720 stage cycles single-orbit. No candidate combines a forced split with an isotropic cone (the best-A candidate per source is anisotropic): O3 (family count) and O9 (the split) stay inputs for the whole family.",
+  "data": {
+    "table": [
+      {
+        "candidate": "block:2x2x2|implemented",
+        "n_nodes": 12,
+        "n_orbits": 1,
+        "orbit_sizes": [
+          12
+        ],
+        "split_forced": true
+      },
+      {
+        "candidate": "block:3x3x3|canonical",
+        "n_nodes": 0,
+        "n_orbits": 0,
+        "orbit_sizes": [],
+        "split_forced": false
+      },
+      {
+        "candidate": "V152_signature_step:Cl(10-0,0)",
+        "n_nodes": 12,
+        "n_orbits": 1,
+        "orbit_sizes": null,
+        "split_forced": true,
+        "from_verdict": true
+      },
+      {
+        "candidate": "V153_stage_cycle_census:cycle:1b0a0b1a2a2b",
+        "n_nodes": 12,
+        "n_orbits": 1,
+        "orbit_sizes": null,
+        "split_forced": true,
+        "from_verdict": true
+      },
+      {
+        "candidate": "V154_block_census:block:2x2x2|implemented",
+        "n_nodes": 12,
+        "n_orbits": 1,
+        "orbit_sizes": null,
+        "split_forced": true,
+        "from_verdict": true
+      }
+    ],
+    "n_candidates": 1254,
+    "n_gapless": 722,
+    "missing_sources": []
+  },
+  "wall_time": 6.797
+}

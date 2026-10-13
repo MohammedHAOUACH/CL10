@@ -1,0 +1,259 @@
+{
+  "id": "V149_signature_algebra",
+  "tier": 4,
+  "property": "the signature census: which Cl(10-q,q) admit an exactly unitary 45-plane product with zero new parameters",
+  "residual": null,
+  "pass": true,
+  "status": "SIGNATURE ALGEBRA CENSUS. q=0 baseline reproduces (45 Hermitian planes, T^2=I, unitarity 9.9e-32, orders 4/8). Non-unitary products at: ['Cl(10-1,1)', 'Cl(10-2,2)', 'Cl(10-3,3)', 'Cl(10-4,4)', 'Cl(10-5,5)', 'Cl(10-6,6)', 'Cl(10-7,7)', 'Cl(10-8,8)', 'Cl(10-9,9)']. Unitary-product signatures: ['Cl(10-0,0)', 'Cl(10-10,10)']. Mixed signatures break the compact plane-rotation form (anti-Hermitian T, T^2=-I): the implemented factor is not unitary.",
+  "data": {
+    "rows": [
+      {
+        "signature": "Cl(10-0,0)",
+        "q": 0,
+        "T_hermitian": 45,
+        "T_antihermitian": 0,
+        "T2_plus": 45,
+        "T2_minus": 0,
+        "pi/2": {
+          "unitarity_err": 9.872569460451624e-32,
+          "closure_order": 4,
+          "closure_err": 9.797174393178826e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.4432899320127035e-15,
+          "closure_order": 8,
+          "closure_err": 5.181015874889785e-15
+        },
+        "g10": {
+          "unitarity_err": 1.6653487242199808e-15
+        }
+      },
+      {
+        "signature": "Cl(10-1,1)",
+        "q": 1,
+        "T_hermitian": 36,
+        "T_antihermitian": 9,
+        "T2_plus": 36,
+        "T2_minus": 9,
+        "pi/2": {
+          "unitarity_err": 2.220446049250313e-16,
+          "closure_order": 2,
+          "closure_err": 4.292810117113036e-16
+        },
+        "pi/4": {
+          "unitarity_err": 0.9999999999999991,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.4551909586281768
+        }
+      },
+      {
+        "signature": "Cl(10-2,2)",
+        "q": 2,
+        "T_hermitian": 29,
+        "T_antihermitian": 16,
+        "T2_plus": 29,
+        "T2_minus": 16,
+        "pi/2": {
+          "unitarity_err": 2.220446049250313e-16,
+          "closure_order": 4,
+          "closure_err": 8.585620234226072e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.9999999999999978,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.5440076312379506
+        }
+      },
+      {
+        "signature": "Cl(10-3,3)",
+        "q": 3,
+        "T_hermitian": 24,
+        "T_antihermitian": 21,
+        "T2_plus": 24,
+        "T2_minus": 21,
+        "pi/2": {
+          "unitarity_err": 4.440892098500626e-16,
+          "closure_order": 2,
+          "closure_err": 5.071544317185124e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.999999999999998,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.7370840691173134
+        }
+      },
+      {
+        "signature": "Cl(10-4,4)",
+        "q": 4,
+        "T_hermitian": 21,
+        "T_antihermitian": 24,
+        "T2_plus": 21,
+        "T2_minus": 24,
+        "pi/2": {
+          "unitarity_err": 2.4492935982947064e-16,
+          "closure_order": 4,
+          "closure_err": 8.585620234226071e-16
+        },
+        "pi/4": {
+          "unitarity_err": 3.999999999999995,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.8672149547132181
+        }
+      },
+      {
+        "signature": "Cl(10-5,5)",
+        "q": 5,
+        "T_hermitian": 20,
+        "T_antihermitian": 25,
+        "T2_plus": 20,
+        "T2_minus": 25,
+        "pi/2": {
+          "unitarity_err": 4.440892098500626e-16,
+          "closure_order": 2,
+          "closure_err": 5.071544317185124e-16
+        },
+        "pi/4": {
+          "unitarity_err": 3.999999999999996,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.8991492248051624
+        }
+      },
+      {
+        "signature": "Cl(10-6,6)",
+        "q": 6,
+        "T_hermitian": 21,
+        "T_antihermitian": 24,
+        "T2_plus": 21,
+        "T2_minus": 24,
+        "pi/2": {
+          "unitarity_err": 2.449293598294707e-16,
+          "closure_order": 4,
+          "closure_err": 8.585620234226071e-16
+        },
+        "pi/4": {
+          "unitarity_err": 3.999999999999996,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 1.0614239430895231
+        }
+      },
+      {
+        "signature": "Cl(10-7,7)",
+        "q": 7,
+        "T_hermitian": 24,
+        "T_antihermitian": 21,
+        "T2_plus": 24,
+        "T2_minus": 21,
+        "pi/2": {
+          "unitarity_err": 4.440892098500626e-16,
+          "closure_order": 2,
+          "closure_err": 5.071544317185123e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.9999999999999982,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 1.0195859505579166
+        }
+      },
+      {
+        "signature": "Cl(10-8,8)",
+        "q": 8,
+        "T_hermitian": 29,
+        "T_antihermitian": 16,
+        "T2_plus": 29,
+        "T2_minus": 16,
+        "pi/2": {
+          "unitarity_err": 2.220446049250313e-16,
+          "closure_order": 4,
+          "closure_err": 8.585620234226071e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.9999999999999982,
+          "closure_order": 1,
+          "closure_err": 1.0
+        },
+        "g10": {
+          "unitarity_err": 0.9596897473350019
+        }
+      },
+      {
+        "signature": "Cl(10-9,9)",
+        "q": 9,
+        "T_hermitian": 36,
+        "T_antihermitian": 9,
+        "T2_plus": 36,
+        "T2_minus": 9,
+        "pi/2": {
+          "unitarity_err": 2.220446049250313e-16,
+          "closure_order": 2,
+          "closure_err": 4.292810117113036e-16
+        },
+        "pi/4": {
+          "unitarity_err": 0.9999999999999991,
+          "closure_order": 3,
+          "closure_err": 0.9999999999999994
+        },
+        "g10": {
+          "unitarity_err": 0.8361833630671912
+        }
+      },
+      {
+        "signature": "Cl(10-10,10)",
+        "q": 10,
+        "T_hermitian": 45,
+        "T_antihermitian": 0,
+        "T2_plus": 45,
+        "T2_minus": 0,
+        "pi/2": {
+          "unitarity_err": 9.872569460451624e-32,
+          "closure_order": 4,
+          "closure_err": 9.797174393178826e-16
+        },
+        "pi/4": {
+          "unitarity_err": 1.4432899320127035e-15,
+          "closure_order": 8,
+          "closure_err": 4.670063664063249e-15
+        },
+        "g10": {
+          "unitarity_err": 8.88178519616319e-16
+        }
+      }
+    ],
+    "unitary_signatures": [
+      "Cl(10-0,0)",
+      "Cl(10-10,10)"
+    ],
+    "nonunitary_signatures": [
+      "Cl(10-1,1)",
+      "Cl(10-2,2)",
+      "Cl(10-3,3)",
+      "Cl(10-4,4)",
+      "Cl(10-5,5)",
+      "Cl(10-6,6)",
+      "Cl(10-7,7)",
+      "Cl(10-8,8)",
+      "Cl(10-9,9)"
+    ]
+  },
+  "wall_time": 0.357
+}

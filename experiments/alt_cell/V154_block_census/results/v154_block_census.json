@@ -1,0 +1,345 @@
+{
+  "id": "V154_block_census",
+  "tier": 4,
+  "property": "the block census over shapes {2,3}^3: nodes, orbits, anisotropy, causal front",
+  "residual": true,
+  "pass": true,
+  "status": "BLOCK CENSUS (8 shapes + 1 diagnostic). The (2,2,2) anchor reproduces V63/V115 (12 M nodes, 2.0029e-04, GAMMA 0.0365; bloch==supercell exactly, torus dev 9.8e-15). Node counts at the 27 sampled high-symmetry momenta: [12, 0, 0, 0, 0, 0, 0, 0, 12] - the (2,2,2) cell keeps its 12 M nodes under BOTH cycles; every block with a 3-division is gapped at the sampled momenta (the stagger moves the nodes off the sampled set or gaps them: a sampling statement, not a removal theorem). Every front speed is exactly 1 with zero outside-light-cone amplitude, and no block reaches A < 1e-6: the cell size is not the cause.",
+  "data": {
+    "rows": [
+      {
+        "cell": "2x2x2",
+        "shape": [
+          2,
+          2,
+          2
+        ],
+        "cycle": "implemented",
+        "n_stages": 6,
+        "nsub": 8,
+        "gap_by_star": {
+          "GAMMA": 0.03649939422882611,
+          "X": 0.0012920252236225673,
+          "M": 0.00020028952953104998,
+          "R": 0.001292025223621564
+        },
+        "n_nodes": 12,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "best_A": 0.9979846405739633,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999989,
+        "bloch_vs_supercell": 0.0,
+        "bloch_vs_torus_dev": 9.769962616701378e-15
+      },
+      {
+        "cell": "2x2x3",
+        "shape": [
+          2,
+          2,
+          3
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 7,
+        "nsub": 12,
+        "gap_by_star": {
+          "GAMMA": 0.019619636754752742,
+          "X": 0.00404825346347493,
+          "M": 0.014460687568265856,
+          "R": 0.02384780239498914
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999994
+      },
+      {
+        "cell": "2x3x2",
+        "shape": [
+          2,
+          3,
+          2
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 7,
+        "nsub": 12,
+        "gap_by_star": {
+          "GAMMA": 0.019619636754750355,
+          "X": 0.004048253463472473,
+          "M": 0.014460687568266349,
+          "R": 0.023847802394988127
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.999999999999999
+      },
+      {
+        "cell": "2x3x3",
+        "shape": [
+          2,
+          3,
+          3
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 8,
+        "nsub": 18,
+        "gap_by_star": {
+          "GAMMA": 0.004571318498616458,
+          "X": 0.0020969380809564802,
+          "M": 0.012205674240999984,
+          "R": 0.0032127562722636597
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999994
+      },
+      {
+        "cell": "3x2x2",
+        "shape": [
+          3,
+          2,
+          2
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 7,
+        "nsub": 12,
+        "gap_by_star": {
+          "GAMMA": 0.019619636754753308,
+          "X": 0.004048253463473782,
+          "M": 0.0144606875682657,
+          "R": 0.023847802394989053
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999992
+      },
+      {
+        "cell": "3x2x3",
+        "shape": [
+          3,
+          2,
+          3
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 8,
+        "nsub": 18,
+        "gap_by_star": {
+          "GAMMA": 0.004571318498617641,
+          "X": 0.0020969380809569625,
+          "M": 0.012205674240998257,
+          "R": 0.003212756272264465
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999984
+      },
+      {
+        "cell": "3x3x2",
+        "shape": [
+          3,
+          3,
+          2
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 8,
+        "nsub": 18,
+        "gap_by_star": {
+          "GAMMA": 0.004571318498616722,
+          "X": 0.0020969380809542043,
+          "M": 0.012205674240996982,
+          "R": 0.0032127562722625343
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999983
+      },
+      {
+        "cell": "3x3x3",
+        "shape": [
+          3,
+          3,
+          3
+        ],
+        "cycle": "canonical-phase-major",
+        "n_stages": 9,
+        "nsub": 27,
+        "gap_by_star": {
+          "GAMMA": 0.07398140606561322,
+          "X": 0.012874913776282304,
+          "M": 0.0018201819561732497,
+          "R": 0.003834716833239743
+        },
+        "n_nodes": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "best_A": null,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999989
+      },
+      {
+        "cell": "2x2x2",
+        "shape": [
+          2,
+          2,
+          2
+        ],
+        "cycle": "canonical-phase-major(diagnostic)",
+        "n_stages": 6,
+        "nsub": 8,
+        "gap_by_star": {
+          "GAMMA": 0.03649939422882611,
+          "X": 0.0012920252236225034,
+          "M": 0.00020028952953075383,
+          "R": 0.0012920252236213788
+        },
+        "n_nodes": 12,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "best_A": 0.9979846405739143,
+        "front_speed": 1.0,
+        "n_outside_lightcone": 0,
+        "final_norm": 0.9999999999999988
+      }
+    ],
+    "candidates": [
+      {
+        "name": "block:2x2x2|implemented",
+        "signature_q": 0,
+        "cell": "2x2x2",
+        "unitary_err": 0.0,
+        "n_nodes": 12,
+        "node_star_size": 12,
+        "single_orbit": true,
+        "anisotropy_A": 0.9979846405739633,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:2x2x3|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "2x2x3",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:2x3x2|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "2x3x2",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:2x3x3|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "2x3x3",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:3x2x2|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "3x2x2",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:3x2x3|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "3x2x3",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:3x3x2|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "3x3x2",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      },
+      {
+        "name": "block:3x3x3|canonical-phase-major",
+        "signature_q": 0,
+        "cell": "3x3x3",
+        "unitary_err": 0.0,
+        "n_nodes": 0,
+        "node_star_size": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false
+      }
+    ]
+  },
+  "wall_time": 244.377
+}
