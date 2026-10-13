@@ -2,6 +2,34 @@
 
 **Mohammed Haouach** — independent researcher  \haouach.mohammed@gmail.com\
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+## Publication & citation
+
+| | |
+|---|---|
+| **Concept DOI** — always resolves to the latest Zenodo version | [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106) |
+| **Version DOI** — this snapshot (v1.0.2, Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
+| **Zenodo record** — the four paper PDFs + the source archive | [zenodo.org/records/23321228](https://zenodo.org/records/23321228) |
+| **GitHub release** — the four PDFs as assets + source archives | [v1.0.2](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) |
+
+```bibtex
+@misc{haouach2026cl10,
+  author = {Haouach, Mohammed},
+  title  = {Causal Clifford Theory (CL10): a quantum cellular automaton on
+            Cl(10,0) --- Standard Model kinematics, exactly unitary causal
+            dynamics, and a lattice gravitational sector},
+  year   = {2026},
+  doi    = {10.5281/zenodo.23321106},
+  url    = {https://doi.org/10.5281/zenodo.23321106},
+  note   = {version v1.0.2: \url{https://doi.org/10.5281/zenodo.23321228}}
+}
+```
+
+**Licence.** The code and documentation of the repository are under the **MIT
+licence** ([LICENSE](LICENSE)); the four paper PDFs and the Zenodo record are
+deposited under **CC BY 4.0** (the record's licence).
+
 **The root object.** The theory is a unitary quantum cellular automaton (QCA)
 on a Planck lattice whose 2x2x2 cells carry the Clifford algebra
 $\mathrm{Cl}(10,0)$ of ten mutually anticommuting generators on eight sub-sites
@@ -34,12 +62,25 @@ plus the unified master:
 
 | file | content |
 |---|---|
-| `doc/paper1_core.md` | **Paper I** — the root, the (1+3) subalgebra, the 16, the anomalies, the 45, the unitary causal step, the doubling and its Wilson gap, the provenance discipline |
-| `doc/paper2_gauge_gravity.md` | **Paper II** — the gauged bond layer (Gauss, area law, confinement), the gravitational sector (EH from the dynamics, 3+1 numerics), what each sector does *not* claim |
-| `doc/paper3_phenomenology.md` | **Paper III** — the loop ladder, the coupling unification, the neutrino/DM/baryogenesis audits, the parameter audit, the failures, the falsifiers |
-| `doc/final_publication.md` | the unified master (all of the above, one reference list) |
+| [`doc/paper1_core.md`](doc/paper1_core.md) · [PDF](doc/paper1_core.pdf) | **Paper I** — the root, the (1+3) subalgebra, the 16, the anomalies, the 45, the unitary causal step, the doubling and its Wilson gap, the provenance discipline |
+| [`doc/paper2_gauge_gravity.md`](doc/paper2_gauge_gravity.md) · [PDF](doc/paper2_gauge_gravity.pdf) | **Paper II** — the gauged bond layer (Gauss, area law, confinement), the gravitational sector (EH from the dynamics, 3+1 numerics), what each sector does *not* claim |
+| [`doc/paper3_phenomenology.md`](doc/paper3_phenomenology.md) · [PDF](doc/paper3_phenomenology.pdf) | **Paper III** — the loop ladder, the coupling unification, the neutrino/DM/baryogenesis audits, the parameter audit, the failures, the falsifiers |
+| [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) | the unified master (all of the above, one reference list) |
 
-`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`).
+`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [v1.0.2 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) and archived on [Zenodo](https://zenodo.org/records/23321228).
+
+## Selected results
+
+All 25 figures are **computed from the construction** — `python3 -m make_figures`,
+no hand-entered data ([make_figures/README.md](make_figures/README.md)); each is
+placed in the papers and validated by the named experiment
+([experiments/README.md](experiments/README.md)).
+
+| | |
+|---|---|
+| <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
+| <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), master §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (Paper III). |
+| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_w9_cone_isotropy)) — reported as W9/F1, not hidden. |
 
 ## The layout
 
@@ -176,7 +217,7 @@ bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the m
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
 **seven falsifiers** (F1–F7). `run_validation.py` runs the **112** experiments
-of `experiments/` (12 categories, catalogued in `experiments/README.md`) and
+of `experiments/` (12 categories, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
@@ -261,4 +302,4 @@ closes the frame-averaging escape.
 Each experiment constructs its object from the **declared** inputs, computes
 the residual against the stated value, and writes a JSON verdict (`tier`,
 `property`, `pass`, `residual`) that `run_validation.py` aggregates into
-`results/validation_summary.json`.
+[`results/validation_summary.json`](results/validation_summary.json).

@@ -3,6 +3,13 @@
 One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 **only** source of the paper; nothing in this directory edits it.
 
+The unified master builds here; the three companion papers build through
+`review/tools/build_pdfs.sh`. All four compiled PDFs are attached to the
+[v1.0.2 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2)
+and archived on [Zenodo](https://zenodo.org/records/23321228)
+([10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106)). Back to the
+[CL10 README](../README.md).
+
 ```bash
 bash publication/build.sh        # -> publication/publication.pdf
 ```

@@ -6,6 +6,14 @@ construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time
 to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
 the verdicts up into `results/validation_summary.json`.
 
+The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
+[Paper II](../doc/paper2_gauge_gravity.md) · [Paper III](../doc/paper3_phenomenology.md) ·
+[the unified master](../doc/final_publication.md) — compiled PDFs in `../doc/`, on the
+[v1.0.2 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) and on
+[Zenodo](https://zenodo.org/records/23321228); cite:
+[10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).
+Back to the [CL10 README](../README.md).
+
 A script never hard-codes its own category: sibling experiments and their
 verdicts are addressed by name through `cl10.paths.exp`, so moving an
 experiment between categories moves a directory and nothing else.

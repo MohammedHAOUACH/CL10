@@ -6,6 +6,11 @@ that every historical number stays traceable. Nothing here is run by
 conventions (`ROOT` two levels up, sibling experiments by flat name), so they are
 kept for reading, not for re-execution.
 
+What supersedes this material lives in [../experiments/](../experiments/)
+(catalogue: [experiments/README.md](../experiments/README.md)) and
+[../doc/final_publication.md](../doc/final_publication.md). Back to the
+[CL10 README](../README.md).
+
 ## `experiments/` — 35 superseded experiments
 
 Each row names the experiment that now carries the result.

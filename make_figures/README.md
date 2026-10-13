@@ -3,6 +3,12 @@
 Every figure in `doc/final_publication.md` is **computed from the construction**;
 none contains hand-entered data. This package is the single entry point.
 
+The figures are cited by number in [doc/final_publication.md](../doc/final_publication.md)
+and the three companion papers; after regenerating, rebuild the PDFs with
+`review/tools/build_pdfs.sh` or the REVTeX build
+([publication/README.md](../publication/README.md)). Back to the
+[CL10 README](../README.md).
+
 ```bash
 python3 -m make_figures                # all 25 figures -> doc/figures/
 python3 -m make_figures --only 7 12    # a subset, by paper number
