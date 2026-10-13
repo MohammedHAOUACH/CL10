@@ -245,13 +245,16 @@ def lattice_cell(kind):
 def one_factorizations(lc, cap=None):
     """All ordered partitions of the cell bond set into perfect matchings
     (backtracking, lexicographic bond order; each matching is built
-    greedily from the lowest uncovered sub-site, which fixes the order of
-    the matchings inside a factorization).
+    greedily from the lowest uncovered sub-site and covers every sub-site
+    exactly once, which fixes the order of the matchings inside a
+    factorization).
 
     Returns ``(factorizations, skipped)``: each factorization is a list of
     stages (each stage a list of bonds); ``skipped`` counts the branches
     cut by ``cap``.  A bond set with no perfect matching yields none."""
     bonds = sorted(lc["bonds"])
+    all_sites = {i for (i, _j, _v) in bonds} | \
+        {j for (_i, j, _v) in bonds}
     out = []
     skipped = [0]
 
@@ -276,27 +279,27 @@ def one_factorizations(lc, cap=None):
                 continue
             stage = [b]
             rest = remaining[:k] + remaining[k + 1:]
-            # greedily complete the matching of this stage
-            stack = [(stage, rest)]
+            # greedily complete the perfect matching of this stage:
+            # every sub-site appears in exactly one bond of the stage
+            stack = [(stage, {b[0], b[1]}, rest)]
             while stack:
                 if cap is not None and len(out) >= cap:
                     skipped[0] += 1
                     stack.clear()
                     return
-                st, rs = stack.pop()
-                unc = ({a for (a, _bb, _c) in rs}
-                       | {bb for (_a, bb, _c) in rs})
-                if not unc:
+                st, cov, rs = stack.pop()
+                need = all_sites - cov
+                if not need:
                     rec(rs, stages + [st])
                     continue
-                w0 = min(unc)
-                for m, b2 in enumerate(rs):
+                w0 = min(need)
+                for m, b2 in reversed(list(enumerate(rs))):
                     if w0 not in (b2[0], b2[1]):
                         continue
-                    a, bb, _c = b2
-                    if a not in unc or bb not in unc:
+                    if b2[0] in cov or b2[1] in cov:
                         continue
-                    stack.append((st + [b2], rs[:m] + rs[m + 1:]))
+                    stack.append((st + [b2], cov | {b2[0], b2[1]},
+                                  rs[:m] + rs[m + 1:]))
 
     rec(bonds, [])
     return out, skipped[0]
@@ -434,6 +437,119 @@ def front_speed(c, U, stages, g10=SC.G10, Lb=6, n_stages=12, seed=0,
         bonds = cell_stage_bonds(c, st) if c["kind"] == "block" \
             else lattice_stage_bonds(c, st)
         f = bond_layer_bonds(f, bonds, g10)
+        nrm = np.sqrt(np.sum(np.abs(f) ** 2, axis=-1))
+        sup = np.argwhere(nrm > tol)
+        d = [int(dist[tuple(p)]) for p in sup]
+        outside += int(sum(1 for r in d if r > k))
+        radii.append(max(d) if d else 0)
+    return {"radii": radii, "n_outside_lightcone": outside,
+            "front_speed": radii[-1] / n_stages if radii else 0.0,
+            "final_norm": float(np.linalg.norm(f.ravel()))}
+
+
+# ---------------------------------------------------------------------------
+# 4b. the motion axis: per-stage internal factors and bond angles
+# ---------------------------------------------------------------------------
+
+
+def stage_bonds(c, st):
+    """The bonds of one stage in either representation: a block stage
+    ``(j, phase)`` (resolved through ``cell_stage_bonds``) or an explicit
+    bond list (a perfect matching, as produced by ``one_factorizations``)."""
+    if isinstance(st, tuple):
+        return cell_stage_bonds(c, st)
+    return list(st)
+
+
+def _broadcast(Us, thetas, n):
+    """Normalize (Us, thetas) to per-stage lists of length ``n``: a single
+    matrix / scalar is repeated, a list must have length ``n``."""
+    Us_l = [Us] * n if isinstance(Us, np.ndarray) else list(Us)
+    th_l = [thetas] * n if np.isscalar(thetas) else list(thetas)
+    if len(Us_l) != n or len(th_l) != n:
+        raise ValueError(f"per-stage lists must have length {n}: got "
+                         f"{len(Us_l)}, {len(th_l)}")
+    return Us_l, th_l
+
+
+def bloch_stages(c, Us, thetas, stages, q):
+    """The exact one-step Bloch matrix with a PER-STAGE internal matrix
+    ``Us[t]`` and a PER-STAGE bond angle ``thetas[t]``:
+    ``M = prod_t kron(S_t(thetas[t], q), Us[t])``.  Regression anchor:
+    exact equality with ``bloch_cell`` when every entry is equal."""
+    Us_l, th_l = _broadcast(Us, thetas, len(stages))
+    M = np.eye(c["nsub"] * Us_l[0].shape[0], dtype=complex)
+    for t, st in enumerate(stages):
+        S = stage_matrix_bonds(stage_bonds(c, st), q, th_l[t], c["nsub"])
+        M = np.kron(S, Us_l[t]) @ M
+    return M
+
+
+def step_stages(fields, Us, thetas, stages):
+    """One real-space automaton step with per-stage internal factors and
+    bond angles (the ``supercell.step`` semantics: internal layer then bond
+    stage, per stage).  Anchor: equals ``supercell.step`` on the (2,2,2)
+    cell with uniform entries."""
+    Us_l, th_l = _broadcast(Us, thetas, len(stages))
+    f = fields
+    for t, st in enumerate(stages):
+        f = SC.internal_layer(f, Us_l[t])
+        if isinstance(st, tuple):
+            j, phase = st
+            f = SC.bond_layer(f, phase == 0, j, th_l[t])
+        else:
+            f = bond_layer_bonds(f, st, th_l[t])
+    return f
+
+
+def front_speed_stages(c, Us, thetas, stages, Lb=6, n_stages=12, seed=0,
+                       tol=1e-12):
+    """``front_speed`` generalized to per-stage internal factors and bond
+    angles (same support-growth test, same Planck-cell radius convention);
+    stages may be block ``(j, phase)`` pairs or explicit bond lists."""
+    Us_l, th_l = _broadcast(Us, thetas, len(stages))
+    rng = np.random.default_rng(seed)
+    n = Us_l[0].shape[0]
+    shape = c.get("shape", (1, 1, 1))
+    f = np.zeros((Lb, Lb, Lb, c["nsub"], n), dtype=complex)
+    v = rng.standard_normal(n) + 1j * rng.standard_normal(n)
+    x0 = (Lb // 2, Lb // 2, Lb // 2)
+    e0 = 0
+    f[x0 + (e0,)] = v / np.linalg.norm(v)
+    R = np.arange(Lb)
+    axes = []
+    for j in range(3):
+        if c["kind"] == "block":
+            d = np.array([c["digit"](e, j) for e in range(c["nsub"])])
+            axes.append(shape[j] * R.reshape(
+                [Lb if k == j else 1 for k in range(3)] + [1]) + d.reshape(
+                    [1, 1, 1, c["nsub"]]))
+        else:
+            s = np.array([int(round(c["sites"][e][j]))
+                          for e in range(c["nsub"])])
+            axes.append(R.reshape(
+                [Lb if k == j else 1 for k in range(3)] + [1]) + s.reshape(
+                    [1, 1, 1, c["nsub"]]))
+    cx, cy, cz = np.broadcast_arrays(*axes)
+    if c["kind"] == "block":
+        origin = tuple(shape[k] * x0[k] + c["digit"](e0, k) for k in range(3))
+    else:
+        origin = tuple(x0[k] + int(round(c["sites"][e0][k]))
+                       for k in range(3))
+    L = [shape[k] * Lb if c["kind"] == "block" else Lb for k in range(3)]
+
+    def _md(d, Lk):
+        return np.minimum(np.abs(d), Lk - np.abs(d))
+
+    dist = (_md(cx - origin[0], L[0]) + _md(cy - origin[1], L[1])
+            + _md(cz - origin[2], L[2]))
+    radii = []
+    outside = 0
+    for k in range(1, n_stages + 1):
+        f = SC.internal_layer(f, Us_l[(k - 1) % len(stages)])
+        st = stages[(k - 1) % len(stages)]
+        f = bond_layer_bonds(f, stage_bonds(c, st),
+                             th_l[(k - 1) % len(stages)])
         nrm = np.sqrt(np.sum(np.abs(f) ** 2, axis=-1))
         sup = np.argwhere(nrm > tol)
         d = [int(dist[tuple(p)]) for p in sup]
@@ -594,7 +710,34 @@ def main():
     fac, sk = one_factorizations(lc, cap=50)
     print(f"fcc: {len(lc['bonds'])} bonds, {len(fac)} factorizations "
           f"(cap 50), {sk} skipped")
-    sys.exit(0 if err < 1e-14 else 1)
+    # the motion anchors: bloch_stages / step_stages / front_speed_stages
+    # with uniform entries equal the implemented motion exactly.
+    _B, _U32, U16 = sectors_sig(0)
+    st = stages_baseline()
+    err_bloch = 0.0
+    for q in ((0.3, -1.1, 2.0), (math.pi / 2, math.pi / 2, 0.0)):
+        err_bloch = max(err_bloch, float(np.abs(
+            bloch_stages(c, [U16] * 6, [SC.G10] * 6, st, q)
+            - bloch_cell(c, U16, SC.G10, st, q)).max()))
+    print(f"altcell anchor: bloch_stages vs bloch_cell "
+          f"max err = {err_bloch:.2e}")
+    rng = np.random.default_rng(1)
+    f0 = (rng.standard_normal((4, 4, 4, 8, 16))
+          + 1j * rng.standard_normal((4, 4, 4, 8, 16)))
+    err_step = float(np.abs(
+        step_stages(f0, [U16] * 6, [SC.G10] * 6, st)
+        - SC.step(f0, U16, SC.G10, SC.STAGES)).max())
+    print(f"altcell anchor: step_stages vs supercell.step "
+          f"max err = {err_step:.2e}")
+    fs1 = front_speed(c, U16, st, SC.G10, Lb=6, n_stages=12)
+    fs2 = front_speed_stages(c, [U16] * 6, [SC.G10] * 6, st,
+                             Lb=6, n_stages=12)
+    err_fs = abs(fs1["front_speed"] - fs2["front_speed"]) + \
+        abs(fs1["n_outside_lightcone"] - fs2["n_outside_lightcone"])
+    print(f"altcell anchor: front_speed_stages vs front_speed "
+          f"diff = {err_fs:.2e}")
+    sys.exit(0 if err < 1e-14 and err_bloch == 0.0
+             and err_step < 1e-14 and err_fs == 0.0 else 1)
 
 
 if __name__ == "__main__":

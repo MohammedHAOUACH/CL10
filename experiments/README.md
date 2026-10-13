@@ -1,6 +1,6 @@
 # The verification program
 
-124 experiments (112 master + 12 `alt_cell` exploration, branch-only), grouped by
+134 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` exploration, branch-only), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment is a
 0-parameter check: it recomputes a published number from the construction and
 writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
@@ -38,6 +38,7 @@ the reason recorded in `../archive/README.md`.
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
 | `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
+| `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
 
 ## The experiments
 
@@ -216,3 +217,17 @@ the reason recorded in `../archive/README.md`.
 | `V158_unification_forced` | the node content is a complete 16+16-bar per node: V64's proportional-shift no-go kills the meeting for every candidate |
 | `V159_cp_census` | real type at q=0; q=10 is quaternionic AND unitary (a CP window) but has no frame: the CP phase and the Minkowski frame are mutually exclusive |
 | `V160_dm_spectrum` | the lightest mode of every candidate is a gapless node with paired mirror content: no 118 GeV carrier from geometry |
+
+### `alt_dynamics` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V161_angle_per_stage` | 729 angle assignments: 720 fully gapped at the high-symmetry points; the 9 gapless rows keep the M nodes (8-12) with A >= 0.949 - no per-stage angle set removes the doubling |
+| `V162_internal_factorization` | 12 factorizations of the internal layer: only the two Cartan-preserving ones stay gapless (12/13 nodes, A = 1.0 at M); every non-Cartan factorization gaps the whole zone - the nodes are Cartan-protected |
+| `V163_mass_stage` | 90 mass-stage insertions: the M nodes survive every plane/gauge choice (gap >= 5e-4, no true cone); the mirror Z2 is never broken (leakage 0) |
+| `V164_bond_matchings` | 500 cubic 1-factorizations: 487 gapless, 31 single-orbit (12 nodes, best A 0.998); zero isotropic, zero closures - the matching is not the cause |
+| `V165_floquet` | 3 Floquet time-splittings of the root step: all three open a gap (2e-3 to 1.8e-2) at every high-symmetry point; only the time-independent anchor stays gapless |
+| `V166_wilson_quantized` | the quantized Wilson family (X: 1,1,1,1,1; Y: -1/6,1/6,1/6,1/4,1/4): 7/8 variants fully gapped; the one gapless variant keeps 8 nodes with A = 0.993 - the published coefficients are not a free choice |
+| `V167_hardtier_dynamics` | zero dynamics survivors: the closure gate eliminates every non-Wilson candidate, the front gate eliminates the mass stages - the Wilson layer is the unique causal/closure-consistent motion |
+| `V168_unification_dynamics` | 509 candidate spectra: zero forced meetings (the node content is one mode per node, not a complete 16+16-bar per node at a single momentum) - V64's no-go stands for every motion |
+| `V169_cp_dynamics` | 1336 candidates: every effective internal unitary is real type (J^2 = +1); no motion admits a CP phase - the q=0 CP obstruction is motion-independent |
+| `V170_dm_dynamics` | 509 candidate spectra: the mirror Z2 survives every motion; the lightest mode of every candidate is a gapless node and no light mode is isolated from its spectrum - no 118 GeV carrier from any motion |
