@@ -1,0 +1,16 @@
+{
+  "id": "V187_step_search_gate",
+  "tier": 4,
+  "property": "the step-search gate: candidates (A < 1e-6 and gapless) from the V185/V186 descents face the hard tier (unitarity, closure order <= 64, front speed exactly 1, chirality) with the pre-registered pi/8 closure-projected re-evaluation",
+  "residual": null,
+  "pass": true,
+  "status": "38 census rows scanned (V184 landscape + V185 25 seeds + V186 4 cells); candidates (A < 1e-6 and omega < 1e-6): 0. Best A: V185 0.0000, V186 0.9671. No isotropic gapless step found in the searched space (45 continuous angles x 4 cell/stage choices): the baseline step remains the only closed-form gapless point reached; W9 stays open.",
+  "data": {
+    "scanned": 38,
+    "n_candidates": 0,
+    "hard_rows": [],
+    "best_A_v185": 3.7772200523682093e-11,
+    "best_A_v186": 0.9670896121427659
+  },
+  "wall_time": 0.001
+}

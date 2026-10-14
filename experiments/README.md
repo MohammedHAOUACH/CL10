@@ -1,6 +1,6 @@
 # The verification program
 
-147 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` + 5 `alt_gauged` + 4 `alt_nonpert` exploration, branch-only), grouped by
+151 experiments (112 master + 12 `alt_cell` + 10 `alt_dynamics` + 4 `alt_interactions` + 5 `alt_gauged` + 4 `alt_nonpert` + 4 `alt_step` exploration, branch-only), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment is a
 0-parameter check: it recomputes a published number from the construction and
 writes a JSON verdict (`pass`, `status`, the 0-parameter number, and
@@ -42,6 +42,7 @@ the reason recorded in `../archive/README.md`.
 | `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
 | `alt_gauged` | the exploration branch: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4, never merged) | §17 (W9) |
 | `alt_nonpert` | the exploration branch: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4, never merged) | §17 (W9) |
+| `alt_step` | the exploration branch: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4, never merged) | §17 (W9) |
 
 ## The experiments
 
@@ -259,3 +260,11 @@ the reason recorded in `../archive/README.md`.
 | `V181_ring_kernel_smatrix` | the 4-site gauged kernels exist: chain 144 (full rank, E0 -1664197.02, gap 12787.60 eta) and ring 1296 (Gram rank 976, E0 -6.08e8, gap 2.75e8 eta); S unitary to 2.7e-15/4.2e-15, 2-route phase dev within the whitening-noise bound; chain channels preserved (mixing 3e-11), ring channels mixed (~8) |
 | `V182_ir_decoupling` | INCONCLUSIVE under the pre-registered clauses: gap grows 42.09 -> 12787.60 (chain) -> 2.75e8 (ring) eta, drift >> 1 - the LIGHT branch is decisively false; V101 eta-units are not extensive (Gram shrinks ~30x/link), gap/\|E0\| ~ 0.0073-0.0077 at every volume |
 | `V183_nonpert_isotropy_gate` | 9 census rows, 0 candidates: no non-perturbative gauged-sector mechanism isotropizes the W9 cone - the flux sector is massive at every volume probed; W9 stays open |
+
+### `alt_step` (exploration branch - never merged to master)
+| id | verdict |
+|---|---|
+| `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
+| `V185_step_gradient_search` | Adam descent, 25 pre-registered seeds, baseline cell: descent escapes to trivially isotropic gapped band edges (A ~ 1e-4..1e-11 with omega 3.5e-4..3.7e-2); every gapless row keeps A >= 0.966; 0 candidates (A < 1e-6 AND gapless) |
+| `V186_cell_step_joint_search` | joint cell x step census: (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3), 8 seeds each - no cell admits a gapless isotropic step; 0 candidates |
+| `V187_step_search_gate` | the step-search gate: 0 candidates from 45+25+32 rows scanned; the baseline step remains the only closed-form gapless point reached; W9 stays open |
