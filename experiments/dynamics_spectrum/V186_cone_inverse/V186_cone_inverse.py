@@ -167,7 +167,9 @@ class Step:
         """Batched top-of-multiplet gap over the (w, theta) grid, on the
         raw backend (GPU when cupy is live)."""
         qv = np.asarray(q)
-        coeffs = _XP.exp(1j * (_XP.asarray(self.sig) @ qv))
+        # coefficients are tiny (one per Fourier term): compute on the host,
+        # then move to the backend (cupy refuses numpy operands in @).
+        coeffs = _XP.asarray(np.exp(1j * (self.sig @ qv)))
         X = _XP.tensordot(coeffs, self.Px, axes=([0], [0]))
         ws = np.asarray(ws, dtype=float)
         ths = np.asarray(ths, dtype=float)
