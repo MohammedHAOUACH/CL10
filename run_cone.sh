@@ -18,8 +18,9 @@ PY=.venv/bin/python
 declare -A EXP=(
   [V185]="experiments/dynamics_spectrum/V185_separation_lemma/V185_separation_lemma.py"
   [V186]="experiments/dynamics_spectrum/V186_cone_inverse/V186_cone_inverse.py"
+  [V187]="experiments/dynamics_spectrum/V187_rigidity_frontier/V187_rigidity_frontier.py"
 )
-ORDER="V185 V186"
+ORDER="V185 V186 V187"
 if [ -n "${ONLY:-}" ]; then ORDER="$ONLY"; fi
 
 echo "== GPUs =="
