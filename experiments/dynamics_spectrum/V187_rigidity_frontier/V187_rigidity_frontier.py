@@ -43,8 +43,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "..", ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "V186_cone_inverse"))
-from cl10 import engine as E                                    # noqa: E402
-import V186_cone_inverse as V186                                # noqa: E402
+from cl10 import engine as E                  # noqa: E402
+from tqdm import tqdm                         # noqa: E402
+import V186_cone_inverse as V186              # noqa: E402
 
 C = V186.C
 RESULTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
@@ -64,6 +65,10 @@ def main():
                 for s in (((1, 1, 1),) if smoke else
                           ((1, 1, 1), (1, 1, -1)))]
     tuned = []
+    nt = len(pool) * len(patterns)
+    print("  T1: tuning %d bonds" % nt, flush=True)
+    bar = tqdm(total=nt, desc="V187 T1 tune", unit="bond",
+               mininterval=30, file=sys.stdout)
     for (fam, idx), Ds in pool:
         for pat, sgn in patterns:
             bond = tuple((D, pat * g) for D, g in zip(Ds, sgn))
@@ -74,6 +79,8 @@ def main():
                           [pat * g for g in sgn], "w": w, "theta": th,
                           "top": top, "comm_ratio": cr,
                           "clifford_defect": defect, "Ds": Ds})
+            bar.update(1)
+    bar.close()
     tuned.sort(key=lambda r: -r["comm_ratio"])
     ntop = 3 if smoke else 12
     top_bonds = tuned[:ntop]
@@ -89,6 +96,8 @@ def main():
     nw2 = nth2 = 10 if smoke else 21
     dw, dth = 0.1, 0.3
     clouds = []
+    bar = tqdm(total=len(top_bonds) * nw2 * nth2, desc="V187 T2 sweep",
+               unit="pt", mininterval=30, file=sys.stdout)
     for b in top_bonds:
         st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
         ws = np.linspace(b["w"] - dw, b["w"] + dw, nw2)
@@ -101,9 +110,11 @@ def main():
                 S, cr, defect = V186.tangent(st, C, 3, 1e-5, float(w),
                                              float(t))
                 pts.append((float(w), float(t), float(g), float(cr)))
+                bar.update(1)
         clouds.append({"bond": {"family": b["family"], "idx": b["idx"],
                                 "phi": b["phi"]},
                        "points": pts})
+    bar.close()
     out["data"]["clouds"] = clouds
     npts = sum(len(c["points"]) for c in clouds)
     cone_pts = [p for c in clouds for p in c["points"]
@@ -145,6 +156,9 @@ def main():
     # ---- T4: log-log scaling along the ray to the implemented point. ----
     wstar, thstar = anchor["w"], anchor["theta"]
     slopes = []
+    nrays = len(top_bonds) * (9 if smoke else 25)
+    bar = tqdm(total=nrays, desc="V187 T4 ray", unit="pt",
+               mininterval=30, file=sys.stdout)
     for b in top_bonds:
         st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
         pairs = []
@@ -153,6 +167,7 @@ def main():
             th = b["theta"] + t * (thstar - b["theta"])
             g = float(st.batch_topgap([w], [th], C, 3)[0])
             S, cr, defect = V186.tangent(st, C, 3, 1e-5, w, th)
+            bar.update(1)
             if g > 1e-12 and cr > 1e-12:
                 pairs.append((math.log(g), math.log(cr)))
         if len(pairs) >= 4:
@@ -160,6 +175,7 @@ def main():
             y = np.array([p[1] for p in pairs])
             slope = float(np.polyfit(x, y, 1)[0])
             slopes.append(slope)
+    bar.close()
     checks.append(("T4 along the ray to the implemented gapless point the "
                    "comm_ratio decays with the gap: log-log slopes %s, "
                    "median %.2f > 0 and at least 2/3 positive"

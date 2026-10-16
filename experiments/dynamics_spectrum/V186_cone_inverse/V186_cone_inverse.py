@@ -58,9 +58,11 @@ from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 
 import V65_wilson as V65                      # noqa: E402
+from tqdm import tqdm                         # noqa: E402
 from cl10 import clifford as CL               # noqa: E402
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
+from cl10 import parpool                      # noqa: E402
 
 _B16, _U32, _U16 = SC.sectors()
 B16, U16 = E.asnumpy(_B16), E.asnumpy(_U16)
@@ -263,7 +265,7 @@ def fourier_support(bond, w=0.0):
     return err
 
 
-def tune(st, q, m, grid=18, wmax=3.0):
+def tune(st, q, m, grid=18, wmax=3.0, rounds=6, nmax=300):
     """Golden-section refinement of (w, theta) minimising the top level of
     the m-dimensional multiplet at fixed bond (V121's tune)."""
     gr = (math.sqrt(5.0) - 1.0) / 2.0
@@ -279,7 +281,7 @@ def tune(st, q, m, grid=18, wmax=3.0):
             if v < best[0]:
                 best = (v, (float(w), th))
     w, th = best[1]
-    for _ in range(6):
+    for _ in range(rounds):
         for var in ("w", "th"):
             lo, hi = (w - 0.1, w + 0.1) if var == "w" else (th - 0.2, th + 0.2)
             c1, c2 = hi - gr * (hi - lo), lo + gr * (hi - lo)
@@ -304,7 +306,7 @@ def tune(st, q, m, grid=18, wmax=3.0):
     from scipy.optimize import minimize
     res = minimize(lambda x: top(float(x[0]), float(x[1])), [w, th],
                    method="Nelder-Mead",
-                   options={"maxfev": 300, "fatol": 1e-13, "xatol": 1e-10})
+                   options={"maxfev": nmax, "fatol": 1e-13, "xatol": 1e-10})
     if res.fun < top(w, th):
         w, th = float(res.x[0]), float(res.x[1])
     return w, th, top(w, th)
@@ -434,6 +436,11 @@ def main():
                           ((1, 1, 1), (1, 1, -1)))]
     ws = np.linspace(0.0, 3.0, 9 if smoke else 19)
     ths = np.linspace(0.0, 2 * math.pi, 8 if smoke else 24)
+    nscan = len(pool) * len(patterns)
+    print("  scan: %d bonds (grid %dx%d)" % (nscan, len(ws), len(ths)),
+          flush=True)
+    bar = tqdm(total=nscan, desc="V186 scan", unit="bond",
+               mininterval=30, file=sys.stdout)
     scan = []
     for tag, Ds in pool:
         for pat, sgn in patterns:
@@ -444,6 +451,8 @@ def main():
             k = int(np.argmin(g))
             scan.append((float(g[k]), tag, bond, float(ws[k // len(ths)]),
                          float(ths[k % len(ths)])))
+            bar.update(1)
+    bar.close()
     scan.sort(key=lambda r: r[0])
     out["data"]["scan_n"] = len(scan)
     out["data"]["scan_best10"] = [
@@ -456,10 +465,14 @@ def main():
     # ---- T3: refine the top candidates (golden-section (w,theta)), then
     #          measure the cone metrics. ----
     refined = []
+    bar = tqdm(total=len(scan[:3 if smoke else 20]), desc="V186 refine",
+               unit="bond", mininterval=30, file=sys.stdout)
     for g, tag, bond, w0, th0 in scan[:3 if smoke else 20]:
         st = Step(bond)
         m = measure(st, C, 3, dirs)
         refined.append((m, tag, bond))
+        bar.update(1)
+    bar.close()
     refined.sort(key=lambda r: r[0]["top"] + r[0]["spread"])
     out["data"]["refined"] = [
         {"family": t[0], "idx": str(t[1]), "phi": [b[1] for b in bd], **mm}
@@ -476,9 +489,16 @@ def main():
         return float(st.batch_topgap([float(x[3])], [float(x[4])], C, 3)[0])
 
     x0 = np.array([bond[0][1], bond[1][1], bond[2][1], mm["w"], mm["theta"]])
-    res = minimize(loss, x0, method="Nelder-Mead",
+    bar = tqdm(total=80 if smoke else 400, desc="V186 optimise",
+               unit="eval", mininterval=30, file=sys.stdout)
+
+    def _cb(*_a):
+        bar.update(1)
+
+    res = minimize(loss, x0, method="Nelder-Mead", callback=_cb,
                    options={"maxfev": 80 if smoke else 400,
                             "xatol": 1e-6, "fatol": 1e-10})
+    bar.close()
     st_opt = Step(tuple((Ds[j], float(res.x[j])) for j in range(3)))
     opt = measure(st_opt, C, 3, dirs, float(res.x[3]), float(res.x[4]))
     opt["phi"] = [float(res.x[j]) for j in range(3)]
