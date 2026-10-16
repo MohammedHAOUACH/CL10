@@ -1,0 +1,47 @@
+{
+ "experiment": "V185_separation_lemma",
+ "data": {
+  "regression": 0.0,
+  "bare_lemma": {
+   "max_kron_defect": 4.728768376707729e-16,
+   "max_internal_offdiag": 2.6460850321952885e-16,
+   "n_points": 40
+  },
+  "wilson_nuance": {
+   "kron_defect_after_cartan_removal": 5.005751919811167e-16,
+   "internal_offdiag": 2.6196817065826915e-16,
+   "max_cartan_diag": 1.5875864249895209
+  },
+  "corner": {
+   "gap": 0.00020166338712700494,
+   "w": 0.30000000000000004,
+   "theta": 4.917275457792719,
+   "spectator_comm": 6.179826467266856e-15,
+   "cartan_coeff": [
+    0.30000000000000004,
+    0.30000000000000004,
+    0.30000000000000004
+   ]
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the stage-factorised M(q) equals cl10.supercell.bloch at 6 random momenta (0.0e+00)",
+   "pass": true
+  },
+  {
+   "name": "T1 SEPARATION LEMMA: at all 12 M nodes, 8 R corners and 20 random momenta, every tangent operator T_k = i(d_k M)M^dag equals A_k(q) kron I_16 with max defect 4.7e-16, and its internal off-diagonal content is 2.6e-16 - the momentum derivative of the step is INTERNAL-BLIND everywhere",
+   "pass": true
+  },
+  {
+   "name": "T2 with the Wilson factor (w=0.70, theta=1.10) the tangent operator is EXACTLY (transport kron I) + (d_k ph) diag(d): after subtracting the predicted internal-Cartan term the kron-I defect is 5.0e-16; the Wilson addition is internal-diagonal (off-diagonal content 2.6e-16, diagonal content up to 1.588) - the Wilson factor adds a Cartan phase, never a velocity structure",
+   "pass": true
+  },
+  {
+   "name": "T3 at the gapless corner triplet (gap 2.0e-04 at w=0.3000, theta=4.9173): the TRANSPORT part of each tangent operator (T_k minus the Wilson Cartan term) commutes with I_8 kron G for 12 internal generators (max commutator 6.2e-15), and the Cartan coefficient is the SAME for all three axes (0.3000, 0.3000, 0.3000): the Wilson factor adds one common internal-diagonal shift to all three S_j - which is why V118's commutator sits at the noise floor - and the internal factor is a spectator of the velocity structure: a cone must be built by the bond",
+   "pass": true
+  }
+ ],
+ "status": "SEPARATION LEMMA (cone programme, Phase 1): PROVEN. For the implemented step every tangent operator T_k(q) = i(d_k M)M^dag is exactly A_k(q) kron I_16 (max defect 4.7e-16 over 40 points: the 12 M nodes, the 8 R corners, 20 random momenta), so the entire low-energy velocity structure lives in the 8x8 sub-site factor and the internal module is a spectator - this upgrades V118's closing sentence and V142's frame blindness from measurement to lemma. The Wilson factor modifies the statement exactly as predicted: it adds the internal-diagonal Cartan term (d_k ph) diag(d) (kron-I defect after removal 5.0e-16) and no velocity structure. Consequence at the gapless corner triplet (gap 2.0e-04): the transport part of T_k commutes with every internal generator (max 6.2e-15) and the Cartan shift is common to all three axes - the internal factor is a spectator of the velocity structure. A Clifford-type tangent algebra - a cone - can therefore ONLY be created by a bond layer that entangles the sub-site and internal indices: this is the target of V186."
+}

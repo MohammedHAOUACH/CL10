@@ -41,9 +41,12 @@ try:  # the preferred GPU backend (CuPy)
     _CUPY_PRESENT = True
     # free-memory gate: a saturated card (another tenant at work) lets
     # tiny probe ops slip through but queues real work indefinitely -
-    # require >= 2 GiB free before committing to the GPU.
+    # require >= 2 GiB free before committing to the GPU.  The gate is
+    # tunable via CL10_GPU_MIN_FREE_MIB for small-batch work on a card
+    # that is full but idle (the CL10 batches are tens of MB).
     _free, _total = _cp.cuda.runtime.memGetInfo()
-    if _free < 2 * (1 << 30):
+    _min_free = int(os.environ.get("CL10_GPU_MIN_FREE_MIB", "2048")) << 20
+    if _free < _min_free:
         raise RuntimeError(f"GPU busy: {_free >> 20} MiB free")
     # probe: cuBLAS + cuSOLVER handles too - a full card must fall
     # back to numpy, not die later on CUBLAS_STATUS_ALLOC_FAILED.
