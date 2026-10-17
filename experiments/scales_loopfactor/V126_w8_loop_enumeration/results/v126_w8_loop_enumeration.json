@@ -16,9 +16,9 @@
   },
   "regression": {
    "F10_v85": 0.01918639,
-   "F10_v126": 0.01918639102618435,
-   "word_decomposition_error": 7.48950663463744e-17,
-   "elapsed_s": 77.5
+   "F10_v126": 0.019186391026184534,
+   "word_decomposition_error": 7.351626287044711e-17,
+   "elapsed_s": 41.5
   },
   "census": [
    {
@@ -97,26 +97,26 @@
   "interference": {
    "root": {
     "4": {
-     "total": 0.15344962439195234,
+     "total": 0.1534496243919524,
      "sum_abs": 0.42391469664336257,
-     "cancellation": 0.3619823176855998
+     "cancellation": 0.36198231768559996
     },
     "6": {
-     "total": 0.0065207281170144675,
-     "sum_abs": 0.029940914288246093,
-     "cancellation": 0.21778653965735142
+     "total": 0.006520728117014484,
+     "sum_abs": 0.02994091428824612,
+     "cancellation": 0.21778653965735176
     },
     "8": {
-     "total": 0.026953332448556636,
-     "sum_abs": 0.2057016404851888,
-     "cancellation": 0.1310311983170468
+     "total": 0.026953332448556647,
+     "sum_abs": 0.20570164048518874,
+     "cancellation": 0.13103119831704688
     },
     "10": {
-     "total": 0.001336489652004244,
-     "sum_abs": 0.01695302518990405,
-     "cancellation": 0.07883487678648392
+     "total": 0.0013364896520042546,
+     "sum_abs": 0.016953025189904106,
+     "cancellation": 0.07883487678648428
     },
-    "F10": 0.01918639102618435
+    "F10": 0.019186391026184534
    },
    "no phase": {
     "4": {
@@ -125,21 +125,21 @@
      "cancellation": 1.0000000000000002
     },
     "6": {
-     "total": 0.02994091428824604,
-     "sum_abs": 0.029940914288246065,
-     "cancellation": 0.9999999999999992
+     "total": 0.029940914288246055,
+     "sum_abs": 0.029940914288246075,
+     "cancellation": 0.9999999999999993
     },
     "8": {
      "total": 0.20570164048520118,
-     "sum_abs": 0.20570164048518882,
+     "sum_abs": 0.20570164048518885,
      "cancellation": 1.00000000000006
     },
     "10": {
-     "total": 0.016953025276047636,
-     "sum_abs": 0.016953025189904068,
-     "cancellation": 1.0000000050813096
+     "total": 0.01695302527604767,
+     "sum_abs": 0.01695302518990409,
+     "cancellation": 1.0000000050813103
     },
-    "F10": 0.24337440363661267
+    "F10": 0.24337440363661356
    },
    "Fmin": {
     "4": {
@@ -148,21 +148,21 @@
      "cancellation": 0.6839423255249685
     },
     "6": {
-     "total": 0.016935353998056468,
-     "sum_abs": 0.029940914288246075,
-     "cancellation": 0.565625813394242
+     "total": 0.01693535399805646,
+     "sum_abs": 0.02994091428824607,
+     "cancellation": 0.5656258133942419
     },
     "8": {
-     "total": 0.0962225178067915,
+     "total": 0.09622251780679147,
      "sum_abs": 0.20570164048518874,
-     "cancellation": 0.46777710464452943
+     "cancellation": 0.46777710464452926
     },
     "10": {
-     "total": 0.006558369953996608,
-     "sum_abs": 0.016953025189904075,
-     "cancellation": 0.3868554361555642
+     "total": 0.006558369953996635,
+     "sum_abs": 0.01695302518990412,
+     "cancellation": 0.3868554361555648
     },
-    "F10": 0.09415071058953327
+    "F10": 0.0941507105895338
    }
   },
   "sector_content": {
@@ -216,11 +216,11 @@
    "per_word_decay_r": 0.223168,
    "entropy_rate_mu": 2.980526,
    "product_mu_r": 0.665158,
-   "F10_root": 0.01918639102618435,
+   "F10_root": 0.019186391026184534,
    "loop_factor": 0.019894367886486918,
-   "extrapolated_170": 7.892280723816199e-31,
+   "extrapolated_170": 7.89228072381687e-31,
    "ladder_17_factor": 1.1978776420712943e-29,
-   "ratio": 0.06588553326840099
+   "ratio": 0.06588553326840658
   },
   "census_detail": {
    "1": {
@@ -278,7 +278,7 @@
  "pass": true,
  "checks": [
   {
-   "name": "T0 the T.L Casimir of the 32 (x) 45 link has 3 eigenspaces (eigenvalues [-32.0, -12.0, 4.0]), so the n-hop traced product is a sum of 3^n words; the enumeration reproduces the matrix power exactly (7.5e-17) and F_10 = 0.019186 against V85's 0.019186",
+   "name": "T0 the T.L Casimir of the 32 (x) 45 link has 3 eigenspaces (eigenvalues [-32.0, -12.0, 4.0]), so the n-hop traced product is a sum of 3^n words; the enumeration reproduces the matrix power exactly (7.4e-17) and F_10 = 0.019186 against V85's 0.019186",
    "pass": true
   },
   {
@@ -298,5 +298,5 @@
    "pass": true
   }
  ],
- "status": "WHICH LOOPS SUPPLY THE LADDER FACTOR (O8). The T.L Casimir of the 32 (x) 45 link has exactly 3 eigenspaces ([-32.0, -12.0, 4.0]), so the n-hop traced product is a sum of 3^n words and the selection rule is enumerable exactly: the enumeration reproduces (MG)^n to 7.5e-17 and F_10 = 0.019186 against V85's 0.019186. Census: 55326 words survive at n = 10 out of 3^10 = 59049, growing like 3.000^n. The factor splits into a per-word decay r = 0.2232 and a multiplicity rate mu = 2.981 (product 0.6652), so the loop factor is NOT one loop class: it is a sum over 55326 classes with the interference ratio ||sum||/sum|| || = 0.0788 at the root against 1.0000 with the Wilson phase off, and F_10 = 0.01919 at the root against 0.24337 at eta = 0 - the phase SUPPLIES the factor. the multiplicity-weighted extrapolation to length 170 gives 7.892e-31 against (1/16 pi)^17 = 1.198e-29: the counted loops MISS the ladder exponent by a factor 0.0659"
+ "status": "WHICH LOOPS SUPPLY THE LADDER FACTOR (O8). The T.L Casimir of the 32 (x) 45 link has exactly 3 eigenspaces ([-32.0, -12.0, 4.0]), so the n-hop traced product is a sum of 3^n words and the selection rule is enumerable exactly: the enumeration reproduces (MG)^n to 7.4e-17 and F_10 = 0.019186 against V85's 0.019186. Census: 55326 words survive at n = 10 out of 3^10 = 59049, growing like 3.000^n. The factor splits into a per-word decay r = 0.2232 and a multiplicity rate mu = 2.981 (product 0.6652), so the loop factor is NOT one loop class: it is a sum over 55326 classes with the interference ratio ||sum||/sum|| || = 0.0788 at the root against 1.0000 with the Wilson phase off, and F_10 = 0.01919 at the root against 0.24337 at eta = 0 - the phase SUPPLIES the factor. the multiplicity-weighted extrapolation to length 170 gives 7.892e-31 against (1/16 pi)^17 = 1.198e-29: the counted loops MISS the ladder exponent by a factor 0.0659"
 }

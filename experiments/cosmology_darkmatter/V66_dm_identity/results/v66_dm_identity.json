@@ -3,7 +3,7 @@
   "pass": true,
   "status": "O7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
   "data": {
-    "mirror_Z2_leak": 1.0428148777131512e-15,
+    "mirror_Z2_leak": 1.0299375384463008e-15,
     "weights_conjugate": true,
     "mirror_masses_equal": true,
     "candidates": [

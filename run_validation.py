@@ -256,27 +256,47 @@ def main():
                 return report_one(d) if args.report_only else run_one(d, slot)
             finally:
                 running.pop(name, None)
+        def postfix():
+            """Name what is still working, with the progress bar each child is
+            drawing itself (the cone scans run for tens of minutes)."""
+            if not bar:
+                return
+            now = time.time()
+            live = sorted(running.items(), key=lambda kv: kv[1]["t0"])
+            bar.set_postfix_str(
+                "running: " + ", ".join(
+                    f"{k} {int(now - s['t0'])}s"
+                    + (f" [{s['progress']}]" if s["progress"] else "")
+                    for k, s in live[:3]) if live else "idle")
         with ThreadPoolExecutor(max_workers=args.jobs) as pool:
             futs = [pool.submit(tracked, d) for d in exps]
-            for fut in as_completed(futs):
-                r = fut.result()
-                done.append(r)
-                mark = "PASS" if r["pass"] else "FAIL"
-                tier = f"T{r['tier']}" if r["tier"] is not None else "   "
-                el = time.time() - t_start
-                b = r.get("backend")
-                btag = f" [{b}]" if b else ""
-                emit(f" [{el:7.1f}s] [{mark}]  {r['id']:34s} {tier} "
-                     f"{r['status']}  ({r['wall_time']} s){btag}")
-                if bar:
-                    bar.update(1)
-                    now = time.time()
-                    live = sorted(running.items(), key=lambda kv: kv[1]["t0"])
-                    bar.set_postfix_str(
-                        "running: " + ", ".join(
-                            f"{k} {int(now - s['t0'])}s"
-                            + (f" [{s['progress']}]" if s["progress"] else "")
-                            for k, s in live[:3]) if live else "idle")
+            # the bar would otherwise move only when an experiment finishes: the
+            # tail of the suite is three experiments over 55 minutes, and a line
+            # frozen at 95% for 18 minutes reads as a hang.
+            stop_tick = threading.Event()
+
+            def tick():
+                while not stop_tick.wait(2.0):
+                    postfix()
+            ticker = threading.Thread(target=tick, daemon=True)
+            ticker.start()
+            try:
+                for fut in as_completed(futs):
+                    r = fut.result()
+                    done.append(r)
+                    mark = "PASS" if r["pass"] else "FAIL"
+                    tier = f"T{r['tier']}" if r["tier"] is not None else "   "
+                    el = time.time() - t_start
+                    b = r.get("backend")
+                    btag = f" [{b}]" if b else ""
+                    emit(f" [{el:7.1f}s] [{mark}]  {r['id']:34s} {tier} "
+                         f"{r['status']}  ({r['wall_time']} s){btag}")
+                    if bar:
+                        bar.update(1)
+                        postfix()
+            finally:
+                stop_tick.set()
+                ticker.join(timeout=5)
             if bar:
                 bar.close()
         if only:

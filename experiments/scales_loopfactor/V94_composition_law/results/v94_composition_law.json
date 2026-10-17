@@ -1,7 +1,7 @@
 {
   "experiment": "V94_composition_law",
   "pass": true,
-  "status": "THE COMPOSITION LAW IS EXACT MULTIPLICATIVITY ACROSS LEGS - the x929 was a CHAIN-VS-LEGS category error (regressions 1.0e-09). (i) CHAIN: on one line, (MG)^{10k} is NOT multiplicative: R_k = F_{10k}/(F_10)^k grows to R_17 = 2.0e+08 - consecutive hops interact through the propagation and the suppression is WEAKER than the product (measured F_170 = 1.3e-21 vs (F_10)^17 = 6.5e-30). (ii) LEGS: the traced hop is a ONE-particle operator - Tr_L[(P_a (x) I)(G (x) G (x) I_L)] = 45(M_a (x) G) verified to 6.21e-16, and the 10+10-step two-loop object factorizes into leg blocks to 1.8e-15: amplitudes of loops on different particles factorize EXACTLY, so their suppressions MULTIPLY. (iii) DISCRIMINATOR: M_P F_170 (chain) = 1.6e+07 eV - 8 orders above the neutrino scale; M_P (F_10)^17 (legs) = 0.079 eV, within a factor 0.541 of the 0.146 eV ladder. O8-composition: the 17 factors MULTIPLY, each selected at the length-10 crossing; the named requirement is that the 17 insertions dress DIFFERENT lines (the standard reading of the ladder operator) - the composition law itself is now a verified theorem of the traced-link formalism.",
+  "status": "THE COMPOSITION LAW IS EXACT MULTIPLICATIVITY ACROSS LEGS - the x929 was a CHAIN-VS-LEGS category error (regressions 1.0e-09). (i) CHAIN: on one line, (MG)^{10k} is NOT multiplicative: R_k = F_{10k}/(F_10)^k grows to R_17 = 2.0e+08 - consecutive hops interact through the propagation and the suppression is WEAKER than the product (measured F_170 = 1.3e-21 vs (F_10)^17 = 6.5e-30). (ii) LEGS: the traced hop is a ONE-particle operator - Tr_L[(P_a (x) I)(G (x) G (x) I_L)] = 45(M_a (x) G) verified to 6.72e-16, and the 10+10-step two-loop object factorizes into leg blocks to 2.25e-15: amplitudes of loops on different particles factorize EXACTLY, so their suppressions MULTIPLY. (iii) DISCRIMINATOR: M_P F_170 (chain) = 1.6e+07 eV - 8 orders above the neutrino scale; M_P (F_10)^17 (legs) = 0.079 eV, within a factor 0.541 of the 0.146 eV ladder. O8-composition: the 17 factors MULTIPLY, each selected at the length-10 crossing; the named requirement is that the 17 insertions dress DIFFERENT lines (the standard reading of the ladder operator) - the composition law itself is now a verified theorem of the traced-link formalism.",
   "data": {
     "chain_composition": {
       "k_2": {
@@ -88,8 +88,8 @@
     "regression_F10_vs_V85": 1.03e-09,
     "regression_F10_vs_V89": 2.62e-11,
     "legs_composition": {
-      "one_particle_hop_identity_dev": 6.21e-16,
-      "block_factorization_dev": 1.8e-15,
+      "one_particle_hop_identity_dev": 6.72e-16,
+      "block_factorization_dev": 2.25e-15,
       "note": "the traced hop acts on ONE particle (M (x) G); the amplitudes of loops on different particles factorize exactly, so their suppressions MULTIPLY; the chain (MG)^170 is a different object (one line, 170 hops)"
     },
     "physical_discriminator": {
