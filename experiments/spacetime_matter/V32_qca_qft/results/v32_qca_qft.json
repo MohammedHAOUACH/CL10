@@ -12,14 +12,14 @@
     "n_energy_levels": 32,
     "g10": 0.2,
     "gprime": 0.15491933384829668,
-    "vev_v": 246.0,
-    "m_W": 24.6,
-    "m_Z": 31.11681217605685,
+    "vev_v": 246.22,
+    "m_W": 24.622,
+    "m_Z": 31.144640219466332,
     "sin2_w": 0.375,
     "sin2_w_0p": 0.375,
-    "mw_over_mz": 0.790569415042095,
+    "mw_over_mz": 0.7905694150420949,
     "mw_over_mz_0p": 0.7905694150420949,
     "residual": "the Higgs mass (not 0-parameter in the SM)"
   },
-  "wall_time": 0.045
+  "wall_time": 0.041
 }

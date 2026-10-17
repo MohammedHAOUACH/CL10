@@ -1,11 +1,11 @@
 {
   "experiment": "V78_w1_lambda",
   "pass": true,
-  "status": "LAMBDA = 0 IS PROTECTED BY det U = 1: for 50 traceless perturbations exp(i eps A) U (any structure) at eps up to 1, the quasi-energy sum stays pinned at zero (max |S| = 3.6e-14); the ONLY internal knob is the U(1) trace phase: A = I gives S = 32.0 eps (linear); the first branch crossing along a generic traceless direction is at eps_cross = > pi (none found); weak perturbations cannot move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a trace-phase breaking eps Tr A ~ 1.6e-120. O1 is now a named bound: any internal U(1)-trace anomaly must satisfy |Tr A| eps < 1e-120, or Lambda lives outside the one-cell spectrum (geometry, measure postulate).",
+  "status": "LAMBDA = 0 IS PROTECTED BY det U = 1: for 50 traceless perturbations exp(i eps A) U (any structure) at eps up to 1, the quasi-energy sum stays pinned at zero (max |S| = 3.4e-14); the ONLY internal knob is the U(1) trace phase: A = I gives S = 32.0 eps (linear); the first branch crossing along a generic traceless direction is at eps_cross = > pi (none found); weak perturbations cannot move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a trace-phase breaking eps Tr A ~ 1.6e-120. O1 is now a named bound: any internal U(1)-trace anomaly must satisfy |Tr A| eps < 1e-120, or Lambda lives outside the one-cell spectrum (geometry, measure postulate).",
   "data": {
-    "traceless_max_S": 3.552713678800501e-14,
+    "traceless_max_S": 3.375077994860476e-14,
     "n_A": 50,
-    "trace_slope": 32.00000000000003,
+    "trace_slope": 32.00000000000034,
     "eps_cross": null,
     "eps_crit": 1.5791367041742974e-120
   }

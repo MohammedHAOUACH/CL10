@@ -12,13 +12,13 @@
     "n_gen": 10,
     "predicted_ratio": 9.711838380882492e-18,
     "predicted_exponent": -17.012698553500584,
-    "observed_ratio": 2.016393442622951e-17,
-    "observed_exponent": -16.695424723571367,
-    "exponent_abs_diff": 0.31727382992921704,
-    "ratio_predicted_over_observed": 0.481644017263278,
+    "observed_ratio": 2.0167255035261162e-17,
+    "observed_exponent": -16.69535320957927,
+    "exponent_abs_diff": 0.3173453439213141,
+    "ratio_predicted_over_observed": 0.48156471289235747,
     "n_best_scan": 10,
-    "scan_abs_diff_at_n10": 0.31727382992921704,
-    "scan_abs_diff_at_n9": 1.3839960254208403,
+    "scan_abs_diff_at_n10": 0.3173453439213141,
+    "scan_abs_diff_at_n9": 1.3839245114287433,
     "nstep": {
       "n_levels_1step": 32,
       "min_level_small_n": 0.0007050900381777581,
@@ -32,11 +32,11 @@
       "n_gen": 10,
       "n_qubits": 5,
       "g10_as_2x5": true,
-      "hierarchy_coefficient": 2.0762221976347655,
-      "dm_m_GeV": 118.4844282467664,
-      "dm_coefficient": 1.184844282467664
+      "hierarchy_coefficient": 2.076564111173832,
+      "dm_m_GeV": 118.57086360835625,
+      "dm_coefficient": 1.1857086360835625
     },
     "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
   },
-  "wall_time": 0.039
+  "wall_time": 0.041
 }

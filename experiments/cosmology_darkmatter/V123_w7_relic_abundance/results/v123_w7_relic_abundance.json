@@ -30,7 +30,7 @@
   },
   "doublers": {
    "n_nodes": 12,
-   "node_gap": 0.0002002894713279885,
+   "node_gap": 0.0002002894713292063,
    "branch_speeds": [
     0.200659,
     0.200659,
@@ -45,10 +45,10 @@
     0.200659,
     0.200659
    ],
-   "mean_speed": 0.20065917247522272,
+   "mean_speed": 0.20065917247613643,
    "comm_max_max": 0.0,
    "metric_rank_one": true,
-   "D_planar": 1485.2658492995783
+   "D_planar": 1485.2658492792891
   },
   "supplied_couplings": [
    {
@@ -56,21 +56,21 @@
     "alpha": 0.019894367886486918,
     "sigma_cm3s": 1.0460394311282369e-25,
     "Omega_h2": 0.024581632151352218,
-    "Omega_h2_with_doublers": 2.2491194866237037e-05
+    "Omega_h2_with_doublers": 2.2491194866532875e-05
    },
    {
     "coupling": "root g10^2/4pi",
     "alpha": 0.0031830988618379076,
     "sigma_cm3s": 2.6778609436882873e-27,
     "Omega_h2": 0.7983115798148579,
-    "Omega_h2_with_doublers": 0.0007595510445018377
+    "Omega_h2_with_doublers": 0.00075955104451178
    },
    {
     "coupling": "required (inverted)",
     "alpha": 0.008647888574930034,
     "sigma_cm3s": 1.9765506009782992e-26,
     "Omega_h2": 0.1199999999999999,
-    "Omega_h2_with_doublers": 0.00011161019202873343
+    "Omega_h2_with_doublers": 0.00011161019203019647
    }
   ],
   "named_portals": [
@@ -79,14 +79,14 @@
     "lambda": 0.0003529869886705053,
     "sigma_cm3s": 3e-26,
     "Omega_h2": 0.0807146489741817,
-    "Omega_h2_with_doublers": 7.474916556974669e-05
+    "Omega_h2_with_doublers": 7.474916557072853e-05
    },
    {
     "portal": "V88 exact-Z2 portal",
     "lambda": 0.13080720169200494,
     "sigma_cm3s": 1.5000000000000003e-26,
     "Omega_h2": 0.15594772050694142,
-    "Omega_h2_with_doublers": 0.0001454691251949732
+    "Omega_h2_with_doublers": 0.00014546912519688044
    }
   ]
  },

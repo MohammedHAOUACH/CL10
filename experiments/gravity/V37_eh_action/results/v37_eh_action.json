@@ -25,5 +25,5 @@
     "continuum_ok": true,
     "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
   },
-  "wall_time": 0.117
+  "wall_time": 0.126
 }

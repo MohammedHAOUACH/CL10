@@ -55,7 +55,7 @@ import os
 import sys
 
 import numpy as np
-from scipy.linalg import expm
+from scipy.linalg import expm, logm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -352,8 +352,18 @@ def main():
             out_ += 2.0 * c * Jd(q, di)
         return out_
 
-    w0, V0 = np.linalg.eig(Mmat((0.0, 0.0, 0.0)))
-    om = np.angle(w0)
+    # the step is unitary and normal, but its spectrum is degenerate, and the
+    # eigenvectors np.linalg.eig returns for a degenerate unitary are NOT
+    # orthonormal (cond(V0) ~ 1.7 here, off-diagonal overlap up to 0.48).  The
+    # bubble below sums over occupied/unoccupied states: that sum is the
+    # resolvent only in an ORTHONORMAL basis, so with eig's arbitrary basis it
+    # drifts by ~1% between LAPACK builds and between the numpy and the cupy
+    # run.  Diagonalize the Hermitian generator -i log M with eigh instead: the
+    # phases are its eigenvalues and the basis is orthonormal inside every
+    # degenerate cluster, so the bubble is a property of the step.
+    Hgen = 1j * logm(Mmat((0.0, 0.0, 0.0)))
+    Hgen = (Hgen + Hgen.conj().T) / 2
+    om, V0 = np.linalg.eigh(Hgen)
     occ, unocc = om < 0, om > 0
     den = om[unocc][:, None] - om[occ][None, :]
     Tbs = [V0.conj().T @ Tgam((0.0, 0.0, 0.0), g) @ V0 for g in range(5)]

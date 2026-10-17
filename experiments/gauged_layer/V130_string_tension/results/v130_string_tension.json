@@ -19,11 +19,11 @@
   },
   "scale": {
    "sigma_lattice": 64.0,
-   "sigma_GeV_per_MPl": 7.81376e+20,
-   "sigma_GeV2": 9.539819584e+39,
-   "sqrt_sigma_GeV": 9.7672e+19,
+   "sigma_GeV_per_MPl": 7.813696e+20,
+   "sigma_GeV2": 9.53966330944e+39,
+   "sqrt_sigma_GeV": 9.76712e+19,
    "sigma_qcd_GeV2": 0.17639999999999997,
-   "ratio": 5.408060988662132e+40
+   "ratio": 5.407972397641724e+40
   },
   "step_loops": {
    "stage_commutator_max": 0.0,
@@ -43,7 +43,7 @@
    "pass": true
   },
   {
-   "name": "T3 the tension is sigma = C2(45) = 64.0000 lattice units of electric energy per Planck link = 7.8138e+20 GeV per Planck length = 9.540e+39 GeV^2 (sqrt(sigma) = 9.767e+19 GeV), against the QCD string tension 0.176 GeV^2: the layer confines 5.41e+40 times too hard to be the QCD string",
+   "name": "T3 the tension is sigma = C2(45) = 64.0000 lattice units of electric energy per Planck link = 7.8137e+20 GeV per Planck length = 9.540e+39 GeV^2 (sqrt(sigma) = 9.767e+19 GeV), against the QCD string tension 0.176 GeV^2: the layer confines 5.41e+40 times too hard to be the QCD string",
    "pass": true
   },
   {

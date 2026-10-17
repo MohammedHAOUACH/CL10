@@ -191,6 +191,14 @@ def run_one(exp_dir, live=None):
             cf.write(f"--- stdout ---\n{stdout_s}\n")
     else:
         status = verdict.get("status", "no_verdict") if verdict else "no_verdict"
+        # the mirror rule: a pass invalidates the crash log a previous run left
+        # behind, so results/crashes/ lists the experiments that crashed in
+        # THIS run and not those that crashed the last time they failed.
+        try:
+            os.remove(os.path.join(ROOT, "results", "crashes",
+                                   os.path.basename(exp_dir) + ".log"))
+        except FileNotFoundError:
+            pass
     return {
         "id": os.path.basename(exp_dir),
         "dir": os.path.basename(exp_dir),

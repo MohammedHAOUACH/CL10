@@ -1,6 +1,6 @@
 {
  "experiment": "V135_coupling_selection_closed",
- "backend": "numpy",
+ "backend": "cupy",
  "data": {
   "scan": {
    "a_at_M_P": [
@@ -89,5 +89,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
- "wall_s": 0.00015401840209960938
+ "wall_s": 0.00012874603271484375
 }

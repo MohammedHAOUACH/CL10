@@ -7,7 +7,7 @@
   "status": "the_ladder_scale_M_P*(1/16pi)^10=118_GeV_lands_within_a_factor_1.18_of_the_WIMP_weak_scale_the_same_10_loop_factor_as_the_O8_hierarchy_but_no_state_of_the_implemented_spectrum_carries_it_the_carrier_is_open_O7_and_the_V42_Planck_soliton_gap_1e-52_is_relocated_not_resolved",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "n_gen": 10,
     "F10": 9.711838380882492e-18,
     "M_P_GeV": 1.22089e+19,
@@ -24,5 +24,5 @@
     "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
     "residual": "the DM carrier (which state of the spectrum carries the scale) and the exact cross-section (the RG running, O9) — the ladder scale (118 GeV) and the V42 contrast are computed, the carrier is not"
   },
-  "wall_time": 0.012
+  "wall_time": 0.002
 }

@@ -1,7 +1,7 @@
 {
   "experiment": "V70_w3_index",
   "pass": true,
-  "status": "O3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the cubic group acts transitively (identical Floquet spectra, dev 5.0e-15); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number (4 per family, 12 total are equally available). O3 stays a hypothesis, now with a named index.",
+  "status": "O3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the cubic group acts transitively (identical Floquet spectra, dev 4.4e-15); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number (4 per family, 12 total are equally available). O3 stays a hypothesis, now with a named index.",
   "data": {
     "families": {
       "z": [
@@ -71,8 +71,8 @@
         ]
       ]
     },
-    "spectra_identical_within": 4.9960036108132044e-15,
-    "spectra_identical_across": 4.218847493575595e-15,
+    "spectra_identical_within": 4.440892098500626e-15,
+    "spectra_identical_across": 3.552713678800501e-15,
     "wilson_phase_equal_all_nodes": true,
     "counts": {
       "nodes": 12,

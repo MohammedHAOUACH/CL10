@@ -1,6 +1,6 @@
 {
   "backend": "cupy",
-  "gpu": "GPU cuda:1 (19921/24177 MiB)",
+  "gpu": "GPU cuda:1 (19869/24177 MiB)",
   "grid": [
     296,
     296,
@@ -9,7 +9,7 @@
   "bohr_radius_cells": 18.0,
   "cfl_r": 0.5,
   "field_dtype": "float64",
-  "gap_1s2p_eV": 10.2045,
+  "gap_1s2p_eV": 10.20426975,
   "photon_script": [
     [
       288,
@@ -52,11 +52,11 @@
   "instant_incoming_step": 541,
   "field_at_atom_at_incoming": 0.1499928542177298,
   "instant_absorbed_step": 788,
-  "absorbed_quadrupole_anisotropy": 0.39414289947604964,
+  "absorbed_quadrupole_anisotropy": 0.39414289947604975,
   "populations_at_absorption": {
     "1s": 0.6318024433197217,
     "2p": 0.34346965766212506,
-    "3p": 0.023476394197392638,
+    "3p": 0.023476394197392485,
     "3d": 0.0012515048207577823
   },
   "excited_fraction_at_absorption": 0.3681975566802783,
@@ -64,8 +64,8 @@
   "populations_at_emission": {
     "1s": 0.5100648439665016,
     "2p": 0.4566939938517881,
-    "3p": 0.0315587030892957,
-    "3d": 0.0016824590924148285
+    "3p": 0.031558703089295544,
+    "3d": 0.0016824590924148291
   },
   "excited_fraction_at_emission": 0.48993515603349835,
   "coupling_absorb": 0.02,
