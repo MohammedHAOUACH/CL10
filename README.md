@@ -118,10 +118,12 @@ CL10/
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
 │   └── algebra/scales/couplings/dynamics/residuals/style .py
-├── cl10/                     # the library: 39 modules on one core (GPU-first, CPU-fallback)
-│   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator)
+├── cl10/                     # the library: 40 modules on one core (GPU-first, CPU-fallback)
+│   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator) and the GPU/host routing policy
+│   ├── config.py             # the configuration loader: reads config.yaml, applies the environment, exposes CFG
+│   ├── config.yaml           # ONE file for the numbers: backend policy, routing thresholds, pool, physics + SM inputs, angle branches, desert thresholds, tolerance bands
 │   ├── coupling.py           # the one parameter of the step: the angle branches (implemented 1/5, closed pi/4, half pi/2) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - all conventions, Section 15
-│   ├── parpool.py            # the forked process pool the experiments batch through (CL10_NJOBS)
+│   ├── parpool.py            # the forked process pool the experiments batch through (pool: in config.yaml, CL10_NJOBS)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
 │   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
@@ -179,16 +181,16 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 115, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 115, writes the hard-tier verdict
+├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
-├── run_cone.sh               # the cone programme (V185/V186/V187): CPU=1 is the fast mode - the 880-bond V186 scan is ~40x faster on 12 CPU workers than on a 3090
 └── results/
     ├── README.md               # what is tracked (the verdicts) and what is regenerable (the logs)
     ├── validation_summary.json # the full-suite verdict + the hard-tier verdict
     └── <run logs, git-ignored> # gpu_run_*, figures_run_*, cone_*/ per-run directories
 ```
 
-## The engine: GPU-first, one core
+## The engine: GPU-first, one core, one configuration file
 
 `cl10/engine.py` is the **single** computation core. It picks the backend at
 import time — **CuPy** (GPU) when available, else **JAX** (XLA/GPU, with
@@ -196,21 +198,45 @@ float64 enabled), else **NumPy** (CPU) — and exposes one array type `E.Array`
 plus the primitives every experiment and every module uses (matmul, `einsum`,
 `roll`, the spectral operators, the QCA step, the integrator). All of `cl10/`
 and `experiments/` go through this one core, so the whole theory runs on the
-**RTX 3090** out of the box and degrades to CPU cleanly. The GPU is used for
-the array work only: the control flow, the algebra construction and the verdict
-logic stay on the host, and every array leaves the core through `E.asnumpy`.
+**RTX 3090** out of the box and degrades to CPU cleanly.
 
-Environment switches the code actually reads: `CL10_BACKEND=numpy|cpu` (force
-the CPU core), `CL10_GPU_MIN_FREE_MIB` (the free-memory gate, default 2048),
+**One file holds the numbers.** `cl10/config.yaml` (loaded by `cl10/config.py`)
+carries the backend order, the free-memory gate, the probe sizes, the routing
+thresholds, the process-pool shape, the physics and Standard Model inputs
+($M_{\rm Pl}$, $M_Z$, $v_{\rm EW}$, $\Omega_{\rm DM}h^2$, the beta-function
+coefficients, the loop factor), the angle branches, the desert thresholds and
+the shared tolerance bands. Edit a value there and the engine and every module
+that reads it follow — no file-by-file change. Precedence: environment, then
+the YAML, then the built-in defaults.
+
+**Where the work runs is a policy, not an accident.** The primitives work
+**where the data lives**: a device array is never pulled to the host by
+`np.roll`/`np.einsum` (that is what used to run the real-space automaton on the
+CPU whatever the backend was), and a host array is never pushed to the device.
+The linear algebra (`eigvals`, `eigvalsh`, `eig`, `det`, `inv`, `norm`,
+`matrix_rank`) is routed by the configured size thresholds: above
+`routing.eig_gpu_min_dim` it runs on the device, below it on the host, because
+that is **measured** on this host — a CuPy call on a 128×128 matrix costs
+~50 ms against ~8 ms for NumPy, and CuPy has no batched eigendecomposition, so
+the many-small-matrix work (the per-bond Bloch grids of V186/V187) is host work
+parallelised by `cl10/parpool.py`. `E.route_report()` prints the policy.
+
+Environment switches the code actually reads (they override the YAML):
+`CL10_BACKEND=numpy|cpu` (force the CPU core; `cupy`/`jax` pin a GPU core — a
+pinned GPU core never falls back: if the card cannot host it, the run fails
+loudly rather than reporting a GPU verdict computed on the CPU),
+`CL10_GPU_MIN_FREE_MIB` (the free-memory gate, default 2048),
 `CL10_ANGLE=implemented|closed|half` (the rotation-angle branch, Section 1.4:
 `implemented` $g_{10} = 1/5$ is the convention the phenomenology is computed
 on, `closed` $g_{10} = \pi/4$ is the algebraic closure root, `half`
-$g_{10} = \pi/2$; `cl10/coupling.py` is the single source), `CL10_NJOBS` (the
+$g_{10} = \pi/2$; the values live in `cl10/config.yaml`), `CL10_NJOBS` (the
 `parpool` worker count), and `CL10_SMOKE=1` (the shrunken experiment grids).
 
 ```python
 import cl10
-cl10.engine.backend_info()     # {'backend': 'cupy', 'einops': True, 'kingdon': True, 'array': 'ndarray'}
+cl10.engine.backend_info()     # backend, einops/kingdon, the gate, the routing thresholds
+cl10.engine.route_report()     # where each class of work runs under the current config
+cl10.config.CFG.physics.m_planck_gev      # 1.22e19 - the single source
 cl10.engine.Array              # the array type (cp.ndarray / jax.Array / np.ndarray)
 h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```
@@ -220,15 +246,19 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 115 in parallel (--jobs N), prints the verdict
-./run_gpu.sh                     # the full suite on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
-./run_gpu.sh V142_w9_frame_averaging V141_regular_link_quintet_coupling
+python3 run_validation.py        # runs all 115 in parallel (--jobs N), prints the verdict; live progress bar
+                                 # on a terminal (--no-bar for plain output)
+./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
+                                 # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
+                                 # per-experiment verdict lines go to results/experiments_run_<date>.log
+./run_experiments.sh V142_w9_frame_averaging V141_regular_link_quintet_coupling
                                  # single experiments by exact directory name
-./run_figures.sh                 # the 25 figures on the pinned GPU card; ABORTS if the card
-                                 # has < 2 GiB free (FORCE=1 to run anyway, NEED=MiB to move the gate)
-./run_cone.sh                    # the cone programme: V185 -> V186 -> V187, one log + one /usr/bin/time per experiment
-CPU=1 ./run_cone.sh              # the recommended mode: the 880-bond V186 scan is ~40x faster on 12 CPU
-                                 # workers than on a 3090 (also ONLY=V186, SMOKE=1, GPU=n, FORCE=1)
+./run_figures.sh                 # the 25 figures on the pinned GPU card, with a figure progress bar; ABORTS if
+                                 # the card has < 2 GiB free (FORCE=1 to run anyway, NEED=MiB to move the gate)
+python3 run_validation.py V185_separation_lemma V186_cone_inverse V187_rigidity_frontier
+                                 # the cone programme alone, on the CPU core (the 880-bond V186 scan is ~40x
+                                 # faster on 12 CPU workers than on a 3090: cupy has no batched eigvals, and
+                                 # V186/V187 pin CL10_BACKEND=numpy whatever the caller exports)
 python3 -m make_figures          # the same generator without the card check: --only N | --fast | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 2 scene)
 python3 review/tools/build_series.py   # master -> the three companion papers (doc/paper*.md)

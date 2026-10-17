@@ -28,10 +28,18 @@ records the mapping.
 
 ## 1. `cl10.engine` — the single computation core
 
-The backend is chosen once at import: **CuPy** (GPU) → **JAX** (XLA, float64
-enabled) → **NumPy** (CPU). Every module and experiment goes through these
-primitives; the GPU carries array work only, and results reach the host through
-`asnumpy`.
+The backend is chosen once at import, in the order `backend.priority` of
+`cl10/config.yaml`: **CuPy** (GPU, gated on free memory and probed through
+cuBLAS + cuSOLVER) → **JAX** (XLA, float64 enabled) → **NumPy** (CPU). Every
+module and experiment goes through these primitives.
+
+**The primitives work where the data lives.** A device array is never pulled to
+the host by a host call, and a host array is never pushed to the device: that
+is what used to run the real-space automaton on the CPU whatever the backend
+was. The linear algebra is routed by the size thresholds of `routing:` — above
+`eig_gpu_min_dim` an eigendecomposition runs on the device, below it on the
+host, because that is measured to be faster here (CuPy ~50 ms vs NumPy ~8 ms on
+a 128×128 matrix, and CuPy has no batched eigendecomposition).
 
 | symbol | signature | returns |
 |---|---|---|
@@ -39,23 +47,47 @@ primitives; the GPU carries array work only, and results reach the host through
 | `Array_` | `(*args, **kwargs)` | an array on the active backend |
 | `eye` | `(n, dtype=None)` | the identity |
 | `zeros` | `(shape, dtype=None)` | a zero array (`shape` an int or a tuple) |
-| `kron` | `(a, b)` | Kronecker product on the active backend |
-| `matmul` | `(a, b)` | matrix product on the active backend |
-| `einsum` | `(subscripts, *operands)` | `einsum` executed on the device (a host `einsum` on a device array would copy) |
-| `roll` | `(a, shift, axis)` | the neighbour shift used by the bond layer, on the device |
-| `real` / `imag` | `(x)` | the real / imaginary part, on the device |
+| `kron` / `matmul` | `(a, b)` | the product, on the backend where the operands live |
+| `einsum` | `(subscripts, *operands)` | `einsum` where the operands live |
+| `roll` | `(a, shift, axis)` | the neighbour shift used by the bond layer, where the field lives |
+| `real` / `imag` | `(x)` | the real / imaginary part |
 | `absmax` | `(x)` | $\max\lvert x\rvert$ as a host float |
+| `modulus` | `(a)` | $\lvert a\rvert$ elementwise, where the data lives |
+| `summ` / `mean` | `(a)` | the total sum / mean as a host float, reduced where the data lives |
+| `sum_axis` | `(a, axis=None)` | a partial sum, where the data lives |
+| `where` | `(cond, a, b)` | the elementwise choice, where the data lives |
+| `field_norm` | `(a)` | the L2 (Frobenius) norm of a field, reduced on the device when the field is on it |
+| `norm` | `(a, *args, **kwargs)` | `linalg.norm`, reduced where the data lives |
+| `eigvals` / `eigvalsh` / `eig` / `eigh` | `(a)` | routed by `routing.eig_gpu_min_dim` (host below, device above) |
+| `det` / `inv` / `qr` / `matrix_rank` | `(a, ...)` | routed by `routing.device_min_dim` (and residency) |
+| `to_device` | `(x)` | move a host array to the active backend |
 | `asnumpy` | `(x)` | the host copy (printing, JSON) |
 | `einops_rearrange` | `(x, pattern_in, pattern_out)` | `einops.rearrange` on the active backend when supported |
-| `laplacian_3d` | `(u)` | the 6-neighbour discrete Laplacian on the last three (spatial) axes, backend-correct |
+| `laplacian_3d` | `(u)` | the 6-neighbour discrete Laplacian on the last three (spatial) axes, where the field lives |
 | `spectral_laplacian` | `(k, L)` | the momentum-space Laplacian eigenvalue on an $L^3$ torus |
-| `backend_info` | `()` | `{backend, einops, kingdon, array}` |
+| `backend_info` | `()` | `{backend, einops, kingdon, array, gpu_min_free_mib, config, ...route_report()}` |
+| `route_report` | `()` | where each class of work runs under the current configuration |
+
+### `cl10.config` — the single configuration source
+
+`cl10/config.yaml` holds the numbers the code used to carry as literals;
+`cl10/config.py` loads it, applies the environment over it, and exposes the
+singleton `CFG`. Precedence: environment → YAML → the built-in defaults.
+
+| symbol | signature | returns |
+|---|---|---|
+| `CFG` | (object) | attribute access over the effective configuration: `CFG.backend.gpu_min_free_mib`, `CFG.routing.eig_gpu_min_dim`, `CFG.physics.m_planck_gev`, `CFG.sm.m_z_gev`, `CFG.angle.g10`, `CFG.desert.m_x_gev`, `CFG.tolerances.strict`, `CFG.pool.njobs_effective` |
+| `CFG.get` | `(dotted_key, default=None)` | dotted lookup, `default` when the key is absent |
+| `reload` | `()` | re-read the file and the environment into the same `CFG` |
+| `describe` | `()` | the effective configuration as a flat dict (for a verdict file) |
+| `smoke` | `()` | `True` when `CL10_SMOKE` asks for the shrunken grids |
+| `PATH` | (path) | the YAML file being read |
 
 ## 2. `cl10.parpool` — the CPU process pool
 
 | symbol | signature | returns |
 |---|---|---|
-| `njobs_default` | `()` | `int` — `min(8, cpus//2)`, overridable by `CL10_NJOBS` |
+| `njobs_default` | `()` | `int` — `pool.njobs_effective` of `cl10/config.yaml` (`min(njobs_cap, cpus//2)`), overridable by `CL10_NJOBS` |
 | `pmap` | `(fn, items, njobs=None, chunk=None, progress=None)` | the results in input order, computed in a forked process pool (the experiments' batch worker) |
 
 ## 3. `cl10.paths` — addressing experiments by name
@@ -67,7 +99,10 @@ primitives; the GPU carries array work only, and results reach the host through
 ## 4. `cl10.coupling` — the one parameter of the step
 
 The single source of the rotation angle and of the two coupling readings. The
-branch is chosen by the environment: `CL10_ANGLE=implemented|closed|half`.
+branch *values* live in `cl10/config.yaml` (`angle:`); the branch is selected by
+`angle.default_branch` or by the environment `CL10_ANGLE=implemented|closed|half`
+(the aliases `pi/4`, `pi/2`, `1/5`, `impl`, `quantized` are resolved by
+`cl10/config.py`).
 
 | symbol | signature | returns |
 |---|---|---|
@@ -516,15 +551,17 @@ W2→O2, W3→O3.
 | `cl10.qcd` $\sigma$ | `1` in Planck units | an input of the confinement check |
 | `cl10.einstein` / `gravity` $G$ | `1` | an input of the gravity sector |
 
-Environment switches the code reads:
+Every number above has exactly one written source: `cl10/config.yaml`, read by
+`cl10/config.py` (`CFG`). The environment overrides the file; each variable is
+applied once, in the loader, so every consumer sees the same value.
 
-| variable | read by | effect |
+| variable | overrides | effect |
 |---|---|---|
-| env `CL10_BACKEND` | `engine` | `numpy` / `cpu` forces the CPU core |
-| env `CL10_GPU_MIN_FREE_MIB` | `engine` | the free-memory gate for the GPU (default 2048) |
-| env `CL10_ANGLE` | `coupling` | `implemented` (default) / `closed` / `half` |
-| env `CL10_NJOBS` | `parpool` | the worker count |
-| env `CL10_SMOKE` | the experiments | `1` shrinks the grids, pools and bond counts |
+| env `CL10_BACKEND` | `backend.force` | `numpy` / `cpu` forces the CPU core; `cupy` / `jax` pins a GPU core — a pinned GPU core skips the gate and never falls back, so a run that cannot get the card fails loudly |
+| env `CL10_GPU_MIN_FREE_MIB` | `backend.gpu_min_free_mib` | the free-memory gate for the GPU in auto mode (default 2048) |
+| env `CL10_ANGLE` | `angle.branch` | `implemented` (default) / `closed` / `half` (aliases `pi/4`, `pi/2`, `1/5`) |
+| env `CL10_NJOBS` | `pool.njobs` | the `parpool` worker count |
+| env `CL10_SMOKE` | `smoke` | `1` shrinks the grids, pools and bond counts (`cl10.config.smoke()`) |
 
 ## The runner contract
 
@@ -538,7 +575,15 @@ Every experiment writes `results/<name>.json` with at least:
 | json `property` | the paper property it validates |
 | json `residual` | `true` when the experiment reports an open problem |
 | json `wall_time` | seconds |
+| json `backend` | optional: the core that computed the verdict (`numpy` / `cupy` / `jax`); the rollup counts it |
 
 `run_validation.py` aggregates them into `results/validation_summary.json` and
-prints the hard-tier verdict plus the named residuals. A subset run folds the
-untouched experiments in from the verdicts on disk, so the rollup stays complete.
+prints the hard-tier verdict, the backend coverage of the run (`backend_parent`,
+`backend_requested`, `n_backend_gpu` of `n_backend_reported`) and the named
+residuals. A subset run folds the untouched experiments in from the verdicts on
+disk, so the rollup stays complete; a folded verdict is reported **STALE** (and
+counted as a failure) when `results/crashes/<Vxx>.log` is newer than it, and the
+OFF-CORE line lists the experiments this invocation ran on a different core than
+the parent. V186/V187 pin `CL10_BACKEND=numpy` themselves: the cone programme is
+CPU work (independent 128×128 Floquet eigendecompositions, ~40× faster on 12 CPU
+workers than on a 3090), so they appear OFF-CORE by construction in a GPU run.

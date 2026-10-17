@@ -447,5 +447,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE O4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
- "wall_s": 25.802366018295288
+ "wall_s": 19.877633571624756
 }

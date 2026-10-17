@@ -44,8 +44,8 @@ enough to construct EXACTLY once the flux decomposition is used.
    produces 1/4; the gap is reported, not closed.
 
 Convention: the check PASSES when the protocol is valid and complete;
-the physics verdict is in the status. Backend: CL10_BACKEND=cupy runs
-the diagonalizations and einsums on the GPU.
+the physics verdict is in the status. Backend: the engine's cupy backend
+(`backend:` in `cl10/config.yaml`) runs the diagonalizations and einsums on the GPU.
 """
 
 import importlib.util
@@ -57,16 +57,19 @@ import time
 
 import numpy as np
 
-GPU = os.environ.get("CL10_BACKEND", "numpy") == "cupy"
-if GPU:
-    import cupy as XP
-else:
-    XP = np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
+
+from cl10 import engine as E                   # noqa: E402
+
+GPU = E._BACKEND == "cupy"   # the engine decides; cl10/config.yaml decides the engine
+if GPU:
+    import cupy as XP
+else:
+    XP = np
 
 _spec = importlib.util.spec_from_file_location(
     "v79", exp("V79_gauged_bond_layer",

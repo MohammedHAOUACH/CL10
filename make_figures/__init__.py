@@ -107,17 +107,32 @@ def run_v62():
 
 def main(only=None, cpu=False, fast=False):
     from .style import OUT
+    from tqdm import tqdm
     setup_gpu(force_cpu=cpu)
     print("Generating CL10 publication figures ->", OUT)
+    todo = [(num, fn) for num, fn in FIGURES
+            if (only is None or num in only) and not (fast and num == YOUNG)]
+    hydrogen = (only is None or HYDROGEN in only) and not fast
+    # the bar goes to stderr (run_figures.sh keeps it on the terminal): the
+    # figures take from a second to minutes, and Fig. 2 re-runs the whole V62
+    # production experiment, so a silent terminal there reads as a hang.
+    bar = tqdm(total=len(todo) + int(hydrogen), desc="figures", unit="fig",
+               colour="green") if sys.stderr.isatty() else None
     n = 0
-    for num, fn in FIGURES:
-        if only is not None and num not in only:
-            continue
-        if fast and num == YOUNG:
-            continue
+    for num, fn in todo:
+        if bar:
+            bar.set_postfix_str(f"fig {num}")
         fn()
         n += 1
-    if (only is None or HYDROGEN in only) and not fast:
+        if bar:
+            bar.update(1)
+    if hydrogen:
+        if bar:
+            bar.set_postfix_str(f"fig {HYDROGEN} (the V62 hydrogen experiment)")
         run_v62()
         n += 1
+        if bar:
+            bar.update(1)
+    if bar:
+        bar.close()
     print(f"done: {n} figures -> {OUT}")

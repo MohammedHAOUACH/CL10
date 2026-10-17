@@ -69,6 +69,7 @@ residual (the O9 quantum part).
 
 import numpy as np
 
+from . import config as _config
 from . import gravity as gv
 from . import engine as E
 
@@ -282,7 +283,7 @@ def ricci_0row_4d(g4fn, x, h=H_FD):
     return Ric[0, 0], Ric[0, 1:]
 
 
-def verify_2route(g4fn, n_pts=24, h=H_FD, tol=1e-4, seed=11):
+def verify_2route(g4fn, n_pts=24, h=H_FD, tol=_config.CFG.tolerances.coarse, seed=11):
     r"""The **2-route verification** at the 3+1 level: the 4-D Ricci
     **0-row** $(R_{00}, R_{0i})$ by **Route 1** (4-D Riemann) and **Route
     2** (3+1 $(\gamma, K)$) agree to $O(h^2)$ over ``n_pts`` random
@@ -428,7 +429,7 @@ def _metric_31_b(x):
     return g
 
 
-def verify(tol=1e-4, seed=11):
+def verify(tol=_config.CFG.tolerances.coarse, seed=11):
     r"""The **3+1 NR** verdict: the **2-route** (the 4-D Ricci 0-row by the
     4-D Riemann and by the 3+1 $(\gamma, K)$ reconstruction agree to
     $O(h^2)$), the **constraint** structure (the $R_{00}/R_{0i}$ are the

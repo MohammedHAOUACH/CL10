@@ -30,21 +30,24 @@ scale).  This is the **0-parameter UV completion** of the theory.
 import numpy as np
 
 from . import clifford
+from . import config as _config
 from . import engine as E
 from . import gauge
 from . import spacetime
 from . import u10pred
 from . import coupling
 
-M_Z = 91.1876                    # GeV (PDG 2024 world average)
+# the measured Standard Model inputs: `sm:` in `cl10/config.yaml`
+_SM = _config.CFG.sm
+M_Z = float(_SM.m_z_gev)               # GeV (PDG 2024 world average)
 ALPHA_10 = u10pred.ALPHA_10      # 1/25 = g^2 at g = 1/5: the alpha_10 = g^2 READING (a convention, Section 1.4)
 M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the UV cutoff; M_GUT = M_P is NOT assumed - see V64)
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
-B_SM = (41 / 10, -19 / 6, -7)    # (b1, b2, b3)  (the SM particle content)
-A_Z = (0.0169, 0.0338, 0.118)    # (a1, a2, a3) at M_Z (PDG 2024: a1 GUT-normalised, a1^-1 = 59.0)
+B_SM = (_SM.beta1, float(_SM.beta2), _SM.beta3)   # (b1, b2, b3)  (the SM particle content)
+A_Z = (float(_SM.alpha1_mz), float(_SM.alpha2_mz), float(_SM.alpha3_mz))   # (a1, a2, a3) at M_Z (PDG 2024: a1 GUT-normalised, a1^-1 = 59.0)
 # the 2-loop beta coefficients (n_f = 6, the SM particle content)
-B2_SM = (199/25, 25/2 - 27/50*6, -143/3 + 23/15*6)   # (b21, b22, b23)
+B2_SM = (float(_SM.beta21), float(_SM.beta22), float(_SM.beta23))   # (b21, b22, b23)
 
 
 def _run(a_z, b, M):
@@ -206,7 +209,7 @@ def running_2loop():
     from . import smatrix
     U = smatrix.qca_step()                          # the 32x32 unitary step
     U2 = E.matmul(U, U)                             # the 2-step (the 2-loop)
-    u2_residual = float(np.abs(E.matmul(U2, U2.conj().T) - E.eye(32)).max())
+    u2_residual = E.absmax(E.matmul(U2, U2.conj().T) - E.eye(32))
     s2 = smatrix.two_particle(U)
     s2_bounded = bool(s2["max_offdiag"] < 1.0)     # the 2-particle is bounded
     # the perturbative 2-loop (the U(1) Landau pole, the UV divergence)

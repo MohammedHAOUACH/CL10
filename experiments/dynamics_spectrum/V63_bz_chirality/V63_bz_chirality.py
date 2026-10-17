@@ -65,7 +65,7 @@ def sector_closure():
     B, U32, U16 = SC.sectors()
     q = (0.31, -0.77, 0.44)
     M = SC.bloch(q, U32)
-    w = np.asarray(clifford.pseudoscalar(), dtype=np.complex128)
+    w = E.asnumpy(clifford.pseudoscalar()).astype(np.complex128)
     ev, evec = np.linalg.eig(w)
     Bb = np.linalg.qr(evec[:, np.argsort(np.imag(ev))[:16]])[0]
     V16 = np.kron(np.eye(SC.NSUB), B)

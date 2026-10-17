@@ -46,16 +46,17 @@ longer a bare 2-digit coincidence) and is **unified** with V54 (the same
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import u10pred
 
-# the 0-parameter constants
+# the 0-parameter constants (the values live in `cl10/config.yaml`)
 M_P = u10pred.M_PLANCK          # GeV
 V_EW = u10pred.V_EW            # GeV
-N_GEN = 10                     # the 0-parameter number of Cl(10) generators
-LOOP = 1.0 / (16.0 * np.pi)    # the 0-parameter 1-loop QFT factor
-N_QUBITS = 5                   # the 0-parameter qubit count of the 32-D module (2^5 = 32)
+N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) generators
+LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
+N_QUBITS = int(_config.CFG.physics.n_qubits)   # the qubit count of the 32-D module (2^5 = 32)
 
 
 def _backend():
@@ -191,7 +192,7 @@ def hierarchy17():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """0-parameter checks: (i) the predicted exponent matches the observed
     (within 1 decade); (ii) the ratio is within a factor 3; (iii) the unique
     best loop count is $n_{\\rm gen} = 10$; (iv) the exponent -17 is **not** a

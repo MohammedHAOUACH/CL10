@@ -42,6 +42,7 @@ import math
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import u10pred
 from . import coupling
@@ -122,7 +123,7 @@ def electroweak_breaking():
     }
 
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """0-parameter checks: the QCA step (the 't Hooft program) + the electroweak
     breaking (the 0-parameter weak mixing angle sin^2 = 3/8, the W/Z ratio
     = sqrt(5/8))."""

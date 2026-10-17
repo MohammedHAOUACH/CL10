@@ -14,5 +14,5 @@ doc/*.aux
 doc/*.log
 doc/*.out
 
-# run logs (run_gpu.sh, run_figures.sh, run_cone.sh)
+# run logs (run_experiments.sh, run_figures.sh)
 *.log

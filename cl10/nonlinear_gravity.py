@@ -129,7 +129,7 @@ def nonlinear_gravity(H=None):
         H = 1.0                     # the 0-parameter (natural) Hubble (the identities hold for any H)
     x0 = 0.0
     g = de_sitter_metric(H, x0)
-    gin = np.linalg.inv(g)
+    gin = E.inv(g)
     R = riemann_4d(H, x0)
     # lower the first index: R_{mu nu rho sigma} = g_{mu lam} R^lam_{nu rho sigma}
     R_lower = E.zeros((4, 4, 4, 4), dtype=complex)
@@ -168,7 +168,7 @@ def nonlinear_gravity(H=None):
         for sigma in range(4):
             cosm_const[nu, sigma] = -3.0 * (H ** 2) * g[nu, sigma]
     g_err = _maxabs(Einstein - cosm_const)
-    scalar_err = float(np.abs(scalar - 12.0 * H ** 2))
+    scalar_err = _maxabs(scalar - 12.0 * H ** 2)
     # (3) the non-linear (cubic) self-gravity: the Gamma*Gamma part (nonzero in 4-D)
     Gc = _christoffel(H, x0)
     gamma_gamma = 0.0
@@ -180,7 +180,7 @@ def nonlinear_gravity(H=None):
                     for lam in range(4):
                         s += (Gc[mu, lam, rho] * Gc[lam, nu, sigma]
                               - Gc[mu, lam, sigma] * Gc[lam, nu, rho])
-                    gamma_gamma = max(gamma_gamma, float(np.abs(s)))
+                    gamma_gamma = max(gamma_gamma, _maxabs(s))
     # (4) the 0-parameter vacuum energy: at the Planck Hubble, Lambda ~ M_P^4
     lambda_0param = (M_P ** 4)              # GeV^4 (the Planck-scale vacuum energy)
     lambda_obs = (1e-122) * (M_P ** 4)      # the observed (Planck units)

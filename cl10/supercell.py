@@ -78,6 +78,7 @@ import math
 import numpy as np
 
 from . import clifford
+from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import coupling
@@ -85,9 +86,9 @@ from . import coupling
 # ---------------------------------------------------------------------------
 # the cell
 # ---------------------------------------------------------------------------
-NSUB = 8                       # sub-sites per block (2x2x2)
-NINT = 32                      # the Cl(10,0) module per sub-site
-NSECTOR = 16                   # the Weyl sector (the +i eigenspace of w)
+NSUB = int(_config.CFG.physics.n_subsites)      # sub-sites per block (2x2x2)
+NINT = int(_config.CFG.physics.n_internal)      # the Cl(10,0) module per sub-site
+NSECTOR = int(_config.CFG.physics.n_sector)     # the Weyl sector (the +i eigenspace of w)
 NONSITE = NSUB * NINT          # 256
 NSECTOR_ONSITE = NSUB * NSECTOR  # 128
 
@@ -203,23 +204,31 @@ def stage_matrix(even, j, q, g10=G10):
 def bloch(q, U, g10=G10, stages=STAGES):
     """The exact one-step Bloch matrix of the automaton at block momentum
     ``q``: ``(8*n, 8*n)`` for an ``(n,n)`` internal unitary (128 on the 16
-    sector, 256 on the full module)."""
+    sector, 256 on the full module).
+
+    The build goes through ``E.kron``/``E.matmul``, so it runs where ``U``
+    lives: host for the 128/256 matrices of the momentum sweeps (measured
+    faster there, and the sweeps are parallelised by ``cl10/parpool.py``),
+    device if a caller hands in a device ``U``."""
     M = np.eye(NSUB * U.shape[0], dtype=complex)
     for even, j in stages:
         S = stage_matrix(even, j, q[j], g10)
-        M = np.kron(S, U) @ M
+        M = E.matmul(E.kron(S, U), M)
     return M
 
 
 def phases(M):
-    return np.sort(np.angle(np.linalg.eigvals(M)))
+    """The sorted eigenphases.  The eigendecomposition follows the engine
+    routing (``routing.eig_gpu_min_dim``): at 128/256 the host is measured
+    faster, above the threshold the device is used."""
+    return np.sort(np.angle(E.asnumpy(E.eigvals(M))))
 
 
 def gap(q, U, g10=G10, stages=STAGES):
     return float(np.min(np.abs(phases(bloch(q, U, g10, stages)))))
 
 
-def degeneracy(q, U, g10=G10, stages=STAGES, tol=1e-9):
+def degeneracy(q, U, g10=G10, stages=STAGES, tol=_config.CFG.tolerances.standard):
     """The eigenphase multiplet structure at ``q``: [(gap, multiplicity)]."""
     a = np.sort(np.abs(phases(bloch(q, U, g10, stages))))
     out = []
@@ -249,7 +258,10 @@ def bond_layer(fields, even, j, theta=G10):
     c, s = math.cos(theta), math.sin(theta)
     bit = 1 << j
     if even:
-        S = E.Array_(stage_matrix(True, j, 0.0, theta))
+        # the stage matrix stays on the host: einsum then runs where the FIELD
+        # lives (a device field pulls it over), so a host field never becomes a
+        # device field through this constant.
+        S = stage_matrix(True, j, 0.0, theta)
         return E.einsum("ab,...bi->...ai", S, fields)
     hi = [e for e in range(NSUB) if e & bit]
     lo = [e for e in range(NSUB) if not (e & bit)]
@@ -279,7 +291,8 @@ def step(fields, U, theta=G10, stages=STAGES):
     return f
 
 
-def run(L=8, n_steps=4, x0=(4, 4, 4), e0=0, theta=G10, seed=0, tol=1e-12,
+def run(L=8, n_steps=4, x0=(4, 4, 4), e0=0, theta=G10, seed=0,
+        tol=_config.CFG.tolerances.strict,
         sector=True):
     """Run the automaton from a state localised on **one sub-site** of one
     block; return the per-step support and its light-cone radius (in blocks).
@@ -312,14 +325,14 @@ def run(L=8, n_steps=4, x0=(4, 4, 4), e0=0, theta=G10, seed=0, tol=1e-12,
     return {"backend": E._BACKEND, "L": int(L), "n_steps": int(n_steps),
             "theta": float(theta), "g10": float(G10), "sector": bool(sector),
             "steps": steps,
-            "final_norm": float(np.linalg.norm(E.asnumpy(f).ravel()))}
+            "final_norm": E.field_norm(f)}
 
 
 # ---------------------------------------------------------------------------
 # the invariants of the cell
 # ---------------------------------------------------------------------------
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """The invariants of the automaton as written on the block.
 
     1. the one-step Bloch matrix is **exactly unitary** at generic momenta

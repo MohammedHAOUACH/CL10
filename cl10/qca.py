@@ -27,6 +27,7 @@ bond layer (swap-rotations inside the cell, one link d.o.f. per bond) is what
 couples neighbouring cells - the causal radius is 1 cell per step (Theorem 5).
 """
 
+from . import config as _config
 from . import engine as E
 from . import spacetime
 
@@ -57,7 +58,7 @@ def qca_step_internal(gates, fields):
     return out
 
 
-def unitary_check(U, tol=1e-12):
+def unitary_check(U, tol=_config.CFG.tolerances.strict):
     """Check that a gate U is unitary (U U^dagger = I) (backend-correct)."""
     return E.absmax(U @ U.conj().T - E.eye(U.shape[0])) < tol
 

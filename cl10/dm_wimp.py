@@ -50,18 +50,17 @@ resolved** here: it is relocated, from "the soliton is under-abundant" to "the
 right scale has no carrier".
 """
 
-import numpy as np
-
+from . import config as _config
 from . import engine as E
 from . import u10pred
 from . import cosmology3
 
-# the 0-parameter constants
+# the 0-parameter constants (the values live in `cl10/config.yaml`)
 M_P = u10pred.M_PLANCK          # GeV
-N_GEN = 10                     # the 0-parameter number of Cl(10) generators
-LOOP = 1.0 / (16.0 * np.pi)    # the 0-parameter 1-loop QFT factor
-WEAK_SCALE = 100.0             # GeV (the 0-parameter WIMP-miracle reference)
-OMEGA_OBS = 0.12               # the observed dark-matter density (Omega h^2)
+N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) generators
+LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
+WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the 0-parameter WIMP-miracle reference)
+OMEGA_OBS = float(_config.CFG.physics.omega_dm_h2)       # the observed dark-matter density (Omega h^2)
 
 
 def _backend():
@@ -127,7 +126,7 @@ def dm_wimp():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     r"""The arithmetic of the O7 scale: (i) the ladder identity
     $m = M_P(1/16\pi)^{n_{\rm gen}}$; (ii) the scale lands in the WIMP window
     and within a factor 3 of the $100$ GeV reference (the reported coincidence);

@@ -49,6 +49,7 @@ lattice spacing is the Planck length).
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 
 
@@ -72,10 +73,12 @@ def light_cone():
 # ---------------------------------------------------------------------------
 
 def _lap4(x, shape):
-    """The discrete 4-Laplacian (the 0-parameter spatial operator, V6)."""
+    """The discrete 4-Laplacian (the 0-parameter spatial operator, V6).
+    Device-aware: it goes through ``E.roll``, so a device metric field never
+    bounces to the host and a host field never bounces to the device."""
     L = x.copy()
     for ax in range(4):
-        L += np.roll(x, +1, axis=ax) + np.roll(x, -1, axis=ax)
+        L += E.roll(x, +1, ax) + E.roll(x, -1, ax)
         L -= 2.0 * x
     return L / 6.0
 
@@ -190,7 +193,7 @@ def riemann_scalar_2d(metric, x0, x1, h=1e-3):
             R += ginv[sigma, nu] * Ric[sigma, nu]
     return float(R)
 
-def einstein_hilbert(r=2.0, tol=1e-4):
+def einstein_hilbert(r=2.0, tol=_config.CFG.tolerances.coarse):
     """The Einstein-Hilbert action ``S = (1/16*pi) INT sqrt(-g) R``, **computed**
     from the metric (the Riemann tensor / Ricci scalar).
 
@@ -249,13 +252,14 @@ def eh_quadratic_action(u):
     16 components are independent at quadratic order)."""
     DT2 = 0.25
     coupler = 1.0 / (16.0 * np.pi)
-    d2t = (np.roll(u, -1, axis=0) + np.roll(u, 1, axis=0) - 2.0 * u)
+    d2t = (E.roll(u, -1, 0) + E.roll(u, 1, 0) - 2.0 * u)
     box = d2t - DT2 * E.laplacian_3d(u)   # the discrete wave operator
     interior = box[1:-1]
-    return coupler * 0.5 * float(np.sum(E.asnumpy(u[1:-1] * interior)))
+    return coupler * 0.5 * E.summ(u[1:-1] * interior)
 
 
-def einstein_hilbert_from_dynamics(L=8, T=24, n_probe=16, seed=0, tol=1e-6):
+def einstein_hilbert_from_dynamics(L=8, T=24, n_probe=16, seed=0,
+                                   tol=_config.CFG.tolerances.loose):
     """The **derivation** (the direction **dynamics <- action**): the
     **Euler-Lagrange equation** of the 0-parameter discrete quadratic
     Einstein-Hilbert action (``1/16*pi``, ``G = 1``, ``dt = h/2``) is
@@ -297,9 +301,10 @@ def einstein_hilbert_from_dynamics(L=8, T=24, n_probe=16, seed=0, tol=1e-6):
     coupler = 1.0 / (16.0 * np.pi)
 
     def _action(v):
-        d2t = (np.roll(v, -1, axis=0) + np.roll(v, 1, axis=0) - 2.0 * v)
-        lap = E.asnumpy(E.laplacian_3d(E.Array_(v)))
-        box = d2t - DT2 * lap
+        # `v` is the host copy of the trajectory: the primitives keep the work
+        # on the host here instead of shuttling the field to the device per call
+        d2t = (E.roll(v, -1, 0) + E.roll(v, 1, 0) - 2.0 * v)
+        box = d2t - DT2 * E.laplacian_3d(v)
         return coupler * 0.5 * float(np.sum(v[1:-1] * box[1:-1]))
 
     # (1) the action is stationary on the QCA trajectory (the numerical
@@ -428,7 +433,7 @@ def schwarzschild(M=1.0, r=3.0):
         "R_vacuum": float(R_vacuum),
     }
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """0-parameter checks: the linearised free wave (massless spin-2), the
     light cone (the GUT sub-algebra), the Riemann curvature (the 2-sphere
     ``R = 2/r^2``, the flat ``R = 0``), the non-linear soliton (the exact

@@ -32,6 +32,7 @@ the **open part** (a **residual**, not a wall).
 """
 
 
+from . import config as _config
 from . import engine as E
 from . import u10pred
 
@@ -99,7 +100,7 @@ def hierarchy():
     }
 
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """0-parameter checks: the O1 cancellation (Lambda = 0, the s-mechanism),
     the w=-1, the O(1) naturalness (not 1e122 too big), the 1e-122 residual;
     the hierarchy (the 0-parameter value matches the observed to < 5%; the

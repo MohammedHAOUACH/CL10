@@ -47,16 +47,17 @@ not a bare named input); their **values** remain named.
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import coupling
 
-# the coupling readings used here
+# the inputs used here (the values live in `cl10/config.yaml`)
 G0 = coupling.G0               # 1/8 (the g_0 = 1/2^n_space reading: a convention)
-LOOP = 1.0 / (16.0 * np.pi)   # the 0-parameter 1-loop QFT factor
-SPHALERON = 28.0 / 79.0        # the SM sphaleron conversion: an input of the SM
+LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
+SPHALERON = float(_config.CFG.sm.sphaleron)   # the SM sphaleron conversion: an input of the SM
 #                                sector (the LH d.o.f. count), NOT a root number;
 #                                0-parameter only conditional on V23 (named residual)
-DELTA_B_OBS = 6.12e-10         # observed baryon asymmetry (Planck 2018; PDG 2024)
+DELTA_B_OBS = float(_config.CFG.sm.delta_b_obs)   # observed baryon asymmetry (Planck 2018; PDG 2024)
 ETA_CP_V40 = 1.0e-3            # the V40 named value (the observed range 1e-3..1e-2)
 
 
@@ -157,7 +158,7 @@ def eta_cp():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """0-parameter checks on the FACTORS: (i) the 0-parameter eta_CP loop
     factor is within a factor 3 of the V40 value (1e-3); (ii) the
     product gives the right ORDER (the 2-digit ratio 1.12 -- the named

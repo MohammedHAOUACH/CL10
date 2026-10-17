@@ -49,6 +49,16 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, "1")
 
+# The cone programme runs on the CPU core ALWAYS, whatever the caller exported.
+# Measured on this host: the scan is a batch of independent 128x128 Floquet
+# eigendecompositions, ~40x faster on 12 OpenBLAS-single-threaded CPU workers
+# than on a 3090 (cupy has no batched eigvals: the "batch" is a serial loop of
+# ~50 ms GPU round-trips). The GPU route also needs a CUDA context per pool
+# worker, and the scan then ran for hours without finishing (measured twice).
+# Pinned BEFORE any cl10 import so the engine never selects a GPU backend here,
+# and the pin is inherited by the pool workers.
+os.environ["CL10_BACKEND"] = "numpy"
+
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -61,6 +71,7 @@ import V65_wilson as V65                      # noqa: E402
 from tqdm import tqdm                         # noqa: E402
 from scipy.optimize import minimize           # noqa: E402
 from cl10 import clifford as CL               # noqa: E402
+from cl10 import config as cl10_config        # noqa: E402
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
 from cl10 import parpool                      # noqa: E402
@@ -447,7 +458,7 @@ def main():
 
     # ---- T2: the pool scan. For every bond triple and strength pattern,
     #          the (theta,w) retune grid is one batched GPU eigval call. --
-    smoke = os.environ.get("CL10_SMOKE", "") == "1"
+    smoke = cl10_config.smoke()               # CL10_SMOKE, via cl10/config.py
     pool = bond_pool(n_random=(2 if smoke else 40),
                      n_disjoint=(3 if smoke else 60))
     if smoke:

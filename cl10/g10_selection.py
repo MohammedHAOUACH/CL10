@@ -26,6 +26,7 @@ coefficients as inputs (Section 10.4).
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import unification
 
@@ -111,7 +112,7 @@ def g10_selection():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """Checks: (i) the implemented angle is the root reading $1/n_{\rm qubits}$
     (the 32-D module, 5 qubits) and matches the SM QCA step; (ii) the
     $\alpha_{10} = g^2$ reading is within a factor 3 of the 1-loop GUT-range

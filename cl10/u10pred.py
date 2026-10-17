@@ -23,27 +23,27 @@ here, so that no PASS can ever be printed for them:
   already excluded by ``sum m_nu < 0.12`` eV (falsifier F3).
 """
 
-import math
-
+from . import config as _config
 from . import coupling
 
 # ---------------------------------------------------------------------------
-# the scales and units (the same constants the experiments import)
+# the scales and units (the same constants the experiments import).  Their
+# values come from `cl10/config.yaml`: one edit there moves the whole ladder.
 # ---------------------------------------------------------------------------
-M_PLANCK = 1.22e19     # GeV (the Planck scale; M_GUT = M_P is NOT assumed - see proton_lifetime_desert)
-M_P_ROBSON = 0.938     # GeV (the proton mass)
+M_PLANCK = float(_config.CFG.physics.m_planck_gev)   # GeV (the Planck scale; M_GUT = M_P is NOT assumed - see proton_lifetime_desert)
+M_P_ROBSON = float(_config.CFG.physics.proton_mass_gev)   # GeV (the proton mass)
 ALPHA_10 = coupling.ALPHA_10      # 1/25 = g^2 at g = 1/5: the alpha_10 = g^2 READING (a convention, Section 1.4)
-V_EW = 246.0           # GeV (the measured electroweak vev)
-GEV_TO_S = 6.582e-25   # 1/GeV in seconds
-S_TO_YR = 3.156e7      # seconds per year
+V_EW = float(_config.CFG.physics.v_electroweak_gev)  # GeV (the measured electroweak vev)
+GEV_TO_S = float(_config.CFG.units.gev_to_s)   # 1/GeV in seconds
+S_TO_YR = float(_config.CFG.units.s_to_yr)     # seconds per year
 
-LOOP = 1.0 / (16.0 * math.pi)     # the loop factor of the ladder (Section 12)
+LOOP = float(_config.CFG.physics.loop)     # the loop factor of the ladder (Section 12)
 
 # the desert solution of V64 (two FITTED thresholds; the coupling is the root value)
-M_X_DESERT = 1.8e16    # GeV
-ALPHA_X_DESERT = 1 / 25.0
+M_X_DESERT = float(_config.CFG.desert.m_x_gev)   # GeV
+ALPHA_X_DESERT = float(_config.CFG.desert.alpha_x)
 # the same content at the closed angle (V133): alpha_X = pi/64, threshold ordering destroyed
-M_X_CLOSED = 1.235e17  # GeV
+M_X_CLOSED = float(_config.CFG.desert.m_x_closed_gev)   # GeV
 ALPHA_X_CLOSED = coupling.alpha_std(coupling.G_CLOSED)
 
 

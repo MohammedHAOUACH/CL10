@@ -105,6 +105,7 @@ import math
 import numpy as np
 
 from . import clifford
+from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import u10pred
@@ -424,7 +425,7 @@ def cp_odd_theorem(n4_sample=200000, seed=0):
     }
 
 
-def _unitary(U, tol=1e-12):
+def _unitary(U, tol=_config.CFG.tolerances.strict):
     Un = _asnp(U)
     return bool(float(np.abs(Un @ Un.conj().T - np.eye(Un.shape[0])).max()) < tol)
 
@@ -657,7 +658,7 @@ def provenance_table():
 # the assembly + the self-check
 # ---------------------------------------------------------------------------
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """Run the full audit.  ``ok`` is True when the **genuinely 0-parameter**
     invariants **hold** (the CP-odd theorem, the **16/16-bar spectral mirror
     — CPT as spectral conjugation — for all 't Hooft angles**, the 2-route

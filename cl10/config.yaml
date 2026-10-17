@@ -1,0 +1,117 @@
+# CL10 — the single configuration file.
+#
+# Every number the code used to carry as a literal lives here.  One edit here is
+# picked up by the engine and by every module that reads it; nothing has to be
+# changed file by file.  Loaded by cl10/config.py; the environment overrides the
+# file (CL10_BACKEND, CL10_GPU_MIN_FREE_MIB, CL10_ANGLE, CL10_NJOBS, CL10_SMOKE).
+#
+# Provenance is a property of the *value*, not of this file: the labels
+# (measured / convention / derived / open) are stated in doc/final_publication.md
+# Section 15 and in doc/api.md.  Changing a value here does not change its
+# provenance, and the experiments re-measure whatever they check.
+
+backend:
+  # tried in order; the first that passes its probe wins
+  priority: [cupy, jax, numpy]
+  # null = auto.  "numpy"/"cpu" forces the CPU core, "cupy"/"jax" pins a GPU core.
+  # A pinned GPU core skips the gate below and never falls back: the run fails
+  # loudly if the card cannot host it (run_experiments.sh pins cupy after checking the card).
+  force: null
+  # auto mode only: a card with less than this free is not committed to; a
+  # saturated card lets tiny probe ops through but queues real work indefinitely
+  # (measured: the CL10 batches are tens of MB, but cuSOLVER handles need headroom).
+  gpu_min_free_mib: 2048
+  probe:
+    # the allocation the backend probe makes before committing (float64 elements)
+    elements: 4194304          # 1 << 22  = 32 MiB
+    # the dense linear algebra the probe runs (cuBLAS + cuSOLVER handles)
+    matrix_dim: 64
+  jax:
+    # XLA preallocates a fraction of the card; 0.5 leaves room for the other tenant
+    mem_fraction: 0.5
+    # the repository works at 1e-12 and below: float32/complex64 would break every
+    # tolerance, so x64 is enabled before the first array is built
+    enable_x64: true
+
+routing:
+  # Where the GPU actually wins.  These are measured on this host (2x RTX 3090,
+  # 12 cores), not guesses: cupy's per-call overhead is ~50 ms on a 128x128
+  # eigendecomposition against ~8 ms for numpy, so small matrices go to the host
+  # and the parallelism comes from the process pool (cl10/parpool.py).
+  # Raise eig_gpu_min_dim only if a batched device eigensolver is wired in.
+  device_min_dim: 64           # matmul / kron / einsum on square matrices at least this wide stay on the device
+  eig_gpu_min_dim: 512         # eigendecomposition on the device only above this size
+
+pool:
+  # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides
+  njobs: null
+  njobs_cap: 8
+
+physics:
+  # measured (PDG / Planck), used as inputs by the phenomenology modules
+  m_planck_gev: 1.22e+19       # the lattice cutoff; M_GUT = M_P is NOT assumed
+  proton_mass_gev: 0.938
+  v_electroweak_gev: 246.0
+  omega_dm_h2: 0.12            # the observed dark-matter density (Planck)
+  weak_scale_gev: 100.0        # the WIMP-miracle reference scale
+  # numbers of the root
+  n_gen: 10                    # the Cl(10) generators = the ladder length
+  n_space: 3                   # the spatial directions of the cell
+  n_subsites: 8                # the 2x2x2 block
+  n_internal: 32               # the Cl(10,0) module per sub-site
+  # (n_qubits = log2(n_internal) is derived by the loader, not written twice)
+  n_sector: 16                 # the Weyl sector (the +i eigenspace of w)
+  # the loop factor of the ladder; null -> 1 / (16 pi)
+  loop_factor: null
+
+units:
+  # exact unit conversions, not tunable inputs
+  gev_to_s: 6.582e-25          # hbar: 1/GeV in seconds
+  s_to_yr: 3.156e+7            # seconds per year
+
+sm:
+  # the measured Standard Model inputs the running and the electroweak sector read
+  m_z_gev: 91.1876             # PDG 2024 world average
+  # the one-loop beta-function coefficients (b1, b2, b3) of the SM content
+  beta1: 4.1                   # 41/10
+  beta2: -3.1666666666666665   # -19/6
+  beta3: -7                    # -7 (an integer in the SM convention)
+  # the gauge couplings at M_Z (a1 GUT-normalised: a1^-1 = 59.0)
+  alpha1_mz: 0.0169
+  alpha2_mz: 0.0338
+  alpha3_mz: 0.118
+  # the two-loop coefficients (b21, b22, b23) of the SM content
+  beta21: 7.96                 # 199/25
+  beta22: 9.26                 # 25/2 - 27/50*6
+  beta23: -38.46666666666666   # -143/3 + 23/15*6
+  sphaleron: 0.35443037974683544   # the SM conversion factor, 28/79
+  delta_b_obs: 6.12e-10        # the observed baryon asymmetry (Planck 2018)
+
+angle:
+  # the one continuous number of the step (Section 1.4).  The branch values are
+  # conventions or closed roots; CL10_ANGLE selects the branch.
+  default_branch: implemented
+  branches:
+    implemented: 0.2           # 1/n_qubits, the repository default (convention; V56 prefers n = 7)
+    closed: 0.7853981633974483 # pi/4, order 8 (the closure axiom, V131)
+    half: 1.5707963267948966   # pi/2, order 4 (the second closed root, reference only)
+  # the rotation-squared reading alpha_10 = g^2 at the implemented angle; kept
+  # as the exact 1/25 rather than recomputed (0.2**2 is not 0.04 in binary)
+  alpha_10: 0.04
+  # the second coupling reading: g_0 = 1/2^n_space (a convention, Section 15)
+  g0_from_n_space: true
+
+desert:
+  # the fitted thresholds of the desert solution (V64) - conditional, not derived
+  m_x_gev: 1.8e+16
+  alpha_x: 0.04
+  # the same solution at the closed angle (V133): the threshold ordering breaks
+  m_x_closed_gev: 1.235e+17
+
+tolerances:
+  # the shared bands; each experiment still states the one it used
+  strict: 1.0e-12
+  standard: 1.0e-9
+  loose: 1.0e-6
+  coarse: 1.0e-4
+

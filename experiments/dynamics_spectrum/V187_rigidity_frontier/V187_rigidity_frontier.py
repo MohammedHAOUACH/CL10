@@ -55,13 +55,19 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, "1")
 
+# The cone programme runs on the CPU core ALWAYS, whatever the caller exported
+# (V186 carries the measurement: independent 128x128 Floquet eigendecompositions,
+# ~40x faster on CPU workers than on a 3090, and the GPU route needs a CUDA
+# context per pool worker). Pinned BEFORE any cl10 import; inherited by the pool.
+os.environ["CL10_BACKEND"] = "numpy"
+
 import numpy as np                            # noqa: E402
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "..", ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "V186_cone_inverse"))
-from cl10 import engine as E                  # noqa: E402
+from cl10 import config as cl10_config        # noqa: E402
 from cl10 import parpool                      # noqa: E402
 from tqdm import tqdm                         # noqa: E402
 import scipy.optimize                         # noqa: E402,F401
@@ -124,7 +130,7 @@ def _ray_worker(item):
 
 
 def main():
-    smoke = os.environ.get("CL10_SMOKE", "") == "1"
+    smoke = cl10_config.smoke()               # CL10_SMOKE, via cl10/config.py
     out = {"experiment": "V187_rigidity_frontier", "checks": []}
     checks = out["checks"]
     t0 = time.time()

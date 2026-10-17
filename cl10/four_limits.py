@@ -59,6 +59,7 @@ from the data), and **one** irreducible CP phase (``delta``).  Nothing else.
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import parameter_audit as pa
 from . import eta_cp as ep
@@ -66,10 +67,10 @@ from . import u10pred as tp
 
 M_P = tp.M_PLANCK            # 1.22e19 GeV
 V_EW = tp.V_EW               # 246 GeV
-LOOP = 1.0 / (16.0 * np.pi)  # the 0-parameter 1-loop QFT factor
-N_GEN = 10                   # the 0-parameter number of Cl(10) generators
-N_QUBITS = 5                 # the 0-parameter qubit count of the 32-D module (2^5 = 32)
-N_SPACE = 3                  # the 0-parameter spatial dimension (the (1,3) inside the GUT)
+LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
+N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) generators
+N_QUBITS = int(_config.CFG.physics.n_qubits)   # the 0-parameter qubit count of the 32-D module (2^5 = 32)
+N_SPACE = int(_config.CFG.physics.n_space)     # the 0-parameter spatial dimension (the (1,3) inside the GUT)
 
 def _backend():
     return E._BACKEND
@@ -404,7 +405,7 @@ def four_limits():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """The V59 checks."""
     r = four_limits()
     ok = bool(

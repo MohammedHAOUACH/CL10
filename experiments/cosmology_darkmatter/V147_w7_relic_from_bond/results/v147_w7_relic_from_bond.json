@@ -128,7 +128,7 @@
    "pass": true
   },
   {
-   "name": "T1 the nodal-plane enhancement recomputed here: 12 nodes, D = 1485.3, matching V123's stored 1485.3 to 0.0e+00",
+   "name": "T1 the nodal-plane enhancement recomputed here: 12 nodes, D = 1485.3, matching V123's stored 1485.3 to 2.9e-09",
    "pass": true
   },
   {
@@ -143,5 +143,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "THE BOND COUPLING DOES NOT SET THE RELIC ABUNDANCE: every candidate kappa_singlet - the ten V96 values that close the meeting ([9.186, 4.39, 5.677, 4.819, 4.208, 4.056, 2.159, 3.265, 3.147, 2.689]), the superexchange -0.2534, the broken flux 40, the junction ratio 1.914 - gives, through alpha = kappa^2/4pi and sigma v = alpha^2/(pi m^2) with D = 1485, an Omega h^2 between 9.55e-13 and 0.000759; the closest is root g10^2/4pi at 0.0008 (|dOmega| = 0.119). The measured 0.120 needs alpha_eff = 0.0086 without D or 0.00022 with D - no bond number of the layer lands there. O7's portal remains named, not derived.",
- "wall_s": 21.268433094024658
+ "wall_s": 30.297267198562622
 }

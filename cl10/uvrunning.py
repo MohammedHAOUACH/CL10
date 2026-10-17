@@ -50,6 +50,7 @@ meet at one scale are inputs (Section 10.4); boundedness does not fix them.
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import smatrix
 from . import u10pred
@@ -191,7 +192,7 @@ def uv_verdict():
     }
 
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """The UV checks.  Returns ``{"ok": bool, "checks": {...}}``:
 
     - **UV anchor:** ``alpha_10 = 1/25`` (the square of the implemented angle);

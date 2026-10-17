@@ -15,6 +15,7 @@ The 6 remaining GUT generators (``h_5 .. h_10``) are the **internal**
 directions (the gauge).
 """
 
+from . import config as _config
 from . import engine as E
 from . import clifford
 
@@ -33,7 +34,7 @@ def causal_generators():
     return T, S
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """0-parameter check that the (1,3) is a valid Minkowski sub-algebra of the GUT.
 
     Returns the residual errors (all must be ~0):  time^2=+I, space^2=-I,

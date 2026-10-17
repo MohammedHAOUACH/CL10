@@ -9,8 +9,8 @@
   "m45_pair": 2,
   "n_intertwiners": 2,
   "n_glued": 4,
-  "max_C2_glued": 1.7218820850974796e-26,
-  "max_gauss_err": 1.700426735125522e-14,
+  "max_C2_glued": 1.116238208109356e-27,
+  "max_gauss_err": 3.697362563301521e-15,
   "S_intertwiners": [
    3.806662,
    3.806662

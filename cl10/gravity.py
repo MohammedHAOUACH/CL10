@@ -67,6 +67,7 @@ not a physical one; every result **converges** as ``h -> 0``.
 
 import numpy as np
 
+from . import config as _config
 from . import engine as E
 from . import nonlinear_gravity
 from . import sm_qca
@@ -370,7 +371,8 @@ def dynamics_from_action(mfn, Lambda, x0, h=H_FD, eps=1e-4):
 #     completion): the state-dependent unitary
 # ---------------------------------------------------------------------------
 
-def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12):
+def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10,
+                  tol=_config.CFG.tolerances.strict):
     """The **non-linear** QCA metric evolution: a **state-dependent** unitary
     on a **1+1** (``L`` spatial x ``n_steps`` time) lattice.  The **state** is
     the metric-field ``phi(x)`` (a **metric component** / the non-linear
@@ -404,12 +406,14 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12):
         """f0: (L, 32) complex -- the metric-field state.  Returns the final
         state and the list of per-step L2 norms."""
         f = E.Array_(f0)
-        norms = [float(np.linalg.norm(E.asnumpy(f).ravel()))]
+        norms = [E.field_norm(f)]
+        parity = E.Array_(np.arange(L) % 2 == 0)     # the staggered pair mask
+        c, s = _m.cos(G10 / 2), _m.sin(G10 / 2)
         for _t in range(n_steps):
             # (1) the internal **state-dependent** unitary (the self-gravity):
-            #     the GUT angle depends on the **local** metric amplitude
-            a = E.asnumpy(f)
-            phi2 = float(np.mean((np.abs(a) ** 2).sum(axis=-1)))
+            #     the GUT angle depends on the **local** metric amplitude,
+            #     reduced on the device when the field is on it
+            phi2 = E.mean(E.sum_axis(E.modulus(f) ** 2, axis=-1))
             th = G10 + lam * phi2   # the **state-dependent** angle
             U = E.eye(n)
             for T in planes:
@@ -418,16 +422,15 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12):
             # (2) the **0-parameter** bond layer (causal radius 1): a
             #     **staggered** 2x2 **unitary** swap-rotation of **pairs** of
             #     adjacent cells (the pair map [[c, -is], [-is, c]] is
-            #     unitary -> the norm is preserved; it moves one cell / step)
-            fa = E.asnumpy(f)
-            g = fa.copy()
-            c, s = _m.cos(G10 / 2), _m.sin(G10 / 2)
+            #     unitary -> the norm is preserved; it moves one cell / step).
+            #     Written as neighbour shifts + a parity mask so the field never
+            #     leaves the device (the same arithmetic as the pair loop).
             start = 0 if (_t % 2 == 0) else 1   # staggered (causal radius 1)
-            for i in range(start, L - 1, 2):
-                g[i], g[i + 1] = (c * fa[i] - 1j * s * fa[i + 1],
-                                  -1j * s * fa[i] + c * fa[i + 1])
-            f = E.Array_(g)
-            norms.append(float(np.linalg.norm(E.asnumpy(f).ravel())))
+            mask = parity if start == 0 else ~parity
+            g_first = c * f - 1j * s * E.roll(f, -1, 0)    # the pair's first cell
+            g_second = -1j * s * E.roll(f, +1, 0) + c * f  # the pair's second cell
+            f = E.where(mask[:, None], g_first, g_second)
+            norms.append(E.field_norm(f))
         return f, norms
 
     # the state: two **localized** metric excitations (spikes of a metric
@@ -453,8 +456,9 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12):
     # 2. non-linear: the **superposition** fails (the hallmark)
     fa_f, _ = evolve(fa, n_steps)
     fb_f, _ = evolve(fb, n_steps)
-    superposition = E.asnumpy(fa_f) + E.asnumpy(fb_f)
-    superpose_err = float(np.linalg.norm(E.asnumpy(f_final) - superposition))
+    # the difference stays where the evolved fields live; only the scalar
+    # error comes back to the host
+    superpose_err = E.field_norm(fa_f + fb_f - f_final)
     # the linear free wave has **exact** superposition (err ~ 0); the
     # non-linear self-gravity (the state-dependent angle) makes it **fail**
     nonlinear_ok = bool(superpose_err > 1e-8)
@@ -594,7 +598,7 @@ def verify_nonlinear(h=H_FD):
     }
 
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """The **complete** 4-D non-linear gravity verdict: the 2-route
     verification (analytic vs computed), the black hole (computed
     ``K = 48 M^2 / r^6`` + the vacuum ``G = 0``), the flat vacuum

@@ -40,19 +40,24 @@ At ``g = 1/5``: ``alpha_std = 0.00318``, ``alpha10 = 0.0400``.  At ``g = pi/4``:
 """
 
 import math
-import os
+
+from . import config as _config
+
+# The three numbers below come from `cl10/config.yaml` (`angle:`), the single
+# configuration source: edit them there and every module follows.  The
+# provenance labels stay attached to the values, not to the file.
 
 # the rotation-squared reading at the implemented angle (Section 1.4: a
 # convention, not a number of the root)
-ALPHA_10 = 1 / 25.0
+ALPHA_10 = float(_config.CFG.angle.alpha_10)
 
-G_IMPLEMENTED = 1 / 5.0
-G_CLOSED = math.pi / 4
-G_HALF = math.pi / 2
+G_IMPLEMENTED = float(_config.CFG.angle.branches.implemented)
+G_CLOSED = float(_config.CFG.angle.branches.closed)
+G_HALF = float(_config.CFG.angle.branches.half)
 
 # the second coupling reading: g_0 = 1/2^n_space = 1/8 (Section 15: the reading
 # of the 3 spatial directions — a convention, not a derivation)
-G0 = 1 / 8.0
+G0 = float(_config.CFG.angle.g0)
 
 # name -> (angle, provenance, the experiment that fixes it)
 BRANCHES = {
@@ -61,21 +66,14 @@ BRANCHES = {
     "half": (G_HALF, "algebraic (the degenerate second root)", "V134 (pure translation)"),
 }
 
-DEFAULT_BRANCH = "implemented"
+DEFAULT_BRANCH = _config.CFG.angle.default_branch
 
 
 def branch():
-    """The active branch, from ``CL10_ANGLE`` (default ``implemented``)."""
-    name = os.environ.get("CL10_ANGLE", DEFAULT_BRANCH).strip().lower()
-    if name in ("impl", "implemented", "1/5", "0.2"):
-        name = "implemented"
-    elif name in ("closed", "pi/4", "quantized"):
-        name = "closed"
-    elif name in ("half", "pi/2"):
-        name = "half"
-    if name not in BRANCHES:
-        raise ValueError(f"CL10_ANGLE={name!r}: not one of {sorted(BRANCHES)}")
-    return name
+    """The active branch: ``angle.default_branch`` in ``cl10/config.yaml``,
+    overridden by ``CL10_ANGLE`` (the aliases ``pi/4``, ``pi/2``, ``1/5``,
+    ``impl``, ``quantized`` are resolved by ``cl10/config.py``)."""
+    return _config.CFG.angle.branch
 
 
 def angle(name=None):

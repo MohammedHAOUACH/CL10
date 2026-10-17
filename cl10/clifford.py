@@ -18,6 +18,7 @@ which gives exactly 10 Hermitian generators, each squaring to ``I`` and
 **mutually anticommuting** (verified below).  This is the GUT ``Cl(10,0)``.
 """
 
+from . import config as _config
 from . import engine as E
 
 import numpy as np
@@ -51,7 +52,7 @@ def generators():
     return out
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     """0-parameter check of the Cl(10) relations (all 10 anticommute, square to I).
 
     Returns a dict of the residual errors (all must be ~0).

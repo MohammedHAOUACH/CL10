@@ -58,6 +58,7 @@ ladder *fixes the order* (the 10^14 scale, the 17th loop) but not the exact
 import numpy as np
 
 from . import dm_wimp
+from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import u10pred
@@ -104,7 +105,7 @@ def twostep_scale():
 # the 2-step as a 0-parameter unitary (the 2-loop, the GPU engine)
 # ---------------------------------------------------------------------------
 
-def twostep_unitary(tol=1e-9):
+def twostep_unitary(tol=_config.CFG.tolerances.standard):
     r"""The 2-step (``U^2``) of the 0-parameter GUT QCA is a **unitary**
     automaton step (the 2-loop): computed on the **GPU** engine (``U`` is the
     32x32 GUT step, ``U^2 = U U``), so the 2-step is a **0-parameter**
@@ -182,7 +183,7 @@ def seesaw_2step():
     }
 
 
-def verify(tol=1e-12):
+def verify(tol=_config.CFG.tolerances.strict):
     r"""The 0-parameter O2 checks.  Returns a dict ``{"ok": bool, "checks":
     {name: bool}}``.
 

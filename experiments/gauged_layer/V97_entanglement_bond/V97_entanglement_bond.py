@@ -45,17 +45,20 @@ import time
 
 import numpy as np
 
-GPU = os.environ.get("CL10_BACKEND", "numpy") == "cupy"
-if GPU:
-    import cupy as XP
-else:
-    XP = np
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
 
 from cl10 import clifford, supercell as SC  # noqa: E402
+
+from cl10 import engine as E                   # noqa: E402
+
+GPU = E._BACKEND == "cupy"   # the engine decides; cl10/config.yaml decides the engine
+if GPU:
+    import cupy as XP
+else:
+    XP = np
 
 
 def _arrmod(a):
@@ -165,7 +168,7 @@ def part_a(lattice=16, n_steps=10, rmax=6):
 
 def part_b():
     """Same-cell pair: Slater (automaton) vs superposition, 16/16-bar cut."""
-    w = np.asarray(clifford.pseudoscalar(), dtype=complex)
+    w = E.asnumpy(clifford.pseudoscalar()).astype(complex)
     iw = 1j * w
     ev, V = np.linalg.eigh(iw)
     B16 = V[:, np.abs(ev + 1) < 1e-9]     # the 16 Weyl sector

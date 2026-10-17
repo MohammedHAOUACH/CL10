@@ -24,5 +24,5 @@
     "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
     "residual": "the DM carrier (which state of the spectrum carries the scale) and the exact cross-section (the RG running, O9) — the ladder scale (118 GeV) and the V42 contrast are computed, the carrier is not"
   },
-  "wall_time": 0.003
+  "wall_time": 0.004
 }

@@ -125,10 +125,10 @@ def n_particle():
     U = qca_step()
     # the 1-particle unitarity (computed)
     A = E.matmul(U, U.conj().T)
-    r1 = float(np.abs(A - E.eye(32)).max())
+    r1 = E.absmax(A - E.eye(32))
     # the 2-particle unitarity (computed numerically, the 1024x1024)
     A2 = E.kron(A, A)
-    r2 = float(np.abs(A2 - E.eye(1024)).max())
+    r2 = E.absmax(A2 - E.eye(1024))
     # the 3-particle and 4-particle unitarity (by the Kronecker product
     # property: the 1-particle is unitary, so the n-particle is unitary)
     r3 = r1   # the 3-particle (32^3) unitarity (the 0-parameter consequence)

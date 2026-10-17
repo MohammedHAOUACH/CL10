@@ -38,6 +38,7 @@ import math
 import numpy as np
 
 from . import clifford
+from . import config as _config
 from . import engine as E
 from . import coupling
 
@@ -70,7 +71,7 @@ def gut_qca_step(planes, theta):
     return U
 
 
-def unitary_err(U, tol=1e-12):
+def unitary_err(U, tol=_config.CFG.tolerances.strict):
     """The unitarity residual ``||U U^dag - I||_max`` (must be ~0)."""
     Ua = E.asnumpy(U)
     I = np.eye(Ua.shape[0], dtype=complex)

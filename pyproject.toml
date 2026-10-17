@@ -12,12 +12,18 @@ requires-python = ">=3.11"
 license = { text = "CC-BY-4.0" }
 
 # The unique engine dependencies (the "ga" list): GPU-first, CPU-fallback.
+# pyyaml is core: cl10/config.py loads cl10/config.yaml, the single source of
+# the backend policy, the routing thresholds and the physics inputs.
 dependencies = [
     "kingdon",
     "einops",
     "jax[cuda13]",
     "cupy-cuda13x",
     "numpy",
+    "pyyaml",
+    # tqdm: the live progress bar of the runner and the figure generator (and the
+    # progress display inside the cone scans).
+    "tqdm",
 ]
 
 [project.optional-dependencies]
@@ -34,6 +40,9 @@ hydrogen = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "ima
 
 [tool.setuptools.packages.find]
 include = ["cl10*"]
+
+[tool.setuptools.package-data]
+cl10 = ["config.yaml"]
 
 [tool.ruff]
 line-length = 100

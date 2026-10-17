@@ -18,7 +18,13 @@ cd "$(dirname "$0")"
 GPU=$(awk '/^gpu:/{print $2}' simulation/young/config.yaml 2>/dev/null)
 GPU=${GPU:-1}
 FORCE=${FORCE:-0}
-NEED=${NEED:-2048}
+
+# the free-memory gate comes from cl10/config.yaml (the engine's own gate)
+_gate() {
+    .venv/bin/python -c "from cl10 import config; print(config.CFG.backend.gpu_min_free_mib)" \
+        2>/dev/null || echo 2048
+}
+NEED=${NEED:-$(_gate)}        # the same gate the engine uses: backend.gpu_min_free_mib
 
 echo "== GPU ${GPU} (the card make_figures pins) =="
 nvidia-smi --query-gpu=index,memory.used,memory.total,utilization.gpu \
@@ -39,8 +45,10 @@ log="results/figures_run_$(date +%Y%m%d_%H%M%S).log"
 mkdir -p results
 echo
 echo "== python -m make_figures $*   (log: ${log}) =="
-.venv/bin/python -m make_figures "$@" 2>&1 | tee "${log}"
-rc=${PIPESTATUS[0]}
+# stdout (the per-figure log) is tee'd; stderr (the tqdm progress bar) stays on
+# the terminal so the bar redraws in place instead of filling the log.
+.venv/bin/python -m make_figures "$@" > >(tee "${log}")
+rc=$?
 
 echo
 echo "== figures =="

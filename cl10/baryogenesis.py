@@ -33,6 +33,7 @@ the **baryon asymmetry** is the **named residual** (the 0-parameter dynamics
 does not generate it; the structure is there).
 """
 
+from . import config as _config
 from . import engine as E
 from . import clifford
 from . import u10pred
@@ -225,7 +226,7 @@ def leptogenesis_estimate():
     }
 
 
-def verify(tol=1e-9):
+def verify(tol=_config.CFG.tolerances.standard):
     """The honest negative result, reproduced: the automaton satisfies **none**
     of the Sakharov conditions, and the GUT route that could supply them is
     blocked by the equilibrium condition (O5)."""

@@ -16,5 +16,5 @@
     "uv_finite": true,
     "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the O9 open part"
   },
-  "wall_time": 0.037
+  "wall_time": 0.019
 }

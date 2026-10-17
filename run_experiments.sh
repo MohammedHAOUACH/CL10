@@ -1,34 +1,42 @@
 #!/usr/bin/env bash
-# run_gpu.sh - the CL10 validation suite on the GPU (cupy backend).
+# run_experiments.sh - the whole CL10 experiment suite, in one run.
 #
-#   ./run_gpu.sh                    # every experiment under experiments/
-#   ./run_gpu.sh V63_bz_chirality V102_lorentz_isotropy   # a subset (**exact** dir names)
-#   JOBS=6 ./run_gpu.sh             # worker pool (default 8)
-#   FORCE=1 ./run_gpu.sh            # launch even if the card looks busy (the run then takes the CPU core)
+#   ./run_experiments.sh                    # every experiment under experiments/
+#   ./run_experiments.sh V63_bz_chirality V102_lorentz_isotropy   # a subset (**exact** dir names)
+#   JOBS=6 ./run_experiments.sh             # worker pool (default: pool.njobs_cap in cl10/config.yaml)
+#   FORCE=1 ./run_experiments.sh            # launch even if the card looks busy (the run then takes the CPU core)
 #
-# Each experiment is a subprocess; cl10/engine.py probes the card and falls
-# back to numpy if fewer than 2 GiB are free, so a busy card silently runs
-# the CPU path. This script checks the card first and says so out loud.
+# Each experiment is a subprocess.  This script checks the card first, then pins
+# CL10_BACKEND=cupy for the whole run: a forced backend does NOT re-gate per
+# child and does NOT fall back, so a worker that cannot get the card fails
+# loudly (traceback in results/crashes/) instead of silently running the CPU
+# path and reporting a GPU verdict it never earned.  Experiments that are CPU
+# work by measurement (the cone programme, V186/V187) pin the CPU core
+# themselves and are listed OFF-CORE in the summary.
 set -uo pipefail
 cd "$(dirname "$0")"
 
-JOBS=${JOBS:-8}
+# the worker count and the free-memory gate come from cl10/config.yaml
+_njobs() { .venv/bin/python -c "from cl10 import config; print(config.CFG.pool.njobs_cap)" 2>/dev/null || echo 8; }
+_gate()  { .venv/bin/python -c "from cl10 import config; print(config.CFG.backend.gpu_min_free_mib)" 2>/dev/null || echo 2048; }
+JOBS=${JOBS:-$(_njobs)}
 FORCE=${FORCE:-0}
+GATE=$(_gate)
 
 mapfile -t GPUS < <(nvidia-smi --query-gpu=index,memory.used,memory.total,utilization.gpu \
                     --format=csv,noheader,nounits)
 echo "== GPU =="
 printf '%s\n' "${GPUS[@]}"
 free0=$(awk -F', ' 'NR==1{print $3-$2}' <<<"${GPUS[0]}")
-need=$(( 2048 * JOBS ))            # the engine gate: 2 GiB free per worker
+need=$(( GATE * JOBS ))              # the engine gate: this much free per worker
 nexp=$(find experiments -mindepth 3 -maxdepth 3 -name '*.py' | xargs -n1 dirname | sort -u | wc -l)
 echo "experiments: ${nexp}"
 
 if [ "${free0}" -lt "${need}" ] && [ "${FORCE}" != 1 ]; then
-    fit=$(( free0 / 2048 ))
+    fit=$(( free0 / GATE ))
     echo
     echo "ABORT: ${free0} MiB free on GPU0 - cannot host ${JOBS} cupy workers"
-    echo "(the engine gate needs 2048 MiB each; ${need} MiB required). The engine"
+    echo "(the engine gate needs ${GATE} MiB each; ${need} MiB required). The engine"
     echo "would silently fall back to numpy."
     if [ "${fit}" -ge 1 ]; then
         echo "Wait for the card, or lower JOBS (JOBS=${fit} fits now);"
@@ -48,12 +56,15 @@ else
     echo "NOTE: ${free0} MiB free on GPU0 < ${need} MiB needed - running on the CPU core (CL10_BACKEND=numpy)."
 fi
 
-log="results/gpu_run_$(date +%Y%m%d_%H%M%S).log"
+log="results/experiments_run_$(date +%Y%m%d_%H%M%S).log"
 mkdir -p results
 echo
 echo "== run_validation.py --jobs ${JOBS}   (log: ${log}) =="
-.venv/bin/python run_validation.py --jobs "${JOBS}" "$@" 2>&1 | tee "${log}"
-rc=${PIPESTATUS[0]}
+# stdout (the per-experiment verdict lines) is tee'd into the log; stderr (the
+# tqdm progress bar) stays on the terminal, so the bar redraws in place instead
+# of filling the log with its frames.  --no-bar on the command line opts out.
+.venv/bin/python run_validation.py --jobs "${JOBS}" "$@" > >(tee "${log}")
+rc=$?
 
 echo
 echo "== summary (results/validation_summary.json) =="

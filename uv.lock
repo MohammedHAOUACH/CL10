@@ -208,6 +208,7 @@ dependencies = [
     { name = "kingdon" },
     { name = "numpy", version = "2.4.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
     { name = "numpy", version = "2.5.3", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.12'" },
+    { name = "pyyaml" },
 ]
 
 [package.optional-dependencies]
@@ -252,6 +253,7 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'" },
     { name = "pyvista", marker = "extra == 'hydrogen'" },
     { name = "pyvista", marker = "extra == 'young'" },
+    { name = "pyyaml" },
     { name = "pyyaml", marker = "extra == 'hydrogen'" },
     { name = "pyyaml", marker = "extra == 'young'" },
     { name = "ruff", marker = "extra == 'dev'" },

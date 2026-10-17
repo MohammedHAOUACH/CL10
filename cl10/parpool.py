@@ -6,8 +6,9 @@ a single device is the wrong unit of parallelism: cupy has no batched
 eigvals, so the 'batched' path is a serial loop of GPU round-trips that
 measured ~50 ms per call on this host, versus ~8 ms for a numpy call.
 The engine's own answer for a saturated card is the numpy fallback; the
-answer for a busy-but-useful CPU is a process pool (fork), OpenBLAS
-inside each worker.
+answer for a busy-but-useful CPU is a process pool - fork on the CPU core,
+spawn when a GPU backend is live (CUDA survives neither fork nor the
+forkserver bootstrap), with the worker count from `pool:` in `cl10/config.yaml`.
 
 Usage:
 
@@ -16,17 +17,18 @@ Usage:
                             progress=lambda d, n: print(...))
 
 `fn` must be a MODULE-LEVEL function (it is pickled to the workers).
-CL10_NJOBS overrides the worker count (default: min(8, cpus//2)).
+The worker count comes from `pool:` in `cl10/config.yaml` (`njobs`, capped by
+`njobs_cap`); `CL10_NJOBS` overrides it.
 """
 import multiprocessing as mp
-import os
+
+from . import config as _config
+from . import engine as _engine
 
 
 def njobs_default():
-    n = int(os.environ.get("CL10_NJOBS", "0"))
-    if n > 0:
-        return n
-    return max(1, min(8, (os.cpu_count() or 1) // 2))
+    """The worker count: `pool.njobs_effective` from `cl10/config.yaml`."""
+    return int(_config.CFG.pool.njobs_effective)
 
 
 # The worker function, held in a module global: a closure defined inside
@@ -68,12 +70,19 @@ def pmap(fn, items, njobs=None, chunk=None, progress=None):
                 progress(i + 1, n)
         return out
 
-    # Python 3.14+ defaults to forkserver (globals not inherited by the
-    # worker); force fork so the parent's modules are visible, and pass fn
-    # through the initializer as belt-and-braces.
+    # CUDA does not survive a fork: a worker that touches the device after one
+    # dies with cudaErrorInitializationError (measured twice on the V186/V187
+    # bond tuning, whose Step builds a raw-backend copy). forkserver does NOT
+    # help - its bootstrap is itself a fork of the parent, so the worker still
+    # inherits the dead context (measured). On a GPU backend the pool therefore
+    # uses spawn: the worker is a fresh interpreter that initializes its own
+    # CUDA context, at the cost of re-importing the experiment module once per
+    # worker (seconds, against the hours of these scans). On the CPU core fork
+    # stays cheaper: the workers inherit the parent's modules.
+    ctx_name = "spawn" if _engine._BACKEND in ("cupy", "jax") else "fork"
     try:
-        ctx = mp.get_context("fork")
-    except ValueError:  # pragma: no cover - platforms without fork
+        ctx = mp.get_context(ctx_name)
+    except ValueError:  # pragma: no cover - platforms without that start method
         ctx = mp
     pool = ctx.Pool(njobs, initializer=_init, initargs=(fn,))
     try:
