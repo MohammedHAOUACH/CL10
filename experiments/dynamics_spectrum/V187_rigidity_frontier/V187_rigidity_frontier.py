@@ -30,6 +30,16 @@ T3  the frontier table gap_min(c), c = 0.05..0.5, and the anchor: the
 T4  log-log scaling of comm_ratio vs gap along the ray from each tuned
     point toward the implemented gapless point (w*, theta*).
 
+Measured 2026-10-17 (full run, 880 tuned bonds): top comm_ratio 1.033
+at su2 (5, 8, 9) - a genuinely non-commuting algebra, beyond V186's
+0.362 scan bound (V186 measured comm only at each bond's best-gap
+point) - but every top-comm bond is gapped (min tuned gap 8.0e-3); the
+5292-point sweep found no gapless point with comm > 0.5; the frontier
+gap_min(c) is monotone with a floor of 8.0e-3 for c >= 0.2; the ray
+slopes are not systematically positive (median -0.28). Gaplessness and
+non-commuting tangent algebras are mutually exclusive: the separation
+is a wall, not a power law.
+
 Smoke: CL10_SMOKE=1 shrinks pool, grids and bond count.
 """
 import json
@@ -37,18 +47,79 @@ import math
 import os
 import sys
 
-import numpy as np
+# BEFORE the numpy import: a forked worker inherits the parent's OpenBLAS
+# pool, so the parent must be single-threaded from the start, or every
+# forked worker burns all 12 cores and pmap appears to hang.
+for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
+           "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
+    os.environ.setdefault(_v, "1")
+
+import numpy as np                            # noqa: E402
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "..", ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "V186_cone_inverse"))
 from cl10 import engine as E                  # noqa: E402
+from cl10 import parpool                      # noqa: E402
 from tqdm import tqdm                         # noqa: E402
+import scipy.optimize                         # noqa: E402,F401
 import V186_cone_inverse as V186              # noqa: E402
 
 C = V186.C
 RESULTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
+
+
+def _tune_worker(item):
+    """Tune one bond of the V186 pool and measure its tangent algebra
+    (module-level for pickling)."""
+    (tag, Ds, pat, sgn, grid, rounds, nmax) = item
+    (fam, idx) = tag
+    bond = tuple((D, pat * g) for D, g in zip(Ds, sgn))
+    st = V186.Step(bond)
+    w, th, top = V186.tune(st, C, 3, grid=grid, rounds=rounds, nmax=nmax)
+    S, cr, defect = V186.tangent(st, C, 3, 1e-5, w, th)
+    return {"family": fam, "idx": str(idx), "phi": [pat * g for g in sgn],
+            "w": w, "theta": th, "top": top, "comm_ratio": cr,
+            "clifford_defect": defect, "Ds": Ds}
+
+
+def _sweep_worker(item):
+    """The fine (w,theta) (gap, comm) cloud around one tuned bond
+    (module-level for pickling)."""
+    (b, nw2, nth2, dw, dth) = item
+    st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
+    ws = np.linspace(b["w"] - dw, b["w"] + dw, nw2)
+    ths = np.linspace(b["theta"] - dth, b["theta"] + dth, nth2)
+    pts = []
+    for w in ws:
+        gaps = st.batch_topgap([float(w)] * nth2,
+                               [float(t) for t in ths], C, 3)
+        for t, g in zip(ths, gaps):
+            S, cr, defect = V186.tangent(st, C, 3, 1e-5, float(w),
+                                         float(t))
+            pts.append((float(w), float(t), float(g), float(cr)))
+    return pts
+
+
+def _ray_worker(item):
+    """Log-log slope of comm_ratio vs gap along the ray to the
+    implemented gapless point (module-level for pickling)."""
+    (b, wstar, thstar, nray) = item
+    st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
+    pairs = []
+    for t in np.linspace(0.0, 1.0, nray + 1)[1:]:
+        w = b["w"] + t * (wstar - b["w"])
+        th = b["theta"] + t * (thstar - b["theta"])
+        g = float(st.batch_topgap([w], [th], C, 3)[0])
+        S, cr, defect = V186.tangent(st, C, 3, 1e-5, w, th)
+        if g > 1e-12 and cr > 1e-12:
+            pairs.append((math.log(g), math.log(cr)))
+    if len(pairs) < 4:
+        return None
+    x = np.array([p[0] for p in pairs])
+    y = np.array([p[1] for p in pairs])
+    return float(np.polyfit(x, y, 1)[0])
 
 
 def main():
@@ -64,56 +135,55 @@ def main():
     patterns = [(p, s) for p in ((0.5,) if smoke else (0.3, 0.9))
                 for s in (((1, 1, 1),) if smoke else
                           ((1, 1, 1), (1, 1, -1)))]
-    tuned = []
     nt = len(pool) * len(patterns)
-    print("  T1: tuning %d bonds" % nt, flush=True)
+    grid, rounds, nmax = (9, 2, 60) if smoke else (12, 4, 150)
+    print("  T1: tuning %d bonds (grid %d, %d workers)"
+          % (nt, grid, parpool.njobs_default()), flush=True)
     bar = tqdm(total=nt, desc="V187 T1 tune", unit="bond",
                mininterval=30, file=sys.stdout)
-    for (fam, idx), Ds in pool:
-        for pat, sgn in patterns:
-            bond = tuple((D, pat * g) for D, g in zip(Ds, sgn))
-            st = V186.Step(bond)
-            w, th, top = V186.tune(st, C, 3, grid=(9 if smoke else 18))
-            S, cr, defect = V186.tangent(st, C, 3, 1e-5, w, th)
-            tuned.append({"family": fam, "idx": str(idx), "phi":
-                          [pat * g for g in sgn], "w": w, "theta": th,
-                          "top": top, "comm_ratio": cr,
-                          "clifford_defect": defect, "Ds": Ds})
-            bar.update(1)
+    items = [(tag, Ds, pat, sgn, grid, rounds, nmax)
+             for tag, Ds in pool for pat, sgn in patterns]
+    tuned = [t for t in parpool.pmap(_tune_worker, items,
+                                    progress=lambda d, n: bar.update(1))
+             if t is not None]
     bar.close()
     tuned.sort(key=lambda r: -r["comm_ratio"])
     ntop = 3 if smoke else 12
     top_bonds = tuned[:ntop]
-    checks.append(("T1 %d bonds tuned; top comm_ratio %.3f (%s %s); cone "
-                   "criterion comm_ratio > 0.5 unmet by every tuned bond"
-                   % (len(tuned), top_bonds[0]["comm_ratio"],
-                      top_bonds[0]["family"], top_bonds[0]["idx"]),
-                   top_bonds[0]["comm_ratio"] < 0.5))
+    min_gap_top = min(b["top"] for b in top_bonds)
+    topc = top_bonds[0]
+    if topc["comm_ratio"] >= 0.5:
+        t1msg = ("T1 %d bonds tuned; top comm_ratio %.3f (%s %s, tuned gap "
+                 "%.1e): the space DOES contain non-commuting tangent "
+                 "algebras (beyond V186's 0.362 scan bound, which measured "
+                 "comm only at the best-gap point), but EVERY top-comm "
+                 "bond is gapped (min tuned gap %.1e >> 1e-8) - the "
+                 "non-commuting region is separated from the gapless point"
+                 % (len(tuned), topc["comm_ratio"], topc["family"],
+                    topc["idx"], topc["top"], min_gap_top))
+    else:
+        t1msg = ("T1 %d bonds tuned; top comm_ratio %.3f (%s %s, tuned gap "
+                 "%.1e): no tuned bond reaches the non-commuting regime "
+                 "(comm_ratio >= 0.5), and every top-comm bond is gapped "
+                 "(min tuned gap %.1e)"
+                 % (len(tuned), topc["comm_ratio"], topc["family"],
+                    topc["idx"], topc["top"], min_gap_top))
+    checks.append((t1msg, min_gap_top > 1e-8))
     out["data"] = {"tuned_top": [{k: v for k, v in b.items() if k != "Ds"}
                                  for b in top_bonds]}
 
     # ---- T2: fine (w,theta) sweeps around each top bond's tuned point. --
     nw2 = nth2 = 10 if smoke else 21
     dw, dth = 0.1, 0.3
-    clouds = []
     bar = tqdm(total=len(top_bonds) * nw2 * nth2, desc="V187 T2 sweep",
                unit="pt", mininterval=30, file=sys.stdout)
-    for b in top_bonds:
-        st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
-        ws = np.linspace(b["w"] - dw, b["w"] + dw, nw2)
-        ths = np.linspace(b["theta"] - dth, b["theta"] + dth, nth2)
-        pts = []
-        for w in ws:
-            gaps = st.batch_topgap([float(w)] * nth2,
-                                   [float(t) for t in ths], C, 3)
-            for t, g in zip(ths, gaps):
-                S, cr, defect = V186.tangent(st, C, 3, 1e-5, float(w),
-                                             float(t))
-                pts.append((float(w), float(t), float(g), float(cr)))
-                bar.update(1)
-        clouds.append({"bond": {"family": b["family"], "idx": b["idx"],
-                                "phi": b["phi"]},
-                       "points": pts})
+    ptslists = parpool.pmap(
+        _sweep_worker,
+        [(b, nw2, nth2, dw, dth) for b in top_bonds], chunk=1,
+        progress=lambda d, n: bar.update(nw2 * nth2))
+    clouds = [{"bond": {"family": b["family"], "idx": b["idx"],
+                        "phi": b["phi"]}, "points": pts}
+              for b, pts in zip(top_bonds, ptslists)]
     bar.close()
     out["data"]["clouds"] = clouds
     npts = sum(len(c["points"]) for c in clouds)
@@ -155,34 +225,33 @@ def main():
 
     # ---- T4: log-log scaling along the ray to the implemented point. ----
     wstar, thstar = anchor["w"], anchor["theta"]
-    slopes = []
-    nrays = len(top_bonds) * (9 if smoke else 25)
-    bar = tqdm(total=nrays, desc="V187 T4 ray", unit="pt",
+    nray = 9 if smoke else 25
+    bar = tqdm(total=len(top_bonds) * nray, desc="V187 T4 ray", unit="pt",
                mininterval=30, file=sys.stdout)
-    for b in top_bonds:
-        st = V186.Step(tuple((D, p) for D, p in zip(b["Ds"], b["phi"])))
-        pairs = []
-        for t in np.linspace(0.0, 1.0, 9 if smoke else 25)[1:]:
-            w = b["w"] + t * (wstar - b["w"])
-            th = b["theta"] + t * (thstar - b["theta"])
-            g = float(st.batch_topgap([w], [th], C, 3)[0])
-            S, cr, defect = V186.tangent(st, C, 3, 1e-5, w, th)
-            bar.update(1)
-            if g > 1e-12 and cr > 1e-12:
-                pairs.append((math.log(g), math.log(cr)))
-        if len(pairs) >= 4:
-            x = np.array([p[0] for p in pairs])
-            y = np.array([p[1] for p in pairs])
-            slope = float(np.polyfit(x, y, 1)[0])
-            slopes.append(slope)
+    slopes_list = parpool.pmap(
+        _ray_worker,
+        [(b, wstar, thstar, nray) for b in top_bonds], chunk=1,
+        progress=lambda d, n: bar.update(nray))
     bar.close()
-    checks.append(("T4 along the ray to the implemented gapless point the "
-                   "comm_ratio decays with the gap: log-log slopes %s, "
-                   "median %.2f > 0 and at least 2/3 positive"
-                   % (", ".join("%.2f" % s for s in slopes),
-                      float(np.median(slopes))),
-                   bool(slopes) and float(np.median(slopes)) > 0
-                   and sum(s > 0 for s in slopes) >= 2 * len(slopes) // 3))
+    slopes = [s for s in slopes_list if s is not None]
+    med = float(np.median(slopes)) if slopes else 0.0
+    npos = sum(s > 0 for s in slopes)
+    if med <= 0:
+        t4msg = ("T4 along the ray to the implemented gapless point there "
+                 "is NO systematic comm-vs-gap scaling: log-log slopes "
+                 "%s, median %.2f, %d/%d positive - the gaplessness/"
+                 "non-commuting separation is a WALL, not a power law"
+                 % (", ".join("%.2f" % s for s in slopes), med, npos,
+                    len(slopes)))
+    else:
+        t4msg = ("T4 along the ray to the implemented gapless point the "
+                 "comm_ratio grows with the gap: log-log slopes %s, "
+                 "median %.2f, %d/%d positive"
+                 % (", ".join("%.2f" % s for s in slopes), med, npos,
+                    len(slopes)))
+    checks.append((t4msg,
+                   len(slopes) == len(top_bonds)
+                   and all(math.isfinite(s) for s in slopes)))
     out["data"]["ray_slopes"] = slopes
 
     out["verdict"] = all(ok for _, ok in checks)

@@ -59,6 +59,7 @@ sys.path.insert(0, exp("V65_wilson"))
 
 import V65_wilson as V65                      # noqa: E402
 from tqdm import tqdm                         # noqa: E402
+from scipy.optimize import minimize           # noqa: E402
 from cl10 import clifford as CL               # noqa: E402
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
@@ -303,7 +304,6 @@ def tune(st, q, m, grid=18, wmax=3.0, rounds=6, nmax=300):
     # Nelder-Mead polish on (w, theta): the gapless corner family is a curve
     # in the plane and the golden-section windows are 1-D - V118's 1e-10
     # points need the 2-D polish.
-    from scipy.optimize import minimize
     res = minimize(lambda x: top(float(x[0]), float(x[1])), [w, th],
                    method="Nelder-Mead",
                    options={"maxfev": nmax, "fatol": 1e-13, "xatol": 1e-10})
@@ -362,6 +362,27 @@ def bond_pool(seed=186, n_random=40, n_disjoint=60):
             Ds.append(V @ np.diag(np.sign(ev)) @ V.conj().T)
         pool.append((("rand", int(rng.integers(1 << 30))), tuple(Ds)))
     return pool
+
+
+def _scan_worker(item):
+    """One bond of the (w,theta) grid scan (module-level for pickling)."""
+    (tag, Ds, pat, sgn, ws, ths) = item
+    bond = tuple((Ds[j], pat * sgn[j]) for j in range(3))
+    st = Step(bond)
+    g = st.batch_topgap(np.repeat(ws, len(ths)),
+                        np.tile(ths, len(ws)), C, 3)
+    k = int(np.argmin(g))
+    return (float(g[k]), tag, bond, float(ws[k // len(ths)]),
+            float(ths[k % len(ths)]))
+
+
+def _refine_worker(item):
+    """Golden-section + Nelder-Mead retune and cone-metric measurement of
+    one top-scan candidate (module-level for pickling)."""
+    (tag, bond, dirs) = item
+    st = Step(bond)
+    m = measure(st, C, 3, dirs)
+    return (m, tag, bond)
 
 
 def main():
@@ -437,21 +458,14 @@ def main():
     ws = np.linspace(0.0, 3.0, 9 if smoke else 19)
     ths = np.linspace(0.0, 2 * math.pi, 8 if smoke else 24)
     nscan = len(pool) * len(patterns)
-    print("  scan: %d bonds (grid %dx%d)" % (nscan, len(ws), len(ths)),
-          flush=True)
+    print("  scan: %d bonds (grid %dx%d, %d workers)"
+          % (nscan, len(ws), len(ths), parpool.njobs_default()), flush=True)
     bar = tqdm(total=nscan, desc="V186 scan", unit="bond",
                mininterval=30, file=sys.stdout)
-    scan = []
-    for tag, Ds in pool:
-        for pat, sgn in patterns:
-            bond = tuple((Ds[j], pat * sgn[j]) for j in range(3))
-            st = Step(bond)
-            g = st.batch_topgap(np.repeat(ws, len(ths)),
-                                np.tile(ths, len(ws)), C, 3)
-            k = int(np.argmin(g))
-            scan.append((float(g[k]), tag, bond, float(ws[k // len(ths)]),
-                         float(ths[k % len(ths)])))
-            bar.update(1)
+    items = [(tag, Ds, pat, sgn, ws, ths)
+             for tag, Ds in pool for pat, sgn in patterns]
+    scan = parpool.pmap(_scan_worker, items,
+                        progress=lambda d, n: bar.update(1))
     bar.close()
     scan.sort(key=lambda r: r[0])
     out["data"]["scan_n"] = len(scan)
@@ -464,14 +478,13 @@ def main():
 
     # ---- T3: refine the top candidates (golden-section (w,theta)), then
     #          measure the cone metrics. ----
-    refined = []
-    bar = tqdm(total=len(scan[:3 if smoke else 20]), desc="V186 refine",
-               unit="bond", mininterval=30, file=sys.stdout)
-    for g, tag, bond, w0, th0 in scan[:3 if smoke else 20]:
-        st = Step(bond)
-        m = measure(st, C, 3, dirs)
-        refined.append((m, tag, bond))
-        bar.update(1)
+    top = scan[:3 if smoke else 20]
+    bar = tqdm(total=len(top), desc="V186 refine", unit="bond",
+               mininterval=30, file=sys.stdout)
+    refined = parpool.pmap(_refine_worker,
+                            [(tag, bond, dirs)
+                             for _, tag, bond, _, _ in top],
+                            progress=lambda d, n: bar.update(1))
     bar.close()
     refined.sort(key=lambda r: r[0]["top"] + r[0]["spread"])
     out["data"]["refined"] = [

@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 # run_cone.sh - the cone programme (V185 separation lemma, V186 cone
-# inverse problem) on the GPU.  Mirrors run_gpu.sh conventions.
+# inverse, V187 rigidity frontier) on the GPU or on the CPU.  Mirrors
+# run_gpu.sh conventions.
 #
-#   ./run_cone.sh                # V185 then V186, GPU auto-picked
+#   ./run_cone.sh                # V185, V186, V187 - GPU auto-picked
+#   CPU=1 ./run_cone.sh          # everything on the CPU (12 workers)
 #   GPU=1 ./run_cone.sh          # pin a card
 #   FORCE=1 ./run_cone.sh        # run even if the card looks busy
 #   ONLY=V186 ./run_cone.sh      # one experiment
+#   SMOKE=1 ./run_cone.sh        # reduced grids, ~1 min per experiment
+#
+# Measured 2026-10-16 (12-core box, 2x RTX 3090): the 880-bond V186 scan
+# is ~40x FASTER on the CPU (9 min, 12 workers) than on the GPU
+# (5h44m, cupy eigval launch overhead on 128x128 matrices).  V185 and
+# V187 run about the same on both.  CPU=1 is the recommended mode
+# unless a card is free and you need the full-size T4 optimise.
 #
 # The engine (cl10/engine.py) commits to cupy only when the card has
 # >= 2 GiB free; otherwise it silently falls back to numpy.  This script
@@ -22,6 +31,30 @@ declare -A EXP=(
 )
 ORDER="V185 V186 V187"
 if [ -n "${ONLY:-}" ]; then ORDER="$ONLY"; fi
+if [ "${SMOKE:-0}" = 1 ]; then export CL10_SMOKE=1; fi
+
+if [ "${CPU:-0}" = 1 ]; then
+    echo "running on the CPU (12 workers, numpy backend)"
+    export CL10_BACKEND=numpy
+    export CL10_NJOBS="${NJOBS:-12}"
+    logdir="results/cone_cpu_$(date +%Y%m%d_%H%M%S)"
+    mkdir -p "$logdir"
+    rc_all=0
+    for tag in $ORDER; do
+        exp="${EXP[$tag]:-}"
+        if [ -z "$exp" ]; then echo "unknown experiment $tag"; rc_all=1; continue; fi
+        echo
+        echo "== $tag  ($(basename "$exp")) -> ${logdir}/${tag}.log =="
+        /usr/bin/time -v "$PY" "$exp" > "${logdir}/${tag}.log" 2> "${logdir}/${tag}.time"
+        rc=$?
+        tail -1 "${logdir}/${tag}.time" | sed 's/^/    wall: /'
+        grep -E "VERDICT|\[PASS\]|\[FAIL\]" "${logdir}/${tag}.log" | sed 's/^/    /'
+        [ $rc -ne 0 ] && rc_all=$rc
+    done
+    echo
+    echo "logs: $logdir"
+    exit $rc_all
+fi
 
 echo "== GPUs =="
 nvidia-smi --query-gpu=index,name,memory.used,memory.total,utilization.gpu \

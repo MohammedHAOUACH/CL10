@@ -29,13 +29,35 @@ def njobs_default():
     return max(1, min(8, (os.cpu_count() or 1) // 2))
 
 
+# The worker function, held in a module global: a closure defined inside
+# pmap() cannot be pickled, but with fork (Linux default) every child
+# inherits the parent's globals, and the wrapper below is a module-level
+# (picklable-by-reference) function.
+_FN = None
+
+
+def _init(fn):
+    """Pool initializer: install the worker function (also covers
+    forkserver/spawn, where the parent's globals are NOT inherited)."""
+    global _FN
+    _FN = fn
+
+
+def _wrap(t):
+    i, it = t
+    return i, _FN(it)
+
+
 def pmap(fn, items, njobs=None, chunk=None, progress=None):
     """Map `fn` over `items` with a process pool, results in input order.
 
-    Runs sequentially for njobs == 1 or tiny item lists (smoke tests).
-    `progress(done, n)` fires after each completed item (throttled by the
-    pool's chunking - pass chunk=1 to report per item).
+    `fn` must be a module-level function.  Runs sequentially for njobs == 1
+    or tiny item lists (smoke tests).  `progress(done, n)` fires after each
+    completed item (throttled by the pool's chunking - pass chunk=1 to
+    report per item).
     """
+    global _FN
+    _FN = fn
     njobs = njobs or njobs_default()
     n = len(items)
     if njobs <= 1 or n <= 2:
@@ -46,16 +68,19 @@ def pmap(fn, items, njobs=None, chunk=None, progress=None):
                 progress(i + 1, n)
         return out
 
-    def wrap(t):
-        i, it = t
-        return i, fn(it)
-
-    pool = mp.Pool(njobs)
+    # Python 3.14+ defaults to forkserver (globals not inherited by the
+    # worker); force fork so the parent's modules are visible, and pass fn
+    # through the initializer as belt-and-braces.
+    try:
+        ctx = mp.get_context("fork")
+    except ValueError:  # pragma: no cover - platforms without fork
+        ctx = mp
+    pool = ctx.Pool(njobs, initializer=_init, initargs=(fn,))
     try:
         chunk = chunk or max(1, n // (4 * njobs))
         out = [None] * n
         done = 0
-        for i, r in pool.imap_unordered(wrap, list(enumerate(items)),
+        for i, r in pool.imap_unordered(_wrap, list(enumerate(items)),
                                         chunksize=chunk):
             out[i] = r
             done += 1
