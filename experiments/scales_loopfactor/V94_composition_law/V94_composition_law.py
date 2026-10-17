@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V94 - the COMPOSITION LAW of the ladder factors: chain versus legs.
-W8's named residual ("how do the 17 factors compose"), decided.
+O8's named residual ("how do the 17 factors compose"), decided.
 
-**Why (W8).**  V89 measured the closed-loop crossing n_star = 10 and
+**Why (O8).**  V89 measured the closed-loop crossing n_star = 10 and
 found that the single-chain law F_n = A r^n misses (1/16 pi)^17 by a
 factor 929 at n = 170. But (MG)^170 is ONE chain of 170 hops on ONE
 particle line. The 17 factors of the neutrino ladder are 17 radiative
@@ -28,7 +28,7 @@ discriminator: the neutrino scale.
    M_P * (F_10)^17 (legs) against the neutrino ladder scale.
 **Verdict (computed).**  Whether independent-leg composition is exact
 (the ladder's 17 factors multiply, the x929 was a chain-vs-legs
-category error, and W8-composition closes as a theorem with the named
+category error, and O8-composition closes as a theorem with the named
 requirement that the insertions dress different lines) or not.
 """
 
@@ -177,7 +177,7 @@ def main():
         f"orders above the neutrino scale; M_P (F_10)^17 (legs) = "
         f"{phys['M_P_times_F10pow17_legs_eV']:.3f} eV, within a factor "
         f"{phys['legs_to_ladder_ratio']} of the 0.146 eV ladder. "
-        f"W8-composition: the 17 factors MULTIPLY, each selected at "
+        f"O8-composition: the 17 factors MULTIPLY, each selected at "
         f"the length-10 crossing; the named requirement is that the "
         f"17 insertions dress DIFFERENT lines (the standard reading of "
         f"the ladder operator) - the composition law itself is now a "

@@ -3,9 +3,10 @@
 """
 CL10 — the QCA spectrum: the **one** 0-parameter object and its invariants.
 
-The **single** 0-parameter object of the theory is the **GUT QCA step**
-``U`` — the 32x32 product of the 45 ``Spin(10)`` plane rotations at the
-0-parameter angle ``g_10 = 1/5`` (the **only** input is ``g_10``).  The
+The **single** object of the theory is the **GUT QCA step** ``U`` — the 32x32
+product of the 45 ``Spin(10)`` plane rotations at the angle of
+``cl10.coupling`` (the implemented branch ``g_10 = 1/5``; the angle itself is a
+convention, the paper's O4).  The
 **spectrum** of ``U`` — the **32 levels** of
 
     H = -i log(U),   levels in (-pi, pi]
@@ -45,7 +46,7 @@ from . import engine as E
 from . import sm_qca
 from . import coupling
 
-# the 0-parameter GUT coupling (the only input of the object): g_10 = 1/5
+# the angle of the object (the only input): the branch of cl10.coupling
 G10 = coupling.G10
 
 

@@ -3,7 +3,7 @@
 r"""V84 - the EQUAL-SHIFT theorem: why no automaton content can supply
 the desert spectrum, and exactly what kind of content the data demand.
 
-**Why (W4, the structural closure).**  V74 excluded the node mechanism,
+**Why (O4, the structural closure).**  V74 excluded the node mechanism,
 V81+V82 excluded the composite content of the gauged bond layer under
 every natural mass ansatz, and found the numerical identity
 sum db_1 = sum db_2 = 144.056 over 16 (x) 45. This experiment finds the
@@ -31,7 +31,7 @@ same charge operators: the V64 repair's 10 + 10bar pairs shift equally
 (mismatch contribution 0); its WHOLE mismatch is carried by the (1,2)
 pair (db1/db2 = 3/5), which is not an SU(5) multiplet.
 
-**Verdict.**  W4 acquires a structural form: every complete-multiplet
+**Verdict.**  O4 acquires a structural form: every complete-multiplet
 content at common thresholds - in particular every fermionic content
 the automaton supplies (full 16's x any breaking-sector flux) - shifts
 U(1) and SU(2) equally; split thresholds fail under every natural
@@ -223,7 +223,7 @@ def main():
         "content MUST contain SU(5)-fragment Weyl states (or split "
         "thresholds inside multiplets, excluded for every natural "
         "ansatz by V82). The automaton supplies only complete Spin(10) "
-        "multiplets: W4 is now a structural no-go - the desert spectrum "
+        "multiplets: O4 is now a structural no-go - the desert spectrum "
         "is provably not automaton content, and a fragment-producing "
         "mechanism is the named open problem.")
 

@@ -196,8 +196,8 @@ def main():
                 UJ[A, x, y] = Is[x].conj().T @ JI
     # V2[t,u,alpha,alpha'] = sum_{j,beta} conj(T_t) T_u on slot alpha
     V2 = np.einsum("tjab,ujcb->tuac", Ts.conj(), Ts)
-    # W2[t,u,beta,beta'] = sum_{j,alpha} conj(T_t) T_u on slot beta
-    W2 = np.einsum("tjab,ujac->tubc", Ts.conj(), Ts)
+    # O2[t,u,beta,beta'] = sum_{j,alpha} conj(T_t) T_u on slot beta
+    O2 = np.einsum("tjab,ujac->tubc", Ts.conj(), Ts)
 
     H = np.zeros((ns, ns), dtype=np.complex128)
     for s, (a, t, b) in enumerate(states):
@@ -210,7 +210,7 @@ def main():
             if a == a2:
                 for A in range(45):
                     h += np.einsum("xz,xy,yz->", UJ[A, b, b2],
-                                   Ls_np[A], W2[t, t2])
+                                   Ls_np[A], O2[t, t2])
             H[s, s2] = h
     H = (H + H.conj().T) / 2
     herm = float(np.max(np.abs(H - H.conj().T)))

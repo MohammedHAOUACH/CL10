@@ -23,7 +23,7 @@ number. The same classes are used here:
 | **conditional** | holds only under a stated choice | $3F_{10}^{10}$ under the one-node-per-family set |
 | **open** | one of the nine open problems O1–O9 | the family count, the DM carrier, the couplings meeting |
 
-The old wall labels W1–W8 map one-to-one onto O1–O8 (Section 16); `cl10.walls`
+The old wall labels W1–W9 map one-to-one onto O1–O9 (Section 16); `cl10.walls`
 records the mapping.
 
 ## 1. `cl10.engine` — the single computation core
@@ -440,9 +440,9 @@ W2→O2, W3→O3.
 | symbol | signature | returns |
 |---|---|---|
 | `F10` | `()` | $(1/16\pi)^{10}$ |
-| `relic_abundance` | `(m_GeV)` | the V42-convention relic abundance for a mass `m` (the couplings are inputs) |
-| `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — a scale, not a carrier (**O7**) |
-| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `relic_abundance` | `(m_GeV)` | the V42-convention contrast $\Omega_{\rm obs}(100\,\mathrm{GeV}/m)^3$ — normalised to the observed value at the reference scale **by construction**, so it is a contrast device, not an abundance prediction |
+| `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, carrier_status, relic_convention, one_line}` — a scale, not a carrier (**O7**) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` is the ladder arithmetic, the WIMP-window placement, the relic-convention identity and the cross-module agreement with `cosmology3`; it does not test the carrier |
 | `main` | `()` | runs the self-check |
 
 ## 35. `cl10.hier_exponent` — the exponent of the hierarchy

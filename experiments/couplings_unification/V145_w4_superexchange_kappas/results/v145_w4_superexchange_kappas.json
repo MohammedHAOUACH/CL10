@@ -96,7 +96,7 @@
   "meeting": [
    {
     "n": 3,
-    "residual": 0.5769302090468387,
+    "residual": 0.5769302090468361,
     "z0": 22.7023,
     "A": 7.1054,
     "kappa_s": [
@@ -130,7 +130,7 @@
    },
    {
     "n": 5,
-    "residual": 1.4739354585551034,
+    "residual": 1.4739354585550986,
     "z0": 28.1519,
     "A": 2.9421,
     "kappa_s": [
@@ -181,7 +181,7 @@
    },
    {
     "n": 8,
-    "residual": 2.8194433328174973,
+    "residual": 2.819443332817497,
     "z0": 31.2172,
     "A": 0.6002,
     "kappa_s": [
@@ -215,7 +215,7 @@
    },
    {
     "n": 10,
-    "residual": 3.7164485823257487,
+    "residual": 3.716448582325769,
     "z0": 32.239,
     "A": -0.1804,
     "kappa_s": [
@@ -232,7 +232,7 @@
    },
    {
     "n": 11,
-    "residual": 4.164951207079921,
+    "residual": 4.1649512070799,
     "z0": 32.6106,
     "A": -0.4643,
     "kappa_s": [
@@ -267,7 +267,7 @@
   ],
   "best": {
    "n": 3,
-   "residual": 0.5769302090468387,
+   "residual": 0.5769302090468361,
    "z0": 22.7023,
    "A": 7.1054,
    "kappa_s": [
@@ -446,6 +446,6 @@
  ],
  "verdict": "PASS",
  "pass": true,
- "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE W4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
- "wall_s": 6.902963399887085
+ "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE O4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
+ "wall_s": 25.802366018295288
 }

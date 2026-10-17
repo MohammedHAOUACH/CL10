@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V145 - the second-order bond-current (superexchange) class shift: the
-candidate DERIVED source of the six kappa_s of V96 (W4).
+candidate DERIVED source of the six kappa_s of V96 (O4).
 
-**Where W4 stands.**  V96 closes the desert meeting exactly once the bond
+**Where O4 stands.**  V96 closes the desert meeting exactly once the bond
 layer carries a junction strength per fragment class, kappa_s; V105 (Cartan
 elements), V110 (general Hermitian bond operator, floor 30.4), V122 (46 class
 invariants) and V137 (broken flux K_s = 45 - C_s, residual 0.605) all failed
@@ -388,7 +388,7 @@ def main():
     out["verdict"] = "PASS" if ok else "FAIL"
     out["pass"] = ok
     if closed:
-        status = ("THE SUPEREXCHANGE PATTERN CLOSES W4: the second-order "
+        status = ("THE SUPEREXCHANGE PATTERN CLOSES O4: the second-order "
                   "bond-current class shift kappa~_s = %s, with the exact "
                   "channel denominators of 45 x 16 = 16 + 144 + 560 "
                   "(E = -32, -12, +4), fed as kappa_s = A kappa~_s with ONE "
@@ -398,7 +398,7 @@ def main():
                   "of the gauged bond layer."
                   % ([round(v, 4) for v in kapc], best["A"], len(closed)))
     else:
-        status = ("THE SUPEREXCHANGE PATTERN DOES NOT CLOSE W4: the exact "
+        status = ("THE SUPEREXCHANGE PATTERN DOES NOT CLOSE O4: the exact "
                   "second-order bond-current class shift kappa~_s = %s "
                   "(channels 16+144+560 of 45 x 16, denominators 20 and 36, "
                   "screened channel removed) fed as kappa_s = A kappa~_s "

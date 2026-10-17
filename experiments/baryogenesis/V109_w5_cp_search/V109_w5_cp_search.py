@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V109 - does the EXTENDED structure supply a physical CP phase? (W5)
+r"""V109 - does the EXTENDED structure supply a physical CP phase? (O5)
 
-**Why (W5 + V106).** V106 killed the thermal baryon route at the
+**Why (O5 + V106).** V106 killed the thermal baryon route at the
 self-consistent Yukawa. Any surviving route needs a CP-odd phase.
 The root CP theorem (V55) and its Wilson-extension stability (V71)
 say: the exact matter-antimatter spectral mirror - the +- pairing of
@@ -159,7 +159,7 @@ def main():
         f"preserved by the V65 Wilson extension (base dev "
         f"{base:.1e}, V71 regression), and the mirror is exactly the "
         f"structure forcing every CP-odd invariant to vanish - every "
-        f"mirror-preserving extension leaves W5's CP phase at zero. "
+        f"mirror-preserving extension leaves O5's CP phase at zero. "
         f"(2) EVERY CLASS-DEPENDENT DRESSING BREAKS THE ONE-CELL "
         f"MIRROR: the most general per-class kappa_s diagonal (both "
         f"mirror sign conventions: {cases['kappa_antisym']:.1e}, "
@@ -172,7 +172,7 @@ def main():
         f"BOND layer, where the mirror test must be redone at the "
         f"lattice level (open), or (b) breaks Theorem 4 - the "
         f"theory's cleanest structural result - and buys a CP phase "
-        f"at that named cost. W5 additionally needs the out-of-"
+        f"at that named cost. O5 additionally needs the out-of-"
         f"equilibrium dynamics V106 showed the thermal route lacks.")
     out = {"experiment": "V109_w5_cp_search", "pass": bool(ok),
            "status": status,

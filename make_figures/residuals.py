@@ -134,9 +134,9 @@ def fig15_w7_portal():
         axB.text(0.52, y, v, fontsize=10.5, color=c, va="top")
         y -= (max(k.count("\n"), v.count("\n")) + 1.35) * 0.068
     axB.text(0.02, 0.01,
-             "W7: the carrier EXISTS and is exactly stable; the observed\n"
-             "abundance and the exact mirror $\\mathbb{Z}_2$ cannot both "
-             "hold (F7).",
+             "O7: the built portal carrier is exactly stable, but the observed\n"
+             "abundance and the exact mirror $\\mathbb{Z}_2$ cannot both hold (F7);\n"
+             "no state of the implemented spectrum carries the 118 GeV scale.",
              fontsize=10.5, color=C_ROOT, weight="bold", va="bottom")
 
     fig.suptitle("The built dark-matter fix, audited against its own "
@@ -199,7 +199,7 @@ def fig14_loop_selection():
         axB.text(0.02, y, k, fontsize=11, weight="bold", va="top")
         axB.text(0.50, y, v, fontsize=11, color=c, va="top")
     axB.text(0.02, 0.01,
-             "W8: the LENGTH-10 factor is selected by the crossing;\n"
+             "O8: the LENGTH-10 factor is selected by the crossing;\n"
              "the COMPOSITION of 17 factors is not supplied by one\n"
              "geometric law - the residual is now precisely named.",
              fontsize=10, color=C_ROOT, weight="bold", va="bottom")
@@ -282,11 +282,11 @@ def fig16_w2_protection():
         axB.text(0.02, y, k, fontsize=11, weight="bold", va="top")
         axB.text(0.42, y, v, fontsize=11, color=c, va="top")
     axB.text(0.02, 0.02,
-             "W2 re-audited: the measure-zero tuning was an artifact of\n"
+             "O2 re-audited: the measure-zero tuning was an artifact of\n"
              "the identity-$m_D$ assumption. The structure (2 massless +\n"
              "1 massive, NO) is protected by the same family symmetry\n"
              "that derives $\\sin^2\\theta_{12} = 1/3$; the value sits in a\n"
-             "finite window. Solar mass still needs W6.",
+             "finite window. Solar mass still needs O6.",
              fontsize=10, color=C_ROOT, weight="bold", va="bottom")
 
     fig.suptitle("The democratic neutrino point: the identity-$m_D$ tuning is an "
@@ -360,7 +360,7 @@ def fig24_w3_forcing():
                   fontsize=12.5)
     axB.legend(loc="upper left", fontsize=10.5)
     fig.text(0.75, 0.015,
-             "W3: cubic-symmetric split (12 nodes) EXCLUDED; every proper\n"
+             "O3: cubic-symmetric split (12 nodes) EXCLUDED; every proper\n"
              "split BREAKS the cubic symmetry - the count 3 is an input.",
              fontsize=11, color=C_ROOT, weight="bold", ha="center",
              va="bottom")
@@ -434,7 +434,7 @@ def fig23_w4_cone():
     ax.set_title("The desert content the data require lies INSIDE "
                  "the hull of the node-$\\mathbf{16}$ fragments\n"
                  "($\\beta$-contribution plane; feasibility $\\Rightarrow$ "
-                 "W4 is a realizability problem, not a no-go)",
+                 "O4 is a realizability problem, not a no-go)",
                  fontsize=13.5)
     ax.set_xlabel("$\\beta_1,\\beta_2,\\beta_3$ plane (PCA)")
     ax.grid(True, alpha=0.3, ls=":")
@@ -514,9 +514,9 @@ def fig11_vertex_ground_state():
 
 
 def fig25_residual_attacks():
-    """Attacking the residuals head-on: V109 (W5 CP/mirror), V110 (W4 bond
-    off-diagonal), V111 (W6 generation dressing), V112 (W7 dark U(1)),
-    V113 (W8 axis factorization), V116 (W3 triangle orbit-8)."""
+    """Attacking the residuals head-on: V109 (O5 CP/mirror), V110 (O4 bond
+    off-diagonal), V111 (O6 generation dressing), V112 (O7 dark U(1)),
+    V113 (O8 axis factorization), V116 (O3 triangle orbit-8)."""
     import json
 
     def _load(v):
@@ -558,7 +558,7 @@ def fig25_residual_attacks():
     ax1.set_xticks(range(6))
     ax1.set_xticklabels(names, fontsize=9, rotation=28, ha="left")
     ax1.set_ylabel(r"$\pm$-pairing deviation of the 32 spectrum")
-    ax1.set_title("(a) W5: the mirror forbids CP — only Cartan-type\n"
+    ax1.set_title("(a) O5: the mirror forbids CP — only Cartan-type\n"
                   "extensions preserve it; class-dependent dressings\n"
                   "break Theorem 4", fontsize=12)
 
@@ -581,7 +581,7 @@ def fig25_residual_attacks():
              color=C_FIT)
     ax2.set_xlabel("desert pairs $n$")
     ax2.set_ylabel("meeting residual")
-    ax2.set_title("(b) W4: one Hermitian bond operator with 12\n"
+    ax2.set_title("(b) O4: one Hermitian bond operator with 12\n"
                   "parameters does not close the meeting",
                   fontsize=12)
 
@@ -604,7 +604,7 @@ def fig25_residual_attacks():
     ax3.set_xticklabels(labels, fontsize=10)
     ax3.set_ylim(0, 17.5)
     ax3.set_ylabel("named parameters needed")
-    ax3.set_title("(c) W6: generation-space dressing moves the\n"
+    ax3.set_title("(c) O6: generation-space dressing moves the\n"
                   "mixing — but every entry is a named input",
                   fontsize=12)
 
@@ -636,7 +636,7 @@ def fig25_residual_attacks():
     ax4.set_xlabel(r"$m_{Z'}$ [GeV]  ($g_D = 1$)")
     ax4.set_ylabel("kinetic mixing $\\varepsilon$")
     ax4.legend(fontsize=9.5, loc="lower left")
-    ax4.set_title("(d) W7: dark U(1) portal — relic needs\n"
+    ax4.set_title("(d) O7: dark U(1) portal — relic needs\n"
                   r"$g_D\varepsilon \gtrsim 0.02$, DD allows "
                   r"$\lesssim 10^{-3}$:" "\nwindow EMPTY",
                   fontsize=12)
@@ -658,7 +658,7 @@ def fig25_residual_attacks():
     ax5.set_xticklabels(sets, fontsize=10)
     ax5.set_ylim(0, 9.6)
     ax5.set_ylabel(r"hierarchy coefficient $\sum$-nodes")
-    ax5.set_title("(e) W8: node contributions EXACTLY equal across\n"
+    ax5.set_title("(e) O8: node contributions EXACTLY equal across\n"
                   "families (0.00e+00); the coefficient 3 IS the choice\n"
                   "one-per-family — 99.4% agreement", fontsize=12)
 
@@ -687,7 +687,7 @@ def fig25_residual_attacks():
     ax6.set_ylim(-2.2, 2.2)
     ax6.set_xlabel(r"$q_x$")
     ax6.set_ylabel(r"$q_y$")
-    ax6.set_title("(f) W3: 64 triangles → 4 cubic orbits "
+    ax6.set_title("(f) O3: 64 triangles → 4 cubic orbits "
                   "(8, 8, 24, 24);\n"
                   r"each choice breaks $O_h \to S_3$ — 8 distinct "
                   "vacua", fontsize=12)
@@ -839,7 +839,7 @@ def fig8_isotropy_search():
     ax3.set_ylim(0.9955, 1.0025)
     ax3.set_title("(c) all 60 angles x all strengths: the Wilson\n"
                   "factor moves the zeros, never the cone's\n"
-                  "shape - W9 stays open", fontsize=12)
+                  "shape - O9 stays open", fontsize=12)
 
     fig.suptitle("Is continuous Lorentz invariance emergent anywhere on "
                  "the Wilson family? No", fontsize=14.5)

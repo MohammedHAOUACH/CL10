@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V75 - the W7 solution path: 118 GeV carrier NO-GO + minimal extension.
+r"""V75 - the O7 solution path: 118 GeV carrier NO-GO + minimal extension.
 
 **Part 1 - the no-go (computed).**  V66 showed no state of the
 implemented spectrum is simultaneously stable, neutral and at 118 GeV.
@@ -27,7 +27,7 @@ a real scalar phi, Z2-odd, with the LADDER mass m_phi = 118 GeV
   L = -lambda/2 phi^2 H^dag H.
 Thermal freeze-out (standard s-wave, off-resonance m_phi > m_h/2):
 solve lambda for Omega h^2 = 0.120 -> lambda_*, then the direct
-detection cross section sigma_SI. W7 becomes: DM = the ladder scalar;
+detection cross section sigma_SI. O7 becomes: DM = the ladder scalar;
 PREDICTION sigma_SI = X cm^2 (LZ/XENONnT reach); falsifiable by F7.
 The extension is named, minimal (one field, one coupling), and uses
 the theory's own exact stabilizing symmetry and its own ladder scale.
@@ -120,7 +120,7 @@ def main():
 
     ok = nogo and lam_star > 0 and sigma_SI_cm2 > 0
     status = (
-        "W7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a "
+        "O7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a "
         "118 GeV neutral mirror - for EVERY Wilson angle the same node "
         "puts a colored or charged fragment below 1 TeV (worst-case "
         f"lightest bad fragment over the 720-angle scan: "
@@ -136,7 +136,7 @@ def main():
         "scalar is nearly decoupled; the falsifiable handle is the "
         "mass coincidence (F7: a weakly-interacting relic at 118 GeV "
         "and nothing else near it) and the absence of portal signal "
-        "above 1e-50 cm^2. W7 residual: the scalar is an input field "
+        "above 1e-50 cm^2. O7 residual: the scalar is an input field "
         "(one field, one coupling), not yet a state of the 32-level "
         "root.")
 
@@ -154,7 +154,7 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V75 - the 118 GeV DM: no-go + minimal extension (W7)")
+    print("V75 - the 118 GeV DM: no-go + minimal extension (O7)")
     print("=" * 68)
     print(f"  doubler no-go: survivors over 720 theta = {len(survivors)}; "
           f"lightest bad fragment max = {worst_max:.0f} GeV")

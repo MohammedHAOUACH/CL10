@@ -1,7 +1,7 @@
 {
  "experiment": "V107_mixing_from_kappas",
  "pass": true,
- "status": "NEGATIVE (structural): V96's kappa_s are per-GAUGE-class couplings - generation-blind - so they rescale each Yukawa block uniformly and leave PMNS/CKM EXACTLY invariant (max angle shift 2.3e-13 over eps in [0,10]). The W4 bond-layer flavour dependence lives in gauge-class space, W6 in generation space: V96 cannot supply the mixing deviations; W6 needs generation-space structure (V104: >= 2 vev terms, non-cubic).",
+ "status": "NEGATIVE (structural): V96's kappa_s are per-GAUGE-class couplings - generation-blind - so they rescale each Yukawa block uniformly and leave PMNS/CKM EXACTLY invariant (max angle shift 2.3e-13 over eps in [0,10]). The O4 bond-layer flavour dependence lives in gauge-class space, O6 in generation space: V96 cannot supply the mixing deviations; O6 needs generation-space structure (V104: >= 2 vev terms, non-cubic).",
  "data": {
   "v96_kappas": [
    -4.5311,

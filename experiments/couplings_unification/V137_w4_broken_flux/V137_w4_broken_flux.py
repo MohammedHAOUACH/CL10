@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V137 - the per-class bond strength FROM the gauged layer (W4).
+r"""V137 - the per-class bond strength FROM the gauged layer (O4).
 
-**Where W4 stands.**  V96 closes the desert meeting exactly once the bond
+**Where O4 stands.**  V96 closes the desert meeting exactly once the bond
 layer is allowed a junction strength per fragment CLASS, kappa_s (s = 0..5):
     z_{s,l} = z_s(theta, z0) + kappa_s (2 cos(2 pi l / n) - 1).
 Three meeting equations, six unknowns: the meeting is a SOLUTION FAMILY, and
@@ -38,7 +38,7 @@ three checks below decide whether it is the kappa_s pattern.
 5. The meeting test: kappa_s = A K_s (one overall link scale A, the link gap
    is not fixed by the root) fed into the three meeting equations with (z0, A)
    the only unknowns, for n = 3..12: the residual and whether every threshold
-   stays in the desert.  Zero residual = W4 becomes a number of the root.
+   stays in the desert.  Zero residual = O4 becomes a number of the root.
 6. The regression and the pattern comparison: the meeting equations assembled
    here reproduce V96's ten exact closures at its fitted (z0, kappa_s), and the
    Pearson correlation / variance explained (R^2) of V96's fitted kappa_s
@@ -296,7 +296,7 @@ def main():
     out["verdict"] = "PASS" if ok else "FAIL"
     out["pass"] = ok
     out["status"] = ("THE GAUGED LAYER SUPPLIES A PER-CLASS BOND NUMBER, BUT IT "
-                     "IS NOT THE ONE THAT CLOSES THE MEETING (W4). At theta* the "
+                     "IS NOT THE ONE THAT CLOSES THE MEETING (O4). At theta* the "
                      "Wilson direction leaves a 13-dimensional centralizer, and "
                      "the flux of BROKEN generators through each fragment class, "
                      "K_s = 45 - C_2^{unbroken}(s) = %s, is an integer number of "

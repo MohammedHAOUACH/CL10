@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V67 - the breaking chain of the Wilson mechanism (W6).
+r"""V67 - the breaking chain of the Wilson mechanism (O6).
 
 **The question.**  V65 gave the desert masses from the Wilson direction
 D(theta) = cos(theta) X + sin(theta) Y, a Cartan generator of Spin(10) in
@@ -18,7 +18,7 @@ from the Clifford matrices - no Lie-theory input).  Classify its dimension:
 - dim < 12 -> the SM itself is broken: FATAL (the measured couplings run to
   M_Z as SU(3)xSU(2)xU(1)).
 
-**The result (sharpening W6).**  The commutant is 12-dimensional (SM) only
+**The result (sharpening O6).**  The commutant is 12-dimensional (SM) only
 at theta = 0 mod pi (D = X: the 10 and 5bar fragments are then DEGENERATE,
 and V65 showed the degenerate pattern has no meeting solution) and elsewhere
 it is SMALLER than the SM: the Wilson direction with a Y component breaks
@@ -26,7 +26,7 @@ hypercharge directions of the gauge group.  The V65 root (theta = 1.73)
 therefore cannot be a gauge-invariant mass term of a Higgs VEV - it is a
 gauge-EXPLICIT lattice term, admissible only because the lattice step
 already breaks Spin(10) to the SM by the same mechanism that generates the
-spectrum.  W6 verdict: the "chain" is not a chain of Higgs VEVs; it is the
+spectrum.  O6 verdict: the "chain" is not a chain of Higgs VEVs; it is the
 single Wilson direction, and its unbroken group must be checked - as done
 here - generator by generator.
 """
@@ -129,7 +129,7 @@ def main():
     verdict = {
         "experiment": "V67_breaking_chain",
         "pass": ok,
-        "status": ("W6 BREAKING CHAIN FOUND AND CONSISTENT: the Wilson "
+        "status": ("O6 BREAKING CHAIN FOUND AND CONSISTENT: the Wilson "
                    "direction D = cos(theta) X + sin(theta) Y breaks "
                    "Spin(10) to its commutant - 25 = SU(5)xU(1) at D = X, "
                    f"and {d_root} = SU(3)xSU(2)xU(1)^3 at the V65 root "
@@ -158,7 +158,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V67 - the breaking chain of the Wilson mechanism (W6)")
+    print("V67 - the breaking chain of the Wilson mechanism (O6)")
     print("=" * 68)
     print(f"  commutant dim: D = X -> {d_X} (expect 25 = SU(5)xU(1)); "
           f"D = Y -> {d_Y} (expect 12 = SM)")

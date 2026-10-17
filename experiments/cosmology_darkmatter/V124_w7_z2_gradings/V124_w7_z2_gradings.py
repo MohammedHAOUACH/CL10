@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V124 - every exact Z2 grading of the step, and which could hold a relic
 
-**Why (W7).**  V66 found the mirror Z2 (the pseudoscalar w: the 16 is its +i
+**Why (O7).**  V66 found the mirror Z2 (the pseudoscalar w: the 16 is its +i
 eigenspace, the 16-bar its -i eigenspace) and concluded it is the ONLY exact
 stability carrier in the implemented spectrum - but it only ever tested THAT
 one grading.  V88 then had to break the mirror at O(lambda) to get the right
@@ -232,7 +232,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "EXACT Z2 GRADINGS OF THE STEP (W7). The mirror is the pseudoscalar: "
+        "EXACT Z2 GRADINGS OF THE STEP (O7). The mirror is the pseudoscalar: "
         "G^2 = I to %.1e, [G,U32] = %.1e, and it splits the module into the 16 "
         "and the 16-bar (eigenspace error %.1e). Enumerating the whole "
         "Clifford grading group: %d of the 1024 products commute with the "

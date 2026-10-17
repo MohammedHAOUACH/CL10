@@ -577,7 +577,7 @@ def main():
         "V118 reproduced. RESULT: %s - best gap+spread %.1e, max "
         "comm_ratio %.3f (a cone needs > 0.5), min anisotropy %.4f (a cone "
         "needs < 0.1). The M-node doubling survives the best bond (gap "
-        "%.1e). W9 %s."
+        "%.1e). O9 %s."
         % ("CONE FOUND" if found else "NO CONE IN THE FAMILY",
            len(pool), 60, 40, len(scan), lr_bond, lr_impl_w,
            base["top"], base["comm_ratio"],

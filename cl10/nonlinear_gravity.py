@@ -40,7 +40,7 @@ import numpy as np
 from . import engine as E
 from . import u10pred
 
-M_P = u10pred.M_PLANCK            # GeV (the 0-parameter GUT = Planck scale)
+M_P = u10pred.M_PLANCK            # GeV (the lattice cutoff; M_GUT = M_P is not assumed)
 
 
 def _backend():

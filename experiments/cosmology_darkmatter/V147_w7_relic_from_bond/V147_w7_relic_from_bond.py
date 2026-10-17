@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V147 - the relic abundance from the BOND coupling of the singlet class:
-is the same bond sector that closes (or fails to close) the W4 meeting also
-the source of the dark-matter annihilation rate? (W7)
+is the same bond sector that closes (or fails to close) the O4 meeting also
+the source of the dark-matter annihilation rate? (O7)
 
-**Where W7 stands.**  V123 computed the relic abundance at the ladder mass
+**Where O7 stands.**  V123 computed the relic abundance at the ladder mass
 m = 118.4 GeV: the measured Omega h^2 = 0.120 requires alpha_eff = 0.086 in
 sigma v = alpha^2/(pi m^2), while the root supplies only the loop factor
 1/16pi = 0.0199 (Omega h^2 = 0.0246) or g10^2/4pi = 0.0032 (0.798); with the
@@ -190,7 +190,7 @@ def main():
                   "an Omega h^2 between %.3g and %.3g; the closest is %s at "
                   "%.4f (|dOmega| = %.3f). The measured 0.120 needs alpha_eff "
                   "= %.4f without D or %.5f with D - no bond number of the "
-                  "layer lands there. W7's portal remains named, not derived."
+                  "layer lands there. O7's portal remains named, not derived."
                   % ([round(c["kappa"], 3) for c in cands[:10]], r_atm, D,
                      min(c["Omega_D"] for c in cands),
                      max(c["Omega_D"] for c in cands),

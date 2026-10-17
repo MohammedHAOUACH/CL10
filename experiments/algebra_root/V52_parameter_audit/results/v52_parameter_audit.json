@@ -4,7 +4,7 @@
   "property": "P5,P6",
   "residual": true,
   "pass": true,
-  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals W8/W7)",
+  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
   "tol": 1e-12,
   "data": {
     "backend": "numpy",
@@ -147,7 +147,7 @@
           "quantity": "the desert thresholds (V64)",
           "value": "1.2e7, 1.0e12 GeV",
           "provenance": "coincidence",
-          "note": "the two vectorlike thresholds that make the measured couplings meet at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, M_X = 1.8e16 GeV); inferred from the couplings, not derived; the convention M_GUT = M_P is abandoned by this solution (W4, V64)"
+          "note": "the two vectorlike thresholds that make the measured couplings meet at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, M_X = 1.8e16 GeV); inferred from the couplings, not derived; the convention M_GUT = M_P is abandoned by this solution (O4, V64)"
         },
         {
           "quantity": "v/E_P = 2.02e-17 (0.18% match)",
@@ -159,25 +159,25 @@
           "quantity": "eta_CP (the CP-violating factor)",
           "value": "1e-3 (named)",
           "provenance": "named_residual",
-          "note": "the baryon asymmetry is a **product of 0-parameter factors**: (28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.12; V55); the 0-parameter QCA alone gives 0 (the CP-odd theorem); the **CP phase** (O(1)) and the 2-digit ratio are the residual (W5)"
+          "note": "the baryon asymmetry is a **product of 0-parameter factors**: (28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.12; V55); the 0-parameter QCA alone gives 0 (the CP-odd theorem); the **CP phase** (O(1)) and the 2-digit ratio are the residual (O5)"
         },
         {
           "quantity": "Lambda_obs ~ 1e-122",
           "value": "1e-122",
           "provenance": "named_residual",
-          "note": "the breaking of the 512/512 cancellation (W1)"
+          "note": "the breaking of the 512/512 cancellation (O1)"
         },
         {
           "quantity": "the sub-Planck DM scale",
           "value": "~1e2-1e3 GeV (named)",
           "provenance": "named_residual",
-          "note": "not a single-step spectral scale; the **10-loop suppression** M_P*(1/16pi)^10 = 118 GeV (V54) gives the observed abundance; the DM **identity** is the residual (W7)"
+          "note": "not a single-step spectral scale; the **10-loop suppression** M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale, and its abundance match rests on the standard WIMP-miracle convention; the DM **carrier** (which state of the spectrum) is the residual (O7)"
         },
         {
           "quantity": "the exact m_nu",
           "value": "0.05 eV (named)",
           "provenance": "named_residual",
-          "note": "the exact light-neutrino mass (W2)"
+          "note": "the exact light-neutrino mass (O2)"
         }
       ],
       "counts_by_provenance": {
@@ -191,5 +191,5 @@
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 11.364
+  "wall_time": 12.132
 }

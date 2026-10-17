@@ -12,7 +12,7 @@ generators), so the GUT coupling is a **number of the root** read as a
 coupling: $g_{10} = 1/n_{qubits} = 1/5$, $\alpha_{10} = g_{10}^2 = 1/25$ —
 a **0-parameter selection rule** (the *reading* is the audit's mapping
 convention, not a derivation: no 0-parameter condition selects the angle —
-the audit's Point 1).  The **Dirac** coupling (W2) is
+the audit's Point 1).  The **Dirac** coupling (O2) is
 $g_0 = 1/2^{n_{space}} = 1/2^3 = 1/8$, the **3** being the spatial
 dimension of the (1,3) (the same 0-parameter number as the family count —
 one number, two uses).
@@ -25,7 +25,7 @@ measured ``alpha_i(M_Z)``: the weak coupling $a_2$ lands within a factor
 $\\sim 1.6$, the strong coupling $a_3$ within an order of magnitude, and the
 U(1) 1-loop extrapolation hits its pole **inside** the lattice (the
 naive continuation below the pole is unphysical) — the **1-loop matching**
-(W4) is the **named residual**, now **quantified**; the QCA **lattice RG**
+(O4) is the **named residual**, now **quantified**; the QCA **lattice RG**
 is the open part.
 """
 
@@ -102,7 +102,7 @@ def main():
     print(f"  backend (GPU):  {root['backend']}")
     print(f"  (1) the GUT coupling from the root:  the module is 2^{root['n_qubits']} = {root['n_module']} (the 5 qubits)")
     print(f"      g_10 = 1/{root['n_qubits']} = {root['g10']:.4f}  ->  alpha_10 = {root['alpha_10']:.4f}  (= 1/25, matches V21/V23/V32)")
-    print(f"  (2) the Dirac coupling from the root:  g_0 = 1/2^{root['n_space']} = 1/8 = {root['g0']:.4f}  (the 3 = the 3-space, matches W2)")
+    print(f"  (2) the Dirac coupling from the root:  g_0 = 1/2^{root['n_space']} = 1/8 = {root['g0']:.4f}  (the 3 = the 3-space, matches O2)")
     print("  (3) the 1-loop running DOWN from alpha_10 at M_P to M_Z (the 0-parameter UV input, the named residual quantified):")
     print(f"      a1(M_Z) = {a1:.4f}  (measured {m1}, ratio {down['ratio_to_measured'][0]:.2f})")
     print(f"      a2(M_Z) = {a2:.4f}  (measured {m2}, ratio {down['ratio_to_measured'][1]:.2f}),  a3(M_Z) = {a3:.4f}  (measured {m3}; below its pole -> non-perturbative)")

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V105 - is V96's flavour-dependent bond layer DERIVED from the step?
 
-**Why (V96).** V96 closed the W4 meeting exactly with per-class junction
+**Why (V96).** V96 closed the O4 meeting exactly with per-class junction
 strengths kappa_s (six new automaton inputs). The closure was CONDITIONAL
 because the six kappa_s are free. This experiment asks whether the solution
 space of V96 intersects the image of the root's own Cartan action:
@@ -245,12 +245,12 @@ def main():
         for v in bmodel.values() if "residual" in v)
     ok = a2_pass or a1_pass or b_pass or decisive
     if a2_pass:
-        status = ("W4 UNCONDITIONAL: the bond layer dressed by the step's OWN "
+        status = ("O4 UNCONDITIONAL: the bond layer dressed by the step's OWN "
                   "Wilson direction c(theta*) closes the meeting exactly "
                   "(residual < 1e-10, desert ok) with ONE new coupling g - "
                   "the six kappa_s of V96 are the root's own class charges.")
     elif a1_pass:
-        status = ("W4 closes with the bond layer along a DETERMINED SM-"
+        status = ("O4 closes with the bond layer along a DETERMINED SM-"
                   "preserving span{X,Y} direction (2 new numbers, not 6); "
                   "the step's own direction alone does NOT close (A2 fails).")
     elif b_pass:

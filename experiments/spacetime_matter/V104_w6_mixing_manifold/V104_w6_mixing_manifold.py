@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V104 - where does the W6 splitting live? Two sectors, one verdict.
+r"""V104 - where does the O6 splitting live? Two sectors, one verdict.
 
 **The question.**  The 0-parameter structure derives sin2(theta12) = 1/3
 (V45/V60), theta13 = 0 and CKM = identity (V28/V45); the data say
 0.308, 0.0222, 0.225. The paper lists three separate items. They are
-the imprint of the ONE named W6 ingredient - the 10-Higgs vev that
+the imprint of the ONE named O6 ingredient - the 10-Higgs vev that
 splits the democratic degeneracy. V104 asks WHERE that splitting can
 live: the charged-lepton sector or the neutrino sector.
 
@@ -19,14 +19,14 @@ so the lightest family decouples from the democratic direction:
 |p_1|^2 <= O(D_1 / sum D). And since the second column of TBM IS v,
     sin^2(theta12) = |PMNS_e2|^2 = |p_1|^2 <= 4e-3,
 against the measured 0.308 +- 0.013: excluded at > 20 sigma. The
-charged-lepton branch of W6 CANNOT coexist with a democratic neutrino
+charged-lepton branch of O6 CANNOT coexist with a democratic neutrino
 sector (V103: the junction m_nu is democratic for every r).
 
 **Branch B - neutrino splitting (computed, VACUOUS).**
-The W6 vev instead corrects the rank-1 democratic Majorana matrix
+The O6 vev instead corrects the rank-1 democratic Majorana matrix
 (V103): m_nu = 3 a v v^T + b u u^T - one named rank-1 vev term. Its
 spectrum is {0, sqrt(dm2_21), sqrt(|dm2_31|)} = {0, 0.0086, 0.0501}
-eV (NO): the SAME term that supplies the solar mass (the W6 gap of
+eV (NO): the SAME term that supplies the solar mass (the O6 gap of
 V103's two massless states) also shifts TBM. The charged leptons stay
 democratic (U_eL = TBM*), PMNS = TBM^T W*, and the scan over (u, a, b)
 matched to the oscillation spectrum gives the bands of
@@ -38,10 +38,10 @@ u = e_axis. Then (a, b) are FIXED by the oscillation spectrum and the
 angles are 0-parameter predictions. All distinct branches sit
 >= 3 sigma from NuFIT (best ~ 12 sigma).
 
-**Verdict (computed, negative).**  The natural forms of the W6
+**Verdict (computed, negative).**  The natural forms of the O6
 splitting are EXCLUDED (A, C) or VACUOUS (B): the mixing deviations
 are a genuine structural gap, not an artifact of a wrong assumption.
-W6 is narrowed by computation: the vev must live in the NEUTRINO
+O6 is narrowed by computation: the vev must live in the NEUTRINO
 sector with a NON-CUBIC direction, and reproducing the observed
 angles needs at least two vev terms in generic relative orientation -
 more than the single named 10-Higgs input.
@@ -324,7 +324,7 @@ def main():
         "residual": True,
         "pass": bool(ok),
         "status": (
-            f"the natural forms of the W6 splitting are EXCLUDED or "
+            f"the natural forms of the O6 splitting are EXCLUDED or "
             f"VACUOUS - the mixing deviations are a genuine structural "
             f"gap, not an artifact: (A) charged-lepton democratic + rank-2 "
             f"forces sin2(12) <= {checks['A_s12_max']:.4f} (the lightest "
@@ -337,7 +337,7 @@ def main():
             f"{checks['B_s12_range'][1]:.3f}]) and predicts nothing; "
             f"(C) the symmetry-natural choice - vev along a CUBIC AXIS - "
             f"is 0-parameter and EXCLUDED: {len(uniq)} distinct branches, "
-            f"best {min(c_sig):.1f} sigma from NuFIT. W6 is narrowed by "
+            f"best {min(c_sig):.1f} sigma from NuFIT. O6 is narrowed by "
             f"computation: the vev must live in the NEUTRINO sector, with "
             f"a NON-CUBIC direction - reproducing (0.308, 0.0222, 0.470) "
             f"needs at least two vev terms in generic relative orientation, "

@@ -69,33 +69,33 @@
   },
   "gamma_scan": {
    "scan_grid": 300,
-   "coarse_min_gap": 0.0002594697658411249,
+   "coarse_min_gap": 0.000259469765841569,
    "refined_coupling": 1.2429843748997897,
-   "refined_gap": 2.8337332480532496e-12,
+   "refined_gap": 2.8339552926581746e-12,
    "candidates": {
     "pi/8": [
      0.39269908169872414,
-     4.440892098500626e-16
+     3.3306690738754696e-16
     ],
     "pi/6": [
      0.5235987755982988,
-     2.6645352591003757e-15
+     3.1086244689504383e-15
     ],
     "pi/4": [
      0.7853981633974483,
-     0.0
+     2.220446049250313e-16
     ],
     "pi/3": [
      1.0471975511965976,
-     3.289650892456673e-15
+     2.988097862346292e-15
     ],
     "refined": [
      1.2429843748997897,
-     2.8337332480532496e-12
+     2.8339552926581746e-12
     ],
     "implemented 1/5": [
      0.2,
-     0.03649939422882498
+     0.03649939422882475
     ]
    },
    "gapless": [
@@ -113,13 +113,13 @@
     "decomposition": {
      "A1g": 0.0,
      "A2g": -0.0,
-     "Eg": 0.0,
+     "Eg": -0.0,
      "T2g": 1.0,
      "T1g": -0.0,
      "A1u": 0.0,
      "A2u": -0.0,
-     "Eu": -0.0,
-     "T1u": 0.0,
+     "Eu": 0.0,
+     "T1u": -0.0,
      "T2u": 0.0
     },
     "has_Eg": false,
@@ -130,14 +130,14 @@
     "nullity": 2,
     "decomposition": {
      "A1g": 1.0,
-     "A2g": -0.0,
+     "A2g": 0.0,
      "Eg": 0.0,
-     "T2g": 0.0,
-     "T1g": -0.0,
-     "A1u": -0.0,
+     "T2g": -0.0,
+     "T1g": 0.0,
+     "A1u": 0.0,
      "A2u": 1.0,
      "Eu": 0.0,
-     "T1u": 0.0,
+     "T1u": -0.0,
      "T2u": 0.0
     },
     "has_Eg": false,
@@ -148,15 +148,15 @@
     "nullity": 64,
     "decomposition": {
      "A1g": 16.0,
-     "A2g": 0.0,
+     "A2g": -0.0,
      "Eg": -0.0,
      "T2g": 16.0,
-     "T1g": 0.0,
-     "A1u": -0.0,
-     "A2u": 0.0,
+     "T1g": -0.0,
+     "A1u": 0.0,
+     "A2u": -0.0,
      "Eu": 0.0,
      "T1u": 0.0,
-     "T2u": -0.0
+     "T2u": 0.0
     },
     "has_Eg": false,
     "has_T2g": true
@@ -169,7 +169,7 @@
      "A2g": 0.0,
      "Eg": -0.0,
      "T2g": 0.0,
-     "T1g": -0.0,
+     "T1g": 0.0,
      "A1u": 0.0,
      "A2u": 1.0,
      "Eu": -0.0,
@@ -184,86 +184,86 @@
    "pi/8": {
     "slopes_by_direction": {
      "(1, 0, 0)": {
-      "1e-02": 0.0010355306380765627,
-      "1e-03": 0.0001035533864078784,
-      "1e-04": 1.0355334025352855e-05
+      "1e-02": 0.0010355306380457011,
+      "1e-03": 0.00010355338702197281,
+      "1e-04": 1.0355326692066367e-05
      },
      "(1, 1, 0)": {
-      "1e-02": 2.780929242792947e-14,
-      "1e-03": 3.636953851851372e-13,
-      "1e-04": 2.7061686225238227e-12
+      "1e-02": 3.1513437184861603e-15,
+      "1e-03": 1.8041124150158834e-13,
+      "1e-04": 4.710993964857853e-12
      },
      "(1, 1, 1)": {
-      "1e-02": 0.00034517760549023776,
-      "1e-03": 3.451779617691397e-05,
-      "1e-04": 3.4517711930935753e-06
+      "1e-02": 0.0003451776054303496,
+      "1e-03": 3.4517795403227165e-05,
+      "1e-04": 3.451766815193678e-06
      }
     },
     "linear": false,
-    "anisotropy": 0.9999997386691133
+    "anisotropy": 0.9999995450656358
    },
    "pi/6": {
     "slopes_by_direction": {
      "(1, 0, 0)": {
-      "1e-02": 0.0014433696587436305,
-      "1e-03": 0.00014433755768802437,
-      "1e-04": 1.4433744149975358e-05
+      "1e-02": 0.0014433696586659058,
+      "1e-03": 0.0001443375596911881,
+      "1e-04": 1.4433734554786206e-05
      },
      "(1, 1, 0)": {
-      "1e-02": 0.0014433726656452944,
-      "1e-03": 0.00014433756179155208,
-      "1e-04": 1.4433721995395641e-05
+      "1e-02": 0.001443372665616157,
+      "1e-03": 0.00014433756223564134,
+      "1e-04": 1.443372798018424e-05
      },
      "(1, 1, 1)": {
-      "1e-02": 0.0014433736680697887,
-      "1e-03": 0.00014433756345688624,
-      "1e-04": 1.4433738648733633e-05
+      "1e-02": 0.0014433736680375079,
+      "1e-03": 0.00014433756301279732,
+      "1e-04": 1.4433726786342069e-05
      }
     },
     "linear": false,
-    "anisotropy": 1.5349156453416717e-06
+    "anisotropy": 5.382144245055397e-07
    },
    "pi/4": {
     "slopes_by_direction": {
      "(1, 0, 0)": {
-      "1e-02": 0.002499979165896038,
-      "1e-03": 0.0002499999681524637,
-      "1e-04": 2.4999892156429817e-05
+      "1e-02": 0.002499979165937489,
+      "1e-03": 0.0002499999686156351,
+      "1e-04": 2.4999889450261133e-05
      },
      "(1, 1, 0)": {
-      "1e-02": 0.0,
-      "1e-03": 1.8735013540549496e-13,
-      "1e-04": 8.847089727481728e-13
+      "1e-02": 6.774095173689468e-14,
+      "1e-03": 1.0668549377257405e-13,
+      "1e-04": 3.063955339444047e-12
      },
      "(1, 1, 1)": {
-      "1e-02": 0.0008333310174439816,
-      "1e-03": 8.333332034843323e-05,
-      "1e-04": 8.33322107179887e-06
+      "1e-02": 0.0008333310174454118,
+      "1e-03": 8.333332011424582e-05,
+      "1e-04": 8.33322934962187e-06
      }
     },
     "linear": false,
-    "anisotropy": 0.9999999646114884
+    "anisotropy": 0.9999998774412445
    },
    "pi/3": {
     "slopes_by_direction": {
      "(1, 0, 0)": {
-      "1e-02": 0.004330036811276458,
-      "1e-03": 0.00043301260885910493,
-      "1e-04": 4.3301231489323015e-05
+      "1e-02": 0.0043300368113826995,
+      "1e-03": 0.000433012607831904,
+      "1e-04": 4.330124370177648e-05
      },
      "(1, 1, 0)": {
-      "1e-02": 0.004330081914015347,
-      "1e-03": 0.0004330126534835108,
-      "1e-04": 4.330123801188329e-05
+      "1e-02": 0.004330081914115378,
+      "1e-03": 0.00043301265406637743,
+      "1e-04": 4.3301236284308774e-05
      },
      "(1, 1, 1)": {
-      "1e-02": 0.004330096948704258,
-      "1e-03": 0.00043301266781926547,
-      "1e-04": 4.330125202313296e-05
+      "1e-02": 0.004330096948608506,
+      "1e-03": 0.0004330126678886551,
+      "1e-04": 4.3301236207770877e-05
      }
     },
     "linear": false,
-    "anisotropy": 4.742082268646013e-07
+    "anisotropy": 1.7306675202143758e-07
    }
   },
   "link_pair_channel": {
@@ -292,7 +292,7 @@
    "pass": true
   },
   {
-   "name": "T2 GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 (gaps {'pi/8': '4.4e-16', 'pi/6': '2.7e-15', 'pi/4': '0.0e+00', 'pi/3': '3.3e-15'}); the coarse scan's minimum refines to g = 1.242984 with gap 2.8e-12, a near-crossing and not an exact one at the 1e-09 tolerance; GAMMA is NOT gapless at the implemented g10 = 1/5 (gap 3.650e-02) - the lattice graviton channel, if it exists, lives at a different coupling",
+   "name": "T2 GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 (gaps {'pi/8': '3.3e-16', 'pi/6': '3.1e-15', 'pi/4': '2.2e-16', 'pi/3': '3.0e-15'}); the coarse scan's minimum refines to g = 1.242984 with gap 2.8e-12, a near-crossing and not an exact one at the 1e-09 tolerance; GAMMA is NOT gapless at the implemented g10 = 1/5 (gap 3.650e-02) - the lattice graviton channel, if it exists, lives at a different coupling",
    "pass": true
   },
   {
@@ -309,5 +309,5 @@
   }
  ],
  "pass": true,
- "status": "THE ZONE-CENTRE SPIN-2 CHANNEL (F4, continued). V128 searched the M nodes at g10 = 1/5 and found no massless content. At GAMMA the little group is the full cubic group O_h and a lattice spin 2 is a gapless multiplet carrying Eg+T2g. The bond factor is 8 = {'A1g': 1.0, 'A2g': 0.0, 'Eg': 0.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 1.0, 'Eu': 0.0, 'T1u': 1.0, 'T2u': 0.0}: it carries T2g but no Eg, so the quintet is unavailable in the qubit link (T1). GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 and at g = 1.242984, never at the implemented 1/5 (gap 3.650e-02) (T2). At each of those couplings the null space is cubic-covariant and is {'A1g': 16.0, 'A2g': 0.0, 'Eg': -0.0, 'T2g': 16.0, 'T1g': 0.0, 'A1u': -0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': -0.0} - T2g present, Eg absent (T3) - and its dispersion is FLAT, omega/|q| -> 0 (T4). VERDICT: the implemented qubit-link step cannot carry a lattice graviton, for two independent computed reasons: the Eg half of the spin-2 quintet is not in its one-particle content at any coupling, and its gapless GAMMA multiplets are flat bands. The channel that does carry Eg+T2g is the symmetric rank-2 link-direction space (T5): the derivation of the graviton must run through the directional gauged bond layer of Section 10, not through the qubit link. This converts 'spin 2 is declared, not derived' from a caveat into a no-go theorem with a named escape route."
+ "status": "THE ZONE-CENTRE SPIN-2 CHANNEL (F4, continued). V128 searched the M nodes at g10 = 1/5 and found no massless content. At GAMMA the little group is the full cubic group O_h and a lattice spin 2 is a gapless multiplet carrying Eg+T2g. The bond factor is 8 = {'A1g': 1.0, 'A2g': 0.0, 'Eg': 0.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 1.0, 'Eu': 0.0, 'T1u': 1.0, 'T2u': 0.0}: it carries T2g but no Eg, so the quintet is unavailable in the qubit link (T1). GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 and at g = 1.242984, never at the implemented 1/5 (gap 3.650e-02) (T2). At each of those couplings the null space is cubic-covariant and is {'A1g': 16.0, 'A2g': -0.0, 'Eg': -0.0, 'T2g': 16.0, 'T1g': -0.0, 'A1u': 0.0, 'A2u': -0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': 0.0} - T2g present, Eg absent (T3) - and its dispersion is FLAT, omega/|q| -> 0 (T4). VERDICT: the implemented qubit-link step cannot carry a lattice graviton, for two independent computed reasons: the Eg half of the spin-2 quintet is not in its one-particle content at any coupling, and its gapless GAMMA multiplets are flat bands. The channel that does carry Eg+T2g is the symmetric rank-2 link-direction space (T5): the derivation of the graviton must run through the directional gauged bond layer of Section 10, not through the qubit link. This converts 'spin 2 is declared, not derived' from a caveat into a no-go theorem with a named escape route."
 }

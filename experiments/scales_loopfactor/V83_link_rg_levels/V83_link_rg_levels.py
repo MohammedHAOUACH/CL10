@@ -3,7 +3,7 @@
 r"""V83 - the traced adjoint link through the RG levels: does the
 division compound toward 1/(16 pi)?
 
-**Why (W8, the named next test of V80).**  V80 measured the level-1
+**Why (O8, the named next test of V80).**  V80 measured the level-1
 division factor of the gauged bond layer: F(eta_root) = 1.06, F_min =
 0.52 over the coupling - a factor 26 above 1/(16 pi) - and named
 level-N suppression as the next test. V72 measured the link-free flow:
@@ -193,7 +193,7 @@ def main():
         f"{checks['levels_Fmin']['F_p'][3]:.3f}. The compounding law of "
         "the traced adjoint link is measured, not assumed; whether the "
         "automaton reaches the loop factor at deeper levels or at a "
-        "different coupling is the named residual (W8).")
+        "different coupling is the named residual (O8).")
 
     verdict = {"experiment": "V83_link_rg_levels",
                "pass": bool(ok), "status": status, "data": checks}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V120 - an entangling bond layer: does the node become a cone? (W9)
+r"""V120 - an entangling bond layer: does the node become a cone? (O9)
 
 **The prescription V118 forces.**  V118 measured that at every massless node
 the three tangent velocity operators S_j = i dM/dq_j on the gapless subspace
@@ -259,7 +259,7 @@ def main():
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["pass"] = ok
     out["status"] = (
-        "ENTANGLING BOND LAYER AND THE TANGENT ALGEBRA (W9). phi = 0 reproduces "
+        "ENTANGLING BOND LAYER AND THE TANGENT ALGEBRA (O9). phi = 0 reproduces "
         "the implemented step to %.1e and is unitary to %.1e. Scanning the "
         "non-Abelian Peierls phase phi and retuning (theta,w) at the cubic "
         "corner: %s. VERDICT: the phase lifts the corner triplet off zero and "

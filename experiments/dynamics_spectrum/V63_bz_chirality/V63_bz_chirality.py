@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """V63 - the band structure of the automaton cell: is the 16 a **single**
-chiral sector, or does the Nielsen-Ninomiya doubling survive the dynamics (W9)?
+chiral sector, or does the Nielsen-Ninomiya doubling survive the dynamics (O9)?
 
 **What had never been done.**  The publication claimed "no doublers" as an
 argument (the module is on-site, so the Nielsen-Ninomiya theorem does not
@@ -33,7 +33,7 @@ step on a 2^3 block torus, scanned over the block zone.
    them the lowest multiplet is exactly 3-fold degenerate - the only exact
    degeneracy of the zone and the only exactly massless multiplet of the step.
 
-**The named residual (W9).**  Removing the half-zone nodes - or showing that the
+**The named residual (O9).**  Removing the half-zone nodes - or showing that the
 gapped zone-center sector, not the gapless node momenta, is the physical
 fermion sector.
 """
@@ -154,7 +154,7 @@ def main():
         "id": "V63_bz_chirality",
         "tier": 2,
         "property": "the 16-sector one-step spectrum over the block Brillouin zone",
-        "residual": True,          # the half-zone nodes are present: W9 is NOT closed
+        "residual": True,          # the half-zone nodes are present: O9 is NOT closed
         "pass": bool(ok),
         "status": "chirality_is_a_dynamical_symmetry_but_the_half_zone_nodes_are_"
                   "present_12_gapless_node_momenta_chirality_sum_0_and_the_R_"
@@ -193,7 +193,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V63 - the band structure of the automaton cell (the W9 doubling check)")
+    print("V63 - the band structure of the automaton cell (the O9 doubling check)")
     print("=" * 68)
     print(f"  backend:  {E._BACKEND}   g_10 = {SC.G10:.4f}   "
           f"{len(SC.STAGES)} stages per step")
@@ -213,7 +213,7 @@ def main():
           f"{SC.stabilizer_order(SC.R_POINTS[0])}, lowest multiplet "
           f"{r_mult[0]}-fold at every corner;  M: star {len(SC.M_STAR)}, "
           f"little group {SC.stabilizer_order(SC.M_POINTS[0])}")
-    print(f"  VERDICT:  {'PASS (the doubling is present at the M points; W9 stays open)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the doubling is present at the M points; O9 stays open)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v63_bz_chirality.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

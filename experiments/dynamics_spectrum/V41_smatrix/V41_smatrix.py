@@ -24,7 +24,7 @@ exactly 1); the 1024x1024 2-particle amplitude is unitary too.
 number ``g_10 = 0.2``.  (4) the 2-body amplitude is non-trivial — the
 **first** computed *process* of the theory.
 
-**The named residual (W9).**  The **matching** of these amplitudes to
+**The named residual (O9).**  The **matching** of these amplitudes to
 the **measured** cross-sections (the QCA lattice RG vs the
 perturbative QFT — the non-linear completion beyond the quadratic EH)
 is the open part of the 't Hooft program.
@@ -57,7 +57,7 @@ def main():
         "id": "V41_smatrix",
         "tier": 2,
         "property": "P2",
-        "residual": True,          # matching to measured cross-sections (W9) is the named residual
+        "residual": True,          # matching to measured cross-sections (O9) is the named residual
         "pass": bool(ok),
         "status": "the_qca_step_is_the_0_parameter_S_matrix_the_first_processes_of_the_theory",
         "tol": TOL,
@@ -101,7 +101,7 @@ def main():
     print(f"  [4] 2-particle (U (x) U):  max |S2| = {s2['max_abs']:.4f}, "
           f"max off-diagonal = {s2['max_offdiag']:.4f}  (the 2-body space mixes)")
     print(f"  [3] 0-parameter:  the only number is g_10 = {r['g10']:.4f}")
-    print(f"  named residual (W9):  {r['residual']}")
+    print(f"  named residual (O9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the QCA step IS the 0-parameter S-matrix: the first process of the theory; the cross-section matching the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v41_smatrix.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

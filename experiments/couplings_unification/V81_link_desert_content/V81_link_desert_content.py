@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V81 - the desert content of the GAUGED bond layer: the composite
-fermion spectrum 16 (x) 45 and coupling unification (W4).
+fermion spectrum 16 (x) 45 and coupling unification (O4).
 
-**Why (W4, the named incompatibility closed or not).**  V74 proved the
+**Why (O4, the named incompatibility closed or not).**  V74 proved the
 node mechanism's meeting point is FORCED (rank-1 split-invariance): the
 automaton supplies full split 16's per node, the couplings prefer
 partial suits. The gauged bond layer (V79) supplies exactly that missing
@@ -43,7 +43,7 @@ M_X = 1.8e16 GeV (V64) and the F5 bound. The four remaining Cartan-flux
 lifted by the extra-U(1) breaking.
 
 **Verdict (computed).** Either the composite spectrum lands the meeting
-at alpha_X = 1/25 with desert thresholds (W4 CLOSED by the gauged
+at alpha_X = 1/25 with desert thresholds (O4 CLOSED by the gauged
 layer), or it does not and the residual is named with numbers.
 """
 
@@ -353,7 +353,7 @@ def main():
             "DESERT CONTENT OF THE GAUGED LAYER: the composite spectrum "
             f"(db = {tuple(round(v,2) for v in db_total)}) does NOT meet "
             "the three couplings at alpha_X = 1/25 for any (w, c0, theta) "
-            "with desert thresholds: W4 stays open, now with the composite "
+            "with desert thresholds: O4 stays open, now with the composite "
             "content excluded by name.")
 
     verdict = {"experiment": "V81_link_desert_content", "pass": bool(ok),

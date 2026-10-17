@@ -1,7 +1,7 @@
 {
   "experiment": "V81_link_desert_content",
   "pass": true,
-  "status": "DESERT CONTENT OF THE GAUGED LAYER: the composite spectrum (db = (np.float64(145.33), np.float64(145.33), np.float64(226.33))) does NOT meet the three couplings at alpha_X = 1/25 for any (w, c0, theta) with desert thresholds: W4 stays open, now with the composite content excluded by name.",
+  "status": "DESERT CONTENT OF THE GAUGED LAYER: the composite spectrum (db = (np.float64(145.33), np.float64(145.33), np.float64(226.33))) does NOT meet the three couplings at alpha_X = 1/25 for any (w, c0, theta) with desert thresholds: O4 stays open, now with the composite content excluded by name.",
   "data": {
     "composite": {
       "n_states": 720,

@@ -72,11 +72,11 @@ def g10_selection():
     scan = {n: float(abs(a10 / mean_gut - 1.0)) for n, a10 in cands.items()}
     best_n = min(scan, key=scan.get)
     n_root = int(root["n_qubits"])
-    # l'honnêteté : le scan désigne n = 7 (1/49 = 0.0204), PAS n = 5
-    # (1/25 = 0.04).  n = 5 n'est PAS le meilleur ajustement : c'est le nombre
-    # du root (le module 32-D, 10 = 2 x 5).  Le data-check ne fixe donc pas
-    # n : il confirme seulement l'ORDRE.  C'est exactement ce qui fait de la
-    # lecture 1/n_qubits une CONVENTION DE MAPPING et non une prédiction.
+    # the honesty: the scan points at n = 7 (1/49 = 0.0204), NOT n = 5
+    # (1/25 = 0.04).  n = 5 is NOT the best fit: it is the number of the root
+    # (the 32-D module, 10 = 2 x 5).  The data-check therefore does not fix n:
+    # it confirms only the ORDER.  That is exactly what makes the 1/n_qubits
+    # reading a MAPPING CONVENTION and not a prediction.
     gap_root = scan[n_root]
     gap_best = scan[best_n]
     fit_prefers_root = bool(best_n == n_root)

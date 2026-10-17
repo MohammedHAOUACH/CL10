@@ -43,7 +43,7 @@ def main():
     t0 = time.time()
     r = yukawa.yukawa_matrix()
     # le critère réel : la base démocratique est RANG 1 (spectre {3,0,0}),
-    # pas non-singulière.  Les 3 masses distinctes sont le résidu nommé (W6).
+    # pas non-singulière.  Les 3 masses distinctes sont le résidu nommé (O6).
     ok = (r["rank"] == 1 and r["n_distinct_levels"] == 2
           and r["n_heavy"] == 1 and r["n_light_2fold"] == 2
           and r["democratic"] and r["singular"]

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V112 - can the EXTRA U(1) of the breaking chain be the dark portal? (W7)
+r"""V112 - can the EXTRA U(1) of the breaking chain be the dark portal? (O7)
 
-**Why (W7 + V67 + V88).** V67: the V65 Wilson direction leaves
+**Why (O7 + V67 + V88).** V67: the V65 Wilson direction leaves
 SU(3)xSU(2)xU(1)xU(1) unbroken - hypercharge PLUS one extra abelian
 factor. V88: the two Higgs-type portals for the 118 GeV ladder scalar
 are either excluded (exact-Z2 portal: sigma_SI 6.8e-46 > 2e-47) or
@@ -184,7 +184,7 @@ def main():
              and yh_res < 1e-9)
     ok = yh_ok and ortho_roots < 1e-9
     status = (
-        f"DARK-U(1) PORTAL AUDIT (W7). T1: the extra U(1) of the V67 "
+        f"DARK-U(1) PORTAL AUDIT (O7). T1: the extra U(1) of the V67 "
         f"chain is constructed - hypercharge fixed by the Q and L "
         f"classes PREDICTS the full SM pattern {yh_pred} on the six "
         f"weight classes (all match: {yh_ok}); E is orthogonal to all "
@@ -207,10 +207,10 @@ def main():
         f"while Z'-mediated direct detection bounds g_D*eps <~ 1e-3 at "
         f"m_Z' ~ 2 m_s - the named-input dark-U(1) window is EMPTY in "
         f"the minimal 118 GeV scalar setup. Verdict: the extra U(1) "
-        f"cannot serve as the W7 portal - inside the implemented "
+        f"cannot serve as the O7 portal - inside the implemented "
         f"spectrum it is unbroken and the ladder scalar is E-neutral, "
         f"and the named extension that Higgses it closes itself by "
-        f"relic/direct-detection squeeze. W7 stays open.")
+        f"relic/direct-detection squeeze. O7 stays open.")
     out = {"experiment": "V112_w7_dark_u1_portal", "pass": bool(ok),
            "status": status,
            "data": {"hypercharge_by_class_multiplicity": yh_pred,

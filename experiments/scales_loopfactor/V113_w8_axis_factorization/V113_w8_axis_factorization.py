@@ -28,7 +28,7 @@ and cannot be.
 theorem: equal per-node contributions are confirmed (family symmetry
 of the Floquet spectra + link-local loop factor), but the coefficient
 3 is exactly the choice of one split node per family - V108's
-conditionality IS W9's split-node-set input, made precise.
+conditionality IS O9's split-node-set input, made precise.
 """
 import json
 import math
@@ -129,7 +129,7 @@ def main():
         f"factorization is CONFIRMED as family symmetry (equal "
         f"contributions) but the coefficient 3 is EXACTLY the choice of "
         f"one split node per axis family - V108's conditionality is "
-        f"W9's split-node-set input, not a factorization theorem.")
+        f"O9's split-node-set input, not a factorization theorem.")
     out = {"experiment": "V113_w8_axis_factorization", "pass": bool(ok),
            "status": status,
            "data": {"F_10_measured": round(float(F10), 8),

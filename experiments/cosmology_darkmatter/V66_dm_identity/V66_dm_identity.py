@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V66 - the dark-matter identity scan (W7).
+r"""V66 - the dark-matter identity scan (O7).
 
 **The question.**  The ladder gives a DM MASS SCALE, m_DM = M_P (1/16pi)^10 =
 118 GeV (V54), but no state of the implemented spectrum has been identified
@@ -27,7 +27,7 @@ mass - against the implemented step.
 118 GeV.  The exact mirror Z2 is the only exact stability mechanism in the
 theory, and with the V65 charge pattern it stabilizes a COLORED relic - the
 mirror sector cannot be the DM as implemented.  The 118 GeV ladder state has
-no identity: W7 stays open, with the tension quantified (118 GeV vs the
+no identity: O7 stays open, with the tension quantified (118 GeV vs the
 2.0e10 GeV spectral candidate, 8 orders).
 """
 
@@ -196,7 +196,7 @@ def main():
     verdict = {
         "experiment": "V66_dm_identity",
         "pass": ok,
-        "status": ("W7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the "
+        "status": ("O7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the "
                    "mirror Z2 is exact (leak {leak:.1e}), the 16-bar weights "
                    "are the exact conjugates and the mirror doubler masses "
                    "equal the desert thresholds; the only exact-stability "
@@ -224,7 +224,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V66 - the dark-matter identity scan (W7)")
+    print("V66 - the dark-matter identity scan (O7)")
     print("=" * 68)
     print(f"  mirror 16-bar closure leak = {leak:.2e} -> exact Z2: {z2_exact}")
     print(f"  16-bar weights = -16 weights: {conjugate}")

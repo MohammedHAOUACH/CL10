@@ -1,7 +1,7 @@
 {
   "experiment": "V93_cartan_junction",
   "pass": true,
-  "status": "W4 NARROWED TO A PRECISE GAP. V92: the data-preferred meeting IS in the node-16 fragment hull (content exists). V93: with a GENERAL Cartan direction the meeting is realized exactly (6 solutions, thresholds in the desert) BUT those directions break 120 of 120 roots - including the SM roots: unphysical. The SM-preserving direction space has dimension 2 (the class-degenerate span{X,Y} family of V65/V76), and within it NO exact solution exists (the V86/V87 floor 0.81 confirmed as a property of class-degenerate directions). The witness needs PER-WEIGHT threshold splitting inside a fragment class; the named next ingredient is the OFF-DIAGONAL junction mixing (V76 structure) which splits class-degenerate thresholds while preserving the SM algebra.",
+  "status": "O4 NARROWED TO A PRECISE GAP. V92: the data-preferred meeting IS in the node-16 fragment hull (content exists). V93: with a GENERAL Cartan direction the meeting is realized exactly (6 solutions, thresholds in the desert) BUT those directions break 120 of 120 roots - including the SM roots: unphysical. The SM-preserving direction space has dimension 2 (the class-degenerate span{X,Y} family of V65/V76), and within it NO exact solution exists (the V86/V87 floor 0.81 confirmed as a property of class-degenerate directions). The witness needs PER-WEIGHT threshold splitting inside a fragment class; the named next ingredient is the OFF-DIAGONAL junction mixing (V76 structure) which splits class-degenerate thresholds while preserving the SM algebra.",
   "data": {
     "v92_feasible": true,
     "sm_preserving_subspace_dim": 2,

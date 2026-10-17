@@ -1,7 +1,7 @@
 {
  "experiment": "V106_w5_washout_audit",
  "pass": true,
- "status": "AUDIT PASSES BY REPORTING ITS OWN FAILURE: at the SAME Yukawa that gives m_nu = 0.0501 eV (y = 0.3987), the decay is IN equilibrium (K = 46.9 >> 1, Sakharov 3 fails) and the physical washout efficiency is kappa_f = 0.0054 - 14x the guessed dilution D = (1/16pi)^2 = 4.0e-04 the product formula uses. Out-of-equilibrium decay needs y < 0.058, capping m_nu at 1.069e-03 eV, 47x below the atmospheric splitting. W5's 11% agreement is an accident of two wrong factors, not a near-miss: at M_N = 9.6e13 GeV the mechanism cannot supply both the neutrino mass and the asymmetry.",
+ "status": "AUDIT PASSES BY REPORTING ITS OWN FAILURE: at the SAME Yukawa that gives m_nu = 0.0501 eV (y = 0.3987), the decay is IN equilibrium (K = 46.9 >> 1, Sakharov 3 fails) and the physical washout efficiency is kappa_f = 0.0054 - 14x the guessed dilution D = (1/16pi)^2 = 4.0e-04 the product formula uses. Out-of-equilibrium decay needs y < 0.058, capping m_nu at 1.069e-03 eV, 47x below the atmospheric splitting. O5's 11% agreement is an accident of two wrong factors, not a near-miss: at M_N = 9.6e13 GeV the mechanism cannot supply both the neutrino mass and the asymmetry.",
  "data": {
   "M_N_GeV": 96061699239510.22,
   "H_GeV": 12963207280.130121,

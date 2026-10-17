@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V136 - the MINIMAL adjoint word that carries the Majorana number (W2).
+r"""V136 - the MINIMAL adjoint word that carries the Majorana number (O2).
 
-**Where W2 stands.**  The seesaw of Section 10.3 puts the heavy Majorana scale
+**Where O2 stands.**  The seesaw of Section 10.3 puts the heavy Majorana scale
 at M_N = M_P (1/16 pi)^{n_2step} with n_2step = 3, and Table 5 classes that 3
 as a FITTED coefficient: nothing in the automaton says the Majorana mass is a
 3-loop object rather than a 1-, 2- or 4-loop one.  V114 closed the junction
@@ -360,7 +360,7 @@ def main():
     out["verdict"] = "PASS" if ok else "FAIL"
     out["pass"] = ok
     out["status"] = ("THE DELTA L = 2 OPERATOR IS NOT A GAUGE-LINK COMPOSITE "
-                     "(W2). The operator exists inside the root: the weight "
+                     "(O2). The operator exists inside the root: the weight "
                      "2 lambda_nu (norm^2 %.1f) has a 1-dimensional algebra "
                      "weight space sitting in Clifford grade %d - the 126-type "
                      "channel - with no field outside the root. But Clifford "
@@ -371,7 +371,7 @@ def main():
                      "(grades %s, all odd) is likewise unreachable (k = %s). "
                      "The ladder exponent n_2step = 3 is therefore NOT the "
                      "length of an adjoint word: the seesaw operator belongs "
-                     "to the odd (matter) half of the Clifford module, and W2 "
+                     "to the odd (matter) half of the Clifford module, and O2 "
                      "stays open"
                      % (float(w_maj @ w_maj), g_maj,
                         [dims[k] for k in sorted(dims)], kstar, g_vec, k_vec))

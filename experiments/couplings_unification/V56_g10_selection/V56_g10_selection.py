@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-V56 — the 0-parameter GUT coupling g_10: the 1-loop data check (W6).
+V56 — the 0-parameter GUT coupling g_10: the 1-loop data check (O6).
 
-The W6 residual (the "0-parameter is partially conventional" point): the choice
+The O6 residual (the "0-parameter is partially conventional" point): the choice
 to read $1/n_{\rm qubits}$ as the GUT coupling is a **mapping convention**.  This
 experiment makes the **1-loop data check** of that convention explicit and
 honest.
@@ -11,12 +11,12 @@ honest.
 The 0-parameter $g_{10} = 1/5$ (a **number of the root**: the 32-D module,
 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$.  The 1-loop running up to $M_P$
 gives a GUT coupling (mean of the three) of $\sim 0.023$ (the 1-loop does not
-fully unify — the spread is the W4 named residual).  The 0-parameter
+fully unify — the spread is the O4 named residual).  The 0-parameter
 $\alpha_{10} = 1/25$ is **within a factor 1.73** of this 1-loop GUT coupling —
 the **right order**.
 
 The 0-parameter content: the $g_{10} = 1/5$ (a root number).  The named
-residual: the 1-loop matching (W4) and the exact GUT coupling.
+residual: the 1-loop matching (O4) and the exact GUT coupling.
 
 **The honest scan (this experiment states it explicitly).**  Scanning the
 0-parameter candidates $\\alpha = 1/n^2$ ($n = 2\\ldots8$) against the 1-loop
@@ -52,11 +52,11 @@ def main():
         "id": "V56_g10_selection",
         "tier": 6,
         "property": "P5,P6",
-        "residual": True,   # the 1-loop matching (W4) and the exact GUT coupling are the named residual
+        "residual": True,   # the 1-loop matching (O4) and the exact GUT coupling are the named residual
         "pass": bool(ok),
         "status": (f"the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_"
                    f"5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_{d['ratio_to_1loop']:.2f}_of_the_1_loop_GUT_"
-                   f"coupling_{d['gut_1loop']['mean_GUT']:.3f}_at_M_P_the_1_loop_matching_is_the_W4_named_residual"),
+                   f"coupling_{d['gut_1loop']['mean_GUT']:.3f}_at_M_P_the_1_loop_matching_is_the_O4_named_residual"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -74,7 +74,7 @@ def main():
             "gap_root_n5": d["gap_root_n5"],
             "gap_best_n": d["gap_best_n"],
             "data_check_selects_n": d["data_check_selects_n"],
-            "residual": ("the 1-loop matching (W4) and the exact GUT coupling — "
+            "residual": ("the 1-loop matching (O4) and the exact GUT coupling — "
                          "the 0-parameter g_10 = 1/5 is a root number in the "
                          "right order (within a factor 2 of the 1-loop GUT "
                          "coupling)"),
@@ -86,7 +86,7 @@ def main():
     with open(os.path.join(outdir, "v56_g10_selection.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V56 - the 0-parameter GUT coupling g_10 (the 1-loop data check, W6)")
+    print("V56 - the 0-parameter GUT coupling g_10 (the 1-loop data check, O6)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  0-parameter g_10 = 1/{d['n_qubits']} = {d['g10']:.3f}  (a number of the root: the 32-D module, 5 qubits)")
@@ -100,8 +100,8 @@ def main():
           f"(selects n: {d['data_check_selects_n']})")
     print("    -> reading 1/n_qubits as the coupling is therefore a MAPPING CONVENTION "
           "(n = 5 is the number of qubits of the 32-D module, 10 = 2 x 5)")
-    print(f"  named residual (W6):  {verdict['data']['residual']}")
-    print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the W4 named residual)' if ok else 'FAIL'}")
+    print(f"  named residual (O6):  {verdict['data']['residual']}")
+    print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the O4 named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v56_g10_selection.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

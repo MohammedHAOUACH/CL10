@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V78 - the W1 audit: the zero vacuum energy is PROTECTED BY det U = 1.
+r"""V78 - the O1 audit: the zero vacuum energy is PROTECTED BY det U = 1.
 
 **The fact (V71, Fig 6).**  The one-cell vacuum energy is the sum of
 the 32 principal quasi-energies, S = sum_k angle eig_k(U) = arg det U
 (mod 2 pi), and it vanishes exactly: the spectrum is +-paired and
-det U = 1.  W1 asks: how hard is it to move this zero?
+det U = 1.  O1 asks: how hard is it to move this zero?
 
 **The protection (proved numerically here).**  Perturb: U' =
 exp(i eps A) U.
@@ -22,14 +22,14 @@ exp(i eps A) U.
       happens only at eps_cross ~ the distance of the spectrum to -1:
       the zero is pinned for all weak perturbations.
 
-**Translation to W1.**  One-loop vacuum density ~ M_P^4 / (16 pi^2)
+**Translation to O1.**  One-loop vacuum density ~ M_P^4 / (16 pi^2)
 times S per cell.  Lambda_obs = 1e-122 M_P^4 requires a trace phase
   eps Tr A ~ 16 pi^2 x 1e-122 ~ 1.6e-120,
-or new physics that crosses the branch.  W1 verdict: Lambda = 0 is
+or new physics that crosses the branch.  O1 verdict: Lambda = 0 is
 PROTECTED by the algebraic identity det U = 1 against every
 traceless internal deformation; the observed value is equivalent to a
 U(1)-trace breaking of relative size < 1e-120 - a named, falsifiable
-bound.  Closing W1 means finding the trace anomaly of that size (or
+bound.  Closing O1 means finding the trace anomaly of that size (or
 proving it vanishes to all orders and locating Lambda outside the
 one-cell spectrum).
 """
@@ -117,7 +117,7 @@ def main():
         f"at eps_cross = {eps_str}; weak perturbations cannot "
         "move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 "
         "times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a "
-        f"trace-phase breaking eps Tr A ~ {eps_crit:.1e}. W1 is now a "
+        f"trace-phase breaking eps Tr A ~ {eps_crit:.1e}. O1 is now a "
         "named bound: any internal U(1)-trace anomaly must satisfy "
         "|Tr A| eps < 1e-120, or Lambda lives outside the one-cell "
         "spectrum (geometry, measure postulate).")
@@ -135,7 +135,7 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V78 - the protection of Lambda = 0 (W1)")
+    print("V78 - the protection of Lambda = 0 (O1)")
     print("=" * 68)
     print(f"  traceless (50 x 4 eps up to 1): max |S| = {even_max:.2e}")
     print(f"  pure trace A = I: slope = {trace_slope:.2f} (expect 32)")

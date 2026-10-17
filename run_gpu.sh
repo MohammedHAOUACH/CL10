@@ -4,7 +4,7 @@
 #   ./run_gpu.sh                    # every experiment under experiments/
 #   ./run_gpu.sh V63_bz_chirality V102_lorentz_isotropy   # a subset (**exact** dir names)
 #   JOBS=6 ./run_gpu.sh             # worker pool (default 8)
-#   FORCE=1 ./run_gpu.sh            # launch even if the card looks busy
+#   FORCE=1 ./run_gpu.sh            # launch even if the card looks busy (the run then takes the CPU core)
 #
 # Each experiment is a subprocess; cl10/engine.py probes the card and falls
 # back to numpy if fewer than 2 GiB are free, so a busy card silently runs
@@ -12,7 +12,6 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
-export CL10_BACKEND=cupy
 JOBS=${JOBS:-8}
 FORCE=${FORCE:-0}
 
@@ -38,6 +37,15 @@ if [ "${free0}" -lt "${need}" ] && [ "${FORCE}" != 1 ]; then
     fi
     echo "set FORCE=1 to run anyway (numpy fallback per experiment)."
     exit 3
+fi
+
+# the backend follows the card: cupy only when it can host the workers, else the
+# CPU core (both the engine gate and the direct-cupy experiments read CL10_BACKEND)
+if [ "${free0}" -ge "${need}" ]; then
+    export CL10_BACKEND=cupy
+else
+    export CL10_BACKEND=numpy
+    echo "NOTE: ${free0} MiB free on GPU0 < ${need} MiB needed - running on the CPU core (CL10_BACKEND=numpy)."
 fi
 
 log="results/gpu_run_$(date +%Y%m%d_%H%M%S).log"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V50 — the **complete** 4-D non-linear gravity (the W9 gap: the **general**
+"""V50 — the **complete** 4-D non-linear gravity (the O9 gap: the **general**
 4-D Riemann **computed** from an arbitrary metric, not hard-coded / not
 restricted to one analytic solution).
 
@@ -40,10 +40,10 @@ of the $(1,3)$ GUT sub-algebra) is **complete**:
    **fails**: the evolved ``a+b`` differs from the sum of the separately
    evolved parts -- the hallmark of non-linear gravity).
 
-**The named residual (W9).**  The **3+1 BSSN/Z4 numerical relativity** is now
+**The named residual (O9).**  The **3+1 BSSN/Z4 numerical relativity** is now
 **complete** (V51, `cl10.numrel`): the 2-route 0-row + the Z4 constraint
 damping + the non-linearity + the UV-finite property.  The remaining **open**
-part of W9 is the **quantum** completion (the UV of the quantum gravity) --
+part of O9 is the **quantum** completion (the UV of the quantum gravity) --
 not the classical 4-D gravity (V50) nor the classical 3+1 NR (V51), which
 are complete here.
 """
@@ -84,7 +84,7 @@ def main():
         "id": "V50_complete_gravity",
         "tier": 2,
         "property": "C2",
-        "residual": True,   # the full 4-D NR + the quantum completion: the W9 named residual
+        "residual": True,   # the full 4-D NR + the quantum completion: the O9 named residual
         "pass": ok,
         "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
         "tol": TOL,
@@ -112,7 +112,7 @@ def main():
     with open(os.path.join(outdir, "v50_complete_gravity.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V50 - the COMPLETE 4-D non-linear gravity (the W9 gap)")
+    print("V50 - the COMPLETE 4-D non-linear gravity (the O9 gap)")
     print("=" * 68)
     print(f"  backend:  {r['backend']}")
     print(f"  [2-route] de Sitter computed vs analytic Riemann:  max diff = {r2['max_abs_diff']:.2e}  (O(h^2) = {r2['h2']:.0e})")
@@ -120,7 +120,7 @@ def main():
     print(f"  [flat]  R = {fl['ricci_scalar']:.2e} (exact vacuum)")
     print(f"  [non-linear] Gamma*Gamma:  flat = {nl['gamma_gamma_flat']:.2e} (=0),  de Sitter = {nl['gamma_gamma_de_sitter']:.2e} (>0)")
     print(f"  [non-linear QCA]  norm rel err = {qca['norm_rel_err']:.2e} (unitary/UV-finite);  superpose err = {qca['superpose_err']:.2e} (non-linear);  front speed = {qca['front_speed']} (causal)")
-    print(f"  named residual (W9):  {r['residual']}")
+    print(f"  named residual (O9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 4-D non-linear gravity is complete: computed curvature, 2-route check, black hole recovered, non-linear QCA)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v50_complete_gravity.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

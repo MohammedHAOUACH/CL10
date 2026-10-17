@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V45 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (W6, C4).
+"""V45 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (O6, C4).
 
-The **9-to-1 reduction** (Section 12): the nine residuals W1-W9 are
+The **9-to-1 reduction** (Section 12): the nine residuals O1-O9 are
 projections of **one** 0-parameter object — the GUT QCA step ``U`` (the
-32-level spectrum at ``g_10 = 1/5``).  This experiment is the **W6
+32-level spectrum at ``g_10 = 1/5``).  This experiment is the **O6
 projection**: the **3-generation Yukawa mass matrix** and the **mixing**,
 read off from that one object, with **no fit**:
 
@@ -39,7 +39,7 @@ read off from that one object, with **no fit**:
    vector (the 10) is **off-diagonal** in the 16/16-bar split, so the
    0-parameter mass term $16\\,10\\,16\\bar$ is the **Dirac** term.
 
-**The named residual (W6).**  The **exact** 3-gen hierarchy (the 10-Higgs
+**The named residual (O6).**  The **exact** 3-gen hierarchy (the 10-Higgs
 vev breaking, the ratios $m_1:m_2:m_3$), the angles $\\sin^2 23$ and
 $\\sin^2 13$ (the $O(2)$ choice of which $S_3$ transposition breaks), and the
 **non-trivial CKM** (with $H_u = H_d$ both democratic the computed CKM is the
@@ -73,7 +73,7 @@ def main():
         "id": "V45_yukawa_matrix",
         "tier": 2,
         "property": "P2",
-        "residual": True,          # the exact 3-gen hierarchy + the exact CKM/PMNS (W6) are the named residual
+        "residual": True,          # the exact 3-gen hierarchy + the exact CKM/PMNS (O6) are the named residual
         "pass": bool(ok),
         "status": "the_0_parameter_3x3_Yukawa_mass_matrix_democratic_base_the_TBM_mixing_the_2_level_structure_the_exact_hierarchy_is_the_named_residual",
         "tol": TOL,
@@ -137,7 +137,7 @@ def main():
     with open(os.path.join(outdir, "v45_yukawa_matrix.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V45 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (W6, C4)")
+    print("V45 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (O6, C4)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY input:  g_10 = {r['g10']:.4f} (= 1/5)")
@@ -159,7 +159,7 @@ def main():
     print(f"  [5] 0-parameter hierarchy:  {hier['structure']}  (the {hier['n_levels_observed']}-level is the named residual);  "
           f"mean 0-parameter vs observed PMNS deviation:  {mix['dev_pmns']:.3f}")
     print(f"  [6] 10-Higgs Dirac term (the 0-parameter mass):  rank {r['higgs_dirac']['rank']} (16->16-bar, off-diagonal)")
-    print(f"  [7] named residual (W6):  {r['residual']}")
+    print(f"  [7] named residual (O6):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level/exact mixing is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v45_yukawa_matrix.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

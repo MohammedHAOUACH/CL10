@@ -39,7 +39,7 @@ def fig19_couplings_mz():
     axB.set_ylim(0, 0.26)
     axB.set_xlim(-0.6, 3.35)
     axB.set_title(r"At $M_Z$: $\alpha_1$ matches ($1.17\times$); $\alpha_2$ $5.8\times$ too large;"
-                  "\n" r"$\alpha_3$ negative — the 1-loop matching is the W4 named residual", fontsize=12)
+                  "\n" r"$\alpha_3$ negative — the 1-loop matching is the O4 named residual", fontsize=12)
     axB.legend(fontsize=9.5, loc="upper right", framealpha=0.95)
     fig.suptitle("The root coupling $\\alpha_{10} = 1/25$ and the $5/3$ normalisation",
                  fontsize=13)

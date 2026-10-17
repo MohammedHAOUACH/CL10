@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V76 - the W2 solution attempt: BUILD the inter-node mixing V68 named.
+r"""V76 - the O2 solution attempt: BUILD the inter-node mixing V68 named.
 
 **The question.**  V68 pinned the exact 1/3 neutrino coefficient to ONE
 named missing ingredient: the 3x3 node Majorana mass matrix must be
@@ -42,7 +42,7 @@ eigenvalues leave two gapless node combinations per triangle for EVERY
 weight - gapless colored doublers - UNLESS the Dirac matrix is also
 democratic, decoupling the antisymmetric combinations: then
 m_nu = S17/3 = 0.0487 eV with two exactly massless neutrinos (the F3
-candidate).  W2: the 1/3 is now a NAMED structure (cubic junction +
+candidate).  O2: the 1/3 is now a NAMED structure (cubic junction +
 democratic m_D), falsifiable by F3, not a free coefficient.
 """
 
@@ -192,7 +192,7 @@ def main():
         f"every r < 2 violates Sum m_nu < {SUM_MNU_MAX} eV "
         f"(generic pass: {generic_ok}); the 1/3 candidate (0.0487 eV, two "
         "massless neutrinos) survives ONLY at the measure-zero democratic "
-        "point AND a democratic m_D (else gapless colored doublers). W2: "
+        "point AND a democratic m_D (else gapless colored doublers). O2: "
         "the 1/3 is a named, F3-falsifiable structure, not a coefficient.")
 
     verdict = {"experiment": "V76_w2_mixing", "pass": bool(ok),
@@ -210,7 +210,7 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V76 - the inter-node mixing junction (W2)")
+    print("V76 - the inter-node mixing junction (O2)")
     print("=" * 68)
     print(f"  SEL triangle closed: {tri_closed}; components: {comps}")
     print(f"  cubic: {perm_ok}; zero-mean: {mean_ok}; "

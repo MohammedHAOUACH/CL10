@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V125 - the CP phase of the bond layer, spent on the asymmetry (W5)
+r"""V125 - the CP phase of the bond layer, spent on the asymmetry (O5)
 
-**Where W5 stands.**  V109 showed no mirror-preserving extension of the step
+**Where O5 stands.**  V109 showed no mirror-preserving extension of the step
 supplies a CP phase, and V117 located the prohibition in the root: the 32-D
 module of Cl(10,0) is of REAL type (the intertwiner to the conjugate module is
 unique, J^2 = +1), so a real form of U(32) carries no CP-odd invariant.  The
@@ -263,7 +263,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "THE CP FLUX SPENT ON THE ASYMMETRY (W5). V117's sub-lattice bond flux "
+        "THE CP FLUX SPENT ON THE ASYMMETRY (O5). V117's sub-lattice bond flux "
         "A_1 = Phi x_0 is exactly unitary (%.1e), keeps det U = 1 at every "
         "flux (max |arg det U| = %.1e - V78's protection extends to the flux "
         "step), commutes with the pseudoscalar (the mirror Z2 of V124, leak "
@@ -281,7 +281,7 @@ def main():
         "unitarity, det U = 1, the mirror Z2 and causality exact. What fails "
         "is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the "
         "decay in equilibrium (K = %.1f), and out-of-equilibrium decay needs "
-        "y < %.4f, which caps m_nu far below the atmospheric splitting. W5 "
+        "y < %.4f, which caps m_nu far below the atmospheric splitting. O5 "
         "stays open, and it is now open for ONE named reason instead of two."
         % (max(r["unitarity"] for r in scan),
            max(r["vac_phase"] for r in scan), mirror_comm, lr, shift_max,

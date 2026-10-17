@@ -52,7 +52,7 @@ which is what a cellular-automaton ontology ('t Hooft) demands.  The results:
    signature of the irrational clock: at g = pi/4 all 12 M-node doublers are
    EXACTLY gapless (min gap 1.4e-17, 12/12), while the implemented 1/5 keeps
    the 2.003e-4 near-miss (0/12).  The zone centre becomes exactly gapless as
-   well (M(0)^2 = I): the gapless census of the zone must be redone (W9).
+   well (M(0)^2 = I): the gapless census of the zone must be redone (O9).
 
 6. THE LOOP MACHINERY QUANTIZES.  The traced-link hop phases (the T.L joint
    eigenvalues -32, -12, +4) become EXACTLY {1, i, i} at pi/4, and a NEW
@@ -60,7 +60,7 @@ which is what a cellular-automaton ontology ('t Hooft) demands.  The results:
    n (the odd closed loops cancel identically - at 1/5 V89 measured "no
    selection rule").  The COST: the even-n suppression decays ~0.92 per four
    steps, so the crossing of 1/(16 pi) moves from n* = 10 = 2 n_qubits (V89,
-   the ladder-length selection of W8) to a much larger loop order - the
+   the ladder-length selection of O8) to a much larger loop order - the
    hierarchy mechanism of Section 10.1 must be re-derived at the quantized
    angle, and the coupling convention alpha_10 = g_10^2 becomes
    alpha_10 = pi^2/16 in rotation units = pi/64 ~ 0.0491 in the SM
@@ -354,9 +354,9 @@ def main():
         "even_crossing_first_n_below_1_over_16pi": first_even_below,
         "even_sequences_sample": [[n, round(f, 6)] for n, f in Fn_even[:16]],
         "even_decay_per_step": decay,
-        "note": ("at 1/5 the crossing was n* = 10 = 2 n_qubits (V89, W8): "
+        "note": ("at 1/5 the crossing was n* = 10 = 2 n_qubits (V89, O8): "
                  "the ladder-length selection does NOT survive the "
-                 "quantized angle - W8 must be re-derived with the new "
+                 "quantized angle - O8 must be re-derived with the new "
                  "exact odd-loop cancellation")}
     ok6 = (ph_res < 1e-12 and odd_max < 1e-12
            and first_even_below is not None and first_even_below > 10)
@@ -365,7 +365,7 @@ def main():
                    "exact selection rule appears - F_n = 0 for EVERY odd n "
                    "(max %.1e); the cost: the crossing of 1/(16pi) moves "
                    "from n* = 10 to the first even n below it at n = %d "
-                   "(small-branch decay %.3f per step): W8's ladder-length "
+                   "(small-branch decay %.3f per step): O8's ladder-length "
                    "selection does not survive the quantized angle"
                    % (ph_res, odd_max, first_even_below or -1,
                       decay or float('nan')), ok6))
@@ -405,8 +405,8 @@ def main():
         "a parameter: it is forced to a two-element set of the root and the "
         "finest closed clock (pi/4) is the physical branch; the choice is a "
         "discrete index, like the family number 3. THE PRICE: the "
-        "ladder-length selection n* = 10 (W8) and the alpha = 1/25 meeting "
-        "(W4, V64) do not survive the quantized angle - the crossing moves "
+        "ladder-length selection n* = 10 (O8) and the alpha = 1/25 meeting "
+        "(O4, V64) do not survive the quantized angle - the crossing moves "
         "beyond n = %d and the desert inverse problem must re-close at "
         "alpha = pi/64 = %.4f. The trade: the alpha = 1/25 coincidence and "
         "the n* = 10 crossing are lost; a dynamics with ZERO continuous "

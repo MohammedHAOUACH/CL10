@@ -4,7 +4,7 @@
   "property": "P6",
   "residual": true,
   "pass": true,
-  "status": "W2 RE-AUDITED: the measure-zero tuning of V90 is an artifact of the identity-Dirac assumption. With the implemented democratic rank-1 m_D (V28/V45) the two massless neutrinos are protected for EVERY junction ratio r, m_3(r) = S17/(1+r) is finite everywhere, the cosmological window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.914; the exact r = 2 (S17/3 = 0.0487 eV) is a junction amplitude convention, not a tuning. Solar mass still W6.",
+  "status": "O2 RE-AUDITED: the measure-zero tuning of V90 is an artifact of the identity-Dirac assumption. With the implemented democratic rank-1 m_D (V28/V45) the two massless neutrinos are protected for EVERY junction ratio r, m_3(r) = S17/(1+r) is finite everywhere, the cosmological window is r > 0.217 (width 2.78), and the atmospheric scale selects r = 1.914; the exact r = 2 (S17/3 = 0.0487 eV) is a junction amplitude convention, not a tuning. Solar mass still O6.",
   "data": {
     "collapse_dev_random": 8.88e-16,
     "collapse_dev_r2_rankdeficient": 4.44e-16,

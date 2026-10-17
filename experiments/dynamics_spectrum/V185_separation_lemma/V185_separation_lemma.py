@@ -3,7 +3,7 @@
 r"""V185 - the separation lemma: every tangent operator of the implemented
 step is (sub-site) x (internal identity) (Phase 1 of the cone programme).
 
-**Why.**  V118 closed W9 with one sentence: the tangent velocity operators
+**Why.**  V118 closed O9 with one sentence: the tangent velocity operators
 commute "because the bond layer is a Kronecker product (cell index) x
 (internal algebra) and never mixes the two". V142 measured the same fact
 frame-blind to 3e-15. The cone programme (V186) rests on this being a LEMMA,

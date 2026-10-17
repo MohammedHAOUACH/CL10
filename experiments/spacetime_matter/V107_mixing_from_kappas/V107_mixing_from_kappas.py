@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V107 - can V96's kappa_s pattern touch the W6 mixing deviations?
+r"""V107 - can V96's kappa_s pattern touch the O6 mixing deviations?
 
-**The question.** W6: the democratic base gives sin^2(12) = 1/3,
+**The question.** O6: the democratic base gives sin^2(12) = 1/3,
 theta13 = 0, CKM = 1; data: 0.308, 0.0222, 0.225. V104 excluded the
 natural vev placements. V96 built a flavour-dependent bond layer with
-per-class strengths kappa_s. Can THAT pattern supply the W6 splitting?
+per-class strengths kappa_s. Can THAT pattern supply the O6 splitting?
 
 **The structural answer (computed).** V96's classes are the SIX SM
 GAUGE classes (Q, u^c, d^c, L, e^c, nu^c) - each class contains all
@@ -15,9 +15,9 @@ it rescales each Yukawa block uniformly,
 and the mixing matrices are invariant under uniform rescaling of a
 block (the singular vectors of cY equal those of Y). So the PMNS and
 CKM are EXACTLY unchanged for every eps: the deviations stay at zero.
-V96's flavour dependence lives in gauge-class space; W6 lives in
-generation space. The two are orthogonal: the W4 fix cannot be the W6
-source, and W6 needs a generation-space structure (as V104 already
+V96's flavour dependence lives in gauge-class space; O6 lives in
+generation space. The two are orthogonal: the O4 fix cannot be the O6
+source, and O6 needs a generation-space structure (as V104 already
 forced: >= 2 vev terms, non-cubic direction).
 
 PASS (as an audit) = the numerical check confirms exact invariance:
@@ -91,10 +91,10 @@ def main():
     status = ("NEGATIVE (structural): V96's kappa_s are per-GAUGE-class "
               "couplings - generation-blind - so they rescale each Yukawa "
               "block uniformly and leave PMNS/CKM EXACTLY invariant "
-              f"(max angle shift {worst:.1e} over eps in [0,10]). The W4 "
+              f"(max angle shift {worst:.1e} over eps in [0,10]). The O4 "
               "bond-layer flavour dependence lives in gauge-class space, "
-              "W6 in generation space: V96 cannot supply the mixing "
-              "deviations; W6 needs generation-space structure (V104: "
+              "O6 in generation space: V96 cannot supply the mixing "
+              "deviations; O6 needs generation-space structure (V104: "
               ">= 2 vev terms, non-cubic).")
     out = {"experiment": "V107_mixing_from_kappas", "pass": bool(ok),
            "status": status,

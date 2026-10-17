@@ -10,8 +10,8 @@ DM ($m \sim M_P$, the stable soliton of the non-linear metric) is
 **under**-abundant ($\Omega_{\rm 0param}/\Omega_{\rm obs} \sim 10^{-52}$) — the
 observed DM is *not* the Planck-mass soliton.
 
-**The 0-parameter sub-Planck scale (this module).**  The observed DM mass is
-the **10-loop suppression of the Planck scale**:
+**The sub-Planck scale this module computes (O7).**  The scale is the **10-loop
+suppression of the Planck scale**:
 
     m_DM  =  M_P \times (1/16\pi)^{10}
 
@@ -24,13 +24,14 @@ $1/(16\pi) \approx 0.0199$.  So
 
 — the **WIMP / weak scale**.
 
-**The WIMP miracle (0-parameter).**  A thermally-decoupled relic with a mass
-$\sim$ the weak scale ($100$ GeV) and a weak-scale annihilation cross-section
-gives the **observed** abundance $\Omega h^2 \approx 0.12$ — the **WIMP
-miracle**, a **0-parameter** cosmological result (no free parameter is fit).
-The 0-parameter $m_{\rm DM} = 118$ GeV is within a factor 1.18 of the WIMP
-miracle scale (100 GeV), so the **0-parameter structure predicts the observed
-DM mass to be the weak/WIMP scale**.
+**What the WIMP miracle adds (an input, not a derivation).**  A thermally
+decoupled relic of mass $\sim 100$ GeV with a weak-scale annihilation
+cross-section gives $\Omega h^2 \approx 0.12$: that statement is **standard
+cosmology**, not a result of the automaton.  The ladder scale sits within a
+factor $1.18$ of that reference scale.  This module does **not** conclude that
+the observed DM mass is the weak scale: **no state of the implemented spectrum
+carries the scale** (the paper's O7/F6), so the coincidence is a scale
+statement, not the prediction of a particle.
 
 **The unification with V53.**  The **same** 10-loop factor $(1/16\pi)^{10}$
 $= (n_{\rm gen}$ loop suppressions) gives **both** the hierarchy exponent -17
@@ -38,12 +39,15 @@ $= (n_{\rm gen}$ loop suppressions) gives **both** the hierarchy exponent -17
 (V54: $m_{\rm DM} = M_P \times (1/16\pi)^{10}$).  One 0-parameter number
 (unified): the 10-loop suppression of the single Planck scale.
 
-**The honest 0-parameter result.**  The **sub-Planck DM mass scale** (and the
-abundance order) is 0-parameter-derived (the 10-loop factor $\times M_P$).
-The **named residual**: the DM **identity** (which particle) and the exact
-**cross-section** (the RG running, O9).  The **V42 gap** (the Planck-mass
-soliton, $10^{-52}$) is **resolved**: the observed DM is the **10-loop
-(weak-scale)** relic, not the Planck-mass soliton.
+**What is derived, what is input, what is open.**  Derived: the ladder
+arithmetic $M_P (1/16\pi)^{10} = 118$ GeV and its contrast with the V42
+Planck-mass soliton.  Input: the observed $\Omega h^2 = 0.12$, the $100$ GeV
+reference, and the relic convention ``relic_abundance`` (normalised to the
+observed value at the reference scale **by construction**, so it is a contrast
+device, not an abundance prediction).  Open (**O7**): which state carries the
+scale, and the cross-section (the RG running, O9).  The **V42 gap is not
+resolved** here: it is relocated, from "the soliton is under-abundant" to "the
+right scale has no carrier".
 """
 
 import numpy as np
@@ -78,10 +82,13 @@ def relic_abundance(m_GeV):
 
 
 def dm_wimp():
-    r"""The O7 result: the sub-Planck DM mass $m_{\rm DM} = M_P (1/16\pi)^{10}$
-    (the 0-parameter 10-loop WIMP scale) and its 0-parameter relic abundance.
-    Returns the 0-parameter mass, the WIMP-miracle comparison, the abundance
-    match, and the V42 Planck-soliton gap (for contrast)."""
+    r"""The O7 scale: $M_P (1/16\pi)^{10} = 118$ GeV, the comparison with the
+    $100$ GeV WIMP-miracle reference, the convention-normalised relic contrast,
+    and the V42 Planck-soliton gap (for contrast).  **No state of the
+    implemented spectrum carries this scale** - the carrier is the open problem
+    O7 - and ``relic_abundance`` is normalised to the observed density at the
+    reference scale by construction, so the abundance numbers are a contrast,
+    not a prediction."""
     f10 = F10()
     m_dm = float(M_P * f10)                 # ~ 118 GeV
     m_over_weak = float(m_dm / WEAK_SCALE)  # ~ 1.18
@@ -94,10 +101,11 @@ def dm_wimp():
     planck_gap = float(planck_omega / OMEGA_OBS)
 
     one_line = (
-        "the sub-Planck DM mass is the 0-parameter 10-loop suppression of the "
-        "Planck scale: M_P*(1/16pi)^10 = 118 GeV (the WIMP/weak scale; the same "
-        "10-loop factor as the O8 hierarchy) — the V42 Planck-soliton gap "
-        "(1e-52) is resolved (the observed DM is the 10-loop relic)"
+        "the sub-Planck ladder scale M_P*(1/16pi)^10 = 118 GeV lands within a "
+        "factor 1.18 of the WIMP/weak scale (the same 10-loop factor as the O8 "
+        "hierarchy); no state of the implemented spectrum carries it - the "
+        "carrier is the open problem O7 - and the V42 Planck-soliton gap "
+        "(1e-52) is relocated, not resolved"
     )
     return {
         "backend": _backend(),
@@ -113,21 +121,30 @@ def dm_wimp():
         "v42_planck_omega": float(planck_omega),
         "v42_planck_gap": planck_gap,
         "v42_quantified_gap": float(v42["abundance_gap"]),
+        "carrier_status": "open (O7): no state of the implemented spectrum carries the scale",
+        "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
         "one_line": one_line,
     }
 
 
 def verify(tol=1e-12):
-    """0-parameter checks: (i) the 0-parameter DM mass is in the WIMP window
-    (10–1000 GeV); (ii) it is within a factor 3 of the WIMP-miracle scale
-    (100 GeV); (iii) its 0-parameter abundance is the right order (0.02–0.5);
-    (iv) the V42 Planck-soliton gap is reproduced (the contrast)."""
+    r"""The arithmetic of the O7 scale: (i) the ladder identity
+    $m = M_P(1/16\pi)^{n_{\rm gen}}$; (ii) the scale lands in the WIMP window
+    and within a factor 3 of the $100$ GeV reference (the reported coincidence);
+    (iii) the relic contrast is the convention it claims to be (the identity
+    $\\Omega(m)=\\Omega_{\rm obs}(100/m)^3$, so no independent abundance is
+    asserted); (iv) the V42 gap agrees with ``cosmology3.dm_mass_scale`` across
+    the modules.  Nothing here tests the DM **carrier**: that is O7."""
     r = dm_wimp()
+    ladder = M_P * LOOP ** N_GEN
+    omega_identity = abs(r["omega_DM"] - OMEGA_OBS * (WEAK_SCALE / r["m_DM_GeV"]) ** 3)
+    cross_module = abs(r["v42_planck_gap"] - r["v42_quantified_gap"])
     ok = (
-        10.0 <= r["m_DM_GeV"] <= 1000.0
+        abs(r["m_DM_GeV"] - ladder) <= tol * ladder
+        and 10.0 <= r["m_DM_GeV"] <= 1000.0
         and (1.0 / 3.0) <= r["m_over_weak"] <= 3.0
-        and 0.02 <= r["omega_DM"] <= 0.5
-        and r["v42_planck_gap"] < 1e-20   # the 1e-52 gap (the V42 contrast: the Planck soliton is under-abundant)
+        and omega_identity <= tol
+        and cross_module <= tol * r["v42_planck_gap"]
     )
     return {"r": r, "ok": bool(ok)}
 
@@ -137,16 +154,17 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the sub-Planck DM scale (the 0-parameter 10-loop WIMP scale, O7)")
+    print("CL10 - the sub-Planck ladder scale (the 10-loop suppression of M_P); the carrier is open (O7)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
-    print(f"  0-parameter 10-loop factor (1/16pi)^10 = {d['F10']:.3e}  (10 = n_gen)")
-    print(f"  m_DM = M_P * (1/16pi)^10 = {d['m_DM_GeV']:.1f} GeV   (the WIMP/weak scale)")
-    print(f"  WIMP-miracle scale = {d['weak_scale_GeV']:.0f} GeV   m_DM/weak = {d['m_over_weak']:.3f}")
-    print(f"  0-parameter relic abundance Omega h^2 = {d['omega_DM']:.4f}   (observed {d['omega_obs']})")
-    print(f"  abundance match:  {d['omega_DM']:.3f} vs {d['omega_obs']}  (ratio {d['omega_ratio_to_observed']:.2f})")
+    print(f"  10-loop factor (1/16pi)^10 = {d['F10']:.3e}  (10 = n_gen)")
+    print(f"  ladder scale = M_P * (1/16pi)^10 = {d['m_DM_GeV']:.1f} GeV   (lands at the WIMP/weak scale)")
+    print(f"  WIMP-miracle reference = {d['weak_scale_GeV']:.0f} GeV   ladder/reference = {d['m_over_weak']:.3f}")
+    print(f"  relic contrast Omega h^2 = {d['omega_DM']:.4f}   (observed {d['omega_obs']}; normalised at the reference scale by construction, not a prediction)")
+    print(f"  contrast ratio:  {d['omega_DM']:.3f} vs {d['omega_obs']}  (ratio {d['omega_ratio_to_observed']:.2f})")
     print(f"  V42 contrast:  the Planck-mass soliton gives Omega h^2 = {d['v42_planck_omega']:.2e}  "
           f"(gap {d['v42_planck_gap']:.1e}; V42 quantified {d['v42_quantified_gap']:.1e})")
+    print(f"  carrier:  {d['carrier_status']}")
     print(f"  VERDICT:  {'PASS (the ladder scale M_P(1/16pi)^10 = 118 GeV; no state of the implemented spectrum carries it - the open problem O7)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

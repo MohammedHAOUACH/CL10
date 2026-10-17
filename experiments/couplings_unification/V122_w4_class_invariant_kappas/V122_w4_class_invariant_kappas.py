@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V122 - are V96's six kappa_s supplied by a CLASS INVARIANT of the root?
 
-**Where W4 stands.**  V96 closed the meeting exactly (residual < 1e-14, all
+**Where O4 stands.**  V96 closed the meeting exactly (residual < 1e-14, all
 thresholds in the desert, SM desert group preserved) with per-fragment-class
 junction strengths kappa_s - but the six kappa_s are six new automaton
 inputs, so the closure is CONDITIONAL.  V105 killed the on-site route:
@@ -340,7 +340,7 @@ def main():
     t_out["pass"] = ok
     t_out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     t_out["status"] = (
-        "CLASS INVARIANTS AS THE SOURCE OF THE SIX kappa_s (W4). V96's exact "
+        "CLASS INVARIANTS AS THE SOURCE OF THE SIX kappa_s (O4). V96's exact "
         "closure reproduces with free kappa_s in the flipped embedding V96 used "
         "(10/10 node counts, residual < 1e-10, thresholds inside the desert); "
         "the Georgi-Glashow split closes only %d/10 under the same desert "
@@ -370,7 +370,7 @@ def main():
            min((p["residual"] for r in runs.values()
                 for p in r["two_coupling"]["best"]), default=float("nan")),
            ("the six kappa_s ARE supplied by the class invariant %s of the %s "
-            "split: W4's closure becomes a one-coupling derivation"
+            "split: O4's closure becomes a one-coupling derivation"
             % (all_closed[0][1], all_closed[0][0]) if all_closed else
             "no representation-level invariant of the fragment classes supplies "
             "the junction strengths, in either embedding: V105's no-go extends "

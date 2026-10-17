@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V133 - the W4 desert meeting re-closed at the QUANTIZED coupling.
+r"""V133 - the O4 desert meeting re-closed at the QUANTIZED coupling.
 
 **Why (V131 forces this).** The closure axiom (Section 8.5) puts the step at
 g = pi/4, and the coupling convention alpha_10 = g^2 then gives the rotation-

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V72 - the missing tool, BUILT: a genuine block-spin RG for the QCA.
 
-**The question (W8, closing the loop from V69).**  V69 proved the time
+**The question (O8, closing the loop from V69).**  V69 proved the time
 tower U^(2^p) is kinematic and generates no loop factor, and named the
 missing tool: a genuine lattice RG - block-spin integration of the bond
 layer. This experiment BUILDS that tool and runs it.
@@ -22,7 +22,7 @@ is EXACT - no approximation, no truncation. Iterate: coarse chain L/2.
 is provably G^(2^p) after p levels (two-hop paths accumulate two internal
 rotations) - the kinematic doubling of V69 DERIVED from a spatial RG. For
 [G, R] != 0 the on-site block composes as (G^2 R^2)-type products: angles
-ADD on the algebra. The W8 question: does any level produce a suppression
+ADD on the algebra. The O8 question: does any level produce a suppression
 ~ 1/(16 pi)?
 
 **Verdict (computed).**  Factorized layer: the internal coupling is

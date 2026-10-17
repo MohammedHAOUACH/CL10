@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V90 - is the democratic junction point PROTECTED? Symmetry,
-quantization and the exact cosmological window. W2's measure-zero
+quantization and the exact cosmological window. O2's measure-zero
 residual, sharpened.
 
-**Why (W2).**  V76 built the junction: the node mass matrix
+**Why (O2).**  V76 built the junction: the node mass matrix
 M = c_s (2 w0 I + kappa (J - I)) is democratic at r = kappa/w0 = 2
 (eigenvalues {6 w0 c_s, 0, 0}), giving m_nu = S17/3 = 0.0487 eV with
 two massless neutrinos - but ONLY at r = 2, "measure zero". Three
@@ -33,7 +33,7 @@ cosmological window |r - 2| < delta with sum m_nu < 0.12 eV?
 
 **Verdict (computed).**  Whether r = 2 is protected (commutant larger
 than {I, J}), quantized (period fixing the ratio), or has a finite
-window - or is an EXACT one-number tuning: the sharp form of W2.
+window - or is an EXACT one-number tuning: the sharp form of O2.
 """
 
 import itertools
@@ -217,7 +217,7 @@ def main():
         f"[1, 3] at step 1e-4, {checks['window_count']} value passes "
         f"sum m_nu < 0.12 eV (r = 2: {checks['sum_at_r2_eV']} eV; at "
         f"r = 2.0001 the sum is {checks['sum_at_r_2p0001_eV']} eV - "
-        f"the would-be massless states go heavy as 1/|2 - r|). W2: "
+        f"the would-be massless states go heavy as 1/|2 - r|). O2: "
         f"the 1/3 candidate requires r = 2 EXACTLY, with no "
         f"symmetry or quantization to enforce it - the sharpest form "
         f"of the measure-zero residual.")

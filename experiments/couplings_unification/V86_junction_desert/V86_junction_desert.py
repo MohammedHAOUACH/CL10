@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V86 - FABRICATE the fragment: the junction-split triangle nodes as
-the desert spectrum. W4's named open problem, attacked constructively.
+the desert spectrum. O4's named open problem, attacked constructively.
 
-**Why (W4).**  V84 proved the desert content must be SU(5)-fragment
+**Why (O4).**  V84 proved the desert content must be SU(5)-fragment
 content OR split thresholds inside complete multiplets. The automaton
 supplies no fragment states (V84) - but the escape route (b) was never
 tested with the junction mechanism: V74's rank-1 exclusion covers the
@@ -32,7 +32,7 @@ for i = 1, 2; the third equation then PREDICTS alpha_X.
 
 **Verdict (computed).**  Whether the junction-split node content meets
 the three measured couplings at alpha_X = 1/25 with all thresholds in
-the desert: if yes, W4 closes CONSTRUCTIVELY - the desert spectrum is
+the desert: if yes, O4 closes CONSTRUCTIVELY - the desert spectrum is
 the automaton's own junction content, and the (1,2) fragment of V64 is
 the L component of a node 16 with c_L ~ 0.015.
 """
@@ -214,7 +214,7 @@ def main():
         f"{bst['n_nodes']}, rho = {bst['rho']}; {bst['n_physical']} "
         "physical theta values), and the third equation predicts "
         f"alpha_X = {bst['implied_alpha_X']} against the data 0.04 - "
-        "a factor ~1.5 miss. W4 stays open, now with a NAMED NEAR-MISS: "
+        "a factor ~1.5 miss. O4 stays open, now with a NAMED NEAR-MISS: "
         "the automaton's junction content has the right FRAGMENT "
         "STRUCTURE at desert scales; what it lacks is the right "
         "COEFFICIENT pattern (the equal-shift identity still binds "

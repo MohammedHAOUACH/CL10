@@ -3,7 +3,7 @@
 r"""V80 - the traced adjoint link DIVIDES: the exact level-1 factor of the
 gauged bond layer, and what it takes to reach 1/(16 pi).
 
-**Why (W8, the number).**  V77 showed a traced qubit link divides the
+**Why (O8, the number).**  V77 showed a traced qubit link divides the
 level-1 Cartan content by exactly cos 2 theta. V79 built the real link:
 a Spin(10) ADJOINT quantum link with the Gauss constraint. This
 experiment computes the division factor of THAT link, exactly, at level
@@ -196,7 +196,7 @@ def main():
             f"bond-layer coupling eta_* = {eta_star:.3f} (measured bisection "
             f"on the exact curve; small-eta coefficient {float(p[0]):.4f} = "
             f"<(T.L)^2>/2 = {theory_quad:.4f}). The traced two-hop contracts "
-            f"(max |eig| = {evM2.max():.4f} <= 1). W8 is now a measured "
+            f"(max |eig| = {evM2.max():.4f} <= 1). O8 is now a measured "
             "quantity of a built model: the mechanism divides, and the "
             "residual is the number - whether the automaton's bond-layer "
             "coupling sits at eta_*.")
@@ -211,7 +211,7 @@ def main():
             f"1/(16 pi) = {target:.4f} is NOT reached at any coupling - the "
             "division mechanism EXISTS (the traced two-hop contracts, max "
             f"|eig| = {evM2.max():.4f} <= 1) but falls short by a factor "
-            f"{F_min / target:.1f}. W8 stays open with this measured gap; "
+            f"{F_min / target:.1f}. O8 stays open with this measured gap; "
             "higher-loop/level-N suppression is the named next test.")
 
     verdict = {"experiment": "V80_adjoint_link_division", "pass": bool(ok),

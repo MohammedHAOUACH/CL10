@@ -7,19 +7,19 @@
   "status": "the_qca_step_gives_the_sm_effective_action_with_the_0_parameter_electroweak_breaking",
   "tol": 1e-06,
   "data": {
-    "backend": "cupy",
-    "unitary_err": 1.6653345381979549e-15,
+    "backend": "numpy",
+    "unitary_err": 1.6653487242199808e-15,
     "n_energy_levels": 32,
-    "g10": 0.7089815403622064,
-    "gprime": 0.5491747397182614,
+    "g10": 0.2,
+    "gprime": 0.15491933384829668,
     "vev_v": 246.0,
-    "m_W": 87.20472946455139,
-    "m_Z": 110.30622713871122,
-    "sin2_w": 0.37499999999999994,
+    "m_W": 24.6,
+    "m_Z": 31.11681217605685,
+    "sin2_w": 0.375,
     "sin2_w_0p": 0.375,
     "mw_over_mz": 0.790569415042095,
     "mw_over_mz_0p": 0.7905694150420949,
     "residual": "the Higgs mass (not 0-parameter in the SM)"
   },
-  "wall_time": 0.034
+  "wall_time": 0.013
 }

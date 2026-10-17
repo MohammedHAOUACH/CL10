@@ -44,12 +44,12 @@ from . import yukawa_3x3
 def yukawa_matrix():
     """The 0-parameter 3x3 Yukawa/mass-matrix structure (the democratic base).
 
-    Dérivation : la symétrie 3-fold des familles (les 3 directions spatiales
-    $S_a$ sont équivalentes, cf. `yukawa_3x3.family_symmetry`) force le 10-Higgs
-    à coupler les 3 familles **de façon égale** : la base 0-paramètre est la
-    matrice **démocratique** $|1\\rangle\\langle1|$, de **rang 1** et de spectre
-    $\\{3,0,0\\}$.  Une matrice 3x3 de rang 1 est **singulière** (deux valeurs
-    propres nulles) : les trois masses distinctes ne sont PAS 0-paramètre.
+    Derivation: the 3-fold family symmetry (the 3 spatial directions $S_a$ are
+    equivalent, see `yukawa_3x3.family_symmetry`) forces the 10-Higgs to couple
+    the 3 families **equally**: the 0-parameter base is the **democratic** matrix
+    $|1\\rangle\\langle1|$, of **rank 1** and spectrum $\\{3,0,0\\}$.  A rank-1
+    3x3 matrix is **singular** (two zero eigenvalues): the three distinct masses
+    are NOT 0-parameter.
     """
     mg = matter.mass_generation()
     fam = family.family_construct()
@@ -91,17 +91,17 @@ def democratic_matrix():
 def tribimaximal_mixing():
     """The tribimaximal PMNS of the democratic base, with the honest status.
 
-    La TBM diagonalise **exactement** la base democratique (correction :
-    l'implementation precedente de `family.tribimaximal_3x3` avait un signe
-    errone et ne diagonalisait pas).  Le statut honnete de chaque angle est
-    **mesure** par `yukawa_3x3.mixing_from_democratic` :
+    The TBM diagonalises the democratic base **exactly** (correction: the
+    previous implementation of `family.tribimaximal_3x3` had a wrong sign and did
+    not diagonalise).  The honest status of each angle is **measured** by
+    `yukawa_3x3.mixing_from_democratic`:
 
-    - sin^2(12) = 1/3 est **vraiment derive** 0-parametre (le vecteur propre
-      lourd (1,1,1)/sqrt(3) est **unique** ; l'angle ne bouge pas sous la liberte
-      O(2) du sous-espace leger) ;
-    - sin^2(23) et sin^2(13) **balayent [0, 2/3]** sous la liberte O(2) du
-      sous-espace 2-fold degeneré : les valeurs TBM (1/2, 0) sont le choix
-      **adapte a la transposition (23)** de S3, pas une consequence.
+    - sin^2(12) = 1/3 is **genuinely derived** 0-parameter (the heavy eigenvector
+      (1,1,1)/sqrt(3) is **unique**; the angle does not move under the O(2)
+      freedom of the light subspace);
+    - sin^2(23) and sin^2(13) **sweep [0, 2/3]** under the O(2) freedom of the
+      2-fold degenerate subspace: the TBM values (1/2, 0) are the choice
+      **adapted to the transposition (23)** of S3, not a consequence.
     """
     m = yukawa_3x3.mixing_3x3()
     obs = (0.307, 0.579, 0.022)     # the observed PMNS (world average)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V146 - the two-number bond pattern: superexchange + broken flux +
-ground-state Cartan shift, tested jointly across all node counts (W4).
+ground-state Cartan shift, tested jointly across all node counts (O4).
 
 **Why.**  V137 showed the broken flux K_s = 45 - C_2^{unbroken}(s) is a
 per-class integer of the root but does not close the V96 meeting (residual
@@ -192,7 +192,7 @@ def main():
             for x in range(nI):
                 UJ[A, x, y] = Is[x].conj().T @ JI
     V2 = np.einsum("tjab,ujcb->tuac", TsK.conj(), TsK)
-    W2 = np.einsum("tjab,ujac->tubc", TsK.conj(), TsK)
+    O2 = np.einsum("tjab,ujac->tubc", TsK.conj(), TsK)
     H = np.zeros((ns, ns), dtype=np.complex128)
     for s, (a, t, b) in enumerate(states):
         for s2, (a2, t2, b2) in enumerate(states):
@@ -204,7 +204,7 @@ def main():
             if a == a2:
                 for A in range(45):
                     hh += np.einsum("xz,xy,yz->", UJ[A, b, b2],
-                                    Ls_np[A], W2[t, t2])
+                                    Ls_np[A], O2[t, t2])
             H[s, s2] = hh
     H = (H + H.conj().T) / 2
     ev, evec = geigh(H, N)
@@ -344,14 +344,14 @@ def main():
     out["pass"] = ok
     closed = resid < 1e-10 and n_desert == 10
     if closed:
-        status = ("THE TWO-NUMBER COMBINATION CLOSES W4: kappa_s = %.4f "
+        status = ("THE TWO-NUMBER COMBINATION CLOSES O4: kappa_s = %.4f "
                   "kappa~_s + %.4f K_s (+ zero Cartan shift) with ONE pair "
                   "(A, B) closes the desert meeting for all 10 node counts "
                   "(residual %.1e, all thresholds in the desert). The six "
                   "kappa_s become two numbers of the gauged bond layer."
                   % (Acoef, Bcoef, resid))
     else:
-        status = ("THE TWO-NUMBER COMBINATION DOES NOT CLOSE W4: the best "
+        status = ("THE TWO-NUMBER COMBINATION DOES NOT CLOSE O4: the best "
                   "joint (A, B, C) = (%.4f, %.4f, %.4f) over 30 equations in "
                   "13 unknowns leaves residual %s (desert for %d/10 node "
                   "counts), and the (kappa~, K) combination explains at best "

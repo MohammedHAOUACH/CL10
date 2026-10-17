@@ -3,7 +3,7 @@
 r"""V85 - the CLOSED-LOOP factor of the traced adjoint link: the true
 Feynman-loop analogue, measured.
 
-**Why (W8, the last route).**  V80 measured the level-1 division of the
+**Why (O8, the last route).**  V80 measured the level-1 division of the
 gauged bond layer (F = 1.06 at the root, F_min = 0.52); V83 proved the
 division does NOT compound through the RG levels (F_p oscillates at
 O(1)). What V80 and V83 computed are BACKTRACKING paths (x -> y -> x:
@@ -163,7 +163,7 @@ def main():
         f"{lv['n_star_for_loop_factor']} if the geometric law holds. "
         "Closed traced-link loops are the true Feynman-loop analogue "
         "and their suppression law is now a measured number of the "
-        "built gauged layer (W8).")
+        "built gauged layer (O8).")
 
     verdict = {"experiment": "V85_closed_loop_factor",
                "pass": bool(ok), "status": status, "data": checks}

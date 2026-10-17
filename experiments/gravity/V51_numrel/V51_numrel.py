@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V51 -- 3+1 numerical relativity (BSSN/Z4) (the W9 gap)
+r"""V51 -- 3+1 numerical relativity (BSSN/Z4) (the O9 gap)
 
 The 3+1 BSSN/Z4 numerical relativity (the metric evolution of the
 $(1,3)$ GUT sub-algebra, with the BSSN/Z4 gauge-fixing and the constraint
-damping) is **complete** (the W9 gap): the 3+1 Ricci 0-row ($R_{00}$,
+damping) is **complete** (the O9 gap): the 3+1 Ricci 0-row ($R_{00}$,
 $R_{0i}$) is **2-route verified** (the 4-D Riemann, `cl10.gravity`, vs the
 3+1 $(\gamma, K)$ decomposition, agreeing to $O(h^2)$), the 0-row is the
 0-row of the 4-D Einstein tensor (the **constraints** $H, M$), the
 evolution is **non-linear** (superposition fails), **Z4-damped** (a
 constraint violation decays), and **UV-finite** (bounded).  The **open**
-part (W9) is now precisely the **quantum** completion (the UV of the
+part (O9) is now precisely the **quantum** completion (the UV of the
 quantum gravity) -- **not** the classical 3+1 NR, which is complete here.
 
 The **0-parameter** result.

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V114 - do the V76 junction conditions DERIVE the ratio r = kappa/w0?
 
-**Why (W2 + V103).** V103: the seesaw with the built junction gives
+**Why (O2 + V103).** V103: the seesaw with the built junction gives
 m_3(r) = S17/(1+r); the atmospheric scale selects r = 1.91, and
 r = 2 (m_nu = S17/3 = 0.0487 eV) is a junction-amplitude CONVENTION.
 V76 built the junction
@@ -172,7 +172,7 @@ def main():
         f"{dmod_st}, V76 shape error {shape_err_st:.2e}, basis "
         f"verified to {verif:.2e}): the constant w0 is an independent "
         f"direction, so r = kappa/w0 is {r_verdict} - the conditions "
-        f"fix at most the shape, never the amplitude ratio. W2's "
+        f"fix at most the shape, never the amplitude ratio. O2's "
         f"r = 2 (democratic) and r = 1.91 (atmospheric) remain named "
         f"inputs; F3 measures the outcome.")
     out = {"experiment": "V114_w2_junction_r",

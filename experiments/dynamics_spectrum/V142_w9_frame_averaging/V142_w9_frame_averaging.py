@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V142 - can frame averaging over the 10 generators restore cone isotropy? (W9, referee Q4)
+r"""V142 - can frame averaging over the 10 generators restore cone isotropy? (O9, referee Q4)
 
-**Why (W9 + referee question 4).** V102/V115/V120/V121 established that the
+**Why (O9 + referee question 4).** V102/V115/V120/V121 established that the
 doubler cones of the implemented step are linear in all sampled directions
 but strongly anisotropic (velocity-tensor anisotropy 0.748-0.758), that the
 exhaustive Wilson-family scan finds no isotropic gapless point, and that the

@@ -29,9 +29,9 @@ def fig3_one_object():
     from cl10 import parameter_audit
     sm = parameter_audit.spectral_mirror()
     fig.text(0.5, 0.02,
-             r"$\sum_k \omega_k = $" + f"{zp:.1e}" + r"  (0-point, W1)      "
+             r"$\sum_k \omega_k = $" + f"{zp:.1e}" + r"  (0-point, O1)      "
              + r"$\det U = $" + f"{1 - sm['det_U_minus_1']:.2e}"
-             + r"  (SL(32), W1)" + "\n"
+             + r"  (SL(32), O1)" + "\n"
              + r"CPT mirror residual $= $" + f"{sm['mirror_resid']:.1e}"
              + r"      smallest level  $\omega_{\min} = $" + f"{sm['omega_min']:.4f}",
              ha="center", va="bottom", fontsize=10.5,

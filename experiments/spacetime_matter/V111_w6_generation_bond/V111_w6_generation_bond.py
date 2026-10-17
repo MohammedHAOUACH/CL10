@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V111 - can a GENERATION-space bond dressing supply the W6 deviations?
+r"""V111 - can a GENERATION-space bond dressing supply the O6 deviations?
 
-**Why (W6 + V107).** V107 proved the V96 kappa_s are per-GAUGE-class:
+**Why (O6 + V107).** V107 proved the V96 kappa_s are per-GAUGE-class:
 generation-blind, PMNS/CKM exactly invariant (max shift 2.3e-13).
-W6 needs structure in GENERATION space. The minimal extension: the
+O6 needs structure in GENERATION space. The minimal extension: the
 bond dressing acts on the family index,
     Y_q -> (I + eps G_q) Y_q^demo,  q = u, d,
 with G_q a real 3x3 family matrix. Three cases, all computed:
@@ -116,7 +116,7 @@ def main():
         f"Verdict: generation-space structure DOES move the mixing "
         f"(unlike the gauge-class-blind V96 layer), but reaching the "
         f"measured triple requires a chiral-asymmetric family "
-        f"dressing whose every entry is a named input - W6 remains "
+        f"dressing whose every entry is a named input - O6 remains "
         f"open: the required structure is not a consequence of the "
         f"root.")
     out = {"experiment": "V111_w6_generation_bond", "pass": bool(ok),

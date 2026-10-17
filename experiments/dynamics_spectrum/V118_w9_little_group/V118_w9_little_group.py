@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V118 - is the node anisotropy a measurement artifact, and what forbids isotropy? (W9)
+r"""V118 - is the node anisotropy a measurement artifact, and what forbids isotropy? (O9)
 
 **The question.**  V102 measured anisotropic doubler cones (principal velocities
 0.200, 0.200, 0.284) and V115 found no isotropy point over the V65 Wilson
@@ -53,7 +53,7 @@ T4 - and the touching is linear but PLANAR, not conical.  On the
 structural reason, not a tuning reason: the node's little group permits the
 anisotropy it shows, the Wilson family can make a cubic multiplet exactly
 massless but only as a crossing of three nodal planes, and no tuning of the
-Wilson angle turns three planes into a cone.  Closing W9 requires changing
+Wilson angle turns three planes into a cone.  Closing O9 requires changing
 the bond layer itself - entangling the sub-site and internal indices - not
 scanning Wilson angles.
 """
@@ -323,7 +323,7 @@ def main():
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["pass"] = ok
     out["status"] = (
-        "TANGENT VELOCITIES AND NODE LITTLE GROUPS (W9). T1: measured exactly, "
+        "TANGENT VELOCITIES AND NODE LITTLE GROUPS (O9). T1: measured exactly, "
         "not at a finite radius, the 12 V63 doubler nodes have tangent speeds "
         "along the three axes (%.5f, %.5f, %.5f) - one axis direction is "
         "exactly flat, the other two carry equal speeds; V115's "
@@ -350,7 +350,7 @@ def main():
         "cone requires the tangent velocity operators to close a Clifford-type "
         "algebra; in the implemented step they commute, because the bond layer "
         "is a Kronecker product (cell index) x (internal algebra) and never "
-        "mixes the two. Closing W9 requires a bond layer that entangles the "
+        "mixes the two. Closing O9 requires a bond layer that entangles the "
         "cell and internal indices."
         % (
            rows[0]["principal_tangent_v"][0], rows[0]["principal_tangent_v"][1],

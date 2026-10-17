@@ -3,7 +3,7 @@
 r"""V79 - the gauged bond layer, BUILT: a dynamical Spin(10) adjoint
 quantum link on every bond, with the Gauss constraint.
 
-**Why (W8 + W4, the named missing object).**  V72-V73 proved every exact
+**Why (O8 + O4, the named missing object).**  V72-V73 proved every exact
 single-particle RG of the bond layer COMPOSES internal angles; V77 proved
 a TRACED fluctuating bond d.o.f. DIVIDES them (exactly cos 2 theta for a
 qubit link). The value 1/(16 pi) and the partial vectorlike suits of the

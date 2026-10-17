@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V73 - closing the last loophole of the block-spin RG (W8): does ANY bond
+r"""V73 - closing the last loophole of the block-spin RG (O8): does ANY bond
 gate produce the loop factor?
 
 V72 built the exact block-spin RG of the bond layer and ran it for the two
@@ -22,7 +22,7 @@ interior on-site block). Criterion: any level within a factor 3 of
 Cartan-content ratio stays O(1) or decays polynomially. The
 single-particle block-spin RG composes internal angles for ANY bond gate.
 The loop factor requires the trace over fluctuating internal fields
-(dynamical link variables, many-cell RG). W8's missing tool is uniquely
+(dynamical link variables, many-cell RG). O8's missing tool is uniquely
 specified.
 """
 
@@ -132,7 +132,7 @@ def main():
             "internal angles for ANY bond gate - structured, random or "
             "canonical. The loop factor 1/(16 pi) requires the trace "
             "over fluctuating internal fields: dynamical Spin(10) link "
-            "variables and a many-cell RG. W8's missing tool is "
+            "variables and a many-cell RG. O8's missing tool is "
             "uniquely specified."),
         "data": out,
     }

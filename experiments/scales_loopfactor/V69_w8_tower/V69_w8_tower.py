@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V69 - the W8 audit: does the coarse-graining tower U^(2^p) GENERATE the
+r"""V69 - the O8 audit: does the coarse-graining tower U^(2^p) GENERATE the
 loop factor 1/(16 pi)?
 
 **The question.**  The hierarchy, the DM mass and the neutrino mass all sit
 on the ladder M_P (1/16 pi)^n. The factor 1/(16 pi) is currently IMPORTED
-from 1-loop QFT. W8 asks whether the QCA's own discrete RG - the
+from 1-loop QFT. O8 asks whether the QCA's own discrete RG - the
 coarse-graining tower U^(2^p) (V58) - produces it.
 
 **The test.**  For p = 1..10 compute from U^(2^p):
@@ -20,7 +20,7 @@ actual law.
 **The result.**  The tower is KINEMATIC: phases multiply by 2^p mod 2pi,
 alpha_p does not fall (it fluctuates on the circle), P_p saturates. No
 suppression factor appears at any level: the tower proves UV-finiteness
-(boundedness at every scale) but generates NO loop factor. W8 verdict: the
+(boundedness at every scale) but generates NO loop factor. O8 verdict: the
 1/(16 pi) is NOT derivable from the implemented tower; a genuine lattice RG
 (block-spin integration of the bond layer, coupling internal to momentum
 scales) does not exist in the formalism and is the named missing tool.
@@ -91,7 +91,7 @@ def main():
     verdict = {
         "experiment": "V69_w8_tower",
         "pass": ok,
-        "status": ("W8 AUDIT: the tower U^(2^p) is KINEMATIC (phases "
+        "status": ("O8 AUDIT: the tower U^(2^p) is KINEMATIC (phases "
                    "multiply by 2^p mod 2pi exactly); the effective "
                    "coupling does NOT fall with p (no (16 pi)^-p law at any "
                    "level), the inelastic probability saturates. The tower "
@@ -110,7 +110,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V69 - the W8 audit: does the tower generate 1/(16 pi)?")
+    print("V69 - the O8 audit: does the tower generate 1/(16 pi)?")
     print("=" * 68)
     print(f"  kinematic doubling verified: {kinematic}")
     for r in rows:

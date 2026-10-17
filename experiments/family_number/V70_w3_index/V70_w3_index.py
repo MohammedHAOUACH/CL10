@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V70 - the W3 audit: is there an index of the step that equals 3?
+r"""V70 - the O3 audit: is there an index of the step that equals 3?
 
 **The question.**  The root gives ONE generation; the theory identifies the
-family number with the 3 spatial directions (a stated hypothesis, W3). Is
+family number with the 3 spatial directions (a stated hypothesis, O3). Is
 there an index of the IMPLEMENTED step that equals 3 and could force it?
 
 **The audit.**  The 12 doubler nodes of V63 organize as 3 FAMILIES OF 4:
@@ -26,7 +26,7 @@ available: the 3 copies of desert matter required by unification (V68) can
 be labeled by the 3 spatial directions - generations = node families =
 axes. But nothing in the step makes the copy number 3 FORCED (the 4 nodes
 per family would give 4, the full set 12; the choice "one per family" is a
-domain-wall input). W3 remains a hypothesis - now with a named index (the
+domain-wall input). O3 remains a hypothesis - now with a named index (the
 3 axis families of doubler nodes) rather than a bare identification.
 """
 
@@ -83,7 +83,7 @@ def main():
     verdict = {
         "experiment": "V70_w3_index",
         "pass": ok,
-        "status": ("W3 AUDIT: the 12 doubler nodes split into 3 families of "
+        "status": ("O3 AUDIT: the 12 doubler nodes split into 3 families of "
                    "4 labeled by the zero axis (x, y, z); the cubic group "
                    "acts transitively (identical Floquet spectra, dev "
                    f"{max(within, across):.1e}); the Wilson phase is equal "
@@ -93,7 +93,7 @@ def main():
                    "directions = bond period t mod 3) and labels the 3 "
                    "copies of desert matter; it does NOT force the copy "
                    "number (4 per family, 12 total are equally available). "
-                   "W3 stays a hypothesis, now with a named index."),
+                   "O3 stays a hypothesis, now with a named index."),
         "data": {"families": {k: [list(q) for q in v]
                               for k, v in fam.items()},
                  "spectra_identical_within": within,
@@ -108,7 +108,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V70 - the W3 audit: an index of the step equal to 3?")
+    print("V70 - the O3 audit: an index of the step equal to 3?")
     print("=" * 68)
     print(f"  node families by zero axis: {fam_sizes}")
     print(f"  spectra identical within {within:.1e}, across {across:.1e} "

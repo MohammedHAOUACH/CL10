@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V95 - OFF-DIAGONAL junction mixing splits the class-degenerate desert
-thresholds: the constructive closure attempt for W4.
+thresholds: the constructive closure attempt for O4.
 
 **Why (V92 + V93).** V92: the data-preferred meeting (M_X = 1.8e16 GeV,
 alpha_X = 1/25) lies INSIDE the node-16 fragment cone - the desert content
@@ -173,7 +173,7 @@ def main():
     if sols:
         s0 = sols[0]
         status = (
-            f"W4 CLOSES CONSTRUCTIVELY: off-diagonal junction mixing "
+            f"O4 CLOSES CONSTRUCTIVELY: off-diagonal junction mixing "
             f"(V76 structure) splits the class-degenerate thresholds "
             f"while the Wilson direction stays in span{{X,Y}} - the SM "
             f"algebra is preserved ({breaking['unbroken_roots']}/"
@@ -201,7 +201,7 @@ def main():
             f"(kappa_s per fragment class): 8 parameters vs 3 "
             f"equations would close the meeting trivially, but that "
             f"is an EXTENSION of the automaton, not its current "
-            f"content - W4 stays open, now sharply characterized.")
+            f"content - O4 stays open, now sharply characterized.")
 
     verdict = {"experiment": "V95_junction_split",
                "pass": bool(ok), "status": status,

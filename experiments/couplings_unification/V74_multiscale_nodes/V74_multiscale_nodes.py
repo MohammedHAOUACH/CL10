@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V74 - the W4 audit: multi-scale node splitting CANNOT move M_X.
+r"""V74 - the O4 audit: multi-scale node splitting CANNOT move M_X.
 
 **The hope.**  V65's single-scale Wilson mechanism meets at M_X =
 8.9e14 GeV (tau_p ~ 1e31 yr, EXCLUDED by F5); the data-preferred V64
@@ -24,7 +24,7 @@ value for EVERY choice of the three strengths: M_X = 8.9e14 GeV,
 tau_p ~ 1e31 yr, EXCLUDED by F5.  The V64 data-preferred spectrum
 (three 10+10bar-type sets at 1.2e7 + one (1,2) pair at 1e12) is NOT a
 three-full-16 pattern - the automaton supplies full 16's per node, the
-data want partial suits.  W4's gap is now a NAMED INCOMPATIBILITY
+data want partial suits.  O4's gap is now a NAMED INCOMPATIBILITY
 (node content = full split 16 vs the desert spectrum the couplings
 prefer), not a fitting problem: closing it needs new automaton content
 (partial-suit states), not new thresholds.
@@ -145,7 +145,7 @@ def main():
         "data-preferred spectrum (three 10+10bar sets at 1.2e7 + one "
         "(1,2) pair at 1e12) is not a three-full-16 pattern: the "
         "automaton supplies full split 16's per node, the couplings "
-        "prefer partial suits. W4 is now a NAMED INCOMPATIBILITY (node "
+        "prefer partial suits. O4 is now a NAMED INCOMPATIBILITY (node "
         "content vs desert spectrum), not a fitting problem; closing it "
         "needs new automaton content, not new thresholds.")
 
@@ -163,7 +163,7 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V74 - multi-scale node splitting: the rank-1 theorem (W4)")
+    print("V74 - multi-scale node splitting: the rank-1 theorem (O4)")
     print("=" * 68)
     for name, r in rank_checks.items():
         print(f"  rank dF/d(z1,z2,z3) [{name}] = {r}")

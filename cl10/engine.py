@@ -42,9 +42,9 @@ import numpy as np
 _BACKEND = "numpy"
 _E = np
 
-# CL10_BACKEND=numpy force le backend CPU (les petits tests d'algèbre — 3x3,
-# mélanges — n'ont pas besoin du GPU et doivent tourner même quand le GPU est
-# occupé par un autre processus).  Par défaut : aucun effet, le GPU reste choisi.
+# CL10_BACKEND=numpy forces the CPU core (the small algebra checks - 3x3, the
+# mixings - do not need the GPU and must run even when the GPU is busy with
+# another process).  Default: no effect, the GPU stays the preferred backend.
 _FORCE_CPU = os.environ.get("CL10_BACKEND", "").strip().lower() in ("numpy", "cpu")
 
 _CUPY_PRESENT = False

@@ -64,21 +64,21 @@ def _backend():
 def tribimaximal_3x3():
     """The genuine tribimaximal (Harrison-Perkins-Scott) 3x3 unitary.
 
-    **Correction.**  L'implementation precedente avait un **signe errone** dans
-    ``r23`` : elle produisait en realite la matrice **bimaximale**, qui a les
-    **mêmes modules carrés** que la TBM (d'ou des angles apparemment corrects,
-    ``sin^2 12 = 1/3``, ``sin^2 23 = 1/2``, ``sin^2 13 = 0``) mais qui **ne
-    diagonalise pas** la base democratique ``|1><1|`` : sa troisieme colonne
-    ``(0,1,1)/sqrt(2)`` n'appartient pas au sous-espace propre leger (somme des
-    composantes non nulle).  Le bug etait invisible parce que les **angles**
-    (les modules) etaient verifies, pas la **diagonalisation**.
+    **Correction.**  The earlier implementation had a **wrong sign** in ``r23``:
+    it actually produced the **bimaximal** matrix, which has the **same squared
+    moduli** as the TBM (hence apparently correct angles, ``sin^2 12 = 1/3``,
+    ``sin^2 23 = 1/2``, ``sin^2 13 = 0``) but which **does not diagonalise** the
+    democratic base ``|1><1|``: its third column ``(0,1,1)/sqrt(2)`` does not
+    belong to the light eigenspace (the component sum is non-zero).  The bug was
+    invisible because the **angles** (the moduli) were checked, not the
+    **diagonalisation**.
 
-    La TBM propre a ses trois colonnes = les vecteurs propres de ``|1><1|`` :
-    ``(2,-1,-1)/sqrt(6)`` et ``(0,1,-1)/sqrt(2)`` (le sous-espace leger 2-fold,
-    somme nulle) et ``(1,1,1)/sqrt(3)`` (le niveau lourd).  C'est le choix
-    **adapte a S3** (la transposition (23)) de la liberte O(2) du sous-espace
-    degeneré — voir ``yukawa_3x3.mixing_from_democratic`` pour l'analyse
-    honnete de ce qui est 0-parametre et de ce qui ne l'est pas.
+    The genuine TBM has as its three columns the eigenvectors of ``|1><1|``:
+    ``(2,-1,-1)/sqrt(6)`` and ``(0,1,-1)/sqrt(2)`` (the 2-fold light subspace,
+    zero sum) and ``(1,1,1)/sqrt(3)`` (the heavy level).  It is the choice
+    **adapted to S3** (the transposition (23)) of the O(2) freedom of the
+    degenerate subspace - see ``yukawa_3x3.mixing_from_democratic`` for the
+    honest analysis of what is 0-parameter and what is not.
     """
     s12, c12 = math.sqrt(1.0 / 3.0), math.sqrt(2.0 / 3.0)
     s23 = c23 = math.sqrt(0.5)

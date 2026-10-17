@@ -189,31 +189,31 @@ def mass_matrix_3x3():
 def mixing_from_democratic():
     """**Honest analysis** of what the democratic base does and does not fix.
 
-    La base democratique M = |1><1| a le spectre {3,0,0}.  Le niveau **lourd**
-    h = (1,1,1)/sqrt(3) est **unique** ; le sous-espace **leger** est **2-fold
-    degenerate**, donc tout diagonaliseur de M est une rotation O(2) dans ce
-    sous-espace, tensorisee avec h.  La base democratique fixe le **spectre** et
-    **une partie** du melange — pas tout le melange.
+    The democratic base M = |1><1| has the spectrum {3,0,0}.  The **heavy**
+    level h = (1,1,1)/sqrt(3) is **unique**; the **light** subspace is **2-fold
+    degenerate**, so every diagonalizer of M is an O(2) rotation inside that
+    subspace, tensored with h.  The democratic base fixes the **spectrum** and
+    **part** of the mixing - not all of it.
 
-    Le resultat honnete, **mesure** ici (balayage O(2) sur 1441 rotations) :
+    The honest result, **measured** here (an O(2) scan over 1441 rotations):
 
-    - ``sin^2 theta_12 = |U_e2|^2`` est **FIXE a 1/3** : c'est le carre du
-      recouvrement de n'importe quel vecteur de base avec le vecteur lourd
-      **unique** h.  C'est une **vraie prediction 0-parametre** (observe
-      0.307, soit un ecart de 8 %).
-    - ``sin^2 theta_23`` et ``sin^2 theta_13`` **balayent [0, 2/3]** : la liberte
-      O(2) du sous-espace degeneré.  Les valeurs TBM (1/2, 0) sont un **choix**.
+    - ``sin^2 theta_12 = |U_e2|^2`` is **FIXED at 1/3**: it is the square of the
+      overlap between any basis vector and the **unique** heavy vector h.  That
+      is a genuine 0-parameter number (observed 0.307, a deviation of 8 %).
+    - ``sin^2 theta_23`` and ``sin^2 theta_13`` **sweep [0, 2/3]**: the O(2)
+      freedom of the degenerate light subspace.  The TBM values (1/2, 0) are a
+      **choice**.
 
-    Le choix TBM est celui **adapte a la transposition (23)** de S3.  Or (12),
-    (13) et (23) sont **trois symetries equivalentes** de |1><1| : la base
-    democratique ne designe pas (23).  Le choix de **quelle** transposition est
-    brisee est donc un **input supplementaire** (le nommer est la correction
-    honnete), pas une consequence 0-parametre.
+    The TBM choice is the one **adapted to the transposition (23)** of S3.  But
+    (12), (13) and (23) are **three equivalent symmetries** of |1><1|: the
+    democratic base does not single out (23).  Which transposition is broken is
+    therefore an **extra input** (naming it is the honest correction), not a
+    0-parameter consequence.
 
-    Second point corrige : le CKM obtenu a partir de deux matrices up/down
-    democratiques **identiques** est l'**identite**, pas la TBM.  Une CKM non
-    triviale exige une **misalignment** entre up et down, que la base
-    democratique symetrique ne fournit pas.
+    Second corrected point: the CKM built from two **identical** democratic
+    up/down matrices is the **identity**, not the TBM.  A non-trivial CKM needs
+    a **misalignment** between up and down, which the symmetric democratic base
+    does not supply.
     """
     J = np.ones((3, 3), dtype=complex)
     h = np.array([1, 1, 1], dtype=float) / np.sqrt(3.0)        # the UNIQUE heavy eigenvector
@@ -312,13 +312,13 @@ def mixing_3x3():
     """The mixing of the democratic base: the TBM **angles**, with the honest
     status of each.
 
-    Les angles sin^2 12 = 1/3, sin^2 23 = 1/2, theta_13 = 0 sont ceux de la TBM,
-    qui **diagonalise exactement** la base democratique.  Mais ils ne sont pas
-    **uniques** : la degenerescence 2-fold du sous-espace leger laisse une
-    liberte O(2) (cf. `mixing_from_democratic`).  La TBM est le choix adapte a
-    la transposition (23) ; la base democratique ne designe pas cette
-    transposition.  Son statut 0-parametre est donc celui d'une **convention
-    adaptee a S3**, pas d'une prediction.
+    The angles sin^2 12 = 1/3, sin^2 23 = 1/2, theta_13 = 0 are the TBM angles,
+    and the TBM **diagonalises the democratic base exactly**.  But they are not
+    **unique**: the 2-fold degeneracy of the light subspace leaves an O(2)
+    freedom (see `mixing_from_democratic`).  The TBM is the choice adapted to
+    the transposition (23), and the democratic base does not single that
+    transposition out.  Its status is therefore a **convention adapted to S3**,
+    not a prediction.
     """
     # the TBM is a diagonalizer of the democratic base (the (23)-adapted one)
     tbm = family.tribimaximal_3x3()
@@ -408,14 +408,14 @@ def quark_ckm():
     eig_u = sorted(float(x) for x in np.abs(np.linalg.eigvals(Hu)))
     eig_d = sorted(float(x) for x in np.abs(np.linalg.eigvals(Hd)))
 
-    # **HONEST CKM.**  Le CKM est la **misalignment** entre les diagonaliseurs
-    # de $H_u$ et $H_d$.  Or ici $H_u = H_d$ : les deux diagonaliseurs sont les
-    # memes, donc le CKM calcule est l'**IDENTITE**, pas la TBM.  Une CKM non
-    # triviale exige une **misalignment** up/down que la base democratique
-    # symetrique ne fournit pas (elle vient du vev du 10-Higgs, le residu O6).
-    # L'affirmation "CKM = TBM" est donc FAUSSE dans la construction 0-parametre
-    # telle que codee ; elle n'est vraie que si l'on POSTULE des diagonaliseurs
-    # differents, ce qui est justement le residu nomme.
+    # **HONEST CKM.**  The CKM is the **misalignment** between the diagonalisers
+    # of $H_u$ and $H_d$.  Here $H_u = H_d$: the two diagonalisers are the same,
+    # so the computed CKM is the **IDENTITY**, not the TBM.  A non-trivial CKM
+    # needs an up/down **misalignment** that the symmetric democratic base does
+    # not supply (it comes from the 10-Higgs vev, the named residual O6).
+    # The claim "CKM = TBM" is therefore FALSE in the 0-parameter construction as
+    # coded; it holds only if different diagonalisers are POSTULATED, which is
+    # exactly the named residual.
     wu, Vu = np.linalg.eigh(Hu)
     wd, Vd = np.linalg.eigh(Hd)
     ckm = Vu.conj().T @ Vd

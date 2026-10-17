@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V106 - W5 audit: the 11% Delta B agreement under the SAME Yukawa.
+r"""V106 - O5 audit: the 11% Delta B agreement under the SAME Yukawa.
 
 **Why (Section 12.2).** The product (28/79)(g0^4/16pi)(1/16pi)^2 =
 6.8e-10 sits 11% above the measured 6.12e-10. The paper already shows the
@@ -101,7 +101,7 @@ def main():
               f"product formula uses. Out-of-equilibrium decay needs "
               f"y < {y_ooeq:.3f}, capping m_nu at {m_nu_max:.3e} eV, "
               f"{0.0501/m_nu_max:.0f}x below the atmospheric splitting. "
-              f"W5's 11% agreement is an accident of two wrong factors, "
+              f"O5's 11% agreement is an accident of two wrong factors, "
               f"not a near-miss: at M_N = 9.6e13 GeV the mechanism cannot "
               f"supply both the neutrino mass and the asymmetry.")
     out = {"experiment": "V106_w5_washout_audit", "pass": bool(ok),

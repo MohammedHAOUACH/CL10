@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """V48 — the **3- and 4-particle** QCA amplitudes (the V48 completion, the
-**UV-finite** property, the W9 completion).
+**UV-finite** property, the O9 completion).
 
 **The 0-parameter statement.**  The **n-particle** S-matrix is the
 **Kronecker** product of the **1-particle** (``U (x) ... (x) U``, n times),
@@ -17,7 +17,7 @@ to store) follow **by** the **Kronecker** product property (the
 **0-parameter** consequence).  The **only** input is ``g_10 = 0.2`` (from
 the root by V38).
 
-**The named residual** (W9): the **matching** of these amplitudes to the
+**The named residual** (O9): the **matching** of these amplitudes to the
 **measured** cross-sections (the QCA lattice RG vs the perturbative QFT) —
 the open part of the 't Hooft program.
 """
@@ -52,7 +52,7 @@ def main():
         "id": "V48_3particle",
         "tier": 3,
         "property": "C6",
-        "residual": True,   # the matching to measured cross-sections (W9, the open part)
+        "residual": True,   # the matching to measured cross-sections (O9, the open part)
         "pass": ok,
         "status": "the_3and4particle_amplitudes_are_uvfinite_the_kronecker_product_property_the_nstep_is_bounded_for_all_n",
         "tol": TOL,
@@ -73,7 +73,7 @@ def main():
     with open(os.path.join(outdir, "v48_3particle.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V48 - the 3- and 4-particle QCA amplitudes (the UV-finite property, W9)")
+    print("V48 - the 3- and 4-particle QCA amplitudes (the UV-finite property, O9)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  [check 1] 1-particle unitarity:  residual = {r['n1_unitary_residual']:.2e} (0-parameter, computed)")

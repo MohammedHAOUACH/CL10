@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V89 - the closed-loop SELECTION RULE and the ladder-length question.
-W8's named residual, measured.
+O8's named residual, measured.
 
-**Why (W8).**  V85 measured the closed-loop suppression of the traced
+**Why (O8).**  V85 measured the closed-loop suppression of the traced
 adjoint link: F_n = alpha((M G)^n) / alpha(G^n) with M the one-crossing
 hop matrix, and found F_10 = 0.0192 against 1/(16 pi) = 0.0199 at the
 root coupling - the loop factor AT LENGTH 10. The named residual: the
@@ -170,7 +170,7 @@ def main():
         f"F_170 = {results['root']['F_170_extrapolated']:.1e} against "
         f"(1/16 pi)^17 = {results['root']['ladder_17_factor']:.1e}: a "
         f"ratio of {ratio:.1e} - the single-loop geometric law "
-        f"{compose_txt} the full ladder exponent. W8: the length-10 "
+        f"{compose_txt} the full ladder exponent. O8: the length-10 "
         f"factor is selected by the crossing; the 17-factor "
         f"composition is a named residual of its own.")
 

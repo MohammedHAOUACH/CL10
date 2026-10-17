@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-V55 — the baryon asymmetry as a **product of 0-parameter factors** (W5).
+V55 — the baryon asymmetry as a **product of 0-parameter factors** (O5).
 
-The W5 residual (Section 13): the **CP-violating factor** $\eta_{CP}$ in the
+The O5 residual (Section 13): the **CP-violating factor** $\eta_{CP}$ in the
 heavy-$N$ decay (V40 takes $\eta_{CP} = 10^{-3}$, the observed range
 $10^{-3}\text{–}10^{-2}$).  This experiment presents the baryon asymmetry
 as a **product of 0-parameter factors** (the physical GUT-leptogenesis
@@ -91,7 +91,7 @@ def main():
     with open(os.path.join(outdir, "v55_eta_cp.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V55 - the baryon asymmetry as a product of 0-parameter factors (W5)")
+    print("V55 - the baryon asymmetry as a product of 0-parameter factors (O5)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
     print("  Delta_B = (28/79) x eps_CP x D, the factors and their provenance:")
@@ -103,7 +103,7 @@ def main():
     print(f"    - loop counts = 1 (CP) + 2 (dilution) = {st['loop_count']}")
     print(f"  0-parameter Delta_B = {d['delta_B_0param']:.3e}   (observed {d['delta_B_observed']:.1e};  ratio {d['delta_B_ratio']:.3f})")
     print(f"  V40 comparison:  Delta_B = {d['delta_B_v40']:.3e}  (ratio {d['delta_B_ratio_v40']:.3f})")
-    print(f"  named residual (W5):  {verdict['data']['residual']}")
+    print(f"  named residual (O5):  {verdict['data']['residual']}")
     print(f"  VERDICT:  {'PASS (factors 0-parameter; right order 1.12; QCA alone gives eps_CP = 0; the CP phase + 2-digit ratio are the named residuals)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v55_eta_cp.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

@@ -14,11 +14,11 @@ def fig17_ladder():
     MP = tp.M_PLANCK
     # (energy GeV, label, color, side(+/-1), height multiplier)
     scales = [
-        (MP * LOOP ** 17, "neutrino ladder  $m_\\nu = 0.146$ eV  (W2, F3)",
+        (MP * LOOP ** 17, "neutrino ladder  $m_\\nu = 0.146$ eV  (O2, F3)",
          C_ZERO, -1, 0.5),
         (0.0487e-9, "$\\frac{1}{3}$ cand.  $0.0487$ eV", C_FIT, -1, 0.95),
         (0.2, r"QCD  $\Lambda_{\rm QCD} \sim 0.2$ GeV  (reference only)", C_SU3, 1, 0.5),
-        (dw.dm_wimp()["m_DM_GeV"], r"DM  $118$ GeV  (W7)",
+        (dw.dm_wimp()["m_DM_GeV"], r"DM  $118$ GeV  (O7)",
          C_SU2, -1, 0.95),
         (tp.V_EW, r"electroweak  $v = 246$ GeV  (measured)", C_GUT, 1, 0.95),
         (MP * LOOP ** 3, r"seesaw  $M_N = 9.6\times10^{13}$ GeV  ($n = 3$)",

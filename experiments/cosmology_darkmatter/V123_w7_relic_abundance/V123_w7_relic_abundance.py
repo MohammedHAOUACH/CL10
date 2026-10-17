@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V123 - the relic abundance, COMPUTED (W7)
+r"""V123 - the relic abundance, COMPUTED (O7)
 
 **What the repo does today.**  Every abundance number in the theory is an
 ansatz, never an integral:
@@ -305,7 +305,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "THE RELIC ABUNDANCE IS COMPUTED (W7). The freeze-out integral "
+        "THE RELIC ABUNDANCE IS COMPUTED (O7). The freeze-out integral "
         "reproduces the WIMP miracle (Omega h^2 = %.3f at 100 GeV with "
         "sigma v = 3e-26 cm^3/s). At the ladder mass m = %.1f GeV the measured "
         "Omega h^2 = 0.120 requires sigma v = %.2e cm^3/s, i.e. alpha_eff = "

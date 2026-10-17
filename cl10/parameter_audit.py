@@ -549,8 +549,9 @@ def dm_status():
     As a **single-step spectral** statement the observed DM is **not** a
     spectral scale; it **is**, however, in the 0-parameter structure as the
     **10-loop suppression** of the Planck scale — ``M_P (1/16pi)^10 = 118
-    GeV`` (the WIMP scale) — which gives the observed abundance (the WIMP
-    miracle) (V54, the 10-loop / 2-loop refinement).
+    GeV`` (the WIMP scale) - but the abundance match there rests on the
+    standard WIMP-miracle convention, and **no state of the implemented
+    spectrum carries the scale**: the carrier is the open problem O7 (V54).
     """
     from . import cosmology3
     gap = cosmology3.dm_mass_scale()
@@ -635,8 +636,9 @@ def provenance_table():
          "the breaking of the 512/512 cancellation (O1)"),
         ("the sub-Planck DM scale", "~1e2-1e3 GeV (named)", "named_residual",
          "not a single-step spectral scale; the **10-loop suppression** "
-         "M_P*(1/16pi)^10 = 118 GeV (V54) gives the observed abundance; the DM "
-         "**identity** is the residual (O7)"),
+         "M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale, and its "
+         "abundance match rests on the standard WIMP-miracle convention; the "
+         "DM **carrier** (which state of the spectrum) is the residual (O7)"),
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
          "the exact light-neutrino mass (O2)"),
     ]

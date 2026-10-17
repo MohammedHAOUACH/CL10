@@ -31,7 +31,7 @@ C. GAUGING THE HONESTY: the implemented step is QUADRATIC, so a Slater
    input stays Slater (the two orbitals stay orthonormal): the measured
    S_A is mode entanglement, exact via the correlation matrix. Genuine
    interaction entanglement needs a two-body phase the implemented step
-   does not contain - a named gap (W9, measurement postulate).
+   does not contain - a named gap (O9, measurement postulate).
 
 Convention: the check PASSES when the protocol is valid and complete;
 the physics verdict is in the status.
@@ -257,7 +257,7 @@ def main():
         f"{A['orbital_orthonormality_err']:.1e}), so Slater inputs stay "
         "Slater and the measured S_A is exact mode entanglement; genuine "
         "interaction entanglement needs a two-body phase the implemented "
-        "step does not contain - named gap (W9).")
+        "step does not contain - named gap (O9).")
     verdict = {"experiment": "V97_entanglement_bond",
                "pass": bool(ok), "status": status,
                "data": {"A": A, "B": B}}

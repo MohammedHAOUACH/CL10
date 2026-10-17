@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 r"""V91 - is the family count 3 FORCED? Cubic orbits of the 12 nodes,
 the rank-1 meeting for every cubic-symmetric split, and the orbit of
-the 3-node triangle. W3's forcing question, decided.
+the 3-node triangle. O3's forcing question, decided.
 
-**Why (W3).**  V70 found the index: the 12 doubler nodes split into 3
+**Why (O3).**  V70 found the index: the 12 doubler nodes split into 3
 families of 4 (zero axis x, y, z), and the unification-required split
 (V68: n >= 3 nodes meeting) is realizable by one node per family -
 the count 3 EXISTS. The open question: is it FORCED? A forcing
@@ -32,7 +32,7 @@ strengths, independent of the split); (iii) the cubic orbit of the
 **Verdict (computed).**  Whether the family count 3 is forced by the
 automaton, or whether every cubic-symmetric split is excluded by the
 fixed meeting (F5) while the count 3 requires a symmetry-BREAKING
-choice - the precise form of the W3 residual.
+choice - the precise form of the O3 residual.
 """
 
 import itertools
@@ -224,7 +224,7 @@ def main():
         f"size n = 3, 4, 8, 12 {'FAILS to meet at the observed scale (F5)' if excluded else 'meets'}. "
         f"The count-3 triangle (V76 SEL) IS a set of nodes (verified) "
         f"but is NOT cubic-invariant: its cubic orbit has {len(tris)} "
-        f"distinct triangles. W3, decided: the cubic-symmetric option "
+        f"distinct triangles. O3, decided: the cubic-symmetric option "
         f"(all 12 nodes) is excluded by the fixed meeting; every "
         f"proper split (3, 4, 8 nodes) BREAKS the cubic symmetry of "
         f"the split set, so the family count 3 is an input choice - "

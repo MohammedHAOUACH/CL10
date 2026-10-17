@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V65 - the Wilson mechanism: does the QCA REMOVE the half-zone nodes (W9), and
-does the removal PREDICT the desert spectrum (W4)?
+r"""V65 - the Wilson mechanism: does the QCA REMOVE the half-zone nodes (O9), and
+does the removal PREDICT the desert spectrum (O4)?
 
 **The question.**  V63 proved the doubling is present: the 16-sector one-step
 matrix is gapless at the 12 half-zone momenta (+-pi/2, +-pi/2, 0).  V64 proved the measured
 couplings REQUIRE vectorlike matter at two thresholds (M_10 = 1.2e7,
 M_(1,2) = 1.0e12 GeV).  If the SAME mechanism - a Wilson-type term of the
-step - both gaps the nodes and fixes their masses, then W9's pathology
-becomes W4's prediction.
+step - both gaps the nodes and fixes their masses, then O9's pathology
+becomes O4's prediction.
 
-**Part A - the mechanism (W9).**  The Cartan of Spin(10) in the root:
+**Part A - the mechanism (O9).**  The Cartan of Spin(10) in the root:
 Sigma_k = i h_{2k-1} h_{2k}, commuting Hermitian involutions; in the 16 basis
 they are simultaneously diagonal (the 16 weights, +-1 sign vectors of odd
 parity).  The hypercharge Y and the SU(5)-preserving X are Cartan
@@ -27,7 +27,7 @@ amplitude in shells of one block beyond the bond cone decays exponentially
 (worst ratio 0.25 per block at w = 0.1): 5.6e-06 in the first shell, 3.1e-09
 at the Lieb-Robinson line r = 1.2 n + 6 after 24 stages.
 
-**Part B - the thresholds (W4).**  The node mass M_f = w |a X_f + b Y_f|
+**Part B - the thresholds (O4).**  The node mass M_f = w |a X_f + b Y_f|
 M_P / 3 (the /3: one step is 6 Planck times, the node gap is
 2w|D_f| step-phase).  Uniform w splits ALL 12 nodes identically: 12 copies
 of the full split 16 -> Delta b = (32, 32, 32) against the required ~
@@ -424,7 +424,7 @@ def main():
     verdict = {
         "experiment": "V65_wilson",
         "pass": ok,
-        "status": ("W9 MECHANISM FOUND: an internal Wilson factor of the "
+        "status": ("O9 MECHANISM FOUND: an internal Wilson factor of the "
                    "SAME step, exactly unitary with W(0)=I, gaps all 12 "
                    "doubler nodes; strictly causal bond stages plus a "
                    "QUASI-local Wilson factor - beyond the bond cone the "
@@ -436,7 +436,7 @@ def main():
                    f"{checks['amplitude_outside_LR_cone']:.1e} past the "
                    "Lieb-Robinson line); X and Y identified as Cartan "
                    "combinations of the root (both SU(5) embeddings found); "
-                   "W4: uniform w overproduces (Delta b = 32), the "
+                   "O4: uniform w overproduces (Delta b = 32), the "
                    f"selective 3-node reading has {n_phys} physical roots",
                    ),
         "data": {
@@ -453,7 +453,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V65 - the Wilson mechanism (W9) and the desert thresholds (W4)")
+    print("V65 - the Wilson mechanism (O9) and the desert thresholds (O4)")
     print("=" * 68)
     print(f"  Cartan offdiag = {offdiag:.2e};  Y_coef = {y_coef}")
     print(f"  physical SU(5) X candidates: {len(phys)}")

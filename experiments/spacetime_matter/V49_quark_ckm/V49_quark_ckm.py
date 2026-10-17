@@ -3,7 +3,7 @@
 """V49 — the quark mass matrices on the **democratic** base (the **2-level**
 structure, 0-parameter) and the **CKM**, **honestly**: the CKM computed from
 identical up/down democratic matrices is the **IDENTITY**, so a non-trivial CKM
-is the **W6** named residual (it needs an up/down misalignment).
+is the **O6** named residual (it needs an up/down misalignment).
 
 **The 0-parameter statement.**
 
@@ -17,7 +17,7 @@ is the **W6** named residual (it needs an up/down misalignment).
    **same** democratic matrix, so the computed CKM is the **IDENTITY**, not the
    TBM.  A non-trivial CKM requires an up/down **misalignment** that the
    symmetric democratic base does **not** provide — it comes from the 10-Higgs
-   vev breaking (the W6 named residual).  The claim "CKM = TBM" is therefore
+   vev breaking (the O6 named residual).  The claim "CKM = TBM" is therefore
    **false in the 0-parameter construction as coded**; it holds only if one
    **postulates** different diagonalizers, which is exactly the residual.
 
@@ -59,7 +59,7 @@ def main():
         "id": "V49_quark_ckm",
         "tier": 4,
         "property": "P5",
-        "residual": True,   # the non-trivial CKM (the computed one is the identity) + sin^2_23, sin^2_13 (W6)
+        "residual": True,   # the non-trivial CKM (the computed one is the identity) + sin^2_23, sin^2_13 (O6)
         "pass": ok,
         "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
         "tol": TOL,
@@ -92,9 +92,9 @@ def main():
     print(f"              computed CKM angles: sin2(12,23,13) = {tuple(round(a,4) for a in r['ckm_computed_angles'])}")
     print("              (a non-trivial CKM needs an up/down MISALIGNMENT the democratic base does not give)")
     print(f"  [check 4] the TBM angles ({r['sin2_12']:.3f}, {r['sin2_23']:.3f}, {r['sin2_13']:.3f}) are the LEPTON-sector (23)-adapted choice, not a quark result")
-    print(f"            deviation to observed CKM (0.050, 0.949, 0.020): {r['dev_ckm']:.3f}  (the W6 named residual)")
+    print(f"            deviation to observed CKM (0.050, 0.949, 0.020): {r['dev_ckm']:.3f}  (the O6 named residual)")
     print(f"  named residual:  {r['residual']}")
-    print(f"  VERDICT:  {'PASS (the democratic 2-level spectrum is 0-parameter; the computed CKM is the IDENTITY, so a non-trivial CKM is the W6 named residual — stated honestly)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the democratic 2-level spectrum is 0-parameter; the computed CKM is the IDENTITY, so a non-trivial CKM is the O6 named residual — stated honestly)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v49_quark_ckm.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

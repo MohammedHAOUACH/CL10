@@ -1,7 +1,7 @@
 {
   "experiment": "V80_adjoint_link_division",
   "pass": true,
-  "status": "THE GAUGED LINK DIVIDES BUT NOT TO THE LOOP FACTOR: the V77 machinery reproduced on the qubit link (F = cos 2 theta to 1.1e-16); for the Spin(10) ADJOINT link the exact level-1 factor at the root coupling is F(g10 = 1/5) = 1.0597 and the measured minimum over eta in [0.01, 4] is F_min = 0.5221 at eta = 1.44: the loop target 1/(16 pi) = 0.0199 is NOT reached at any coupling - the division mechanism EXISTS (the traced two-hop contracts, max |eig| = 0.5917 <= 1) but falls short by a factor 26.2. W8 stays open with this measured gap; higher-loop/level-N suppression is the named next test.",
+  "status": "THE GAUGED LINK DIVIDES BUT NOT TO THE LOOP FACTOR: the V77 machinery reproduced on the qubit link (F = cos 2 theta to 1.1e-16); for the Spin(10) ADJOINT link the exact level-1 factor at the root coupling is F(g10 = 1/5) = 1.0597 and the measured minimum over eta in [0.01, 4] is F_min = 0.5221 at eta = 1.44: the loop target 1/(16 pi) = 0.0199 is NOT reached at any coupling - the division mechanism EXISTS (the traced two-hop contracts, max |eig| = 0.5917 <= 1) but falls short by a factor 26.2. O8 stays open with this measured gap; higher-loop/level-N suppression is the named next test.",
   "data": {
     "regression_v77": {
       "F_measured": 0.5000000000000002,
@@ -18,12 +18,12 @@
     },
     "division": {
       "eta_root": 0.2,
-      "F_at_root": 1.0596866584601925,
+      "F_at_root": 1.0596866584601923,
       "target_loop": 0.019894367886486918,
       "eta_star": null,
-      "F_min": 0.5221455525139046,
+      "F_min": 0.5221455525139045,
       "eta_at_F_min": 1.4423076923076923,
-      "quadratic_fit": -10.687713603678272,
+      "quadratic_fit": -10.687713603678263,
       "mean_eigenvalue_sq_TL": 64.00000000000001,
       "F_curve": [
         0.992736,
@@ -43,7 +43,7 @@
     "M2": {
       "max_abs_eig": 0.5916677821965565,
       "cartan_M2": 0.0,
-      "cartan_G2": 0.07188309001212186
+      "cartan_G2": 0.0718830900121219
     }
   }
 }

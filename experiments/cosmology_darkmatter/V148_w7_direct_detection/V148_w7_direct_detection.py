@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 r"""V148 - direct detection of the named ladder scalar for EVERY bond-number
 portal: what does the bond sector predict for sigma_SI, and does it survive
-the LZ-class bound? (W7, falsifier F6)
+the LZ-class bound? (O7, falsifier F6)
 
-**Where W7 stands.**  The named fix (one Z2-odd ladder scalar, m = 118.5
+**Where O7 stands.**  The named fix (one Z2-odd ladder scalar, m = 118.5
 GeV) has two portals, both with a FITTED strength: the V75 pair portal
 lambda_* = 3.53e-4 (inverted from sigma v = 3e-26) predicts sigma_SI =
 4.93e-51 cm^2 (safe but unreachable), and the V88 exact-Z2 portal
@@ -17,7 +17,7 @@ coupling kappa_singlet WERE the Higgs-portal strength, what is sigma_SI?
 sigma_SI = lambda^2 f_N^2 mu_red^2 / (pi M_H^4) * 0.3894e-27 cm^2 with
 f_N = 0.30e-3 (the nucleon Higgs coupling), mu_red the scalar-nucleon
 reduced mass - evaluated at every candidate portal strength: the ten V96
-kappa_singlet that close the W4 meeting, the V145 superexchange -0.2534,
+kappa_singlet that close the O4 meeting, the V145 superexchange -0.2534,
 the V137 broken flux 40, the V103 junction ratio 1.914, and the two named
 portals as regression.
 
@@ -147,14 +147,14 @@ def main():
     out["verdict"] = "PASS" if ok else "FAIL"
     out["pass"] = ok
     out["status"] = (
-        "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (W7/F6). With V88's "
+        "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (O7/F6). With V88's "
         "formula (regression to %.0e), every bond number of the layer read "
         "as the Higgs-portal strength predicts sigma_SI = %s cm^2 - %d of "
         "%d exceed the LZ-class bound %.1e cm^2. The portal strength the "
         "relic itself needs (kappa = %.4f) predicts %.2e cm^2, %s the bound. "
         "The only portal that survives both the relic and direct detection "
         "is the V75 pair portal with its FITTED lambda_* = %.2e (sigma_SI = "
-        "%.1e cm^2, unreachable); the exact-Z2 alternative is excluded. W7's "
+        "%.1e cm^2, unreachable); the exact-Z2 alternative is excluded. O7's "
         "portal strength remains a named input, and F6 stands as the "
         "falsifier: a next-generation null at sigma_SI < 1e-51 does not "
         "test it, and any positive signal above 1.5e-47 kills the named "

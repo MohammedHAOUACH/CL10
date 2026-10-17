@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V92 - the W4 FEASIBILITY THEOREM: can ANY threshold pattern of
+r"""V92 - the O4 FEASIBILITY THEOREM: can ANY threshold pattern of
 node-16 content reach the data-preferred meeting?
 
-**Why (W4).**  V74 closed multi-scale splitting for IDENTICAL fragment
+**Why (O4).**  V74 closed multi-scale splitting for IDENTICAL fragment
 patterns (rank-1); V81 excluded the 45-composites; V82/V86/V87 scanned
 junction-generated patterns and hit a common floor. The unscanned
 space is every threshold assignment the automaton could possibly
@@ -34,7 +34,7 @@ quantum-number signature of the missing content.
    best-fit u_s pattern (scan 720 angles, report the min deviation).
 
 **Verdict (computed).**  Whether node-16 content of ANY pattern can
-close W4 (then: the thresholds and their junction realizability) or
+close O4 (then: the thresholds and their junction realizability) or
 cannot (then: the theorem, with the separating hyperplane naming the
 required content's quantum numbers).
 """
@@ -169,7 +169,7 @@ def main():
     else:
         status = (
             f"NO THRESHOLD PATTERN OF NODE-16 CONTENT REACHES THE "
-            f"DATA-PREFERRED MEETING - W4 CLOSED BY THEOREM OVER THE "
+            f"DATA-PREFERRED MEETING - O4 CLOSED BY THEOREM OVER THE "
             f"FULL SPACE (any junction, any profile, any n_nodes). "
             f"The meeting equations at M_X = {M_X_OBS:.1e} GeV, "
             f"alpha_X = 1/25 require sum db(s) t_s = T = "
@@ -196,7 +196,7 @@ def main():
     with open(os.path.join(outdir, "v92_w4_feasibility.json"), "w") as fh:
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
-    print("V92 - W4 feasibility over the full node-16 threshold space")
+    print("V92 - O4 feasibility over the full node-16 threshold space")
     print(f"  fragment classes: {len(frs)}; target T = "
           f"{[round(float(v), 2) for v in T]}")
     print(f"  hull feasible: {feasible} | best residual: {resid:.3e}")

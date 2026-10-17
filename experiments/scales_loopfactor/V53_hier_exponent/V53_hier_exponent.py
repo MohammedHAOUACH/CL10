@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-V53 — the hierarchy exponent -17: the 0-parameter 10-loop derivation (W8).
+V53 — the hierarchy exponent -17: the 0-parameter 10-loop derivation (O8).
 
-The W8 residual (Section 13): the *derivation* of the hierarchy exponent
+The O8 residual (Section 13): the *derivation* of the hierarchy exponent
 $v/E_P \sim 10^{-17}$.  V52 showed the 0-parameter ratio $v/M_P = 2.02e-17$
 matches the observed to 0.18% but is a **2-digit coincidence** (the exponent
 was not derived).  This experiment **derives** the exponent from the
@@ -65,7 +65,7 @@ def main():
                    "vs observed 2.02e-17 (exponent match 0.32 decades; n=10 the unique "
                    "best of the n=1..20 scan; not a raw n-step spectral level). One "
                    "0-parameter factor gives TWO results: the hierarchy AND the DM mass "
-                   "(118 GeV); the 2-digit coefficients are the named residual W8)"),
+                   "(118 GeV); the 2-digit coefficients are the named residual O8)"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -112,7 +112,7 @@ def main():
     with open(os.path.join(outdir, "v53_hier_exponent.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V53 - the hierarchy exponent -17 (the 0-parameter 10-loop derivation, W8)")
+    print("V53 - the hierarchy exponent -17 (the 0-parameter 10-loop derivation, O8)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  0-parameter inputs:  n_gen = {d['n_gen']}  (the Cl(10) generators)  "
@@ -130,7 +130,7 @@ def main():
           f"(n=9 is {verdict['data']['scan_abs_diff_at_n9']:.2f} decades off)")
     print(f"  n-step spectrum (n<=100):  min level {ns['min_level_small_n']:.2e}  "
           f"(not 2.02e-17; a Diophantine n ~ {ns['n_diophantine_est']:.1e} would be needed)")
-    print(f"  named residual (W8):  {verdict['data']['residual']}")
+    print(f"  named residual (O8):  {verdict['data']['residual']}")
     print(f"  VERDICT:  {'PASS (the exponent -17 is 0-parameter-derived; the 2-digit coefficient is the named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v53_hier_exponent.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")

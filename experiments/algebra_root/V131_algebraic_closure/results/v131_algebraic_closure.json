@@ -48,20 +48,20 @@
    "levels": "+-pi/4 (10), +-3pi/4 (6) - pure algebra, no continuous number"
   },
   "zone_centre_involution": {
-   "M0_squared_minus_I_16sector": 7.391586503204494e-15,
-   "M0_squared_minus_I_full256": 7.108187365746598e-15,
-   "sector_leak": 3.3405875063686287e-16,
+   "M0_squared_minus_I_16sector": 8.215650382226158e-15,
+   "M0_squared_minus_I_full256": 7.662109826310647e-15,
+   "sector_leak": 3.9487373731136153e-16,
    "at_1_5_contrast": {
     "M0_squared_minus_I": 1.1090237803692355,
-    "Gamma_gap_0_0365": 0.036499394228824276
+    "Gamma_gap_0_0365": 0.03649939422882611
    }
   },
   "doublers_repaired": {
-   "M_node_min_gap_pi_4": 2.0816681711721765e-17,
+   "M_node_min_gap_pi_4": 5.898074189551519e-17,
    "exactly_gapless_nodes": 12,
-   "M_node_min_gap_1_5": 0.00020028952953056066,
+   "M_node_min_gap_1_5": 0.00020028952953104998,
    "defect_at_1_5": 0.0002003,
-   "Gamma_gap_pi_4": 1.1102230246251514e-16
+   "Gamma_gap_pi_4": 5.551115123125785e-17
   },
   "loop_machinery_pi_4": {
    "hop_phases": [
@@ -148,7 +148,7 @@
     ]
    ],
    "even_decay_per_step": 0.9780302704295719,
-   "note": "at 1/5 the crossing was n* = 10 = 2 n_qubits (V89, W8): the ladder-length selection does NOT survive the quantized angle - W8 must be re-derived with the new exact odd-loop cancellation"
+   "note": "at 1/5 the crossing was n* = 10 = 2 n_qubits (V89, O8): the ladder-length selection does NOT survive the quantized angle - O8 must be re-derived with the new exact odd-loop cancellation"
   },
   "coupling_convention": {
    "rotation_units_alpha_g2": 0.6168502750680849,
@@ -172,15 +172,15 @@
    "pass": true
   },
   {
-   "name": "T4 the full one-step Bloch matrix at the zone centre is an EXACT involution at pi/4: M(0)^2 = I to 7.4e-15 on the 16 sector and 7.1e-15 on the full 256-D module (leak 3.3e-16); at the implemented 1/5 the same product deviates 1.11 (Gamma gap 0.0365): the fundamental dynamics is a finite-state machine only at the quantized angle",
+   "name": "T4 the full one-step Bloch matrix at the zone centre is an EXACT involution at pi/4: M(0)^2 = I to 8.2e-15 on the 16 sector and 7.7e-15 on the full 256-D module (leak 3.9e-16); at the implemented 1/5 the same product deviates 1.11 (Gamma gap 0.0365): the fundamental dynamics is a finite-state machine only at the quantized angle",
    "pass": true
   },
   {
-   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 2.1e-17, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
+   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 5.9e-17, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
    "pass": true
   },
   {
-   "name": "T6 the loop machinery quantizes: the traced-link hop phases are exactly {1, i, i} (resid 4.0e-15) and a NEW exact selection rule appears - F_n = 0 for EVERY odd n (max 6.5e-15); the cost: the crossing of 1/(16pi) moves from n* = 10 to the first even n below it at n = 208 (small-branch decay 0.978 per step): W8's ladder-length selection does not survive the quantized angle",
+   "name": "T6 the loop machinery quantizes: the traced-link hop phases are exactly {1, i, i} (resid 4.0e-15) and a NEW exact selection rule appears - F_n = 0 for EVERY odd n (max 6.5e-15); the cost: the crossing of 1/(16pi) moves from n* = 10 to the first even n below it at n = 208 (small-branch decay 0.978 per step): O8's ladder-length selection does not survive the quantized angle",
    "pass": true
   },
   {
@@ -188,5 +188,5 @@
    "pass": true
   }
  ],
- "status": "THE ROOT QUANTIZES ITS OWN STEP (the 0-parameter completion). The closure axiom - the fundamental step must be an element of the root, e^{i g} a root of unity - is enforced by the algebra itself: over 41 rational angles the internal step is exactly periodic ONLY at pi/2 (order 4) and pi/4 (order 8). THEOREM: U(pi/2) = w, the pseudoscalar, exactly and ordering-independently. At pi/4 the 32 internal levels are exactly {+-pi/4 (10), +-3pi/4 (6)}, the full zone-centre step is an involution (M(0)^2 = I), and the 12 doubler nodes are EXACTLY gapless - repairing the 2.003e-4 defect the publication carried at 1/5. The traced-link hop quantizes to {1, i, i} and the odd loops cancel exactly. The angle stops being a parameter: it is forced to a two-element set of the root and the finest closed clock (pi/4) is the physical branch; the choice is a discrete index, like the family number 3. THE PRICE: the ladder-length selection n* = 10 (W8) and the alpha = 1/25 meeting (W4, V64) do not survive the quantized angle - the crossing moves beyond n = 208 and the desert inverse problem must re-close at alpha = pi/64 = 0.0491. The trade: the alpha = 1/25 coincidence and the n* = 10 crossing are lost; a dynamics with ZERO continuous unfixed numbers is gained."
+ "status": "THE ROOT QUANTIZES ITS OWN STEP (the 0-parameter completion). The closure axiom - the fundamental step must be an element of the root, e^{i g} a root of unity - is enforced by the algebra itself: over 41 rational angles the internal step is exactly periodic ONLY at pi/2 (order 4) and pi/4 (order 8). THEOREM: U(pi/2) = w, the pseudoscalar, exactly and ordering-independently. At pi/4 the 32 internal levels are exactly {+-pi/4 (10), +-3pi/4 (6)}, the full zone-centre step is an involution (M(0)^2 = I), and the 12 doubler nodes are EXACTLY gapless - repairing the 2.003e-4 defect the publication carried at 1/5. The traced-link hop quantizes to {1, i, i} and the odd loops cancel exactly. The angle stops being a parameter: it is forced to a two-element set of the root and the finest closed clock (pi/4) is the physical branch; the choice is a discrete index, like the family number 3. THE PRICE: the ladder-length selection n* = 10 (O8) and the alpha = 1/25 meeting (O4, V64) do not survive the quantized angle - the crossing moves beyond n = 208 and the desert inverse problem must re-close at alpha = pi/64 = 0.0491. The trade: the alpha = 1/25 coincidence and the n* = 10 crossing are lost; a dynamics with ZERO continuous unfixed numbers is gained."
 }

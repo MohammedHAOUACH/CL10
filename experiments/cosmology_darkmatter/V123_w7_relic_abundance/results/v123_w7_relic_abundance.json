@@ -30,7 +30,7 @@
   },
   "doublers": {
    "n_nodes": 12,
-   "node_gap": 0.0002002894713292063,
+   "node_gap": 0.00020028947133012354,
    "branch_speeds": [
     0.200659,
     0.200659,
@@ -45,10 +45,10 @@
     0.200659,
     0.200659
    ],
-   "mean_speed": 0.20065917247613643,
+   "mean_speed": 0.20065917247600631,
    "comm_max_max": 0.0,
    "metric_rank_one": true,
-   "D_planar": 1485.2658492792891
+   "D_planar": 1485.265849282178
   },
   "supplied_couplings": [
    {
@@ -56,21 +56,21 @@
     "alpha": 0.019894367886486918,
     "sigma_cm3s": 1.0476481199178613e-25,
     "Omega_h2": 0.024563712721579912,
-    "Omega_h2_with_doublers": 2.2474799316212034e-05
+    "Omega_h2_with_doublers": 2.2474799316170112e-05
    },
    {
     "coupling": "root g10^2/4pi",
     "alpha": 0.0031830988618379076,
     "sigma_cm3s": 2.681979186989726e-27,
     "Omega_h2": 0.7977296295113617,
-    "Omega_h2_with_doublers": 0.0007589973497238667
+    "Omega_h2_with_doublers": 0.0007589973497224522
    },
    {
     "coupling": "required (inverted)",
     "alpha": 0.008644570151925513,
     "sigma_cm3s": 1.9780713587566546e-26,
     "Omega_h2": 0.12000000000000369,
-    "Omega_h2_with_doublers": 0.00011161108982867298
+    "Omega_h2_with_doublers": 0.00011161108982846339
    }
   ],
   "named_portals": [
@@ -79,14 +79,14 @@
     "lambda": 0.00035315938697639496,
     "sigma_cm3s": 2.9999999999999995e-26,
     "Omega_h2": 0.08077374279414712,
-    "Omega_h2_with_doublers": 7.480505834705054e-05
+    "Omega_h2_with_doublers": 7.480505834691065e-05
    },
    {
     "portal": "V88 exact-Z2 portal",
     "lambda": 0.13069488229888437,
     "sigma_cm3s": 1.4999999999999995e-26,
     "Omega_h2": 0.15606158139816387,
-    "Omega_h2_with_doublers": 0.00014557773094062674
+    "Omega_h2_with_doublers": 0.00014557773094035347
    }
   ]
  },
@@ -113,5 +113,5 @@
    "pass": true
   }
  ],
- "status": "THE RELIC ABUNDANCE IS COMPUTED (W7). The freeze-out integral reproduces the WIMP miracle (Omega h^2 = 0.080 at 100 GeV with sigma v = 3e-26 cm^3/s). At the ladder mass m = 118.5 GeV the measured Omega h^2 = 0.120 requires sigma v = 1.98e-26 cm^3/s, i.e. alpha_eff = 0.0086 in sigma v = alpha^2/(pi m^2) - while the theory supplies only the loop factor 1/16pi = 0.0199 (Omega h^2 = 0.0246) or the root g10^2/4pi = 0.0032 (Omega h^2 = 0.798). The automaton's own light spectrum matters: 12 M nodes, each a one-dimensional node subspace at |omega| = 2.0e-04 with a rank-1 velocity metric and commuting tangent velocities (max 0.0e+00) - nodal planes, not cones - so the final-state density is enhanced by D = sum 1/|v|^3 = 1485.3 (mean |v| = 0.201), which the dm_wimp (100/m)^3 ansatz never sees; with it the supplied couplings give Omega h^2 = 2.25e-05 and 0.000759. The named portals reproduce 0.120 only because their lambda was inverted from the fiducial 3e-26 cm^3/s (computed: 0.081 and 0.156; with doublers 0.000 and 0.000). VERDICT: the abundance is now a computed number, and it is NOT 0.120 for any coupling the root supplies - the WIMP miracle of Fig. 2 is a mass-scaling ansatz, and the doubler spectrum changes the annihilation rate by the factor D."
+ "status": "THE RELIC ABUNDANCE IS COMPUTED (O7). The freeze-out integral reproduces the WIMP miracle (Omega h^2 = 0.080 at 100 GeV with sigma v = 3e-26 cm^3/s). At the ladder mass m = 118.5 GeV the measured Omega h^2 = 0.120 requires sigma v = 1.98e-26 cm^3/s, i.e. alpha_eff = 0.0086 in sigma v = alpha^2/(pi m^2) - while the theory supplies only the loop factor 1/16pi = 0.0199 (Omega h^2 = 0.0246) or the root g10^2/4pi = 0.0032 (Omega h^2 = 0.798). The automaton's own light spectrum matters: 12 M nodes, each a one-dimensional node subspace at |omega| = 2.0e-04 with a rank-1 velocity metric and commuting tangent velocities (max 0.0e+00) - nodal planes, not cones - so the final-state density is enhanced by D = sum 1/|v|^3 = 1485.3 (mean |v| = 0.201), which the dm_wimp (100/m)^3 ansatz never sees; with it the supplied couplings give Omega h^2 = 2.25e-05 and 0.000759. The named portals reproduce 0.120 only because their lambda was inverted from the fiducial 3e-26 cm^3/s (computed: 0.081 and 0.156; with doublers 0.000 and 0.000). VERDICT: the abundance is now a computed number, and it is NOT 0.120 for any coupling the root supplies - the WIMP miracle of Fig. 2 is a mass-scaling ansatz, and the doubler spectrum changes the annihilation rate by the factor D."
 }

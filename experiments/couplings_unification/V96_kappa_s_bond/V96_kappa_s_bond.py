@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V96 - the FLAVOUR-DEPENDENT bond layer: per-class junction strengths
-close the W4 meeting constructively (the ingredient named by V93/V95).
+close the O4 meeting constructively (the ingredient named by V93/V95).
 
 **Why (V92 + V93 + V95).** V92: the data-preferred meeting (M_X = 1.8e16
 GeV, alpha_X = 1/25) lies inside the node-16 fragment cone - the desert
@@ -212,7 +212,7 @@ def main():
     if ok:
         s0 = next(s for s in sols if "residual" in s)
         status = (
-            f"W4 CLOSES CONSTRUCTIVELY WITH A NAMED EXTENSION: the "
+            f"O4 CLOSES CONSTRUCTIVELY WITH A NAMED EXTENSION: the "
             f"flavour-dependent bond layer (kappa_s per fragment class) "
             f"supplies an EXACT meeting (residual < 1e-10) at M_X = "
             f"{M_X_OBS:.1e} GeV, alpha_X = 1/25, for {n_ok}/10 node "
@@ -232,11 +232,11 @@ def main():
             f"gate P with one strength; a flavour-dependent bond "
             f"layer is an EXTENSION of the automaton, and the desert "
             f"content becomes the content of the EXTENDED automaton "
-            f"with six named (fitted) junction numbers. W4 is closed "
+            f"with six named (fitted) junction numbers. O4 is closed "
             f"conditionally on that extension; falsifier F2 stands.")
     else:
         status = (
-            f"THE FLAVOUR-DEPENDENT FAMILY DOES NOT CLOSE W4 either "
+            f"THE FLAVOUR-DEPENDENT FAMILY DOES NOT CLOSE O4 either "
             f"({n_ok}/10 node counts with an exact meeting, SM roots: "
             f"{breaking}): even with per-class kappa_s the desert-"
             f"constrained meeting fails - the obstruction is deeper "

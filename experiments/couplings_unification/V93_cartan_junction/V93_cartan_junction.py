@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V93 - the CONSTRUCTIVE closure of W4: a general Cartan Wilson
+r"""V93 - the CONSTRUCTIVE closure of O4: a general Cartan Wilson
 direction supplies the exact desert content.
 
-**Why (W4 + V92).**  V92 proved the data-preferred meeting
+**Why (O4 + V92).**  V92 proved the data-preferred meeting
 (M_X = 1.8e16 GeV, alpha_X = 1/25) lies INSIDE the convex hull of the
 node-16 fragment shifts: some threshold pattern of node-16 content
-closes W4. The remaining question is realizability: the automaton's
+closes O4. The remaining question is realizability: the automaton's
 Wilson factor gives each weight s of the node 16 the threshold
 z_s = z0 + log|lambda_s . c| for a Cartan direction c. V65/V76 used
 directions in the span{X, Y} (class-degenerate thresholds, the
@@ -29,7 +29,7 @@ three meeting equations at the data-preferred point.
 **Verdict (computed).**  Whether the desert content is AUTOMATON
 CONTENT - a single general Cartan Wilson direction reproducing the
 V92 witness pattern with an exact meeting - or the witness is not
-realizable and W4 stays open with the non-realizability named.
+realizable and O4 stays open with the non-realizability named.
 """
 
 import json
@@ -183,13 +183,13 @@ def main():
         checks["tau_p_yr"] = float(f"{tau:.3e}")
 
     # the CHECK passes when the search is valid and complete (V86/V87
-    # convention); whether W4 closes is stated in the status, not here
+    # convention); whether O4 closes is stated in the status, not here
     ok = v92["hull_feasible"]
 
     if sols:
         s0 = sols[0]
         status = (
-            f"W4 CLOSES CONSTRUCTIVELY: the desert content is AUTOMATON "
+            f"O4 CLOSES CONSTRUCTIVELY: the desert content is AUTOMATON "
             f"CONTENT. V92 showed the data-preferred meeting is in the "
             f"node-16 fragment hull; V93 realizes it with a single "
             f"SM-PRESERVING Cartan Wilson direction: {len(sols)} exact "
@@ -204,7 +204,7 @@ def main():
             f"V64 repair spectrum is SUPPLIED by the automaton.")
     elif sols_free:
         status = (
-            f"W4 NARROWED TO A PRECISE GAP. V92: the data-preferred "
+            f"O4 NARROWED TO A PRECISE GAP. V92: the data-preferred "
             f"meeting IS in the node-16 fragment hull (content exists). "
             f"V93: with a GENERAL Cartan direction the meeting is "
             f"realized exactly ({len(sols_free)} solutions, thresholds "
@@ -226,7 +226,7 @@ def main():
             f"Wilson direction (0 exact solutions, free or SM-"
             f"preserving, over 400 starts each): the per-weight "
             f"pattern z_s = z0 + log|lambda_s.c| cannot reproduce "
-            f"the hull solution. W4 stays open; junction mixing is "
+            f"the hull solution. O4 stays open; junction mixing is "
             f"the named next ingredient.")
 
     verdict = {"experiment": "V93_cartan_junction",

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V108 - the hierarchy coefficient 2.08 as a measured closed-loop number.
 
-**Why (W8, Table 5).** The hierarchy is v/M_P = 2.08*(1/16pi)^10 and the
+**Why (O8, Table 5).** The hierarchy is v/M_P = 2.08*(1/16pi)^10 and the
 coefficient 2.08 is classified FITTED (read from the data). V85 measured
 the closed traced-loop factor F_10 = 0.019186 at the root coupling
 (the ladder length IS the crossing, V89). V70: the doubler nodes form
@@ -78,7 +78,7 @@ def main():
               f"reading is the V85/V89 identification and the axis-"
               f"family multiplicity 3 is not proven to factorize in the "
               f"single-link construction; sensitivity dln(coef)/dln(F_10)"
-              f" = 10. W8 narrows: the coefficient is a product of "
+              f" = 10. O8 narrows: the coefficient is a product of "
               f"measured root numbers, its derivation needs the axis-"
               f"factorization of the closed-loop sum.")
     out = {"experiment": "V108_hierarchy_multiplicity", "pass": bool(ok),

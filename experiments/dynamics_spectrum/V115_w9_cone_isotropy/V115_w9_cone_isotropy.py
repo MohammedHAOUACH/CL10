@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V115 - is there a Wilson point where a node cone is isotropic? (W9)
+r"""V115 - is there a Wilson point where a node cone is isotropic? (O9)
 
-**Why (W9 + V65).** V65's internal Wilson factor W(q) gaps the 12 half-zone
+**Why (O9 + V65).** V65's internal Wilson factor W(q) gaps the 12 half-zone
 nodes; the selective reading keeps some nodes massless at the
 cutoff. Either way the low-energy cones of the lattice spectrum are
-the only carriers of "Lorentz" physics, and W9 states that
+the only carriers of "Lorentz" physics, and O9 states that
 continuous Lorentz invariance is NOT emergent. Sharpening: along the
 V65 family W(q) = exp[-i w (3 - cos qx - cos qy - cos qz) D(theta)],
 D = cos(theta) X + sin(theta) Y, the node gap g(w) is a
@@ -292,7 +292,7 @@ def main():
     ok = t1_err < 1e-12
     minA = best[0] if best else float("nan")
     status = (
-        f"NODE-CONE ISOTROPY SCAN (W9). T1 (regression): every node "
+        f"NODE-CONE ISOTROPY SCAN (O9). T1 (regression): every node "
         f"carries exactly V63's doubler gap at w = 0 (max deviation "
         f"{t1_err:.1e} from {v63_gap:.4e} over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is "
         f"a piecewise-analytic function of w with isolated zeros; "
@@ -303,7 +303,7 @@ def main():
            f"theta = {best[2]}, w = {best[3]})" if best else "")
         + f". T3: the bare (w = 0) cones have anisotropy up to "
         f"{bare_A:.3f}. No isotropy point (A < 1e-6) exists on the "
-        f"V65 Wilson family: every gapless cone is anisotropic - W9's "
+        f"V65 Wilson family: every gapless cone is anisotropic - O9's "
         f"'continuous Lorentz invariance is not emergent' is "
         f"confirmed on the full family, not just the V65 root.")
     out = {"experiment": "V115_w9_cone_isotropy", "pass": bool(ok),

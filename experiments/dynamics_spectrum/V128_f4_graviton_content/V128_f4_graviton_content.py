@@ -5,7 +5,7 @@ r"""V128 - the massless spin content and the dispersion of the step (F4)
 **Where F4 stands.**  The falsifier F4 reads: "a massive graviton, a graviton
 dispersion violating c = 1, or a UV divergence in the lattice gravitational
 sector".  The paper claims a classical GR limit (Section 9) and a unitary
-causal step (W9), but nobody has looked in the implemented one-particle
+causal step (O9), but nobody has looked in the implemented one-particle
 spectrum for the massless spin-2 excitation that the GR limit is supposed to
 produce, or measured its dispersion.  This experiment does exactly that.
 

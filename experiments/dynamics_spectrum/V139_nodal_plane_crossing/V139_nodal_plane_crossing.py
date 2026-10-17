@@ -26,7 +26,7 @@ order 2, so its tangent space carries only 1-dimensional irreps: no
 helicity pair, no spin 2 - the same representation-theoretic verdict as at
 the M nodes, now at a node that is exactly massless at the implemented
 coupling. What the step does supply at g10 = 1/5 is a massless two-fold
-degeneracy with a linear, anisotropic cone: the W9 anisotropy problem, not
+degeneracy with a linear, anisotropic cone: the O9 anisotropy problem, not
 a graviton.
 
 The machinery is the exact factorisation M(q) = P(q) (x) U16^6 (V128 T0), so
@@ -210,7 +210,7 @@ def main():
         "spin 2 - consistent with V138, which closed the zone-centre route "
         "on Eg-absence. VERDICT: the implemented step does contain exactly "
         "massless excitations at g10 = 1/5, contrary to the coarse census; "
-        "they are anisotropic Weyl-type nodes (W9), not gravitons, and the "
+        "they are anisotropic Weyl-type nodes (O9), not gravitons, and the "
         "spin-2 no-go of V138 stands."
         % (coarse, list(q0), gv, len(star), 48 // len(star),
            min(inplane), max(inplane)))

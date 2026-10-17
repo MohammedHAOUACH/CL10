@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V88 - BUILD the named fix: the mirror-odd ladder scalar as the DM
-carrier, audited against the exact mirror Z2. W7.
+carrier, audited against the exact mirror Z2. O7.
 
-**Why (W7).**  V66 proved the mirror Z2 is the only exact stability
+**Why (O7).**  V66 proved the mirror Z2 is the only exact stability
 carrier of the implemented spectrum, and V75 completed the no-go: no
 Wilson node hosts a 118 GeV neutral mirror. V75's NAMED FIX: one
 ladder scalar, m = M_P (1/16pi)^10 = 118 GeV, Higgs-portal
@@ -226,7 +226,7 @@ def main():
         f"t = 1 GeV^-1). The mirror colored relic Q-bar (1.3e8 GeV) "
         f"stays stable under both portals (Q-bar -> Q s s closed by "
         f"{2 * M_DM:.0f} GeV): V66's exclusion of the mirror thermal "
-        f"relic is unchanged. W7 verdict: the carrier EXISTS and is "
+        f"relic is unchanged. O7 verdict: the carrier EXISTS and is "
         f"exactly stable; but the named fix is a NAMED TENSION - "
         f"exact mirror Z2 excludes it by direct detection, and the "
         f"version that reproduces Omega h^2 = 0.120 with a "

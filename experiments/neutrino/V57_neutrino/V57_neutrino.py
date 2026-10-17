@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V57 - W2 **completed**: the 2-step seesaw **on the 10-loop ladder**.
+"""V57 - O2 **completed**: the 2-step seesaw **on the 10-loop ladder**.
 
-The W2 open part (the 2-step seesaw scale) is now **0-parameter**: both the
+The O2 open part (the 2-step seesaw scale) is now **0-parameter**: both the
 Dirac mass and the Majorana (2-step) mass are **numbers of the root** on the
-**same** 10-loop ladder that fixes the hierarchy (W8/V53) and the dark matter
-(W7/V54):
+**same** 10-loop ladder that fixes the hierarchy (O8/V53) and the dark matter
+(O7/V54):
 
     m_D  =  M_P (1/16\\pi)^{10}   (the 10-loop, the WIMP scale)
     M_N  =  M_P (1/16\\pi)^{3}    (the 2-step, the 10^14 scale; 0-parameter)
@@ -13,7 +13,7 @@ Dirac mass and the Majorana (2-step) mass are **numbers of the root** on the
 
 This **replaces** the previously hard-coded ``M_N = 10^14`` (V15/V18).  The
 2-step (``U^2``) is a 0-parameter **unitary** of the GUT QCA (the 2-loop, the
-same object as the W4 UV-finite completion).  The 0-parameter result gives
+same object as the O4 UV-finite completion).  The 0-parameter result gives
 ``m_nu ~ 0.15 eV`` (2.9x the observed 0.05 eV — the **right order**, closer
 than the previous 5.3x).  The **named residual** is the 2-digit coefficient
 and the loop integer ``n_2step = 3``.
@@ -69,7 +69,7 @@ def main():
     with open(os.path.join(outdir, "v57_neutrino.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V57 - W2 completed: the 2-step seesaw on the 10-loop ladder  [tier 5, P6]")
+    print("V57 - O2 completed: the 2-step seesaw on the 10-loop ladder  [tier 5, P6]")
     print("=" * 68)
     print(f"  backend (GPU):  {s['backend']}")
     print(f"  10-loop Dirac   m_D  = M_P (1/16pi)^10 = {s['m_D_GeV']:.1f} GeV  (the WIMP scale)")
@@ -78,7 +78,7 @@ def main():
           f"{s['m_nu_2step_eV']:.3f} eV")
     print(f"  observed m_nu = {s['m_nu_obs_eV']} eV;  off = {s['off_2step']:.2f}x  (right order: {s['right_order']})")
     print(f"  2-step (U^2) unitary: {u2['two_step_unitary']}  (err {u2['unitary_err_2step']:.2e})")
-    print(f"  VERDICT:  {'PASS (W2 completed: both scales 0-parameter on the ladder)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (O2 completed: both scales 0-parameter on the ladder)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v57_neutrino.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

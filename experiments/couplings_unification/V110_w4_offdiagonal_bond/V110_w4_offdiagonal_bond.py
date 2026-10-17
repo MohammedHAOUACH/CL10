@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V110 - are V96's six kappa_s REALIZABLE by one off-diagonal bond operator?
 
-**Why (V96 + V105).** V96 closes the W4 meeting exactly with per-class
+**Why (V96 + V105).** V96 closes the O4 meeting exactly with per-class
 junction strengths kappa_s (six named inputs). V105 proved the kappa_s are
 NOT the image of any on-site Cartan element: SM preservation forces
 span{X,Y} (class-degenerate) and every Cartan splitting the classes breaks

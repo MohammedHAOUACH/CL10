@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """V64 - the desert inverse problem: can the theory's OWN vector-like matter
-repair coupling unification (W4, F2)?
+repair coupling unification (O4, F2)?
 
-**What had never been done.**  The publication proved W4 (the three measured
+**What had never been done.**  The publication proved O4 (the three measured
 couplings do not meet at M_P; run down from alpha_10 = 1/25 the SU(2) coupling
 overshoots 5.8x and SU(3) hits a Landau pole at 2.2e9 GeV) and ruled out the
 fix by COMPLETE vectorlike multiplets (a complete 10+5bar shifts all three
@@ -31,9 +31,9 @@ M_X <= M_P?  With two multiplets the system is three linear equations in
    predicts tau_p ~ M_X^4 / (alpha_X^2 m_p^5): proton decay within or near
    the Hyper-Kamiokande / DUNE reach.  F5 becomes a live test.
 
-**The named residual (W4, sharpened).**  The desert spectrum is required by
+**The named residual (O4, sharpened).**  The desert spectrum is required by
 the couplings but not yet DERIVED from the automaton: the thresholds are
-inputs of the breaking sector (W6).  F2 becomes: precision couplings admit
+inputs of the breaking sector (O6).  F2 becomes: precision couplings admit
 NO content with alpha_X = 1/25.
 """
 
@@ -179,14 +179,14 @@ def main():
     verdict = {
         "experiment": "V64_desert",
         "pass": ok,
-        "status": ("W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the "
+        "status": ("O4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the "
                    "root value, not refitted), CL10-realizable vectorlike "
                    "desert content makes the three measured couplings meet at "
                    "M_X < M_P; the convention M_GUT = M_P is abandoned; "
                    "tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can "
                    "REFUTE it by observing GUT-pattern decay but cannot "
                    "confirm it; confirmation needs ~1e36 yr (megaton era)"
-                   if ok else "no physical solution: W4 stands"),
+                   if ok else "no physical solution: O4 stands"),
         "data": {
             "alpha_X_fixed": A10,
             "required_delta_b_family": required,
@@ -202,7 +202,7 @@ def main():
             },
             "residual": ("the desert spectrum is REQUIRED by the couplings but "
                          "not yet DERIVED from the automaton (breaking sector, "
-                         "W6); F2: precision couplings admit no content with "
+                         "O6); F2: precision couplings admit no content with "
                          "alpha_X = 1/25; F5: proton decay at tau_p outside "
                          "the predicted band refutes the solution"),
         },
@@ -214,7 +214,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V64 - the desert inverse problem (W4, F2, F5)")
+    print("V64 - the desert inverse problem (O4, F2, F5)")
     print("=" * 68)
     print(f"  alpha_X FIXED at the root value 1/25 = {A10} (g_10 = 1/5 not refitted)")
     print("  [1] required Delta-b (alpha_X = 1/25):")

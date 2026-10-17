@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V103 - W2 re-audited with the REAL 0-parameter Dirac structure.
+r"""V103 - O2 re-audited with the REAL 0-parameter Dirac structure.
 
 **The question.**  V76 built the cubic junction M = c_s(2 w0 I +
 kappa (J - I)) and V90 proved the democratic point r = kappa/w0 = 2 is
@@ -37,14 +37,14 @@ J M^+ J = 3 J / (2 w0 + 2 k) for EVERY r, hence
 4. The rank-1 m_nu has two exactly zero masses for every passing r
    (counted from the eigenvalues).
 
-**Verdict (computed).**  W2's "exact one-number tuning" is an artifact
+**Verdict (computed).**  O2's "exact one-number tuning" is an artifact
 of the identity-m_D assumption.  With the implemented democratic m_D the
 STRUCTURE (two massless + one massive, normal ordering) is protected
 0-parameter by the same family symmetry that derives sin2(theta12) = 1/3;
 the VALUE m_3 = S17/(1+r) leaves a finite window, and the atmospheric
 scale selects r = 1.91 (the exact r = 2 giving S17/3 = 0.0487 is the
 convenient junction amplitude, no longer measure-zero).  The solar mass
-still needs the W6 10-Higgs splitting - unchanged, named.
+still needs the O6 10-Higgs splitting - unchanged, named.
 """
 
 import json
@@ -124,7 +124,7 @@ def main():
         "property": "P6",
         "residual": True,
         "pass": bool(ok),
-        "status": ("W2 RE-AUDITED: the measure-zero tuning of V90 is an "
+        "status": ("O2 RE-AUDITED: the measure-zero tuning of V90 is an "
                    "artifact of the identity-Dirac assumption. With the "
                    "implemented democratic rank-1 m_D (V28/V45) the two "
                    "massless neutrinos are protected for EVERY junction "
@@ -134,7 +134,7 @@ def main():
                    f"{checks['window_width_democratic']:.2f}), and the "
                    f"atmospheric scale selects r = {r_atm:.3f}; the exact "
                    "r = 2 (S17/3 = 0.0487 eV) is a junction amplitude "
-                   "convention, not a tuning. Solar mass still W6."),
+                   "convention, not a tuning. Solar mass still O6."),
         "data": checks,
     }
 

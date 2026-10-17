@@ -269,7 +269,7 @@ def main():
         "law (boundary-proportional, bounded per bond), Bekenstein "
         "coefficient unnamed. The quadratic step of V97 cannot produce "
         "any of this: the gauged layer is where the theory first gets "
-        "non-Gaussian entanglement. Open (W9): multi-bond clusters "
+        "non-Gaussian entanglement. Open (O9): multi-bond clusters "
         "(3-site, 2-link with paired matter is 2 x 10^10 dimensional) - "
         "the additivity of ln 45 per cut bond is a structural argument, "
         "not yet a measured scaling.")

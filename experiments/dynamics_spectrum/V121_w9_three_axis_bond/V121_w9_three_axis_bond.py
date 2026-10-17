@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V121 - the bond carrying the rotation in all three axes at once (W9)
+r"""V121 - the bond carrying the rotation in all three axes at once (O9)
 
 **The prescription V120 forces.**  V118 proved the failure is structural: at
 every exactly-gapless node the three tangent velocity operators
@@ -454,7 +454,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "THREE-AXIS NON-ABELIAN BOND LAYER (W9): IT COSTS CAUSALITY AND "
+        "THREE-AXIS NON-ABELIAN BOND LAYER (O9): IT COSTS CAUSALITY AND "
         "CLOSES NOTHING. The hop along axis j carries exp(+/- i phi_j "
         "Sigma_j) with Sigma_1 = i h_1 h_2, Sigma_2 = i h_2 h_3, Sigma_3 = "
         "i h_3 h_1 an su(2) triplet (algebra exact to %.1e); phi = 0 "
@@ -470,7 +470,7 @@ def main():
         "%.4f, and the M-node doublers survive at every bond point. The "
         "three-axis covariant bond named by V120's closing sentence does NOT "
         "turn the node into a cone and, unlike the V120 single-phase bond, it "
-        "also destroys the causal radius: W9 stays open."
+        "also destroys the causal radius: O9 stays open."
         % (su2, kron_err, unit, lr,
            "; ".join("phi=(%.2f,%.2f,%.2f) gap=%.1e spread=%.1e comm %.3f "
                      "defect %.2f A %s" % (

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V127 - the energies of the 8 triangle vacua (W3)
+r"""V127 - the energies of the 8 triangle vacua (O3)
 
-**Where W3 stands.**  V91 decided the forcing question: the cubic group is
+**Where O3 stands.**  V91 decided the forcing question: the cubic group is
 transitive on the 12 doubler nodes, so the only cubic-symmetric split set is
 all 12, and its rigid meeting is excluded (F5).  V116 measured the
 alternative: the 3-node triangle that closes the unification content has a
@@ -322,7 +322,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "THE ENERGIES OF THE 8 TRIANGLE VACUA (W3). V116's 8-fold triangle "
+        "THE ENERGIES OF THE 8 TRIANGLE VACUA (O3). V116's 8-fold triangle "
         "degeneracy is NOT a degeneracy of the junction. The junction profile "
         "f = sum_pairs cos(pi (x_i - x_j)/2 is invariant under axis "
         "permutations and the global sign flip but not under a single axis "

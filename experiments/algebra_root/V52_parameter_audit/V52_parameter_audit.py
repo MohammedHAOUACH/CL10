@@ -30,7 +30,7 @@ The **smallest** level of the 32-level QCA spectrum is ``0.0115`` (a mass
 single-step 0-parameter structure.  It is **not** ``2.02e-17``: the
 **exponent** ``-17`` is **not** a 0-parameter consequence of the single
 step.  The 0-parameter content is the **existence** of the hierarchy (two
-widely separated scales); the **exponent** is the named residual (W8).  The
+widely separated scales); the **exponent** is the named residual (O8).  The
 0.18% match is re-labelled a **2-digit coincidence**.
 
 **Point 3 — "baryogenesis is added, not produced" (the weakest point).**
@@ -56,7 +56,7 @@ the 0-parameter structure is the smallest spectral gap
 (``0.0115 * M_P ~ 1e17 GeV``) — **~14 orders of magnitude above** the
 observed DM (``~1e2-1e3 GeV``).  The observed DM **requires a sub-Planck
 scale not in the 0-parameter structure** — a **quantified**, honest failure
-(W7).
+(O7).
 
 **The unifying 9-to-1 statement.**  The four "failures" are **honest,
 quantified residuals** of the one 0-parameter object; the **genuinely
@@ -112,7 +112,7 @@ def main():
                   "g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a "
                   "convention and M_GUT=M_P is abandoned by V64; the hierarchy "
                   "exponent and the DM scale are NOT in the 0-parameter "
-                  "single-step spectrum (quantified residuals W8/W7)"),
+                  "single-step spectrum (quantified residuals O8/O7)"),
         "tol": TOL,
         "data": {
             "backend": r["backend"],
@@ -200,7 +200,7 @@ def main():
           f"(the QCA satisfies none of the 3 Sakharov conditions)")
     print(f"  g_10 is the free 't Hooft angle:  {g10['g10_is_free_t_hooft_angle']}")
     print(f"  hierarchy exponent not in the spectrum:  {not hi['spectrum_exponent_matches_observed']}")
-    print(f"  observed DM not the 0-parameter (W7, quantified):  {dm['observed_DM_not_0param']}")
+    print(f"  observed DM not the 0-parameter (O7, quantified):  {dm['observed_DM_not_0param']}")
     print(f"  provenance classes:  {tb['counts_by_provenance']}")
     print(f"  0-parameter invariants hold:  {r['invariants_ok']}   "
           f"the four limits quantified:  {r['limits_ok']}")

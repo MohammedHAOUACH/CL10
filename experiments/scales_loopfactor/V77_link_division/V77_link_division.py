@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V77 - the W8 constructive step: a traced bond d.o.f. DIVIDES angles.
+r"""V77 - the O8 constructive step: a traced bond d.o.f. DIVIDES angles.
 
 **The theorem closed the door (V72-V73).**  Every exact single-particle
 block-spin RG of the bond layer COMPOSES internal angles - no bond gate
@@ -175,7 +175,7 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V77 - traced bond d.o.f. divide the angles (W8)")
+    print("V77 - traced bond d.o.f. divide the angles (O8)")
     print("=" * 68)
     print("  control (no links, V72): " + " ".join(f"{a:.4f}" for a in ctrl))
     for k, v in ratios.items():

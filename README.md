@@ -318,3 +318,13 @@ Each experiment constructs its object from the **declared** inputs, computes
 the residual against the stated value, and writes a JSON verdict (`tier`,
 `property`, `pass`, `residual`) that `run_validation.py` aggregates into
 [`results/validation_summary.json`](results/validation_summary.json).
+
+**Reproducibility.** Every number the master quotes is produced by a script in
+this repository, and the suite is deterministic: fixed seeds, fixed grids, and
+each verdict is recomputed from the construction rather than read from disk. The
+numbers were verified **internally** — spot-checks against the text, the second
+symbolic construction of Appendix A, the exact $3^n$-word loop enumeration — and
+the pipeline has **not** been independently re-executed by a second party;
+independent re-execution is invited. The published runs used one RTX 3090 with
+CuPy; `CL10_BACKEND=numpy` runs the same suite on the CPU core, and
+`CL10_ANGLE=closed|half` re-runs it at the other angle branches.

@@ -1,15 +1,15 @@
 {
   "experiment": "V73_bond_gate_loophole",
   "pass": true,
-  "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. W8's missing tool is uniquely specified.",
+  "status": "LOOPHOLE CLOSED: three Haar-random Spin(10) bond-gate realizations and the structured choice R = G^dagger (which under the inverse-reverse-hop convention reproduces the factorized flow exactly - the Cartan content depends only on the path products), run through the exact block-spin decimation of V72 for 5 levels. No realization brings the Cartan-content ratio within a factor 3 of (16 pi)^-p at any level. The single-particle block-spin RG composes internal angles for ANY bond gate - structured, random or canonical. The loop factor 1/(16 pi) requires the trace over fluctuating internal fields: dynamical Spin(10) link variables and a many-cell RG. O8's missing tool is uniquely specified.",
   "data": {
     "random Spin(10) #1": {
       "ratios": [
         1.0,
         1.0121599156239185,
-        0.6044852807274013,
-        0.46085672352485085,
-        0.4662599534000082
+        0.6044852807274026,
+        0.46085672352484836,
+        0.46625995340000587
       ],
       "loop_law_found": false
     },
@@ -17,19 +17,19 @@
       "ratios": [
         1.0,
         0.9188716194598164,
-        0.5743382137505441,
-        0.743052198197882,
-        0.4863539049468864
+        0.5743382137505427,
+        0.7430521981978874,
+        0.4863539049468805
       ],
       "loop_law_found": false
     },
     "random Spin(10) #3": {
       "ratios": [
         1.0,
-        0.5470323756969494,
-        0.5087535735085381,
-        0.6904718756643369,
-        0.31395224368568125
+        0.54703237569695,
+        0.5087535735085366,
+        0.6904718756643536,
+        0.31395224368568597
       ],
       "loop_law_found": false
     },
@@ -37,9 +37,9 @@
       "ratios": [
         1.0,
         0.6462075784816156,
-        0.5835479503376949,
-        0.34054665007321344,
-        0.13645680819649678
+        0.5835479503376945,
+        0.3405466500732144,
+        0.13645680819649667
       ],
       "loop_law_found": false
     }

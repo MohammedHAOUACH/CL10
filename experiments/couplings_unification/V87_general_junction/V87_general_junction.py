@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V87 - THE COEFFICIENT PATTERN: general zero-mean junctions as the
-desert supplier. W4's named near-miss (V86) attacked at its loose end.
+desert supplier. O4's named near-miss (V86) attacked at its loose end.
 
-**Why (W4).**  V86 fabricated the FRAGMENT PATTERN from the junction
+**Why (O4).**  V86 fabricated the FRAGMENT PATTERN from the junction
 (the Wilson direction splits the node 16 by a factor 55; Q and L are
 the light states) but missed the MEETING: best physical residual 0.94,
 alpha_X = 0.030 vs 0.04. The democratic junction kappa (J - I) has
@@ -15,7 +15,7 @@ one domain-wall network. The general static junction is a real
 symmetric zero-mean 3x3 K with eigenvalues {lambda_1, lambda_2,
 -lambda_1 - lambda_2}: THREE independent branch scales
 a_i = 2 w0 + lambda_i. V87 scans this strictly larger family: if the
-meeting closes at alpha_X = 1/25 with desert thresholds, W4 closes
+meeting closes at alpha_X = 1/25 with desert thresholds, O4 closes
 CONSTRUCTIVELY; if not, the near-miss is quantified over the whole
 junction landscape and the obstruction is deeper than the democratic
 ansatz.
@@ -145,17 +145,17 @@ def main():
         f"{bst['r1']}, {bst['r2']}, {bst['r3']}; n = {bst['n_nodes']}, "
         f"S = {bst['S_GeV']} GeV, z_min = {bst['z_min_GeV']} GeV), "
         f"predicting alpha_X = {ax} against the data 0.04. "
-        + ("W4 CLOSES CONSTRUCTIVELY: the desert spectrum is the "
+        + ("O4 CLOSES CONSTRUCTIVELY: the desert spectrum is the "
            "automaton's own general junction content."
            if closed else
-           "W4 DOES NOT CLOSE even with the free coefficient pattern: "
+           "O4 DOES NOT CLOSE even with the free coefficient pattern: "
            "the best residual of the general family EQUALS the "
            "democratic one (branch ratios do not move the floor) and "
            "alpha_X lands a factor 2.3 off the data value. The "
            "near-miss is a property of the junction mechanism "
            "itself: the mismatch is carried by the FIXED db pattern "
            "of the node 16's own fragments (V84), which threshold "
-           "motion cannot repair. W4 needs fragment content beyond "
+           "motion cannot repair. O4 needs fragment content beyond "
            "the node 16 - new automaton content, not new ratios."))
 
     ok = b_demo[0] < 2.0 and best[0] <= b_demo[0] + 1e-9

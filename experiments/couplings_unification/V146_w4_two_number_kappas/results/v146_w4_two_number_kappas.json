@@ -71,7 +71,7 @@
    -0.0,
    0.0
   ],
-  "mu_max": 5.551115123125783e-17,
+  "mu_max": 8.326672684688674e-17,
   "joint": {
    "A": 1085.96741,
    "B": 34.409147,
@@ -175,7 +175,7 @@
    "pass": true
   },
   {
-   "name": "T3b the V101 ground state (E0 = -5802.3982 eta, degeneracy 6, matching V101's stored E0 = -5802.3982) carries bond flux mu^A with max |mu| = 5.6e-17 - the Gauss law's zero - so the Cartan class shift F_s is identically zero (per class [0.0, -0.0, 0.0, 0.0, -0.0, 0.0])",
+   "name": "T3b the V101 ground state (E0 = -5802.3982 eta, degeneracy 6, matching V101's stored E0 = -5802.3982) carries bond flux mu^A with max |mu| = 8.3e-17 - the Gauss law's zero - so the Cartan class shift F_s is identically zero (per class [0.0, -0.0, 0.0, 0.0, -0.0, 0.0])",
    "pass": true
   },
   {
@@ -189,6 +189,6 @@
  ],
  "verdict": "PASS",
  "pass": true,
- "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE W4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 6e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
- "wall_s": 63.4288272857666
+ "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE O4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 8e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
+ "wall_s": 223.36465764045715
 }

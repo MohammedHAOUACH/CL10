@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V117 - what exactly forbids the CP phase, and is the prohibition global? (W5)
+r"""V117 - what exactly forbids the CP phase, and is the prohibition global? (O5)
 
 **The question.**  Section 11.3 states a computed theorem: every CP-odd (T-odd)
 invariant of the unitary step vanishes - Im Tr of all two- and three-fold
@@ -283,7 +283,7 @@ def main():
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["pass"] = ok
     out["status"] = (
-        "WHAT FORBIDS THE CP PHASE (W5). T1: the 32-D module of Cl(10,0) is of "
+        "WHAT FORBIDS THE CP PHASE (O5). T1: the 32-D module of Cl(10,0) is of "
         "REAL (Majorana) type - the intertwiner between the module and its "
         "conjugate is unique (nullity 1, rank 32), Q h Q^dag = h^* to %.1e for "
         "the 10 generators (and Q T Q^dag = -T^* for the 45, to %.1e), the step "

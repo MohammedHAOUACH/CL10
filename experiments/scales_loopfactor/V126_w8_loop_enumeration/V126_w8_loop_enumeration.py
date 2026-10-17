@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V126 - WHICH closed loops supply the ladder factor (W8)
+r"""V126 - WHICH closed loops supply the ladder factor (O8)
 
-**Where W8 stands.**  V85 measured the closed-loop suppression of the traced
+**Where O8 stands.**  V85 measured the closed-loop suppression of the traced
 adjoint link, F_n = alpha((MG)^n)/alpha(G^n) with M the one-crossing hop
 matrix, and found F_10 = 0.0192 against 1/(16 pi) = 0.0199: the loop factor
 AT the ladder length.  V89 extended this to n = 2..30, found the crossing at
@@ -271,7 +271,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "WHICH LOOPS SUPPLY THE LADDER FACTOR (W8). The T.L Casimir of the "
+        "WHICH LOOPS SUPPLY THE LADDER FACTOR (O8). The T.L Casimir of the "
         "32 (x) 45 link has exactly 3 eigenspaces (%s), so the n-hop traced "
         "product is a sum of 3^n words and the selection rule is enumerable "
         "exactly: the enumeration reproduces (MG)^n to %.1e and F_10 = %.6f "

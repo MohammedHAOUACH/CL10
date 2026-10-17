@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V68 - the W2 audit: is n_2step = 3 derived, and what structure forces
+r"""V68 - the O2 audit: is n_2step = 3 derived, and what structure forces
 the 1/3 coefficient?
 
 **Part 1 - the node multiplicity.**  V65 solved the desert thresholds with
@@ -8,7 +8,7 @@ n_nodes split doubler nodes as a free input. Here the meeting equations are
 re-solved for n_nodes = 1..6: if ONLY n_nodes = 3 admits physical roots, the
 number 3 of the seesaw (n_2step = 3, the 2-step's ladder position) is not
 chosen but REQUIRED by coupling unification - the same 3 as the three
-spatial directions and (W3) the family number.
+spatial directions and (O3) the family number.
 
 **Part 2 - the coefficient.**  The active neutrino seesaws against the n
 copies of the N fragment. The node mass matrix is n x n. Two structures:
@@ -20,7 +20,7 @@ copies of the N fragment. The node mass matrix is n x n. Two structures:
   EXACTLY the 1/3 candidate.
 So the 1/3 candidate is EQUIVALENT to a demand: the step must generate
 node-off-diagonal Majorana mixing. The implemented step (internal + bond +
-Wilson) does not: it is node-diagonal. W2 verdict: n_2step = 3 conditionally
+Wilson) does not: it is node-diagonal. O2 verdict: n_2step = 3 conditionally
 derived (Part 1); the 1/3 pinned to one named missing ingredient (inter-node
 mixing), not a free coefficient.
 """
@@ -87,7 +87,7 @@ def main():
     verdict = {
         "experiment": "V68_w2_audit",
         "pass": ok,
-        "status": ("W2 AUDIT, SHARPENED: (1) node multiplicity - physical "
+        "status": ("O2 AUDIT, SHARPENED: (1) node multiplicity - physical "
                    f"meeting roots need n_nodes >= 3 (counts {counts}): "
                    "n_2step = 3 is a LOWER BOUND from unification (1 and 2 "
                    "excluded), consistent with the spatial 3 but not "
@@ -98,7 +98,7 @@ def main():
                    "prediction S(17)/2 = 0.073 eV, falsifiable. The exact "
                    "1/3 (0.0487 eV, 2.6% from data) requires a single "
                    "Majorana eigenvalue 3M - NO natural node structure "
-                   "supplies it. W2 stays open; the 1/3 candidate is now "
+                   "supplies it. O2 stays open; the 1/3 candidate is now "
                    "pinned to a named missing structure (3x-enhanced "
                    "Majorana eigenvalue), and the democratic alternative "
                    "predicts 0.073 eV."),
@@ -118,7 +118,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V68 - the W2 audit: node multiplicity and the 1/3")
+    print("V68 - the O2 audit: node multiplicity and the 1/3")
     print("=" * 68)
     print(f"  physical meeting roots by n_nodes: {counts}")
     print(f"  diagonal coefficients (all n, all signs): {sorted(diag_coeffs)}")

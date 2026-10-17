@@ -1,7 +1,7 @@
 {
   "experiment": "V64_desert",
   "pass": true,
-  "status": "W4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can REFUTE it by observing GUT-pattern decay but cannot confirm it; confirmation needs ~1e36 yr (megaton era)",
+  "status": "O4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned; tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can REFUTE it by observing GUT-pattern decay but cannot confirm it; confirmation needs ~1e36 yr (megaton era)",
   "data": {
     "alpha_X_fixed": 0.04,
     "required_delta_b_family": [
@@ -305,6 +305,6 @@
       ],
       "su3_down_pole_GeV": 2191868251.5164537
     },
-    "residual": "the desert spectrum is REQUIRED by the couplings but not yet DERIVED from the automaton (breaking sector, W6); F2: precision couplings admit no content with alpha_X = 1/25; F5: proton decay at tau_p outside the predicted band refutes the solution"
+    "residual": "the desert spectrum is REQUIRED by the couplings but not yet DERIVED from the automaton (breaking sector, O6); F2: precision couplings admit no content with alpha_X = 1/25; F5: proton decay at tau_p outside the predicted band refutes the solution"
   }
 }

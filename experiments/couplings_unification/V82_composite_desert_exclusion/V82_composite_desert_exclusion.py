@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V82 - the composite desert content is EXCLUDED under every natural
-mass ansatz: W4's supplier question is closed in both directions.
+mass ansatz: O4's supplier question is closed in both directions.
 
-**Why (W4).**  V64 repairs unification with three 10+10bar pairs at
+**Why (O4).**  V64 repairs unification with three 10+10bar pairs at
 1.2e7 GeV plus one (1,2) pair at 1e12 GeV meeting at alpha_X = 1/25.
 V74 excluded the node mechanism as the supplier (forced M_X = 8.9e14,
 F5-excluded). V81 excluded the gauged layer's composite content under
@@ -36,7 +36,7 @@ A2 5.68, A3 3.26, A4 4.43 (targets are 0); A5: 0 physical solutions.
 
 **Verdict.** The desert spectrum of V64 is NOT the composite content of
 the gauged bond layer under any natural mass ansatz - a measured,
-quantified exclusion. W4's supplier remains the named V64 input; the
+quantified exclusion. O4's supplier remains the named V64 input; the
 question is now closed in both directions (V74: nodes excluded;
 V81+V82: composites excluded).
 """
@@ -266,7 +266,7 @@ def main():
         "sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - "
         "the content shifts U(1) and SU(2) equally while the data require "
         "different shifts - and the no-contribution meeting scales differ "
-        f"(x_12 = {x12:.2f} vs x_23 = {x23:.2f}). W4 is now closed in both "
+        f"(x_12 = {x12:.2f} vs x_23 = {x23:.2f}). O4 is now closed in both "
         "directions: nodes excluded (V74), composites excluded (V81+V82); "
         "the V64 spectrum remains a named input.")
 

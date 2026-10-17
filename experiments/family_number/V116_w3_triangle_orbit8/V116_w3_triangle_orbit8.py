@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V116 - what does the 8-fold triangle choice actually break? (W3)
+r"""V116 - what does the 8-fold triangle choice actually break? (O3)
 
-**Why (W3 + V70 + V91).** V91 decided the forcing question: the
+**Why (O3 + V70 + V91).** V91 decided the forcing question: the
 cubic group O_h (48 elements) acts transitively on the 12 doubler
 nodes, so the only cubic-symmetric split set is all 12 (excluded by
 F5). The unification-required 3-node split (V68) is realizable as a
 triangle - one node per zero-axis family (V70) - but its cubic orbit
 has 8 triangles: the choice breaks the cubic symmetry. Sharpening
-(W3): exactly what is broken, and how degenerate is the choice?
+(O3): exactly what is broken, and how degenerate is the choice?
 
 **The audit (exact group theory on the implemented node set).**
 T1: build O_h (48 signed permutation matrices), verify it permutes
@@ -112,7 +112,7 @@ def main():
     ok = (perm_ok and transitive and n_tri_orbit == 8
           and n_triangles == 64 and stab_order == 6 and is_s3)
     status = (
-        f"TRIANGLE ORBIT-8 AUDIT (W3). T1: O_h (48 signed permutations) "
+        f"TRIANGLE ORBIT-8 AUDIT (O3). T1: O_h (48 signed permutations) "
         f"permutes the 12 nodes and is transitive (one orbit of 12): "
         f"{perm_ok and transitive}. T2: the 220 node triples split into "
         f"{len(orbits)} cubic orbits (sizes {orbit_sizes}); the "
@@ -129,7 +129,7 @@ def main():
         f"stabilizer-equivalent - the triangle choice is an 8-fold "
         f"degenerate set of PHYSICALLY DISTINCT vacua, related by "
         f"broken cubic generators, with domain walls between them. "
-        f"Verdict: the W3 triangle is not a hidden-symmetry "
+        f"Verdict: the O3 triangle is not a hidden-symmetry "
         f"relabeling: it is a named input that reduces the crystal "
         f"symmetry of the low-energy doubler spectrum from O_h to S3 "
         f"and leaves 8 distinct choices.")

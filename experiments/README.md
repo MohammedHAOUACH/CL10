@@ -19,10 +19,10 @@ A script never hard-codes its own category: sibling experiments and their
 verdicts are addressed by name through `cl10.paths.exp`, so moving an
 experiment between categories moves a directory and nothing else.
 
-The verdicts stored on disk keep the vocabulary of the run that produced them:
-the old wall labels map to the paper's open problems as W1→O1, W2→O2, W3→O3,
-W4→O4, W5→O5, W6→O6, W7→O7, W8→O8, W9→O9. Re-running an experiment rewrites its
-verdict in the current wording.
+The verdicts kept in `../archive/experiments/` retain the vocabulary of the run
+that produced them: the old wall labels map to the paper's open problems as
+W1→O1, W2→O2, W3→O3, W4→O4, W5→O5, W6→O6, W7→O7, W8→O8, W9→O9. Every verdict in
+this tree is rewritten in the current wording whenever the experiment is re-run.
 
 Everything superseded — earlier iterations of the same question, first versions
 whose numbers the paper no longer quotes — is in `../archive/experiments/`, with
