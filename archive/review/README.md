@@ -1,40 +1,25 @@
-# review — audit trail of the publication
+# archive/review — the audit trail of the *previous* manuscript
 
-What was checked, when, by what method, and with which result. Nothing here
-is part of the paper; everything here is reproducible evidence about it.
-
-## Active documents
+Evidence about `archive/doc/publication.md`, the superseded manuscript: what was
+checked, when, by what method, with which result. Nothing here is part of the
+current paper — the live audit trail is
+[`review/`](../../review/README.md), and the build tooling is
+[`review/tools/`](../../review/README.md).
 
 | file | what it is |
 |---|---|
-| `prepublication.md` | the current pre-publication audit (2026-10-06/07): every headline number re-derived from the code before compiling, the build checks (errors / undefined refs / floats / overfull boxes), the DOI re-verification. Supersedes the review rounds for everything bibliographic. |
-| `refs_audit.md` | the bibliography audit report (52 entries): real errors found and the corrections applied, each with its Crossref / INSPIRE / arXiv proof. The definitive record for the references. |
-| `refs_audit.json` | the machine-readable per-entry verdict produced by `tools/verify_refs.py`. |
+| `prepublication.md` | the pre-publication audit (2026-10-06/07): every headline number re-derived from the code before compiling, the build checks (errors / undefined refs / floats / overfull boxes), the DOI re-verification. |
+| `refs_audit.md` | the bibliography audit report (52 entries): the real errors found and the corrections applied, each with its Crossref / INSPIRE / arXiv proof. |
+| `refs_audit.json` | the machine-readable per-entry verdict of that audit. |
+| `refs_audit_direct.json` | the direct-lookup pass over the same entries (no cached metadata). |
 | `measured_values_audit.md` | the 2026-10-09 audit of every *measured* value in Fig. 10 and Table 4 against its primary source (PDG 2024, Planck 2018, NuFIT 6.0, Super-Kamiokande): verdicts, the corrections applied to code and manuscript, and the one flagged inconsistency (the $6.6\times10^{33}$ yr $K^+$-mode number in the Fig. 16 caption). |
 
-## tools/ — the bibliography verifiers
+The figure numbers, experiment counts and section numbers inside these files are
+those of the **superseded** manuscript: `doc/final_publication.md` renumbered the
+figures, consolidated the sections and relabelled the residuals W1–W9 → O1–O9.
 
-Six one-shot scripts that check the bibliography against external sources
-(Crossref DOI + title/author/volume/page matching, INSPIRE HEP, the arXiv
-API). They are kept because the audit is re-runnable:
-
-```bash
-python3 review/tools/verify_refs.py    # full pass -> review/refs_audit.json
-python3 review/tools/verify_refs2.py   # the 46-DOI re-check cited by the audits
-python3 review/tools/verify_refs3..6.py  # targeted re-checks (the entries the first pass flagged)
-```
-
-`verify_refs.py` writes `review/refs_audit.json` (one level up from `tools/`).
-The scripts encode the claims **as printed in `doc/publication.md`**; if the
-bibliography changes, update the claim lists before re-running.
-
-## archive/ — closed review rounds
-
-Sequential review cycles, kept for the trace, not for reference:
-
-| file | round |
-|---|---|
-| `review2.md` | the critique |
-| `review2_response.md` | the response |
-| `review3.md` | the independent verification |
-| `review4.md` | the final audit of that cycle (2026-10-06, 62/62 PASS) — superseded by `prepublication.md`; it predates the 102-experiment suite and the 36-figure renumbering, so its figure numbers and test counts are historical. |
+The one-shot bibliography verifiers (`verify_refs*.py`) that produced
+`refs_audit.json` were retired with that manuscript. The current bibliography is
+kept honest at build time by `publication/fetch_dois.py`, which resolves and
+verifies every entry against Crossref and writes the `doi.json` map the LaTeX
+filter consumes — see [`publication/README.md`](../../publication/README.md).

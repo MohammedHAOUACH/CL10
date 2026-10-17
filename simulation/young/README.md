@@ -9,7 +9,7 @@ the Born rule).  The field then **resets** and the **next electron** is fired
 (electron after the other).  The **accumulated single detections build the
 interference pattern** — the *reality* emerging from the *reductions*.
 
-This is the CL10 **9-to-1 / Z2-projection** collapse (see `doc/publication.md`)
+This is the CL10 **9-to-1 / Z2-projection** collapse (see `doc/final_publication.md`)
 made visible.  **Nothing is fitted**: the wave equation, the discrete Laplacian,
 and the Born-rule sampling are all 0-parameter.
 

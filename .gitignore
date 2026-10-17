@@ -4,6 +4,7 @@ __pycache__/
 .ruff_cache/
 results/*
 !results/validation_summary.json
+!results/README.md
 *.egg-info/
 experiments/**/results/kernel.npz
 

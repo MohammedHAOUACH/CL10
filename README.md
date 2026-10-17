@@ -90,6 +90,7 @@ placed in the papers and validated by the named experiment
 CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
+│   ├── README.md           # the paper tree: what each file is, the dependency direction, the build commands
 │   ├── paper1_core.md        # Paper I (the algebraic core)
 │   ├── paper2_gauge_gravity.md # Paper II (gauge + gravity sectors)
 │   ├── paper3_phenomenology.md # Paper III (phenomenology + audit)
@@ -98,7 +99,8 @@ CL10/
 │   ├── reference.md          # the technical reference (exact constructions, numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
 │   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = V62 hydrogen product)
-├── review/                   # the referee round (simulated PRD)
+├── review/                   # the audit trail of the current paper + the manuscript pipeline
+│   ├── README.md            # what each audit document is, and what each tool does
 │   ├── glmreview.md          # the referee report (14 major concerns, 13 minor, 7 questions)
 │   ├── glmreview_verification.md # point-by-point verification of every concern against body + code
 │   ├── response_letter.md    # the response to the referee
@@ -107,8 +109,9 @@ CL10/
 │       ├── fit_tables.py     # per-table column widths from content (sqrt(L) balance + longest-word floor)
 │       ├── fix_tables.py     # post-pandoc: atomic table cells (no mid-row page splits), repeated headers
 │       ├── build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
-│       └── headers/          # per-paper LaTeX headers (revtex-style, twocolumn)
+│       └── headers/          # per-paper head/foot blocks (the title block, the citation and availability footers)
 ├── publication/              # the REVTeX 4.2 journal build of the master (alt pipeline)
+│   ├── README.md             # the pipeline, the files, the prerequisites, the checks after a build
 │   ├── build.sh              # preprocess -> pandoc -> pdflatex x3 -> publication.pdf
 │   ├── preprocess.py / filter.lua / template.tex / fetch_dois.py
 │   └── publication.pdf
@@ -172,13 +175,17 @@ CL10/
 ├── archive/                  # superseded material: 35 earlier experiments, the previous manuscript, its PDF, the earlier review audit trail
 │   └── README.md             # what was superseded, and by what
 ├── simulation/               # the 3-D visualizations on the CL10 engine
+│   ├── README.md             # the three simulations: what each shows, what is CL10 and what is input, the shared conventions
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
 ├── run_validation.py         # the runner: runs all 115, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
+├── run_cone.sh               # the cone programme (V185/V186/V187): CPU=1 is the fast mode - the 880-bond V186 scan is ~40x faster on 12 CPU workers than on a 3090
 └── results/
-    └── validation_summary.json   # the full-suite verdict + the hard-tier verdict
+    ├── README.md               # what is tracked (the verdicts) and what is regenerable (the logs)
+    ├── validation_summary.json # the full-suite verdict + the hard-tier verdict
+    └── <run logs, git-ignored> # gpu_run_*, figures_run_*, cone_*/ per-run directories
 ```
 
 ## The engine: GPU-first, one core
@@ -219,6 +226,9 @@ python3 run_validation.py        # runs all 115 in parallel (--jobs N), prints t
                                  # single experiments by exact directory name
 ./run_figures.sh                 # the 25 figures on the pinned GPU card; ABORTS if the card
                                  # has < 2 GiB free (FORCE=1 to run anyway, NEED=MiB to move the gate)
+./run_cone.sh                    # the cone programme: V185 -> V186 -> V187, one log + one /usr/bin/time per experiment
+CPU=1 ./run_cone.sh              # the recommended mode: the 880-bond V186 scan is ~40x faster on 12 CPU
+                                 # workers than on a 3090 (also ONLY=V186, SMOKE=1, GPU=n, FORCE=1)
 python3 -m make_figures          # the same generator without the card check: --only N | --fast | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 2 scene)
 python3 review/tools/build_series.py   # master -> the three companion papers (doc/paper*.md)
