@@ -50,7 +50,7 @@ the **only** sub-Planck scale in the *single-step spectral* structure.
 As a **single-step spectral** statement the exponent ``-17`` is **not** a
 consequence of the one step; the 0-parameter (spectral) content is the
 **existence** of two widely separated scales.  The **2-digit coefficient**
-(the 0.18% match) is the named residual (W8).  The exponent **does** have a
+(the 0.18% match) is the named residual (O8).  The exponent **does** have a
 0-parameter **10-loop** representation, ``2.08 x (1/16pi)^10`` (10 = n_gen) —
 see V53 (the 10-loop / 2-loop refinement).
 
@@ -108,9 +108,11 @@ from . import clifford
 from . import engine as E
 from . import sm_qca
 from . import u10pred
+from . import coupling
 
-# the 0-parameter GUT angle (the free 't Hooft angle): g_10 = sqrt(alpha_10)
-G10 = math.sqrt(u10pred.ALPHA_10)   # = 0.2
+# the rotation angle of the active branch: 1/5 implemented (a convention),
+# pi/4 closed (algebraic, the closure axiom) - selected by CL10_ANGLE
+G10 = coupling.G10
 M_P = u10pred.M_PLANCK              # 1.22e19 GeV
 V_EW = u10pred.V_EW                 # 246 GeV
 
@@ -499,7 +501,7 @@ def hierarchy_status():
     (spectral) content of the hierarchy is the **existence** of two widely
     separated scales (the Planck cutoff + the smallest gap); the
     **2-digit coefficient** (the 0.18% match of ``2.02e-17``) is the named
-    residual (W8).  The exponent itself has a 0-parameter **10-loop**
+    residual (O8).  The exponent itself has a 0-parameter **10-loop**
     representation (``2.08 x (1/16pi)^10``, 10 = n_gen) — see V53 (the
     10-loop / 2-loop refinement).
     """
@@ -526,7 +528,7 @@ def hierarchy_status():
         "residual": (
             "the exponent -17 is not a single-step spectral consequence (the "
             "smallest level is 0.0115, ~1e17 GeV); the 2-digit coefficient "
-            "(the 0.18% match of 2.02e-17) is the named residual (W8). The "
+            "(the 0.18% match of 2.02e-17) is the named residual (O8). The "
             "exponent has a 0-parameter 10-loop representation, 2.08 x "
             "(1/16pi)^10 (10 = n_gen) — see V53"
         ),
@@ -618,7 +620,7 @@ def provenance_table():
          "the two vectorlike thresholds that make the measured couplings meet "
          "at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, "
          "M_X = 1.8e16 GeV); inferred from the couplings, not derived; the "
-         "convention M_GUT = M_P is abandoned by this solution (W4, V64)"),
+         "convention M_GUT = M_P is abandoned by this solution (O4, V64)"),
         ("v/E_P = 2.02e-17 (0.18% match)", "2.02e-17", "coincidence",
          "the **2-digit coefficient** (the 0.18% match) is a coincidence; the "
          "**exponent** -17 has a 0-parameter 10-loop representation, "
@@ -628,15 +630,15 @@ def provenance_table():
          "the baryon asymmetry is a **product of 0-parameter factors**: "
          "(28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.12; V55); the 0-parameter "
          "QCA alone gives 0 (the CP-odd theorem); the **CP phase** (O(1)) and the "
-         "2-digit ratio are the residual (W5)"),
+         "2-digit ratio are the residual (O5)"),
         ("Lambda_obs ~ 1e-122", "1e-122", "named_residual",
-         "the breaking of the 512/512 cancellation (W1)"),
+         "the breaking of the 512/512 cancellation (O1)"),
         ("the sub-Planck DM scale", "~1e2-1e3 GeV (named)", "named_residual",
          "not a single-step spectral scale; the **10-loop suppression** "
          "M_P*(1/16pi)^10 = 118 GeV (V54) gives the observed abundance; the DM "
-         "**identity** is the residual (W7)"),
+         "**identity** is the residual (O7)"),
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
-         "the exact light-neutrino mass (W2)"),
+         "the exact light-neutrino mass (O2)"),
     ]
     counts = {}
     for r in rows:

@@ -54,10 +54,10 @@ the internal unitary is the GUT 45 at ``g_10 = 1/5`` -- nothing fitted.  The
 **finite-difference** step ``h`` is a **numerical** (convergence) parameter,
 not a physical one; every result **converges** as ``h -> 0``.
 
-**The honest named walls (W9 -- the open part).**
+**The honest named walls (O9 -- the open part).**
   - the **full** 4-D non-linear **numerical-relativity** evolution of an
     *arbitrary* 3+1 metric (the BSSN / Z4 gauge-fixing + constraint
-    damping) is the **open** part of W9 -- here the non-linearity is
+    damping) is the **open** part of O9 -- here the non-linearity is
     demonstrated on a **reduced** (state-dependent-unitary) metric QCA;
   - the **quantum** completion (the full quantum theory of the metric --
     the path-integral / the UV of the quantum gravity) is **beyond** the
@@ -483,7 +483,7 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12):
         "residual": ("the **full** 4-D non-linear numerical-relativity "
                      "evolution of an arbitrary 3+1 metric (the BSSN/Z4 "
                      "gauge-fixing + the constraint damping) is the **open** "
-                     "part of W9; the **quantum** completion (the UV of the "
+                     "part of O9; the **quantum** completion (the UV of the "
                      "quantum gravity) is beyond the classical 0-parameter "
                      "QCA (the quantum-gravity wall)"),
         "ok": ok,
@@ -619,7 +619,7 @@ def verify(tol=1e-9):
                      "**complete** (V51, `cl10.numrel`: the 2-route 0-row + "
                      "the Z4 constraint-damping + the non-linearity + the "
                      "UV-finite property) -- the remaining **open** part of "
-                     "W9 / the quantum-gravity wall is the **quantum** "
+                     "O9 / the quantum-gravity wall is the **quantum** "
                      "completion (the UV of the quantum gravity), not the "
                      "classical gravity (V50) nor the classical 3+1 NR (V51)"),
         "ok": bool(ok),
@@ -666,7 +666,7 @@ def main():
                "0-parameter action, dynamics <- action, non-linear QCA)"
                if r["ok"] else "FAIL")
     print("  VERDICT:  " + verdict)
-    print("  NAMED RESIDUAL (W9):  " + r["residual"])
+    print("  NAMED RESIDUAL (O9):  " + r["residual"])
     sys.exit(0 if r["ok"] else 1)
 
 

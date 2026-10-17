@@ -34,11 +34,11 @@ from . import engine as E
 from . import gauge
 from . import spacetime
 from . import u10pred
-from . import walls
+from . import coupling
 
 M_Z = 91.1876                    # GeV (PDG 2024 world average)
-ALPHA_10 = u10pred.ALPHA_10      # 1/25 = 0.04 (the 0-parameter GUT coupling)
-M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the 0-parameter GUT = Planck scale)
+ALPHA_10 = u10pred.ALPHA_10      # 1/25 = g^2 at g = 1/5: the alpha_10 = g^2 READING (a convention, Section 1.4)
+M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the UV cutoff; M_GUT = M_P is NOT assumed - see V64)
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
 B_SM = (41 / 10, -19 / 6, -7)    # (b1, b2, b3)  (the SM particle content)
@@ -74,7 +74,7 @@ def g10_from_root():
 
         g_10 = 1 / n_qubits = 1/5,   alpha_10 = g_10^2 = 1/25.
 
-    The **Dirac** coupling (the W2 0-parameter ``g_0``) is
+    The **Dirac** coupling (the O2 0-parameter ``g_0``) is
 
         g_0 = 1 / 2^{n_space} = 1 / 2^3 = 1/8,
 
@@ -97,7 +97,7 @@ def g10_from_root():
         "alpha_10_matches_u10pred": bool(abs(g10 ** 2 - u10pred.ALPHA_10) < 1e-12),
         "n_space": int(n_space),
         "g0": float(g0),
-        "g0_matches_walls": bool(abs(g0 - walls.G0) < 1e-12),
+        "g0_matches_coupling": bool(abs(g0 - coupling.G0) < 1e-12),
     }
 
 
@@ -117,7 +117,7 @@ def running_down():
     by ``g10_from_root``).  The standard 1-loop QFT extrapolation with the
     SM beta coefficients is **reported** together with the deviation from
     the measured ``alpha_i(M_Z)``.  The **1-loop matching to a single point**
-    (the non-SUSY SM) is the **named residual** (W4), now **quantified**;
+    (the non-SUSY SM) is the **named residual** (O4), now **quantified**;
     the QCA **lattice RG** (the open part) governs below the UV cutoff.
     """
     a_uv = ALPHA_10
@@ -144,7 +144,7 @@ def running_down():
         "u1_pole_above_cutoff": bool(pole_scale > M_P),
         "su3_down_pole_scale": float(qcd_pole_scale),
         "su3_pole_inside_lattice": bool(M_Z < qcd_pole_scale < M_P),
-        "residual": ("the 1-loop SM matching to the measured M_Z values (W4, now "
+        "residual": ("the 1-loop SM matching to the measured M_Z values (O4, now "
                      "quantified by the down-running); the QCA lattice RG is the open part"),
     }
 
@@ -177,7 +177,7 @@ def _mssm_running(M):
 
 def running_2loop():
     """The **2-loop** running: the **UV-finite** QCA vs the **UV-divergent**
-    perturbative QFT (the W4 completion, the 2-loop UV completion).
+    perturbative QFT (the O4 completion, the 2-loop UV completion).
 
     The **0-parameter** contrast:
 
@@ -201,7 +201,7 @@ def running_2loop():
     The **0-parameter** result: the **QCA** is **UV-finite** (the 2-step is
     **unitary**, the 2-particle is **bounded**), **whereas** the
     **perturbative** QFT is **UV-divergent** (the 2-loop Landau pole).
-    This is the **UV-finite** property of the QCA (the **W4** completion).
+    This is the **UV-finite** property of the QCA (the **O4** completion).
     """
     from . import smatrix
     U = smatrix.qca_step()                          # the 32x32 unitary step
@@ -235,7 +235,7 @@ def running_2loop():
         "residual": ("the 2-loop UV completion: the QCA 2-step is unitary (finite), "
                      "the 2-particle is bounded (UV-finite); the perturbative 2-loop "
                      "has a Landau pole below M_P (UV-divergent) — the QCA is UV-finite, "
-                     "the perturbative is UV-divergent (the W4 completion)"),
+                     "the perturbative is UV-divergent (the O4 completion)"),
         "ok": bool(ok),
     }
 
@@ -243,12 +243,13 @@ def main():
     import sys
     r = unification()
     print("=" * 68)
-    print("CL10 - the 0-parameter coupling unification + the QCA UV completion")
+    print("CL10 - the coupling unification + the QCA UV completion")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
-    print(f"  the 0-parameter GUT coupling:  alpha_10 = {r['alpha_10']:.3f}  (= 1/25)")
-    print(f"  the 0-parameter 5/3 normalization:  g1^2/g'^2 = {r['five_thirds']:.4f}")
-    print(f"  the 0-parameter GUT scale:  M_GUT = M_P = {r['M_GUT_0param']:.2e} GeV (the single scale)")
+    print(f"  the rotation-squared reading:  alpha_10 = {r['alpha_10']:.3f}  (= g^2 at g = 1/5, a convention)")
+    print(f"  the 5/3 normalization (algebraic):  g1^2/g'^2 = {r['five_thirds']:.4f}")
+    print(f"  the UV cutoff:  M_P = {r['M_GUT_0param']:.2e} GeV   "
+          f"(M_GUT = M_P is NOT assumed: the desert solution meets at M_X = 1.8e16, V64)")
     print(f"  the 1-loop SM running to M_P:  a = {['%.3f' % x for x in r['couplings_at_M_P']]}  (spread {r['spread_at_M_P']:.2f})")
     print(f"  the clean MSSM (SUSY) unification is at {r['mssm_unif_scale']:.0e} GeV (spread {r['mssm_spread']:.2f}) -- BELOW M_P")
     print(f"  the U(1) Landau pole is at {r['u1_landau_pole']:.2e} GeV -- the QCA cutoff M_P is BELOW it (UV-bounded)")
@@ -256,7 +257,7 @@ def main():
           and abs(r["alpha_10"] - 0.04) < 1e-9
           and r["uv_bounded"]
           and all(0.01 < a < 0.06 for a in r["couplings_at_M_P"]))
-    print(f"  VERDICT:  {'PASS (0-parameter 5/3 + GUT coupling; the running GUT-range at M_P; the 1-loop matching the named residual; the QCA UV-bounded)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the 5/3 is algebraic; the running reaches the GUT range; the meeting VALUES are the named residual O4; the discrete flow is UV-bounded)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 
 

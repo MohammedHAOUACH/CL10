@@ -49,12 +49,12 @@ phase is what switches it on.
 **The reduction (the solution).**  The four "limits" reduce to exactly:
 **0 free parameters in the algebra** (the 7 invariants hold for **every**
 ``g_10``), **one** 't Hooft angle of the *dynamics* (``g_10``) whose
-**selected value** ``1/n_qubits = 1/5`` is a **0-parameter selection
-rule** (the *reading* is the audit's *convention* class, not a
-derivation), **two** further mapping conventions (``g_0``,
-``M_GUT = M_P``), **two** 2-digit coefficients (``2.08``, ``1.18`` --
-**named**, read from the data), and **one** irreducible CP phase
-(``delta``).  Nothing else.
+**selected value** ``1/n_qubits = 1/5`` is a **mapping convention** (the
+*reading* is the audit's *convention* class, not a derivation and not a
+selection rule), **two** further mapping conventions (the ``g_0`` reading, the
+``alpha_10 = g_10^2`` reading; the identification ``M_GUT = M_P`` is NOT in
+force), **two** 2-digit coefficients (``2.08``, ``1.18`` -- **named**, read
+from the data), and **one** irreducible CP phase (``delta``).  Nothing else.
 """
 
 import numpy as np
@@ -274,19 +274,18 @@ def cp_phase_reduction():
 
 
 # ---------------------------------------------------------------------------
-# the 0-parameter *selection rules* of the couplings (g_10, g_0)
+# the coupling readings (g_10, g_0): root numbers, read as couplings
 # ---------------------------------------------------------------------------
 
 def coupling_provenance():
-    r"""**The 0-parameter *selection rules* of the two GUT couplings.**
-    ``g_10 = 1/n_qubits = 1/5`` (the 32-D module, ``2^5 = 32``) and
-    ``g_0 = 1/2^{n_space} = 1/2^3 = 1/8`` (the 3 spatial directions) are
-    **numbers of the root** that *name* the family member: **0-parameter
-    selection rules**.  The *reading* (root number -> coupling) is the
-    **mapping convention** of the audit's *convention* class (Point 1's
-    honest caveat: a convention, not a fit, and **not** a derivation -- no
-    0-parameter condition selects the angle: the 2-loop U(1) Landau pole
-    lies below the cutoff for every ``g_10``).  The **dynamics** is the
+    r"""**How the two GUT couplings are read.**  ``g_10 = 1/n_qubits = 1/5``
+    (the 32-D module, ``2^5 = 32``) and ``g_0 = 1/2^{n_space} = 1/2^3 = 1/8``
+    (the 3 spatial directions) are **numbers of the root**; turning a root
+    number into a coupling is the **mapping convention** of the audit's
+    *convention* class — not a fit and **not** a derivation: no condition in
+    the theory selects the angle (the 2-loop U(1) Landau pole lies below the
+    cutoff for every ``g_10``, and the 1-loop data prefer the reading
+    ``n = 7``, not the root ``n = 5``: V56).  The **dynamics** is the
     one-parameter family ``U(g_10)``; the **algebra** has **0 free
     parameters** (the 7 invariants are g_10-invariant).  Also records that
     the QCA ``U(g_10)`` is **real** (CP-even), so the CP phase is
@@ -297,37 +296,40 @@ def coupling_provenance():
     g10 = float(1.0 / n_qubits)                     # 1/5
     g10_from_alpha = float(np.sqrt(tp.ALPHA_10))    # sqrt(1/25) = 1/5
     g0 = float(1.0 / 2.0 ** n_space)                # 1/8
-    g10_is_0param = bool(abs(g10 - g10_from_alpha) < 1e-12)
-    g0_is_0param = bool(abs(g0 - 1.0 / 8.0) < 1e-12)
+    g10_is_root_reading = bool(abs(g10 - g10_from_alpha) < 1e-12)
+    g0_is_root_reading = bool(abs(g0 - 1.0 / 8.0) < 1e-12)
     return {
         "backend": _backend(),
         "n_qubits": int(n_qubits),
         "n_space": int(n_space),
-        "g10_0param": float(g10),
+        "g10_root_reading": float(g10),
         "g10_from_alpha10": float(g10_from_alpha),
-        "g10_is_0param": bool(g10_is_0param),
-        "g0_0param": float(g0),
-        "g0_is_0param": bool(g0_is_0param),
+        "g10_is_root_reading": bool(g10_is_root_reading),
+        "g0_root_reading": float(g0),
+        "g0_is_root_reading": bool(g0_is_root_reading),
         "qca_cp_even": True,            # U(g_10) is a product of real cos/sin rotations
         "delta_independent_of_g10": True,
         "n_free_parameters_in_algebra": 0,
         "n_free_parameters_in_dynamics": 1,
         "mapping_conventions": [
-            "g_10 = 1/n_qubits = 1/5 read as the GUT coupling (5 qubits of the 32-D module)",
+            "g_10 = 1/n_qubits = 1/5 read as the rotation angle (5 qubits of the 32-D module)",
             "g_0 = 1/2^n_space = 1/8 read as the GUT coupling (3 spatial directions)",
-            "M_GUT = M_P (the GUT scale identified with the Planck scale: two 0-parameter scales)",
+            "alpha_10 = g_10^2 = 1/25 read as the GUT coupling (the rotation-squared reading)",
+        ],
+        "rejected_identifications": [
+            "M_GUT = M_P: NOT in force.  M_P is the cutoff; the desert solution "
+            "meets at M_X = 1.8e16 GeV (V64), and the meeting itself needs the "
+            "six threshold coefficients as inputs (the open problem O4).",
         ],
         "verdict": (
-            "g_10 = 1/5 and g_0 = 1/8 are 0-parameter SELECTION RULES from "
-            "the root (g_10 = 1/n_qubits = 1/5, g_0 = 1/2^n_space = 1/8): "
-            "the dynamics is the one-parameter family U(g_10) whose SELECTED "
-            "value is a root number (the reading is the audit's mapping "
-            "convention, not a derivation); the algebra has 0 free "
-            "parameters (the 7 invariants are g_10-invariant).  The only "
-            "residuals are the MAPPING (how to read a root number as a "
-            "coupling, and identifying M_GUT with M_P) -- Point 1's honest "
-            "caveat, a convention not a fit.  The QCA U(g_10) is REAL "
-            "(CP-even), so the CP phase is INDEPENDENT of g_10 (the "
+            "g_10 = 1/5 and g_0 = 1/8 are root NUMBERS; reading them as "
+            "couplings is a MAPPING CONVENTION (the 1-loop data prefer n = 7, "
+            "so nothing selects n = 5: V56).  The dynamics is the "
+            "one-parameter family U(g_10); the algebra has 0 free parameters "
+            "(the 7 invariants are g_10-invariant).  The residuals are the "
+            "MAPPING (how to read a root number as a coupling) and the "
+            "coupling VALUES (O4) — a convention, not a fit.  The QCA U(g_10) "
+            "is REAL (CP-even), so the CP phase is INDEPENDENT of g_10 (the "
             "delta<->g_10 hypothesis is false)."
         ),
     }
@@ -342,9 +344,9 @@ def four_limits():
     0-parameter invariant (``10 = 2 x 5``) plus one irreducible CP phase,
     reduced to the minimum residual set -- **0 free parameters in the
     algebra** (the invariants hold for every ``g_10``), **1** 't Hooft
-    angle of the dynamics with a **0-parameter selection rule**
-    (``g_10 = 1/5``), **2** mapping conventions, **2** two-digit
-    coefficients (named), **1** CP phase (named)."""
+    angle of the dynamics whose value is a **convention** (``g_10 = 1/5``),
+    **3** mapping conventions, **2** two-digit coefficients (named), **1** CP
+    phase (named)."""
     l1 = invariance_g10()
     l24 = unique_10loop()
     l3 = cp_phase_reduction()
@@ -352,7 +354,7 @@ def four_limits():
     # the PRECISE residual set:
     residual_set = {
         "free_parameters_in_algebra": 0,        # the 7 invariants hold for every g_10 (L1)
-        "free_parameters_in_dynamics": 1,       # the 't Hooft angle g_10 (the value 1/5 is a 0-param selection rule)
+        "free_parameters_in_dynamics": 1,       # the 't Hooft angle g_10 (its value 1/5 is a convention)
         "two_digit_coefficients": 2,            # 2.08 (hierarchy), 1.18 (DM): order 0-param, exact 2-digit values NAMED (read from data)
         "irreducible_cp_phases": int(l3["minimal_cp_phases_required"]),  # 1 (the 2-step; baryon magnitude = right order via V55)
     }
@@ -365,8 +367,8 @@ def four_limits():
         and l3["rank1_cp_phases"] == 0
         and l3["minimal_cp_phases_required"] == 1
         and 0.5 <= l3["delta_B_ratio"] <= 2.0
-        and cp["g10_is_0param"]
-        and cp["g0_is_0param"]
+        and cp["g10_is_root_reading"]
+        and cp["g0_is_root_reading"]
     )
     return {
         "backend": _backend(),
@@ -381,22 +383,23 @@ def four_limits():
         "all_resolved": all_resolved,
         "verdict": (
             "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for "
-            "every g_10).  The dynamics is the one-parameter family "
-            "U(g_10); the selected value g_10 = 1/5 is a 0-parameter "
-            "SELECTION RULE (1/n_qubits; the reading is the mapping "
-            "convention, not a derivation).  The 4 limits reduce to 3 "
-            "NAMED quantities: 2 two-digit coefficients (2.08, 1.18 -- the "
-            "ORDER is 0-param, the exact values are read from the data) "
-            "and 1 irreducible CP phase (the 2-step; the baryon magnitude "
-            "is the right order via V55; the 0-param QCA alone gives zero "
-            "by the CP-odd theorem).  The mapping conventions (the readings "
-            "of g_10, g_0, M_GUT=M_P) are Point 1's honest caveat.  L1: "
-            "the 7 algebraic invariants are g_10-invariant (proven); "
-            "L2+L4: one loop count n=10 satisfies the two statements of "
-            "one scale (unique within one decade of both; the strict "
-            "factor-2 test is empty); L3: baryogenesis needs exactly one CP "
-            "phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) "
-            "is real / CP-even, so the CP phase is independent of g_10)."
+            "every g_10).  The dynamics is the one-parameter family U(g_10); "
+            "the value g_10 = 1/5 is a MAPPING CONVENTION (1/n_qubits: a root "
+            "number, not a selection rule — the 1-loop data prefer n = 7, "
+            "V56).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit "
+            "coefficients (2.08, 1.18 — the ORDER is fixed, the exact values "
+            "are read from the data) and 1 irreducible CP phase (the 2-step; "
+            "the baryon magnitude is the right order via V55; the QCA alone "
+            "gives zero by the CP-odd theorem).  The mapping conventions (the "
+            "readings of g_10, g_0 and alpha_10 = g_10^2) are the honest "
+            "caveat; the identification M_GUT = M_P is NOT in force (V64: the "
+            "desert solution meets at M_X = 1.8e16).  L1: the 7 algebraic "
+            "invariants are g_10-invariant (proven); L2+L4: one loop count "
+            "n=10 satisfies the two statements of one scale (unique within "
+            "one decade of both; the strict factor-2 test is empty); L3: "
+            "baryogenesis needs exactly one CP phase.  The delta<->g_10 "
+            "hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the "
+            "CP phase is independent of g_10)."
         ),
     }
 
@@ -433,14 +436,14 @@ def main():
     l3 = d["L3_baryogenesis"]
     print(f"  [L3]  rank-1 CP phases = {l3['rank1_cp_phases']} (none);  "
           f"2-step (2N) CP phases = {l3['minimal_cp_phases_required']} (one)  "
-          f"|DeltaB|_0param = {l3['delta_B_0param']:.2e} (ratio {l3['delta_B_ratio']:.2f})")
+          f"|DeltaB| = {l3['delta_B_0param']:.2e} (ratio {l3['delta_B_ratio']:.2f})")
     cp = d["coupling_provenance"]
-    print(f"  [couplings]  g_10 = 1/{cp['n_qubits']} (selection rule, {cp['n_qubits']} qubits);  "
-          f"g_0 = 1/8 (selection rule, {cp['n_space']} dims);  "
-          f"-> 0 free in the algebra, 1 angle in the dynamics")
+    print(f"  [couplings]  g_10 = 1/{cp['n_qubits']} (the root reading: {cp['n_qubits']} qubits);  "
+          f"g_0 = 1/8 (the root reading: {cp['n_space']} dims);  "
+          f"-> 0 free in the algebra, 1 angle in the dynamics (its value is a convention)")
     print(f"  reduced residual set:  {d['residual_set']}  "
           f"(total {d['total_named_residuals']} named)")
-    print(f"  VERDICT:  {'PASS (0 free in algebra; 3 named = 2 two-digit coeffs + 1 CP phase)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (0 free in algebra; 3 named = 2 two-digit coeffs + 1 CP phase; the angle value is a convention)' if ok else 'FAIL'}")
     return 0 if ok else 1
 
 

@@ -37,7 +37,7 @@ The 0-parameter checks:
   unitary and **non-trivial** — the **first** computed *process* of
   the theory.
 
-The **named residual** (W9): the **matching** of these amplitudes to
+The **named residual** (O9): the **matching** of these amplitudes to
 the **measured** cross-sections (the QCA lattice RG vs the
 perturbative QFT) — the open part of the 't Hooft program.
 """
@@ -107,7 +107,7 @@ def two_particle(U):
 
 def n_particle():
     """The **n-particle** S-matrix unitarity: the **3- and 4-particle** amplitudes
-    (the V48 completion, the **UV-finite** property, the W9 completion).
+    (the V48 completion, the **UV-finite** property, the O9 completion).
 
     The **0-parameter** statement: the **n-particle** S-matrix is the
     **Kronecker** product of the **1-particle** (``U (x) ... (x) U``, n
@@ -145,7 +145,7 @@ def n_particle():
         "residual": ("the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is "
                      "unitary (0), so all n-particle are unitary (0) by the Kronecker "
                      "product property — the UV-finite property (the n-step is bounded "
-                     "for all n); the matching to measured cross-sections is the W9 open part"),
+                     "for all n); the matching to measured cross-sections is the O9 open part"),
     }
 def smatrix():
     """The full 0-parameter S-matrix verdict: the 1-particle and 2-particle
@@ -165,7 +165,7 @@ def smatrix():
         "only_g10": True,
         "residual": ("the matching of these 0-parameter amplitudes to measured "
                      "cross-sections (the QCA lattice RG vs the perturbative "
-                     "QFT) — the open part of the 't Hooft program (W9)"),
+                     "QFT) — the open part of the 't Hooft program (O9)"),
     }
 
 
@@ -193,7 +193,7 @@ def main():
     print(f"    unitarity:  {s2['unitary_err']:.3e}   "
           f"max |S2|:  {s2['max_abs']:.4f}   "
           f"max off-diagonal:  {s2['max_offdiag']:.4f}")
-    print(f"  named residual (W9):  {r['residual']}")
+    print(f"  named residual (O9):  {r['residual']}")
     ok = (s1["unitary_err"] < 1e-12 and s1["colsum_err"] < 1e-12
           and s1["colsum_err_col"] < 1e-12 and s1["nontrivial_offdiag"]
           and s2["unitary_err"] < 1e-12 and s2["colsum_err"] < 1e-12

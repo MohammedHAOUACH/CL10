@@ -53,7 +53,7 @@ echo "== summary (results/validation_summary.json) =="
 import json
 d = json.load(open("results/validation_summary.json"))
 print(f"{d['n_pass']}/{d['n']} PASS   backend-wide pass = {d['pass']}")
-print("U10 (tiers 0-3):", d["u10"], "-", d["u10_criterion"])
+print("hard tier (0-3):", d["hard_tier"], "-", d["hard_tier_criterion"])
 print("named residuals:", ", ".join(d["named_residuals"]))
 fails = [e for e in d["experiments"] if not e.get("pass", False)]
 if fails:

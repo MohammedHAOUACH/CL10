@@ -182,7 +182,7 @@ def family_qca():
             "s23": float(abs(tbm[1, 2]) ** 2),
             "s13": float(abs(tbm[0, 2]) ** 2),
         },
-        "residual": ("the why-3 (W3) and the family mass hierarchy "
+        "residual": ("the why-3 (O3) and the family mass hierarchy "
                      "(the 10-Higgs breaking) are the named residuals"),
     }
 
@@ -198,7 +198,7 @@ def main():
     print(f"    (2) the 3 two-planes (C(3,2)):               {r['n_planes_C32']}")
     print(f"    (3) the rank of the 3x3 spatial metric:      {r['n_rank']}")
     print(f"  the 16 Weyl (one generation) -> 3 generations:  {r['n_weyl_1gen']} x {r['n_family_candidate']} = {r['n_weyl_3gen']} Weyl")
-    print(f"  VERDICT:  {'PASS (the 3 generations are a 0-parameter 3, three ways; the why-3 is the named residual)' if (r['match'] and r['all_three_ways_3']) else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the count 3 is the index of the 3-space, three ways; the count itself is the open problem O3)' if (r['match'] and r['all_three_ways_3']) else 'FAIL'}")
     sys.exit(0 if (r["match"] and r["all_three_ways_3"]) else 1)
 
 

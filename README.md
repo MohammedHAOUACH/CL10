@@ -82,7 +82,7 @@ placed in the papers and validated by the named experiment
 |---|---|
 | <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
 | <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), master §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (Paper III). |
-| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_w9_cone_isotropy)) — reported as W9/F1, not hidden. |
+| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_w9_cone_isotropy)) — reported as O9/F1, not hidden. |
 
 ## The layout
 
@@ -115,44 +115,47 @@ CL10/
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
 │   └── algebra/scales/couplings/dynamics/residuals/style .py
-├── cl10/                     # the unique engine (GPU-first, CPU-fallback)
+├── cl10/                     # the library: 39 modules on one core (GPU-first, CPU-fallback)
+│   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator)
+│   ├── coupling.py           # the one parameter of the step: the angle branches (implemented 1/5, closed pi/4, half pi/2) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - all conventions, Section 15
+│   ├── parpool.py            # the forked process pool the experiments batch through (CL10_NJOBS)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
 │   ├── matter.py             # the 16 Weyl + 16-bar + the anomaly cancellation
 │   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
-│   ├── qca.py                # the unitary QCA + the metric (gravity) dynamics
+│   ├── qca.py                # the (1,3) metric field + the on-site QCA factor (the 3+1 evolution: einstein / gravity / numrel)
 │   ├── u10pred.py            # the headline numbers (proton, seesaw, families)
-│   ├── walls.py              # the 3 reduced walls (W1/W2/W3) + the baryon asymmetry
+│   ├── walls.py              # the three named walls and their current status (O1/O2/O3) + the Sakharov audit
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
 │   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x 32 = C^256), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
 │   ├── smatrix.py            # the S-matrix of the QCA (V41): the first processes
 │   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one object + its invariants (V43)
 │   ├── unification.py        # the 5/3, the coupling readings from the root (V38, conventions), the running
-│   ├── electroweak.py        # the electroweak scale from the root
+│   ├── electroweak.py        # the QCA step -> the SM effective action; sin^2 = 3/8 as the GUT boundary condition (not a prediction)
 │   ├── family.py             # the 3-family construct + the 3-generation QCA step (V39)
 │   ├── yukawa.py             # the democratic rank-1 3x3 ({3,0,0}) + the tribimaximal PMNS
 │   ├── qcd.py                # the QCD area law + the linear potential (sigma = 1 in Planck units)
 │   ├── holo.py               # the holographic area law (the entropy scales with area)
 │   ├── baryogenesis.py       # the Sakharov audit + GUT leptogenesis (V40)
-│   ├── cosmology.py          # the cosmology (the W1 cancellation, the hierarchy)
+│   ├── cosmology.py          # the cosmology (the O1 vacuum cancellation, the hierarchy)
 │   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale (V42)
 │   ├── einstein.py           # gravity: the Riemann curvature, the EH action derived from the QCA dynamics (V37)
 │   ├── nonlinear_gravity.py  # the 4-D non-linear gravity (analytic de Sitter): the full Riemann + Einstein tensor (V46) — the analytic reference
 │   ├── gravity.py            # the 4-D non-linear gravity (V50): the general Riemann/Ricci/Einstein/Kretschmann COMPUTED from any metric (2-route verified), the black hole recovered by computation, the discrete EH action (G = 1, dynamics <- action), and the non-linear (state-dependent) QCA metric evolution
-│   ├── numrel.py             # the 3+1 BSSN/Z4 numerical relativity (V51, W9): the 2-route 0-row, the constraints, Z4 damping
+│   ├── numrel.py             # the 3+1 BSSN/Z4 numerical relativity (V51, O9): the 2-route 0-row, the constraints, Z4 damping
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
-│   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, W9)
-│   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the democratic base (V45, W6) + the quark CKM, honestly (V49)
+│   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, O9)
+│   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the democratic base (V45, O6) + the quark CKM, honestly (V49)
 │   ├── parameter_audit.py    # the parameter audit (V52): the 2-route root, the 16/16-bar spectral mirror, the CP-odd theorem, the provenance table
-│   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, W8)
-│   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV (V54, W7)
-│   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, W5)
-│   ├── g10_selection.py      # the 1-loop data check of g_10 = 1/5 (V56, W4: the data prefer n = 7)
-│   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder (V57, W2)
-│   ├── uvrunning.py          # the UV-finite discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole) (V58, W4)
+│   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, O8)
+│   ├── dm_wimp.py            # the sub-Planck DM scale = the 10-loop WIMP scale, M_P*(1/16pi)^10 = 118 GeV; the carrier is open (V54, O7)
+│   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, O5)
+│   ├── g10_selection.py      # the 1-loop data check of the angle reading (V56, O4: the data prefer n = 7, so 1/n_qubits is a convention)
+│   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder; the ladder value is excluded by sum m_nu (V57, O2, F3)
+│   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (V58, O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 112 experiments in 12 categories
+├── experiments/              # the verification program: 115 experiments in 12 categories
 │   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -172,7 +175,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 112, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
+├── run_validation.py         # the runner: runs all 115, writes the hard-tier verdict (`./run_gpu.sh` runs the full suite on the GPU)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     └── validation_summary.json   # the full-suite verdict + the hard-tier verdict
@@ -181,16 +184,26 @@ CL10/
 ## The engine: GPU-first, one core
 
 `cl10/engine.py` is the **single** computation core. It picks the backend at
-import time — **CuPy** (GPU) when available, else **JAX** (XLA/GPU), else
-**NumPy** (CPU) — and exposes one array type `E.Array` plus the primitives every
-experiment and every module uses (matmul, the spectral operators, the QCA step,
-the integrator). All of `cl10/` and `experiments/` go through this one core, so
-the whole theory runs on the **RTX 3090** out of the box and degrades to CPU
-cleanly.
+import time — **CuPy** (GPU) when available, else **JAX** (XLA/GPU, with
+float64 enabled), else **NumPy** (CPU) — and exposes one array type `E.Array`
+plus the primitives every experiment and every module uses (matmul, `einsum`,
+`roll`, the spectral operators, the QCA step, the integrator). All of `cl10/`
+and `experiments/` go through this one core, so the whole theory runs on the
+**RTX 3090** out of the box and degrades to CPU cleanly. The GPU is used for
+the array work only: the control flow, the algebra construction and the verdict
+logic stay on the host, and every array leaves the core through `E.asnumpy`.
+
+Environment switches the code actually reads: `CL10_BACKEND=numpy|cpu` (force
+the CPU core), `CL10_GPU_MIN_FREE_MIB` (the free-memory gate, default 2048),
+`CL10_ANGLE=implemented|closed|half` (the rotation-angle branch, Section 1.4:
+`implemented` $g_{10} = 1/5$ is the convention the phenomenology is computed
+on, `closed` $g_{10} = \pi/4$ is the algebraic closure root, `half`
+$g_{10} = \pi/2$; `cl10/coupling.py` is the single source), `CL10_NJOBS` (the
+`parpool` worker count), and `CL10_SMOKE=1` (the shrunken experiment grids).
 
 ```python
 import cl10
-cl10.engine.BACKEND            # 'cupy' | 'jax' | 'numpy'
+cl10.engine.backend_info()     # {'backend': 'cupy', 'einops': True, 'kingdon': True, 'array': 'ndarray'}
 cl10.engine.Array              # the array type (cp.ndarray / jax.Array / np.ndarray)
 h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```
@@ -200,7 +213,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 112 in parallel (--jobs N), prints the verdict
+python3 run_validation.py        # runs all 115 in parallel (--jobs N), prints the verdict
 ./run_gpu.sh                     # the full suite on the GPU (cupy, 8 jobs; JOBS=N to change); numpy fallback per experiment if the card is full
 ./run_gpu.sh V142_w9_frame_averaging V141_regular_link_quintet_coupling
                                  # single experiments by exact directory name
@@ -218,7 +231,7 @@ bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the m
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
-**seven falsifiers** (F1–F7). `run_validation.py` runs the **112** experiments
+**seven falsifiers** (F1–F7). `run_validation.py` runs the **115** experiments
 of `experiments/` (12 categories, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
@@ -245,7 +258,7 @@ couplings $\kappa_i$, …); **1 conditional** (the hierarchy coefficient built
 from measured inputs); **9 open residuals** (O1–O9).
 
 **Where the framework fails, stated plainly.**
-- **Lorentz isotropy (W9/F1).** The doubler cones are linear in every sampled
+- **Lorentz isotropy (O9/F1).** The doubler cones are linear in every sampled
   direction but anisotropic; no isotropy point exists on the full Wilson family
   (V115), the node little groups give three nodal planes, not a cone (V118,
   V139), the entangling bond layers reach at most $0.658$ of the required
@@ -254,7 +267,7 @@ from measured inputs); **9 open residuals** (O1–O9).
   frames the node gap moves by $1.8\times10^{-15}$, the anisotropy by $0$, the
   tangent commutators stay at the noise floor — all momentum dependence lives
   in the sub-site factor of the Kronecker bond layer (V142).
-- **Unification (W4/F5).** In the standard normalisation $\alpha = g^2/4\pi$,
+- **Unification (O4/F5).** In the standard normalisation $\alpha = g^2/4\pi$,
   running $\alpha_{10} = 1/25$ down gives $\alpha_2(M_Z) = 0.0086$ and an
   SU(3) Landau pole; the desert solution (three $10\oplus\overline{10}$ pairs
   at $1.2\times10^7$ GeV + one $(1,2)$ pair at $1.0\times10^{12}$ GeV) meets
@@ -267,7 +280,7 @@ from measured inputs); **9 open residuals** (O1–O9).
   0.605), and no second-order bond number: the superexchange shift misses at
   0.577 and its combination with flux and Cartan shift at 3.46, $R^2 \le 0.30$
   (V145/V146).
-- **Dark matter (W7/F6).** No state of the implemented spectrum is a viable
+- **Dark matter (O7/F6).** No state of the implemented spectrum is a viable
   carrier at 118 GeV (0 survivors over 720 angles, V66/V75); the relic
   abundance is a **computed** number: at the two supplied couplings
   $\Omega h^2 = 0.081$–$0.156$, not $0.120$ for any coupling the root supplies;
@@ -277,18 +290,18 @@ from measured inputs); **9 open residuals** (O1–O9).
   class lands on $0.120$ (V147), and read as Higgs portal every one of them
   predicts $\sigma_{\rm SI} = 2.5\times10^{-45}$–$6.3\times10^{-41}$ cm$^2$,
   above the LZ-class bound (V148).
-- **Baryogenesis (W5/F7).** The heavy-neutrino decay is in equilibrium
+- **Baryogenesis (O5/F7).** The heavy-neutrino decay is in equilibrium
   ($\Gamma_N/H \simeq 4.6$ at $y = 1/8$); the automaton satisfies **none** of
   the three Sakharov conditions (a computed theorem: every CP-odd invariant
   vanishes); the bond-layer route needs $J = 10^{-4}$ for one extra input.
-- **Doubling (W9).** The implemented 16-sector spectrum is gapless at 12 doubler
+- **Doubling (O9).** The implemented 16-sector spectrum is gapless at 12 doubler
   momenta; the internal Wilson factor gaps them, but the split-node set is an
   input and the scale it predicts is excluded.
-- **$\Lambda$ (W1/F4).** The tree-level $\Lambda = 0$ is protected
+- **$\Lambda$ (O1/F4).** The tree-level $\Lambda = 0$ is protected
   ($\det U = 1$ pins the quasi-energy sum, V78); the observed $\Lambda$ is a
   named trace-phase breaking of $1.6\times10^{-120}$, no mechanism.
 - The computed CKM is the identity; only $\sin^2\theta_{12} = 1/3$ is derived
-  (W6). The QCD string tension used is $\sigma = 1$ in Planck units (W9).
+  (O6). The QCD string tension used is $\sigma = 1$ in Planck units (O9).
 
 **Gravity.** V50 computes the general 4-D Riemann/Ricci/Einstein/Kretschmann
 from an **arbitrary** metric, 2-route verified against analytic de Sitter

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""
 CL10 — the 4-D non-linear gravity: the Einstein equations from the QCA metric
-(W9 completion, C2).
+(O9 completion, C2).
 
 The **0-parameter 4-D non-linear gravity** — the completion of the **quadratic**
 EH (V37) and the **1-D Choptuik** toy (V13).  The QCA metric (the $(1,3)$
@@ -19,7 +19,7 @@ with **no fit**:
 
 2. **The 0-parameter cosmological constant.**  The Einstein tensor
    ``G_{mu nu} = R_{mu nu} - (1/2) g_{mu nu} R = -3 H^2 g_{mu nu}`` — the
-   **0-parameter** vacuum-energy scalar (the dark energy, the W1 pattern: the
+   **0-parameter** vacuum-energy scalar (the dark energy, the O1 pattern: the
    *mechanism* is 0-parameter, the *exact* $10^{-122}$ is the named residual).
 
 3. **The non-linear (cubic) self-gravity.**  The ``Gamma*Gamma`` part of the
@@ -29,7 +29,7 @@ with **no fit**:
 
 4. **The 0-parameter vacuum energy.**  At the **Planck** Hubble
    ``H = M_P`` (0-parameter) the vacuum energy is ``Lambda ~ M_P^4``; the
-   **observed** ``10^{-122}`` (Planck units) is the **named residual** (W1).
+   **observed** ``10^{-122}`` (Planck units) is the **named residual** (O1).
 
 All 0-parameter (the only inputs are ``M_P``, the GUT scale, and the $(1,3)$
 metric).
@@ -184,7 +184,7 @@ def nonlinear_gravity(H=None):
     # (4) the 0-parameter vacuum energy: at the Planck Hubble, Lambda ~ M_P^4
     lambda_0param = (M_P ** 4)              # GeV^4 (the Planck-scale vacuum energy)
     lambda_obs = (1e-122) * (M_P ** 4)      # the observed (Planck units)
-    gap = lambda_obs / lambda_0param        # ~ 1e-122 (the W1 named residual)
+    gap = lambda_obs / lambda_0param        # ~ 1e-122 (the O1 named residual)
     ok = (space_err < 1e-8
           and g_err < 1e-8
           and scalar_err < 1e-6 * H ** 2
@@ -207,7 +207,7 @@ def nonlinear_gravity(H=None):
         "residual": ("the exact Lambda ~ 1e-122 (Planck units): the 0-parameter "
                      "4-D non-linear gravity (the Einstein tensor) gives the "
                      "0-parameter vacuum energy Lambda ~ M_P^4; the observed "
-                     "1e-122 (the W1 wall) is the named residual"),
+                     "1e-122 (the O1 wall) is the named residual"),
         "ok": bool(ok),
     }
 
@@ -217,7 +217,7 @@ def main():
 
     r = nonlinear_gravity()
     print("=" * 68)
-    print("CL10 - the 4-D non-linear gravity: the Einstein equations (W9/C2)")
+    print("CL10 - the 4-D non-linear gravity: the Einstein equations (O9/C2)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY inputs:  M_P = {M_P:.3e} GeV  (the (1,3) metric, the GUT sub-algebra)")
@@ -228,7 +228,7 @@ def main():
     print(f"  [3] the 4-D non-linear self-gravity:  the Gamma*Gamma part of R is "
           f"{'NONZERO (the 4-D completion of the 1-D Choptuik)' if r['nonlinear_present'] else 'ABSENT'}  (max {r['gamma_gamma_max']:.3e})")
     print(f"  [4] 0-parameter vacuum energy:  Lambda_0param ~ M_P^4 = {r['lambda_0param_GeV4']:.3e} GeV^4;  "
-          f"observed Lambda ~ 1e-122 (Planck units)  ->  gap = {r['gap']:.1e}  (the W1 named residual)")
+          f"observed Lambda ~ 1e-122 (Planck units)  ->  gap = {r['gap']:.1e}  (the O1 named residual)")
     print(f"  VERDICT:  {'PASS (the 4-D non-linear gravity is 0-parameter: the Einstein-space identity, the cosmological constant, and the self-gravity are computed; the exact 1e-122 is the named residual)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

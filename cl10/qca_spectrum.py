@@ -14,11 +14,11 @@ The **single** 0-parameter object of the theory is the **GUT QCA step**
 off.  This module computes that spectrum and its **0-parameter invariants**
 (all verified on the array backend, no fit):
 
-- **the 0-point = 0** (W1).  The 32 levels are **exactly +-paired** (16
+- **the 0-point = 0** (O1).  The 32 levels are **exactly +-paired** (16
   pairs of ``+E``/``-E``, to machine precision, **for every** ``g_10``), so
   the QCA vacuum 0-point ``sum(levels) = arg det(U) = 0``.  This is the
   **dynamical face** of the 512/512 ``Z2`` s-mechanism.
-- **the SL(32) identity** (W1).  Every plane rotation
+- **the SL(32) identity** (O1).  Every plane rotation
   ``R_ab = exp(-i g T_ab) = cos(g) I - i sin(g) T_ab`` is a **special**
   unitary (``det = 1``), because every ``T_ab = i h_a h_b`` is a
   **traceless** involution (``16``/``16`` ``+1``/``-1`` eigenvalues,
@@ -26,14 +26,14 @@ off.  This module computes that spectrum and its **0-parameter invariants**
   special unitaries, so ``det(U) = 1`` **for every** ``g_10`` (and for
   **any** set of the 45 angles).  The 0-point = 0 is therefore a
   **group-theoretic identity of the root**, not a counting accident.
-- **the CPT (16/16-bar) split** (W3/W5).  ``U`` **commutes with the
+- **the CPT (16/16-bar) split** (O3/O5).  ``U`` **commutes with the
   pseudoscalar** (the 45 are even in the ``Z2`` grading), so it preserves
   the 16/16-bar (matter/antimatter) eigenspaces; the 0-point of **each**
   sector is 0.
-- **the S-matrix** (W9): the step **is** the 0-parameter S-matrix (the
+- **the S-matrix** (O9): the step **is** the 0-parameter S-matrix (the
   't Hooft program) — ``S = U``.
 
-The **nine residuals W1-W9** (the named exact values the 0-parameter
+The **nine residuals O1-O9** (the named exact values the 0-parameter
 structure does not fix) are the **nine projections of this one object**
 (see the publication, the 9-to-1 reduction).
 """
@@ -43,10 +43,10 @@ import numpy as np
 from . import clifford
 from . import engine as E
 from . import sm_qca
-from . import u10pred
+from . import coupling
 
 # the 0-parameter GUT coupling (the only input of the object): g_10 = 1/5
-G10 = u10pred.ALPHA_10 ** 0.5
+G10 = coupling.G10
 
 
 def _asnp(x):

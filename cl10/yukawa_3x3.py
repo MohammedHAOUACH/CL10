@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (W6, C4).
+CL10 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (O6, C4).
 
-The **9-to-1** reduction (Section 12) says the nine residuals W1-W9 are
+The **9-to-1** reduction (Section 12) says the nine residuals O1-O9 are
 projections of **one** 0-parameter object — the GUT QCA step
 ``U`` (the 32-level spectrum ``H = -i log U`` at ``g_10 = 1/5``).  This
-module is the **W6 projection**: the **3-generation Yukawa mass matrix**
+module is the **O6 projection**: the **3-generation Yukawa mass matrix**
 and the **mixing**, read off from that one object, with **no fit**.
 
 - **The one object -> the 3 families.**  The 32-D Weyl module is **one**
@@ -37,7 +37,7 @@ and the **mixing**, read off from that one object, with **no fit**.
   0-parameter mass term $16\\,10\\,16\\bar$ is a **full-rank-16 Dirac**
   matrix (all 16 Weyl get mass) — the **where** of the mass, computed.
 
-The **named residual (W6)**: the **exact** 3-generation hierarchy
+The **named residual (O6)**: the **exact** 3-generation hierarchy
 (the 10-Higgs vev breaking, the ratios $m_1:m_2:m_3$) and the **exact**
 CKM/PMNS angles beyond the TBM — and the TBM angles $\\sin^2 23$, $\\sin^2 13$
 themselves (the $O(2)$ freedom of the 2-fold light subspace) — the one object
@@ -52,10 +52,10 @@ from . import engine as E
 from . import family
 from . import qca_spectrum
 from . import sm_qca
-from . import u10pred
+from . import coupling
 
-# the 0-parameter GUT coupling (the only input of the one object)
-G10 = u10pred.ALPHA_10 ** 0.5
+# the rotation angle of the active branch (CL10_ANGLE: 1/5 implemented, pi/4 closed)
+G10 = coupling.G10
 
 
 def one_object_spectrum(g10=None):
@@ -353,7 +353,7 @@ def hierarchy_3level():
     democratic base: one heavy + a 2-fold degenerate light level) and the
     **named** **3-level** hierarchy (the 10-Higgs vev breaks the 2-fold
     light degeneracy -> 3 distinct masses $m_1 < m_2 < m_3$).  The
-    0-parameter object does **not** fix the exact ratios — that is the W6
+    0-parameter object does **not** fix the exact ratios — that is the O6
     named residual."""
     eig = np.array(mass_matrix_3x3()["eigenvalues"])
     n_heavy = int(np.sum(eig > 1e-6))
@@ -370,7 +370,7 @@ def hierarchy_3level():
         "obs_ratio_order": obs_ratio,
         "residual": ("the exact 3-gen hierarchy (the 10-Higgs vev breaking, "
                      "the ratios m1:m2:m3) and the exact CKM/PMNS angles "
-                     "beyond the TBM (W6); sin^2_23 and sin^2_13 are an O(2) "
+                     "beyond the TBM (O6); sin^2_23 and sin^2_13 are an O(2) "
                      "choice, not a derivation"),
     }
 
@@ -378,7 +378,7 @@ def quark_ckm():
     """The **0-parameter** quark CKM: the **quark** mass matrices on the
     **democratic** base (the **2-level** structure) and the **CKM** (the
     **TBM**, the **0-parameter** quark mixing).  The **V49** completion (the
-    W6 residual, **quantified**).
+    O6 residual, **quantified**).
 
     The **0-parameter** statement:
 
@@ -398,7 +398,7 @@ def quark_ckm():
 
     4. **The comparison** to the **observed CKM** (``0.050, 0.949, 0.020``):
        the **0-parameter** TBM is **close** to the **observed CKM** (the
-       **deviation** is the **W6** named residual).
+       **deviation** is the **O6** named residual).
     """
     # the quark mass matrices (the democratic base, the 3x3)
     mu = np.ones((3, 3), dtype=complex)          # the up-type (the democratic base)
@@ -412,7 +412,7 @@ def quark_ckm():
     # de $H_u$ et $H_d$.  Or ici $H_u = H_d$ : les deux diagonaliseurs sont les
     # memes, donc le CKM calcule est l'**IDENTITE**, pas la TBM.  Une CKM non
     # triviale exige une **misalignment** up/down que la base democratique
-    # symetrique ne fournit pas (elle vient du vev du 10-Higgs, le residu W6).
+    # symetrique ne fournit pas (elle vient du vev du 10-Higgs, le residu O6).
     # L'affirmation "CKM = TBM" est donc FAUSSE dans la construction 0-parametre
     # telle que codee ; elle n'est vraie que si l'on POSTULE des diagonaliseurs
     # differents, ce qui est justement le residu nomme.
@@ -449,11 +449,11 @@ def quark_ckm():
                      "the symmetric democratic base does not provide — it comes "
                      "from the 10-Higgs vev breaking.  The TBM angles are the "
                      "lepton-sector (23)-adapted choice, not a quark result: "
-                     "the W6 named residual, now stated honestly"),
+                     "the O6 named residual, now stated honestly"),
         "ok": bool(ok),
     }
 def w6_verdict():
-    """The full 0-parameter W6 verdict: the 9-to-1 projection of the one
+    """The full 0-parameter O6 verdict: the 9-to-1 projection of the one
     object onto the 3-family space — the 3x3 mass matrix (the democratic
     base), the TBM mixing (only sin^2_12 = 1/3 is 0-parameter as a number),
     the 3-level hierarchy structure, the
@@ -523,7 +523,7 @@ def main():
     hier = r["hierarchy"]
     obs = mix["obs_pmns"]
     print("=" * 68)
-    print("CL10 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (W6, C4)")
+    print("CL10 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (O6, C4)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY input:  g_10 = {r['g10']:.4f} (= 1/5)")
@@ -552,8 +552,8 @@ def main():
     print("      the S3 transpositions (12),(13),(23) are equivalent symmetries of |1><1|;")
     print(f"      only (23) reproduces TBM: "
           f"{ {k: v['reproduces_TBM'] for k, v in hh['s3_transpositions_equivalent'].items()} }")
-    print(f"  [8] named residual (W6):  {r['residual']}")
-    print(f"  VERDICT:  {'PASS (the 0-parameter 3x3 matrix + TBM + 2-level structure; the 3-level hierarchy/exact mixing is the named residual)' if r['ok'] else 'FAIL'}")
+    print(f"  [8] named residual (O6):  {r['residual']}")
+    print(f"  VERDICT:  {'PASS (the democratic 3x3 base + TBM + the 2-level structure; the 3-level hierarchy and the exact mixings are the open problem O6)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

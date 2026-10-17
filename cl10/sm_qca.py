@@ -39,10 +39,9 @@ import numpy as np
 
 from . import clifford
 from . import engine as E
-from . import u10pred
+from . import coupling
 
-# the 0-parameter GUT coupling (the rotation angle): g_10 = sqrt(alpha_10) = 1/5
-G10 = math.sqrt(u10pred.ALPHA_10)  # = 0.2
+G10 = coupling.G10   # the active branch: 1/5 implemented, pi/4 closed (CL10_ANGLE)
 
 
 def plane_generators():
@@ -132,13 +131,14 @@ def sm_qca(n_steps=50, L=8):
 def main():
     import sys
     print("=" * 68)
-    print("CL10 - the full SM QCA: the Standard Model as a 0-parameter unitary QCA")
+    print("CL10 - the full SM QCA: the Standard Model as an exactly unitary QCA")
     print("=" * 68)
     r = sm_qca()
     print(f"  backend (GPU):  {r['backend']}")
     print("  the 45 Spin(10) plane rotations:  T_ab = i h_a h_b  (Hermitian, T^2 = I)")
     print(f"    plane generator T^2=I residual:  {r['plane_square_to_I_err']:.3e}")
-    print(f"  the 0-parameter rotation angle:  g_10 = {r['g10']:.4f}  (= 1/5)")
+    print(f"  the rotation angle (branch {coupling.branch()}, {coupling.provenance()}):"
+          f"  g_10 = {r['g10']:.4f}")
     print("  the GUT QCA step U = prod [cos(g_10) I - i sin(g_10) T_ab] (45 planes):")
     print(f"    unitarity residual ||U U^dag - I||:  {r['step_unitary_err']:.3e}  (exactly unitary)")
     print(f"  norm preservation in action ({r['n_steps']} steps, {r['backend']}):")
@@ -147,7 +147,7 @@ def main():
     ok = (r["step_unitary_err"] < 1e-10 and r["norm_rel_err"] < 1e-10
           and r["n_planes"] == 45 and r["causal_radius"] == 1
           and r["plane_square_to_I_err"] < 1e-10)
-    print(f"  VERDICT:  {'PASS (the full SM is a 0-parameter unitary QCA)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the full SM is an exactly unitary QCA: unitarity and det U = 1 hold at every angle)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 
 

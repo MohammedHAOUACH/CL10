@@ -4,13 +4,22 @@
 CL10 — the gravity: the metric dynamics of the (1,3) sub-algebra + the QCA.
 
 The metric ``g^{mu nu}`` of the (1,3) sub-algebra (time = h_1, space =
-i h_2..4) is a **field** on the Planck lattice.  Its dynamics is the
-**discrete Laplacian** (0-parameter, ``G = 1``): the linearised metric
-perturbation (the **graviton**) satisfies the free wave equation with the
-discrete Laplacian as the spatial operator.  The graviton is **massless**
-(propagates at the light speed 1) and **UV-bounded** (the lattice momentum is
-finite).  The **soliton** (a stable finite-energy lump of the non-linear metric)
-is the dark-matter candidate.
+i h_2..4) is a **field added to the algebra**, not a number of it: the sector
+assumes a symmetric rank-2 field and the value ``G = 1`` (Section 11.1).  Its
+linearised dynamics is the free wave equation with the 6-neighbour discrete
+Laplacian, so the graviton of this sector is **massless** (front speed 1) and
+**UV-bounded** (the lattice momentum is bounded by the cutoff) - both computed.
+The evolution itself is implemented in ``cl10.einstein`` (the leapfrog and the
+discrete Einstein-Hilbert action) and ``cl10.gravity`` / ``cl10.numrel`` (the
+general curvature and the 3+1 evolution); this module holds the metric field
+and the on-site QCA factor.
+
+What the sector does **not** claim (Section 11.1): that the tensor field, its
+coupling or diffeomorphism invariance follow from Cl(10,0), and that the
+implemented one-particle spectrum contains a massless spin-2 state - it does
+not.  The cubic-symmetric kink of Section 11.4 is a **planar domain wall**
+(finite energy per unit area, infinite total energy), not a dark-matter
+candidate: the carrier is the open problem O7.
 
 The QCA dynamics is a product of **local unitaries**: the on-site internal
 factor acts on the 32-D module of every sub-site of the block cell, and the
@@ -23,7 +32,7 @@ from . import spacetime
 
 import numpy as np
 
-# the (1,3) metric (0-parameter): g = diag(1,-1,-1,-1)
+# the (1,3) vacuum metric of the sector: g = diag(1,-1,-1,-1)
 METRIC = np.diag([1.0, -1.0, -1.0, -1.0])
 
 
@@ -33,17 +42,6 @@ def metric_field(L, h=0.0):
     for mu in range(4):
         g[mu, mu] = METRIC[mu, mu] + h
     return g
-
-
-def wave_step(u, dt=0.5):
-    """One step of the free wave equation (the linearised graviton).
-
-    ``u_{t+1} = 2 u_t - u_{t-1} + c^2 dt^2 * Lap(u_t)`` (the 2nd-order leapfrog
-    on the discrete Laplacian).  This is the 0-parameter graviton propagation
-    (massless, at the light speed).
-    """
-    up = E.laplacian_3d(u)
-    return 2 * u - up  # placeholder: the caller keeps the previous step
 
 
 def qca_step_internal(gates, fields):

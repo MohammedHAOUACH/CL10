@@ -36,6 +36,7 @@ does not generate it; the structure is there).
 from . import engine as E
 from . import clifford
 from . import u10pred
+from . import coupling
 from . import walls
 
 import numpy as np
@@ -82,7 +83,7 @@ def sakharov_conditions():
     # (3) equilibrium: the QCA step is unitary -> reversible -> in equilibrium
     from . import sm_qca
     planes = sm_qca.plane_generators()
-    theta = (u10pred.ALPHA_10) ** 0.5
+    theta = coupling.G10
     U = sm_qca.gut_qca_step(planes, theta)
     unitary_err = sm_qca.unitary_err(U)
     in_equilibrium = unitary_err < 1e-9
@@ -98,73 +99,93 @@ def sakharov_conditions():
 
 
 # ---------------------------------------------------------------------------
-# the GUT ingredients (the structure is there, even if the 0-parameter dynamics
-# does not generate the asymmetry)
+# the GUT ingredients, at the numbers of Section 13.3
 # ---------------------------------------------------------------------------
 
 def gut_ingredients():
-    """The GUT structure contains the baryogenesis ingredients:
-    (a) the X/Y B-violating process (p -> e+ pi0, the 0-parameter proton decay);
-    (b) the heavy-N decay OUT of equilibrium (Gamma/H < 1, the kinematics);
-    (c) the PMNS CP phase (the 0-parameter C/CP structure, V29)."""
-    g2 = 4.0 * np.pi * u10pred.ALPHA_10
-    M_GUT = u10pred.M_PLANCK
-    Gamma = g2 * M_GUT / (16.0 * np.pi)
-    H = 1.66 * np.sqrt(100.0) * M_GUT ** 2 / u10pred.M_PLANCK
-    tau_p = u10pred.proton_decay_lifetime()
+    """The GUT ingredients of baryogenesis, at the paper's numbers.
+
+    (a) the X/Y B-violating process exists; the proton lifetime in force is
+        the desert solution of V64, ``tau_p = 1.8e36`` yr, **conditional** on
+        a desert spectrum with two fitted thresholds.  The ``M_GUT = M_P``
+        reading (``tau_p ~ 4e47`` yr) is ABANDONED (Section 13.4, F5).
+    (b) the heavy-N decay: at the ladder seesaw scale
+        ``M_N = M_P (1/16 pi)^3 = 9.6e13`` GeV the decay is **in equilibrium**
+        at the Yukawa the atmospheric splitting needs (``y ~ 0.40``:
+        ``Gamma/H = 47``) and out of equilibrium only for ``y < 0.058``, which
+        caps ``m_nu`` at ``2.1e-3`` eV.  The neutrino mass and the
+        out-of-equilibrium condition are mutually incompatible at that scale:
+        this is why O5 is open for one named reason (Sakharov 3).
+    (c) the CP phase: every CP-odd invariant of the step vanishes (the theorem
+        of Section 13.3, stable under the Wilson extension).  The only built
+        carrier is a bond-layer Peierls flux, which costs nothing of
+        unitarity, ``det U = 1``, the mirror or the causal radius.
+    """
+    M_N = u10pred.M_PLANCK * (1.0 / (16.0 * np.pi)) ** 3      # 9.6e13 GeV
+    H = 1.66 * np.sqrt(100.0) * M_N ** 2 / u10pred.M_PLANCK
+    by_yukawa = by_y = {}
+    for y in (0.125, 0.0582, 0.3987):
+        Gamma = y ** 2 * M_N / (8.0 * np.pi)
+        by_y[f"y={y}"] = {"Gamma_over_H": float(Gamma / H),
+                          "out_of_equilibrium": bool(Gamma < H)}
     return {
         "backend": _backend(),
-        "xy_process": True,                 # the X/Y mediate p -> e+ pi0 (0-parameter)
-        "proton_lifetime_yr": float(tau_p),
-        "heavy_N_out_of_equilibrium": bool(Gamma < H),
-        "gamma_over_h": float(Gamma / H),
-        "pmns_cp_phase": True,              # the 0-parameter C/CP (V29)
+        "xy_process": True,
+        "proton_lifetime_yr": u10pred.proton_lifetime_desert(),
+        "proton_lifetime_provenance": ("conditional: the desert spectrum with "
+                                       "two fitted thresholds (V64, F5)"),
+        "seesaw_scale_GeV": float(M_N),
+        "hubble_at_seesaw_GeV": float(H),
+        "equilibrium_by_yukawa": by_y,
+        "out_of_equilibrium_yukawa_ceiling": 0.058,
+        "cp_phase_in_the_step": 0.0,
+        "cp_phase_carrier": "the bond-layer Peierls flux (V125); the step carries none",
     }
 
 
 # ---------------------------------------------------------------------------
 # GUT leptogenesis: the mechanism is 0-parameter, the exact value is named
-# (the W2 pattern)
+# (the O2 pattern)
 # ---------------------------------------------------------------------------
 
 def leptogenesis_estimate():
-    """GUT leptogenesis at the **right order** (the W2 pattern: the
-    mechanism is **0-parameter**, the **exact** value is the **named**
-    residual).
+    """GUT leptogenesis at the **right order** (the O2 pattern: the mechanism
+    is fixed by the structure, the **exact** value is a named residual).
 
-    The **0-parameter** ingredients (all of the root):
-    (a) the **2-step** breaking (W2) gives the **heavy sterile ``N``** at
-        ``M_N = 1e14 GeV`` (``walls.w2_seesaw``);
+    The ingredients and their provenance:
+    (a) the **2-step** breaking gives the **heavy sterile ``N``** at
+        ``M_N = 1e14 GeV`` (``walls.w2_seesaw``: a **fitted** intermediate
+        scale — the open problem O2);
     (b) its decay is **OUT of equilibrium** (``Gamma/H ~ 6e-4 < 1``, the
-        0-parameter kinematics of ``gut_ingredients``);
-    (c) the **CP-odd rate** is **0-parameter** at the loop level:
-        ``eps_loop = g0^4/(16*pi)`` with ``g0 = 1/8`` (``walls.G0``, the
-        0-parameter GUT coupling, now derived from the 3-space by V38)
+        kinematics of ``gut_ingredients``);
+    (c) the **CP-odd rate** carries the loop factor
+        ``eps_loop = g0^4/(16*pi)`` with ``g0 = 1/8`` (``coupling.G0``: the
+        ``g_0 = 1/2^n_space`` **reading**, a convention — Section 15)
         = ``1/(4096*16*pi)``;
     (d) the **SM sphaleron** converts the lepton asymmetry to a **baryon**
         asymmetry with the factor ``28/79`` — an **input of the SM sector**
         (the left-handed d.o.f. count), **not** a number of the Cl(10) root:
-        it is 0-parameter only conditional on the derivation of the SM content
+        it is fixed only conditional on the derivation of the SM content
         (V23, a named residual).
 
     The **named residual**: the **CP-violating factor** ``eta_CP`` in the N
     decay (the magnitude of CP violation — the **named** input, taken in the
     observed range ``1e-3..1e-2``; here ``eta_CP = 1e-3``) and the **exact**
-    ``Delta_B`` (the observed ``6.1e-10``; the mechanism is 0-parameter, the
-    exact value is named — the W2 pattern).
+    ``Delta_B`` (the observed ``6.1e-10``; the mechanism is fixed, the exact
+    value is named — the O2 pattern).
 
-    The **honest limit**: the **0-parameter** QCA *alone* satisfies **no**
-    Sakharov condition (V22/V33 remain true) — the asymmetry uses the
-    **named** CP-violating factor of the GUT structure (B-violation from the
-    X/Y, out-of-equilibrium from the 2-step N, CP from the named factor).
+    The **honest limit**: the QCA *alone* satisfies **no** Sakharov condition
+    (V22/V33 remain true) — the asymmetry uses the **named** CP-violating
+    factor of the GUT structure (B-violation from the X/Y, out-of-equilibrium
+    from the 2-step N, CP from the named factor).
     """
     w2 = walls.w2_seesaw()
     M_N = w2["M_N_GeV"]
     ing = gut_ingredients()
     out_of_equil = bool(ing["heavy_N_out_of_equilibrium"])
     gamma_over_h = float(ing["gamma_over_h"])
-    # (c) the 0-parameter loop factor for the CP-odd rate (no fit)
-    g0 = walls.G0
+    # (c) the loop factor of the CP-odd rate (the g_0 reading, no fit)
+    g0 = coupling.G0
     eps_loop = g0 ** 4 / (16.0 * np.pi)   # 1/(4096*16*pi) ~ 4.86e-6
     loop_0param = bool(
         abs(eps_loop - (1.0 / 8.0) ** 4 / (16.0 * np.pi)) / eps_loop < 1e-12)
@@ -199,24 +220,25 @@ def leptogenesis_estimate():
             "the exact eta_CP (the CP-violating magnitude in the N decay, "
             "the named input, observed range 1e-3..1e-2; taken 1e-3) and the "
             "exact Delta_B (the observed 6.1e-10): the mechanism is "
-            "0-parameter, the exact value is named (the W2 pattern)"
+            "0-parameter, the exact value is named (the O2 pattern)"
         ),
     }
 
 
 def verify(tol=1e-9):
-    """0-parameter checks: the 0-parameter QCA does NOT generate the baryon
-    asymmetry (the 3 Sakharov conditions are not met by the 0-parameter
-    dynamics), but the GUT structure contains the ingredients."""
+    """The honest negative result, reproduced: the automaton satisfies **none**
+    of the Sakharov conditions, and the GUT route that could supply them is
+    blocked by the equilibrium condition (O5)."""
     sak = sakharov_conditions()
     ing = gut_ingredients()
-    ok = (not sak["any_sakharov_met"]          # none of the 3 is met by the 0-parameter dynamics
+    at_nu_mass = ing["equilibrium_by_yukawa"]["y=0.3987"]
+    ok = (not sak["any_sakharov_met"]          # none of the 3 is met by the step
           and not sak["b_violation_met"]
           and sak["cpt_invariant"]
           and sak["in_equilibrium"]
           and ing["xy_process"]
-          and ing["heavy_N_out_of_equilibrium"]
-          and ing["pmns_cp_phase"]
+          and not at_nu_mass["out_of_equilibrium"]     # Sakharov 3 fails at m_nu
+          and ing["cp_phase_in_the_step"] == 0.0
           and ing["proton_lifetime_yr"] > 1e34)
     return {"sakharov": sak, "ingredients": ing, "ok": bool(ok)}
 
@@ -227,21 +249,28 @@ def main():
     sak = r["sakharov"]
     ing = r["ingredients"]
     print("=" * 68)
-    print("CL10 - baryogenesis: the honest 0-parameter limit (the 3 Sakharov conditions)")
+    print("CL10 - baryogenesis: the computed negative result (the 3 Sakharov conditions)")
     print("=" * 68)
     print(f"  backend (GPU):  {sak['backend']}")
     print(f"  (1) B-violation in the dynamics:  {'MET' if sak['b_violation_met'] else 'NOT MET'}  "
           f"(the 45 preserve the 16/16-bar;  [T,P] max = {sak['max_45_pseudoscalar_commutator']:.1e})")
     print(f"  (2) CPT:  {'invariant (NOT violated)' if sak['cpt_invariant'] else 'violated'}  "
-          f"(the 16/16-bar are CPT conjugates)")
+          f"(the 16/16-bar are CPT conjugates; every CP-odd invariant vanishes)")
     print(f"  (3) equilibrium:  {'IN equilibrium' if sak['in_equilibrium'] else 'out'}  "
-          f"(the QCA step is unitary/reversible;  unitary err = {sak['unitary_err']:.1e})")
-    print("  -> the 0-parameter QCA does NOT generate the baryon asymmetry (the NAMED RESIDUAL)")
-    print("  the GUT structure contains the ingredients:")
-    print(f"    (a) the X/Y mediate p -> e+ pi0 (the 0-parameter proton decay;  tau ~ {ing['proton_lifetime_yr']:.1e} yr)")
-    print(f"    (b) the heavy-N decay is out of equilibrium (Gamma/H = {ing['gamma_over_h']:.2e} < 1)")
-    print("    (c) the PMNS CP phase (the 0-parameter C/CP structure, V29)")
-    print(f"  VERDICT:  {'PASS (the 0-parameter QCA does not generate the baryon asymmetry; the GUT ingredients are the named residual)' if r['ok'] else 'FAIL'}")
+          f"(the step is unitary/reversible;  unitary err = {sak['unitary_err']:.1e})")
+    print("  -> the automaton satisfies NONE of the Sakharov conditions (a computed theorem)")
+    print("  the GUT route, at the paper's numbers (Section 13.3):")
+    print(f"    (a) X/Y mediate p -> e+ pi0;  tau_p = {ing['proton_lifetime_yr']:.2e} yr "
+          f"[{ing['proton_lifetime_provenance']}]")
+    print(f"    (b) seesaw M_N = {ing['seesaw_scale_GeV']:.3e} GeV, H = {ing['hubble_at_seesaw_GeV']:.3e} GeV")
+    for k, v in ing["equilibrium_by_yukawa"].items():
+        print(f"        {k}:  Gamma/H = {v['Gamma_over_H']:.2f}  "
+              f"{'out of' if v['out_of_equilibrium'] else 'IN'} equilibrium")
+    print(f"        out-of-equilibrium needs y < {ing['out_of_equilibrium_yukawa_ceiling']}, "
+          "which caps m_nu below the atmospheric splitting (O5)")
+    print(f"    (c) CP phase of the step = {ing['cp_phase_in_the_step']:.1f}; "
+          f"{ing['cp_phase_carrier']}")
+    print(f"  VERDICT:  {'PASS (the negative result and the named blocker O5 are reproduced)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

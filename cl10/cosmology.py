@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the cosmological constant (the W1 refinement) and the hierarchy
+CL10 — the cosmological constant (the O1 refinement) and the hierarchy
 (why ``v/E_P ~ 2e-17``), the 0-parameter status.
 
-**W1 — the cosmological constant (the refinement).**  The 0-parameter
+**O1 — the cosmological constant (the refinement).**  The 0-parameter
 cosmological constant is the **QCA 0-point**.  The ``Cl(10)`` ``Z_2`` grading is
 **512 even (bosonic) / 512 odd (fermionic), equal**; each mode carries a 0-point
 ``+/- 1/2`` (``+`` bosons, ``-`` fermions), so the 0-point **cancels**:
@@ -41,7 +41,7 @@ def _backend():
 
 
 # ---------------------------------------------------------------------------
-# W1 — the cosmological constant (the 512/512 cancellation / s-mechanism)
+# O1 — the cosmological constant (the 512/512 cancellation / s-mechanism)
 # ---------------------------------------------------------------------------
 
 def cosmological_constant():
@@ -100,7 +100,7 @@ def hierarchy():
 
 
 def verify(tol=1e-9):
-    """0-parameter checks: the W1 cancellation (Lambda = 0, the s-mechanism),
+    """0-parameter checks: the O1 cancellation (Lambda = 0, the s-mechanism),
     the w=-1, the O(1) naturalness (not 1e122 too big), the 1e-122 residual;
     the hierarchy (the 0-parameter value matches the observed to < 5%; the
     vast gap; the derivation the named residual)."""
@@ -122,10 +122,10 @@ def main():
     cc = r["cc"]
     h = r["hierarchy"]
     print("=" * 68)
-    print("CL10 - the cosmological constant (W1 refinement) + the hierarchy")
+    print("CL10 - the cosmological constant (O1 refinement) + the hierarchy")
     print("=" * 68)
     print(f"  backend (GPU):  {cc['backend']}")
-    print(f"  W1:  the Z_2 512/512 cancellation -> Lambda_0param = {cc['lambda_0param']}  (the s-mechanism)")
+    print(f"  O1:  the Z_2 512/512 cancellation -> Lambda_0param = {cc['lambda_0param']}  (the s-mechanism)")
     print("    the 0-parameter naturalness:  O(1) (a lattice vacuum, not 1e122 too big)")
     print(f"    the 0-parameter equation of state:  w = {cc['w']}  (accelerated expansion)")
     print(f"    the hardest named residual:  Lambda_obs ~ {cc['lambda_obs']:.0e}  (the breaking by the spacetime)")
@@ -133,7 +133,7 @@ def main():
     print(f"    the 0-parameter value matches the observed to {100*h['rel_err']:.2f}%")
     print(f"    the vast gap:  v << E_P  ({'the two 0-parameter scales, >> 10 orders' if h['vast_gap'] else 'no'})")
     print("    the derivation of the exponent (~1e-17) from the root:  the NAMED RESIDUAL")
-    print(f"  VERDICT:  {'PASS (the W1 cancellation + w=-1 + O(1) naturalness; the hierarchy value to 0.18%; the derivations the named residuals)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the O1 cancellation + w=-1 + O(1) naturalness; the hierarchy value to 0.18%; the derivations the named residuals)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

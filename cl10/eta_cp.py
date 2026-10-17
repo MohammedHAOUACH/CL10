@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 r"""
 CL10 — the baryon asymmetry as a product of 0-parameter **factors**
-(V55, W5).
+(V55, O5).
 
-The W5 residual (Section 13): the **CP-violating factor** $\eta_{CP}$ in
+The O5 residual (Section 13): the **CP-violating factor** $\eta_{CP}$ in
 heavy-$N$ decay (V40 takes $\eta_{CP} = 10^{-3}$, the observed range
 $10^{-3}\text{–}10^{-2}$).  This module presents the baryon asymmetry as
 a **product of 0-parameter factors** (the physical GUT-leptogenesis
@@ -41,17 +41,17 @@ Result:
     \;\approx\; 6.8e-10
 
 **Named residuals**: the CP phase $\delta$ ($\mathcal{O}(1)$) and the
-2-digit ratio 1.12.  The **factors** of W5 are resolved (loop factors,
+2-digit ratio 1.12.  The **factors** of O5 are resolved (loop factors,
 not a bare named input); their **values** remain named.
 """
 
 import numpy as np
 
 from . import engine as E
-from . import walls
+from . import coupling
 
-# the 0-parameter constants
-G0 = walls.G0                  # 1/8 (the 0-parameter GUT coupling)
+# the coupling readings used here
+G0 = coupling.G0               # 1/8 (the g_0 = 1/2^n_space reading: a convention)
 LOOP = 1.0 / (16.0 * np.pi)   # the 0-parameter 1-loop QFT factor
 SPHALERON = 28.0 / 79.0        # the SM sphaleron conversion: an input of the SM
 #                                sector (the LH d.o.f. count), NOT a root number;
@@ -71,7 +71,7 @@ def cp_odd_loop_factor():
 
 
 def eta_cp():
-    r"""The W5 result: the baryon asymmetry as a **product of factors of three
+    r"""The O5 result: the baryon asymmetry as a **product of factors of three
     provenances** — root / QFT / SM (the physical GUT-leptogenesis structure).
 
     $$\Delta B \;=\; \frac{28}{79}\;\varepsilon_{CP}\;D$$
@@ -176,7 +176,7 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the baryon asymmetry as a product of 0-parameter factors (W5)")
+    print("CL10 - the baryon asymmetry as a product of 0-parameter factors (O5)")
     print("=" * 72)
     st = d["structure"]
     print(f"  backend (GPU):  {d['backend']}")
@@ -187,7 +187,7 @@ def main():
     print(f"    - loop counts = 1 (CP) + 2 (dilution) = {st['loop_count']}")
     print(f"  product Delta_B = {d['delta_B_0param']:.3e}   (observed {d['delta_B_observed']:.1e};  2-digit ratio {d['delta_B_ratio']:.3f} = named residual)")
     print(f"  V40 comparison:  Delta_B = {d['delta_B_v40']:.3e}  (ratio {d['delta_B_ratio_v40']:.3f})")
-    print(f"  VERDICT:  {'PASS (factors 0-parameter; right order 1.12; QCA alone gives eps_CP = 0 by the CP-odd theorem; the CP phase + 2-digit ratio are the named residuals)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the factors have named provenances: the loop factor from the g_0 reading, the sphaleron an SM input; right order 1.12; the QCA alone gives eps_CP = 0 by the CP-odd theorem; the CP phase and the 2-digit ratio are the named residuals)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

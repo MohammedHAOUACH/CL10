@@ -1,700 +1,544 @@
-# CL10 — API Reference
+# CL10 — the API reference
 
-The complete **Python** API of the `cl10` package and the `run_validation.py`
-runner.  Every symbol is **0-parameter** (no fit) and **backend-agnostic**
-(the active backend is selected once at import; the physics is identical on
-CuPy / JAX / NumPy).
+The Python interface of Causal Clifford Theory. One section per module of the
+`cl10` package (39 modules), in the order the theory is built: the core, the
+algebra root, the automaton, the spectrum and the S-matrix, gravity, the
+couplings, the flavour sector, the cosmology, the audits.
 
-```
-import cl10
+Every entry is the real symbol: the signature is the real `def`, the *returns*
+column lists the keys the dict actually contains. A symbol that no longer exists
+is not listed.
 
-cl10.engine        # the single computation core (Section 1)
-cl10.clifford      # the Cl(10) root (Section 2)
-cl10.spacetime     # the (1,3) inside the GUT (Section 3)
-cl10.matter        # the 16 Weyl + the anomalies (Section 4)
-cl10.gauge         # the 45 + the 5/3 + the GUT coupling/running + gauge-gravity (Section 5)
-cl10.qca           # the metric + the QCA (Section 6)
-cl10.u10pred       # the headline numbers (Section 7)
-cl10.walls         # the 3 reduced walls W1/W2/W3 + the baryon asymmetry (Section 8)
-```
+## The provenance vocabulary
 
-`cl10.__version__` is the package version.
+The publication (`doc/final_publication.md`, Section 15) classifies every
+number. The same classes are used here:
 
----
+| class | meaning | example |
+|---|---|---|
+| **exact / algebraic** | an identity of $\mathrm{Cl}(10,0)$ or of the step | the 1024 basis, $5/3$, $\det U = 1$, the 16/16-bar mirror |
+| **convention** | a chosen reading, not a derivation | $g_{10} = 1/5$, $\alpha_{10} \equiv g_{10}^2 = 1/25$, $g_0 = 1/8$ |
+| **measured** | computed on the automaton | the closed-loop factor $F_{10} = 0.019186$ |
+| **fitted** | a threshold or scale read in | $M_N$, the two desert thresholds, the six $\kappa_s$ |
+| **conditional** | holds only under a stated choice | $3F_{10}^{10}$ under the one-node-per-family set |
+| **open** | one of the nine open problems O1–O9 | the family count, the DM carrier, the couplings meeting |
+
+The old wall labels W1–W8 map one-to-one onto O1–O8 (Section 16); `cl10.walls`
+records the mapping.
 
 ## 1. `cl10.engine` — the single computation core
 
-The **one** backend-aware core.  All other modules and all experiments go
-through it, so the whole theory runs on the GPU out of the box.
+The backend is chosen once at import: **CuPy** (GPU) → **JAX** (XLA, float64
+enabled) → **NumPy** (CPU). Every module and experiment goes through these
+primitives; the GPU carries array work only, and results reach the host through
+`asnumpy`.
 
-### backend
+| symbol | signature | returns |
+|---|---|---|
+| `Array` | (type) | the array type of the active backend (`cupy.ndarray` / `jax.Array` / `numpy.ndarray`) |
+| `Array_` | `(*args, **kwargs)` | an array on the active backend |
+| `eye` | `(n, dtype=None)` | the identity |
+| `zeros` | `(shape, dtype=None)` | a zero array (`shape` an int or a tuple) |
+| `kron` | `(a, b)` | Kronecker product on the active backend |
+| `matmul` | `(a, b)` | matrix product on the active backend |
+| `einsum` | `(subscripts, *operands)` | `einsum` executed on the device (a host `einsum` on a device array would copy) |
+| `roll` | `(a, shift, axis)` | the neighbour shift used by the bond layer, on the device |
+| `real` / `imag` | `(x)` | the real / imaginary part, on the device |
+| `absmax` | `(x)` | $\max\lvert x\rvert$ as a host float |
+| `asnumpy` | `(x)` | the host copy (printing, JSON) |
+| `einops_rearrange` | `(x, pattern_in, pattern_out)` | `einops.rearrange` on the active backend when supported |
+| `laplacian_3d` | `(u)` | the 6-neighbour discrete Laplacian on the last three (spatial) axes, backend-correct |
+| `spectral_laplacian` | `(k, L)` | the momentum-space Laplacian eigenvalue on an $L^3$ torus |
+| `backend_info` | `()` | `{backend, einops, kingdon, array}` |
 
-| symbol | meaning |
+## 2. `cl10.parpool` — the CPU process pool
+
+| symbol | signature | returns |
+|---|---|---|
+| `njobs_default` | `()` | `int` — `min(8, cpus//2)`, overridable by `CL10_NJOBS` |
+| `pmap` | `(fn, items, njobs=None, chunk=None, progress=None)` | the results in input order, computed in a forked process pool (the experiments' batch worker) |
+
+## 3. `cl10.paths` — addressing experiments by name
+
+| symbol | signature | returns |
+|---|---|---|
+| `exp` | `(*parts)` | a path inside `experiments/<category>/<Vxx>/...`, resolved by experiment name (the category is never hard-coded) |
+
+## 4. `cl10.coupling` — the one parameter of the step
+
+The single source of the rotation angle and of the two coupling readings. The
+branch is chosen by the environment: `CL10_ANGLE=implemented|closed|half`.
+
+| symbol | signature | returns |
+|---|---|---|
+| `G_IMPLEMENTED` | (constant) | `0.2` — the implemented branch $g_{10} = 1/n_{\rm qubits}$: a **convention** |
+| `G_CLOSED` | (constant) | $\pi/4$ — the closure root: **algebraic** (V131, order 8) |
+| `G_HALF` | (constant) | $\pi/2$ — the degenerate second root: **algebraic** (V134) |
+| `G0` | (constant) | `1/8` — the $g_0 = 1/2^{n_{\rm space}}$ reading: a **convention** |
+| `ALPHA_10` | (constant) | `1/25` — the rotation-squared reading $\alpha_{10} = g^2$: a **convention** |
+| `BRANCHES` | (constant) | name → `(angle, provenance, the experiment that fixes it)` |
+| `branch` | `()` | the active branch name, from `CL10_ANGLE` (default `implemented`) |
+| `angle` | `(name=None)` | `float` — the angle of the branch (default: the active one) |
+| `provenance` | `(name=None)` | `str` — the provenance class of that angle |
+| `alpha_std` | `(g=None)` | `float` — the standard-normalised coupling $\alpha = g^2/4\pi$ |
+| `alpha10` | `(g=None)` | `float` — the rotation-squared reading $\alpha_{10} = g^2$ |
+
+## 5. `cl10.clifford` — the root $\mathrm{Cl}(10,0)$
+
+| symbol | signature | returns |
+|---|---|---|
+| `generators` | `()` | the 10 generators as a list of 10 complex `32×32` matrices (exact: $h_a^2 = I$, $\{h_a,h_b\} = 0$) |
+| `basis` | `()` | the 1024 ordered products (the algebra basis, exact) |
+| `pseudoscalar` | `()` | the volume element $w = h_1\cdots h_{10}$ (anti-Hermitian, $w^2 = -I$): the 16/16-bar split |
+| `weyl_spinor` | `()` | the 16-D and 16-bar projectors from the $\pm i$ eigenspaces of $w$ |
+| `verify` | `(tol=1e-12)` | `{n, square_to_I, anticommute, ok}` — the algebra relations (exact) |
+| `main` | `()` | runs the self-check, exit code = verdict |
+
+## 6. `cl10.spacetime` — the $(1,3)$ inside the GUT
+
+| symbol | signature | returns |
+|---|---|---|
+| `causal_generators` | `()` | `(T, S)`: time $= h_1$ ($+$), space $= i h_{2..4}$ ($-$) — four of the ten generators, so the Minkowski relations are identities |
+| `light_cone` | `(T, S)` | the null vectors $v = v_0 T + v_a S_a$ with $v^2 = 0$ |
+| `verify` | `(tol=1e-12)` | `{t2, s2, ts, ss, ok}` — the sub-algebra check (exact) |
+| `main` | `()` | runs the self-check |
+
+## 7. `cl10.matter` — the 16 Weyl spinor
+
+| symbol | signature | returns |
+|---|---|---|
+| `weyl16` | `()` | the 16 and 16-bar eigenspaces of the pseudoscalar |
+| `dimension_check` | `()` | the six SM fields sum to Weyl dimension 16 (algebraic) |
+| `bl_charge` | `(which='16')` | $B-L$ of the module: 16 → $-1$, 16-bar → $+1$ (algebraic) |
+| `anomalies` | `()` | `{su3_cubed, su2_cubed, u1_cubed, grav2_su3, grav2_su2, grav2_u1, u1_su3_sq, u1_su2_sq}` — the eight coefficients, all zero (algebraic) |
+| `mass_generation` | `()` | `{n16, n16bar, off_diagonal, diag_16, diag_16bar, A_16_16bar, B_16bar_16, mass_term, sterile_N_in_16, residuals}` — the Dirac structure $16\,\mathbf{10}_H\,\overline{16}$ |
+| `main` | `()` | runs the self-check |
+
+## 8. `cl10.cpt` — the CPT theorem
+
+| symbol | signature | returns |
+|---|---|---|
+| `pseudoscalar` | `()` | $w = g_1\cdots g_{10}$ (anti-Hermitian, $w^2 = -I$) |
+| `cpt_operator` | `()` | $C = g_1$ (the time direction): a Hermitian involution |
+| `projectors` | `(w)` | the 16 / 16-bar projectors |
+| `cpt_theorem` | `(seed=0)` | `{C_involution_err, C_unitary_err, C_w_anticommute_err, map_16_to_16bar_err, gut_commute_w_err, norm_before, norm_after_cpt, norm_rel_err, n_matter, n_antimatter, cpt_equal_norm, c16_into_16bar, backend}` — exact |
+| `main` | `()` | runs the self-check |
+
+## 9. `cl10.gauge` — the 45 and the $5/3$
+
+| symbol | signature | returns |
+|---|---|---|
+| `generators_45` | `()` | the 45 $\mathrm{Spin}(10)$ generators $h_a h_b$ ($a<b$) as `32×32` matrices |
+| `rank_check` | `()` | the 45 span the 45-D adjoint (exact) |
+| `five_thirds` | `()` | $g_1^2/g'^2 = 5/3$ (algebraic, from the $\mathbf 5$ normalisation) |
+| `sm_subgroup` | `()` | `{n_sm, n_gluon, n_w, n_b, n_heavy}` = 12 + 33 |
+| `gauge_gravity_overlap` | `()` | `{n_causal, n_gauge, n_generators, one_object}` — the $(1,3)$ and the 45 live in the same $\mathrm{Cl}(10)$ |
+| `running` | `()` | `{alpha_10, g_gut, m_gut_0param, five_thirds, b1, b2, b3, unification_spread, cleanly_unifies, residual}` — $\alpha_{10}$ is a **convention**; the 1-loop non-unification is **O4** |
+| `main` | `()` | runs the self-check |
+
+## 10. `cl10.sm_qca` — the 45 plane rotations
+
+| symbol | signature | returns |
+|---|---|---|
+| `plane_generators` | `()` | the 45 $T_{ab} = i h_a h_b$ (Hermitian, $T^2 = I$) |
+| `plane_rotation` | `(T, theta)` | $\cos\theta\, I - i \sin\theta\, T$ (exact, since $T^2 = I$) |
+| `gut_qca_step` | `(planes, theta)` | the product of the 45 plane rotations: exactly unitary, $\det U = 1$ at every angle |
+| `unitary_err` | `(U, tol=1e-12)` | $\lVert U U^\dagger - I\rVert_{\max}$ |
+| `norm_preservation` | `(U, n_steps, L=8, seed=0)` | the norm before/after `n_steps` steps on the active backend |
+| `sm_qca` | `(n_steps=50, L=8)` | `{n_planes, g10, plane_hermitian_err, plane_square_to_I_err, step_unitary_err, n_steps, norm_before, norm_after, norm_rel_err, backend, causal_radius}` |
+| `main` | `()` | runs the self-check |
+
+## 11. `cl10.supercell` — the automaton
+
+The cell is the $2×2×2$ block: 8 sub-sites × 32 internal = $\mathbb C^{256}$.
+One time-independent step: six stages, each an internal layer plus a bond stage
+on one parity of one axis.
+
+| symbol | signature | returns |
+|---|---|---|
+| `internal` | `(g10=0.2)` | the $32×32$ internal unitary on the active backend |
+| `sectors` | `(g10=0.2)` | the 16 / 32 internal unitaries and the 16 basis |
+| `stage_matrix` | `(even, j, q, g10=0.2)` | the $8×8$ sub-site matrix of one bond stage at block momentum `q` |
+| `bloch` | `(q, U, g10=0.2, stages=DEFAULT)` | the exact one-step Bloch matrix $M(q)$ on the block zone |
+| `phases` | `(M)` | the eigenphases of a Bloch matrix, in $(-\pi,\pi]$ |
+| `gap` | `(q, U, g10=0.2, stages=DEFAULT)` | $\min_a \lvert\omega_a(q)\rvert$ |
+| `degeneracy` | `(q, U, g10=0.2, stages=DEFAULT, tol=1e-9)` | the eigenphase multiplets `[(gap, multiplicity)]` |
+| `star` | `(q)` | the $O_h$ orbit of `q` |
+| `stabilizer_order` | `(q)` | the order of the little group ($48/\lvert\text{star}\rvert$) |
+| `internal_layer` | `(fields, U)` | `U` on every sub-site of every block |
+| `bond_layer` | `(fields, even, j, theta=0.2)` | one bond stage: the swap-rotation on the bonds of parity `even` along axis `j` |
+| `stage` | `(fields, U, t, theta=0.2)` | one elementary stage (internal layer + bond stage) |
+| `step` | `(fields, U, theta=0.2, stages=DEFAULT)` | one automaton step (six stages) |
+| `run` | `(L=8, n_steps=4, x0=(4,4,4), e0=0, theta=0.2, seed=0, tol=1e-12, sector=True)` | `{backend, L, n_steps, theta, g10, sector, steps, final_norm}` — the real-space light cone from one sub-site |
+| `verify` | `(tol=1e-9)` | the invariants on the block: unitarity, the causal radius, the 16-sector closure, the spectral mirror, the gap structure, the zone-centre closure, the stars and little groups |
+| `main` | `()` | prints the invariants and the verdict |
+
+## 12. `cl10.qca` — the metric field and the on-site factor
+
+The metric is a **field added to the algebra**, not a number of it: the sector
+assumes a symmetric rank-2 field and $G = 1$ (Section 11.1). The 3+1 evolution
+lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
+
+| symbol | signature | returns |
+|---|---|---|
+| `METRIC` | (constant) | the $(1,3)$ vacuum metric $\mathrm{diag}(1,-1,-1,-1)$ |
+| `metric_field` | `(L, h=0.0)` | the `(4,4,L,L,L)` metric field on an $L^3$ torus |
+| `qca_step_internal` | `(gates, fields)` | the on-site internal factor on the last axis of `(L,L,L,n)` fields |
+| `unitary_check` | `(U, tol=1e-12)` | `bool` — whether $UU^\dagger = I$ (backend-correct) |
+| `main` | `()` | runs the self-check |
+
+## 13. `cl10.qca_spectrum` — the one object: the 32-level spectrum
+
+| symbol | signature | returns |
+|---|---|---|
+| `levels` | `(g10=None)` | the 32 eigenphases of the step, in $(-\pi,\pi]$ |
+| `cpt_block_phases` | `(g10=None)` | `{ph16, ph16b}` — the two 16-element phase blocks |
+| `qca_spectrum` | `(g10=None)` | `{g10, n_levels, spectrum, zero_point, det_U_minus_1, det_U_arg, sl32, pairing_resid, max_trace_T45, cpt_0point_16, cpt_0point_16bar, commutes_with_pseudoscalar, max_level}` — the 0-point, the $\pm$ pairing and $\det U = 1$ are exact for **every** angle |
+| `verify` | `(tol=1e-10)` | `{spectrum, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 14. `cl10.smatrix` — the S-matrix of the step
+
+| symbol | signature | returns |
+|---|---|---|
+| `qca_step` | `()` | the $32×32$ GUT step at the active angle |
+| `one_particle` | `(U)` | `{n, unitary_err, colsum_err, colsum_err_col, raw_colsum_dev, max_offdiag, nontrivial_offdiag}` |
+| `two_particle` | `(U)` | `{shape, unitary_err, colsum_err, max_abs, max_offdiag, nontrivial}` — $S^{(2)} = U \otimes U$ |
+| `n_particle` | `()` | `{backend, n1_unitary_residual, n2_unitary_residual, n3_unitary_residual, n4_unitary_residual, n1_bounded, uv_finite, residual}` — bounded at 3 and 4 particles |
+| `smatrix` | `()` | `{backend, g10, n_planes, n_internal, one_particle, two_particle, only_g10, residual}` |
+| `main` | `()` | runs the self-check |
+
+## 15. `cl10.lattice_rg` — cross-sections and the UV bound
+
+| symbol | signature | returns |
+|---|---|---|
+| `qca_step` | `()` | the $32×32$ step at the active angle |
+| `one_particle_inelastic` | `(U)` | `{n, dbar, P1}` — the 1-particle inelastic probability per step |
+| `two_particle` | `(U)` | `{shape, unitary_err, P2_direct, P2_closed, P2, closed_form_match}` |
+| `uv_bound` | `()` | `{M_P_GeV, inv_M_P2_GeV2, sigma_max_GeV2, sigma_max_cm2}` — the unitarity bound set by the cutoff |
+| `dispersion` | `()` | `{n_levels, max_omega, omega_max_over_pi, uv_bounded, zero_point, det_U_minus_1}` |
+| `cross_section` | `()` | `{g10, M_P_GeV, P1, P2, elastic, optical_theorem, sigma_0_GeV2, sigma_0_cm2, sigma_pert_GeV2, sigma_pert_cm2, R_qca_over_pert, sigma_max_GeV2, uv_finite}` |
+| `froissart` | `()` | `{m_min_GeV, s0_GeV2, sigma_qca_GeV2, sigma_max_GeV2, constant_uv_finite, below_froissart, strongest_uv_finite, rows}` |
+| `lattice_rg` | `()` | the full verdict: `{backend, g10, M_P_GeV, one_particle, two_particle, uv_bound, dispersion, cross_section, froissart, uv_finite, optical_theorem, s2_unitary_err, closed_form_match, only_g10, residual}` |
+| `main` | `()` | runs the self-check |
+
+## 16. `cl10.einstein` — the linearised graviton and the EH action
+
+| symbol | signature | returns |
+|---|---|---|
+| `light_cone` | `()` | the $(1,3)$ sub-algebra check |
+| `linearized_graviton` | `(L=20)` | `{backend, L, c, massless, helicity, n_polarizations, spin2_declared, light_cone_ok, continuum_ratio, omega_max, uv_bounded, stable}` — the massless lattice dispersion at $c = 1$ |
+| `riemann_scalar_2d` | `(metric, x0, x1, h=1e-3)` | the 2-D Ricci scalar of a prescribed metric |
+| `einstein_hilbert` | `(r=2.0, tol=1e-4)` | `{backend, G, coupling, R_sphere, R_sphere_expected, R_flat, quadratic, cubic, quartic, n_deriv_cubic, n_deriv_quartic, einstein_hilbert_ok}` — $G = 1$ is an **input** of the sector |
+| `eh_quadratic_action` | `(u)` | the discrete quadratic EH action on a lattice field |
+| `einstein_hilbert_from_dynamics` | `(L=8, T=24, n_probe=16, seed=0, tol=1e-6)` | `{backend, L, T, n_probe, G, coupler, elm_on_qca_trajectory, stationary_ok, elm_off_dynamics, selects_ok, coeff_ok, k_values, continuum_ratio, continuum_ok, ok}` — the action selects the QCA trajectory |
+| `nonlinear_soliton` | `()` | `{soliton, ode_residual, mass, nonlinear_ok}` — the static kink of $u'' = u - u^3$ (a planar domain wall, not a relic) |
+| `schwarzschild` | `(M=1.0, r=3.0)` | `{M, horizon, Kretschmann, R_vacuum}` |
+| `verify` | `(tol=1e-9)` | `{linearized, einstein_hilbert, eh_from_dynamics, light_cone, soliton, black_hole, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 17. `cl10.gravity` — curvature computed from any metric
+
+| symbol | signature | returns |
+|---|---|---|
+| `christoffel_4d` | `(g, dg)` | the 4-D Christoffel symbols |
+| `riemann_4d` | `(mfn, x, h=1e-3)` | the full $R^\rho{}_{\sigma\mu\nu}$ of an arbitrary metric (finite differences) |
+| `ricci_4d` / `ricci_scalar_4d` / `einstein_tensor_4d` / `kretschmann_4d` | `(R, …)` | the contractions of the computed Riemann tensor |
+| `gamma_gamma_4d` | `(mfn, x, h=1e-3)` | the non-linear $\Gamma\Gamma$ part of the Ricci tensor |
+| `metric_flat` / `metric_de_sitter` / `metric_schwarzschild` / `metric_2sphere` | `(…)` | the test metrics |
+| `discrete_eh_action` | `(mfn, grid, Lambda, h=1e-3)` | the complete discrete Einstein-Hilbert action |
+| `dynamics_from_action` | `(mfn, Lambda, x0, h=1e-3, eps=1e-4)` | the functional derivative of the action (dynamics ← action) |
+| `nonlinear_qca` | `(L=16, n_steps=12, x0=None, seed=0, lam=0.2, tol=1e-12)` | `{backend, L, n_steps, g10, lam, norm_before, norm_after, norm_rel_err, unitary_ok, superpose_err, nonlinear_ok, front_speed, causal_ok, uv_finite, residual, ok}` — the state-dependent metric evolution |
+| `verify_analytic_vs_computed` | `(h=1e-3)` | `{H, max_abs_diff, h2, ok}` — the computed curvature against analytic de Sitter |
+| `verify_blackhole` | `(h=1e-3)` | `{M, r, ricci_max, ricci_scalar, einstein_max, kretschmann, kretschmann_expected, kretschmann_ratio, vacuum_ok, kretschmann_ok}` |
+| `verify_flat` / `verify_nonlinear` | `(h=1e-3)` | the flat and the $\Gamma\Gamma$ checks |
+| `verify` | `(tol=1e-9)` | `{backend, analytic_vs_computed, black_hole, flat, nonlinear_gamma_gamma, nonlinear_qca, residual, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 18. `cl10.nonlinear_gravity` — the analytic de Sitter reference
+
+| symbol | signature | returns |
+|---|---|---|
+| `de_sitter_metric` | `(H, x0=0.0)` | the flat-FRW de Sitter metric |
+| `riemann_4d` | `(H, x0=0.0)` | its analytic Riemann tensor |
+| `nonlinear_gravity` | `(H=None)` | `{backend, H, einstein_space_err, einstein_space_ok, g_mu_nu_minus_3h2_g, g_ok, ricci_scalar_minus_12h2, scalar_ok, gamma_gamma_max, nonlinear_present, lambda_0param_GeV4, lambda_obs_GeV4, gap, residual, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 19. `cl10.numrel` — the 3+1 evolution
+
+| symbol | signature | returns |
+|---|---|---|
+| `gamma` / `K` / `gamma_inv` / `K_contra` / `K_trace` / `K_K` / `K_frob` | `(g4fn, x, …)` or `(gamma_, K_)` | the 3+1 geometric variables and their contractions |
+| `G3` / `D3_divergence` / `R3` / `R3_ricci` / `R3_scalar` | `(g4fn, x, h=1e-3)` | the 3-D Christoffel, covariant divergence, Riemann, Ricci and scalar curvature |
+| `ricci_0row_3p1` / `ricci_0row_4d` | `(g4fn, x, h=1e-3)` | the 4-D Ricci 0-row by the two routes |
+| `verify_2route` | `(g4fn, n_pts=24, h=1e-3, tol=1e-4, seed=11)` | `{max_r00, max_r0i, h2, ok}` |
+| `constraints` | `(g4fn, x, h=1e-3)` | the Hamiltonian and momentum constraints |
+| `nonlinear_superpose` | `(a_fn, b_fn, x, h=1e-3, tol=1e-8)` | `{superpose_err, ok}` — non-additivity of the non-linear theory |
+| `z4_damping` | `(g4fn, x, n_steps=20, h=1e-3, lam=1.0)` | `{H0, damped_final, undamped_final, damped_ratio, undamped_ratio, ok}` |
+| `uv_finite` | `(g4fn, x, h=1e-3)` | `{max_abs, bounded, ok}` |
+| `metric_31` | `(x)` | the 3+1 test metric |
+| `verify` | `(tol=1e-4, seed=11)` | `{backend, two_route_0row, r00_3p1, r00_4d, r0i_3p1, r0i_4d, nonlinear, z4, uv_finite, damp, ok, residual}` |
+| `main` | `()` | runs the self-check |
+
+## 20. `cl10.holo` — the area law
+
+| symbol | signature | returns |
+|---|---|---|
+| `area_law` | `(L_values=None, per_plaquette=0.25)` | `{L_values, per_plaquette, S, R, area_law_exponent, holographic_ratio_exponent, backend}` — $S = A/4$ at $G = 1$ (the value of $G$ is an input) |
+| `main` | `()` | runs the self-check |
+
+## 21. `cl10.qcd` — the area law and the linear potential
+
+| symbol | signature | returns |
+|---|---|---|
+| `color_count` | `()` | the 8 gluons as $N_C^2 - 1$ with $N_C = 3$ |
+| `string_tension` | `()` | the flux-tube energy per unit length: $\sigma = 1$ in Planck units, an **input** |
+| `confining_potential` | `(sigma, r_values=None)` | the linear potential against the Coulombic one |
+| `area_law_coeff` | `(rows, sigma)` | the slope of (loop action / area) |
+| `main` | `()` | runs the self-check |
+
+## 22. `cl10.unification` — the running and the $5/3$
+
+| symbol | signature | returns |
+|---|---|---|
+| `M_Z` / `M_P` / `B_SM` / `A_Z` / `B2_SM` | (constants) | 91.1876 GeV; the cutoff $M_P$; the 1-loop and 2-loop SM $\beta$-function content and the measured $\alpha_i(M_Z)$ |
+| `sm_running_to` | `(M)` | `(a1, a2, a3, spread)` — the 1-loop SM running to `M` |
+| `landau_pole_u1` | `()` | the SM $\mathrm U(1)$ Landau-pole scale |
+| `g10_from_root` | `()` | `{backend, n_module, n_qubits, g10, alpha_10, g10_matches_sm_qca, alpha_10_matches_u10pred, n_space, g0, g0_matches_coupling}` — the root numbers; the readings are **conventions** |
+| `running_down` | `()` | `{backend, alpha_10_at_M_P, couplings_at_M_Z, measured_at_M_Z, ratio_to_measured, a1_within_factor_2, u1_up_pole_scale, u1_pole_above_cutoff, su3_down_pole_scale, su3_pole_inside_lattice, residual}` — the mismatch is **O4** |
+| `unification` | `()` | `{alpha_10, five_thirds, M_GUT_0param, couplings_at_M_P, spread_at_M_P, mssm_unif_scale, mssm_spread, u1_landau_pole, uv_bounded, backend}` — $5/3$ algebraic; $M_{\rm GUT} = M_P$ is **not** assumed |
+| `running_2loop` | `()` | `{backend, qca_2step_unitary_residual, qca_2step_finite, qca_2particle_bounded, qca_2particle_max_offdiag, pert_1loop_landau_pole, pert_2loop_landau_pole, pert_2loop_divergent, uv_finite, residual, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 23. `cl10.uvrunning` — the discrete RG
+
+| symbol | signature | returns |
+|---|---|---|
+| `one_loop_running` | `(M)` | the 1-loop SM couplings at `M` |
+| `landau_poles` | `(M)` | the 1-loop pole scale of each coupling |
+| `two_loop_pole_u1` | `()` | the 2-loop $\mathrm U(1)$ pole (below the cutoff: the perturbative divergence) |
+| `discrete_rg` | `(max_power=8)` | `{backend, n, rows, all_bounded, two_step_unitary_err, two_particle_max_offdiag, two_particle_bounded}` — the coarse-graining tower $U^{2^p}$ is bounded (exact) |
+| `uv_verdict` | `()` | `{backend, alpha_10, M_P_GeV, couplings_at_M_P, spread_at_M_P, one_loop_landau_poles, two_loop_u1_pole, u1_1loop_above_cutoff, u1_2loop_below_cutoff, discrete_rg, discrete_rg_bounded, uv_bounded, residual, ok}` — boundedness is exact, the coupling values are **O4** |
+| `verify` | `(tol=1e-9)` | `{ok, checks, verdict}` |
+| `main` | `()` | runs the self-check |
+
+## 24. `cl10.g10_selection` — the data check of the angle reading
+
+| symbol | signature | returns |
+|---|---|---|
+| `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop GUT-range mean and the non-meeting spread (**O4**) |
+| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the scan prefers $n = 7$, so $1/n_{\rm qubits}$ is a **convention** |
+| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 25. `cl10.electroweak` — the electroweak sector
+
+| symbol | signature | returns |
+|---|---|---|
+| `qca_step_spectrum` | `()` | `{backend, theta, n_levels, spectrum_spread, unitary_err, effective_action}` — the step as the QFT time evolution ('t Hooft's program) |
+| `electroweak_breaking` | `()` | `{backend, g10, g2, gprime, vev_v, m_W, m_Z, sin2_w, sin2_w_0p, mw_over_mz, mw_over_mz_0p, electroweak_breaking_ok}` — $\sin^2\theta_W = 3/8$ is the **GUT boundary condition** from the $5/3$, not a prediction; the running down to $M_Z$ is **O4** |
+| `verify` | `(tol=1e-9)` | `{spectrum, electroweak, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 26. `cl10.family` — the family index
+
+| symbol | signature | returns |
+|---|---|---|
+| `family_construct` | `()` | `{n_space, n_planes_C32, n_rank, n_family_candidate, n_families_observed, match, all_three_ways_3, n_weyl_1gen, n_weyl_3gen, residual}` — three routes to the number 3; the count itself is **O3** |
+| `tribimaximal_3x3` | `()` | the Harrison-Perkins-Scott unitary |
+| `family_qca` | `()` | `{backend, g10, n_planes, n_module_1gen, n_module_3gen, n_weyl_1gen, n_weyl_3gen, n_cpt_3gen, unitary_err, family_symmetry_off_block, family_symmetry_block_diff, max_45_pseudoscalar_commutator, step_32_pseudoscalar_commutator, step_96_pseudoscalar_commutator, tribimaximal_unitary_err, tribimaximal_angles_ok, tribimaximal_diagonalizes_democratic, tribimaximal_sin2, residual}` |
+| `main` | `()` | runs the self-check |
+
+## 27. `cl10.yukawa` — the democratic base
+
+| symbol | signature | returns |
+|---|---|---|
+| `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, spectrum, n_distinct_levels, n_heavy, n_light_2fold, democratic, singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` |
+| `democratic_matrix` | `()` | the all-ones rank-1 matrix |
+| `tribimaximal_mixing` | `()` | `{sin2_12, sin2_23, sin2_13, obs, backend, diagonalizes_democratic, sin2_12_is_0param_derived, sin2_23_is_0param_derived, sin2_13_is_0param_derived, sin2_23_O2_range, sin2_13_O2_range, mixing_status}` — only $\sin^2\theta_{12} = 1/3$ is fixed |
+| `hierarchy_residual` | `()` | `{base_spectrum, degenerate, residual}` — the 2-level base, the 3-level hierarchy is **O6** |
+| `main` | `()` | runs the self-check |
+
+## 28. `cl10.yukawa_3x3` — the three-generation matrices and mixings
+
+| symbol | signature | returns |
+|---|---|---|
+| `one_object_spectrum` | `(g10=None)` | `{g10, n_levels_1gen, spectrum_1gen, spectrum_3gen, n_levels_3gen, zero_point_1gen, det_U_minus_1, family_triplication}` |
+| `higgs_mass_16` | `()` | `{shape, n16, rank, off_diagonal, diag_16, non_singular, dirac}` — the $16\,\mathbf{10}_H\,\overline{16}$ Dirac block |
+| `family_symmetry` | `()` | `{n_space, n_families_C32, S_a2_err, anticommutator_Sa_Sb, spatial_norms, norm_spread, equivalent_3fold, democratic_rank, democratic_spectrum, two_level}` |
+| `mass_matrix_3x3` | `()` | `{n, matrix, eigenvalues, rank, n_heavy, n_light_2fold, n_distinct_levels, democratic}` |
+| `mixing_from_democratic` | `()` | the honest analysis: `{spectrum_fixed, heavy_eigenvector, heavy_eigenvector_unique, light_degeneracy, diagonalizer_is_unique, sin2_12_fixed, sin2_12_value, sin2_12_range, sin2_23_range, sin2_13_range, sin2_12_vs_observed, max_diagonalization_err, tbm_diagonalizes_democratic, tbm_in_the_O2_family, tbm_angles, s3_transpositions_equivalent, ckm_is_identity, verdict_0param}` |
+| `mixing_3x3` | `()` | `{unitary, diagonalizes_democratic, sin2_12, sin2_23, sin2_13, obs_pmns, obs_ckm, dev_pmns, dev_ckm, sin2_12_is_0param_derived, sin2_23_is_0param_derived, sin2_13_is_0param_derived, sin2_23_O2_range, sin2_13_O2_range, tbm_is_the_23_adapted_choice, mixing_status}` |
+| `hierarchy_3level` | `()` | `{n_levels_0param, n_levels_observed, n_heavy, n_light_2fold, structure, degenerate_light, obs_ratio_order, residual}` |
+| `quark_ckm` | `()` | `{backend, up_eigenvalues, down_eigenvalues, two_level, ckm_unitary, ckm_is_identity, ckm_computed_angles, sin2_12, sin2_23, sin2_13, obs_ckm, dev_ckm, residual, ok}` — the computed CKM **is** the identity (**O6**) |
+| `w6_verdict` | `()` | the assembled verdict of the above (the old W6 label = **O6**) |
+| `main` | `()` | runs the self-check |
+
+## 29. `cl10.neutrino` — the seesaw on the ladder
+
+| symbol | signature | returns |
+|---|---|---|
+| `loop_ladder` | `(n)` | the ladder scale $S(n) = M_P (1/16\pi)^n$ |
+| `dirac_mass` | `()` | $m_D = S(10)$ |
+| `twostep_scale` | `()` | $M_N = S(3)$ — the ladder choice, **fitted** against the desert scale |
+| `twostep_unitary` | `(tol=1e-9)` | `{backend, n, unitary_err_1step, unitary_err_2step, two_step_unitary, uv_finite}` |
+| `seesaw_2step` | `()` | `{backend, M_P_GeV, n_gen, n_dirac, n_2step, exp_2step, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_ladder_eV, m_nu_obs_eV, off_2step, off_1step, right_order, ladder_match, residual}` — the ladder value 0.146 eV is **excluded** by $\sum m_\nu < 0.12$ eV (F3); **O2** |
+| `verify` | `(tol=1e-12)` | `{ok, checks, seesaw, twostep}` |
+| `main` | `()` | runs the self-check |
+
+## 30. `cl10.u10pred` — the headline numbers
+
+| symbol | signature | returns |
+|---|---|---|
+| `M_PLANCK` / `V_EW` / `ALPHA_10` / `M_P_ROBSON` | (constants) | 1.22e19 GeV (the cutoff, not $M_{\rm GUT}$); 246 GeV (measured); the $\alpha_{10}$ reading; 0.938 GeV (the proton mass) |
+| `proton_lifetime` | `(M_X, alpha_X)` | $\tau_p \sim M_X^4/(\alpha_X^2 m_p^5)$ in years (a dimensional estimate) |
+| `proton_lifetime_desert` | `()` | the lifetime in force: $M_X = 1.8\times10^{16}$ GeV, $\alpha_X = 1/40$ — **conditional** on two fitted thresholds (V64) |
+| `proton_lifetime_closed` | `()` | the same content at the closed angle $\alpha_X = \pi/64$ (V133): the threshold ordering is destroyed |
+| `ladder_scale` | `(n)` | $M_P (1/16\pi)^n$ in GeV |
+| `dm_ladder_mass` | `()` | the mass **scale** $M_P(1/16\pi)^{10} = 118$ GeV; the carrier is **O7** |
+| `neutrino_ladder` | `()` | `{m_D_GeV, M_N_GeV, m_nu_eV_ladder, m_nu_eV_third, sum_m_nu_candidate_eV, status_ladder, status_third, provenance_exponent}` |
+| `hierarchy` | `(F10=0.019186)` | `{F10, v_over_MPlanck, coefficient, observed_v_over_MPlanck, observed_coefficient}` — $v/M_P = 3F_{10}^{10}$, **conditional** on the one-node-per-family set (**O8**) |
+| `family_number` | `()` | `{value, identification, provenance}` — provenance **open** (**O3**) |
+| `verify` | `(tol=0.02)` | `{values, quoted, relative_deviation, ok}` — code-and-paper agreement, nothing more |
+| `main` | `()` | prints the numbers with their provenance |
+
+## 31. `cl10.walls` — the three named walls
+
+The module keeps the historical W labels and records the mapping W1→O1,
+W2→O2, W3→O3.
+
+| symbol | signature | returns |
+|---|---|---|
+| `w1_cosmological_constant` | `()` | `{n_even, n_odd, cancellation, lambda_0param, lambda_obs, residual}` — the 512/512 cancellation is exact; the observed value is **O1** |
+| `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — the right order only; **O2** |
+| `w3_families` | `()` | `{n_time, n_space, n_fam_candidate, n_observed, match, derived, residual}` — `derived` is **False**: the index labels the copies, it does not force the count (**O3**) |
+| `baryon_asymmetry` | `()` | `{baryon_number_violated, c_or_cp_violated, out_of_equilibrium, all_sakharov, generated, residual}` — the unitary step meets no Sakharov condition (**O5**) |
+| `main` | `()` | runs the self-check |
+
+## 32. `cl10.cosmology` — the vacuum and the hierarchy
+
+| symbol | signature | returns |
+|---|---|---|
+| `cosmological_constant` | `()` | `{backend, n_even, n_odd, cancellation, lambda_0param, lambda_0param_natural, lambda_obs, w, residual}` — the cancellation is exact, $w = -1$; the observed $10^{-122}$ is **O1** |
+| `hierarchy` | `()` | `{backend, E_P, v, v_over_EP_0param, observed, rel_err, vast_gap, residual}` — the two scales, the gap unexplained (**O8**) |
+| `verify` | `(tol=1e-9)` | `{cc, hierarchy, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 33. `cl10.cosmology3` — the dark sector
+
+| symbol | signature | returns |
+|---|---|---|
+| `dark_matter` | `()` | `{backend, ode_residual, mass_energy_E, non_dispersive, gauge_charge, stable_massive_non_dispersive_neutral}` — the exact kink of $u'' = u - u^3$: a planar domain wall, **not** a carrier |
+| `dm_mass_scale` | `()` | `{backend, ode_residual, mass_energy_E, non_dispersive, gauge_charge, mass_gev, sigma_gev2, omega_obs, omega_0param, abundance_gap, under_abundant, residual}` — the V42 quantification of **O7** |
+| `dark_energy` | `()` | `{backend, n_even, n_odd, cancellation, lambda_0param, w, accelerated, lambda_obs}` |
+| `antimatter` | `()` | `{backend, n16, n16bar, cpt_anticommute, cpt_to_bar, ortho_16_16bar, bl16, bl16bar, bl_cancel, cpt_ok}` — exact |
+| `verify` | `(tol=1e-9)` | `{dark_matter, dark_energy, antimatter, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 34. `cl10.dm_wimp` — the ladder WIMP scale
+
+| symbol | signature | returns |
+|---|---|---|
+| `F10` | `()` | $(1/16\pi)^{10}$ |
+| `relic_abundance` | `(m_GeV)` | the V42-convention relic abundance for a mass `m` (the couplings are inputs) |
+| `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — a scale, not a carrier (**O7**) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 35. `cl10.hier_exponent` — the exponent of the hierarchy
+
+| symbol | signature | returns |
+|---|---|---|
+| `loop_factor` | `(n=10)` | $(1/16\pi)^n$ |
+| `loop_ladder` | `()` | `{F10, n_gen, n_qubits, g10_as_2x5, hierarchy, dm}` — one ladder length, two scales |
+| `nstep_spectrum` | `(max_n=100, target=2.02e-17)` | `{n_levels_1step, min_level_1step, min_level_small_n, max_n_scanned, any_level_at_target, n_diophantine_est, diophantine_is_0param}` — the one-step spectrum does **not** carry the exponent |
+| `hierarchy17` | `()` | `{backend, loop_factor, n_gen, predicted_ratio, predicted_exponent, observed_ratio, observed_exponent, exponent_abs_diff, ratio_predicted_over_observed, scan, n_best_scan, nstep, loop_ladder, one_line}` — the crossing at $n = 10$ is selected by the data (**O8**) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 36. `cl10.baryogenesis` — the Sakharov audit
+
+| symbol | signature | returns |
+|---|---|---|
+| `sakharov_conditions` | `()` | `{backend, b_violation_met, max_45_pseudoscalar_commutator, cpt_invariant, in_equilibrium, unitary_err, any_sakharov_met}` — none met (a computed theorem) |
+| `gut_ingredients` | `()` | `{backend, xy_process, proton_lifetime_yr, proton_lifetime_provenance, seesaw_scale_GeV, hubble_at_seesaw_GeV, equilibrium_by_yukawa, out_of_equilibrium_yukawa_ceiling, cp_phase_in_the_step, cp_phase_carrier}` |
+| `leptogenesis_estimate` | `()` | `{backend, M_N_GeV, gamma_over_h, out_of_equilibrium, g0, eps_loop, loop_factor_0_parameter, eta_cp, sphaleron_factor, delta_b, observed_delta_b, ratio_to_observed, order_ok, 0param_qca_satisfies_no_sakharov, residual}` — the right order with named inputs (**O5**) |
+| `verify` | `(tol=1e-9)` | `{sakharov, ingredients, ok}` — the negative result, reproduced |
+| `main` | `()` | runs the self-check |
+
+## 37. `cl10.eta_cp` — the asymmetry as a product of factors
+
+| symbol | signature | returns |
+|---|---|---|
+| `cp_odd_loop_factor` | `()` | $g_0^4/(16\pi)$ with the $g_0 = 1/8$ reading |
+| `eta_cp` | `()` | `{backend, loop_factor, structure, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — three provenances: the loop factor (convention), the sphaleron $28/79$ (an SM input), $\eta_{CP}$ (named) |
+| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 38. `cl10.four_limits` — the bookkeeping of the residuals
+
+| symbol | signature | returns |
+|---|---|---|
+| `invariance_g10` | `()` | `{backend, grid, max_mirror_residual_over_grid, max_abs_detU_dev_over_grid, g10_invariant, n_algebraic_invariants, free_angles, verdict}` — the invariants hold for every angle (exact) |
+| `unique_10loop` | `(max_n=20)` | `{backend, n_gen, n_gen_is_2x5, 2_is_chiral_split, 5_is_qubit_count, n_best, unique_n_within_1decade_of_both, n_candidates_within_1decade, factor2_test_of_both_empty, coeff_hierarchy, coeff_dm, n_best_combined_dev, n_best_2nd_dev, scan, verdict}` |
+| `cp_phase_reduction` | `()` | `{backend, rank1_cp_phases, rank1_cpodd, two_N_2flavor_cp_phases, two_N_3flavor_cp_phases, cpodd_at_delta_0, cpodd_at_delta_pi4, cpodd_at_delta_pi2, minimal_cp_phases_required, delta_B_0param, delta_B_observed, delta_B_ratio, verdict}` |
+| `coupling_provenance` | `()` | `{backend, n_qubits, n_space, g10_root_reading, g10_from_alpha10, g10_is_root_reading, g0_root_reading, g0_is_root_reading, qca_cp_even, delta_independent_of_g10, n_free_parameters_in_algebra, n_free_parameters_in_dynamics, mapping_conventions, rejected_identifications, verdict}` |
+| `four_limits` | `()` | the assembly: `{backend, unifying_invariant, L1_conventionality, L2_hierarchy_plus_L4_DM, L3_baryogenesis, coupling_provenance, residual_set, total_named_residuals, mapping_conventions, all_resolved, verdict}` |
+| `verify` | `(tol=1e-12)` | `{r, ok}` |
+| `main` | `()` | runs the self-check |
+
+## 39. `cl10.parameter_audit` — the audit of the label
+
+| symbol | signature | returns |
+|---|---|---|
+| `kingdon_2route` | `()` | `{backend, kingdon_available, kingdon_sq_minus_1, kingdon_anticommute, kingdon_w2_scalar, pauli_sq_minus_I, pauli_anticommute, pauli_w2_plus_I, two_route_agree}` — the root built twice, by two independent routes |
+| `spectral_mirror` | `()` | `{backend, g10, n_levels, omega_min, omega_min_mass_GeV, omega_min_16weyl, levels_16weyl, w_pure_imaginary, commute_Uw, preserves_chiral_split, mirror_resid, mirror_ok, mirror_resid_all_g10, mirror_holds_for_all_g10, g10_grid, zp_16, zp_16bar, det_U_minus_1, sl32}` — the 16/16-bar mirror is exact at every angle |
+| `cp_odd_theorem` | `(n4_sample=200000, seed=0)` | `{backend, max_cpodd_2rot, max_cpodd_3rot, max_cpodd_4rot_sample, max_cpodd_b_sandwich, cpodd_democratic_yukawa, n4_sample, all_cp_odd_zero, sakharov, verdict}` — every CP-odd invariant of the on-site module vanishes |
+| `g10_status` | `()` | `{backend, g10_0param, n_qubits, mapping_convention, uv_finiteness_fixes_g10, pole_2loop_below_MP_for_all_g10, g10_is_free_t_hooft_angle, grid, verdict}` |
+| `hierarchy_status` | `()` | `{backend, v_over_EP_observed, v_over_EP_claimed_0param, match_rel_err, match_is_2digit_coincidence, omega_min, omega_min_mass_GeV, smallest_sub_planck_scale_is, spectrum_exponent_matches_observed, hierarchy_exists_0param, residual}` |
+| `dm_status` | `()` | `{backend, soliton_mass_GeV, abundance_gap_0param_over_obs, omega_min_mass_GeV, dm_observed_range_GeV, smallest_sub_planck_scale_above_observed_DM_orders, observed_DM_not_0param, residual}` |
+| `provenance_table` | `()` | `{backend, rows, counts_by_provenance}` — every headline number classified |
+| `verify` | `(tol=1e-9)` | `{backend, two_route, spectral_mirror, cp_odd_theorem, g10_status, hierarchy_status, dm_status, provenance_table, invariants_ok, limits_ok, ok}` |
+| `main` | `()` | runs the audit |
+
+## Shared constants and switches
+
+| name | value | provenance |
+|---|---|---|
+| `cl10.u10pred.M_PLANCK` | `1.22e19` GeV | the lattice cutoff; $M_{\rm GUT} = M_P$ is **not** assumed |
+| `cl10.u10pred.V_EW` | `246.0` GeV | measured |
+| `cl10.u10pred.M_P_ROBSON` | `0.938` GeV | the proton mass (measured) |
+| `cl10.coupling.G10` | the active branch angle | `implemented` $1/5$ (convention), `closed` $\pi/4$, `half` $\pi/2$ |
+| `cl10.coupling.ALPHA_10` | `1/25` | the rotation-squared reading (convention) |
+| `cl10.coupling.G0` | `1/8` | the $g_0 = 1/2^{n_{\rm space}}$ reading (convention) |
+| `cl10.unification.M_Z` | `91.1876` GeV | measured (PDG) |
+| `cl10.unification.B_SM`, `A_Z`, `B2_SM` | the SM $\beta$-function content and the measured $\alpha_i(M_Z)$ | Standard Model inputs |
+| `cl10.qcd` $\sigma$ | `1` in Planck units | an input of the confinement check |
+| `cl10.einstein` / `gravity` $G$ | `1` | an input of the gravity sector |
+
+Environment switches the code reads:
+
+| variable | read by | effect |
+|---|---|---|
+| env `CL10_BACKEND` | `engine` | `numpy` / `cpu` forces the CPU core |
+| env `CL10_GPU_MIN_FREE_MIB` | `engine` | the free-memory gate for the GPU (default 2048) |
+| env `CL10_ANGLE` | `coupling` | `implemented` (default) / `closed` / `half` |
+| env `CL10_NJOBS` | `parpool` | the worker count |
+| env `CL10_SMOKE` | the experiments | `1` shrinks the grids, pools and bond counts |
+
+## The runner contract
+
+Every experiment writes `results/<name>.json` with at least:
+
+| key | meaning |
 |---|---|
-| `engine._BACKEND` | the active backend: `"cupy"` \| `"jax"` \| `"numpy"` (chosen at import: CuPy → JAX → NumPy) |
-| `engine.Array` | the array type: `cp.ndarray` \| `jax.Array` \| `np.ndarray` |
-| `engine._HAS_EINOPS` | `True` if `einops` is importable (used for reshapes) |
-| `engine._HAS_KINGDON` | `True` if `kingdon` is importable (GPU physics utilities) |
-| `engine.backend_info()` | `{backend, einops, kingdon, array}` (a dict) |
-
-### array primitives (all backend-aware)
-
-| symbol | signature | returns |
-|---|---|---|
-| `Array_` | `(*args, **kwargs)` | a new array on the active backend (like `np.array`) |
-| `zeros` | `(shape, dtype=None)` | a zero array; `shape` is a tuple (e.g. `(L,L,L)`) or an int (default `dtype=complex`) |
-| `kron` | `(a, b)` | the Kronecker product |
-| `matmul` | `(a, b)` | the matrix product |
-| `real` / `imag` | `(x)` | the real / imaginary part (backend-correct) |
-| `absmax` | `(x)` | `float` — the max absolute value |
-| `asnumpy` | `(x)` | the array on the **host** (NumPy) — for printing / JSON |
-| `einops_rearrange` | `(x, pattern_in, pattern_out)` | an `einops` rearrange (NumPy fallback if available) |
-
-### lattice / QCA primitives
-
-| symbol | signature | returns |
-|---|---|---|
-| `laplacian_3d` | `(u)` | the 6-neighbour discrete Laplacian of a `(L,L,L)` field (the metric operator) |
-| `qca_step` | `(fields, unitaries)` | one QCA step: apply the product of local unitaries on the last (internal) axis |
-| `spectral_laplacian` | `(k, L)` | the spectral (momentum-space) Laplacian eigenvalue on an `L`-torus |
-
-**Note.**  `asnumpy` is required before printing or JSON-serializing a GPU
-array (CuPy forbids implicit NumPy conversion).
-
----
-
-## 2. `cl10.clifford` — the $\mathrm{Cl}(10)$ root
-
-| symbol | signature | returns |
-|---|---|---|
-| `generators` | `()` | a list of **10** `(32,32)` complex matrices — the 10 mutually-anticommuting $h_a$ (the symplectic Pauli pattern) |
-| `verify` | `(tol=1e-12)` | `{n, square_to_I, anticommute, ok}` — the 0-parameter check that the 10 anticommute and square to $I$ |
-| `basis` | `()` | a list of **1024** `(32,32)` matrices — the full algebra basis (all ordered products) |
-| `pseudoscalar` | `()` | the `(32,32)` **anti-Hermitian** volume element $w = h_1\cdots h_{10}$ (the 16/16-bar split) |
-| `weyl_spinor` | `()` | `(plus, minus)` — the `(32,16)` and `(32,16)` **16 Weyl / 16-bar** eigenvectors of $w$ |
-| `main` | `()` | runs the V0 self-check (prints the verdict) |
-
----
-
-## 3. `cl10.spacetime` — the $(1,3)$ inside the GUT
-
-| symbol | signature | returns |
-|---|---|---|
-| `causal_generators` | `()` | `(T, [S1,S2,S3])` — the 4 $(1,3)$ generators **inside** the GUT: $T = h_1$ ($+$), $S_a = i h_{a+1}$ ($-$) |
-| `verify` | `(tol=1e-12)` | `{t2, s2, ts, ss, ok}` — the 0-parameter Minkowski check (all four relations $< \varepsilon$) |
-| `light_cone` | `(T, S)` | a callable `f(v0, v) -> v0**2 - sum(v_a**2)` (the Minkowski norm) |
-| `main` | `()` | runs the V1 self-check |
-
----
-
-## 4. `cl10.matter` — the 16 Weyl + the anomalies
-
-| symbol | signature | returns |
-|---|---|---|
-| `SM_FIELDS` | (module constant) | `{name: (su3_type, su2_type, Y, n_weyl)}` — the **0-parameter** charges of the 6 SM fields (the input to the anomalies) |
-| `weyl16` | `()` | `(plus, minus)` — the 16 Weyl / 16-bar (delegates to `clifford.weyl_spinor`) |
-| `dimension_check` | `()` | `int` — the total Weyl dimension (= 16) |
-| `bl_charge` | `(which="16")` | `int` — the 0-parameter **B–L** charge: $-1$ on the 16, $+1$ on the 16-bar |
-| `anomalies` | `()` | `{su3_cubed, su2_cubed, u1_cubed, grav2_su3, grav2_su2, grav2_u1, u1_su3_sq, u1_su2_sq}` — the **8** SM gauge-anomaly coefficients (all **0** = consistent) |
-| `mass_generation` | `()` | `{off_diagonal, diag_16, diag_16bar, A_16_16bar, B_16bar_16, ...}` — the **0-parameter 10-Higgs**: the 10 (grade-1) is **off-diagonal** (16$\leftrightarrow$16-bar) $\Rightarrow$ the Dirac mass term $16\,10\,16\bar\to 1$ (the exact values are named) |
-| `main` | `()` | runs the V2 self-check |
-
-**`anomalies`** is the **hard consistency requirement**: a chiral gauge theory is
-inconsistent unless all eight coefficients cancel.  `V11_anomaly` checks them.
-
----
-
-## 5. `cl10.gauge` — the 45 + the $5/3$ + gauge-gravity
-
-| symbol | signature | returns |
-|---|---|---|
-| `M_GUT` | (module constant) | `float` — the GUT scale $= 1.22\times10^{19}$ GeV (the 0-parameter Planck scale) |
-| `generators_45` | `()` | a list of **45** `(32,32)` matrices — the $h_a h_b$ for $a<b$ (the $\mathrm{Spin}(10)$ adjoint) |
-| `rank_check` | `()` | `int` — the rank of the 45 (the 45-D adjoint) |
-| `five_thirds` | `()` | `float` — the **0-parameter** $\mathrm{U}(1)$ normalization $g_1^2/g'^2 = 5/3$ (from $\mathrm{Tr}(\mathcal{T}^2) = 5/24$) |
-| `sm_subgroup` | `()` | `{n_sm, n_gluon, n_w, n_b, n_heavy}` — the 12 SM gauge bosons inside the 45 (8 gluon + 3 W + 1 B) |
-| `gauge_gravity_overlap` | `()` | `{n_causal, n_gauge, n_generators, one_object}` — the $(1,3)$ (4) and the 45 in the **one** $\mathrm{Cl}(10)$ |
-| `running` | `()` | `{alpha_10, g_gut, m_gut_0param, five_thirds, b1, b2, b3, unification_spread, cleanly_unifies, residual}` — the **0-parameter** GUT coupling $\alpha_{10}=1/25$ + the $5/3$ + the 1-loop $\beta$; the **1-loop SM matching** (the SM does not cleanly unify) is the **named** residual |
-| `main` | `()` | runs the V3/V12/V13 self-check |
-
----
-
-## 6. `cl10.qca` — the metric + the QCA
-
-| symbol | signature | returns |
-|---|---|---|
-| `METRIC` | (module constant) | the $(1,3)$ metric $\mathrm{diag}(1,-1,-1,-1)$ |
-| `metric_field` | `(L, h=0.0)` | the `(4,4,L,L,L)` metric field on an $L^3$ torus (the perturbation $h$ on flat) |
-| `wave_step` | `(u, dt=0.5)` | one step of the free wave equation (the linearised **graviton**) |
-| `qca_step_internal` | `(gates, fields)` | one QCA step on the internal (Weyl) axis of `(L,L,L,n)` fields |
-| `unitary_check` | `(U, tol=1e-12)` | `bool` — whether a gate $U$ is unitary ($UU^\dagger = I$) |
-| `main` | `()` | runs the V6 self-check |
-
----
-
-## 7. `cl10.u10pred` — the headline numbers
-
-| symbol | signature | returns |
-|---|---|---|
-| `proton_decay_lifetime` | `()` | `float` — the **0-parameter** proton lifetime $\tau_p \sim M_{\rm GUT}^4/(\alpha_{10}^2 m_p^5)$ in **years** ($\approx 4\times10^{47}$; the proton appears stable) |
-| `seesaw_mass` | `()` | `float` — the **1-step** seesaw mass $m_\nu \sim m_D^2/M_{\rm GUT}$ in **eV** with $M_N = M_{\rm GUT} = M_P$ ($\approx 1.2\times10^{-6}$; the ladder version of V57, $M_N = M_P(1/16\pi)^3$, gives $0.146$ eV — the two differ by the choice of $M_N$, which is not fixed) |
-| `family_candidate` | `()` | `{candidate, from_spatial, from_internal_half, derived}` — the 0-parameter **3-family** candidate (`derived=False`: a named wall) |
-| `main` | `()` | runs the V14–V16 self-check |
-
-The 0-parameter constants: `M_PLANCK = 1.22e19` GeV, `M_P_ROBSON = 0.938`
-GeV, `ALPHA_10 = 1/25`, `V_EW = 246.0` GeV.
-
----
-
-## 8. `cl10.walls` — the three reduced walls (W1/W2/W3) + the baryon asymmetry
-
-The mechanisms that reduce three of the open residuals (see
-`doc/publication.md`, Section 15, Table 6):
-
-| symbol | signature | returns |
-|---|---|---|
-| `w1_cosmological_constant` | `()` | `{n_even, n_odd, cancellation, lambda_0param, lambda_obs, residual}` — the **W1**: the $\mathbb{Z}_2$ $512/512$ **cancellation** $\Rightarrow$ $\Lambda = 0$ at 0-parameter (the **s-mechanism**); the exact $10^{-122}$ the named residual |
-| `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — the **W2**: the **2-step** seesaw ($M_N$ intermediate, $g_0 v$ Dirac) $\Rightarrow$ $m_\nu \sim 10^{-2}$ eV (the right order) |
-| `w3_families` | `()` | `{n_time, n_space, n_fam_candidate, n_observed, match, derived, residual}` — the **W3**: the **3** families identified with the **3** spatial directions of the $(1,3)$ (one number stated three ways; a hypothesis, not a derivation) |
-| `baryon_asymmetry` | `()` | `{baryon_number_violated, c_or_cp_violated, out_of_equilibrium, all_sakharov, generated, residual}` — the 0-parameter QCA satisfies **none** of the 3 Sakharov conditions $\Rightarrow$ the baryon asymmetry is **not** generated (the **named** residual, V22) |
-| `main` | `()` | runs the three wall mechanisms (V17–V19) and prints the verdict |
-
-The 0-parameter constants: `M_PLANCK = 1.22e19` GeV, `V_EW = 246.0` GeV,
-`G0 = 1/8` (the GUT coupling), `M_N = 1e14` GeV (the 2-step intermediate
-scale).
-
----
-## 9. `cl10.sm_qca` — the full SM QCA (the 0-parameter unitary QCA)
-
-The **full Standard Model as a 0-parameter unitary QCA** (V23): the QCA step
-is the product of the **45 Spin(10) plane rotations** $T_{ab} = i\,h_a h_b$
-(Hermitian, $T_{ab}^2 = I$) at the **0-parameter** angle $g_{10} = 1/5$,
-**exactly unitary** (no matrix exponential, no fit), run on the **GPU** engine.
-
-| symbol | signature | returns |
-|---|---|---|
-| `plane_generators` | `()` | the 45 Spin(10) plane generators $T_{ab} = i h_a h_b$ (a list of 45 $(32\times32)$, Hermitian, $T^2=I$) |
-| `plane_rotation` | `(T, theta)` | $\cos\theta\, I - i\sin\theta\, T$ (the exact plane rotation, $T^2=I$) |
-| `gut_qca_step` | `(planes, theta)` | the GUT QCA step $U = \prod_{a<b}[\cos\theta\, I - i\sin\theta\, T_{ab}]$ (exactly unitary) |
-| `unitary_err` | `(U)` | the unitarity residual $\|U U^\dagger - I\|_{\max}$ |
-| `norm_preservation` | `(U, n_steps, L)` | $(n_0, n_1, \text{rel\_err})$ — the norm before/after $n$ steps on a random $32$-D field (GPU) |
-| `sm_qca` | `(n_steps, L)` | `{n_planes, g10, plane_square_to_I_err, step_unitary_err, norm_before, norm_after, norm_rel_err, backend, causal_radius}` — the full SM QCA verdict (V23) |
-| `main` | `()` | runs the V23 self-check |
-
-**The closure of the step (V131).** `gut_qca_step(planes, theta)` takes the angle
-as an argument, so the **closed** angles are reachable: the axiom that the
-fundamental step be an element of the root ($U^k = \pm I$ on the 32-D module) has
-exactly **two** solutions for the canonical Appendix-A factor ordering,
-$\theta = \pi/2$ (the step **is** the pseudoscalar $w$, ordering-independent) and
-$\theta = \pi/4$ (order 8; the internal spectrum exactly
-$\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, leak below $5\times10^{-16}$). Five
-shuffled orderings break both, so the ordering of the product carries the
-quantization. The implemented $g_{10} = 1/5$ is the **fallback** theory; the
-closed-angle consequences are measured in `V132`–`V135` under `experiments/` (the gapless
-census, the desert re-closure at $\alpha_X = \pi/64$, the $\pi/2$ branch, the
-coupling contact), and `./run_gpu.sh V132_gapless_census_pi4 V133_desert_pi64 V134_pi2_branch V135_coupling_selection_closed` runs that batch on the GPU.
-
-**The two ladder exponents, asked of the algebra (V136, V137).**
-`sm_qca.plane_generators()` returns the 45 adjoint factors, and in the Clifford
-basis each acts as an exact signed permutation on the 1024 basis elements — so
-products of them are enumerable without matrices.
-`experiments/neutrino/V136_w2_majorana_word` uses that to grade the $\Delta L = 2$
-operator (weight $2\lambda_\nu$, Clifford grade 5, the 126-type channel, a
-1-dimensional weight space) and to prove the parity obstruction: multiplication
-shifts grade by $\pm2$, so no product of grade-2 factors reaches an odd-grade
-target and $n_{2\text{step}}$ is not a word length.
-`experiments/couplings_unification/V137_w4_broken_flux` uses the same 45 to build the centralizer of
-the Wilson direction (the Cartan of `clifford.generators()`) and the
-broken-generator flux $45 - C_2^{\rm unbroken}(s)$ per fragment class.
-
----
-
-## 10. `cl10.cpt` — the CPT theorem (the 16/16-bar are CPT conjugates)
-
-The **CPT theorem** (V24): the CPT operator $C = g_1$ (the time direction) is a
-**Hermitian involution** ($C^2=I$) that **anticommutes** with the pseudoscalar
-$w$ (so it maps the 16 to the 16-bar); the 45 GUT generators **commute** with
-$w$ (the chiral CPT split is preserved).  Verified on the **GPU**.
-
-| symbol | signature | returns |
-|---|---|---|
-| `pseudoscalar` | `()` | the volume element $w = g_1 \\cdots g_{10}$ (anti-Hermitian, $w^2 = -I$) |
-| `cpt_operator` | `()` | the CPT operator $C = g_1$ (the time direction, a Hermitian involution) |
-| `projectors` | `(w)` | $(P_{16}, P_{16\\text{bar}}) = (\\tfrac{1}{2}(I - i w), \\tfrac{1}{2}(I + i w))$ (the 16/16-bar projectors) |
-| `cpt_theorem` | `(seed)` | `{C_involution_err, C_unitary_err, C_w_anticommute_err, map_16_to_16bar_err, gut_commute_w_err, n_matter, n_antimatter, cpt_equal_norm, c16_into_16bar, backend}` — the CPT relations + the GPU in-action check (V24) |
-| `main` | `()` | runs the V24 self-check |
-
----
-
-
-## 11. The four deepening modules (V25–V28)
-
-The four **deepening** modules extend the construction to four further
-hallmarks expected of a unification (all run on the **GPU** engine).
-
-**`cl10.holo` — the holographic area law (V25).**  The QCA vacuum entropy of
-a region of side $L$ scales as $S \propto L^2$ (the **surface area** $6L^2$),
-**not** $L^3$ (the volume); the entropy per unit area is the argument
-`per_plaquette = 0.25`, i.e. the Bekenstein–Hawking $S = A/4$ at $G=1$ — an **input** of the model, not a derived density; the holographic ratio $S/V \propto 1/L$.
-
-| symbol | signature | returns |
-|---|---|---|
-| `area_law` | `(L_values, per_plaquette=0.25)` | `{L_values, per_plaquette, S, R, area_law_exponent, holographic_ratio_exponent, backend}` — the 0-parameter area law (V25) |
-
-**`cl10.family` — the 3-family construct (V26).**  The **3** observed families
-are identified with one number appearing in **three** ways (the 3 space
-directions; the 3 two-planes $\binom{3}{2}$; the rank-3 spatial metric) — three
-names for one number, not three derivations (W3); the 16 Weyl is one generation
-$\to$ 3 generations $= 16 \times 3 = 48$ Weyl.
-
-| symbol | signature | returns |
-|---|---|---|
-| `family_construct` | `()` | `{n_space, n_planes_C32, n_rank, n_family_candidate, n_families_observed, match, all_three_ways_3, n_weyl_1gen, n_weyl_3gen, residual}` — the 0-parameter 3, three ways (V26) |
-
-**`cl10.qcd` — QCD confinement (V27).**  The colour count $N_C = 3$ (read off
-the decomposition of the 45; the $8 = N_C^2 - 1$ gluons are then a consistency
-check); the **area law** $\langle W(C)\rangle \propto \exp(-\sigma \cdot
-\mathrm{Area})$; the string tension used is $\sigma = 1$ in Planck units
-($= 1.5\times10^{38}$ GeV$^2$, against the physical $0.18$ GeV$^2$ — a 38-order
-mismatch, the named residual); the **linear** potential $V(r) = \sigma r$ (in
-contrast to the Coulombic $1/r$).
-
-| symbol | signature | returns |
-|---|---|---|
-| `color_count` | `()` | `(n_c, n_gluon, ok)` — the 0-parameter $N_C=3$ |
-| `string_tension` | `()` | the 0-parameter string tension $\sigma$ |
-| `confining_potential` | `(sigma, r_values)` | `[{r, v_qcd, v_qcd_over_r, v_em}, …]` — the linear QCD potential vs the Coulombic EM (V27) |
-
-**`cl10.yukawa` — the Yukawa / mass-hierarchy (V28).**  The **10-Higgs
-16→16-bar** (the grade-1 GUT vector is **off-diagonal** in the 16/16-bar split)
-gives the 0-parameter Dirac mass term; the **3×3** mass matrix (the 3
-generations) is the **democratic** base $|1\rangle\langle1|$: **rank 1**,
-spectrum $\{3,0,0\}$ (one heavy + a 2-fold light level).  A rank-1 3×3 is
-**singular**: the three distinct masses are the **named residual** (the 10-Higgs
-vev), not a 0-parameter statement.
-
-| symbol | signature | returns |
-|---|---|---|
-| `yukawa_matrix` | `()` | `{n_gen, n_dim, rank, spectrum, n_distinct_levels, n_heavy, n_light_2fold, democratic, singular, off_diagonal_Dirac, diag_zero, mass_term, residual}` — the 0-parameter **democratic rank-1** 3×3 Dirac mass matrix, spectrum {3,0,0} (V28; delegates to `yukawa_3x3.mass_matrix_3x3`) |
-
-
-## 12. The construction modules (V36–V51)
-
-These modules build the objects the paper's Sections 8–9 use: the local causal
-QCA, the discrete Einstein–Hilbert action, the coupling readings, the
-3-family step, the Yukawa base, leptogenesis, the S-matrix, the lattice RG and
-the DM scale.  Each function is **backend-agnostic** (the GPU engine), takes no
-fit unless a coefficient is explicitly named, and the matching experiment
-writes a JSON verdict.
-
-**`cl10.supercell` — the automaton (V36).**  The cell is the **$2{\times}2{\times}2$
-block** of Planck sites (eight sub-sites, each carrying the 32-D module:
-on-site space $\mathbb{C}^{256}$), and the dynamics is **one time-independent
-step of six stages**: the 45 Spin(10) plane rotations on every sub-site, each
-followed by one 0-parameter swap-rotation bond stage on the four disjoint
-pairs of one parity along one axis (three intra-block, three inter-block —
-the 't Hooft swap-gate structure read as the sub-lattice of the cell).  The
-**causal radius 1 is implemented**, not an axiom: every bond stage couples
-sub-sites at Planck-cell distance $\le 1$, so after $n$ stages the support is
-inside the $n$-cell light cone (front speed **exactly 1** cell per stage).
-The full API is Section 13.9.
-
-**`cl10.einstein` — gravity.**  The metric dynamics of the $(1,3)$
-sub-algebra: the massless spin-2 (2 polarizations, $c=1$, UV-bounded), the
-Einstein–Hilbert action (the computed Riemann curvature, the non-linear
-soliton, the Schwarzschild black hole), and — **V37** — the
-**derivation** in the direction **dynamics ← action**:
-
-| symbol | signature | returns |
-|---|---|---|
-| `einstein_hilbert` | `(r=2.0, tol=1e-4)` | `{R_sphere, R_flat, G, coupling=1/16π, n_deriv, einstein_hilbert_ok, …}` — the 0-parameter EH action on prescribed metrics (V31) |
-| `eh_quadratic_action` | `(u)` | the 0-parameter **discrete** quadratic EH action on the Planck lattice ($G=1$, $c=1$, $dt^2=1/4$) |
-| `einstein_hilbert_from_dynamics` | `(L=8, T=24, n_probe=16, seed=0, tol=1e-6)` | `{elm_on_qca_trajectory, stationary_ok, elm_off_dynamics, selects_ok, coeff_ok, continuum_ratio, continuum_ok, ok, …}` — the **Euler–Lagrange equation** of the 0-parameter action **is** the QCA metric dynamics (V37): the numerical functional derivative vanishes on the QCA trajectory, an off-dynamics field has a non-zero ELM, the coefficient is $1/16\pi$ ($G=1$), and the discrete dispersion gives the massless $c=1$ continuum |
-
-**`cl10.unification` — the coupling readings from the root (V38).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `g10_from_root` | `()` | `{n_module=32, n_qubits=5, g10=1/5, alpha_10=1/25, n_space=3, g0=1/8, …}` — the proposed readings $g_{10}=1/n_{\rm qubits}$ (the 5 qubits of the 32-D module) and $g_0 = 1/2^{n_{\rm space}}$ (the 3-space).  Both are **conventions** (Table 5 of the paper): V56 shows the data prefer $n=6$ over the root $n=5$ |
-| `running_down` | `()` | `{alpha_10_at_M_P, couplings_at_M_Z, measured_at_M_Z, ratio_to_measured, u1_up_pole_scale, su3_down_pole_scale, residual, …}` — the 1-loop running **down** from $\alpha_{10}=1/25$ at the cutoff to $M_Z$: $\alpha_1(M_Z) = 0.0197$ ($1.17\times$), $\alpha_2(M_Z) = 0.195$ ($5.8\times$), and an $\mathrm{SU}(3)$ Landau pole at $2.2\times10^9$ GeV.  This is a **failure of the coupling values** (W4, falsifier F2), not a loose match |
-
-**`cl10.family` — the 3 families inside the dynamics (V39).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `family_qca` | `()` | `{n_module_3gen=96, n_weyl_3gen=48, n_cpt_3gen=48, unitary_err, family_symmetry_off_block, …, tribimaximal_sin2, residual, …}` — the **3-generation QCA step**: the 45 act **identically on each family** (the family symmetry; the 96×96 is exactly unitary, the per-family 16/16-bar split is preserved) + the tribimaximal mixing (V29; only $\sin^2\theta_{12}=1/3$ is a derived number) |
-
-**`cl10.yukawa_3x3` — the 3-gen Yukawa mass matrix: the democratic base (V45, W6).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `w6_verdict` | `()` | `{g10, one_object (32-level spectrum + the 96-level 3-family), family_symmetry (the 3-fold symmetry: the 3 spatial directions S_a are equivalent -> the democratic base is DERIVED, not asserted; S_a^2=-I, {S_a,S_b}=0, equal norm), mass_matrix (the democratic 3x3: eigenvalues {3,0,0}, 1 heavy + 2-fold light, rank 1), mixing (the TBM, which **diagonalizes** |1><1|; honest split: sin^2_12 = 1/3 is derived 0-parameter from the unique heavy eigenvector, while sin^2_23 and sin^2_13 sweep [0, 2/3] under the O(2) freedom of the 2-fold light subspace), hierarchy (the 0-parameter 2-level structure; the 3-level is the named residual), higgs_dirac (the computed 16->16-bar Dirac term, rank-16, off-diagonal), …}` — the **W6** projection of the one object: the **3-gen Yukawa mass matrix** (the **derived** democratic base) + the **TBM mixing** (only sin^2_12 = 1/3 is 0-parameter as a number) + the **2-level structure** + the **0-parameter rank-16 10-Higgs Dirac term**; the 3-gen hierarchy (the 10-Higgs vev), sin^2_23, sin^2_13 (the O(2) choice) and the non-trivial CKM are the named residual |
-
-**`cl10.baryogenesis` — GUT leptogenesis (V40, W5).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `leptogenesis_estimate` | `()` | `{M_N_GeV=1e14, gamma_over_h, g0, eps_loop=g0^4/16π, eta_cp (named), sphaleron_factor=28/79, delta_b, observed_delta_b, ratio_to_observed, …}` — the baryon asymmetry at the **right order** as a product of an SM input, a guessed loop rate and a loop factor.  **Honest:** this V40 estimate hard-codes $M_N = 10^{14}$ GeV and its out-of-equilibrium kinematics is superseded — at the ladder value $M_N = 9.6\times10^{13}$ GeV (V57) the decay is **in** equilibrium ($\Gamma_N/H \simeq 4.6$ at $y=1/8$), so the Sakharov condition fails at the model's own couplings |
-
-**`cl10.smatrix` — the S-matrix of the QCA (V41).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `qca_smatrix` | `()` | `{g10, n_planes=45, s1 (32×32), s2 (1024×1024), unitary_residual, probability_conservation, max_offdiag, …}` — the **'t Hooft program** completed: the QCA step **is** the 0-parameter S-matrix (the 1- and 2-particle transition amplitudes; the only input $g_{10}=0.2$) |
-
-**`cl10.lattice_rg` — the QCA lattice RG: the S-matrix to the cross-sections (V44, W9).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `lattice_rg` | `()` | `{g10, one_particle (P1), two_particle (P2, the 1024x1024 S^(2) = U (x) U), uv_bound (sigma_max = 4 pi / M_P^2), cross_section (sigma_0 = P2 / M_P^2, sigma_pert, R, elastic, optical_theorem), dispersion (the 32-level spectrum H = -i log U, UV-bounded, zero_point), froissart (the 0-parameter Froissart-Martin bound, m_min = M_P: the QCA constant cross-section is below the ln^2 growth -> strongest UV-finiteness), uv_finite, …}` — the **'t Hooft program** at the cross-section level: the QCA is **UV-finite** (the Planck cutoff bounds every cross-section, `sigma_0 < sigma_max`), the **0-parameter** 2->2 cross-section `sigma_0 = P2 / M_P^2`, the **0-parameter dispersion** (the 32-level spectrum, UV-bounded `|omega| <= pi`, no 1-loop pairing), the **0-parameter optical theorem** (the inelastic `P2` **is** the cross-section), the **0-parameter Froissart-Martin bound** (the QCA's *constant* cross-section is **below** the `ln^2` growth — the **strongest** UV-finiteness), and the **0-parameter** QCA/perturbative ratio `R = 4 pi P2 / g_10^4`; the **named residual** (W9) is the lattice RG matching to the measured cross-sections |
-
-**`cl10.cosmology3` — the unified cosmology + the DM scale (V42, W7).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `dm_mass_scale` | `()` | `{E (the soliton energy, Planck units), m_DM_GeV, sigma, Omega_0param, Omega_obs, abundance_gap, residual, …}` — the **quantified** dark-matter residual: the Planck-mass soliton (stable, massive, neutral) and the computed 0-parameter abundance gap (the sub-Planck scale is the named residual) |
-
-**`cl10.qca_spectrum` — the one object and its invariants (V43).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `levels` | `(g10=None)` | the $32$ sorted phases of $U$ (the levels of $H = -i\log U$), in $(-\pi,\pi]$ |
-| `qca_spectrum` | `(g10=None)` | `{g10, n_levels=32, spectrum, zero_point (=0: the ±-paired 0-point), det_U_minus_1 (=0: the SL(32) identity), sl32, pairing_resid, max_trace_T45 (=0: the 45 are traceless), cpt_0point_16, cpt_0point_16bar, commutes_with_pseudoscalar, max_level, …}` — the **one** object (the 32-level QCA spectrum) and its invariants (the 0-point $=0$, $\det U=1$ for every $g_{10}$, the chiral split) |
-| `verify` | `(tol=1e-10)` | `{spectrum, ok}` — the checks: the 0-point $=0$, the SL(32) identity, the $\pm$-pairing, the chiral split |
-
-**The four remaining-gaps modules (V46–V49).**  Four completions of the
-remaining gaps (W1, W4, W9, W6): the **4-D non-linear
-gravity**, the **2-loop UV-finite** running (W4), the **3- and
-4-particle** amplitudes (W9), and the **quark CKM on the democratic
-base** (W6 — the 2-level mass structure is fixed by the democratic base; the computed CKM is the
-identity, see `quark_ckm` below).
-
-**`cl10.nonlinear_gravity` — the 4-D non-linear gravity (V46, W1).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `nonlinear_gravity` | `(H=None)` | `{backend, H, einstein_space_err, g_mu_nu_minus_3h2_g, ricci_scalar_minus_12h2, gamma_gamma_max, nonlinear_present, lambda_0param_GeV4, lambda_obs_GeV4, gap, residual, ok}` — the **0-parameter 4-D non-linear gravity**: the full 4-D Riemann + Einstein tensor of the 0-parameter de Sitter metric (the Einstein-space identity $R_{\mu\nu\rho\sigma}=H^2(g g - g g)$, $G_{\mu\nu}=-3H^2 g_{\mu\nu}$, the non-zero $\Gamma\Gamma$ self-gravity, the 0-parameter vacuum energy $\Lambda\sim M_P^4$; the exact $10^{-122}$ is the W1 named residual) |
-| `riemann_4d` | `(H, x0=0)` | the full 4-D Riemann tensor $R^\mu_{\nu\rho\sigma}$ of the de Sitter metric (analytic) |
-
-**`cl10.gravity` — the COMPLETE 4-D non-linear gravity (V50, C2, W9).**
-
-The 4-D non-linear gravity **completed**: the general Riemann / Ricci /
-Einstein / Kretschmann are **computed by central finite differences from an
-*arbitrary* metric** (no hard-coded Christoffels, not restricted to one
-solution), **2-route verified** (the computed de Sitter Riemann matches the
-independent analytic one — `cl10.nonlinear_gravity` — to $O(h^2)$; the
-Schwarzschild Ricci is $0$ and the **computed** Kretschmann is $48M^2/r^6$ —
-the **black hole recovered by computation**; the flat metric gives
-$R=G=K=0$), the **complete** 0-parameter discrete Einstein–Hilbert action
-$S = \frac{1}{16\pi}\sum_x \sqrt{-\det g}\,(R - 2\Lambda)$ ($G=1$) whose
-functional derivative **is** the non-linear Einstein equation
-(dynamics $\leftarrow$ action), and the **non-linear** (state-dependent)
-QCA metric evolution (the 't Hooft non-linear completion: unitary/UV-finite,
-causal $c=1$, superposition fails).
-
-| symbol | signature | returns |
-|---|---|---|
-| `H_FD` / `G10` | (module constants) | the 0-parameter finite-difference step ($10^{-3}$, a *numerical* convergence parameter) / the GUT angle ($g_{10} = 1/5$) |
-| `christoffel_4d` | `(g, dg)` | $\Gamma^\rho_{\mu\sigma}$ — the 4-D Christoffel symbols from a 4×4 metric and its first derivatives (a 4×4×4 array) |
-| `riemann_4d` | `(mfn, x, h=H_FD)` | the **full 4-D Riemann** $R^\rho{}_{\sigma\mu\nu}$ (4×4×4×4) **computed by central finite differences from an *arbitrary* metric** `mfn(x) -> 4x4` |
-| `ricci_4d` | `(R)` | $R_{\mu\nu} = R^\rho{}_{\mu\rho\nu}$ |
-| `ricci_scalar_4d` | `(Ric, gin)` | $R = g^{\mu\nu}R_{\mu\nu}$ |
-| `einstein_tensor_4d` | `(Ric, g, scalar)` | $G_{\mu\nu} = R_{\mu\nu} - \tfrac12 g_{\mu\nu} R$ |
-| `kretschmann_4d` | `(R, g)` | $K = R^{mnpq}R_{mnpq}$ (the coordinate-independent curvature invariant) |
-| `gamma_gamma_4d` | `(mfn, x, h=H_FD)` | $\max\lvert\Gamma\Gamma\rvert$ — the non-linear (cubic) self-gravity part of the Riemann (0 for flat, $>0$ for a curved metric) |
-| `metric_flat` / `metric_de_sitter` / `metric_schwarzschild` / `metric_2sphere` | `(x)` / `(H, x)` / `(M, x)` / `(r, x)` | the 0-parameter metric factories (the known solutions, each a 4×4) |
-| `discrete_eh_action` | `(mfn, grid, Lambda, h=H_FD)` | $S = \frac{1}{16\pi}\sum_x \sqrt{-\det g(x)}\,(R(x)-2\Lambda)$ (the complete 0-parameter discrete EH action, $G=1$) |
-| `dynamics_from_action` | `(mfn, Lambda, x0, h=H_FD, eps=1e-4)` | the **functional derivative** $\delta S/\delta g$ (the numerical Euler–Lagrange) — the non-linear Einstein equation: vanishes on a solution (flat), nonzero on a curved metric (the self-gravity source) |
-| `nonlinear_qca` | `(L=16, n_steps=12, x0=None, seed=0, lam=G10, tol=1e-12)` | the **non-linear** (state-dependent) QCA metric evolution → `{norm_rel_err, superpose_err, unitary_ok, nonlinear_ok, causal_ok, front_speed, g10, lam, residual, ok}` (norm preserved to machine precision; the superposition fails) |
-| `verify_analytic_vs_computed` / `verify_blackhole` / `verify_flat` / `verify_nonlinear` | `(h=H_FD)` | the 2-route checks: the computed vs analytic de Sitter Riemann; the Schwarzschild vacuum ($G=0$ by computation) + the computed Kretschmann; the flat vacuum; the ΓΓ self-gravity (absent for flat, present for de Sitter) |
-| `verify` | `(tol=1e-9)` | the complete 4-D non-linear gravity verdict (all the checks above + the non-linear QCA) |
-
-**`cl10.numrel` — the 3+1 BSSN/Z4 numerical relativity (V51, C2, W9).**
-
-The **complete** 3+1 numerical relativity (the BSSN/Z4 completion of the W9
-gap): the 3+1 Ricci **0-row** $(R_{00}, R_{0i})$ — the **constraints** $H, M$
-of the 4-D Einstein tensor — is **2-route verified** (the 4-D Riemann,
-`cl10.gravity`, vs the 3+1 $(\gamma, K)$ decomposition — $K_{ij} =
--\tfrac12\partial_0\gamma_{ij}$, the 3+1 Christoffels $\Gamma^{(3)}$ —
-agreeing to $O(h^2)$, residual $\sim 10^{-13}$); the **Z4**
-constraint-damping (a perturbed constraint decays to 0; the undamped case
-does not); the **non-linearity** (the Ricci 0-row is quadratic in $K$, so
-superposition fails); and the **UV-finite** property (the 3+1 quantities are
-bounded by the lattice cutoff).  The **open** part of W9 is now only the
-**quantum** completion.
-
-| symbol | signature | returns |
-|---|---|---|
-| `H_FD` / `DAMP` | (module constants) | the 0-parameter finite-difference step ($10^{-3}$, a *numerical* convergence parameter) / the Z4 damping rate ($1$) |
-| `gamma` / `K` | `(g4fn, x)` / `(g4fn, x, h=H_FD)` | the spatial 3×3 metric $\gamma_{ij} = g_{ij}$ / the extrinsic curvature $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$ (the 0-parameter gauge $\alpha=1$, $\beta=0$) |
-| `G3` / `R3` | `(g4fn, x, h=H_FD)` | the 3+1 Christoffels $\Gamma^{(3)a}{}_{ij}$ / the **3-D Riemann** $R^{(3)a}{}_{bcd}$ (the BSSN $\mathscr{R}$) |
-| `ricci_0row_4d` / `ricci_0row_3p1` | `(g4fn, x, h=H_FD)` | **Route 1** (the 4-D Riemann, `cl10.gravity`) / **Route 2** (the 3+1 $(\gamma, K)$) 0-row $(R_{00}, R_{0i})$ — the 2-route verification agrees to $O(h^2)$ |
-| `constraints` | `(g4fn, x, h=H_FD)` | the 3+1 **constraints**: the **Hamiltonian** $H = {}^{(3)}\!R + K^2 - K_{ij}K^{ij}$ and the **momentum** $M_i = D_j K^j{}_i - D_i K$ |
-| `verify_2route` | `(g4fn, n_pts=24, h=H_FD, tol=1e-4, seed=11)` | the **2-route** check over `n_pts` random points → `{max_r00, max_r0i, h2, ok}` |
-| `nonlinear_superpose` | `(a_fn, b_fn, x, h=H_FD, tol=1e-8)` | the **non-linearity**: the 0-row of the sum metric $(a+b)$ vs the sum of the 0-rows (fails) |
-| `z4_damping` | `(g4fn, x, n_steps=20, h=H_FD, lam=DAMP)` | the **Z4** damping → `{H0, damped_final, undamped_final, damped_ratio, undamped_ratio, ok}` (the damped $H$ decays, the undamped does not) |
-| `uv_finite` | `(g4fn, x, h=H_FD)` | the **UV-finite** (bounded) check → `{max_abs, bounded, ok}` |
-| `metric_31` | `(x)` | the 3+1 **test** metric (a spatial + time-dependent $\gamma_{ij}$ with an off-diagonal term) |
-| `verify` | `(tol=1e-4, seed=11)` | the complete 3+1 NR verdict (the 2-route 0-row + the Z4 damping + the non-linearity + the UV-finite property) |
-
-**`cl10.unification` — the 2-loop running (V47, W4).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `running_2loop` | `()` | `{backend, qca_2step_unitary_residual, qca_2particle_bounded, qca_2particle_max_offdiag, pert_1loop_landau_pole, pert_2loop_landau_pole, pert_2loop_divergent, uv_finite, residual}` — the **2-loop** running: the **UV-finite** QCA (the 2-step is unitary, the 2-particle is bounded) vs the **UV-divergent** perturbative QFT (the 2-loop Landau pole is below M_P) |
-
-**`cl10.smatrix` — the n-particle amplitudes (V48, W9).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `n_particle` | `()` | `{backend, n1_unitary_residual, n2_unitary_residual, n3_unitary_residual, n4_unitary_residual, n1_bounded, uv_finite, residual}` — the **3- and 4-particle** amplitudes: the n-particle S-matrix is the Kronecker product of the 1-particle, so it is unitary (0) for all n (the **UV-finite** property, the n-step is bounded for all n) |
-
-**`cl10.yukawa_3x3` — the quark CKM, honestly (V49, W6).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `quark_ckm` | `()` | `{backend, up_eigenvalues, down_eigenvalues, two_level, ckm_unitary, ckm_is_identity, ckm_computed_angles, sin2_12, sin2_23, sin2_13, obs_ckm, dev_ckm, residual}` — the quark mass matrices on the democratic base (the 2-level structure, 0-parameter). **Honest:** with H_u = H_d both democratic the computed CKM **is the identity** (`ckm_is_identity: true`), not the TBM; a non-trivial CKM needs an up/down misalignment the democratic base does not supply — that is the W6 named residual |
-
----
-
-## 13. `cl10.parameter_audit` — the honest parameter audit (V52)
-
-The **solution to the four limits of the theory**.  All numerics on
-the **CuPy** GPU engine; the root cross-checked by a **second route** (the
-symbolic `kingdon` $\mathrm{Cl}(10,0)$).
-
-| symbol | signature | returns |
-|---|---|---|
-| `kingdon_2route` | `()` | `{backend, kingdon_available, kingdon_sq_minus_1, kingdon_anticommute, kingdon_w2_scalar, pauli_sq_minus_I, pauli_anticommute, pauli_w2_plus_I, two_route_agree}` — the **2-route root**: the symbolic, exact `kingdon` $\mathrm{Cl}(10,0)$ ($e_a^2=1$, $\{e_a,e_b\}=0$, $w^2=-1$) vs the numeric $32\times32$ symplectic-Pauli on the GPU |
-| `spectral_mirror` | `()` | `{backend, g10, n_levels, omega_min, omega_min_mass_GeV, omega_min_16weyl, levels_16weyl, w_pure_imaginary, commute_Uw, preserves_chiral_split, mirror_resid, mirror_ok, mirror_resid_all_g10, mirror_holds_for_all_g10, g10_grid, zp_16, zp_16bar, det_U_minus_1, sl32}` — the **16/16-bar spectral mirror = the spectral form of CPT**: $U$ commutes with the pseudoscalar (`[U,w]=0`, preserves the chiral split), and the **antimatter** spectrum is the **mirror** of the **matter** one, $\omega_{16\bar}=-\omega_{16}$, i.e. $\mathrm{spec}(U|_{16\bar})=\mathrm{spec}((U|_{16})^\dagger)=\overline{\mathrm{spec}(U|_{16})}$ (C = matter↔antimatter since $w$ is purely imaginary; T = $U\to U^\dagger$). **Holds for every 't Hooft angle** (`mirror_resid_all_g10`, `g10_grid`) — a 0-parameter property of the algebra, refining V24's CPT theorem |
-| `cp_odd_theorem` | `(n4_sample=200000, seed=0)` | `{backend, max_cpodd_2rot, max_cpodd_3rot, max_cpodd_4rot_sample, max_cpodd_b_sandwich, cpodd_democratic_yukawa, n4_sample, all_cp_odd_zero, sakharov, verdict}` — the **0-parameter CP-odd theorem**: every CP-odd (T-odd) invariant vanishes (2- and 3-rotation full, 4-rotation sample, every B-violating $h_i R_{ab} h_j R_{cd}$ sandwich full, rank-1 real democratic Yukawa) $\Rightarrow$ the QCA is CP-conserving, B-conserving, in equilibrium $\Rightarrow$ **none** of the 3 Sakharov conditions $\Rightarrow$ **no** baryon asymmetry (a theorem) |
-| `g10_status` | `()` | `{backend, g10_0param, n_qubits, mapping_convention, uv_finiteness_fixes_g10, pole_2loop_below_MP_for_all_g10, g10_is_free_t_hooft_angle, grid, verdict}` — $g_{10}$ is **not** fixed by the UV-finiteness (2-loop Landau-pole) condition (the pole is below $M_P$ for every $g_{10}$) $\Rightarrow$ the **one free** 't Hooft angle |
-| `hierarchy_status` | `()` | `{backend, v_over_EP_observed, v_over_EP_claimed_0param, match_rel_err, match_is_2digit_coincidence, omega_min, omega_min_mass_GeV, smallest_sub_planck_scale_is, spectrum_exponent_matches_observed, hierarchy_exists_0param, residual}` — the hierarchy **exponent** $-17$ is **not** in the single-step spectrum (the smallest level $0.0115$); the $0.18\%$ match of $2.02\times10^{-17}$ is a **2-digit coincidence**; the 0-parameter content is the **existence** of the hierarchy (W8) |
-| `dm_status` | `()` | `{backend, soliton_mass_GeV, abundance_gap_0param_over_obs, omega_min_mass_GeV, dm_observed_range_GeV, smallest_sub_planck_scale_above_observed_DM_orders, observed_DM_not_0param, residual}` — the **only** sub-Planck 0-parameter scale (the smallest spectral gap $\sim10^{17}$ GeV) is ~14 orders above the observed DM; the 0-parameter abundance gap $\sim10^{-52}$ (W7, quantified) |
-| `provenance_table` | `()` | `{backend, rows, counts_by_provenance}` — every "0-parameter" number **reclassified** by its true provenance: **algebraic_0param** (7), **free_1param** (1: the free 't Hooft angle $g_{10}$), **convention** (2: $g_0$, $M_{\rm GUT}=M_P$), **coincidence** (1: the $2.02\times10^{-17}$ match), **named_residual** (4) — the direct answer to "0-parameter is partly conventional" |
-| `verify` | `(tol=1e-9)` | `{backend, two_route, spectral_mirror, cp_odd_theorem, g10_status, hierarchy_status, dm_status, provenance_table, invariants_ok, limits_ok, ok}` — the full audit; `ok` when the 0-parameter invariants **hold** and the four limits are **quantified** |
-| `main` | `()` | runs the audit and prints the verdict |
-
-**What V59 adds (Section 13.7).**  The `g10_status` / `provenance_table`
-above are the audit's **baseline**: $g_{10}$ is the **one free** parameter of
-the dynamics.  `cl10.four_limits` (V59) adds the bookkeeping observation that
-the **algebra** itself has no free parameter — $g_{10}=1/5$ and $g_0=1/2^3$ are
-readings of the root.  They are **conventions**, not derivations: V56 shows the
-data prefer $n = 7$ over $n = 5$.  The named set is then 2 two-digit
-coefficients read from the data + 1 CP phase, plus the one 't Hooft angle of
-the dynamics (paper Section 14).
-
----
-
-## 13.5. The 10-loop / 2-loop / QCA-step refinement modules (V53–V58)
-
-The **loop-factor representations** of four named residuals.  The loop integer
-is **represented** (chosen so the 2-digit coefficient lands on the data), not
-computed: no loop expansion of the QCA exists (paper §10.1, W8).  All numerics
-on the **CuPy** GPU engine.
-
-**`cl10.hier_exponent` — the hierarchy exponent (V53, W8).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `loop_factor` | `(n=N_GEN)` | the $n$-loop factor $(1/16\pi)^n$; the **10** $= n_{\rm gen} = 2\times5$ (the 16/16-bar **chiral split** × the **5 qubits** of the 32-D module, $2^5 = 32$) — an identification, not a loop calculation |
-| `loop_ladder` | `()` | `{F10, n_gen, n_qubits, g10_as_2x5, hierarchy, dm}` — the **same** 10-loop factor $(1/16\pi)^{10} \approx 9.7\times10^{-18}$ gives **two** results: the **hierarchy** ($v/E_P = 2.08(1/16\pi)^{10}$) and the **DM mass** ($M_P(1/16\pi)^{10} = 118$ GeV) — **one factor, two results** |
-| `hierarchy17` | `()` | `{backend, loop_factor, n_gen, predicted_ratio, predicted_exponent, observed_ratio, observed_exponent, exponent_abs_diff, ratio_predicted_over_observed, scan, n_best_scan, nstep, loop_ladder, one_line}` — $v/E_P = 2.02\times10^{-17}$ **is** the 10-loop factor $\times 2.08$; the exponent $-17$ is obtained by **selecting** $n = 10$ (the $0.18\%$ match fixes the coefficient, not the exponent); the **2-digit** coefficient is **fitted** |
-| `verify` | `(tol=1e-9)` | `{r, ok}` — `ok` when the 2-digit ratio is in $[1/3,3]$ and the unique best loop count is $n_{\rm gen}=10$ |
-
-**`cl10.dm_wimp` — the sub-Planck DM scale (V54, W7).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `F10` | `()` | the 0-parameter 10-loop factor (same as V53) |
-| `relic_abundance` | `(m_GeV)` | the **normalised** relic abundance $\Omega h^2 = \Omega_{\rm obs}(100/m)^3$ — a normalisation anchored on the observed value at 100 GeV, **not** a computed freeze-out (the required $\langle\sigma v\rangle$ is not derived) |
-| `dm_wimp` | `()` | `{backend, F10, n_gen, M_P_GeV, m_DM_GeV, weak_scale_GeV, m_over_weak, omega_DM, omega_obs, omega_ratio_to_observed, v42_planck_omega, v42_planck_gap, v42_quantified_gap, one_line}` — $m_{\rm DM} = 1.18\,M_P(1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale, the $1.18$ **fitted**); the **V42** Planck-soliton gap (the $10^{-52}$) is **quantified**, not resolved |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when $10 \le m_{\rm DM} \le 1000$ GeV, $m_{\rm DM}/100 \in [1/3,3]$, and $0.02 \le \Omega_{\rm DM} \le 0.5$ |
-
-**`cl10.eta_cp` — the baryon asymmetry as a product of factors of three provenances (V55, W5).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `cp_odd_loop_factor` | `()` | the 0-parameter CP-odd **rate** factor $g_0^4/16\pi \approx 4.9\times10^{-6}$ — the **1-loop CP-odd** decay asymmetry $\varepsilon_{CP}$ ($g_0 = 1/8 = 1/2^3$, **3** = the spatial dimension) |
-| `eta_cp` | `()` | `{backend, loop_factor, structure, eta_CP_0param, eta_CP_observed, eta_CP_over_observed, g0, cp_odd_loop_factor, sphaleron, delta_B_0param, delta_B_observed, delta_B_ratio, delta_B_v40, delta_B_ratio_v40, one_line}` — the baryon asymmetry as a **product of factors of three provenances** $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ = an **input of the SM sector**, the LH d.o.f. count; the 1-loop CP-odd $\varepsilon_{CP} = g_0^4/16\pi$, a dimensional guess; the 2-loop dilution $D = (1/16\pi)^2$); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.12**, improved from V40's 2.8); `structure` = `{sphaleron, eps_CP, D_dilution, g0, g0_is_1_over_2_cubed, loop_count}`.  **Not** a computed vertex, and the out-of-equilibrium condition fails at the model's couplings (§11.3) |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 2-loop factor is within a factor 3 of the V40 value and the $\Delta B$ ratio is in $[1/3,3]$ (and improved on V40) |
-
-**`cl10.g10_selection` — the 1-loop $g_{10}$ data check (V56, W4).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `gut_1loop` | `()` | `{a_at_M_P, mean_GUT, spread}` — the 1-loop running **up** to $M_P$: the mean GUT coupling ($\sim0.023$) and the (non-unification) spread (the W4 named residual) |
-| `g10_selection` | `()` | `{backend, n_qubits, g10, alpha_10_0param, g10_matches_sm_qca, gut_1loop, ratio_to_1loop, best_n_1loop, n_closest_to_1loop, candidate_scan_gap, gap_root_n5, gap_best_n, fit_prefers_root, data_check_selects_n, one_line}` — the 0-parameter $g_{10}=1/5$ (a number of the root) gives $\alpha_{10}=1/25=0.04$, **within a factor 1.73** of the 1-loop GUT coupling; **honest scan**: the data-optimal candidate is $n=7$ (gap 0.12), **not** the root $n=5$ (gap 0.73) — `data_check_selects_n = False`, so the reading $1/n_{\rm qubits}$ is a **mapping convention**, not a fit |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when the 0-parameter $g_{10}$ matches the SM QCA and the ratio to the 1-loop GUT coupling is in $[1/3,3]$ |
-
-**Re-scored at the closed coupling (V135).** The same `gut_1loop` mean (0.023068)
-is compared against the coupling the closure axiom forces: at $g = \pi/4$ the
-rotation-squared convention gives $\alpha_{10} = \pi^2/16$ in rotation units,
-$\pi/64 = 0.049087$ in the SM normalisation, whose relative gap to the one-loop
-mean is **1.128** against **0.734** for $1/25$ — the closure worsens the tension
-by $1.54\times$ — and $\pi/64 = 1/n^2$ needs $n = 4.51$, so the $1/n^2$ selection
-rule and the closure axiom cannot both hold.
-
-**`cl10.neutrino` — the 2-step seesaw on the 10-loop ladder (V57, W2).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `loop_ladder` | `(n)` | the 0-parameter $n$-loop scale $M_P(1/16\pi)^n$ (the "one object") |
-| `dirac_mass` | `()` | the 0-parameter Dirac mass $m_D = M_P(1/16\pi)^{10} \approx 118$ GeV (the 10-loop / WIMP scale) |
-| `twostep_scale` | `()` | the 0-parameter 2-step (Majorana) scale $M_N = M_P(1/16\pi)^3 \approx 9.6\times10^{13}$ GeV (the $10^{14}$ scale, **replacing** the hard-coded $10^{14}$) |
-| `seesaw_2step` | `()` | `{backend, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_ladder_eV, m_nu_obs_eV, off_2step, right_order, ladder_match, exp_2step, residual}` — the 0-parameter 2-step seesaw $m_\nu = m_D^2/M_N = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.15$ eV (**2.9x** the observed; `exp_2step = 17` the 0-parameter loop identity) |
-| `twostep_unitary` | `(tol=1e-9)` | `{backend, n, unitary_err_1step, unitary_err_2step, two_step_unitary, uv_finite}` — the 2-step $U^2$ of the GUT QCA is a 0-parameter **unitary** (the 2-loop), computed on the GPU |
-| `verify` | `(tol=1e-12)` | `{ok, checks, seesaw, twostep}` — `ok` when the 10-loop Dirac = the DM/WIMP scale, the 2-step is unitary, the loop identity holds, and the result is the right order |
-
-**`cl10.uvrunning` — the UV-finite discrete RG (V58, W4).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `one_loop_running` | `(M)` | the 1-loop SM couplings at scale $M$ (the non-SUSY SM) |
-| `landau_poles` | `(M)` | the 1-loop Landau-pole scale of each coupling ($U(1)$ a real pole; $SU(2)/SU(3)$ asymptotically free) |
-| `two_loop_pole_u1` | `()` | the 2-loop $U(1)$ Landau-pole scale ($\sim10^{12}$ GeV, **below** the cutoff — the perturbative UV divergence) |
-| `discrete_rg` | `(max_power=8)` | `{backend, n, rows, all_bounded, two_step_unitary_err, two_particle_max_offdiag, two_particle_bounded}` — the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$): each step is **unitary** (bounded) (the GPU) $\Rightarrow$ the **discrete RG is UV-finite** (no Landau pole); the 2-particle S-matrix is bounded |
-| `w4_verdict` | `()` | `{backend, alpha_10, M_P_GeV, couplings_at_M_P, spread_at_M_P, one_loop_landau_poles, two_loop_u1_pole, u1_1loop_above_cutoff, u1_2loop_below_cutoff, discrete_rg, w4_resolved, residual, ok}` — the full W4: the 1-loop non-unification (the $U(1)$ pole) **resolved** by the UV-finite discrete RG |
-| `verify` | `(tol=1e-9)` | `{ok, checks, verdict}` — `ok` when the discrete RG tower is all bounded, the 2-step is unitary, and the 2-loop $U(1)$ pole is below the cutoff (the W4 resolution) |
-
-
-## 13.7. `cl10.four_limits` — the four limits and their common object (V59)
-
-The four "limits" of the theory are treated as the **four projections of one
-invariant**, $10 = 2\times5$ (the chiral $16/16$-bar split $\times$ the 5 qubits
-of the 32-D module), **plus one irreducible CP phase**.  Computed on the GPU.
-This is **bookkeeping**: it groups the residuals, it does not derive any of
-their values (paper Section 14).
-
-| symbol | signature | returns |
-|---|---|---|
-| `invariance_g10` | `()` | **L1** — `{backend, grid, max_mirror_residual_over_grid, max_abs_detU_dev_over_grid, g10_invariant, n_algebraic_invariants, free_angles, verdict}` — the 7 algebraic invariants are **$g_{10}$-invariant**: the 16/16-bar CPT-mirror residual stays $\sim1.8\times10^{-15}$ for $g_{10}=0.1..0.5$ (a property of the $\mathrm{Cl}(10)$ **algebra**, not of the free angle) |
-| `unique_10loop` | `(max_n=20)` | **L2+L4** — `{..., n_best, 5_is_qubit_count, unique_n_within_1decade_of_both, n_candidates_within_1decade, factor2_test_of_both_empty, coeff_hierarchy, coeff_dm, scan, verdict}` — the **same** $n=10$ is the **unique** $n\in1..20$ within **one decade** of **both** closures: the hierarchy ($2.08(1/16\pi)^{10}$) and the WIMP mass ($M_P(1/16\pi)^{10}=118$ GeV) — **two statements of one scale** (the strict factor-2 test of both is **empty**); the 2-digit coefficients are **named residuals** (computed from the data, not derived) |
-| `cp_phase_reduction` | `()` | **L3** — `{..., rank1_cp_phases, two_N_2flavor_cp_phases, cpodd_at_delta_0, cpodd_at_delta_pi4, cpodd_at_delta_pi2, minimal_cp_phases_required, delta_B_0param, delta_B_ratio, verdict}` — rank-1 (1 $N$) has **0** CP phases (no baryon); the 2-step (2 $N$) has **1** ($\mathrm{Im}\det(Y)=|\sin\delta|$) → baryogenesis needs **one** phase, $\Delta B = 6.8\times10^{-10}$ (ratio 1.12) |
-| `four_limits` | `()` | the **assembly** — `{backend, unifying_invariant, L1_conventionality, L2_hierarchy_plus_L4_DM, L3_baryogenesis, coupling_provenance, residual_set, total_named_residuals, mapping_conventions, all_resolved, verdict}` — the **algebra** has no free parameter, while $g_{10}=1/5$ and $g_0=1/2^3$ are **conventions**; the named residual set is **2 two-digit coefficients** (2.08, 1.18, read from the data) + **1 CP phase** + the mapping conventions + the one 't Hooft angle of the dynamics; the $\delta\leftrightarrow g_{10}$ identification is **false** (the QCA $U(g_{10})$ is real / CP-even) |
-| `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` when L1 is $g_{10}$-invariant, the unique $n=10$ is within one decade of both closures, and the CP-phase count is 0 (rank-1) / 1 (2-step) |
-| `main` | `()` | runs the module, prints the L1 / L2+L4 / L3 results + the reduced residual set + the verdict, returns `0` if `ok` |
-
----
-
-## 13.8. `cl10.cosmology` and `cl10.electroweak` (V34, V32)
-
-**`cl10.cosmology` — the cosmological constant and the hierarchy (V34).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `cosmological_constant` | `()` | `{backend, n_even=512, n_odd=512, cancellation, lambda_0param=0.0, lambda_0param_natural=1.0, lambda_obs=1e-122, w=-1.0, residual=1e-122}` — the $\mathbb{Z}_2$ grading is **512 even / 512 odd**, each mode carrying a $0$-point $\pm\tfrac12$, so the tree-level vacuum energy cancels **exactly**; the residual is the observed $10^{-122}M_P^4$ (W1) |
-| `hierarchy` | `()` | `{backend, E_P=1.22e19, v=246.0, v_over_EP_0param=2.02e-17, observed=2.016e-17, rel_err=1.8e-3, vast_gap, residual}` — the $v/E_P$ match; the residual is the **derivation of the exponent** (W8) |
-| `verify` | `(tol=1e-9)` | the V34 verdict |
-
-**`cl10.electroweak` — the QCA$\to$QFT correspondence and the electroweak sector (V32).**
-
-| symbol | signature | returns |
-|---|---|---|
-| `qca_step_spectrum` | `(theta=0.2)` | `{backend, theta, n_levels=32, spectrum_spread, unitary_err, effective_action}` — the QCA step as the QFT time-evolution (the 't Hooft dictionary) |
-| `electroweak_breaking` | `()` | `{backend, g10, g2, gprime, vev_v=246.0, m_W=87.2, m_Z=110.3, sin2_w=0.375, mw_over_mz=0.791, electroweak_breaking_ok}` — the breaking **at the GUT angle**: $\sin^2\theta_W = 3/8$ is the unification-scale boundary condition, and $m_W, m_Z$ here are the tree-level values at that scale, **not** the measured $80.4/91.2$ GeV.  The low-energy values require running, which the theory does not currently perform consistently (§11.1) |
-| `verify` | `(tol=1e-9)` | the V32 verdict |
-
----
-
-## 13.9. `cl10.supercell` — the automaton: the block cell, the step, the zone (V36, V63, W9)
-
-The lattice-chirality check the suite had never run: does the **implemented**
-step carry a single chiral 16 sector, or does the Nielsen–Ninomiya doubling
-survive?  It does not evade the theorem by hypothesis (no lattice Dirac
-operator), so the question is answered on the spectrum.  Because the step is
-one time-independent operator on the block lattice, its Bloch decomposition is
-exact at every step.  Protocol and cross-validation: `doc/reference.md` §5.
-
-| symbol | signature | returns |
-|---|---|---|
-| `NSUB`, `NINT`, `NONSITE`, `NSECTOR_ONSITE` | — | 8, 32, 256, 128 — the cell content |
-| `STAGES` | — | the six stages `[(intra,0),(inter,1),(intra,2),(inter,0),(intra,1),(inter,2)]` |
-| `internal` | `(g10=G10)` | the 32×32 internal unitary |
-| `sectors` | `(g10=G10)` | `(B, U32, U16)` — the pseudoscalar $+i$ basis $B$ (the 16), the internal step on the 32, and $U_{16} = B^\dagger U_{32}B$ |
-| `stage_matrix` | `(even, j, q, g10=G10)` | the 8×8 sub-site matrix of one bond stage at block momentum $q$ (an inter-block pair carries $e^{\pm iq_j}$) |
-| `bloch` | `(q, U, g10=G10, stages=STAGES)` | the exact one-step Bloch matrix $M(q)$ — $256\times256$ on the module, $128\times128$ on the 16 |
-| `phases`, `gap`, `degeneracy` | `(q, U, \dots)` | the one-step eigenphases, the gap, the multiplet structure at $q$ |
-| `internal_layer`, `bond_layer`, `stage`, `step`, `run` | `(fields, U, \dots)` | the real-space evolution on an $(L,L,L)$ block torus (fields of shape $(L,L,L,8,n)$) |
-| `GAMMA`, `X_POINTS`, `M_POINTS`, `R_POINTS`, `HIGH_SYM`, `star`, `stabilizer_order` | — | the block-zone high-symmetry momenta with their cubic stars and little groups (M: star 12, $C_{2v}$ — the gapless nodes; R: star 8, $C_{3v}$ — the exactly 3-fold multiplets) |
-| `verify` | `(tol=1e-9)` | the V63 verdict: sector leakage $<10^{-15}$, Bloch-vs-torus $<10^{-14}$ (both backend-dependent: $5.7$–$7.0\times10^{-16}$ and $7.4$–$9.8\times10^{-15}$ on cupy/numpy), $\mathrm{gap}(\Gamma) = 0.036499$ per step, 12 M-point nodes with gap $2.0\times10^{-4}$ and chirality sum $0$, the R-corner 3-fold multiplets, the $g_{10}$ scan.  `ok` is a statement about the **computation**; its physics content is a **negative** result for the bare step (the doublers are present, W9) |
-
-**At the closed angle (V132, V134).** Every symbol above takes the internal step
-as an argument (`U`, `g10`), so the closed angles are reached by
-`U = internal(g10=pi/4)` (or `pi/2`): `bloch` then gives the exactly closing
-step ($M(0)^2 = I$ below $1\times10^{-14}$), `gap`/`phases` give the **gapless
-census** — $\Gamma$ plus the six face-diagonal lines, 73 gapless points on a
-$13^3$ grid against 0 at $1/5$ — and the little-group data at $\Gamma$ (gapless
-subspace 64 of 128, four 1-dimensional bond constituents). At $\pi/2$ the bond
-layer is diagonal with the identity permutation: the step is a pure lattice
-translation, $M(0) = I$. The **chirality** part of `verify` (the $\pm1$ node
-charges and their sum) is a **point-node** convention and does not apply at
-$\pi/4$, where the nodes are not isolated; the count there is open (V132).
-
----
-
-
-## 14. `run_validation.py` — the verification runner
-
-| symbol | signature | returns |
-|---|---|---|
-| `find_experiments` | `()` | a list of the experiment directories under `experiments/` |
-| `run_one` | `(exp_dir)` | `{id, dir, tier, property, residual, pass, status, returncode, crashed, wall_time, verdict}` — runs one experiment and reads its JSON verdict |
-| `main` | `()` | runs all experiments (or a subset from `argv`), writes `results/validation_summary.json`, prints the hard-tier verdict, returns `0` if all pass |
-
-**The summary** (`results/validation_summary.json`) has:
-`{n, n_pass, pass, u10, u10_criterion, named_residuals, reduced_walls, experiments}`
-where `u10` is the runner's **hard-tier verdict** (the hard tiers 0–3 all pass;
-the paper does not use the `U10` label) and
-`named_residuals` lists **all** the named/quantified residuals (the exact
-values the theory does not derive — W1–W9: the cosmological constant, the seesaw, the families, the running, the Yukawa, the baryon asymmetry, the dark-matter scale, the hierarchy, the quantum sector).
-
-A **crash** (`returncode != 0`) invalidates any verdict JSON left on disk from a
-previous run — the runner reports `CRASH (rc=…): <last stderr line>` instead of a
-stale PASS, and writes the **full** traceback to
-`results/crashes/<experiment>.log` (the one-line status cannot localise a
-backend-dependent failure).
-
-**Usage:**
-
-```bash
-python3 run_validation.py              # all 103 experiments, in 12 categories, in parallel
-python3 run_validation.py V11 V24      # a subset: **exact directory names** (--jobs N caps the pool)
-python3 run_validation.py --report-only  # roll up the verdict JSONs on disk, run nothing
-```
-
----
-
-## 15. The simulation packages (V62)
-
-**`simulation.young` — the double slit as a single-electron measurement (Fig. 1).**
-
-| symbol | signature | role |
-|---|---|---|
-| `wave.WaveSim` | `(config)` | the 3-D FDTD leapfrog on the 6-neighbour discrete Laplacian (`r = 0.5` CFL), the source matched to the FDTD dispersion, the quadratic absorbing sponge, the double-slit barrier |
-| `collapse.Collapse` | `()` | `sample` (Born-rule inverse-CDF draw of one detection point from the time-integrated on-screen $\psi^2$), `contract` (the non-unitary wave-packet reduction), `add` (the accumulated detections) |
-| `runner` / `__main__` | — | the headless run (PyVista off-screen render) and the live VisPy window |
-
-```bash
-python -m simulation.young                 # headless -> simulation/young/video/
-python -m simulation.young --interactive   # live VisPy window
-```
-
-**`simulation.hydrogen` — the hydrogen atom driven by the lattice photon (V61, V62; Fig. 2).**
-
-| symbol | signature | role |
-|---|---|---|
-| `qca` | — | the free CL10 massless 3-D field (the 6-neighbour leapfrog), the discrete Laplacian and the field observables |
-| the atom model | — | the real Rydberg levels $E_n = -13.606/n^2$ and eigenfunctions $R_{nl}Y_{lm}$ on a $296^3$ grid, the Fermi-golden-rule dipole drive with a Lorentzian line shape, the Einstein-$A$ re-emission |
-| observables | — | `populations`, `atom_energy`, `excited_fraction`, `electron_density` $=|\psi|^2$, `photon_density` $=|F|^2+|F_{\rm out}|^2$ |
-
-```bash
-python -m simulation.hydrogen     # -> simulation/hydrogen/video/ (stills + mp4; git-ignored)
-python3 experiments/phenomenology/V62_hydrogen_production/V62_hydrogen_production.py   # the production run -> Fig. 2
-```
-
-The atom's knobs (`A`, `h`, `gamma`) are physical parameters of the atom, not
-fits to data.  The atomic spectrum is an **input of atomic physics**: the
-experiment tests that the CL10 photon couples to it correctly (the gaps, the
-E1 selection rules, the resonant absorption and the re-emission), not that the
-theory derives hydrogen.
+| json `pass` | the verdict |
+| json `status` | one-line statement of what was measured |
+| json `tier` | 0–3 the hard tier (the root, the kinematics, the dynamics, the matter, the $5/3$); 4–6 supporting |
+| json `property` | the paper property it validates |
+| json `residual` | `true` when the experiment reports an open problem |
+| json `wall_time` | seconds |
+
+`run_validation.py` aggregates them into `results/validation_summary.json` and
+prints the hard-tier verdict plus the named residuals. A subset run folds the
+untouched experiments in from the verdicts on disk, so the rollup stays complete.

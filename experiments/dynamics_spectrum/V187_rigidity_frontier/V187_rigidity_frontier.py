@@ -46,6 +46,7 @@ import json
 import math
 import os
 import sys
+import time
 
 # BEFORE the numpy import: a forked worker inherits the parent's OpenBLAS
 # pool, so the parent must be single-threaded from the start, or every
@@ -126,6 +127,7 @@ def main():
     smoke = os.environ.get("CL10_SMOKE", "") == "1"
     out = {"experiment": "V187_rigidity_frontier", "checks": []}
     checks = out["checks"]
+    t0 = time.time()
 
     # ---- T1: rebuild the V186 scan, rank by comm_ratio at the tuned point.
     pool = V186.bond_pool(n_random=(2 if smoke else 40),
@@ -254,14 +256,29 @@ def main():
                    and all(math.isfinite(s) for s in slopes)))
     out["data"]["ray_slopes"] = slopes
 
-    out["verdict"] = all(ok for _, ok in checks)
-    for name, ok in checks:
-        print(("  [PASS] " if ok else "  [FAIL] ") + name)
-    print("  VERDICT:", "PASS" if out["verdict"] else "FAIL")
+    ok = all(o for _, o in checks)
+    out["pass"] = ok
+    out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
+    out["status"] = (
+        "RIGIDITY FRONTIER (cone programme, Phase 2c): %d sweep points around "
+        "the %d top-comm bonds; no point is gapless with comm_ratio > 0.5; the "
+        "frontier gap_min(c) is monotone with a floor of %s at c = 0.5; the ray "
+        "slopes toward the implemented gapless point are not systematically "
+        "positive (median %.2f, %d/%d positive). Gaplessness and non-commuting "
+        "tangent algebras are mutually exclusive over the axis-covariant "
+        "entangling space: the nodal-plane structure is a rigidity phenomenon "
+        "(the V185 separation lemma, the V186 scan, this measurement)."
+        % (npts, len(top_bonds),
+           ("unreachable" if frontier[0.5] is None else "%.1e" % frontier[0.5]),
+           med, npos, len(slopes)))
+    out["wall_time"] = time.time() - t0
+    for name, o in checks:
+        print(("  [PASS] " if o else "  [FAIL] ") + name)
+    print("  VERDICT:", "PASS" if ok else "FAIL")
     os.makedirs(RESULTS, exist_ok=True)
     with open(os.path.join(RESULTS, "v187_rigidity_frontier.json"), "w") as f:
         json.dump(out, f)
-    return 0 if out["verdict"] else 1
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

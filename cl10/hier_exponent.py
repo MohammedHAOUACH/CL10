@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-CL10 — the hierarchy exponent -17: the 0-parameter 10-loop derivation (V53, W8).
+CL10 — the hierarchy exponent -17: the 0-parameter 10-loop derivation (V53, O8).
 
-The W8 residual (Section 13): the **derivation** of the hierarchy exponent
+The O8 residual (Section 13): the **derivation** of the hierarchy exponent
 ($v/E_P \sim 10^{-17}$).  The 0-parameter ratio $v/M_P = 246/1.22e19 =
 2.02e-17$ matches the observed $2.016e-17$ to 0.18%, but V52 flagged that as a
 **2-digit coincidence** (two independent 0-parameter inputs whose ratio happens
@@ -39,7 +39,7 @@ gap.
 
 **The honest 0-parameter result.**  The **exponent** -17 is a 0-parameter
 derivation ($n_{\rm gen} \times$ the 1-loop factor); the **exact** 2-digit
-coefficient is the named residual.  This **resolves** the W8 exponent (it is no
+coefficient is the named residual.  This **resolves** the O8 exponent (it is no
 longer a bare 2-digit coincidence) and is **unified** with V54 (the same
 10-loop factor gives the sub-Planck DM scale).
 """
@@ -78,8 +78,8 @@ def loop_ladder():
     The **same** 10-loop factor $(1/16\\pi)^{10}$ gives **two statements of
     one 0-parameter scale** (the "9-to-1" of the root):
 
-    - the **hierarchy**  $v/E_P = 2.08 (1/16\\pi)^{10}$  (W8);
-    - the **DM mass**    $m_{\\rm DM} = M_P (1/16\\pi)^{10} \\approx 118$ GeV (W7).
+    - the **hierarchy**  $v/E_P = 2.08 (1/16\\pi)^{10}$  (O8);
+    - the **DM mass**    $m_{\\rm DM} = M_P (1/16\\pi)^{10} \\approx 118$ GeV (O7).
 
     The **2-digit** coefficients (2.08 and 1.18) are the named residuals.
     """
@@ -143,7 +143,7 @@ def nstep_spectrum(max_n=100, target=2.02e-17):
 
 
 def hierarchy17():
-    """The W8 result: the hierarchy exponent -17 as the 0-parameter 10-loop
+    """The O8 result: the hierarchy exponent -17 as the 0-parameter 10-loop
     suppression $(1/16\\pi)^{10}$.  Returns the 0-parameter prediction, the
     observed ratio, the exponent match, and the $n = 1..20$ scan (showing
     $n = n_{\\rm gen} = 10$ is the unique best)."""
@@ -212,7 +212,7 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the hierarchy exponent -17 (the 0-parameter 10-loop derivation, W8)")
+    print("CL10 - the hierarchy exponent -17 (the 0-parameter 10-loop derivation, O8)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  0-parameter 1-loop factor 1/16pi = {d['loop_factor']:.4f}")
@@ -225,7 +225,7 @@ def main():
     ns = d["nstep"]
     print(f"  n-step spectrum:  min level (n<=100) = {ns['min_level_small_n']:.2e}  "
           f"(not at the target 2.02e-17; a Diophantine n ~ {ns['n_diophantine_est']:.1e} would be needed)")
-    print(f"  VERDICT:  {'PASS (the exponent -17 is 0-parameter-derived; the 2-digit coefficient is the named residual)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the exponent 17 = 2*10-3 has the exact structure; the crossing at n = 10 is selected by the data and the coefficient is conditional - the open problem O8)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

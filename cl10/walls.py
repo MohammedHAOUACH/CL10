@@ -1,45 +1,51 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — resolving the three walls (W1, W2, W3).
+CL10 — the three named walls and their current status (Section 16).
 
-The **0-parameter** mechanisms that **reduce** each named wall to a
-**0-parameter candidate** with a **named** residual (the grand-physicist plan,
-see ``doc/publication.md``, Section 13, Table 2):
+The wall labels W1-W8 of the earlier drafts are the **open problems O1-O9** of
+``doc/final_publication.md``, Section 16.  The mapping for the three treated
+here: **W1 -> O1** (the cosmological constant), **W2 -> O2** (the neutrino
+masses), **W3 -> O3** (the family number).  What the mechanisms below establish
+is a *mechanism*, never the observed value: each function returns the number
+the mechanism gives and the named residual that is left.
 
-- **W1 — the cosmological constant.**  The $\\mathbb{Z}_2$ grading of the
-  $\\mathrm{Cl}(10)$ is **$512$ even / $512$ odd (equal)**.  The **0-point
-  energy** of the two sectors **cancels** (the kinematic grading acting as
-  supersymmetry / the self-tuning *s-mechanism*), so the **0-parameter**
-  cosmological constant is **zero**.  The observed $10^{-122}$ is the *named*
-  fine-tuning (the breaking of the cancellation by the spacetime).
+- **O1 (W1) — the cosmological constant.**  The ``Z_2`` grading of the
+  ``Cl(10)`` is **512 even / 512 odd (equal)**, so the 0-point energy of the
+  two sectors **cancels** and the automaton's vacuum contribution is exactly
+  zero.  The observed ``1e-122`` is **not** produced by it: the cancellation is
+  exact, and how it is broken is the open problem.
 
-- **W2 — the seesaw scale.**  The sterile $N$ (the 1 of the 16) gets its
-  Majorana mass from the **2-step** GUT breaking ($M_N$ ~ $10^{14}$, the
-  intermediate scale between the GUT scale and the electroweak scale), and the
-  **Dirac** mass is the **0-parameter** $m_D = g_0 v$ ($g_0 = 1/8$).  The
-  **2-step seesaw** $m_\nu = m_D^2/M_N$ gives $m_\nu \\sim 10^{-2}$ eV — the
-  **right order** (100x better than the 1-step $m_D^2/M_{\rm GUT} \\sim 10^{-7}$
-  eV).
+- **O2 (W2) — the neutrino masses.**  The sterile ``N`` (the 1 of the 16) takes
+  its Majorana mass at an intermediate scale ``M_N ~ 1e14`` GeV and the Dirac
+  mass is ``m_D = g_0 v`` with the ``g_0 = 1/8`` reading, so the 2-step seesaw
+  gives the **right order**.  The ladder value ``m_nu = 0.146`` eV is
+  **excluded** by the measured ``sum m_nu < 0.12`` eV (the falsifier F3); the
+  ``1/3`` candidate ``0.0487`` eV is a candidate whose junction amplitude is
+  free inside a finite window.  ``M_N`` is **fitted**, not derived.
 
-- **W3 — the three families.**  The **family count** is the **0-parameter**
-  **3** of the **3 spatial directions** of the $(1,3)$ — the *same* number that
-  fixes the causal structure fixes the generation count (one 0-parameter number,
-  dual use).
+- **O3 (W3) — the three families.**  The number **3** is the count of spatial
+  directions and it *labels* the three copies of the 16; it does **not** force
+  the count: the cubic group is transitive on the 12 doubler nodes, and the
+  3-node triangle has a cubic orbit of 8.  The family number is an open
+  symmetry-breaking input.
 """
 
-# the 0-parameter scales (shared with u10pred)
-M_PLANCK = 1.22e19     # GeV (the GUT scale = the Planck scale)
-V_EW = 246.0           # GeV (the electroweak scale)
-G0 = 1 / 8.0          # the 0-parameter GUT coupling (the root)
+from . import coupling
+from . import u10pred
+
+# the scales of the sector (single source: u10pred; the reading: coupling)
+M_PLANCK = u10pred.M_PLANCK   # GeV (the cutoff; M_GUT = M_P is NOT assumed)
+V_EW = u10pred.V_EW           # GeV (the measured electroweak vev)
+G0 = coupling.G0              # 1/8 (the g_0 = 1/2^n_space reading: a convention)
 
 
 # ---------------------------------------------------------------------------
-# W1 — the cosmological constant (the Z2 cancellation / s-mechanism)
+# O1 (W1) — the cosmological constant (the Z2 cancellation / s-mechanism)
 # ---------------------------------------------------------------------------
 
 def w1_cosmological_constant():
-    """The 0-parameter cosmological constant.
+    """The vacuum cancellation behind the cosmological constant (the O1 mechanism).
 
     The $\\mathbb{Z}_2$ grading of the $\\mathrm{Cl}(10)$ gives **equal**
     even (512, bosonic) and odd (512, fermionic) sectors.  The **0-point
@@ -51,9 +57,9 @@ def w1_cosmological_constant():
     This is the **self-tuning** (s-mechanism): the flat vacuum is a saddle
     point of the energy, so the 0-point **does not gravitate**.
 
-    Returns a dict with the even/odd counts, the 0-parameter net
-    cosmological constant (zero), and the *named* residual (the observed
-    $10^{-122}$).
+    Returns a dict with the even/odd counts, the net vacuum contribution
+    (exactly zero), and the residual: the observed value is **not** produced
+    by the mechanism (the open problem O1).
     """
     n_even = 512            # the bosonic (even) sector
     n_odd = 512             # the fermionic (odd) sector
@@ -73,28 +79,29 @@ def w1_cosmological_constant():
 
 
 # ---------------------------------------------------------------------------
-# W2 — the seesaw scale (the 2-step GUT breaking)
+# O2 (W2) — the seesaw scale (the 2-step breaking, the fitted M_N)
 # ---------------------------------------------------------------------------
 
 def w2_seesaw():
-    """The 2-step seesaw (the 0-parameter $m_\nu$ at the right order).
+    """The 2-step seesaw: the right **order** for $m_\\nu$, not its value.
 
-    The **Dirac** mass is the 0-parameter $m_D = g_0 v$ ($g_0 = 1/8$).  The
-    **Majorana** mass $M_N$ of the sterile $N$ is set by the **2-step** GUT
-    breaking (the **intermediate** scale, $M_N \\sim 10^{14}$ GeV — between the
-    GUT scale $10^{19}$ and the electroweak scale $10^2$).  The **type-I
-    seesaw** gives $m_\nu = m_D^2 / M_N$.
+    The **Dirac** mass is $m_D = g_0 v$ with the $g_0 = 1/8$ **reading** (a
+    convention, Section 15).  The **Majorana** mass $M_N$ of the sterile $N$ is
+    set at an **intermediate** scale, $M_N \\sim 10^{14}$ GeV — **fitted**, not
+    derived (the open problem O2).  The **type-I seesaw** gives
+    $m_\\nu = m_D^2 / M_N$.
 
-    Returns a dict with $m_D$, $M_N$, the 2-step $m_\nu$ (the right order),
-    the 1-step $m_\nu$ (for comparison), and the *named* residual (the exact
-    $m_\nu$).
+    Returns a dict with $m_D$, $M_N$, the 2-step $m_\\nu$ (the right order),
+    the 1-step $m_\\nu$ (for comparison), and the residual: the exact $m_\\nu$
+    and the fact that the ladder value is excluded by $\\sum m_\\nu < 0.12$ eV
+    (the falsifier F3).
     """
-    m_D = G0 * V_EW                  # 30.7 GeV (the 0-parameter Dirac)
-    M_N = 1e14                       # the 0-parameter 2-step (intermediate) scale
-    M_GUT = M_PLANCK                 # the 1-step (full GUT) scale
+    m_D = G0 * V_EW                  # 30.7 GeV (the Dirac mass from the g_0 reading)
+    M_N = 1e14                       # the fitted intermediate scale (O2)
+    M_GUT = M_PLANCK                 # the cutoff, for the 1-step comparison
     m_nu_2step = m_D ** 2 / M_N * 1e9      # GeV -> eV
     m_nu_1step = m_D ** 2 / M_GUT * 1e9    # GeV -> eV
-    m_nu_obs = 0.05                        # the observed (eV)
+    m_nu_obs = 0.05                        # a representative observed scale (eV)
     off_1step = m_nu_1step / m_nu_obs      # the 1-step is ~6 orders off
     off_2step = m_nu_2step / m_nu_obs      # the 2-step is ~0.7 orders off
     return {
@@ -112,26 +119,26 @@ def w2_seesaw():
 
 
 # ---------------------------------------------------------------------------
-# W3 — the three families (the 3 = the 3 space)
+# O3 (W3) — the three families (the 3 labels the copies, it does not force the count)
 # ---------------------------------------------------------------------------
 
 def w3_families():
-    """The 0-parameter family count (the 3 = the 3 spatial directions).
+    """The family count: the 3 of the 3 spatial directions **labels** the
+    copies, it does **not** force the count (the open problem O3).
 
-    The **family count** is the **0-parameter** number **3** — the **3** of
-    the **3 spatial directions** of the $(1,3)$ causal structure.  Each
-    generation is a **copy** of the 16 Weyl associated with one spatial
-    direction.  The **same** 0-parameter number that fixes the causal
-    structure (the 3 of the 3 space) fixes the family count — one 0-parameter
-    number, dual use.
+    Each generation is a **copy** of the 16 Weyl, and the three copies are
+    indexed by the 3 spatial directions of the $(1,3)$ causal structure.  What
+    is NOT established: that the index forces the number.  The cubic group is
+    transitive on the 12 doubler nodes (the only cubic-symmetric split is the
+    full set, whose meeting scale is excluded), and the 3-node triangle has a
+    cubic orbit of 8.  The count is an open symmetry-breaking input.
 
-    Returns a dict with the time/space split, the 0-parameter family
-    candidate, the observed count, and the *named* residual (the why-3
-    derivation).
+    Returns a dict with the time/space split, the 3-family candidate, the
+    observed count, and the residual (the why-3 derivation, O3).
     """
     n_time = 1
     n_space = 3
-    n_fam_candidate = n_space          # the 0-parameter candidate (the 3)
+    n_fam_candidate = n_space          # the candidate (the 3 of the 3-space)
     n_observed = 3
     return {
         "n_time": int(n_time),
@@ -139,12 +146,12 @@ def w3_families():
         "n_fam_candidate": int(n_fam_candidate),
         "n_observed": int(n_observed),
         "match": bool(n_fam_candidate == n_observed),
-        "derived": True,             # now *derived* from the 0-parameter 3-space
-        "residual": "the derivation of why the family count = the spatial dimension",
+        "derived": False,             # the index labels the copies; it does not force the count
+        "residual": "O3: why the family count = the spatial dimension (an open symmetry-breaking input)",
     }
 
 def baryon_asymmetry():
-    """The 0-parameter QCA checked against the **Sakharov conditions**.
+    """The unitary QCA step checked against the **Sakharov conditions**.
 
     A **baryon asymmetry** (the matter excess over antimatter) requires, by the
     **Sakharov conditions** (1967), **three** ingredients:
@@ -153,19 +160,18 @@ def baryon_asymmetry():
     2. **C and CP violation** (the laws are not symmetric under C or CP);
     3. **departure from thermal equilibrium** (the dynamics is not reversible).
 
-    The **0-parameter QCA** satisfies **none** of the three:
+    The **unitary step** satisfies **none** of the three:
     - it is **unitary** (a product of local unitaries), so **all** global
       charges are conserved — baryon number and B-L are **exact** symmetries
       (no baryon-number violation);
     - it is **CPT-invariant** (the 16/16-bar CPT pair, V10) and **CP-conserving**
-      at 0-parameter (no C/CP violation);
+      at the level of the step (no C/CP violation);
     - it is **reversible** (unitary), so it stays in **equilibrium** (no
       departure from equilibrium).
 
-    Therefore the 0-parameter QCA **does not generate** the observed baryon
-    asymmetry — it is a **named** residual (the theory names it; it does not
-    derive it).  A baryon asymmetry would require a **beyond-0-parameter**
-    (CPT/CP-violating, non-unitary) process.
+    Therefore the step **does not generate** the observed baryon asymmetry —
+    the theory names it, it does not derive it.  A baryon asymmetry needs a
+    process beyond the unitary step (CPT/CP-violating, non-unitary).
     """
     return {
         "baryon_number_violated": False,   # unitary -> B conserved
@@ -181,26 +187,28 @@ def baryon_asymmetry():
 def main():
     import sys
     print("=" * 68)
-    print("CL10 - resolving the three walls (the 0-parameter mechanisms)")
+    print("CL10 - the three named walls: the mechanism and what is left (O1-O3)")
     print("=" * 68)
     w1 = w1_cosmological_constant()
-    print("\n  W1 (cosmological constant)  the Z2 512/512 cancellation:")
+    print("\n  O1 (W1) cosmological constant: the Z2 512/512 cancellation")
     print(f"    even/odd = {w1['n_even']}/{w1['n_odd']}  (equal: {w1['cancellation']})")
-    print(f"    0-parameter Lambda = {w1['lambda_0param']}  (the s-mechanism)")
-    print(f"    named residual: the observed {w1['lambda_obs']:.1e} (the fine-tuning)")
+    print(f"    vacuum contribution = {w1['lambda_0param']} (the exact cancellation)")
+    print(f"    left open: the observed {w1['lambda_obs']:.1e} is NOT produced by it")
     w2 = w2_seesaw()
-    print("\n  W2 (seesaw scale)  the 2-step GUT breaking:")
-    print(f"    m_D = g0*v = {w2['m_D_GeV']:.1f} GeV   M_N = {w2['M_N_GeV']:.0e} GeV (2-step)")
-    print(f"    2-step m_nu = {w2['m_nu_2step_eV']:.1e} eV  (observed {w2['m_nu_obs_eV']} eV)")
-    print(f"    1-step m_nu = {w2['m_nu_1step_eV']:.1e} eV  (the 2-step is the right order)")
+    print("\n  O2 (W2) the neutrino masses: the 2-step seesaw")
+    print(f"    m_D = g0*v = {w2['m_D_GeV']:.1f} GeV (the g_0 = 1/8 reading)   "
+          f"M_N = {w2['M_N_GeV']:.0e} GeV (fitted)")
+    print(f"    2-step m_nu = {w2['m_nu_2step_eV']:.1e} eV  (the right order; the ladder "
+          f"value is excluded by sum m_nu < 0.12 eV)")
+    print(f"    1-step m_nu = {w2['m_nu_1step_eV']:.1e} eV  (six orders off)")
     w3 = w3_families()
-    print("\n  W3 (3 families)  the 3 = the 3 space:")
+    print("\n  O3 (W3) the family number: the 3 of the 3 space labels the copies")
     print(f"    (1,3): {w3['n_time']} time + {w3['n_space']} space  ->  {w3['n_fam_candidate']} families")
     print(f"    candidate {w3['n_fam_candidate']} = observed {w3['n_observed']}  "
-          f"(derived: {w3['derived']})")
+          f"(forced by the index: {w3['derived']})")
     ok = (w1["cancellation"] and w1["lambda_0param"] == 0.0
           and w2["right_order"] and w3["match"])
-    print(f"\n  VERDICT:  {'PASS (the 3 walls reduced to 0-parameter mechanisms)' if ok else 'FAIL'}")
+    print(f"\n  VERDICT:  {'PASS (the 3 mechanisms hold; the observed values stay open: O1, O2, O3)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 
 

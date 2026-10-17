@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 r"""
 CL10 -- the **3+1 numerical-relativity** module (the **BSSN/Z4** completion
-of the W9 gap: the *complete* 3+1 NR **evolution** of an *arbitrary* 3+1
+of the O9 gap: the *complete* 3+1 NR **evolution** of an *arbitrary* 3+1
 metric, with the BSSN/Z4 **gauge-fixing** and the **constraint damping**).
 
-The **classical** part of W9 (the *general* 4-D Riemann/Ricci/Einstein/Kret-
+The **classical** part of O9 (the *general* 4-D Riemann/Ricci/Einstein/Kret-
 schmann **computed** from *any* metric, the 2-route verification, the black
 hole recovered by computation, the non-linear QCA metric dynamics) is
 **complete** in ``cl10.gravity`` (V50).  What remained open -- the **3+1
@@ -64,7 +64,7 @@ stability parameter, like the FD step -- not a physical coupling).
 **The named residual.**  The **quantum** completion (the UV of *quantum*
 gravity -- the lattice / path-integral of the 3+1 metric) is **not** the
 classical 3+1 NR (which is **complete** here); it stays a **named**
-residual (the W9 quantum part).
+residual (the O9 quantum part).
 """
 
 import numpy as np
@@ -464,7 +464,7 @@ def verify(tol=1e-4, seed=11):
         "ok": ok,
         "residual": ("the **quantum** completion (the UV of *quantum* "
                      "gravity: the lattice / path-integral of the 3+1 metric) "
-                     "is the **open** part of W9 -- the **classical** 3+1 "
+                     "is the **open** part of O9 -- the **classical** 3+1 "
                      "BSSN/Z4 numerical relativity (this module) is "
                      "**complete**: the 2-route 0-row agrees to $O(h^2)$, "
                      "the non-linearity (superposition fails), the Z4 "
@@ -481,7 +481,7 @@ def main():
     r = verify()
     r2 = r["two_route_0row"]
     print("=" * 72)
-    print("CL10 -- the 3+1 BSSN/Z4 numerical relativity (the W9 gap)")
+    print("CL10 -- the 3+1 BSSN/Z4 numerical relativity (the O9 gap)")
     print("=" * 72)
     print("  backend:  " + r["backend"])
     print("  [2-route] the 4-D Ricci 0-row (R_00, R_0i) by two routes:")
@@ -507,7 +507,7 @@ def main():
                "non-linear (superposition fails), Z4-damped, UV-finite)"
                if r["ok"] else "FAIL")
     print("  VERDICT:  " + verdict)
-    print("  NAMED RESIDUAL (W9):  " + r["residual"])
+    print("  NAMED RESIDUAL (O9):  " + r["residual"])
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     sys.exit(0 if r["ok"] else 1)
 

@@ -53,7 +53,7 @@ def main():
           and root["g10_matches_sm_qca"]
           and root["alpha_10_matches_u10pred"]
           and root["n_space"] == 3
-          and root["g0_matches_walls"]
+          and root["g0_matches_coupling"]
           and root["g10"] == 1.0 / 5.0
           and abs(root["alpha_10"] - 1.0 / 25.0) < 1e-12
           and abs(root["g0"] - 1.0 / 8.0) < 1e-12
@@ -64,9 +64,9 @@ def main():
         "id": "V38_couplings_root",
         "tier": 3,
         "property": "P3",
-        "residual": True,      # the 1-loop SM matching (W4) is the named residual, now quantified
+        "residual": True,      # the 1-loop SM matching (O4) is the named residual, now quantified
         "pass": bool(ok),
-        "status": "the_0_parameter_g10_and_g0_are_numbers_of_the_root_the_1loop_down_running_is_the_named_residual_quantified",
+        "status": "the_g10_and_g0_readings_are_root_numbers_the_1loop_down_running_is_the_named_residual_O4_quantified",
         "tol": TOL,
         "data": {
             "backend": root["backend"],
@@ -78,7 +78,7 @@ def main():
             "alpha_10_matches_u10pred": root["alpha_10_matches_u10pred"],
             "n_space": root["n_space"],
             "g0": root["g0"],
-            "g0_matches_walls": root["g0_matches_walls"],
+            "g0_matches_coupling": root["g0_matches_coupling"],
             "alpha_10_at_M_P": down["alpha_10_at_M_P"],
             "couplings_at_M_Z": down["couplings_at_M_Z"],
             "measured_at_M_Z": down["measured_at_M_Z"],

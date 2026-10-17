@@ -63,9 +63,14 @@ corners - one $O_h$ star - carry exactly 3-fold degenerate multiplets: the
 only exactly massless multiplets of the step, and the only exact degeneracy of
 the zone.
 
-**The one number.**  As in the unfolded construction, the only parameter of
-the whole step is $g_{10} = 1/5$; the cell, the cycle and the staggering are
-fixed by the algebra.
+**The one number.**  The only parameter of the whole step is the rotation angle
+$g_{10}$.  Two readings are kept apart (Sections 1.4 and 9): the **implemented**
+branch $g_{10} = 1/5$ - a convention, the branch on which the phenomenology is
+computed and the default of the repository - and the **closed** branch
+$g_{10} = \pi/4$, the order-8 step the closure axiom forces, where the zone
+centre is exactly gapless and $M(0)^2 = I$.  Select the branch with
+``CL10_ANGLE=implemented|closed|half``.  The cell, the cycle and the staggering
+are fixed by the algebra.
 """
 
 import math
@@ -75,7 +80,7 @@ import numpy as np
 from . import clifford
 from . import engine as E
 from . import sm_qca
-from . import u10pred
+from . import coupling
 
 # ---------------------------------------------------------------------------
 # the cell
@@ -86,7 +91,7 @@ NSECTOR = 16                   # the Weyl sector (the +i eigenspace of w)
 NONSITE = NSUB * NINT          # 256
 NSECTOR_ONSITE = NSUB * NSECTOR  # 128
 
-G10 = math.sqrt(u10pred.ALPHA_10)          # = 1/5, the 0-parameter GUT angle
+G10 = coupling.G10        # the active branch: 1/5 implemented, pi/4 closed (CL10_ANGLE)
 
 # the six stages of the one step: (intra-block?, axis)
 STAGES = [(True, 0), (False, 1), (True, 2),
@@ -227,13 +232,13 @@ def degeneracy(q, U, g10=G10, stages=STAGES, tol=1e-9):
 
 
 # ---------------------------------------------------------------------------
-# the real-space step (GPU)
+# the real-space step (runs on the active backend: cupy / jax / numpy)
 # ---------------------------------------------------------------------------
 
 def internal_layer(fields, U):
     """The internal layer: ``U`` on every sub-site of every block.
     ``fields`` has shape ``(L,L,L,8,32)`` (or ``(L,L,L,8,16)``)."""
-    return np.einsum("...ai,ij->...aj", fields, U)
+    return E.einsum("...ai,ij->...aj", fields, U)
 
 
 def bond_layer(fields, even, j, theta=G10):
@@ -244,12 +249,12 @@ def bond_layer(fields, even, j, theta=G10):
     c, s = math.cos(theta), math.sin(theta)
     bit = 1 << j
     if even:
-        S = stage_matrix(True, j, 0.0, theta)
-        return np.einsum("ab,...bi->...ai", S, fields)
+        S = E.Array_(stage_matrix(True, j, 0.0, theta))
+        return E.einsum("ab,...bi->...ai", S, fields)
     hi = [e for e in range(NSUB) if e & bit]
     lo = [e for e in range(NSUB) if not (e & bit)]
-    f_plus = np.roll(fields, -1, axis=j)     # the field of the next block
-    f_minus = np.roll(fields, 1, axis=j)     # the field of the previous block
+    f_plus = E.roll(fields, -1, j)          # the field of the next block
+    f_minus = E.roll(fields, 1, j)          # the field of the previous block
     out = c * fields
     out[..., hi, :] = out[..., hi, :] - 1j * s * f_plus[..., [e ^ bit for e in hi], :]
     out[..., lo, :] = out[..., lo, :] - 1j * s * f_minus[..., [e ^ bit for e in lo], :]
@@ -325,14 +330,18 @@ def verify(tol=1e-9):
     3. the **16 sector is closed by the step** (the bond stages act on the
        sub-site index, the internal layer is even): the 16 -> 16bar leakage
        is 0, and the 16bar spectrum is the exact conjugate of the 16;
-    4. the **zone structure**: GAMMA is gapped, the 12 **M** momenta are
-       gapless with paired chiralities, and every **R** corner carries an
-       exactly 3-fold degenerate multiplet;
+    4. the **zone structure of the active branch** (Sections 8.3 and 9):
+       implemented (g = 1/5) - GAMMA gapped (0.0365), the 12 **M** momenta
+       near-gapless (2.0e-4), every **R** corner an exactly 3-fold multiplet;
+       closed (g = pi/4) - GAMMA exactly gapless, the 12 M nodes exactly
+       gapless, and the zone-centre step an involution, M(0)^2 = I;
+       half (g = pi/2) - M(0) = I on the whole 128-dimensional space: the bond
+       layer is a pure translation (V134);
     5. the stars and little groups: the M momenta form a 12-point star (little
        group C2v, order 4), the 8 corners one star (little group C3v, order 6).
     """
     B, U32, U16 = sectors()
-    r = {"backend": E._BACKEND, "g10": float(G10)}
+    r = {"backend": E._BACKEND, "g10": float(G10), "branch": coupling.branch()}
 
     # 1. unitarity of the one-step matrix
     uerr = 0.0
@@ -380,6 +389,11 @@ def verify(tol=1e-9):
     r["R_degeneracy"] = [[v, m] for v, m in degeneracy(R_POINTS[0], U16)[:4]]
     r["R_first_mult"] = int(degeneracy(R_POINTS[0], U16)[0][1])
     r["R_mult_all"] = sorted({degeneracy(q, U16)[0][1] for q in R_POINTS})
+    # the closure of the one-step matrix at the zone centre (Section 9):
+    # M(0)^2 = I at the closed angle, M(0) = I at the half angle
+    M0 = bloch(GAMMA, U16)
+    r["M0_sq_minus_I"] = float(np.abs(M0 @ M0 - np.eye(len(M0))).max())
+    r["M0_minus_I"] = float(np.abs(M0 - np.eye(len(M0))).max())
 
     # 5. the little groups of the block zone
     r["little_M"] = stabilizer_order(M_POINTS[0])
@@ -387,11 +401,17 @@ def verify(tol=1e-9):
     r["star_M"] = len(star(M_POINTS[0]))
     r["star_R"] = len(star(R_POINTS[0]))
 
+    zone = {
+        "implemented": (r["gap_gamma"] > 1e-3 and r["n_M_gapless"] == 12
+                        and r["max_M_gap"] < 1e-3 and r["R_first_mult"] == 3),
+        "closed": (r["gap_gamma"] < 1e-12 and r["n_M_gapless"] == 12
+                   and r["max_M_gap"] < 1e-12 and r["M0_sq_minus_I"] < 1e-12),
+        "half": (r["M0_minus_I"] < 1e-12 and r["n_M_gapless"] == 12),
+    }[coupling.branch()]
     ok = (uerr < tol and r["causal_ok"] and r["causal_err"] < tol
           and leak < tol and block_err < tol
           and r["spectral_mirror_err"] < 1e-9
-          and r["gap_gamma"] > 1e-3 and r["n_M_gapless"] == 12
-          and r["R_first_mult"] == 3 and r["little_M"] == 4
+          and zone and r["little_M"] == 4
           and r["little_R"] == 6 and r["star_M"] == 12 and r["star_R"] == 8)
     r["ok"] = bool(ok)
     return r
@@ -405,7 +425,7 @@ def main():
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  on-site space:  {NSUB} sub-sites x {NINT} internal = {NONSITE}")
-    print(f"  the 0-parameter angle:  g_10 = {r['g10']}")
+    print(f"  the angle:  branch {r['branch']}   g_10 = {r['g10']:.6g}")
     print(f"  one-step unitarity:  {r['step_unitary_err']:.2e}")
     print(f"  light cone (blocks after k steps):  {r['front_radius']}  "
           f"(3 blocks = 6 Planck cells per step)")
@@ -414,6 +434,8 @@ def main():
     print(f"  16bar spectrum = conjugate of 16:  {r['spectral_mirror_err']:.2e}")
     print(f"  gap at GAMMA:  {r['gap_gamma']:.4f}   gapless M points: "
           f"{r['n_M_gapless']}/12 (max gap {r['max_M_gap']:.2e})")
+    print(f"  zone-centre closure:  |M(0)^2 - I| = {r['M0_sq_minus_I']:.2e}   "
+          f"|M(0) - I| = {r['M0_minus_I']:.2e}")
     print(f"  R-point multiplet:  {r['R_first_mult']}-fold (all R: {r['R_mult_all']})")
     print(f"  block-zone stars:  |star(M)| = {r['star_M']} (little group {r['little_M']}), "
           f"|star(R)| = {r['star_R']} (little group {r['little_R']})")

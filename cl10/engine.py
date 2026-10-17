@@ -12,6 +12,20 @@ every experiment in the project uses.  All the physics code goes through this
 one file, so the whole theory runs on the GPU (the RTX 3090) out of the box and
 degrades to CPU cleanly.
 
+Two rules the primitives enforce:
+
+* **Stay on the device.**  Every array primitive (``roll``, ``einsum``,
+  ``matmul``, ``kron``, ``eye``, ``zeros``) dispatches through the active
+  backend.  Calling ``np.roll``/``np.einsum`` on a CuPy or JAX array silently
+  copies it to the host, which is why the real-space automaton used to run on
+  the CPU whatever the backend was.  Host transfers happen only where they are
+  written down: ``asnumpy`` and the momentum-space eigensolvers (CuPy has no
+  batched eigendecomposition, so the Bloch matrices are diagonalised on the
+  host by design).
+* **Double precision everywhere.**  JAX defaults to float32/complex64; the
+  tolerances of this repository are 1e-12 and below, so the JAX branch enables
+  x64 before the first array is built.
+
 The declared stack (``ga`` in ``pyproject.toml``) is ``kingdon`` (GPU physics
 utilities), ``einops`` (the tensor reshapes), ``jax[cuda13]`` and
 ``cupy-cuda13x`` (the GPU backends).  ``einops`` is used for the einsum-style
@@ -65,8 +79,13 @@ except Exception:  # noqa: BLE001
     if not _FORCE_CPU and not _CUPY_PRESENT:
         try:  # the second GPU backend (JAX / XLA)
             os.environ.setdefault("XLA_PYTHON_CLIENT_MEM_FRACTION", "0.5")
+            # the repository works at 1e-12 and below: JAX's float32/complex64
+            # default would silently break every tolerance, so x64 is enabled
+            # before the first array is built.
+            os.environ.setdefault("JAX_ENABLE_X64", "1")
             import jax
             import jax.numpy as _jnp
+            jax.config.update("jax_enable_x64", True)
             jax.config.update("jax_platform_name", "gpu")
             _pj = _jnp.eye(64, dtype=_jnp.complex128)
             (_pj @ _pj).block_until_ready()
@@ -131,6 +150,17 @@ def matmul(a, b):
     return _E.matmul(a, b)
 
 
+def einsum(subscripts, *operands):
+    """``einsum`` on the active backend (a NumPy call on a device array copies
+    it to the host, so the QCA layers must go through here)."""
+    return _E.einsum(subscripts, *operands)
+
+
+def roll(a, shift, axis):
+    """``roll`` on the active backend (the bond layer's neighbour shift)."""
+    return _E.roll(a, shift, axis=axis)
+
+
 def real(x):
     return _E.real(x) if _BACKEND != "numpy" else x.real
 
@@ -153,10 +183,15 @@ def asnumpy(x):
 
 
 def einops_rearrange(x, pattern_in, pattern_out):
-    """einops rearrange (used when einops is available, else a NumPy fallback)."""
-    if _HAS_EINOPS:
+    """einops rearrange, on the active backend when einops supports it."""
+    if not _HAS_EINOPS:
+        raise RuntimeError("einops not installed (pip install einops)")
+    try:
+        return einops.rearrange(x, pattern_in, pattern_out)
+    except (TypeError, ValueError):
+        # einops has no backend for this array type: the reshape is a pure
+        # relabelling, so it is done on the host copy.
         return einops.rearrange(asnumpy(x), pattern_in, pattern_out)
-    raise RuntimeError("einops not installed (pip install einops)")
 
 
 # ---------------------------------------------------------------------------
@@ -167,25 +202,10 @@ def laplacian_3d(u):
     """The 6-neighbour discrete Laplacian on the **last 3** (spatial) axes of
     ``u`` (works for a ``(L,L,L)`` field or a ``(mu,nu,L,L,L)`` metric field)."""
     b = u.ndim - 3
-    up = (np.roll(u, -1, axis=b) + np.roll(u, 1, axis=b)
-          + np.roll(u, -1, axis=b + 1) + np.roll(u, 1, axis=b + 1)
-          + np.roll(u, -1, axis=b + 2) + np.roll(u, 1, axis=b + 2))
+    up = (roll(u, -1, b) + roll(u, 1, b)
+          + roll(u, -1, b + 1) + roll(u, 1, b + 1)
+          + roll(u, -1, b + 2) + roll(u, 1, b + 2))
     return (up - 6 * u)
-
-
-def qca_step(fields, unitaries):
-    """One QCA step: apply the local unitaries (a product of 2x2 or 4x4 gates).
-
-    ``fields`` is a 4-D array (x, y, z, internal); each gate in ``unitaries`` is
-    applied on the internal (last) axis.  The product of local unitaries is
-    exactly the QCA dynamics of the theory.
-    """
-    out = fields
-    for U in unitaries:
-        n = U.shape[0]
-        out = np.einsum("...ij,jk->...ik", out.reshape(*out.shape[:-1], -1, n)
-                        if out.shape[-1] == n else out, U)
-    return out
 
 
 def spectral_laplacian(k, L):

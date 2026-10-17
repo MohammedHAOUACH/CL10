@@ -67,12 +67,12 @@ def main():
         "id": "V59_four_limits",
         "tier": 6,
         "property": "P1",
-        "residual": True,   # 0 free in the algebra; 3 named (2 two-digit coeffs + 1 CP phase) + the mapping conventions (Point 1)
+        "residual": True,   # 0 free in the algebra; 3 named (2 two-digit coeffs + 1 CP phase) + 3 mapping conventions
         "pass": ok,
         "status": ("the_4_limits_reduce_to_0_free_parameters_IN_THE_ALGEBRA_(the_7_invariants_hold_for_every_g10)"
-                   "plus_1_t_Hooft_angle_of_the_dynamics_whose_selected_value_g10=1/5_is_a_0-parameter_selection_rule;"
+                   "plus_1_t_Hooft_angle_of_the_dynamics_whose_value_g10=1/5_is_a_mapping_convention_not_a_selection_rule;"
                    "the_4_limits_are_the_4_projections_of_one_0-parameter_invariant_10=2x5_plus_one_CP_phase;"
-                   "reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_read_from_data_and_1_CP_phase)_plus_2_mapping_conventions;"
+                   "reduced_to_3_named_(2_two-digit_coeffs_2.08_1.18_read_from_data_and_1_CP_phase)_plus_3_mapping_conventions;"
                    "unique_n=10_within_one_decade_of_both_statements_of_one_scale_(the_strict_factor2_test_is_empty);"
                    "baryogenesis_needs_one_CP_phase_(the_0-param_QCA_alone_gives_zero_by_the_CP-odd_theorem);"
                    "delta_is_INDEPENDENT_of_g10_(the_QCA_is_real/CP-even)"),
@@ -99,10 +99,10 @@ def main():
             "L3_delta_B_ratio": float(l3["delta_B_ratio"]),
             "free_parameters_in_algebra": int(d["residual_set"]["free_parameters_in_algebra"]),
             "free_parameters_in_dynamics": int(d["residual_set"]["free_parameters_in_dynamics"]),
-            "g10_is_0param": bool(cp["g10_is_0param"]),
-            "g0_is_0param": bool(cp["g0_is_0param"]),
-            "g10_0param": float(cp["g10_0param"]),
-            "g0_0param": float(cp["g0_0param"]),
+            "g10_is_root_reading": bool(cp["g10_is_root_reading"]),
+            "g0_is_root_reading": bool(cp["g0_is_root_reading"]),
+            "g10_root_reading": float(cp["g10_root_reading"]),
+            "g0_root_reading": float(cp["g0_root_reading"]),
             "qca_cp_even": bool(cp["qca_cp_even"]),
             "delta_independent_of_g10": bool(cp["delta_independent_of_g10"]),
             "mapping_conventions": cp["mapping_conventions"],

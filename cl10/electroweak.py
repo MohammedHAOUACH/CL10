@@ -44,6 +44,7 @@ import numpy as np
 
 from . import engine as E
 from . import u10pred
+from . import coupling
 
 
 def _backend():
@@ -61,7 +62,7 @@ def qca_step_spectrum():
     SM effective action.  Returns the (real) energies in ``[0, pi)``."""
     from . import sm_qca
     planes = sm_qca.plane_generators()
-    theta = math.sqrt(u10pred.ALPHA_10)   # the 0-parameter GUT angle
+    theta = coupling.G10            # the rotation angle of the active branch
     U = sm_qca.gut_qca_step(planes, theta)
     Ua = E.asnumpy(U)
     evals = np.linalg.eigvals(Ua)          # on the unit circle
@@ -79,14 +80,22 @@ def qca_step_spectrum():
 
 
 # ---------------------------------------------------------------------------
-# the electroweak breaking (0-parameter): the W / Z / Higgs
+# the electroweak breaking: the 5/3 boundary condition + the measured vev
 # ---------------------------------------------------------------------------
 
 def electroweak_breaking():
-    """The 0-parameter electroweak breaking: the 0-parameter unified coupling
-    ``g_10`` + the 5/3 U(1) normalization + the vev ``v = 246`` GeV -> the
-    W/Z masses and the 0-parameter weak mixing angle."""
-    g10 = math.sqrt(4.0 * math.pi * u10pred.ALPHA_10)   # the 0-parameter GUT coupling
+    """The electroweak sector of the implemented branch.
+
+    The single gauge coupling is the rotation angle ``g`` (Section 13.1), and
+    the ``5/3`` normalisation fixes the ratio ``g'/g``.  What this returns is
+    therefore the **GUT-scale boundary condition** ``sin^2 theta_W = 3/8`` and
+    the ratio ``m_W/m_Z = sqrt(5/8)`` - the standard GUT reading, not a
+    prediction of the root (Section 13.2: no electroweak-mixing prediction is
+    claimed, and the running that connects it to ``M_Z`` is the named residual
+    O4).  The absolute W/Z masses follow from ``g = 1/5`` and the measured
+    ``v``; the coupling *value* is the open part of O4, so they are reported,
+    never asserted."""
+    g10 = coupling.G10                              # the single gauge coupling = the angle
     v = u10pred.V_EW                                    # 246 GeV
     g2 = g10                                            # the SU(2) = the GUT coupling
     gprime = g10 / math.sqrt(5.0 / 3.0)                 # the 0-parameter 5/3 U(1)
@@ -94,7 +103,7 @@ def electroweak_breaking():
     m_Z = math.sqrt(g2 ** 2 + gprime ** 2) * v / 2.0
     sin2_w = gprime ** 2 / (g2 ** 2 + gprime ** 2)      # = 3/8 (0-parameter)
     mw_over_mz = m_W / m_Z                              # = cos(theta_W) = sqrt(5/8)
-    # the 0-parameter predictions (the exact values)
+    # the GUT boundary-condition values (the ratios, convention-independent)
     sin2_w_0p = 3.0 / 8.0
     mw_ratio_0p = math.sqrt(5.0 / 8.0)
     return {
@@ -135,17 +144,17 @@ def main():
     print("CL10 - the QCA -> QFT (the 't Hooft program) + the electroweak breaking")
     print("=" * 68)
     print(f"  backend (GPU):  {spec['backend']}")
-    print(f"  the QCA step (the 45 plane rotations at the 0-parameter angle {spec['theta']:.3f})")
+    print(f"  the QCA step (the 45 plane rotations at the angle {spec['theta']:.3f})")
     print(f"    the unitarity residual:  {spec['unitary_err']:.2e}  (exactly unitary)")
     print(f"    the energy spectrum:  {spec['n_levels']} levels, the QFT time-evolution (the SM effective action)")
-    print("  the 0-parameter electroweak breaking:")
+    print("  the electroweak sector (the GUT boundary condition, not a prediction - Section 13.2):")
     print(f"    the unified coupling g_10 = {ew['g10']:.4f}, the 5/3 U(1) -> g' = {ew['gprime']:.4f}")
     print(f"    the vev v = {ew['vev_v']:.1f} GeV")
-    print(f"    the W/Z masses:  m_W = {ew['m_W']:.1f}, m_Z = {ew['m_Z']:.1f} GeV (at the GUT scale)")
-    print(f"    the 0-parameter weak mixing angle:  sin^2(theta_W) = {ew['sin2_w']:.4f}  (= 3/8)")
-    print(f"    the 0-parameter W/Z ratio:  m_W/m_Z = {ew['mw_over_mz']:.4f}  (= sqrt(5/8))")
+    print(f"    the W/Z masses at g = 1/5 and v = 246 GeV:  m_W = {ew['m_W']:.1f}, m_Z = {ew['m_Z']:.1f} GeV")
+    print(f"    the GUT boundary condition:  sin^2(theta_W) = {ew['sin2_w']:.4f}  (= 3/8 from the 5/3)")
+    print(f"    the ratio at the boundary:  m_W/m_Z = {ew['mw_over_mz']:.4f}  (= sqrt(5/8))")
     print("    the Higgs: the 16's H doublet (the mass is the named residual)")
-    print(f"  VERDICT:  {'PASS (the QCA step -> the SM effective action; the 0-parameter electroweak breaking: sin^2=3/8, m_W/m_Z=sqrt(5/8))' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the QCA step -> the SM effective action; the 5/3 gives the GUT boundary condition sin^2 = 3/8; the running down to M_Z is the named residual O4)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 r"""
 CL10 — the 0-parameter 2-step seesaw: the neutrino mass **on the 10-loop
-ladder** (the "one object"), the **W2** resolution.
+ladder** (the "one object"), the **O2** resolution.
 
-**The 0-parameter content (the 0-parameter refinement of W2).**
+**The 0-parameter content (the 0-parameter refinement of O2).**
 
-The previous W2 hard-coded the intermediate scale ``M_N = 10^14`` (a *named*
+The previous O2 hard-coded the intermediate scale ``M_N = 10^14`` (a *named*
 number) and used ``m_D = g_0 v``.  This module makes **both** scales
 0-parameter **numbers of the root** by putting them on the **same 10-loop
-ladder** that the theory already uses for the hierarchy (W8/V53) and the dark
-matter (W7/V54):
+ladder** that the theory already uses for the hierarchy (O8/V53) and the dark
+matter (O7/V54):
 
     S(n) = M_P * (1/16\pi)^n      (the 0-parameter loop ladder)
 
@@ -134,7 +134,7 @@ def twostep_unitary(tol=1e-9):
 
 def seesaw_2step():
     r"""The 0-parameter 2-step seesaw ``m_nu = m_D^2 / M_N`` on the 10-loop
-    ladder (the W2 resolution).
+    ladder (the O2 resolution).
 
     - ``m_D = S(10) = M_P (1/16\pi)^{10}`` (the 10-loop Dirac, the WIMP scale);
     - ``M_N = S(3)  = M_P (1/16\pi)^{3}``  (the 2-step, the 10^14 scale);
@@ -147,7 +147,7 @@ def seesaw_2step():
     M_N = twostep_scale()                  # ~9.6e13 GeV (the 2-step)
     M_GUT = M_P                            # the 1-step (full GUT) scale
 
-    # the 2-step seesaw (the W2 result)
+    # the 2-step seesaw (the O2 result)
     m_nu_2step = m_D ** 2 / M_N * 1e9       # GeV -> eV
     # the 1-step (full GUT) for comparison (the 6-orders-off 1-step)
     m_nu_1step = m_D ** 2 / M_GUT * 1e9
@@ -183,7 +183,7 @@ def seesaw_2step():
 
 
 def verify(tol=1e-12):
-    r"""The 0-parameter W2 checks.  Returns a dict ``{"ok": bool, "checks":
+    r"""The 0-parameter O2 checks.  Returns a dict ``{"ok": bool, "checks":
     {name: bool}}``.
 
     - **10-loop Dirac:** ``m_D = M_P (1/16\pi)^{10}`` = the WIMP scale (the
@@ -217,7 +217,7 @@ def verify(tol=1e-12):
 def main():
     import sys
     print("=" * 68)
-    print("CL10 - the 0-parameter 2-step seesaw (the neutrino on the ladder) [W2]")
+    print("CL10 - the 0-parameter 2-step seesaw (the neutrino on the ladder) [O2]")
     print("=" * 68)
     v = verify()
     s = v["seesaw"]
@@ -230,11 +230,11 @@ def main():
     print(f"  1-step (full GUT) m_nu = {s['m_nu_1step_eV']:.1e} eV  (the 6-orders-off 1-step)")
     print(f"  2-step QCA unitarity (U^2):  err = {u2['unitary_err_2step']:.2e}  (unitary: {u2['two_step_unitary']})")
     print()
-    print("  0-parameter checks:")
+    print("  checks:")
     for name, okk in v["checks"].items():
         print(f"    [{'PASS' if okk else 'FAIL'}]  {name}")
-    print(f"\n  VERDICT:  {'PASS (W2 reduced to 0-parameter: both scales on the ladder)' if v['ok'] else 'FAIL'}")
-    print("  residual:  the 2-digit coefficient (2.9x) and the loop integer n_2step = 3")
+    print(f"\n  VERDICT:  {'PASS (both scales sit on the ladder; the ladder value 0.146 eV is excluded by sum m_nu < 0.12 eV (F3) - the open problem O2)' if v['ok'] else 'FAIL'}")
+    print("  residual:  the 2-digit coefficient (2.9x), the loop integer n_2step = 3 (fitted), and the excluded ladder value")
     sys.exit(0 if v["ok"] else 1)
 
 

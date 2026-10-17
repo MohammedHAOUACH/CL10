@@ -1,37 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-CL10 — the 0-parameter GUT coupling g_10: the data-driven 1-loop check (V56, W6).
+CL10 — the rotation angle and the coupling readings: the 1-loop data check (V56).
 
-The W6 residual (the "0-parameter is partially conventional" point): the choice
-to **read** $1/n_{\rm qubits}$ as the GUT coupling (or to identify $M_{GUT}$
-with $M_P$) is a **mapping convention**, not a free prediction.  This module
-makes the **data check** of that convention **explicit** and **honest**.
+The step has **one** parameter, the angle $g_{10}$.  The implemented branch
+reads it as $1/n_{\rm qubits} = 1/5$ (the 32-D module of the $\mathrm{Cl}(10)$
+root is a $2^5$ space: **5** qubits, $10 = 2\times 5$ generators) and the
+coupling as $\alpha_{10} = g_{10}^2 = 1/25$.  Both readings are **mapping
+conventions** (Section 15): what the algebra fixes is the *form* of the step —
+45 plane rotations sharing one angle — not its value.  This module makes the
+**data check** of that convention explicit and honest.
 
-**The 0-parameter $g_{10}$ (a number of the root).**  The 32-D module of the
-$\mathrm{Cl}(10)$ root is a $2^5$ space (**5** qubits, $10 = 2\times 5$
-generators).  The 0-parameter GUT coupling is a **number of the root**:
+**The 1-loop data check.**  Running the three measured $M_Z$ couplings up to
+the cutoff $M_P$ at 1-loop gives a mean GUT-range coupling $\\sim 0.023$ with a
+spread of $\\sim 0.5$: the three couplings do **not** meet (the open problem
+O4).  The convention value $\\alpha_{10} = 0.04$ sits within a factor **1.73**
+of that mean — the **right order**, nothing more.
 
-    g_{10}  =  1/n_{\rm qubits}  =  1/5,    alpha_{10}  =  g_{10}^2  =  1/25.
-
-(the **5** = the 0-parameter number of qubits of the 32-D module, derived by
-`unification.g10_from_root`; **not** a data fit).
-
-**The 1-loop data check (this module).**  The **1-loop** running **up** to the
-Planck scale $M_P$ (the 0-parameter GUT = Planck scale) from the **measured**
-$M_Z$ couplings gives a **GUT coupling** (the mean of the three) of
-$\sim 0.023$ (the 1-loop does **not** fully unify — the spread is the **W4**
-named residual).  The 0-parameter $\alpha_{10} = 1/25 = 0.04$ is **within a
-factor 1.73** of this 1-loop GUT coupling ($0.04/0.023$) — the **right order**.
-
-**The honest 0-parameter result.**  The 0-parameter $g_{10} = 1/5$ (a number of
-the root) is **within a factor $\sim 2$** of the 1-loop GUT coupling — the
-**right order** (the 1-loop matching is the **W4** named residual, now
-**quantified**).  The **mapping convention** (reading $1/n_{\rm qubits}$ as
-the coupling) is **data-supported in the right order**, but the **exact**
-value is a **named residual** (the W4 1-loop matching).  This **addresses** W6
-(the convention is not free — it is a root number, and the data check is the
-1-loop GUT coupling within a factor 2).
+**What the scan shows.**  Scanning the reading $\\alpha = 1/n^2$ over $n$, the
+value closest to the 1-loop mean is $n = 7$, **not** the root $n = 5$: the data
+confirm the **order** only, they do not select the reading.  The exact coupling
+values stay with the open problem O4 — the meeting needs the six threshold
+coefficients as inputs (Section 10.4).
 """
 
 import numpy as np
@@ -39,7 +29,7 @@ import numpy as np
 from . import engine as E
 from . import unification
 
-# the 0-parameter Planck (= GUT) scale
+# the Planck scale: the UV cutoff (NOT identified with M_GUT)
 M_P = unification.M_P
 M_Z = unification.M_Z
 
@@ -55,8 +45,8 @@ def _a10_candidates(n_min=2, n_max=8):
 
 
 def gut_1loop():
-    """The 1-loop running **up** to $M_P$: the mean GUT coupling and the
-    (non-unification) spread (the W4 named residual)."""
+    """The 1-loop running **up** to $M_P$: the mean GUT-range coupling and the
+    (non-unification) spread (the open problem O4)."""
     a, spread = unification.sm_running_to(M_P)
     mean = float(np.mean(a))
     return {
@@ -67,17 +57,17 @@ def gut_1loop():
 
 
 def g10_selection():
-    """The W6 result: the 0-parameter $g_{10} = 1/5$ (a number of the root)
-    vs the 1-loop GUT coupling (the data check).  Returns the 0-parameter
-    $g_{10}$/$\alpha_{10}$, the 1-loop GUT coupling, the ratio, and the
-    0-parameter candidate scan."""
+    """The V56 result: the implemented angle $g_{10} = 1/5$ (the root reading)
+    against the 1-loop GUT coupling (the data check).  Returns the angle and
+    the $\\alpha_{10} = g^2$ reading, the 1-loop GUT coupling, the ratio, and
+    the candidate scan over the reading $\\alpha = 1/n^2$."""
     root = unification.g10_from_root()
     gut = gut_1loop()
     a10_0param = float(root["alpha_10"])            # 1/25
     mean_gut = gut["mean_GUT"]
     ratio = float(a10_0param / mean_gut)            # ~ 1.73
 
-    # the 0-parameter candidate scan: which n is closest to the 1-loop GUT coupling
+    # the candidate scan over the reading alpha = 1/n^2: which n is closest to the 1-loop mean
     cands = _a10_candidates()
     scan = {n: float(abs(a10 / mean_gut - 1.0)) for n, a10 in cands.items()}
     best_n = min(scan, key=scan.get)
@@ -92,13 +82,13 @@ def g10_selection():
     fit_prefers_root = bool(best_n == n_root)
 
     one_line = (
-        "the 0-parameter GUT coupling g_10 = 1/5 (a number of the root: the "
-        "32-D module, 5 qubits) gives alpha_10 = 1/25 = 0.04, within a factor "
-        "%.2f of the 1-loop GUT coupling (%.3f at M_P; the 1-loop matching is "
-        "the W4 named residual).  HONEST: the candidate scan picks n = %d "
-        "(alpha = 1/%d = %.4f, gap %.3f), NOT the root n = %d (gap %.3f) — the "
-        "data check confirms the ORDER only, it does not select n; n = 5 is a "
-        "root number, so reading 1/n_qubits as the coupling is a mapping "
+        "the implemented angle g_10 = 1/5 (the 1/n_qubits reading of the root "
+        "module: the 32-D space, 5 qubits) gives alpha_10 = g^2 = 1/25 = 0.04, "
+        "within a factor %.2f of the 1-loop GUT-range mean (%.3f at M_P; the "
+        "three couplings do not meet, the open problem O4).  HONEST: the "
+        "candidate scan picks n = %d (alpha = 1/%d = %.4f, gap %.3f), NOT the "
+        "root n = %d (gap %.3f) — the data check confirms the ORDER only, it "
+        "does not select n; reading 1/n_qubits as the coupling is a mapping "
         "convention, not a fit" % (ratio, mean_gut, best_n, best_n, cands[best_n],
                                     gap_best, n_root, gap_root)
     )
@@ -122,11 +112,10 @@ def g10_selection():
 
 
 def verify(tol=1e-12):
-    """0-parameter checks: (i) the 0-parameter g_10 = 1/5 is derived from the
-    root (the 32-D module, 5 qubits); (ii) the 0-parameter alpha_10 = 1/25
-    is within a factor 3 of the 1-loop GUT coupling (the W4 named residual);
-    (iii) the 0-parameter g_10 matches the SM QCA (the 0-parameter
-    cross-check)."""
+    """Checks: (i) the implemented angle is the root reading $1/n_{\rm qubits}$
+    (the 32-D module, 5 qubits) and matches the SM QCA step; (ii) the
+    $\alpha_{10} = g^2$ reading is within a factor 3 of the 1-loop GUT-range
+    mean (the order check; the values are the open problem O4)."""
     r = g10_selection()
     ok = (
         r["g10_matches_sm_qca"]
@@ -141,20 +130,21 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the 0-parameter GUT coupling g_10 (the 1-loop data check, W6)")
+    print("CL10 - the rotation angle and the coupling readings (the 1-loop data check, O4)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
-    print(f"  0-parameter g_10 = 1/{d['n_qubits']} = {d['g10']:.3f}  (a number of the root: the 32-D module, 5 qubits)")
-    print(f"  0-parameter alpha_10 = 1/25 = {d['alpha_10_0param']:.4f}")
+    print(f"  the implemented angle g_10 = 1/{d['n_qubits']} = {d['g10']:.3f}   "
+          f"(the 1/n_qubits reading: a CONVENTION, Section 15)")
+    print(f"  the rotation-squared reading alpha_10 = g^2 = 1/25 = {d['alpha_10_0param']:.4f}   (a convention)")
     g = d["gut_1loop"]
-    print(f"  1-loop GUT coupling (mean at M_P) = {g['mean_GUT']:.4f}   (spread {g['spread']:.2f}, the W4 named residual)")
-    print(f"  ratio 0-parameter / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
-    print(f"  0-parameter candidate scan:  n closest to the 1-loop GUT coupling = {d['n_closest_to_1loop']}")
+    print(f"  1-loop GUT coupling (mean at M_P) = {g['mean_GUT']:.4f}   (spread {g['spread']:.2f}, the open problem O4)")
+    print(f"  ratio implemented / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
+    print(f"  candidate scan alpha = 1/n^2:  n closest to the 1-loop GUT coupling = {d['n_closest_to_1loop']}")
     print(f"    -> the DATA-optimal n is {d['best_n_1loop']} (gap {d['gap_best_n']:.3f}), "
           f"NOT the root n = {d['n_qubits']} (gap {d['gap_root_n5']:.3f})")
     print(f"    -> the data check confirms the ORDER only; it does NOT select n "
           f"(selects n: {d['data_check_selects_n']}) — reading 1/n_qubits is a MAPPING CONVENTION")
-    print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the W4 named residual)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the implemented angle has the right ORDER; the data prefer n = 7, so 1/n_qubits is a convention and the coupling VALUES are the open problem O4)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

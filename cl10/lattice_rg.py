@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the QCA lattice RG: the S-matrix to the cross-sections (W9, C6).
+CL10 — the QCA lattice RG: the S-matrix to the cross-sections (O9, C6).
 
 The 't Hooft program: a unitary quantum cellular automaton is a
 **UV-finite** formulation of a quantum field theory.  The GUT QCA step
@@ -41,7 +41,7 @@ completes the program at the **cross-section** level, with **no fit**:
   the QCA is the **all-orders, UV-finite** result, the perturbative QFT
   is the leading order in the small coupling ``g_10``.
 
-- **The named residual (W9).**  The **lattice RG** (running the
+- **The named residual (O9).**  The **lattice RG** (running the
   cross-section from the Planck scale **down** to the physical scale, the
   non-trivial / anomalous part) and the **matching** of these
   0-parameter amplitudes to the **measured** cross-sections — the open
@@ -218,7 +218,7 @@ def froissart():
 
 
 def lattice_rg():
-    """The full 0-parameter W9 verdict: the UV-finiteness (the lattice RG
+    """The full 0-parameter O9 verdict: the UV-finiteness (the lattice RG
     cutoff), the computed 0-parameter GUT-scale cross-section, the
     unitarity consistency, the 0-parameter QCA/perturbative comparison,
     and the **named residual** (the non-trivial RG matching to the
@@ -249,7 +249,7 @@ def lattice_rg():
                      "Planck scale down to the physical scale: the non-trivial "
                      "/ anomalous part) and the matching of the 0-parameter "
                      "amplitudes to the MEASURED cross-sections — the open "
-                     "part of the 't Hooft program (W9)"),
+                     "part of the 't Hooft program (O9)"),
     }
 
 
@@ -272,7 +272,7 @@ def main():
           and fr["strongest_uv_finite"]
           and r["only_g10"])
     print("=" * 68)
-    print("CL10 - the QCA lattice RG: the S-matrix to the cross-sections (W9)")
+    print("CL10 - the QCA lattice RG: the S-matrix to the cross-sections (O9)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY inputs:  g_10 = {r['g10']:.4f} (= 1/5)  and  M_P = {r['M_P_GeV']:.3e} GeV")
@@ -289,7 +289,7 @@ def main():
           f"({'UV-bounded' if ds['uv_bounded'] else 'NOT bounded'});  the optical theorem:  the inelastic P2 IS the cross-section ({'holds' if r['optical_theorem'] else 'fails'})")
     print(f"  [7] Froissart-Martin bound (0-parameter, m_min = M_P):  sigma_qca is CONSTANT (UV-finite)  "
           f"-> BELOW the ln^2 Froissart growth at every scale above the cutoff ({'strongest UV-finiteness' if fr['strongest_uv_finite'] else 'check'})")
-    print(f"  named residual (W9):  {r['residual']}")
+    print(f"  named residual (O9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 0-parameter GUT cross-section is UV-finite, nonzero, bounded; the RG matching is the named residual)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 

@@ -58,7 +58,7 @@ def read_verdict(exp_dir):
 def report_one(exp_dir):
     # --report-only: le verdict deja ecrit sur disque, sans relancer le
     # script. Le resume global est un rollup des JSON: un run partiel ne
-    # doit pas obliger a relancer les 138 experiences pour le reecrire.
+    # doit pas obliger a relancer les 112 experiences pour le reecrire.
     verdict = read_verdict(exp_dir)
     return {
         "id": os.path.basename(exp_dir),
@@ -134,7 +134,7 @@ def main():
     only = set(args.only)
     exps = [d for d in find_experiments() if not only or os.path.basename(d) in only]
     print("=" * 68)
-    print("CL10  —  0-parameter verification program  (the GPU engine)")
+    print("CL10  —  the verification program  (the GPU engine)")
     print("=" * 68)
     import cl10.engine as E
     print(f"  backend: {E._BACKEND}   jobs: {args.jobs}")
@@ -161,39 +161,31 @@ def main():
                 el = time.time() - t_start
                 emit(f" [{el:7.1f}s] [{mark}]  {r['id']:34s} {tier} "
                      f"{r['status']}  ({r['wall_time']} s)")
+        if only:
+            # a subset run must not shrink the rollup: the experiments that
+            # were not run are folded in from the verdict JSON on disk.
+            picked = {os.path.basename(d) for d in exps}
+            done.extend(report_one(d) for d in find_experiments()
+                        if os.path.basename(d) not in picked)
         results = sorted(done, key=lambda r: r["id"])
     n_pass = sum(1 for r in results if r["pass"])
     n = len(results)
-    # the U10 verdict: the hard tiers (0-3) all PASS (V0-V7 + V11-V13).
-    # The cosmology (tier 4) and the falsifiability (tier 5) are supporting.
+    # the hard-tier verdict: tiers 0-3 all PASS - the one object, the
+    # kinematics, the dynamics, the anomaly-free matter and the 5/3
+    # normalisation.  Tier 4 (cosmology) and tier 5 (falsifiability) are
+    # supporting.  The open problems O1-O9 of Section 16 are reported as the
+    # named residuals below: they are listed, not hidden.
     hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
-    u10 = bool(hard) and all(r["pass"] for r in hard)
+    hard_tier = bool(hard) and all(r["pass"] for r in hard)
     named = [r["id"] for r in results if r["residual"]]
-    # the named walls/residuals are REDUCED: each has a 0-parameter MECHANISM
-    # that passes.  W2 is now completed on the 10-loop ladder (V57); W4 by the
-    # UV-finite discrete RG (V58).
-    reduced = {
-        "V9_dark_energy": ("V17_w1_screening",
-                           "the Z2 512/512 cancellation -> Lambda = 0"),
-        "V15_seesaw": ("V57_neutrino",
-                       "the 2-step seesaw on the 10-loop ladder (0-param M_N, m_D)"),
-        "V16_families": ("V19_w3_families3",
-                         "the 3 families = the 3 space"),
-        "V47_2loop_uvfinite": ("V58_uvr",
-                               "the UV-finite discrete RG (bounded tower U^(2^p))"),
-    }
-    reduced_ok = {w: any(r["id"] == mid and r["pass"] for r in results)
-                  for w, (mid, _desc) in reduced.items()}
     summary = {
         "n": n,
         "n_pass": n_pass,
         "pass": bool(n_pass == n),
-        "u10": u10,
-        "u10_criterion": "all of tiers 0-3 (V0-V7, V11-V13) PASS",
+        "hard_tier": hard_tier,
+        "hard_tier_criterion": "all of tiers 0-3 PASS",
+        "n_named_residuals": len(named),
         "named_residuals": named,
-        "reduced_walls": [{"wall": w, "mechanism": f"{mid} ({desc})",
-                            "mechanism_pass": reduced_ok[w]}
-                           for w, (mid, desc) in reduced.items()],
         "experiments": results,
     }
     outdir = os.path.join(ROOT, "results")
@@ -202,15 +194,13 @@ def main():
         json.dump(summary, f, indent=2, ensure_ascii=False)
     print("=" * 68)
     print(f"  ->  {n_pass}/{n}  PASS  ->  results/validation_summary.json")
-    vstr = ("U10 (a 0-parameter unification of matter, gauge, and gravity)"
-            if u10 else "NOT a 0-parameter unification (a hard tier failed)")
-    print(f"  U10 VERDICT:  {vstr}")
+    vstr = ("hard tier MET (the root, the kinematics, the unitary causal "
+            "dynamics, the anomaly-free matter, the 5/3)"
+            if hard_tier else "hard tier FAILED (a tier 0-3 experiment failed)")
+    print(f"  HARD-TIER VERDICT:  {vstr}")
     if named:
-        print(f"  NAMED RESIDUALS (the exact values):  {', '.join(named)}")
-    if reduced_ok and all(reduced_ok.values()):
-        print(f"  THE {len(reduced)} NAMED RESIDUALS ARE REDUCED: each has a 0-parameter mechanism (PASS)")
-        for w, (mid, desc) in reduced.items():
-            print(f"    - {w:18s} reduced by {mid} ({desc})")
+        print(f"  NAMED RESIDUALS ({len(named)}, the open problems O1-O9 of Section 16):")
+        print(f"    {', '.join(named)}")
     return 0 if n_pass == n else 1
 
 

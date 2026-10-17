@@ -1,10 +1,11 @@
 # The verification program
 
-112 experiments, grouped by the part of `doc/final_publication.md` they validate.
-Each experiment is a 0-parameter check: it recomputes a published number from the
-construction and writes a JSON verdict (`pass`, `status`, `residual`, `wall_time`)
-to `<experiment>/results/`. `python3 run_validation.py` runs all of them and rolls
-the verdicts up into `results/validation_summary.json`.
+115 experiments, grouped by the part of `doc/final_publication.md` they validate.
+Each experiment recomputes a published number from the construction, states the
+provenance of every input it uses, and writes a JSON verdict (`pass`, `status`,
+`tier`, `property`, `residual`, `wall_time`) to `<experiment>/results/`.
+`python3 run_validation.py` runs all of them and rolls the verdicts up into
+`results/validation_summary.json`.
 
 The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
 [Paper II](../doc/paper2_gauge_gravity.md) · [Paper III](../doc/paper3_phenomenology.md) ·
@@ -17,6 +18,11 @@ Back to the [CL10 README](../README.md).
 A script never hard-codes its own category: sibling experiments and their
 verdicts are addressed by name through `cl10.paths.exp`, so moving an
 experiment between categories moves a directory and nothing else.
+
+The verdicts stored on disk keep the vocabulary of the run that produced them:
+the old wall labels map to the paper's open problems as W1→O1, W2→O2, W3→O3,
+W4→O4, W5→O5, W6→O6, W7→O7, W8→O8, W9→O9. Re-running an experiment rewrites its
+verdict in the current wording.
 
 Everything superseded — earlier iterations of the same question, first versions
 whose numbers the paper no longer quotes — is in `../archive/experiments/`, with

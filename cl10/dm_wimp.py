@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 r"""
 CL10 — the sub-Planck dark-matter scale: the 0-parameter 10-loop WIMP scale
-(V54, W7).
+(V54, O7).
 
-The W7 residual (Section 13): the **sub-Planck** dark-matter scale that gives
+The O7 residual (Section 13): the **sub-Planck** dark-matter scale that gives
 the **observed** abundance.  V42 showed the 0-parameter **Planck-mass soliton**
 DM ($m \sim M_P$, the stable soliton of the non-linear metric) is
 **under**-abundant ($\Omega_{\rm 0param}/\Omega_{\rm obs} \sim 10^{-52}$) — the
@@ -16,7 +16,7 @@ the **10-loop suppression of the Planck scale**:
     m_DM  =  M_P \times (1/16\pi)^{10}
 
 where $(1/16\pi)^{10}$ is the **same 0-parameter 10-loop factor** as V53
-(the W8 hierarchy): the **10** = the 0-parameter number of
+(the O8 hierarchy): the **10** = the 0-parameter number of
 $\mathrm{Cl}(10)$ generators ($n_{\rm gen}$), the **1-loop factor**
 $1/(16\pi) \approx 0.0199$.  So
 
@@ -41,7 +41,7 @@ $= (n_{\rm gen}$ loop suppressions) gives **both** the hierarchy exponent -17
 **The honest 0-parameter result.**  The **sub-Planck DM mass scale** (and the
 abundance order) is 0-parameter-derived (the 10-loop factor $\times M_P$).
 The **named residual**: the DM **identity** (which particle) and the exact
-**cross-section** (the RG running, W9).  The **V42 gap** (the Planck-mass
+**cross-section** (the RG running, O9).  The **V42 gap** (the Planck-mass
 soliton, $10^{-52}$) is **resolved**: the observed DM is the **10-loop
 (weak-scale)** relic, not the Planck-mass soliton.
 """
@@ -78,7 +78,7 @@ def relic_abundance(m_GeV):
 
 
 def dm_wimp():
-    r"""The W7 result: the sub-Planck DM mass $m_{\rm DM} = M_P (1/16\pi)^{10}$
+    r"""The O7 result: the sub-Planck DM mass $m_{\rm DM} = M_P (1/16\pi)^{10}$
     (the 0-parameter 10-loop WIMP scale) and its 0-parameter relic abundance.
     Returns the 0-parameter mass, the WIMP-miracle comparison, the abundance
     match, and the V42 Planck-soliton gap (for contrast)."""
@@ -96,7 +96,7 @@ def dm_wimp():
     one_line = (
         "the sub-Planck DM mass is the 0-parameter 10-loop suppression of the "
         "Planck scale: M_P*(1/16pi)^10 = 118 GeV (the WIMP/weak scale; the same "
-        "10-loop factor as the W8 hierarchy) — the V42 Planck-soliton gap "
+        "10-loop factor as the O8 hierarchy) — the V42 Planck-soliton gap "
         "(1e-52) is resolved (the observed DM is the 10-loop relic)"
     )
     return {
@@ -137,7 +137,7 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the sub-Planck DM scale (the 0-parameter 10-loop WIMP scale, W7)")
+    print("CL10 - the sub-Planck DM scale (the 0-parameter 10-loop WIMP scale, O7)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  0-parameter 10-loop factor (1/16pi)^10 = {d['F10']:.3e}  (10 = n_gen)")
@@ -147,7 +147,7 @@ def main():
     print(f"  abundance match:  {d['omega_DM']:.3f} vs {d['omega_obs']}  (ratio {d['omega_ratio_to_observed']:.2f})")
     print(f"  V42 contrast:  the Planck-mass soliton gives Omega h^2 = {d['v42_planck_omega']:.2e}  "
           f"(gap {d['v42_planck_gap']:.1e}; V42 quantified {d['v42_quantified_gap']:.1e})")
-    print(f"  VERDICT:  {'PASS (the sub-Planck DM mass = the 0-parameter 10-loop WIMP scale; the V42 Planck-soliton gap is resolved)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the ladder scale M_P(1/16pi)^10 = 118 GeV; no state of the implemented spectrum carries it - the open problem O7)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

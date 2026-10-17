@@ -99,7 +99,7 @@ def mass_generation():
       mass matrices).
 
     The 16 also contains the **sterile N** (the 1 of the 16, $B\\!-\\!L=0$), which
-    is the 0-parameter source of the **seesaw** (the 2-step W2, the light neutrino
+    is the 0-parameter source of the **seesaw** (the 2-step O2, the light neutrino
     mass).  The **structure** of the mass term is **0-parameter**; the **exact**
     mass values (the 3-generation hierarchy, the mixing angles) are **named**
     residuals.

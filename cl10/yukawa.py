@@ -17,7 +17,7 @@ Two layers:
   The 3x3 is therefore **NOT** non-singular: a rank-1 3x3 has two zero
   eigenvalues.  The **three distinct** masses are **not** a 0-parameter
   statement — they require the **10-Higgs vev** to break the 2-fold light
-  degeneracy (the W6 named residual).  This is the same statement as
+  degeneracy (the O6 named residual).  This is the same statement as
   `cl10.yukawa_3x3` (V45/V49) and as Section 10 / Theorem 13 of the
   publication; the two modules share **one** implementation (this module
   delegates to `yukawa_3x3.mass_matrix_3x3`), so the code cannot drift from
