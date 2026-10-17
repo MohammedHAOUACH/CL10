@@ -1,0 +1,55 @@
+{
+  "id": "V176_gauged_vertex_content",
+  "tier": 4,
+  "property": "O_h (cubic-harmonic) content of the gauged bond-current vertex Gamma^A = I_8 (x) T^A_16 on the W9 node cone: form factor sum_A |<u(q*)|Gamma^A|u(q*+k n)>|^2 over 26 directions, 4 |k| values",
+  "residual": null,
+  "pass": true,
+  "status": "GAUGED VERTEX CONTENT ON THE CONE (4 rows). The on-node current expectation F(0) = 5.000000 (the cone mode carries Spin(10) charge). The form factor decomposes as A1g = 0.1667, Eg = 0.3333, T2g = 0.5000 at |k| = 0.4: the gauged vertex is NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked. Anisotropic part scales as k^0.01, the A1g shift as k^0.90 (V171 contact: alpha_aniso = 2, A1g = 1.0000). Casimir anchor 45 I_128 err 7.1e-15; 2-route (16-D vs 32-D module) dev 8.9e-16.",
+  "data": {
+    "rows": [
+      {
+        "kappa": 0.05,
+        "F_mean": 4.422376124523547,
+        "w_A1g": 0.894927533325331,
+        "w_Eg": 0.007246223354286611,
+        "w_T2g": 0.04347837138059227,
+        "aniso_max": 4.422376124523547,
+        "iso_shift": 0.5776238754764531
+      },
+      {
+        "kappa": 0.1,
+        "F_mean": 3.2671577837994956,
+        "w_A1g": 0.6617646297923027,
+        "w_Eg": 0.02941084939315006,
+        "w_T2g": 0.05882343310161896,
+        "aniso_max": 3.2671577837994956,
+        "iso_shift": 1.7328422162005044
+      },
+      {
+        "kappa": 0.2,
+        "F_mean": 3.2609413313184126,
+        "w_A1g": 0.66176464333871,
+        "w_Eg": 0.029408424406540647,
+        "w_T2g": 0.05882351106990938,
+        "aniso_max": 3.2609413313184126,
+        "iso_shift": 1.7390586686815874
+      },
+      {
+        "kappa": 0.4,
+        "F_mean": 0.3808081499089949,
+        "w_A1g": 0.16667337340327942,
+        "w_Eg": 0.33334674614658555,
+        "w_T2g": 0.4999798804500958,
+        "aniso_max": 4.569418356366748,
+        "iso_shift": 4.619191850091005
+      }
+    ],
+    "F0": 5.0,
+    "alpha_aniso": 0.01388187660305499,
+    "alpha_iso": 0.900348086726181,
+    "casimir_err": 7.105427357601002e-15,
+    "route_dev": 8.881784197001252e-16,
+    "spin2_weight_k04": 0.8333266265966813
+  },
+  "wall_time": 4.012
+}

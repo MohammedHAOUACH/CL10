@@ -1,10 +1,13 @@
 # The verification program
 
-115 experiments, grouped by the part of `doc/final_publication.md` they validate.
-Each experiment recomputes a published number from the construction, states the
-provenance of every input it uses, and writes a JSON verdict (`pass`, `status`,
-`tier`, `property`, `residual`, `wall_time`) to `<experiment>/results/`.
-`python3 run_validation.py` runs all of them and rolls the verdicts up into
+150 experiments (the 115 of the publication programme plus the 35 exploration
+experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
+4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`), grouped by the part of
+`doc/final_publication.md` they validate.  Each experiment recomputes a
+published number from the construction, states the provenance of every input it
+uses, and writes a JSON verdict (`pass`, `status`, `tier`, `property`,
+`residual`, `wall_time`) to `<experiment>/results/`.  `python3
+run_validation.py` runs all of them and rolls the verdicts up into
 `results/validation_summary.json`.
 
 The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
@@ -38,6 +41,11 @@ file whenever it is re-run.
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
+| `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
+| `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
+| `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
+| `alt_gauged` | the exploration branch: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4, never merged) | §17 (W9) |
+| `alt_nonpert` | the exploration branch: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4, never merged) | §17 (W9) |
 
 ## The experiments
 
@@ -91,6 +99,9 @@ file whenever it is re-run.
 | `V138_gamma_spin2` | the zone centre carries $T_{2g}$ but never $E_g$: no lattice spin-2 in the qubit link, the quintet lives in the directional link layer |
 | `V139_nodal_plane_crossing` | the grid census was too coarse: an exactly gapless orbit of $24$ points on the nodal planes at $g_{10} = 1/5$, little group of order $2$ |
 | `V142_w9_frame_averaging` | frame averaging over the ten generators is exactly blind to the cone anisotropy: in four random SO(10) frames the node gap moves by 1.8e-15, the anisotropy by 0, the tangent commutators stay at the noise floor — all momentum dependence lives in the sub-site factor of the Kronecker bond layer |
+| `V185_separation_lemma` | the separation lemma: every tangent operator is exactly $A_k(q) \otimes I_{16}$ (defect 4.5e-16 over 40 momenta), so the whole low-energy velocity structure lives in the 8×8 sub-site factor |
+| `V186_cone_inverse` | the cone inverse problem over the axis-covariant entangling family (880 bonds, 220 triples): no cone in the family; the implemented corner triplet is exactly radius-1 with the Wilson factor off (leakage 8.7e-17) |
+| `V187_rigidity_frontier` | 5292 sweep points around the top-commuting bonds: gaplessness and non-commuting tangent algebras are mutually exclusive, the frontier floor is a wall at gap 8.0e-3, no power law links the regimes |
 
 ### `gauged_layer`
 | id | verdict |
@@ -200,3 +211,58 @@ file whenever it is re-run.
 | id | verdict |
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
+
+### `alt_cell` (exploration programme — the signature census and the cell/cycle census; not one of the publication's 115)
+| id | verdict |
+|---|---|
+| `V149_signature_algebra` | only Cl(10,0) and Cl(0,10) keep the 45-plane product exactly unitary; mixed signatures give anti-Hermitian planes and an O(1) unitarity residual |
+| `V150_signature_frame` | the 16/16 split survives every signature; the exact (1+3) frame needs four +I generators (q <= 6): with V149 the Euclidean root is the only signature with both |
+| `V151_signature_anomaly` | only q=0 reproduces the SM charge table; q=4 permutes the fields, q=10 conjugates the charges, odd q break the multiplets (complex hypercharges) |
+| `V152_signature_step` | q=10 gaps the sampled M nodes but has no (1+3) frame; no signature with a frame removes the 12 nodes or isotropizes a cone |
+| `V153_stage_cycle_census` | all 720 stage orderings: none removes the half-zone nodes, none reaches A < 1e-6 - the order is not the cause |
+| `V154_block_census` | blocks {2,3}^3: front speed exactly 1 everywhere, no isotropy; the (2,2,2) cell keeps its 12 M nodes under both cycles |
+| `V155_fcc_diamond` | 524 FCC/diamond 1-factorizations: zero gapless at the FCC high-symmetry points - the graphene mechanism does not transfer |
+| `V156_node_forcing` | the 12-node set is one orbit (split forced) for the implemented cell; no candidate combines a forced split with an isotropic cone |
+| `V157_hardtier` | zero census survivors; all 722 algebraically eligible near-misses pass the five hard gates (every one a restatement of the root cell) - the hard tier is jointly satisfiable but the isotropy gate eliminates everything |
+| `V158_unification_forced` | the node content is a complete 16+16-bar per node: V64's proportional-shift no-go kills the meeting for every candidate |
+| `V159_cp_census` | real type at q=0; q=10 is quaternionic AND unitary (a CP window) but has no frame: the CP phase and the Minkowski frame are mutually exclusive |
+| `V160_dm_spectrum` | the lightest mode of every candidate is a gapless node with paired mirror content: no 118 GeV carrier from geometry |
+
+### `alt_dynamics` (exploration programme — the step-rule / motion census: per-stage angles, factorizations, Floquet, quantized Wilson layers)
+| id | verdict |
+|---|---|
+| `V161_angle_per_stage` | 729 angle assignments: 720 fully gapped at the high-symmetry points; the 9 gapless rows keep the M nodes (8-12) with A >= 0.949 - no per-stage angle set removes the doubling |
+| `V162_internal_factorization` | 12 factorizations of the internal layer: only the two Cartan-preserving ones stay gapless (12/13 nodes, A = 1.0 at M); every non-Cartan factorization gaps the whole zone - the nodes are Cartan-protected |
+| `V163_mass_stage` | 90 mass-stage insertions: the M nodes survive every plane/gauge choice (gap >= 5e-4, no true cone); the mirror Z2 is never broken (leakage 0) |
+| `V164_bond_matchings` | 500 cubic 1-factorizations: 487 gapless, 31 single-orbit (12 nodes, best A 0.998); zero isotropic, zero closures - the matching is not the cause |
+| `V165_floquet` | 3 Floquet time-splittings of the root step: all three open a gap (2e-3 to 1.8e-2) at every high-symmetry point; only the time-independent anchor stays gapless |
+| `V166_wilson_quantized` | the quantized Wilson family (X: 1,1,1,1,1; Y: -1/6,1/6,1/6,1/4,1/4): 7/8 variants fully gapped; the one gapless variant keeps 8 nodes with A = 0.993 - the published coefficients are not a free choice |
+| `V167_hardtier_dynamics` | zero dynamics survivors: the closure gate eliminates every non-Wilson candidate, the front gate eliminates the mass stages - the Wilson layer is the unique causal/closure-consistent motion |
+| `V168_unification_dynamics` | 509 candidate spectra: zero forced meetings (the node content is one mode per node, not a complete 16+16-bar per node at a single momentum) - V64's no-go stands for every motion |
+| `V169_cp_dynamics` | 1336 candidates: every effective internal unitary is real type (J^2 = +1); no motion admits a CP phase - the q=0 CP obstruction is motion-independent |
+| `V170_dm_dynamics` | 509 candidate spectra: the mirror Z2 survives every motion; the lightest mode of every candidate is a gapless node and no light mode is isolated from its spectrum - no 118 GeV carrier from any motion |
+
+### `alt_interactions` (exploration programme — the collision vertex, self-energy flow, block RG and isotropy gate)
+| id | verdict |
+|---|---|
+| `V171_collision_vertex` | block-contact collision U_c in {g_10, pi/4, pi/2}: the vertex is O_h-scalar and its node-mode form factor is irrelevant on the cone (anisotropic weight ~ k^2.00, A1g = 1.0000) - the interaction adds no anisotropy but a scalar vertex cannot remove the propagator's |
+| `V172_self_energy_flow` | one-loop Fock self-energy of the contact: anisotropic part ~ |k|^1.00 = MARGINAL (same power as the cone); dressed anisotropy not grid-convergent (dev 0.019-0.66) - the flat tangent axis (V118) is IR-singular against the collision; one-loop flow inconclusive |
+| `V173_block_rg` | energy-window downfold at b = 1, 2, 4: A(b) = 0.9980 exactly, bare and with the self-energy insertion - the cubic anisotropy is MARGINAL under coarse-graining (2-route 3.5e-13) |
+| `V174_isotropy_gate` | 18 census rows, 0 candidates (3 unconverged rows excluded): the minimal admissible collision does not isotropize the W9 cone - only the non-perturbative gauged-layer fixed point (V79-V101) remains |
+
+### `alt_gauged` (exploration programme — the two-fermion S-matrix of the gauged bond layer)
+| id | verdict |
+|---|---|
+| `V175_gauged_smatrix` | THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS: S = exp(-i g_10 L^-1 H L^-dagger) on the 24-state three-site kernel, unitary to 2.4e-13, spectrum = V101 to 7.8e-16, fusion channels preserved (mixing ~1e-29), eta->0 gives S = I |
+| `V176_gauged_vertex_content` | the gauged current vertex is NOT a scalar: Eg + T2g weight 5/6 at |k| = 0.4 (vs contact A1g = 1.0000), anisotropic part scale-independent (alpha = 0 - MARGINAL, vs contact alpha = 2); on-node current F(0) = 5.000000 |
+| `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.199), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 2.2e-2, flat-axis IR, V172 precedent) |
+| `V178_gauged_block_rg` | block RG b = 1, 2, 4 with the gauged insertion: A(b) = 0.997985 EXACTLY unchanged (bare = gauged at every scale) - anisotropy stays marginal (2-route 1.3e-12) |
+| `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9656): the gauged bond-current interaction does not isotropize the W9 cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |
+
+### `alt_nonpert` (exploration programme — exact cone flux dressing, ring kernels, IR decoupling, non-perturbative isotropy gate)
+| id | verdict |
+|---|---|
+| `V180_cone_flux_dressing` | exact cone dressing by the 24 gauged flux operators: A_np - A_free = +2.1e-12 (2-route 8.5e-13, eta->0 dev 0) - the flux dressing does NOT move the W9 anisotropy at one dressing order |
+| `V181_ring_kernel_smatrix` | the 4-site gauged kernels exist: chain 144 (full rank, E0 -1664197.02, gap 12787.60 eta) and ring 1296 (Gram rank 976, E0 -6.08e8, gap 2.75e8 eta); S unitary to 2.7e-15/4.2e-15, 2-route phase dev within the whitening-noise bound; chain channels preserved (mixing 3e-11), ring channels mixed (~8) |
+| `V182_ir_decoupling` | INCONCLUSIVE under the pre-registered clauses: gap grows 42.09 -> 12787.60 (chain) -> 2.75e8 (ring) eta, drift >> 1 - the LIGHT branch is decisively false; V101 eta-units are not extensive (Gram shrinks ~30x/link), gap/\|E0\| ~ 0.0073-0.0077 at every volume |
+| `V183_nonpert_isotropy_gate` | 9 census rows, 0 candidates: no non-perturbative gauged-sector mechanism isotropizes the W9 cone - the flux sector is massive at every volume probed; W9 stays open |

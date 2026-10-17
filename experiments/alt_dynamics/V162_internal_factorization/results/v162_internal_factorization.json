@@ -1,0 +1,498 @@
+{
+  "id": "V162_internal_factorization",
+  "tier": 4,
+  "property": "4 internal-factorization families x 3 allowed angles: nodes, orbit, chirality, anisotropy, front speed, closure",
+  "residual": true,
+  "pass": true,
+  "status": "INTERNAL-FACTORIZATION CENSUS (12 rows). The anchor (baseline)@g_10 reproduces V63 (12 M nodes, 2.0029e-04, A 0.998). Only two rows stay gapless at the high-symmetry points: baseline@g10 (the root) and cartan5@g10 (13 nodes, M gap exactly 0 - the Cartan-only step makes the M nodes EXACTLY gapless - but A = 1.0 and the node set is not a single orbit); every other factorization gaps the high-symmetry points. ZERO rows reach isotropy (A < 1e-6); 0 close the full step at order <= 64. Every family keeps the 16/16-bar mirror (w-commutator 7.8e-16). No internal factorization supplies an isotropic single-orbit node set.",
+  "data": {
+    "baseline": {
+      "family": "baseline",
+      "angle": "g10",
+      "gap_by_star": {
+        "GAMMA": 0.03649939422882692,
+        "X": 0.0012920252236213443,
+        "M": 0.00020028952953031067,
+        "R": 0.0012920252236208992
+      },
+      "n_nodes": 12,
+      "n_stars": 1,
+      "single_orbit": true,
+      "chirality_sum": 0.0,
+      "A": 0.9979846405810359,
+      "unitary_err": 3.1086258518770655e-15,
+      "closure_order": 60,
+      "closure_err": 0.9760861296476327,
+      "closed": false,
+      "front_speed": 1.0,
+      "outside_lightcone": 0
+    },
+    "n_rows": 12,
+    "n_with_nodes": 2,
+    "n_isotropic": 0,
+    "n_closing": 0,
+    "closing_rows": [],
+    "mirror_commutator": 7.791361360319882e-16,
+    "rows": [
+      {
+        "family": "block6",
+        "angle": "g10",
+        "gap_by_star": {
+          "GAMMA": 0.022905615469859544,
+          "X": 0.03279211146084195,
+          "M": 0.044258318225652585,
+          "R": 0.03279211146084108
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 2.220457647019694e-15,
+        "closure_order": 1,
+        "closure_err": 0.5803462637355085,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "block6",
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07123889803846747,
+          "X": 0.01766414680046253,
+          "M": 0.006706931232435296,
+          "R": 0.06028168247044014
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 3.996802899179862e-15,
+        "closure_order": 55,
+        "closure_err": 0.8420056229020482,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "block6",
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.3707963267948958,
+          "X": 0.4889030448389311,
+          "M": 0.6070097628829678,
+          "R": 0.7251164809270049
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 1.0214052671462648e-14,
+        "closure_order": 16,
+        "closure_err": 0.1149660334176074,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "qubit5",
+        "angle": "g10",
+        "gap_by_star": {
+          "GAMMA": 0.017424815488893342,
+          "X": 0.004345503206530189,
+          "M": 0.004297973148303474,
+          "R": 0.026068291843727314
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 2.220463280360437e-15,
+        "closure_order": 1,
+        "closure_err": 0.584229844155893,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "qubit5",
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07123889803846782,
+          "X": 0.017664146800463725,
+          "M": 0.006706931232436021,
+          "R": 0.0602816824704403
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 3.774758801929579e-15,
+        "closure_order": 20,
+        "closure_err": 0.9969197264777907,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "qubit5",
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.37079632679489594,
+          "X": 0.48890304483893154,
+          "M": 0.6070097628829682,
+          "R": 0.7251164809270045
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 1.0880187063702228e-14,
+        "closure_order": 16,
+        "closure_err": 0.11496603341760715,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "cartan5",
+        "angle": "g10",
+        "gap_by_star": {
+          "GAMMA": 0.0,
+          "X": 0.11810671804403503,
+          "M": 0.0,
+          "R": 0.04567984586788907
+        },
+        "n_nodes": 13,
+        "n_stars": 2,
+        "single_orbit": false,
+        "chirality_sum": -2.0,
+        "A": 1.0,
+        "unitary_err": 1.5543191881422575e-15,
+        "closure_order": 47,
+        "closure_err": 0.049292858629128904,
+        "closed": false,
+        "front_speed": 1.0,
+        "outside_lightcone": 0
+      },
+      {
+        "family": "cartan5",
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.3707963267948962,
+          "X": 0.28189328195596197,
+          "M": 0.1637865639119245,
+          "R": 0.28189328195596075
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 3.552713692801327e-15,
+        "closure_order": 16,
+        "closure_err": 0.11496603341759959,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "cartan5",
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.39999999999999863,
+          "X": 0.28189328195596125,
+          "M": 0.16378656391192525,
+          "R": 0.2818932819559622
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 3.1086244729309508e-15,
+        "closure_order": 16,
+        "closure_err": 0.11496603341760021,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "baseline",
+        "angle": "g10",
+        "gap_by_star": {
+          "GAMMA": 0.03649939422882692,
+          "X": 0.0012920252236213443,
+          "M": 0.00020028952953031067,
+          "R": 0.0012920252236208992
+        },
+        "n_nodes": 12,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.9979846405810359,
+        "unitary_err": 3.1086258518770655e-15,
+        "closure_order": 60,
+        "closure_err": 0.9760861296476327,
+        "closed": false,
+        "front_speed": 1.0,
+        "outside_lightcone": 0
+      },
+      {
+        "family": "baseline",
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.3707963267948899,
+          "X": 0.4889030448389244,
+          "M": 0.6070097628829606,
+          "R": 0.7251164809269974
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 1.265654328567006e-14,
+        "closure_order": 16,
+        "closure_err": 0.11496603341760903,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "family": "baseline",
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 1.9415926535897916,
+          "X": 2.0596993716338265,
+          "M": 2.177806089677863,
+          "R": 2.2959128077219004
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "unitary_err": 5.0626169927849036e-14,
+        "closure_order": 55,
+        "closure_err": 0.008850615828609206,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      }
+    ],
+    "candidates": [
+      {
+        "name": "block6@g10",
+        "source": "V162_internal_factorization",
+        "unitary_err": 2.220457647019694e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "block6",
+          "g": 0.2
+        }
+      },
+      {
+        "name": "block6@pi4",
+        "source": "V162_internal_factorization",
+        "unitary_err": 3.996802899179862e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "block6",
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "block6@pi2",
+        "source": "V162_internal_factorization",
+        "unitary_err": 1.0214052671462648e-14,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "block6",
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "qubit5@g10",
+        "source": "V162_internal_factorization",
+        "unitary_err": 2.220463280360437e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "qubit5",
+          "g": 0.2
+        }
+      },
+      {
+        "name": "qubit5@pi4",
+        "source": "V162_internal_factorization",
+        "unitary_err": 3.774758801929579e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "qubit5",
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "qubit5@pi2",
+        "source": "V162_internal_factorization",
+        "unitary_err": 1.0880187063702228e-14,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "qubit5",
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "cartan5@g10",
+        "source": "V162_internal_factorization",
+        "unitary_err": 1.5543191881422575e-15,
+        "n_nodes": 13,
+        "single_orbit": false,
+        "anisotropy_A": 1.0,
+        "chirality_sum": -2.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "cartan5",
+          "g": 0.2
+        }
+      },
+      {
+        "name": "cartan5@pi4",
+        "source": "V162_internal_factorization",
+        "unitary_err": 3.552713692801327e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "cartan5",
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "cartan5@pi2",
+        "source": "V162_internal_factorization",
+        "unitary_err": 3.1086244729309508e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "cartan5",
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "baseline@g10",
+        "source": "V162_internal_factorization",
+        "unitary_err": 3.1086258518770655e-15,
+        "n_nodes": 12,
+        "single_orbit": true,
+        "anisotropy_A": 0.9979846405810359,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "baseline",
+          "g": 0.2
+        }
+      },
+      {
+        "name": "baseline@pi4",
+        "source": "V162_internal_factorization",
+        "unitary_err": 1.265654328567006e-14,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "baseline",
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "baseline@pi2",
+        "source": "V162_internal_factorization",
+        "unitary_err": 5.0626169927849036e-14,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "internal_family",
+          "family": "baseline",
+          "g": 1.5707963267948966
+        }
+      }
+    ]
+  },
+  "wall_time": 6.288
+}

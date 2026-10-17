@@ -1,0 +1,461 @@
+{
+  "id": "V166_wilson_quantized",
+  "tier": 4,
+  "property": "the Wilson family at closure-quantized w in {pi/2, pi/4}, D in {X, Y}, sign +-, + w=0 anchor: node gaps, residual set, Lieb-Robinson shells, closure",
+  "residual": true,
+  "pass": true,
+  "status": "WILSON-QUANTIZED CENSUS (8 rows + anchor). The w = 0 anchor reproduces the baseline (12 M nodes, 2.0029e-04). X and Y identified by exact multiset match (missing: none). Every quantized row gaps the M nodes (min M gap 2.197e-03); 7/8 gap the whole high-symmetry set; ZERO true isotropic cones; 0 close at order <= 64. The factor is quasi-local: worst shell ratio one block beyond the bond cone 1.0e+00 -> the strict light-cone gate fails by construction (V65). 2-route (eigvals vs SVD) dev 1.6e-15.",
+  "data": {
+    "anchor": {
+      "row": "anchor",
+      "w": 0.0,
+      "D": "I",
+      "gap_by_star": {
+        "GAMMA": 0.03649939422882611,
+        "X": 0.0012920252236225673,
+        "M": 0.00020028952953104998,
+        "R": 0.001292025223621564
+      },
+      "n_nodes": 12,
+      "n_stars": 1,
+      "single_orbit": true,
+      "chirality_sum": 0.0,
+      "A": 0.997984640580528,
+      "cone_growth": 39.60486612588973,
+      "chirality_defined": true,
+      "unitary_err": 3.552714528868127e-15,
+      "closure_order": 60,
+      "closure_err": 0.9760861296476324,
+      "closed": false,
+      "lr_shell_ratios": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quasi_local": false
+    },
+    "n_rows": 9,
+    "missing_sources": [],
+    "n_gapped_all": 7,
+    "n_closing": 0,
+    "n_true_cones": 0,
+    "x_coeff": [
+      -1.0000000000000002,
+      0.9999999999999999,
+      1.0,
+      1.0000000000000009,
+      0.9999999999999996
+    ],
+    "y_coeff": [
+      -0.16666666666666669,
+      0.16666666666666663,
+      0.16666666666666663,
+      0.2500000000000001,
+      0.2499999999999999
+    ],
+    "svd_route_dev": [
+      6.036837696399289e-16,
+      8.326672684688674e-16,
+      1.609823385706477e-15,
+      3.157196726277789e-16,
+      8.326672684688674e-16,
+      6.304635633003208e-16,
+      5.93275428784068e-16,
+      8.326672684688674e-16,
+      1.2351231148954867e-15
+    ],
+    "rows": [
+      {
+        "row": "anchor",
+        "w": 0.0,
+        "D": "I",
+        "gap_by_star": {
+          "GAMMA": 0.03649939422882611,
+          "X": 0.0012920252236225673,
+          "M": 0.00020028952953104998,
+          "R": 0.001292025223621564
+        },
+        "n_nodes": 12,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.997984640580528,
+        "cone_growth": 39.60486612588973,
+        "chirality_defined": true,
+        "unitary_err": 3.552714528868127e-15,
+        "closure_order": 60,
+        "closure_err": 0.9760861296476324,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "quasi_local": false
+      },
+      {
+        "row": "w1.571_X_+",
+        "w": 1.5707963267948966,
+        "D": "X",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.017573267979540192,
+          "M": 0.018079410360261793,
+          "R": 0.07029061344213143
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 3.4416930241489737e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          1.0,
+          0.9999999999999998,
+          0.7653245164165332
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w1.571_X_-",
+        "w": -1.5707963267948966,
+        "D": "X",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.07029061344212928,
+          "M": 0.018079410360256943,
+          "R": 0.000706431910252599
+        },
+        "n_nodes": 8,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.993234002650586,
+        "cone_growth": 6.680879600887932,
+        "chirality_defined": true,
+        "unitary_err": 3.3306726219643505e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.9999999999999998,
+          0.9279711376624254,
+          0.6793030680689072
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w1.571_Y_+",
+        "w": 1.5707963267948966,
+        "D": "Y",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.007904783983367311,
+          "M": 0.010065364767079844,
+          "R": 0.02830629381683484
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 2.331470754369653e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.8361284767861483,
+          0.5774758417949097,
+          0.4123124924067526
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w1.571_Y_-",
+        "w": -1.5707963267948966,
+        "D": "Y",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.07444971062314629,
+          "M": 0.06384903826918062,
+          "R": 0.030795419816863817
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 2.2204470196645485e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.8293960318689987,
+          0.6626488532983978,
+          0.43865877215287874
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w0.7854_X_+",
+        "w": 0.7853981633974483,
+        "D": "X",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.0771093991655382,
+          "M": 0.05690999322997029,
+          "R": 0.061564788569688
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 2.8865800882829453e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.822907342271342,
+          0.6683479510239873,
+          0.6683479510239873
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w0.7854_X_-",
+        "w": -0.7853981633974483,
+        "D": "X",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.05022839819228407,
+          "M": 0.007295721023721131,
+          "R": 0.01537022408283655
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 3.3306695380785623e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.543785724590395,
+          0.41089371794846147,
+          0.3852557113000918
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w0.7854_Y_+",
+        "w": 0.7853981633974483,
+        "D": "Y",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.001488023819002661,
+          "M": 0.0021972811266244836,
+          "R": 0.03652419829240427
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 2.7755597543237594e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.8433733804588126,
+          0.59810302094351,
+          0.410591716713892
+        ],
+        "quasi_local": true
+      },
+      {
+        "row": "w0.7854_Y_-",
+        "w": -0.7853981633974483,
+        "D": "Y",
+        "gap_by_star": {
+          "GAMMA": 0.036499394228826317,
+          "X": 0.013514137220982901,
+          "M": 0.018191046453619176,
+          "R": 0.017170038840037236
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 2.1577290447702315e-15,
+        "closure_order": 60,
+        "closure_err": 0.976086129647632,
+        "closed": false,
+        "lr_shell_ratios": [
+          0.8706158000722275,
+          0.664861721132408,
+          0.4102666821896789
+        ],
+        "quasi_local": true
+      }
+    ],
+    "candidates": [
+      {
+        "name": "wilson:w1.571_X_+",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 3.4416930241489737e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": 1.5707963267948966,
+          "D": "X"
+        }
+      },
+      {
+        "name": "wilson:w1.571_X_-",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 3.3306726219643505e-15,
+        "n_nodes": 8,
+        "single_orbit": true,
+        "anisotropy_A": 0.993234002650586,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": -1.5707963267948966,
+          "D": "X"
+        }
+      },
+      {
+        "name": "wilson:w1.571_Y_+",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 2.331470754369653e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": 1.5707963267948966,
+          "D": "Y"
+        }
+      },
+      {
+        "name": "wilson:w1.571_Y_-",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 2.2204470196645485e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": -1.5707963267948966,
+          "D": "Y"
+        }
+      },
+      {
+        "name": "wilson:w0.7854_X_+",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 2.8865800882829453e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": 0.7853981633974483,
+          "D": "X"
+        }
+      },
+      {
+        "name": "wilson:w0.7854_X_-",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 3.3306695380785623e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": -0.7853981633974483,
+          "D": "X"
+        }
+      },
+      {
+        "name": "wilson:w0.7854_Y_+",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 2.7755597543237594e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": 0.7853981633974483,
+          "D": "Y"
+        }
+      },
+      {
+        "name": "wilson:w0.7854_Y_-",
+        "source": "V166_wilson_quantized",
+        "unitary_err": 2.1577290447702315e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "wilson",
+          "w": -0.7853981633974483,
+          "D": "Y"
+        }
+      }
+    ]
+  },
+  "wall_time": 47.798
+}

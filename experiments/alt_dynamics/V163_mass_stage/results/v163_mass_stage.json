@@ -1,0 +1,4258 @@
+{
+  "id": "V163_mass_stage",
+  "tier": 4,
+  "property": "one extra q-independent internal plane rotation per step: 45 planes x {pi/2, pi/4}, node gaps, residual gapless set, mirror leakage, closure",
+  "residual": true,
+  "pass": true,
+  "status": "MASS-STAGE CENSUS (90 rows). 81/90 rows gap EVERY high-symmetry point: a single-plane q-independent rotation gaps the 12 M nodes but gaps the whole spectrum. 9 rows keep points under the 1e-3 node tolerance; the two with A < 1e-6 are MASSIVE zone-centre points (cone growth [0.91, 0.91], chirality undefined), not Dirac cones: ZERO rows supply an isotropic single-orbit gapless set (0 true cones). Mirror leakage exactly 0.0e+00 (even-grade planes); 0 rows close at order <= 64. 2-route dev 9.8e-15. A q-independent mass stage is a mass generator, not a node selector.",
+  "data": {
+    "n_rows": 90,
+    "n_gapped_all": 81,
+    "n_with_nodes": 9,
+    "n_isotropic": 2,
+    "n_true_cones": 0,
+    "n_closing": 0,
+    "max_mirror_leakage": 0.0,
+    "torus_route_dev": [
+      9.43689570931383e-15,
+      7.993605777301127e-15,
+      9.769962616701378e-15
+    ],
+    "min_M_gap": 0.000500586939394437,
+    "rows": [
+      {
+        "plane": [
+          0,
+          1
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.15698110674795035,
+          "X": 0.03887438870391268,
+          "M": 0.05449748036230645,
+          "R": 0.038874388703912195
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.55271697394973e-15,
+        "closure_order": 41,
+        "closure_err": 0.9299128219524291,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          1
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07262423972392189,
+          "X": 0.018935802128590962,
+          "M": 0.03133816938770083,
+          "R": 0.01771235613824051
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.997605073385065e-15,
+        "closure_order": 57,
+        "closure_err": 0.8914579525044758,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          2
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06933307285475397,
+          "X": 0.02706846987403607,
+          "M": 0.06933307285475224,
+          "R": 0.03880155699985462
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552714539935399e-15,
+        "closure_order": 30,
+        "closure_err": 0.8986877992157708,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          2
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.062177440793819025,
+          "X": 0.03780723299875845,
+          "M": 0.053529232953371725,
+          "R": 0.03425242837778895
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.9976055474166393e-15,
+        "closure_order": 25,
+        "closure_err": 0.8891516853936392,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          3
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.05983305367789511,
+          "X": 0.00424195312134964,
+          "M": 0.01851838493647857,
+          "R": 0.037072715620064124
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416922699683258e-15,
+        "closure_order": 17,
+        "closure_err": 0.9763693899315538,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          3
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.12596829854942204,
+          "X": 0.00786158050538613,
+          "M": 0.04313592627507819,
+          "R": 0.004086100174672756
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.3306713755367223e-15,
+        "closure_order": 46,
+        "closure_err": 0.9038472123359241,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          4
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.04137945285256772,
+          "X": 0.04029314628719167,
+          "M": 0.036890560307394994,
+          "R": 0.00768629463114002
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.5527138667868064e-15,
+        "closure_order": 6,
+        "closure_err": 0.9227233570358853,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          4
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.012747282708809496,
+          "X": 0.03467025745403956,
+          "M": 0.02891822746972304,
+          "R": 0.034670257454040045
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.219648736997837e-15,
+        "closure_order": 39,
+        "closure_err": 0.9111077520824842,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          5
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.1104994424726605,
+          "X": 0.003015452772491891,
+          "M": 0.02265947510871422,
+          "R": 0.03768461228623153
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552715242235463e-15,
+        "closure_order": 49,
+        "closure_err": 0.8284228751476626,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          5
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.0028417047819188253,
+          "X": 0.008056599402560344,
+          "M": 0.0028417047819189046,
+          "R": 0.11526501326211462
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.8865808144836388e-15,
+        "closure_order": 14,
+        "closure_err": 0.9071727705091415,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.015929278361903238,
+          "X": 0.07341263731104174,
+          "M": 0.015929278361902513,
+          "R": 0.07341263731104292
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416915703883643e-15,
+        "closure_order": 24,
+        "closure_err": 0.4563079711261434,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 5.6236005286048714e-05,
+          "X": 0.025634053975692527,
+          "M": 0.05634281931852746,
+          "R": 0.05900750311642258
+        },
+        "n_nodes": 1,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 4.65762740103879e-11,
+        "cone_growth": 0.9107049896913512,
+        "chirality_defined": false,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.441691498383851e-15,
+        "closure_order": 64,
+        "closure_err": 0.7285630625895327,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          0,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.03010266758196144,
+          "X": 0.04269513481888914,
+          "M": 0.030102667581960264,
+          "R": 0.04269513481888861
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713869534203e-15,
+        "closure_order": 22,
+        "closure_err": 0.8509870879760097,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.06069364260108683,
+          "X": 0.019782951262400133,
+          "M": 0.01546641372221021,
+          "R": 0.01927376521660166
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886580516014518e-15,
+        "closure_order": 41,
+        "closure_err": 0.8245671958191523,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.008394067385960284,
+          "X": 0.050950628249630675,
+          "M": 0.033805805272510384,
+          "R": 0.08430091277152148
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.6637367139084e-15,
+        "closure_order": 31,
+        "closure_err": 0.792467429814464,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.0368325527703718,
+          "X": 0.03013240539948098,
+          "M": 0.06223983038460604,
+          "R": 0.03881691046799993
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886587574207029e-15,
+        "closure_order": 16,
+        "closure_err": 0.6353995309479885,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06160745768003372,
+          "X": 0.002089674136764316,
+          "M": 0.04895620269637508,
+          "R": 0.01987057582508204
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.441691569764079e-15,
+        "closure_order": 13,
+        "closure_err": 0.9658581268379397,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          0,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.0045547761045240135,
+          "X": 0.10699148881988362,
+          "M": 0.004554776104523609,
+          "R": 0.04700602821927479
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.8865798716332896e-15,
+        "closure_order": 25,
+        "closure_err": 0.8269070791664533,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          2
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.05594387171468784,
+          "X": 0.03848362906386732,
+          "M": 0.011751487993869564,
+          "R": 0.03003193986239912
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.663737760374663e-15,
+        "closure_order": 62,
+        "closure_err": 0.8420386011335209,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          2
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.02316937449973189,
+          "X": 0.008919934948347231,
+          "M": 0.02355431921626319,
+          "R": 0.07057117927633211
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.6645542952136293e-15,
+        "closure_order": 26,
+        "closure_err": 0.9967493880071664,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          3
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.1351176627626598,
+          "X": 0.017010944718622308,
+          "M": 0.009346698936102658,
+          "R": 0.10467341043214348
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.6637367139084e-15,
+        "closure_order": 32,
+        "closure_err": 0.9501085794533709,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          3
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.04889996078123919,
+          "X": 0.023546913349622892,
+          "M": 0.002061111375264502,
+          "R": 0.023546913349622386
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886587574207029e-15,
+        "closure_order": 25,
+        "closure_err": 0.9029688070498931,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          4
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.03478134482222396,
+          "X": 0.021650545098680148,
+          "M": 0.014102839278905963,
+          "R": 0.020824962535966433
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713865722234e-15,
+        "closure_order": 14,
+        "closure_err": 0.8252938354823321,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          4
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.11087863887722284,
+          "X": 0.037928468540408225,
+          "M": 0.03591977501448729,
+          "R": 0.15402649305852256
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.108626377551071e-15,
+        "closure_order": 32,
+        "closure_err": 0.7213819720813409,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          5
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.0699986998785532,
+          "X": 0.02593298872839986,
+          "M": 0.0699986998785524,
+          "R": 0.04810801816548136
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.663738713815441e-15,
+        "closure_order": 16,
+        "closure_err": 0.8833658732355041,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          5
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07265854793394552,
+          "X": 0.0009983045782373087,
+          "M": 0.09478722526747604,
+          "R": 0.0009983045782369403
+        },
+        "n_nodes": 14,
+        "n_stars": 2,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": 0.14212347760126884,
+        "cone_growth": 1.6835686350359962,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.88658144337431e-15,
+        "closure_order": 56,
+        "closure_err": 0.7480629832506867,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          1,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.056976274151129436,
+          "X": 0.03186495742803243,
+          "M": 0.043158979856355084,
+          "R": 0.007856928174951202
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552716704739422e-15,
+        "closure_order": 61,
+        "closure_err": 0.8996895000199339,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.01705367127136552,
+          "X": 0.0019082892519592253,
+          "M": 0.01705367127136488,
+          "R": 0.13516038931540034
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.9976193427409585e-15,
+        "closure_order": 17,
+        "closure_err": 0.8272291305382982,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.023139388557366972,
+          "X": 0.004255146428888992,
+          "M": 0.07210881721106358,
+          "R": 0.04104972034212617
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.663740558872744e-15,
+        "closure_order": 6,
+        "closure_err": 0.9299526299165723,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.023851124941939077,
+          "X": 0.013102101784236528,
+          "M": 0.03964338889792295,
+          "R": 0.03468894230549378
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.664536074625828e-15,
+        "closure_order": 39,
+        "closure_err": 0.9249851458799003,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.027812074317895234,
+          "X": 0.049141765565129836,
+          "M": 0.027812074317895195,
+          "R": 0.03814791206794783
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552714912312692e-15,
+        "closure_order": 24,
+        "closure_err": 0.869034061775193,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.05983598008874629,
+          "X": 0.03417400921074795,
+          "M": 0.006520725013284952,
+          "R": 0.018952014401775946
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.330669601866333e-15,
+        "closure_order": 23,
+        "closure_err": 0.6283831050906635,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.008394067385958054,
+          "X": 0.05095062824962975,
+          "M": 0.03380580527251148,
+          "R": 0.08430091277152187
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552716504339685e-15,
+        "closure_order": 31,
+        "closure_err": 0.7924674298144593,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          1,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.03683255277037089,
+          "X": 0.03013240539948071,
+          "M": 0.06223983038460631,
+          "R": 0.03881691046800109
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.7755575615721202e-15,
+        "closure_order": 16,
+        "closure_err": 0.6462072940414774,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          3
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.08035708711948655,
+          "X": 0.0007549446724834864,
+          "M": 0.02271906326010827,
+          "R": 0.088017723010862
+        },
+        "n_nodes": 6,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.18793552853999151,
+        "cone_growth": 1.886308545955025,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552715242235463e-15,
+        "closure_order": 55,
+        "closure_err": 0.7205034854438713,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          2,
+          3
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.05533166095567549,
+          "X": 0.001009021984568974,
+          "M": 0.05533166095567421,
+          "R": 0.0010090219845674572
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.8865808144836388e-15,
+        "closure_order": 26,
+        "closure_err": 0.9668720238660838,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          4
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.026239111039114225,
+          "X": 0.011607175472953658,
+          "M": 0.010968525007081564,
+          "R": 0.038210781915303846
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416944885610385e-15,
+        "closure_order": 54,
+        "closure_err": 0.48855501018638703,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          4
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.01580817732172318,
+          "X": 0.02338368339175695,
+          "M": 0.043299317950341594,
+          "R": 0.023383683391757247
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.3306694822477683e-15,
+        "closure_order": 39,
+        "closure_err": 0.9373489116594546,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          5
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.034429659481961986,
+          "X": 0.03917340787426569,
+          "M": 0.003871870851109019,
+          "R": 0.03917340787426467
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552714912312692e-15,
+        "closure_order": 8,
+        "closure_err": 0.9239020611112189,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          5
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.05653422091708435,
+          "X": 0.003366164780922867,
+          "M": 0.034645834719068846,
+          "R": 0.03710344473448206
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.330669601866333e-15,
+        "closure_order": 38,
+        "closure_err": 0.9896404438499555,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06414565183259281,
+          "X": 0.022012482984748703,
+          "M": 0.051740489347470525,
+          "R": 0.007032429176329943
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.774759125369953e-15,
+        "closure_order": 14,
+        "closure_err": 0.8219132663641805,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.0400554879861088,
+          "X": 0.021521246025466352,
+          "M": 0.04005548798610866,
+          "R": 0.07276013700777685
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.2196468537470084e-15,
+        "closure_order": 25,
+        "closure_err": 0.9483399663004577,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.10976612239214888,
+          "X": 0.0443626629854225,
+          "M": 0.005608985697873603,
+          "R": 0.10687449970898663
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552716441143547e-15,
+        "closure_order": 22,
+        "closure_err": 0.6344882597608518,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.01405433470752472,
+          "X": 0.021586156879386056,
+          "M": 0.011930907466285763,
+          "R": 0.05989302993953188
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886580404541293e-15,
+        "closure_order": 57,
+        "closure_err": 0.8423715296976523,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.02313938855736626,
+          "X": 0.0042551464288880835,
+          "M": 0.07210881721106395,
+          "R": 0.04104972034212559
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416939076757817e-15,
+        "closure_order": 6,
+        "closure_err": 0.9299526299165723,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.023851124941941755,
+          "X": 0.013102101784236087,
+          "M": 0.0396433888979233,
+          "R": 0.03468894230549444
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.88658144337431e-15,
+        "closure_order": 39,
+        "closure_err": 0.7772897389571857,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.03010266758196286,
+          "X": 0.04269513481888882,
+          "M": 0.030102667581960927,
+          "R": 0.042695134818887405
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.774763771922954e-15,
+        "closure_order": 22,
+        "closure_err": 0.8509870879760097,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          2,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.06069364260108843,
+          "X": 0.019782951262400036,
+          "M": 0.015466413722211097,
+          "R": 0.01927376521660284
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.219648438770375e-15,
+        "closure_order": 41,
+        "closure_err": 0.8173769293627905,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          4
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.006461357669468658,
+          "X": 0.041227428931898555,
+          "M": 0.027105142868743815,
+          "R": 0.007604115171926139
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713869534203e-15,
+        "closure_order": 23,
+        "closure_err": 0.9835327387924327,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          4
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.015757890471062776,
+          "X": 0.026499414811376572,
+          "M": 0.00985952642911581,
+          "R": 0.020601050769430113
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886580516014518e-15,
+        "closure_order": 8,
+        "closure_err": 0.9645704679236561,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          5
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06748608048467038,
+          "X": 0.013617180516864754,
+          "M": 0.01712687217477634,
+          "R": 0.03639412674367693
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552714539935399e-15,
+        "closure_order": 42,
+        "closure_err": 0.9291371110706713,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          5
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.01653825026950184,
+          "X": 0.01043536540397648,
+          "M": 0.006811525488163898,
+          "R": 0.0007840321037174213
+        },
+        "n_nodes": 8,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.3134657215525231,
+        "cone_growth": 3.1157101230180477,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.9976055474166393e-15,
+        "closure_order": 55,
+        "closure_err": 0.49655354733826795,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          3,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.060920625878832756,
+          "X": 0.02358349381985767,
+          "M": 0.060920625878831736,
+          "R": 0.02358349381985886
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.5527184048041686e-15,
+        "closure_order": 38,
+        "closure_err": 0.8372380424703955,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.14281917034984817,
+          "X": 0.08864474050304395,
+          "M": 0.020121794411182677,
+          "R": 0.08881698312067814
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.8865798716332896e-15,
+        "closure_order": 22,
+        "closure_err": 0.9239661210928725,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06414565183259206,
+          "X": 0.022012482984748526,
+          "M": 0.05174048934747032,
+          "R": 0.00703242917632915
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713802863796e-15,
+        "closure_order": 14,
+        "closure_err": 0.821913266364181,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.04005548798610767,
+          "X": 0.021521246025465988,
+          "M": 0.040055487986108224,
+          "R": 0.07276013700777641
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.219652025732132e-15,
+        "closure_order": 25,
+        "closure_err": 0.965904839453689,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.05697627415113039,
+          "X": 0.031864957428031915,
+          "M": 0.043158979856355265,
+          "R": 0.007856928174951676
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.55271697394973e-15,
+        "closure_order": 61,
+        "closure_err": 0.8996895000199296,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.017053671271365152,
+          "X": 0.0019082892519590806,
+          "M": 0.01705367127136504,
+          "R": 0.13516038931540109
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.997605073385065e-15,
+        "closure_order": 17,
+        "closure_err": 0.8611150280957054,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.015929278361903387,
+          "X": 0.0734126373110432,
+          "M": 0.015929278361902468,
+          "R": 0.07341263731104318
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416915703883643e-15,
+        "closure_order": 24,
+        "closure_err": 0.4563079711261441,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          3,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 5.623600528459162e-05,
+          "X": 0.02563405397569258,
+          "M": 0.05634281931852717,
+          "R": 0.05900750311642179
+        },
+        "n_nodes": 1,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 5.23148916593891e-11,
+        "cone_growth": 0.9107049896654825,
+        "chirality_defined": false,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.441691498383851e-15,
+        "closure_order": 64,
+        "closure_err": 0.7880158247713248,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          4,
+          5
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.008728887214041475,
+          "X": 0.0037065911536165227,
+          "M": 0.000500586939394437,
+          "R": 0.003706591153617618
+        },
+        "n_nodes": 12,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.4008756319423436,
+        "cone_growth": 3.391032818047926,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552716441143547e-15,
+        "closure_order": 9,
+        "closure_err": 0.7844625674235453,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          4,
+          5
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.025431288575891765,
+          "X": 0.014738132878580463,
+          "M": 0.02543128857589041,
+          "R": 0.01564864631060227
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886580404541293e-15,
+        "closure_order": 41,
+        "closure_err": 0.7322847128501433,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06748608048467046,
+          "X": 0.01361718051686387,
+          "M": 0.017126872174776035,
+          "R": 0.036394126743676404
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713871834282e-15,
+        "closure_order": 42,
+        "closure_err": 0.929137111070672,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.016538250269502047,
+          "X": 0.010435365403976677,
+          "M": 0.006811525488164056,
+          "R": 0.0007840321037169399
+        },
+        "n_nodes": 8,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.31346572155138835,
+        "cone_growth": 3.1157101230138973,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416933100469024e-15,
+        "closure_order": 55,
+        "closure_err": 0.4974476575683679,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          4,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.03442965948196126,
+          "X": 0.03917340787426556,
+          "M": 0.0038718708511093583,
+          "R": 0.039173407874264106
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416922699683258e-15,
+        "closure_order": 8,
+        "closure_err": 0.9239020611112193,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.05653422091708439,
+          "X": 0.0033661647809228464,
+          "M": 0.03464583471906903,
+          "R": 0.0371034447344818
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.3306713755367223e-15,
+        "closure_order": 38,
+        "closure_err": 0.9896404438499582,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.0699986998785528,
+          "X": 0.025932988728399126,
+          "M": 0.06999869987855238,
+          "R": 0.048108018165482096
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.663740558872744e-15,
+        "closure_order": 16,
+        "closure_err": 0.8833658732355046,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07265854793394891,
+          "X": 0.0009983045782365732,
+          "M": 0.09478722526747516,
+          "R": 0.0009983045782366532
+        },
+        "n_nodes": 14,
+        "n_stars": 2,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": 0.14212347760201444,
+        "cone_growth": 1.683568635035282,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.664536467055637e-15,
+        "closure_order": 56,
+        "closure_err": 0.5694464144979701,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          4,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.11049944247266019,
+          "X": 0.0030154527724913904,
+          "M": 0.02265947510871404,
+          "R": 0.037684612286231586
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713679668444e-15,
+        "closure_order": 49,
+        "closure_err": 0.8284228751476622,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          4,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.0028417047819197386,
+          "X": 0.008056599402560951,
+          "M": 0.002841704781919154,
+          "R": 0.11526501326211475
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.9976026189854854e-15,
+        "closure_order": 14,
+        "closure_err": 0.9231868516295576,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          6
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.006461357669470083,
+          "X": 0.04122742893189858,
+          "M": 0.027105142868743968,
+          "R": 0.007604115171925211
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.774763771922954e-15,
+        "closure_order": 23,
+        "closure_err": 0.9835327387924333,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          6
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.015757890471063414,
+          "X": 0.026499414811375875,
+          "M": 0.009859526429116083,
+          "R": 0.020601050769430446
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.219648438770375e-15,
+        "closure_order": 42,
+        "closure_err": 0.9613702806275665,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.026239111039115026,
+          "X": 0.011607175472952355,
+          "M": 0.010968525007082761,
+          "R": 0.03821078191530509
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.4416944885610385e-15,
+        "closure_order": 54,
+        "closure_err": 0.48855501018638603,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.015808177321723366,
+          "X": 0.023383683391757608,
+          "M": 0.043299317950341365,
+          "R": 0.023383683391757087
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.3306694822477683e-15,
+        "closure_order": 39,
+        "closure_err": 0.9368889016698659,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.0347813448222234,
+          "X": 0.021650545098680238,
+          "M": 0.014102839278905115,
+          "R": 0.02082496253596604
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713692269831e-15,
+        "closure_order": 14,
+        "closure_err": 0.8252938354823315,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.11087863887722321,
+          "X": 0.037928468540408856,
+          "M": 0.03591977501448597,
+          "R": 0.1540264930585237
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.7755707592891165e-15,
+        "closure_order": 32,
+        "closure_err": 0.760009198532699,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.0413794528525688,
+          "X": 0.04029314628719094,
+          "M": 0.0368905603073946,
+          "R": 0.007686294631139789
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.774758955004719e-15,
+        "closure_order": 6,
+        "closure_err": 0.9227233570358856,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          5,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.012747282708809383,
+          "X": 0.03467025745403937,
+          "M": 0.02891822746972337,
+          "R": 0.03467025745404001
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.1086390052336702e-15,
+        "closure_order": 23,
+        "closure_err": 0.9196397270916911,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          6,
+          7
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.0803570871194877,
+          "X": 0.0007549446724837191,
+          "M": 0.02271906326010781,
+          "R": 0.08801772301086237
+        },
+        "n_nodes": 6,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.18793552853904683,
+        "cone_growth": 1.886308545955589,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713679668444e-15,
+        "closure_order": 55,
+        "closure_err": 0.720503485443879,
+        "closed": false,
+        "front_speed": 0.9166666666666666,
+        "outside_lightcone": 0
+      },
+      {
+        "plane": [
+          6,
+          7
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.055331660955676924,
+          "X": 0.0010090219845688318,
+          "M": 0.055331660955675245,
+          "R": 0.0010090219845680787
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.886595037394481e-15,
+        "closure_order": 26,
+        "closure_err": 0.9697783383015165,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          6,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.13511766276266002,
+          "X": 0.017010944718622318,
+          "M": 0.009346698936103182,
+          "R": 0.10467341043214384
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.330669116187838e-15,
+        "closure_order": 32,
+        "closure_err": 0.9501085794533688,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          6,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.04889996078123953,
+          "X": 0.023546913349623874,
+          "M": 0.002061111375263951,
+          "R": 0.023546913349622393
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 2.775562044272694e-15,
+        "closure_order": 25,
+        "closure_err": 0.8567429140027535,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          6,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.05983305367789691,
+          "X": 0.00424195312134964,
+          "M": 0.01851838493647888,
+          "R": 0.03707271562006439
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552714912312692e-15,
+        "closure_order": 17,
+        "closure_err": 0.976369389931554,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          6,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.1259682985494214,
+          "X": 0.007861580505384361,
+          "M": 0.04313592627507818,
+          "R": 0.004086100174672546
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.330669601866333e-15,
+        "closure_order": 46,
+        "closure_err": 0.9038472123359221,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          7,
+          8
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.05594387171468818,
+          "X": 0.038483629063867826,
+          "M": 0.011751487993868779,
+          "R": 0.03003193986239722
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552718380419581e-15,
+        "closure_order": 62,
+        "closure_err": 0.8420386011335176,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          7,
+          8
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.023169374499732706,
+          "X": 0.00891993494834684,
+          "M": 0.023554319216263712,
+          "R": 0.07057117927633268
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.108626377551071e-15,
+        "closure_order": 8,
+        "closure_err": 0.9606815019122834,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          7,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.06933307285475324,
+          "X": 0.02706846987403588,
+          "M": 0.06933307285475175,
+          "R": 0.038801556999854686
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.552713871834282e-15,
+        "closure_order": 30,
+        "closure_err": 0.898687799215772,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          7,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.06217744079381888,
+          "X": 0.0378072329987571,
+          "M": 0.05352923295337189,
+          "R": 0.034252428377787934
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.219651229300846e-15,
+        "closure_order": 25,
+        "closure_err": 0.9327925977622809,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          8,
+          9
+        ],
+        "angle": "pi2",
+        "gap_by_star": {
+          "GAMMA": 0.15698110674795057,
+          "X": 0.03887438870391202,
+          "M": 0.05449748036230556,
+          "R": 0.03887438870391193
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.5527139394468075e-15,
+        "closure_order": 41,
+        "closure_err": 0.9299128219524303,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      },
+      {
+        "plane": [
+          8,
+          9
+        ],
+        "angle": "pi4",
+        "gap_by_star": {
+          "GAMMA": 0.07262423972392236,
+          "X": 0.018935802128592246,
+          "M": 0.0313381693877004,
+          "R": 0.017712356138240036
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "mirror_leakage": 0.0,
+        "unitary_err": 3.108639777134395e-15,
+        "closure_order": 57,
+        "closure_err": 0.8864490239584943,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null
+      }
+    ],
+    "candidates": [
+      {
+        "name": "mass:(0,1)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.55271697394973e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            1
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,1)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.997605073385065e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            1
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,2)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552714539935399e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            2
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,2)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.9976055474166393e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            2
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,3)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416922699683258e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            3
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,3)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.3306713755367223e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            3
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,4)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.5527138667868064e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            4
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,4)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.219648736997837e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            4
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,5)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552715242235463e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            5
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,5)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.8865808144836388e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            5
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416915703883643e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.441691498383851e-15,
+        "n_nodes": 1,
+        "single_orbit": true,
+        "anisotropy_A": 4.65762740103879e-11,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713869534203e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886580516014518e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.6637367139084e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886587574207029e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(0,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.441691569764079e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(0,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.8865798716332896e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            0,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,2)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.663737760374663e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            2
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,2)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.6645542952136293e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            2
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,3)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.6637367139084e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            3
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,3)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886587574207029e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            3
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,4)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713865722234e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            4
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,4)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.108626377551071e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            4
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,5)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.663738713815441e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            5
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,5)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.88658144337431e-15,
+        "n_nodes": 14,
+        "single_orbit": false,
+        "anisotropy_A": 0.14212347760126884,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            5
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552716704739422e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.9976193427409585e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.663740558872744e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.664536074625828e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552714912312692e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.330669601866333e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(1,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552716504339685e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(1,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.7755575615721202e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            1,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,3)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552715242235463e-15,
+        "n_nodes": 6,
+        "single_orbit": true,
+        "anisotropy_A": 0.18793552853999151,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            3
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,3)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.8865808144836388e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            3
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,4)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416944885610385e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            4
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,4)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.3306694822477683e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            4
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,5)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552714912312692e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            5
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,5)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.330669601866333e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            5
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.774759125369953e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.2196468537470084e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552716441143547e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886580404541293e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416939076757817e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.88658144337431e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(2,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.774763771922954e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(2,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.219648438770375e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            2,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,4)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713869534203e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            4
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,4)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886580516014518e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            4
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,5)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552714539935399e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            5
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,5)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.9976055474166393e-15,
+        "n_nodes": 8,
+        "single_orbit": true,
+        "anisotropy_A": 0.3134657215525231,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            5
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.5527184048041686e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.8865798716332896e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713802863796e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.219652025732132e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.55271697394973e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.997605073385065e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(3,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416915703883643e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(3,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.441691498383851e-15,
+        "n_nodes": 1,
+        "single_orbit": true,
+        "anisotropy_A": 5.23148916593891e-11,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            3,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(4,5)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552716441143547e-15,
+        "n_nodes": 12,
+        "single_orbit": true,
+        "anisotropy_A": 0.4008756319423436,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            5
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(4,5)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886580404541293e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            5
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(4,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713871834282e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(4,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416933100469024e-15,
+        "n_nodes": 8,
+        "single_orbit": true,
+        "anisotropy_A": 0.31346572155138835,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(4,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416922699683258e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(4,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.3306713755367223e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(4,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.663740558872744e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(4,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.664536467055637e-15,
+        "n_nodes": 14,
+        "single_orbit": false,
+        "anisotropy_A": 0.14212347760201444,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(4,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713679668444e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(4,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.9976026189854854e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            4,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(5,6)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.774763771922954e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            6
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(5,6)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.219648438770375e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            6
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(5,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.4416944885610385e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(5,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.3306694822477683e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(5,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713692269831e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(5,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.7755707592891165e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(5,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.774758955004719e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(5,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.1086390052336702e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            5,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(6,7)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713679668444e-15,
+        "n_nodes": 6,
+        "single_orbit": true,
+        "anisotropy_A": 0.18793552853904683,
+        "chirality_sum": 0.0,
+        "front_speed": 0.9166666666666666,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            7
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(6,7)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.886595037394481e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            7
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(6,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.330669116187838e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(6,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 2.775562044272694e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(6,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552714912312692e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(6,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.330669601866333e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            6,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(7,8)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552718380419581e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            7,
+            8
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(7,8)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.108626377551071e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            7,
+            8
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(7,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.552713871834282e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            7,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(7,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.219651229300846e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            7,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      },
+      {
+        "name": "mass:(8,9)@pi2",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.5527139394468075e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            8,
+            9
+          ],
+          "g": 1.5707963267948966
+        }
+      },
+      {
+        "name": "mass:(8,9)@pi4",
+        "source": "V163_mass_stage",
+        "unitary_err": 3.108639777134395e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "mass",
+          "plane": [
+            8,
+            9
+          ],
+          "g": 0.7853981633974483
+        }
+      }
+    ]
+  },
+  "wall_time": 51.351
+}

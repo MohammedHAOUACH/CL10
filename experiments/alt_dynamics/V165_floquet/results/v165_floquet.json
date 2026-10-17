@@ -1,0 +1,198 @@
+{
+  "id": "V165_floquet",
+  "tier": 4,
+  "property": "period-2 Floquet alternation of the stage list: two-step node census, orbit, chirality, anisotropy, front speed",
+  "residual": true,
+  "pass": true,
+  "status": "FLOQUET CENSUS (3 variants + trivial anchor). The (A,A) anchor shows the baseline nodes with doubled period (12 nodes, M gap 4.0058e-04 = 2 x 2.0029e-4). 1/4 two-step operators are gapless at the high-symmetry points; ZERO true isotropic cones (best A 0.998). 2-route dev 1.2e-14. The period-2 reading of the same six stages is a relabeling: no new node structure.",
+  "data": {
+    "anchor": {
+      "gap_by_star": {
+        "GAMMA": 0.07299878845765034,
+        "X": 0.0025840504472447352,
+        "M": 0.00040057905906230743,
+        "R": 0.0025840504472456898
+      },
+      "n_nodes": 12,
+      "n_stars": 1,
+      "single_orbit": true,
+      "chirality_sum": 0.0,
+      "A": 0.9979846405814576,
+      "cone_growth": 39.60486612583558,
+      "chirality_defined": true,
+      "unitary_err": 4.884981636493401e-15,
+      "closure_order": 56,
+      "closure_err": 0.8344988672715071,
+      "closed": false,
+      "front_speed": 1.0,
+      "outside_lightcone": 0,
+      "variant": "AA"
+    },
+    "n_rows": 4,
+    "n_gapless": 1,
+    "n_true_cones": 0,
+    "torus_route_dev": [
+      6.328271240363392e-15,
+      9.103828801926284e-15,
+      1.199040866595169e-14,
+      8.659739592076221e-15
+    ],
+    "rows": [
+      {
+        "gap_by_star": {
+          "GAMMA": 0.07299878845765034,
+          "X": 0.0025840504472447352,
+          "M": 0.00040057905906230743,
+          "R": 0.0025840504472456898
+        },
+        "n_nodes": 12,
+        "n_stars": 1,
+        "single_orbit": true,
+        "chirality_sum": 0.0,
+        "A": 0.9979846405814576,
+        "cone_growth": 39.60486612583558,
+        "chirality_defined": true,
+        "unitary_err": 4.884981636493401e-15,
+        "closure_order": 56,
+        "closure_err": 0.8344988672715071,
+        "closed": false,
+        "front_speed": 1.0,
+        "outside_lightcone": 0,
+        "variant": "AA"
+      },
+      {
+        "gap_by_star": {
+          "GAMMA": 0.07299878845765195,
+          "X": 0.008441566734336088,
+          "M": 0.011314453515116731,
+          "R": 0.00844156673433612
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 4.773959350775868e-15,
+        "closure_order": 56,
+        "closure_err": 0.8344988672715079,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null,
+        "variant": "reverse"
+      },
+      {
+        "gap_by_star": {
+          "GAMMA": 0.07299878845765045,
+          "X": 0.002584050447245912,
+          "M": 0.005456937228026023,
+          "R": 0.0025840504472449204
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 4.9960038556544335e-15,
+        "closure_order": 56,
+        "closure_err": 0.8344988672715078,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null,
+        "variant": "axis_cycle"
+      },
+      {
+        "gap_by_star": {
+          "GAMMA": 0.07299878845765034,
+          "X": 0.008441566734335187,
+          "M": 0.011314453515116793,
+          "R": 0.008441566734336128
+        },
+        "n_nodes": 0,
+        "n_stars": 0,
+        "single_orbit": false,
+        "chirality_sum": 0.0,
+        "A": null,
+        "cone_growth": null,
+        "chirality_defined": true,
+        "unitary_err": 4.55191560820388e-15,
+        "closure_order": 56,
+        "closure_err": 0.8344988672715071,
+        "closed": false,
+        "front_speed": null,
+        "outside_lightcone": null,
+        "variant": "parity_swap"
+      }
+    ],
+    "candidates": [
+      {
+        "name": "floquet:AA",
+        "source": "V165_floquet",
+        "unitary_err": 4.884981636493401e-15,
+        "n_nodes": 12,
+        "single_orbit": true,
+        "anisotropy_A": 0.9979846405814576,
+        "chirality_sum": 0.0,
+        "front_speed": 1.0,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "floquet",
+          "variant": "AA"
+        }
+      },
+      {
+        "name": "floquet:reverse",
+        "source": "V165_floquet",
+        "unitary_err": 4.773959350775868e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "floquet",
+          "variant": "reverse"
+        }
+      },
+      {
+        "name": "floquet:axis_cycle",
+        "source": "V165_floquet",
+        "unitary_err": 4.9960038556544335e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "floquet",
+          "variant": "axis_cycle"
+        }
+      },
+      {
+        "name": "floquet:parity_swap",
+        "source": "V165_floquet",
+        "unitary_err": 4.55191560820388e-15,
+        "n_nodes": 0,
+        "single_orbit": false,
+        "anisotropy_A": null,
+        "chirality_sum": 0.0,
+        "front_speed": null,
+        "mirror_ok": true,
+        "survivor": false,
+        "step_spec": {
+          "kind": "floquet",
+          "variant": "parity_swap"
+        }
+      }
+    ]
+  },
+  "wall_time": 26.327
+}

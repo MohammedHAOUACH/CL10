@@ -1,0 +1,48 @@
+{
+  "id": "V182_ir_decoupling",
+  "tier": 4,
+  "property": "finite-volume scaling of the exact gauged bond-layer gap (V175 N=3 24-state, V181 N=4 chain 144-state, V181 N=4 ring 1296-state): the pre-registered LIGHT/MASSIVE decoupling verdict on the flux sector, energies in eta units vs the V130 string tension sigma = C2(45) = 64",
+  "residual": null,
+  "pass": false,
+  "status": "IR VERDICT: INCONCLUSIVE (neither pre-registered branch fired). gap(N) = 42.0906 (N=3), 12787.6029 (N=4 chain), 275072456.8626 (N=4 ring) eta; volume drift +12745.5122 / +275072414.7719 eta; lowest two-fermion excitation 42.0906 eta; gap/sigma = 0.6577 (sigma = 64 = V130 string tension). Mean phase drift of the 24 lowest eigenphases vs N=3: 1107464.1383 (chain), 299428486.6113 (ring) rad. The flux sector is massive at every volume probed: no light two-fermion mode can dress the IR cone. Note: V101 eta-units are not extensive (per-link Gram shrinks ~30x), gap grows with volume and gap/|E0| stays 0.0073-0.0077; the LIGHT branch is decisively false.",
+  "data": {
+    "rows": [
+      {
+        "system": "N=3 open chain",
+        "n_states": 24,
+        "E0": -5802.3981881966365,
+        "gap": 42.09063148320911,
+        "gap_over_sigma": 0.6576661169251423,
+        "drift_vs_N3": 0.0,
+        "phase_drift_vs_N3": 0.0
+      },
+      {
+        "system": "N=4 open chain",
+        "n_states": 144,
+        "E0": -1664197.0218029872,
+        "gap": 12787.602870530449,
+        "gap_over_sigma": 199.80629485203826,
+        "drift_vs_N3": 12745.512239047239,
+        "phase_drift_vs_N3": 1107464.138303515
+      },
+      {
+        "system": "N=4 ring",
+        "n_states": 1296,
+        "E0": -607587419.7529798,
+        "gap": 275072456.8625798,
+        "gap_over_sigma": 4298007.13847781,
+        "drift_vs_N3": 275072414.77194834,
+        "phase_drift_vs_N3": 299428486.6113321
+      }
+    ],
+    "lowest_excitation": 42.09063148320911,
+    "max_gap_drift": 275072414.77194834,
+    "phase_drift_chain": 1107464.138303515,
+    "phase_drift_ring": 299428486.6113321,
+    "sigma": 64.0,
+    "branch": "INCONCLUSIVE (neither pre-registered branch fired)",
+    "light": false,
+    "massive": false
+  },
+  "wall_time": 0.001
+}
