@@ -241,7 +241,6 @@ def _scan(task):
 def main():
     t0 = time.time()
     _init_worker()
-    U16 = _W["U16"]
     v63 = json.load(open(exp("V63_bz_chirality",
                                       "results", "v63_bz_chirality.json")))
     v63_gap = v63["data"]["max_M_node_gap"]

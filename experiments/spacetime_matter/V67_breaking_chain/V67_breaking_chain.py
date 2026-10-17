@@ -162,7 +162,7 @@ def main():
     print("=" * 68)
     print(f"  commutant dim: D = X -> {d_X} (expect 25 = SU(5)xU(1)); "
           f"D = Y -> {d_Y} (expect 12 = SM)")
-    print(f"  commutant dims over theta in [0,pi]: "
+    print("  commutant dims over theta in [0,pi]: "
           + ", ".join(f"{k}: {len(v)} angles" for k, v in sorted(dims.items())))
     print(f"  V65 root theta = {th_root:.3f}: commutant dim = {d_root}")
     print(f"  unbroken roots: {unbroken_roots}, cross-fragment: {cross}")

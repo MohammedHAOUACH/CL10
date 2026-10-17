@@ -132,24 +132,24 @@ def run_headless(cfg):
     n_frames = int(cfg["n_video_frames"])
     frame_every = max(1, n_steps // n_frames)
 
-    out_video = os.path.join(HERE, cfg.get("out_video", "video/hydrogen.mp4"))
-    frames_dir = os.path.join(HERE, cfg.get("out_frames", "video/frames"))
+    out_video = os.path.join(HERE, cfg["out_video"])
+    frames_dir = os.path.join(HERE, cfg["out_frames"])
     os.makedirs(os.path.dirname(out_video), exist_ok=True)
     os.makedirs(frames_dir, exist_ok=True)
 
     from PIL import Image
 
     sc = Scene.Scene(cfg, off_screen=True)
-    w3, h3 = (int(v) for v in cfg.get("window_size", (900, 600)))
+    w3, h3 = (int(v) for v in cfg["render_size"])
     w2 = int(w3 * 0.5)  # the 2-D cut is half as wide, same height
-    log_gain = float(cfg.get("log_gain", 1.0e4))
+    log_gain = float(cfg["log_gain"])
 
     writer = imageio.get_writer(
-        out_video, fps=int(cfg.get("fps", 30)), codec="libx264",
+        out_video, fps=int(cfg["fps"]), codec="libx264",
         quality=8, macro_block_size=1, pixelformat="yuv420p",
     )
 
-    amp = float(cfg.get("photon_amp", 0.7))
+    amp = float(cfg["photon_amp"])
     fired = 0
     t = 0
     frame_idx = 0

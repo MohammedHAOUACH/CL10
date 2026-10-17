@@ -61,10 +61,10 @@ from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred, dm_wimp  # noqa: E402
 
 M_DM = UN.M_P * u10pred.LOOP ** 10   # GeV: the ladder mass (V54)
-M_H = 125.1             # GeV
+M_H = dm_wimp.M_H         # GeV (cl10/config.yaml sm:)
 V_EV = u10pred.V_EW     # GeV
 OMEGA_H2 = dm_wimp.OMEGA_OBS
-SIGMA_FIDUCIAL = 3.0e-26  # cm^3/s
+SIGMA_FIDUCIAL = dm_wimp.SIGMA_FIDUCIAL   # cm^3/s (cl10/config.yaml dm:)
 M_QBAR = 1.3e8            # GeV: the lightest mirror fragment (V66)
 N_PAIRS = 16
 
@@ -156,15 +156,15 @@ def main():
         return (lam_p ** 2 * V_EV ** 2 / (8 * math.pi)
                 * M_DM ** 2 / (4 * M_DM ** 2 - M_H ** 2) ** 2)
 
-    GEV2_TO_CM3S = 0.3894e-27 * 2.998e10
+    GEV2_TO_CM3S = u10pred.GEV2_TO_CM2 * u10pred.C_CM_S
     lam_star = math.sqrt(
         SIGMA_FIDUCIAL / GEV2_TO_CM3S * 8 * math.pi
         * (4 * M_DM ** 2 - M_H ** 2) ** 2 / (V_EV ** 2 * M_DM ** 2))
-    f_N = 0.30e-3
-    m_N = 0.939
+    f_N = dm_wimp.F_N
+    m_N = u10pred.M_P_ROBSON
     mu_red = M_DM * m_N / (M_DM + m_N)
     sig_SI_V2 = (lam_star ** 2 * f_N ** 2 * mu_red ** 2
-                 / (math.pi * M_H ** 4)) * 0.3894e-27
+                 / (math.pi * M_H ** 4)) * u10pred.GEV2_TO_CM2
 
     # V1 (exact Z2): the only open annihilation is ss -> h h* (h* stable:
     # every h* decay is Z2-odd (f f-bar) or kinematically closed (hh,
@@ -184,9 +184,9 @@ def main():
                        / (math.sqrt(4 * M_DM ** 2 - M_H ** 2)
                           / (2 * M_DM)))
     sig_SI_V1 = (lam_Z2 ** 2 * f_N ** 2 * mu_red ** 2
-                 / (math.pi * M_H ** 4)) * 0.3894e-27
-    LZ_BOUND = 1.5e-47   # cm^2: LZ SI limit at ~118 GeV (4.2 t yr,
-                         # PRL 135, 011802 (2025); min 2.2e-48 at 40 GeV)
+                 / (math.pi * M_H ** 4)) * u10pred.GEV2_TO_CM2
+    LZ_BOUND = dm_wimp.LZ_BOUND   # cm^2: the LZ SI limit at ~118 GeV (4.2 t yr,
+                                  # PRL 135, 011802 (2025)); the value is in cl10/config.yaml
     checks["V2_lam_star"] = lam_star
     checks["V2_sigma_SI_cm2"] = sig_SI_V2
     checks["V1_lam_for_Omega"] = lam_Z2

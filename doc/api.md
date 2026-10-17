@@ -425,7 +425,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 
 | symbol | signature | returns |
 |---|---|---|
-| `M_PLANCK` / `V_EW` / `ALPHA_10` / `M_P_ROBSON` | (constants) | 1.22e19 GeV (the cutoff, not $M_{\rm GUT}$); 246 GeV (measured); the $\alpha_{10}$ reading; 0.938 GeV (the proton mass) |
+| `M_PLANCK` / `V_EW` / `ALPHA_10` / `M_P_ROBSON` | (constants) | 1.220890e19 GeV (the cutoff, not $M_{\rm GUT}$); 246.22 GeV (measured); the $\alpha_{10}$ reading; 0.93827208943 GeV (the proton mass) |
 | `proton_lifetime` | `(M_X, alpha_X)` | $\tau_p \sim M_X^4/(\alpha_X^2 m_p^5)$ in years (a dimensional estimate) |
 | `proton_lifetime_desert` | `()` | the lifetime in force: $M_X = 1.8\times10^{16}$ GeV, $\alpha_X = 1/40$ — **conditional** on two fitted thresholds (V64) |
 | `proton_lifetime_closed` | `()` | the same content at the closed angle $\alpha_X = \pi/64$ (V133): the threshold ordering is destroyed |
@@ -445,7 +445,7 @@ W2→O2, W3→O3.
 | symbol | signature | returns |
 |---|---|---|
 | `w1_cosmological_constant` | `()` | `{n_even, n_odd, cancellation, lambda_0param, lambda_obs, residual}` — the 512/512 cancellation is exact; the observed value is **O1** |
-| `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — the right order only; **O2** |
+| `w2_seesaw` | `()` | `{g0, m_D_GeV, M_N_GeV, m_nu_2step_eV, m_nu_1step_eV, m_nu_obs_eV, off_1step, off_2step, right_order, residual}` — $M_N$ is the ladder 2-step scale `neutrino.twostep_scale` (the loop integer fitted); the right order only; **O2** |
 | `w3_families` | `()` | `{n_time, n_space, n_fam_candidate, n_observed, match, derived, residual}` — `derived` is **False**: the index labels the copies, it does not force the count (**O3**) |
 | `baryon_asymmetry` | `()` | `{baryon_number_violated, c_or_cp_violated, out_of_equilibrium, all_sakharov, generated, residual}` — the unitary step meets no Sakharov condition (**O5**) |
 | `main` | `()` | runs the self-check |
@@ -497,7 +497,9 @@ W2→O2, W3→O3.
 |---|---|---|
 | `sakharov_conditions` | `()` | `{backend, b_violation_met, max_45_pseudoscalar_commutator, cpt_invariant, in_equilibrium, unitary_err, any_sakharov_met}` — none met (a computed theorem) |
 | `gut_ingredients` | `()` | `{backend, xy_process, proton_lifetime_yr, proton_lifetime_provenance, seesaw_scale_GeV, hubble_at_seesaw_GeV, equilibrium_by_yukawa, out_of_equilibrium_yukawa_ceiling, cp_phase_in_the_step, cp_phase_carrier}` |
-| `leptogenesis_estimate` | `()` | `{backend, M_N_GeV, gamma_over_h, out_of_equilibrium, g0, eps_loop, loop_factor_0_parameter, eta_cp, sphaleron_factor, delta_b, observed_delta_b, ratio_to_observed, order_ok, 0param_qca_satisfies_no_sakharov, residual}` — the right order with named inputs (**O5**) |
+| `K_STRONG_WASHOUT_MIN` | `3.9345` | the branch point of the BDP washout solution: below it the strong-washout equation has no real root |
+| `bdp_washout_efficiency` | `(K)` | `(kappa_f, z_B, in_domain)` — the Buchmüller-Di Bari-Plumacher washout efficiency (hep-ph/0401240) at $K = \Gamma_N/H$; out of domain the efficiency is the weak-washout bound $1$ and $z_B$ is `None` |
+| `leptogenesis_estimate` | `()` | `{backend, M_N_GeV, y, gamma_over_h, out_of_equilibrium, out_of_equilibrium_yukawa_ceiling, g0, eps_loop, loop_factor_0_parameter, eta_cp, sphaleron_factor, washout_efficiency, washout_z_B, washout_strong_domain, delta_b_unwashed, unwashed_ratio_to_observed, delta_b, observed_delta_b, ratio_to_observed, order_ok, agreement_survives_washout, 0param_qca_satisfies_no_sakharov, residual}` — the right order with named inputs, **with the physical washout** (**O5**): the decay at the model's own Yukawa is in equilibrium, and the unwashed product is reported only to expose the coincidence |
 | `verify` | `(tol=1e-9)` | `{sakharov, ingredients, ok}` — the negative result, reproduced |
 | `main` | `()` | runs the self-check |
 
@@ -540,9 +542,22 @@ W2→O2, W3→O3.
 
 | name | value | provenance |
 |---|---|---|
-| `cl10.u10pred.M_PLANCK` | `1.22e19` GeV | the lattice cutoff; $M_{\rm GUT} = M_P$ is **not** assumed |
-| `cl10.u10pred.V_EW` | `246.0` GeV | measured |
-| `cl10.u10pred.M_P_ROBSON` | `0.938` GeV | the proton mass (measured) |
+| `cl10.u10pred.M_PLANCK` | `1.220890e19` GeV | the lattice cutoff; $M_{\rm GUT} = M_P$ is **not** assumed (PDG 2024 / CODATA 2022) |
+| `cl10.u10pred.V_EW` | `246.22` GeV | measured: $v = (\sqrt2 G_F)^{-1/2}$, muon decay (PDG) |
+| `cl10.u10pred.M_P_ROBSON` | `0.93827208943` GeV | the proton mass (CODATA 2022) |
+| `cl10.dm_wimp.OMEGA_OBS` | `0.120` | the observed cold-DM density $\Omega_c h^2$ (Planck 2018 $0.1200\pm0.0012$) |
+| `cl10.eta_cp.DELTA_B_OBS` | `6.12e-10` | the observed baryon asymmetry (Planck 2018) |
+| `cl10.u10pred.GEV_TO_S`, `S_TO_YR`, `GEV2_TO_CM2`, `C_CM_S` | `6.582119569e-25`, `3.15576e7`, `3.89379338e-28`, `2.99792458e10` | exact conversions ($\hbar$; the Julian year; $(\hbar c)^2$; $c$) |
+| `cl10.unification.M_X_OBS` | `2.0e16` GeV | the observed 1-loop meeting scale (the MSSM reference) |
+| `cl10.dm_wimp.M_H` | `125.25` GeV | the Higgs pole mass (PDG 2024) |
+| `cl10.dm_wimp.LZ_BOUND` | `1.5e-47` cm$^2$ | the LZ spin-independent direct-detection limit at ~118 GeV |
+| `cl10.dm_wimp.F_N`, `SIGMA_FIDUCIAL` | `3.0e-4`, `3.0e-26` cm$^3$/s | the nucleon Higgs coupling (named hadronic input); the thermal-relic reference |
+| `cl10.cosmology.G_STAR`, `HUBBLE_COEFF`, `S0_CM3`, `RHO_C_OVER_H2` | `106.75`, `1.66`, `2891.2` cm$^{-3}$, `1.0537e-5` GeV cm$^{-3}$ | the standard-cosmology inputs of the relic / washout checks |
+| `cl10.neutrino.M_ATM_EV`, `M_SOL_EV`, `SUM_MNU_MAX_EV` | `0.0501`, `0.0086`, `0.12` eV | the measured neutrino splittings (NuFIT 6.0, NO) and the cosmological $\sum m_\nu$ bound (the F3 test) |
+| `cl10.dm_wimp.DD_BOUND`, `SIGMA_RELIC_TARGET` | `2.0e-47` cm$^2$, `2.2e-26` cm$^3$/s | the direct-detection limit and the relic-closing $\langle\sigma v\rangle$ of the dark-$U(1)$ portal scan (V112) |
+| `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
+| `CFG.desert.theta_root_rad` | `1.7308` | the root direction of the Wilson term (V65), the angle the ladder is read at |
+| `cl10.u10pred` (atomic) | `13.605693` eV | the hydrogen Rydberg energy (CODATA), the input of `simulation/hydrogen` |
 | `cl10.coupling.G10` | the active branch angle | `implemented` $1/5$ (convention), `closed` $\pi/4$, `half` $\pi/2$ |
 | `cl10.coupling.ALPHA_10` | `1/25` | the rotation-squared reading (convention) |
 | `cl10.coupling.G0` | `1/8` | the $g_0 = 1/2^{n_{\rm space}}$ reading (convention) |
@@ -556,13 +571,21 @@ Every number above has exactly one written source: `cl10/config.yaml`, read by
 applied once, in the loader, so every consumer sees the same value. The
 experiments that need these inputs read the library names for them
 (`u10pred.M_PLANCK`, `u10pred.M_X_DESERT`, `u10pred.V_EW`, `u10pred.LOOP`,
-`dm_wimp.OMEGA_OBS`, `eta_cp.DELTA_B_OBS`, `eta_cp.SPHALERON`, `coupling.G10`),
+`u10pred.ALPHA_EM_INV`, `dm_wimp.OMEGA_OBS`, `dm_wimp.LZ_BOUND`,
+`neutrino.M_ATM_EV`, `neutrino.SUM_MNU_MAX_EV`, `eta_cp.DELTA_B_OBS`,
+`eta_cp.SPHALERON`, `coupling.G10`),
 as do the entry points (the runner's `--jobs`, the `JOBS` and card gate of
-`run_experiments.sh`, the gate of `run_figures.sh` and of `make_figures`).
-Where an experiment deliberately quotes a different precision of a measured
-constant (the PDG `1.2209e19` GeV and `246.22` GeV in V106/V108/V125/V128/V130,
-against the file's `1.22e19` and `246.0`), that is stated in the experiment,
-not hidden in a second source.
+`run_experiments.sh`, the gate of `run_figures.sh` and of `make_figures`) and
+the figure modules (`make_figures` reads `CFG` directly, never a copy).
+Measured constants are written ONCE, at the best published precision: the
+file's value is the PDG/CODATA/Planck value, so no experiment carries a second
+precision of the same quantity (the former `1.2209e19` / `246.0` / `6.1e-10` /
+`125.1` / `0.939` / `0.30e-3` / `106.75` / `0.3894e-27` / `0.0501` / `0.12` /
+`127.9` / `1.731` duplicates in the DM, baryogenesis, neutrino and coupling
+experiments are gone).
+Each **simulation** owns
+its scene panel (`simulation/*/config.yaml`), which the code now reads with no
+fallback default: a key the code requires must be in the panel.
 
 | variable | overrides | effect |
 |---|---|---|

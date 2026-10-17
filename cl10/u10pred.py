@@ -36,8 +36,11 @@ ALPHA_10 = coupling.ALPHA_10      # 1/25 = g^2 at g = 1/5: the alpha_10 = g^2 RE
 V_EW = float(_config.CFG.physics.v_electroweak_gev)  # GeV (the measured electroweak vev)
 GEV_TO_S = float(_config.CFG.units.gev_to_s)   # 1/GeV in seconds
 S_TO_YR = float(_config.CFG.units.s_to_yr)     # seconds per year
+GEV2_TO_CM2 = float(_config.CFG.units.gev2_to_cm2)   # (hbar c)^2: 1 GeV^-2 in cm^2
+C_CM_S = float(_config.CFG.units.c_cm_s)             # the speed of light, cm/s
 
 LOOP = float(_config.CFG.physics.loop)     # the loop factor of the ladder (Section 12)
+ALPHA_EM_INV = float(_config.CFG.sm.alpha_em_inv)   # the electromagnetic coupling at M_Z
 
 # the desert solution of V64 (two FITTED thresholds; the coupling is the root value)
 M_X_DESERT = float(_config.CFG.desert.m_x_gev)   # GeV

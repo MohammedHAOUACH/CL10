@@ -17,7 +17,8 @@ the mechanism gives and the named residual that is left.
   exact, and how it is broken is the open problem.
 
 - **O2 (W2) — the neutrino masses.**  The sterile ``N`` (the 1 of the 16) takes
-  its Majorana mass at an intermediate scale ``M_N ~ 1e14`` GeV and the Dirac
+  its Majorana mass at the ladder 2-step scale ``M_N = M_P (1/16 pi)^3 =
+  9.6e13`` GeV (the loop integer fitted) and the Dirac
   mass is ``m_D = g_0 v`` with the ``g_0 = 1/8`` reading, so the 2-step seesaw
   gives the **right order**.  The ladder value ``m_nu = 0.146`` eV is
   **excluded** by the measured ``sum m_nu < 0.12`` eV (the falsifier F3); the
@@ -33,6 +34,7 @@ the mechanism gives and the named residual that is left.
 
 from . import coupling
 from . import u10pred
+from . import neutrino as nv
 
 # the scales of the sector (single source: u10pred; the reading: coupling)
 M_PLANCK = u10pred.M_PLANCK   # GeV (the cutoff; M_GUT = M_P is NOT assumed)
@@ -87,8 +89,10 @@ def w2_seesaw():
 
     The **Dirac** mass is $m_D = g_0 v$ with the $g_0 = 1/8$ **reading** (a
     convention, Section 15).  The **Majorana** mass $M_N$ of the sterile $N$ is
-    set at an **intermediate** scale, $M_N \\sim 10^{14}$ GeV — **fitted**, not
-    derived (the open problem O2).  The **type-I seesaw** gives
+    the ladder 2-step scale $M_N = M_P (1/16\\pi)^{n_{2\\text{step}}}$
+    ($= 9.6\\times10^{13}$ GeV, `neutrino.twostep_scale`): the **loop integer**
+    is **fitted**, not derived (the open problem O2 — it replaces the earlier
+    hard-coded $10^{14}$ GeV).  The **type-I seesaw** gives
     $m_\\nu = m_D^2 / M_N$.
 
     Returns a dict with $m_D$, $M_N$, the 2-step $m_\\nu$ (the right order),
@@ -97,11 +101,11 @@ def w2_seesaw():
     (the falsifier F3).
     """
     m_D = G0 * V_EW                  # 30.7 GeV (the Dirac mass from the g_0 reading)
-    M_N = 1e14                       # the fitted intermediate scale (O2)
+    M_N = nv.twostep_scale()         # the ladder 2-step scale (the integer fitted, O2)
     M_GUT = M_PLANCK                 # the cutoff, for the 1-step comparison
     m_nu_2step = m_D ** 2 / M_N * 1e9      # GeV -> eV
     m_nu_1step = m_D ** 2 / M_GUT * 1e9    # GeV -> eV
-    m_nu_obs = 0.05                        # a representative observed scale (eV)
+    m_nu_obs = nv.M_ATM_EV                 # the observed heaviest scale (eV)
     off_1step = m_nu_1step / m_nu_obs      # the 1-step is ~6 orders off
     off_2step = m_nu_2step / m_nu_obs      # the 2-step is ~0.7 orders off
     return {
@@ -197,9 +201,9 @@ def main():
     w2 = w2_seesaw()
     print("\n  O2 (W2) the neutrino masses: the 2-step seesaw")
     print(f"    m_D = g0*v = {w2['m_D_GeV']:.1f} GeV (the g_0 = 1/8 reading)   "
-          f"M_N = {w2['M_N_GeV']:.0e} GeV (fitted)")
+          f"M_N = {w2['M_N_GeV']:.3e} GeV (the ladder 2-step, integer fitted)")
     print(f"    2-step m_nu = {w2['m_nu_2step_eV']:.1e} eV  (the right order; the ladder "
-          f"value is excluded by sum m_nu < 0.12 eV)")
+          f"value is excluded by sum m_nu < {nv.SUM_MNU_MAX_EV} eV)")
     print(f"    1-step m_nu = {w2['m_nu_1step_eV']:.1e} eV  (six orders off)")
     w3 = w3_families()
     print("\n  O3 (W3) the family number: the 3 of the 3 space labels the copies")

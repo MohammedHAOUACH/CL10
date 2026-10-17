@@ -132,17 +132,14 @@ shown live in the window corner:
 
 ## Verification (the experiments)
 
-This engine is checked by two experiments of the U10 verification program
-(both pin the same `gpu` id from `config.yaml` **before** the CuPy import, so
-they run on the configured card — default **1**, the free card — and degrade
-to NumPy only without a GPU):
+This engine is checked by the experiment below (it pins the same `gpu` id from
+`config.yaml` **before** the CuPy import, so it runs on the configured card —
+default **1**, the free card — and degrades to NumPy only without a GPU):
 
-- `archive/experiments/V61_hydrogen/` — the **fast check** of the suite, now
-  archived and superseded by V62 (the same model on a reduced `120^3` grid):
-  the gaps are the Rydberg differences (relative error 0), the E1 selection
-  rules come out of the lattice wavefunctions, the absorption peaks on the gap
-  and falls with the detuning, the excited atom radiates and decays, the norm
-  is conserved, the fields are bounded.
+- the **model checks** the engine states in `qca.py`: the gaps are the Rydberg
+  differences (relative error 0) and the E1 selection rules come out of the
+  lattice wavefunctions — the `dipole_mat` matrix elements of the forbidden
+  transitions are ~0, so those transitions never fire.
 - `experiments/phenomenology/V62_hydrogen_production/` — the **production
   experiment**: the full `296^3` run on the **GPU** with the complete photon
   script (Lyman-alpha twice, `1s→3p`, `2p→3d`, one off-resonant control).  It

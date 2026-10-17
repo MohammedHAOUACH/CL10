@@ -1,16 +1,16 @@
 {
  "experiment": "V109_w5_cp_search",
  "pass": true,
- "status": "CP AUDIT, TWO PARTS. (1) MIRROR-PRESERVING EXTENSIONS SUPPLY NO PHASE: the exact matter-antimatter mirror (+- pairing of the 32-level spectrum, Theorem 4) is preserved by the V65 Wilson extension (base dev 2.1e-15, V71 regression), and the mirror is exactly the structure forcing every CP-odd invariant to vanish - every mirror-preserving extension leaves O5's CP phase at zero. (2) EVERY CLASS-DEPENDENT DRESSING BREAKS THE ONE-CELL MIRROR: the most general per-class kappa_s diagonal (both mirror sign conventions: 9.7e-01, 2.9e+00) and the most general real-symmetric off-diagonal bond generator (both conventions: 1.2e+00, 1.5e+00) destroy the +- pairing over 60 draws (combined 1.0e+00); extensions unitary to 2.7e-14. The V96 bond layer therefore either (a) acts only in the BOND layer, where the mirror test must be redone at the lattice level (open), or (b) breaks Theorem 4 - the theory's cleanest structural result - and buys a CP phase at that named cost. O5 additionally needs the out-of-equilibrium dynamics V106 showed the thermal route lacks.",
+ "status": "CP AUDIT, TWO PARTS. (1) MIRROR-PRESERVING EXTENSIONS SUPPLY NO PHASE: the exact matter-antimatter mirror (+- pairing of the 32-level spectrum, Theorem 4) is preserved by the V65 Wilson extension (base dev 1.4e-15, V71 regression), and the mirror is exactly the structure forcing every CP-odd invariant to vanish - every mirror-preserving extension leaves O5's CP phase at zero. (2) EVERY CLASS-DEPENDENT DRESSING BREAKS THE ONE-CELL MIRROR: the most general per-class kappa_s diagonal (both mirror sign conventions: 9.7e-01, 2.9e+00) and the most general real-symmetric off-diagonal bond generator (both conventions: 1.2e+00, 1.5e+00) destroy the +- pairing over 60 draws (combined 1.0e+00); extensions unitary to 2.7e-14. The V96 bond layer therefore either (a) acts only in the BOND layer, where the mirror test must be redone at the lattice level (open), or (b) breaks Theorem 4 - the theory's cleanest structural result - and buys a CP phase at that named cost. O5 additionally needs the out-of-equilibrium dynamics V106 showed the thermal route lacks.",
  "data": {
-  "base_pairing_dev": 2.1094237467877974e-15,
-  "worst_pairing_dev": 2.8905698200160246,
+  "base_pairing_dev": 1.4432899320127035e-15,
+  "worst_pairing_dev": 2.8905698200174474,
   "per_case_worst": {
-   "kappa_antisym": 0.9729102369209015,
-   "kappa_sym": 2.8905698200160246,
-   "dressing_antisym": 1.2231770784976996,
-   "dressing_sym": 1.502115821936499,
-   "both": 1.0085018739753076
+   "kappa_antisym": 0.9729102369241607,
+   "kappa_sym": 2.8905698200174474,
+   "dressing_antisym": 1.2231770784998346,
+   "dressing_sym": 1.502115821937592,
+   "both": 1.0085018739777811
   },
   "unitarity_max_dev": 2.7311486406145526e-14,
   "n_classes": 6,

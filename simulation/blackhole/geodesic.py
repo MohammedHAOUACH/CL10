@@ -38,7 +38,7 @@ class Particle:
     """One fired test particle: its state u = (t, r, th, ph, dt, dr, dth, dph)
     and the growing 3-D trail (x, y, z) in well coordinates."""
 
-    def __init__(self, M, preset, dlam, max_trail, depth=1.0):
+    def __init__(self, M, preset, dlam, max_trail, depth, escape):
         M = float(M)
         self.depth = float(depth)
         r0 = float(preset["r0"])
@@ -61,6 +61,7 @@ class Particle:
         self.lam = 0.0
         self.trail = [self._xyz()]
         self._max_trail = int(max_trail)
+        self._escape = float(escape)
 
     def _xyz(self):
         """The current position in the well coordinates (x, y, Phi)."""
@@ -128,7 +129,6 @@ class Particle:
                 break
         return self.status
 
-    _escape = 70.0
 
 
 class BlackHole:
@@ -136,14 +136,14 @@ class BlackHole:
     black hole) and the list of fired particles with their growing trails."""
 
     def __init__(self, cfg):
-        self.M = float(cfg.get("M", 1.0))
-        self.dlam = float(cfg.get("dlambda", 0.04))
-        self.max_trail = int(cfg.get("max_trail", 6000))
-        self._escape = float(cfg.get("escape_radius", 70.0))
+        self.M = float(cfg["M"])
+        self.dlam = float(cfg["dlambda"])
+        self.max_trail = int(cfg["max_trail"])
+        self._escape = float(cfg["escape_radius"])
         # the visual depth exaggeration of the well (rendering only: the
         # physics stays Phi = -M/r; the factor just makes the funnel read)
-        self.depth = float(cfg.get("well_depth", 12.0))
-        self.presets = cfg.get("presets", {})
+        self.depth = float(cfg["well_depth"])
+        self.presets = cfg["presets"]
         self.particles = []
 
     def fire(self, key):
@@ -153,8 +153,7 @@ class BlackHole:
         if preset is None:
             return None
         p = Particle(self.M, preset, self.dlam, self.max_trail,
-                     self.depth)
-        p._escape = self._escape
+                     self.depth, self._escape)
         self.particles.append(p)
         return p
 

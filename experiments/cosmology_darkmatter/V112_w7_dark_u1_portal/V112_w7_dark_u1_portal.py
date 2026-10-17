@@ -47,6 +47,8 @@ from cl10.paths import exp
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402
+from cl10 import u10pred  # noqa: E402
+from cl10 import dm_wimp as dw  # noqa: E402
 
 
 def main():
@@ -116,7 +118,6 @@ def main():
     # root AND to hypercharge (null space of roots + Yh)
     A2 = np.vstack([roots, Yh])
     _u, sv2, vh2 = np.linalg.svd(A2)
-    rank2 = int((sv2 > 1e-9).sum())
     Evec = vh2[-1]
     Evec /= np.linalg.norm(Evec)
     ortho_roots = max(float(abs(float(r @ Evec))) for r in roots)
@@ -151,12 +152,12 @@ def main():
     # Direct detection (Z' exchange on a nucleon):
     #   sigma_N [GeV^-2] = gD^2 eps^2 e2 mu_N^2 / (pi mZp^4);
     # 1 GeV^-2 = 0.3894e-27 cm^2.
-    target_sv = 2.2e-26 / 1.168e-17      # GeV^-2
-    dd_bound = 2.0e-47 / 0.3894e-27      # GeV^-2
+    target_sv = dw.SIGMA_RELIC_TARGET / (u10pred.GEV2_TO_CM2 * u10pred.C_CM_S)  # GeV^-2
+    dd_bound = dw.DD_BOUND / u10pred.GEV2_TO_CM2      # GeV^-2
     lep_mz = 2900.0                      # GeV, LEP-class reach
-    mu_N = 0.94                          # GeV
-    e2 = 4 * math.pi / 127.9
-    ms = 118.0
+    mu_N = u10pred.M_P_ROBSON                    # GeV
+    e2 = 4 * math.pi / u10pred.ALPHA_EM_INV
+    ms = u10pred.ladder_scale(10)
     N_f = 3.0                            # light quark channels
     window = []
     for gD in np.linspace(0.01, 2.0, 40):

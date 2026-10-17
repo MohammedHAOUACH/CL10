@@ -630,7 +630,7 @@ def provenance_table():
          "factor also gives the DM mass 118 GeV (V54) — one factor, two statements of one scale"),
         ("eta_CP (the CP-violating factor)", "1e-3 (named)", "named_residual",
          "the baryon asymmetry is a **product of 0-parameter factors**: "
-         "(28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.12; V55); the 0-parameter "
+         "(28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.11; V55); the 0-parameter "
          "QCA alone gives 0 (the CP-odd theorem); the **CP phase** (O(1)) and the "
          "2-digit ratio are the residual (O5)"),
         ("Lambda_obs ~ 1e-122", "1e-122", "named_residual",

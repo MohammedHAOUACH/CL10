@@ -68,12 +68,10 @@ def setup_gpu(force_cpu=False):
         os.environ["CL10_BACKEND"] = "numpy"
         print("backend: numpy (--cpu)")
         return
-    gpu = 1
     cfg = os.path.join(ROOT, "simulation", "young", "config.yaml")
-    if os.path.exists(cfg):
-        import yaml
-        with open(cfg) as fh:
-            gpu = yaml.safe_load(fh).get("gpu", 1)
+    import yaml
+    with open(cfg) as fh:
+        gpu = yaml.safe_load(fh)["gpu"]      # the panel owns the card id
     os.environ.setdefault("CL10_BACKEND", "cupy")
     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu)
     try:

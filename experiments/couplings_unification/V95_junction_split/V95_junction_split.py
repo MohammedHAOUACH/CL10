@@ -189,19 +189,19 @@ def main():
             f"split thresholds.")
     else:
         status = (
-            f"NO EXACT MEETING in the junction-split family (uniform "
-            f"span{{X,Y}} direction + universal kappa, n = 3..12, "
-            f"300 starts each, thresholds >= M_Z). Structural reason: "
-            f"for UNIVERSAL kappa the split is invisible at first "
-            f"order - sum_l (2cos(2 pi l/n) - 1) = -n reabsorbs into "
-            f"z0, so the meeting sees only the second-order spread, "
-            f"which the desert constraint caps. The V92 witness needs "
-            f"INDEPENDENT per-class thresholds; the named next "
-            f"ingredient is a FLAVOUR-DEPENDENT bond layer "
-            f"(kappa_s per fragment class): 8 parameters vs 3 "
-            f"equations would close the meeting trivially, but that "
-            f"is an EXTENSION of the automaton, not its current "
-            f"content - O4 stays open, now sharply characterized.")
+            "NO EXACT MEETING in the junction-split family (uniform "
+            "span{X,Y} direction + universal kappa, n = 3..12, "
+            "300 starts each, thresholds >= M_Z). Structural reason: "
+            "for UNIVERSAL kappa the split is invisible at first "
+            "order - sum_l (2cos(2 pi l/n) - 1) = -n reabsorbs into "
+            "z0, so the meeting sees only the second-order spread, "
+            "which the desert constraint caps. The V92 witness needs "
+            "INDEPENDENT per-class thresholds; the named next "
+            "ingredient is a FLAVOUR-DEPENDENT bond layer "
+            "(kappa_s per fragment class): 8 parameters vs 3 "
+            "equations would close the meeting trivially, but that "
+            "is an EXTENSION of the automaton, not its current "
+            "content - O4 stays open, now sharply characterized.")
 
     verdict = {"experiment": "V95_junction_split",
                "pass": bool(ok), "status": status,

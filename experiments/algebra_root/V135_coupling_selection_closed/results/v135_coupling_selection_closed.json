@@ -1,33 +1,33 @@
 {
  "experiment": "V135_coupling_selection_closed",
- "backend": "cupy",
+ "backend": "numpy",
  "data": {
   "scan": {
    "a_at_M_P": [
-    0.029905345742520604,
-    0.020218074264541256,
-    0.019080853607434934
+    0.02990577132097955,
+    0.020217924029706586,
+    0.01908055782059214
    ],
-   "mean_GUT": 0.023068091204832265,
+   "mean_GUT": 0.023068084390426093,
    "gaps_1_over_n2": {
-    "2": 9.837480993990106,
-    "3": 3.816658219551158,
-    "4": 1.7093702484975264,
-    "5": 0.733996959038417,
-    "6": 0.2041645548877895,
-    "7": 0.11530767395999142,
-    "8": 0.3226574378756184
+    "2": 9.837484195426173,
+    "3": 3.816659642411632,
+    "4": 1.7093710488565432,
+    "5": 0.7339974712681878,
+    "6": 0.20416491060290798,
+    "7": 0.1153074126182716,
+    "8": 0.3226572377858642
    },
    "best_n": 7,
-   "gap_best": 0.11530767395999142,
-   "gap_root_n5": 0.733996959038417
+   "gap_best": 0.1153074126182716,
+   "gap_root_n5": 0.7339974712681878
   },
   "closed_value": {
    "alpha_10_rotation_units": 0.6168502750680849,
    "alpha_SM_units": 0.04908738521234052,
-   "gap_to_mean_GUT": 1.1279344171336456,
-   "gap_of_1_over_25": 0.733996959038417,
-   "worsening_factor": 1.5367017577447621,
+   "gap_to_mean_GUT": 1.127935045734147,
+   "gap_of_1_over_25": 0.7339974712681878,
+   "worsening_factor": 1.536701541744171,
    "ratio_to_data_optimal": 2.4052818754046856
   },
   "form_check": {
@@ -60,13 +60,13 @@
    "gut_scan_says_alpha": 0.02040816326530612,
    "gut_scan_n": 7,
    "kappa_s_absorbs_any_coupling": true,
-   "gap_closed_vs_scan": 1.1279344171336456,
-   "gap_root_vs_scan": 0.733996959038417
+   "gap_closed_vs_scan": 1.127935045734147,
+   "gap_root_vs_scan": 0.7339974712681878
   }
  },
  "checks": [
   {
-   "name": "T1 V56's scan reproduced: the one-loop couplings at M_P are [0.029905, 0.020218, 0.019081], mean 0.023068; the candidates alpha = 1/n^2 have gaps {2: 9.837, 3: 3.817, 4: 1.709, 5: 0.734, 6: 0.204, 7: 0.115, 8: 0.323}, best n = 7 (gap 0.115) against the root n = 5 (gap 0.734)",
+   "name": "T1 V56's scan reproduced: the one-loop couplings at M_P are [0.029906, 0.020218, 0.019081], mean 0.023068; the candidates alpha = 1/n^2 have gaps {2: 9.837, 3: 3.817, 4: 1.709, 5: 0.734, 6: 0.204, 7: 0.115, 8: 0.323}, best n = 7 (gap 0.115) against the root n = 5 (gap 0.734)",
    "pass": true
   },
   {
@@ -89,5 +89,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
- "wall_s": 0.0001811981201171875
+ "wall_s": 0.00015401840209960938
 }

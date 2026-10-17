@@ -40,7 +40,7 @@ sys.path.insert(0, ROOT)
 from cl10.paths import exp
 from cl10 import u10pred
 
-V_OVER_MP = 246.22 / 1.2209e19      # PDG 2024
+V_OVER_MP = u10pred.V_EW / u10pred.M_PLANCK      # the measured hierarchy ratio
 LOOP = u10pred.LOOP
 
 

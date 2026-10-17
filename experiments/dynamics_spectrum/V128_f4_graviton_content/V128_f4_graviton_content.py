@@ -52,6 +52,7 @@ sys.path.insert(0, ROOT)
 
 from cl10 import engine as E                                       # noqa: E402
 from cl10 import supercell as SC                                   # noqa: E402
+from cl10 import u10pred                                          # noqa: E402
 
 PI = math.pi
 PI2 = math.pi / 2
@@ -322,7 +323,7 @@ def main():
     out["data"]["F4"] = {"massive": massive, "no_massless_spin2": no_spin2,
                          "dispersion_violates_c1": aniso,
                          "gap_lattice_units": best[0],
-                         "gap_in_MeV": round(best[0] * 1.2209e19 / 1e6, 3)}
+                         "gap_in_MeV": round(best[0] * u10pred.M_PLANCK / 1e6, 3)}
     checks.append(("T4 F4 audit: the implemented step has (i) %s - the "
                    "smallest quasi-energy over the zone is %.3e lattice units "
                    "(= %.3g MeV at the Planck lattice), (ii) %s massless "
@@ -332,7 +333,7 @@ def main():
                    "geometry, not about a graviton in this spectrum"
                    % ("a MASSIVE would-be massless sector" if massive
                       else "an exactly massless sector", best[0],
-                      best[0] * 1.2209e19 / 1e6,
+                      best[0] * u10pred.M_PLANCK / 1e6,
                       "no" if no_spin2 else "there is",
                       "the dispersion is anisotropic" if aniso
                       else "the dispersion is isotropic"),

@@ -46,14 +46,14 @@ def headless(cfg):
 
     pv.OFF_SCREEN = True
     bh = G.BlackHole(cfg)
-    R = float(cfg.get("well_radius", 16.0))
-    spf = int(cfg.get("steps_per_frame", 12))
-    n_frames = int(cfg.get("n_video_frames", 240))
-    fps = int(cfg.get("fps", 30))
-    script = cfg.get("script", [])
+    R = float(cfg["well_radius"])
+    spf = int(cfg["steps_per_frame"])
+    n_frames = int(cfg["n_video_frames"])
+    fps = int(cfg["fps"])
+    script = cfg["script"]
 
     plotter = pv.Plotter(off_screen=True, border=False,
-                         window_size=tuple(cfg.get("window_size", (1280, 800))))
+                         window_size=tuple(cfg["window_size"]))
     plotter.set_background("#05050f")
 
     X, Y, Phi = bh.well(R, n=90)
@@ -87,15 +87,14 @@ def headless(cfg):
     plotter.camera_position = [(0.9 * R, -1.9 * R, 1.15 * R), (0, 0, -6.0),
                                (0, 0, 1)]
 
-    out_video = os.path.join(HERE, cfg.get("out_video", "video/blackhole.mp4"))
-    frames_dir = os.path.join(HERE, cfg.get("out_frames", "video/frames"))
+    out_video = os.path.join(HERE, cfg["out_video"])
+    frames_dir = os.path.join(HERE, cfg["out_frames"])
     os.makedirs(frames_dir, exist_ok=True)
     os.makedirs(os.path.dirname(out_video), exist_ok=True)
     writer = imageio.get_writer(out_video, fps=fps)
 
     script = [(int(f), str(k)) for f, k in script]
     t0 = time.time()
-    stills = {0, n_frames // 4, n_frames // 2, 3 * n_frames // 4, n_frames - 1}
     for frame in range(n_frames):
         for f, k in script:
             if f == frame:

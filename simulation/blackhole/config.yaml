@@ -56,8 +56,9 @@ script:
   - [90,  "2"]
   - [120, "4"]
   - [150, "p"]
-n_steps: 2400          # RK4 steps per particle between frames
 n_video_frames: 240
 fps: 30
+# the window / offscreen buffer size (width, height) in pixels.
+window_size: [1280, 800]
 out_video: video/blackhole.mp4
 out_frames: video/frames

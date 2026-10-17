@@ -68,6 +68,7 @@ from . import u10pred as tp
 M_P = tp.M_PLANCK            # 1.22e19 GeV
 V_EW = tp.V_EW               # 246 GeV
 LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
+WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)  # GeV (the WIMP-miracle window center)
 N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) generators
 N_QUBITS = int(_config.CFG.physics.n_qubits)   # the 0-parameter qubit count of the 32-D module (2^5 = 32)
 N_SPACE = int(_config.CFG.physics.n_space)     # the 0-parameter spatial dimension (the (1,3) inside the GUT)
@@ -147,7 +148,7 @@ def unique_10loop(max_n=20):
     the data, **not** derived.
     """
     hier_obs = float(V_EW / M_P)          # 2.016e-17 (the measured value)
-    dm_obs = 100.0                       # GeV (the WIMP-miracle window center; ~50-1000 GeV: a convention, not a measurement)
+    dm_obs = WEAK_SCALE                  # GeV (the WIMP-miracle window center; ~50-1000 GeV: a convention, not a measurement)
     lh_obs = float(np.log10(hier_obs))    # ~ -16.70
     ld_obs = float(np.log10(dm_obs))      # ~ 2.0
     scan = []
@@ -267,8 +268,8 @@ def cp_phase_reduction():
             "0-parameter coupling g_0 = 1/8 -- a mapping convention, not a "
             "computed leptogenesis vertex -- the (1/16pi)^2 dilution, the "
             "28/79 sphaleron, an input of the SM sector not a root number) give "
-            "the RIGHT ORDER 6.8e-10 (ratio 1.12 to "
-            "the observed 6.1e-10); the 0-parameter QCA alone gives epsilon_CP = 0 "
+            "the RIGHT ORDER 6.8e-10 (ratio 1.11 to "
+            "the observed 6.12e-10); the 0-parameter QCA alone gives epsilon_CP = 0 "
             "(the CP-odd theorem) -- the NAMED CP phase is what switches it on"
         ),
     }

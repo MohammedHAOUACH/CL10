@@ -10,20 +10,22 @@ from .style import C_FIT, C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
 def fig17_ladder():
     from cl10 import dm_wimp as dw, u10pred as tp
 
-    LOOP = 1.0 / (16.0 * np.pi)
+    LOOP = tp.LOOP                       # cl10/config.yaml physics.loop
     MP = tp.M_PLANCK
+    mDM = dw.dm_wimp()["m_DM_GeV"]
+    s17 = MP * LOOP ** 17 * 1e9          # eV, the neutrino ladder S(17)
     # (energy GeV, label, color, side(+/-1), height multiplier)
     scales = [
-        (MP * LOOP ** 17, "neutrino ladder  $m_\\nu = 0.146$ eV  (O2, F3)",
+        (MP * LOOP ** 17, rf"neutrino ladder  $m_\nu = {s17:.3f}$ eV  (O2, F3)",
          C_ZERO, -1, 0.5),
-        (0.0487e-9, "$\\frac{1}{3}$ cand.  $0.0487$ eV", C_FIT, -1, 0.95),
+        (s17 / 3 * 1e-9, rf"$\frac{{1}}{{3}}$ cand.  ${s17 / 3:.4f}$ eV", C_FIT, -1, 0.95),
         (0.2, r"QCD  $\Lambda_{\rm QCD} \sim 0.2$ GeV  (reference only)", C_SU3, 1, 0.5),
-        (dw.dm_wimp()["m_DM_GeV"], r"DM  $118$ GeV  (O7)",
+        (mDM, rf"DM  ${mDM:.0f}$ GeV  (O7)",
          C_SU2, -1, 0.95),
-        (tp.V_EW, r"electroweak  $v = 246$ GeV  (measured)", C_GUT, 1, 0.95),
-        (MP * LOOP ** 3, r"seesaw  $M_N = 9.6\times10^{13}$ GeV  ($n = 3$)",
+        (tp.V_EW, rf"electroweak  $v = {tp.V_EW:.0f}$ GeV  (measured)", C_GUT, 1, 0.95),
+        (MP * LOOP ** 3, rf"seesaw  $M_N = {MP * LOOP ** 3:.2e}$ GeV  ($n = 3$)",
          C_ROOT, -1, 0.5),
-        (MP, r"Planck  $M_P = 1.22\times10^{19}$ GeV  ($n = 0$)", "k", 1, 0.95),
+        (MP, rf"Planck  $M_P = {MP:.3e}$ GeV  ($n = 0$)", "k", 1, 0.95),
     ]
     fig, ax = plt.subplots(figsize=(11.0, 4.4))
     ax.axhline(0, color="0.3", lw=1.0)

@@ -49,11 +49,11 @@ from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred, dm_wimp  # noqa: E402
 
 M_P = UN.M_P
-M_DM = 118.0            # GeV, the ladder mass
-M_H = 125.1             # GeV
+M_DM = u10pred.ladder_scale(10)   # GeV, the ladder mass
+M_H = dm_wimp.M_H             # GeV (cl10/config.yaml sm:)
 V_EV = u10pred.V_EW         # GeV
 OMEGA_H2 = dm_wimp.OMEGA_OBS
-SIGMA_FIDUCIAL = 3.0e-26  # cm^3/s
+SIGMA_FIDUCIAL = dm_wimp.SIGMA_FIDUCIAL   # cm^3/s (cl10/config.yaml dm:)
 COLORED_CHARGED_BOUND = 1.0e6   # GeV: a stable colored/charged thermal
                                 # relic is excluded at ANY mass below
                                 # the desert (fractional-charge bounds)
@@ -107,17 +107,17 @@ def main():
                 * M_DM ** 2 / (4 * M_DM ** 2 - M_H ** 2) ** 2)
 
     # units: <sigma v> [GeV^-2] -> cm^3/s: 0.3894e-27 cm^2 x c
-    GEV2_TO_CM3S = 0.3894e-27 * 2.998e10
+    GEV2_TO_CM3S = u10pred.GEV2_TO_CM2 * u10pred.C_CM_S
     lam_star = math.sqrt(
         SIGMA_FIDUCIAL / GEV2_TO_CM3S * 8 * math.pi
         * (4 * M_DM ** 2 - M_H ** 2) ** 2 / (V_EV ** 2 * M_DM ** 2))
     # direct detection: sigma_SI ~ lambda^2 f_N^2 mu^2 / (pi m_h^4)
-    f_N = 0.30e-3        # nucleon Higgs coupling (dimensionless, m_q/m_N ~)
-    m_N = 0.939
+    f_N = dm_wimp.F_N        # nucleon Higgs coupling (cl10/config.yaml dm:)
+    m_N = u10pred.M_P_ROBSON
     mu_red = M_DM * m_N / (M_DM + m_N)
     sigma_SI = (lam_star ** 2 * f_N ** 2 * mu_red ** 2
                 / (math.pi * M_H ** 4))          # GeV^-2
-    sigma_SI_cm2 = sigma_SI * 0.3894e-27         # GeV^-2 -> cm^2
+    sigma_SI_cm2 = sigma_SI * u10pred.GEV2_TO_CM2   # GeV^-2 -> cm^2
 
     ok = nogo and lam_star > 0 and sigma_SI_cm2 > 0
     status = (

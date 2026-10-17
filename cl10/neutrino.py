@@ -66,13 +66,17 @@ from . import u10pred
 # ---------------------------------------------------------------------------
 # the 0-parameter scales (shared with the 10-loop ladder, V53/V54)
 # ---------------------------------------------------------------------------
-M_P = u10pred.M_PLANCK                     # 1.22e19 GeV (the GUT = Planck scale)
-LOOP = 1.0 / (16.0 * np.pi)                # the 0-parameter 1-loop QFT factor
-N_GEN = 10                                 # the n_gen of the Cl(10) root
+M_P = u10pred.M_PLANCK                     # GeV (the GUT = Planck scale)
+LOOP = u10pred.LOOP                        # the loop factor (cl10/config.yaml)
+N_GEN = int(_config.CFG.physics.n_gen)     # the n_gen of the Cl(10) root
 N_2STEP = 3                                # the 2-step loop position (the 10^14 scale)
 N_DIRAC = 10                               # the Dirac loop position (= n_gen, the WIMP)
 
-M_NU_OBS = 0.05                            # eV (the observed, the heaviest mass scale)
+# the measured neutrino inputs (cl10/config.yaml neutrino:)
+M_ATM_EV = float(_config.CFG.neutrino.m_atm_ev)       # sqrt(|dm2_3l|)
+M_SOL_EV = float(_config.CFG.neutrino.m_sol_ev)       # sqrt(dm2_21)
+SUM_MNU_MAX_EV = float(_config.CFG.neutrino.sum_mnu_max_ev)   # the F3 bound
+M_NU_OBS = M_ATM_EV                        # eV (the observed, the heaviest mass scale)
 
 
 def _backend():

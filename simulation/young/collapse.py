@@ -27,17 +27,17 @@ import numpy as np
 
 class Collapse:
     def __init__(self, cfg):
-        self.show = bool(cfg.get("show_collapse", True))
-        self.frames = int(cfg.get("collapse_frames", 4))
-        self.peak = float(cfg.get("collapse_peak", 4.0))
-        self.n_detections = int(cfg.get("n_detections", 3000))
+        self.show = bool(cfg["show_collapse"])
+        self.frames = int(cfg["collapse_frames"])
+        self.peak = float(cfg["collapse_peak"])
+        self.n_detections = int(cfg["n_detections"])
 
         # the detected points (the accumulated "reality" on the screen)
         self.detections = []  # list of (x, y) grid indices
         # the current collapse event: (x, y, frame_index) or None
         self.event = None
         # the sigma range of the contraction (large -> small)
-        self.sigma_start = float(cfg.get("source_width", 34.0))
+        self.sigma_start = float(cfg["source_width"])
         self.sigma_end = 1.5
 
     # -- a detection: sample a point from the on-screen psi**2 ---------------

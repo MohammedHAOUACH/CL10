@@ -59,7 +59,7 @@ from cl10 import unification as UN  # noqa: E402
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 TWO_PI = 2.0 * math.pi
 INV_A10 = 25.0
-M_X_OBS = 2.0e16            # GeV, observed 1-loop unification scale
+M_X_OBS = UN.M_X_OBS          # GeV, observed 1-loop unification scale (cl10/config.yaml sm:)
 SEL = [(math.pi / 2, math.pi / 2, 0.0),
        (math.pi / 2, 0.0, math.pi / 2),
        (0.0, math.pi / 2, math.pi / 2)]

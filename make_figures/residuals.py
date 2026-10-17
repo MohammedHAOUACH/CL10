@@ -6,6 +6,7 @@ import numpy as np
 
 from .style import exp, save
 from .style import C_ALG, C_CONV, C_FIT, C_GUT, C_OPEN, C_ROOT, C_SU2, C_SU3, C_ZERO
+from cl10 import config as _config      # the shared inputs (no engine import here)
 
 
 def fig10_gauged_layer():
@@ -73,7 +74,7 @@ def fig15_w7_portal():
         d = json.load(f)["data"]
     lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
     lam1, sig1 = d["V1_lam_for_Omega"], d["V1_sigma_SI_cm2"]
-    lz = 1.5e-47
+    lz = float(_config.CFG.bounds.lz_sigma_si_cm2)
     gap = d["ss_hh_gap_GeV"]
     cloud = d["V1_virtual_Pmax"]
 
@@ -81,26 +82,31 @@ def fig15_w7_portal():
                                    gridspec_kw={"width_ratios": [1.25, 1.0]})
 
     lam = np.logspace(-5, 0, 400)
-    f_N, m_N, M_H, M_DM = 0.30e-3, 0.939, 125.1, 118.0
+    f_N = float(_config.CFG.dm.f_n_nucleon)
+    m_N = float(_config.CFG.physics.proton_mass_gev)
+    M_H = float(_config.CFG.sm.higgs_mass_gev)
+    M_DM = (float(_config.CFG.physics.m_planck_gev)
+            * float(_config.CFG.physics.loop) ** 10)
     mu = M_DM * m_N / (M_DM + m_N)
-    sig = lam ** 2 * f_N ** 2 * mu ** 2 / (np.pi * M_H ** 4) * 0.3894e-27
+    sig = (lam ** 2 * f_N ** 2 * mu ** 2 / (np.pi * M_H ** 4)
+           * float(_config.CFG.units.gev2_to_cm2))
     axA.loglog(lam, sig, color=C_ROOT, lw=2.2,
                label=r"$\sigma_{\rm SI} = \lambda^2 f_N^2 \mu^2 / "
                      r"(\pi m_h^4)$")
     axA.axhline(lz, color=C_ZERO, ls="--", lw=1.8,
                 label=r"LZ bound (4.2 t yr): $2.2\times10^{-48}$ min "
-                      r"(40 GeV), $\approx1.5\times10^{-47}$ at 118 GeV")
+                      rf"(40 GeV), $\approx{lz:.1e}$ at {M_DM:.0f} GeV")
     axA.fill_between([1e-5, 1], 1e-58, lz, color=C_ZERO, alpha=0.07)
     axA.plot([lam2], [sig2], "o", ms=11, color=C_SU2, zorder=5)
     axA.annotate(f"pair portal (Z2 BROKEN)\n$\\lambda_* = {lam2:.1e}$: "
-                 f"$\\Omega h^2 = 0.120$\n$\\sigma_{{\\rm SI}} = "
+                 f"$\\Omega h^2 = {float(_config.CFG.physics.omega_dm_h2):.3f}$\n$\\sigma_{{\\rm SI}} = "
                  f"{sig2:.0e}$ - below reach",
                  xy=(lam2, sig2), xytext=(3e-4, 8e-43), fontsize=11,
                  color=C_SU2, va="top",
                  arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.2))
     axA.plot([lam1], [sig1], "X", ms=13, color=C_ZERO, zorder=5)
     axA.annotate(f"Higgs portal (Z2 EXACT)\n$\\lambda = {lam1:.2f}$: "
-                 f"$\\Omega h^2 = 0.120$\n$\\sigma_{{\\rm SI}} = "
+                 f"$\\Omega h^2 = {float(_config.CFG.physics.omega_dm_h2):.3f}$\n$\\sigma_{{\\rm SI}} = "
                  f"{sig1:.0e}$ - EXCLUDED",
                  xy=(lam1, sig1), xytext=(0.1, 2e-53), fontsize=11,
                  color=C_ZERO,
@@ -165,7 +171,7 @@ def fig14_loop_selection():
     axA.semilogy(nn, fit["A"] * fit["r"] ** nn, "--", color=C_ROOT, lw=1.4,
                  label=fr"geometric law $A r^n$, $r = {fit['r']:.3f}$")
     axA.axhline(loop, color=C_ZERO, ls="--", lw=1.8,
-                label=r"loop factor $1/(16\pi) = 0.0199$")
+                label=rf"loop factor $1/(16\pi) = {float(_config.CFG.physics.loop):.4f}$")
     axA.axvline(10, color=C_ZERO, lw=1.2, alpha=0.6)
     axA.plot([10], [Fn[8]], "*", ms=17, color=C_ZERO, zorder=6)
     axA.plot([11], [Fn[9]], "o", ms=11, mfc="none", mec=C_SU2, mew=2.0,
@@ -206,7 +212,7 @@ def fig14_loop_selection():
 
     fig.text(0.03, 0.015,
              f"star: crossing at EXACTLY $n = {nstar}$ "
-             f"($F_{{10}} = {Fn[8]:.4f}$ vs 0.0199);   "
+             f"($F_{{10}} = {Fn[8]:.4f}$ vs {float(_config.CFG.physics.loop):.4f});   "
              f"open circle: $F_{{11}} = {Fn[9]:.2f}$ spike - no mod-4 rule;\n"
              f"diamond: $F_{{170}} = {root['F_170_extrapolated']:.0e}$ vs "
              f"$(1/16\\pi)^{{17}} = {root['ladder_17_factor']:.0e}$ - "
@@ -223,7 +229,9 @@ def fig16_w2_protection():
     with open(exp("V103_w2_democratic",
                            "results", "v103_w2_democratic.json")) as f:
         d103 = json.load(f)["data"]
-    S17, bound = 0.146, 0.12
+    S17 = (float(_config.CFG.physics.m_planck_gev)
+           * float(_config.CFG.physics.loop) ** 17 * 1e9)   # eV, the ladder S(17)
+    bound = float(_config.CFG.neutrino.sum_mnu_max_ev)
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.7),
                                    gridspec_kw={"width_ratios": [1.3, 1.0]})
@@ -239,7 +247,7 @@ def fig16_w2_protection():
                  label=r"democratic $m_D$: $m_3 = "
                        r"\frac{S_{17}}{1+r}$, two massless for every $r$")
     axA.axhline(bound, color=C_ZERO, ls="--", lw=1.8,
-                label=r"cosmological bound $\sum m_\nu < 0.12$ eV")
+                label=rf"cosmological bound $\sum m_\nu < {bound}$ eV")
     r_min = S17 / bound - 1.0
     axA.axvspan(r_min, 3.0, color="#2c7a3f", alpha=0.07)
     axA.axvline(2.0, color="#2c7a3f", lw=1.2, alpha=0.5)
@@ -301,7 +309,7 @@ def fig24_w3_forcing():
                            "results", "v91_w3_forcing.json")) as f:
         d = json.load(f)["data"]
     mx = d["fixed_meeting_scale"]
-    obs = 2.0e16
+    obs = float(_config.CFG.sm.m_unification_obs_gev)
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.7),
                                    gridspec_kw={"width_ratios": [1.15, 1.0]})
@@ -464,7 +472,7 @@ def fig11_vertex_ground_state():
     vals = [2 * math.log(45), Scap, Scap / 2,
             d100["vertex_coefficient"], 0.25]
     cols = [C_OPEN, C_ALG, C_ALG, C_FIT, C_ZERO]
-    bars = ax1.bar(range(5), vals, color=cols, width=0.62)
+    ax1.bar(range(5), vals, color=cols, width=0.62)
     for k, v in enumerate(vals):
         ax1.text(k, v + 0.15, f"{v:.2f}", ha="center", fontsize=12)
     ax1.axhline(0.25, color=C_ZERO, ls="--", lw=1.2)
@@ -526,10 +534,7 @@ def fig25_residual_attacks():
 
     d109 = _load("V109_w5_cp_search")
     d110 = _load("V110_w4_offdiagonal_bond")
-    d111 = _load("V111_w6_generation_bond")
-    d112 = _load("V112_w7_dark_u1_portal")
     d113 = _load("V113_w8_axis_factorization")
-    d116 = _load("V116_w3_triangle_orbit8")
 
     fig, axs = plt.subplots(2, 3, figsize=(14.4, 8.8))
     (ax1, ax2, ax3), (ax4, ax5, ax6) = axs
@@ -589,7 +594,6 @@ def fig25_residual_attacks():
     labels = ["scalar dressing\n(exactly blind)",
               "common family\ndressing",
               "chiral-asymmetric\ndressing"]
-    costs = [float("nan"), 7, 13]
     ax3.bar([1, 2], [7, 13], color=[C_FIT, C_FIT], width=0.55)
     ax3.bar([0], [1], color=C_ALG, width=0.55, hatch="///")
     ax3.text(0, 8.4, "never reached\n(0 parameters help)", ha="center",
@@ -609,10 +613,15 @@ def fig25_residual_attacks():
                   fontsize=12)
 
     # (d) V112: the dark-U(1) window squeeze
-    e2 = 4 * math.pi / 127.9
-    mu_N, ms = 0.94, 118.0
-    target_sv = 2.2e-26 / 1.168e-17
-    dd_lim = 2.0e-47 / 0.3894e-27
+    e2 = 4 * math.pi / float(_config.CFG.sm.alpha_em_inv)
+    mu_N = float(_config.CFG.physics.proton_mass_gev)
+    ms = (float(_config.CFG.physics.m_planck_gev)
+          * float(_config.CFG.physics.loop) ** 10)
+    target_sv = (float(_config.CFG.dm.sigma_relic_target_cm3s)
+                 / (float(_config.CFG.units.gev2_to_cm2)
+                    * float(_config.CFG.units.c_cm_s)))
+    dd_lim = (float(_config.CFG.bounds.dd_sigma_si_cm2)
+              / float(_config.CFG.units.gev2_to_cm2))
     mzp = np.geomspace(20.0, 5000.0, 200)
     gD = 1.0
     eps_relic = np.sqrt(target_sv * math.pi
@@ -663,12 +672,9 @@ def fig25_residual_attacks():
                   "one-per-family — 99.4% agreement", fontsize=12)
 
     # (f) V116: the triangle and its orbit-8
-    nodes = [(x, y) for x in (0, 1, -1) for y in (0, 1, -1)
-             if (x != 0) + (y != 0) == 2]
     # plot the 12 nodes projected: (qx,qy) plane shows 8; mark families
     h = math.pi / 2
     plane = [(a * h, b * h) for a in (1, -1) for b in (1, -1)]
-    outz = [(0.0, 0.0)]
     ax6.scatter([p[0] for p in plane], [p[1] for p in plane], s=90,
                 color="#9a9a9a", zorder=3)
     tri = [(h, h), (h, 0.0), (0.0, h)]

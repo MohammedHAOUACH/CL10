@@ -137,19 +137,19 @@ CL10/
 │   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one object + its invariants (V43)
 │   ├── unification.py        # the 5/3, the coupling readings from the root (V38, conventions), the running
 │   ├── electroweak.py        # the QCA step -> the SM effective action; sin^2 = 3/8 as the GUT boundary condition (not a prediction)
-│   ├── family.py             # the 3-family construct + the 3-generation QCA step (V39)
+│   ├── family.py             # the 3-family construct + the 3-generation QCA step (V26)
 │   ├── yukawa.py             # the democratic rank-1 3x3 ({3,0,0}) + the tribimaximal PMNS
 │   ├── qcd.py                # the QCD area law + the linear potential (sigma = 1 in Planck units)
 │   ├── holo.py               # the holographic area law (the entropy scales with area)
-│   ├── baryogenesis.py       # the Sakharov audit + GUT leptogenesis (V40)
+│   ├── baryogenesis.py       # the Sakharov audit + the BDP washout (V106, V125)
 │   ├── cosmology.py          # the cosmology (the O1 vacuum cancellation, the hierarchy)
-│   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale (V42)
+│   ├── cosmology3.py         # the unified cosmology (dark matter + dark energy + antimatter) + the DM scale
 │   ├── einstein.py           # gravity: the Riemann curvature, the EH action derived from the QCA dynamics (V37)
-│   ├── nonlinear_gravity.py  # the 4-D non-linear gravity (analytic de Sitter): the full Riemann + Einstein tensor (V46) — the analytic reference
+│   ├── nonlinear_gravity.py  # the 4-D non-linear gravity (analytic de Sitter): the full Riemann + Einstein tensor — the analytic reference
 │   ├── gravity.py            # the 4-D non-linear gravity (V50): the general Riemann/Ricci/Einstein/Kretschmann COMPUTED from any metric (2-route verified), the black hole recovered by computation, the discrete EH action (G = 1, dynamics <- action), and the non-linear (state-dependent) QCA metric evolution
 │   ├── numrel.py             # the 3+1 BSSN/Z4 numerical relativity (V51, O9): the 2-route 0-row, the constraints, Z4 damping
 │   ├── cpt.py                # the CPT theorem (the 16/16-bar are CPT conjugates)
-│   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (V44, O9)
+│   ├── lattice_rg.py         # the QCA lattice RG: the S-matrix to the cross-sections (O9)
 │   ├── yukawa_3x3.py         # the 3-gen Yukawa mass matrix: the democratic base (V45, O6) + the quark CKM, honestly (V49)
 │   ├── parameter_audit.py    # the parameter audit (V52): the 2-route root, the 16/16-bar spectral mirror, the CP-odd theorem, the provenance table
 │   ├── hier_exponent.py      # the hierarchy exponent -17 = the 10-loop factor (10 = n_gen) (V53, O8)
@@ -157,7 +157,7 @@ CL10/
 │   ├── eta_cp.py             # the CP-violating factor = the 2-loop factor (1/16pi)^2 (V55, O5)
 │   ├── g10_selection.py      # the 1-loop data check of the angle reading (V56, O4: the data prefer n = 7, so 1/n_qubits is a convention)
 │   ├── neutrino.py           # the 2-step seesaw on the 10-loop ladder; the ladder value is excluded by sum m_nu (V57, O2, F3)
-│   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (V58, O4)
+│   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
 ├── experiments/              # the verification program: 115 experiments in 12 categories
@@ -174,8 +174,6 @@ CL10/
 │   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
 │   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
 │   └── README.md             # every experiment, its verdict, and the paper section it validates
-├── archive/                  # superseded material: 35 earlier experiments, the previous manuscript, its PDF, the earlier review audit trail
-│   └── README.md             # what was superseded, and by what
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── README.md             # the three simulations: what each shows, what is CL10 and what is input, the shared conventions
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
@@ -210,8 +208,10 @@ module, the experiments that use those inputs (they read the library constants:
 `u10pred.M_X_DESERT`, `dm_wimp.OMEGA_OBS`, `eta_cp.DELTA_B_OBS`, `u10pred.LOOP`,
 `u10pred.V_EW`, `coupling.G10`) and the entry points (the runner's `--jobs`,
 `run_experiments.sh` JOBS and card gate, `run_figures.sh` gate, the figure
-generator's own gate) follow — no file-by-file change. Precedence: environment,
-then the YAML, then the built-in defaults. The one deliberate exception: **which
+generator's own gate) follow — no file-by-file change. Every measured constant
+is written ONCE, at its best published precision (PDG 2024, CODATA 2022, Planck
+2018): no experiment carries a second rounding of the same quantity. Precedence:
+environment, then the YAML, then the built-in defaults. The one deliberate exception: **which
 physical card** is pinned by the simulation panels (`gpu:` in
 `simulation/*/config.yaml`), which also own their scene parameters.
 
@@ -243,7 +243,7 @@ worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh`), and
 import cl10
 cl10.engine.backend_info()     # backend, einops/kingdon, the gate, the routing thresholds
 cl10.engine.route_report()     # where each class of work runs under the current config
-cl10.config.CFG.physics.m_planck_gev      # 1.22e19 - the single source
+cl10.config.CFG.physics.m_planck_gev      # 1.220890e19 - the single source, at PDG precision
 cl10.engine.Array              # the array type (cp.ndarray / jax.Array / np.ndarray)
 h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```

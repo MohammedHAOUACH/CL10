@@ -34,6 +34,14 @@ bohr_radius: 18.0
 # the electron isosurface level (a fraction of the peak density) for the 3-D
 # surface (the shape: sphere / dumbbell / doughnut).
 iso_fraction: 0.04
+# the atom's spectrum mapped onto the lattice (a unit choice, not a fit):
+# the Lyman-alpha (1s->2p) gap in rad/step, and the base (1s) frequency.
+lattice_gap_12: 0.25
+omega_base: 0.60
+# the emission-source width and the local photon-amplitude weight width, in
+# cells (the dipole approximation's localisation).
+emission_width: 6.0
+local_weight_width: 4.0
 
 # --- the light-matter coupling (the only free knobs) -------------------------
 # absorption: the strength of the (Fermi-golden-rule) dipole drive. Larger ->
@@ -68,8 +76,10 @@ out_frames: video/frames
 # the 3-D volume render method: "mip" (max-intensity, the solid cloud) or
 # "additive".  "mip" is the old-project look.
 method: mip
-# the ray step size of the volume (1 = every cell, faster = cheaper).
-relative_step_size: 0.8
+# the offscreen buffer of the headless video (width, height) in pixels.
+render_size: [900, 600]
+# the interactive window size (width, height) in pixels.
+window_size: [1200, 800]
 # the log1p contrast of the electron/photon clouds (the old-project log_gain).
 log_gain: 1.0e4
 # the display gamma (the old-project alpha_gamma).
@@ -81,9 +91,6 @@ alpha_gamma: 1.0
 # The alpha ramps from this value (the faint shell) up to 1.0 (the core).
 # Only the 3-D is affected; the 2-D cut stays opaque.
 volume_alpha: 0.4
-# the volume silhouette threshold: zero the (near-zero) box background so the
-# MIP shows the cloud's shape, not the whole box.
-volume_threshold: 0.02
 # the (Lx, Ly, Lz) sub-sampling of the 3-D volume (draw every Nth cell).
 volume_stride: 2
 # the simulation speed (QCA steps per rendered frame).

@@ -40,7 +40,6 @@ sys.path.insert(0, ROOT)
 from cl10 import clifford
 from cl10 import engine as E
 from cl10 import sm_qca
-from cl10 import u10pred
 
 G10 = sm_qca.G10
 

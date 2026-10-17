@@ -56,7 +56,10 @@ from cl10.paths import exp
 from cl10 import clifford as CL               # noqa: E402
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
-from cl10 import eta_cp                       # noqa: E402
+from cl10 import eta_cp, u10pred              # noqa: E402
+from cl10 import neutrino as nv             # noqa: E402
+from cl10 import baryogenesis as BARY       # noqa: E402
+from cl10 import cosmology as COS             # noqa: E402
 
 _B16, _U32, _U16 = SC.sectors()
 B = E.asnumpy(_B16).astype(complex)
@@ -64,8 +67,8 @@ U16 = E.asnumpy(_U16).astype(complex)
 G10, ORDER = SC.G10, SC.STAGES
 w32 = E.asnumpy(CL.pseudoscalar()).astype(complex)
 
-M_P = 1.2209e19
-GSTAR = 106.75
+M_P = u10pred.M_PLANCK
+GSTAR = COS.G_STAR
 SPHALERON = eta_cp.SPHALERON
 DB_OBS = eta_cp.DELTA_B_OBS
 
@@ -139,14 +142,12 @@ def locality(Phi):
     return worst
 
 
-def f_eff(K):
-    """BDP strong-washout efficiency, exactly as V106 (hep-ph/0401240)."""
-    arg = -(4.0 / 5.0) * math.pi ** (-1.0 / 5.0) * K ** (-2.0 / 5.0)
-    w = -2.0
-    for _ in range(200):
-        w -= (w * math.exp(w) - arg) / (math.exp(w) * (1.0 + w))
-    zB = -2.5 * w
-    return (2.0 / (zB * K)) * (1.0 - math.exp(-zB * K / 2.0)), zB
+#: the physical BDP washout efficiency of the library: kappa_f(K) with z_B the
+#: real Lambert-W solution, in domain for K >= K_STRONG_MIN; below that branch
+#: point the strong-washout expression has NO real solution (the decays freeze
+#: out before equilibrating: weak washout, the efficiency is bounded by 1).
+K_STRONG_MIN = BARY.K_STRONG_WASHOUT_MIN
+f_eff = BARY.bdp_washout_efficiency
 
 
 def main():
@@ -156,7 +157,7 @@ def main():
     v57 = json.load(open(exp("V57_neutrino",
                                       "results", "v57_neutrino.json")))["data"]
     M_N = v57["M_N_GeV"]
-    H = 1.66 * math.sqrt(GSTAR) * M_N ** 2 / M_P
+    H = COS.HUBBLE_COEFF * math.sqrt(GSTAR) * M_N ** 2 / M_P
 
     gs = grid(5)
     PHIS = (0.0, 0.02, 0.05, 0.065, 0.1, 0.2, 0.4, 0.7, 1.0,
@@ -210,12 +211,12 @@ def main():
     def K_of_y(y):
         return (y * y * M_N / (8.0 * math.pi)) / H
 
-    y_atm = math.sqrt(0.0501e-9 * M_N) / 174.0
+    y_atm = math.sqrt(nv.M_ATM_EV * 1e-9 * M_N) / (u10pred.V_EW / math.sqrt(2))
     y_ooeq = math.sqrt(H * 8.0 * math.pi / M_N)
     cases = {}
     for name, y in (("atmospheric y", y_atm), ("out-of-equilibrium y", y_ooeq)):
         K = K_of_y(y)
-        kap, zB = f_eff(K)
+        kap, zB, in_domain = f_eff(K)
         J_req = DB_OBS / (SPHALERON * (y ** 2 / (16 * math.pi)) * kap)
         # invert the flux curve: the Phi whose holonomy imaginary part reaches
         # J_req (the curve is monotone up to pi/2)
@@ -230,25 +231,34 @@ def main():
                     lo = mid
             phi_req = 0.5 * (lo + hi)
         cases[name] = {"y": round(y, 5), "K": round(K, 2),
-                       "kappa_f": round(kap, 5), "z_B": round(zB, 3),
+                       "kappa_f": round(kap, 5),
+                       "z_B": None if zB is None else round(zB, 3),
+                       "strong_washout_domain": in_domain,
                        "J_required": J_req, "Phi_required_rad": phi_req,
                        "DB_at_J1": SPHALERON * (y ** 2 / (16 * math.pi)) * kap}
-    out["data"]["asymmetry"] = {"M_N_GeV": M_N, "cases": cases}
+    out["data"]["asymmetry"] = {"M_N_GeV": M_N,
+                                "K_strong_washout_min": K_STRONG_MIN,
+                                "cases": cases}
     Jmax = max(abs(r["holonomy_im"]) for r in scan)
     out["data"]["J_available_max"] = Jmax
 
+    oo = cases["out-of-equilibrium y"]
     checks.append(("T2 with V106's physical washout the measured "
                    "Delta B = 6.12e-10 costs a CP strength J = %.3g at the "
-                   "atmospheric Yukawa (y = %.4f, K = %.1f, kappa_f = %.1e) "
-                   "and J = %.3g at the out-of-equilibrium Yukawa (y = %.4f, "
-                   "K = 1, kappa_f = %.1e); the flux supplies up to "
+                   "atmospheric Yukawa (y = %.4f, K = %.1f, kappa_f = %.1e, "
+                   "strong washout) and J = %.3g at the out-of-equilibrium "
+                   "Yukawa (y = %.4f, K = 1): K = 1 sits BELOW the branch "
+                   "point K = %.2f of the strong-washout solution, so kappa_f "
+                   "is the weak-washout bound 1 and the cost is the lower "
+                   "bound on J; the flux supplies up to "
                    "|Im holonomy| = %.3g"
                    % (cases["atmospheric y"]["J_required"], y_atm,
                       cases["atmospheric y"]["K"],
                       cases["atmospheric y"]["kappa_f"],
-                      cases["out-of-equilibrium y"]["J_required"], y_ooeq,
-                      cases["out-of-equilibrium y"]["kappa_f"], Jmax),
-                   all(c["J_required"] > 0 for c in cases.values())))
+                      oo["J_required"], y_ooeq, K_STRONG_MIN, Jmax),
+                   all(c["J_required"] > 0 for c in cases.values())
+                   and cases["atmospheric y"]["strong_washout_domain"]
+                   and not oo["strong_washout_domain"] and oo["kappa_f"] == 1.0))
 
     feasible = [n for n, c in cases.items() if c["Phi_required_rad"] is not None]
     checks.append(("T3 the flux curve reaches the required CP strength at "
@@ -276,7 +286,8 @@ def main():
         "(y = %.4f) the decay is IN equilibrium (K = %.1f) with "
         "kappa_f = %.1e, and Delta B = 6.12e-10 costs J = %.3g, supplied by "
         "the flux at Phi = %s rad; at the out-of-equilibrium Yukawa (y = %.4f, "
-        "K = 1, kappa_f = %.1e) it costs J = %.3g at Phi = %s rad. VERDICT: "
+        "K = 1, below the strong-washout branch point K = %.2f, so kappa_f is "
+        "the weak-washout bound 1) it costs at least J = %.3g at Phi = %s rad. "
         "the CP phase is NOT the missing ingredient - a bond-layer flux of "
         "size Phi ~ %s supplies more than the asymmetry needs while leaving "
         "unitarity, det U = 1, the mirror Z2 and causality exact. What fails "
@@ -291,7 +302,7 @@ def main():
            cases["atmospheric y"]["J_required"],
            ("%.4f" % cases["atmospheric y"]["Phi_required_rad"])
            if cases["atmospheric y"]["Phi_required_rad"] is not None else "n/a",
-           y_ooeq, cases["out-of-equilibrium y"]["kappa_f"],
+           y_ooeq, K_STRONG_MIN,
            cases["out-of-equilibrium y"]["J_required"],
            ("%.4f" % cases["out-of-equilibrium y"]["Phi_required_rad"])
            if cases["out-of-equilibrium y"]["Phi_required_rad"] is not None

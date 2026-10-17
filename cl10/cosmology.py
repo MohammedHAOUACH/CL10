@@ -26,7 +26,7 @@ too big**; the **exact** ``10^{-122}`` is **not** derived (a named residual).
 (the **Planck lattice** ``E_P`` and the **electroweak** ``v``) with a **vast**
 gap: the **0-parameter** content is the **existence** of the hierarchy
 (``v << E_P``) and the **value** ``v/E_P = 2.02e-17`` (a 0-parameter number of
-the root), which **matches** the observed ``246/1.22e19 = 2.016e-17`` to
+the root), which **matches** the observed ``246.22/1.220890e19 = 2.0167e-17`` to
 **0.18%**.  The **derivation of the exponent** (``~10^{-17}``) from the root is
 the **open part** (a **residual**, not a wall).
 """
@@ -35,6 +35,12 @@ the **open part** (a **residual**, not a wall).
 from . import config as _config
 from . import engine as E
 from . import u10pred
+
+# the standard-cosmology inputs: `cosmology:` in `cl10/config.yaml`
+G_STAR = float(_config.CFG.cosmology.g_star)             # the SM d.o.f. at the EW transition
+HUBBLE_COEFF = float(_config.CFG.cosmology.hubble_coeff)  # H = 1.66 sqrt(g_*) T^2 / M_P
+S0_CM3 = float(_config.CFG.cosmology.entropy_density_cm3)  # today's entropy density, cm^-3
+RHO_C_OVER_H2 = float(_config.CFG.cosmology.rho_c_over_h2_gev_cm3)  # GeV cm^-3
 
 
 def _backend():

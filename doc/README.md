@@ -53,6 +53,4 @@ than its figures is a stale artifact, not a preview.
 The four compiled PDFs are attached to the
 [v1.0.2 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2)
 and archived on [Zenodo](https://zenodo.org/records/23321228); cite
-[10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106). The
-previous manuscript and its review rounds are in
-[`../archive/`](../archive/README.md).
+[10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).

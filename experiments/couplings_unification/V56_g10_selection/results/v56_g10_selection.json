@@ -7,34 +7,34 @@
   "status": "the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_1.73_of_the_1_loop_GUT_coupling_0.023_at_M_P_the_1_loop_matching_is_the_O4_named_residual",
   "tol": 1e-12,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "n_qubits": 5,
     "g10": 0.2,
     "alpha_10_0param": 0.04000000000000001,
     "g10_matches_sm_qca": true,
     "a_at_M_P": [
-      0.029905345742520604,
-      0.020218074264541256,
-      0.01908085360743493
+      0.029905771320979543,
+      0.020217924029706586,
+      0.01908055782059214
     ],
-    "mean_GUT": 0.023068091204832265,
-    "spread": 0.46924091113434546,
-    "ratio_to_1loop": 1.7339969590384174,
+    "mean_GUT": 0.023068084390426086,
+    "spread": 0.46927232089025017,
+    "ratio_to_1loop": 1.7339974712681887,
     "n_closest_to_1loop": 7,
     "best_n_1loop": 7,
     "candidate_scan_gap": {
-      "2": 9.837480993990106,
-      "3": 3.816658219551158,
-      "4": 1.7093702484975264,
-      "5": 0.733996959038417,
-      "6": 0.2041645548877895,
-      "7": 0.11530767395999142,
-      "8": 0.3226574378756184
+      "2": 9.837484195426176,
+      "3": 3.8166596424116337,
+      "4": 1.7093710488565441,
+      "5": 0.7339974712681883,
+      "6": 0.20416491060290842,
+      "7": 0.11530741261827138,
+      "8": 0.32265723778586397
     },
-    "gap_root_n5": 0.733996959038417,
-    "gap_best_n": 0.11530767395999142,
+    "gap_root_n5": 0.7339974712681883,
+    "gap_best_n": 0.11530741261827138,
     "data_check_selects_n": false,
     "residual": "the 1-loop matching (O4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
   },
-  "wall_time": 0.025
+  "wall_time": 0.002
 }

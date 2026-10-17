@@ -31,9 +31,9 @@ class Scene:
         self.cfg = cfg
         Lx, Ly, Lz = (int(v) for v in cfg["grid"])
         self.Lx, self.Ly, self.Lz = Lx, Ly, Lz
-        self.sub = int(cfg.get("render_subsample", 2))
-        self.cmap = cfg.get("colormap", "inferno")
-        self.w, self.h = (int(v) for v in cfg.get("render_size", [1280, 720]))
+        self.sub = int(cfg["render_subsample"])
+        self.cmap = cfg["colormap"]
+        self.w, self.h = (int(v) for v in cfg["render_size"])
 
         self.plotter = pv.Plotter(
             off_screen=off_screen,
@@ -43,11 +43,11 @@ class Scene:
         self.plotter.set_background("black")
 
         # a wide camera: pull back so the whole big box is in frame
-        cam = list(cfg.get("camera", [0.0, 220.0, 780.0]))
+        cam = list(cfg["camera"])
         focal = [Lx / 2.0, Ly / 2.0, Lz / 2.0]
         self.plotter.camera_position = [cam, focal, [0.0, 1.0, 0.0]]
         self.plotter.camera.parallel_projection = False
-        self.plotter.camera.view_angle = float(cfg.get("camera_fov", 50.0))
+        self.plotter.camera.view_angle = float(cfg["camera_fov"])
 
         self._static_added = False
         self._panel = None

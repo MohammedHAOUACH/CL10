@@ -60,6 +60,7 @@ from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
 from cl10 import u10pred                      # noqa: E402
 from cl10 import dm_wimp                      # noqa: E402
+from cl10 import cosmology as COS             # noqa: E402
 
 _B16, _U32, _U16 = SC.sectors()
 U16 = E.asnumpy(_U16)
@@ -69,13 +70,14 @@ M_P = u10pred.M_PLANCK            # 1.22e19 GeV
 LOOP = u10pred.LOOP
 G10 = SC.G10                      # 1/5
 M_DM = M_P * LOOP ** 10           # the ladder mass, GeV
-M_H, V_EV = 125.1, u10pred.V_EW
-GSTAR, GSTARS = 106.75, 106.75
-S0 = 2891.2                       # cm^-1, today's entropy density
-RHO_C = 1.0537e-5                 # GeV cm^-3, critical density / h^2
-GEV2_TO_CM3S = 0.3894e-27 * 2.998e10
+M_H, V_EV = dm_wimp.M_H, u10pred.V_EW
+GSTAR, GSTARS = COS.G_STAR, COS.G_STAR
+S0 = COS.S0_CM3                    # cm^-1, today's entropy density
+RHO_C = COS.RHO_C_OVER_H2         # GeV cm^-3, critical density / h^2
+GEV2_TO_CM3S = u10pred.GEV2_TO_CM2 * u10pred.C_CM_S
 OMEGA_OBS = dm_wimp.OMEGA_OBS
-SIGMA_FIDUCIAL = 3.0e-26          # cm^3/s, the V75/V88 fiducial
+SIGMA_FIDUCIAL = dm_wimp.SIGMA_FIDUCIAL   # cm^3/s, the V75/V88 fiducial
+WEAK_SCALE = dm_wimp.WEAK_SCALE           # GeV, the WIMP-miracle window center
 ZETA3 = 1.2020569
 
 
@@ -101,7 +103,7 @@ def freeze_out(m, sigmav, x0=1.0, x1=200.0, n=20000):
     def coef(x):
         T = m / x
         s = (2 * math.pi ** 2 / 45) * GSTARS * T ** 3
-        H = 1.66 * math.sqrt(GSTAR) * T ** 2 / M_P
+        H = COS.HUBBLE_COEFF * math.sqrt(GSTAR) * T ** 2 / M_P
         return s * sigmav / (H * x)
 
     def f(x, Y):
@@ -188,9 +190,10 @@ def main():
     checks = []
 
     # ---- T0 regression: the solver reproduces the WIMP miracle -------------
-    om100 = omega_of_sigma(100.0, SIGMA_FIDUCIAL)
-    om_tab = [(s, omega_of_sigma(100.0, s)) for s in (3e-27, 3e-26, 3e-25)]
-    ratio = [om / (0.12 * 3e-26 / s) for s, om in om_tab]
+    om100 = omega_of_sigma(WEAK_SCALE, SIGMA_FIDUCIAL)
+    om_tab = [(s, omega_of_sigma(WEAK_SCALE, s))
+              for s in (SIGMA_FIDUCIAL / 10, SIGMA_FIDUCIAL, SIGMA_FIDUCIAL * 10)]
+    ratio = [om / (OMEGA_OBS * SIGMA_FIDUCIAL / s) for s, om in om_tab]
     out["data"]["regression"] = {
         "Omega_h2_at_100GeV_3e-26": om100,
         "table": [{"sigma_cm3s": s, "Omega": om, "over_fiducial_scaling": r}
@@ -211,12 +214,12 @@ def main():
                              "sigma_required_cm3s": sig_req,
                              "alpha_required": alpha_req,
                              "Omega_at_fiducial_3e-26": om_fid_ladder,
-                             "dm_wimp_ansatz": 0.12 * (100.0 / M_DM) ** 3}
+                             "dm_wimp_ansatz": OMEGA_OBS * (WEAK_SCALE / M_DM) ** 3}
     checks.append(("T1 the ladder mass is m = %.1f GeV and the measured "
                    "Omega h^2 = 0.120 requires sigma v = %.2e cm^3/s there "
                    "(alpha_eff = %.4f in sigma v = alpha^2/(pi m^2)); the "
                    "dm_wimp (100/m)^3 ansatz gives %.4f at that mass"
-                   % (M_DM, sig_req, alpha_req, 0.12 * (100.0 / M_DM) ** 3),
+                   % (M_DM, sig_req, alpha_req, OMEGA_OBS * (WEAK_SCALE / M_DM) ** 3),
                    abs(M_DM - 118.4) < 1.0 and 1e-27 < sig_req < 1e-24))
 
     # ---- T2 the doubler final-state density, measured from the step -------

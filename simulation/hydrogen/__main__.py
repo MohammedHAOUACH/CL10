@@ -19,11 +19,11 @@ with open(os.path.join(_here, "config.yaml")) as f:
     _cfg = yaml.safe_load(f)
 
 # pin the GPU BEFORE the CuPy import (backend.py imports cupy)
-os.environ["CUDA_VISIBLE_DEVICES"] = str(_cfg.get("gpu", 1))
+os.environ["CUDA_VISIBLE_DEVICES"] = str(_cfg["gpu"])
 
 from . import backend as B  # noqa: E402
 
-B.set_field_dtype(_cfg.get("field_dtype", "float32"))
+B.set_field_dtype(_cfg["field_dtype"])
 
 from . import runner  # noqa: E402
 

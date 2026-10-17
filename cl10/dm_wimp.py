@@ -20,7 +20,7 @@ where $(1/16\pi)^{10}$ is the **same 0-parameter 10-loop factor** as V53
 $\mathrm{Cl}(10)$ generators ($n_{\rm gen}$), the **1-loop factor**
 $1/(16\pi) \approx 0.0199$.  So
 
-    m_DM  =  1.22e19 \times 9.7e-18  \approx  118 GeV
+    m_DM  =  1.220890e19 \times 9.7e-18  \approx  118 GeV
 
 — the **WIMP / weak scale**.
 
@@ -61,6 +61,12 @@ N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) gene
 LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
 WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the 0-parameter WIMP-miracle reference)
 OMEGA_OBS = float(_config.CFG.physics.omega_dm_h2)       # the observed dark-matter density (Omega h^2)
+LZ_BOUND = float(_config.CFG.bounds.lz_sigma_si_cm2)     # cm^2: the LZ SI direct-detection limit (~118 GeV)
+M_H = float(_config.CFG.sm.higgs_mass_gev)               # GeV: the Higgs pole mass (PDG)
+F_N = float(_config.CFG.dm.f_n_nucleon)                  # the nucleon Higgs coupling f_N (named input)
+SIGMA_FIDUCIAL = float(_config.CFG.dm.sigma_fiducial_cm3s)  # cm^3/s: the thermal-relic reference <sigma v>
+SIGMA_RELIC_TARGET = float(_config.CFG.dm.sigma_relic_target_cm3s)  # cm^3/s: the relic-closing <sigma v>
+DD_BOUND = float(_config.CFG.bounds.dd_sigma_si_cm2)  # cm^2: the portal-scan SI limit
 
 
 def _backend():

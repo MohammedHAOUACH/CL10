@@ -74,15 +74,15 @@ def run_headless(cfg):
     # it spans ``collapse_frames`` rendered frames and completes before the next;
     # *all* detections (the screen / the reality) fill at the faster collapse_every.
     display_every = max(
-        collapse_every, frame_every * int(cfg.get("collapse_frames", 3))
+        collapse_every, frame_every * int(cfg["collapse_frames"])
     )
 
-    out_video = os.path.join(HERE, cfg.get("out_video", "video/young.mp4"))
-    frames_dir = os.path.join(HERE, cfg.get("out_frames", "video/frames"))
+    out_video = os.path.join(HERE, cfg["out_video"])
+    frames_dir = os.path.join(HERE, cfg["out_frames"])
     os.makedirs(os.path.dirname(out_video), exist_ok=True)
     os.makedirs(frames_dir, exist_ok=True)
 
-    writer = scene.open_writer(out_video, fps=int(cfg.get("fps", 30)))
+    writer = scene.open_writer(out_video, fps=int(cfg["fps"]))
 
     t = 0
     frame_idx = 0
@@ -100,8 +100,8 @@ def run_headless(cfg):
     # the ONE Born-rule detection from it, and fire the next electron.  No
     # reset in between -- the boundary takes each electron.
     single = sim.source_mode == "single"
-    absorb_frac = float(cfg.get("absorb_frac", 0.02))
-    max_flight = int(cfg.get("max_flight_steps", 300))  # safety, if the sponge is slow
+    absorb_frac = float(cfg["absorb_frac"])
+    max_flight = int(cfg["max_flight_steps"])  # safety, if the sponge is slow
     if single:
         sim.emit_packet()
     screened = False

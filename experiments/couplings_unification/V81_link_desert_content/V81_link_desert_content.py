@@ -148,7 +148,6 @@ def c2_labels(states, b1, b2):
     cache = {}
     out = np.zeros(len(states))
     for i, s in enumerate(states):
-        key = R9(s)
         nu = s.copy()
         moved = True
         while moved:

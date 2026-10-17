@@ -42,6 +42,7 @@ _SM = _config.CFG.sm
 M_Z = float(_SM.m_z_gev)               # GeV (PDG 2024 world average)
 ALPHA_10 = u10pred.ALPHA_10      # 1/25 = g^2 at g = 1/5: the alpha_10 = g^2 READING (a convention, Section 1.4)
 M_P = u10pred.M_PLANCK           # 1.22e19 GeV (the UV cutoff; M_GUT = M_P is NOT assumed - see V64)
+M_X_OBS = float(_SM.m_unification_obs_gev)   # GeV: the observed 1-loop meeting scale (the MSSM reference)
 
 # the 1-loop beta coefficients (convention: 1/a(M) = 1/a(Mz) - (b/2pi) ln(M/Mz))
 B_SM = (_SM.beta1, float(_SM.beta2), _SM.beta3)   # (b1, b2, b3)  (the SM particle content)
@@ -156,7 +157,7 @@ def unification():
     """The 0-parameter unification verdict at the Planckian scale M_P."""
     a_p, spread_p = sm_running_to(M_P)
     # the clean MSSM unification scale (below M_P)
-    mssm_gut = 2.0e16
+    mssm_gut = M_X_OBS
     a_m, spread_m = _mssm_running(mssm_gut)
     landau = landau_pole_u1()
     return {
@@ -257,7 +258,7 @@ def main():
     print(f"  the clean MSSM (SUSY) unification is at {r['mssm_unif_scale']:.0e} GeV (spread {r['mssm_spread']:.2f}) -- BELOW M_P")
     print(f"  the U(1) Landau pole is at {r['u1_landau_pole']:.2e} GeV -- the QCA cutoff M_P is BELOW it (UV-bounded)")
     ok = (r["five_thirds"] > 1.6 and r["five_thirds"] < 1.8
-          and abs(r["alpha_10"] - 0.04) < 1e-9
+          and abs(r["alpha_10"] - float(_config.CFG.angle.alpha_10)) < 1e-9
           and r["uv_bounded"]
           and all(0.01 < a < 0.06 for a in r["couplings_at_M_P"]))
     print(f"  VERDICT:  {'PASS (the 5/3 is algebraic; the running reaches the GUT range; the meeting VALUES are the named residual O4; the discrete flow is UV-bounded)' if ok else 'FAIL'}")

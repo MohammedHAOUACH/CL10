@@ -29,7 +29,7 @@ residual set to its minimum:
   (the 1-loop ``g_0^4/16\pi`` rate at the 0-parameter coupling
   ``g_0 = 1/8`` (a mapping convention), the ``(1/16\pi)^2`` dilution, the
   ``28/79`` sphaleron) give the **right order** (``6.8e-10``, ratio
-  ``1.12``); the 0-parameter QCA alone gives ``epsilon_CP = 0`` (the
+  ``1.11``); the 0-parameter QCA alone gives ``epsilon_CP = 0`` (the
   CP-odd theorem).
 
 The **reduced residual set**: **0** free parameters in the algebra +

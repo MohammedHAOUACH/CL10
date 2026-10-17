@@ -15,10 +15,6 @@ the [CL10 README](../README.md).
 | `response_letter.md` | the point-by-point response, and the decision to resubmit as the three-paper series (`doc/paper1_core.md`, `paper2_gauge_gravity.md`, `paper3_phenomenology.md`). |
 | `refs_audit.json` | the bibliography audit of the **current** numbering: 55 entries, contiguity, duplicate titles, uncited entries, dangling citations, and the per-entry Crossref verdict (`verdict`, `score`, `crossref_title`). |
 
-The audit trail of the *previous* manuscript (the pre-publication number
-re-derivation, the 52-entry bibliography report, the measured-values audit) is
-in [`../archive/review/`](../archive/review/README.md).
-
 ## tools/ — the manuscript pipeline
 
 | file | role |

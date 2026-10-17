@@ -1,11 +1,11 @@
 {
   "experiment": "V75_dm_nogo_extension",
   "pass": true,
-  "status": "O7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a 118 GeV neutral mirror - for EVERY Wilson angle the same node puts a colored or charged fragment below 1 TeV (worst-case lightest bad fragment over the 720-angle scan: 27633 GeV << 1 TeV bound; survivors: 0); the ladder route sets masses only for classical fields; the solitons are superheavy. The implemented spectrum CANNOT contain the DM. (2) The minimal extension consistent with the exact mirror Z2 and the ladder: ONE real Z2-odd scalar at m = 118 GeV with Higgs portal lambda_* = 0.000 (freeze-out gives Omega h^2 = 0.120); PREDICTION: direct detection sigma_SI = 4.86e-51 cm^2 - BELOW the LZ/XENONnT window: the scalar is nearly decoupled; the falsifiable handle is the mass coincidence (F7: a weakly-interacting relic at 118 GeV and nothing else near it) and the absence of portal signal above 1e-50 cm^2. O7 residual: the scalar is an input field (one field, one coupling), not yet a state of the 32-level root.",
+  "status": "O7 NO-GO + MINIMAL FIX: (1) no doubler/Wilson node can host a 118 GeV neutral mirror - for EVERY Wilson angle the same node puts a colored or charged fragment below 1 TeV (worst-case lightest bad fragment over the 720-angle scan: 27767 GeV << 1 TeV bound; survivors: 0); the ladder route sets masses only for classical fields; the solitons are superheavy. The implemented spectrum CANNOT contain the DM. (2) The minimal extension consistent with the exact mirror Z2 and the ladder: ONE real Z2-odd scalar at m = 118 GeV with Higgs portal lambda_* = 0.000 (freeze-out gives Omega h^2 = 0.120); PREDICTION: direct detection sigma_SI = 4.89e-51 cm^2 - BELOW the LZ/XENONnT window: the scalar is nearly decoupled; the falsifiable handle is the mass coincidence (F7: a weakly-interacting relic at 118 GeV and nothing else near it) and the absence of portal signal above 1e-50 cm^2. O7 residual: the scalar is an input field (one field, one coupling), not yet a state of the 32-level root.",
   "data": {
     "nogo_survivors": 0,
-    "worst_light_bad_GeV": 27633.436305912463,
-    "lambda_star": 0.00035059739874211085,
-    "sigma_SI_cm2": 4.8587366212950516e-51
+    "worst_light_bad_GeV": 27767.12209541141,
+    "lambda_star": 0.0003529869886705053,
+    "sigma_SI_cm2": 4.8942184057014555e-51
   }
 }

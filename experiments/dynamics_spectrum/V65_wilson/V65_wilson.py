@@ -305,7 +305,7 @@ def fragment_table(Xs, Ys):
     LABEL = {(1.0, 1 / 6): "Q(3,2)", (1.0, -2 / 3): "u^c", (1.0, 1.0): "e^c",
              (-3.0, 1 / 3): "d^c", (-3.0, -1 / 2): "L(1,2)", (5.0, 0.0): "N",
              (-3.0, -2 / 3): "u^c", (1.0, 1 / 3): "d^c", (1.0, 0.0): "N",
-             (5.0, 1.0): "e^c", (-3.0, -1 / 2): "L(1,2)"}
+             (5.0, 1.0): "e^c"}
     out = []
     for key, f in frs.items():
         n, X, Y = f["n"], f["X"], f["Y"]
@@ -462,7 +462,7 @@ def main():
           f"{checks['unitarity']:.2e}")
     print(f"      kernel tail r>=2: {tail2:.2e}, r>=4: {tail4:.2e} "
           f"(quasi-local, Bessel)")
-    print(f"      doubler gaps vs w: "
+    print("      doubler gaps vs w: "
           + ", ".join(f"w={w}: {g:.4f}" for w, g in node_gaps.items()))
     print(f"      light cone at 24 steps: radius {radii[-1]}, amplitude "
           f"outside Lieb-Robinson cone {outside:.2e}")
@@ -483,7 +483,7 @@ def main():
             for lab, M in root["thresholds_GeV"].items():
                 print(f"          {lab:8s} M = {M:.2e} GeV")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'} - {verdict['status'][0]}")
-    print(f"  JSON -> " + os.path.join(outdir, "v65_wilson.json"))
+    print("  JSON -> " + os.path.join(outdir, "v65_wilson.json"))
     print(f"  Wall time = {time.time() - t0:.2f} s")
     return 0 if ok else 1
 

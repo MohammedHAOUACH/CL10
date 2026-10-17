@@ -4,8 +4,8 @@ r"""
 CL10 — the hierarchy exponent -17: the 0-parameter 10-loop derivation (V53, O8).
 
 The O8 residual (Section 13): the **derivation** of the hierarchy exponent
-($v/E_P \sim 10^{-17}$).  The 0-parameter ratio $v/M_P = 246/1.22e19 =
-2.02e-17$ matches the observed $2.016e-17$ to 0.18%, but V52 flagged that as a
+($v/E_P \sim 10^{-17}$).  The 0-parameter ratio $v/M_P = 246.22/1.220890e19 =
+2.02e-17$ matches the observed $2.0167e-17$ to 0.18%, but V52 flagged that as a
 **2-digit coincidence** (two independent 0-parameter inputs whose ratio happens
 to match) — the *exponent* -17 itself was not derived.
 

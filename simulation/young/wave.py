@@ -30,7 +30,7 @@ class WaveSim:
         self.wavelength = float(cfg["wavelength"])
         self.source_width = float(cfg["source_width"])
         self.source_amplitude = float(cfg["source_amplitude"])
-        self.source_z = int(cfg.get("source_z", 0))
+        self.source_z = int(cfg["source_z"])
         self.ramp_steps = int(cfg["ramp_steps"])
         self.barrier_z = int(cfg["barrier_z"])
         self.screen_z = int(cfg["screen_z"])
@@ -41,13 +41,13 @@ class WaveSim:
 
         # the source model: "single" = one localized electron packet at a time
         # (the real Tonomura experiment); "continuous" = the old driven beam.
-        self.source_mode = str(cfg.get("source_mode", "single"))
+        self.source_mode = str(cfg["source_mode"])
         # the packet shape: "point" = a 3D Gaussian (a true single electron);
         # "sheet" = full in y (a vertical sheet, clean x-fringes like the ref).
-        self.source_shape = str(cfg.get("source_shape", "point"))
-        self.source_y_width = float(cfg.get("source_y_width", self.source_width))
+        self.source_shape = str(cfg["source_shape"])
+        self.source_y_width = float(cfg["source_y_width"])
         # the z-width of the emitted packet (a thin sliver of the beam).
-        self.packet_z_width = float(cfg.get("packet_z_width", 8.0))
+        self.packet_z_width = float(cfg["packet_z_width"])
 
         self.psi = B.zeros((self.Lx, self.Ly, self.Lz))
         self.psi_prev = B.zeros((self.Lx, self.Ly, self.Lz))

@@ -39,14 +39,16 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
+from cl10 import dm_wimp
+from cl10 import u10pred
 
 _spec = importlib.util.spec_from_file_location(
     "v123", exp("V123_w7_relic_abundance", "V123_w7_relic_abundance.py"))
 V123 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(V123)
 
-F_N, M_N = 0.30e-3, 0.939
-LZ_BOUND = 1.5e-47
+F_N, M_N = dm_wimp.F_N, u10pred.M_P_ROBSON
+LZ_BOUND = dm_wimp.LZ_BOUND
 
 
 def main():
@@ -59,7 +61,7 @@ def main():
 
     def sig_SI(lam):
         return (lam ** 2 * F_N ** 2 * mu_red ** 2
-                / (math.pi * M_H ** 4)) * 0.3894e-27
+                / (math.pi * M_H ** 4)) * u10pred.GEV2_TO_CM2
 
     # ---- T1 regression on V88 ---------------------------------------------
     v88 = json.load(open(exp("V88_mirror_scalar",

@@ -56,10 +56,11 @@ import numpy as np
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
+from cl10 import neutrino as nv  # noqa: E402
 
-S17 = 0.146          # eV, the neutrino ladder S(17) (V57)
-M_ATM = 0.0501       # eV, sqrt(|dm2_3l|), NuFIT 6.0 (NO)
-COSMO = 0.12         # eV, sum m_nu < 0.12 (Planck+BAO)
+S17 = nv.loop_ladder(17) * 1e9   # eV, the neutrino ladder S(17) (V57)
+M_ATM = nv.M_ATM_EV              # eV, sqrt(|dm2_3l|), NuFIT 6.0 (NO)
+COSMO = nv.SUM_MNU_MAX_EV        # eV, sum m_nu < 0.12 (Planck+BAO)
 
 
 def seesaw(w0, k, m0=1.0, c=1.0):

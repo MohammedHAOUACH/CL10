@@ -39,8 +39,9 @@ import yaml
 
 PATH = pathlib.Path(__file__).with_name("config.yaml")
 
-# the built-in defaults: the same values as config.yaml, so a missing key or a
-# missing file degrades to the documented behaviour instead of failing
+# the built-in defaults: the same values as config.yaml (pool.njobs excepted -
+# without the file the pool sizes itself), so a missing key or a missing file
+# degrades to the documented behaviour instead of failing
 _DEFAULTS = {
     "backend": {
         "priority": ["cupy", "jax", "numpy"],
@@ -55,11 +56,12 @@ _DEFAULTS = {
     },
     "pool": {"njobs": None, "njobs_cap": 8},
     "physics": {
-        "m_planck_gev": 1.22e19,
-        "proton_mass_gev": 0.938,
-        "v_electroweak_gev": 246.0,
-        "omega_dm_h2": 0.12,
+        "m_planck_gev": 1.220890e19,
+        "proton_mass_gev": 0.93827208943,
+        "v_electroweak_gev": 246.22,
+        "omega_dm_h2": 0.120,
         "weak_scale_gev": 100.0,
+        "hydrogen_rydberg_ev": 13.605693,
         "n_gen": 10,
         "n_space": 3,
         "n_subsites": 8,
@@ -67,7 +69,8 @@ _DEFAULTS = {
         "n_sector": 16,
         "loop_factor": None,
     },
-    "units": {"gev_to_s": 6.582e-25, "s_to_yr": 3.156e7},
+    "units": {"gev_to_s": 6.582119569e-25, "s_to_yr": 3.15576e7,
+              "gev2_to_cm2": 3.89379338e-28, "c_cm_s": 2.99792458e10},
     "sm": {
         "m_z_gev": 91.1876,
         "beta1": 41 / 10, "beta2": -19 / 6, "beta3": -7,
@@ -75,7 +78,10 @@ _DEFAULTS = {
         "beta21": 199 / 25, "beta22": 25 / 2 - 27 / 50 * 6,
         "beta23": -143 / 3 + 23 / 15 * 6,
         "sphaleron": 28.0 / 79.0,
+        "higgs_mass_gev": 125.25,
         "delta_b_obs": 6.12e-10,
+        "m_unification_obs_gev": 2.0e16,
+        "alpha_em_inv": 127.9,
     },
     "angle": {
         "default_branch": "implemented",
@@ -83,7 +89,15 @@ _DEFAULTS = {
         "alpha_10": 0.04,
         "g0_from_n_space": True,
     },
-    "desert": {"m_x_gev": 1.8e16, "alpha_x": 0.04, "m_x_closed_gev": 1.235e17},
+    "desert": {"theta_root_rad": 1.7308, "m_x_gev": 1.8e16, "alpha_x": 0.04,
+               "m_x_closed_gev": 1.235e17},
+    "bounds": {"lz_sigma_si_cm2": 1.5e-47, "dd_sigma_si_cm2": 2.0e-47},
+    "cosmology": {"g_star": 106.75, "hubble_coeff": 1.66,
+                  "entropy_density_cm3": 2891.2, "rho_c_over_h2_gev_cm3": 1.0537e-5},
+    "dm": {"f_n_nucleon": 3.0e-4, "sigma_fiducial_cm3s": 3.0e-26,
+           "sigma_relic_target_cm3s": 2.2e-26},
+    "neutrino": {"m_atm_ev": 0.0501, "m_sol_ev": 0.0086,
+                 "sum_mnu_max_ev": 0.12},
     "tolerances": {"strict": 1e-12, "standard": 1e-9, "loose": 1e-6, "coarse": 1e-4},
 }
 

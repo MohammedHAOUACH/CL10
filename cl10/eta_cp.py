@@ -19,8 +19,9 @@ it is 0-parameter **only conditional** on the full derivation of the SM
 content (V23, a named residual),
 $\varepsilon_{CP} = g_0^4/16\pi$ = the **1-loop CP-odd rate**
 ($g_0 = 1/8 = 1/2^3$, the 0-parameter GUT coupling -- its *reading* is the
-audit's mapping convention), and $D = (1/16\pi)^2$ = the **2-loop
-dilution** (the washout in the 2-step GUT breaking).  The **factors** are
+audit's mapping convention), and $D = (1/16\pi)^2$ = the **guessed 2-loop
+dilution** (V106: the physical BDP washout is $14\times$ smaller at the
+neutrino Yukawa).  The **factors** are
 0-parameter (root / QFT / SM), but the **result is not a 0-parameter
 prediction**:
 
@@ -30,9 +31,9 @@ prediction**:
   nonzero **only** through the **named irreducible CP phase** $\delta$
   (an $\mathcal{O}(1)$ input, the minimal irreducible input the theorem
   demands).
-- The 2-digit **ratio** $1.12$ against the observed $\Delta B =
-  6.1e-10$ is a **named residual** whose value is **read from the
-  data**: the "12% match" depends entirely on the non-derived choice
+- The 2-digit **ratio** $1.11$ against the observed $\Delta B =
+  6.12e-10$ is a **named residual** whose value is **read from the
+  data**: the "11% match" depends entirely on the non-derived choice
   $g_0 = 1/8$.
 
 Result:
@@ -41,7 +42,7 @@ Result:
     \;\approx\; 6.8e-10
 
 **Named residuals**: the CP phase $\delta$ ($\mathcal{O}(1)$) and the
-2-digit ratio 1.12.  The **factors** of O5 are resolved (loop factors,
+2-digit ratio 1.11.  The **factors** of O5 are resolved (loop factors,
 not a bare named input); their **values** remain named.
 """
 
@@ -89,12 +90,17 @@ def eta_cp():
       6; the **3** = the spatial dimension; the *reading* is the audit's
       mapping convention) is the CP-odd **4-coupling** product
       ($g_0^4$); $16\pi$ = the 4D 1-loop factor.
-    - $D = (1/16\pi)^2$: the **2-loop dilution** (the washout of the
-      asymmetry in the 2-step GUT breaking).
+    - $D = (1/16\pi)^2$: the **guessed 2-loop dilution**.  V106 measured the
+      physical washout: the BDP efficiency $\kappa_f(\Gamma/H)$ is $5.4\times
+      10^{-3}$ at the Yukawa that gives $m_\nu$, $14\times$ this guess, so the
+      product below is a **coincidence of two wrong factors**, not a result.
 
-    The **0-parameter kinematics**: the out-of-equilibrium decay
-    $\Gamma/H \sim 6\times10^{-4} < 1$ and the 2-step GUT breaking
-    ($M_{N1}, M_{N2} \sim 10^{14}$ GeV).
+    The **kinematics** (V106, V125): at the ladder seesaw scale
+    $M_N = M_P(1/16\pi)^3 = 9.6\times10^{13}$ GeV the out-of-equilibrium
+    condition holds only for $y < 0.058$, while the neutrino mass needs
+    $y \simeq 0.40$ — the two are mutually incompatible (Sakharov 3 fails).
+    The old $\Gamma/H \sim 6\times10^{-4}$ reading belonged to the abandoned
+    $M_N \sim 10^{14}$ GeV intermediate scale.
 
     The 0-parameter QCA **alone** gives $\varepsilon_{CP} = 0$ (the
     CP-odd theorem): the asymmetry is nonzero **only** through the
@@ -103,7 +109,7 @@ def eta_cp():
     $$\Delta B \;=\; \frac{28}{79}\,\frac{g_0^4}{16\pi}\,(1/16\pi)^2
     \;\approx\; 6.8e-10,$$
 
-    a **ratio 1.12** to the observed $6.1e-10$ (a **12%** match) -- the
+    a **ratio 1.11** to the observed $6.12e-10$ (an **11%** match) -- the
     2-digit ratio is a **named residual** (read from the data), as is
     the CP phase.  The factors are 0-parameter in three **different** senses:
     numbers of the root ($16\pi$, the loop counts), QFT loop factors
@@ -128,9 +134,10 @@ def eta_cp():
         "FACTORS of three provenances (28/79 the SM sphaleron = an input of the "
         "SM sector, a root number only conditional on V23; eps_CP = g_0^4/16pi the "
         "1-loop CP-odd rate, g_0 = 1/2^3 a mapping convention; D = (1/16pi)^2 "
-        "the 2-loop dilution): 6.8e-10, ratio 1.12 to the observed 6.1e-10.  "
+        "the GUESSED 2-loop dilution, 14x above the physical BDP washout "
+        "(V106)): 6.8e-10, ratio 1.11 to the observed 6.12e-10.  "
         "The 0-parameter QCA alone gives eps_CP = 0 (the CP-odd theorem); the "
-        "NAMED residuals are the CP phase (O(1)) and the 2-digit ratio 1.12"
+        "NAMED residuals are the CP phase (O(1)) and the 2-digit ratio 1.11"
     )
     return {
         "backend": _backend(),
@@ -161,7 +168,7 @@ def eta_cp():
 def verify(tol=_config.CFG.tolerances.strict):
     """0-parameter checks on the FACTORS: (i) the 0-parameter eta_CP loop
     factor is within a factor 3 of the V40 value (1e-3); (ii) the
-    product gives the right ORDER (the 2-digit ratio 1.12 -- the named
+    product gives the right ORDER (the 2-digit ratio 1.11 -- the named
     residual); (iii) it **improves** on V40 (the ratio is smaller)."""
     r = eta_cp()
     ok = (
@@ -188,7 +195,7 @@ def main():
     print(f"    - loop counts = 1 (CP) + 2 (dilution) = {st['loop_count']}")
     print(f"  product Delta_B = {d['delta_B_0param']:.3e}   (observed {d['delta_B_observed']:.1e};  2-digit ratio {d['delta_B_ratio']:.3f} = named residual)")
     print(f"  V40 comparison:  Delta_B = {d['delta_B_v40']:.3e}  (ratio {d['delta_B_ratio_v40']:.3f})")
-    print(f"  VERDICT:  {'PASS (the factors have named provenances: the loop factor from the g_0 reading, the sphaleron an SM input; right order 1.12; the QCA alone gives eps_CP = 0 by the CP-odd theorem; the CP phase and the 2-digit ratio are the named residuals)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the factors have named provenances: the loop factor from the g_0 reading, the sphaleron an SM input; right order 1.11; the QCA alone gives eps_CP = 0 by the CP-odd theorem; the CP phase and the 2-digit ratio are the named residuals)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

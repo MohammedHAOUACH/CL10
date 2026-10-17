@@ -45,6 +45,9 @@ from . import clifford
 from . import matter
 from . import u10pred
 
+WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the freeze-out reference)
+OMEGA_OBS = float(_config.CFG.physics.omega_dm_h2)      # the measured DM density
+
 
 def _backend():
     return E._BACKEND
@@ -127,10 +130,10 @@ def dm_mass_scale():
     m_dm = E * M_P                   # the 0-parameter mass scale (GeV)
     # the 0-parameter freeze-out: (1/(sigma m)) at m = M_P (sigma ~ 1/M_P^2)
     # vs the reference (100 GeV)^3 that gives the observed value
-    ref = 1.0 / ((100.0 ** 2) * 100.0)        # GeV^-3
+    ref = 1.0 / ((WEAK_SCALE ** 2) * WEAK_SCALE)   # GeV^-3
     cur = 1.0 / ((M_P ** 2) * M_P)            # GeV^-3
     ratio = ref / cur                         # = (M_P / 100 GeV)^3
-    omega_obs = 0.12                          # the measured dark-matter density
+    omega_obs = OMEGA_OBS                     # the measured dark-matter density
     omega_0param = omega_obs * (1.0 / ratio)  # the 0-parameter freeze-out
     gap = omega_0param / omega_obs            # the quantified abundance gap
     residual = ("the sub-Planck DM scale that gives the observed "

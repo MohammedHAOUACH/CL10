@@ -68,6 +68,7 @@ sys.path.insert(0, ROOT)
 from cl10.paths import exp
 
 from cl10 import engine as E                   # noqa: E402
+from cl10 import u10pred                      # noqa: E402
 
 GPU = E._BACKEND == "cupy"   # the engine decides; cl10/config.yaml decides the engine
 if GPU:
@@ -189,7 +190,7 @@ def main():
 
     # ---- 3. the tension and its physical scale ---------------------------
     sigma_lat = c2_45                       # electric energy per link
-    MP = 1.2209e19                          # GeV
+    MP = u10pred.M_PLANCK                     # GeV
     sig_per_len = sigma_lat * MP            # GeV per Planck length
     sig_mass2 = sigma_lat * MP ** 2         # GeV^2
     sig_qcd = 0.42 ** 2

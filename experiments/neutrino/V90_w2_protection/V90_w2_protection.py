@@ -51,11 +51,12 @@ sys.path.insert(0, ROOT)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65  # noqa: E402
+from cl10 import config as _config, neutrino as nv  # noqa: E402
 
 W0 = 0.15
-THETA = 1.731
-S17 = 0.146                 # eV, the neutrino ladder S(17) (V57)
-SUM_MNU_MAX = 0.12          # eV, cosmological bound
+THETA = float(_config.CFG.desert.theta_root_rad)
+S17 = nv.loop_ladder(17) * 1e9   # eV, the neutrino ladder S(17) (V57)
+SUM_MNU_MAX = nv.SUM_MNU_MAX_EV  # eV, cosmological bound
 SEL = [(math.pi / 2, math.pi / 2, 0.0),
        (math.pi / 2, 0.0, math.pi / 2),
        (0.0, math.pi / 2, math.pi / 2)]

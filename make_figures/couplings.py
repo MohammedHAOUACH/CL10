@@ -6,6 +6,7 @@ import numpy as np
 
 from .style import exp, save
 from .style import C_GUT, C_ROOT, C_SU2, C_SU3, C_ZERO
+from cl10 import config as _config      # the shared inputs (no engine import here)
 
 
 def fig19_couplings_mz():
@@ -108,7 +109,7 @@ def fig20_desert():
     M_X, M_A, M_B = sel["M_X_GeV"], sel["M_A_GeV"], sel["M_B_GeV"]
     d10 = (6.0 / 5.0, 2.0, 2.0)          # one Dirac 10+10bar pair
     d2 = (2.0 / 5.0, 2.0 / 3.0, 0.0)     # one Dirac (1,2)+(3bar,1)... (1,2) pair
-    n10 = 3
+    n10 = int(sel["content"].split("x10")[0])   # the desert content, from V64
     cols = [C_GUT, C_SU2, C_SU3]
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.5),
                                    gridspec_kw={"width_ratios": [1.45, 1.0]})
@@ -274,13 +275,14 @@ def fig6_wilson():
     axB.set_xscale("log")
     axB.set_xlim(1e6, 1e19)
     axB.axvline(root["M_X_GeV"], color=C_ZERO, lw=2.0)
-    axB.axvline(1.8e16, color="0.35", lw=1.6, ls="--")
+    axB.axvline(float(_config.CFG.desert.m_x_gev), color="0.35", lw=1.6, ls="--")
     axB.text(root["M_X_GeV"] * 1.5, 2.5,
              f"Wilson root meeting\n$M_X$ = {root['M_X_GeV']:.1e} GeV\n"
              "(excluded, F5)", color=C_ZERO, fontsize=9.5, ha="left",
              va="center", rotation=90, linespacing=1.3)
-    axB.text(1.8e16 * 1.5, 2.5,
-             "data-preferred\n$M_X = 1.8\\times10^{16}$ GeV",
+    mx = float(_config.CFG.desert.m_x_gev)
+    axB.text(mx * 1.5, 2.5,
+             f"data-preferred\n$M_X = {mx:.1e}$ GeV",
              color="0.3", fontsize=9.5, ha="left", va="center", rotation=90,
              linespacing=1.3)
     axB.set_xlabel("fragment mass [GeV]")
@@ -330,7 +332,7 @@ def fig22_composite():
     dbs[sm_idx] *= 0.0
     db_ex = dbs.sum(axis=0)
 
-    x = math.log(1.8e16 / u.M_Z)
+    x = math.log(float(_config.CFG.desert.m_x_gev) / u.M_Z)
     INV = 1 / u.ALPHA_10
     TWO_PI = 2 * math.pi
     need = [TWO_PI * (1 / u.A_Z[i] - INV - u.B_SM[i] * x / TWO_PI) / db_ex[i]
@@ -347,7 +349,7 @@ def fig22_composite():
     axA.set_yticks(ypos)
     axA.set_yticklabels(names, fontsize=12)
     axA.set_xlabel(r"required threshold sum $\sum_s (x - z_s)$ "
-                   r"[$\ln M$ units], $M_X = 1.8\times10^{16}$ GeV")
+                   rf"[$\ln M$ units], $M_X = {float(_config.CFG.desert.m_x_gev):.1e}$ GeV")
     axA.set_title("(a)  the three meeting equations demand three\n"
                   "     different sums - no single spectrum fits",
                   fontsize=11.5)
@@ -355,14 +357,16 @@ def fig22_composite():
     axA.text(0.68, 0.90, f"spread factor {max(need)/min(need):.1f}",
              transform=axA.transAxes, fontsize=11, color=C_ZERO)
 
-    th_root = 1.7308
+    with open(exp("V65_wilson", "results", "v65_wilson.json")) as f65:
+        th_root = (json.load(f65)["data"]["part_B"]["X_1"]
+                   ["selective_roots"][0]["theta_rad"])
     v = math.cos(th_root) * gg + math.sin(th_root) * yc
     c_al = np.round(np.abs(al @ v), 6)
     vals, cnts = np.unique(c_al, return_counts=True)
     axB.bar(vals, cnts, width=0.045, color=C_ROOT, alpha=0.85)
     axB.set_ylim(0, 28)
     axB.set_xlabel(r"flux mass pattern $|\alpha \cdot v|$ "
-                   r"($\theta$ = 1.731, the root angle)")
+                   rf"($\theta$ = {th_root:.3f}, the root angle)")
     axB.set_ylabel("count")
     axB.set_title("(b)  the forced pattern $m = w(c_0 + |\\alpha\\cdot v|)$:\n"
                   f"     {d['meeting']['n_solutions']} physical solutions "
@@ -380,7 +384,7 @@ def fig13_closed_loops():
         d = json.load(f)["data"]
     root, fmin = d["loops_root"], d["loops_Fmin"]
     ns = list(range(2, 11))
-    loop = 1 / (16 * math.pi)
+    loop = float(_config.CFG.physics.loop)
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.5))
 
@@ -389,10 +393,10 @@ def fig13_closed_loops():
     axA.semilogy(ns, fmin["F_n"], "s--", color=C_ROOT, lw=1.4, ms=5,
                  alpha=0.8, label=r"division-optimal $\eta = 1.44$")
     axA.axhline(loop, color="0.35", ls=":", lw=1.5)
-    axA.text(2.1, loop * 1.25, r"$1/(16\pi) = 0.0199$", fontsize=11,
+    axA.text(2.1, loop * 1.25, rf"$1/(16\pi) = {loop:.4f}$", fontsize=11,
              color="0.3")
     axA.plot([10], [root["F_n"][-1]], "*", ms=17, color=C_ZERO, zorder=5)
-    axA.annotate(f"$F_{{10}}$ = {root['F_n'][-1]:.4f}\nvs 0.0199 (3.6%)",
+    axA.annotate(f"$F_{{10}}$ = {root['F_n'][-1]:.4f}\nvs {loop:.4f} (3.6%)",
                  xy=(10, root["F_n"][-1]), xytext=(7.9, 0.55),
                  fontsize=11, color=C_ZERO,
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
@@ -420,7 +424,7 @@ def fig13_closed_loops():
                   f"n* = {root['n_star_for_loop_factor']}", fontsize=11.5)
 
     fig.suptitle("The closed-loop factor of the traced adjoint link: "
-                 "$F_{10} = 0.0192$ vs $1/(16\\pi) = 0.0199$", fontsize=13)
+                 rf"$F_{{10}} = {root['F_n'][-1]:.4f}$ vs $1/(16\pi) = {loop:.4f}$", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig13_closed_loops.png")
 

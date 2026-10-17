@@ -3,7 +3,7 @@
   "pass": true,
   "status": "O7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the mirror Z2 is exact (leak 1.0e-15), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. The 118 GeV state has no identity in the implemented spectrum.",
   "data": {
-    "mirror_Z2_leak": 1.0299375384463008e-15,
+    "mirror_Z2_leak": 1.04281487771315e-15,
     "weights_conjugate": true,
     "mirror_masses_equal": true,
     "candidates": [
@@ -37,13 +37,13 @@
       },
       {
         "name": "domain wall / Planck soliton (classical)",
-        "mass_GeV": 1.22e+19,
+        "mass_GeV": 1.22089e+19,
         "neutral": true,
         "stable": "classical",
         "verdict": "EXCLUDED: Planck tension, overcloses"
       }
     ],
-    "sigma_v_est_GeV2": 1.860191398917885e-56,
-    "omega_overclosure_factor": 1.6127372708771622e+30
+    "sigma_v_est_GeV2": 1.8547731846083686e-56,
+    "omega_overclosure_factor": 1.6174484432356313e+30
   }
 }

@@ -8,7 +8,7 @@
    "intertwiner_rank": 32,
    "J_commutates_with_h": 9.9909177351302e-16,
    "J_commutates_with_45": 1.4708464947457413e-15,
-   "J_commutates_with_step": 7.386582113839282e-16,
+   "J_commutates_with_step": 8.300030970468207e-16,
    "antiunitary_on_ordered_product": 0.8138542720380968
   },
   "T2": {
@@ -79,19 +79,19 @@
   },
   "T4a": {
    "k=(0.3, 0.4, 0.5)": {
-    "conj_closed": 0.915716215636067,
-    "sum_omega": 18.849555921538766
+    "conj_closed": 0.9825849167053878,
+    "sum_omega": 18.849555921538744
    },
    "k=(1.1, -0.7, 0.2)": {
-    "conj_closed": 0.9872685968926915,
-    "sum_omega": 12.566370614359176
+    "conj_closed": 0.9332652373963596,
+    "sum_omega": 12.56637061435917
    },
    "k=(1.5707963267948966, 1.0471975511965976, -0.9)": {
-    "conj_closed": 0.9497955293834187,
-    "sum_omega": 6.283185307179584
+    "conj_closed": 0.9196848765161938,
+    "sum_omega": 6.2831853071796
    },
    "one_cell_32": {
-    "conj_closed": 2.9639247490390035e-15
+    "conj_closed": 4.645458056660551e-15
    }
   },
   "T4b": {
@@ -111,19 +111,19 @@
    },
    "step_invariants": {
     "Phi=0.000": {
-     "unitarity_err": 3.552714652044491e-15,
-     "abs_det": 0.9999999999999223,
-     "band_pairing_dev": 0.6638649535853762
+     "unitarity_err": 3.552714359805881e-15,
+     "abs_det": 0.9999999999999207,
+     "band_pairing_dev": 0.6638649535853747
     },
     "Phi=1.047": {
-     "unitarity_err": 3.441691512201526e-15,
-     "abs_det": 0.9999999999999252,
-     "band_pairing_dev": 0.33886031565289065
+     "unitarity_err": 3.552713697225892e-15,
+     "abs_det": 0.9999999999999231,
+     "band_pairing_dev": 0.338860315652893
     },
     "Phi=1.571": {
-     "unitarity_err": 3.2196474341207777e-15,
-     "abs_det": 0.9999999999999227,
-     "band_pairing_dev": 0.36672873827308816
+     "unitarity_err": 3.5527142043051714e-15,
+     "abs_det": 0.9999999999999201,
+     "band_pairing_dev": 0.3667287382730891
     }
    }
   }
@@ -159,5 +159,5 @@
   }
  ],
  "pass": true,
- "status": "WHAT FORBIDS THE CP PHASE (O5). T1: the 32-D module of Cl(10,0) is of REAL (Majorana) type - the intertwiner between the module and its conjugate is unique (nullity 1, rank 32), Q h Q^dag = h^* to 1.0e-15 for the 10 generators (and Q T Q^dag = -T^* for the 45, to 1.5e-15), the step to 7.4e-16, and J = Q^dag K has J^2 = +1.000: this is the content of Cl(10,0) ~ M_32(R), i.e. Spin(10) lands in SO(32), and a real form of U(32) carries no CP-odd invariant. T2: the real form is a CHOICE of root - the complex algebra is the same for all 11 signatures p+q=10 and the Frobenius-Schur indicator is +1 for p-q = 0,2 mod 8 and -1 for p-q = 4,6 mod 8 (validated on Cl(2,0) ~ M_2(R) and Cl(0,2) ~ H): Cl(8,2), Cl(7,3), Cl(4,6), Cl(3,7), Cl(0,10) are quaternionic. T3: the mirror is not a privilege of reality - on the quaternionic root Cl(7,3) (J^2 = -1.000) the 21 mixed even products h'_a h'_b (a < 3 <= b) are Hermitian traceless involutions (squared to I to 0.0e+00, traceless to 0.0e+00) generating an exactly unitary step (6.7e-16) with det U = 1 whose spectrum is still exactly conjugation-closed (2.9e-15). The naive mechanism fails on BOTH roots: the intertwiner inverts every single factor (J F J^-1 = F^-1) but reverses the order of the ordered product, so J U J^-1 != U^-1 (dev 5.8e-01 for Cl(7,3), 8.1e-01 for Cl(10,0)) - the mirror is a property of the whole ordered step, not of a one-factor symmetry. T4: the pairing is a ONE-CELL statement - the implemented 128-level Floquet spectrum at generic Bloch momentum is not conjugation-closed at all (0.99), while the one-cell 32 spectrum is exact (3.0e-15); and a complex bond layer (Peierls flux) leaves unitarity and |det| = 1 at machine precision while the gauge-invariant plaquette holonomy acquires Im = 0.001. VERDICT: the CP prohibition is a property of the real form of the on-site algebra plus the real democratic Yukawa - it is not a theorem of the automaton. The mirror it leans on survives any real form (T3), it does not extend to the band spectrum (T4), and it does not cover the bond layer, where V105 locates the kappa_s and where a gauge-invariant CP-odd quantity is available as a named input."
+ "status": "WHAT FORBIDS THE CP PHASE (O5). T1: the 32-D module of Cl(10,0) is of REAL (Majorana) type - the intertwiner between the module and its conjugate is unique (nullity 1, rank 32), Q h Q^dag = h^* to 1.0e-15 for the 10 generators (and Q T Q^dag = -T^* for the 45, to 1.5e-15), the step to 8.3e-16, and J = Q^dag K has J^2 = +1.000: this is the content of Cl(10,0) ~ M_32(R), i.e. Spin(10) lands in SO(32), and a real form of U(32) carries no CP-odd invariant. T2: the real form is a CHOICE of root - the complex algebra is the same for all 11 signatures p+q=10 and the Frobenius-Schur indicator is +1 for p-q = 0,2 mod 8 and -1 for p-q = 4,6 mod 8 (validated on Cl(2,0) ~ M_2(R) and Cl(0,2) ~ H): Cl(8,2), Cl(7,3), Cl(4,6), Cl(3,7), Cl(0,10) are quaternionic. T3: the mirror is not a privilege of reality - on the quaternionic root Cl(7,3) (J^2 = -1.000) the 21 mixed even products h'_a h'_b (a < 3 <= b) are Hermitian traceless involutions (squared to I to 0.0e+00, traceless to 0.0e+00) generating an exactly unitary step (6.7e-16) with det U = 1 whose spectrum is still exactly conjugation-closed (2.9e-15). The naive mechanism fails on BOTH roots: the intertwiner inverts every single factor (J F J^-1 = F^-1) but reverses the order of the ordered product, so J U J^-1 != U^-1 (dev 5.8e-01 for Cl(7,3), 8.1e-01 for Cl(10,0)) - the mirror is a property of the whole ordered step, not of a one-factor symmetry. T4: the pairing is a ONE-CELL statement - the implemented 128-level Floquet spectrum at generic Bloch momentum is not conjugation-closed at all (0.98), while the one-cell 32 spectrum is exact (4.6e-15); and a complex bond layer (Peierls flux) leaves unitarity and |det| = 1 at machine precision while the gauge-invariant plaquette holonomy acquires Im = 0.001. VERDICT: the CP prohibition is a property of the real form of the on-site algebra plus the real democratic Yukawa - it is not a theorem of the automaton. The mirror it leans on survives any real form (T3), it does not extend to the band spectrum (T4), and it does not cover the bond layer, where V105 locates the kappa_s and where a gauge-invariant CP-odd quantity is available as a named input."
 }

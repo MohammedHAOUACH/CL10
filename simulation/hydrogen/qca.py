@@ -66,12 +66,13 @@ import math
 import numpy as np
 
 from . import backend as B
+from cl10 import config as _config      # the shared measured inputs
 
 
 # ---------------------------------------------------------------------------
 # the hydrogen levels (0-parameter: the Rydberg formula)
 # ---------------------------------------------------------------------------
-# (label, n, l, m).  The energies are E_n = -13.606 / n**2 eV.  Only the
+# (label, n, l, m).  The energies are E_n = -RYDBERG_EV / n**2 eV.  Only the
 # *gaps* matter for the transitions; we scale them into the lattice
 # frequency band (a single unit-conversion, not a fit).
 HYDROGEN_LEVELS = [
@@ -80,12 +81,9 @@ HYDROGEN_LEVELS = [
     ("3p", 3, 1, 0),
     ("3d", 3, 2, 0),
 ]
-RYDBERG_EV = 13.606  # eV
-# the lattice gap for the Lyman-alpha (1s->2p) transition (rad/step):
-# the *scale* of the atom's spectrum on the lattice (a unit choice).
-GAP12_LATTICE = 0.25
-# the base (1s) frequency of the levels (rad/step, inside the lattice band).
-OMEGA_BASE = 0.60
+RYDBERG_EV = float(_config.CFG.physics.hydrogen_rydberg_ev)  # eV (cl10/config.yaml)
+# the lattice scale of the spectrum (rad/step) is a unit choice: it lives in
+# this simulation's config.yaml (lattice_gap_12, omega_base).
 
 
 def _rydberg_gaps_eV():
@@ -138,23 +136,29 @@ class AtomQCA:
     def __init__(self, cfg):
         self.cfg = cfg
         self.Lx, self.Ly, self.Lz = (int(v) for v in cfg["grid"])
-        self.r = float(cfg.get("r", 0.5))
-        self.a0 = float(cfg.get("bohr_radius", 6.0))
+        self.r = float(cfg["r"])
+        self.a0 = float(cfg["bohr_radius"])
         # the light-matter coupling: A sets the absorption strength
         # (the Fermi-golden-rule rate scale) and h the emitted-photon
         # source strength.  These are the free knobs of the model (the
         # atom's light-matter strength and its radiative character).
-        self.A = float(cfg.get("coupling_absorb", 0.02))
-        self.h = float(cfg.get("coupling_emit", 0.5))
+        self.A = float(cfg["coupling_absorb"])
+        self.h = float(cfg["coupling_emit"])
         # the Einstein-A decay rate (per step) of an excited level.
-        self.gamma_sp = float(cfg.get("reaction_gamma_max", 0.002))
+        self.gamma_sp = float(cfg["reaction_gamma_max"])
         # the natural linewidth (HWHM, rad/step) of the absorption line:
         # 0 ties it to the radiative lifetime (the energy-time uncertainty),
         # so a narrow line is a long-lived level.
-        gl = float(cfg.get("line_width", 0.0))
+        gl = float(cfg["line_width"])
         self.gamma_line = gl if gl > 0.0 else self.gamma_sp
-        self.sponge_width = int(cfg.get("sponge_width", 8))
-        self.photon_width = float(cfg.get("photon_width", 0.0))
+        self.sponge_width = int(cfg["sponge_width"])
+        self.photon_width = float(cfg["photon_width"])
+        # the lattice scale of the atom's spectrum (a unit choice, not a fit)
+        self.gap12 = float(cfg["lattice_gap_12"])
+        self.omega_base = float(cfg["omega_base"])
+        # the dipole-approximation widths, in cells
+        self.emission_width = float(cfg["emission_width"])
+        self.local_weight_width = float(cfg["local_weight_width"])
 
         self.cx, self.cy, self.cz = self.Lx // 2, self.Ly // 2, self.Lz // 2
         self.hx, self.hy, self.hz = (
@@ -176,7 +180,7 @@ class AtomQCA:
         # the *emission* dipole pattern: the z arm localised to the atom
         # (the radiation is emitted from the atom's location; the raw z
         # grows without bound and would blow up the F_out source far away).
-        ew = 6.0  # the emission source width (cells)
+        ew = self.emission_width  # the emission source width (cells)
         self.dip_emit = self.z * B.exp(-self.R ** 2 / (2.0 * ew * ew))
         # -- the Coulomb well (rendering only: the potential the electron
         # sits in; a softened -1/r, the hydrogen 1/r shape).
@@ -189,18 +193,18 @@ class AtomQCA:
         E = [-RYDBERG_EV / nn ** 2 for nn in n]
         E1 = E[0]
         for k in range(len(n)):
-            # the gap from the 1s base, scaled so (1s->2p) = GAP12_LATTICE
+            # the gap from the 1s base, scaled so (1s->2p) = self.gap12
             gap_eV = abs(E[k] - E1)
-            # scale: the 1s->2p gap (10.204 eV) maps to GAP12_LATTICE
-            gap_lat = gap_eV * (GAP12_LATTICE / (abs(E[1] - E1)))
-            self.omega.append(OMEGA_BASE + gap_lat)
+            # scale: the 1s->2p gap maps to self.gap12
+            gap_lat = gap_eV * (self.gap12 / (abs(E[1] - E1)))
+            self.omega.append(self.omega_base + gap_lat)
         # the (i, j) transition frequencies (rad/step)
         self.gaps = {}
         for i in range(len(self.omega)):
             for j in range(len(self.omega)):
                 self.gaps[(i, j)] = abs(self.omega[j] - self.omega[i])
         # -- the energies in eV (for the HUD stick diagram) --
-        self.level_E_eV = E  # the level energies E_n = -13.606/n**2
+        self.level_E_eV = E  # the level energies E_n = -RYDBERG_EV/n**2
         self.gaps_eV = _rydberg_gaps_eV()  # (i, j) -> eV
 
         # -- the wavefunction shapes (the hydrogen eigenfunctions on the
@@ -223,7 +227,7 @@ class AtomQCA:
                 self.dipole_mat[(i, j)] = float(v.sum())
 
         # -- the local photon-amplitude weight (dipole approximation) --
-        flw = 4.0
+        flw = self.local_weight_width
         w = B.exp(-self.R ** 2 / (2.0 * flw * flw))
         self.F_local_weight = w / float(B.asnumpy(w.sum()))
 

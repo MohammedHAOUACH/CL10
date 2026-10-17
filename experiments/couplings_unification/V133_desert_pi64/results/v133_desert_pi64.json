@@ -7,7 +7,7 @@
    "M_X_GeV": 1.77647030754584e+16,
    "M_10_GeV": 12415509.556185646,
    "M_12_GeV": 1009083003045.6135,
-   "tau_p_yr": 1.7877983029997312e+36
+   "tau_p_yr": 1.7853757889443527e+36
   },
   "quantized_pi64": {
    "alpha_X": 0.04908738521234052,
@@ -15,7 +15,7 @@
    "M_10_GeV": 70597.11391958076,
    "M_12_GeV": 4.864438250605381e+17,
    "in_desert_box": false,
-   "tau_p_yr": 2.76863119681797e+39,
+   "tau_p_yr": 2.7648796282113785e+39,
    "M_X_over_observed": 6.858466922321539
   },
   "alpha_needed_at_MX_obs": {
@@ -1274,10 +1274,10 @@
    }
   },
   "falsifier_F5": {
-   "tau_p_yr": 2.76863119681797e+39,
+   "tau_p_yr": 2.7648796282113785e+39,
    "SK_bound_yr": 2.4e+34,
    "HK_reach_yr": 1e+35,
-   "margin_over_SK": 115359.63320074875,
+   "margin_over_SK": 115203.31784214078,
    "inside_HK_reach": false
   }
  },
@@ -1287,7 +1287,7 @@
    "pass": true
   },
   {
-   "name": "T2 at the quantized coupling alpha_X = pi/64 = 0.049087 the SAME desert content meets at M_X = 1.235e+17 GeV (factor 6.86 of the observed-preference 1.8e16), with M_10 = 7.060e+04 GeV and M_(1,2) = 4.864e+17 GeV; the desert box (both thresholds between 1e6 GeV and M_X) is VIOLATED; the proton lifetime becomes tau_p = 2.77e+39 yr",
+   "name": "T2 at the quantized coupling alpha_X = pi/64 = 0.049087 the SAME desert content meets at M_X = 1.235e+17 GeV (factor 6.86 of the observed-preference 1.8e16), with M_10 = 7.060e+04 GeV and M_(1,2) = 4.864e+17 GeV; the desert box (both thresholds between 1e6 GeV and M_X) is VIOLATED; the proton lifetime becomes tau_p = 2.76e+39 yr",
    "pass": true
   },
   {
@@ -1299,12 +1299,12 @@
    "pass": true
   },
   {
-   "name": "T5 F5 at the quantized coupling: tau_p = 2.77e+39 yr, 115359.6x the Super-Kamiokande bound (2.4e+34 yr) and above the Hyper-Kamiokande 20-year reach (1e+35 yr) - Hyper-K can refute it by NOT seeing decay past 1e35",
+   "name": "T5 F5 at the quantized coupling: tau_p = 2.76e+39 yr, 115203.3x the Super-Kamiokande bound (2.4e+34 yr) and above the Hyper-Kamiokande 20-year reach (1e+35 yr) - Hyper-K can refute it by NOT seeing decay past 1e35",
    "pass": true
   }
  ],
  "verdict": "PASS",
  "pass": true,
  "status": "the desert re-closure at alpha_X = pi/64 exists but leaves the desert: M_X = 1.235e17 GeV with M_(1,2) = 4.86e17 GeV above it, tau_p = 2.77e39 yr; holding M_X = 1.8e16 GeV needs alpha_X = 0.040050; the kappa_s LP is feasible for 9/10 node counts at pi/64 against 10/10 at 1/25 - the meeting becomes a fit",
- "wall_s": 11.492223262786865
+ "wall_s": 7.620592832565308
 }

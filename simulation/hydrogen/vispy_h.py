@@ -163,8 +163,8 @@ class HydroVisPy(scene.SceneCanvas):
         # the atom's length scale (Bohr radius, in cells).  The camera zooms to
         # THIS (not the whole box): with a large box and a small atom, showing
         # the box would shrink the atom to a speck.
-        self.a0 = float(cfg.get("bohr_radius", 18.0))
-        win = tuple(int(v) for v in cfg.get("window_size", (1200, 800)))
+        self.a0 = float(cfg["bohr_radius"])
+        win = tuple(int(v) for v in cfg["window_size"])
 
         scene.SceneCanvas.__init__(
             self,
@@ -195,13 +195,13 @@ class HydroVisPy(scene.SceneCanvas):
         )
         self.view_3d.camera.view_changed()
 
-        self.stride = int(cfg.get("volume_stride", 2))
-        self.log_gain = float(cfg.get("log_gain", 1.0e4))
-        self.gamma = float(cfg.get("alpha_gamma", 1.0))
+        self.stride = int(cfg["volume_stride"])
+        self.log_gain = float(cfg["log_gain"])
+        self.gamma = float(cfg["alpha_gamma"])
         # the 3-D volume opacity: the (max) alpha of the bright core.  Below
         # 1 the cloud is see-through -- the faint shell is transparent, so the
         # nucleus and the far lobe read through the near side ("see inside").
-        self.vol_alpha = float(cfg.get("volume_alpha", 0.6))
+        self.vol_alpha = float(cfg["volume_alpha"])
         vs = (
             max(1, self.Lx // self.stride),
             max(1, self.Ly // self.stride),
@@ -288,7 +288,7 @@ class HydroVisPy(scene.SceneCanvas):
         self.state_text.pos = (12, 12)
 
         # -- the AGC (for the glow + photon volumes) -------------------------
-        rel = float(cfg.get("agc_release", 300.0))
+        rel = float(cfg["agc_release"])
         self._agc_p = AGC(rel)
 
         self._maj_layout()
@@ -296,7 +296,7 @@ class HydroVisPy(scene.SceneCanvas):
         # -- state ------------------------------------------------------------
         self.vis_mode = "electron"
         self.paused = False
-        self.steps_per_frame = int(cfg.get("steps_per_frame", 4))
+        self.steps_per_frame = int(cfg["steps_per_frame"])
         self._last_photon_eV = None
         self._msg = "pret: tire [e] Lyman-alpha pour exciter l'atome (1s->2p)"
 
@@ -470,8 +470,8 @@ class HydroVisPy(scene.SceneCanvas):
         """Reset the atom to level ``i``, then fire a photon at the (i, j)
         gap -- the resonant shot for that transition."""
         self.sim.set_level(i)
-        amp = float(self.cfg.get("photon_amp", 0.7))
-        width = float(self.cfg.get("photon_width", 0.0)) or None
+        amp = float(self.cfg["photon_amp"])
+        width = float(self.cfg["photon_width"]) or None
         self.sim.fire_transition(i, j, amp=amp, width=width)
         self._last_photon_eV = self.sim.gaps_eV.get((i, j))
         self._maj_text()
@@ -511,7 +511,7 @@ class HydroVisPy(scene.SceneCanvas):
             self.sim.set_ground()
             self.sim.fire_photon(
                 0.13, direction="x",
-                amp=float(self.cfg.get("photon_amp", 0.7)),
+                amp=float(self.cfg["photon_amp"]),
             )
             self._last_photon_eV = None
             self._msg = "hors-resonance: le photon traverse, AUCUNE absorption"

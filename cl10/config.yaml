@@ -56,12 +56,16 @@ pool:
   njobs_cap: 8
 
 physics:
-  # measured (PDG / Planck), used as inputs by the phenomenology modules
-  m_planck_gev: 1.22e+19       # the lattice cutoff; M_GUT = M_P is NOT assumed
-  proton_mass_gev: 0.938
-  v_electroweak_gev: 246.0
-  omega_dm_h2: 0.12            # the observed dark-matter density (Planck)
-  weak_scale_gev: 100.0        # the WIMP-miracle reference scale
+  # measured inputs, at the best published precision: ONE value per quantity,
+  # here and nowhere else (the code reads the library names for them).
+  m_planck_gev: 1.220890e+19  # PDG 2024 / CODATA 2022: (1.220890 +- 0.000014)e19 GeV.
+                              # the lattice cutoff; M_GUT = M_P is NOT assumed
+  proton_mass_gev: 0.93827208943   # CODATA 2022: 938.27208943 MeV (the proton in the lifetime formula)
+  v_electroweak_gev: 246.22   # GeV, v = (sqrt(2) G_F)^-1/2 from muon decay (PDG)
+  omega_dm_h2: 0.120          # the observed cold-DM density: Planck 2018 0.1200 +- 0.0012
+  weak_scale_gev: 100.0       # GeV, the WIMP-miracle window center (a convention)
+  hydrogen_rydberg_ev: 13.605693   # the hydrogen ionisation energy (CODATA), the
+                                   # atomic input of simulation/hydrogen
   # numbers of the root
   n_gen: 10                    # the Cl(10) generators = the ladder length
   n_space: 3                   # the spatial directions of the cell
@@ -73,9 +77,11 @@ physics:
   loop_factor: null
 
 units:
-  # exact unit conversions, not tunable inputs
-  gev_to_s: 6.582e-25          # hbar: 1/GeV in seconds
-  s_to_yr: 3.156e+7            # seconds per year
+  # exact conversions, not tunable inputs
+  gev_to_s: 6.582119569e-25   # hbar in GeV s (exact since the 2019 SI redefinition)
+  s_to_yr: 3.15576e+07        # the Julian year, 365.25 x 86400 s (exact)
+  gev2_to_cm2: 3.89379338e-28 # (hbar c)^2: 1 GeV^-2 in cm^2
+  c_cm_s: 2.99792458e+10      # the speed of light in cm/s (exact)
 
 sm:
   # the measured Standard Model inputs the running and the electroweak sector read
@@ -93,7 +99,12 @@ sm:
   beta22: 9.26                 # 25/2 - 27/50*6
   beta23: -38.46666666666666   # -143/3 + 23/15*6
   sphaleron: 0.35443037974683544   # the SM conversion factor, 28/79
-  delta_b_obs: 6.12e-10        # the observed baryon asymmetry (Planck 2018)
+  higgs_mass_gev: 125.25      # the Higgs pole mass (PDG 2024: 125.25 +- 0.17)
+  alpha_em_inv: 127.9         # the electromagnetic coupling at M_Z (PDG)
+  delta_b_obs: 6.12e-10       # the observed baryon asymmetry n_B/n_gamma (Planck 2018)
+  # the observed 1-loop meeting scale of the three couplings (the MSSM-scale
+  # reference the desert and the forcing checks compare against)
+  m_unification_obs_gev: 2.0e+16
 
 angle:
   # the one continuous number of the step (Section 1.4).  The branch values are
@@ -111,10 +122,39 @@ angle:
 
 desert:
   # the fitted thresholds of the desert solution (V64) - conditional, not derived
+  # the root direction of the Wilson term (V65): the angle the ladder is read at
+  theta_root_rad: 1.7308
   m_x_gev: 1.8e+16
   alpha_x: 0.04
   # the same solution at the closed angle (V133): the threshold ordering breaks
   m_x_closed_gev: 1.235e+17
+
+bounds:
+  # the experimental bounds the phenomenology tests against (measured, not fitted)
+  lz_sigma_si_cm2: 1.5e-47     # the LZ spin-independent direct-detection limit
+                               # at ~118 GeV recoil (4.2 t yr); V88/V148, fig. 15
+  dd_sigma_si_cm2: 2.0e-47     # the spin-independent limit used by the dark-U(1)
+                               # portal scan (V112, fig. 25)
+
+cosmology:
+  # the standard-cosmology inputs of the relic / washout / detection checks
+  g_star: 106.75              # the SM relativistic d.o.f. at the EW transition
+  hubble_coeff: 1.66          # H = 1.66 sqrt(g_*) T^2 / M_P (Friedmann, radiation era)
+  entropy_density_cm3: 2891.2 # today's entropy density s_0 (Planck)
+  rho_c_over_h2_gev_cm3: 1.0537e-5   # the critical density divided by h^2
+
+dm:
+  # the named hadronic / reference inputs of the portal checks
+  f_n_nucleon: 3.0e-4         # the nucleon Higgs coupling f_N (m_q/m_N estimate)
+  sigma_fiducial_cm3s: 3.0e-26  # the thermal-relic reference <sigma v>
+  sigma_relic_target_cm3s: 2.2e-26  # the <sigma v> that closes the relic density
+                                    # in the dark-U(1) window scan (V112)
+
+neutrino:
+  # the measured neutrino inputs (NuFIT 6.0, normal ordering; Planck+BAO)
+  m_atm_ev: 0.0501          # sqrt(|dm2_3l|)
+  m_sol_ev: 0.0086          # sqrt(dm2_21)
+  sum_mnu_max_ev: 0.12      # the cosmological bound on Sum m_nu (the F3 test)
 
 tolerances:
   # the shared bands; each experiment still states the one it used

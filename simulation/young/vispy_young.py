@@ -120,9 +120,9 @@ def make_slit_outlines(parent, sim):
 class YoungVisPy(scene.SceneCanvas):
     def __init__(self, cfg):
         self.cfg = cfg
-        vis = cfg.get("visualization", {})
+        vis = cfg["visualization"]
         self.Lx, self.Ly, self.Lz = (int(v) for v in cfg["grid"])
-        win_size = tuple(int(v) for v in vis.get("window_size", (1200, 800)))
+        win_size = tuple(int(v) for v in vis["window_size"])
 
         scene.SceneCanvas.__init__(
             self, title="CL10 Young 3-D (VisPy)",
@@ -157,20 +157,20 @@ class YoungVisPy(scene.SceneCanvas):
         # -- the physics ------------------------------------------------------
         self.sim = WaveSim(cfg)
         self.collapse = Collapse(cfg)
-        self.collapse_every = int(cfg.get("collapse_every", 2))
+        self.collapse_every = int(cfg["collapse_every"])
         self._det_timer = 0
 
         # -- 3-D visuals ------------------------------------------------------
-        stride = int(vis.get("volume_stride", cfg.get("render_subsample", 2)))
+        stride = int(vis["volume_stride"])
         self.volume_stride = stride
         vs = (self.Lx // stride, self.Ly // stride, self.Lz // stride)
         self.volume = scene.visuals.Volume(
             np.zeros(vs, dtype=np.float32),
             parent=self.view_3d.scene,
             method="additive",
-            clim=tuple(vis.get("clim", (0.0, 1.0))),
+            clim=tuple(vis["clim"]),
         )
-        self.volume.cmap = vis.get("cmap", "hot")
+        self.volume.cmap = vis["cmap"]
         # set ONCE (re-assigning per frame re-attaches the node = a flicker)
         self.volume.transform = scene.transforms.STTransform(
             scale=(stride, stride, stride),
@@ -215,9 +215,9 @@ class YoungVisPy(scene.SceneCanvas):
 
         # -- state -------------------------------------------------------------
         self.paused = False
-        self.steps_per_frame = int(vis.get("steps_per_frame", 4))
-        self.volume_refresh = int(vis.get("volume_refresh_rate", 2))
-        self.show_detections = bool(vis.get("show_detections", True))
+        self.steps_per_frame = int(vis["steps_per_frame"])
+        self.volume_refresh = int(vis["volume_refresh_rate"])
+        self.show_detections = bool(vis["show_detections"])
         self._step = 0
         # the single-electron lifecycle: detect when the front reaches the
         # screen, then wait for the **sponge** to absorb the wave (total
@@ -225,19 +225,19 @@ class YoungVisPy(scene.SceneCanvas):
         # between.  _flight_timer is None until the first packet is fired;
         # _detected marks the on-screen detection; _absorb_frac / _max_flight
         # tune the (short) absorb phase after the detection.
-        self._absorb_frac = float(cfg.get("absorb_frac", 0.02))
-        self._max_flight = int(cfg.get("max_flight_steps", 300))
+        self._absorb_frac = float(cfg["absorb_frac"])
+        self._max_flight = int(cfg["max_flight_steps"])
         self._flight_timer = None
         self._detected = False
         self._frame = 0
         self._vol_ref = None    # the AGC reference (volume)
         self._scr_ref = None    # the AGC reference (2-D screen)
-        self._release = float(vis.get("agc_release", 600.0))
-        self._gain_max = float(vis.get("agc_gain_max", 8.0))
+        self._release = float(vis["agc_release"])
+        self._gain_max = float(vis["agc_gain_max"])
         # the volume translucency: the density is scaled by this before the
         # additive blend, so < 1.0 makes the cloud read as a semi-transparent
         # "alpha" volume (like the reference).
-        self.volume_alpha = float(vis.get("volume_alpha", 0.7))
+        self.volume_alpha = float(vis["volume_alpha"])
 
         # prime the visuals
         self._maj_volume()

@@ -49,14 +49,14 @@ class BHView(scene.SceneCanvas):
         self.unfreeze()
         self.events.key_press.connect(self.on_key_press)
         self.bh = G.BlackHole(cfg)
-        self.spf = int(cfg.get("steps_per_frame", 12))
+        self.spf = int(cfg["steps_per_frame"])
         self.paused = False
         self.frame = 0
 
         self.view = self.central_widget.add_view()
         self.view.camera = scene.TurntableCamera(fov=45, elevation=55,
                                                  azimuth=-40, distance=95.0)
-        R = float(cfg.get("well_radius", 16.0))
+        R = float(cfg["well_radius"])
         X, Y, Phi = self.bh.well(R, n=90)
         self._add_well(X, Y, Phi)
         self._add_horizon()
@@ -89,9 +89,9 @@ class BHView(scene.SceneCanvas):
     def _add_horizon(self):
         hx, hy, hz = self.bh.horizon_ring()
         pts = np.column_stack([hx, hy, hz])
-        ring = scene.visuals.Line(pos=np.vstack([pts, pts[:1]]),
-                                  color="white", width=2.0, connect="strip",
-                                  parent=self.view.scene)
+        scene.visuals.Line(pos=np.vstack([pts, pts[:1]]),
+                           color="white", width=2.0, connect="strip",
+                           parent=self.view.scene)
 
     def _line_for(self, p):
         if id(p) not in self._lines:

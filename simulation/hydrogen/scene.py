@@ -35,11 +35,11 @@ class Scene:
         self.cfg = cfg
         self.Lx, self.Ly, self.Lz = (int(v) for v in cfg["grid"])
         self.L = max(self.Lx, self.Ly, self.Lz)
-        self.sub = int(cfg.get("volume_stride", 2))
-        self.log_gain = float(cfg.get("log_gain", 1.0e4))
-        self.iso_frac = float(cfg.get("iso_fraction", 0.04))
+        self.sub = int(cfg["volume_stride"])
+        self.log_gain = float(cfg["log_gain"])
+        self.iso_frac = float(cfg["iso_fraction"])
         self.elec_color = "#35e0c8"  # a bright teal (the electron surface)
-        self.win = tuple(cfg.get("window_size", (900, 600)))
+        self.win = tuple(cfg["render_size"])
         self.plotter = pv.Plotter(
             off_screen=off_screen, border=False, window_size=self.win,
         )

@@ -7,7 +7,7 @@
   "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
   "tol": 1e-12,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "two_route_root": {
       "kingdon_available": true,
       "kingdon_sq_minus_1": 0.0,
@@ -21,9 +21,9 @@
     "spectral_mirror": {
       "g10": 0.2,
       "w_pure_imaginary": 0.0,
-      "commute_Uw": 7.043917247687978e-16,
+      "commute_Uw": 7.791361360319882e-16,
       "preserves_chiral_split": true,
-      "mirror_resid": 1.7763568394002505e-15,
+      "mirror_resid": 1.1102230246251565e-15,
       "mirror_ok": true,
       "mirror_resid_all_g10": 1.7763568394002505e-15,
       "mirror_holds_for_all_g10": true,
@@ -36,12 +36,12 @@
         0.4,
         0.5
       ],
-      "zp_16": 1.3322676295501878e-15,
-      "zp_16bar": 3.9968028886505635e-15,
-      "det_U_minus_1": 5.329720999804419e-15,
+      "zp_16": 4.440892098500626e-16,
+      "zp_16bar": -8.881784197001252e-16,
+      "det_U_minus_1": 4.443059973708341e-15,
       "sl32": true,
-      "omega_min": 0.01146643664742644,
-      "omega_min_mass_GeV": 1.3989052709860258e+17
+      "omega_min": 0.011466436647426626,
+      "omega_min_mass_GeV": 1.3999257838476694e+17
     },
     "cp_odd_theorem": {
       "max_cpodd_2rot": 2.4615858523155454e-17,
@@ -66,28 +66,28 @@
       "g10_is_free_t_hooft_angle": true
     },
     "hierarchy_status": {
-      "v_over_EP_observed": 2.016393442622951e-17,
+      "v_over_EP_observed": 2.0167255035261162e-17,
       "v_over_EP_claimed_0param": 2.02e-17,
-      "match_rel_err": 0.0017886178861788171,
+      "match_rel_err": 0.001623669888717421,
       "match_is_2digit_coincidence": true,
-      "omega_min": 0.01146643664742644,
-      "omega_min_mass_GeV": 1.3989052709860258e+17,
+      "omega_min": 0.011466436647426626,
+      "omega_min_mass_GeV": 1.3999257838476694e+17,
       "spectrum_exponent_matches_observed": false,
       "hierarchy_exists_0param": true
     },
     "dm_status": {
-      "soliton_mass_GeV": 1.6266632506795717e+19,
-      "abundance_gap_0param_over_obs": 5.5070688736061614e-52,
-      "omega_min_mass_GeV": 1.3989052709860258e+17,
+      "soliton_mass_GeV": 1.6278499148542476e+19,
+      "abundance_gap_0param_over_obs": 5.4950340811842285e-52,
+      "omega_min_mass_GeV": 1.3999257838476694e+17,
       "dm_observed_range_GeV": [
         100.0,
         1000.0
       ],
-      "smallest_sub_planck_scale_above_observed_DM_orders": 14.145788306571204,
+      "smallest_sub_planck_scale_above_observed_DM_orders": 14.146105012449823,
       "observed_DM_not_0param": true
     },
     "provenance_table": {
-      "backend": "cupy",
+      "backend": "numpy",
       "rows": [
         {
           "quantity": "16 Weyl / 16-bar split",
@@ -191,5 +191,5 @@
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 55.394
+  "wall_time": 18.126
 }

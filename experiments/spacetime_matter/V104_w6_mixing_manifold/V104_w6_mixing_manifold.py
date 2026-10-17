@@ -59,6 +59,7 @@ sys.path.insert(0, ROOT)
 from cl10.paths import exp
 
 from cl10 import family  # noqa: E402
+from cl10 import neutrino as nv  # noqa: E402
 
 # PDG 2024 [13] (lepton masses)
 LEPTONS = np.array([0.000511, 0.10566, 1.77686])
@@ -66,7 +67,7 @@ LEPTONS = np.array([0.000511, 0.10566, 1.77686])
 # NuFIT 6.0 [50] (NO)
 NUFIT = {"s12": (0.308, 0.013), "s13": (0.02221, 0.00053),
          "s23": (0.470, 0.025)}
-M_NU = np.array([0.0, 0.0086, 0.0501])  # eV, NO spectrum
+M_NU = np.array([0.0, nv.M_SOL_EV, nv.M_ATM_EV])  # eV, NO spectrum
 
 V3 = np.ones(3) / np.sqrt(3.0)
 
@@ -288,7 +289,6 @@ def main():
             + ((a13 - NUFIT["s13"][0]) / NUFIT["s13"][1]) ** 2 \
             + ((a23 - NUFIT["s23"][0]) / NUFIT["s23"][1]) ** 2
         c_sig.append(float(np.sqrt(chi / 3)))
-    c_best = int(np.argmin(c_sig))
 
     checks = {
         "A_det_dev": det_dev,

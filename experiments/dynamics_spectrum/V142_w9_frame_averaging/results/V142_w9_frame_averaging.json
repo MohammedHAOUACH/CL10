@@ -1,14 +1,14 @@
 {
  "experiment": "V142_w9_frame_averaging",
  "pass": true,
- "status": "T1 regression OK (A_identity 0.7545, 100/100 linear); T2 frame blindness OK (max dA 0.0000 < 0.02, max dgap 1.93e-15); T3 planes in every frame OK (max comm 9.42e-12). Frame averaging over the 10 generators is blind to the cone anisotropy: the momentum dependence lives entirely in the sub-site factor of the Kronecker bond layer.",
+ "status": "T1 regression OK (A_identity 0.7545, 100/100 linear); T2 frame blindness OK (max dA 0.0000 < 0.02, max dgap 1.83e-15); T3 planes in every frame OK (max comm 9.32e-12). Frame averaging over the 10 generators is blind to the cone anisotropy: the momentum dependence lives entirely in the sub-site factor of the Kronecker bond layer.",
  "data": {
   "frames": [
    {
     "frame": "identity",
-    "unitarity_err": 1.6653345381979549e-15,
-    "w_leak": 7.043917247687978e-16,
-    "node_gap": 0.00020028952953253103,
+    "unitarity_err": 1.6653487242199808e-15,
+    "w_leak": 7.791361360319882e-16,
+    "node_gap": 0.00020028952953165372,
     "v_principal": [
      0.2,
      0.20043,
@@ -16,7 +16,7 @@
     ],
     "anisotropy": 0.754538,
     "n_linear": 100,
-    "max_tangent_commutator": 9.421528483851691e-12
+    "max_tangent_commutator": 9.31975560410447e-12
    },
    {
     "frame": "random_SO10_0",
@@ -77,8 +77,8 @@
   ],
   "A_identity": 0.754538,
   "max_frame_shift_dA": 0.0,
-  "max_frame_shift_dgap": 1.9309369641423713e-15,
-  "max_commutator": 9.421528483851691e-12
+  "max_frame_shift_dgap": 1.8342803404652885e-15,
+  "max_commutator": 9.31975560410447e-12
  },
- "wall_time": 35.40134382247925
+ "wall_time": 27.403724193572998
 }

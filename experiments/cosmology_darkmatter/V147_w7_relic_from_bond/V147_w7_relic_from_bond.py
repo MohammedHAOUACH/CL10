@@ -70,7 +70,7 @@ def main():
     G2CM3 = V123.GEV2_TO_CM3S
 
     # ---- T0 regression: solver + required alpha ---------------------------
-    om100 = V123.omega_of_sigma(100.0, V123.SIGMA_FIDUCIAL)
+    om100 = V123.omega_of_sigma(V123.WEAK_SCALE, V123.SIGMA_FIDUCIAL)
     sig_req = V123.sigma_for_omega(M_DM)
     alpha_req = math.sqrt(sig_req / G2CM3 * math.pi * M_DM ** 2)
     checks.append(("T0 regression on V123: Omega h^2 = %.3f at 100 GeV with "

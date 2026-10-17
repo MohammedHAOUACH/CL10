@@ -47,6 +47,7 @@ from cl10 import engine as E
 from cl10 import supercell as SC
 from cl10 import sm_qca
 from cl10 import unification as UN
+from cl10 import dm_wimp as dw
 
 M_P = UN.M_P
 
@@ -190,7 +191,7 @@ def main():
     # thermal abundance of the 2e10 candidate: sigma v ~ m^2 / M_P^4
     mN = Ms["N"]
     sv = mN ** 2 / M_P ** 4
-    omega_est = 0.12 * (3e-26 / sv)
+    omega_est = dw.OMEGA_OBS * (dw.SIGMA_FIDUCIAL / sv)
 
     ok = z2_exact and conjugate and masses_equal
     verdict = {
@@ -207,7 +208,7 @@ def main():
                    "x{ov:.0e}. The 118 GeV state has no identity in the "
                    "implemented spectrum.").format(
                        leak=leak, mQ=Ms[lightest["label"]], mN=mN,
-                       ov=omega_est / 0.12),
+                       ov=omega_est / dw.OMEGA_OBS),
         "data": {
             "mirror_Z2_leak": leak,
             "weights_conjugate": conjugate,
@@ -235,7 +236,7 @@ def main():
         print(f"    {c['name']:42s} m = {c['mass_GeV']:.2e} GeV  "
               f"{c['verdict']}")
     print(f"  <sigma v> ~ m^2/M_P^4 = {sv:.1e} GeV^-2 "
-          f"(need 3e-26): overclosure x{omega_est / 0.12:.0e}")
+          f"(need {dw.SIGMA_FIDUCIAL:.0e}): overclosure x{omega_est / dw.OMEGA_OBS:.0e}")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'} - structural facts "
           f"verified; NO viable DM carrier at 118 GeV")
     print("  JSON -> " + os.path.join(outdir, "v66_dm_identity.json"))

@@ -47,7 +47,6 @@ from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 sys.path.insert(0, exp("V92_w4_feasibility"))
 import V65_wilson as V65  # noqa: E402
-from cl10 import gauge  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
 
@@ -222,12 +221,12 @@ def main():
             f"while preserving the SM algebra.")
     else:
         status = (
-            f"THE V92 WITNESS IS NOT REALIZABLE by any single Cartan "
-            f"Wilson direction (0 exact solutions, free or SM-"
-            f"preserving, over 400 starts each): the per-weight "
-            f"pattern z_s = z0 + log|lambda_s.c| cannot reproduce "
-            f"the hull solution. O4 stays open; junction mixing is "
-            f"the named next ingredient.")
+            "THE V92 WITNESS IS NOT REALIZABLE by any single Cartan "
+            "Wilson direction (0 exact solutions, free or SM-"
+            "preserving, over 400 starts each): the per-weight "
+            "pattern z_s = z0 + log|lambda_s.c| cannot reproduce "
+            "the hull solution. O4 stays open; junction mixing is "
+            "the named next ingredient.")
 
     verdict = {"experiment": "V93_cartan_junction",
                "pass": bool(ok), "status": status, "data": checks}

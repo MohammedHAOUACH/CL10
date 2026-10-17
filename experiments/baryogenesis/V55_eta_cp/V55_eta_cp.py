@@ -18,8 +18,8 @@ $D = (1/16\pi)^2$ = the **2-loop dilution**.  The **factors** are
 0-parameter (root / QFT / SM); the 0-parameter QCA **alone** gives
 $\varepsilon_{CP} = 0$ (the CP-odd theorem) -- the asymmetry is nonzero
 **only** through the **named** irreducible CP phase $\delta$
-($\mathcal{O}(1)$).  The result is $\Delta B = 6.8e-10$, a **ratio 1.12**
-to the observed $6.1e-10$ -- the 2-digit ratio is a **named residual**
+($\mathcal{O}(1)$).  The result is $\Delta B = 6.8e-10$, a **ratio 1.11**
+to the observed $6.12e-10$ -- the 2-digit ratio is a **named residual**
 (read from the data).
 """
 import sys
@@ -51,9 +51,9 @@ def main():
         "status": ("the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_"
                    "(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; "
                    "eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; "
-                   "D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.12_to_the_observed_6.1e-10; "
+                   "D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.11_to_the_observed_6.12e-10; "
                    "the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); "
-                   "the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.12"),
+                   "the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.11"),
         "tol": TOL,
         "data": {
             "backend": d["backend"],
@@ -78,7 +78,7 @@ def main():
                 "loop_count": st["loop_count"],
             },
             "residual": ("the CP phase (which makes eps_CP nonzero, an O(1) "
-                         "input) and the 2-digit ratio 1.12.  Provenances: the "
+                         "input) and the 2-digit ratio 1.11.  Provenances: the "
                          "16pi and the loop counts are numbers of the root; "
                          "eps_CP and D are QFT loop factors at g_0 = 1/2^3; the "
                          "28/79 sphaleron is an input of the SM sector (a root "
@@ -104,7 +104,7 @@ def main():
     print(f"  0-parameter Delta_B = {d['delta_B_0param']:.3e}   (observed {d['delta_B_observed']:.1e};  ratio {d['delta_B_ratio']:.3f})")
     print(f"  V40 comparison:  Delta_B = {d['delta_B_v40']:.3e}  (ratio {d['delta_B_ratio_v40']:.3f})")
     print(f"  named residual (O5):  {verdict['data']['residual']}")
-    print(f"  VERDICT:  {'PASS (factors 0-parameter; right order 1.12; QCA alone gives eps_CP = 0; the CP phase + 2-digit ratio are the named residuals)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (factors 0-parameter; right order 1.11; QCA alone gives eps_CP = 0; the CP phase + 2-digit ratio are the named residuals)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v55_eta_cp.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1
