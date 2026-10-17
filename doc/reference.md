@@ -122,7 +122,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (115 of them, under `experiments/<category>/`):
+**The protocol.**  Each experiment (150 of them under `experiments/<category>/`: the 115 of the publication programme, and the 35 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -137,7 +137,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **115** experiments in name order,
+`run_validation.py` runs all **150** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up

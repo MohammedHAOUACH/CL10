@@ -159,6 +159,8 @@ def main():
     ok_routes = all(r["bloch_vs_torus_dev"] < 1e-9 and
                     r["mirror_leakage"] < 1e-12 for r in rows)
     ok = ok_base and ok_routes and survivors == [0, 10]
+    best_A = max((r["best_anisotropy_A"] for r in rows
+                  if r["best_anisotropy_A"] is not None), default=0.0)
 
     verdict = {
         "id": "V152_signature_step",
@@ -177,9 +179,7 @@ def main():
                   f"- but it has no (1+3) frame (V150) and conjugated "
                   f"charges (V151). No signature with a Minkowski frame "
                   f"removes the nodes or isotropizes the cones (best A "
-                  f"{max((r['best_anisotropy_A'] for r in rows
-                          if r['best_anisotropy_A'] is not None),
-                          default=0):.3f} >> 1e-6).",
+                  f"{best_A:.3f} >> 1e-6).",
         "data": {"rows": rows, "candidates": candidates,
                  "unitary_survivors": survivors},
         "wall_time": round(time.time() - t0, 3),

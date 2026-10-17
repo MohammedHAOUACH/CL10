@@ -1,7 +1,7 @@
 # Alt-gauged exploration: the two-fermion S-matrix of the gauged bond layer
 
-Exploration branch `alt-gauged-exploration` (never merged to master),
-following `alt-interactions-exploration`
+Exploration programme `alt_gauged` (merged into `master`), following
+`alt_interactions`
 ([alt_interactions_exploration.md](alt_interactions_exploration.md)),
 `alt-dynamics-exploration` ([alt_dynamics_exploration.md](alt_dynamics_exploration.md))
 and `alt-cell-exploration` ([alt_cell_exploration.md](alt_cell_exploration.md)).

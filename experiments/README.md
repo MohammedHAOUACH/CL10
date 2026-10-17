@@ -1,12 +1,12 @@
 # The verification program
 
-150 experiments (the 115 of the publication programme plus the 35 exploration
+154 experiments (the 115 of the publication programme plus the 39 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
-4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`), grouped by the part of
-`doc/final_publication.md` they validate.  Each experiment recomputes a
-published number from the construction, states the provenance of every input it
-uses, and writes a JSON verdict (`pass`, `status`, `tier`, `property`,
-`residual`, `wall_time`) to `<experiment>/results/`.  `python3
+4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 4 `alt_step`), grouped by
+the part of `doc/final_publication.md` they validate.  Each experiment
+recomputes a published number from the construction, states the provenance of
+every input it uses, and writes a JSON verdict (`pass`, `status`, `tier`,
+`property`, `residual`, `wall_time`) to `<experiment>/results/`.  `python3
 run_validation.py` runs all of them and rolls the verdicts up into
 `results/validation_summary.json`.
 
@@ -41,11 +41,12 @@ file whenever it is re-run.
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
-| `alt_cell` | the exploration branch: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4, never merged) | §17 (O1, O9) |
-| `alt_dynamics` | the exploration branch: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4, never merged) | §17 (O1, O5, O9, W4, W7) |
-| `alt_interactions` | the exploration branch: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4, never merged) | §17 (W9) |
-| `alt_gauged` | the exploration branch: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4, never merged) | §17 (W9) |
-| `alt_nonpert` | the exploration branch: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4, never merged) | §17 (W9) |
+| `alt_cell` | the exploration programme: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4) | §17 (O1, O9) |
+| `alt_dynamics` | the exploration programme: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4) | §17 (O1, O5, O9, W4, W7) |
+| `alt_interactions` | the exploration programme: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4) | §17 (W9) |
+| `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4) | §17 (W9) |
+| `alt_nonpert` | the exploration programme: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §17 (W9) |
+| `alt_step` | the exploration programme: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4) | §17 (W9) |
 
 ## The experiments
 
@@ -266,3 +267,11 @@ file whenever it is re-run.
 | `V181_ring_kernel_smatrix` | the 4-site gauged kernels exist: chain 144 (full rank, E0 -1664197.02, gap 12787.60 eta) and ring 1296 (Gram rank 976, E0 -6.08e8, gap 2.75e8 eta); S unitary to 2.7e-15/4.2e-15, 2-route phase dev within the whitening-noise bound; chain channels preserved (mixing 3e-11), ring channels mixed (~8) |
 | `V182_ir_decoupling` | INCONCLUSIVE under the pre-registered clauses: gap grows 42.09 -> 12787.60 (chain) -> 2.75e8 (ring) eta, drift >> 1 - the LIGHT branch is decisively false; V101 eta-units are not extensive (Gram shrinks ~30x/link), gap/\|E0\| ~ 0.0073-0.0077 at every volume |
 | `V183_nonpert_isotropy_gate` | 9 census rows, 0 candidates: no non-perturbative gauged-sector mechanism isotropizes the W9 cone - the flux sector is massive at every volume probed; W9 stays open |
+
+### `alt_step` (exploration programme)
+| id | verdict |
+|---|---|
+| `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
+| `V188_step_gradient_search` | Adam descent, 25 pre-registered seeds, baseline cell: descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
+| `V189_cell_step_joint_search` | joint cell x step census: (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3), 8 seeds each; every row gapless-flat, no isotropic candidate |
+| `V190_step_search_gate` | the step-search gate: 0 candidates from 45+25+32 rows scanned; the baseline step remains the only closed-form gapless point reached; W9 stays open |

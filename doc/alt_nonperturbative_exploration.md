@@ -1,7 +1,7 @@
 # Alt-nonperturbative exploration: exact flux dressing and the 4-site gauged sector against W9
 
-Exploration branch `alt-nonperturbative-exploration` (never merged to
-master), following `alt-gauged-exploration`
+Exploration programme `alt_nonpert` (merged into `master`), following
+`alt_gauged`
 ([alt_gauged_exploration.md](alt_gauged_exploration.md)),
 `alt-interactions-exploration`
 ([alt_interactions_exploration.md](alt_interactions_exploration.md)),

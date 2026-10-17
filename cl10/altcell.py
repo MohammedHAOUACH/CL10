@@ -744,7 +744,6 @@ def oh_group():
 def _oh_class(R):
     """0: e, 1: 90 deg face, 2: 180 deg face, 3: 120 deg body,
     4: 180 deg edge."""
-    I3 = np.eye(3, dtype=int)
     tr = int(np.trace(R))
     if tr == 3:
         return 0
@@ -872,7 +871,6 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
     sum_A (Uk^dag Gamma^A Uq)_a (Uk^dag Gamma^A Uq)^*_b`` with ``Gamma^A =
     I_(D/16) (x) T^A_16`` the 45 Weyl currents on the Bloch space
     (``weyl_generators``); the default False is the V172 contact vertex."""
-    N = grid_n ** 3
     g = np.arange(grid_n) * (2 * math.pi / grid_n) - math.pi
     nodes = [q_star] if nodes is None else list(nodes)
     Uk = np.stack([node_modes(bloch_fn,
@@ -976,7 +974,8 @@ def main():
     print(f"altcell anchor: front_speed_stages vs front_speed "
           f"diff = {err_fs:.2e}")
     # the interaction anchors (V171-V173 helpers)
-    bf = lambda qq: bloch_cell(c, U16, SC.G10, st, qq)
+    def bf(qq):
+        return bloch_cell(c, U16, SC.G10, st, qq)
     Mq = SC.M_POINTS[0]
     qtest = (0.3, -1.1, 2.0)
     Ht = effective_hamiltonian(bf, qtest)

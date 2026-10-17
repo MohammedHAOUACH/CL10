@@ -1,6 +1,6 @@
 # Alt-interactions exploration: do collisions wash out the cone anisotropy?
 
-Exploration branch `alt-interactions-exploration` (never merged to master),
+Exploration programme `alt_interactions` (merged into `master`),
 following `alt-dynamics-exploration`
 ([alt_dynamics_exploration.md](alt_dynamics_exploration.md)) and
 `alt-cell-exploration` ([alt_cell_exploration.md](alt_cell_exploration.md)).

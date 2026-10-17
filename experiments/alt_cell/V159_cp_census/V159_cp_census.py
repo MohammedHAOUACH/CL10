@@ -121,7 +121,7 @@ def main():
               f"{r['J2']:+.1f}  mirror {r['mirror_commutator']:.1e}  "
               f"CP-odd {r['cp_odd_invariant']:.1e}  unitary "
               f"{r['step_unitary']}")
-    print(f"  VERDICT:  PASS (census complete)")
+    print("  VERDICT:  PASS (census complete)")
     print("  JSON -> " + os.path.join(outdir, "v159_cp_census.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0

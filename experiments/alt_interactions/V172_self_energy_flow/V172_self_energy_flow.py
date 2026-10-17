@@ -156,7 +156,6 @@ def main():
     converged = max(devs) < 1e-6
     ok = anchor_ok and len(rows) == 3
 
-    flow = [r["A_dressed"]["0.0001"] - r["A_dressed"]["0.01"] for r in rows]
     a_exp = rows[0]["alpha_aniso_Sigma"]
     w1 = rows[0]["w_A1g_Sigma"]["0.0001"]
     ad1, ab1 = rows[0]["A_dressed"]["0.0001"], rows[0]["A_bare"]["0.0001"]

@@ -315,7 +315,7 @@ def main():
               f"{g['anomalies']['pass']}  5/3 {g['five_thirds']['pass']}  "
               f"closure {g['closure']['pass']}")
     print(f"  pass-all: {n_pass_all}")
-    print(f"  VERDICT:  PASS (table complete)")
+    print("  VERDICT:  PASS (table complete)")
     print("  JSON -> " + os.path.join(outdir, "v167_hardtier_dynamics.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0

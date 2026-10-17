@@ -20,7 +20,6 @@ input (O9) the candidates were supposed to force.
 """
 
 import json
-import math
 import os
 import sys
 import time
@@ -113,7 +112,7 @@ def main():
     for r in rows[:10]:
         print(f"  {r['candidate'][:40]:>40}  n {r['n_nodes']:3d}  M_X "
               f"{r['M_X_GeV']}")
-    print(f"  VERDICT:  PASS (census complete)")
+    print("  VERDICT:  PASS (census complete)")
     print("  JSON -> " + os.path.join(outdir, "v158_unification_forced.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0

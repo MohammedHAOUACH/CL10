@@ -1,9 +1,9 @@
 # The alternative-cell and signature exploration
 
-**Branch:** `alt-cell-exploration` (never merged to master).
+**Programme:** `alt_cell` (merged into `master`).
 **Experiments:** `experiments/alt_cell/V149`-`V160` (12, tier 4).
-**Status:** exploration only. No master claim changes; the master suite
-(112 experiments) is untouched and its verdicts are unchanged.
+**Status:** exploration only. No publication claim changes; the 115 experiments
+of the publication programme are untouched and their verdicts are unchanged.
 
 ---
 

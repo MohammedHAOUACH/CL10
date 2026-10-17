@@ -20,7 +20,6 @@ cell-geometry artifact.
 """
 
 import json
-import math
 import os
 import sys
 import time
@@ -74,7 +73,6 @@ def main():
     t0 = time.time()
     cands, missing = load_candidates()
     _B0, U32_0, _U16b = SC.sectors()
-    w0 = np.asarray(A.pseudoscalar_sig(0), dtype=np.complex128)
 
     seen = set()
     rows = []

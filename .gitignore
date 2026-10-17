@@ -16,3 +16,6 @@ doc/*.out
 
 # run logs (run_experiments.sh, run_figures.sh)
 *.log
+
+# local environment files
+.env

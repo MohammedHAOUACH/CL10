@@ -198,7 +198,7 @@ def main():
               f"front {g['front_speed']['pass']}  anom {g['anomalies']['pass']}"
               f"  5/3 {g['five_thirds']['pass']}  closure "
               f"{g['closure']['pass']}")
-    print(f"  VERDICT:  PASS (table complete)")
+    print("  VERDICT:  PASS (table complete)")
     print("  JSON -> " + os.path.join(outdir, "v157_hardtier.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0

@@ -1,9 +1,9 @@
 # The alternative-dynamics exploration
 
-**Branch:** `alt-dynamics-exploration` (never merged to master).
+**Programme:** `alt_dynamics` (merged into `master`).
 **Experiments:** `experiments/alt_dynamics/V161`-`V170` (10, tier 4).
-**Status:** exploration only. No master claim changes; the master suite
-(112 experiments) is untouched and its verdicts are unchanged.
+**Status:** exploration only. No publication claim changes; the 115 experiments
+of the publication programme are untouched and their verdicts are unchanged.
 
 ---
 

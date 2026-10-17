@@ -1,7 +1,7 @@
 # CL10 — the API reference
 
 The Python interface of Causal Clifford Theory. One section per module of the
-`cl10` package (39 modules), in the order the theory is built: the core, the
+`cl10` package (42 modules), in the order the theory is built: the core, the
 algebra root, the automaton, the spectrum and the S-matrix, gravity, the
 couplings, the flavour sector, the cosmology, the audits.
 
@@ -537,6 +537,35 @@ W2→O2, W3→O3.
 | `provenance_table` | `()` | `{backend, rows, counts_by_provenance}` — every headline number classified |
 | `verify` | `(tol=1e-9)` | `{backend, two_route, spectral_mirror, cp_odd_theorem, g10_status, hierarchy_status, dm_status, provenance_table, invariants_ok, limits_ok, ok}` |
 | `main` | `()` | runs the audit |
+
+
+## 40. `cl10.altcell` — the exploration generalizations of the signature and the cell
+
+The machinery the `alt_cell` / `alt_dynamics` censuses (V149–V170) need, kept
+out of `clifford` / `sm_qca` / `supercell` so the published root is never
+touched. Two axes. **The signature:** `signature_generators(q)` is the
+$\mathrm{Cl}(10-q,q)$ set — the ten qubit generators with the first $q$
+multiplied by $i$ — and everything downstream (the plane generators, the
+45-plane product, the pseudoscalar, the $16/16$-bar split) is recomputed per
+signature. **The cell:** `cell(shape)` is the mixed-radix block, the bit trick
+of `supercell` being its $(2,2,2)$ special case (kept as the regression
+anchor); `bloch_stages` / `step_stages` / `front_speed_stages` carry the
+step-rule axis, and `cone_anisotropy`, `chirality_at`, `fock_self_energy`,
+`lowdin_downfold`, `oh_group` support the censuses. Exploration code: no
+published number reads it. `python -m cl10.altcell` runs the self-check.
+
+## 41. `cl10.altgpu` — the batched CUDA eigensolver of the interaction census
+
+The heavy loop of V172/V173 is the batched eigendecomposition of the
+$128\times128$ Bloch step over a $13824$/$32768$-point momentum grid, and numba
+CUDA has no LAPACK. `build_kernels` compiles a cyclic **Jacobi** solver for
+**normal** matrices (the Fasi/HSVD variant: each $2\times2$ core is
+diagonalized by the unitary polar factor $G = X(X^\dagger X)^{-1/2}$ of its
+eigenvector matrix, applied as the similarity $U \leftarrow G^\dagger UG$, with
+$V$ accumulating the eigenvectors), one thread block per matrix; `gpu_modes`
+runs the grid on the card. Measured against numpy: eigenphase
+$1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
+`python -m cl10.altgpu` is the check (`./run_altgpu.sh`).
 
 ## Shared constants and switches
 
