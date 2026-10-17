@@ -317,9 +317,9 @@ def main():
     for r in uniq:
         r["tau_p_yr"] = tau_p(r["M_X_GeV"])
         if best is None or abs(math.log10(r["M_X_GeV"])
-                               - math.log10(1.8e16)) < abs(
+                               - math.log10(u10pred.M_X_DESERT)) < abs(
                                    math.log10(best["M_X_GeV"])
-                                   - math.log10(1.8e16)):
+                                   - math.log10(u10pred.M_X_DESERT)):
             best = r
 
     checks["meeting"] = {"n_solutions": len(uniq),

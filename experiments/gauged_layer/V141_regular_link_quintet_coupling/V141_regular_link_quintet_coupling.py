@@ -61,9 +61,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 
-from cl10 import clifford, engine as E, sm_qca, supercell as SC  # noqa: E402
+from cl10 import (clifford, coupling, engine as E, sm_qca,  # noqa: E402
+                  supercell as SC)
 
-G10 = 0.2
+G10 = coupling.G10
 TOL = 1e-9
 
 

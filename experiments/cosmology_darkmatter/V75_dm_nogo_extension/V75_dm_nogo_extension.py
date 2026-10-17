@@ -46,12 +46,13 @@ from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
+from cl10 import u10pred, dm_wimp  # noqa: E402
 
 M_P = UN.M_P
 M_DM = 118.0            # GeV, the ladder mass
 M_H = 125.1             # GeV
-V_EV = 246.0            # GeV
-OMEGA_H2 = 0.120
+V_EV = u10pred.V_EW         # GeV
+OMEGA_H2 = dm_wimp.OMEGA_OBS
 SIGMA_FIDUCIAL = 3.0e-26  # cm^3/s
 COLORED_CHARGED_BOUND = 1.0e6   # GeV: a stable colored/charged thermal
                                 # relic is excluded at ANY mass below

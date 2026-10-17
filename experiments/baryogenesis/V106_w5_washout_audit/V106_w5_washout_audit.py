@@ -30,11 +30,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
+from cl10 import eta_cp, u10pred
 
 M_P = 1.2209e19          # GeV
 GSTAR = 106.75
-SPHALERON = 28.0 / 79.0
-DB_OBS = 6.12e-10
+SPHALERON = eta_cp.SPHALERON
+DB_OBS = eta_cp.DELTA_B_OBS
 
 
 def main():
@@ -65,7 +66,7 @@ def main():
     cases["y=g0=1/8"] = {"y": y, "K": round(K, 2), "f": round(f, 4),
                          "z_B": round(zB, 2),
                          "DB_product": SPHALERON * eps
-                         * (1 / (16 * math.pi)) ** 2,
+                         * u10pred.LOOP ** 2,
                          "DB_washed": SPHALERON * eps * f}
     # (b) the atmospheric Yukawa: m_nu = y^2 v^2 / M_N
     for v in (174.0, 246.0):
@@ -90,7 +91,7 @@ def main():
     m_nu_max = y_ooeq ** 2 * 174.0 ** 2 / M_N * 1e9   # eV
 
     atm = cases["y=atmospheric(v=174)"]
-    D_guessed = (1 / (16 * math.pi)) ** 2
+    D_guessed = u10pred.LOOP ** 2
     ok = atm["K"] > 10 and atm["f"] < 0.05
     status = (f"AUDIT PASSES BY REPORTING ITS OWN FAILURE: at the SAME "
               f"Yukawa that gives m_nu = 0.0501 eV (y = {atm['y']}), the "

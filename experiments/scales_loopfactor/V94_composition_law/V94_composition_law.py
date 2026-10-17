@@ -52,9 +52,10 @@ from V85_closed_loop_factor import projectors, cartan_norm  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 D_L = 45
-M_P_GEV = 1.22e19
+M_P_GEV = u10pred.M_PLANCK
 
 
 def main():

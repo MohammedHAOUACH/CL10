@@ -55,11 +55,12 @@ sys.path.insert(0, exp("V81_link_desert_content"))
 from V65_wilson import cartan_weights, identify_XY, physical_su5  # noqa: E402
 from V81_link_desert_content import sm_roots, flux_weights, c2_labels  # noqa
 from cl10 import unification as UN  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 TWO_PI = 2 * math.pi
 W0 = 0.15
 N_NODES = 3
-M_X_DATA = 1.8e16
+M_X_DATA = u10pred.M_X_DESERT
 DESERT_MIN = 1e6
 
 

@@ -240,7 +240,7 @@ def main():
                     contrib = zs < x - 1e-9
                     if (contrib.any()
                             and zs[contrib].min() >= math.log(1e6 / UN.M_Z)
-                            and x <= math.log(1.22e19 / UN.M_Z)):
+                            and x <= math.log(UN.M_P / UN.M_Z)):
                         s1 = (1 / UN.A_Z[0] - UN.B_SM[0] * x / TWO_PI
                               - float(np.sum(dbs[:, 0]
                                              * np.clip(x - zs, 0, None)))

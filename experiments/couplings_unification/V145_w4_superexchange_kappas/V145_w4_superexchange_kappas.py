@@ -76,12 +76,13 @@ from cl10 import engine as E                                 # noqa: E402
 from cl10 import sm_qca                                      # noqa: E402
 from cl10 import supercell as SC                             # noqa: E402
 from cl10 import unification as UN                           # noqa: E402
+from cl10 import u10pred                                # noqa: E402
 import V65_wilson as V65                                     # noqa: E402
 
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 INV_A10 = 25.0
 TWO_PI = 2.0 * math.pi
-M_X_OBS = 1.8e16
+M_X_OBS = u10pred.M_X_DESERT
 C2_32 = 45.0          # C2(16) in the Tr/32 normalization (V137 T2)
 C2_45 = 64.0          # adjoint Casimir = the V129 Gauss gap
 

@@ -205,9 +205,15 @@ carries the backend order, the free-memory gate, the probe sizes, the routing
 thresholds, the process-pool shape, the physics and Standard Model inputs
 ($M_{\rm Pl}$, $M_Z$, $v_{\rm EW}$, $\Omega_{\rm DM}h^2$, the beta-function
 coefficients, the loop factor), the angle branches, the desert thresholds and
-the shared tolerance bands. Edit a value there and the engine and every module
-that reads it follow — no file-by-file change. Precedence: environment, then
-the YAML, then the built-in defaults.
+the shared tolerance bands. Edit a value there and the engine, every library
+module, the experiments that use those inputs (they read the library constants:
+`u10pred.M_X_DESERT`, `dm_wimp.OMEGA_OBS`, `eta_cp.DELTA_B_OBS`, `u10pred.LOOP`,
+`u10pred.V_EW`, `coupling.G10`) and the entry points (the runner's `--jobs`,
+`run_experiments.sh` JOBS and card gate, `run_figures.sh` gate, the figure
+generator's own gate) follow — no file-by-file change. Precedence: environment,
+then the YAML, then the built-in defaults. The one deliberate exception: **which
+physical card** is pinned by the simulation panels (`gpu:` in
+`simulation/*/config.yaml`), which also own their scene parameters.
 
 **Where the work runs is a policy, not an accident.** The primitives work
 **where the data lives**: a device array is never pulled to the host by
@@ -230,7 +236,8 @@ loudly rather than reporting a GPU verdict computed on the CPU),
 `implemented` $g_{10} = 1/5$ is the convention the phenomenology is computed
 on, `closed` $g_{10} = \pi/4$ is the algebraic closure root, `half`
 $g_{10} = \pi/2$; the values live in `cl10/config.yaml`), `CL10_NJOBS` (the
-`parpool` worker count), and `CL10_SMOKE=1` (the shrunken experiment grids).
+worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh`), and
+`CL10_SMOKE=1` (the shrunken experiment grids).
 
 ```python
 import cl10

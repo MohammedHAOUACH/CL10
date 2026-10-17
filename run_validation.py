@@ -10,7 +10,7 @@ Usage::
 
     python3 run_validation.py              # run all experiments, in parallel
     python3 run_validation.py V0 V1        # run a subset
-    python3 run_validation.py --jobs 4     # cap the worker pool (default: cores)
+    python3 run_validation.py --jobs 4     # cap the worker pool (default: pool.njobs in cl10/config.yaml)
 Each experiment is a **0-parameter** check: it confirms a prediction of the
 publication (Section 10) or reports an honest residual.  The verdict JSON has
 ``pass``, ``status``, the 0-parameter number, and ``wall_time``.
@@ -27,6 +27,8 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from tqdm import tqdm
+
+from cl10 import config as _config
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 EXPS = os.path.join(ROOT, "experiments")
@@ -208,8 +210,10 @@ def run_one(exp_dir, live=None):
 
 def main():
     ap = argparse.ArgumentParser(description="the CL10 validation runner")
-    ap.add_argument("--jobs", type=int, default=min(12, os.cpu_count() or 4),
-                    help="parallel experiment workers (subprocesses)")
+    ap.add_argument("--jobs", type=int,
+                    default=_config.CFG.pool.njobs_effective,
+                    help="parallel experiment workers (subprocesses); the "
+                         "default is pool.njobs in cl10/config.yaml")
     ap.add_argument("only", nargs="*", help="experiment dir names to run")
     ap.add_argument("--report-only", action="store_true",
                     help="roll up the verdict JSONs already on disk; run nothing")

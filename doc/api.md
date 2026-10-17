@@ -553,14 +553,23 @@ W2→O2, W3→O3.
 
 Every number above has exactly one written source: `cl10/config.yaml`, read by
 `cl10/config.py` (`CFG`). The environment overrides the file; each variable is
-applied once, in the loader, so every consumer sees the same value.
+applied once, in the loader, so every consumer sees the same value. The
+experiments that need these inputs read the library names for them
+(`u10pred.M_PLANCK`, `u10pred.M_X_DESERT`, `u10pred.V_EW`, `u10pred.LOOP`,
+`dm_wimp.OMEGA_OBS`, `eta_cp.DELTA_B_OBS`, `eta_cp.SPHALERON`, `coupling.G10`),
+as do the entry points (the runner's `--jobs`, the `JOBS` and card gate of
+`run_experiments.sh`, the gate of `run_figures.sh` and of `make_figures`).
+Where an experiment deliberately quotes a different precision of a measured
+constant (the PDG `1.2209e19` GeV and `246.22` GeV in V106/V108/V125/V128/V130,
+against the file's `1.22e19` and `246.0`), that is stated in the experiment,
+not hidden in a second source.
 
 | variable | overrides | effect |
 |---|---|---|
 | env `CL10_BACKEND` | `backend.force` | `numpy` / `cpu` forces the CPU core; `cupy` / `jax` pins a GPU core — a pinned GPU core skips the gate and never falls back, so a run that cannot get the card fails loudly |
 | env `CL10_GPU_MIN_FREE_MIB` | `backend.gpu_min_free_mib` | the free-memory gate for the GPU in auto mode (default 2048) |
 | env `CL10_ANGLE` | `angle.branch` | `implemented` (default) / `closed` / `half` (aliases `pi/4`, `pi/2`, `1/5`) |
-| env `CL10_NJOBS` | `pool.njobs` | the `parpool` worker count |
+| env `CL10_NJOBS` | `pool.njobs` | the worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh` |
 | env `CL10_SMOKE` | `smoke` | `1` shrinks the grids, pools and bond counts (`cl10.config.smoke()`) |
 
 ## The runner contract

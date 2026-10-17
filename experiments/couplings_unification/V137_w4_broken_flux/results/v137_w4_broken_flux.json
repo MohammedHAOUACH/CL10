@@ -1,6 +1,6 @@
 {
  "experiment": "V137_w4_broken_flux",
- "backend": "cupy",
+ "backend": "numpy",
  "data": {
   "classes": [
    [
@@ -437,5 +437,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "THE GAUGED LAYER SUPPLIES A PER-CLASS BOND NUMBER, BUT IT IS NOT THE ONE THAT CLOSES THE MEETING (O4). At theta* the Wilson direction leaves a 13-dimensional centralizer, and the flux of BROKEN generators through each fragment class, K_s = 45 - C_2^{unbroken}(s) = [32.0, 36.0, 40.0, 28.0, 32.0, 40.0], is an integer number of the root with no free parameter (the FULL adjoint sum is class-blind to 1e-13, which is the V93/V95 degeneracy as an identity). Fed into the V96 meeting as kappa_s = A K_s it leaves a residual 6.05e-01 and closes in the desert for 0/10 node counts; against the six kappa_s V96 fits it explains at best R^2 = 0.015 of their variance. The kappa_s pattern is still NOT supplied by the broken flux",
- "wall_s": 20.08848476409912
+ "wall_s": 9.297423601150513
 }

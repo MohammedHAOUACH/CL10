@@ -95,6 +95,7 @@ from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 I32 = np.eye(32, dtype=np.complex128)
@@ -333,7 +334,7 @@ def main():
     def cnorm(Mm):
         return float(sum(abs(np.trace(C @ Mm)) / Mm.shape[0]
                          for C in cartan))
-    loop = 1 / (16 * math.pi)
+    loop = u10pred.LOOP
     Fn_odd, Fn_even = [], []
     first_even_below = None
     for n in range(2, 401):

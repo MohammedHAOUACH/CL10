@@ -43,7 +43,6 @@ much they miss it.
 """
 
 import json
-import math
 import os
 import sys
 import time
@@ -62,6 +61,7 @@ from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 D_L = 45
 
@@ -152,7 +152,7 @@ def main():
                                      for Pa in P))}
 
     ref1 = cartan_norm(2 * G @ G, cartan)
-    loop = 1 / (16 * math.pi)
+    loop = u10pred.LOOP
 
     for eta, tag in ((0.2, "root"), (1.4423, "Fmin")):
         blocks = level_blocks(G, P, ev, eta, 4)

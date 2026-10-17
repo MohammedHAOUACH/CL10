@@ -56,6 +56,7 @@ from cl10.paths import exp
 from cl10 import clifford as CL               # noqa: E402
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
+from cl10 import eta_cp                       # noqa: E402
 
 _B16, _U32, _U16 = SC.sectors()
 B = E.asnumpy(_B16).astype(complex)
@@ -65,8 +66,8 @@ w32 = E.asnumpy(CL.pseudoscalar()).astype(complex)
 
 M_P = 1.2209e19
 GSTAR = 106.75
-SPHALERON = 28.0 / 79.0
-DB_OBS = 6.12e-10
+SPHALERON = eta_cp.SPHALERON
+DB_OBS = eta_cp.DELTA_B_OBS
 
 
 def layer(even, j, q, Phi):

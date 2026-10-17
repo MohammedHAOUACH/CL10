@@ -58,11 +58,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.a
 sys.path.insert(0, ROOT)
 
 from cl10 import unification as UN  # noqa: E402
+from cl10 import u10pred, dm_wimp  # noqa: E402
 
-M_DM = UN.M_P * (1 / (16 * math.pi)) ** 10   # GeV: the ladder mass (V54)
+M_DM = UN.M_P * u10pred.LOOP ** 10   # GeV: the ladder mass (V54)
 M_H = 125.1             # GeV
-V_EV = 246.0              # GeV
-OMEGA_H2 = 0.120
+V_EV = u10pred.V_EW     # GeV
+OMEGA_H2 = dm_wimp.OMEGA_OBS
 SIGMA_FIDUCIAL = 3.0e-26  # cm^3/s
 M_QBAR = 1.3e8            # GeV: the lightest mirror fragment (V66)
 N_PAIRS = 16

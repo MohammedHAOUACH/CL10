@@ -63,6 +63,7 @@ from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 D_L = 45
 
@@ -132,7 +133,7 @@ def main():
     B2_0 = traced_two_hop(G, k1_0, D_L)
     F_root = cartan_norm(2 * B2_0, cartan) / cartan_norm(2 * G @ G, cartan)
 
-    target = 1.0 / (16.0 * math.pi)
+    target = u10pred.LOOP
     etas, Fs = [], []
     for eta in np.linspace(0.01, 4.0, 40):
         k1 = k1_of(float(eta))

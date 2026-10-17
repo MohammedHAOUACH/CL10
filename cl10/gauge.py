@@ -18,6 +18,7 @@ causal (the metric/gravity) are both sub-algebras of the **same**
 ``Cl(10)`` — matter, gauge, and gravity come from the one object.
 """
 
+from . import config as _config
 from . import engine as E
 from . import clifford
 from . import spacetime
@@ -25,7 +26,7 @@ from . import spacetime
 import numpy as np
 
 # the GUT scale (the 0-parameter Planck-lattice value)
-M_GUT = 1.22e19  # GeV (the Planck mass — the 0-parameter scale)
+M_GUT = float(_config.CFG.physics.m_planck_gev)   # GeV (the Planck mass)
 
 
 def generators_45():

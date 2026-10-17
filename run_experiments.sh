@@ -3,7 +3,7 @@
 #
 #   ./run_experiments.sh                    # every experiment under experiments/
 #   ./run_experiments.sh V63_bz_chirality V102_lorentz_isotropy   # a subset (**exact** dir names)
-#   JOBS=6 ./run_experiments.sh             # worker pool (default: pool.njobs_cap in cl10/config.yaml)
+#   JOBS=6 ./run_experiments.sh             # worker pool (default: pool.njobs in cl10/config.yaml)
 #   FORCE=1 ./run_experiments.sh            # launch even if the card looks busy (the run then takes the CPU core)
 #
 # Each experiment is a subprocess.  This script checks the card first, then pins
@@ -17,7 +17,7 @@ set -uo pipefail
 cd "$(dirname "$0")"
 
 # the worker count and the free-memory gate come from cl10/config.yaml
-_njobs() { .venv/bin/python -c "from cl10 import config; print(config.CFG.pool.njobs_cap)" 2>/dev/null || echo 8; }
+_njobs() { .venv/bin/python -c "from cl10 import config; print(config.CFG.pool.njobs_effective)" 2>/dev/null || echo 8; }
 _gate()  { .venv/bin/python -c "from cl10 import config; print(config.CFG.backend.gpu_min_free_mib)" 2>/dev/null || echo 2048; }
 JOBS=${JOBS:-$(_njobs)}
 FORCE=${FORCE:-0}

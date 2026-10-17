@@ -61,6 +61,7 @@ from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 D_L = 45
 
@@ -111,7 +112,7 @@ def main():
         r = (Pa @ Gi).reshape(32, D_L, 32, D_L)
         Ma.append(np.einsum("ajbj->ab", r) / D_L)
 
-    loop = 1 / (16 * math.pi)
+    loop = u10pred.LOOP
 
     for eta, tag in ((0.2, "root"), (1.4423076923076923, "Fmin")):
         ph = [np.exp(1j * (eta / 2) * e) for e in ev]

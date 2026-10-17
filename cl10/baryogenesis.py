@@ -194,7 +194,7 @@ def leptogenesis_estimate():
     eta_cp = 1e-3
     # (d) the SM sphaleron conversion factor (an input of the SM sector,
     #     not a root number: 0-parameter only conditional on V23)
-    sphaleron = 28.0 / 79.0
+    sphaleron = float(_config.CFG.sm.sphaleron)
     delta_b = sphaleron * eps_loop * eta_cp
     observed = 6.1e-10
     in_range = bool(1e-11 < delta_b < 1e-8)

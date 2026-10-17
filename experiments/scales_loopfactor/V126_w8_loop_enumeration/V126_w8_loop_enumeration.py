@@ -42,7 +42,6 @@ of V89 is a fit to an interference pattern.
    entropy rate, and whether their product reaches (1/16 pi)^17.
 """
 import json
-import math
 import os
 import sys
 import time
@@ -62,9 +61,10 @@ from V85_closed_loop_factor import projectors  # noqa: E402
 from cl10 import clifford as CL                             # noqa: E402
 from cl10 import engine as E                                # noqa: E402
 from cl10 import sm_qca                                     # noqa: E402
+from cl10 import u10pred                                    # noqa: E402
 
 D_L = 45
-LOOP = 1.0 / (16.0 * math.pi)
+LOOP = u10pred.LOOP
 ETA_ROOT = 0.2
 ETA_FMIN = 1.4423076923076923
 NMAX = 10

@@ -53,10 +53,11 @@ sys.path.insert(0, exp("V86_junction_desert"))
 from V81_link_desert_content import sm_roots, flux_weights, c2_labels  # noqa
 from V86_junction_desert import base_data, mults_at  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 TWO_PI = 2 * math.pi
 W0 = 0.15
-M_X_DATA = 1.8e16
+M_X_DATA = u10pred.M_X_DESERT
 DESERT_MIN = 1e6
 LNS = np.arange(20.0, 60.01, 0.5)
 

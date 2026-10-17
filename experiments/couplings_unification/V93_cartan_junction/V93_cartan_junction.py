@@ -54,7 +54,7 @@ from cl10 import u10pred  # noqa: E402
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 TWO_PI = 2.0 * math.pi
 INV_A10 = 25.0
-M_X_OBS = 1.8e16
+M_X_OBS = u10pred.M_X_DESERT
 
 
 def main():

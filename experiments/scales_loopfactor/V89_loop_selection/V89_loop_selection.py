@@ -55,9 +55,10 @@ from V85_closed_loop_factor import projectors, cartan_norm  # noqa: E402
 from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
+from cl10 import u10pred  # noqa: E402
 
 D_L = 45
-LOOP = 1.0 / (16.0 * math.pi)
+LOOP = u10pred.LOOP
 
 
 def main():

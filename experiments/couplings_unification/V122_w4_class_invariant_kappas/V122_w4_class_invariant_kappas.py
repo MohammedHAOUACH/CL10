@@ -59,7 +59,7 @@ from cl10 import unification as UN  # noqa: E402
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 INV_A10 = 25.0
 TWO_PI = 2.0 * math.pi
-M_X_OBS = 1.8e16
+M_X_OBS = u10pred.M_X_DESERT
 
 # SM data per fragment label: (C2(SU3), C2(SU2), B, L, colour triality)
 SM = {"Q(3,2)": (4 / 3, 3 / 4, 1 / 3, 0.0, 1),

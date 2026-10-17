@@ -26,6 +26,8 @@ import sys
 from . import algebra, couplings, dynamics, residuals, scales
 from .style import exp
 
+from cl10 import config as _config      # the gate only: no backend import here
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # (number, callable) in paper order
@@ -89,9 +91,11 @@ def setup_gpu(force_cpu=False):
             capture_output=True, text=True, timeout=10)
         free = int(out.stdout.strip())
         print(f"GPU {gpu} free: {free} MiB")
-        if free < 2048:
-            print(f"GPU {gpu} has less than 2 GiB free -> falling back to numpy "
-                  "(free the card or edit gpu: in simulation/*/config.yaml)")
+        gate = int(_config.CFG.backend.gpu_min_free_mib)
+        if free < gate:
+            print(f"GPU {gpu} has less than {gate} MiB free -> falling back to "
+                  "numpy (free the card, raise backend.gpu_min_free_mib in "
+                  "cl10/config.yaml, or edit gpu: in simulation/*/config.yaml)")
             os.environ["CL10_BACKEND"] = "numpy"
     except Exception:
         pass

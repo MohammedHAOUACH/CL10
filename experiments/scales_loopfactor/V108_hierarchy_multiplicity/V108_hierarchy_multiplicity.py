@@ -31,7 +31,6 @@ PASS = |3 F_10^10 - v/M_P| / (v/M_P) < 0.01 using ONLY numbers read
 from the V85/V89 result JSONs and PDG constants.
 """
 import json
-import math
 import os
 import sys
 
@@ -39,9 +38,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
+from cl10 import u10pred
 
 V_OVER_MP = 246.22 / 1.2209e19      # PDG 2024
-LOOP = 1.0 / (16.0 * math.pi)
+LOOP = u10pred.LOOP
 
 
 def main():

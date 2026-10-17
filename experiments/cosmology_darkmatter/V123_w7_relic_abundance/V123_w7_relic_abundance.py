@@ -59,21 +59,22 @@ from cl10.paths import exp
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402
 from cl10 import u10pred                      # noqa: E402
+from cl10 import dm_wimp                      # noqa: E402
 
 _B16, _U32, _U16 = SC.sectors()
 U16 = E.asnumpy(_U16)
 
 # ---- constants (repo conventions) -----------------------------------------
 M_P = u10pred.M_PLANCK            # 1.22e19 GeV
-LOOP = 1.0 / (16.0 * math.pi)
+LOOP = u10pred.LOOP
 G10 = SC.G10                      # 1/5
 M_DM = M_P * LOOP ** 10           # the ladder mass, GeV
-M_H, V_EV = 125.1, 246.0
+M_H, V_EV = 125.1, u10pred.V_EW
 GSTAR, GSTARS = 106.75, 106.75
 S0 = 2891.2                       # cm^-1, today's entropy density
 RHO_C = 1.0537e-5                 # GeV cm^-3, critical density / h^2
 GEV2_TO_CM3S = 0.3894e-27 * 2.998e10
-OMEGA_OBS = 0.120
+OMEGA_OBS = dm_wimp.OMEGA_OBS
 SIGMA_FIDUCIAL = 3.0e-26          # cm^3/s, the V75/V88 fiducial
 ZETA3 = 1.2020569
 

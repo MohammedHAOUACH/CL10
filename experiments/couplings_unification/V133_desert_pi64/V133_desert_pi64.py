@@ -44,6 +44,7 @@ sys.path.insert(0, exp("V65_wilson"))
 
 from cl10 import unification as UN                              # noqa: E402
 from cl10 import engine as E                                      # noqa: E402
+from cl10 import u10pred                                       # noqa: E402
 import V64_desert as V64                                        # noqa: E402
 import V65_wilson as V65                                        # noqa: E402
 
@@ -52,7 +53,7 @@ TWO_PI = 2.0 * math.pi
 M_P = UN.M_P
 X_MAX = math.log(M_P / MZ)
 Z_MIN = math.log(1e6 / MZ)
-M_X_OBS = 1.8e16
+M_X_OBS = u10pred.M_X_DESERT
 A_HALF = 1.0 / 25.0                     # the old root value
 A_QUANT = math.pi / 64.0                # pi/64 = 0.049087: the closed angle
 SK_BOUND = 2.4e34                       # yr, Super-Kamiokande p -> e+ pi0
@@ -162,7 +163,7 @@ def main():
                    "%.4f gives M_X = %.3e GeV, M_10 = %.3e GeV, M_(1,2) = "
                    "%.3e GeV, tau_p = %.2e yr - V64's numbers reproduced"
                    % (A_HALF, c[0], c[1], c[2], tau_c),
-                   abs(c[0] / 1.8e16 - 1) < 0.05 and abs(c[1] / 1.2e7 - 1) < 0.05
+                   abs(c[0] / M_X_OBS - 1) < 0.05 and abs(c[1] / 1.2e7 - 1) < 0.05
                    and abs(c[2] / 1.0e12 - 1) < 0.05))
 
     # ------------------------------------------ T2 the same content at pi/64

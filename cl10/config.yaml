@@ -21,6 +21,11 @@ backend:
   # saturated card lets tiny probe ops through but queues real work indefinitely
   # (measured: the CL10 batches are tens of MB, but cuSOLVER handles need headroom).
   gpu_min_free_mib: 2048
+  # which physical card is NOT decided here: the simulations own that choice in
+  # their own panel (gpu: in simulation/{young,hydrogen,blackhole}/config.yaml),
+  # and make_figures / run_figures.sh read it from simulation/young/config.yaml.
+  # One key per concern: this file owns the backend and its gate, the panels own
+  # the scene and the card.
   probe:
     # the allocation the backend probe makes before committing (float64 elements)
     elements: 4194304          # 1 << 22  = 32 MiB
@@ -43,8 +48,11 @@ routing:
   eig_gpu_min_dim: 512         # eigendecomposition on the device only above this size
 
 pool:
-  # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides
-  njobs: null
+  # the worker count of everything that fans out: the experiment runner
+  # (run_validation.py --jobs), the process pool inside the experiments
+  # (cl10/parpool.py) and the shell entry point (run_experiments.sh JOBS).
+  # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides.
+  njobs: 8
   njobs_cap: 8
 
 physics:
