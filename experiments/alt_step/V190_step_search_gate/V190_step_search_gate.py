@@ -52,7 +52,7 @@ V184 = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(V184)
 
 G10 = SC.G10
-SRC = ("V184_step_loss_landscape", "V188_step_gradient_search",
+SRC = ("V184_step_loss_landscape", "V188_step_descent_search",
        "V189_cell_step_joint_search")
 STAGE_MAP = {"baseline": None, "phase-major": "shape"}
 
@@ -72,7 +72,7 @@ def main():
     print("V190 - the step-search gate")
     print("=" * 68)
     d184 = _data("V184_step_loss_landscape")
-    d188 = _data("V188_step_gradient_search")
+    d188 = _data("V188_step_descent_search")
     d189 = _data("V189_cell_step_joint_search")
 
     scanned = (len(d184["rows"]) + len(d188["rows"])

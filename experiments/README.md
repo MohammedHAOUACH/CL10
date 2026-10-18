@@ -279,7 +279,7 @@ OFF-CORE. The GPU engine stays with the publication programme.
 | id | verdict |
 |---|---|
 | `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
-| `V188_step_gradient_search` | Adam descent, 25 pre-registered seeds, baseline cell: descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
+| `V188_step_descent_search` | Adam descent, 25 pre-registered seeds, baseline cell, on the factorized step with finite-difference subgradients (no gradient: the loss is a max over phase pairs): descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
 | `V189_cell_step_joint_search` | joint cell x step **census** - the step factorizes as `P(q) x U(theta)^ns`, so no descent: 419 pre-registered steps x 4 cells ((2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)); 1580/1676 gapless, A 0.9377..1.0000, no isotropic candidate |
 | `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached; W9 stays open |
 

@@ -134,7 +134,11 @@ nsub x nsub product for q, one einsum for the assembly (124 matrices in
   8 quarter-grid {pi/4, pi/2} (rng 186). Alternating scheme, 10
   cycles x [Nelder-Mead node + 30 Adam steps on theta]; best-L
   tracking of the trajectory (Adam overshoots on this rugged
-  landscape; the returned iterate is the best seen).
+  landscape; the returned iterate is the best seen). The step is
+  evaluated through its exact factorization - V189's `Core` object,
+  imported from V189 - and the descent takes central finite
+  differences on the 45 angles: the loss is a max over phase pairs,
+  so there is no gradient to differentiate.
 - **V189**: the same four cell/stage choices - (2,2,2) baseline stages,
   (2,2,2) phase-major, (2,2,3), (3,3,3) (M = 128/128/192/432) - but no
   descent: the step factorizes as `P(q) (x) U(theta)^ns`, so 419
@@ -146,14 +150,15 @@ nsub x nsub product for q, one einsum for the assembly (124 matrices in
   plus the pre-registered pi/8 closure-projected re-evaluation.
 - Anchors between experiments: V188's baseline initial A must
   reproduce V184's baseline row (gate 1e-3: A is a knife-edge ratio,
-  dA/domega_min ~ 5e3, and the NM node landing jitters ~1e-5 in q*
-  across processes on the GPU route). V189 anchors differently and much
-  harder: the implemented step is evaluated at one node both through the
-  factorized route and through V184's `(16 n_sub)^3` eigendecomposition,
-  and `lam_max` must agree to 1e-12 (measured 1.3e-15) - the fast route
-  is the reference route, not an approximation of it. The post-descent A
-  is chaotic across processes (NM jitter cascades through 300 Adam steps)
-  and is therefore never used as an anchor.
+  dA/domega_min ~ 5e3, and the NM node landing jitters ~1e-5 in q*;
+  measured 2.8e-4). V188 and V189 both carry the same harder anchor:
+  the implemented step evaluated at one node through the factorized
+  route and through V184's `(16 n_sub)^3` eigendecomposition, with
+  `lam_max` agreeing to 1e-12 (measured 6.7e-16 and 1.3e-15) - the
+  fast route is the reference route, not an approximation of it. The
+  post-descent A is chaotic across processes and routes (NM jitter
+  cascades through 300 Adam steps) and is therefore never used as an
+  anchor.
 
 ## 6. Results
 
@@ -165,55 +170,59 @@ gapless-flat (omega = 0, A = 0.977-1.000) - a random product of plane
 rotations generically has flat gapless bands, so the hard direction of
 the search is isotropy at fixed gaplessness, not gaplessness itself.
 
-### V188 - Adam descent on the 45 angles, baseline cell (PASS, 25 seeds, 61 min GPU)
+### V188 - Adam descent on the 45 angles, baseline cell (PASS, 25 seeds, 15 min CPU)
 
-The 2026-10-18 13:09 card run (`Route: JAX cuda:0`).  The descent is a
-trajectory, so its per-seed endpoints are route-dependent (the CPU run of the
-same programme lands in other basins); what is route-independent is the count
-of candidates, and it is zero on both.
+The step is evaluated through its exact factorization - V189's `Core`, imported
+from V189 - and the descent takes central finite differences on the 45 angles:
+the loss is a max over phase pairs of $\cos(\phi_i(q)+\psi_j(\theta))$, so there
+is no gradient to differentiate (V184's anchor (d) had already pinned its
+autodiff subgradient against finite differences at 2.7e-8). No card is needed.
 
 | seed | A_final | omega(q*) | L | ||dtheta|| |
 |---|---|---|---|---|
-| baseline g_10*1 | 8.943e-01 | 3.11e-04 | 0.8943 | 1.21 |
-| uniform-0 | 9.937e-01 | 0 | 0.9937 | 1.12 |
-| uniform-1 | 6.367e-02 | 3.80e-03 | 0.0651 | 2.03 |
-| uniform-2 | 1.538e-07 | 1.09e-03 | 0.0001 | 1.20 |
-| uniform-3 | 1.000e+00 | 0 | 1.0000 | 0.00 |
-| uniform-4 | 1.996e-09 | 2.28e-02 | 0.0518 | 0.93 |
-| uniform-5 | 9.897e-01 | 0 | 0.9897 | 2.00 |
-| uniform-6 | 9.773e-01 | 0 | 0.9773 | 1.71 |
-| uniform-7 | 1.543e-07 | 8.82e-04 | 0.0001 | 1.14 |
-| uniform-8 | 9.687e-01 | 0 | 0.9687 | 1.43 |
-| uniform-9 | 9.858e-01 | 0 | 0.9858 | 1.95 |
-| uniform-10 | 9.799e-01 | 0 | 0.9799 | 1.94 |
-| uniform-11 | 6.787e-09 | 4.70e-03 | 0.0022 | 2.57 |
-| uniform-12 | 9.700e-01 | 0 | 0.9700 | 0.00 |
-| uniform-13 | 9.793e-01 | 0 | 0.9793 | 0.67 |
-| uniform-14 | 9.716e-01 | 0 | 0.9716 | 1.57 |
-| uniform-15 | 9.815e-01 | 0 | 0.9815 | 1.23 |
-| quarter-0 | 9.979e-01 | 0 | 0.9979 | 2.80 |
-| quarter-1 | 9.873e-01 | 0 | 0.9873 | 2.11 |
-| quarter-2 | 9.685e-01 | 0 | 0.9685 | 1.97 |
-| quarter-3 | 9.787e-01 | 0 | 0.9787 | 1.46 |
-| quarter-4 | 9.886e-01 | 0 | 0.9886 | 1.10 |
-| quarter-5 | 9.887e-01 | 0 | 0.9887 | 0.90 |
-| quarter-6 | 1.863e-09 | 8.70e-03 | 0.0076 | 0.61 |
-| quarter-7 | 7.744e-09 | 6.97e-03 | 0.0049 | 2.45 |
+| baseline g_10*1 | 0.9665 | 1.18e-13 | 0.9665 | 1.96 |
+| uniform-0 | 0.9385 | 8.40e-14 | 0.9385 | 0.80 |
+| uniform-1 | 0.9634 | 1.08e-13 | 0.9634 | 2.43 |
+| uniform-2 | 0.9762 | 1.04e-13 | 0.9762 | 2.19 |
+| uniform-3 | 0.9690 | 1.56e-13 | 0.9690 | 3.00 |
+| uniform-4 | 0.9499 | 1.12e-13 | 0.9499 | 1.34 |
+| uniform-5 | 0.9701 | 9.69e-14 | 0.9701 | 2.76 |
+| uniform-6 | 0.9601 | 1.36e-13 | 0.9601 | 0.72 |
+| uniform-7 | 0.9893 | 2.07e-13 | 0.9893 | 1.55 |
+| uniform-8 | 0.9740 | 1.23e-13 | 0.9740 | 1.97 |
+| uniform-9 | 0.9826 | 1.15e-13 | 0.9826 | 0.00 |
+| uniform-10 | 0.9806 | 9.06e-14 | 0.9806 | 2.99 |
+| uniform-11 | 0.9826 | 8.58e-14 | 0.9826 | 1.49 |
+| uniform-12 | 0.9905 | 1.13e-13 | 0.9905 | 2.30 |
+| uniform-13 | 0.9687 | 8.68e-14 | 0.9687 | 1.14 |
+| uniform-14 | 0.9622 | 9.53e-14 | 0.9622 | 1.80 |
+| uniform-15 | 0.9585 | 9.03e-14 | 0.9585 | 1.42 |
+| quarter-0 | 0.9748 | 8.74e-14 | 0.9748 | 2.16 |
+| quarter-1 | 0.9812 | 8.77e-14 | 0.9812 | 0.00 |
+| quarter-2 | 0.9855 | 1.07e-13 | 0.9855 | 2.05 |
+| quarter-3 | 0.9692 | 1.04e-13 | 0.9692 | 2.58 |
+| quarter-4 | 0.9682 | 1.16e-13 | 0.9682 | 0.81 |
+| quarter-5 | 0.9831 | 9.33e-14 | 0.9831 | 2.85 |
+| quarter-6 | 0.9823 | 1.17e-13 | 0.9823 | 1.93 |
+| quarter-7 | 0.9749 | 8.18e-14 | 0.9749 | 1.36 |
 
-Reading: two escape routes, never both.  Descent either (i) stays gapless and
-keeps the cone anisotropic - 17 of 25 seeds end at omega = 0 with A between
-0.9685 and 1.0000 - or (ii) isotropizes: 6 seeds reach A 1.5e-07..2.0e-09, but
-every one of them at a **gapped** band edge (omega 8.8e-04..2.3e-02).  Route
-(ii) is TRIVIAL isotropy: at a band edge the touching is quadratic, so
-v(n) = omega_0/dq + O(dq) is direction-independent and A -> 0 without any cone.
-The two closest approaches to a candidate both miss on the gap: uniform-7
-(A 1.54e-07, omega 8.82e-04) and uniform-2 (A 1.54e-07, omega 1.09e-03).
-**Candidates: ZERO.**  The baseline row reproduces V184's A to 1.7e-04 and
-descends to A 0.8943 at omega 3.11e-04 - on the card it takes neither escape,
-landing at a small gap with the anisotropy barely reduced (the CPU run of the
-same seed instead escaped to A 3.8e-11 at omega 3.4e-3: the trivial route, and
-the reason the candidate count, not the endpoint, is the pre-registered
-quantity).
+Reading: **one escape route, and it is never taken.** All 25 descents end on the
+gapless manifold ($\omega(q^*)\le 2.1\mathrm{e}{-}13$) with the cone anisotropic,
+$A\in[0.9385,0.9905]$; the best is 0.9385, and the baseline itself lands at
+0.9665 from $A_0=0.9997$. **Candidates: ZERO.** The earlier card run of the same
+programme (JAX autodiff subgradient, cuSOLVER node search) did reach the trivial
+isotropy - 6 seeds at $A\sim10^{-8}$, every one at a **gapped** band edge
+($\omega\ 8.8\mathrm{e}{-}4..2.3\mathrm{e}{-}2$): at a band edge the touching is
+quadratic, $v(n)=\omega_0/dq+O(dq)$ is direction-independent and $A\to0$ without
+any cone. That is the loss's blind spot, and why candidacy requires
+$\omega<10^{-6}$ as well as $A<10^{-6}$ - and why the candidate count, not the
+endpoint (which is route-dependent), is the pre-registered quantity. On either
+route the count is zero.
+
+Anchors: the baseline row reproduces V184's $A(\theta_0)$ to 2.8e-4 (gate 1e-3),
+and the factorized route reproduces V184's dense route at one node to
+$\lambda_{\max}$ 6.7e-16 (gate 1e-12) and $A$ to 3.7e-4 - the arccos
+amplification of a 1e-15 eigenvalue error at a gapless point.
 
 ### V189 - joint cell x step CENSUS (PASS, 4 cells x 419 steps, 8 min CPU)
 
@@ -286,8 +295,9 @@ steps, plus 1676 explicitly sampled steps x 4 cells with no descent):
   properties never coexist along any descent trajectory, nor at any of
   the 1676 census steps;
 - the implemented step is not a lucky point but an isolated closed-form
-  gapless point: random steps are gapless-FLAT (A -> 1), and isotropy
-  is reachable only by paying a gap;
+  gapless point: random steps are gapless-FLAT (A -> 1), and the only
+  way the metric reports isotropy at all is the trivial band-edge
+  touching, which costs a gap;
 - the loss's blind spot is characterized, not hidden: A = 0 at a
   gapped band edge is trivially true (quadratic touching), which is
   why the candidacy gate requires omega < 1e-6 as well, and why the
@@ -315,13 +325,13 @@ The step/cell SPECIFICATION has been searched directly - 45 continuous
 per-plane angles by differentiable cone loss + Adam (25 seeds), and a
 419-step census on each of four cell/stage choices (1676 steps, no
 descent), every route anchored against the published machinery. No
-isotropic gapless step exists in the searched space: descent either
-keeps the cone anisotropic (A >=
-0.9377 at every gapless point reached, by descent or by census) or isotropizes
-only trivially
-at gapped band edges (omega >= 3.5e-4). The implemented step (g_10 on
-all 45 planes, cell (2,2,2)) remains the only closed-form gapless
-point found, and W9 (cone isotropy) stays open: it is not a tunable
+isotropic gapless step exists in the searched space: every descent ends
+gapless and anisotropic, and the census says the same over 1676 sampled
+steps (A >=
+0.9377 at every gapless point reached, by descent or by census); the only
+isotropy the loss can produce is the trivial band-edge one, which costs a
+gap. The implemented step (g_10 on all 45 planes, cell (2,2,2)) remains the
+only closed-form gapless point found, and W9 (cone isotropy) stays open: it is not a tunable
 consequence of the step angles.
 
 Cross-links: `alt_nonperturbative_exploration.md` (the gauged-sector
