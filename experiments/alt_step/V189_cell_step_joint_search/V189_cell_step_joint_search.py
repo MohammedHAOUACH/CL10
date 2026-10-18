@@ -184,10 +184,21 @@ def main():
     nworkers = len(cells)
     if dev.platform == "gpu":
         free = _free_mib(dev)
+        # A shared machine: the card may be busy now and free in ten minutes.
+        # V189_GPU_WAIT=<seconds> polls for it, so the search can be launched
+        # before the card is handed back instead of failing at the gate.
+        waited, budget = 0, int(os.environ.get("V189_GPU_WAIT", "0"))
+        while free < 700 and waited < budget:
+            print(f"  ({free} MiB free on {dev}: waiting for the card, "
+                  f"{waited}s / {budget}s)", flush=True)
+            time.sleep(15)
+            waited += 15
+            free = _free_mib(dev)
         if free < 700:
             sys.exit(f"V189: JAX took {dev}, which has only {free} MiB free; one "
-                     f"cell worker needs ~700 MiB. Free the card, or set "
-                     f"CL10_JAX_CPU=1 to run the search on the CPU core.")
+                     f"cell worker needs ~700 MiB. Free the card, raise "
+                     f"V189_GPU_WAIT, or set CL10_JAX_CPU=1 to run the search on "
+                     f"the CPU core.")
         nworkers = max(1, min(len(cells), free // 700))
         if nworkers < len(cells):
             print(f"  ({free} MiB free on {dev}: {nworkers} cell worker"

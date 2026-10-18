@@ -390297,11 +390297,11 @@
       "property": null,
       "residual": false,
       "pass": false,
-      "status": "CRASH (rc=1): concurrent.futures.process.BrokenProcessPool: A process in the process pool was terminated abruptly while the future was running or pending.",
+      "status": "CRASH (rc=1): RuntimeError: V189 (cell worker): JAX resolved to cpu:0 - the card is unavailable. Free it, or set CL10_JAX_CPU=1 to run the search on the CPU core.",
       "returncode": 1,
       "crashed": true,
       "stale": false,
-      "wall_time": 2.29,
+      "wall_time": 4.831,
       "backend": null,
       "verdict": null
     },
