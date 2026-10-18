@@ -60,20 +60,23 @@ import jax.numpy as jnp
 
 jax.config.update("jax_enable_x64", True)
 
-_DEV = jax.devices()[0]
-_PARENT = __name__ == "__main__"
+_CPU_OK = os.environ.get("CL10_JAX_CPU", "0") == "1"
 
-if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
-    # A pool worker must raise, not exit: sys.exit in a spawn child takes the
-    # whole ProcessPoolExecutor down (BrokenProcessPool) and the parent loses
-    # the reason.  That is what the suite showed: with the eight cupy workers
-    # already on the card, the four cell workers resolved to cpu:0 and each
-    # killed itself, and the driver only ever saw a broken pool.
-    _why = (f"V189: JAX resolved to {_DEV} - the card is unavailable. Free it, "
-            f"or set CL10_JAX_CPU=1 to run the search on the CPU core.")
-    if _PARENT:
-        sys.exit(_why)
-    raise RuntimeError(_why)
+def _route(where):
+    """Resolve the route, and refuse it loudly if it is not the one asked for.
+
+    This must NOT run at import in a pool worker: an exception raised during
+    spawn's prepare() - while the child re-imports this module - kills the child
+    before the executor can capture anything, and the parent only ever sees
+    BrokenProcessPool.  That is what sys.exit did, and what a module-level raise
+    still did.  The parent calls it in main(); the worker calls it inside its own
+    function, where the executor can report the reason."""
+    dev = jax.devices()[0]
+    if dev.platform != "gpu" and not _CPU_OK:
+        raise RuntimeError(
+            f"V189 ({where}): JAX resolved to {dev} - the card is unavailable. "
+            f"Free it, or set CL10_JAX_CPU=1 to run the search on the CPU core.")
+    return dev
 
 
 def _free_mib(dev):
@@ -84,16 +87,6 @@ def _free_mib(dev):
                         "--format=csv,noheader,nounits"],
                        capture_output=True, text=True)
     return int(q.stdout.strip().splitlines()[0]) if q.stdout.strip() else 0
-
-
-# One JAX context per cell worker, ~700 MiB each.  The card is shared: inside
-# the suite eight cupy workers are already on it, so the pool is sized to what
-# the card can still host rather than insisting on four.
-_FREE = _free_mib(_DEV) if _DEV.platform == "gpu" else 0
-if _PARENT and _DEV.platform == "gpu" and _FREE < 700:
-    sys.exit(f"V189: JAX took {_DEV}, which has only {_FREE} MiB free; one cell "
-             f"worker needs ~700 MiB. Free the card, or set CL10_JAX_CPU=1 to "
-             f"run the search on the CPU core.")
 
 from cl10 import supercell as SC
 from cl10 import altcell as A
@@ -118,6 +111,7 @@ def _cell_search(job):
     cell), so the pool is the whole speed-up: the wall becomes the slowest
     cell, not the sum of four."""
     shape, stagname, stages = job
+    _route("cell worker")     # inside the function: the executor can report it
     C = V184.build_core(shape, stages)
     ns = C["c"]["nsub"] * 16
     rng = np.random.default_rng(187)
@@ -174,20 +168,32 @@ def main():
              ((2, 2, 3), "phase-major", A.stages_shape((2, 2, 3))),
              ((3, 3, 3), "phase-major", A.stages_shape((3, 3, 3)))]
 
-    # one worker per cell, spawn (a forked child inherits a dead CUDA
-    # context).  ex.map keeps the cell order, so the rows and the summary come
-    # back exactly as the serial loop produced them.  On the card the pool is
-    # sized to the memory the card can still hand out: a worker that cannot get
-    # a context dies during init and takes the pool down with it, so when there
-    # is room for no second context the four cells run serially in this process,
-    # on the route the parent already established.
+    # The route is decided here, in the parent, and pinned for the children:
+    # CUDA_VISIBLE_DEVICES is inherited by spawn, so a worker cannot drift to
+    # another card or silently fall back to the CPU core and run a cell on a
+    # route the verdict does not record.
+    dev = _route("driver")
+
+    # one worker per cell, spawn (a forked child inherits a dead CUDA context).
+    # ex.map keeps the cell order, so the rows and the summary come back exactly
+    # as the serial loop produced them.  On the card the pool is sized to the
+    # memory the card can still hand out (~700 MiB per JAX context): inside the
+    # suite eight cupy workers are already on it, and a worker that cannot get a
+    # context is dead weight.  With room for no second context the four cells run
+    # serially in this process, on the route just established.
     nworkers = len(cells)
-    if _DEV.platform == "gpu":
-        nworkers = max(1, min(len(cells), _FREE // 700))
+    if dev.platform == "gpu":
+        free = _free_mib(dev)
+        if free < 700:
+            sys.exit(f"V189: JAX took {dev}, which has only {free} MiB free; one "
+                     f"cell worker needs ~700 MiB. Free the card, or set "
+                     f"CL10_JAX_CPU=1 to run the search on the CPU core.")
+        nworkers = max(1, min(len(cells), free // 700))
         if nworkers < len(cells):
-            print(f"  ({_FREE} MiB free on {_DEV}: {nworkers} cell worker"
-                  f"{'s' if nworkers > 1 else ''} on the card, the rest run "
-                  f"serially)", flush=True)
+            print(f"  ({free} MiB free on {dev}: {nworkers} cell worker"
+                  f"{'s' if nworkers > 1 else ''}; the rest run serially)",
+                  flush=True)
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(dev.id)
     if nworkers == 1:
         out = [_cell_search(job) for job in cells]
     else:
