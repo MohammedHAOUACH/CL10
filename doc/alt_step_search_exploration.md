@@ -220,9 +220,10 @@ sector decomposition and are untouched by (cell, theta) - the cell
 changes only the motion - so no structural re-check was required for
 non-candidates.
 
-**Reproduction of the carried verdict** (2026-10-18, CPU route, no descent):
-at the recorded $(\theta^*, q^*)$ of the best row of each of the three cheap
-cells, `aniso` deviates by 2.2e-05 / 1.8e-04 / 4.1e-06 and `omega` stays
+**Reproduction of the carried verdict** (`V189_reproduce_objective.py`, driven
+by `run_reproduce_check.sh`; 2026-10-18, CPU route, no descent):
+at the recorded $(\theta^*, q^*)$ of the best row of **all four** cells,
+`aniso` deviates by 2.2e-05 / 1.8e-04 / 4.1e-06 / 1.3e-05 and `omega` stays
 exactly 0.  `cl10/supercell.py` and `cl10/config.py` are unchanged since
 before the run, and the `altcell` host-only edit moved arrays between hosts
 without touching values, so the residual is the GPU-vs-CPU eigensolver at a

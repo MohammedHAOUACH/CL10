@@ -282,3 +282,10 @@ OFF-CORE. The GPU engine stays with the publication programme.
 | `V188_step_gradient_search` | Adam descent, 25 pre-registered seeds, baseline cell: descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
 | `V189_cell_step_joint_search` | joint cell x step census: (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3), 8 seeds each; every row gapless-flat, no isotropic candidate |
 | `V190_step_search_gate` | the step-search gate: 0 candidates from 45+25+32 rows scanned; the baseline step remains the only closed-form gapless point reached; W9 stays open |
+
+`V189`'s verdict is a 4 h GPU search that is not re-executed. Its
+`run_reproduce_check.sh` re-evaluates the objective at the recorded
+$(\theta^*, q^*)$ of the verdict's rows instead: seconds on the card the engine
+pins (the gate checks that card, `WAIT=<s>` waits for it, `CL10_JAX_CPU=1`
+takes the CPU core), and it fails loudly if the deviation exceeds the 1e-3
+anchor gate.
