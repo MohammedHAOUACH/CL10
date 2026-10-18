@@ -35,8 +35,12 @@ EXPS = os.path.join(ROOT, "experiments")
 
 
 def find_experiments():
-    dirs = sorted(os.path.dirname(p) for p in glob.glob(os.path.join(EXPS, "*", "*", "*.py")))
-    return [d for d in dirs if d != EXPS]
+    # one directory is one experiment, whatever the number of programmes it
+    # holds (V189 keeps its reproduction check next to the search): deduped,
+    # or a second .py makes the driver count and run the same experiment twice.
+    dirs = {os.path.dirname(p)
+            for p in glob.glob(os.path.join(EXPS, "*", "*", "*.py"))}
+    return sorted(d for d in dirs if d != EXPS)
 
 
 def verdict_file(exp_dir):
