@@ -161,6 +161,9 @@ every volume probed, but the volume drift leaves neither branch firing).
 `V189_cell_step_joint_search` passes on its 2026-10-18 00:40 GPU verdict,
 carried through the `alt_step` renumbering without being re-executed: the
 search costs four hours of GPU and the renumbering changed no number in it.
+Re-evaluating its objective at the recorded $(\theta^*, q^*)$ under the merged
+library reproduces `aniso` to 2e-4 and `omega` exactly 0 — five orders above
+the 1e-6 candidacy threshold — so its negative conclusion stands.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —

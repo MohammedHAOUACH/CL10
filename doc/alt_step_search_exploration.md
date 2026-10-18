@@ -220,6 +220,15 @@ sector decomposition and are untouched by (cell, theta) - the cell
 changes only the motion - so no structural re-check was required for
 non-candidates.
 
+**Reproduction of the carried verdict** (2026-10-18, CPU route, no descent):
+at the recorded $(\theta^*, q^*)$ of the best row of each of the three cheap
+cells, `aniso` deviates by 2.2e-05 / 1.8e-04 / 4.1e-06 and `omega` stays
+exactly 0.  `cl10/supercell.py` and `cl10/config.py` are unchanged since
+before the run, and the `altcell` host-only edit moved arrays between hosts
+without touching values, so the residual is the GPU-vs-CPU eigensolver at a
+node where `gap2 ~ -1e-14`.  The candidacy threshold 1e-6 sits five orders
+below, so the conclusion above does not depend on re-running the 4 h search.
+
 ### V190 - the step-search gate (PASS, 0 candidates)
 
 38 census rows scanned (V184 9 + V188 25 + V189 4 summaries);
