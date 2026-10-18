@@ -1,0 +1,21 @@
+{
+  "programme": "V191",
+  "question": "can a gapless node of the 2x2x2 cell be conical?",
+  "no_go": "no linear term exists for any single irrep of O_h at a momentum whose little group contains inversion: Hom(T1u, D x D*) = 0 for all ten irreps",
+  "construction": "a parity-degenerate A1g+T1u pair at Gamma gives an exactly gapless, exactly isotropic, non-abelian cone",
+  "cone_anisotropy": 1.0408348985470997e-15,
+  "gap": 2.8526514483928622e-11,
+  "rho_comm": 0.7071067811865478,
+  "velocity": [
+    1.9199985003527917,
+    4.7999807680299815,
+    9.599850944749202,
+    19.198817174300334,
+    38.39055711621671,
+    67.14942283462217,
+    95.85259600239976
+  ],
+  "engine_o_h_defect": 0.10664093678011513,
+  "pass": true,
+  "wall_time": 6.092833518981934
+}
