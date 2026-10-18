@@ -22,6 +22,7 @@ itself uses) and omega(q*) still exactly 0.
 import importlib.util
 import json
 import os
+import subprocess
 import sys
 
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native
@@ -45,6 +46,19 @@ _DEV = jax.devices()[0]
 if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
     sys.exit(f"V189-check: JAX resolved to {_DEV} - the card is unavailable. "
              f"Free it, or set CL10_JAX_CPU=1 to check on the CPU core.")
+if _DEV.platform == "gpu":
+    # the authoritative gate is on the card JAX actually took, not on the one
+    # the engine pins for cupy: JAX orders its own devices, and a gate on the
+    # wrong card lets the run die mid-eigendecomposition instead of saying so.
+    _q = subprocess.run(["nvidia-smi", "-i", str(_DEV.id),
+                         "--query-gpu=memory.free",
+                         "--format=csv,noheader,nounits"],
+                        capture_output=True, text=True)
+    _free = int(_q.stdout.strip().splitlines()[0]) if _q.stdout.strip() else 0
+    if _free < 2048:
+        sys.exit(f"V189-check: JAX took {_DEV}, which has only {_free} MiB "
+                 f"free; the M = 432 cell needs ~2 GiB. Free GPU{_DEV.id}, or "
+                 f"set CL10_JAX_CPU=1 to check on the CPU core.")
 
 from cl10 import altcell as A  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402

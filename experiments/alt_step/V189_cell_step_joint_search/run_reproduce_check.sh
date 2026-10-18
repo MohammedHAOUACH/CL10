@@ -19,13 +19,13 @@ NEED=${NEED:-$([ -x .venv/bin/python ] && .venv/bin/python -c \
     2>/dev/null || echo 2048)}
 WAIT=${WAIT:-0}
 FORCE=${FORCE:-0}
-GPU=$(awk '/^gpu:/{print $2}' simulation/young/config.yaml 2>/dev/null)
-GPU=${GPU:-1}
-# gate on the card the engine pins (it reaches for that device id under JAX
-# too), not on the roomiest one: a gate that passes on the wrong card still
-# leaves the run dying on the pinned one.
+# coarse gate: is any card roomy enough?  JAX orders its own devices, so the
+# card it takes is not necessarily the one the engine pins for cupy; the
+# programme repeats this check on the device it actually got and exits loudly
+# there, which is the authoritative one.
 gate() {
-    nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i "${GPU}"
+    nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits \
+        | sort -rn | head -1
 }
 
 if [ "${CL10_JAX_CPU:-0}" != "1" ]; then
@@ -36,15 +36,15 @@ if [ "${CL10_JAX_CPU:-0}" != "1" ]; then
     while :; do
         free=$(gate)
         if [ "${free}" -ge "${NEED}" ] || [ "${FORCE}" = "1" ]; then
-            echo "GPU${GPU} (the pinned card): ${free} MiB free (gate ${NEED} MiB) - launching"
+            echo "roomiest card: ${free} MiB free (gate ${NEED} MiB) - launching"
             break
         fi
         if [ "${waited}" -ge "${WAIT}" ]; then
             echo
-            echo "ABORT: ${free} MiB free on GPU${GPU}, the card the engine"
-            echo "pins; the check needs ${NEED} MiB for one JAX context. Free"
-            echo "that card, raise NEED, set FORCE=1 to run anyway, WAIT=<s> to"
-            echo "wait, or CL10_JAX_CPU=1 to check on the CPU core."
+            echo "ABORT: ${free} MiB free on the roomiest card; the check needs"
+            echo "${NEED} MiB for one JAX context. Free a card, raise NEED, set"
+            echo "FORCE=1 to run anyway, WAIT=<s> to wait, or CL10_JAX_CPU=1 to"
+            echo "check on the CPU core."
             exit 3
         fi
         echo "waiting for a card: ${free} MiB free, need ${NEED} (${waited}s / ${WAIT}s)"

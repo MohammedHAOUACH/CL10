@@ -221,14 +221,18 @@ changes only the motion - so no structural re-check was required for
 non-candidates.
 
 **Reproduction of the carried verdict** (`V189_reproduce_objective.py`, driven
-by `run_reproduce_check.sh`; 2026-10-18, CPU route, no descent):
-at the recorded $(\theta^*, q^*)$ of the best row of **all four** cells,
-`aniso` deviates by 2.2e-05 / 1.8e-04 / 4.1e-06 / 1.3e-05 and `omega` stays
-exactly 0.  `cl10/supercell.py` and `cl10/config.py` are unchanged since
-before the run, and the `altcell` host-only edit moved arrays between hosts
-without touching values, so the residual is the GPU-vs-CPU eigensolver at a
-node where `gap2 ~ -1e-14`.  The candidacy threshold 1e-6 sits five orders
-below, so the conclusion above does not depend on re-running the 4 h search.
+by `run_reproduce_check.sh`; 2026-10-18, no descent).  The verdict stores the
+$(\theta^*, q^*)$ every row converged to, so its objective can be re-evaluated
+under the current library without re-running the search.  **On the card - the
+route the run itself used (`JAX cuda:0`) - it reproduces bit for bit**: for the
+best row of all four cells the `aniso` deviation is `0.00e+00` and `omega` is
+exactly 0 (`gap2 ~ -2e-14`).  On the CPU core the same evaluation deviates by
+2.2e-05 / 1.8e-04 / 4.1e-06 / 1.3e-05, which is the GPU-vs-CPU eigensolver at
+a node where the gap is pinned to zero: `cl10/supercell.py` and
+`cl10/config.py` are unchanged since before the run, and the `altcell`
+host-only edit moved arrays between hosts without touching values.  Either way
+the candidacy threshold 1e-6 sits far below, so the conclusion above does not
+depend on re-running the 4 h search.
 
 ### V190 - the step-search gate (PASS, 0 candidates)
 
