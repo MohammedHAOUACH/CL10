@@ -153,18 +153,19 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (115/115 publication, 2026-10-18).**  Every experiment of the
-publication programme **passes**; the hard-tier verdict is positive.  Of the 39
-exploration experiments, all pass except `V182_ir_decoupling`, which records
-its own pre-registered branch as INCONCLUSIVE (the flux sector is massive at
-every volume probed, but the volume drift leaves neither branch firing).
-`V189_cell_step_joint_search` passes on its 2026-10-18 00:40 GPU verdict,
-carried through the `alt_step` renumbering without being re-executed: the
-search costs four hours of GPU and the renumbering changed no number in it.
-Re-evaluating its objective at the recorded $(\theta^*, q^*)$ under the merged
-library reproduces `aniso` **bit for bit** on the card (deviation 0.00e+00 on
-all four cells, `omega` exactly 0) and to 2e-4 on the CPU core, so its
-negative conclusion stands.
+**The result (115/115 publication, card run of 2026-10-18 13:09).**  Every
+experiment of the publication programme **passes**; the hard-tier verdict is
+positive.  Of the 39 exploration experiments, all pass except
+`V182_ir_decoupling`, which records its own pre-registered branch as
+INCONCLUSIVE (the flux sector is massive at every volume probed, but the volume
+drift leaves neither branch firing), and `V189_cell_step_joint_search`, whose
+4 h search the suite could not re-execute on a card the eight cupy workers had
+already filled — its 2026-10-18 00:40 verdict stands on disk, flagged STALE by
+the driver until the search is re-run (the suite therefore reports 152/154).
+Re-evaluating that verdict's objective at the recorded $(\theta^*, q^*)$ under
+the merged library reproduces `aniso` **bit for bit** on the card (deviation
+0.00e+00 on all four cells, `omega` exactly 0) and to 2e-4 on the CPU core, so
+its negative conclusion stands.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —

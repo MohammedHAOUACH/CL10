@@ -61,26 +61,39 @@ import jax.numpy as jnp
 jax.config.update("jax_enable_x64", True)
 
 _DEV = jax.devices()[0]
-if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
-    sys.exit(f"V189: JAX resolved to {_DEV} - the card is unavailable. Free it, "
-             f"or set CL10_JAX_CPU=1 to run the search on the CPU core.")
+_PARENT = __name__ == "__main__"
 
-if _DEV.platform == "gpu":
-    # one JAX context per cell worker: on a card another process has already
-    # filled, the pool dies during init (BrokenProcessPool) instead of saying
-    # so. Ask for the card up front - read it from nvidia-smi, since JAX's own
-    # bytes_limit is its allocator budget, not what is free on the device.
-    _N_CELLS = 4
-    _q = subprocess.run(["nvidia-smi", "-i", str(_DEV.id),
-                         "--query-gpu=memory.free",
-                         "--format=csv,noheader,nounits"],
-                        capture_output=True, text=True)
-    _free = int(_q.stdout.strip().splitlines()[0]) if _q.stdout.strip() else 0
-    if _free < 700 * _N_CELLS:
-        sys.exit(f"V189: the cell pool needs one JAX context per cell on the card "
-                 f"(~700 MiB x {_N_CELLS}); only {_free} MiB free on GPU{_DEV.id}. "
-                 f"Free the card, or set CL10_JAX_CPU=1 to run the pool on the "
-                 f"CPU core.")
+if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
+    # A pool worker must raise, not exit: sys.exit in a spawn child takes the
+    # whole ProcessPoolExecutor down (BrokenProcessPool) and the parent loses
+    # the reason.  That is what the suite showed: with the eight cupy workers
+    # already on the card, the four cell workers resolved to cpu:0 and each
+    # killed itself, and the driver only ever saw a broken pool.
+    _why = (f"V189: JAX resolved to {_DEV} - the card is unavailable. Free it, "
+            f"or set CL10_JAX_CPU=1 to run the search on the CPU core.")
+    if _PARENT:
+        sys.exit(_why)
+    raise RuntimeError(_why)
+
+
+def _free_mib(dev):
+    """Free memory on the card JAX actually took.  JAX's own bytes_limit is its
+    allocator budget, not what the device has left."""
+    q = subprocess.run(["nvidia-smi", "-i", str(dev.id),
+                        "--query-gpu=memory.free",
+                        "--format=csv,noheader,nounits"],
+                       capture_output=True, text=True)
+    return int(q.stdout.strip().splitlines()[0]) if q.stdout.strip() else 0
+
+
+# One JAX context per cell worker, ~700 MiB each.  The card is shared: inside
+# the suite eight cupy workers are already on it, so the pool is sized to what
+# the card can still host rather than insisting on four.
+_FREE = _free_mib(_DEV) if _DEV.platform == "gpu" else 0
+if _PARENT and _DEV.platform == "gpu" and _FREE < 700:
+    sys.exit(f"V189: JAX took {_DEV}, which has only {_FREE} MiB free; one cell "
+             f"worker needs ~700 MiB. Free the card, or set CL10_JAX_CPU=1 to "
+             f"run the search on the CPU core.")
 
 from cl10 import supercell as SC
 from cl10 import altcell as A
@@ -162,12 +175,26 @@ def main():
              ((3, 3, 3), "phase-major", A.stages_shape((3, 3, 3)))]
 
     # one worker per cell, spawn (a forked child inherits a dead CUDA
-    # context).  ex.map keeps the cell order, so the rows and the summary
-    # come back exactly as the serial loop produced them.
-    with ProcessPoolExecutor(max_workers=len(cells),
-                             mp_context=multiprocessing.get_context("spawn")
-                             ) as ex:
-        out = list(ex.map(_cell_search, cells))
+    # context).  ex.map keeps the cell order, so the rows and the summary come
+    # back exactly as the serial loop produced them.  On the card the pool is
+    # sized to the memory the card can still hand out: a worker that cannot get
+    # a context dies during init and takes the pool down with it, so when there
+    # is room for no second context the four cells run serially in this process,
+    # on the route the parent already established.
+    nworkers = len(cells)
+    if _DEV.platform == "gpu":
+        nworkers = max(1, min(len(cells), _FREE // 700))
+        if nworkers < len(cells):
+            print(f"  ({_FREE} MiB free on {_DEV}: {nworkers} cell worker"
+                  f"{'s' if nworkers > 1 else ''} on the card, the rest run "
+                  f"serially)", flush=True)
+    if nworkers == 1:
+        out = [_cell_search(job) for job in cells]
+    else:
+        with ProcessPoolExecutor(max_workers=nworkers,
+                                 mp_context=multiprocessing.get_context("spawn")
+                                 ) as ex:
+            out = list(ex.map(_cell_search, cells))
     rows, summary = [], []
     for r, s in out:
         rows.extend(r)

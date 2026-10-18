@@ -161,47 +161,55 @@ gapless-flat (omega = 0, A = 0.977-1.000) - a random product of plane
 rotations generically has flat gapless bands, so the hard direction of
 the search is isotropy at fixed gaplessness, not gaplessness itself.
 
-### V188 - Adam descent on the 45 angles, baseline cell (PASS, 25 seeds)
+### V188 - Adam descent on the 45 angles, baseline cell (PASS, 25 seeds, 61 min GPU)
+
+The 2026-10-18 13:09 card run (`Route: JAX cuda:0`).  The descent is a
+trajectory, so its per-seed endpoints are route-dependent (the CPU run of the
+same programme lands in other basins); what is route-independent is the count
+of candidates, and it is zero on both.
 
 | seed | A_final | omega(q*) | L | ||dtheta|| |
 |---|---|---|---|---|
-| baseline g_10*1 | 3.777e-11 | 3.43e-03 | 0.0012 | 2.31 |
-| uniform-0 | 1.548e-09 | 2.26e-02 | 0.0510 | 0.58 |
-| uniform-1 | 1.050e-06 | 3.52e-04 | 0.0000 | 3.24 |
-| uniform-2 | 9.713e-01 | 0 | 0.9713 | 0.77 |
-| uniform-3 | 9.989e-01 | 0 | 0.9989 | 2.42 |
-| uniform-4 | 9.808e-01 | 0 | 0.9808 | 2.18 |
-| uniform-5 | 9.843e-01 | 0 | 0.9843 | 2.23 |
-| uniform-6 | 4.863e-10 | 2.16e-02 | 0.0467 | 2.20 |
-| uniform-7 | 9.868e-01 | 0 | 0.9868 | 2.48 |
-| uniform-8 | 9.720e-01 | 0 | 0.9720 | 1.43 |
-| uniform-9 | 9.668e-01 | 0 | 0.9668 | 0.98 |
-| uniform-10 | 5.820e-10 | 3.71e-02 | 0.1375 | 0.82 |
-| uniform-11 | 9.993e-01 | 0 | 0.9993 | 2.18 |
-| uniform-12 | 9.698e-01 | 0 | 0.9698 | 0.00 |
-| uniform-13 | 6.969e-08 | 1.70e-03 | 0.0003 | 0.75 |
-| uniform-14 | 9.805e-01 | 0 | 0.9805 | 1.91 |
-| uniform-15 | 9.813e-01 | 0 | 0.9813 | 1.71 |
-| quarter-0 | 9.859e-01 | 0 | 0.9859 | 1.88 |
-| quarter-1 | 9.861e-01 | 0 | 0.9861 | 0.99 |
-| quarter-2 | 9.856e-01 | 0 | 0.9856 | 2.23 |
-| quarter-3 | 9.663e-01 | 0 | 0.9663 | 1.13 |
-| quarter-4 | 1.209e-04 | 1.50e-05 | 0.0001 | 1.60 |
-| quarter-5 | 1.165e-09 | 2.00e-02 | 0.0399 | 1.06 |
-| quarter-6 | 9.991e-01 | 0 | 0.9991 | 1.66 |
-| quarter-7 | 3.636e-09 | 7.82e-03 | 0.0061 | 2.35 |
+| baseline g_10*1 | 8.943e-01 | 3.11e-04 | 0.8943 | 1.21 |
+| uniform-0 | 9.937e-01 | 0 | 0.9937 | 1.12 |
+| uniform-1 | 6.367e-02 | 3.80e-03 | 0.0651 | 2.03 |
+| uniform-2 | 1.538e-07 | 1.09e-03 | 0.0001 | 1.20 |
+| uniform-3 | 1.000e+00 | 0 | 1.0000 | 0.00 |
+| uniform-4 | 1.996e-09 | 2.28e-02 | 0.0518 | 0.93 |
+| uniform-5 | 9.897e-01 | 0 | 0.9897 | 2.00 |
+| uniform-6 | 9.773e-01 | 0 | 0.9773 | 1.71 |
+| uniform-7 | 1.543e-07 | 8.82e-04 | 0.0001 | 1.14 |
+| uniform-8 | 9.687e-01 | 0 | 0.9687 | 1.43 |
+| uniform-9 | 9.858e-01 | 0 | 0.9858 | 1.95 |
+| uniform-10 | 9.799e-01 | 0 | 0.9799 | 1.94 |
+| uniform-11 | 6.787e-09 | 4.70e-03 | 0.0022 | 2.57 |
+| uniform-12 | 9.700e-01 | 0 | 0.9700 | 0.00 |
+| uniform-13 | 9.793e-01 | 0 | 0.9793 | 0.67 |
+| uniform-14 | 9.716e-01 | 0 | 0.9716 | 1.57 |
+| uniform-15 | 9.815e-01 | 0 | 0.9815 | 1.23 |
+| quarter-0 | 9.979e-01 | 0 | 0.9979 | 2.80 |
+| quarter-1 | 9.873e-01 | 0 | 0.9873 | 2.11 |
+| quarter-2 | 9.685e-01 | 0 | 0.9685 | 1.97 |
+| quarter-3 | 9.787e-01 | 0 | 0.9787 | 1.46 |
+| quarter-4 | 9.886e-01 | 0 | 0.9886 | 1.10 |
+| quarter-5 | 9.887e-01 | 0 | 0.9887 | 0.90 |
+| quarter-6 | 1.863e-09 | 8.70e-03 | 0.0076 | 0.61 |
+| quarter-7 | 7.744e-09 | 6.97e-03 | 0.0049 | 2.45 |
 
-Reading: two escape routes, never both. Descent either (i) stays
-gapless and keeps the cone anisotropic (every omega = 0 row has
-A >= 0.966), or (ii) isotropizes - 10 of 25 seeds reach A ~
-1e-4..1e-11 - but only at gapped band edges (omega = 3.5e-4..3.7e-2).
-Route (ii) is TRIVIAL isotropy: at a band edge the touching is
-quadratic, so v(n) = omega_0/dq + O(dq) is direction-independent and
-A -> 0 without any cone. The two closest approaches to a candidate
-both miss on the gap: quarter-4 (A 1.2e-4, omega 1.5e-5) and
-uniform-1 (A 1.05e-6, omega 3.5e-4). Candidates: ZERO. The baseline
-itself descends to A 3.8e-11 at omega 3.4e-3 - the loss prefers the
-trivial escape even from the implemented step.
+Reading: two escape routes, never both.  Descent either (i) stays gapless and
+keeps the cone anisotropic - 17 of 25 seeds end at omega = 0 with A between
+0.9685 and 1.0000 - or (ii) isotropizes: 6 seeds reach A 1.5e-07..2.0e-09, but
+every one of them at a **gapped** band edge (omega 8.8e-04..2.3e-02).  Route
+(ii) is TRIVIAL isotropy: at a band edge the touching is quadratic, so
+v(n) = omega_0/dq + O(dq) is direction-independent and A -> 0 without any cone.
+The two closest approaches to a candidate both miss on the gap: uniform-7
+(A 1.54e-07, omega 8.82e-04) and uniform-2 (A 1.54e-07, omega 1.09e-03).
+**Candidates: ZERO.**  The baseline row reproduces V184's A to 1.7e-04 and
+descends to A 0.8943 at omega 3.11e-04 - on the card it takes neither escape,
+landing at a small gap with the anisotropy barely reduced (the CPU run of the
+same seed instead escaped to A 3.8e-11 at omega 3.4e-3: the trivial route, and
+the reason the candidate count, not the endpoint, is the pre-registered
+quantity).
 
 ### V189 - joint cell x step search (PASS, 4 cells x 8 seeds, 4 h GPU)
 
@@ -233,6 +241,17 @@ a node where the gap is pinned to zero: `cl10/supercell.py` and
 host-only edit moved arrays between hosts without touching values.  Either way
 the candidacy threshold 1e-6 sits far below, so the conclusion above does not
 depend on re-running the 4 h search.
+
+**The 2026-10-18 13:09 suite run did not re-execute it.**  Inside the suite the
+eight cupy workers already hold the card, so the four cell workers resolved to
+`cpu:0` and each killed itself at import - the driver saw only
+`BrokenProcessPool`.  The programme now sizes the pool to the memory the card
+can still hand out (~700 MiB per context), runs the four cells serially in the
+parent when there is room for no second context, and a worker that cannot get
+the card raises instead of exiting, so the reason reaches the parent instead of
+a broken pool.  Until the search is re-executed the driver marks the carried
+verdict STALE (a crash log newer than the JSON), which is why the suite reports
+152/154 rather than 153/154.
 
 ### V190 - the step-search gate (PASS, 0 candidates)
 

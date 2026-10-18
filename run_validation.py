@@ -176,10 +176,16 @@ def run_one(exp_dir, live=None):
     stderr_s = b"".join(err).decode("utf-8", "replace")
     time_ = time.time() - t0
     verdict = read_verdict(exp_dir)
-    # un crash du script invalide tout verdict JSON deja present sur disque :
-    # sans ce garde-fou, une experience qui plante herite du PASS de sa
-    # precedente execution (un resultat perime compte comme valide).
-    crashed = rc != 0
+    # A non-zero exit is not by itself a crash. An experiment that records its
+    # own FAIL - V182's pre-registered INCONCLUSIVE branch exits 1 - writes a
+    # verdict JSON and returns non-zero: that verdict is the result, and the
+    # returncode field keeps the exit code visible. What counts as a crash is a
+    # non-zero exit that left NO verdict from this run: then the JSON on disk
+    # belongs to an earlier execution and must not be inherited (a crashed
+    # experiment would otherwise keep the PASS of the run before it).
+    jf = verdict_file(exp_dir)
+    recorded = jf is not None and os.path.getmtime(jf) >= t0
+    crashed = rc != 0 and not recorded
     if crashed:
         tail = stderr_s.strip().splitlines()
         verdict = None

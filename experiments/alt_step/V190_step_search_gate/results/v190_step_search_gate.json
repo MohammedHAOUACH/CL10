@@ -9,8 +9,8 @@
     "scanned": 38,
     "n_candidates": 0,
     "hard_rows": [],
-    "best_A_v188": 3.7772200523682093e-11,
+    "best_A_v188": 1.2397596353328844e-09,
     "best_A_v189": 0.9670896121427659
   },
-  "wall_time": 0.003
+  "wall_time": 0.002
 }
