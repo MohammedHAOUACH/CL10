@@ -280,12 +280,14 @@ OFF-CORE. The GPU engine stays with the publication programme.
 |---|---|
 | `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
 | `V188_step_gradient_search` | Adam descent, 25 pre-registered seeds, baseline cell: descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
-| `V189_cell_step_joint_search` | joint cell x step census: (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3), 8 seeds each; every row gapless-flat, no isotropic candidate |
-| `V190_step_search_gate` | the step-search gate: 0 candidates from 45+25+32 rows scanned; the baseline step remains the only closed-form gapless point reached; W9 stays open |
+| `V189_cell_step_joint_search` | joint cell x step **census** - the step factorizes as `P(q) x U(theta)^ns`, so no descent: 419 pre-registered steps x 4 cells ((2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)); 1580/1676 gapless, A 0.9377..1.0000, no isotropic candidate |
+| `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached; W9 stays open |
 
-`V189`'s verdict is a 4 h GPU search that is not re-executed. Its
-`run_reproduce_check.sh` re-evaluates the objective at the recorded
-$(\theta^*, q^*)$ of the verdict's rows instead: seconds on the card the engine
-pins (the gate checks that card, `WAIT=<s>` waits for it, `CL10_JAX_CPU=1`
-takes the CPU core), and it fails loudly if the deviation exceeds the 1e-3
-anchor gate.
+`V189` runs in 8 min on the CPU and is re-executed by the driver like any
+other experiment. The factorization `M(q,theta) = P(q) (x) U(theta)^ns` (bond
+layer times internal layer, exact to 8e-16) makes the `q`-half a per-cell
+precomputation and a step a 16x16 eigendecomposition, instead of a `(16 n_sub)^3`
+diagonalization per optimizer step. Its internal anchor - the implemented step
+evaluated through the factorized route and through V184's `(16 n_sub)^3`
+eigendecomposition at one node, agreeing in `lam_max` to 1.3e-15 - is what proves
+the fast route is the reference route.

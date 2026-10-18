@@ -158,14 +158,18 @@ experiment of the publication programme **passes**; the hard-tier verdict is
 positive.  Of the 39 exploration experiments, all pass except
 `V182_ir_decoupling`, which records its own pre-registered branch as
 INCONCLUSIVE (the flux sector is massive at every volume probed, but the volume
-drift leaves neither branch firing), and `V189_cell_step_joint_search`, whose
-4 h search the suite could not re-execute on a card the eight cupy workers had
-already filled — its 2026-10-18 00:40 verdict stands on disk, flagged STALE by
-the driver until the search is re-run (the suite therefore reports 152/154).
-Re-evaluating that verdict's objective at the recorded $(\theta^*, q^*)$ under
-the merged library reproduces `aniso` **bit for bit** on the card (deviation
-0.00e+00 on all four cells, `omega` exactly 0) and to 2e-4 on the CPU core, so
-its negative conclusion stands.
+drift leaves neither branch firing). The 154th, `V189_cell_step_joint_search`,
+now passes and is re-executed like the others: what had been a 4 h GPU search
+the suite could not run (the eight cupy workers already hold the card) is an
+8 min CPU census, because the step factorizes exactly as
+`M(q, theta) = P(q) (x) U(theta)^ns` - the bond layer carries no step angle, so
+the momentum half is a per-cell precomputation and a step costs a 16x16
+eigendecomposition instead of a `(16 n_sub)^3` one per optimizer step. The
+census carries its own anchor: the implemented step evaluated through the
+factorized route and through V184's `(16 n_sub)^3` eigendecomposition at one
+node agree in `lam_max` to 1.3e-15. The card run of 13:09, which predates that
+rewrite, reports 152/154; the suite now reports 153/154, V182's
+pre-registered INCONCLUSIVE branch being the only non-PASS.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —

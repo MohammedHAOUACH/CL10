@@ -135,9 +135,10 @@ nsub x nsub product for q, one einsum for the assembly (124 matrices in
   cycles x [Nelder-Mead node + 30 Adam steps on theta]; best-L
   tracking of the trajectory (Adam overshoots on this rugged
   landscape; the returned iterate is the best seen).
-- **V189**: four cell/stage choices - (2,2,2) baseline stages,
-  (2,2,2) phase-major, (2,2,3), (3,3,3) (M = 128/128/192/432) - each
-  with 8 seeds (baseline + 7 uniform, rng 187), same scheme.
+- **V189**: the same four cell/stage choices - (2,2,2) baseline stages,
+  (2,2,2) phase-major, (2,2,3), (3,3,3) (M = 128/128/192/432) - but no
+  descent: the step factorizes as `P(q) (x) U(theta)^ns`, so 419
+  pre-registered steps per cell are evaluated directly (rng 187).
 - **V190**: the gate. Candidacy from all V188/V189 rows (A < 1e-6 AND
   omega < 1e-6); every candidate faces the hard tier on U* =
   U(theta*): unitary_err < 1e-12, closure period <= 64, front speed
@@ -146,10 +147,13 @@ nsub x nsub product for q, one einsum for the assembly (124 matrices in
 - Anchors between experiments: V188's baseline initial A must
   reproduce V184's baseline row (gate 1e-3: A is a knife-edge ratio,
   dA/domega_min ~ 5e3, and the NM node landing jitters ~1e-5 in q*
-  across processes on the GPU route); V189's (2,2,2)/baseline initial
-  A must reproduce V188's (same gate). The post-descent A is chaotic
-  across processes (NM jitter cascades through 300 Adam steps) and is
-  therefore never used as an anchor.
+  across processes on the GPU route). V189 anchors differently and much
+  harder: the implemented step is evaluated at one node both through the
+  factorized route and through V184's `(16 n_sub)^3` eigendecomposition,
+  and `lam_max` must agree to 1e-12 (measured 1.3e-15) - the fast route
+  is the reference route, not an approximation of it. The post-descent A
+  is chaotic across processes (NM jitter cascades through 300 Adam steps)
+  and is therefore never used as an anchor.
 
 ## 6. Results
 
@@ -211,51 +215,63 @@ same seed instead escaped to A 3.8e-11 at omega 3.4e-3: the trivial route, and
 the reason the candidate count, not the endpoint, is the pre-registered
 quantity).
 
-### V189 - joint cell x step search (PASS, 4 cells x 8 seeds, 4 h GPU)
+### V189 - joint cell x step CENSUS (PASS, 4 cells x 419 steps, 8 min CPU)
 
-| cell | stages | M | best A | best omega(q*) | best seed |
+**Why the shape changed.** The first version ran Adam jointly over the cell and
+the 45 angles: 4 h of GPU, and inside the suite it could not even be re-executed,
+because the eight cupy workers already hold the card and its own four workers
+killed themselves at import. The step then turned out to **factorize exactly**,
+which removes both the cost and the need for a descent:
+
+$$M(q,\theta) = P(q)\otimes U(\theta)^{n_s}$$
+
+$P(q)$ is the product of the cell's bond matrices - it carries no $\theta$ at
+all - and $U(\theta)$ the internal $16\times16$ unitary, $n_s$ the number of
+stages. The spectrum of a Kronecker product is the set of products, so
+
+$$\text{gap}(q,\theta)=\min_{i,j}\bigl|\arg p_i(q)+\arg v_j(\theta)\bigr|$$
+
+Checked against V184's own core on all four cells: $|M_{\text{direct}} - P\otimes
+U^{n_s}| \le 8\mathrm{e}{-}16$, the gap to $3\mathrm{e}{-}15$. The $q$-half is
+computed **once per cell** and reused for every step, and one step costs a
+$16\times16$ eigendecomposition plus a phase search instead of a
+$(16n_{\text{sub}})^3$ diagonalization per optimizer step; $n_{\text{sub}}$ is
+only 8, 12 or 27, so the factorization skips a factor of $\sim10^4$.
+
+**What it does instead.** No optimizer: a **census**. 419 pre-registered steps
+per cell - the implemented step, the quarter-angle steps, per-stage cycles, 128
+quarter-lattice draws, 256 uniform draws, 24 perturbations of the baseline - run
+on all four cells, judged by the same criterion as before: gapless at its own
+node ($\omega<10^{-6}$) and isotropic there ($A<10^{-6}$, the V115 cone metric
+over the 215 sphere directions, the same objective V184 and V188 used).
+
+| cell | stages | $M$ | gapless | best $A$ | best seed |
 |---|---|---|---|---|---|
-| (2,2,2) | baseline | 128 | 0.9966 | 0 | uniform-5 |
-| (2,2,2) | phase-major | 128 | 0.9805 | 0 | uniform-2 |
-| (2,2,3) | phase-major | 192 | 0.9675 | 0 | uniform-5 |
-| (3,3,3) | phase-major | 432 | 0.9671 | 0 | uniform-4 |
+| (2,2,2) | baseline | 128 | 385/419 | 0.9466 | uniform-210 |
+| (2,2,2) | phase-major | 128 | 385/419 | 0.9631 | uniform-55 |
+| (2,2,3) | phase-major | 192 | 407/419 | 0.9377 | uniform-100 |
+| (3,3,3) | phase-major | 432 | 403/419 | 0.9401 | uniform-146 |
 
-All 32 rows are gapless-flat: for every cell shape and stage order,
-every seed's descent ends gapless with A 0.967-1.000. No cell admits
-an isotropic gapless step. Structural tier note: anomalies,
-hypercharge and the chiral matter content are fixed by the signature +
-sector decomposition and are untouched by (cell, theta) - the cell
-changes only the motion - so no structural re-check was required for
-non-candidates.
+**Result.** 1580 of the 1676 sampled steps are gapless, and their cone
+anisotropy spans $A\in[0.9377,1.0000]$ (median 0.9944). **No step is isotropic
+at its node.** Where the descent version could report one trajectory per seed,
+the census reports the distribution of $A$ over the whole family - and the
+anomalies, hypercharge and the chiral matter content are fixed by the signature
+and the sector decomposition, untouched by (cell, theta), so no structural
+re-check was required for non-candidates.
 
-**Reproduction of the carried verdict** (`V189_reproduce_objective.py`, driven
-by `run_reproduce_check.sh`; 2026-10-18, no descent).  The verdict stores the
-$(\theta^*, q^*)$ every row converged to, so its objective can be re-evaluated
-under the current library without re-running the search.  **On the card - the
-route the run itself used (`JAX cuda:0`) - it reproduces bit for bit**: for the
-best row of all four cells the `aniso` deviation is `0.00e+00` and `omega` is
-exactly 0 (`gap2 ~ -2e-14`).  On the CPU core the same evaluation deviates by
-2.2e-05 / 1.8e-04 / 4.1e-06 / 1.3e-05, which is the GPU-vs-CPU eigensolver at
-a node where the gap is pinned to zero: `cl10/supercell.py` and
-`cl10/config.py` are unchanged since before the run, and the `altcell`
-host-only edit moved arrays between hosts without touching values.  Either way
-the candidacy threshold 1e-6 sits far below, so the conclusion above does not
-depend on re-running the 4 h search.
-
-**The 2026-10-18 13:09 suite run did not re-execute it.**  Inside the suite the
-eight cupy workers already hold the card, so the four cell workers resolved to
-`cpu:0` and each killed itself at import - the driver saw only
-`BrokenProcessPool`.  The programme now sizes the pool to the memory the card
-can still hand out (~700 MiB per context), runs the four cells serially in the
-parent when there is room for no second context, and a worker that cannot get
-the card raises instead of exiting, so the reason reaches the parent instead of
-a broken pool.  Until the search is re-executed the driver marks the carried
-verdict STALE (a crash log newer than the JSON), which is why the suite reports
-152/154 rather than 153/154.
+**The anchor.** The implemented step, evaluated at one node through the
+factorized route and through V184's $(16n_{\text{sub}})^3$ eigendecomposition,
+agrees in $\lambda_{\max}$ to $1.3\mathrm{e}{-}15$: the fast route is the
+reference route. The cone metric agrees to $3.7\mathrm{e}{-}4$, which is the
+$\arccos$ amplification of a $10^{-15}$ eigenvalue error at a point where the
+gap is pinned to zero, not a difference of spectra. The two node searches land
+up to $7.1$ apart on that step (it sits $4\mathrm{e}{-}8$ from gapless) - a
+property of the search, recorded and deliberately not gated.
 
 ### V190 - the step-search gate (PASS, 0 candidates)
 
-38 census rows scanned (V184 9 + V188 25 + V189 4 summaries);
+1710 census rows scanned (V184 9 + V188 25 + V189 1676);
 candidacy A < 1e-6 AND omega(q*) < 1e-6: **zero candidates**. The hard
 tier had nothing to reject; the pi/8 closure-projected re-evaluation
 was never triggered. PASS with the negative recorded.
@@ -263,10 +279,12 @@ was never triggered. PASS with the negative recorded.
 ## 7. What the negative actually establishes - and its limits
 
 Established, within the searched space (45 continuous angles x 4
-cell/stage choices, 57 descent runs, ~17000 Adam steps):
+cell/stage choices: 25 Adam descents on the baseline cell, ~17000 Adam
+steps, plus 1676 explicitly sampled steps x 4 cells with no descent):
 
 - no step in the space carries a gapless isotropic cone - the two
-  properties never coexist along any descent trajectory;
+  properties never coexist along any descent trajectory, nor at any of
+  the 1676 census steps;
 - the implemented step is not a lucky point but an isolated closed-form
   gapless point: random steps are gapless-FLAT (A -> 1), and isotropy
   is reachable only by paying a gap;
@@ -277,11 +295,12 @@ cell/stage choices, 57 descent runs, ~17000 Adam steps):
 
 Limits, honestly:
 
-- gradient descent is local: 57 seeds explore 57 basins of a rugged
-  45-dimensional landscape, not the whole space; a far-away isotropic
-  gapless step could exist that no seed found. What the census shows
-  is that none is reachable by descent from generic or structured
-  starts, and that the loss's isotropic basin is the trivial one;
+- the search is a sample, not the space: 25 descent basins plus 1676
+  pre-registered steps of a 45-dimensional landscape. What the census
+  adds over the descents is the distribution - 1580 of the 1676 sampled
+  steps are gapless and their A spans 0.9377..1.0000, so the isotropic
+  value is not merely unreachable by descent, it is absent from a
+  structured + random sample of the family;
 - the closure gate (period <= 64) was never exercised (no candidate
   reached it); a hypothetical candidate with generic angles would in
   general fail closure, and the pi/8 projection row was the
@@ -293,11 +312,13 @@ Limits, honestly:
 ## 8. Verdict
 
 The step/cell SPECIFICATION has been searched directly - 45 continuous
-per-plane angles by differentiable cone loss + Adam (25 seeds), and
-four cell/stage choices (32 seeds), on GPU with every route anchored
-against the published machinery. No isotropic gapless step exists in
-the searched space: descent either keeps the cone anisotropic (A >=
-0.966 at every gapless point it reaches) or isotropizes only trivially
+per-plane angles by differentiable cone loss + Adam (25 seeds), and a
+419-step census on each of four cell/stage choices (1676 steps, no
+descent), every route anchored against the published machinery. No
+isotropic gapless step exists in the searched space: descent either
+keeps the cone anisotropic (A >=
+0.9377 at every gapless point reached, by descent or by census) or isotropizes
+only trivially
 at gapped band edges (omega >= 3.5e-4). The implemented step (g_10 on
 all 45 planes, cell (2,2,2)) remains the only closed-form gapless
 point found, and W9 (cone isotropy) stays open: it is not a tunable

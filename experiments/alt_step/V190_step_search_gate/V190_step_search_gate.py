@@ -76,7 +76,7 @@ def main():
     d189 = _data("V189_cell_step_joint_search")
 
     scanned = (len(d184["rows"]) + len(d188["rows"])
-               + len(d189["summary"]))
+               + len(d189["rows"]))
     cands = [dict(r, cell="(2, 2, 2)", stages="baseline",
                   src="V188") for r in d188["rows"]
              if r["A"] < 1e-6 and r["omega_node"] < 1e-6]
@@ -147,7 +147,8 @@ def main():
         "residual": None,
         "pass": bool(ok),
         "status": f"{scanned} census rows scanned (V184 landscape + "
-                  f"V188 25 seeds + V189 4 cells); candidates (A < 1e-6 "
+                  f"V188 25 seeds + V189 {len(d189['rows'])} census rows); "
+                  f"candidates (A < 1e-6 "
                   f"and omega < 1e-6): {len(cands)}. Best A: V188 "
                   f"{min((r['A'] for r in d188['rows']), default=float('nan')):.4f}, V189 "
                   f"{min([s['best_A'] for s in d189['summary']] or [float('nan')]):.4f}. "
