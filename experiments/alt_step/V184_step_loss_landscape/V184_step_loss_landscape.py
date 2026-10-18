@@ -43,11 +43,11 @@ import os
 import sys
 import time
 
-os.environ.setdefault("CL10_BACKEND", "numpy")
-if os.environ.get("CL10_JAX_GPU", "0") != "1":
-    # the 128x128 eigendecompositions are CPU-optimal; the GPU is left
-    # free for the user's processes (CUDA OOM observed 2026-10-13)
-    os.environ.setdefault("JAX_PLATFORM_NAME", "cpu")
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
+# the 128x128 eigendecompositions are CPU-optimal, so the CUDA plugin must not
+# even be probed: JAX_PLATFORMS=cpu skips it (the retired JAX_PLATFORM_NAME
+# still initializes it, and it dies on a card another process has filled).
+os.environ.setdefault("JAX_PLATFORMS", "cpu")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))

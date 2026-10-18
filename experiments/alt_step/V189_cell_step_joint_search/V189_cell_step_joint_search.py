@@ -27,13 +27,28 @@ core).
 
 import importlib.util
 import json
+import multiprocessing
 import os
+import subprocess
 import sys
 import time
+from concurrent.futures import ProcessPoolExecutor
 
-os.environ.setdefault("CL10_BACKEND", "numpy")
-if os.environ.get("CL10_JAX_GPU", "0") != "1":
-    os.environ.setdefault("JAX_PLATFORM_NAME", "cpu")
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
+# the joint search is hours on the CPU core, so JAX takes the card; lazy
+# allocation keeps it working when the card is shared with another process.
+# CL10_JAX_CPU=1 opts out to the CPU core.
+os.environ.setdefault("XLA_PYTHON_CLIENT_PREALLOCATE", "false")
+if os.environ.get("CL10_JAX_CPU", "0") == "1":
+    # JAX_PLATFORMS, not the retired JAX_PLATFORM_NAME: under the latter JAX
+    # still initializes the CUDA plugin and dies on a card another process
+    # has filled (RuntimeError: no supported devices found for platform CUDA).
+    os.environ.setdefault("JAX_PLATFORMS", "cpu")
+
+# the four cell workers share the box: cap the intra-op threads per worker so
+# the pool does not oversubscribe the cores (one quarter of them each)
+os.environ.setdefault("OMP_NUM_THREADS",
+                      str(max(1, (os.cpu_count() or 4) // 4)))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -44,6 +59,28 @@ import jax
 import jax.numpy as jnp
 
 jax.config.update("jax_enable_x64", True)
+
+_DEV = jax.devices()[0]
+if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
+    sys.exit(f"V189: JAX resolved to {_DEV} - the card is unavailable. Free it, "
+             f"or set CL10_JAX_CPU=1 to run the search on the CPU core.")
+
+if _DEV.platform == "gpu":
+    # one JAX context per cell worker: on a card another process has already
+    # filled, the pool dies during init (BrokenProcessPool) instead of saying
+    # so. Ask for the card up front - read it from nvidia-smi, since JAX's own
+    # bytes_limit is its allocator budget, not what is free on the device.
+    _N_CELLS = 4
+    _q = subprocess.run(["nvidia-smi", "-i", str(_DEV.id),
+                         "--query-gpu=memory.free",
+                         "--format=csv,noheader,nounits"],
+                        capture_output=True, text=True)
+    _free = int(_q.stdout.strip().splitlines()[0]) if _q.stdout.strip() else 0
+    if _free < 700 * _N_CELLS:
+        sys.exit(f"V189: the cell pool needs one JAX context per cell on the card "
+                 f"(~700 MiB x {_N_CELLS}); only {_free} MiB free on GPU{_DEV.id}. "
+                 f"Free the card, or set CL10_JAX_CPU=1 to run the pool on the "
+                 f"CPU core.")
 
 from cl10 import supercell as SC
 from cl10 import altcell as A
@@ -61,10 +98,62 @@ N_TH = 30
 LR_TH = 0.02
 
 
+def _cell_search(job):
+    """One cell of the joint search: its core, its 8 seeds, the alternating
+    Adam scheme.  This is a worker of the cell pool.  The four cells are
+    independent (the rng stream, the node search and the descent are per
+    cell), so the pool is the whole speed-up: the wall becomes the slowest
+    cell, not the sum of four."""
+    shape, stagname, stages = job
+    C = V184.build_core(shape, stages)
+    ns = C["c"]["nsub"] * 16
+    rng = np.random.default_rng(187)
+    seeds = [("baseline g_10*1", np.full(45, G10))]
+    for s in range(7):
+        seeds.append((f"uniform-{s}",
+                      rng.uniform(0.0, 2.0 * np.pi, 45)))
+    rows = []
+    t0 = time.time()
+    for name, th in seeds:
+        thj = jnp.array(th)
+        q = C["find_node"](thj)
+        a0 = float(C["aniso"](q, thj))
+        best_l = (a0 + 100.0 * float(C["omega"](q, thj)) ** 2)
+        for _ in range(N_CYCLES):
+            q = C["find_node"](thj)
+            thj = V184.adam(lambda t: C["combined_grad"](q, t),
+                            thj, N_TH, LR_TH)
+            q2 = C["find_node"](thj)
+            ll2 = (float(C["aniso"](q2, thj))
+                   + 100.0 * float(C["omega"](q2, thj)) ** 2)
+            if ll2 < best_l:
+                best_l, thj = ll2, thj
+        q = C["find_node"](thj)
+        aa = float(C["aniso"](q, thj))
+        om = float(C["omega"](q, thj))
+        ll = aa + 100.0 * om * om
+        rows.append({"cell": str(shape), "stages": stagname,
+                     "seed": name, "A": aa, "A0": a0,
+                     "omega_node": om,
+                     "L": ll, "q_star": [float(x) for x in q],
+                     "theta_star": [float(x) for x in thj]})
+        print(f"  {str(shape):>9} {stagname:>11} {name:>16}: A "
+              f"{aa:.4f}  omega(q*) {om:.2e}  "
+              f"[{time.time() - t0:.0f}s]", flush=True)
+    best = min(rows, key=lambda r: r["A"])
+    summary = {"cell": str(shape), "stages": stagname,
+               "m_size": ns, "best_A": best["A"],
+               "best_L": best["L"],
+               "best_omega": best["omega_node"],
+               "best_seed": best["seed"],
+               "node_found": bool(best["omega_node"] < 1e-3)}
+    return rows, summary
+
+
 def main():
     t0 = time.time()
     print("=" * 68)
-    print(f"V186 - joint cell x step search "
+    print(f"V189 - joint cell x step search "
           f"(JAX {jax.__version__}, device {jax.devices()[0]})")
     print("=" * 68)
     cells = [((2, 2, 2), "baseline", A.stages_baseline()),
@@ -72,53 +161,17 @@ def main():
              ((2, 2, 3), "phase-major", A.stages_shape((2, 2, 3))),
              ((3, 3, 3), "phase-major", A.stages_shape((3, 3, 3)))]
 
-    rows = []
-    summary = []
-    for shape, stagname, stages in cells:
-        C = V184.build_core(shape, stages)
-        ns = C["c"]["nsub"] * 16
-        rng = np.random.default_rng(187)
-        seeds = [("baseline g_10*1", np.full(45, G10))]
-        for s in range(7):
-            seeds.append((f"uniform-{s}",
-                          rng.uniform(0.0, 2.0 * np.pi, 45)))
-        best = None
-        for name, th in seeds:
-            thj = jnp.array(th)
-            q = C["find_node"](thj)
-            a0 = float(C["aniso"](q, thj))
-            best_l = (a0 + 100.0 * float(C["omega"](q, thj)) ** 2)
-            for _ in range(N_CYCLES):
-                q = C["find_node"](thj)
-                thj = V184.adam(lambda t: C["combined_grad"](q, t),
-                                thj, N_TH, LR_TH)
-                q2 = C["find_node"](thj)
-                ll2 = (float(C["aniso"](q2, thj))
-                       + 100.0 * float(C["omega"](q2, thj)) ** 2)
-                if ll2 < best_l:
-                    best_l, thj = ll2, thj
-            q = C["find_node"](thj)
-            aa = float(C["aniso"](q, thj))
-            om = float(C["omega"](q, thj))
-            ll = aa + 100.0 * om * om
-            rows.append({"cell": str(shape), "stages": stagname,
-                         "seed": name, "A": aa, "A0": a0,
-                         "omega_node": om,
-                         "L": ll, "q_star": [float(x) for x in q],
-                         "theta_star": [float(x) for x in thj]})
-            if best is None or aa < best["A"]:
-                best = rows[-1]
-            print(f"  {str(shape):>9} {stagname:>11} {name:>16}: A "
-                  f"{aa:.4f}  omega(q*) {om:.2e}  "
-                  f"[{time.time() - t0:.0f}s]")
-        summary.append({"cell": str(shape), "stages": stagname,
-                        "m_size": ns, "best_A": best["A"],
-                        "best_L": best["L"],
-                        "best_omega": best["omega_node"],
-                        "best_seed": best["seed"],
-                        "node_found": bool(best["omega_node"] < 1e-3)})
-        print(f"  -> cell {shape} {stagname}: best A {best['A']:.4f} "
-              f"(M {ns}) [{time.time() - t0:.0f}s]")
+    # one worker per cell, spawn (a forked child inherits a dead CUDA
+    # context).  ex.map keeps the cell order, so the rows and the summary
+    # come back exactly as the serial loop produced them.
+    with ProcessPoolExecutor(max_workers=len(cells),
+                             mp_context=multiprocessing.get_context("spawn")
+                             ) as ex:
+        out = list(ex.map(_cell_search, cells))
+    rows, summary = [], []
+    for r, s in out:
+        rows.extend(r)
+        summary.append(s)
 
     # ---- anchor: (2,2,2)/baseline baseline seed vs V188 baseline ----
     p188 = os.path.join(ROOT, "experiments", "alt_step",
@@ -145,7 +198,7 @@ def main():
     ok = devA < 1e-3 and len(rows) == 32 and len(summary) == 4
 
     verdict = {
-        "id": "V186_cell_step_joint_search",
+        "id": "V189_cell_step_joint_search",
         "tier": 4,
         "property": "joint search over the cell (block shapes (2,2,2) "
                     "baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)) "
@@ -167,11 +220,11 @@ def main():
     }
     outdir = os.path.join(HERE, "results")
     os.makedirs(outdir, exist_ok=True)
-    with open(os.path.join(outdir, "v186_cell_step_joint_search.json"),
+    with open(os.path.join(outdir, "v189_cell_step_joint_search.json"),
               "w") as fh:
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'}   JSON -> "
-          f"{os.path.join(outdir, 'v186_cell_step_joint_search.json')}")
+          f"{os.path.join(outdir, 'v189_cell_step_joint_search.json')}")
     print(f"  Wall time = {time.time() - t0:.2f} s")
     return 0 if ok else 1
 

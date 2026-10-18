@@ -46,6 +46,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 from cl10.paths import exp
 
 import numpy as np

@@ -552,7 +552,10 @@ of `supercell` being its $(2,2,2)$ special case (kept as the regression
 anchor); `bloch_stages` / `step_stages` / `front_speed_stages` carry the
 step-rule axis, and `cone_anisotropy`, `chirality_at`, `fock_self_energy`,
 `lowdin_downfold`, `oh_group` support the censuses. Exploration code: no
-published number reads it. `python -m cl10.altcell` runs the self-check.
+published number reads it. The module is **host-only**: the `clifford` and
+`supercell` calls it makes are moved back to the host where they enter, so it
+returns numpy arrays under either backend. `python -m cl10.altcell` runs the
+self-check.
 
 ## 41. `cl10.altgpu` — the batched CUDA eigensolver of the interaction census
 

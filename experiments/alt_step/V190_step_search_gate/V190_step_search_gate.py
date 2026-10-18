@@ -27,9 +27,9 @@ import os
 import sys
 import time
 
-os.environ.setdefault("CL10_BACKEND", "numpy")
-if os.environ.get("CL10_JAX_GPU", "0") != "1":
-    os.environ.setdefault("JAX_PLATFORM_NAME", "cpu")
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
+# the gate only reads the three verdict JSONs: no reason to probe CUDA.
+os.environ.setdefault("JAX_PLATFORMS", "cpu")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))

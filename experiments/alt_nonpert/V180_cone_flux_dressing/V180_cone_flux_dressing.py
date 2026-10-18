@@ -45,7 +45,7 @@ import time
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, "1")
-os.environ.setdefault("CL10_BACKEND", "numpy")  # alt suite numpy-native
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core  # alt suite numpy-native
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))

@@ -97,28 +97,28 @@
    "spectral_shift_max": 0.6988425976378033
   },
   "asymmetry": {
-   "M_N_GeV": 96061699239510.22,
+   "M_N_GeV": 96131777036496.42,
    "K_strong_washout_min": 3.9344699790803364,
    "cases": {
     "atmospheric y": {
-     "y": 0.39846,
+     "y": 0.39861,
      "K": 46.81,
      "kappa_f": 0.00546,
      "z_B": 7.831,
      "strong_washout_domain": true,
-     "J_required": 0.00010019875206028447,
-     "Phi_required_rad": 0.0643633874728807,
-     "DB_at_J1": 6.1078605014141375e-06
+     "J_required": 0.00010012570953447647,
+     "Phi_required_rad": 0.06431640325567528,
+     "DB_at_J1": 6.112316235714353e-06
     },
     "out-of-equilibrium y": {
-     "y": 0.05824,
+     "y": 0.05826,
      "K": 1.0,
      "kappa_f": 1.0,
      "z_B": null,
      "strong_washout_domain": false,
-     "J_required": 2.55908505056599e-05,
-     "Phi_required_rad": 0.016427857938235327,
-     "DB_at_J1": 2.391479719928201e-05
+     "J_required": 2.557219537952238e-05,
+     "Phi_required_rad": 0.016415881341221128,
+     "DB_at_J1": 2.3932243239861813e-05
     }
    }
   },
@@ -135,13 +135,13 @@
    "pass": true
   },
   {
-   "name": "T2 with V106's physical washout the measured Delta B = 6.12e-10 costs a CP strength J = 0.0001 at the atmospheric Yukawa (y = 0.3985, K = 46.8, kappa_f = 5.5e-03, strong washout) and J = 2.56e-05 at the out-of-equilibrium Yukawa (y = 0.0582, K = 1): K = 1 sits BELOW the branch point K = 3.93 of the strong-washout solution, so kappa_f is the weak-washout bound 1 and the cost is the lower bound on J; the flux supplies up to |Im holonomy| = 0.00156",
+   "name": "T2 with V106's physical washout the measured Delta B = 6.12e-10 costs a CP strength J = 0.0001 at the atmospheric Yukawa (y = 0.3986, K = 46.8, kappa_f = 5.5e-03, strong washout) and J = 2.56e-05 at the out-of-equilibrium Yukawa (y = 0.0583, K = 1): K = 1 sits BELOW the branch point K = 3.93 of the strong-washout solution, so kappa_f is the weak-washout bound 1 and the cost is the lower bound on J; the flux supplies up to |Im holonomy| = 0.00156",
    "pass": true
   },
   {
-   "name": "T3 the flux curve reaches the required CP strength at Phi = 0.0644, 0.0164 rad - the CP condition of Sakharov is NOT the obstruction; the out-of-equilibrium condition is (K = 46.8 at the Yukawa that gives m_nu)",
+   "name": "T3 the flux curve reaches the required CP strength at Phi = 0.0643, 0.0164 rad - the CP condition of Sakharov is NOT the obstruction; the out-of-equilibrium condition is (K = 46.8 at the Yukawa that gives m_nu)",
    "pass": true
   }
  ],
- "status": "THE CP FLUX SPENT ON THE ASYMMETRY (O5). V117's sub-lattice bond flux A_1 = Phi x_0 is exactly unitary (4.8e-15), keeps det U = 1 at every flux (max |arg det U| = 5.3e-15 - V78's protection extends to the flux step), commutes with the pseudoscalar (the mirror Z2 of V124, leak 3.3e-16) and keeps the hop at radius 1 (2.6e-16), while moving the band spectrum by up to 7.0e-01: it is a physical CP-odd bond-layer input that changes no algebraic invariant. Its gauge-invariant strength is Im holonomy, 0 at Phi = 0 and 1.6e-03 at Phi = pi/2. Spending it on baryogenesis with V106's physical washout: at the atmospheric Yukawa (y = 0.3985) the decay is IN equilibrium (K = 46.8) with kappa_f = 5.5e-03, and Delta B = 6.12e-10 costs J = 0.0001, supplied by the flux at Phi = 0.0644 rad; at the out-of-equilibrium Yukawa (y = 0.0582, K = 1, below the strong-washout branch point K = 3.93, so kappa_f is the weak-washout bound 1) it costs at least J = 2.56e-05 at Phi = 0.0164 rad. the CP phase is NOT the missing ingredient - a bond-layer flux of size Phi ~ 0.0644 supplies more than the asymmetry needs while leaving unitarity, det U = 1, the mirror Z2 and causality exact. What fails is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the decay in equilibrium (K = 46.8), and out-of-equilibrium decay needs y < 0.0582, which caps m_nu far below the atmospheric splitting. O5 stays open, and it is now open for ONE named reason instead of two."
+ "status": "THE CP FLUX SPENT ON THE ASYMMETRY (O5). V117's sub-lattice bond flux A_1 = Phi x_0 is exactly unitary (4.8e-15), keeps det U = 1 at every flux (max |arg det U| = 5.3e-15 - V78's protection extends to the flux step), commutes with the pseudoscalar (the mirror Z2 of V124, leak 3.3e-16) and keeps the hop at radius 1 (2.6e-16), while moving the band spectrum by up to 7.0e-01: it is a physical CP-odd bond-layer input that changes no algebraic invariant. Its gauge-invariant strength is Im holonomy, 0 at Phi = 0 and 1.6e-03 at Phi = pi/2. Spending it on baryogenesis with V106's physical washout: at the atmospheric Yukawa (y = 0.3986) the decay is IN equilibrium (K = 46.8) with kappa_f = 5.5e-03, and Delta B = 6.12e-10 costs J = 0.0001, supplied by the flux at Phi = 0.0643 rad; at the out-of-equilibrium Yukawa (y = 0.0583, K = 1, below the strong-washout branch point K = 3.93, so kappa_f is the weak-washout bound 1) it costs at least J = 2.56e-05 at Phi = 0.0164 rad. the CP phase is NOT the missing ingredient - a bond-layer flux of size Phi ~ 0.0643 supplies more than the asymmetry needs while leaving unitarity, det U = 1, the mirror Z2 and causality exact. What fails is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the decay in equilibrium (K = 46.8), and out-of-equilibrium decay needs y < 0.0583, which caps m_nu far below the atmospheric splitting. O5 stays open, and it is now open for ONE named reason instead of two."
 }

@@ -44,6 +44,11 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, "1")
 
+# the census is CPU work and the pool below forks: pin the core so no CUDA
+# context is created in the parent and inherited broken by the children (the
+# OFF-CORE convention of V186/V187)
+os.environ["CL10_BACKEND"] = "numpy"
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)

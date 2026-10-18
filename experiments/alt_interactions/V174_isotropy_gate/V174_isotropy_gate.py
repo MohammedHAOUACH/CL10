@@ -30,6 +30,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))))
 ROOT = HERE
 sys.path.insert(0, ROOT)
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 
 import numpy as np
 

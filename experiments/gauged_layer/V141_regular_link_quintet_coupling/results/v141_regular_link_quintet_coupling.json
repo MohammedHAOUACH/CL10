@@ -32,7 +32,7 @@
       ],
       "projector_form_err": 4.1486496693216255e-15,
       "projector_invariance_err": 4.481476029445426e-15,
-      "fixed_link_min_eig_sumCdagC": 44.99999999999981
+      "fixed_link_min_eig_sumCdagC": 44.99999999999975
     },
     "hopping": {
       "tail_invariance_err": 0.0,
@@ -50,13 +50,13 @@
     "coupling": {
       "t2g_axis_coefficient": 0.0,
       "Pi_Eg_eigenvalues": [
-        -4.7447490085179975,
-        -4.744749008516734
+        -4.744749008514971,
+        -4.74474900849934
       ],
       "Pi_T2g_max": 0.0,
       "mass_shift_at_lambda_g10": [
-        -0.09489498017035997,
-        -0.0948949801703347
+        -0.09489498017029943,
+        -0.0948949801699868
       ],
       "note": "nearest-neighbour bonds carry only the diagonal (Eg) quintet components; the T2g half has no nearest-neighbour coupling (named gap: diagonal bonds needed); the Eg bubble is nonzero so the coupling gives the Eg half a mass lambda^2*Pi/2"
     },

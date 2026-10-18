@@ -11,8 +11,10 @@
 # child and does NOT fall back, so a worker that cannot get the card fails
 # loudly (traceback in results/crashes/) instead of silently running the CPU
 # path and reporting a GPU verdict it never earned.  Experiments that are CPU
-# work by measurement (the cone programme, V186/V187) pin the CPU core
-# themselves and are listed OFF-CORE in the summary.
+# work by measurement (the whole alt_* suite, and the cone programme's
+# V186/V187 searches) pin the CPU core themselves - a hard
+# CL10_BACKEND=numpy assignment, which overrides this export - and are listed
+# OFF-CORE in the summary.
 set -uo pipefail
 cd "$(dirname "$0")"
 

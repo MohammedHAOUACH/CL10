@@ -48,6 +48,13 @@ file whenever it is re-run.
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §17 (W9) |
 | `alt_step` | the exploration programme: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4) | §17 (W9) |
 
+The `alt_*` programmes run on the **numpy core**: each script pins
+`CL10_BACKEND=numpy` before importing `cl10`, and `cl10/altcell.py` is
+host-only by contract (every call into an engine-routed module is moved back
+to the host where it enters). Their linear algebra is host-side, so their
+verdicts do not depend on what else holds the card; the runner lists them
+OFF-CORE. The GPU engine stays with the publication programme.
+
 ## The experiments
 
 ### `algebra_root`

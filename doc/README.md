@@ -15,7 +15,7 @@ Markdown. Nothing here is hand-copied from another file. Back to the
 | `paper2_gauge_gravity.md` | the gauge and gravity sectors (188 lines, 9 pp). |
 | `paper3_phenomenology.md` | the couplings, the flavour sector, the cosmology, the falsifiers (431 lines, 28 pp). |
 | `reference.md` | the technical reference: the exact constructions, the numerical protocol, the reproducibility statement, the reading map of the code. |
-| `api.md` | the API reference of the 39 `cl10` modules — signatures, returned keys, provenance vocabulary, the runner contract. Regenerated from the live modules, never from memory. |
+| `api.md` | the API reference of the 42 `cl10` modules — signatures, returned keys, provenance vocabulary, the runner contract. Regenerated from the live modules, never from memory. |
 | `figures/` | the 25 PNGs, every one computed by [`make_figures`](../make_figures/README.md). |
 | `*.pdf` | the compiled artifacts (the master + the three companions). |
 | `*.tex`, `*.aux`, `*.log`, `*.out` | LaTeX intermediates of the build, **git-ignored**, safe to delete. |

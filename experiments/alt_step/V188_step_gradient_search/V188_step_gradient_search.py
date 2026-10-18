@@ -29,9 +29,16 @@ import os
 import sys
 import time
 
-os.environ.setdefault("CL10_BACKEND", "numpy")
-if os.environ.get("CL10_JAX_GPU", "0") != "1":
-    os.environ.setdefault("JAX_PLATFORM_NAME", "cpu")
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
+# 25 Adam descents are hours on the CPU core, so JAX takes the card; lazy
+# allocation keeps it working when the card is shared with another process.
+# CL10_JAX_CPU=1 opts out to the CPU core.
+os.environ.setdefault("XLA_PYTHON_CLIENT_PREALLOCATE", "false")
+if os.environ.get("CL10_JAX_CPU", "0") == "1":
+    # JAX_PLATFORMS, not the retired JAX_PLATFORM_NAME: under the latter JAX
+    # still initializes the CUDA plugin and dies on a card another process
+    # has filled (RuntimeError: no supported devices found for platform CUDA).
+    os.environ.setdefault("JAX_PLATFORMS", "cpu")
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -42,6 +49,11 @@ import jax
 import jax.numpy as jnp
 
 jax.config.update("jax_enable_x64", True)
+
+_DEV = jax.devices()[0]
+if _DEV.platform != "gpu" and os.environ.get("CL10_JAX_CPU", "0") != "1":
+    sys.exit(f"V188: JAX resolved to {_DEV} - the card is unavailable. Free it, "
+             f"or set CL10_JAX_CPU=1 to run the search on the CPU core.")
 
 from cl10 import supercell as SC
 

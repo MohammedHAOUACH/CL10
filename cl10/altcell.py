@@ -27,6 +27,11 @@ image label of the NN bond).
 
 The module is exploration-only (tier 4): it never enters the hard-tier
 verdict and no existing module imports it.
+
+It is HOST-ONLY by contract: every call it makes into an engine-routed module
+(``clifford``, ``supercell``) is moved back to the host where it enters, so the
+module returns numpy arrays and behaves identically under the cupy and numpy
+backends - the alt experiments run their own numpy linear algebra on them.
 """
 
 import itertools
@@ -35,6 +40,7 @@ import math
 import numpy as np
 
 from . import clifford
+from . import engine as E
 from . import supercell as SC
 
 # ---------------------------------------------------------------------------
@@ -45,7 +51,8 @@ from . import supercell as SC
 def signature_generators(q=0):
     """The 10 Cl(10-q, q) generators: ``h_a^2 = eps_a I`` with
     ``eps_a = -1`` for ``a < q``, ``+1`` otherwise (host complex128)."""
-    h = [np.asarray(m, dtype=np.complex128) for m in clifford.generators()]
+    h = [E.asnumpy(m).astype(np.complex128, copy=False)
+         for m in clifford.generators()]
     return [1j * m if a < q else m for a, m in enumerate(h)]
 
 
@@ -493,10 +500,10 @@ def step_stages(fields, Us, thetas, stages):
     Us_l, th_l = _broadcast(Us, thetas, len(stages))
     f = fields
     for t, st in enumerate(stages):
-        f = SC.internal_layer(f, Us_l[t])
+        f = E.asnumpy(SC.internal_layer(f, Us_l[t]))
         if isinstance(st, tuple):
             j, phase = st
-            f = SC.bond_layer(f, phase == 0, j, th_l[t])
+            f = E.asnumpy(SC.bond_layer(f, phase == 0, j, th_l[t]))
         else:
             f = bond_layer_bonds(f, st, th_l[t])
     return f
@@ -546,7 +553,7 @@ def front_speed_stages(c, Us, thetas, stages, Lb=6, n_stages=12, seed=0,
     radii = []
     outside = 0
     for k in range(1, n_stages + 1):
-        f = SC.internal_layer(f, Us_l[(k - 1) % len(stages)])
+        f = E.asnumpy(SC.internal_layer(f, Us_l[(k - 1) % len(stages)]))
         st = stages[(k - 1) % len(stages)]
         f = bond_layer_bonds(f, stage_bonds(c, st),
                              th_l[(k - 1) % len(stages)])
@@ -936,7 +943,7 @@ def main():
         for p in (0, 1):
             err = max(err, float(np.abs(
                 stage_matrix_cell(c, j, p, 0.3)
-                - SC.stage_matrix(p == 0, j, 0.3)).max()))
+                - E.asnumpy(SC.stage_matrix(p == 0, j, 0.3))).max()))
     print(f"altcell anchor: stage_matrix_cell vs supercell.stage_matrix "
           f"max err = {err:.2e}")
     lc = lattice_cell("diamond")
@@ -963,7 +970,7 @@ def main():
           + 1j * rng.standard_normal((4, 4, 4, 8, 16)))
     err_step = float(np.abs(
         step_stages(f0, [U16] * 6, [SC.G10] * 6, st)
-        - SC.step(f0, U16, SC.G10, SC.STAGES)).max())
+        - E.asnumpy(SC.step(f0, U16, SC.G10, SC.STAGES))).max())
     print(f"altcell anchor: step_stages vs supercell.step "
           f"max err = {err_step:.2e}")
     fs1 = front_speed(c, U16, st, SC.G10, Lb=6, n_stages=12)

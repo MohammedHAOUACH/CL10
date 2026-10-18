@@ -26,6 +26,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
+os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 
 from cl10 import altcell as A
 from cl10 import supercell as SC

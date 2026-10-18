@@ -4,18 +4,18 @@
   "property": "the differentiable cone loss over the 45-plane step space: U(theta) = Pi (cos theta_k I - i sin theta_k T16[k]) in the plane_product order, Bloch matrix of the (2,2,2) block cell, gap via arccos of the Hermitian part; anchors tie theta = g_10*1 to the implemented step and the V115 metric",
   "residual": null,
   "pass": true,
-  "status": "LOSS DEFINED AND ANCHORED (9 landscape rows). U(g_10*1) = sectors()[2] to 1.3e-15; omega vs gap_at dev 7.2e-12; A(theta0) = 0.997972 two eigvalsh routes dev 5.4e-06; published V115 eigvals route 0.997985 (0.998 within 0.0000; the eigvals route carries ~1e-10 omega noise at flat-axis directions). Single-band grad vs finite-diff dev 2.7e-08; penalty_grad vs autodiff 5.0e-13. Baseline row A = 0.9994 at node omega 4.21e-08; random seeds A 0.9962-1.0000. Node search: grid + Nelder-Mead (eigvalsh VJP invalid at the degenerate node). Route: JAX cuda:0.",
+  "status": "LOSS DEFINED AND ANCHORED (9 landscape rows). U(g_10*1) = sectors()[2] to 5.7e-16; omega vs gap_at dev 7.2e-12; A(theta0) = 0.997966 two eigvalsh routes dev 2.8e-12; published V115 eigvals route 0.997985 (0.998 within 0.0000; the eigvals route carries ~1e-10 omega noise at flat-axis directions). Single-band grad vs finite-diff dev 1.8e-08; penalty_grad vs autodiff 5.3e-13. Baseline row A = 0.9994 at node omega 4.47e-08; random seeds A 0.9919-1.0000. Node search: grid + Nelder-Mead (eigvalsh VJP invalid at the degenerate node). Route: JAX cpu:0.",
   "data": {
     "rows": [
       {
         "seed": "baseline g_10*1",
-        "A": 0.9994063803136785,
-        "omega_node": 4.2146848510894035e-08,
-        "L": 0.9994063803138561,
+        "A": 0.9993881298918199,
+        "omega_node": 4.4703483581542975e-08,
+        "L": 0.9993881298920197,
         "q_star": [
-          0.00019299961090726587,
-          4.71503667200619,
-          4.708335467162435
+          1.5677110566561903,
+          4.707899383774086,
+          0.00019861653161312
         ]
       },
       {
@@ -24,9 +24,9 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          4.793879765569502,
-          4.76212568979081,
-          -4.560488670354729e-05
+          0.0002809707158455675,
+          1.5506628900204928,
+          1.4587270021843683
         ]
       },
       {
@@ -35,9 +35,9 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          4.716932264804025,
-          1.628123871128254,
-          2.1072877263881493e-05
+          1.6281234322392435,
+          4.716931889660549,
+          2.107480241378358e-05
         ]
       },
       {
@@ -46,9 +46,9 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          3.0143288882555495,
-          1.6547625835804154,
-          3.0485120060312614
+          1.6547626896395267,
+          3.048511902554419,
+          3.0143287267157417
         ]
       },
       {
@@ -57,9 +57,9 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          4.802758934812498,
-          9.609598857627121e-05,
-          1.5566982109621907
+          9.609513213467375e-05,
+          1.5566982332439234,
+          4.802759089598988
         ]
       },
       {
@@ -68,9 +68,9 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          0.00021010963958458082,
-          3.1497522034355256,
-          4.721796710536345
+          0.00024179461085742734,
+          3.1402866573805412,
+          1.5746600996612459
         ]
       },
       {
@@ -79,44 +79,44 @@
         "omega_node": 0.0,
         "L": 1.0,
         "q_star": [
-          0.00016185866870573447,
-          0.0001501103571973744,
-          4.72896791882137
+          0.00022701840705924715,
+          0.00010483504590232451,
+          1.55421732465055
         ]
       },
       {
         "seed": "uniform-6",
-        "A": 0.9961919843211025,
+        "A": 0.9976567623476973,
         "omega_node": 0.0,
-        "L": 0.9961919843211025,
+        "L": 0.9976567623476973,
         "q_star": [
-          4.4792365873863424,
-          4.9278358654868,
-          4.798576107211895
+          1.6019267012478968,
+          1.550805563438395,
+          4.766677461984982
         ]
       },
       {
         "seed": "uniform-7",
-        "A": 1.0,
+        "A": 0.9919195135010261,
         "omega_node": 0.0,
-        "L": 1.0,
+        "L": 0.9919195135010261,
         "q_star": [
-          4.749554816326897e-05,
-          3.1729712017087364,
-          0.00012149555876500067
+          1.6317722852728949,
+          3.148817513163877,
+          4.59951959144103
         ]
       }
     ],
-    "dev_U": 1.2588308695936154e-15,
-    "dev_omega": 7.178106633393133e-12,
-    "dev_A": 5.424960668021228e-06,
-    "dev_grad": 2.7308262540159944e-08,
-    "dev_pen": 4.973799150320701e-13,
-    "A_theta0": 0.9979717209779149,
-    "A_eigvalsh_route": 0.9979662960172468,
-    "A_published_route": 0.9979846405788597,
+    "dev_U": 5.661048867003677e-16,
+    "dev_omega": 7.177180751842885e-12,
+    "dev_A": 2.8066438062523957e-12,
+    "dev_grad": 1.7579409483658992e-08,
+    "dev_pen": 5.313527395855999e-13,
+    "A_theta0": 0.9979662960228601,
+    "A_eigvalsh_route": 0.9979662960200535,
+    "A_published_route": 0.997984640580528,
     "n_dirs": 179,
-    "device": "cuda:0"
+    "device": "cpu:0"
   },
-  "wall_time": 41.115
+  "wall_time": 80.982
 }

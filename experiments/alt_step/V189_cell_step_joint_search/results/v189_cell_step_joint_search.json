@@ -1,10 +1,10 @@
 {
   "id": "V189_cell_step_joint_search",
   "tier": 4,
-  "property": "joint search over the cell (block shapes (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)) and the 45 step angles, same alternating Adam scheme as V185, 8 seeds per cell; structural tier (anomalies, hypercharge) untouched by (cell, theta)",
+  "property": "joint search over the cell (block shapes (2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)) and the 45 step angles, same alternating Adam scheme as V188, 8 seeds per cell; structural tier (anomalies, hypercharge) untouched by (cell, theta)",
   "residual": null,
   "pass": true,
-  "status": "JOINT CELL x STEP SEARCH (4 cells x 8 seeds = 32 rows). Best A per cell: (2, 2, 2)/baseline 0.9966, (2, 2, 2)/phase-major 0.9805, (2, 2, 3)/phase-major 0.9675, (3, 3, 3)/phase-major 0.9671. Anchor (2,2,2)/baseline baseline seed vs V185: dev 1.5e-04. Candidates (A < 1e-6 and gapless): 0. Route: JAX cuda:0.",
+  "status": "JOINT CELL x STEP SEARCH (4 cells x 8 seeds = 32 rows). Best A per cell: (2, 2, 2)/baseline 0.9966, (2, 2, 2)/phase-major 0.9805, (2, 2, 3)/phase-major 0.9675, (3, 3, 3)/phase-major 0.9671. Anchor (2,2,2)/baseline baseline seed vs V188: dev 1.5e-04. Candidates (A < 1e-6 and gapless): 0. Route: JAX cuda:0. Provenance: this is the 2026-10-18 00:40 GPU run of the search, carried unchanged through the alt_step renumbering and the altcell host-only conversion (labels and array placement only - no number of the search is touched); not re-executed, the search costs 4 h of GPU.",
   "data": {
     "rows": [
       {
