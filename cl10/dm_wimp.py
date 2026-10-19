@@ -29,9 +29,10 @@ decoupled relic of mass $\sim 100$ GeV with a weak-scale annihilation
 cross-section gives $\Omega h^2 \approx 0.12$: that statement is **standard
 cosmology**, not a result of the automaton.  The ladder scale sits within a
 factor $1.18$ of that reference scale.  This module does **not** conclude that
-the observed DM mass is the weak scale: **no state of the implemented spectrum
-carries the scale** (the paper's O7/F6), so the coincidence is a scale
-statement, not the prediction of a particle.
+the observed DM mass is the weak scale: the ladder fixes the **scale**; the
+carrier is the cell's singlet level B, which occupies the rung n = 10
+(Section 12.2, cl10/cell.py, V195/V196) - the spinor module carries no state
+at this mass (the V194 grading theorem, V66/V75).
 
 **The unification with V53.**  The **same** 10-loop factor $(1/16\pi)^{10}$
 $= (n_{\rm gen}$ loop suppressions) gives **both** the hierarchy exponent -17
@@ -108,8 +109,9 @@ def dm_wimp():
     one_line = (
         "the sub-Planck ladder scale M_P*(1/16pi)^10 = 118 GeV lands within a "
         "factor 1.18 of the WIMP/weak scale (the same 10-loop factor as the O8 "
-        "hierarchy); no state of the implemented spectrum carries it - the "
-        "carrier is the open problem O7 - and the V42 Planck-soliton gap "
+        "hierarchy); its carrier is the cell's singlet level B at this rung "
+        "(cl10/cell.py, V195/V196) and the open number (O7) is its portal "
+        "strength - and the V42 Planck-soliton gap "
         "(1e-52) is relocated, not resolved"
     )
     return {
@@ -126,7 +128,7 @@ def dm_wimp():
         "v42_planck_omega": float(planck_omega),
         "v42_planck_gap": planck_gap,
         "v42_quantified_gap": float(v42["abundance_gap"]),
-        "carrier_status": "open (O7): no state of the implemented spectrum carries the scale",
+        "carrier_status": "the cell singlet B at the n = 10 rung (cl10/cell.py, V196); the portal strength is the open input (O7)",
         "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
         "one_line": one_line,
     }
@@ -159,7 +161,7 @@ def main():
     r = verify()
     d = r["r"]
     print("=" * 72)
-    print("CL10 - the sub-Planck ladder scale (the 10-loop suppression of M_P); the carrier is open (O7)")
+    print("CL10 - the sub-Planck ladder scale (the 10-loop suppression of M_P); its carrier is the cell singlet B (Section 12.2)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  10-loop factor (1/16pi)^10 = {d['F10']:.3e}  (10 = n_gen)")
@@ -170,7 +172,7 @@ def main():
     print(f"  V42 contrast:  the Planck-mass soliton gives Omega h^2 = {d['v42_planck_omega']:.2e}  "
           f"(gap {d['v42_planck_gap']:.1e}; V42 quantified {d['v42_quantified_gap']:.1e})")
     print(f"  carrier:  {d['carrier_status']}")
-    print(f"  VERDICT:  {'PASS (the ladder scale M_P(1/16pi)^10 = 118 GeV; no state of the implemented spectrum carries it - the open problem O7)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the ladder scale M_P(1/16pi)^10 = 118 GeV; its carrier is the cell singlet B at this rung, the portal strength open (O7))' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

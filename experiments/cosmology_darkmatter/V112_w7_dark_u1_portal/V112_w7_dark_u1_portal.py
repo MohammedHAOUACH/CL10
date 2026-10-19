@@ -208,10 +208,11 @@ def main():
         f"while Z'-mediated direct detection bounds g_D*eps <~ 1e-3 at "
         f"m_Z' ~ 2 m_s - the named-input dark-U(1) window is EMPTY in "
         f"the minimal 118 GeV scalar setup. Verdict: the extra U(1) "
-        f"cannot serve as the O7 portal - inside the implemented "
-        f"spectrum it is unbroken and the ladder scalar is E-neutral, "
+        f"cannot serve as the O7 portal - inside the cell spectrum it "
+        f"is unbroken and the ladder scalar is E-neutral, "
         f"and the named extension that Higgses it closes itself by "
-        f"relic/direct-detection squeeze. O7 stays open.")
+        f"relic/direct-detection squeeze. The O7 portal is the strength "
+        f"lambda_B of the cell singlet B, a named input (V195/V196).")
     out = {"experiment": "V112_w7_dark_u1_portal", "pass": bool(ok),
            "status": status,
            "data": {"hypercharge_by_class_multiplicity": yh_pred,

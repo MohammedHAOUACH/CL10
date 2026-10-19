@@ -13,7 +13,7 @@ of the ``kingdon`` Clifford-algebra library):
 
 **Point 1 — "0-parameter is partly conventional".**
 Every "0-parameter" number is **reclassified** into its true provenance
-(``provenance_table``), the audit's **$7+1+1+2+4$** split: **algebraic
+(``provenance_table``), the audit's **$7+1+1+2+5$** split: **algebraic
 0-param** (a property of the ``Cl(10)`` root: the 16/16-bar, the 45, the
 5/3, the anomalies, the 32-level spectrum, ``det U = 1``, the **16/16-bar
 spectral mirror**), **free 1-param** (the **one** free 't Hooft angle
@@ -22,7 +22,9 @@ UV-finiteness / 2-loop Landau-pole condition, which lies below ``M_P`` for
 **every** ``g_10``), **convention** (``g_0 = 1/8`` —
 mapping / scale-identification choices, not predictions), **coincidence**
 (the ``v/E_P = 2.02e-17`` 0.18% match), and **named residual** (``eta_CP``,
-``Lambda_obs``, the sub-Planck DM scale, the exact ``m_nu``).
+``Lambda_obs``, the sub-Planck DM scale (the rung-10 ladder value, carried
+by the cell singlet B), the DM portal strength ``lambda_B``, the exact
+``m_nu``).
 
 **Point 2 — "the hierarchy is fixed, not explained".**
 The **smallest** level of the 32-level QCA spectrum is ``0.0115`` (a mass
@@ -104,7 +106,7 @@ def main():
         "residual": True,
         "pass": ok,
         "status": ("the_honest_parameter_audit: the '0-parameter' label is reclassified "
-                  "(the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / "
+                  "(the 7+1+1+2+5 split: algebraic 0-param / free 1-param / convention / "
                   "coincidence / named residual); the 0-parameter CP-odd invariants all "
                   "vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT "
                   "generate the baryon asymmetry - a theorem); the 16/16-bar spectra are "

@@ -4,7 +4,7 @@
   "property": "the light-mode census per candidate: stable neutral mode near the 118 GeV ladder?",
   "residual": null,
   "pass": true,
-  "status": "DM CARRIER CENSUS. 722 gapless candidates scanned: the lightest excitation of every candidate is a gapless node (eigenphase 2.0e-04) with paired mirror content, not an isolated neutral mode; 0 carriers found. The mirror Z2 stability survives every cell, but no candidate supplies the 118 GeV carrier: W7 is not a geometry artifact.",
+  "status": "DM CARRIER CENSUS. 722 gapless candidates scanned: the lightest excitation of every candidate is a gapless node (eigenphase 2.0e-04) with paired mirror content, not an isolated neutral mode; 0 carriers found. The mirror Z2 stability survives every cell, but no candidate supplies the 118 GeV carrier from cell geometry: the carrier is the cell singlet B (cl10/cell.py, V195/V196), the bond-strength portal is excluded (V193).",
   "data": {
     "rows": [
       {
@@ -5786,5 +5786,5 @@
     ],
     "missing_sources": []
   },
-  "wall_time": 3579.981
+  "wall_time": 4113.687
 }

@@ -83,8 +83,9 @@ def ladder_scale(n):
 def dm_ladder_mass():
     """The dark-matter mass SCALE: ``M_P (1/16pi)^10 = 118`` GeV (V54, F7).
     Provenance **fitted** (the coefficient 1.18 against the canonical 100 GeV).
-    The *carrier* is open: no state of the implemented spectrum qualifies
-    (V66/V75, O7)."""
+    The carrier: the cell's singlet level B occupies this rung n = 10
+    (Section 12.2, cl10/cell.py, V195/V196); its portal strength to the Higgs
+    is an input (Section 15, O7)."""
     return ladder_scale(10)
 
 

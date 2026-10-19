@@ -13,9 +13,11 @@ experiment measures the ladder scale
 the **WIMP / weak scale** — the **same 10-loop factor** as the O8 hierarchy
 (V53) — and reports it against the WIMP-miracle reference (100 GeV).
 
-Established: the ladder arithmetic and the V42 contrast.  **Open (O7)**: no
-state of the implemented spectrum carries the scale, so the DM carrier (and its
-cross-section, the RG running, O9) is unresolved.  The relic numbers use the
+Established: the ladder arithmetic and the V42 contrast.  The carrier is the
+cell's singlet level B, which occupies this rung (Section 12.2, cl10/cell.py,
+V195/V196; the spinor module carries no state at this mass, V66/V75/V194).
+**Open (O7)**: the portal strength is not supplied by the root, and the exact
+cross-section (the RG running, O9) is not computed here.  The relic numbers use the
 module convention $\Omega(m) = \Omega_{\rm obs}(100\,{\rm GeV}/m)^3$, normalised
 to the observed value at the reference scale **by construction**: they are a
 contrast device, not an abundance prediction.
@@ -43,11 +45,12 @@ def main():
         "id": "V54_dm_wimp",
         "tier": 6,
         "property": "P5,P6",
-        "residual": True,   # the DM carrier (O7) and the cross-section (O9) are the named residual
+        "residual": True,   # the DM portal strength (O7) and the cross-section (O9) are the named residual
         "pass": bool(ok),
         "status": ("the_ladder_scale_M_P*(1/16pi)^10=118_GeV_lands_within_a_factor_1.18_of_the_"
-                   "WIMP_weak_scale_the_same_10_loop_factor_as_the_O8_hierarchy_but_no_state_of_"
-                   "the_implemented_spectrum_carries_it_the_carrier_is_open_O7_and_the_V42_"
+                   "WIMP_weak_scale_the_same_10_loop_factor_as_the_O8_hierarchy_the_carrier_is_"
+                   "the_cell_singlet_B_at_this_rung_V196_the_portal_strength_is_the_open_input_O7_"
+                   "and_the_V42_"
                    "Planck_soliton_gap_1e-52_is_relocated_not_resolved"),
         "tol": TOL,
         "data": {
@@ -66,9 +69,10 @@ def main():
             "v42_quantified_gap": d["v42_quantified_gap"],
             "carrier_status": d["carrier_status"],
             "relic_convention": d["relic_convention"],
-            "residual": ("the DM carrier (which state of the spectrum carries the scale) and "
+            "residual": ("the DM portal strength (not supplied by the root, O7) and "
                          "the exact cross-section (the RG running, O9) — the ladder scale "
-                         "(118 GeV) and the V42 contrast are computed, the carrier is not"),
+                         "(118 GeV), its carrier (the cell singlet B, V196) and the "
+                         "V42 contrast are computed"),
         },
         "wall_time": round(time.time() - t0, 3),
     }
@@ -77,7 +81,7 @@ def main():
     with open(os.path.join(outdir, "v54_dm_wimp.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V54 - the sub-Planck ladder scale (the 10-loop suppression of M_P); the carrier is open (O7)")
+    print("V54 - the sub-Planck ladder scale (the 10-loop suppression of M_P); its carrier is the cell singlet B (Section 12.2)")
     print("=" * 68)
     print(f"  backend (GPU):  {d['backend']}")
     print(f"  0-parameter inputs:  n_gen = {d['n_gen']}  M_P = {d['M_P_GeV']:.2e} GeV")
@@ -88,7 +92,7 @@ def main():
           f"(gap {d['v42_planck_gap']:.1e})")
     print(f"  carrier:  {d['carrier_status']}")
     print(f"  named residual (O7):  {verdict['data']['residual']}")
-    print(f"  VERDICT:  {'PASS (the ladder scale = the 10-loop WIMP scale; the carrier is open - O7)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the ladder scale = the 10-loop WIMP scale; its carrier is the cell singlet B, the portal strength open - O7)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v54_dm_wimp.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

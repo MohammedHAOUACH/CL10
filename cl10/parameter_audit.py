@@ -552,8 +552,9 @@ def dm_status():
     spectral scale; it **is**, however, in the 0-parameter structure as the
     **10-loop suppression** of the Planck scale — ``M_P (1/16pi)^10 = 118
     GeV`` (the WIMP scale) - but the abundance match there rests on the
-    standard WIMP-miracle convention, and **no state of the implemented
-    spectrum carries the scale**: the carrier is the open problem O7 (V54).
+    standard WIMP-miracle convention; the carrier is the cell's singlet
+    level B occupying this rung (Section 12.2, cl10/cell.py, V195/V196),
+    and what the root does not supply is its portal strength (O7).
     """
     from . import cosmology3
     gap = cosmology3.dm_mass_scale()
@@ -636,11 +637,18 @@ def provenance_table():
          "2-digit ratio are the residual (O5)"),
         ("Lambda_obs ~ 1e-122", "1e-122", "named_residual",
          "the breaking of the 512/512 cancellation (O1)"),
-        ("the sub-Planck DM scale", "~1e2-1e3 GeV (named)", "named_residual",
+        ("the sub-Planck DM scale", "~118 GeV (rung 10)", "named_residual",
          "not a single-step spectral scale; the **10-loop suppression** "
-         "M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale, and its "
-         "abundance match rests on the standard WIMP-miracle convention; the "
-         "DM **carrier** (which state of the spectrum) is the residual (O7)"),
+         "M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale; its carrier "
+         "is the cell's singlet level B occupying this rung (cl10/cell.py, "
+         "V195/V196), and the spinor module provably carries no state at it "
+         "(the grading theorem, V194; census V66/V75)"),
+        ("the DM portal strength lambda_B", "not a number (input)", "named_residual",
+         "required nonzero, not supplied by the root: the singlet-Higgs portal "
+         "of Section 12.2; 0.120 fixes it at 4.06e-14 if production is "
+         "freeze-in (V193/V195), and no root-supplied value of its class "
+         "works (V147: loop factors; V148: bond strengths); the open number "
+         "of the sector (O7)"),
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
          "the exact light-neutrino mass (O2)"),
     ]

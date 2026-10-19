@@ -3,7 +3,8 @@
 r"""V160 - the dark-matter carrier census on the candidate spectra (W7)
 
 **The question.**  V66/V75: the ladder gives the 118 GeV mass scale but
-no state of the implemented spectrum carries it; the only exact
+no level of the spinor module carries it (the carrier is the cell's
+singlet B, cl10/cell.py, V195/V196); the only exact
 stability mechanism is the mirror Z2 (the step commutes with the
 pseudoscalar w, so a mode in one eigenspace cannot decay into the
 other).  For every census candidate: the light-mode census of its band
@@ -132,8 +133,10 @@ def main():
                   f"with paired mirror content, not an isolated neutral "
                   f"mode; {n_carrier} carriers found. The mirror Z2 "
                   f"stability survives every cell, but no candidate "
-                  f"supplies the 118 GeV carrier: W7 is not a geometry "
-                  f"artifact.",
+                  f"supplies the 118 GeV carrier from cell geometry: the "
+                  f"carrier is the cell singlet B (cl10/cell.py, "
+                  f"V195/V196), the bond-strength portal is excluded "
+                  f"(V193).",
         "data": {"rows": rows, "missing_sources": missing},
         "wall_time": round(time.time() - t0, 3),
     }

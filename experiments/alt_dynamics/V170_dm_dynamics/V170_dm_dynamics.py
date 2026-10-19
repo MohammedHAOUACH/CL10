@@ -4,7 +4,8 @@ r"""V170 - the dark-matter carrier census on the candidate spectra (W7;
 alt-dynamics B)
 
 **The question.**  V66/V75: the ladder gives the 118 GeV mass scale but
-no state of the implemented spectrum carries it; the only exact
+no level of the spinor module carries it (the carrier is the cell's
+singlet B, cl10/cell.py, V195/V196); the only exact
 stability mechanism is the mirror Z2 (the step commutes with the
 pseudoscalar w, so a mode in one eigenspace cannot decay into the
 other).  For every gapless dynamics candidate: the mirror Z2 stability
@@ -21,8 +22,9 @@ mode, the V160 reading).
 **The result.**  The mirror Z2 survives every candidate motion
 (commutator exactly 0).  For every candidate the lightest modes ARE the
 gapless nodes themselves, with paired 16/16-bar content; ZERO
-candidates produce an isolated neutral light mode.  The DM carrier
-problem is not a motion artifact: W7 stays open for the whole family.
+candidates produce an isolated neutral light mode.  No motion of the
+cell produces a spinor-module carrier at 118 GeV: W7 is closed by the
+cell singlet B for the whole family (``cl10/cell.py``, V195/V196).
 """
 
 import json
@@ -195,7 +197,8 @@ def main():
                   f"{min((r['lightest_nonnode_eigenphase'] for r in rows), default=float('nan')):.3f} "
                   f"step-phase); {n_carrier} isolated neutral light "
                   f"modes found. No candidate supplies the 118 GeV "
-                  f"carrier: W7 is not a motion artifact.",
+                  f"carrier from the spinor module: the carrier is the "
+                  f"cell singlet B (cl10/cell.py, V195/V196).",
         "data": {"rows": rows, "missing_sources": missing,
                  "n_candidates": len(rows), "n_carriers": n_carrier,
                  "max_z2_commutator": max_z2},

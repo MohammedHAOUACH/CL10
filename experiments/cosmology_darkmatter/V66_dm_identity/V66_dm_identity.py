@@ -3,8 +3,9 @@
 r"""V66 - the dark-matter identity scan (O7).
 
 **The question.**  The ladder gives a DM MASS SCALE, m_DM = M_P (1/16pi)^10 =
-118 GeV (V54), but no state of the implemented spectrum has been identified
-as the carrier.  This experiment enumerates every candidate the formalism
+118 GeV (V54); the carrier is the cell's singlet level B (cl10/cell.py,
+V195/V196) - the spinor module by itself supplies no such state.  This
+experiment enumerates every candidate the spinor formalism
 actually supplies and tests the three DM properties - stability, neutrality,
 mass - against the implemented step.
 
@@ -27,8 +28,11 @@ mass - against the implemented step.
 118 GeV.  The exact mirror Z2 is the only exact stability mechanism in the
 theory, and with the V65 charge pattern it stabilizes a COLORED relic - the
 mirror sector cannot be the DM as implemented.  The 118 GeV ladder state has
-no identity: O7 stays open, with the tension quantified (118 GeV vs the
-2.0e10 GeV spectral candidate, 8 orders).
+no spinor-module identity: no level of the spinor module carries it;
+the tension against the spinor
+spectrum is quantified (118 GeV vs the 2.0e10 GeV spectral candidate,
+8 orders), and the carrier is the cell singlet $B$ at this rung
+(``cl10/cell.py``, V195/V196).
 """
 
 import json
@@ -197,7 +201,8 @@ def main():
     verdict = {
         "experiment": "V66_dm_identity",
         "pass": ok,
-        "status": ("O7 CANDIDATE SCAN COMPLETE, NO VIABLE CARRIER: the "
+        "status": ("SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN "
+                   "THE SPINOR MODULE: the "
                    "mirror Z2 is exact (leak {leak:.1e}), the 16-bar weights "
                    "are the exact conjugates and the mirror doubler masses "
                    "equal the desert thresholds; the only exact-stability "
@@ -205,8 +210,9 @@ def main():
                    "a COLORED Q-bar at {mQ:.1e} GeV (excluded) while the "
                    "neutral N-bar sits at {mN:.1e} GeV, 8 orders above the "
                    "118 GeV ladder scale, with naive thermal overclosure "
-                   "x{ov:.0e}. The 118 GeV state has no identity in the "
-                   "implemented spectrum.").format(
+                   "x{ov:.0e}. No level of the spinor module carries 118 GeV; "
+                   "the carrier is the cell singlet B at this rung "
+                   "(cl10/cell.py, V195/V196).").format(
                        leak=leak, mQ=Ms[lightest["label"]], mN=mN,
                        ov=omega_est / dw.OMEGA_OBS),
         "data": {
@@ -238,7 +244,7 @@ def main():
     print(f"  <sigma v> ~ m^2/M_P^4 = {sv:.1e} GeV^-2 "
           f"(need {dw.SIGMA_FIDUCIAL:.0e}): overclosure x{omega_est / dw.OMEGA_OBS:.0e}")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'} - structural facts "
-          f"verified; NO viable DM carrier at 118 GeV")
+          f"verified; NO level of the spinor module at 118 GeV (carrier: the cell singlet B, V196)")
     print("  JSON -> " + os.path.join(outdir, "v66_dm_identity.json"))
     print(f"  Wall time = {time.time() - t0:.2f} s")
     return 0 if ok else 1

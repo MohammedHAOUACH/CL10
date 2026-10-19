@@ -1,0 +1,68 @@
+{
+ "experiment": "V196_cell_definition",
+ "data": {
+  "rungs": {
+   "A": 3,
+   "B": 10
+  },
+  "m_A_GeV": 96131777036496.42,
+  "m_B_GeV": 118.57086360835625,
+  "m_nu_identity_eV": 0.14624768344284225,
+  "phase_A": 7.873909773730346e-06,
+  "phase_B": 9.711838380882492e-18,
+  "six_stage_phase_A": 4.7243458642382084e-05,
+  "six_stage_phase_B": 5.827103028529494e-17,
+  "commutators": {
+   "unitarity": 1.6653345381979549e-15,
+   "G_squared": 0.0,
+   "G_U": 0.0,
+   "G_45_max": 0.0,
+   "spinor_block_diff": 0.0
+  },
+  "bloch_factorisation_err": {
+   "M": 6.389813363550566e-16,
+   "GAMMA": 4.918300529807394e-16,
+   "R": 6.684427777288334e-16
+  },
+  "singlet_band_shift_at_M": {
+   "A": 4.724345864248747e-05,
+   "B": 1.1102230246251565e-16
+  },
+  "spinor_M_gap": 0.00020028952953253103,
+  "content": {
+   "levels": 34,
+   "trY": 0.0,
+   "trY3": 0.0,
+   "five_thirds": 1.6666666666666665
+  }
+ },
+ "pass": true,
+ "branch": "THE 34-LEVEL CELL IS AN ENGINE FACT: spinor module + rung-3 and rung-10 singlets, exact B-parity, rungs as step phases",
+ "checks": [
+  {
+   "name": "T0 the ladder identity between cell levels: m_A == the seesaw Majorana rung M_N = 9.6132e+13 GeV (exact), m_B == the DM rung M_P*(1/16pi)^10 = 118.5709 GeV (exact), and m_B^2/m_A = 0.146248 eV == the ladder neutrino mass (rel 0.0e+00): the exponent identity 2*10-3 = 17 holds between two levels of the cell; rungs from the config block cell: True",
+   "pass": true
+  },
+  {
+   "name": "T1 the exact B-parity: the 34-level step is unitary to 1.7e-15; G = diag(I32,+1_A,-1_B) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
+   "pass": true
+  },
+  {
+   "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies A by exp(i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and B by exp(i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time - and the six-stage product carries phase 4.724346e-05 for A (6*loop^3 = 4.724346e-05, diff 1.4e-20) and 5.827103e-17 for B (6*loop^10 = 5.827103e-17, diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 0.0e+00); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 6.4e-16/4.9e-16/6.7e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector anchor is unchanged: M-point gap 2.002895e-04",
+   "pass": true
+  },
+  {
+   "name": "T3 the content: 34 hypercharge levels (the six fragment classes, their conjugates, and A, B at Y = 0); Tr Y = 0.0e+00 and Tr Y^3 = 0.0e+00 (both anomaly cancellations unchanged by the singlets); the 5/3 normalisation of the unchanged algebra: k = 1.666666666666667",
+   "pass": true
+  },
+  {
+   "name": "T4 cl10/supercell.verify() passes with the cell invariants: ok = True, unitarity 1.7e-15, [G,U] 0.0e+00, [G,45] 0.0e+00",
+   "pass": true
+  }
+ ],
+ "status": "the 34-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, rung phases loop^3 and loop^10 reproduced by the six-stage product, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
+ "tier": 2,
+ "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the singlet levels A (rung 3) and B (rung 10) with an exact B-parity, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
+ "programme": "V196",
+ "wall_time": 2.298
+}

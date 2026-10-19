@@ -22,7 +22,11 @@ cell**.
 **The cell.**  Eight sub-sites $e = (e_1,e_2,e_3) \in \{0,1\}^3$ (the position
 inside the block, in units of the Planck spacing; the sub-site index is the
 integer $e = e_1 + 2 e_2 + 4 e_3$, so the bit of axis $j$ is $2^j$) carrying
-the 32-D $\mathrm{Cl}(10,0)$ module: on-site space $\mathbb C^{256}$.  The
+the 34-D cell module $M = S \oplus \mathbb C|A\rangle \oplus \mathbb C|B\rangle$
+of Axiom 1 (cl10/cell.py): the 32-D $\mathrm{Cl}(10,0)$ Dirac module $S$ plus
+the two neutral singlet levels, whose rung phases are the ladder; on-site space
+$\mathbb C^{272}$.  The 256- and 128-dimensional matrices below are the spinor
+block, which carries all of the geometry.  The
 internal layer $U_{32} = \prod_{a<b}[\cos g_{10} - i \sin g_{10}\, T_{ab}]$
 acts on every sub-site.  A **stage** of the step is a swap-rotation
 $\cos g_{10} - i\sin g_{10} P$ on a set of bonds:
@@ -82,6 +86,7 @@ from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import coupling
+from . import cell
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # ---------------------------------------------------------------------------
@@ -409,6 +414,10 @@ def verify(tol=_TOL.standard):
        group C2v, order 4), the 8 corners one star (little group C3v, order 6).
     6. the **cubic equivariance of the bond product**: exact at GAMMA, broken
        at every other momentum (Section 8.4).
+    7. the **cell module of Axiom 1** (cl10/cell.py): the 34-level step - the
+       spinor block plus the singlet rung phases - is exactly unitary, and the
+       B-parity commutes with it and with all 45 plane generators extended by
+       zero (the dark matter is stable by this invariant, Section 12.2).
     """
     B, U32, U16 = sectors()
     r = {"backend": E._BACKEND, "g10": float(G10), "branch": coupling.branch()}
@@ -476,6 +485,15 @@ def verify(tol=_TOL.standard):
     r["cubic_equivariance"] = {str(k): v for k, v in eq.items()}
     r["equivariant_at_gamma"] = eq[GAMMA] < tol
 
+    # 7. the cell module of Axiom 1 (cl10/cell.py): the 34-level step and its
+    # exact B-parity - unitary, and odd on the dark-matter level alone
+    U34 = cell.cell_step_np(G10)
+    G34 = cell.parity_np()
+    r["cell_unitary_err"] = float(np.abs(U34 @ U34.conj().T - np.eye(cell.DIM)).max())
+    r["cell_parity_step_comm"] = float(np.abs(G34 @ U34 - U34 @ G34).max())
+    r["cell_parity_gauge_max"] = float(max(
+        np.abs(G34 @ X - X @ G34).max() for X in cell.gauge_ext_np()))
+
     zone = {
         "implemented": (r["gap_gamma"] > 1e-3 and r["n_M_gapless"] == 12
                         and r["max_M_gap"] < 1e-3 and r["R_first_mult"] == 3),
@@ -488,7 +506,9 @@ def verify(tol=_TOL.standard):
           and r["spectral_mirror_err"] < _TOL.standard
           and zone and r["little_M"] == 4
           and r["little_R"] == 6 and r["star_M"] == 12 and r["star_R"] == 8
-          and r["equivariant_at_gamma"])
+          and r["equivariant_at_gamma"]
+          and r["cell_unitary_err"] < tol and r["cell_parity_step_comm"] < tol
+          and r["cell_parity_gauge_max"] < tol)
     r["ok"] = bool(ok)
     return r
 
@@ -515,6 +535,8 @@ def main():
     print(f"  R-point multiplet:  {r['R_first_mult']}-fold (all R: {r['R_mult_all']})")
     print(f"  block-zone stars:  |star(M)| = {r['star_M']} (little group {r['little_M']}), "
           f"|star(R)| = {r['star_R']} (little group {r['little_R']})")
+    print(f"  cell (34-level, cl10/cell.py):  unitarity {r['cell_unitary_err']:.2e}, "
+          f"[G,U] {r['cell_parity_step_comm']:.2e}, [G,45] {r['cell_parity_gauge_max']:.2e}")
     print(f"  VERDICT:  {'PASS' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 

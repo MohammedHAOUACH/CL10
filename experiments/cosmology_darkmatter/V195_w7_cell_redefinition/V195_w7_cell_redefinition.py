@@ -24,9 +24,11 @@ gate is recomputed identical by construction and verified numerically.
 Checks
   T0 certificate regression against V194's stored verdict (M_A, m_B, A in
      the desert).
-  T1 the extended cell: U_ext = U32 direct-sum-two-phases (the singlets are
-     inert under the bare step - the Kronecker superselection of V194/T0 -
-     their masses are the desert thresholds of their classes); the extended
+  T1 the cell object of cl10/cell.py: U_ext = U32 direct-sum-two-phases (the
+     singlets carry their rung phases loop^3, loop^10 - the ladder read as
+     on-site phases - and never mix into transport, the Kronecker
+     superselection of V194/T0; their masses are the rung masses of their
+     classes); the
      parity G_ext = diag(I32, +1_A, -1_B) is an exact Z2: G^2 = I, and it
      commutes with the step and with the 45 gauge generators extended by
      zero (the classes are singlets): B cannot decay - every built operator
@@ -75,6 +77,7 @@ from cl10 import engine as E                                      # noqa: E402
 from cl10 import gauge as GA                                      # noqa: E402
 from cl10 import u10pred as U10                                   # noqa: E402
 from cl10 import config as CFG                                    # noqa: E402
+from cl10 import cell as CE                                       # noqa: E402
 
 I32 = np.eye(32, dtype=complex)
 B32, U32, U16 = SC.sectors()
@@ -87,26 +90,19 @@ V193 = json.load(open(exp("V193_w7_freeze_in",
                           "results", "v193_w7_freeze_in.json")))
 V147 = json.load(open(exp("V147_w7_relic_from_bond",
                           "results", "v147_w7_relic_from_bond.json")))
-V65 = json.load(open(exp("V65_wilson", "results", "v65_wilson.json")))
 
 M_P = 1.220890e19                                   # GeV (V123's constant)
 LZ = CFG.CFG.bounds.lz_sigma_si_cm2                 # 1.5e-47 cm^2 (config)
 
-# the redefined cell: 32 spinor levels + two neutral singlet classes A, B
-M_B = U10.dm_ladder_mass()                          # 118.5708... GeV
+# the cell: the engine object of cl10/cell.py (spinor module + two singlet levels)
+M_B = CE.masses()["m_B_GeV"]                        # 118.5708... GeV: rung 10
 M_NU_EV = U10.neutrino_ladder()["m_nu_eV_ladder"]   # 0.1462... eV (F3)
-M_A = U10.neutrino_ladder()["M_N_GeV"]             # 9.61e13 GeV: the n=3 floor
+M_A = CE.masses()["m_A_GeV"]                        # 9.61e13 GeV: rung 3
 
-U_EXT = np.zeros((34, 34), dtype=complex)
-U_EXT[:32, :32] = U32
-U_EXT[32, 32] = 1.0                                 # A inert (convention)
-U_EXT[33, 33] = 1.0                                 # B inert (convention)
-G_EXT = np.diag([1.0] * 33 + [-1.0]).astype(complex)  # B alone odd
-GENS45_EXT = []
-for X in GENS45:
-    Xe = np.zeros((34, 34), dtype=complex)
-    Xe[:32, :32] = X
-    GENS45_EXT.append(Xe)
+U_EXT = CE.cell_step_np()        # the 34-level step: spinor block at the root
+                                 # angle, singlets carrying their rung phases
+G_EXT = CE.parity_np()           # B alone odd
+GENS45_EXT = CE.gauge_ext_np()   # the 45 generators extended by zero on A, B
 
 
 def sigma_si(lam):
@@ -167,17 +163,13 @@ def main():
                    unit < 1e-12 and g2 < 1e-12 and cU < 1e-12 and c45 < 1e-12))
 
     # ---- T2 hard-gate invariants on the extended content ------------------
-    xc = next(r for r in V65["data"]["part_B"].values()
-              if r["su5"] == "Georgi-Glashow")
     ys = []
-    for f in xc["fragments"]:
-        ys += [f["Y"]] * int(f["n"])
-        ys += [-f["Y"]] * int(f["n"])               # the 16-bar conjugates
-    ys += [0.0, 0.0]                                # A and B: Y = 0
+    for y, n in CE.content():               # the cell's hypercharge multiset
+        ys += [float(y)] * int(n)           # (fragments, conjugates, A and B)
     trY = sum(ys)
     trY3 = sum(y ** 3 for y in ys)
     trY2_ext = sum(y * y for y in ys)
-    trY2_32 = sum(y * y for y in ys[:-2])
+    trY2_32 = sum(y * y for y in ys[:-2])   # the spinor module alone
     ft = float(GA.five_thirds())
     k53 = ft
     ratios_ident = abs(trY2_ext / trY2_32 - 1.0) < 1e-12

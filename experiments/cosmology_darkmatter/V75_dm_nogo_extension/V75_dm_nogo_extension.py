@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 r"""V75 - the O7 solution path: 118 GeV carrier NO-GO + minimal extension.
 
-**Part 1 - the no-go (computed).**  V66 showed no state of the
-implemented spectrum is simultaneously stable, neutral and at 118 GeV.
+**Part 1 - the no-go (computed).**  V66 enumerated the spinor-module
+candidates: none is simultaneously stable, neutral and at 118 GeV.
 Here the no-go is completed over the mass-generating routes:
 (a) DOUBLER/WILSON masses M_f = w |cos(theta) X_f + sin(theta) Y_f|
     M_P / 3: demand the neutral mirror N-bar at 118 GeV and scan
@@ -17,8 +17,10 @@ Here the no-go is completed over the mass-generating routes:
 (b) LADDER masses (the (1/16pi)^10 route): the only ladder-set states
     in the theory are the classical fields (the Higgs sector); the
     classical solitons are superheavy (V66).
-Verdict: the implemented theory has NO 118 GeV carrier and cannot
-embed one in its fermion spectrum.
+Verdict: no 118 GeV carrier can be embedded in the fermion/doubler
+(spinor-module) spectrum.  The cell carries one as a singlet level
+(cl10/cell.py, V195/V196); this experiment's no-go says the carrier has
+to be of exactly that kind.
 
 **Part 2 - the minimal extension (computed).**  The smallest addition
 consistent with the exact mirror Z2 (V66) is ONE new classical field:
@@ -128,7 +130,9 @@ def main():
         f"{worst_max:.0f} GeV << 1 TeV bound; survivors: "
         f"{len(survivors)}); the ladder route sets masses only for "
         "classical fields; the solitons are superheavy. The "
-        "implemented spectrum CANNOT contain the DM. (2) The minimal "
+        "spinor-module spectrum CANNOT contain the DM - a carrier of "
+        "this mass is necessarily a singlet level of the cell "
+        "(V194, V196). (2) The minimal "
         "extension consistent with the exact mirror Z2 and the ladder: "
         "ONE real Z2-odd scalar at m = 118 GeV with Higgs portal "
         f"lambda_* = {lam_star:.3f} (freeze-out gives Omega h^2 = "

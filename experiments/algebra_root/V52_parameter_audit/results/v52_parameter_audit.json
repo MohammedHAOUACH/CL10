@@ -4,7 +4,7 @@
   "property": "P5,P6",
   "residual": true,
   "pass": true,
-  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+4 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
+  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 7+1+1+2+5 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
   "tol": 1e-12,
   "data": {
     "backend": "cupy",
@@ -169,9 +169,15 @@
         },
         {
           "quantity": "the sub-Planck DM scale",
-          "value": "~1e2-1e3 GeV (named)",
+          "value": "~118 GeV (rung 10)",
           "provenance": "named_residual",
-          "note": "not a single-step spectral scale; the **10-loop suppression** M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale, and its abundance match rests on the standard WIMP-miracle convention; the DM **carrier** (which state of the spectrum) is the residual (O7)"
+          "note": "not a single-step spectral scale; the **10-loop suppression** M_P*(1/16pi)^10 = 118 GeV (V54) lands at the WIMP scale; its carrier is the cell's singlet level B occupying this rung (cl10/cell.py, V195/V196), and the spinor module provably carries no state at it (the grading theorem, V194; census V66/V75)"
+        },
+        {
+          "quantity": "the DM portal strength lambda_B",
+          "value": "not a number (input)",
+          "provenance": "named_residual",
+          "note": "required nonzero, not supplied by the root: the singlet-Higgs portal of Section 12.2; 0.120 fixes it at 4.06e-14 if production is freeze-in (V193/V195), and no root-supplied value of its class works (V147: loop factors; V148: bond strengths); the open number of the sector (O7)"
         },
         {
           "quantity": "the exact m_nu",
@@ -185,11 +191,11 @@
         "free_1param": 1,
         "convention": 1,
         "coincidence": 2,
-        "named_residual": 4
+        "named_residual": 5
       }
     },
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 24.205
+  "wall_time": 50.962
 }

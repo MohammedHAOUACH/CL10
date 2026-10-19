@@ -132,6 +132,12 @@ desert:
   # the same solution at the closed angle (V133): the threshold ordering breaks
   m_x_closed_gev: 1.235e+17
 
+cell:
+  # the two singlet levels of the cell (Section 2, Axiom 1; cl10/cell.py): a rung
+  # n means the mass M_P*loop^n and the on-site step phase loop^n = (M_P*loop^n)/M_P
+  rung_A: 3                 # the seesaw singlet (Section 12.3): m_A = M_P*loop^3
+  rung_B: 10                # the dark-matter singlet (Section 12.2): m_B = M_P*loop^10
+
 bounds:
   # the experimental bounds the phenomenology tests against (measured, not fitted)
   lz_sigma_si_cm2: 1.5e-47     # the LZ spin-independent direct-detection limit

@@ -55,6 +55,7 @@ _DEFAULTS = {
         "eig_gpu_min_dim": 512,
     },
     "pool": {"njobs": None, "njobs_cap": 8},
+    "cell": {"rung_A": 3, "rung_B": 10},
     "physics": {
         "m_planck_gev": 1.220890e19,
         "proton_mass_gev": 0.93827208943,

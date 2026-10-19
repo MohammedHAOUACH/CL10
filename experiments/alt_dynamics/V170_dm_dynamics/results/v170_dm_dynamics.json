@@ -4,7 +4,7 @@
   "property": "mirror Z2 stability + the light-mode census per candidate: stable neutral mode near the ladder?",
   "residual": null,
   "pass": true,
-  "status": "DM CARRIER CENSUS (dynamics). 509 gapless candidates scanned: the mirror Z2 survives every motion (max w-commutator 1.3e-15); the lightest excitation of every candidate is a gapless node (min eigenphase 0.0e+00) with paired mirror content, and the lightest NON-node excitation sits at the massive scale (min 0.001 step-phase); 0 isolated neutral light modes found. No candidate supplies the 118 GeV carrier: W7 is not a motion artifact.",
+  "status": "DM CARRIER CENSUS (dynamics). 509 gapless candidates scanned: the mirror Z2 survives every motion (max w-commutator 1.3e-15); the lightest excitation of every candidate is a gapless node (min eigenphase 0.0e+00) with paired mirror content, and the lightest NON-node excitation sits at the massive scale (min 0.001 step-phase); 0 isolated neutral light modes found. No candidate supplies the 118 GeV carrier from the spinor module: the carrier is the cell singlet B (cl10/cell.py, V195/V196).",
   "data": {
     "rows": [
       {
@@ -6121,5 +6121,5 @@
     "n_carriers": 0,
     "max_z2_commutator": 1.2682809978676727e-15
   },
-  "wall_time": 485.758
+  "wall_time": 888.237
 }
