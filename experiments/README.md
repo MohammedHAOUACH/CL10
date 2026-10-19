@@ -1,6 +1,6 @@
 # The verification program
 
-157 experiments (the 116 of the publication programme plus the 41 exploration
+159 experiments (the 118 of the publication programme plus the 41 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
 4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 6 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
@@ -226,7 +226,9 @@ the claim asserts, not when a script merely mentions the word.
 | `V124_w7_z2_gradings` | the exact $\mathbb{Z}_2$ gradings of the step: the mirror is the pseudoscalar |
 | `V147_w7_relic_from_bond` | every bond number of the scalar class as annihilation strength: $\Omega h^2$ lands at $10^{-12}$–$10^{-3}$ with $D$, never $0.120$ |
 | `V148_w7_direct_detection` | the same numbers as Higgs-portal strength: $\sigma_{\rm SI} = 2.5\times10^{-45}$–$6.3\times10^{-41}$ cm$^2$, all above the LZ-class bound — the bond-strength portal is excluded |
-| `V193_w7_freeze_in` | the production side computed — freeze-in and freeze-out with exact thermal convolution, regime decided at the self-consistency root: the exact-$\mathbb{Z}_2$ portal's only solution inside the LZ-class ceiling is freeze-in at $\lambda = 4.1\times10^{-14}$ ($\sigma_{\rm SI} = 6\times10^{-71}$ cm$^2$, DD-blind); its thermal solution $\lambda = 0.31$ is excluded as published; the pair portal reproduces $0.120$ at its computed coupling $\lambda = 1.3\times10^{-3}$ ($\sigma_{\rm SI} = 6.7\times10^{-50}$) |
+| `V193_w7_freeze_in` | the production side computed — freeze-in and freeze-out with exact thermal convolution, the regime decided at the self-consistency root: the exact-$\mathbb{Z}_2$ portal's only solution inside the LZ-class ceiling is freeze-in at $\lambda = 4.1\times10^{-14}$ ($\sigma_{\rm SI} = 6\times10^{-71}$ cm$^2$, DD-blind); its thermal solution $\lambda = 0.31$ is excluded as published; the pair portal reproduces $0.120$ at its computed coupling $\lambda = 1.3\times10^{-3}$ ($\sigma_{\rm SI} = 6.7\times10^{-50}$) |
+| `V194_w7_carrier_in_cell` | the carrier census of the built cell, closed: the exact grading group of step+gauge is $\mathbb{Z}_2\times\mathbb{Z}_2$ (global $\times$ mirror, no fragment-selective parity), no built root places a neutral fragment in the WIMP window (best $2.0\times10^{10}$ GeV) — with the certificate any redefined cell must meet |
+| `V195_w7_cell_redefinition` | the certificate realized: the cell content goes $32 \to 34$ — two neutral singlet classes, $A$ at the $n=3$ seesaw floor ($m_\nu = m_B^2/M_A$, the F3 ladder intact) and $B$ odd at the $n=10$ floor — and the carrier becomes a state of the automaton: exactly stable, neutral, at the DERIVED $118.57$ GeV, its $0.120$ by freeze-in at $\lambda = 4.1\times10^{-14}$ (DD-blind); the residual shrinks to the portal strength and the bond-stage wiring |
 
 ### `baryogenesis`
 | id | verdict |

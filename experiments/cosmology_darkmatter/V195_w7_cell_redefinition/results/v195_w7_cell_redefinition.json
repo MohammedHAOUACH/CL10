@@ -1,0 +1,49 @@
+{
+ "id": "V195_w7_cell_redefinition",
+ "tier": 5,
+ "programme": "V195",
+ "property": "the V194 certificate realized: the cell content redefined to 34 levels (the spinor module plus the two neutral singlet classes A and B) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
+ "data": {
+  "cell": {
+   "n_levels": 34,
+   "M_A_GeV": 96131777036496.42,
+   "M_B_GeV": 118.57086360835625,
+   "m_nu_eV": 0.14624768344284225
+  },
+  "production": {
+   "lambda_fi": 4.0623088619285984e-14,
+   "sigma_fi_cm2": 6.482041867030838e-71,
+   "lambda_to": 0.30803151212779395,
+   "sigma_to_cm2": 3.7271707715194065e-45,
+   "lambda_LZ": 0.01954171404147136,
+   "grav_overclosure_V66_conv": 2.6739331092575547e+63,
+   "grav_gamma_over_H": 5.341902166552789e-53
+  }
+ },
+ "pass": true,
+ "branch": "C",
+ "checks": [
+  {
+   "name": "T0 the redefinition realises the V194 certificate: M_A = the n=3 ladder floor = 9.6132e+13 GeV (stored 9.6132e+13, rel 0.0e+00), m_B = the n=10 ladder rung 118.5709 GeV (stored 1.2e+02, rel 0.0e+00), A inside the desert: True",
+   "pass": true
+  },
+  {
+   "name": "T1 the redefined cell: U_ext unitary to 1.7e-15; the extended parity B-alone-odd is an exact Z2 (G^2 = I to 0.0e+00) commuting with the step to 0.0e+00 and with all 45 gauge generators (extended by 0 on the singlets) to 0.0e+00: the carrier B is stable by the exact parity, and its mass is DERIVED (the n=10 ladder rung 118.57 GeV), not named",
+   "pass": true
+  },
+  {
+   "name": "T2 the five hard gates on the extended content: the singlets carry Y = 0, so the hypercharge multiset gains two zeros - Tr Y = 0.0e+00, Tr Y^3 = 0.0e+00 (anomaly-free), and the 5/3 trace ratio is exactly unchanged (built k = 1.6666666666666665; extended/base ratio 1 to 0.0e+00); the Clifford block is byte-identical (diff 0) and the bond sector is untouched by construction",
+   "pass": true
+  },
+  {
+   "name": "T3 production of B (the (BB)(hh) portal is the V1 operator structure at the same mass, so V193's K1 kernel applies verbatim): the unique 0.120 solution below the LZ-class ceiling lambda_LZ = 1.954e-02 is FREEZE-IN at lambda = 4.062e-14 with sigma_SI = 6.48e-71 cm^2 (DD-blind); the thermal solution lambda = 3.080e-01 gives sigma_SI = 3.73e-45 cm^2 > the LZ bound 1.5e-47 (excluded). lambda > 0 is forced by the built conventions: with lambda = 0 the V66 equilibrium estimate overcloses by x2.67e+63 while gravity never equilibrates (Gamma/H = 5.3e-53 at T = m_B) - and the gravitational freeze-in yield needs the inflation history the built model does not supply (named missing input)",
+   "pass": true
+  },
+  {
+   "name": "T4 the portal strength is not root-supplied: the bond numbers of the singlet class (V147, 13 values, |kappa| in [0.253, 40.00]) land every abundance under 0.120 (largest Omega with the nodal-plane density: 3.1e-04) and every one DD-excluded: the smallest already predicts sigma_SI = 2.5e-45 cm^2, 2.2 orders above the LZ bound: no built strength produces 0.120 - the portal fixing of B is a named residual",
+   "pass": true
+  }
+ ],
+ "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is redefined 32 -> 34 levels: the spinor module plus two neutral Clifford-singlet classes. A is even and sits at M_A = v^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: for the first time the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates survive verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named residual replaces the old one: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2) - the published input scalar had the same open number, but the carrier itself is no longer an input: it is a state of the redefined cell, stable, neutral, and at the derived ladder mass. VERDICT: PASS",
+ "wall_time": 0.0015170574188232422
+}
