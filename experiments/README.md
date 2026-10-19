@@ -1,8 +1,8 @@
 # The verification program
 
-160 experiments (the 119 of the publication programme plus the 41 exploration
+164 experiments (the 122 of the publication programme plus the 42 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
-4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 6 `alt_step`), grouped by
+4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 7 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
 recomputes a published number from the construction, states the provenance of
 every input it uses, and writes a JSON verdict to `<experiment>/results/`:
@@ -40,7 +40,7 @@ file whenever it is re-run.
 | `dynamics_spectrum` | unitarity, the causal radius, the $n$-particle sector, the doubling and its Wilson gap, the node geometry, the cone-isotropy no-gos, the graviton content | §7, §8, §9 |
 | `gauged_layer` | the adjoint bond layer: Gauss constraint, centre obstruction, area law, vertex correction, ground state, confinement | §10 |
 | `gravity` | the discrete Einstein–Hilbert action, curvature from an arbitrary metric, $3{+}1$ evolution | §11 |
-| `scales_loopfactor` | where a loop factor can come from, the closed-loop factor, the ladder length, the composition law | §12.1 |
+| `scales_loopfactor` | where a loop factor can come from, the closed-loop factor, the ladder length, the composition law, the rung arithmetic of every scale, the traced-loop weight functional | §12.1 |
 | `couplings_unification` | $\alpha_{10} = 1/25$, the desert solution, the proton lifetime, every proposed supplier of the desert spectrum | §13.1, §13.4 |
 | `neutrino` | the seesaw ladder, the $\tfrac13$ candidate, the protection of the two massless states, the $\Delta L = 2$ no-go | §12.3 |
 | `cosmology_darkmatter` | the $118$ GeV ladder mass, the carrier no-go, the built scalar, the relic abundance, the portal window | §12.2, §14.2 |
@@ -52,7 +52,7 @@ file whenever it is re-run.
 | `alt_interactions` | the exploration programme: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4) | §17 (W9) |
 | `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4) | §17 (W9) |
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §17 (W9) |
-| `alt_step` | the exploration programme: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4) | §17 (W9) |
+| `alt_step` | the exploration programme: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4), and the cone search with the root's sector-swap involutions interleaved in the internal layer | §17 (W9) |
 
 The `alt_*` programmes run on the **numpy core**: each script pins
 `CL10_BACKEND=numpy` before importing `cl10`, and `cl10/altcell.py` is
@@ -79,12 +79,15 @@ the claim asserts, not when a script merely mentions the word.
 | Proposition 3 - the momentum derivative is internal-blind; the Wilson factor is a spectator of the tangent algebra | `V191_parity_dirac_cone` | the tangent operators of the joint step, and the stage-sum levels |
 | Proposition 4 - no cone over the 880-point entangling-bond space | `V186_cone_inverse`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V115_w9_cone_isotropy` | the tuned bond census as (gap, anisotropy, rho_comm) triples |
 | Proposition 5 - the rigidity wall at gap 8e-3 | `V185_separation_lemma`, `V187_rigidity_frontier`, `V186_cone_inverse` | the (gap, rho_comm) frontier over 5292 points |
-| Proposition 6 - the parity no-go, and the cone outside the class | `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps; the constructed node; the search for the same node inside the six-stage product, which does not find it |
+| Proposition 6 - the parity no-go, and the cone outside the class | `V191_parity_dirac_cone`, `V192_engine_two_angle_cone`, `V201_root_swap_cone` | `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps; the constructed node; the search for the same node inside the six-stage product, which does not find it, and its rerun on the Dirac module with the 10 root sector-swap involutions `h_a w`: the gapless points turn non-Abelian (rho to 0.80) but stay flat - not found either |
 | `det U = 1`, exact unitarity, the +/- phase pairing | `V43_qca_spectrum`, `V131_algebraic_closure`, `V52_parameter_audit`, `V78_w1_lambda`, `V157_hardtier`, `V117_w5_real_form`, `V125_w5_cp_flux_washout` | the determinant of the step and its eigenphase pairing |
 | front speed exactly one Planck cell per stage | 21 scripts across 8 programmes, plus `cl10/supercell.verify()` invariant 2 | the support growth of the real-space step |
 | Nielsen-Ninomiya bookkeeping | `V63_bz_chirality`, `V132_gapless_census_pi4` | the node charges and their sum |
 | the cubic equivariance of the bond product (Section 8.4) | `cl10/supercell.verify()` invariant 6, `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `W P(q) W^T = P(Rq)` per momentum: 1.1e-16 at Gamma, 1.07e-1 generic, 1.40e-1 M, 1.46e-1 R |
 | the cell module of Axiom 1 and its B-parity (Sections 2, 4, 12.2) | `cl10/cell.py`, `cl10/supercell.verify()` invariant 7, `V194_w7_carrier_in_cell`, `V195_w7_cell_redefinition`, `V196_cell_definition` | 36-level step unitary, spectrum +-paired, `det = 1`, quasi-energy sum zero on the full cell; `[G,U] = [G,45] = 0`; the ladder identity `m_nu = m_B^2/m_A` exact between cell levels; the rung phases `loop^3`, `loop^10` reproduced by the six-stage product; `M(q) = kron(P(q), U^6)` |
+| the rung arithmetic and its joint falsifier (Table 4, F3) | `V197_rung_arithmetic` | rung exponents of every quoted scale: the four ladder rows integer-exact, every other scale off-integer by 0.06–0.42 rungs, and the [rung-10 DM, 0.05 eV neutrino] pair forcing the seesaw partner to rung 2.72 |
+| the traced-loop weight functional (Section 12.1, O8) | `V200_loop_weight_functional` | `F_n = N_n r_n I_n` exact to 2.3e-16 for n = 2..10 on the word census; word norms angle-independent; `F_10` crosses 1/(16 pi) at 8 angles, deficit factor 0.9644 at the root angle |
+| the A->BB channel bound on O5 (Section 13.3) | `V199_a_to_bb_channel` | `Gamma_B/H` from 4.7 to 1.2e5 over the 13 root bond strengths; 9/13 drive `Br(A->LH)` below the 6.4% CP-strength ratio; survivable below kappa 3.04, negligible below 0.080 |
 
 ## The experiments
 
@@ -180,6 +183,8 @@ the claim asserts, not when a script merely mentions the word.
 | `V108_hierarchy_multiplicity` | the hierarchy coefficient as a product of measured root numbers |
 | `V113_w8_axis_factorization` | the axis-family factorization audit of that coefficient |
 | `V126_w8_loop_enumeration` | which loops supply the ladder factor |
+| `V197_rung_arithmetic` | the rung ruler on every quoted scale: ladder rows integer-exact, every other scale off-integer by $0.06$–$0.42$ rungs, and the [$m_B$ at rung 10, $\sum m_\nu$ at $0.05$ eV] pair forces the seesaw partner to rung $2.72$ — mutually exclusive (F3) |
+| `V200_loop_weight_functional` | the weight of the traced loop census is exactly $F_n = N_n\, r_n\, I_n$ (multiplicity, mean-word Cartan amplitude, interference), word norms angle-independent, and the O8 residual is the single deficit factor $0.9644$ at the root angle |
 
 ### `couplings_unification`
 | id | verdict |
@@ -231,6 +236,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V193_w7_freeze_in` | the production side computed — freeze-in and freeze-out with exact thermal convolution, the regime decided at the self-consistency root: the exact-$\mathbb{Z}_2$ portal's only solution inside the LZ-class ceiling is freeze-in at $\lambda = 4.1\times10^{-14}$ ($\sigma_{\rm SI} = 6\times10^{-71}$ cm$^2$, DD-blind); its thermal solution $\lambda = 0.31$ is excluded as published; the pair portal reproduces $0.120$ at its computed coupling $\lambda = 1.3\times10^{-3}$ ($\sigma_{\rm SI} = 6.7\times10^{-50}$) |
 | `V194_w7_carrier_in_cell` | the carrier census of the built cell: the exact grading group of step+gauge is $\mathbb{Z}_2\times\mathbb{Z}_2$ (global $\times$ mirror, no fragment-selective parity), and no built root places a neutral spinor-module fragment in the WIMP window (best $2.0\times10^{10}$ GeV) — the certificate the engine cell meets |
 | `V195_w7_cell_redefinition` | the certificate realized on the engine's cell object (`cl10/cell.py`): the cell content is the 36-level module — two neutral singlet sectors (four levels), $A$ at the $n=3$ seesaw floor ($m_\nu = m_B^2/M_A$, the F3 ladder intact) and $B$ odd at the $n=10$ floor — the carrier is a state of the automaton: exactly stable, neutral, at the DERIVED $118.57$ GeV, its $0.120$ by freeze-in at $\lambda = 4.1\times10^{-14}$ (DD-blind); the residual is the portal strength |
+| `V199_a_to_bb_channel` | the $A \to BB$ channel with the $13$ bond numbers of the singlet class as coupling candidates: $9$ of $13$ drive $\mathrm{Br}(A \to LH)$ below $6.4\%$ and kill the resonant leptogenesis route; the route survives only for $\kappa < 3.04$, the channel is negligible below $0.080$ (branch SPLIT), and no value produces the relic |
 
 ### `baryogenesis`
 | id | verdict |
@@ -319,6 +325,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached. The searched space is single-angle, and V192 closes the wider two-angle-plus-internal question: what keeps the cone out of the root is the circuit class, not the single-angle rule |
 | `V191_parity_dirac_cone` | **why** every node found so far is flat, and the node that is not: `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps (and dim 0 by direct solve on the T1u block), so no single-parity multiplet at an inversion-invariant momentum can be conical; the parity-degenerate `A1g+T1u` pair escapes it - constructed on the O_h-invariant hopping `-24 O14 + 8 O50`, gap 2.9e-11 at Gamma, multiplicity 4, cone anisotropy 1.0e-15, rho_comm = 1/sqrt 2, `TT^dag = 16 I` to 5.6e-16; the implemented 6-stage product is exactly O_h-equivariant at Gamma (1.1e-16) and breaks it at every other momentum (1.07e-1 generic, 1.40e-1 M, 1.46e-1 R), where its stage sum is invariant to 1.1e-15 |
 | `V192_engine_two_angle_cone` | **the search for the cone inside the engine's own circuit - negative**: over the two-angle axis-symmetric stage family (`a` on the three intra-block stages, `b` on the three inter-block ones - the largest six-stage family keeping Gamma exactly covariant: 1.1e-16 at Gamma, 9.0e-1 at M, 6.3e-1 at generic q; a generic six-angle product misses Gamma covariance by 6.0e-2 best of 200 draws, a per-axis generalisation by 0.90), searched jointly with the internal angle over 33800 points of (a, b, theta) and polished to residuals below 4.3e-14, 60 points carry on-site states at phase zero, the full 128x128 step gap at most 4.4e-15. They split by parity of the gapless eigenspace, and the split is the answer: 8 points have a 4-dimensional single-parity gapless space (`A1g (+) T2g` or `A2u (+) T1u`, content read off the eigenspace by character inner product) and are flat to 1.3e-12 over 179 sampled directions, which is what Proposition 6 forces; the other 52 have the 8-dimensional parity-mixed space `A1g (+) T2g (+) A2u (+) T1u`, disperse (slope 0.09-1.73 per unit block momentum, 0.03-0.58 Planck cells/stage, inside the front speed 0.67, no amplitude outside the light cone in 12 stages) but are exactly Abelian, rho_comm <= 1.2e-11 at anisotropy 0.423 - nodal planes, not a cone. Conical nodes: 0. On the diagonal a = b, at pi/4 and 3pi/4: 64 gapless states carrying 16 x (A1g (+) T2g), gap at most 8e-17, slope at most 3e-14 - the flat zone-centre band of Section 8.3. An earlier version of this programme reported a cone here; that report rested on a root-finder placed on the wrap discontinuity of a phase difference, a gapless subspace assumed rather than taken from the eigenvectors, a small-angle extrapolation of internal phases that are not linear in the angle, and an O_h character table with five wrong improper-class entries - all four corrected here |
+| `V201_root_swap_cone` | **the cone search with the root's own sector swaps - negative**: the internal layer interleaved with each of the 10 involutions $S_c = h_c w$ of the Clifford module ($w = h_1..h_{10}$: $S^2 = I$, $SS^\dagger = I$, $\{S,w\} = 0$, $S = S^\dagger$, all exact to $0$, exchanging $\mathbf{16}$ and $\overline{\mathbf{16}}$ on the doubled module, anchored to the V192 Weyl step by $B^\dagger U_{32}^6 B = U_{16}^6$ to $8\times10^{-15}$, Gamma equivariance intact to $6.2\times10^{-17}$); the V192 grid rerun per swap (33800 points): $8$ exactly polished four-cancellation points each, all a $6$-dim $T_{2g}\oplus T_{1u}$ gapless multiplet with non-commuting tangent operators ($\rho_{\mathrm{comm}}$ 0.50–0.80 - the V192 Abelianness is removed) and vanishing linear velocity (max slope $1.7\times10^{-12}$): the non-commutativity is bought from the root, the dispersion is not, conical nodes 0 |
 
 `V189` runs in 8 min on the CPU and is re-executed by the driver like any
 other experiment. The factorization `M(q,theta) = P(q) (x) U(theta)^ns` (bond

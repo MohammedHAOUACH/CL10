@@ -1,0 +1,126 @@
+{
+ "experiment": "V199_a_to_bb_channel",
+ "data": {
+  "census": [
+   {
+    "kappa": 0.2534,
+    "Gamma_B_GeV": 61416716469.58839,
+    "r_B_over_H": 4.730828011624052,
+    "Br_A_to_LH": 0.9082120292953558,
+    "kills_route": false
+   },
+   {
+    "kappa": 1.9191,
+    "Gamma_B_GeV": 3521835926163.3726,
+    "r_B_over_H": 271.28119198765233,
+    "Br_A_to_LH": 0.1471590574624181,
+    "kills_route": false
+   },
+   {
+    "kappa": 2.1589,
+    "Gamma_B_GeV": 4456892634382.358,
+    "r_B_over_H": 343.30706249946616,
+    "Br_A_to_LH": 0.11998962490922595,
+    "kills_route": false
+   },
+   {
+    "kappa": 2.6887,
+    "Gamma_B_GeV": 6912765327741.179,
+    "r_B_over_H": 532.4788710652584,
+    "Br_A_to_LH": 0.08080597149039088,
+    "kills_route": false
+   },
+   {
+    "kappa": 3.1466,
+    "Gamma_B_GeV": 9467824436677.996,
+    "r_B_over_H": 729.2908450479257,
+    "Br_A_to_LH": 0.06031432680260694,
+    "kills_route": true
+   },
+   {
+    "kappa": 3.265,
+    "Gamma_B_GeV": 10193738553356.607,
+    "r_B_over_H": 785.2068079098772,
+    "Br_A_to_LH": 0.056260882658839745,
+    "kills_route": true
+   },
+   {
+    "kappa": 4.0555,
+    "Gamma_B_GeV": 15727363731494.88,
+    "r_B_over_H": 1211.4527960282342,
+    "Br_A_to_LH": 0.03720208540517766,
+    "kills_route": true
+   },
+   {
+    "kappa": 4.2079,
+    "Gamma_B_GeV": 16931597669170.623,
+    "r_B_over_H": 1304.2129429782217,
+    "Br_A_to_LH": 0.03464782018935305,
+    "kills_route": true
+   },
+   {
+    "kappa": 4.3903,
+    "Gamma_B_GeV": 18431280765549.492,
+    "r_B_over_H": 1419.7310495904717,
+    "Br_A_to_LH": 0.031918642859040045,
+    "kills_route": true
+   },
+   {
+    "kappa": 4.8195,
+    "Gamma_B_GeV": 22211152231365.61,
+    "r_B_over_H": 1710.8882920926155,
+    "Br_A_to_LH": 0.026631419175056875,
+    "kills_route": true
+   },
+   {
+    "kappa": 5.6768,
+    "Gamma_B_GeV": 30815861044565.508,
+    "r_B_over_H": 2373.69476930817,
+    "Br_A_to_LH": 0.01933894144458937,
+    "kills_route": true
+   },
+   {
+    "kappa": 9.1859,
+    "Gamma_B_GeV": 80688296376763.34,
+    "r_B_over_H": 6215.285913216027,
+    "Br_A_to_LH": 0.007475133030333891,
+    "kills_route": true
+   },
+   {
+    "kappa": 40.0,
+    "Gamma_B_GeV": 1529984750356636.0,
+    "r_B_over_H": 117852.19286232733,
+    "Br_A_to_LH": 0.0003970347404435713,
+    "kills_route": true
+   }
+  ],
+  "thresholds": {
+   "Br_min": 0.06427207055663411,
+   "Kappa_split": 0.08012035791089392,
+   "Kappa_kill": 3.0417542856760327,
+   "H_at_mA_GeV": 12982234044.163565
+  }
+ },
+ "branch": "SPLIT",
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the channel is open: 4 m_B^2 = 5.624e+04 GeV^2 << m_A^2 = 9.241e+27, phase-space factor sqrt(1 - 4 m_B^2/m_A^2) = 1.000000000000000",
+   "pass": true
+  },
+  {
+   "name": "T1 the 13 root bond strengths of the singlet class (|kappa| = 0.253 ... 40.0) run Gamma_B/H from 4.73 to 1.18e+05 at T = m_A: 9 of 13 leave Br(A->LH) < 0.0643 = J_required/J_available_max and kill the resonant route of V125; the channel is negligible only for kappa < 0.0801 and the route survives only for kappa < 3.0418 - the channel is a named bound on the dark coupling, not a free door",
+   "pass": true
+  },
+  {
+   "name": "T2 the channel cannot produce 0.120: if A is thermal the decay yield overcloses by the V195 equilibrium estimate x2.674e+63 (regression) at every candidate branching (smallest branching fed 0.000397); if A is not thermal the yield needs the inflation/reheating history the built model does not supply (named missing input, V195) - no value of the 13 strengths gives the relic through A->BB",
+   "pass": true
+  }
+ ],
+ "status": "the A->BB channel census of O5. With the 13 root bond numbers of the singlet class (V147) as the A BB coupling candidates and Gamma_B = kappa^2 m_A/32pi, the channel runs Gamma_B/H = 4.73 ... 1.18e+05 at T = m_A against the leptogenesis point K = 46.8 (V125): 9 of the 13 strengths drive Br(A->LH) below 0.0643 and make the resonant route impossible, 4 of them leave it alive; the channel is negligible below kappa = 0.0801 and survivable below kappa = 3.0418 - the smallest root strength 0.253 sits between (branch SPLIT). The channel supplies no relic (thermal A overcloses x2.67e+63, non-thermal A needs the named missing reheating history): the washout clause of O5 now names a bound on the dark coupling, and the coupling itself stays unnamed (O7)",
+ "residual": true,
+ "tier": 5,
+ "property": "the A->BB channel is a named bound on the dark coupling, never a relic source (V199)",
+ "programme": "V199",
+ "wall_time": 0.0
+}

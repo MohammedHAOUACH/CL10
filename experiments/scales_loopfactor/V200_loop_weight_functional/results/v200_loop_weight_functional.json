@@ -1,0 +1,123 @@
+{
+ "experiment": "V200_loop_weight_functional",
+ "data": {
+  "decomposition": [
+   {
+    "n": 2,
+    "N": 9,
+    "r": 0.5093826983485575,
+    "r_root": 0.7137105143884022,
+    "I": 0.6016496635797277,
+    "F_n": 2.7582293618526923
+   },
+   {
+    "n": 3,
+    "N": 27,
+    "r": 0.01928431060973304,
+    "r_root": 0.268164554255228,
+    "I": 0.46667605430035863,
+    "F_n": 0.24298720160182444
+   },
+   {
+    "n": 4,
+    "N": 81,
+    "r": 0.015881079420749435,
+    "r_root": 0.35499317573662476,
+    "I": 0.36198231768559985,
+    "F_n": 0.465642264821829
+   },
+   {
+    "n": 5,
+    "N": 243,
+    "r": 0.001527919889993939,
+    "r_root": 0.2734136023074092,
+    "I": 0.28077549107052563,
+    "F_n": 0.10424759715536161
+   },
+   {
+    "n": 6,
+    "N": 729,
+    "r": 0.0001881896513796353,
+    "r_root": 0.23938629855130839,
+    "I": 0.21778653965735154,
+    "F_n": 0.029878191097531405
+   },
+   {
+    "n": 7,
+    "N": 2187,
+    "r": 0.0009955068346576537,
+    "r_root": 0.3725196429328228,
+    "I": 0.16892847974401468,
+    "F_n": 0.3677866006076906
+   },
+   {
+    "n": 8,
+    "N": 6560,
+    "r": 7.396996999473068e-05,
+    "r_root": 0.30453129570694565,
+    "I": 0.13103119831704688,
+    "F_n": 0.06358197217972929
+   },
+   {
+    "n": 9,
+    "N": 19472,
+    "r": 1.7589915179065178e-05,
+    "r_root": 0.29627565825238084,
+    "I": 0.10163576301873814,
+    "F_n": 0.03481134938323542
+   },
+   {
+    "n": 10,
+    "N": 55326,
+    "r": 4.39891556230256e-06,
+    "r_root": 0.2912960278497181,
+    "I": 0.07883487678648371,
+    "F_n": 0.019186391026184278
+   }
+  ],
+  "eta_law": {
+   "F_10_at": {
+    "eta0": 0.243374,
+    "root": 0.019186,
+    "pi/4": 0.194894,
+    "pi/2": 0.154467,
+    "theta_root": 0.065157,
+    "Fmin": 0.094151,
+    "pi": 0.243374
+   },
+   "crossings_1_16pi": [
+    0.1987,
+    0.5774,
+    1.0049,
+    1.347,
+    1.7946,
+    2.1367,
+    2.5642,
+    2.9429
+   ],
+   "deficit_root_over_loop": 0.9644
+  }
+ },
+ "branch": "W-NAMED",
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the weight functional is the census: enumerating the 3^n words of the three sector hop matrices reproduces the Cartan projection of (MG)^n for every n = 2..10 to 7.7e-17, and F_10 = 0.019186 against V85's measured 0.019186",
+   "pass": true
+  },
+  {
+   "name": "T1 exact three-factor law F_n = N_n * r_n * I_n: for every n = 2..10 the identity holds to 2.3e-16 relative; at n = 10: multiplicity N = 55326 surviving words (eta-independent norms, the phase cancels in every word norm - verified to 2.9e-18), mean-word amplitude ratio r_10 = 4.399e-06 (per-hop decay 0.2913), interference I_10 = 0.0788; the ladder factor is multiplicity x geometry x interference with no further number",
+   "pass": true
+  },
+  {
+   "name": "T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the 8 angles [0.1987, 0.5774, 1.0049, 1.347, 1.7946, 2.1367, 2.5642, 2.9429]; at the traced-loop root angle eta = 0.20 it is 0.01919, the single named deficit factor 0.9644 of the loop factor; at the root Wilson angle 1.7308 and the closed angles pi/4, pi/2 it is 0.19489, 0.15447, 0.06516 - the deficit of the interference at the root angle is the whole content of O8",
+   "pass": true
+  }
+ ],
+ "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1987); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
+ "residual": true,
+ "tier": 4,
+ "property": "the loop-factor weight is exactly multiplicity x per-word geometry x interference of the traced word census (V200)",
+ "programme": "V200",
+ "wall_time": 36.479
+}
