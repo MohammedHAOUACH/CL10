@@ -256,11 +256,7 @@ def main():
     # ---- T3 the dressing is velocity-blind: v = 1, 0-parameter ------------
     # bare hop front: at the half angle the bond layer is a pure lattice
     # translation with corner-vector phases; measure max |d omega / d q_d|.
-    def p_bond(q, g):
-        P = np.eye(8, dtype=complex)
-        for even, j in SC.STAGES:
-            P = SC.stage_matrix(even, j, q[j], g) @ P
-        return P
+    p_bond = SC.bond_product   # the engine's own six-stage bond product
 
     h = 1e-6
     front_max, front_min = 0.0, 9.9

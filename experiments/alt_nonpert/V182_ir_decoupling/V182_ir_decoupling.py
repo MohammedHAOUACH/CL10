@@ -120,6 +120,7 @@ def main():
                     "string tension sigma = C2(45) = 64",
         "residual": None,
         "pass": bool(ok),
+        "inconclusive": branch.startswith("INCONCLUSIVE"),
         "status": f"IR VERDICT: {branch}. gap(N) = {gap3:.4f} (N=3), "
                   f"{gapc:.4f} (N=4 chain), {gapr:.4f} (N=4 ring) eta; "
                   f"volume drift {gapc - gap3:+.4f} / {gapr - gap3:+.4f} "

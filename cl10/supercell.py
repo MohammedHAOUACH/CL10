@@ -94,7 +94,11 @@ NSECTOR_ONSITE = NSUB * NSECTOR  # 128
 
 G10 = coupling.G10        # the active branch: 1/5 implemented, pi/4 closed (CL10_ANGLE)
 
-# the six stages of the one step: (intra-block?, axis)
+# the six stages of the one step: (intra-block?, axis).
+# The order is not free: the product of the six stage matrices is exactly
+# O_h-equivariant at GAMMA and broken at every other momentum (see
+# cubic_equivariance below, and Section 8.4); the stage SUM is invariant at
+# all momenta, so the breaking is the non-commutativity of the stages.
 STAGES = [(True, 0), (False, 1), (True, 2),
           (False, 0), (True, 1), (False, 2)]
 
@@ -199,6 +203,56 @@ def stage_matrix(even, j, q, g10=G10):
             S[e, o] = -1j * s * ph
             S[o, e] = -1j * s * np.conj(ph)
     return S
+
+
+def bond_product(q, g10=G10, stages=STAGES):
+    """The 8x8 bond part P(q) of the one-step Bloch matrix: the six stage
+    matrices multiplied in stage order. The full step is ``bloch(q, U)``;
+    when the internal angle equals the bond angle it factorizes as
+    P(q) (x) U(g10)**ns (V189)."""
+    M = np.eye(NSUB, dtype=complex)
+    for even, j in stages:
+        M = stage_matrix(even, j, q[j], g10) @ M
+    return M
+
+
+def oh_subsite_matrices():
+    """The 48 elements of O_h as permutation matrices on the eight sub-sites:
+    sub-site index e has bit j = its coordinate along axis j, and a sign flip
+    is the reflection about the block centre, x -> 1 - x."""
+    out = []
+    for perm, signs in _OH:
+        W = np.zeros((NSUB, NSUB))
+        for e in range(NSUB):
+            x = [((e >> j) & 1) * 2 - 1 for j in range(3)]
+            y = [signs[i] * x[perm[i]] for i in range(3)]
+            e2 = sum(int((v + 1) // 2) << j for j, v in enumerate(y))
+            W[e2, e] = 1.0
+        out.append(((perm, signs), W))
+    return out
+
+
+def cubic_equivariance(qs=(GAMMA, X_POINTS[0], M_POINTS[0], R_POINTS[0],
+                           (0.31, -0.77, 0.44)), g10=G10, stages=STAGES):
+    """The defect of the O_h equivariance of the bond product,
+    ``W P(q) W^T = P(R q)``, maximized over the 48 group elements, per
+    momentum.
+
+    Measured (V191, V192): the implemented six-stage product is exact at
+    GAMMA (1.1e-16) and broken at every other momentum (1.07e-1 generic,
+    1.40e-1 M, 1.46e-1 R), while its stage SUM is invariant to 1.1e-15 at all
+    momenta. Section 8.4 uses exactly this: the node analysis at GAMMA is a
+    statement about an O_h-invariant matrix, and it is valid there."""
+    out = {}
+    for q in qs:
+        P = bond_product(q, g10, stages)
+        d = 0.0
+        for (perm, signs), W in oh_subsite_matrices():
+            rq = tuple(signs[i] * q[perm[i]] for i in range(3))
+            d = max(d, float(np.abs(W @ P @ W.T
+                                    - bond_product(rq, g10, stages)).max()))
+        out[tuple(round(v, 4) for v in q)] = d
+    return out
 
 
 def bloch(q, U, g10=G10, stages=STAGES):
@@ -352,6 +406,8 @@ def verify(tol=_config.CFG.tolerances.standard):
        layer is a pure translation (V134);
     5. the stars and little groups: the M momenta form a 12-point star (little
        group C2v, order 4), the 8 corners one star (little group C3v, order 6).
+    6. the **cubic equivariance of the bond product**: exact at GAMMA, broken
+       at every other momentum (Section 8.4).
     """
     B, U32, U16 = sectors()
     r = {"backend": E._BACKEND, "g10": float(G10), "branch": coupling.branch()}
@@ -414,6 +470,11 @@ def verify(tol=_config.CFG.tolerances.standard):
     r["star_M"] = len(star(M_POINTS[0]))
     r["star_R"] = len(star(R_POINTS[0]))
 
+    # 6. the cubic equivariance of the bond product (Section 8.4)
+    eq = cubic_equivariance()
+    r["cubic_equivariance"] = {str(k): v for k, v in eq.items()}
+    r["equivariant_at_gamma"] = eq[GAMMA] < tol
+
     zone = {
         "implemented": (r["gap_gamma"] > 1e-3 and r["n_M_gapless"] == 12
                         and r["max_M_gap"] < 1e-3 and r["R_first_mult"] == 3),
@@ -425,7 +486,8 @@ def verify(tol=_config.CFG.tolerances.standard):
           and leak < tol and block_err < tol
           and r["spectral_mirror_err"] < 1e-9
           and zone and r["little_M"] == 4
-          and r["little_R"] == 6 and r["star_M"] == 12 and r["star_R"] == 8)
+          and r["little_R"] == 6 and r["star_M"] == 12 and r["star_R"] == 8
+          and r["equivariant_at_gamma"])
     r["ok"] = bool(ok)
     return r
 

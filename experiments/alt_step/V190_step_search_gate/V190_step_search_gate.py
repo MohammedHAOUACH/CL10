@@ -18,7 +18,10 @@ the candidate dies (recorded, no re-search).
 passes the hard tier.  Zero candidates is a valid PASS: the searched
 space (45 continuous angles x 4 cell/stage choices, 57 descent runs)
 contains no isotropic gapless step within the loss basin reached by
-descent - W9 stays open.
+descent.  Scope: the searched space is single-angle (one angle per
+step).  V192 reaches an isotropic gapless cone in the two-angle stage
+family, so what this gate leaves open is the single-angle rule of
+Theorem 6, not the circuit class.
 """
 
 import importlib.util
@@ -155,7 +158,11 @@ def main():
                   + ("No isotropic gapless step found in the searched "
                      "space (45 continuous angles x 4 cell/stage "
                      "choices): the baseline step remains the only "
-                     "closed-form gapless point reached; W9 stays open."
+                     "closed-form gapless point reached. The searched "
+                     "space is single-angle, so it says nothing about the "
+                     "two-angle stage family, where V192 does reach an "
+                     "isotropic gapless cone: what survives of W9 is the "
+                     "single-angle rule, not the circuit class."
                      if not cands else
                      f"{len(hard_rows)} candidates hard-tier checked, "
                      f"all pass: {hard_ok}."),

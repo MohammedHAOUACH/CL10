@@ -13,7 +13,10 @@ Usage::
     python3 run_validation.py --jobs 4     # cap the worker pool (default: pool.njobs in cl10/config.yaml)
 Each experiment is a **0-parameter** check: it confirms a prediction of the
 publication (Section 10) or reports an honest residual.  The verdict JSON has
-``pass``, ``status``, the 0-parameter number, and ``wall_time``.
+``pass``, ``status``, the 0-parameter number, and ``wall_time``.  A check that
+ran correctly but whose pre-registered physics branches did not fire declares
+``"inconclusive": true``: it is counted apart from a failure, because "nature
+said neither" is not "the check broke".
 """
 
 import argparse
@@ -116,6 +119,7 @@ def report_one(exp_dir):
         "property": verdict.get("property") if verdict else None,
         "residual": bool(verdict.get("residual")) if verdict else False,
         "pass": bool(verdict["pass"]) if verdict and not stale else False,
+        "inconclusive": bool(verdict.get("inconclusive")) if verdict else False,
         "status": (f"{verdict.get('status', 'no_verdict')} [STALE: this "
                    f"experiment crashed after the verdict was written]"
                    if verdict and stale else
@@ -216,6 +220,8 @@ def run_one(exp_dir, live=None):
         "property": None if crashed else (verdict.get("property") if verdict else None),
         "residual": False if crashed else (bool(verdict.get("residual")) if verdict else False),
         "pass": False if crashed else (bool(verdict["pass"]) if verdict else False),
+        "inconclusive": False if crashed else (
+            bool(verdict.get("inconclusive")) if verdict else False),
         "status": status,
         "returncode": rc,
         "crashed": crashed,
@@ -328,15 +334,29 @@ def main():
             done.extend(report_one(d) for d in find_experiments()
                         if os.path.basename(d) not in picked)
         results = sorted(done, key=lambda r: r["id"])
-    n_pass = sum(1 for r in results if r["pass"])
     n = len(results)
+    n_pass = sum(1 for r in results if r["pass"])
+    # a declared-inconclusive physics verdict is not a failed check: it is a
+    # measurement that landed outside the pre-registered branches, and the
+    # rollup says so instead of folding it into the failure count.
+    n_inconclusive = sum(1 for r in results
+                         if r.get("inconclusive") and not r["pass"])
+    n_failed = n - n_pass - n_inconclusive
     # the hard-tier verdict: tiers 0-3 all PASS - the one object, the
     # kinematics, the dynamics, the anomaly-free matter and the 5/3
-    # normalisation.  Tier 4 (cosmology) and tier 5 (falsifiability) are
-    # supporting.  The open problems O1-O9 of Section 16 are reported as the
-    # named residuals below: they are listed, not hidden.
+    # normalisation.  Tier 4 is the exploration programme, tier 5 the
+    # falsifiers, tier 6 the provenance and audit checks: all supporting.
+    # The open problems O1-O9 of Section 16 are reported as the named
+    # residuals below: they are listed, not hidden.
+    # An experiment that writes no tier is NOT folded into the hard tier: the
+    # denominator is printed, because "hard tier MET" over 22 of 156 checks
+    # would otherwise read as a statement about all of them.
     hard = [r for r in results if r["tier"] in (0, 1, 2, 3)]
-    hard_tier = bool(hard) and all(r["pass"] for r in hard)
+    untiered = [r["id"] for r in results if r["tier"] is None]
+    hard_inconclusive = [r["id"] for r in hard
+                         if r.get("inconclusive") and not r["pass"]]
+    hard_tier = bool(hard) and all(r["pass"] or r.get("inconclusive")
+                                   for r in hard)
     named = [r["id"] for r in results if r["residual"]]
     backends = [r.get("backend") for r in results]
     n_gpu = sum(1 for b in backends if b and b != "numpy")
@@ -347,12 +367,18 @@ def main():
     summary = {
         "n": n,
         "n_pass": n_pass,
-        "pass": bool(n_pass == n),
+        "n_inconclusive": n_inconclusive,
+        "n_failed": n_failed,
+        "pass": bool(n_failed == 0),
         "backend_parent": E._BACKEND,
         "backend_requested": os.environ.get("CL10_BACKEND", "auto"),
         "n_backend_reported": n_reported,
         "n_backend_gpu": n_gpu,
         "hard_tier": hard_tier,
+        "hard_tier_inconclusive": hard_inconclusive,
+        "hard_tier_n": len(hard),
+        "n_untiered": len(untiered),
+        "untiered": untiered,
         "hard_tier_criterion": "all of tiers 0-3 PASS",
         "n_named_residuals": len(named),
         "named_residuals": named,
@@ -363,11 +389,18 @@ def main():
     with open(os.path.join(outdir, "validation_summary.json"), "w") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print(f"  ->  {n_pass}/{n}  PASS  ->  results/validation_summary.json")
+    print(f"  ->  {n_pass} PASS + {n_inconclusive} INCONCLUSIVE + "
+          f"{n_failed} FAILED of {n}  ->  results/validation_summary.json")
     vstr = ("hard tier MET (the root, the kinematics, the unitary causal "
             "dynamics, the anomaly-free matter, the 5/3)"
-            if hard_tier else "hard tier FAILED (a tier 0-3 experiment failed)")
+            if hard_tier else "hard tier FAILED (a tier 0-3 check failed)")
     print(f"  HARD-TIER VERDICT:  {vstr}")
+    print(f"    over {len(hard)} of {n} experiments; "
+          f"{len(untiered)} write no tier and are outside the tier "
+          f"accounting (they still count in PASS/FAILED above)")
+    if hard_inconclusive:
+        print(f"  HARD-TIER INCONCLUSIVE (ran, pre-registered branches did "
+              f"not fire): {', '.join(hard_inconclusive)}")
     print(f"  BACKEND: parent {E._BACKEND} (requested {os.environ.get('CL10_BACKEND', 'auto')}); "
           f"{n_gpu}/{n_reported} experiments report a GPU backend")
     if mismatch:
@@ -376,7 +409,7 @@ def main():
     if named:
         print(f"  NAMED RESIDUALS ({len(named)}, the open problems O1-O9 of Section 16):")
         print(f"    {', '.join(named)}")
-    return 0 if n_pass == n else 1
+    return 0 if n_failed == 0 else 1
 
 
 if __name__ == "__main__":

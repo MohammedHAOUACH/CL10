@@ -64,11 +64,7 @@ NET = [("q_x+q_y=+pi/2 (q_z=pi/2)", lambda t: (t, PI / 2 - t, PI / 2)),
        ("q_x-q_y=-pi/2 (q_z=pi/2)", lambda t: (t, t + PI / 2, PI / 2))]
 
 
-def P_bond(q, g):
-    P = np.eye(8, dtype=complex)
-    for even, j in SC.STAGES:
-        P = SC.stage_matrix(even, j, q[j], g) @ P
-    return P
+P_bond = SC.bond_product   # the engine's own six-stage bond product
 
 
 def internal_phases(g):

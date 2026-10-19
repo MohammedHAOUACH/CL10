@@ -4,7 +4,7 @@
   "property": "Adam descent on the V184 cone loss over the 45 per-plane angles of the (2,2,2)-cell step, 25 pre-registered seeds, alternating node/step scheme (10 cycles x [Nelder-Mead node + 30 theta-steps]); the step is evaluated through its exact factorization P(q) (x) U(theta)^ns and the descent takes finite-difference subgradients",
   "residual": null,
   "pass": true,
-  "status": "DESCENT RUN (25 seeds, factorized step, no gradient). Baseline row reproduces V184 A to 2.8e-04; the factorized route reproduces V184's dense route at one node to lam_max 6.7e-16 and A 3.7e-04. Best A over all seeds: 0.9385 (seed uniform-0); candidates (A < 1e-6 and gapless): 0. Baseline final A = 0.9665 (||dtheta|| 1.956); random-seed omega(q*) min 8.18e-14. Route: numpy CPU.",
+  "status": "DESCENT RUN (25 seeds, factorized step, no gradient). Baseline row reproduces V184 A to 2.8e-04; the factorized route reproduces V184's dense route at one node to lam_max 1.0e-15 and A 3.1e-04. Best A over all seeds: 0.9385 (seed uniform-0); candidates (A < 1e-6 and gapless): 0. Baseline final A = 0.9665 (||dtheta|| 1.956); random-seed omega(q*) min 8.18e-14. Route: numpy CPU.",
   "data": {
     "rows": [
       {
@@ -1512,8 +1512,8 @@
     "lr_th": 0.02,
     "fd_step": 1e-05,
     "anchor_dev_A": 0.00027566214513596865,
-    "anchor_lam_dev": 6.661338147750939e-16,
-    "anchor_A_dev": 0.0003686402086542362,
+    "anchor_lam_dev": 9.992007221626409e-16,
+    "anchor_A_dev": 0.00030895343152259613,
     "n_candidates": 0,
     "best": {
       "seed": "uniform-0",
@@ -1576,5 +1576,5 @@
       ]
     }
   },
-  "wall_time": 925.957
+  "wall_time": 2368.75
 }

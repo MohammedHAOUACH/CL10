@@ -413,29 +413,35 @@ def main():
 
     # ---- (5) the cost: the engine's own step -------------------------------
     def P_engine(q):
-        return C._P(q)
+        return V.SC.bond_product(q)   # the engine's own bond product
 
-    ed = 0.0
-    for R3, W in zip(G48, W48):
-        for q in ([0.3, -0.2, 0.7], [0.9, 0.9, 0.1], [0.1, 0.4, -0.6]):
-            qq = np.array(q)
-            ed = max(ed, float(np.abs(W @ P_engine(qq) @ W.T
-                                      - P_engine(R3 @ qq)).max()))
-    sd = 0.0
-    for R3, W in zip(G48, W48):
-        for q in ([0.3, -0.2, 0.7], [0.9, 0.9, 0.1], [0.1, 0.4, -0.6]):
-            qq = np.array(q)
-            sd = max(sd, float(np.abs(W @ expm(-1j * 0.7 * A_stage_sum(qq)) @ W.T
-                                      - expm(-1j * 0.7 * A_stage_sum(R3 @ qq))).max()))
+    MOM = {"Gamma": [(0.0, 0.0, 0.0)],
+           "M": [(np.pi / 2, np.pi / 2, 0.0)],
+           "R": [(np.pi / 2, np.pi / 2, np.pi / 2)],
+           "generic": [(0.3, -0.2, 0.7), (0.9, 0.9, 0.1), (0.1, 0.4, -0.6)]}
+
+    def defect(fn, qs):
+        d = 0.0
+        for R3, W in zip(G48, W48):
+            for q in qs:
+                qq = np.array(q)
+                d = max(d, float(np.abs(W @ fn(qq) @ W.T - fn(R3 @ qq)).max()))
+        return d
+
+    ed = {k: defect(P_engine, v) for k, v in MOM.items()}
+    sd = {k: defect(lambda q: expm(-1j * 0.7 * A_stage_sum(q)), v)
+          for k, v in MOM.items()}
     lv_stage = {}
     for n in comp:
         B = basis[n]
         lv_stage[n] = float(np.trace(B.conj().T @ A_stage_sum(GAM) @ B).real
                             / B.shape[1])
-    print(f"(5) implemented 6-stage product: O_h defect {ed:.3f}; "
-        f"stage SUM: {sd:.2e}")
-    print(f"    stage-sum levels: " + " ".join(f"{n}={v:+.3f}"
-                                               for n, v in lv_stage.items())
+    print("(5) implemented 6-stage product, O_h defect: " +
+          "  ".join(f"{k}={ed[k]:.2e}" for k in MOM))
+    print("    stage SUM, same momenta: " +
+          "  ".join(f"{k}={sd[k]:.2e}" for k in MOM))
+    print("    stage-sum levels: " + " ".join(f"{n}={v:+.3f}"
+                                              for n, v in lv_stage.items())
           + f"  -> A1g/T1u splitting {abs(lv_stage['A1g'] - lv_stage['T1u']):.3f}")
     out["engine"] = dict(product_o_h_defect=ed, sum_o_h_defect=sd,
                          stage_levels=lv_stage)
@@ -445,6 +451,14 @@ def main():
           and all(r["A"] < 1e-6 and r["gap"] < 1e-8 and r["mult"] == 4
                   for r in rows))
     verdict = {
+        "id": "V191_parity_dirac_cone",
+        "tier": 4,
+        "property": "why every gapless node of the 2x2x2 cell found so far "
+                    "is flat, and the node that is not: the linear-term "
+                    "multiplicity Hom_O_h(T1u, D (x) D*) for all ten "
+                    "irreps at an inversion-invariant momentum, and the "
+                    "cone on a parity-degenerate A1g+T1u pair",
+        "residual": None,
         "programme": "V191",
         "question": "can a gapless node of the 2x2x2 cell be conical?",
         "no_go": "no linear term exists for any single irrep of O_h at a "
@@ -457,12 +471,24 @@ def main():
         "rho_comm": rows[0]["rho_comm"],
         "velocity": [r["v"] for r in rows],
         "engine_o_h_defect": ed,
+        "status": (f"parity no-go: linear-term multiplicity 0 for all ten "
+                   f"irreps (direct solve on the T1u block: dim "
+                   f"{out['linear_term_dim_direct']}); the parity-degenerate "
+                   f"A1g+T1u pair gives an isolated cone - min gap "
+                   f"{min(r['gap'] for r in rows):.1e}, min anisotropy "
+                   f"{min(r['A'] for r in rows):.1e}, rho_comm "
+                   f"{rows[0]['rho_comm']:.3f}; the implemented 6-stage "
+                   f"product is O_h-equivariant at Gamma to "
+                   f"{ed['Gamma']:.1e} and broken elsewhere "
+                   f"(M {ed['M']:.1e}, R {ed['R']:.1e}, generic "
+                   f"{ed['generic']:.1e})"),
         "pass": bool(ok),
+        "data": out,
         "wall_time": time.time() - t0,
     }
     print(f"\nverdict: pass={ok}  min A = {verdict['cone_anisotropy']:.6f}  "
           f"min gap = {verdict['gap']:.2e}  "
-          f"engine O_h defect = {ed:.3f}")
+          f"engine O_h defect: Gamma {ed['Gamma']:.1e}, generic {ed['generic']:.1e}")
     res = os.path.join(HERE, "results")
     os.makedirs(res, exist_ok=True)
     with open(os.path.join(res, "v191_parity_dirac_cone.json"), "w") as fh:

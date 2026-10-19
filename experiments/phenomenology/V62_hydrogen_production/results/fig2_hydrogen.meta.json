@@ -1,6 +1,6 @@
 {
   "backend": "cupy",
-  "gpu": "GPU cuda:1 (19606/24177 MiB)",
+  "gpu": "GPU cuda:1 (19869/24177 MiB)",
   "grid": [
     296,
     296,

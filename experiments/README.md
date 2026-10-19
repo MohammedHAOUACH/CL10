@@ -1,12 +1,18 @@
 # The verification program
 
-154 experiments (the 115 of the publication programme plus the 39 exploration
+156 experiments (the 115 of the publication programme plus the 41 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
-4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 4 `alt_step`), grouped by
+4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 6 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
 recomputes a published number from the construction, states the provenance of
-every input it uses, and writes a JSON verdict (`pass`, `status`, `tier`,
-`property`, `residual`, `wall_time`) to `<experiment>/results/`.  `python3
+every input it uses, and writes a JSON verdict to `<experiment>/results/`:
+`pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
+object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
+the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
+audit checks.  **82 of the 115 publication experiments still write the older
+verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
+They count in PASS/FAILED but sit outside the tier accounting, and the runner
+prints that denominator on the hard-tier line instead of hiding it.  `python3
 run_validation.py` runs all of them and rolls the verdicts up into
 `results/validation_summary.json`.
 
@@ -54,6 +60,30 @@ host-only by contract (every call into an engine-routed module is moved back
 to the host where it enters). Their linear algebra is host-side, so their
 verdicts do not depend on what else holds the card; the runner lists them
 OFF-CORE. The GPU engine stays with the publication programme.
+
+## Which experiment backs which numbered claim
+
+The paper's numbered claims are not named inside the scripts. This is the
+map. A claim counts as **backed** when an experiment measures the quantity
+the claim asserts, not when a script merely mentions the word.
+
+| claim | measured by | what is measured |
+|---|---|---|
+| Theorem 1 - the charges of the `16` are exactly one SM generation | `V2_matter`, `V23_full_sm_qca`, `V26_family`, `V70_w3_index`, `V107_mixing_from_kappas` | the charge table of the six fields, the family index |
+| Theorem 1 - the `5/3` hypercharge normalisation | `V32_qca_qft`, `V52_parameter_audit`, `V157_hardtier`, `V167_hardtier_dynamics` | the normalization of the diagonal generator |
+| Theorem 2 - all eight gauge and mixed anomalies cancel | `V11_anomaly`, `V151_signature_anomaly`, `V157_hardtier`, `V167_hardtier_dynamics`, `V174_isotropy_gate`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V52_parameter_audit`, `V78_w1_lambda` | the eight cubic and mixed coefficients of one `16` |
+| Theorem 3 - the `45` adjoint and its twelve gauge bosons | `V131_algebraic_closure`, `V79_gauged_bond_layer`, `V129_gauged_layer_gap`, `V130_string_tension`, `V175_gauged_smatrix`, `V176_gauged_vertex_content` | the adjoint content of the bond layer and its vertex |
+| Theorem 6 - the closure axiom quantizes `g`, step order 8 | `V131_algebraic_closure`, `V134_pi2_branch`, `V135_coupling_selection_closed`, `V133_desert_pi64`, `V132_gapless_census_pi4`, `V157_hardtier`, `V167_hardtier_dynamics`, `V188_step_descent_search`, `V190_step_search_gate` | the order of the on-site update, the finite internal spectrum, the branch census |
+| Proposition 1 - the (1+3) Minkowski subalgebra | `V1_spacetime`, `V150_signature_frame`, `V152_signature_step`, `V159_cp_census`, `V93_cartan_junction`, `V137_w4_broken_flux` | the signature of the ten-generator frame, the Cartan junction |
+| Proposition 2 - lattice chirality and the doubler census | `V63_bz_chirality`, `V132_gapless_census_pi4`, `V139_nodal_plane_crossing` | the `16`-sector closure, the gap at Gamma, the 12 M nodes and their charges |
+| Proposition 3 - the momentum derivative is internal-blind; the Wilson factor is a spectator of the tangent algebra | `V191_parity_dirac_cone` | the tangent operators of the joint step, and the stage-sum levels |
+| Proposition 4 - no cone over the 880-point entangling-bond space | `V186_cone_inverse`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V115_w9_cone_isotropy` | the tuned bond census as (gap, anisotropy, rho_comm) triples |
+| Proposition 5 - the rigidity wall at gap 8e-3 | `V185_separation_lemma`, `V187_rigidity_frontier`, `V186_cone_inverse` | the (gap, rho_comm) frontier over 5292 points |
+| Proposition 6 - the parity no-go, and the cone outside the class | `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps; the constructed node; the search for the same node inside the six-stage product, which does not find it |
+| `det U = 1`, exact unitarity, the +/- phase pairing | `V43_qca_spectrum`, `V131_algebraic_closure`, `V52_parameter_audit`, `V78_w1_lambda`, `V157_hardtier`, `V117_w5_real_form`, `V125_w5_cp_flux_washout` | the determinant of the step and its eigenphase pairing |
+| front speed exactly one Planck cell per stage | 21 scripts across 8 programmes, plus `cl10/supercell.verify()` invariant 2 | the support growth of the real-space step |
+| Nielsen-Ninomiya bookkeeping | `V63_bz_chirality`, `V132_gapless_census_pi4` | the node charges and their sum |
+| the cubic equivariance of the bond product (Section 8.4) | `cl10/supercell.verify()` invariant 6, `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `W P(q) W^T = P(Rq)` per momentum: 1.1e-16 at Gamma, 1.07e-1 generic, 1.40e-1 M, 1.46e-1 R |
 
 ## The experiments
 
@@ -281,8 +311,9 @@ OFF-CORE. The GPU engine stays with the publication programme.
 | `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
 | `V188_step_descent_search` | Adam descent, 25 pre-registered seeds, baseline cell, on the factorized step with finite-difference subgradients (no gradient: the loss is a max over phase pairs): descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
 | `V189_cell_step_joint_search` | joint cell x step **census** - the step factorizes as `P(q) x U(theta)^ns`, so no descent: 419 pre-registered steps x 4 cells ((2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)); 1580/1676 gapless, A 0.9377..1.0000, no isotropic candidate |
-| `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached; W9 stays open |
-| `V191_parity_dirac_cone` | **why** every node found so far is flat, and the node that is not: `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps (and dim 0 by direct solve on the T1u block), so no single-parity multiplet at an inversion-invariant momentum can be conical; the parity-degenerate `A1g+T1u` pair escapes it - constructed on the O_h-invariant hopping `-24 O14 + 8 O50`, gap 2.9e-11 at Gamma, multiplicity 4, cone anisotropy 1.0e-15, rho_comm = 1/sqrt 2, `TT^dag = 16 I` to 5.6e-16; the implemented 6-stage product breaks O_h at 1.07e-1 where its stage sum is invariant to 1.1e-15 |
+| `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached. The searched space is single-angle, and V192 closes the wider two-angle-plus-internal question: what keeps the cone out of the root is the circuit class, not the single-angle rule |
+| `V191_parity_dirac_cone` | **why** every node found so far is flat, and the node that is not: `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps (and dim 0 by direct solve on the T1u block), so no single-parity multiplet at an inversion-invariant momentum can be conical; the parity-degenerate `A1g+T1u` pair escapes it - constructed on the O_h-invariant hopping `-24 O14 + 8 O50`, gap 2.9e-11 at Gamma, multiplicity 4, cone anisotropy 1.0e-15, rho_comm = 1/sqrt 2, `TT^dag = 16 I` to 5.6e-16; the implemented 6-stage product is exactly O_h-equivariant at Gamma (1.1e-16) and breaks it at every other momentum (1.07e-1 generic, 1.40e-1 M, 1.46e-1 R), where its stage sum is invariant to 1.1e-15 |
+| `V192_engine_two_angle_cone` | **the search for the cone inside the engine's own circuit - negative**: over the two-angle axis-symmetric stage family (`a` on the three intra-block stages, `b` on the three inter-block ones - the largest six-stage family keeping Gamma exactly covariant: 1.1e-16 at Gamma, 9.0e-1 at M, 6.3e-1 at generic q; a generic six-angle product misses Gamma covariance by 6.0e-2 best of 200 draws, a per-axis generalisation by 0.90), searched jointly with the internal angle over 33800 points of (a, b, theta) and polished to residuals below 4.3e-14, 60 points carry on-site states at phase zero, the full 128x128 step gap at most 4.4e-15. They split by parity of the gapless eigenspace, and the split is the answer: 8 points have a 4-dimensional single-parity gapless space (`A1g (+) T2g` or `A2u (+) T1u`, content read off the eigenspace by character inner product) and are flat to 1.3e-12 over 179 sampled directions, which is what Proposition 6 forces; the other 52 have the 8-dimensional parity-mixed space `A1g (+) T2g (+) A2u (+) T1u`, disperse (slope 0.09-1.73 per unit block momentum, 0.03-0.58 Planck cells/stage, inside the front speed 0.67, no amplitude outside the light cone in 12 stages) but are exactly Abelian, rho_comm <= 1.2e-11 at anisotropy 0.423 - nodal planes, not a cone. Conical nodes: 0. On the diagonal a = b, at pi/4 and 3pi/4: 64 gapless states carrying 16 x (A1g (+) T2g), gap at most 8e-17, slope at most 3e-14 - the flat zone-centre band of Section 8.3. An earlier version of this programme reported a cone here; that report rested on a root-finder placed on the wrap discontinuity of a phase difference, a gapless subspace assumed rather than taken from the eigenvectors, a small-angle extrapolation of internal phases that are not linear in the angle, and an O_h character table with five wrong improper-class entries - all four corrected here |
 
 `V189` runs in 8 min on the CPU and is re-executed by the driver like any
 other experiment. The factorization `M(q,theta) = P(q) (x) U(theta)^ns` (bond

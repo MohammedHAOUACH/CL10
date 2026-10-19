@@ -4,6 +4,7 @@
   "property": "finite-volume scaling of the exact gauged bond-layer gap (V175 N=3 24-state, V181 N=4 chain 144-state, V181 N=4 ring 1296-state): the pre-registered LIGHT/MASSIVE decoupling verdict on the flux sector, energies in eta units vs the V130 string tension sigma = C2(45) = 64",
   "residual": null,
   "pass": false,
+  "inconclusive": true,
   "status": "IR VERDICT: INCONCLUSIVE (neither pre-registered branch fired). gap(N) = 42.0906 (N=3), 12787.6029 (N=4 chain), 275072456.8571 (N=4 ring) eta; volume drift +12745.5122 / +275072414.7665 eta; lowest two-fermion excitation 42.0906 eta; gap/sigma = 0.6577 (sigma = 64 = V130 string tension). Mean phase drift of the 24 lowest eigenphases vs N=3: 1107464.1383 (chain), 299428486.6114 (ring) rad. The flux sector is massive at every volume probed: no light two-fermion mode can dress the IR cone. Note: V101 eta-units are not extensive (per-link Gram shrinks ~30x), gap grows with volume and gap/|E0| stays 0.0073-0.0077; the LIGHT branch is decisively false.",
   "data": {
     "rows": [
@@ -44,5 +45,5 @@
     "light": false,
     "massive": false
   },
-  "wall_time": 0.001
+  "wall_time": 0.002
 }

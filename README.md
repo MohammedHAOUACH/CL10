@@ -160,7 +160,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 154 experiments in 17 categories (115 publication + 39 alt_* exploration)
+├── experiments/              # the verification program: 156 experiments in 18 categories (115 publication + 41 alt_* exploration)
 │   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -184,7 +184,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 154, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 156, writes the hard-tier verdict
 ├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 ├── run_alt_interactions.sh   # exploration driver: the alt_interactions census alone (V171-V174), then a report-only rollup
@@ -260,7 +260,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 154 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 156 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
@@ -279,14 +279,16 @@ python3 review/tools/build_series.py   # master -> the three companion papers (d
 ./review/tools/build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
                                  # needs pandoc >= 3 + texlive (xelatex, pandoc filters)
 bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the master -> publication/publication.pdf
+python3 -m pytest tests/         # the engine invariants as an executable guard (unitarity, the causal
+                                 # front, the 16-sector closure, the spectral mirror, the cubic equivariance)
 ```
 
 ## The verification program
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
-**seven falsifiers** (F1–F7). `run_validation.py` runs the **154** experiments
-of `experiments/` (17 categories — the 115 of the publication programme and the 39 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
+**seven falsifiers** (F1–F7). `run_validation.py` runs the **156** experiments
+of `experiments/` (18 categories — the 115 of the publication programme and the 41 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
@@ -321,6 +323,16 @@ from measured inputs); **9 open residuals** (O1–O9).
   frames the node gap moves by $1.8\times10^{-15}$, the anisotropy by $0$, the
   tangent commutators stay at the noise floor — all momentum dependence lives
   in the sub-site factor of the Kronecker bond layer (V142).
+  The cone question is now closed in both directions: at an inversion-invariant
+  momentum no single-parity multiplet can carry a linear crossing — an $O_h$
+  representation theorem, $\mathrm{Hom}_{O_h}(T_{1u}, D\otimes D^*) = 0$ for all
+  ten irreps — and an exactly isotropic non-abelian cone exists only on a
+  parity-degenerate $A_{1g}\oplus T_{1u}$ pair outside that class (V191); the
+  engine's own six-stage product is searched for that node over the largest
+  cubic-covariant stage family jointly with the internal angle ($33\,800$ points,
+  $60$ exactly gapless): $8$ single-parity multiplets flat to $1.3\times10^{-12}$,
+  $52$ parity-mixed touchings that disperse but are Abelian
+  ($\rho_{\mathrm{comm}} \le 1.2\times10^{-11}$) — $0$ conical nodes (V192).
 - **Unification (O4/F5).** In the standard normalisation $\alpha = g^2/4\pi$,
   running $\alpha_{10} = 1/25$ down gives $\alpha_2(M_Z) = 0.0086$ and an
   SU(3) Landau pole; the desert solution (three $10\oplus\overline{10}$ pairs
@@ -370,7 +382,9 @@ closes the frame-averaging escape.
 
 Each experiment constructs its object from the **declared** inputs, computes
 the residual against the stated value, and writes a JSON verdict (`tier`,
-`property`, `pass`, `residual`) that `run_validation.py` aggregates into
+`property`, `pass`, `residual`, and — for a check that ran correctly whose
+pre-registered physics branches did not fire — `inconclusive`) that
+`run_validation.py` aggregates into
 [`results/validation_summary.json`](results/validation_summary.json).
 
 **Reproducibility.** Every number the master quotes is produced by a script in
