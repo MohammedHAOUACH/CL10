@@ -4,16 +4,16 @@
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--2907--0530-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-2907-0530)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Publication & citation
 
 | | |
 |---|---|
 | **Concept DOI** — always resolves to the latest Zenodo version | [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106) |
-| **Version DOI** — this snapshot (v1.0.2, Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
+| **Version DOI** — the archived v1.0.2 snapshot (Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
 | **Zenodo record** — the four paper PDFs + the source archive | [zenodo.org/records/23321228](https://zenodo.org/records/23321228) |
-| **GitHub release** — the four PDFs as assets + source archives | [v1.0.2](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) |
+| **GitHub release** — the four PDFs as assets + source archives | [v1.0.3](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) |
 
 ```bibtex
 @misc{haouach2026cl10,
@@ -24,7 +24,7 @@
   year   = {2026},
   doi    = {10.5281/zenodo.23321106},
   url    = {https://doi.org/10.5281/zenodo.23321106},
-  note   = {version v1.0.2: \url{https://doi.org/10.5281/zenodo.23321228}}
+  note   = {latest release v1.0.3; archived snapshot v1.0.2: \url{https://doi.org/10.5281/zenodo.23321228}}
 }
 ```
 
@@ -171,7 +171,7 @@ CL10/
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
 │   ├── gauged_layer/         # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement, the dressed-gate quintet (V140/V141)
 │   ├── gravity/              # the discrete EH action, curvature from any metric, 3+1 evolution
-│   ├── scales_loopfactor/    # the closed-loop factor, the ladder length, the composition law
+│   ├── scales_loopfactor/    # the closed-loop factor and its weight functional, the ladder length, the composition law, the rung arithmetic
 │   ├── couplings_unification/# alpha_10 = 1/25, the desert solution, the proton lifetime, the supplier search
 │   ├── neutrino/             # the seesaw ladder, the 1/3 candidate, the protection, the Delta L = 2 no-go
 │   ├── cosmology_darkmatter/ # the 118 GeV ladder mass and its carrier (the cell singlet B), the spinor-module no-go, the relic abundance, the portal
@@ -338,6 +338,12 @@ from measured inputs); **9 open residuals** (O1–O9).
   $60$ exactly gapless): $8$ single-parity multiplets flat to $1.3\times10^{-12}$,
   $52$ parity-mixed touchings that disperse but are Abelian
   ($\rho_{\mathrm{comm}} \le 1.2\times10^{-11}$) — $0$ conical nodes (V192).
+  Interleaving the root's own $10$ sector-swap involutions $h_a w$ into the
+  internal layer (on the $32$-D Dirac module, involutions exact to $0$): the
+  gapless points turn into $6$-dim $T_{2g}\oplus T_{1u}$ multiplets with
+  non-commuting tangent operators ($\rho_{\mathrm{comm}}$ up to $0.80$) yet
+  flat to slope $1.7\times10^{-12}$ — the swap buys the non-commutativity and
+  not the dispersion, $0$ conical nodes (V201).
 - **Unification (O4/F5).** In the standard normalisation $\alpha = g^2/4\pi$,
   running $\alpha_{10} = 1/25$ down gives $\alpha_2(M_Z) = 0.0086$ and an
   SU(3) Landau pole; the desert solution (three $10\oplus\overline{10}$ pairs
@@ -351,11 +357,15 @@ from measured inputs); **9 open residuals** (O1–O9).
   0.605), and no second-order bond number: the superexchange shift misses at
   0.577 and its combination with flux and Cartan shift at 3.46, $R^2 \le 0.30$
   (V145/V146).
-- **Dark matter (O7/F7).** The dark matter is a level of the cell: the neutral singlet sector $B$ (Axiom 1, `cl10/cell.py`) at the derived ladder rung-10 mass $118.57$ GeV, exactly stable under the B-parity of the update - the spinor module provably carries no qualifying state (the grading theorem and the mass census of V194; the census itself is V66/V75, $0$ survivors over $720$ angles). The relic abundance is a **computed** number: freeze-in through the singlet-Higgs portal at $\lambda_B = 4.06\times10^{-14}$ gives $\Omega h^2 = 0.120$, the observed value, with $\sigma_{\rm SI} = 6.5\times10^{-71}$ cm$^2$ - direct-detection invisible (V193, V195); the thermal branch ($\lambda_B = 0.31$) is excluded by LZ, the root-supplied couplings give $\Omega h^2 = 0.081$-$0.156$, and every bond-number portal predicts $2.5\times10^{-45}$-$6.3\times10^{-41}$ cm$^2$, above the LZ-class bound (V147/V148). The nodal-plane density $D = 1485$ enhances the final-state phase space by $(100/m)^3$-type factors the standard curve cannot see. One number in the sector is open: the portal strength $\lambda_B$ (O7), the only quantity the root does not supply.
+- **Dark matter (O7/F7).** The dark matter is a level of the cell: the neutral singlet sector $B$ (Axiom 1, `cl10/cell.py`) at the derived ladder rung-10 mass $118.57$ GeV, exactly stable under the B-parity of the cell - the spinor module provably carries no qualifying state (the grading theorem and the mass census of V194; the census itself is V66/V75, $0$ survivors over $720$ angles). The relic abundance is a **computed** number: freeze-in through the singlet-Higgs portal at $\lambda_B = 4.06\times10^{-14}$ gives $\Omega h^2 = 0.120$, the observed value, with $\sigma_{\rm SI} = 6.5\times10^{-71}$ cm$^2$ - direct-detection invisible (V193, V195); the thermal branch ($\lambda_B = 0.31$) is excluded by LZ, the root-supplied couplings give $\Omega h^2 = 0.081$-$0.156$, and every bond-number portal predicts $2.5\times10^{-45}$-$6.3\times10^{-41}$ cm$^2$, above the LZ-class bound (V147/V148). The nodal-plane density $D = 1485$ enhances the final-state phase space by $(100/m)^3$-type factors the standard curve cannot see. One number in the sector is open: the portal strength $\lambda_B$ (O7), the only quantity the root does not supply.
 - **Baryogenesis (O5/F6).** The heavy-neutrino decay is in equilibrium
   ($\Gamma_N/H \simeq 4.6$ at $y = 1/8$); the automaton satisfies **none** of
   the three Sakharov conditions (a computed theorem: every CP-odd invariant
   vanishes); the bond-layer route needs $J = 10^{-4}$ for one extra input.
+  The $A\to BB$ channel with the $13$ root bond strengths as coupling
+  candidates kills the resonant route for $9$ of them (branching below the
+  $6.4\%$ CP-strength ratio): the route survives only for $\kappa < 3.04$,
+  and the channel produces no relic (V199).
 - **Doubling (O9).** The implemented 16-sector spectrum is gapless at 12 doubler
   momenta; the internal Wilson factor gaps them, but the split-node set is an
   input and the scale it predicts is excluded.
