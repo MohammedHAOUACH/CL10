@@ -73,7 +73,7 @@ plus the unified master:
 | [`doc/paper3_phenomenology.md`](doc/paper3_phenomenology.md) · [PDF](doc/paper3_phenomenology.pdf) | **Paper III** — the loop ladder, the coupling unification, the neutrino/DM/baryogenesis audits, the parameter audit, the failures, the falsifiers |
 | [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) | the unified master (all of the above, one reference list) |
 
-`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [v1.0.2 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.2) and archived on [Zenodo](https://zenodo.org/records/23321228).
+`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [v1.0.3 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) and archived on [Zenodo](https://zenodo.org/records/23321228).
 
 ## Selected results
 
