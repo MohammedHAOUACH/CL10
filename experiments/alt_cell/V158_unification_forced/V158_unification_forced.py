@@ -33,12 +33,13 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 from cl10.paths import exp
+from cl10 import config as _config
 sys.path.insert(0, exp("V64_desert"))
 import V64_desert as V64  # noqa: E402
 
 SOURCES = ("V152_signature_step", "V153_stage_cycle_census",
            "V154_block_census", "V155_fcc_diamond")
-M_TARGET = 2.0e16
+M_TARGET = float(_config.CFG.sm.m_unification_obs_gev)   # GeV (the observed meeting scale)
 M_TH = 1.0e10          # the V64 no-go convention (not a fitted threshold)
 
 

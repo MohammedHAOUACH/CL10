@@ -17,7 +17,7 @@ actually supplies.
 
 **The computation.**  dY/dx = -(s <sigma v> / (H x)) (Y^2 - Y_eq^2) with
 x = m/T, s = (2 pi^2/45) g_*s T^3, H = 1.66 sqrt(g_*) T^2 / M_P,
-M_P = 1.22e19 GeV (the repo's constant), g_* = g_*s = 106.75, Y_eq the
+M_P = 1.220890e19 GeV (the repo's constant), g_* = g_*s = 106.75, Y_eq the
 Boltzmann equilibrium density.  Y_in = Y_eq(x = 1); integrate to x = 200 by
 RK4; Omega h^2 = m s_0 Y_inf / (rho_c/h^2) with s_0 = 2891.2 cm^-1 and
 rho_c/h^2 = 1.0537e-5 GeV cm^-3.
@@ -66,7 +66,7 @@ _B16, _U32, _U16 = SC.sectors()
 U16 = E.asnumpy(_U16)
 
 # ---- constants (repo conventions) -----------------------------------------
-M_P = u10pred.M_PLANCK            # 1.22e19 GeV
+M_P = u10pred.M_PLANCK            # GeV (cl10/config.yaml physics:)
 LOOP = u10pred.LOOP
 G10 = SC.G10                      # 1/5
 M_DM = M_P * LOOP ** 10           # the ladder mass, GeV
@@ -303,7 +303,7 @@ def main():
                       portals[1]["Omega_h2"], portals[1]["lambda"],
                       portals[0]["Omega_h2_with_doublers"],
                       portals[1]["Omega_h2_with_doublers"]),
-                   abs(portals[0]["Omega_h2"] - 0.120) < 0.05))
+                   abs(portals[0]["Omega_h2"] - dm_wimp.OMEGA_OBS) < 0.05))
 
     ok = all(c[1] for c in checks)
     out["pass"] = ok

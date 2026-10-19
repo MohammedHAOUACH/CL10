@@ -110,6 +110,7 @@ from . import engine as E
 from . import sm_qca
 from . import u10pred
 from . import coupling
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the rotation angle of the active branch: 1/5 implemented (a convention),
 # pi/4 closed (algebraic, the closure axiom) - selected by CL10_ANGLE
@@ -159,7 +160,7 @@ def kingdon_2route():
         for i in range(1, 10):
             w = w * fr[i]
         w2v = _scalar(w * w)                     # expect -1 for Cl(10,0)
-        kingdon_ok = (sq_sym < 1e-9 and ac_sym < 1e-9 and abs(w2v + 1.0) < 1e-9)
+        kingdon_ok = (sq_sym < _TOL.standard and ac_sym < _TOL.standard and abs(w2v + 1.0) < _TOL.standard)
     except Exception:                            # kingdon not installed
         kingdon_ok = None
         sq_sym = ac_sym = w2v = float("nan")
@@ -181,7 +182,7 @@ def kingdon_2route():
         "pauli_anticommute": float(ac_num),
         "pauli_w2_plus_I": float(w2_num),          # expect ~0 (w^2 = -I)
         "two_route_agree": bool((kingdon_ok is None or kingdon_ok)
-                                and sq_num < 1e-12 and ac_num < 1e-12 and w2_num < 1e-12),
+                                and sq_num < _TOL.strict and ac_num < _TOL.strict and w2_num < _TOL.strict),
     }
 
 
@@ -217,8 +218,8 @@ def _sectors():
     iw = 1j * w                                   # Hermitian, eigen +-1
     iw_n = _asnp(iw)
     ev, V = np.linalg.eigh(iw_n)
-    B16 = V[:, np.where(np.abs(ev + 1) < 1e-9)[0]]    # iw=-1 -> w=+i  (the 16 Weyl, matter)
-    B16b = V[:, np.where(np.abs(ev - 1) < 1e-9)[0]]   # iw=+1 -> w=-i  (the 16-bar, antimatter)
+    B16 = V[:, np.where(np.abs(ev + 1) < _TOL.standard)[0]]    # iw=-1 -> w=+i  (the 16 Weyl, matter)
+    B16b = V[:, np.where(np.abs(ev - 1) < _TOL.standard)[0]]   # iw=+1 -> w=-i  (the 16-bar, antimatter)
     return B16, B16b
 
 def _gut_step_g(g):
@@ -297,8 +298,8 @@ def spectral_mirror():
     zp16 = float(ph16.sum())
     zp16b = float(ph16b.sum())
     # smallest positive level of the full 32 (and of the 16 Weyl)
-    pos_all = sorted(x for x in ph_all if x > 1e-9)
-    pos16 = sorted(x for x in ph16 if x > 1e-9)
+    pos_all = sorted(x for x in ph_all if x > _TOL.standard)
+    pos16 = sorted(x for x in ph16 if x > _TOL.standard)
     detU = float(abs(np.linalg.det(U_n) - 1.0))
     # robustness: the mirror holds for every 't Hooft angle (not a
     # coincidence of g_10 = 1/5) — checked over a grid of angles.
@@ -316,9 +317,9 @@ def spectral_mirror():
         "commute_Uw": commute_Uw,
         "preserves_chiral_split": bool(commute_Uw < 1e-10),
         "mirror_resid": mirror,
-        "mirror_ok": bool(mirror < 1e-12),
+        "mirror_ok": bool(mirror < _TOL.strict),
         "mirror_resid_all_g10": float(max(allg)),
-        "mirror_holds_for_all_g10": bool(max(allg) < 1e-12),
+        "mirror_holds_for_all_g10": bool(max(allg) < _TOL.strict),
         "g10_grid": grid,
         "zp_16": zp16,
         "zp_16bar": zp16b,
@@ -397,7 +398,7 @@ def cp_odd_theorem(n4_sample=200000, seed=0):
     # the Sakharov verdict
     sak = {
         "b_violation_in_dynamics": False,   # the 45 commute with the pseudoscalar
-        "c_or_cp_violated": bool(max(maxJ2, maxJ3, maxJ4, maxJb, cpodd_yuk) > 1e-12),
+        "c_or_cp_violated": bool(max(maxJ2, maxJ3, maxJ4, maxJb, cpodd_yuk) > _TOL.strict),
         "out_of_equilibrium": False,        # unitary -> reversible
     }
     sak["cp_odd_max"] = float(max(maxJ2, maxJ3, maxJ4, maxJb, cpodd_yuk))
@@ -412,7 +413,7 @@ def cp_odd_theorem(n4_sample=200000, seed=0):
         "max_cpodd_b_sandwich": float(maxJb),
         "cpodd_democratic_yukawa": float(cpodd_yuk),
         "n4_sample": int(n4_sample),
-        "all_cp_odd_zero": bool(max(maxJ2, maxJ3, maxJ4, maxJb, cpodd_yuk) < 1e-12),
+        "all_cp_odd_zero": bool(max(maxJ2, maxJ3, maxJ4, maxJb, cpodd_yuk) < _TOL.strict),
         "sakharov": sak,
         "verdict": (
             "the 0-parameter QCA is CP-conserving (every CP-odd invariant "
@@ -425,7 +426,7 @@ def cp_odd_theorem(n4_sample=200000, seed=0):
     }
 
 
-def _unitary(U, tol=_config.CFG.tolerances.strict):
+def _unitary(U, tol=_TOL.strict):
     Un = _asnp(U)
     return bool(float(np.abs(Un @ Un.conj().T - np.eye(Un.shape[0])).max()) < tol)
 
@@ -558,7 +559,7 @@ def dm_status():
     gap = cosmology3.dm_mass_scale()
     sp = spectral_mirror()
     omega_min_mass = sp["omega_min_mass_GeV"]
-    dm_obs_lo, dm_obs_hi = 1e2, 1e3          # GeV (the observed WIMP/axion range)
+    dm_obs_lo, dm_obs_hi = (float(x) for x in _config.CFG.physics.wimp_window_gev)   # GeV
     # the gap between the only sub-Planck 0-parameter scale and the observed DM
     orders_above = float(np.log10(omega_min_mass / dm_obs_hi))
     return {
@@ -658,7 +659,7 @@ def provenance_table():
 # the assembly + the self-check
 # ---------------------------------------------------------------------------
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """Run the full audit.  ``ok`` is True when the **genuinely 0-parameter**
     invariants **hold** (the CP-odd theorem, the **16/16-bar spectral mirror
     — CPT as spectral conjugation — for all 't Hooft angles**, the 2-route

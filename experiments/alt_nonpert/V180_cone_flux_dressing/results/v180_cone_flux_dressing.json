@@ -4,7 +4,7 @@
   "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the W9 cone by the gauged bond-current flux in the static-source approximation: cone-slope anisotropy A_np vs A_free, eps cubic weights and k-exponent",
   "residual": null,
   "pass": true,
-  "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 2.5e-16, 2-route A_np 8.5e-13.",
+  "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 1.7e-16, 2-route A_np 8.5e-13.",
   "data": {
     "rows": [
       {
@@ -91,10 +91,10 @@
     "casimir_err": 2.2565282975506307e-14,
     "eta0_dev": 0.0,
     "v115_dev": 1.5359419471949742e-05,
-    "eps_route_dev": 2.498001805406602e-16,
+    "eps_route_dev": 1.6653345369377348e-16,
     "aniso_route_dev": 8.453238109495942e-13,
     "stage_sum_err": 8.881784197001252e-16,
     "n_bonds": 24
   },
-  "wall_time": 221.565
+  "wall_time": 119.48
 }

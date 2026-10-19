@@ -92,5 +92,5 @@
     "s2_unitary_err": 1.6653345381979549e-15,
     "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (O6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
   },
-  "wall_time": 0.994
+  "wall_time": 0.358
 }

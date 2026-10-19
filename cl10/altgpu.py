@@ -33,6 +33,8 @@ import numpy as np
 
 from . import altcell as A
 from . import supercell as SC
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 N = 128   # the 16-sector Bloch dimension (8 sub-sites x 16 internal)
 
@@ -184,7 +186,7 @@ def _sigma_from_modes(th, U2, Uk):
     otherwise (the automaton's anti-unitary symmetry pairs the whole
     spectrum; inside a degenerate pair the single-mode choice is an
     arbitrary basis, identical in both routes only as a subspace)."""
-    if th[1] - th[0] < 1e-6:
+    if th[1] - th[0] < _TOL.loose:
         P = U2 @ U2.conj().T
     else:
         P = np.outer(U2[:, 0], U2[:, 0].conj())
@@ -252,7 +254,7 @@ def main():
     S_n = np.zeros_like(S_g)
     amb = 0
     for q, th, U2 in zip(qpts, th_g, us_g):
-        if th[1] - th[0] < 1e-6:
+        if th[1] - th[0] < _TOL.loose:
             amb += 1
         S_g += _sigma_from_modes(th, U2, Uk)
         z, V = np.linalg.eig(bf(q))
@@ -266,7 +268,7 @@ def main():
     print(f"altgpu anchor: Fock Sigma GPU vs numpy (grid {grid_n}, "
           f"subspace convention): max dev {dev:.2e}  "
           f"[{amb}/{len(qpts)} points with exact +-theta pair]")
-    ok = err_ev < 1e-8 and err_pr < 1e-7 and dev < 1e-6
+    ok = err_ev < 1e-8 and err_pr < 1e-7 and dev < _TOL.loose
     print(f"GPU route: {'CONFIRMED' if ok else 'MISMATCH'}   "
           f"wall {time.time() - t0:.1f} s")
     return 0 if ok else 1

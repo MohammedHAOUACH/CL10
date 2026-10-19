@@ -51,6 +51,7 @@ import numpy as np
 from . import config as _config
 from . import engine as E
 from . import coupling
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the inputs used here (the values live in `cl10/config.yaml`)
 G0 = coupling.G0               # 1/8 (the g_0 = 1/2^n_space reading: a convention)
@@ -123,7 +124,7 @@ def eta_cp():
     d_dilution = float(LOOP ** 2)                 # (1/16pi)^2 ~ 3.96e-4 (2-loop)
     delta_b_0param = float(SPHALERON * eps_cp * d_dilution)
     ratio = float(delta_b_0param / DELTA_B_OBS)
-    g0_is_1over2cubed = bool(abs(G0 - (1.0 / 2.0) ** 3) < 1e-12)  # 3 = spatial
+    g0_is_1over2cubed = bool(abs(G0 - (1.0 / 2.0) ** 3) < _TOL.strict)  # 3 = spatial
 
     # the V40 comparison (the named eta_CP = 1e-3)
     delta_b_v40 = float(SPHALERON * eps_cp * ETA_CP_V40)
@@ -165,7 +166,7 @@ def eta_cp():
     }
 
 
-def verify(tol=_config.CFG.tolerances.strict):
+def verify(tol=_TOL.strict):
     """0-parameter checks on the FACTORS: (i) the 0-parameter eta_CP loop
     factor is within a factor 3 of the V40 value (1e-3); (ii) the
     product gives the right ORDER (the 2-digit ratio 1.11 -- the named

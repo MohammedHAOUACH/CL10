@@ -62,6 +62,7 @@ from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import u10pred
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # ---------------------------------------------------------------------------
 # the 0-parameter scales (shared with the 10-loop ladder, V53/V54)
@@ -109,7 +110,7 @@ def twostep_scale():
 # the 2-step as a 0-parameter unitary (the 2-loop, the GPU engine)
 # ---------------------------------------------------------------------------
 
-def twostep_unitary(tol=_config.CFG.tolerances.standard):
+def twostep_unitary(tol=_TOL.standard):
     r"""The 2-step (``U^2``) of the 0-parameter GUT QCA is a **unitary**
     automaton step (the 2-loop): computed on the **GPU** engine (``U`` is the
     32x32 GUT step, ``U^2 = U U``), so the 2-step is a **0-parameter**
@@ -181,13 +182,13 @@ def seesaw_2step():
         # within one decade of the observed (the right order)
         "right_order": bool(0.1 < off_2step < 10.0),
         # the ladder value agrees with the seesaw value (the 0-parameter identity)
-        "ladder_match": bool(abs(m_nu_2step - m_nu_ladder) / m_nu_ladder < 1e-12),
+        "ladder_match": bool(abs(m_nu_2step - m_nu_ladder) / m_nu_ladder < _TOL.strict),
         # the *named* residual (the exact m_nu, the 2-digit coefficient)
         "residual": float(M_NU_OBS),
     }
 
 
-def verify(tol=_config.CFG.tolerances.strict):
+def verify(tol=_TOL.strict):
     r"""The 0-parameter O2 checks.  Returns a dict ``{"ok": bool, "checks":
     {name: bool}}``.
 
@@ -207,9 +208,9 @@ def verify(tol=_config.CFG.tolerances.strict):
     m_D_wimp = dm_wimp.F10() * M_P
     checks = {
         "loop_dirac_matches_dm_wimp":
-            bool(abs(s["m_D_GeV"] - m_D_wimp) / m_D_wimp < 1e-9),
+            bool(abs(s["m_D_GeV"] - m_D_wimp) / m_D_wimp < _TOL.standard),
         "twostep_scale_0param":
-            bool(abs(s["M_N_GeV"] - loop_ladder(N_2STEP)) / s["M_N_GeV"] < 1e-12),
+            bool(abs(s["M_N_GeV"] - loop_ladder(N_2STEP)) / s["M_N_GeV"] < _TOL.strict),
         "loop_identity_17": s["ladder_match"],
         "two_step_unitary": u2["two_step_unitary"],
         "uv_finite": u2["uv_finite"],

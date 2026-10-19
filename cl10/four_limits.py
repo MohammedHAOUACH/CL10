@@ -64,6 +64,7 @@ from . import engine as E
 from . import parameter_audit as pa
 from . import eta_cp as ep
 from . import u10pred as tp
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 M_P = tp.M_PLANCK            # 1.22e19 GeV
 V_EW = tp.V_EW               # 246 GeV
@@ -104,7 +105,7 @@ def invariance_g10():
         })
     max_resid = float(max(r["mirror_residual"] for r in rows))
     max_det_dev = float(max(abs(r["abs_detU"] - 1.0) for r in rows))
-    g10_invariant = bool(max_resid < 1e-12 and max_det_dev < 1e-9)
+    g10_invariant = bool(max_resid < _TOL.strict and max_det_dev < _TOL.standard)
     return {
         "backend": _backend(),
         "grid": rows,
@@ -298,8 +299,8 @@ def coupling_provenance():
     g10 = float(1.0 / n_qubits)                     # 1/5
     g10_from_alpha = float(np.sqrt(tp.ALPHA_10))    # sqrt(1/25) = 1/5
     g0 = float(1.0 / 2.0 ** n_space)                # 1/8
-    g10_is_root_reading = bool(abs(g10 - g10_from_alpha) < 1e-12)
-    g0_is_root_reading = bool(abs(g0 - 1.0 / 8.0) < 1e-12)
+    g10_is_root_reading = bool(abs(g10 - g10_from_alpha) < _TOL.strict)
+    g0_is_root_reading = bool(abs(g0 - 1.0 / 8.0) < _TOL.strict)
     return {
         "backend": _backend(),
         "n_qubits": int(n_qubits),
@@ -406,7 +407,7 @@ def four_limits():
     }
 
 
-def verify(tol=_config.CFG.tolerances.strict):
+def verify(tol=_TOL.strict):
     """The V59 checks."""
     r = four_limits()
     ok = bool(

@@ -46,6 +46,7 @@ from . import config as _config
 from . import engine as E
 from . import u10pred
 from . import coupling
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def _backend():
@@ -123,15 +124,15 @@ def electroweak_breaking():
     }
 
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """0-parameter checks: the QCA step (the 't Hooft program) + the electroweak
     breaking (the 0-parameter weak mixing angle sin^2 = 3/8, the W/Z ratio
     = sqrt(5/8))."""
     spec = qca_step_spectrum()
     ew = electroweak_breaking()
-    ok = (spec["unitary_err"] < 1e-9
-          and abs(ew["sin2_w"] - ew["sin2_w_0p"]) < 1e-6
-          and abs(ew["mw_over_mz"] - ew["mw_over_mz_0p"]) < 1e-6
+    ok = (spec["unitary_err"] < _TOL.standard
+          and abs(ew["sin2_w"] - ew["sin2_w_0p"]) < _TOL.loose
+          and abs(ew["mw_over_mz"] - ew["mw_over_mz_0p"]) < _TOL.loose
           and ew["electroweak_breaking_ok"])
     return {"spectrum": spec, "electroweak": ew, "ok": bool(ok)}
 

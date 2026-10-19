@@ -82,6 +82,7 @@ from . import config as _config
 from . import engine as E
 from . import sm_qca
 from . import coupling
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # ---------------------------------------------------------------------------
 # the cell
@@ -282,7 +283,7 @@ def gap(q, U, g10=G10, stages=STAGES):
     return float(np.min(np.abs(phases(bloch(q, U, g10, stages)))))
 
 
-def degeneracy(q, U, g10=G10, stages=STAGES, tol=_config.CFG.tolerances.standard):
+def degeneracy(q, U, g10=G10, stages=STAGES, tol=_TOL.standard):
     """The eigenphase multiplet structure at ``q``: [(gap, multiplicity)]."""
     a = np.sort(np.abs(phases(bloch(q, U, g10, stages))))
     out = []
@@ -346,7 +347,7 @@ def step(fields, U, theta=G10, stages=STAGES):
 
 
 def run(L=8, n_steps=4, x0=(4, 4, 4), e0=0, theta=G10, seed=0,
-        tol=_config.CFG.tolerances.strict,
+        tol=_TOL.strict,
         sector=True):
     """Run the automaton from a state localised on **one sub-site** of one
     block; return the per-step support and its light-cone radius (in blocks).
@@ -386,7 +387,7 @@ def run(L=8, n_steps=4, x0=(4, 4, 4), e0=0, theta=G10, seed=0,
 # the invariants of the cell
 # ---------------------------------------------------------------------------
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """The invariants of the automaton as written on the block.
 
     1. the one-step Bloch matrix is **exactly unitary** at generic momenta
@@ -478,13 +479,13 @@ def verify(tol=_config.CFG.tolerances.standard):
     zone = {
         "implemented": (r["gap_gamma"] > 1e-3 and r["n_M_gapless"] == 12
                         and r["max_M_gap"] < 1e-3 and r["R_first_mult"] == 3),
-        "closed": (r["gap_gamma"] < 1e-12 and r["n_M_gapless"] == 12
-                   and r["max_M_gap"] < 1e-12 and r["M0_sq_minus_I"] < 1e-12),
-        "half": (r["M0_minus_I"] < 1e-12 and r["n_M_gapless"] == 12),
+        "closed": (r["gap_gamma"] < _TOL.strict and r["n_M_gapless"] == 12
+                   and r["max_M_gap"] < _TOL.strict and r["M0_sq_minus_I"] < _TOL.strict),
+        "half": (r["M0_minus_I"] < _TOL.strict and r["n_M_gapless"] == 12),
     }[coupling.branch()]
     ok = (uerr < tol and r["causal_ok"] and r["causal_err"] < tol
           and leak < tol and block_err < tol
-          and r["spectral_mirror_err"] < 1e-9
+          and r["spectral_mirror_err"] < _TOL.standard
           and zone and r["little_M"] == 4
           and r["little_R"] == 6 and r["star_M"] == 12 and r["star_R"] == 8
           and r["equivariant_at_gamma"])

@@ -48,7 +48,7 @@ The organising discipline of the paper is therefore a **provenance discipline**:
 **Table 1.** The seven criteria and the verdict of this paper.
 
 | criterion | requirement | verdict |
-|--------------------|-----------------------------|---------------------------------------------------|
+|--------------------|------------------------------|---------------------------------------------------|
 | **one object** | a single algebraic object, no added fields or structure | met for the internal space; the gravitational sector adds a symmetric tensor field $g_{\mu\nu}(x)$ and the value $G = 1$ ([Paper II Section 3]) |
 | **kinematics** | spacetime, matter content, gauge group and statistics follow by representation theory | met (Sections 3–6) |
 | **dynamics** | the object yields a unitary, causal evolution | met (Section 7: exactly unitary, $\det U = 1$, measured front speed $= 1$) |
@@ -395,7 +395,7 @@ The same root carries two further constructions, developed and audited in the co
 ## 11. Falsifiers of the core
 
 | # | observation that refutes the core construction |
-|--------|--------------------------------------------------------------------------------------------|
+|---|---|
 | **C1** | any non-vanishing gauge anomaly in the chiral content (the $\mathbf{16}$ is claimed anomaly-free; Theorem 2) |
 | **C2** | a measured front speed different from exactly one Planck cell per stage, or any amplitude outside the $n$-cell support bound of Theorem 5 |
 | **C3** | an isotropic light cone measured at the doubler nodes of the implemented step, or at any gapless point of the Wilson family or of any internal frame (Section 8.2 refutes all three routes by exhaustive scan and by the frame-averaging no-go) |

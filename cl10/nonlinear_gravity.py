@@ -39,6 +39,8 @@ import numpy as np
 
 from . import engine as E
 from . import u10pred
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 M_P = u10pred.M_PLANCK            # GeV (the lattice cutoff; M_GUT = M_P is not assumed)
 
@@ -187,8 +189,8 @@ def nonlinear_gravity(H=None):
     gap = lambda_obs / lambda_0param        # ~ 1e-122 (the O1 named residual)
     ok = (space_err < 1e-8
           and g_err < 1e-8
-          and scalar_err < 1e-6 * H ** 2
-          and gamma_gamma > 1e-6
+          and scalar_err < _TOL.loose * H ** 2
+          and gamma_gamma > _TOL.loose
           and 0.0 < gap < 1e-100)
     return {
         "backend": _backend(),
@@ -198,9 +200,9 @@ def nonlinear_gravity(H=None):
         "g_mu_nu_minus_3h2_g": float(g_err / max(H ** 2, 1.0)),
         "g_ok": bool(g_err < 1e-8),
         "ricci_scalar_minus_12h2": float(scalar_err / max(H ** 2, 1.0)),
-        "scalar_ok": bool(scalar_err < 1e-6 * H ** 2),
+        "scalar_ok": bool(scalar_err < _TOL.loose * H ** 2),
         "gamma_gamma_max": float(gamma_gamma),
-        "nonlinear_present": bool(gamma_gamma > 1e-6),
+        "nonlinear_present": bool(gamma_gamma > _TOL.loose),
         "lambda_0param_GeV4": float(lambda_0param),
         "lambda_obs_GeV4": float(lambda_obs),
         "gap": float(gap),

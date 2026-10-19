@@ -53,12 +53,14 @@ import numpy as np
 from . import engine as E
 from . import sm_qca
 from . import u10pred
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the 0-parameter GUT coupling (the only input): g_10 = sqrt(alpha_10) = 1/5
 G10 = sm_qca.G10
 # the Planck scale (= the GUT scale = the UV cutoff, 0-parameter)
 M_P = u10pred.M_PLANCK          # GeV
-GEV2_TO_CM2 = 0.389e-27         # 1/GeV^2 in cm^2 (the 0-parameter conversion)
+GEV2_TO_CM2 = float(_config.CFG.units.gev2_to_cm2)   # 1/GeV^2 in cm^2 (the exact conversion)
 
 
 def qca_step():
@@ -97,7 +99,7 @@ def two_particle(U):
         "P2_direct": P2_direct,
         "P2_closed": P2_closed,
         "P2": P2_direct,
-        "closed_form_match": bool(abs(P2_direct - P2_closed) < 1e-9),
+        "closed_form_match": bool(abs(P2_direct - P2_closed) < _TOL.standard),
     }
 
 
@@ -261,7 +263,7 @@ def main():
     uv = r["uv_bound"]
     ds = r["dispersion"]
     fr = r["froissart"]
-    ok = (r["s2_unitary_err"] < 1e-12
+    ok = (r["s2_unitary_err"] < _TOL.strict
           and r["closed_form_match"]
           and cs["P2"] > 0.0
           and r["uv_finite"]

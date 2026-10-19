@@ -35,6 +35,8 @@ the mechanism gives and the named residual that is left.
 from . import coupling
 from . import u10pred
 from . import neutrino as nv
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the scales of the sector (single source: u10pred; the reading: coupling)
 M_PLANCK = u10pred.M_PLANCK   # GeV (the cutoff; M_GUT = M_P is NOT assumed)
@@ -73,7 +75,7 @@ def w1_cosmological_constant():
     return {
         "n_even": int(n_even),
         "n_odd": int(n_odd),
-        "cancellation": bool(abs(n_even - n_odd) < 1e-12),
+        "cancellation": bool(abs(n_even - n_odd) < _TOL.strict),
         "lambda_0param": float(lambda_0param),
         "lambda_obs": float(lambda_obs),
         "residual": float(lambda_obs),      # the *named* fine-tuning

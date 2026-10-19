@@ -42,6 +42,8 @@ import numpy as np
 from . import clifford
 from . import engine as E
 from . import supercell as SC
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # ---------------------------------------------------------------------------
 # 1. the signature axis: Cl(10-q, q)
@@ -97,7 +99,7 @@ def exact_order(U, Nmax=64):
         e = float(np.abs(P - I).max())
         if e < best[1]:
             best = (N, e)
-        if e < 1e-9:
+        if e < _TOL.standard:
             break
     return best
 
@@ -242,7 +244,7 @@ def lattice_cell(kind):
                 ri = np.array(sites[i])
                 rj = np.array(sites[j]) + np.asarray(n, float) @ lattice
                 d = float(np.linalg.norm(rj - ri))
-                if abs(d - nn) < 1e-9 and i < j:
+                if abs(d - nn) < _TOL.standard and i < j:
                     bonds.append((i, j, n))
     return {"kind": "lattice", "lattice_kind": kind, "sites": sites,
             "lattice": lattice, "nsub": len(sites), "bonds": bonds,
@@ -393,7 +395,7 @@ def bond_layer_bonds(fields, bonds, g10=SC.G10):
 
 
 def front_speed(c, U, stages, g10=SC.G10, Lb=6, n_stages=12, seed=0,
-                tol=1e-12):
+                tol=_TOL.strict):
     """The causal-radius test (V36 method) on a generalized cell: run the
     automaton (internal layer + bond stages, cycling ``stages``) from a
     state localized on one sub-site; the support radius is measured in
@@ -510,7 +512,7 @@ def step_stages(fields, Us, thetas, stages):
 
 
 def front_speed_stages(c, Us, thetas, stages, Lb=6, n_stages=12, seed=0,
-                       tol=1e-12):
+                       tol=_TOL.strict):
     """``front_speed`` generalized to per-stage internal factors and bond
     angles (same support-growth test, same Planck-cell radius convention);
     stages may be block ``(j, phase)`` pairs or explicit bond lists."""
@@ -638,7 +640,7 @@ def chirality_at(bloch_fn, q_star, dq=1e-4):
     of the lowest branch at the node (nonzero axes only)."""
     sl = []
     for ax in range(3):
-        if abs(q_star[ax]) < 1e-12:
+        if abs(q_star[ax]) < _TOL.strict:
             continue
         qa = list(q_star); qa[ax] -= dq
         qb = list(q_star); qb[ax] += dq
@@ -1042,11 +1044,11 @@ def main():
           f"|Sigma_cv - Sigma_contact| = {d_cv:.3e}")
     sys.exit(0 if err < 1e-14 and err_bloch == 0.0
              and err_step < 1e-14 and err_fs == 0.0
-             and err_h < 1e-12 and err_nm < 1e-6 and err_ch < 1e-12
-             and err_df < 1e-6 and err_fs2 < 1e-12
-             and err_alg < 1e-12 and err_f < 1e-10 and err_cas < 1e-9
-             and err_up < 1e-12 and err_gc < 1e-9 and err_cv < 1e-12
-             and d_cv > 1e-6
+             and err_h < _TOL.strict and err_nm < _TOL.loose and err_ch < _TOL.strict
+             and err_df < _TOL.loose and err_fs2 < _TOL.strict
+             and err_alg < _TOL.strict and err_f < 1e-10 and err_cas < _TOL.standard
+             and err_up < _TOL.strict and err_gc < _TOL.standard and err_cv < _TOL.strict
+             and d_cv > _TOL.loose
              and w_4["A1g"] < 1.0 and (w_4["Eg"] + w_4["T2g"]) > 0.05 else 1)
 
 

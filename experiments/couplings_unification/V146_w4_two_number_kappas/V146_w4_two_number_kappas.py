@@ -54,6 +54,7 @@ from cl10 import sm_qca                                      # noqa: E402
 from cl10 import supercell as SC                             # noqa: E402
 from cl10 import unification as UN                           # noqa: E402
 from cl10 import u10pred                                     # noqa: E402
+from cl10 import config as _config                          # noqa: E402
 import V65_wilson as V65                                     # noqa: E402
 
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
@@ -102,7 +103,7 @@ def main():
     checks.append(("T1a %d fragment classes with multiplicities %s, theta* = "
                    "%.6f" % (len(classes), mults, TH_STAR),
                    bool(len(classes) == 6 and mults == [3, 2, 1, 6, 3, 1]
-                        and abs(TH_STAR - 1.730784) < 1e-5)))
+                        and abs(TH_STAR - _config.CFG.desert.theta_root_rad) < 1e-5)))
 
     # ------------------------------------------------ 2. generators and K_s
     Ts = [E.asnumpy(T).astype(np.complex128)

@@ -1,7 +1,7 @@
 {
   "experiment": "V90_w2_protection",
   "pass": true,
-  "status": "THE DEMOCRATIC POINT IS NOT PROTECTED - IT IS AN EXACT ONE-NUMBER TUNING (eigenvalue regression 2.4e-16). The cubic group induces ALL of S_3 on the triangle (6 permutations), and the commutant of that action has dimension 2 (smallest singular value 1.9e-16), spanned by I and J: the most general symmetry-preserving junction is EXACTLY c_s(2 w0 I + kappa'(J - I)) - no symmetry enlarges the stabilizer of r = 2, the tuning lives inside the symmetric family itself. No quantization fixes it either: the Wilson generator G has eigenvalue range [-0.1802, 0.1906], so w0 and kappa share the SAME period 38.1869 and the ratio r = kappa/w0 is a free continuous parameter. The cosmological window is EXACTLY the point: over r in [1, 3] at step 1e-4, 1 value passes sum m_nu < 0.12 eV (r = 2: 0.0487 eV; at r = 2.0001 the sum is 5849.956 eV - the would-be massless states go heavy as 1/|2 - r|). O2: the 1/3 candidate requires r = 2 EXACTLY, with no symmetry or quantization to enforce it - the sharpest form of the measure-zero residual.",
+  "status": "THE DEMOCRATIC POINT IS NOT PROTECTED - IT IS AN EXACT ONE-NUMBER TUNING (eigenvalue regression 2.4e-16). The cubic group induces ALL of S_3 on the triangle (6 permutations), and the commutant of that action has dimension 2 (smallest singular value 1.9e-16), spanned by I and J: the most general symmetry-preserving junction is EXACTLY c_s(2 w0 I + kappa'(J - I)) - no symmetry enlarges the stabilizer of r = 2, the tuning lives inside the symmetric family itself. No quantization fixes it either: the Wilson generator G has eigenvalue range [-0.1802, 0.1907], so w0 and kappa share the SAME period 38.1868 and the ratio r = kappa/w0 is a free continuous parameter. The cosmological window is EXACTLY the point: over r in [1, 3] at step 1e-4, 1 value passes sum m_nu < 0.12 eV (r = 2: 0.0487 eV; at r = 2.0001 the sum is 5849.956 eV - the would-be massless states go heavy as 1/|2 - r|). O2: the 1/3 candidate requires r = 2 EXACTLY, with no symmetry or quantization to enforce it - the sharpest form of the measure-zero residual.",
   "data": {
     "eigenvalue_regression": 2.45e-16,
     "cubic_induced_on_triangle": [
@@ -40,9 +40,9 @@
     "commutant_smallest_sv": 1.87e-16,
     "G_eigenvalue_range": [
       -0.1802,
-      0.1906
+      0.1907
     ],
-    "w_period_2pi_over_maxspacing": 38.1869,
+    "w_period_2pi_over_maxspacing": 38.1868,
     "ratio_r_quantized": false,
     "sum_at_r2_eV": 0.0487,
     "window_count": 1,

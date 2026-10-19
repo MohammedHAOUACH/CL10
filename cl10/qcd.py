@@ -25,6 +25,8 @@ $\\sigma$ are the **named residuals** (the strong-force dynamics beyond the
 """
 
 from . import gauge
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def color_count():
@@ -81,7 +83,7 @@ def main():
     sigma = string_tension()
     rows, sigma = confining_potential(sigma)
     lo, hi = area_law_coeff(rows, sigma)
-    linear = all(abs(r["v_qcd_over_r"] - sigma) < 1e-12 for r in rows)
+    linear = all(abs(r["v_qcd_over_r"] - sigma) < _TOL.strict for r in rows)
     print(f"  the 0-parameter colour count:  N_C = {n_c}  (8 gluon = N_C^2-1 = {n_gluon}, {'OK' if ok_c else 'FAIL'})")
     print(f"  the 0-parameter string tension:  sigma = {sigma}")
     print(f"  r:  {['%d' % r['r'] for r in rows]}")
@@ -89,7 +91,7 @@ def main():
     print(f"  V_qcd/r (the area-law coeff):    {['%.3f' % r['v_qcd_over_r'] for r in rows]}  (= sigma, 0-parameter)")
     print(f"  V_em(r) = 1/r (Coulombic):        {['%.3f' % r['v_em'] for r in rows]}")
     print(f"  the linear (confining) QCD potential, in contrast to the 1/r Coulombic EM:  {'PASS' if linear else 'FAIL'}")
-    ok = ok_c and linear and abs(lo - sigma) < 1e-12 and abs(hi - sigma) < 1e-12
+    ok = ok_c and linear and abs(lo - sigma) < _TOL.strict and abs(hi - sigma) < _TOL.strict
     print(f"  VERDICT:  {'PASS (the QCD is confining: linear potential, 0-parameter area law)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 

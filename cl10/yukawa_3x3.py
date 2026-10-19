@@ -53,6 +53,8 @@ from . import family
 from . import qca_spectrum
 from . import sm_qca
 from . import coupling
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the rotation angle of the active branch (CL10_ANGLE: 1/5 implemented, pi/4 closed)
 G10 = coupling.G10
@@ -102,7 +104,7 @@ def higgs_mass_16():
         "off_diagonal": float(np.linalg.norm(A).max()),
         "diag_16": float(np.linalg.norm(diag16).max()),
         "non_singular": bool(rank >= 1),
-        "dirac": bool(rank >= 1 and float(np.linalg.norm(diag16).max()) < 1e-6),
+        "dirac": bool(rank >= 1 and float(np.linalg.norm(diag16).max()) < _TOL.loose),
     }
 
 
@@ -135,8 +137,8 @@ def family_symmetry():
     # the 0-parameter norm of each direction (equal -> the 3-fold symmetry).
     norms = [float((s @ s.conj().T).trace().real) for s in S]
     norm_spread = float(max(norms) - min(norms))
-    equivalent = bool(n_space == 3 and max(s2_err) < 1e-6
-                     and ss_err < 1e-6 and norm_spread < 1e-6)
+    equivalent = bool(n_space == 3 and max(s2_err) < _TOL.loose
+                     and ss_err < _TOL.loose and norm_spread < _TOL.loose)
     # (2) the 3 families = the C(3,2) = 3 spatial two-planes (the pairs).
     pairs = [(0, 1), (0, 2), (1, 2)]
     n_planes = len(pairs)
@@ -171,7 +173,7 @@ def mass_matrix_3x3():
     M = np.ones((n, n), dtype=complex)        # the democratic base |1><1|
     Mh = 0.5 * (M + M.conj().T)               # Hermitian (it is real-symmetric)
     eig = np.sort(np.abs(np.linalg.eigvals(Mh)))
-    n_heavy = int(np.sum(eig > 1e-6))
+    n_heavy = int(np.sum(eig > _TOL.loose))
     n_light = n - n_heavy
     n_distinct = int(np.unique(np.round(eig / 1e-6)).size)   # {0, 3} -> 2
     return {
@@ -249,7 +251,7 @@ def mixing_from_democratic():
     signs = [np.diag([float(a), float(b), float(c)])
              for a in (-1.0, 1.0) for b in (-1.0, 1.0) for c in (-1.0, 1.0)]
     tbm_in_family = bool(min(np.abs(diagonalizer(t) @ S - tbm).max()
-                             for t in th for S in signs) < 1e-9)
+                             for t in th for S in signs) < _TOL.standard)
 
     # the three S3 transpositions: equivalent symmetries of |1><1|, each adapted
     # basis giving a DIFFERENT mixing matrix
@@ -264,9 +266,9 @@ def mixing_from_democratic():
         adapted[name] = {"sin2_12": float(abs(B[0, 1]) ** 2),
                          "sin2_23": float(abs(B[1, 2]) ** 2),
                          "sin2_13": float(abs(B[0, 2]) ** 2),
-                         "reproduces_TBM": bool(abs(B[0, 1]) ** 2 - 1/3 < 1e-9
-                                                and abs(B[1, 2]) ** 2 - 1/2 < 1e-9
-                                                and abs(B[0, 2]) ** 2 < 1e-9)}
+                         "reproduces_TBM": bool(abs(B[0, 1]) ** 2 - 1/3 < _TOL.standard
+                                                and abs(B[1, 2]) ** 2 - 1/2 < _TOL.standard
+                                                and abs(B[0, 2]) ** 2 < _TOL.standard)}
 
     # the CKM from IDENTICAL up/down democratic matrices is the IDENTITY
     wu, Vu = np.linalg.eigh(np.ones((3, 3), dtype=complex))
@@ -281,7 +283,7 @@ def mixing_from_democratic():
         "heavy_eigenvector_unique": True,
         "light_degeneracy": 2,
         "diagonalizer_is_unique": False,
-        "sin2_12_fixed": bool(max(s12) - min(s12) < 1e-9),
+        "sin2_12_fixed": bool(max(s12) - min(s12) < _TOL.standard),
         "sin2_12_value": float(np.mean(s12)),
         "sin2_12_range": [float(min(s12)), float(max(s12))],
         "sin2_23_range": [float(min(s23)), float(max(s23))],
@@ -290,7 +292,7 @@ def mixing_from_democratic():
                                 "observed": obs_pmns[0],
                                 "ratio": float(np.mean(s12) / obs_pmns[0])},
         "max_diagonalization_err": diag_err,
-        "tbm_diagonalizes_democratic": bool(tbm_diag_err < 1e-9),
+        "tbm_diagonalizes_democratic": bool(tbm_diag_err < _TOL.standard),
         "tbm_in_the_O2_family": tbm_in_family,
         "tbm_angles": {"sin2_12": 1.0 / 3.0, "sin2_23": 0.5, "sin2_13": 0.0},
         "s3_transpositions_equivalent": adapted,
@@ -356,7 +358,7 @@ def hierarchy_3level():
     0-parameter object does **not** fix the exact ratios — that is the O6
     named residual."""
     eig = np.array(mass_matrix_3x3()["eigenvalues"])
-    n_heavy = int(np.sum(eig > 1e-6))
+    n_heavy = int(np.sum(eig > _TOL.loose))
     n_light = 3 - n_heavy
     n_distinct = int(np.unique(np.round(eig / 1e-6)).size)
     obs_ratio = (1.0 / 3.0, 1.0 / 10.0)   # the observed 2-gen ratios (order)
@@ -366,7 +368,7 @@ def hierarchy_3level():
         "n_heavy": n_heavy,
         "n_light_2fold": n_light,
         "structure": "one heavy + a 2-fold light level (the 0-parameter base)",
-        "degenerate_light": bool(n_light >= 2 and eig[0] < 1e-6 and abs(eig[0] - eig[1]) < 1e-6),
+        "degenerate_light": bool(n_light >= 2 and eig[0] < _TOL.loose and abs(eig[0] - eig[1]) < _TOL.loose),
         "obs_ratio_order": obs_ratio,
         "residual": ("the exact 3-gen hierarchy (the 10-Higgs vev breaking, "
                      "the ratios m1:m2:m3) and the exact CKM/PMNS angles "
@@ -472,7 +474,7 @@ def w6_verdict():
     fs = family_symmetry()
     honest = mixing_from_democratic()
     ok = (
-        s2unit < 1e-12
+        s2unit < _TOL.strict
         and one["family_triplication"]
         and abs(one["zero_point_1gen"]) < 1e-8
         and mm["democratic"]
@@ -483,7 +485,7 @@ def w6_verdict():
         # that the matrix actually diagonalizes the democratic base)
         and honest["tbm_diagonalizes_democratic"]
         and honest["sin2_12_fixed"]
-        and abs(honest["sin2_12_value"] - 1.0 / 3.0) < 1e-9
+        and abs(honest["sin2_12_value"] - 1.0 / 3.0) < _TOL.standard
         and hier["degenerate_light"]
         and h16["dirac"]
         and h16["rank"] == 16

@@ -27,6 +27,8 @@ the one object (the $(1,3)$ metric with $G = 1$).
 import numpy as np
 
 from . import engine as E
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def _fit_exponent(L, y):
@@ -79,9 +81,9 @@ def main():
     print(f"    S/V   = {['%.4f' % x for x in r['R']]}  (the holographic ratio, ~1/L)")
     print(f"  area-law exponent  (S vs L):   {r['area_law_exponent']:.4f}  (= 2 -> AREA, not volume)")
     print(f"  holographic exponent (S/V vs L): {r['holographic_ratio_exponent']:.4f}  (= -1 -> 1/L, the holographic hallmark)")
-    ok = (abs(r["area_law_exponent"] - 2.0) < 1e-6
-          and abs(r["holographic_ratio_exponent"] + 1.0) < 1e-6
-          and abs(r["per_plaquette"] - 0.25) < 1e-12)
+    ok = (abs(r["area_law_exponent"] - 2.0) < _TOL.loose
+          and abs(r["holographic_ratio_exponent"] + 1.0) < _TOL.loose
+          and abs(r["per_plaquette"] - 0.25) < _TOL.strict)
     print(f"  VERDICT:  {'PASS (the QCA is holographic: S ~ AREA, S/V ~ 1/L)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)
 

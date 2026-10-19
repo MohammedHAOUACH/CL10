@@ -1,25 +1,25 @@
 {
   "experiment": "V86_junction_desert",
   "pass": true,
-  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 55.0 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9368 at theta = 1.56 (n = 12, rho = 0.35; 51 physical theta values), and the third equation predicts alpha_X = 0.03227 against the data 0.04 - a factor ~1.5 miss. O4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
+  "status": "THE FRAGMENT PATTERN IS FABRICATED, THE MEETING IS NOT: at the root the Wilson direction splits the node 16 by a factor 52.7 (Q +0.005, L -0.015 vs partners ~0.82) - the (3,2) and (1,2) states of V64's repair ARE automaton states, the L and Q components of node 16's with near-zero Wilson weights, and the V76 junction adds the branch ratio rho that breaks V74's rank-1 degeneracy. But over the full physical scan (n_nodes 3-12, rho, scale, theta) the best PHYSICAL residual of the two meeting equations is 0.9368 at theta = 1.56 (n = 12, rho = 0.35; 51 physical theta values), and the third equation predicts alpha_X = 0.03227 against the data 0.04 - a factor ~1.5 miss. O4 stays open, now with a NAMED NEAR-MISS: the automaton's junction content has the right FRAGMENT STRUCTURE at desert scales; what it lacks is the right COEFFICIENT pattern (the equal-shift identity still binds through the |c_M|-correlated thresholds).",
   "data": {
     "root_splitting": {
-      "(np.float64(0.0), np.float64(0.0), np.float64(1.0))": 0.82768,
-      "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))": -0.7976,
-      "(np.float64(1.333), np.float64(0.5), np.float64(0.167))": 0.00501,
-      "(np.float64(1.333), np.float64(0.0), np.float64(0.333))": 0.80762,
-      "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))": -0.81765,
-      "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))": -0.01504
+      "(np.float64(0.0), np.float64(0.0), np.float64(1.0))": 0.82792,
+      "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))": -0.79653,
+      "(np.float64(1.333), np.float64(0.5), np.float64(0.167))": 0.00523,
+      "(np.float64(1.333), np.float64(0.0), np.float64(0.333))": 0.80699,
+      "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))": -0.81746,
+      "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))": -0.0157
     },
-    "splitting_ratio": 55.0,
+    "splitting_ratio": 52.7,
     "scan": {
-      "1.731": {
-        "residual": 1.7619,
+      "1.7307836435290485": {
+        "residual": 1.7818,
         "n_nodes": 12,
-        "rho": 0.45,
+        "rho": -0.5,
         "S_GeV": 3.682e+18,
-        "z_min_GeV": 4292000000000000.0,
-        "implied_alpha_X": 0.02705,
+        "z_min_GeV": 2890000000000000.0,
+        "implied_alpha_X": 0.02706,
         "physical": true
       },
       "1.5": {
@@ -494,26 +494,26 @@
       "n_physical": 51
     },
     "root_solution": {
-      "F12_residual": 1.761859,
-      "F23_residual": 1.736753,
+      "F12_residual": 1.781834,
+      "F23_residual": 1.76255,
       "n_nodes": 12,
-      "rho": 0.45,
+      "rho": -0.5,
       "S_GeV": 3.682e+18,
       "thresholds_GeV": {
-        "(np.float64(0.0), np.float64(0.0), np.float64(1.0))_a": 1.326e+18,
-        "(np.float64(0.0), np.float64(0.0), np.float64(1.0))_b": 7.086e+17,
-        "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))_a": 1.278e+18,
-        "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))_b": 6.828e+17,
-        "(np.float64(1.333), np.float64(0.5), np.float64(0.167))_a": 8030000000000000.0,
-        "(np.float64(1.333), np.float64(0.5), np.float64(0.167))_b": 4292000000000000.0,
-        "(np.float64(1.333), np.float64(0.0), np.float64(0.333))_a": 1.294e+18,
-        "(np.float64(1.333), np.float64(0.0), np.float64(0.333))_b": 6.914e+17,
-        "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))_a": 1.31e+18,
-        "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))_b": 7e+17,
-        "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))_a": 2.409e+16,
-        "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))_b": 1.288e+16
+        "(np.float64(0.0), np.float64(0.0), np.float64(1.0))_a": 4.573e+17,
+        "(np.float64(0.0), np.float64(0.0), np.float64(1.0))_b": 1.143e+18,
+        "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))_a": 4.399e+17,
+        "(np.float64(0.0), np.float64(0.0), np.float64(-0.0))_b": 1.1e+18,
+        "(np.float64(1.333), np.float64(0.5), np.float64(0.167))_a": 2890000000000000.0,
+        "(np.float64(1.333), np.float64(0.5), np.float64(0.167))_b": 7225000000000000.0,
+        "(np.float64(1.333), np.float64(0.0), np.float64(0.333))_a": 4.457e+17,
+        "(np.float64(1.333), np.float64(0.0), np.float64(0.333))_b": 1.114e+18,
+        "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))_a": 4.515e+17,
+        "(np.float64(1.333), np.float64(0.0), np.float64(-0.667))_b": 1.129e+18,
+        "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))_a": 8670000000000000.0,
+        "(np.float64(0.0), np.float64(0.5), np.float64(-0.5))_b": 2.167e+16
       },
-      "implied_alpha_X": 0.02705
+      "implied_alpha_X": 0.02706
     }
   }
 }

@@ -588,7 +588,8 @@ $1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
 | `cl10.neutrino.M_ATM_EV`, `M_SOL_EV`, `SUM_MNU_MAX_EV` | `0.0501`, `0.0086`, `0.12` eV | the measured neutrino splittings (NuFIT 6.0, NO) and the cosmological $\sum m_\nu$ bound (the F3 test) |
 | `cl10.dm_wimp.DD_BOUND`, `SIGMA_RELIC_TARGET` | `2.0e-47` cm$^2$, `2.2e-26` cm$^3$/s | the direct-detection limit and the relic-closing $\langle\sigma v\rangle$ of the dark-$U(1)$ portal scan (V112) |
 | `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
-| `CFG.desert.theta_root_rad` | `1.7308` | the root direction of the Wilson term (V65), the angle the ladder is read at |
+| `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |
+| `CFG.physics.wimp_window_gev` | `[100, 1000]` GeV | the observed WIMP window the 0-parameter DM scale is compared against (`parameter_audit`, point 4) |
 | `cl10.u10pred` (atomic) | `13.605693` eV | the hydrogen Rydberg energy (CODATA), the input of `simulation/hydrogen` |
 | `cl10.coupling.G10` | the active branch angle | `implemented` $1/5$ (convention), `closed` $\pi/4$, `half` $\pi/2$ |
 | `cl10.coupling.ALPHA_10` | `1/25` | the rotation-squared reading (convention) |
@@ -613,8 +614,13 @@ Measured constants are written ONCE, at the best published precision: the
 file's value is the PDG/CODATA/Planck value, so no experiment carries a second
 precision of the same quantity (the former `1.2209e19` / `246.0` / `6.1e-10` /
 `125.1` / `0.939` / `0.30e-3` / `106.75` / `0.3894e-27` / `0.0501` / `0.12` /
-`127.9` / `1.731` duplicates in the DM, baryogenesis, neutrino and coupling
-experiments are gone).
+`127.9` / `1.731` / `1.730784` / `2.0e16` / `100.0` duplicates in the DM,
+baryogenesis, neutrino and coupling experiments, and the `0.389e-27` of
+`cl10.lattice_rg`, are gone). The shared tolerance bands follow the same rule
+inside the library: the modules compare against `CFG.tolerances.<band>` (bound
+once per module as `_TOL`), never against a literal; an experiment that
+measures at its own band states that band itself.
+
 Each **simulation** owns
 its scene panel (`simulation/*/config.yaml`), which the code now reads with no
 fallback default: a key the code requires must be in the panel.

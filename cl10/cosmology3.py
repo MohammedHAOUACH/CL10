@@ -44,6 +44,7 @@ from . import engine as E
 from . import clifford
 from . import matter
 from . import u10pred
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the freeze-out reference)
 OMEGA_OBS = float(_config.CFG.physics.omega_dm_h2)      # the measured DM density
@@ -76,7 +77,7 @@ def dark_matter():
     kink_energy = float(np.trapezoid(0.5 * up ** 2 + V, x))
     # the non-dispersive bound state (the sech tail -> the vacuum)
     tail = float(np.max(np.abs(u[[0, 1, 2, -1, -2, -3]])))
-    localized = bool(tail < 1e-6 and 0.0 < kink_energy < 10.0)
+    localized = bool(tail < _TOL.loose and 0.0 < kink_energy < 10.0)
     return {
         "backend": _backend(),
         "ode_residual": ode_res,
@@ -84,7 +85,7 @@ def dark_matter():
         "non_dispersive": localized,
         "gauge_charge": 0.0,
         "stable_massive_non_dispersive_neutral": bool(
-            ode_res < 1e-6 and localized and kink_energy > 0.0),
+            ode_res < _TOL.loose and localized and kink_energy > 0.0),
     }
 
 
@@ -214,7 +215,7 @@ def antimatter():
     }
 
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """The 0-parameter unification: all three cosmological sectors (the dark
     matter, the dark energy, the antimatter) are 0-parameter consequences of
     the one object (the GUT Cl(10)); the named residuals are the dark-matter

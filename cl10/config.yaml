@@ -64,6 +64,8 @@ physics:
   v_electroweak_gev: 246.22   # GeV, v = (sqrt(2) G_F)^-1/2 from muon decay (PDG)
   omega_dm_h2: 0.120          # the observed cold-DM density: Planck 2018 0.1200 +- 0.0012
   weak_scale_gev: 100.0       # GeV, the WIMP-miracle window center (a convention)
+  wimp_window_gev: [1.0e+2, 1.0e+3]   # GeV, the observed WIMP window the 0-parameter
+                                      # DM scale is compared against (point 4)
   hydrogen_rydberg_ev: 13.605693   # the hydrogen ionisation energy (CODATA), the
                                    # atomic input of simulation/hydrogen
   # numbers of the root
@@ -122,8 +124,9 @@ angle:
 
 desert:
   # the fitted thresholds of the desert solution (V64) - conditional, not derived
-  # the root direction of the Wilson term (V65): the angle the ladder is read at
-  theta_root_rad: 1.7308
+  # the root direction of the Wilson term (V65, the X_1 selective root): the
+  # angle the ladder is read at, at the precision the root was measured at
+  theta_root_rad: 1.7307836435290485
   m_x_gev: 1.8e+16
   alpha_x: 0.04
   # the same solution at the closed angle (V133): the threshold ordering breaks

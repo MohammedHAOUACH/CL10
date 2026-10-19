@@ -215,7 +215,7 @@ def main():
             "mirror_masses_equal": masses_equal,
             "candidates": cand,
             "sigma_v_est_GeV2": sv,
-            "omega_overclosure_factor": omega_est / 0.12,
+            "omega_overclosure_factor": omega_est / dw.OMEGA_OBS,
         },
     }
 

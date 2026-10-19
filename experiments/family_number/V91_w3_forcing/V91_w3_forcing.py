@@ -55,11 +55,13 @@ import V65_wilson as V65  # noqa: E402
 from V74_multiscale_nodes import fragments  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
+from cl10 import config as _config  # noqa: E402
 
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 TWO_PI = 2.0 * math.pi
 INV_A10 = 25.0
 M_X_OBS = UN.M_X_OBS          # GeV, observed 1-loop unification scale (cl10/config.yaml sm:)
+THETA_ROOT = float(_config.CFG.desert.theta_root_rad)   # the V65 root direction
 SEL = [(math.pi / 2, math.pi / 2, 0.0),
        (math.pi / 2, 0.0, math.pi / 2),
        (0.0, math.pi / 2, math.pi / 2)]
@@ -162,11 +164,11 @@ def main():
     ranks = {}
     for n in (4, 8, 12):
         zs = [20.0 + 6.0 * (k % 4) - 9.0 for k in range(n)]  # split
-        ranks[f"n_{n}"] = rank_n(zs, 33.5, 1.731)
+        ranks[f"n_{n}"] = rank_n(zs, 33.5, THETA_ROOT)
     checks["meeting_jacobian_rank"] = ranks
 
     # --- 4. the fixed meeting scale for each cubic-symmetric size ----------
-    th = 1.731
+    th = THETA_ROOT
     frs, _ = fragments(th)
     mx = {}
     for n in (3, 4, 8, 12):

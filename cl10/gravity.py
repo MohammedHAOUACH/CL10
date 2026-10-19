@@ -72,6 +72,7 @@ from . import engine as E
 from . import nonlinear_gravity
 from . import sm_qca
 from . import u10pred
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the 0-parameter Planck scale (= the GUT scale = the UV cutoff)
 M_P = u10pred.M_PLANCK
@@ -357,7 +358,7 @@ def dynamics_from_action(mfn, Lambda, x0, h=H_FD, eps=1e-4):
     (scalar) ELM magnitude at ``x0``."""
     def action_with_pert(delta):
         def pmfn(x):
-            if np.allclose(_x4(x), x0, atol=1e-9):
+            if np.allclose(_x4(x), x0, atol=_TOL.standard):
                 return mfn(x) * (1.0 + delta)   # a **local** metric perturbation
             return mfn(x)
         return discrete_eh_action(pmfn, _mini_grid(x0), Lambda, h)
@@ -372,7 +373,7 @@ def dynamics_from_action(mfn, Lambda, x0, h=H_FD, eps=1e-4):
 # ---------------------------------------------------------------------------
 
 def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10,
-                  tol=_config.CFG.tolerances.strict):
+                  tol=_TOL.strict):
     """The **non-linear** QCA metric evolution: a **state-dependent** unitary
     on a **1+1** (``L`` spatial x ``n_steps`` time) lattice.  The **state** is
     the metric-field ``phi(x)`` (a **metric component** / the non-linear
@@ -451,7 +452,7 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10,
     # 1. unitary / UV-finite: the norm is preserved
     n0, n1 = norms[0], norms[-1]
     norm_err = abs(n1 - n0) / n0
-    unitary_ok = bool(norm_err < 1e-9)
+    unitary_ok = bool(norm_err < _TOL.standard)
 
     # 2. non-linear: the **superposition** fails (the hallmark)
     fa_f, _ = evolve(fa, n_steps)
@@ -465,7 +466,7 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10,
 
     # 3. causal: the bond layer moves exactly one cell per step (c = 1)
     front_speed = 1.0  # the **0-parameter** bond layer: one cell / step
-    causal_ok = bool(abs(front_speed - 1.0) < 1e-12)
+    causal_ok = bool(abs(front_speed - 1.0) < _TOL.strict)
 
     # 4. 0-parameter
     ok = bool(unitary_ok and nonlinear_ok and causal_ok)
@@ -517,7 +518,7 @@ def verify_analytic_vs_computed(h=H_FD):
         "H": float(H),
         "max_abs_diff": float(diff),
         "h2": float(h ** 2),
-        "ok": bool(diff < 1e-4),   # the O(h^2) finite-difference error
+        "ok": bool(diff < _TOL.coarse),   # the O(h^2) finite-difference error
     }
 
 
@@ -593,12 +594,12 @@ def verify_nonlinear(h=H_FD):
         "gamma_gamma_flat": float(gg_flat),
         "gamma_gamma_de_sitter": float(gg_ds),
         "flat_is_linear": bool(gg_flat < 1e-8),
-        "curved_is_nonlinear": bool(gg_ds > 1e-6),
-        "ok": bool(gg_flat < 1e-8 and gg_ds > 1e-6),
+        "curved_is_nonlinear": bool(gg_ds > _TOL.loose),
+        "ok": bool(gg_flat < 1e-8 and gg_ds > _TOL.loose),
     }
 
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """The **complete** 4-D non-linear gravity verdict: the 2-route
     verification (analytic vs computed), the black hole (computed
     ``K = 48 M^2 / r^6`` + the vacuum ``G = 0``), the flat vacuum

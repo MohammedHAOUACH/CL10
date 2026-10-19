@@ -57,6 +57,7 @@ V_EW = u10pred.V_EW            # GeV
 N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) generators
 LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
 N_QUBITS = int(_config.CFG.physics.n_qubits)   # the qubit count of the 32-D module (2^5 = 32)
+WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the WIMP-miracle window center)
 
 
 def _backend():
@@ -99,8 +100,8 @@ def loop_ladder():
         },
         "dm": {
             "m_DM_GeV": m_DM,
-            "weak_GeV": 100.0,
-            "coefficient": float(m_DM / 100.0),       # ~1.18 (2-digit residual)
+            "weak_GeV": WEAK_SCALE,
+            "coefficient": float(m_DM / WEAK_SCALE),   # ~1.18 (2-digit residual)
         },
     }
 

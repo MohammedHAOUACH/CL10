@@ -24,6 +24,7 @@ from . import clifford
 from . import spacetime
 
 import numpy as np
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the GUT scale (the 0-parameter Planck-lattice value)
 M_GUT = float(_config.CFG.physics.m_planck_gev)   # GeV (the Planck mass)
@@ -136,7 +137,7 @@ def main():
     gg = gauge_gravity_overlap()
     print(f"  gauge-gravity:  (1,3) {gg['n_causal']} + 45 gauge,  in the one "
           f"{gg['n_generators']}-generator Cl(10)  (unified)")
-    ok = (rank_check() == 45 and abs(r53 - 5 / 3) < 1e-6
+    ok = (rank_check() == 45 and abs(r53 - 5 / 3) < _TOL.loose
           and sg["n_sm"] == 12 and gg["one_object"])
     print(f"  VERDICT:  {'PASS (the gauge is the 45, 5/3 unification, gauge+gravity in one object)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)

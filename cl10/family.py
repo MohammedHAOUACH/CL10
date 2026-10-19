@@ -32,6 +32,8 @@ from . import engine as E
 from . import matter
 from . import sm_qca
 from . import spacetime
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def family_construct():
@@ -155,7 +157,7 @@ def family_qca():
     # passed the angle test while failing this one).
     _J = np.ones((3, 3), dtype=complex)
     _D = tbm.conj().T @ _J @ tbm
-    tbm_diagonalizes = bool(float(np.abs(_D - np.diag(np.diag(_D))).max()) < 1e-9)
+    tbm_diagonalizes = bool(float(np.abs(_D - np.diag(np.diag(_D))).max()) < _TOL.standard)
     # (4) the dimension: 48 Weyl = 16 x 3 and 48 CPT-conjugate
     n_weyl_1gen = int(matter.dimension_check())
     n_weyl_3gen = n_weyl_1gen * ngen

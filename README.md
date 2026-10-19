@@ -160,7 +160,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 156 experiments in 18 categories (115 publication + 41 alt_* exploration)
+├── experiments/              # the verification program: 157 experiments in 18 categories (116 publication + 41 alt_* exploration)
 │   ├── algebra_root/         # the root, the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -184,7 +184,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 156, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 157, writes the hard-tier verdict
 ├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 ├── run_alt_interactions.sh   # exploration driver: the alt_interactions census alone (V171-V174), then a report-only rollup
@@ -260,7 +260,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 156 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 157 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
@@ -350,6 +350,14 @@ from measured inputs); **9 open residuals** (O1–O9).
   carrier at 118 GeV (0 survivors over 720 angles, V66/V75); the relic
   abundance is a **computed** number: at the two supplied couplings
   $\Omega h^2 = 0.081$–$0.156$, not $0.120$ for any coupling the root supplies;
+  the production side is computed too — freeze-in and freeze-out with exact
+  thermal convolution, the regime decided from the computed in-equilibrium
+  rate (V193): the exact-$\mathbb{Z}_2$ portal's only DD-allowed production
+  solution is freeze-in at $\lambda = 4.1\times10^{-14}$
+  ($\sigma_{\rm SI} = 6\times10^{-71}$ cm$^2$, DD-blind) and its thermal
+  solution is excluded, while $0.120$ comes only from the mirror-breaking
+  pair portal at its computed coupling $\lambda = 1.3\times10^{-3}$
+  ($\sigma_{\rm SI} = 6.7\times10^{-50}$ cm$^2$);
   the nodal-plane density $D = 1485$ enhances the final-state phase space by
   $(100/m)^3$-type factors the standard curve cannot see; and the bond-strength
   portal is closed — read as annihilation strength no bond number of the scalar

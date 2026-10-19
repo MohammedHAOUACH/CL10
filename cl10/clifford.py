@@ -22,6 +22,7 @@ from . import config as _config
 from . import engine as E
 
 import numpy as np
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the Pauli matrices (2x2, complex)
 _X = E.Array_([[0, 1], [1, 0]])
@@ -52,7 +53,7 @@ def generators():
     return out
 
 
-def verify(tol=_config.CFG.tolerances.strict):
+def verify(tol=_TOL.strict):
     """0-parameter check of the Cl(10) relations (all 10 anticommute, square to I).
 
     Returns a dict of the residual errors (all must be ~0).
@@ -110,8 +111,8 @@ def weyl_spinor():
     """
     w = pseudoscalar()
     vals, vecs = np.linalg.eig(w)
-    plus = vecs[:, np.isclose(vals.imag, 1, atol=1e-6)]
-    minus = vecs[:, np.isclose(vals.imag, -1, atol=1e-6)]
+    plus = vecs[:, np.isclose(vals.imag, 1, atol=_TOL.loose)]
+    minus = vecs[:, np.isclose(vals.imag, -1, atol=_TOL.loose)]
     return plus, minus
 
 

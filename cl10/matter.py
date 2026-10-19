@@ -20,6 +20,8 @@ anomalies cancel, so the anomaly check is a **hard U10 requirement**.
 """
 
 from . import clifford
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the 6 SM fields:  (su3_type, su2_type, Y, n_weyl)
 #   su3_type:  +1 = 3 (fund),  -1 = 3bar,  0 = 1
@@ -114,8 +116,8 @@ def mass_generation():
     B = P16 @ h @ P16b                        # 16-bar -> 16
     diag16 = P16 @ h @ P16                    # 16 -> 16  (should be 0)
     diag16b = P16b @ h @ P16b                 # 16-bar -> 16-bar  (should be 0)
-    offdiag_ok = (float(np.linalg.norm(diag16).max()) < 1e-6
-                  and float(np.linalg.norm(diag16b).max()) < 1e-6
+    offdiag_ok = (float(np.linalg.norm(diag16).max()) < _TOL.loose
+                  and float(np.linalg.norm(diag16b).max()) < _TOL.loose
                   and float(np.linalg.norm(A).max()) > 1.0
                   and float(np.linalg.norm(B).max()) > 1.0)
     return {

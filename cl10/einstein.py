@@ -51,6 +51,7 @@ import numpy as np
 
 from . import config as _config
 from . import engine as E
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def _backend():
@@ -115,7 +116,7 @@ def linearized_graviton(L=20):
     # the UV: the maximum omega (the Brillouin zone edge) -- bounded
     omega_max = float(omega.max())
     # the dispersion is real and non-negative -> the stable free wave
-    stable = bool((omega >= -1e-12).all())
+    stable = bool((omega >= -_TOL.strict).all())
     return {
         "backend": _backend(),
         "L": int(L),
@@ -193,7 +194,7 @@ def riemann_scalar_2d(metric, x0, x1, h=1e-3):
             R += ginv[sigma, nu] * Ric[sigma, nu]
     return float(R)
 
-def einstein_hilbert(r=2.0, tol=_config.CFG.tolerances.coarse):
+def einstein_hilbert(r=2.0, tol=_TOL.coarse):
     """The Einstein-Hilbert action ``S = (1/16*pi) INT sqrt(-g) R``, **computed**
     from the metric (the Riemann tensor / Ricci scalar).
 
@@ -217,8 +218,8 @@ def einstein_hilbert(r=2.0, tol=_config.CFG.tolerances.coarse):
     R_flat = riemann_scalar_2d(flat, 0.0, 0.0)
     R_sphere_expected = 2.0 / (r * r)
     ok = (abs(R_sphere - R_sphere_expected) < tol
-          and abs(R_flat) < 1e-6
-          and abs(G - 1.0) < 1e-12)
+          and abs(R_flat) < _TOL.loose
+          and abs(G - 1.0) < _TOL.strict)
     return {
         "backend": _backend(),
         "G": float(G),
@@ -259,7 +260,7 @@ def eh_quadratic_action(u):
 
 
 def einstein_hilbert_from_dynamics(L=8, T=24, n_probe=16, seed=0,
-                                   tol=_config.CFG.tolerances.loose):
+                                   tol=_TOL.loose):
     """The **derivation** (the direction **dynamics <- action**): the
     **Euler-Lagrange equation** of the 0-parameter discrete quadratic
     Einstein-Hilbert action (``1/16*pi``, ``G = 1``, ``dt = h/2``) is
@@ -341,8 +342,8 @@ def einstein_hilbert_from_dynamics(L=8, T=24, n_probe=16, seed=0,
     selects_ok = elm_off > 1e-3
 
     # (3) the 0-parameter coefficient (G = 1 -> 1/(16*pi))
-    coeff_ok = (abs(G - 1.0) < 1e-12
-                and abs(coupler - 1.0 / (16.0 * np.pi)) < 1e-12)
+    coeff_ok = (abs(G - 1.0) < _TOL.strict
+                and abs(coupler - 1.0 / (16.0 * np.pi)) < _TOL.strict)
 
     # (4) the continuum limit (the discrete dispersion from the ELM operator):
     #     a plane mode e^{i(kx - wt)} on the torus:
@@ -406,7 +407,7 @@ def nonlinear_soliton():
         "soliton": "u = sqrt(2) sech x (the exact static soliton)",
         "ode_residual": float(ode_res),
         "mass": float(E),
-        "nonlinear_ok": bool(ode_res < 1e-6 and E > 0.0),
+        "nonlinear_ok": bool(ode_res < _TOL.loose and E > 0.0),
     }
 
 # ---------------------------------------------------------------------------
@@ -433,7 +434,7 @@ def schwarzschild(M=1.0, r=3.0):
         "R_vacuum": float(R_vacuum),
     }
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """0-parameter checks: the linearised free wave (massless spin-2), the
     light cone (the GUT sub-algebra), the Riemann curvature (the 2-sphere
     ``R = 2/r^2``, the flat ``R = 0``), the non-linear soliton (the exact
@@ -448,11 +449,11 @@ def verify(tol=_config.CFG.tolerances.standard):
     ok = (lin["massless"] and lin["c"] == 1.0 and lin["n_polarizations"] == 2
           and lin["light_cone_ok"] and lin["stable"]
           and eh["einstein_hilbert_ok"] and abs(eh["G"] - 1.0) < tol
-          and abs(eh["coupling"] - 1.0 / (16.0 * np.pi)) < 1e-6
+          and abs(eh["coupling"] - 1.0 / (16.0 * np.pi)) < _TOL.loose
           and ehf["ok"]
           and sol["nonlinear_ok"]
-          and abs(bh["R_vacuum"] - 0.0) < 1e-12
-          and abs(bh["horizon"] - 2.0 * bh["M"]) < 1e-12
+          and abs(bh["R_vacuum"] - 0.0) < _TOL.strict
+          and abs(bh["horizon"] - 2.0 * bh["M"]) < _TOL.strict
           and bh["Kretschmann"] > 0.0)
     return {
         "linearized": lin,

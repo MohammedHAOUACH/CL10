@@ -39,6 +39,8 @@ from . import engine as E
 from . import family
 from . import matter
 from . import yukawa_3x3
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def yukawa_matrix():
@@ -56,7 +58,7 @@ def yukawa_matrix():
     n_gen = int(fam["n_family_candidate"])          # the 3 generations
     mm = yukawa_3x3.mass_matrix_3x3()               # the democratic base |1><1|
     offdiag = bool(mg["off_diagonal"])
-    diag_zero = (mg["diag_16"] < 1e-6 and mg["diag_16bar"] < 1e-6)
+    diag_zero = (mg["diag_16"] < _TOL.loose and mg["diag_16bar"] < _TOL.loose)
     return {
         "n_gen": n_gen,
         "n_dim": int(mm["n"]),
@@ -130,7 +132,7 @@ def hierarchy_residual():
     base = np.sort(np.abs(np.linalg.eigvals(D)))
     return {
         "base_spectrum": [float(x) for x in base],
-        "degenerate": bool(base[1] < 1e-9 or abs(base[0] - base[1]) < 1e-9),
+        "degenerate": bool(base[1] < _TOL.standard or abs(base[0] - base[1]) < _TOL.standard),
         "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking; the exact ratios)",
     }
 

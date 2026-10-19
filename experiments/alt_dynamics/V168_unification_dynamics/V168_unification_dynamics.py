@@ -43,10 +43,11 @@ import V167_hardtier_dynamics as V167  # noqa: E402
 import numpy as np
 
 from cl10 import supercell as SC
+from cl10 import config as _config
 
 SOURCES = V167.SOURCES
 NODE_TOL = 1e-3
-M_TARGET = 2.0e16
+M_TARGET = float(_config.CFG.sm.m_unification_obs_gev)   # GeV (the observed meeting scale)
 M_TH = 1.0e10          # the V64 no-go convention (not a fitted threshold)
 
 

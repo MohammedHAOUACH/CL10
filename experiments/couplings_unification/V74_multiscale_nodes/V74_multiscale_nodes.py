@@ -45,11 +45,13 @@ sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
+from cl10 import config as _config  # noqa: E402
 
 MZ, A_Z, B_SM = UN.M_Z, UN.A_Z, UN.B_SM
 M_P = UN.M_P
 TWO_PI = 2.0 * math.pi
 INV_A10 = 25.0
+THETA_ROOT = float(_config.CFG.desert.theta_root_rad)   # the V65 root direction
 _CACHE = {}
 
 
@@ -98,9 +100,9 @@ def main():
 
     # --- rank-1 fact at several configurations ----------------------------
     configs = [
-        ("V65 root, degenerate strengths", 1.731, [20.0, 20.0, 20.0]),
-        ("V65 root, split strengths", 1.731, [14.0, 20.0, 26.0]),
-        ("V64-like low thresholds", 1.731, [11.5, 11.5, 11.5]),
+        ("V65 root, degenerate strengths", THETA_ROOT, [20.0, 20.0, 20.0]),
+        ("V65 root, split strengths", THETA_ROOT, [14.0, 20.0, 26.0]),
+        ("V64-like low thresholds", THETA_ROOT, [11.5, 11.5, 11.5]),
         ("generic theta", 1.2, [15.0, 18.0, 21.0]),
     ]
     rank_checks = {}
@@ -111,7 +113,7 @@ def main():
         rank_checks[name] = r
 
     # --- the node mechanism's meeting point: V65's own scan --------------
-    th = 1.731
+    th = THETA_ROOT
     frs0, _ = fragments(th)
     roots = [r for r in V65.scan_roots(frs0) if r["physical"]]
     r0 = max(roots, key=lambda r: r["M_X_GeV"])

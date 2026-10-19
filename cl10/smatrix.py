@@ -46,6 +46,8 @@ import numpy as np
 
 from . import engine as E
 from . import sm_qca
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the 0-parameter GUT coupling (the rotation angle) — the ONLY input:
 G10 = sm_qca.G10  # = sqrt(alpha_10) = 1/5 = 0.2
@@ -194,9 +196,9 @@ def main():
           f"max |S2|:  {s2['max_abs']:.4f}   "
           f"max off-diagonal:  {s2['max_offdiag']:.4f}")
     print(f"  named residual (O9):  {r['residual']}")
-    ok = (s1["unitary_err"] < 1e-12 and s1["colsum_err"] < 1e-12
-          and s1["colsum_err_col"] < 1e-12 and s1["nontrivial_offdiag"]
-          and s2["unitary_err"] < 1e-12 and s2["colsum_err"] < 1e-12
+    ok = (s1["unitary_err"] < _TOL.strict and s1["colsum_err"] < _TOL.strict
+          and s1["colsum_err_col"] < _TOL.strict and s1["nontrivial_offdiag"]
+          and s2["unitary_err"] < _TOL.strict and s2["colsum_err"] < _TOL.strict
           and s2["nontrivial"] and r["only_g10"])
     print(f"  VERDICT:  {'PASS (the QCA step IS the 0-parameter S-matrix: the first process of the theory)' if ok else 'FAIL'}")
     sys.exit(0 if ok else 1)

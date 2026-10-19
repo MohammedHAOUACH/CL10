@@ -54,6 +54,7 @@ from V81_link_desert_content import sm_roots, flux_weights, c2_labels  # noqa
 from V86_junction_desert import base_data, mults_at  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
+from cl10 import config as _config
 
 TWO_PI = 2 * math.pi
 W0 = 0.15
@@ -111,7 +112,7 @@ def main():
     demo = [(rho, -rho / 2) for rho in np.linspace(-1.9, 1.9, 77)
             if abs(1 - rho / 2) > 1e-6 and abs(1 + rho) > 1e-6]
     b_demo = (1e9, None)
-    for theta in [1.731] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
+    for theta in [_config.CFG.desert.theta_root_rad] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
         r, sol = scan_theta(base, theta, demo)
         if sol and r < b_demo[0]:
             b_demo = (r, sol)
@@ -123,7 +124,7 @@ def main():
     rgrid = [(r1, r2) for r1 in g for r2 in g
              if abs(r1 + r2) <= 1.9 + 1e-9]
     best = (1e9, None)
-    for theta in [1.731] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
+    for theta in [_config.CFG.desert.theta_root_rad] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
         r, sol = scan_theta(base, theta, rgrid)
         if sol and r < best[0]:
             best = (r, sol)
@@ -132,7 +133,7 @@ def main():
     # 3. closure criterion
     bst = checks["general_best"]
     ax = bst["implied_alpha_X"]
-    closed = bst["residual"] < 0.05 and abs(ax - 0.04) / 0.04 < 0.10
+    closed = bst["residual"] < 0.05 and abs(ax - _config.CFG.desert.alpha_x) / _config.CFG.desert.alpha_x < 0.10
     checks["closed"] = bool(closed)
     status = (
         "THE GENERAL (NON-DEMOCRATIC) JUNCTION WAS SCANNED AS THE "

@@ -45,6 +45,8 @@ from . import clifford
 from . import engine as E
 from . import sm_qca
 from . import coupling
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the angle of the object (the only input): the branch of cl10.coupling
 G10 = coupling.G10
@@ -79,8 +81,8 @@ def cpt_block_phases(g10=None):
     U = _asnp(sm_qca.gut_qca_step(sm_qca.plane_generators(), g10))
     w = _asnp(clifford.pseudoscalar())
     ev, V = np.linalg.eigh(1j * w)            # Hermitian, eigenvalues +-1
-    idx16 = np.where(np.abs(ev + 1) < 1e-9)[0]    # iw = -1 <=> w = +i = the 16
-    idx16b = np.where(np.abs(ev - 1) < 1e-9)[0]   # iw = +1 <=> w = -i = the 16-bar
+    idx16 = np.where(np.abs(ev + 1) < _TOL.standard)[0]    # iw = -1 <=> w = +i = the 16
+    idx16b = np.where(np.abs(ev - 1) < _TOL.standard)[0]   # iw = +1 <=> w = -i = the 16-bar
     ph16 = np.sort(np.angle(np.linalg.eigvals(V[:, idx16].conj().T @ U @ V[:, idx16])))
     ph16b = np.sort(np.angle(np.linalg.eigvals(V[:, idx16b].conj().T @ U @ V[:, idx16b])))
     return {"ph16": ph16, "ph16b": ph16b}
@@ -120,8 +122,8 @@ def qca_spectrum(g10=None):
     w = _asnp(clifford.pseudoscalar())
     iw = 1j * w  # Hermitian, eigenvalues +-1
     ev, V = np.linalg.eigh(iw)
-    idx16 = np.where(np.abs(ev + 1) < 1e-9)[0]   # iw=-1 <=> w=+i = the 16 Weyl
-    idx16b = np.where(np.abs(ev - 1) < 1e-9)[0]  # iw=+1 <=> w=-i = the 16-bar
+    idx16 = np.where(np.abs(ev + 1) < _TOL.standard)[0]   # iw=-1 <=> w=+i = the 16 Weyl
+    idx16b = np.where(np.abs(ev - 1) < _TOL.standard)[0]  # iw=+1 <=> w=-i = the 16-bar
     B16, B16b = V[:, idx16], V[:, idx16b]
     zp16 = float(np.sum(np.angle(np.linalg.eigvals(B16.conj().T @ U @ B16))))
     zp16b = float(np.sum(np.angle(np.linalg.eigvals(B16b.conj().T @ U @ B16b))))
@@ -155,7 +157,7 @@ def verify(tol=1e-10):
         and s["sl32"]
         and s["pairing_resid"] < tol
         and s["max_trace_T45"] < tol
-        and s["commutes_with_pseudoscalar"] < 1e-9
+        and s["commutes_with_pseudoscalar"] < _TOL.standard
         and abs(s["cpt_0point_16"]) < 1e-8
         and abs(s["cpt_0point_16bar"]) < 1e-8
     )

@@ -35,6 +35,8 @@ import numpy as np
 
 from . import clifford
 from . import engine as E
+from . import config as _config
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the dimension of the Cl(10) module
 N = 32
@@ -125,7 +127,7 @@ def cpt_theorem(seed=0):
         "norm_rel_err": abs(n1 - n0) / n0,
         "n_matter": n_matter,
         "n_antimatter": n_antimatter,
-        "cpt_equal_norm": bool(abs(n_matter - n_antimatter) / max(n_matter, 1e-30) < 1e-12),
+        "cpt_equal_norm": bool(abs(n_matter - n_antimatter) / max(n_matter, 1e-30) < _TOL.strict),
         "c16_into_16bar": c16_into_16bar,
         "backend": E._BACKEND,
     }

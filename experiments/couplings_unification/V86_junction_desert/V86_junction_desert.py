@@ -56,12 +56,14 @@ from V65_wilson import cartan_weights, identify_XY, physical_su5  # noqa: E402
 from V81_link_desert_content import sm_roots, flux_weights, c2_labels  # noqa
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
+from cl10 import config as _config  # noqa: E402
 
 TWO_PI = 2 * math.pi
 W0 = 0.15
 N_NODES = 3
 M_X_DATA = u10pred.M_X_DESERT
 DESERT_MIN = 1e6
+THETA_ROOT = float(_config.CFG.desert.theta_root_rad)   # the V65 root direction
 
 
 def base_data():
@@ -147,7 +149,7 @@ def main():
     base = base_data()
 
     # 1. the measured splitting at the root
-    root = mults_at(base, 1.731)
+    root = mults_at(base, THETA_ROOT)
     checks["root_splitting"] = {
         str(m["label"]): round(m["c"], 5) for m in root}
     cQ = next(m["c"] for m in root if m["label"] == (1.333, 0.5, 0.167))
@@ -158,7 +160,7 @@ def main():
 
     # 2. solve the meeting at the root and scan theta
     results = {}
-    for theta in [1.731] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
+    for theta in [THETA_ROOT] + [round(1.50 + 0.01 * k, 3) for k in range(51)]:
         r, sol = solve(base, theta)
         if sol is None:
             continue
@@ -181,7 +183,7 @@ def main():
                       "n_physical": len(phys)}
 
     # 3. the root solution: full threshold report
-    r, sol = solve(base, 1.731)
+    r, sol = solve(base, THETA_ROOT)
     lnS, rho, F, zmin, n = sol
     checks["root_solution"] = {
         "F12_residual": round(abs(F[0] - F[1]), 6),

@@ -44,6 +44,7 @@ from . import cosmology as _cosmology
 
 import math
 import numpy as np
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 
 def _backend():
@@ -104,20 +105,20 @@ def sakharov_conditions():
             T = 1j * (g[a] @ g[b])
             c = E.asnumpy(T @ P - P @ T)
             max_comm = max(max_comm, float(np.abs(c).max()))
-    b_violation_met = not (max_comm < 1e-9)   # False: the 45 preserves the split
+    b_violation_met = not (max_comm < _TOL.standard)   # False: the 45 preserves the split
     # (2) CPT: the 16/16-bar are CPT conjugates (P maps 16<->16-bar; h_a anti-commute)
     max_anti = 0.0
     for a in range(10):
         c = E.asnumpy(g[a] @ P + P @ g[a])
         max_anti = max(max_anti, float(np.abs(c).max()))
-    cpt_invariant = max_anti < 1e-9
+    cpt_invariant = max_anti < _TOL.standard
     # (3) equilibrium: the QCA step is unitary -> reversible -> in equilibrium
     from . import sm_qca
     planes = sm_qca.plane_generators()
     theta = coupling.G10
     U = sm_qca.gut_qca_step(planes, theta)
     unitary_err = sm_qca.unitary_err(U)
-    in_equilibrium = unitary_err < 1e-9
+    in_equilibrium = unitary_err < _TOL.standard
     return {
         "backend": _backend(),
         "b_violation_met": bool(b_violation_met),
@@ -215,7 +216,7 @@ def leptogenesis_estimate():
     g0 = coupling.G0
     eps_loop = g0 ** 4 / (16.0 * np.pi)   # 1/(4096*16*pi) ~ 4.86e-6
     loop_0param = bool(
-        abs(eps_loop - (1.0 / 8.0) ** 4 / (16.0 * np.pi)) / eps_loop < 1e-12)
+        abs(eps_loop - (1.0 / 8.0) ** 4 / (16.0 * np.pi)) / eps_loop < _TOL.strict)
     # the NAMED CP-violating factor in the N decay (observed range)
     eta_cp = 1e-3
     # (d) the SM sphaleron conversion factor (an input of the SM sector)
@@ -264,7 +265,7 @@ def leptogenesis_estimate():
     }
 
 
-def verify(tol=_config.CFG.tolerances.standard):
+def verify(tol=_TOL.standard):
     """The honest negative result, reproduced: the automaton satisfies **none**
     of the Sakharov conditions, and the GUT route that could supply them is
     blocked by the equilibrium condition (O5)."""

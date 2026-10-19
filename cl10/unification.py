@@ -36,6 +36,7 @@ from . import gauge
 from . import spacetime
 from . import u10pred
 from . import coupling
+_TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the measured Standard Model inputs: `sm:` in `cl10/config.yaml`
 _SM = _config.CFG.sm
@@ -97,11 +98,11 @@ def g10_from_root():
         "n_qubits": int(n_qubits),
         "g10": float(g10),
         "alpha_10": float(g10 ** 2),
-        "g10_matches_sm_qca": bool(abs(g10 - 0.2) < 1e-12),
-        "alpha_10_matches_u10pred": bool(abs(g10 ** 2 - u10pred.ALPHA_10) < 1e-12),
+        "g10_matches_sm_qca": bool(abs(g10 - _config.CFG.angle.branches.implemented) < _TOL.strict),
+        "alpha_10_matches_u10pred": bool(abs(g10 ** 2 - u10pred.ALPHA_10) < _TOL.strict),
         "n_space": int(n_space),
         "g0": float(g0),
-        "g0_matches_coupling": bool(abs(g0 - coupling.G0) < 1e-12),
+        "g0_matches_coupling": bool(abs(g0 - coupling.G0) < _TOL.strict),
     }
 
 
@@ -258,7 +259,7 @@ def main():
     print(f"  the clean MSSM (SUSY) unification is at {r['mssm_unif_scale']:.0e} GeV (spread {r['mssm_spread']:.2f}) -- BELOW M_P")
     print(f"  the U(1) Landau pole is at {r['u1_landau_pole']:.2e} GeV -- the QCA cutoff M_P is BELOW it (UV-bounded)")
     ok = (r["five_thirds"] > 1.6 and r["five_thirds"] < 1.8
-          and abs(r["alpha_10"] - float(_config.CFG.angle.alpha_10)) < 1e-9
+          and abs(r["alpha_10"] - float(_config.CFG.angle.alpha_10)) < _TOL.standard
           and r["uv_bounded"]
           and all(0.01 < a < 0.06 for a in r["couplings_at_M_P"]))
     print(f"  VERDICT:  {'PASS (the 5/3 is algebraic; the running reaches the GUT range; the meeting VALUES are the named residual O4; the discrete flow is UV-bounded)' if ok else 'FAIL'}")

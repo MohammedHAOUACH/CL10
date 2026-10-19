@@ -20,14 +20,14 @@ mirror-even; the 16 conjugate fermion pairs |alpha, bar-alpha>.
 Two candidate portals, both phi^2-type (scalar-parity even):
   V1 = phi_s^2 (x) phi_h^2            mirror-EVEN (the Higgs portal)
   V2 = phi_s^2 (x) (P^dag + P)        mirror-ODD  (fermion-pair portal)
-Free energies: 2 m_s = 236 GeV, 2 m_h = 250.2 GeV, pairs massless.
+Free energies: 2 m_s = 237.1 GeV, 2 m_h = 250.5 GeV, pairs massless.
 
 **Checks (computed).**
 1. Scalar parity Q_s commutes with both portals EXACTLY: a single s
    cannot decay (the odd sector is untouched): the carrier is stable.
 2. Mirror Z2: [M, V1] = 0, {M, V2} = 0: the Higgs portal preserves
    the exact mirror Z2; the fermion-pair portal BREAKS it at O(lam).
-3. Kinematics under V1: ss -> hh is CLOSED (236 < 250.2): evolution
+3. Kinematics under V1: ss -> hh is CLOSED (237.1 < 250.5): evolution
    of |ss> shows only a virtual hh cloud, P_max = (g/dE)^2; the
    only open Z2-even channel is ss -> h h* (h* stable: every h*
    decay is Z2- or kinematically closed).
