@@ -1,7 +1,7 @@
 # CL10 — the API reference
 
 The Python interface of Causal Clifford Theory. One section per module of the
-`cl10` package (42 modules), in the order the theory is built: the core, the
+`cl10` package (43 modules), in the order the theory is built: the core, the
 algebra root, the automaton, the spectrum and the S-matrix, gravity, the
 couplings, the flavour sector, the cosmology, the audits.
 
@@ -76,7 +76,7 @@ singleton `CFG`. Precedence: environment → YAML → the built-in defaults.
 
 | symbol | signature | returns |
 |---|---|---|
-| `CFG` | (object) | attribute access over the effective configuration: `CFG.backend.gpu_min_free_mib`, `CFG.routing.eig_gpu_min_dim`, `CFG.physics.m_planck_gev`, `CFG.sm.m_z_gev`, `CFG.angle.g10`, `CFG.desert.m_x_gev`, `CFG.tolerances.strict`, `CFG.pool.njobs_effective` |
+| `CFG` | (object) | attribute access over the effective configuration: `CFG.backend.gpu_min_free_mib`, `CFG.routing.eig_gpu_min_dim`, `CFG.physics.m_planck_gev`, `CFG.physics.loop`, `CFG.physics.n_gen`, `CFG.cell.rung_A` / `CFG.cell.rung_B`, `CFG.sm.m_z_gev`, `CFG.angle.g10`, `CFG.desert.m_x_gev`, `CFG.desert.theta_root_rad`, `CFG.bounds.lz_sigma_si_cm2`, `CFG.cosmology.g_star` / `CFG.cosmology.hubble_coeff`, `CFG.tolerances.strict`, `CFG.pool.njobs_effective` |
 | `CFG.get` | `(dotted_key, default=None)` | dotted lookup, `default` when the key is absent |
 | `reload` | `()` | re-read the file and the environment into the same `CFG` |
 | `describe` | `()` | the effective configuration as a flat dict (for a verdict file) |
@@ -183,11 +183,38 @@ branch *values* live in `cl10/config.yaml` (`angle:`); the branch is selected by
 | `sm_qca` | `(n_steps=50, L=8)` | `{n_planes, g10, plane_hermitian_err, plane_square_to_I_err, step_unitary_err, n_steps, norm_before, norm_after, norm_rel_err, backend, causal_radius}` |
 | `main` | `()` | runs the self-check |
 
-## 11. `cl10.supercell` — the automaton
+## 11. `cl10.cell` — the cell module of Axiom 1
 
-The cell is the $2×2×2$ block: 8 sub-sites × 32 internal = $\mathbb C^{256}$.
-One time-independent step: six stages, each an internal layer plus a bond stage
-on one parity of one axis.
+The $36$-level internal module $M = S \oplus R_A \oplus R_B$: the $32$-D
+Clifford module $S$ and the two neutral singlet sectors $R_A$ (the seesaw
+singlet $A$) and $R_B$ (the dark matter $B$), each a conjugate pair of levels
+carrying opposite rung phases. The rung integers have one source,
+`CFG.cell.rung_A` and `CFG.cell.rung_B` (`verify` pins `rung_B` equal to
+`CFG.physics.n_gen`); V196 verifies the cell as a root fact.
+
+| symbol | signature | returns |
+|---|---|---|
+| `DIM` | (constant) | `36` |
+| `RUNG_A` / `RUNG_B` | (constants) | the rung integers $3$ and $10$ from `CFG.cell` |
+| `rung_phase` | `(n)` | $\mathrm{loop}^n$ — the phase a rung-$n$ level carries per stage ($= m/M_P$ at the elementary time $t_P$) |
+| `phase_A` / `phase_B` | `()` | $\mathrm{loop}^{\mathrm{rung}_A}$, $\mathrm{loop}^{\mathrm{rung}_B}$ |
+| `cell_step_np` | `(g10=None)` | the $36\times36$ internal layer of one stage: $\operatorname{blkdiag}(U(g_{10}), e^{+i\phi_A}, e^{-i\phi_A}, e^{+i\phi_B}, e^{-i\phi_B})$, host numpy |
+| `parity_np` | `()` | the B-parity $G = \operatorname{diag}(I_{32}, +1, +1, -1, -1)$ |
+| `gauge_ext_np` | `()` | the $45$ internal-plane generators $h_a h_b$ extended by $0$ on the singlet sectors |
+| `masses` | `()` | `{m_A_GeV, m_B_GeV, m_nu_eV_identity}` — the two rung masses and the exact seesaw identity $m_\nu = m_B^2/m_A$ |
+| `content` | `()` | hypercharge content as $(Y, \text{multiplicity})$ classes — the six fragment classes and their conjugates plus $(0, 4)$; $\operatorname{Tr}Y = \operatorname{Tr}Y^3 = 0$ |
+| `verify` | `()` | `{ok, unitarity, pairing, det_phase, vacuum_sum, phase_A, phase_B, parity_step_comm, parity_gauge_max, G_squared, trY, trY3, m_A_eq_M_N, m_B_eq_dm_ladder, m_nu_identity_rel, m_A_GeV, m_B_GeV, rung_A, rung_B, rung_B_eq_n_gen}` — $\pm$ pairing to $2\times10^{-15}$, $\det$ phase to $3\times10^{-16}$, quasi-energy sum to $2\times10^{-16}$ on the full cell |
+| `main` | `()` | runs the self-check (VERDICT line) |
+
+## 12. `cl10.supercell` — the automaton
+
+The cell is the $2×2×2$ block: 8 sub-sites × the $36$-level cell module of
+Axiom 1 (`cl10.cell`) = on-site $\mathbb{C}^{288}$. One time-independent step:
+six stages, each an internal layer plus a bond stage on one parity of one
+axis. The Bloch and real-space machinery below acts on the $32$-D spinor block
+(the physical sector the spectrum and light cone are measured on):
+$\mathbb{C}^{256}$, $128\times128$ on the $16$; the full-cell transport is
+$\operatorname{kron}(P(q), U_{\rm cell}^6)$, $288\times288$ (V196).
 
 | symbol | signature | returns |
 |---|---|---|
@@ -205,10 +232,10 @@ on one parity of one axis.
 | `stage` | `(fields, U, t, theta=0.2)` | one elementary stage (internal layer + bond stage) |
 | `step` | `(fields, U, theta=0.2, stages=DEFAULT)` | one automaton step (six stages) |
 | `run` | `(L=8, n_steps=4, x0=(4,4,4), e0=0, theta=0.2, seed=0, tol=1e-12, sector=True)` | `{backend, L, n_steps, theta, g10, sector, steps, final_norm}` — the real-space light cone from one sub-site |
-| `verify` | `(tol=1e-9)` | the invariants on the block: unitarity, the causal radius, the 16-sector closure, the spectral mirror, the gap structure, the zone-centre closure, the stars and little groups |
+| `verify` | `(tol=1e-9)` | the seven invariants on the block: unitarity, the causal radius, the 16-sector closure, the spectral mirror, the gap structure, the zone-centre closure and cubic equivariance, the stars and little groups, and the cell module of Axiom 1 (invariant 7: the 36-level step unitary, the B-parity commuting with the step and with all $45$ generators) |
 | `main` | `()` | prints the invariants and the verdict |
 
-## 12. `cl10.qca` — the metric field and the on-site factor
+## 13. `cl10.qca` — the metric field and the on-site factor
 
 The metric is a **field added to the algebra**, not a number of it: the sector
 assumes a symmetric rank-2 field and $G = 1$ (Section 11.1). The 3+1 evolution
@@ -222,7 +249,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `unitary_check` | `(U, tol=1e-12)` | `bool` — whether $UU^\dagger = I$ (backend-correct) |
 | `main` | `()` | runs the self-check |
 
-## 13. `cl10.qca_spectrum` — the one object: the 32-level spectrum
+## 14. `cl10.qca_spectrum` — the one object: the 32-level spectrum
 
 | symbol | signature | returns |
 |---|---|---|
@@ -232,7 +259,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-10)` | `{spectrum, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 14. `cl10.smatrix` — the S-matrix of the step
+## 15. `cl10.smatrix` — the S-matrix of the step
 
 | symbol | signature | returns |
 |---|---|---|
@@ -243,7 +270,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `smatrix` | `()` | `{backend, g10, n_planes, n_internal, one_particle, two_particle, only_g10, residual}` |
 | `main` | `()` | runs the self-check |
 
-## 15. `cl10.lattice_rg` — cross-sections and the UV bound
+## 16. `cl10.lattice_rg` — cross-sections and the UV bound
 
 | symbol | signature | returns |
 |---|---|---|
@@ -257,7 +284,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `lattice_rg` | `()` | the full verdict: `{backend, g10, M_P_GeV, one_particle, two_particle, uv_bound, dispersion, cross_section, froissart, uv_finite, optical_theorem, s2_unitary_err, closed_form_match, only_g10, residual}` |
 | `main` | `()` | runs the self-check |
 
-## 16. `cl10.einstein` — the linearised graviton and the EH action
+## 17. `cl10.einstein` — the linearised graviton and the EH action
 
 | symbol | signature | returns |
 |---|---|---|
@@ -272,7 +299,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-9)` | `{linearized, einstein_hilbert, eh_from_dynamics, light_cone, soliton, black_hole, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 17. `cl10.gravity` — curvature computed from any metric
+## 18. `cl10.gravity` — curvature computed from any metric
 
 | symbol | signature | returns |
 |---|---|---|
@@ -290,7 +317,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-9)` | `{backend, analytic_vs_computed, black_hole, flat, nonlinear_gamma_gamma, nonlinear_qca, residual, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 18. `cl10.nonlinear_gravity` — the analytic de Sitter reference
+## 19. `cl10.nonlinear_gravity` — the analytic de Sitter reference
 
 | symbol | signature | returns |
 |---|---|---|
@@ -299,7 +326,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `nonlinear_gravity` | `(H=None)` | `{backend, H, einstein_space_err, einstein_space_ok, g_mu_nu_minus_3h2_g, g_ok, ricci_scalar_minus_12h2, scalar_ok, gamma_gamma_max, nonlinear_present, lambda_0param_GeV4, lambda_obs_GeV4, gap, residual, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 19. `cl10.numrel` — the 3+1 evolution
+## 20. `cl10.numrel` — the 3+1 evolution
 
 | symbol | signature | returns |
 |---|---|---|
@@ -315,14 +342,14 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-4, seed=11)` | `{backend, two_route_0row, r00_3p1, r00_4d, r0i_3p1, r0i_4d, nonlinear, z4, uv_finite, damp, ok, residual}` |
 | `main` | `()` | runs the self-check |
 
-## 20. `cl10.holo` — the area law
+## 21. `cl10.holo` — the area law
 
 | symbol | signature | returns |
 |---|---|---|
 | `area_law` | `(L_values=None, per_plaquette=0.25)` | `{L_values, per_plaquette, S, R, area_law_exponent, holographic_ratio_exponent, backend}` — $S = A/4$ at $G = 1$ (the value of $G$ is an input) |
 | `main` | `()` | runs the self-check |
 
-## 21. `cl10.qcd` — the area law and the linear potential
+## 22. `cl10.qcd` — the area law and the linear potential
 
 | symbol | signature | returns |
 |---|---|---|
@@ -332,7 +359,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `area_law_coeff` | `(rows, sigma)` | the slope of (loop action / area) |
 | `main` | `()` | runs the self-check |
 
-## 22. `cl10.unification` — the running and the $5/3$
+## 23. `cl10.unification` — the running and the $5/3$
 
 | symbol | signature | returns |
 |---|---|---|
@@ -345,7 +372,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `running_2loop` | `()` | `{backend, qca_2step_unitary_residual, qca_2step_finite, qca_2particle_bounded, qca_2particle_max_offdiag, pert_1loop_landau_pole, pert_2loop_landau_pole, pert_2loop_divergent, uv_finite, residual, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 23. `cl10.uvrunning` — the discrete RG
+## 24. `cl10.uvrunning` — the discrete RG
 
 | symbol | signature | returns |
 |---|---|---|
@@ -357,7 +384,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-9)` | `{ok, checks, verdict}` |
 | `main` | `()` | runs the self-check |
 
-## 24. `cl10.g10_selection` — the data check of the angle reading
+## 25. `cl10.g10_selection` — the data check of the angle reading
 
 | symbol | signature | returns |
 |---|---|---|
@@ -366,7 +393,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-12)` | `{r, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 25. `cl10.electroweak` — the electroweak sector
+## 26. `cl10.electroweak` — the electroweak sector
 
 | symbol | signature | returns |
 |---|---|---|
@@ -375,7 +402,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-9)` | `{spectrum, electroweak, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 26. `cl10.family` — the family index
+## 27. `cl10.family` — the family index
 
 | symbol | signature | returns |
 |---|---|---|
@@ -384,7 +411,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `family_qca` | `()` | `{backend, g10, n_planes, n_module_1gen, n_module_3gen, n_weyl_1gen, n_weyl_3gen, n_cpt_3gen, unitary_err, family_symmetry_off_block, family_symmetry_block_diff, max_45_pseudoscalar_commutator, step_32_pseudoscalar_commutator, step_96_pseudoscalar_commutator, tribimaximal_unitary_err, tribimaximal_angles_ok, tribimaximal_diagonalizes_democratic, tribimaximal_sin2, residual}` |
 | `main` | `()` | runs the self-check |
 
-## 27. `cl10.yukawa` — the democratic base
+## 28. `cl10.yukawa` — the democratic base
 
 | symbol | signature | returns |
 |---|---|---|
@@ -394,7 +421,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `hierarchy_residual` | `()` | `{base_spectrum, degenerate, residual}` — the 2-level base, the 3-level hierarchy is **O6** |
 | `main` | `()` | runs the self-check |
 
-## 28. `cl10.yukawa_3x3` — the three-generation matrices and mixings
+## 29. `cl10.yukawa_3x3` — the three-generation matrices and mixings
 
 | symbol | signature | returns |
 |---|---|---|
@@ -409,7 +436,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `w6_verdict` | `()` | the assembled verdict of the above (the old W6 label = **O6**) |
 | `main` | `()` | runs the self-check |
 
-## 29. `cl10.neutrino` — the seesaw on the ladder
+## 30. `cl10.neutrino` — the seesaw on the ladder
 
 | symbol | signature | returns |
 |---|---|---|
@@ -421,23 +448,24 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `verify` | `(tol=1e-12)` | `{ok, checks, seesaw, twostep}` |
 | `main` | `()` | runs the self-check |
 
-## 30. `cl10.u10pred` — the headline numbers
+## 31. `cl10.u10pred` — the headline numbers
 
 | symbol | signature | returns |
 |---|---|---|
 | `M_PLANCK` / `V_EW` / `ALPHA_10` / `M_P_ROBSON` | (constants) | 1.220890e19 GeV (the cutoff, not $M_{\rm GUT}$); 246.22 GeV (measured); the $\alpha_{10}$ reading; 0.93827208943 GeV (the proton mass) |
+| `LOOP` / `RUNG_A` / `RUNG_B` | (constants) | the ladder factor $1/(16\pi)$; the rung integers $3$ and $10$ from `CFG.cell` (the same source `cl10.cell` reads) |
 | `proton_lifetime` | `(M_X, alpha_X)` | $\tau_p \sim M_X^4/(\alpha_X^2 m_p^5)$ in years (a dimensional estimate) |
 | `proton_lifetime_desert` | `()` | the lifetime in force: $M_X = 1.8\times10^{16}$ GeV, $\alpha_X = 1/40$ — **conditional** on two fitted thresholds (V64) |
 | `proton_lifetime_closed` | `()` | the same content at the closed angle $\alpha_X = \pi/64$ (V133): the threshold ordering is destroyed |
 | `ladder_scale` | `(n)` | $M_P (1/16\pi)^n$ in GeV |
-| `dm_ladder_mass` | `()` | the mass **scale** $M_P(1/16\pi)^{10} = 118$ GeV; the carrier is **O7** |
+| `dm_ladder_mass` | `()` | the mass **scale** $M_P(1/16\pi)^{\mathrm{RUNG\_B}} = 118$ GeV (rung from `CFG.cell`); the carrier is the cell singlet $B$ (**O7**) |
 | `neutrino_ladder` | `()` | `{m_D_GeV, M_N_GeV, m_nu_eV_ladder, m_nu_eV_third, sum_m_nu_candidate_eV, status_ladder, status_third, provenance_exponent}` |
 | `hierarchy` | `(F10=0.019186)` | `{F10, v_over_MPlanck, coefficient, observed_v_over_MPlanck, observed_coefficient}` — $v/M_P = 3F_{10}^{10}$, **conditional** on the one-node-per-family set (**O8**) |
 | `family_number` | `()` | `{value, identification, provenance}` — provenance **open** (**O3**) |
 | `verify` | `(tol=0.02)` | `{values, quoted, relative_deviation, ok}` — code-and-paper agreement, nothing more |
 | `main` | `()` | prints the numbers with their provenance |
 
-## 31. `cl10.walls` — the three named walls
+## 32. `cl10.walls` — the three named walls
 
 The module keeps the historical W labels and records the mapping W1→O1,
 W2→O2, W3→O3.
@@ -450,7 +478,7 @@ W2→O2, W3→O3.
 | `baryon_asymmetry` | `()` | `{baryon_number_violated, c_or_cp_violated, out_of_equilibrium, all_sakharov, generated, residual}` — the unitary step meets no Sakharov condition (**O5**) |
 | `main` | `()` | runs the self-check |
 
-## 32. `cl10.cosmology` — the vacuum and the hierarchy
+## 33. `cl10.cosmology` — the vacuum and the hierarchy
 
 | symbol | signature | returns |
 |---|---|---|
@@ -459,7 +487,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-9)` | `{cc, hierarchy, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 33. `cl10.cosmology3` — the dark sector
+## 34. `cl10.cosmology3` — the dark sector
 
 | symbol | signature | returns |
 |---|---|---|
@@ -470,7 +498,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-9)` | `{dark_matter, dark_energy, antimatter, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 34. `cl10.dm_wimp` — the ladder WIMP scale
+## 35. `cl10.dm_wimp` — the ladder WIMP scale
 
 | symbol | signature | returns |
 |---|---|---|
@@ -480,7 +508,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-12)` | `{r, ok}` — `ok` is the ladder arithmetic, the WIMP-window placement, the relic-convention identity and the cross-module agreement with `cosmology3`; it does not test the carrier |
 | `main` | `()` | runs the self-check |
 
-## 35. `cl10.hier_exponent` — the exponent of the hierarchy
+## 36. `cl10.hier_exponent` — the exponent of the hierarchy
 
 | symbol | signature | returns |
 |---|---|---|
@@ -491,7 +519,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-12)` | `{r, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 36. `cl10.baryogenesis` — the Sakharov audit
+## 37. `cl10.baryogenesis` — the Sakharov audit
 
 | symbol | signature | returns |
 |---|---|---|
@@ -503,7 +531,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-9)` | `{sakharov, ingredients, ok}` — the negative result, reproduced |
 | `main` | `()` | runs the self-check |
 
-## 37. `cl10.eta_cp` — the asymmetry as a product of factors
+## 38. `cl10.eta_cp` — the asymmetry as a product of factors
 
 | symbol | signature | returns |
 |---|---|---|
@@ -512,7 +540,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-12)` | `{r, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 38. `cl10.four_limits` — the bookkeeping of the residuals
+## 39. `cl10.four_limits` — the bookkeeping of the residuals
 
 | symbol | signature | returns |
 |---|---|---|
@@ -524,7 +552,7 @@ W2→O2, W3→O3.
 | `verify` | `(tol=1e-12)` | `{r, ok}` |
 | `main` | `()` | runs the self-check |
 
-## 39. `cl10.parameter_audit` — the audit of the label
+## 40. `cl10.parameter_audit` — the audit of the label
 
 | symbol | signature | returns |
 |---|---|---|
@@ -539,7 +567,7 @@ W2→O2, W3→O3.
 | `main` | `()` | runs the audit |
 
 
-## 40. `cl10.altcell` — the exploration generalizations of the signature and the cell
+## 41. `cl10.altcell` — the exploration generalizations of the signature and the cell
 
 The machinery the `alt_cell` / `alt_dynamics` censuses (V149–V170) need, kept
 out of `clifford` / `sm_qca` / `supercell` so the published root is never
@@ -557,7 +585,7 @@ published number reads it. The module is **host-only**: the `clifford` and
 returns numpy arrays under either backend. `python -m cl10.altcell` runs the
 self-check.
 
-## 41. `cl10.altgpu` — the batched CUDA eigensolver of the interaction census
+## 42. `cl10.altgpu` — the batched CUDA eigensolver of the interaction census
 
 The heavy loop of V172/V173 is the batched eigendecomposition of the
 $128\times128$ Bloch step over a $13824$/$32768$-point momentum grid, and numba

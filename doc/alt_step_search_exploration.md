@@ -337,3 +337,27 @@ consequence of the step angles.
 Cross-links: `alt_nonperturbative_exploration.md` (the gauged-sector
 closure that motivated searching the specification),
 `alt_gauged_exploration.md`, `alt_interactions_exploration.md`.
+
+**Follow-ups (the question closed in three steps).** `V191_parity_dirac_cone`
+supplies the *why*: $\mathrm{Hom}_{O_h}(T_{1u}, D\otimes D^*) = 0$ for all ten
+irreps, so no single-parity multiplet at an inversion-invariant momentum can
+be conical - and it constructs the escape, an exactly isotropic non-abelian
+cone ($\rho_{\mathrm{comm}} = 1/\sqrt2$, anisotropy $10^{-15}$) on a
+parity-degenerate $A_{1g}\oplus T_{1u}$ pair built on an $O_h$-invariant
+hopping, outside the engine's circuit class. `V192_engine_two_angle_cone`
+searches the engine's own six-stage product - the largest cubic-covariant
+stage family (angle $a$ on the three intra-block stages, $b$ on the three
+inter-block ones) jointly with the internal angle, $33\,800$ grid points
+polished: $60$ exactly gapless points, and the parity split is the answer -
+$8$ single-parity multiplets flat to $1.3\times10^{-12}$, $52$ parity-mixed
+ones that disperse but are exactly Abelian ($\rho_{\mathrm{comm}} \le
+1.2\times10^{-11}$): $0$ conical nodes. `V201_root_swap_cone` extends the
+internal layer by the root's own $10$ sector-swap involutions $h_c w$ (the
+volume element $w = h_1..h_{10}$: $S^2 = I$, $\{S, w\} = 0$, exact to $0$;
+the doubled $32$-D internal module anchored to the Weyl step at $8\times10^{-15}$):
+the rerun of the same grid gives $8$ exactly gapless points per swap, all
+$6$-dim $T_{2g}\oplus T_{1u}$ multiplets with **non-commuting** tangent
+operators ($\rho_{\mathrm{comm}}$ $0.50$–$0.80$) but vanishing linear velocity
+(max slope $1.7\times10^{-12}$): the non-commutativity is a root ingredient,
+the dispersion is not, and the cone stays outside the step class. Paper
+reference: Section 8.4 and Table 7, row O9.

@@ -75,7 +75,8 @@ signatures are in `doc/api.md`):
 | the **3+1 BSSN/Z4 numerical relativity** (§11, O9; V51) | `cl10.numrel` | the **3+1** Ricci **0-row** $(R_{00}, R_{0i})$ (the **constraints** $H, M$ of the 4-D Einstein tensor) by **2 routes** — the **4-D Riemann** (`cl10.gravity`, the general curvature) and the **3+1** $(\gamma, K)$ decomposition ($K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, the 3+1 Christoffels $\Gamma^{(3)}$) — agreeing to $O(h^2)$ (residual $\sim 10^{-13}$); the **Z4** constraint-damping (a perturbed constraint decays to 0; the undamped case does not), the **non-linearity** (the Ricci 0-row is quadratic in $K$, so superposition fails), and the **UV-finite** property (the 3+1 quantities are bounded by the lattice cutoff) — the **classical** 3+1 sector is therefore **implemented and cross-checked**; the open part of O9 remains the **sum over geometries**, the **lattice chirality check** and the **quantum** completion |
 | the 4-D non-linear gravity (analytic de Sitter, §11, §12.1) | `cl10.nonlinear_gravity` | the de Sitter metric (flat FRW: $g_{00}=-1$, $g_{ij}=a^2\delta_{ij}$, $a=(1/H)e^{Hx^0}$); the **full 4-D Riemann tensor** (analytic Christoffel $\Gamma^0_{ij}=Ha^2\delta_{ij}$, $\Gamma^i_{0j}=\Gamma^i_{j0}=H\delta_{ij}$ and $\partial_0\Gamma$); the **Einstein tensor** $G_{\mu\nu}=R_{\mu\nu}-\tfrac12 g_{\mu\nu}R=-3H^2 g_{\mu\nu}$ (the vacuum energy **of this metric**, not the observed $\Lambda$); the **nonzero** $\Gamma\Gamma$ (cubic) self-gravity; at the Planck Hubble the vacuum energy $\Lambda\sim M_P^4$ (the O1 named residual).  This is the **analytic reference** that `cl10.gravity` (V50) cross-checks against (the 2-route verification) |
 | the internal layer of the step (§8.1) | `cl10.sm_qca` | $U = \prod_{a<b}(\cos g_{10}\, I - i\sin g_{10}\, T_{ab})$ with $T_{ab} = i\,h_a h_b$ (each $T_{ab}$ Hermitian, $T_{ab}^2 = I$) — the product is **exactly** unitary; no matrix exponential |
-| the automaton: the block cell, the step, the causal radius (§8.1, Theorem 5) | `cl10.supercell` | the cell is the **2×2×2 block** (8 sub-sites × the 32-D module = $\mathbb{C}^{256}$); one **time-independent step** of six stages, each the internal layer on every sub-site plus one **bond stage** $\cos g_{10}\, I - i\sin g_{10}\,P$ on the four disjoint pairs of one parity along one axis (three intra-block, three inter-block); the exact Bloch matrix $M(q)$ ($256\times256$; $128\times128$ on the 16) on the block zone; the measured front speed is **exactly 1 Planck cell per stage** |
+| the automaton: the block cell, the step, the causal radius (§8.1, Theorem 5) | `cl10.supercell` | the cell is the **2×2×2 block** (8 sub-sites × the 36-level cell module of `cl10.cell` = $\mathbb{C}^{288}$); one **time-independent step** of six stages, each the internal layer on every sub-site plus one **bond stage** $\cos g_{10}\, I - i\sin g_{10}\,P$ on the four disjoint pairs of one parity along one axis (three intra-block, three inter-block); the exact Bloch matrix $M(q)$ built on the spinor block ($256\times256$; $128\times128$ on the 16) on the block zone, and the full cell transport factorizing as $\operatorname{kron}(P(q), U_{\rm cell}^6)$ ($288\times288$, V196); the measured front speed is **exactly 1 Planck cell per stage** |
+| the cell module of Axiom 1 (§2, §4; V196) | `cl10.cell` | the 36-level internal module $S \oplus R_A \oplus R_B$: the 32-D Clifford module and the two neutral singlet conjugate pairs carrying the rung phases $e^{\pm i\,\mathrm{loop}^{n_A}}$, $e^{\pm i\,\mathrm{loop}^{n_B}}$ ($n_A, n_B$ from `CFG.cell`); $\pm$ pairing to $2\times10^{-15}$, $\det$ phase to $3\times10^{-16}$, quasi-energy sum to $2\times10^{-16}$ on the full 36; the B-parity and its exact commutation with step and $45$ |
 | the **closure of the step** (§8.5; V131–V135) | `cl10.sm_qca`, `cl10.supercell` | the same 45-plane product at a **general** angle $g$; the closure test is $U^{k} = \pm I$ on the module (internal layer) and $M(0)^2 = I$ on the exact block Bloch matrix at the zone centre. The **only** exactly closed angles of the canonical Appendix-A ordering are $g = \pi/2$ (the step **is** the pseudoscalar $w$, ordering-independent) and $g = \pi/4$ (order 8; internal spectrum exactly $\{\pm\pi/4\,(10),\ \pm3\pi/4\,(6)\}$, leak below $5\times10^{-16}$); five shuffled factor orderings break it (deviation $\sim1$) — the ordering, already an input of the step, carries the quantization. The closed-angle consequences are measured, not assumed: the gapless census (V132, `cl10.supercell`), the $\pi/2$ branch (V134), the desert re-closure at $\alpha_X = \pi/64$ (V133, `cl10.unification` + the V64 inverse problem), the coupling contact against the one-loop mean (V135, `cl10.g10_selection`) |
 | the EH action from the dynamics (§11) | `cl10.einstein.einstein_hilbert_from_dynamics` | the **discrete** quadratic action $S_{\rm EH} = \frac{1}{16\pi}\frac12\sum_{x,t}\, u_t\big[u_{t+1} - 2u_t + u_{t-1} - dt^2\,\nabla^2 u_t\big]$ ($G = 1$, $dt^2 = \tfrac14$, $\nabla^2$ = the 6-neighbour Laplacian); the **Euler–Lagrange equation** is the **numerical** functional derivative (the central finite difference of the action) evaluated on the GPU |
 | the numbers of the root (§8.1, §14) | `cl10.unification` | $n_{\rm qubits} = \log_2 32 = 5$ $\Rightarrow$ $g_{10} = 1/5$, $\alpha_{10} \equiv g_{10}^2 = 1/25$; $g_0 = 1/2^{n_{\rm space}} = 1/2^3 = 1/8$ ($n_{\rm space} = 3$ = the spatial dimension of the $(1,3)$).  Both readings are **conventions** (Table 5 of the publication), not derivations; the **down-running** is the 1-loop $1/a(M) = 1/a(M_{\rm UV}) + (b/2\pi)\ln(M_{\rm UV}/M)$ |
@@ -122,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (154 of them under `experiments/<category>/`: the 115 of the publication programme, and the 39 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (164 of them under `experiments/<category>/`: the 122 of the publication programme, and the 42 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -137,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **154** experiments in name order,
+`run_validation.py` runs all **164** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -153,23 +154,19 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (115/115 publication, card run of 2026-10-18 13:09).**  Every
+**The result (122/122 publication, 163 PASS + 1 INCONCLUSIVE + 0 FAILED of 164).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
-positive.  Of the 39 exploration experiments, all pass except
+positive. Of the 42 exploration experiments, all pass except
 `V182_ir_decoupling`, which records its own pre-registered branch as
 INCONCLUSIVE (the flux sector is massive at every volume probed, but the volume
-drift leaves neither branch firing). The 154th, `V189_cell_step_joint_search`,
-now passes and is re-executed like the others: what had been a 4 h GPU search
-the suite could not run (the eight cupy workers already hold the card) is an
-8 min CPU census, because the step factorizes exactly as
+drift leaves neither branch firing). `V189_cell_step_joint_search` runs as an
+8 min CPU census because the step factorizes exactly as
 `M(q, theta) = P(q) (x) U(theta)^ns` - the bond layer carries no step angle, so
 the momentum half is a per-cell precomputation and a step costs a 16x16
-eigendecomposition instead of a `(16 n_sub)^3` one per optimizer step. The
-census carries its own anchor: the implemented step evaluated through the
-factorized route and through V184's `(16 n_sub)^3` eigendecomposition at one
-node agree in `lam_max` to 1.3e-15. The card run of 13:09, which predates that
-rewrite, reports 152/154; the suite now reports 153/154, V182's
-pre-registered INCONCLUSIVE branch being the only non-PASS.
+eigendecomposition instead of a `(16 n_sub)^3` one. The census carries its own
+anchor: the implemented step evaluated through the factorized route and through
+V184's `(16 n_sub)^3` eigendecomposition at one node agree in `lam_max` to
+1.3e-15.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —
@@ -244,7 +241,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (154 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (164 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
