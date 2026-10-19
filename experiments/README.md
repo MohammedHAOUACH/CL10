@@ -1,6 +1,6 @@
 # The verification program
 
-164 experiments (the 122 of the publication programme plus the 42 exploration
+165 experiments (the 123 of the publication programme plus the 42 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
 4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 7 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
@@ -87,6 +87,7 @@ the claim asserts, not when a script merely mentions the word.
 | the cell module of Axiom 1 and its B-parity (Sections 2, 4, 12.2) | `cl10/cell.py`, `cl10/supercell.verify()` invariant 7, `V194_w7_carrier_in_cell`, `V195_w7_cell_redefinition`, `V196_cell_definition` | 36-level step unitary, spectrum +-paired, `det = 1`, quasi-energy sum zero on the full cell; `[G,U] = [G,45] = 0`; the ladder identity `m_nu = m_B^2/m_A` exact between cell levels; the rung phases `loop^3`, `loop^10` reproduced by the six-stage product; `M(q) = kron(P(q), U^6)` |
 | the rung arithmetic and its joint falsifier (Table 4, F3) | `V197_rung_arithmetic` | rung exponents of every quoted scale: the four ladder rows integer-exact, every other scale off-integer by 0.06–0.42 rungs, and the [rung-10 DM, 0.05 eV neutrino] pair forcing the seesaw partner to rung 2.72 |
 | the traced-loop weight functional (Section 12.1, O8) | `V200_loop_weight_functional` | `F_n = N_n r_n I_n` exact to 2.3e-16 for n = 2..10 on the word census; word norms angle-independent; `F_10` crosses 1/(16 pi) at 8 angles, deficit factor 0.9644 at the root angle |
+| the loop angle-selection census (Section 12.1, O8) | `V202_loop_angle_selection` | `F_10(eta)` is an exact real cosine functional: even Casimir eigenvalues, 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors to 2e-17; the four crossings of 1/(16 pi) in (0, pi/2] contain no closed or rational angle of the root - nearest 0.198100, g_10 = 1/5 short by 1.9e-3 (branch ANGLE-OUTSIDE) |
 | the A->BB channel bound on O5 (Section 13.3) | `V199_a_to_bb_channel` | `Gamma_B/H` from 4.7 to 1.2e5 over the 13 root bond strengths; 9/13 drive `Br(A->LH)` below the 6.4% CP-strength ratio; survivable below kappa 3.04, negligible below 0.080 |
 
 ## The experiments
@@ -185,6 +186,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V126_w8_loop_enumeration` | which loops supply the ladder factor |
 | `V197_rung_arithmetic` | the rung ruler on every quoted scale: ladder rows integer-exact, every other scale off-integer by $0.06$–$0.42$ rungs, and the [$m_B$ at rung 10, $\sum m_\nu$ at $0.05$ eV] pair forces the seesaw partner to rung $2.72$ — mutually exclusive (F3) |
 | `V200_loop_weight_functional` | the weight of the traced loop census is exactly $F_n = N_n\, r_n\, I_n$ (multiplicity, mean-word Cartan amplitude, interference), word norms angle-independent, and the O8 residual is the single deficit factor $0.9644$ at the root angle |
+| `V202_loop_angle_selection` | the weight functional as an exact real cosine series of the angle (63 even phase classes, period $\pi$, $\eta \to \pi - \eta$ pairing, coefficient mirrors): the $1/(16\pi)$ crossings $0.1981004$, $0.5778509$, $1.0048608$, $1.3473566$ in $(0,\pi/2]$ - no root angle among them, $g_{10} = 1/5$ short by $1.9\times10^{-3}$ (branch ANGLE-OUTSIDE) |
 
 ### `couplings_unification`
 | id | verdict |

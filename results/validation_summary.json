@@ -1,6 +1,6 @@
 {
-  "n": 164,
-  "n_pass": 163,
+  "n": 165,
+  "n_pass": 164,
   "n_inconclusive": 1,
   "n_failed": 0,
   "pass": true,
@@ -97,7 +97,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 40,
+  "n_named_residuals": 41,
   "named_residuals": [
     "V103_w2_democratic",
     "V104_w6_mixing_manifold",
@@ -118,6 +118,7 @@
     "V197_rung_arithmetic",
     "V199_a_to_bb_channel",
     "V200_loop_weight_functional",
+    "V202_loop_angle_selection",
     "V23_full_sm_qca",
     "V26_family",
     "V28_yukawa",
@@ -492338,11 +492339,11 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1987); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
+      "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1981); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 36.479,
+      "wall_time": 44.01,
       "backend": null,
       "verdict": {
         "experiment": "V200_loop_weight_functional",
@@ -492432,14 +492433,14 @@
               "pi": 0.243374
             },
             "crossings_1_16pi": [
-              0.1987,
-              0.5774,
-              1.0049,
-              1.347,
-              1.7946,
-              2.1367,
-              2.5642,
-              2.9429
+              0.1981004,
+              0.5778509,
+              1.0048608,
+              1.3473566,
+              1.7942361,
+              2.1367319,
+              2.5637418,
+              2.9434922
             ],
             "deficit_root_over_loop": 0.9644
           }
@@ -492456,16 +492457,16 @@
             "pass": true
           },
           {
-            "name": "T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the 8 angles [0.1987, 0.5774, 1.0049, 1.347, 1.7946, 2.1367, 2.5642, 2.9429]; at the traced-loop root angle eta = 0.20 it is 0.01919, the single named deficit factor 0.9644 of the loop factor; at the root Wilson angle 1.7308 and the closed angles pi/4, pi/2 it is 0.19489, 0.15447, 0.06516 - the deficit of the interference at the root angle is the whole content of O8",
+            "name": "T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the 8 angles [0.1981, 0.5779, 1.0049, 1.3474, 1.7942, 2.1367, 2.5637, 2.9435]; at the traced-loop root angle eta = 0.20 it is 0.01919, the single named deficit factor 0.9644 of the loop factor; at the root Wilson angle 1.7308 and the closed angles pi/4, pi/2 it is 0.19489, 0.15447, 0.06516 - the deficit of the interference at the root angle is the whole content of O8",
             "pass": true
           }
         ],
-        "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1987); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
+        "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1981); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
         "residual": true,
         "tier": 4,
         "property": "the loop-factor weight is exactly multiplicity x per-word geometry x interference of the traced word census (V200)",
         "programme": "V200",
-        "wall_time": 36.479
+        "wall_time": 44.01
       }
     },
     {
@@ -494031,6 +494032,120 @@
         "property": "the root's 10 sector-swap involutions h_c w with the two-angle six-stage family carry no conical node at Gamma (V201)",
         "programme": "V201",
         "wall_time": 634.638
+      }
+    },
+    {
+      "id": "V202_loop_angle_selection",
+      "dir": "V202_loop_angle_selection",
+      "tier": 4,
+      "property": null,
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "the traced-loop weight of O8 is an exact real cosine functional of the Wilson angle - 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors - and its four crossings of 1/(16 pi) in (0, pi/2] are [np.float64(0.1981), np.float64(0.577851), np.float64(1.004861), np.float64(1.347357)]; NO angle of the root reaches the crossing (branch ANGLE-OUTSIDE): the nearest to g_10 = 1/5 sits at eta* = 0.198100, gap 1.90e-03, and the closed angles miss by >= 7e-04. The named weight stays F_10(1/5) = 0.019186391, 3.5587% below the continuum loop factor; the residual is the interference deficit ratio 0.9644",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 52.4,
+      "backend": null,
+      "verdict": {
+        "experiment": "V202_loop_angle_selection",
+        "tier": 4,
+        "programme": "V202",
+        "data": {
+          "phase_classes": {
+            "eigenvalues": [
+              -31.999999999999996,
+              -12.0,
+              3.999999999999999
+            ],
+            "classes": 63,
+            "nonzero": 58,
+            "k_range": [
+              -160,
+              20
+            ],
+            "grouped_vs_census_error": 8.621575675604731e-16
+          },
+          "structure": {
+            "pairing_pi_minus_eta_error": 8.239936510889834e-18,
+            "period_error": 3.0487765090292385e-16,
+            "mirror_C04_error": 1.8318957774729587e-17,
+            "mirror_C13_error": 1.8578066626713535e-17,
+            "component_moduli_at_pi_minus_eta": [
+              0.0010903509179085776,
+              0.002135147227329695,
+              0.01050202898557226,
+              0.0021351472273296195,
+              0.0010903509179085126
+            ]
+          },
+          "crossings": {
+            "n_roots_0_pi2": 4,
+            "eta_star": [
+              0.1981004295290218,
+              0.5778508619180092,
+              1.004860786189055,
+              1.3473565810237371
+            ],
+            "residuals": [
+              0.0,
+              2.7755575615628914e-17,
+              6.938893903907228e-18,
+              6.591949208711867e-17
+            ],
+            "pi_pairs_in_(0,pi/2]": 0,
+            "cos2eta_star": [
+              0.9225337985657643,
+              0.40327650129291565,
+              -0.42496683340637154,
+              -0.9018000296966945
+            ]
+          },
+          "selection": {
+            "candidates": {
+              "g_10 = 1/5": -0.0007079768603023562,
+              "1/6": 0.016422482436019254,
+              "1/7": 0.03660099624077294,
+              "pi/16": 0.0006767685642891375,
+              "pi/15": -0.0038511211886951696,
+              "pi/14": -0.007744663088186507,
+              "pi/12": -0.01355108197684664,
+              "pi/8": -0.018570209748893347,
+              "pi/4": 0.17499936152494908,
+              "pi/2": 0.13457213646712846,
+              "theta_root": 0.04526244580981657
+            },
+            "best_abs_mismatch": 0.0006767685642891375,
+            "nearest_crossing": 0.1981004295290218,
+            "angle_gap_g10_to_crossing": 0.001899570470978218,
+            "rational_reconstruction_errors": {
+              "eta/pi": 3.355786482028833e-10,
+              "cos^2 eta": 7.063509207538843e-07,
+              "cos 2eta": 1.412701841285724e-06
+            }
+          },
+          "named": {
+            "F10_at_g10": 0.019186391026184562,
+            "F10_at_eta0": 0.24337440363662746,
+            "deficit_vs_loop": -0.03558679845179924,
+            "interference_root": 0.0788348763858955,
+            "interference_at_crossing": 0.08174387934480735,
+            "interference_deficit_ratio": 0.9644132015482006
+          }
+        },
+        "branch": "ANGLE-OUTSIDE",
+        "checks": [
+          "T0 the three Casimir eigenvalues [-32, -12, 4] are even, every word phase index k is even, and 63 phase classes (58 nonzero) reconstruct the enumerated word sum exactly at eta = 0, 0.200, 1.442 (8.6e-16)",
+          "T1 the functional is exact: period pi (error 3.0e-16), the per-component moduli are pi-pairing invariant (max error 8.2e-18), and the coefficient mirror identities C_k[0] = C_k[4], C_k[1] = C_k[3] hold (errors 1.8e-17 / 1.9e-17) - F_10 is a sum of three real cosine polynomials in even harmonics",
+          "T2 F_10(eta) = 1/(16 pi) has exactly 4 solutions in (0, pi/2]: [np.float64(0.1981004), np.float64(0.5778509), np.float64(1.0048608), np.float64(1.3473566)] (residuals <= 6.6e-17); with the period and the pairing the eight crossings in (0, pi) close into four pi-sum pairs",
+          "T3 no root angle selects the crossing: the smallest mismatch of F_10(candidate) against 1/(16 pi) over the root's closed angles and rational conventions is 6.8e-04 (at pi/16); the nearest crossing to g_10 = 1/5 sits at eta* = 0.198100, an angle gap of 1.90e-03, and cos(2 eta*) reconstructs to no rational of denominator <= 2000 (best residual 1e-06)",
+          "T4 the named weight: F_10(g_10 = 1/5) = 0.019186391, the interference factor at the root is 0.0788 against 0.0817 required at the nearest crossing (ratio 0.9644); the root sits 3.5587% below the continuum loop factor"
+        ],
+        "pass": true,
+        "residual": true,
+        "status": "the traced-loop weight of O8 is an exact real cosine functional of the Wilson angle - 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors - and its four crossings of 1/(16 pi) in (0, pi/2] are [np.float64(0.1981), np.float64(0.577851), np.float64(1.004861), np.float64(1.347357)]; NO angle of the root reaches the crossing (branch ANGLE-OUTSIDE): the nearest to g_10 = 1/5 sits at eta* = 0.198100, gap 1.90e-03, and the closed angles miss by >= 7e-04. The named weight stays F_10(1/5) = 0.019186391, 3.5587% below the continuum loop factor; the residual is the interference deficit ratio 0.9644",
+        "wall_time": 52.4
       }
     },
     {

@@ -32,7 +32,8 @@ weight functional computable:
 The eta-law of F_10 then names the residual exactly: at the root angle eta =
 0.2 the interference cancels to I_10 = 0.0788, and the ratio F_10(0.2) /
 (1/16 pi) = 0.9644 is the single named deficit - the angle eta* at which
-F_10(eta*) equals 1/(16 pi) exactly is located on a 201-point grid, so the
+F_10(eta*) equals 1/(16 pi) exactly is located on a 201-point grid and
+refined by bisection, so the
 residual of O8 is one number: the root-angle interference deficit.
 """
 import json
@@ -162,8 +163,14 @@ def main():
         if a == 0.0:
             crossings.append(grid[k])
         elif a * b < 0:
-            crossings.append(grid[k] + (grid[k + 1] - grid[k])
-                             * abs(a) / (abs(a) + abs(b)))
+            lo, hi, sa = grid[k], grid[k + 1], a < 0
+            for _ in range(60):
+                mid = 0.5 * (lo + hi)
+                if ((F10_of(mid) - LOOP) < 0) == sa:
+                    lo = mid
+                else:
+                    hi = mid
+            crossings.append(0.5 * (lo + hi))
     absum10 = float(sum(census[NMAX]["norms"]))
     pts = {"eta0": 0.0, "root": ETA_ROOT, "pi/4": math.pi / 4,
            "pi/2": math.pi / 2, "theta_root":
@@ -175,7 +182,7 @@ def main():
     nearest_star = min(crossings, key=lambda x: abs(x - ETA_ROOT))
     out["data"]["eta_law"] = {"F_10_at": {k: round(v, 6)
                                           for k, v in evals.items()},
-                              "crossings_1_16pi": [round(x, 4)
+                              "crossings_1_16pi": [round(x, 7)
                                                    for x in crossings],
                               "deficit_root_over_loop": round(deficit, 4)}
     checks.append(("T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the "

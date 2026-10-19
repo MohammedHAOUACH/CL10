@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (164 of them under `experiments/<category>/`: the 122 of the publication programme, and the 42 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (165 of them under `experiments/<category>/`: the 123 of the publication programme, and the 42 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **164** experiments in name order,
+`run_validation.py` runs all **165** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -154,7 +154,7 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (122/122 publication, 163 PASS + 1 INCONCLUSIVE + 0 FAILED of 164).**  Every
+**The result (123/123 publication, 164 PASS + 1 INCONCLUSIVE + 0 FAILED of 165).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
 positive. Of the 42 exploration experiments, all pass except
 `V182_ir_decoupling`, which records its own pre-registered branch as
@@ -241,7 +241,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (164 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (165 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing

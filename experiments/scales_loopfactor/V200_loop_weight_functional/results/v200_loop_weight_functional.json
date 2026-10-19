@@ -86,14 +86,14 @@
     "pi": 0.243374
    },
    "crossings_1_16pi": [
-    0.1987,
-    0.5774,
-    1.0049,
-    1.347,
-    1.7946,
-    2.1367,
-    2.5642,
-    2.9429
+    0.1981004,
+    0.5778509,
+    1.0048608,
+    1.3473566,
+    1.7942361,
+    2.1367319,
+    2.5637418,
+    2.9434922
    ],
    "deficit_root_over_loop": 0.9644
   }
@@ -110,14 +110,14 @@
    "pass": true
   },
   {
-   "name": "T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the 8 angles [0.1987, 0.5774, 1.0049, 1.347, 1.7946, 2.1367, 2.5642, 2.9429]; at the traced-loop root angle eta = 0.20 it is 0.01919, the single named deficit factor 0.9644 of the loop factor; at the root Wilson angle 1.7308 and the closed angles pi/4, pi/2 it is 0.19489, 0.15447, 0.06516 - the deficit of the interference at the root angle is the whole content of O8",
+   "name": "T2 the eta-law: F_10(eta) equals 1/(16 pi) exactly at the 8 angles [0.1981, 0.5779, 1.0049, 1.3474, 1.7942, 2.1367, 2.5637, 2.9435]; at the traced-loop root angle eta = 0.20 it is 0.01919, the single named deficit factor 0.9644 of the loop factor; at the root Wilson angle 1.7308 and the closed angles pi/4, pi/2 it is 0.19489, 0.15447, 0.06516 - the deficit of the interference at the root angle is the whole content of O8",
    "pass": true
   }
  ],
- "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1987); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
+ "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1981); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is now a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
  "residual": true,
  "tier": 4,
  "property": "the loop-factor weight is exactly multiplicity x per-word geometry x interference of the traced word census (V200)",
  "programme": "V200",
- "wall_time": 36.479
+ "wall_time": 44.01
 }
