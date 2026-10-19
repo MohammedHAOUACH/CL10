@@ -65,7 +65,7 @@ def main():
                 break
 
     coef_pred = 3.0 * (LOOP ** -10) * F10 ** 10     # = 3*(16 pi F_10)^10
-    coef_obs = V_OVER_MP / LOOP ** 10
+    coef_obs = V_OVER_MP / LOOP ** u10pred.RUNG_B
     rel = abs(coef_pred - coef_obs) / coef_obs
 
     ok = rel < 0.01 and cross == 10

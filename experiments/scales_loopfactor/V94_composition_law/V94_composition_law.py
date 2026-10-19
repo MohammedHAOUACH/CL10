@@ -143,7 +143,7 @@ def main():
 
     # --- 4. the physical discriminator --------------------------------------
     m_chain = M_P_GEV * F[170]              # eV below: convert GeV->eV
-    m_legs = M_P_GEV * F10 ** 17
+    m_legs = M_P_GEV * F10 ** (2 * u10pred.RUNG_B - u10pred.RUNG_A)  # exponent 17 from the config rungs
     phys = {
         "M_P_times_F170_chain_eV": float(f"{m_chain * 1e9:.3e}"),
         "M_P_times_F10pow17_legs_eV": float(f"{m_legs * 1e9:.3e}"),

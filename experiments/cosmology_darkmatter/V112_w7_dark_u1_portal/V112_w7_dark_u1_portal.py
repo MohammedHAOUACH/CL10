@@ -157,7 +157,7 @@ def main():
     lep_mz = 2900.0                      # GeV, LEP-class reach
     mu_N = u10pred.M_P_ROBSON                    # GeV
     e2 = 4 * math.pi / u10pred.ALPHA_EM_INV
-    ms = u10pred.ladder_scale(10)
+    ms = u10pred.dm_ladder_mass()   # ladder rung cell.rung_B (config)
     N_f = 3.0                            # light quark channels
     window = []
     for gD in np.linspace(0.01, 2.0, 40):

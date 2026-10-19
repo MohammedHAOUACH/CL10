@@ -40,6 +40,10 @@ GEV2_TO_CM2 = float(_config.CFG.units.gev2_to_cm2)   # (hbar c)^2: 1 GeV^-2 in c
 C_CM_S = float(_config.CFG.units.c_cm_s)             # the speed of light, cm/s
 
 LOOP = float(_config.CFG.physics.loop)     # the loop factor of the ladder (Section 12)
+# the rung indices of the cell singlets (config block `cell`; cl10/cell.py):
+# rung_B is the dark-matter/Dirac rung, rung_A the seesaw rung - one source
+RUNG_A = int(_config.CFG.cell.rung_A)
+RUNG_B = int(_config.CFG.cell.rung_B)
 ALPHA_EM_INV = float(_config.CFG.sm.alpha_em_inv)   # the electromagnetic coupling at M_Z
 
 # the desert solution of V64 (two FITTED thresholds; the coupling is the root value)
@@ -86,7 +90,7 @@ def dm_ladder_mass():
     The carrier: the cell's singlet level B occupies this rung n = 10
     (Section 12.2, cl10/cell.py, V195/V196); its portal strength to the Higgs
     is an input (Section 15, O7)."""
-    return ladder_scale(10)
+    return ladder_scale(RUNG_B)
 
 
 def neutrino_ladder():
@@ -97,8 +101,8 @@ def neutrino_ladder():
     ``2*10 - 3 = 17`` is exact, the choice ``n_2step = 3`` is **fitted** (and is
     not a link-word length: the ``Delta L = 2`` operator lives in Clifford grade
     5 while every adjoint link word is even-grade, V136)."""
-    m_D = ladder_scale(10)
-    M_N = ladder_scale(3)
+    m_D = ladder_scale(RUNG_B)
+    M_N = ladder_scale(RUNG_A)
     m_nu_gev = m_D ** 2 / M_N
     m_nu_eV = m_nu_gev * 1e9
     return {
@@ -126,8 +130,8 @@ def hierarchy(F10=0.019186):
     family choice, so the provenance is **conditional** on that node set (O8);
     at the closed angle the crossing moves to ``n* = 208`` (V131) and this
     coefficient no longer applies."""
-    ratio = 3.0 * F10 ** 10                  # v / M_P
-    coefficient = ratio / LOOP ** 10         # the quoted two-digit number
+    ratio = 3.0 * F10 ** RUNG_B            # v / M_P
+    coefficient = ratio / LOOP ** RUNG_B   # the quoted two-digit number
     return {"F10": F10,
             "v_over_MPlanck": ratio,
             "coefficient": coefficient,

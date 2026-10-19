@@ -70,8 +70,8 @@ _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 M_P = u10pred.M_PLANCK                     # GeV (the GUT = Planck scale)
 LOOP = u10pred.LOOP                        # the loop factor (cl10/config.yaml)
 N_GEN = int(_config.CFG.physics.n_gen)     # the n_gen of the Cl(10) root
-N_2STEP = 3                                # the 2-step loop position (the 10^14 scale)
-N_DIRAC = 10                               # the Dirac loop position (= n_gen, the WIMP)
+N_2STEP = u10pred.RUNG_A                   # the 2-step loop position (config cell.rung_A)
+N_DIRAC = u10pred.RUNG_B                   # the Dirac loop position (config cell.rung_B; = n_gen, the WIMP)
 
 # the measured neutrino inputs (cl10/config.yaml neutrino:)
 M_ATM_EV = float(_config.CFG.neutrino.m_atm_ev)       # sqrt(|dm2_3l|)

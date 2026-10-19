@@ -81,7 +81,7 @@ if fails:
     print("FAILING:")
     for e in fails:
         print(f"  {e['id']:34s} rc={e.get('returncode')}  {str(e['status'])[:110]}")
-slow = sorted(d["experiments"], key=lambda e: -e.get("wall_time", 0))[:8]
+slow = sorted(d["experiments"], key=lambda e: -(e.get("wall_time") or 0))[:8]
 print("slowest:", ", ".join(f"{e['id']}({e['wall_time']}s)" for e in slow))
 EOF
 echo

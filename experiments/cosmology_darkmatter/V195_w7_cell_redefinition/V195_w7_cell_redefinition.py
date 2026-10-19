@@ -7,16 +7,17 @@ V194 closed the CURRENT cell and issued a quantitative certificate: the dark
 matter carrier cannot be one of the 32 built levels (the exact grading group
 of step+gauge is Z2 x Z2 - global x mirror - and no built root places a
 neutral fragment in the WIMP window), but a REDEFINED cell can hold it if it
-adds exactly two neutral singlet classes:
+adds the two neutral singlet sectors (four levels):
 
-  A - even, the seesaw partner: m_nu = v^2 / M_A fixes M_A = 4.145e14 GeV,
-      inside the desert: the F3 neutrino ladder (0.146 eV) survives with its
-      built value, now generated quadratically;
+  A - even, the seesaw partner: m_nu = m_B^2 / M_A fixes
+      M_A = m_B^2/m_nu = 9.613e13 GeV, inside the desert: the F3 neutrino
+      ladder (0.146 eV) survives with its built value, generated
+      quadratically through A;
   B - odd under the extended parity, the carrier, at the n=10 ladder rung
       m_B = u10pred.dm_ladder_mass() = 118.57 GeV, a neutral sterile
-      singlet: the automaton's own ladder mass carries a state at last.
+      singlet: the automaton's own ladder carries a state at 118 GeV.
 
-The redefinition changes only the CELL CONTENT (32 -> 34 levels: the spinor
+The redefinition changes only the CELL CONTENT (32 -> 36 levels: the spinor
 module plus two Clifford-singlet neutral classes); the root, the bond
 sector, the stage cycle and the (1+3) frame are untouched, so every hard
 gate is recomputed identical by construction and verified numerically.
@@ -24,8 +25,9 @@ gate is recomputed identical by construction and verified numerically.
 Checks
   T0 certificate regression against V194's stored verdict (M_A, m_B, A in
      the desert).
-  T1 the cell object of cl10/cell.py: U_ext = U32 direct-sum-two-phases (the
-     singlets carry their rung phases loop^3, loop^10 - the ladder read as
+  T1 the cell object of cl10/cell.py: U_ext = U32 direct-sum-two-conjugate-
+     pairs (the singlet levels carry the rung phases +/-loop^3, +/-loop^10 -
+     the ladder read as
      on-site phases - and never mix into transport, the Kronecker
      superselection of V194/T0; their masses are the rung masses of their
      classes); the
@@ -94,13 +96,13 @@ V147 = json.load(open(exp("V147_w7_relic_from_bond",
 M_P = 1.220890e19                                   # GeV (V123's constant)
 LZ = CFG.CFG.bounds.lz_sigma_si_cm2                 # 1.5e-47 cm^2 (config)
 
-# the cell: the engine object of cl10/cell.py (spinor module + two singlet levels)
+# the cell: the engine object of cl10/cell.py (spinor module + singlet sectors)
 M_B = CE.masses()["m_B_GeV"]                        # 118.5708... GeV: rung 10
 M_NU_EV = U10.neutrino_ladder()["m_nu_eV_ladder"]   # 0.1462... eV (F3)
 M_A = CE.masses()["m_A_GeV"]                        # 9.61e13 GeV: rung 3
 
-U_EXT = CE.cell_step_np()        # the 34-level step: spinor block at the root
-                                 # angle, singlets carrying their rung phases
+U_EXT = CE.cell_step_np()        # the 36-level step: spinor block at the root
+                                 # angle, singlet pairs at +/- rung phases
 G_EXT = CE.parity_np()           # B alone odd
 GENS45_EXT = CE.gauge_ext_np()   # the 45 generators extended by zero on A, B
 
@@ -120,8 +122,9 @@ def main():
     checks = []
     out = {"id": "V195_w7_cell_redefinition", "tier": 5, "programme": "V195",
            "property": ("the V194 certificate realized: the cell content "
-                        "redefined to 34 levels (the spinor module plus the "
-                        "two neutral singlet classes A and B) so the dark "
+                        "is 36 levels (the spinor module plus the two "
+                        "neutral singlet sectors A and B, each a conjugate "
+                        "pair) so the dark "
                         "matter carrier is a state of the automaton - "
                         "neutral, exactly stable, at the ladder mass - with "
                         "the hard gates and the F3 neutrino ladder "
@@ -144,8 +147,8 @@ def main():
                    and cert["A_seesaw_partner"]["in_desert"]))
 
     # ---- T1 the extended cell and its exact parity ------------------------
-    unit = float(np.abs(U_EXT @ U_EXT.conj().T - np.eye(34)).max())
-    g2 = float(np.abs(G_EXT @ G_EXT - np.eye(34)).max())
+    unit = float(np.abs(U_EXT @ U_EXT.conj().T - np.eye(CE.DIM)).max())
+    g2 = float(np.abs(G_EXT @ G_EXT - np.eye(CE.DIM)).max())
     cU = float(np.abs(G_EXT @ U_EXT - U_EXT @ G_EXT).max())
     c45 = max(float(np.abs(G_EXT @ X - X @ G_EXT).max())
               for X in GENS45_EXT)
@@ -169,7 +172,7 @@ def main():
     trY = sum(ys)
     trY3 = sum(y ** 3 for y in ys)
     trY2_ext = sum(y * y for y in ys)
-    trY2_32 = sum(y * y for y in ys[:-2])   # the spinor module alone
+    trY2_32 = sum(y * y for y in ys[:-4])    # the spinor module alone
     ft = float(GA.five_thirds())
     k53 = ft
     ratios_ident = abs(trY2_ext / trY2_32 - 1.0) < 1e-12
@@ -177,7 +180,7 @@ def main():
     cliff_ident = float(np.abs(U_EXT[:32, :32] - U32).max()) == 0.0
     checks.append(("T2 the five hard gates on the extended content: the "
                    "singlets carry Y = 0, so the hypercharge multiset gains "
-                   "two zeros - Tr Y = %.1e, Tr Y^3 = %.1e (anomaly-free), "
+                   "four zeros - Tr Y = %.1e, Tr Y^3 = %.1e (anomaly-free), "
                    "and the 5/3 trace ratio is exactly unchanged (built "
                    "k = %s; extended/base ratio 1 to %.1e); the Clifford "
                    "block is byte-identical (diff 0) and the bond sector is "
@@ -241,16 +244,16 @@ def main():
     branch = "C"
     ok = all(p for _, p in checks)
     status = ("THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate "
-              "realized). The cell content is redefined 32 -> 34 levels: "
-              "the spinor module plus two neutral Clifford-singlet classes. "
-              "A is even and sits at M_A = v^2/m_nu = %.4e GeV, inside the "
+              "realized). The cell content is 32 spinor levels plus the two "
+              "neutral Clifford-singlet sectors, four levels, 36 in all. "
+              "A is even and sits at M_A = m_B^2/m_nu = %.4e GeV, inside the "
               "desert: the F3 neutrino ladder keeps its built value %.6f eV "
               "with the mass generated quadratically through A. B is odd "
               "under the exact extended parity (commutes with the step to "
               "%.1e and the 45 gauge generators to %.1e), neutral, and at "
-              "the DERIVED mass m_B = the n=10 ladder rung = %.4f GeV: for "
-              "the first time the automaton's own ladder carries a state "
-              "at 118 GeV, and it cannot decay. The hard gates survive "
+              "the DERIVED mass m_B = the n=10 ladder rung = %.4f GeV: the "
+              "automaton's own ladder carries a state "
+              "at 118 GeV, and it cannot decay. The hard gates hold "
               "verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 "
               "ratio exactly unchanged, the Clifford block byte-identical. "
               "Production: V193's computed kernel applies verbatim - the "
@@ -260,21 +263,19 @@ def main():
               "forced (V66-convention overclosure x%.1e at lambda = 0, "
               "never equilibrates gravitationally, and the gravitational "
               "yield needs the missing inflation history). ONE named "
-              "residual replaces the old one: the portal strength of B is "
+              "number: the portal strength of B is "
               "required nonzero and is NOT root-supplied (every bond number "
               "undercloses, largest %.1e, and the smallest is DD-excluded "
               "at "
-              "%.1e cm^2) - the published input scalar had the same open "
-              "number, but the carrier itself is no longer an input: it is "
-              "a state of the redefined cell, stable, neutral, and at the "
-              "derived ladder mass. VERDICT: %s"
+              "%.1e cm^2). The carrier is a state of the cell: "
+              "stable, neutral, at the derived ladder mass. VERDICT: %s"
               % (M_A, M_NU_EV, cU, c45, M_B, lam_fi, sig_fi, ov_grav,
                  om_max, sig_lo, "PASS" if ok else "FAIL"))
     out["pass"] = bool(ok)
     out["branch"] = branch
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = status
-    out["data"]["cell"] = {"n_levels": 34, "M_A_GeV": M_A, "M_B_GeV": M_B,
+    out["data"]["cell"] = {"n_levels": CE.DIM, "M_A_GeV": M_A, "M_B_GeV": M_B,
                            "m_nu_eV": M_NU_EV}
     out["data"]["production"] = {"lambda_fi": lam_fi, "sigma_fi_cm2": sig_fi,
                                  "lambda_to": lam_to, "sigma_to_cm2": sig_to,

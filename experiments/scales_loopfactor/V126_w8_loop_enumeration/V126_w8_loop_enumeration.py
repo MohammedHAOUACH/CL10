@@ -247,7 +247,7 @@ def main():
     r_word = per_word[-1][1]
     mu = entropy[-1][1]
     F10_root = inter["root"]["F10"]
-    ladder17 = LOOP ** 17
+    ladder17 = LOOP ** (2 * u10pred.RUNG_B - u10pred.RUNG_A)  # 2*10-3 = 17 (config rungs)
     extrap = (mu * r_word) ** 170
     out["data"]["ladder"] = {"per_word_decay_r": round(r_word, 6),
                              "entropy_rate_mu": round(mu, 6),

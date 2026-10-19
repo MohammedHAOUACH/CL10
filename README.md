@@ -33,12 +33,13 @@ figures — is under the **CC BY 4.0** licence ([LICENSE](LICENSE)), the same
 licence as the [Zenodo record](https://zenodo.org/records/23321228).
 
 **The root object.** The theory is a unitary quantum cellular automaton (QCA)
-on a Planck lattice whose 2x2x2 cells carry the $34$-level cell module of Axiom 1 — the
+on a Planck lattice whose 2x2x2 cells carry the $36$-level cell module of Axiom 1 — the
 $32$-dimensional Dirac module of $\mathrm{Cl}(10,0)$ (ten mutually anticommuting
-generators) and two neutral singlet levels: $A$ at ladder rung $3$ (the seesaw partner) and
+generators) and two neutral singlet sectors, each a conjugate pair of levels: $A$ at
+ladder rung $3$ (the seesaw partner) and
 $B$ at rung $10$ (the dark matter), with an exact $B$-parity — on eight sub-sites
-(on-site space $\mathbb{C}^{272}$), updated by one six-stage product of
-$\mathrm{Spin}(10)$ plane rotations and swap-rotations, the singlets carrying their
+(on-site space $\mathbb{C}^{288}$), updated by one six-stage product of
+$\mathrm{Spin}(10)$ plane rotations and swap-rotations, the singlet pairs carrying their
 rung masses as on-site phases.
 
 What the root gives **with no added field** (demonstrated, Papers I–II): the
@@ -135,8 +136,8 @@ CL10/
 │   ├── u10pred.py            # the headline numbers (proton, seesaw, families)
 │   ├── walls.py              # the three named walls and their current status (O1/O2/O3) + the Sakharov audit
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
-│   ├── cell.py               # THE cell, one definition: the 32-D Cl(10,0) Dirac module S plus the singlet levels A (rung 3, seesaw) and B (rung 10, dark matter), B-parity exact, rungs as on-site phases loop^n = m/M_P (Axiom 1; self-test + V196)
-│   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x the 34-level cell module = C^272; the 32-level spinor block carries the geometry), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
+│   ├── cell.py               # THE cell, one definition: the 32-D Cl(10,0) Dirac module S plus the singlet sectors A (rung 3, seesaw) and B (rung 10, dark matter), B-parity exact, rungs as on-site phases loop^n = m/M_P (Axiom 1; self-test + V196)
+│   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x the 36-level cell module = C^288; the 32-level spinor block carries the geometry), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
 │   ├── smatrix.py            # the S-matrix of the QCA (V41): the first processes
 │   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one object + its invariants (V43)
 │   ├── unification.py        # the 5/3, the coupling readings from the root (V38, conventions), the running
@@ -165,7 +166,7 @@ CL10/
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
 ├── experiments/              # the verification program: 160 experiments in 18 categories (119 publication + 41 alt_* exploration)
-│   ├── algebra_root/         # the root, the 34-level cell definition (V196), the closure of the coupling, the provenance audit
+│   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
 │   ├── gauged_layer/         # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement, the dressed-gate quintet (V140/V141)
@@ -350,7 +351,7 @@ from measured inputs); **9 open residuals** (O1–O9).
   0.605), and no second-order bond number: the superexchange shift misses at
   0.577 and its combination with flux and Cartan shift at 3.46, $R^2 \le 0.30$
   (V145/V146).
-- **Dark matter (O7/F7).** The dark matter is a level of the cell: the neutral singlet $B$ (Axiom 1, `cl10/cell.py`) at the derived ladder rung-10 mass $118.57$ GeV, exactly stable under the B-parity of the update - the spinor module provably carries no qualifying state (the grading theorem and the mass census of V194; the census itself is V66/V75, $0$ survivors over $720$ angles). The relic abundance is a **computed** number: freeze-in through the singlet-Higgs portal at $\lambda_B = 4.06\times10^{-14}$ gives $\Omega h^2 = 0.120$, the observed value, with $\sigma_{\rm SI} = 6.5\times10^{-71}$ cm$^2$ - direct-detection invisible (V193, V195); the thermal branch ($\lambda_B = 0.31$) is excluded by LZ, the root-supplied couplings give $\Omega h^2 = 0.081$-$0.156$, and every bond-number portal predicts $2.5\times10^{-45}$-$6.3\times10^{-41}$ cm$^2$, above the LZ-class bound (V147/V148). The nodal-plane density $D = 1485$ enhances the final-state phase space by $(100/m)^3$-type factors the standard curve cannot see. One number in the sector is open: the portal strength $\lambda_B$ (O7), the only quantity the root does not supply.
+- **Dark matter (O7/F7).** The dark matter is a level of the cell: the neutral singlet sector $B$ (Axiom 1, `cl10/cell.py`) at the derived ladder rung-10 mass $118.57$ GeV, exactly stable under the B-parity of the update - the spinor module provably carries no qualifying state (the grading theorem and the mass census of V194; the census itself is V66/V75, $0$ survivors over $720$ angles). The relic abundance is a **computed** number: freeze-in through the singlet-Higgs portal at $\lambda_B = 4.06\times10^{-14}$ gives $\Omega h^2 = 0.120$, the observed value, with $\sigma_{\rm SI} = 6.5\times10^{-71}$ cm$^2$ - direct-detection invisible (V193, V195); the thermal branch ($\lambda_B = 0.31$) is excluded by LZ, the root-supplied couplings give $\Omega h^2 = 0.081$-$0.156$, and every bond-number portal predicts $2.5\times10^{-45}$-$6.3\times10^{-41}$ cm$^2$, above the LZ-class bound (V147/V148). The nodal-plane density $D = 1485$ enhances the final-state phase space by $(100/m)^3$-type factors the standard curve cannot see. One number in the sector is open: the portal strength $\lambda_B$ (O7), the only quantity the root does not supply.
 - **Baryogenesis (O5/F6).** The heavy-neutrino decay is in equilibrium
   ($\Gamma_N/H \simeq 4.6$ at $y = 1/8$); the automaton satisfies **none** of
   the three Sakharov conditions (a computed theorem: every CP-odd invariant

@@ -150,7 +150,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.187,
+      "wall_time": 0.197,
       "backend": null,
       "verdict": {
         "id": "V0_root",
@@ -167,7 +167,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.187
+        "wall_time": 0.197
       }
     },
     {
@@ -8973,7 +8973,7 @@
       "residual": false,
       "pass": true,
       "inconclusive": false,
-      "status": "NODE-CONE ISOTROPY SCAN (O9). T1 (regression): every node carries exactly V63's doubler gap at w = 0 (max deviation 2.3e-15 from 2.0029e-04 over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is a piecewise-analytic function of w with isolated zeros; 2726 gapless points located (grid + golden-section, tolerance 1e-7) over the node-orbit representatives x 60 angles; the SMALLEST cone anisotropy found is A = 0.997 (v in [0.012, 0.000] at node (1.5707963267948966, -1.5707963267948966, 0.0), theta = 2.1991, w = 0.68625). T3: the bare (w = 0) cones have anisotropy up to 0.998. No isotropy point (A < 1e-6) exists on the V65 Wilson family: every gapless cone is anisotropic - O9's 'continuous Lorentz invariance is not emergent' is confirmed on the full family, not just the V65 root.",
+      "status": "NODE-CONE ISOTROPY SCAN (O9). T1 (regression): every node carries exactly V63's doubler gap at w = 0 (max deviation 3.4e-15 from 2.0029e-04 over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is a piecewise-analytic function of w with isolated zeros; 2726 gapless points located (grid + golden-section, tolerance 1e-7) over the node-orbit representatives x 60 angles; the SMALLEST cone anisotropy found is A = 0.997 (v in [0.012, 0.000] at node (1.5707963267948966, -1.5707963267948966, 0.0), theta = 2.1991, w = 0.68625). T3: the bare (w = 0) cones have anisotropy up to 0.998. No isotropy point (A < 1e-6) exists on the V65 Wilson family: every gapless cone is anisotropic - O9's 'continuous Lorentz invariance is not emergent' is confirmed on the full family, not just the V65 root.",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -8982,9 +8982,9 @@
       "verdict": {
         "experiment": "V115_w9_cone_isotropy",
         "pass": true,
-        "status": "NODE-CONE ISOTROPY SCAN (O9). T1 (regression): every node carries exactly V63's doubler gap at w = 0 (max deviation 2.3e-15 from 2.0029e-04 over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is a piecewise-analytic function of w with isolated zeros; 2726 gapless points located (grid + golden-section, tolerance 1e-7) over the node-orbit representatives x 60 angles; the SMALLEST cone anisotropy found is A = 0.997 (v in [0.012, 0.000] at node (1.5707963267948966, -1.5707963267948966, 0.0), theta = 2.1991, w = 0.68625). T3: the bare (w = 0) cones have anisotropy up to 0.998. No isotropy point (A < 1e-6) exists on the V65 Wilson family: every gapless cone is anisotropic - O9's 'continuous Lorentz invariance is not emergent' is confirmed on the full family, not just the V65 root.",
+        "status": "NODE-CONE ISOTROPY SCAN (O9). T1 (regression): every node carries exactly V63's doubler gap at w = 0 (max deviation 3.4e-15 from 2.0029e-04 over the 12 nodes). T2: the node gap g(w) of the V65 Wilson factor is a piecewise-analytic function of w with isolated zeros; 2726 gapless points located (grid + golden-section, tolerance 1e-7) over the node-orbit representatives x 60 angles; the SMALLEST cone anisotropy found is A = 0.997 (v in [0.012, 0.000] at node (1.5707963267948966, -1.5707963267948966, 0.0), theta = 2.1991, w = 0.68625). T3: the bare (w = 0) cones have anisotropy up to 0.998. No isotropy point (A < 1e-6) exists on the V65 Wilson family: every gapless cone is anisotropic - O9's 'continuous Lorentz invariance is not emergent' is confirmed on the full family, not just the V65 root.",
         "data": {
-          "w0_gap_vs_v63_max_dev": 2.33529016437084e-15,
+          "w0_gap_vs_v63_max_dev": 3.413447909744738e-15,
           "n_gapless_points": 2726,
           "min_anisotropy": 0.9971028860496166,
           "best_point": [
@@ -45028,7 +45028,7 @@
             "F10_v85": 0.01918639,
             "F10_v126": 0.019186391026184534,
             "word_decomposition_error": 7.351626287044711e-17,
-            "elapsed_s": 38.8
+            "elapsed_s": 37.4
           },
           "census": [
             {
@@ -46667,7 +46667,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 6.7e-16 along each; 0 of the 15^3 grid's gapless points lie off the lines); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (the naive sum is -6 - sign noise, backend-dependent - where V63 measured exactly 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with 4 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
-        "wall_s": 5.497649908065796
+        "wall_s": 6.165611028671265
       }
     },
     {
@@ -47992,7 +47992,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the desert re-closure at alpha_X = pi/64 exists but leaves the desert: M_X = 1.235e17 GeV with M_(1,2) = 4.86e17 GeV above it, tau_p = 2.77e39 yr; holding M_X = 1.8e16 GeV needs alpha_X = 0.040050; the kappa_s LP is feasible for 9/10 node counts at pi/64 against 10/10 at 1/25 - the meeting becomes a fit",
-        "wall_s": 8.935598611831665
+        "wall_s": 9.113011837005615
       }
     },
     {
@@ -48360,7 +48360,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
-        "wall_s": 4.401632308959961
+        "wall_s": 4.652707815170288
       }
     },
     {
@@ -48468,7 +48468,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
-        "wall_s": 0.000171661376953125
+        "wall_s": 0.003262758255004883
       }
     },
     {
@@ -48592,7 +48592,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE DELTA L = 2 OPERATOR IS NOT A GAUGE-LINK COMPOSITE (O2). The operator exists inside the root: the weight 2 lambda_nu (norm^2 20.0) has a 1-dimensional algebra weight space sitting in Clifford grade 5 - the 126-type channel - with no field outside the root. But Clifford multiplication changes grade by +-2, so products of the 45 adjoint link factors are always EVEN-grade (exact on the whole table) and the span S_k (dims [45, 126, 208, 291, 352, 407]) never contains it: k* = None for every k, and the vector-10 Higgs weight (grades [1, 3, 5, 7, 9], all odd) is likewise unreachable (k = None). The ladder exponent n_2step = 3 is therefore NOT the length of an adjoint word: the seesaw operator belongs to the odd (matter) half of the Clifford module, and O2 stays open",
-        "wall_s": 116.64247941970825
+        "wall_s": 118.30472540855408
       }
     },
     {
@@ -49048,7 +49048,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE GAUGED LAYER SUPPLIES A PER-CLASS BOND NUMBER, BUT IT IS NOT THE ONE THAT CLOSES THE MEETING (O4). At theta* the Wilson direction leaves a 13-dimensional centralizer, and the flux of BROKEN generators through each fragment class, K_s = 45 - C_2^{unbroken}(s) = [32.0, 36.0, 40.0, 28.0, 32.0, 40.0], is an integer number of the root with no free parameter (the FULL adjoint sum is class-blind to 1e-13, which is the V93/V95 degeneracy as an identity). Fed into the V96 meeting as kappa_s = A K_s it leaves a residual 6.05e-01 and closes in the desert for 0/10 node counts; against the six kappa_s V96 fits it explains at best R^2 = 0.015 of their variance. The kappa_s pattern is still NOT supplied by the broken flux",
-        "wall_s": 9.230275392532349
+        "wall_s": 9.425111293792725
       }
     },
     {
@@ -49867,7 +49867,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 21.05837917327881,
+      "wall_time": 20.43219494819641,
       "backend": null,
       "verdict": {
         "experiment": "V142_w9_frame_averaging",
@@ -49951,7 +49951,7 @@
           "max_frame_shift_dgap": 1.9309369641423713e-15,
           "max_commutator": 9.421528483851691e-12
         },
-        "wall_time": 21.05837917327881
+        "wall_time": 20.43219494819641
       }
     },
     {
@@ -50417,7 +50417,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE O4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
-        "wall_s": 15.43082880973816
+        "wall_s": 16.241919994354248
       }
     },
     {
@@ -50626,7 +50626,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE O4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 8e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
-        "wall_s": 150.06012225151062
+        "wall_s": 152.21638441085815
       }
     },
     {
@@ -50788,7 +50788,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE BOND COUPLING DOES NOT SET THE RELIC ABUNDANCE: every candidate kappa_singlet - the ten V96 values that close the meeting ([9.186, 4.39, 5.677, 4.819, 4.208, 4.056, 2.159, 3.265, 3.147, 2.689]), the superexchange -0.2534, the broken flux 40, the junction ratio 1.919 - gives, through alpha = kappa^2/4pi and sigma v = alpha^2/(pi m^2) with D = 1485, an Omega h^2 between 9.56e-13 and 0.00076; the closest is root g10^2/4pi at 0.0008 (|dOmega| = 0.119). The measured 0.120 needs alpha_eff = 0.0086 without D or 0.00022 with D - no bond number of the layer lands there. O7's portal remains named, not derived.",
-        "wall_s": 28.690779447555542
+        "wall_s": 27.695310592651367
       }
     },
     {
@@ -50923,7 +50923,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (O7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.7e-46] cm^2 - 14 of 15 exceed the LZ-class bound 1.5e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3297) predicts 4.27e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. O7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
-        "wall_s": 34.343536138534546
+        "wall_s": 32.221229791641235
       }
     },
     {
@@ -51212,7 +51212,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.434,
+      "wall_time": 0.422,
       "backend": null,
       "verdict": {
         "id": "V150_signature_frame",
@@ -52308,7 +52308,7 @@
             "Cl(10-6,6)"
           ]
         },
-        "wall_time": 0.434
+        "wall_time": 0.422
       }
     },
     {
@@ -52323,7 +52323,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 276.642,
+      "wall_time": 237.83,
       "backend": null,
       "verdict": {
         "id": "V151_signature_anomaly",
@@ -53135,7 +53135,7 @@
           ],
           "cartan_offdiag_err": 2.348690892320364e-13
         },
-        "wall_time": 276.642
+        "wall_time": 237.83
       }
     },
     {
@@ -53150,7 +53150,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 142.023,
+      "wall_time": 156.147,
       "backend": null,
       "verdict": {
         "id": "V152_signature_step",
@@ -53366,7 +53366,7 @@
             10
           ]
         },
-        "wall_time": 142.023
+        "wall_time": 156.147
       }
     },
     {
@@ -53381,7 +53381,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1109.051,
+      "wall_time": 1121.357,
       "backend": null,
       "verdict": {
         "id": "V153_stage_cycle_census",
@@ -63523,7 +63523,7 @@
             }
           ]
         },
-        "wall_time": 1109.051
+        "wall_time": 1121.357
       }
     },
     {
@@ -63538,7 +63538,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 443.39,
+      "wall_time": 450.624,
       "backend": null,
       "verdict": {
         "id": "V154_block_census",
@@ -63883,7 +63883,7 @@
             }
           ]
         },
-        "wall_time": 443.39
+        "wall_time": 450.624
       }
     },
     {
@@ -63898,7 +63898,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 35.112,
+      "wall_time": 35.775,
       "backend": null,
       "verdict": {
         "id": "V155_fcc_diamond",
@@ -80173,7 +80173,7 @@
           "best_A": null,
           "n_gapless": 0
         },
-        "wall_time": 35.112
+        "wall_time": 35.775
       }
     },
     {
@@ -80188,7 +80188,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 33.511,
+      "wall_time": 22.393,
       "backend": null,
       "verdict": {
         "id": "V156_node_forcing",
@@ -80244,7 +80244,7 @@
           "n_gapless": 722,
           "missing_sources": []
         },
-        "wall_time": 33.511
+        "wall_time": 22.393
       }
     },
     {
@@ -80259,7 +80259,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 106.357,
+      "wall_time": 112.365,
       "backend": null,
       "verdict": {
         "id": "V157_hardtier",
@@ -112764,7 +112764,7 @@
             }
           ]
         },
-        "wall_time": 106.357
+        "wall_time": 112.365
       }
     },
     {
@@ -112779,7 +112779,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.035,
+      "wall_time": 0.026,
       "backend": null,
       "verdict": {
         "id": "V158_unification_forced",
@@ -121460,7 +121460,7 @@
           "n_meetings": 0,
           "missing_sources": []
         },
-        "wall_time": 0.035
+        "wall_time": 0.026
       }
     },
     {
@@ -121475,7 +121475,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 65.825,
+      "wall_time": 74.911,
       "backend": null,
       "verdict": {
         "id": "V159_cp_census",
@@ -121509,7 +121509,7 @@
           ],
           "missing_sources": []
         },
-        "wall_time": 65.825
+        "wall_time": 74.911
       }
     },
     {
@@ -121524,7 +121524,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 4113.687,
+      "wall_time": 4160.251,
       "backend": null,
       "verdict": {
         "id": "V160_dm_spectrum",
@@ -127314,7 +127314,7 @@
           ],
           "missing_sources": []
         },
-        "wall_time": 4113.687
+        "wall_time": 4160.251
       }
     },
     {
@@ -127329,7 +127329,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 291.957,
+      "wall_time": 293.647,
       "backend": null,
       "verdict": {
         "id": "V161_angle_per_stage",
@@ -163845,7 +163845,7 @@
             }
           ]
         },
-        "wall_time": 291.957
+        "wall_time": 293.647
       }
     },
     {
@@ -163860,7 +163860,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 44.986,
+      "wall_time": 44.351,
       "backend": null,
       "verdict": {
         "id": "V162_internal_factorization",
@@ -164358,7 +164358,7 @@
             }
           ]
         },
-        "wall_time": 44.986
+        "wall_time": 44.351
       }
     },
     {
@@ -164373,7 +164373,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 361.288,
+      "wall_time": 391.247,
       "backend": null,
       "verdict": {
         "id": "V163_mass_stage",
@@ -168631,7 +168631,7 @@
             }
           ]
         },
-        "wall_time": 361.288
+        "wall_time": 391.247
       }
     },
     {
@@ -168646,7 +168646,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 888.914,
+      "wall_time": 888.872,
       "backend": null,
       "verdict": {
         "id": "V164_bond_matchings",
@@ -303798,7 +303798,7 @@
             }
           ]
         },
-        "wall_time": 888.914
+        "wall_time": 888.872
       }
     },
     {
@@ -303813,7 +303813,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 93.872,
+      "wall_time": 93.667,
       "backend": null,
       "verdict": {
         "id": "V165_floquet",
@@ -304011,7 +304011,7 @@
             }
           ]
         },
-        "wall_time": 93.872
+        "wall_time": 93.667
       }
     },
     {
@@ -304026,7 +304026,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 164.045,
+      "wall_time": 143.587,
       "backend": null,
       "verdict": {
         "id": "V166_wilson_quantized",
@@ -304487,7 +304487,7 @@
             }
           ]
         },
-        "wall_time": 164.045
+        "wall_time": 143.587
       }
     },
     {
@@ -304502,7 +304502,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 18.918,
+      "wall_time": 18.057,
       "backend": null,
       "verdict": {
         "id": "V167_hardtier_dynamics",
@@ -320807,7 +320807,7 @@
             }
           ]
         },
-        "wall_time": 18.918
+        "wall_time": 18.057
       }
     },
     {
@@ -320822,7 +320822,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1003.128,
+      "wall_time": 1025.493,
       "backend": null,
       "verdict": {
         "id": "V168_unification_dynamics",
@@ -331492,7 +331492,7 @@
           "n_forced": 0,
           "missing_sources": []
         },
-        "wall_time": 1003.128
+        "wall_time": 1025.493
       }
     },
     {
@@ -331507,7 +331507,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 73.848,
+      "wall_time": 77.069,
       "backend": null,
       "verdict": {
         "id": "V169_cp_dynamics",
@@ -346221,7 +346221,7 @@
           "max_cp_odd": 1.8541896493671862e-16,
           "max_mirror_commutator": 1.2947314098277873e-15
         },
-        "wall_time": 73.848
+        "wall_time": 77.069
       }
     },
     {
@@ -346236,7 +346236,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 888.237,
+      "wall_time": 888.659,
       "backend": null,
       "verdict": {
         "id": "V170_dm_dynamics",
@@ -352361,7 +352361,7 @@
           "n_carriers": 0,
           "max_z2_commutator": 1.2682809978676727e-15
         },
-        "wall_time": 888.237
+        "wall_time": 888.659
       }
     },
     {
@@ -352376,7 +352376,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 115.02,
+      "wall_time": 110.864,
       "backend": null,
       "verdict": {
         "id": "V171_collision_vertex",
@@ -352651,7 +352651,7 @@
           ],
           "candidates": []
         },
-        "wall_time": 115.02
+        "wall_time": 110.864
       }
     },
     {
@@ -352666,7 +352666,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1709.269,
+      "wall_time": 1732.051,
       "backend": null,
       "verdict": {
         "id": "V172_self_energy_flow",
@@ -352777,7 +352777,7 @@
           "grid_converged": false,
           "candidates": []
         },
-        "wall_time": 1709.269
+        "wall_time": 1732.051
       }
     },
     {
@@ -352792,7 +352792,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 548.614,
+      "wall_time": 555.847,
       "backend": null,
       "verdict": {
         "id": "V173_block_rg",
@@ -352842,7 +352842,7 @@
           "route_dev": 1.341149413747189e-12,
           "candidates": []
         },
-        "wall_time": 548.614
+        "wall_time": 555.847
       }
     },
     {
@@ -352857,7 +352857,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.001,
+      "wall_time": 0.011,
       "backend": null,
       "verdict": {
         "id": "V174_isotropy_gate",
@@ -352873,7 +352873,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.001
+        "wall_time": 0.011
       }
     },
     {
@@ -352888,7 +352888,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 222.469,
+      "wall_time": 217.84,
       "backend": null,
       "verdict": {
         "id": "V175_gauged_smatrix",
@@ -352982,7 +352982,7 @@
           "gram_rank": 24,
           "eta": 0.2
         },
-        "wall_time": 222.469
+        "wall_time": 217.84
       }
     },
     {
@@ -352997,7 +352997,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 20.422,
+      "wall_time": 21.112,
       "backend": null,
       "verdict": {
         "id": "V176_gauged_vertex_content",
@@ -353052,7 +353052,7 @@
           "route_dev": 8.881784197001252e-16,
           "spin2_weight_k04": 0.8333266265966813
         },
-        "wall_time": 20.422
+        "wall_time": 21.112
       }
     },
     {
@@ -353067,7 +353067,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1026.945,
+      "wall_time": 1032.879,
       "backend": null,
       "verdict": {
         "id": "V177_gauged_self_energy_flow",
@@ -353149,7 +353149,7 @@
           "sigma_nonzero": 0.19930735279606893,
           "candidates": []
         },
-        "wall_time": 1026.945
+        "wall_time": 1032.879
       }
     },
     {
@@ -353164,7 +353164,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 407.937,
+      "wall_time": 405.514,
       "backend": null,
       "verdict": {
         "id": "V178_gauged_block_rg",
@@ -353215,7 +353215,7 @@
           "route_dev": 1.341149413747189e-12,
           "candidates": []
         },
-        "wall_time": 407.937
+        "wall_time": 405.514
       }
     },
     {
@@ -353230,7 +353230,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.0,
+      "wall_time": 0.001,
       "backend": null,
       "verdict": {
         "id": "V179_gauged_isotropy_gate",
@@ -353247,7 +353247,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.0
+        "wall_time": 0.001
       }
     },
     {
@@ -353258,11 +353258,11 @@
       "residual": false,
       "pass": true,
       "inconclusive": false,
-      "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 3.1e-16, 2-route A_np 8.5e-13.",
+      "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 1.4e-16, 2-route A_np 8.5e-13.",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 403.406,
+      "wall_time": 428.224,
       "backend": null,
       "verdict": {
         "id": "V180_cone_flux_dressing",
@@ -353270,7 +353270,7 @@
         "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the W9 cone by the gauged bond-current flux in the static-source approximation: cone-slope anisotropy A_np vs A_free, eps cubic weights and k-exponent",
         "residual": null,
         "pass": true,
-        "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 3.1e-16, 2-route A_np 8.5e-13.",
+        "status": "EXACT CONE DRESSING BY THE BOND FLUX (3 dq rows). Rest-energy offset eps(q*) = -4.800000 = -24*eta (24 bonds; flux ground state at the node). STRUCTURAL FACT: eps(q* + k n) - eps(q*) = 0 to 6.5e-15 over all 26 O_h directions x 4 k - the per-bond shifts cancel exactly (each stage's 4-bond sum is exactly -4*eta): the all-orders dressing is a PURE rest-energy shift with zero k-dependence, so it cannot touch the cone. At dq = 1e-3: A_free = 0.997985, A_np = 0.997985, dA = +1.323e-11: the dressing does NOT move the anisotropy. (The free V115 metric is itself dq-dependent - 0.846/0.998/0.100 at dq = 1e-2/1e-3/1e-4 - the dA column is the physical statement.) Static source justified by gap ratio 64/0.14 ~ 450. Anchors: Casimir 64 I_45 err 2.3e-14; eta->0 dev 0.0e+00; A_free vs V63/V115 0.998 dev 1.5e-05; bond-current sum rule ratio 6.0000 (6 stages); per-stage sums -4*eta err 8.9e-16; 2-route eps 1.4e-16, 2-route A_np 8.5e-13.",
         "data": {
           "rows": [
             {
@@ -353357,12 +353357,12 @@
           "casimir_err": 2.2565282975506307e-14,
           "eta0_dev": 0.0,
           "v115_dev": 1.5359419471949742e-05,
-          "eps_route_dev": 3.0531133177191805e-16,
+          "eps_route_dev": 1.3877787807814457e-16,
           "aniso_route_dev": 8.453238109495942e-13,
           "stage_sum_err": 8.881784197001252e-16,
           "n_bonds": 24
         },
-        "wall_time": 403.406
+        "wall_time": 428.224
       }
     },
     {
@@ -353377,7 +353377,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 577.451,
+      "wall_time": 573.471,
       "backend": null,
       "verdict": {
         "id": "V181_ring_kernel_smatrix",
@@ -356047,7 +356047,7 @@
           },
           "gpu": false
         },
-        "wall_time": 577.451
+        "wall_time": 573.471
       }
     },
     {
@@ -356062,7 +356062,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.008,
+      "wall_time": 0.017,
       "backend": null,
       "verdict": {
         "id": "V182_ir_decoupling",
@@ -356111,7 +356111,7 @@
           "light": false,
           "massive": false
         },
-        "wall_time": 0.008
+        "wall_time": 0.017
       }
     },
     {
@@ -356126,7 +356126,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.001,
+      "wall_time": 0.011,
       "backend": null,
       "verdict": {
         "id": "V183_nonpert_isotropy_gate",
@@ -356142,7 +356142,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.001
+        "wall_time": 0.011
       }
     },
     {
@@ -356157,7 +356157,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 163.512,
+      "wall_time": 167.069,
       "backend": null,
       "verdict": {
         "id": "V184_step_loss_landscape",
@@ -356279,7 +356279,7 @@
           "n_dirs": 179,
           "device": "cpu:0"
         },
-        "wall_time": 163.512
+        "wall_time": 167.069
       }
     },
     {
@@ -356356,7 +356356,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1733.6287472248077,
+      "wall_time": 1729.315354347229,
       "backend": null,
       "verdict": {
         "experiment": "V186_cone_inverse",
@@ -356730,7 +356730,7 @@
           }
         ],
         "status": "CONE INVERSE PROBLEM (cone programme, Phase 2): NO CONE IN THE FAMILY. The axis-covariant entangling family - hop along axis j carries exp(+/- i phi_j D_j), D_j from a pool of 220 triples (all 120 su(2) plane triples, 60 disjoint, 40 random even involutions) x strength patterns, with (theta,w) retuned per bond - was scanned (880 bonds, batched GPU eigvals) and the best was continuously optimised. STRUCTURE CORRECTION: the entangling bond is exactly radius-1 with the Wilson factor OFF (leakage 8.7e-17); V121's 0.27 leakage is the Wilson tail (implemented bond: 2.7e-01 at the same w) - the bond does NOT cost the causal radius. BASELINE: the implemented corner triplet is gapless (top 1.5e-16) with commuting tangent (comm 0.000), V118 reproduced. RESULT: no bond in the family reaches a Clifford-type tangent algebra at a gapless cubic multiplet - best gap+spread 6.9e-16, max comm_ratio 0.362 (a cone needs > 0.5), min anisotropy 0.9947 (a cone needs < 0.1). The M-node doubling survives the best bond (gap 1.9e-18). O9 stays open: the obstruction is not the bond strength or the generator choice - it is the separation lemma (V185) plus the gaplessness rigidity measured here.",
-        "wall_time": 1733.6287472248077
+        "wall_time": 1729.315354347229
       }
     },
     {
@@ -356745,7 +356745,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1827.2604677677155,
+      "wall_time": 1815.721295595169,
       "backend": null,
       "verdict": {
         "experiment": "V187_rigidity_frontier",
@@ -388873,7 +388873,7 @@
         },
         "pass": true,
         "status": "RIGIDITY FRONTIER (cone programme, Phase 2c): 5292 sweep points around the 12 top-comm bonds; no point is gapless with comm_ratio > 0.5; the frontier gap_min(c) is monotone with a floor of 8.0e-03 at c = 0.5; the ray slopes toward the implemented gapless point are not systematically positive (median -0.28, 4/12 positive). Gaplessness and non-commuting tangent algebras are mutually exclusive over the axis-covariant entangling space: the nodal-plane structure is a rigidity phenomenon (the V185 separation lemma, the V186 scan, this measurement).",
-        "wall_time": 1827.2604677677155
+        "wall_time": 1815.721295595169
       }
     },
     {
@@ -388888,7 +388888,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2996.038,
+      "wall_time": 3011.961,
       "backend": null,
       "verdict": {
         "id": "V188_step_descent_search",
@@ -390468,7 +390468,7 @@
             ]
           }
         },
-        "wall_time": 2996.038
+        "wall_time": 3011.961
       }
     },
     {
@@ -390483,7 +390483,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1302.893,
+      "wall_time": 1297.724,
       "backend": null,
       "verdict": {
         "id": "V189_cell_step_joint_search",
@@ -489456,7 +489456,7 @@
           "seed": 187,
           "route": "numpy (factorized, no card)"
         },
-        "wall_time": 1302.893
+        "wall_time": 1297.724
       }
     },
     {
@@ -489471,7 +489471,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.196,
+      "wall_time": 0.23,
       "backend": null,
       "verdict": {
         "id": "V190_step_search_gate",
@@ -489487,7 +489487,7 @@
           "best_A_v188": 0.9385183321748378,
           "best_A_v189": 0.9376897366125151
         },
-        "wall_time": 0.196
+        "wall_time": 0.23
       }
     },
     {
@@ -489502,7 +489502,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 24.38907027244568,
+      "wall_time": 21.514281511306763,
       "backend": null,
       "verdict": {
         "id": "V191_parity_dirac_cone",
@@ -489700,7 +489700,7 @@
             }
           }
         },
-        "wall_time": 24.38907027244568
+        "wall_time": 21.514281511306763
       }
     },
     {
@@ -489715,7 +489715,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2356.370742559433,
+      "wall_time": 2361.886556148529,
       "backend": null,
       "verdict": {
         "id": "V192_engine_two_angle_cone",
@@ -491432,7 +491432,7 @@
             }
           ]
         },
-        "wall_time": 2356.370742559433
+        "wall_time": 2361.886556148529
       }
     },
     {
@@ -491447,7 +491447,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 175.20726823806763,
+      "wall_time": 173.75304579734802,
       "backend": null,
       "verdict": {
         "id": "V193_w7_freeze_in",
@@ -491737,7 +491737,7 @@
         ],
         "status": "THE PRODUCTION SIDE IS COMPUTED (O7). The exact-Z2 ladder scalar (m_s = 118.57 GeV, stable: T4) has ONE production solution inside the LZ-class ceiling lambda_LZ = 1.95e-02: FREEZE-IN at lambda = 4.06e-14 with the V1 portal kernel (Omega_FI = 7.27e+25 lambda^2; regime self-consistent - below the boundary lambda_th = 7.63e-10 the yield stays under the equilibrium ceiling Omega = 4.24e+07), predicting sigma_SI = 6.48e-71 cm^2, 23.4 orders below the bound: freeze-in is DD-blind by construction. The freeze-out solution of the same kernel sits at lambda = 3.08e-01 - above the ceiling, its sigma_SI = 3.73e-45 cm^2: the V88/V148 direct-detection exclusion of the thermal Z2 portal is confirmed by computed production, not by an inverted coupling. The pair (Z2-breaking) kernel: freeze-out solution lambda = 1.30e-03 (sigma_SI = 6.67e-50 cm^2) inside the ceiling; its named point lambda_* = 3.53e-04 gives Omega = 1.42 via freeze-out - the inverted fiducial coupling is NOT a production solution. Nodal-plane D on the production channel multiplies the freeze-in coupling by 1/sqrt(D) (D-on variants reported). The h -> s sbar channel is closed (2m_s = 237.1 > M_h = 125.25): the s-channel pole is always off-shell; the exact Moller convolution agrees with seeded Monte Carlo to 4e-03. VERDICT: the O7 freeze-in parenthetical is retired - the production side is computed, with a quantified and (for the Z2 portal) DD-blind solution. PASS",
         "inconclusive": false,
-        "wall_time": 175.20726823806763
+        "wall_time": 173.75304579734802
       }
     },
     {
@@ -491752,7 +491752,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 3.8634912967681885,
+      "wall_time": 5.901970148086548,
       "backend": null,
       "verdict": {
         "experiment": "V194_w7_carrier_in_cell",
@@ -491884,31 +491884,31 @@
         "tier": 5,
         "property": "is the dark-matter carrier a state of the automaton's own cell: grading x gauge x mass census over the built cell, and the quantitative certificate any redefinition of the cell content must satisfy (O7)",
         "programme": "V194",
-        "wall_time": 3.8634912967681885
+        "wall_time": 5.901970148086548
       }
     },
     {
       "id": "V195_w7_cell_redefinition",
       "dir": "V195_w7_cell_redefinition",
       "tier": 5,
-      "property": "the V194 certificate realized: the cell content redefined to 34 levels (the spinor module plus the two neutral singlet classes A and B) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
+      "property": "the V194 certificate realized: the cell content is 36 levels (the spinor module plus the two neutral singlet sectors A and B, each a conjugate pair) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
       "residual": false,
       "pass": true,
       "inconclusive": false,
-      "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is redefined 32 -> 34 levels: the spinor module plus two neutral Clifford-singlet classes. A is even and sits at M_A = v^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: for the first time the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates survive verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named residual replaces the old one: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2) - the published input scalar had the same open number, but the carrier itself is no longer an input: it is a state of the redefined cell, stable, neutral, and at the derived ladder mass. VERDICT: PASS",
+      "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is 32 spinor levels plus the two neutral Clifford-singlet sectors, four levels, 36 in all. A is even and sits at M_A = m_B^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates hold verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named number: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2). The carrier is a state of the cell: stable, neutral, at the derived ladder mass. VERDICT: PASS",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.0025606155395507812,
+      "wall_time": 0.0029990673065185547,
       "backend": null,
       "verdict": {
         "id": "V195_w7_cell_redefinition",
         "tier": 5,
         "programme": "V195",
-        "property": "the V194 certificate realized: the cell content redefined to 34 levels (the spinor module plus the two neutral singlet classes A and B) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
+        "property": "the V194 certificate realized: the cell content is 36 levels (the spinor module plus the two neutral singlet sectors A and B, each a conjugate pair) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
         "data": {
           "cell": {
-            "n_levels": 34,
+            "n_levels": 36,
             "M_A_GeV": 96131777036496.42,
             "M_B_GeV": 118.57086360835625,
             "m_nu_eV": 0.14624768344284225
@@ -491935,7 +491935,7 @@
             "pass": true
           },
           {
-            "name": "T2 the five hard gates on the extended content: the singlets carry Y = 0, so the hypercharge multiset gains two zeros - Tr Y = 0.0e+00, Tr Y^3 = 0.0e+00 (anomaly-free), and the 5/3 trace ratio is exactly unchanged (built k = 1.6666666666666665; extended/base ratio 1 to 0.0e+00); the Clifford block is byte-identical (diff 0) and the bond sector is untouched by construction",
+            "name": "T2 the five hard gates on the extended content: the singlets carry Y = 0, so the hypercharge multiset gains four zeros - Tr Y = 0.0e+00, Tr Y^3 = 0.0e+00 (anomaly-free), and the 5/3 trace ratio is exactly unchanged (built k = 1.6666666666666665; extended/base ratio 1 to 0.0e+00); the Clifford block is byte-identical (diff 0) and the bond sector is untouched by construction",
             "pass": true
           },
           {
@@ -491947,23 +491947,23 @@
             "pass": true
           }
         ],
-        "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is redefined 32 -> 34 levels: the spinor module plus two neutral Clifford-singlet classes. A is even and sits at M_A = v^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: for the first time the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates survive verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named residual replaces the old one: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2) - the published input scalar had the same open number, but the carrier itself is no longer an input: it is a state of the redefined cell, stable, neutral, and at the derived ladder mass. VERDICT: PASS",
-        "wall_time": 0.0025606155395507812
+        "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is 32 spinor levels plus the two neutral Clifford-singlet sectors, four levels, 36 in all. A is even and sits at M_A = m_B^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates hold verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named number: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2). The carrier is a state of the cell: stable, neutral, at the derived ladder mass. VERDICT: PASS",
+        "wall_time": 0.0029990673065185547
       }
     },
     {
       "id": "V196_cell_definition",
       "dir": "V196_cell_definition",
       "tier": 2,
-      "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the singlet levels A (rung 3) and B (rung 10) with an exact B-parity, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
+      "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
       "residual": false,
       "pass": true,
       "inconclusive": false,
-      "status": "the 34-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, rung phases loop^3 and loop^10 reproduced by the six-stage product, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
+      "status": "the 36-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, the full-cell theorems exact - spectrum +- symmetric, det U = 1, quasi-energy sum zero - rung phases loop^3 and loop^10 reproduced by the six-stage product on each conjugate pair, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2.298,
+      "wall_time": 1.956,
       "backend": null,
       "verdict": {
         "experiment": "V196_cell_definition",
@@ -491986,10 +491986,15 @@
             "G_45_max": 0.0,
             "spinor_block_diff": 0.0
           },
+          "full_cell_theorems": {
+            "pairing": 1.6653345369377348e-15,
+            "det_phase": 2.7755575615628923e-16,
+            "vacuum_sum": 2.220446049250313e-15
+          },
           "bloch_factorisation_err": {
-            "M": 6.389813363550566e-16,
-            "GAMMA": 4.918300529807394e-16,
-            "R": 6.684427777288334e-16
+            "M": 6.667118051786499e-16,
+            "GAMMA": 5.003707553108401e-16,
+            "R": 6.961062950497062e-16
           },
           "singlet_band_shift_at_M": {
             "A": 4.724345864248747e-05,
@@ -491997,29 +492002,29 @@
           },
           "spinor_M_gap": 0.00020028952953253103,
           "content": {
-            "levels": 34,
+            "levels": 36,
             "trY": 0.0,
             "trY3": 0.0,
             "five_thirds": 1.6666666666666665
           }
         },
         "pass": true,
-        "branch": "THE 34-LEVEL CELL IS AN ENGINE FACT: spinor module + rung-3 and rung-10 singlets, exact B-parity, rungs as step phases",
+        "branch": "THE 36-LEVEL CELL IS AN ENGINE FACT: spinor module + the conjugate singlet pairs at rungs 3 and 10, exact B-parity, rungs as step phases, pairing/det/vacuum exact on the cell",
         "checks": [
           {
             "name": "T0 the ladder identity between cell levels: m_A == the seesaw Majorana rung M_N = 9.6132e+13 GeV (exact), m_B == the DM rung M_P*(1/16pi)^10 = 118.5709 GeV (exact), and m_B^2/m_A = 0.146248 eV == the ladder neutrino mass (rel 0.0e+00): the exponent identity 2*10-3 = 17 holds between two levels of the cell; rungs from the config block cell: True",
             "pass": true
           },
           {
-            "name": "T1 the exact B-parity: the 34-level step is unitary to 1.7e-15; G = diag(I32,+1_A,-1_B) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
+            "name": "T1 the exact B-parity: the 36-level step is unitary to 1.7e-15; G = diag(I32,+1,+1,-1,-1) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the full-cell theorems hold on all 36 levels: spectrum symmetric under phase -> -phase (1.7e-15), det U = 1 (phase 2.8e-16), quasi-energy sum zero (2.2e-15) - the tree-level vacuum energy vanishes exactly; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
             "pass": true
           },
           {
-            "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies A by exp(i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and B by exp(i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time - and the six-stage product carries phase 4.724346e-05 for A (6*loop^3 = 4.724346e-05, diff 1.4e-20) and 5.827103e-17 for B (6*loop^10 = 5.827103e-17, diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 0.0e+00); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 6.4e-16/4.9e-16/6.7e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector anchor is unchanged: M-point gap 2.002895e-04",
+            "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies the A pair by exp(+/-i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and the B pair by exp(+/-i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time, each level with its conjugate - and the six-stage product carries phase 4.724346e-05 for A+ (4.724346e-05, diff 1.4e-20), -4.724346e-05 for A- (diff 1.4e-20), 5.827103e-17 for B+ (5.827103e-17, diff 0.0e+00) and -5.827103e-17 for B- (diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 2.2e-16); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 6.7e-16/5.0e-16/7.0e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector anchor is unchanged: M-point gap 2.002895e-04",
             "pass": true
           },
           {
-            "name": "T3 the content: 34 hypercharge levels (the six fragment classes, their conjugates, and A, B at Y = 0); Tr Y = 0.0e+00 and Tr Y^3 = 0.0e+00 (both anomaly cancellations unchanged by the singlets); the 5/3 normalisation of the unchanged algebra: k = 1.666666666666667",
+            "name": "T3 the content: 36 hypercharge levels (the six fragment classes, their conjugates, and the four singlet levels A+, A-, B+, B- at Y = 0); Tr Y = 0.0e+00 and Tr Y^3 = 0.0e+00 (both anomaly cancellations unchanged by the singlets); the 5/3 normalisation of the unchanged algebra: k = 1.666666666666667",
             "pass": true
           },
           {
@@ -492027,11 +492032,11 @@
             "pass": true
           }
         ],
-        "status": "the 34-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, rung phases loop^3 and loop^10 reproduced by the six-stage product, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
+        "status": "the 36-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, the full-cell theorems exact - spectrum +- symmetric, det U = 1, quasi-energy sum zero - rung phases loop^3 and loop^10 reproduced by the six-stage product on each conjugate pair, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
         "tier": 2,
-        "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the singlet levels A (rung 3) and B (rung 10) with an exact B-parity, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
+        "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
         "programme": "V196",
-        "wall_time": 2.298
+        "wall_time": 1.956
       }
     },
     {
@@ -492046,7 +492051,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.026,
+      "wall_time": 0.019,
       "backend": null,
       "verdict": {
         "id": "V1_spacetime",
@@ -492063,7 +492068,7 @@
           "ss": 0.0,
           "err": 0.0
         },
-        "wall_time": 0.026
+        "wall_time": 0.019
       }
     },
     {
@@ -492078,7 +492083,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.154,
+      "wall_time": 0.128,
       "backend": "cupy",
       "verdict": {
         "id": "V23_full_sm_qca",
@@ -492109,7 +492114,7 @@
           "n_module": 32,
           "named_residual": "the 3-family structure + the Yukawa matrix"
         },
-        "wall_time": 0.154
+        "wall_time": 0.128
       }
     },
     {
@@ -492124,7 +492129,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.093,
+      "wall_time": 0.089,
       "backend": "cupy",
       "verdict": {
         "id": "V24_cpt",
@@ -492149,7 +492154,7 @@
           "cpt_equal_norm": true,
           "c16_into_16bar": 44.43441706294196
         },
-        "wall_time": 0.093
+        "wall_time": 0.089
       }
     },
     {
@@ -492199,7 +492204,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.018,
+      "wall_time": 0.022,
       "backend": null,
       "verdict": {
         "id": "V28_yukawa",
@@ -492228,7 +492233,7 @@
           "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
         },
-        "wall_time": 0.018
+        "wall_time": 0.022
       }
     },
     {
@@ -492243,7 +492248,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.015,
+      "wall_time": 0.012,
       "backend": null,
       "verdict": {
         "id": "V2_matter",
@@ -492261,7 +492266,7 @@
           "bl16": -1,
           "bl16bar": 1
         },
-        "wall_time": 0.015
+        "wall_time": 0.012
       }
     },
     {
@@ -492276,7 +492281,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.06,
+      "wall_time": 0.048,
       "backend": "cupy",
       "verdict": {
         "id": "V32_qca_qft",
@@ -492301,7 +492306,7 @@
           "mw_over_mz_0p": 0.7905694150420949,
           "residual": "the Higgs mass (not 0-parameter in the SM)"
         },
-        "wall_time": 0.06
+        "wall_time": 0.048
       }
     },
     {
@@ -492316,7 +492321,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 5.506,
+      "wall_time": 6.449,
       "backend": "cupy",
       "verdict": {
         "id": "V36_local_qca",
@@ -492420,7 +492425,7 @@
           "theta_tested": 0.3,
           "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
         },
-        "wall_time": 5.506
+        "wall_time": 6.449
       }
     },
     {
@@ -492435,7 +492440,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.106,
+      "wall_time": 0.11,
       "backend": "cupy",
       "verdict": {
         "id": "V37_eh_action",
@@ -492464,7 +492469,7 @@
           "continuum_ok": true,
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
-        "wall_time": 0.106
+        "wall_time": 0.11
       }
     },
     {
@@ -492479,7 +492484,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.008,
+      "wall_time": 0.005,
       "backend": "cupy",
       "verdict": {
         "id": "V38_couplings_root",
@@ -492523,7 +492528,7 @@
           "su3_pole_inside_lattice": true,
           "residual": "the 1-loop SM matching to the measured M_Z values (O4, now quantified by the down-running); the QCA lattice RG is the open part"
         },
-        "wall_time": 0.008
+        "wall_time": 0.005
       }
     },
     {
@@ -492538,7 +492543,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.074,
+      "wall_time": 0.085,
       "backend": null,
       "verdict": {
         "id": "V3_gauge",
@@ -492552,7 +492557,7 @@
           "n45": 45,
           "rank45": 45
         },
-        "wall_time": 0.074
+        "wall_time": 0.085
       }
     },
     {
@@ -492567,7 +492572,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.716,
+      "wall_time": 0.397,
       "backend": "cupy",
       "verdict": {
         "id": "V41_smatrix",
@@ -492594,7 +492599,7 @@
           "s2_max_offdiag": 0.3320306396873518,
           "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (O9)"
         },
-        "wall_time": 0.716
+        "wall_time": 0.397
       }
     },
     {
@@ -492609,7 +492614,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.064,
+      "wall_time": 0.084,
       "backend": null,
       "verdict": {
         "id": "V43_qca_spectrum",
@@ -492689,7 +492694,7 @@
             }
           ]
         },
-        "wall_time": 0.064
+        "wall_time": 0.084
       }
     },
     {
@@ -492704,7 +492709,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.854,
+      "wall_time": 2.212,
       "backend": "cupy",
       "verdict": {
         "id": "V45_yukawa_matrix",
@@ -492800,7 +492805,7 @@
           "s2_unitary_err": 1.6653345381979549e-15,
           "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (O6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
         },
-        "wall_time": 0.854
+        "wall_time": 2.212
       }
     },
     {
@@ -492815,7 +492820,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.136,
+      "wall_time": 0.131,
       "backend": "cupy",
       "verdict": {
         "id": "V48_3particle",
@@ -492835,7 +492840,7 @@
           "uv_finite": true,
           "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the O9 open part"
         },
-        "wall_time": 0.136
+        "wall_time": 0.131
       }
     },
     {
@@ -492850,7 +492855,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.004,
+      "wall_time": 0.003,
       "backend": "cupy",
       "verdict": {
         "id": "V49_quark_ckm",
@@ -492891,7 +492896,7 @@
           "dev_ckm": 0.25077777777777777,
           "residual": "the quark CKM is NOT derived 0-parameter: with H_u = H_d (both democratic) the computed CKM is the IDENTITY.  A non-trivial CKM requires an up/down MISALIGNMENT, which the symmetric democratic base does not provide — it comes from the 10-Higgs vev breaking.  The TBM angles are the lepton-sector (23)-adapted choice, not a quark result: the O6 named residual, now stated honestly"
         },
-        "wall_time": 0.004
+        "wall_time": 0.003
       }
     },
     {
@@ -492906,7 +492911,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.239,
+      "wall_time": 0.194,
       "backend": null,
       "verdict": {
         "id": "V4_statistics",
@@ -492921,7 +492926,7 @@
           "n_even": 512,
           "n_odd": 512
         },
-        "wall_time": 0.239
+        "wall_time": 0.194
       }
     },
     {
@@ -492936,7 +492941,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 9.231,
+      "wall_time": 12.957,
       "backend": "cupy",
       "verdict": {
         "id": "V50_complete_gravity",
@@ -492963,7 +492968,7 @@
           "nonlinear_qca_causal_ok": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 9.231
+        "wall_time": 12.957
       }
     },
     {
@@ -492978,7 +492983,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 82.17789912223816,
+      "wall_time": 87.01808786392212,
       "backend": "cupy",
       "verdict": {
         "id": "V51_numrel",
@@ -493022,7 +493027,7 @@
             "max_abs": 1.9718631545217424
           }
         },
-        "wall_time": 82.17789912223816
+        "wall_time": 87.01808786392212
       }
     },
     {
@@ -493037,7 +493042,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 50.962,
+      "wall_time": 67.54,
       "backend": "cupy",
       "verdict": {
         "id": "V52_parameter_audit",
@@ -493238,7 +493243,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 50.962
+        "wall_time": 67.54
       }
     },
     {
@@ -493253,7 +493258,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.057,
+      "wall_time": 0.058,
       "backend": "cupy",
       "verdict": {
         "id": "V53_hier_exponent",
@@ -493295,7 +493300,7 @@
           },
           "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
         },
-        "wall_time": 0.057
+        "wall_time": 0.058
       }
     },
     {
@@ -493310,7 +493315,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.005,
+      "wall_time": 0.003,
       "backend": "cupy",
       "verdict": {
         "id": "V54_dm_wimp",
@@ -493338,7 +493343,7 @@
           "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
           "residual": "the DM portal strength (not supplied by the root, O7) and the exact cross-section (the RG running, O9) — the ladder scale (118 GeV), its carrier (the cell singlet B, V196) and the V42 contrast are computed"
         },
-        "wall_time": 0.005
+        "wall_time": 0.003
       }
     },
     {
@@ -493402,7 +493407,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.009,
+      "wall_time": 0.018,
       "backend": "cupy",
       "verdict": {
         "id": "V56_g10_selection",
@@ -493442,7 +493447,7 @@
           "data_check_selects_n": false,
           "residual": "the 1-loop matching (O4) and the exact GUT coupling — the 0-parameter g_10 = 1/5 is a root number in the right order (within a factor 2 of the 1-loop GUT coupling)"
         },
-        "wall_time": 0.009
+        "wall_time": 0.018
       }
     },
     {
@@ -493457,7 +493462,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.041,
+      "wall_time": 0.054,
       "backend": "cupy",
       "verdict": {
         "id": "V57_neutrino",
@@ -493491,7 +493496,7 @@
             "right_order": true
           }
         },
-        "wall_time": 0.041
+        "wall_time": 0.054
       }
     },
     {
@@ -493506,7 +493511,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.05,
+      "wall_time": 0.098,
       "backend": "cupy",
       "verdict": {
         "id": "V59_four_limits",
@@ -493591,7 +493596,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the value g_10 = 1/5 is a MAPPING CONVENTION (1/n_qubits: a root number, not a selection rule — the 1-loop data prefer n = 7, V56).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 — the ORDER is fixed, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0 and alpha_10 = g_10^2) are the honest caveat; the identification M_GUT = M_P is NOT in force (V64: the desert solution meets at M_X = 1.8e16).  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.05
+        "wall_time": 0.098
       }
     },
     {
@@ -493606,7 +493611,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 249.954,
+      "wall_time": 251.618,
       "backend": "cupy",
       "verdict": {
         "id": "V62_hydrogen_production",
@@ -493850,7 +493855,7 @@
           },
           "ok": true
         },
-        "wall_time": 249.954
+        "wall_time": 251.618
       }
     },
     {
@@ -493865,7 +493870,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 9.694,
+      "wall_time": 8.668,
       "backend": "cupy",
       "verdict": {
         "id": "V63_bz_chirality",
@@ -494175,7 +494180,7 @@
           "R_gap_spread_over_the_star": 7.836613302725226e-16,
           "residual": "the half-zone nodes are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
         },
-        "wall_time": 9.694
+        "wall_time": 8.668
       }
     },
     {
@@ -495845,7 +495850,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.01,
+      "wall_time": 0.024,
       "backend": null,
       "verdict": {
         "id": "V7_qca",
@@ -495860,7 +495865,7 @@
           "causal_radius": 1,
           "n_gates": 4
         },
-        "wall_time": 0.01
+        "wall_time": 0.024
       }
     },
     {

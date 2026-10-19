@@ -60,7 +60,7 @@ sys.path.insert(0, ROOT)
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred, dm_wimp  # noqa: E402
 
-M_DM = UN.M_P * u10pred.LOOP ** 10   # GeV: the ladder mass (V54)
+M_DM = u10pred.dm_ladder_mass()      # GeV: the ladder mass at rung cell.rung_B (V54, config)
 M_H = dm_wimp.M_H         # GeV (cl10/config.yaml sm:)
 V_EV = u10pred.V_EW     # GeV
 OMEGA_H2 = dm_wimp.OMEGA_OBS

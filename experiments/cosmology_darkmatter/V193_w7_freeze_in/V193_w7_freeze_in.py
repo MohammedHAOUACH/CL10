@@ -551,7 +551,7 @@ def main():
                k1v["lambda_fi_solution"], k1v["C_FI_omega_per_lambda2"],
                k1v["lambda_thermal"], om_eq,
                k1v["sigma_SI_at_fi_cm2"],
-               math.log10(1.5e-47 / k1v["sigma_SI_at_fi_cm2"]),
+               math.log10(LZ / k1v["sigma_SI_at_fi_cm2"]),
                ("%.2e" % k1v["lambda_freeze_out_solution_uncapped"])
                if k1v["lambda_freeze_out_solution_uncapped"] else "none",
                ("%.2e" % sig_si(k1v["lambda_freeze_out_solution_uncapped"]))

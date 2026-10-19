@@ -113,7 +113,7 @@ def main():
         slope, intercept = np.polyfit(ns, np.log(fs), 1)
         A_fit, r_fit = float(np.exp(intercept)), float(np.exp(slope))
         F170 = A_fit * r_fit ** 170
-        ladder17 = LOOP ** 17
+        ladder17 = LOOP ** (2 * u10pred.RUNG_B - u10pred.RUNG_A)  # 2*10-3 = 17 (config rungs)
         n_rho = (math.log(LOOP) / math.log(rho_MG)
                  if 0 < rho_MG < 1 else None)
         results[tag] = {

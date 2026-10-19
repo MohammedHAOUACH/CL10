@@ -19,10 +19,15 @@
    "G_45_max": 0.0,
    "spinor_block_diff": 0.0
   },
+  "full_cell_theorems": {
+   "pairing": 1.6653345369377348e-15,
+   "det_phase": 2.7755575615628923e-16,
+   "vacuum_sum": 2.220446049250313e-15
+  },
   "bloch_factorisation_err": {
-   "M": 6.389813363550566e-16,
-   "GAMMA": 4.918300529807394e-16,
-   "R": 6.684427777288334e-16
+   "M": 6.667118051786499e-16,
+   "GAMMA": 5.003707553108401e-16,
+   "R": 6.961062950497062e-16
   },
   "singlet_band_shift_at_M": {
    "A": 4.724345864248747e-05,
@@ -30,29 +35,29 @@
   },
   "spinor_M_gap": 0.00020028952953253103,
   "content": {
-   "levels": 34,
+   "levels": 36,
    "trY": 0.0,
    "trY3": 0.0,
    "five_thirds": 1.6666666666666665
   }
  },
  "pass": true,
- "branch": "THE 34-LEVEL CELL IS AN ENGINE FACT: spinor module + rung-3 and rung-10 singlets, exact B-parity, rungs as step phases",
+ "branch": "THE 36-LEVEL CELL IS AN ENGINE FACT: spinor module + the conjugate singlet pairs at rungs 3 and 10, exact B-parity, rungs as step phases, pairing/det/vacuum exact on the cell",
  "checks": [
   {
    "name": "T0 the ladder identity between cell levels: m_A == the seesaw Majorana rung M_N = 9.6132e+13 GeV (exact), m_B == the DM rung M_P*(1/16pi)^10 = 118.5709 GeV (exact), and m_B^2/m_A = 0.146248 eV == the ladder neutrino mass (rel 0.0e+00): the exponent identity 2*10-3 = 17 holds between two levels of the cell; rungs from the config block cell: True",
    "pass": true
   },
   {
-   "name": "T1 the exact B-parity: the 34-level step is unitary to 1.7e-15; G = diag(I32,+1_A,-1_B) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
+   "name": "T1 the exact B-parity: the 36-level step is unitary to 1.7e-15; G = diag(I32,+1,+1,-1,-1) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the full-cell theorems hold on all 36 levels: spectrum symmetric under phase -> -phase (1.7e-15), det U = 1 (phase 2.8e-16), quasi-energy sum zero (2.2e-15) - the tree-level vacuum energy vanishes exactly; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
    "pass": true
   },
   {
-   "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies A by exp(i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and B by exp(i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time - and the six-stage product carries phase 4.724346e-05 for A (6*loop^3 = 4.724346e-05, diff 1.4e-20) and 5.827103e-17 for B (6*loop^10 = 5.827103e-17, diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 0.0e+00); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 6.4e-16/4.9e-16/6.7e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector anchor is unchanged: M-point gap 2.002895e-04",
+   "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies the A pair by exp(+/-i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and the B pair by exp(+/-i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time, each level with its conjugate - and the six-stage product carries phase 4.724346e-05 for A+ (4.724346e-05, diff 1.4e-20), -4.724346e-05 for A- (diff 1.4e-20), 5.827103e-17 for B+ (5.827103e-17, diff 0.0e+00) and -5.827103e-17 for B- (diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 2.2e-16); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 6.7e-16/5.0e-16/7.0e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector anchor is unchanged: M-point gap 2.002895e-04",
    "pass": true
   },
   {
-   "name": "T3 the content: 34 hypercharge levels (the six fragment classes, their conjugates, and A, B at Y = 0); Tr Y = 0.0e+00 and Tr Y^3 = 0.0e+00 (both anomaly cancellations unchanged by the singlets); the 5/3 normalisation of the unchanged algebra: k = 1.666666666666667",
+   "name": "T3 the content: 36 hypercharge levels (the six fragment classes, their conjugates, and the four singlet levels A+, A-, B+, B- at Y = 0); Tr Y = 0.0e+00 and Tr Y^3 = 0.0e+00 (both anomaly cancellations unchanged by the singlets); the 5/3 normalisation of the unchanged algebra: k = 1.666666666666667",
    "pass": true
   },
   {
@@ -60,9 +65,9 @@
    "pass": true
   }
  ],
- "status": "the 34-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, rung phases loop^3 and loop^10 reproduced by the six-stage product, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
+ "status": "the 36-level cell of cl10/cell.py verified at the root: ladder identity m_nu = m_B^2/m_A between cell levels (exact), B-parity exact against the step and the 45 generators, the full-cell theorems exact - spectrum +- symmetric, det U = 1, quasi-energy sum zero - rung phases loop^3 and loop^10 reproduced by the six-stage product on each conjugate pair, exact kron(P,U^6) transport, anomaly bookkeeping intact, engine invariants green",
  "tier": 2,
- "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the singlet levels A (rung 3) and B (rung 10) with an exact B-parity, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
+ "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
  "programme": "V196",
- "wall_time": 2.298
+ "wall_time": 1.956
 }

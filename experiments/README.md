@@ -84,7 +84,7 @@ the claim asserts, not when a script merely mentions the word.
 | front speed exactly one Planck cell per stage | 21 scripts across 8 programmes, plus `cl10/supercell.verify()` invariant 2 | the support growth of the real-space step |
 | Nielsen-Ninomiya bookkeeping | `V63_bz_chirality`, `V132_gapless_census_pi4` | the node charges and their sum |
 | the cubic equivariance of the bond product (Section 8.4) | `cl10/supercell.verify()` invariant 6, `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `W P(q) W^T = P(Rq)` per momentum: 1.1e-16 at Gamma, 1.07e-1 generic, 1.40e-1 M, 1.46e-1 R |
-| the cell module of Axiom 1 and its B-parity (Sections 2, 4, 12.2) | `cl10/cell.py`, `cl10/supercell.verify()` invariant 7, `V194_w7_carrier_in_cell`, `V195_w7_cell_redefinition`, `V196_cell_definition` | 34-level step unitary; `[G,U] = [G,45] = 0`; the ladder identity `m_nu = m_B^2/m_A` exact between cell levels; the rung phases `loop^3`, `loop^10` reproduced by the six-stage product; `M(q) = kron(P(q), U^6)` |
+| the cell module of Axiom 1 and its B-parity (Sections 2, 4, 12.2) | `cl10/cell.py`, `cl10/supercell.verify()` invariant 7, `V194_w7_carrier_in_cell`, `V195_w7_cell_redefinition`, `V196_cell_definition` | 36-level step unitary, spectrum +-paired, `det = 1`, quasi-energy sum zero on the full cell; `[G,U] = [G,45] = 0`; the ladder identity `m_nu = m_B^2/m_A` exact between cell levels; the rung phases `loop^3`, `loop^10` reproduced by the six-stage product; `M(q) = kron(P(q), U^6)` |
 
 ## The experiments
 
@@ -98,7 +98,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V131_algebraic_closure` | the root quantizes its own step: $g \in \{\pi/2,\pi/4\}$, the order-$8$ spectrum |
 | `V134_pi2_branch` | the $\pi/2$ branch is a pure lattice translation |
 | `V135_coupling_selection_closed` | the closed coupling $\pi/64$ against the one-loop data |
-| `V196_cell_definition` | the 34-level cell of the engine (`cl10/cell.py`) as a root fact: the ladder identity $m_\nu = m_B^2/m_A$ holds exactly between cell levels, the B-parity is exact against the step and the $45$, the rungs $\mathrm{loop}^3$, $\mathrm{loop}^{10}$ are reproduced as phases by the six-stage product, transport factorises as $\mathrm{kron}(P,U^6)$, anomaly bookkeeping intact |
+| `V196_cell_definition` | the 36-level cell of the engine (`cl10/cell.py`) as a root fact: the ladder identity $m_\nu = m_B^2/m_A$ holds exactly between cell levels, the B-parity is exact against the step and the $45$, the rungs $\mathrm{loop}^3$, $\mathrm{loop}^{10}$ are reproduced as phases by the six-stage product, transport factorises as $\mathrm{kron}(P,U^6)$, anomaly bookkeeping intact; +- pairing, `det U = 1` and vanishing quasi-energy sum on all 36 levels |
 
 ### `spacetime_matter`
 | id | verdict |
@@ -230,7 +230,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V148_w7_direct_detection` | the same numbers as Higgs-portal strength: $\sigma_{\rm SI} = 2.5\times10^{-45}$–$6.3\times10^{-41}$ cm$^2$, all above the LZ-class bound — the bond-strength portal is excluded |
 | `V193_w7_freeze_in` | the production side computed — freeze-in and freeze-out with exact thermal convolution, the regime decided at the self-consistency root: the exact-$\mathbb{Z}_2$ portal's only solution inside the LZ-class ceiling is freeze-in at $\lambda = 4.1\times10^{-14}$ ($\sigma_{\rm SI} = 6\times10^{-71}$ cm$^2$, DD-blind); its thermal solution $\lambda = 0.31$ is excluded as published; the pair portal reproduces $0.120$ at its computed coupling $\lambda = 1.3\times10^{-3}$ ($\sigma_{\rm SI} = 6.7\times10^{-50}$) |
 | `V194_w7_carrier_in_cell` | the carrier census of the built cell: the exact grading group of step+gauge is $\mathbb{Z}_2\times\mathbb{Z}_2$ (global $\times$ mirror, no fragment-selective parity), and no built root places a neutral spinor-module fragment in the WIMP window (best $2.0\times10^{10}$ GeV) — the certificate the engine cell meets |
-| `V195_w7_cell_redefinition` | the certificate realized on the engine's cell object (`cl10/cell.py`): the cell content is the 34-level module — two neutral singlet levels, $A$ at the $n=3$ seesaw floor ($m_\nu = m_B^2/M_A$, the F3 ladder intact) and $B$ odd at the $n=10$ floor — the carrier is a state of the automaton: exactly stable, neutral, at the DERIVED $118.57$ GeV, its $0.120$ by freeze-in at $\lambda = 4.1\times10^{-14}$ (DD-blind); the residual is the portal strength |
+| `V195_w7_cell_redefinition` | the certificate realized on the engine's cell object (`cl10/cell.py`): the cell content is the 36-level module — two neutral singlet sectors (four levels), $A$ at the $n=3$ seesaw floor ($m_\nu = m_B^2/M_A$, the F3 ladder intact) and $B$ odd at the $n=10$ floor — the carrier is a state of the automaton: exactly stable, neutral, at the DERIVED $118.57$ GeV, its $0.120$ by freeze-in at $\lambda = 4.1\times10^{-14}$ (DD-blind); the residual is the portal strength |
 
 ### `baryogenesis`
 | id | verdict |

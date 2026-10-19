@@ -153,7 +153,7 @@ def gut_ingredients():
         carrier is a bond-layer Peierls flux, which costs nothing of
         unitarity, ``det U = 1``, the mirror or the causal radius.
     """
-    M_N = u10pred.M_PLANCK * u10pred.LOOP ** 3               # 9.6e13 GeV
+    M_N = u10pred.M_PLANCK * u10pred.LOOP ** u10pred.RUNG_A   # 9.6e13 GeV (config cell.rung_A)
     H = (_cosmology.HUBBLE_COEFF * np.sqrt(_cosmology.G_STAR)
          * M_N ** 2 / u10pred.M_PLANCK)
     by_y = {}

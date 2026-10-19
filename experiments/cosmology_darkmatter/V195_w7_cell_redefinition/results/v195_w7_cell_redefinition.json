@@ -2,10 +2,10 @@
  "id": "V195_w7_cell_redefinition",
  "tier": 5,
  "programme": "V195",
- "property": "the V194 certificate realized: the cell content redefined to 34 levels (the spinor module plus the two neutral singlet classes A and B) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
+ "property": "the V194 certificate realized: the cell content is 36 levels (the spinor module plus the two neutral singlet sectors A and B, each a conjugate pair) so the dark matter carrier is a state of the automaton - neutral, exactly stable, at the ladder mass - with the hard gates and the F3 neutrino ladder recomputed identical (O7)",
  "data": {
   "cell": {
-   "n_levels": 34,
+   "n_levels": 36,
    "M_A_GeV": 96131777036496.42,
    "M_B_GeV": 118.57086360835625,
    "m_nu_eV": 0.14624768344284225
@@ -32,7 +32,7 @@
    "pass": true
   },
   {
-   "name": "T2 the five hard gates on the extended content: the singlets carry Y = 0, so the hypercharge multiset gains two zeros - Tr Y = 0.0e+00, Tr Y^3 = 0.0e+00 (anomaly-free), and the 5/3 trace ratio is exactly unchanged (built k = 1.6666666666666665; extended/base ratio 1 to 0.0e+00); the Clifford block is byte-identical (diff 0) and the bond sector is untouched by construction",
+   "name": "T2 the five hard gates on the extended content: the singlets carry Y = 0, so the hypercharge multiset gains four zeros - Tr Y = 0.0e+00, Tr Y^3 = 0.0e+00 (anomaly-free), and the 5/3 trace ratio is exactly unchanged (built k = 1.6666666666666665; extended/base ratio 1 to 0.0e+00); the Clifford block is byte-identical (diff 0) and the bond sector is untouched by construction",
    "pass": true
   },
   {
@@ -44,6 +44,6 @@
    "pass": true
   }
  ],
- "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is redefined 32 -> 34 levels: the spinor module plus two neutral Clifford-singlet classes. A is even and sits at M_A = v^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: for the first time the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates survive verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named residual replaces the old one: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2) - the published input scalar had the same open number, but the carrier itself is no longer an input: it is a state of the redefined cell, stable, neutral, and at the derived ladder mass. VERDICT: PASS",
- "wall_time": 0.0025606155395507812
+ "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is 32 spinor levels plus the two neutral Clifford-singlet sectors, four levels, 36 in all. A is even and sits at M_A = m_B^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates hold verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named number: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2). The carrier is a state of the cell: stable, neutral, at the derived ladder mass. VERDICT: PASS",
+ "wall_time": 0.0029990673065185547
 }
