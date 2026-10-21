@@ -55,7 +55,8 @@ no-go, and the certificate for a cell-content redefinition:
   (R2) an exact parity, odd on B alone and even on everything built
        (bilinears only for B - the V88 portal structure, production then
        computed by V193's solver with the same kernels);
-  (R3) the five hard gates (V157) recomputed on the redefined cell.
+  (R3) the five hard gates of the cell module (Section 3) recomputed on the
+       redefined cell.
 """
 import json
 import math
@@ -359,7 +360,7 @@ def main():
                      "(the V88 phi_s^2 portal structure): production "
                      "computed by the V193 solver, direct detection by the "
                      "V148 map",
-        "R3_hard_gates": "V157's five gates recomputed on the redefined "
+        "R3_hard_gates": "the five cell-module gates recomputed on the "
                          "cell (root, kinematics, unitary causal dynamics, "
                          "anomaly-free matter, 5/3)",
     }

@@ -570,7 +570,7 @@ W2→O2, W3→O3.
 
 ## 41. `cl10.altcell` — the exploration generalizations of the signature and the cell
 
-The machinery the `alt_cell` / `alt_dynamics` censuses (V149–V170) need, kept
+The machinery the `alt_*` exploration programmes - the W9 interaction, gauged and non-perturbative chains, the cone searches - need, kept
 out of `clifford` / `sm_qca` / `supercell` so the published root is never
 touched. Two axes. **The signature:** `signature_generators(q)` is the
 $\mathrm{Cl}(10-q,q)$ set — the ten qubit generators with the first $q$
@@ -580,8 +580,11 @@ signature. **The cell:** `cell(shape)` is the mixed-radix block, the bit trick
 of `supercell` being its $(2,2,2)$ special case (kept as the regression
 anchor); `bloch_stages` / `step_stages` / `front_speed_stages` carry the
 step-rule axis, and `cone_anisotropy`, `chirality_at`, `fock_self_energy`,
-`lowdin_downfold`, `oh_group` support the censuses. Exploration code: no
-published number reads it. The module is **host-only**: the `clifford` and
+`lowdin_downfold`, `oh_group` support the censuses. `FactorizedCore` is the
+`alt_step` cone programmes' joint step - the theta-free bond half `P(q)` and
+the Weyl half `U(theta)^ns`, whose commuting sum spectrum replaces the
+`(16 n_sub)^3` eigendecomposition. Exploration code: no published number
+reads it. The module is **host-only**: the `clifford` and
 `supercell` calls it makes are moved back to the host where they enter, so it
 returns numpy arrays under either backend. `python -m cl10.altcell` runs the
 self-check.

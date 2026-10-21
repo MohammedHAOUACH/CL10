@@ -165,7 +165,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 169 experiments in 18 categories (127 publication + 42 alt_* exploration)
+├── experiments/              # the verification program: 143 experiments in 16 categories (127 publication + 16 alt_* exploration)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -178,11 +178,10 @@ CL10/
 │   ├── baryogenesis/         # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
 │   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
 │   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
-│   ├── alt_cell/             # exploration: the signature census (V149-V152, V159) and the cell/cycle census (V153-V156, V157, V158, V160)
-│   ├── alt_dynamics/         # exploration: the step-rule / motion census (V161-V170) - the Wilson six-stage cycle is the unique causal, closure-consistent gapless motion
 │   ├── alt_interactions/     # exploration: the collision vertex, self-energy flow, block RG, isotropy gate (V171-V174)
 │   ├── alt_gauged/           # exploration: the two-fermion S-matrix of the gauged bond layer (V175-V179)
 │   ├── alt_nonpert/          # exploration: exact cone flux dressing, ring kernels, IR decoupling, non-perturbative gate (V180-V183)
+│   ├── alt_step/             # exploration: the root-swap cone searches at the root's own clock (V191, V192, V201)
 │   └── README.md             # every experiment, its verdict, and the paper section it validates
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── README.md             # the three simulations: what each shows, what is CL10 and what is input, the shared conventions
@@ -266,7 +265,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 169 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 143 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
@@ -293,8 +292,8 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
-**seven falsifiers** (F1–F7). `run_validation.py` runs the **169** experiments
-of `experiments/` (18 categories — the 127 of the publication programme and the 42 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
+**seven falsifiers** (F1–F7). `run_validation.py` runs the **143** experiments
+of `experiments/` (16 categories — the 127 of the publication programme and the 16 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the

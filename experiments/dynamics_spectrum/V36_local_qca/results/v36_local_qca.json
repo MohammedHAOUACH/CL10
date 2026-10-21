@@ -8,11 +8,11 @@
   "tol": 1e-09,
   "data": {
     "backend": "cupy",
-    "g10": 0.2,
+    "g10": 0.7853981633974483,
     "cell": "8 sub-sites x 32 internal",
     "stages_per_step": 6,
     "blocks_per_step": 3,
-    "unitary_err": 6.661338147750939e-16,
+    "unitary_err": 3.552713678800501e-15,
     "causal_ok": true,
     "saturates_ok": true,
     "max_outside_amplitude": 0.0,
@@ -26,11 +26,11 @@
       16,
       32,
       64,
-      96,
-      144,
-      216,
-      288,
-      384,
+      80,
+      100,
+      125,
+      200,
+      320,
       512
     ],
     "radius_growth": [
@@ -67,22 +67,22 @@
       15,
       16,
       17,
-      17,
-      17,
-      18,
-      18,
       18,
       19,
-      19,
-      19,
-      20,
-      20,
       20,
       21,
-      21
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
     ],
     "long_run_outside": 0,
-    "long_run_unitary_err": 2.4313884239290928e-14,
+    "long_run_unitary_err": 2.7533531010703882e-14,
     "internal_only_growth": [
       1,
       1,
@@ -100,5 +100,5 @@
     "theta_tested": 0.3,
     "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
   },
-  "wall_time": 5.655
+  "wall_time": 4.282
 }

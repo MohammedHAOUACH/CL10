@@ -45,7 +45,6 @@ of U^6 are not linear in the angle. An earlier version read them off a
 small-angle expansion and extrapolated, which is wrong by 4e-3 at theta = 2.36 -
 the whole size of the gap being asked about.
 """
-import importlib.util
 import itertools
 import json
 import os
@@ -62,15 +61,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 
-V189 = f"{ROOT}/experiments/alt_step/V189_cell_step_joint_search/" \
-       "V189_cell_step_joint_search.py"
-_spec = importlib.util.spec_from_file_location("V189", V189)
-V = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(V)
+from cl10 import altcell as A                       # noqa: E402
+from cl10 import supercell as SC                    # noqa: E402
+from cl10.altcell import FactorizedCore             # noqa: E402
 
-C = V.Core((2, 2, 2), "baseline")
-A = V.A                      # cl10.altcell
-SC = V.SC                    # cl10.supercell
+C = FactorizedCore((2, 2, 2), "baseline")
 NS = C.nsub
 GAM = np.zeros(3)
 DIRS = C.dirs

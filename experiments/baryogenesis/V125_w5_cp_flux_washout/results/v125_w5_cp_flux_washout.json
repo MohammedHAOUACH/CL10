@@ -5,96 +5,96 @@
    {
     "Phi": 0.0,
     "holonomy_im": -0.0,
-    "holonomy_abs": 0.001557841666953136,
-    "vac_phase": 4.857225732735052e-15,
-    "unitarity": 3.996804080756099e-15,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.493206138382448e-15,
+    "unitarity": 7.66053886991358e-15,
     "spectral_shift": 0.0
    },
    {
     "Phi": 0.02,
-    "holonomy_im": 3.1154756258382164e-05,
-    "holonomy_abs": 0.0015578416669531363,
-    "vac_phase": 4.63518112781003e-15,
-    "unitarity": 4.440892098706208e-15,
-    "spectral_shift": 0.007867073673661462
+    "holonomy_im": 0.004999666673333268,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.715250743307473e-15,
+    "unitarity": 7.993606111912584e-15,
+    "spectral_shift": 3.1416012325542106
    },
    {
     "Phi": 0.05,
-    "holonomy_im": 7.78596323695665e-05,
-    "holonomy_abs": 0.0015578416669531363,
-    "vac_phase": 4.718447854656915e-15,
-    "unitarity": 4.329870907731243e-15,
-    "spectral_shift": 0.4976995390454855
+    "holonomy_im": 0.01249479231766958,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.382183835919921e-15,
+    "unitarity": 7.99361038881749e-15,
+    "spectral_shift": 3.141646282640454
    },
    {
     "Phi": 0.065,
-    "holonomy_im": 0.00010118841970204987,
-    "holonomy_abs": 0.001557841666953136,
-    "vac_phase": 5.107025913275724e-15,
-    "unitarity": 4.21885010601133e-15,
-    "spectral_shift": 0.4932575501300964
+    "holonomy_im": 0.016238559708695643,
+    "holonomy_abs": 0.24999999999999994,
+    "vac_phase": 8.937295348232512e-15,
+    "unitarity": 7.993605797747887e-15,
+    "spectral_shift": 3.141683301297003
    },
    {
     "Phi": 0.1,
-    "holonomy_im": 0.00015552465620672178,
-    "holonomy_abs": 0.0015578416669531365,
-    "vac_phase": 4.218847493575597e-15,
-    "unitarity": 4.6629476769349624e-15,
-    "spectral_shift": 0.49760395697104043
+    "holonomy_im": 0.024958354161707032,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 1.1546319456101626e-14,
+    "unitarity": 7.882603024209553e-15,
+    "spectral_shift": 3.1418073202081005
    },
    {
     "Phi": 0.2,
-    "holonomy_im": 0.00030949536145824215,
-    "holonomy_abs": 0.001557841666953136,
-    "vac_phase": 4.385380947269363e-15,
-    "unitarity": 4.1078261137648034e-15,
-    "spectral_shift": 0.5214961826790625
+    "holonomy_im": 0.04966733269876528,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 9.270362255620052e-15,
+    "unitarity": 7.993634386331055e-15,
+    "spectral_shift": 3.1424537321166097
    },
    {
     "Phi": 0.4,
-    "holonomy_im": 0.0006066521195242352,
-    "holonomy_abs": 0.0015578416669531365,
-    "vac_phase": 3.747002708109901e-15,
-    "unitarity": 4.55191444811417e-15,
-    "spectral_shift": 0.5790485286080056
+    "holonomy_im": 0.09735458557716259,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.437694987151183e-15,
+    "unitarity": 7.99361239579674e-15,
+    "spectral_shift": 3.145075907977815
    },
    {
     "Phi": 0.7,
-    "holonomy_im": 0.0010035891557670588,
-    "holonomy_abs": 0.0015578416669531363,
-    "vac_phase": 5.3290705182007545e-15,
-    "unitarity": 4.3298710725466585e-15,
-    "spectral_shift": 0.647758728064677
+    "holonomy_im": 0.1610544218094227,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.326672684688671e-15,
+    "unitarity": 7.993615557097183e-15,
+    "spectral_shift": 3.649305272795174
    },
    {
     "Phi": 1.0,
-    "holonomy_im": 0.0013108785616658305,
-    "holonomy_abs": 0.0015578416669531363,
-    "vac_phase": 3.969047313034938e-15,
-    "unitarity": 4.3298736153214265e-15,
-    "spectral_shift": 0.6988425976378033
+    "holonomy_im": 0.21036774620197407,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.826273045769982e-15,
+    "unitarity": 7.993605781873482e-15,
+    "spectral_shift": 3.4291473551926446
    },
    {
     "Phi": 1.5707963267948966,
-    "holonomy_im": 0.001557841666953136,
-    "holonomy_abs": 0.001557841666953136,
-    "vac_phase": 3.941291737419305e-15,
-    "unitarity": 4.7739625197133724e-15,
-    "spectral_shift": 0.6448484440238307
+    "holonomy_im": 0.24999999999999992,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.104628079763643e-15,
+    "unitarity": 7.660551440363238e-15,
+    "spectral_shift": 3.20863015179472
    },
    {
     "Phi": 3.141592653589793,
-    "holonomy_im": 1.9078058110125353e-19,
-    "holonomy_abs": 0.001557841666953136,
-    "vac_phase": 4.662936703425656e-15,
-    "unitarity": 4.329870436516562e-15,
-    "spectral_shift": 0.6030375915627681
+    "holonomy_im": 3.061616997868382e-17,
+    "holonomy_abs": 0.24999999999999992,
+    "vac_phase": 8.826273045769994e-15,
+    "unitarity": 7.66053886991358e-15,
+    "spectral_shift": 3.665191429188086
    }
   ],
   "invariants": {
-   "mirror_commutator": 3.3310756248777615e-16,
-   "radius1_fourier": 2.598965467441789e-16,
-   "spectral_shift_max": 0.6988425976378033
+   "mirror_commutator": 1.8182345465763572e-30,
+   "radius1_fourier": 1.6011864169946888e-16,
+   "spectral_shift_max": 3.665191429188086
   },
   "asymmetry": {
    "M_N_GeV": 96131777036496.42,
@@ -107,7 +107,7 @@
      "z_B": 7.831,
      "strong_washout_domain": true,
      "J_required": 0.00010012570953447647,
-     "Phi_required_rad": 0.06431640325567528,
+     "Phi_required_rad": 0.00040050284884485135,
      "DB_at_J1": 6.112316235714353e-06
     },
     "out-of-equilibrium y": {
@@ -117,31 +117,31 @@
      "z_B": null,
      "strong_washout_domain": false,
      "J_required": 2.557219537952238e-05,
-     "Phi_required_rad": 0.016415881341221128,
+     "Phi_required_rad": 0.00010228878169646385,
      "DB_at_J1": 2.3932243239861813e-05
     }
    }
   },
-  "J_available_max": 0.001557841666953136
+  "J_available_max": 0.24999999999999992
  },
  "pass": true,
  "checks": [
   {
-   "name": "T0 the flux step is exactly unitary (4.8e-15) and keeps det U = 1 at every flux (max |arg det U| = 5.3e-15, against 4.9e-15 at Phi = 0); the plaquette holonomy is real at Phi = 0 (-0.0e+00) and CP-odd at Phi = pi/3 (6.1e-04)",
+   "name": "T0 the flux step is exactly unitary (8.0e-15) and keeps det U = 1 at every flux (max |arg det U| = 1.2e-14, against 8.5e-15 at Phi = 0); the plaquette holonomy is real at Phi = 0 (-0.0e+00) and CP-odd at Phi = pi/3 (9.7e-02)",
    "pass": true
   },
   {
-   "name": "T1 the flux commutes with the pseudoscalar (the mirror Z2 of V124, leak 3.3e-16), keeps the hop at radius 1 (Fourier leakage 2.6e-16), and moves the band spectrum by up to 7.0e-01 - a physical flux, not a gauge artefact",
+   "name": "T1 the flux commutes with the pseudoscalar (the mirror Z2 of V124, leak 1.8e-30), keeps the hop at radius 1 (Fourier leakage 1.6e-16), and moves the band spectrum by up to 3.7e+00 - a physical flux, not a gauge artefact",
    "pass": true
   },
   {
-   "name": "T2 with V106's physical washout the measured Delta B = 6.12e-10 costs a CP strength J = 0.0001 at the atmospheric Yukawa (y = 0.3986, K = 46.8, kappa_f = 5.5e-03, strong washout) and J = 2.56e-05 at the out-of-equilibrium Yukawa (y = 0.0583, K = 1): K = 1 sits BELOW the branch point K = 3.93 of the strong-washout solution, so kappa_f is the weak-washout bound 1 and the cost is the lower bound on J; the flux supplies up to |Im holonomy| = 0.00156",
+   "name": "T2 with V106's physical washout the measured Delta B = 6.12e-10 costs a CP strength J = 0.0001 at the atmospheric Yukawa (y = 0.3986, K = 46.8, kappa_f = 5.5e-03, strong washout) and J = 2.56e-05 at the out-of-equilibrium Yukawa (y = 0.0583, K = 1): K = 1 sits BELOW the branch point K = 3.93 of the strong-washout solution, so kappa_f is the weak-washout bound 1 and the cost is the lower bound on J; the flux supplies up to |Im holonomy| = 0.25",
    "pass": true
   },
   {
-   "name": "T3 the flux curve reaches the required CP strength at Phi = 0.0643, 0.0164 rad - the CP condition of Sakharov is NOT the obstruction; the out-of-equilibrium condition is (K = 46.8 at the Yukawa that gives m_nu)",
+   "name": "T3 the flux curve reaches the required CP strength at Phi = 0.0004, 0.0001 rad - the CP condition of Sakharov is NOT the obstruction; the out-of-equilibrium condition is (K = 46.8 at the Yukawa that gives m_nu)",
    "pass": true
   }
  ],
- "status": "THE CP FLUX SPENT ON THE ASYMMETRY (O5). V117's sub-lattice bond flux A_1 = Phi x_0 is exactly unitary (4.8e-15), keeps det U = 1 at every flux (max |arg det U| = 5.3e-15 - V78's protection extends to the flux step), commutes with the pseudoscalar (the mirror Z2 of V124, leak 3.3e-16) and keeps the hop at radius 1 (2.6e-16), while moving the band spectrum by up to 7.0e-01: it is a physical CP-odd bond-layer input that changes no algebraic invariant. Its gauge-invariant strength is Im holonomy, 0 at Phi = 0 and 1.6e-03 at Phi = pi/2. Spending it on baryogenesis with V106's physical washout: at the atmospheric Yukawa (y = 0.3986) the decay is IN equilibrium (K = 46.8) with kappa_f = 5.5e-03, and Delta B = 6.12e-10 costs J = 0.0001, supplied by the flux at Phi = 0.0643 rad; at the out-of-equilibrium Yukawa (y = 0.0583, K = 1, below the strong-washout branch point K = 3.93, so kappa_f is the weak-washout bound 1) it costs at least J = 2.56e-05 at Phi = 0.0164 rad. the CP phase is NOT the missing ingredient - a bond-layer flux of size Phi ~ 0.0643 supplies more than the asymmetry needs while leaving unitarity, det U = 1, the mirror Z2 and causality exact. What fails is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the decay in equilibrium (K = 46.8), and out-of-equilibrium decay needs y < 0.0583, which caps m_nu far below the atmospheric splitting. O5 stays open, and it is now open for ONE named reason instead of two."
+ "status": "THE CP FLUX SPENT ON THE ASYMMETRY (O5). V117's sub-lattice bond flux A_1 = Phi x_0 is exactly unitary (8.0e-15), keeps det U = 1 at every flux (max |arg det U| = 1.2e-14 - V78's protection extends to the flux step), commutes with the pseudoscalar (the mirror Z2 of V124, leak 1.8e-30) and keeps the hop at radius 1 (1.6e-16), while moving the band spectrum by up to 3.7e+00: it is a physical CP-odd bond-layer input that changes no algebraic invariant. Its gauge-invariant strength is Im holonomy, 0 at Phi = 0 and 2.5e-01 at Phi = pi/2. Spending it on baryogenesis with V106's physical washout: at the atmospheric Yukawa (y = 0.3986) the decay is IN equilibrium (K = 46.8) with kappa_f = 5.5e-03, and Delta B = 6.12e-10 costs J = 0.0001, supplied by the flux at Phi = 0.0004 rad; at the out-of-equilibrium Yukawa (y = 0.0583, K = 1, below the strong-washout branch point K = 3.93, so kappa_f is the weak-washout bound 1) it costs at least J = 2.56e-05 at Phi = 0.0001 rad. the CP phase is NOT the missing ingredient - a bond-layer flux of size Phi ~ 0.0004 supplies more than the asymmetry needs while leaving unitarity, det U = 1, the mirror Z2 and causality exact. What fails is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the decay in equilibrium (K = 46.8), and out-of-equilibrium decay needs y < 0.0583, which caps m_nu far below the atmospheric splitting. O5 stays open, and it is now open for ONE named reason instead of two."
 }

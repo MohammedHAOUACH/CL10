@@ -20,12 +20,12 @@
     95.85259600239976
   ],
   "engine_o_h_defect": {
-    "Gamma": 1.1102230246251565e-16,
-    "M": 0.13967580988155287,
-    "R": 0.1457841502098632,
-    "generic": 0.10664093678011513
+    "Gamma": 6.550210545578398e-17,
+    "M": 1.0,
+    "R": 0.7071067811865476,
+    "generic": 0.7044629490796265
   },
-  "status": "parity no-go: linear-term multiplicity 0 for all ten irreps (direct solve on the T1u block: dim 0); the parity-degenerate A1g+T1u pair gives an isolated cone - min gap 2.9e-11, min anisotropy 1.0e-15, rho_comm 0.707; the implemented 6-stage product is O_h-equivariant at Gamma to 1.1e-16 and broken elsewhere (M 1.4e-01, R 1.5e-01, generic 1.1e-01)",
+  "status": "parity no-go: linear-term multiplicity 0 for all ten irreps (direct solve on the T1u block: dim 0); the parity-degenerate A1g+T1u pair gives an isolated cone - min gap 2.9e-11, min anisotropy 1.0e-15, rho_comm 0.707; the implemented 6-stage product is O_h-equivariant at Gamma to 6.6e-17 and broken elsewhere (M 1.0e+00, R 7.1e-01, generic 7.0e-01)",
   "pass": true,
   "data": {
     "site_module": {
@@ -175,10 +175,10 @@
     },
     "engine": {
       "product_o_h_defect": {
-        "Gamma": 1.1102230246251565e-16,
-        "M": 0.13967580988155287,
-        "R": 0.1457841502098632,
-        "generic": 0.10664093678011513
+        "Gamma": 6.550210545578398e-17,
+        "M": 1.0,
+        "R": 0.7071067811865476,
+        "generic": 0.7044629490796265
       },
       "sum_o_h_defect": {
         "Gamma": 5.551115123125783e-16,
@@ -194,5 +194,5 @@
       }
     }
   },
-  "wall_time": 11.349128246307373
+  "wall_time": 8.860758781433105
 }

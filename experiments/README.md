@@ -1,8 +1,8 @@
 # The verification program
 
-169 experiments (the 127 of the publication programme plus the 42 exploration
-experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
-4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 7 `alt_step`), grouped by
+143 experiments (the 127 of the publication programme plus the 16 exploration
+experiments of the `alt_*` programmes: 4 `alt_interactions`, 5 `alt_gauged`,
+4 `alt_nonpert`, 3 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
 recomputes a published number from the construction, states the provenance of
 every input it uses, and writes a JSON verdict to `<experiment>/results/`:
@@ -47,12 +47,10 @@ file whenever it is re-run.
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §17 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
-| `alt_cell` | the exploration programme: the Cl(p,q) signature census and the alternative-cell census against the node/isotropy gates (tier 4) | §17 (O1, O9) |
-| `alt_dynamics` | the exploration programme: the alternative step-rule (motion) census - per-stage angles, internal factorizations, mass stages, bond matchings, Floquet, quantized Wilson - against the same gates (tier 4) | §17 (O1, O5, O9, W4, W7) |
 | `alt_interactions` | the exploration programme: do interactions (the minimal admissible block-contact collision) restore cone isotropy at low energy - vertex irrelevance, one-loop flow, block RG (tier 4) | §17 (W9) |
 | `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the W9 isotropy gate (tier 4) | §17 (W9) |
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector probes of W9 - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §17 (W9) |
-| `alt_step` | the exploration programme: the step/cell SPECIFICATION searched directly - a differentiable cone loss over the 45 continuous per-plane step angles (Adam, JAX) and a joint cell-shape census - against the W9 isotropy gate and the hard tier (tier 4), and the cone search with the root's sector-swap involutions interleaved in the internal layer | §17 (W9) |
+| `alt_step` | the exploration programme: the parity no-go for a conical node and its reruns inside the engine's own six-stage circuit class and with the root's sector-swap involutions - the cone is outside the class, searches included (tier 4) | §17 (W9) |
 
 The `alt_*` programmes run on the **numpy core**: each script pins
 `CL10_BACKEND=numpy` before importing `cl10`, and `cl10/altcell.py` is
@@ -61,15 +59,16 @@ to the host where it enters). Their linear algebra is host-side, so their
 verdicts do not depend on what else holds the card; the runner lists them
 OFF-CORE. The GPU engine stays with the publication programme.
 
-The same self-containment holds for the clock: an experiment whose numbers
-are 1/5-reference-branch numbers - the whole `alt_*` programmes, the relic
-and portal DM family, the W3/W4/W5 bond numbers, the gauged layer, the W9
-cone chain - pins `CL10_ANGLE = 0.2` at the top of the script, before
-`cl10` latches the configuration: since the closure discovery (V203-V206)
-the CLOSED branch is the config default, and the pin keeps the two branches
-from leaking into each other's numbers. Closed-branch experiments take
-their angles explicitly (`pi/4`, `pi/2`), so the default cannot leak the
-other way either.
+The same self-containment rule holds for the clock. The closure discovery
+(V203-V206) made the CLOSED branch the config default, and the census and
+gate programmes are stated at the closed root. An experiment whose own
+anchors are 1/5-reference-branch numbers - the word-census family
+(V126/V200/V202), the relic DM chain (V123/V147), the W9 collision, flow and
+block-RG chain (V171-V179), the cone-flux dressing chain (V180-V183) - pins
+`CL10_ANGLE = 0.2` at the top of the script, before `cl10` latches the
+configuration; closed-branch experiments take their angles explicitly
+(`pi/4`, `pi/2`). The pin direction is one-way: a 1/5 anchor never silently
+reads the closed clock.
 
 ## Which experiment backs which numbered claim
 
@@ -80,17 +79,17 @@ the claim asserts, not when a script merely mentions the word.
 | claim | measured by | what is measured |
 |---|---|---|
 | Theorem 1 - the charges of the `16` are exactly one SM generation | `V2_matter`, `V23_full_sm_qca`, `V26_family`, `V70_w3_index`, `V107_mixing_from_kappas` | the charge table of the six fields, the family index |
-| Theorem 1 - the `5/3` hypercharge normalisation | `V32_qca_qft`, `V52_parameter_audit`, `V157_hardtier`, `V167_hardtier_dynamics` | the normalization of the diagonal generator |
-| Theorem 2 - all eight gauge and mixed anomalies cancel | `V11_anomaly`, `V151_signature_anomaly`, `V157_hardtier`, `V167_hardtier_dynamics`, `V174_isotropy_gate`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V52_parameter_audit`, `V78_w1_lambda` | the eight cubic and mixed coefficients of one `16` |
+| Theorem 1 - the `5/3` hypercharge normalisation | `V32_qca_qft`, `V52_parameter_audit` | the normalization of the diagonal generator |
+| Theorem 2 - all eight gauge and mixed anomalies cancel | `V11_anomaly`, `V174_isotropy_gate`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V52_parameter_audit`, `V78_w1_lambda` | the eight cubic and mixed coefficients of one `16` |
 | Theorem 3 - the `45` adjoint and its twelve gauge bosons | `V131_algebraic_closure`, `V79_gauged_bond_layer`, `V129_gauged_layer_gap`, `V130_string_tension`, `V175_gauged_smatrix`, `V176_gauged_vertex_content` | the adjoint content of the bond layer and its vertex |
-| Theorem 6 - the closure axiom quantizes `g`, step order 8 | `V131_algebraic_closure`, `V134_pi2_branch`, `V135_coupling_selection_closed`, `V133_desert_pi64`, `V132_gapless_census_pi4`, `V157_hardtier`, `V167_hardtier_dynamics`, `V188_step_descent_search`, `V190_step_search_gate` | the order of the on-site update, the finite internal spectrum, the branch census |
-| Proposition 1 - the (1+3) Minkowski subalgebra | `V1_spacetime`, `V150_signature_frame`, `V152_signature_step`, `V159_cp_census`, `V93_cartan_junction`, `V137_w4_broken_flux` | the signature of the ten-generator frame, the Cartan junction |
+| Theorem 6 - the closure axiom quantizes `g`, step order 8 | `V131_algebraic_closure`, `V134_pi2_branch`, `V135_coupling_selection_closed`, `V133_desert_pi64`, `V132_gapless_census_pi4` | the order of the on-site update, the finite internal spectrum, the branch census |
+| Proposition 1 - the (1+3) Minkowski subalgebra | `V1_spacetime`, `V93_cartan_junction`, `V137_w4_broken_flux` | the signature of the ten-generator frame, the Cartan junction |
 | Proposition 2 - lattice chirality and the doubler census | `V63_bz_chirality`, `V132_gapless_census_pi4`, `V139_nodal_plane_crossing` | the `16`-sector closure, the gap at Gamma, the 12 M nodes and their charges |
 | Proposition 3 - the momentum derivative is internal-blind; the Wilson factor is a spectator of the tangent algebra | `V191_parity_dirac_cone` | the tangent operators of the joint step, and the stage-sum levels |
 | Proposition 4 - no cone over the 880-point entangling-bond space | `V186_cone_inverse`, `V120_w9_entangling_bond`, `V121_w9_three_axis_bond`, `V115_w9_cone_isotropy` | the tuned bond census as (gap, anisotropy, rho_comm) triples |
 | Proposition 5 - the rigidity wall at gap 8e-3 | `V185_separation_lemma`, `V187_rigidity_frontier`, `V186_cone_inverse` | the (gap, rho_comm) frontier over 5292 points |
 | Proposition 6 - the parity no-go, and the cone outside the class | `V191_parity_dirac_cone`, `V192_engine_two_angle_cone`, `V201_root_swap_cone` | `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps; the constructed node; the search for the same node inside the six-stage product, which does not find it, and its rerun on the Dirac module with the 10 root sector-swap involutions `h_a w`: the gapless points turn non-Abelian (rho to 0.80) but stay flat - not found either |
-| `det U = 1`, exact unitarity, the +/- phase pairing | `V43_qca_spectrum`, `V131_algebraic_closure`, `V52_parameter_audit`, `V78_w1_lambda`, `V157_hardtier`, `V117_w5_real_form`, `V125_w5_cp_flux_washout` | the determinant of the step and its eigenphase pairing |
+| `det U = 1`, exact unitarity, the +/- phase pairing | `V43_qca_spectrum`, `V131_algebraic_closure`, `V52_parameter_audit`, `V78_w1_lambda`, `V117_w5_real_form`, `V125_w5_cp_flux_washout` | the determinant of the step and its eigenphase pairing |
 | front speed exactly one Planck cell per stage | 21 scripts across 8 programmes, plus `cl10/supercell.verify()` invariant 2 | the support growth of the real-space step |
 | Nielsen-Ninomiya bookkeeping | `V63_bz_chirality`, `V132_gapless_census_pi4` | the node charges and their sum |
 | the cubic equivariance of the bond product (Section 8.4) | `cl10/supercell.verify()` invariant 6, `V191_parity_dirac_cone`, `V192_engine_two_angle_cone` | `W P(q) W^T = P(Rq)` per momentum: 1.1e-16 at Gamma, 1.07e-1 generic, 1.40e-1 M, 1.46e-1 R |
@@ -200,7 +199,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V197_rung_arithmetic` | the rung ruler on every quoted scale: ladder rows integer-exact, every other scale off-integer by $0.06$–$0.42$ rungs, and the [$m_B$ at rung 10, $\sum m_\nu$ at $0.05$ eV] pair forces the seesaw partner to rung $2.72$ — mutually exclusive (F3) |
 | `V200_loop_weight_functional` | the weight of the traced loop census is exactly $F_n = N_n\, r_n\, I_n$ (multiplicity, mean-word Cartan amplitude, interference), word norms angle-independent, and the O8 residual is the single deficit factor $0.9644$ at the root angle |
 | `V202_loop_angle_selection` | the weight functional as an exact real cosine series of the angle (63 even phase classes, period $\pi$, $\eta \to \pi - \eta$ pairing, coefficient mirrors): the $1/(16\pi)$ crossings $0.1981004$, $0.5778509$, $1.0048608$, $1.3473566$ in $(0,\pi/2]$ - no root angle among them, $g_{10} = 1/5$ short by $1.9\times10^{-3}$ (branch ANGLE-OUTSIDE) |
-| `V203_closed_branch_coefficient` | **the closed branch measured self-consistently** (step and traced-link phase both at $\pi/4$): the odd-$n$ selection rule is exact ($3.4\times10^{-15}$), the word norms stay angle-independent, the first crossing of $1/(16\pi)$ stays at $n^* = 208$ with deficit $0.9896$ - the published ladder length survives closure - and $F_{10}(\pi/4) = 53.9$, not the hybrid eta-law $0.1949$; at $\pi/4$ the 12 M channels are EXACTLY gapless with identical spectra $\{0^{32}, \pm\pi/3, \pm2\pi/3, \pi^{32}\}$ ($64/128$ pinned, $3\times10^{-15}$ across the 12), $\Gamma$ fully pinned $64+64$, and the exactly gapless set is $\Gamma$ plus the six face-diagonal lines with a gapped bulk ($\ge 1.2\times10^{-2}$) - the V132 line network (V166 re-gaps the M nodes under the quantized Wilson factor); the reference branch's $99.44\%$ is identified exactly as a compensation $2.0881 = 3 \times 0.9644^{10}$; the per-channel factor at $n^*$ is $0.9006$ and the node-set readings $0.901\,/\,2.702\,/\,10.8$ for $\{1,3,12\}$ channels miss the required sum factor $2.306$ (closest $+30.1\%$) - the mechanism survives with zero free parameters, the precision is angle-generic |
+| `V203_closed_branch_coefficient` | **the closed branch measured self-consistently** (step and traced-link phase both at $\pi/4$): the odd-$n$ selection rule is exact ($3.4\times10^{-15}$), the word norms stay angle-independent, the first crossing of $1/(16\pi)$ stays at $n^* = 208$ with deficit $0.9896$ - the published ladder length survives closure - and $F_{10}(\pi/4) = 53.9$, not the hybrid eta-law $0.1949$; at $\pi/4$ the 12 M channels are EXACTLY gapless with identical spectra $\{0^{32}, \pm\pi/3, \pm2\pi/3, \pi^{32}\}$ ($64/128$ pinned, $3\times10^{-15}$ across the 12), $\Gamma$ fully pinned $64+64$, and the exactly gapless set is $\Gamma$ plus the six face-diagonal lines with a gapped bulk ($\ge 1.2\times10^{-2}$) - the V132 line network (V65 re-gaps the M nodes under the Wilson factor); the reference branch's $99.44\%$ is identified exactly as a compensation $2.0881 = 3 \times 0.9644^{10}$; the per-channel factor at $n^*$ is $0.9006$ and the node-set readings $0.901\,/\,2.702\,/\,10.8$ for $\{1,3,12\}$ channels miss the required sum factor $2.306$ (closest $+30.1\%$) - the mechanism survives with zero free parameters, the precision is angle-generic |
 | `V204_closed_ladder_limits_audit` | the closed-ladder concepts audited end-to-end at $\pi/4$: per-channel $(16\pi F_*)^{10} = 0.9006$, readings $0.901/2.702/10.8$ vs observed $2.0766$ and required $2.306$; rung 3 $= 9.6\times10^{13}$ GeV and rung 10 $= 118.57$ GeV (the $m_B$ the cell carries); bare rung-17 neutrino $0.146$ eV (the $1/3$ candidate $0.0487$); $\alpha_X$ root/observed $= 1.227$, $\tau_p = 2.8\times10^{39}$ yr; the $f_6$ out-of-equilibrium clause fails ($2.8\times$ observed rate, washout survives) |
 | `V205_channel_filtered_deficit` | the O8 residual measured channel-blind: the required insertion amplitude $0.96388$ (deficit $3.61\%$) against the measured crossing deficit $0.98948$ ($1.05\%$) — the traced-word sector phases at the closed clocks are fourth roots of unity, every filtered propagator trace on the pinned channel spectrum is an empty kernel ($3\times10^{-14}$), the per-Cartan insertion amplitudes are bimodal $\{0.90, 0.99\}$; the constants of observation shift the observed coefficient by only $10^{-4}$ ($2.07656$); the required deficit matches the discarded reference branch's interference deficit to $0.055\%$ |
 | `V206_clock_tension` | **O4 and O8 are one clock tension, measured**: the closure class reads the hierarchy coefficient $\{2.2995, 2.7018, 2.7048\}$ — the closest reading $10.7\%$ off, the physical branch $30.1\%$ off — while the observed $2.0766$ is read by the same self-consistent functional at $g_{\rm obs} = 0.1999980$, the rational clock $1/5$ to $10^{-5}$, with the rung-10 crossing at $0.20013$; nature's clock is not closed, the exact ladder (odd-loop cancellation below $2\times10^{-15}$) lives only on the order-$8$ closed clock family, and F2 (deficit $0.9896$ predicted against $0.96388$ required) is the decision |
@@ -280,36 +279,6 @@ the claim asserts, not when a script merely mentions the word.
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
 
-### `alt_cell` (exploration programme — the signature census and the cell/cycle census; not one of the publication's 125)
-| id | verdict |
-|---|---|
-| `V149_signature_algebra` | only Cl(10,0) and Cl(0,10) keep the 45-plane product exactly unitary; mixed signatures give anti-Hermitian planes and an O(1) unitarity residual |
-| `V150_signature_frame` | the 16/16 split survives every signature; the exact (1+3) frame needs four +I generators (q <= 6): with V149 the Euclidean root is the only signature with both |
-| `V151_signature_anomaly` | only q=0 reproduces the SM charge table; q=4 permutes the fields, q=10 conjugates the charges, odd q break the multiplets (complex hypercharges) |
-| `V152_signature_step` | q=10 gaps the sampled M nodes but has no (1+3) frame; no signature with a frame removes the 12 nodes or isotropizes a cone |
-| `V153_stage_cycle_census` | all 720 stage orderings: none removes the half-zone nodes, none reaches A < 1e-6 - the order is not the cause |
-| `V154_block_census` | blocks {2,3}^3: front speed exactly 1 everywhere, no isotropy; the (2,2,2) cell keeps its 12 M nodes under both cycles |
-| `V155_fcc_diamond` | 524 FCC/diamond 1-factorizations: zero gapless at the FCC high-symmetry points - the graphene mechanism does not transfer |
-| `V156_node_forcing` | the 12-node set is one orbit (split forced) for the implemented cell; no candidate combines a forced split with an isotropic cone |
-| `V157_hardtier` | zero census survivors; all 722 algebraically eligible near-misses pass the five hard gates (every one a restatement of the root cell) - the hard tier is jointly satisfiable but the isotropy gate eliminates everything |
-| `V158_unification_forced` | the node content is a complete 16+16-bar per node: V64's proportional-shift no-go kills the meeting for every candidate |
-| `V159_cp_census` | real type at q=0; q=10 is quaternionic AND unitary (a CP window) but has no frame: the CP phase and the Minkowski frame are mutually exclusive |
-| `V160_dm_spectrum` | the lightest mode of every candidate is a gapless node with paired mirror content: no 118 GeV carrier from geometry |
-
-### `alt_dynamics` (exploration programme — the step-rule / motion census: per-stage angles, factorizations, Floquet, quantized Wilson layers)
-| id | verdict |
-|---|---|
-| `V161_angle_per_stage` | 729 angle assignments: 720 fully gapped at the high-symmetry points; the 9 gapless rows keep the M nodes (8-12) with A >= 0.949 - no per-stage angle set removes the doubling |
-| `V162_internal_factorization` | 12 factorizations of the internal layer: only the two Cartan-preserving ones stay gapless (12/13 nodes, A = 1.0 at M); every non-Cartan factorization gaps the whole zone - the nodes are Cartan-protected |
-| `V163_mass_stage` | 90 mass-stage insertions: the M nodes survive every plane/gauge choice (gap >= 5e-4, no true cone); the mirror Z2 is never broken (leakage 0) |
-| `V164_bond_matchings` | 500 cubic 1-factorizations: 487 gapless, 31 single-orbit (12 nodes, best A 0.998); zero isotropic, zero closures - the matching is not the cause |
-| `V165_floquet` | 3 Floquet time-splittings of the root step: all three open a gap (2e-3 to 1.8e-2) at every high-symmetry point; only the time-independent anchor stays gapless |
-| `V166_wilson_quantized` | the quantized Wilson family (X: 1,1,1,1,1; Y: -1/6,1/6,1/6,1/4,1/4): 7/8 variants fully gapped; the one gapless variant keeps 8 nodes with A = 0.993 - the published coefficients are not a free choice |
-| `V167_hardtier_dynamics` | zero dynamics survivors: the closure gate eliminates every non-Wilson candidate, the front gate eliminates the mass stages - the Wilson layer is the unique causal/closure-consistent motion |
-| `V168_unification_dynamics` | 509 candidate spectra: zero forced meetings (the node content is one mode per node, not a complete 16+16-bar per node at a single momentum) - V64's no-go stands for every motion |
-| `V169_cp_dynamics` | 1336 candidates: every effective internal unitary is real type (J^2 = +1); no motion admits a CP phase - the q=0 CP obstruction is motion-independent |
-| `V170_dm_dynamics` | 509 candidate spectra: the mirror Z2 survives every motion; the lightest mode of every candidate is a gapless node and no light mode is isolated from its spectrum - no 118 GeV carrier from any motion |
-
 ### `alt_interactions` (exploration programme — the collision vertex, self-energy flow, block RG and isotropy gate)
 | id | verdict |
 |---|---|
@@ -338,19 +307,7 @@ the claim asserts, not when a script merely mentions the word.
 ### `alt_step` (exploration programme)
 | id | verdict |
 |---|---|
-| `V184_step_loss_landscape` | the differentiable cone loss over the 45-plane step space: U(g_10*1) = the implemented step to 1.3e-15, omega = gap_at to 7.2e-12, subgradient pipeline vs finite differences to 2.7e-8, K forward routes to 1.3e-15; 9-row landscape |
-| `V188_step_descent_search` | Adam descent, 25 pre-registered seeds, baseline cell, on the factorized step with finite-difference subgradients (no gradient: the loss is a max over phase pairs): descent escapes the anisotropy only by closing the gap, or stays gapless at A ~ 1 |
-| `V189_cell_step_joint_search` | joint cell x step **census** - the step factorizes as `P(q) x U(theta)^ns`, so no descent: 419 pre-registered steps x 4 cells ((2,2,2) baseline / (2,2,2) phase-major / (2,2,3) / (3,3,3)); 1580/1676 gapless, A 0.9377..1.0000, no isotropic candidate |
-| `V190_step_search_gate` | the step-search gate: 0 candidates from 1710 rows scanned (V184 9 + V188 25 + V189 1676); the baseline step remains the only closed-form gapless point reached. The searched space is single-angle, and V192 closes the wider two-angle-plus-internal question: what keeps the cone out of the root is the circuit class, not the single-angle rule |
 | `V191_parity_dirac_cone` | **why** every node found so far is flat, and the node that is not: `Hom_O_h(T1u, D (x) D*) = 0` for all ten irreps (and dim 0 by direct solve on the T1u block), so no single-parity multiplet at an inversion-invariant momentum can be conical; the parity-degenerate `A1g+T1u` pair escapes it - constructed on the O_h-invariant hopping `-24 O14 + 8 O50`, gap 2.9e-11 at Gamma, multiplicity 4, cone anisotropy 1.0e-15, rho_comm = 1/sqrt 2, `TT^dag = 16 I` to 5.6e-16; the implemented 6-stage product is exactly O_h-equivariant at Gamma (1.1e-16) and breaks it at every other momentum (1.07e-1 generic, 1.40e-1 M, 1.46e-1 R), where its stage sum is invariant to 1.1e-15 |
 | `V192_engine_two_angle_cone` | **the search for the cone inside the engine's own circuit - negative**: over the two-angle axis-symmetric stage family (`a` on the three intra-block stages, `b` on the three inter-block ones - the largest six-stage family keeping Gamma exactly covariant: 1.1e-16 at Gamma, 9.0e-1 at M, 6.3e-1 at generic q; a generic six-angle product misses Gamma covariance by 6.0e-2 best of 200 draws, a per-axis generalisation by 0.90), searched jointly with the internal angle over 33800 points of (a, b, theta) and polished to residuals below 4.3e-14, 60 points carry on-site states at phase zero, the full 128x128 step gap at most 4.4e-15. They split by parity of the gapless eigenspace, and the split is the answer: 8 points have a 4-dimensional single-parity gapless space (`A1g (+) T2g` or `A2u (+) T1u`, content read off the eigenspace by character inner product) and are flat to 1.3e-12 over 179 sampled directions, which is what Proposition 6 forces; the other 52 have the 8-dimensional parity-mixed space `A1g (+) T2g (+) A2u (+) T1u`, disperse (slope 0.09-1.73 per unit block momentum, 0.03-0.58 Planck cells/stage, inside the front speed 0.67, no amplitude outside the light cone in 12 stages) but are exactly Abelian, rho_comm <= 1.2e-11 at anisotropy 0.423 - nodal planes, not a cone. Conical nodes: 0. On the diagonal a = b, at pi/4 and 3pi/4: 64 gapless states carrying 16 x (A1g (+) T2g), gap at most 8e-17, slope at most 3e-14 - the flat zone-centre band of Section 8.3. An earlier version of this programme reported a cone here; that report rested on a root-finder placed on the wrap discontinuity of a phase difference, a gapless subspace assumed rather than taken from the eigenvectors, a small-angle extrapolation of internal phases that are not linear in the angle, and an O_h character table with five wrong improper-class entries - all four corrected here |
 | `V201_root_swap_cone` | **the cone search with the root's own sector swaps - negative**: the internal layer interleaved with each of the 10 involutions $S_c = h_c w$ of the Clifford module ($w = h_1..h_{10}$: $S^2 = I$, $SS^\dagger = I$, $\{S,w\} = 0$, $S = S^\dagger$, all exact to $0$, exchanging $\mathbf{16}$ and $\overline{\mathbf{16}}$ on the doubled module, anchored to the V192 Weyl step by $B^\dagger U_{32}^6 B = U_{16}^6$ to $8\times10^{-15}$, Gamma equivariance intact to $6.2\times10^{-17}$); the V192 grid rerun per swap (33800 points): $8$ exactly polished four-cancellation points each, all a $6$-dim $T_{2g}\oplus T_{1u}$ gapless multiplet with non-commuting tangent operators ($\rho_{\mathrm{comm}}$ 0.50–0.80 - the V192 Abelianness is removed) and vanishing linear velocity (max slope $1.7\times10^{-12}$): the non-commutativity is bought from the root, the dispersion is not, conical nodes 0 |
 
-`V189` runs in 8 min on the CPU and is re-executed by the driver like any
-other experiment. The factorization `M(q,theta) = P(q) (x) U(theta)^ns` (bond
-layer times internal layer, exact to 8e-16) makes the `q`-half a per-cell
-precomputation and a step a 16x16 eigendecomposition, instead of a `(16 n_sub)^3`
-diagonalization per optimizer step. Its internal anchor - the implemented step
-evaluated through the factorized route and through V184's `(16 n_sub)^3`
-eigendecomposition at one node, agreeing in `lam_max` to 1.3e-15 - is what proves
-the fast route is the reference route.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """V191 - the parity no-go, and the Dirac cone it leaves open.
 
-Every earlier programme in this line (V184, V188, V189, and the twelve W9
-rounds that preceded this one) measured the same thing at every gapless point
+Every earlier programme in this line - the cell-step censuses and the twelve
+W9 rounds that preceded this one - measured the same thing at every gapless point
 it could find: the touching is FLAT.  The exponent of omega(q) about the node
 is 2, the cone anisotropy A is O(1), and the tangent operators are numerically
 zero.  Those programmes reported the measurement and treated the flatness as a
@@ -67,7 +67,6 @@ single-parity node, and it is solved - exactly, isotropically, with a
 non-abelian tangent algebra - by a parity-degenerate node; the remaining work
 is a stage factorisation of that bond layer, not another search.
 """
-import importlib.util
 import itertools
 import json
 import os
@@ -85,13 +84,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 
-V189 = f"{ROOT}/experiments/alt_step/V189_cell_step_joint_search/" \
-       "V189_cell_step_joint_search.py"
-_spec = importlib.util.spec_from_file_location("V189", V189)
-V = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(V)
+from cl10 import supercell as SC                      # noqa: E402
+from cl10.altcell import FactorizedCore               # noqa: E402
 
-C = V.Core((2, 2, 2), "baseline")
+C = FactorizedCore((2, 2, 2), "baseline")
 NS = C.nsub
 GAM = np.zeros(3)
 DQ = 1e-3
@@ -413,7 +409,7 @@ def main():
 
     # ---- (5) the cost: the engine's own step -------------------------------
     def P_engine(q):
-        return V.SC.bond_product(q)   # the engine's own bond product
+        return SC.bond_product(q)    # the engine's own bond product
 
     MOM = {"Gamma": [(0.0, 0.0, 0.0)],
            "M": [(np.pi / 2, np.pi / 2, 0.0)],

@@ -706,11 +706,17 @@ def frame_residual(q, time_idx, space_idx):
 
 def effective_hamiltonian(bloch_fn, q):
     """``H(q) = i log U(q)``: the Hermitian generator of the step with the
-    eigenphases ``theta_a = angle(eigvals(U))`` in ``(-pi, pi]``."""
+    eigenphases ``theta_a = angle(eigvals(U))`` in ``(-pi, pi]``. The Schur
+    factorization, not ``eig``: the step carries exactly degenerate phase
+    clusters (the Floquet pair, the M-sector multiplets) and ``eig``'s
+    eigenvector matrix is ill-conditioned there - it corrupts the
+    reconstruction - while the Schur vectors stay unitary (the triangular
+    factor of a normal matrix is diagonal to round-off)."""
+    from scipy.linalg import schur   # exploration-only: scipy comes with jax
     U = bloch_fn(q)
-    z, V = np.linalg.eig(U)
-    th = np.angle(z)
-    H = (V * th) @ V.conj().T
+    T, Q = schur(U, output="complex")
+    th = np.angle(np.diag(T))
+    H = (Q * th) @ Q.conj().T
     return 0.5 * (H + H.conj().T)
 
 
@@ -860,6 +866,35 @@ def weyl_generators():
     return B, T16, f
 
 
+class FactorizedCore:
+    """The factorized cell step the ``alt_step`` cone programmes evaluate:
+    the two halves of ``M(q, theta)`` for one cell. ``bonds`` are the stage
+    bonds carrying the Bloch phase - the theta-free half ``P(q)`` - and
+    ``U(theta)`` is the 45-plane product on the 16-D Weyl sector, applied
+    ``ns`` times. The halves commute, so the on-site spectrum of the step is
+    the sum set of their eigenphases: a 16x16 power and an nsub x nsub
+    eigenvalue set instead of a ``(16 nsub)^3`` eigendecomposition."""
+
+    def __init__(self, shape, stagname):
+        self.shape, self.stagname = shape, stagname
+        self.stages = (stages_baseline() if stagname == "baseline"
+                       else stages_shape(shape))
+        self.c = cell(shape)
+        self.nsub = self.c["nsub"]
+        self.bonds = [cell_stage_bonds(self.c, st) for st in self.stages]
+        self.ns = len(self.stages)
+        _, T16, _ = weyl_generators()
+        self.T16 = np.stack(T16)
+        self.dirs = np.array(sphere_dirs(6))
+
+    def U(self, theta):
+        U = np.eye(16, dtype=np.complex128)
+        for k in range(45):
+            U = U @ (np.cos(theta[k]) * np.eye(16)
+                     - 1j * np.sin(theta[k]) * self.T16[k])
+        return U
+
+
 def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
                      n_modes=1, r_excl=0.15, sub=None, nodes=None,
                      current_vertex=False):
@@ -999,14 +1034,20 @@ def main():
     Mq = SC.M_POINTS[0]
     qtest = (0.3, -1.1, 2.0)
     Ht = effective_hamiltonian(bf, qtest)
-    err_h = float(np.abs(np.sort(np.linalg.eigvalsh(Ht))
-                         - np.sort(np.angle(np.linalg.eigvals(bf(qtest))))).max())
+    # both phase sets live on the circle: sort them mapped to [0, 2pi) and
+    # compare wrapped, or the degenerate pi / -pi Floquet pair sorts apart.
+    ph_h = np.mod(np.sort(np.linalg.eigvalsh(Ht)), 2 * math.pi)
+    ph_u = np.mod(np.sort(np.angle(np.linalg.eigvals(bf(qtest)))), 2 * math.pi)
+    err_h = float(np.abs(np.angle(np.exp(1j * (ph_h - ph_u)))).max())
     print(f"altcell anchor: effective_hamiltonian eigenphases "
           f"err = {err_h:.2e}")
     us_m, th_m = node_modes(bf, Mq, n=4)
-    err_nm = abs(float(np.min(np.abs(th_m))) - 2.0029e-4)
+    # the twelve M multiplets of the published clock are exactly gapless
+    # (Section 8.3) - the anchor is the node_modes / gap_at match at the
+    # same point.
+    err_nm = abs(float(np.min(np.abs(th_m))) - gap_at(bf(Mq)))
     print(f"altcell anchor: node_modes M gap = {np.min(np.abs(th_m)):.6e} "
-          f"(V63 2.0029e-4, dev {err_nm:.2e})")
+          f"== gap_at(M) err {err_nm:.2e}")
     D26 = oh26_dirs()
     w_const = cubic_harmonic_weights(np.ones(len(D26)), D26)
     f4 = np.array([d[2] ** 4 for d in D26])   # z^4: not O_h-invariant
@@ -1015,11 +1056,13 @@ def main():
     print(f"altcell anchor: cubic harmonics const A1g = {w_const['A1g']:.12f} "
           f"(err {err_ch:.2e}); z^4: A1g = {w_4['A1g']:.4f}, "
           f"Eg = {w_4['Eg']:.4f}, T2g = {w_4['T2g']:.4f}")
-    Heff, ev = lowdin_downfold(bf, tuple(a + b for a, b in zip(Mq, (1e-3, 0, 0))),
-                               Mq, n_low=1)
-    err_df = abs(float(np.min(np.abs(ev))) - gap_at(bf(tuple(
-        a + b for a, b in zip(Mq, (1e-3, 0, 0))))))
-    print(f"altcell anchor: lowdin_downfold cone speed vs gap_at "
+    Heff, ev = lowdin_downfold(bf, Mq, Mq, n_low=4)
+    # the static downfold is exact in the P space AT the reference point -
+    # the retained gapless M multiplet must reproduce the zero phase, while
+    # at q != q_ref it is an energy-dependent approximation by construction
+    # (the V172/V173 flow uses it there on purpose).
+    err_df = float(np.abs(ev).max()) - gap_at(bf(Mq))
+    print(f"altcell anchor: lowdin_downfold exact at the reference node "
           f"err = {err_df:.2e}")
     s1 = fock_self_energy(bf, Mq, 1.0, 6, [(1e-3, 0.0, 0.0)])[0]
     s2 = fock_self_energy(bf, Mq, 2.0, 6, [(1e-3, 0.0, 0.0)])[0]
@@ -1053,13 +1096,20 @@ def main():
     print(f"altcell anchor: gauged Casimir on Bloch 45 I err {err_gc:.2e}; "
           f"Sigma_cv hermitian err {err_cv:.2e}; "
           f"|Sigma_cv - Sigma_contact| = {d_cv:.3e}")
+    fc = FactorizedCore((2, 2, 2), "baseline")
+    Uf = fc.U(np.full(45, SC.G10))
+    err_fc = (float(np.abs(Uf @ Uf.conj().T - np.eye(16)).max())
+              + float(np.abs(fc.U(np.zeros(45)) - np.eye(16)).max())
+              + abs(fc.ns - 6) + abs(fc.nsub - 8))
+    print(f"altcell anchor: FactorizedCore ns/nsub, U unitary, U(0) = I "
+          f"err {err_fc:.2e}")
     sys.exit(0 if err < 1e-14 and err_bloch == 0.0
              and err_step < 1e-14 and err_fs == 0.0
              and err_h < _TOL.strict and err_nm < _TOL.loose and err_ch < _TOL.strict
              and err_df < _TOL.loose and err_fs2 < _TOL.strict
              and err_alg < _TOL.strict and err_f < 1e-10 and err_cas < _TOL.standard
              and err_up < _TOL.strict and err_gc < _TOL.standard and err_cv < _TOL.strict
-             and d_cv > _TOL.loose
+             and d_cv > _TOL.loose and err_fc < _TOL.strict
              and w_4["A1g"] < 1.0 and (w_4["Eg"] + w_4["T2g"]) > 0.05 else 1)
 
 

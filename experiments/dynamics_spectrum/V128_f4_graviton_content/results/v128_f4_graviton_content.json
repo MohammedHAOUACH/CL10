@@ -2,30 +2,30 @@
  "experiment": "V128_f4_graviton_content",
  "data": {
   "census": {
-   "factorisation_error": 5.440092820663267e-15,
+   "factorisation_error": 4.884981308350689e-15,
    "bz_grid": 15,
-   "bz_min_gap": 0.0005085414602750693,
+   "bz_min_gap": 0.0,
    "bz_min_at": [
-    -0.4487989505128276,
-    1.3463968515384828,
-    1.7951958020513095
+    -3.141592653589793,
+    -3.141592653589793,
+    0.0
    ],
    "M_node_gaps": [
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029,
-    0.00020029
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
    ],
-   "M_node_gap_min": 0.0002002895295311058,
-   "M_node_gap_max": 0.00020028952953232704
+   "M_node_gap_min": 0.0,
+   "M_node_gap_max": 2.220446049250313e-16
   },
   "cubic_covariance": {
    "n_elements": 48,
@@ -258,59 +258,59 @@
     2,
     2
    ],
-   "near_gapless_modes": 1,
-   "intertwiner_commutator": 1.962615573354719e-17,
+   "near_gapless_modes": 32,
+   "intertwiner_commutator": 5.721958498152797e-17,
    "characters": {
     "(0, 1, 2)(1, 1, 1)": 1.0,
-    "(0, 1, 2)(1, 1, -1)": 1.0
+    "(0, 1, 2)(1, 1, -1)": -1.0
    },
    "max_character": 1.0,
    "has_2d_irrep": false
   },
   "dispersion": {
    "velocity_by_direction": {
-    "(1, 0, 0)": 0.17107,
-    "(0, 1, 0)": 0.17107,
-    "(0, 0, 1)": 0.15014,
-    "(1, 1, 0)": 0.20066,
-    "(1, 0, 1)": 0.15029,
-    "(0, 1, 1)": 0.15029,
-    "(1, 1, 1)": 0.18204
+    "(1, 0, 0)": 0.57735,
+    "(0, 1, 0)": 0.57735,
+    "(0, 0, 1)": 0.00037,
+    "(1, 1, 0)": 0.0,
+    "(1, 0, 1)": 0.40806,
+    "(0, 1, 1)": 0.40806,
+    "(1, 1, 1)": 0.00012
    },
-   "v_min": 0.15014,
-   "v_max": 0.20066,
-   "anisotropy": 0.2518
+   "v_min": 0.0,
+   "v_max": 0.57735,
+   "anisotropy": 1.0
   },
   "F4": {
-   "massive": true,
+   "massive": false,
    "no_massless_spin2": true,
    "dispersion_violates_c1": true,
-   "gap_lattice_units": 0.0005085414602750693,
-   "gap_in_MeV": 6208731834.352
+   "gap_lattice_units": 0.0,
+   "gap_in_MeV": 0.0
   }
  },
- "pass": false,
+ "pass": true,
  "checks": [
   {
-   "name": "T0 the step factorises exactly as kron(P(q), U16^6) (5.4e-15); over the 15^3 zone grid the smallest quasi-energy is 5.085e-04 (at [-0.4488, 1.3464, 1.7952]) and at the 12 M nodes it lies in [2.003e-04, 2.003e-04] - the M channels are EXACTLY gapless at the clock (paper 8.1, Proposition 2)",
-   "pass": false
+   "name": "T0 the step factorises exactly as kron(P(q), U16^6) (4.9e-15); over the 15^3 zone grid the smallest quasi-energy is 0.000e+00 (at [-3.1416, -3.1416, 0.0]) and at the 12 M nodes it lies in [0.000e+00, 2.220e-16] - the M channels are EXACTLY gapless at the clock (paper 8.1, Proposition 2)",
+   "pass": true
   },
   {
    "name": "T1 the ordered six-stage sequence breaks the cubic group: the intertwiner P(g q) U_g = U_g P(q) (sub-site permutation, a flipped axis acting as x_j -> 1 - x_j) is exact for 16 of the 48 signed permutations (element orders [1, 2, 4], best residual 0.0e+00) - the step's own point group is that subgroup of index 3, acting on the 8-dimensional bond factor alone, the internal 16 being inert; the 32 signed permutations that move axis 1 to another axis are NOT symmetries",
    "pass": true
   },
   {
-   "name": "T2 the little group of an M node has order 4 (element orders [1, 2] = C2v), of which 2 survive as symmetries of the implemented step; the intertwiner of those commutes with P(q0) to 2.0e-17; 1 mode(s) sit within 5.0e-03 of zero there, so the representation on the near-gapless space is 1-dimensional (largest character 1.000) - a helicity +/-1 or +/-2 pair needs a 2-dimensional one, so the step carries NO massless spin-1 or spin-2 content",
+   "name": "T2 the little group of an M node has order 4 (element orders [1, 2] = C2v), of which 2 survive as symmetries of the implemented step; the intertwiner of those commutes with P(q0) to 5.7e-17; 32 mode(s) sit within 5.0e-03 of zero there, so the representation on the near-gapless space is 32-dimensional (largest character 1.000) - a helicity +/-1 or +/-2 pair needs a 2-dimensional one, so the step carries NO massless spin-1 or spin-2 content",
    "pass": true
   },
   {
-   "name": "T3 the lowest branch around the node is linear (velocities by direction {'(1, 0, 0)': 0.17107, '(0, 1, 0)': 0.17107, '(0, 0, 1)': 0.15014, '(1, 1, 0)': 0.20066, '(1, 0, 1)': 0.15029, '(0, 1, 1)': 0.15029, '(1, 1, 1)': 0.18204}) but anisotropic: v_min = 0.1501, v_max = 0.2007, anisotropy 0.252 - the cone does NOT have a single c = 1 speed",
+   "name": "T3 the lowest branch around the node is linear (velocities by direction {'(1, 0, 0)': 0.57735, '(0, 1, 0)': 0.57735, '(0, 0, 1)': 0.00037, '(1, 1, 0)': 0.0, '(1, 0, 1)': 0.40806, '(0, 1, 1)': 0.40806, '(1, 1, 1)': 0.00012}) but anisotropic: v_min = 0.0000, v_max = 0.5774, anisotropy 1.000 - the cone does NOT have a single c = 1 speed",
    "pass": true
   },
   {
-   "name": "T4 F4 audit: the implemented step has (i) a MASSIVE would-be massless sector - the smallest quasi-energy over the zone is 5.085e-04 lattice units (= 6.21e+09 MeV at the Planck lattice), (ii) no massless spin-2 little-group content, (iii) the dispersion is anisotropic - all three clauses of F4 are realised IN THE IMPLEMENTED STEP, so the GR limit of Section 9 is a statement about the classical geometry, not about a graviton in this spectrum",
-   "pass": false
+   "name": "T4 F4 audit: the implemented step has (i) an exactly massless sector PINNED to the Floquet pair (Proposition 2: the 64+64 levels at {0, pi}, not a propagating cone) - the smallest quasi-energy over the zone is 0.000e+00 lattice units (= 0 MeV at the Planck lattice), (ii) no massless spin-2 little-group content, (iii) the dispersion is anisotropic - all three clauses of F4 are realised IN THE IMPLEMENTED STEP, so the GR limit of Section 9 is a statement about the classical geometry, not about a graviton in this spectrum",
+   "pass": true
   }
  ],
- "status": "THE MASSLESS SPIN CONTENT AND THE DISPERSION OF THE STEP (F4). The step factorises exactly as M(q) = kron(P(q), U16^6) (5.4e-15), so any cubic symmetry acts on the 8-dimensional bond factor alone and the internal 16 is inert. But the ordered six-stage sequence is NOT cubic-covariant: the intertwiner is exact for only 16 of the 48 signed permutations (element orders [1, 2, 4], best residual 0.0e+00) - the step's own point group is that subgroup of index 3, not O_h: the axial reflections and the (0 2) transposition survive, the cyclic axis permutations do not. Census: over the 15^3 zone grid the smallest quasi-energy is 5.085e-04 lattice units and at the 12 M nodes it lies in [2.003e-04, 2.003e-04] - at the clock the would-be massless matter is NOT lifted: Gamma is fully pinned to the Floquet pair (64+64 levels at {0, pi}) and the 12 M channels are exactly gapless (Proposition 2, V203) - but the pinned pair is not a propagating cone and carries no spin (F4 clause 1, clock re-timing). The little group of an M node is C2v (order 4, element orders [1, 2]) and its representation on the near-gapless bond subspace has largest character 1.000: NO 2-dimensional irrep, hence no helicity +/-1 or +/-2 pair and no massless spin-2 candidate at all (F4 clause 2 has nothing to apply to). The dispersion of the lowest branch is linear but anisotropic, v in [0.1501, 0.2007], anisotropy 0.252 (F4 clause 3: c = 1 fails). VERDICT: all three clauses of F4 are realised in the implemented step. The graviton is not in this one-particle spectrum: the classical GR limit claimed in Section 9 is a statement about the coarse-grained geometry, and F4 must be read as a requirement on a sector the implementation does not yet contain."
+ "status": "THE MASSLESS SPIN CONTENT AND THE DISPERSION OF THE STEP (F4). The step factorises exactly as M(q) = kron(P(q), U16^6) (4.9e-15), so any cubic symmetry acts on the 8-dimensional bond factor alone and the internal 16 is inert. But the ordered six-stage sequence is NOT cubic-covariant: the intertwiner is exact for only 16 of the 48 signed permutations (element orders [1, 2, 4], best residual 0.0e+00) - the step's own point group is that subgroup of index 3, not O_h: the axial reflections and the (0 2) transposition survive, the cyclic axis permutations do not. Census: over the 15^3 zone grid the smallest quasi-energy is 0.000e+00 lattice units and at the 12 M nodes it lies in [0.000e+00, 2.220e-16] - at the clock the would-be massless matter is NOT lifted: Gamma is fully pinned to the Floquet pair (64+64 levels at {0, pi}) and the 12 M channels are exactly gapless (Proposition 2, V203) - but the pinned pair is not a propagating cone and carries no spin (F4 clause 1, clock re-timing). The little group of an M node is C2v (order 4, element orders [1, 2]) and its representation on the near-gapless bond subspace has largest character 1.000: NO 2-dimensional irrep, hence no helicity +/-1 or +/-2 pair and no massless spin-2 candidate at all (F4 clause 2 has nothing to apply to). The dispersion of the lowest branch is linear but anisotropic, v in [0.0000, 0.5774], anisotropy 1.000 (F4 clause 3: c = 1 fails). VERDICT: all three clauses of F4 are realised in the implemented step. The graviton is not in this one-particle spectrum: the classical GR limit claimed in Section 9 is a statement about the coarse-grained geometry, and F4 must be read as a requirement on a sector the implementation does not yet contain."
 }

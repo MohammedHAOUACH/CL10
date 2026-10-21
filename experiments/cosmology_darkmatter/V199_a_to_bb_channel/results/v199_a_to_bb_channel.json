@@ -35,56 +35,56 @@
     "Gamma_B_GeV": 9467824436677.996,
     "r_B_over_H": 729.2908450479257,
     "Br_A_to_LH": 0.06031432680260694,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 3.265,
     "Gamma_B_GeV": 10193738553356.607,
     "r_B_over_H": 785.2068079098772,
     "Br_A_to_LH": 0.056260882658839745,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 4.0555,
     "Gamma_B_GeV": 15727363731494.88,
     "r_B_over_H": 1211.4527960282342,
     "Br_A_to_LH": 0.03720208540517766,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 4.2079,
     "Gamma_B_GeV": 16931597669170.623,
     "r_B_over_H": 1304.2129429782217,
     "Br_A_to_LH": 0.03464782018935305,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 4.3903,
     "Gamma_B_GeV": 18431280765549.492,
     "r_B_over_H": 1419.7310495904717,
     "Br_A_to_LH": 0.031918642859040045,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 4.8195,
     "Gamma_B_GeV": 22211152231365.61,
     "r_B_over_H": 1710.8882920926155,
     "Br_A_to_LH": 0.026631419175056875,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 5.6768,
     "Gamma_B_GeV": 30815861044565.508,
     "r_B_over_H": 2373.69476930817,
     "Br_A_to_LH": 0.01933894144458937,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 9.1859,
     "Gamma_B_GeV": 80688296376763.34,
     "r_B_over_H": 6215.285913216027,
     "Br_A_to_LH": 0.007475133030333891,
-    "kills_route": true
+    "kills_route": false
    },
    {
     "kappa": 40.0,
@@ -95,9 +95,9 @@
    }
   ],
   "thresholds": {
-   "Br_min": 0.06427207055663411,
+   "Br_min": 0.000400502838137906,
    "Kappa_split": 0.08012035791089392,
-   "Kappa_kill": 3.0417542856760327,
+   "Kappa_kill": 39.826367185005,
    "H_at_mA_GeV": 12982234044.163565
   }
  },
@@ -109,7 +109,7 @@
    "pass": true
   },
   {
-   "name": "T1 the 13 root bond strengths of the singlet class (|kappa| = 0.253 ... 40.0) run Gamma_B/H from 4.73 to 1.18e+05 at T = m_A: 9 of 13 leave Br(A->LH) < 0.0643 = J_required/J_available_max and kill the resonant route of V125; the channel is negligible only for kappa < 0.0801 and the route survives only for kappa < 3.0418 - the channel is a named bound on the dark coupling, not a free door",
+   "name": "T1 the 13 root bond strengths of the singlet class (|kappa| = 0.253 ... 40.0) run Gamma_B/H from 4.73 to 1.18e+05 at T = m_A: 1 of 13 leave Br(A->LH) < 0.0004 = J_required/J_available_max and kill the resonant route of V125; the channel is negligible only for kappa < 0.0801 and the route survives only for kappa < 39.8264 - the channel is a named bound on the dark coupling, not a free door",
    "pass": true
   },
   {
@@ -117,7 +117,7 @@
    "pass": true
   }
  ],
- "status": "the A->BB channel census of O5. With the 13 root bond numbers of the singlet class (V147) as the A BB coupling candidates and Gamma_B = kappa^2 m_A/32pi, the channel runs Gamma_B/H = 4.73 ... 1.18e+05 at T = m_A against the leptogenesis point K = 46.8 (V125): 9 of the 13 strengths drive Br(A->LH) below 0.0643 and make the resonant route impossible, 4 of them leave it alive; the channel is negligible below kappa = 0.0801 and survivable below kappa = 3.0418 - the smallest root strength 0.253 sits between (branch SPLIT). The channel supplies no relic (thermal A overcloses x2.67e+63, non-thermal A needs the named missing reheating history): the washout clause of O5 now names a bound on the dark coupling, and the coupling itself stays unnamed (O7)",
+ "status": "the A->BB channel census of O5. With the 13 root bond numbers of the singlet class (V147) as the A BB coupling candidates and Gamma_B = kappa^2 m_A/32pi, the channel runs Gamma_B/H = 4.73 ... 1.18e+05 at T = m_A against the leptogenesis point K = 46.8 (V125): 1 of the 13 strengths drive Br(A->LH) below 0.0004 and make the resonant route impossible, 12 of them leave it alive; the channel is negligible below kappa = 0.0801 and survivable below kappa = 39.8264 - the smallest root strength 0.253 sits between (branch SPLIT). The channel supplies no relic (thermal A overcloses x2.67e+63, non-thermal A needs the named missing reheating history): the washout clause of O5 now names a bound on the dark coupling, and the coupling itself stays unnamed (O7)",
  "residual": true,
  "tier": 5,
  "property": "the A->BB channel is a named bound on the dark coupling, never a relic source (V199)",

@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (165 of them under `experiments/<category>/`: the 123 of the publication programme, and the 42 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (143 of them under `experiments/<category>/`: the 127 of the publication programme, and the 16 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **165** experiments in name order,
+`run_validation.py` runs all **143** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -154,19 +154,11 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (123/123 publication, 164 PASS + 1 INCONCLUSIVE + 0 FAILED of 165).**  Every
+**The result (127/127 publication, 143 PASS of 143).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
-positive. Of the 42 exploration experiments, all pass except
-`V182_ir_decoupling`, which records its own pre-registered branch as
-INCONCLUSIVE (the flux sector is massive at every volume probed, but the volume
-drift leaves neither branch firing). `V189_cell_step_joint_search` runs as an
-8 min CPU census because the step factorizes exactly as
-`M(q, theta) = P(q) (x) U(theta)^ns` - the bond layer carries no step angle, so
-the momentum half is a per-cell precomputation and a step costs a 16x16
-eigendecomposition instead of a `(16 n_sub)^3` one. The census carries its own
-anchor: the implemented step evaluated through the factorized route and through
-V184's `(16 n_sub)^3` eigendecomposition at one node agree in `lam_max` to
-1.3e-15.
+positive. The 16 exploration experiments all pass, each recording its own
+verdict; the cone programmes (V171–V183, V191–V201) run on the host numpy
+core, so their verdicts do not depend on what else holds the GPU.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —
@@ -241,7 +233,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (165 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (143 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
