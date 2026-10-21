@@ -622,22 +622,22 @@ def fig25_residual_attacks():
                         / (gD ** 2 * e2 * 3.0 * 4 * ms ** 2))
     eps_dd = np.sqrt(dd_lim * math.pi * mzp ** 4
                      / (gD ** 2 * e2 * mu_N ** 2))
-    ax4.plot(mzp, eps_relic, color=C_FIT, lw=1.8,
+    ax4.plot(mzp, eps_relic, color=C_FIT, lw=2.4, zorder=5,
              label=r"relic $\Omega h^2$: $\varepsilon$ needed")
-    ax4.plot(mzp, eps_dd, color=C_OPEN, lw=1.8,
+    ax4.plot(mzp, eps_dd, color=C_OPEN, lw=2.0, zorder=5,
              label=r"DD bound $\sigma_{\rm SI} < 2\times10^{-47}$: ceiling")
     ax4.fill_between(mzp, eps_dd, eps_relic, facecolor="none",
                      edgecolor=C_OPEN, hatch="///", alpha=0.6,
                      label="no overlap: window empty")
-    ax4.axvspan(20, 2900, ymin=0.93, color=C_CONV, alpha=0.3)
-    ax4.text(0.03, 0.90, "LEP-class $Z'$ reach", fontsize=9.5,
-             color=C_CONV, transform=ax4.transAxes, va="top")
+    ax4.axvspan(20, 2900, ymin=0.95, color=C_CONV, alpha=0.18)
+    ax4.text(0.5, 0.985, "LEP-class $Z'$ reach", fontsize=9.5,
+             color=C_CONV, transform=ax4.transAxes, va="top", ha="center")
     ax4.set_xscale("log")
     ax4.set_yscale("log")
     ax4.set_ylim(1e-8, 1e-1)
     ax4.set_xlabel(r"$m_{Z'}$ [GeV]  ($g_D = 1$)")
     ax4.set_ylabel("kinetic mixing $\\varepsilon$")
-    ax4.legend(fontsize=9.5, loc="lower left")
+    ax4.legend(fontsize=9.5, loc="lower right")
     ax4.set_title("(d) O7: dark U(1) portal — relic needs\n"
                   r"$g_D\varepsilon \gtrsim 0.02$, DD allows "
                   r"$\lesssim 10^{-3}$:" "\nwindow EMPTY",
