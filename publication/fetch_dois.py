@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resolve and verify DOIs for the 53 references in doc/final_publication.md.
+"""Resolve and verify DOIs for the numbered references in doc/final_publication.md.
 
 For each numbered reference: search Crossref by the quoted title (math
 stripped), verify title similarity + year + (when present) volume/page.
