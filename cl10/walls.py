@@ -42,6 +42,7 @@ _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 M_PLANCK = u10pred.M_PLANCK   # GeV (the cutoff; M_GUT = M_P is NOT assumed)
 V_EW = u10pred.V_EW           # GeV (the measured electroweak vev)
 G0 = coupling.G0              # 1/8 (the g_0 = 1/2^n_space reading: a convention)
+EV_PER_GEV = float(_config.CFG.units.ev_per_gev)  # GeV -> eV (config units)
 
 
 # ---------------------------------------------------------------------------
@@ -105,8 +106,8 @@ def w2_seesaw():
     m_D = G0 * V_EW                  # 30.7 GeV (the Dirac mass from the g_0 reading)
     M_N = nv.twostep_scale()         # the ladder 2-step scale (the integer fitted, O2)
     M_GUT = M_PLANCK                 # the cutoff, for the 1-step comparison
-    m_nu_2step = m_D ** 2 / M_N * 1e9      # GeV -> eV
-    m_nu_1step = m_D ** 2 / M_GUT * 1e9    # GeV -> eV
+    m_nu_2step = m_D ** 2 / M_N * EV_PER_GEV      # GeV -> eV
+    m_nu_1step = m_D ** 2 / M_GUT * EV_PER_GEV    # GeV -> eV
     m_nu_obs = nv.M_ATM_EV                 # the observed heaviest scale (eV)
     off_1step = m_nu_1step / m_nu_obs      # the 1-step is ~6 orders off
     off_2step = m_nu_2step / m_nu_obs      # the 2-step is ~0.7 orders off

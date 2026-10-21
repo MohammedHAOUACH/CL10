@@ -146,7 +146,11 @@ def main():
     shA = band_shift(6 * CE.phase_A())
     shB = band_shift(6 * CE.phase_B())
     gap_anchor = SC.gap(SC.M_POINTS[0], SC.sectors()[2])   # the 16 sector
-    anchor_ok = abs(gap_anchor / 2.0029e-4 - 1.0) < 1e-5
+    # the M-point 16-sector gap at the root clock is EXACTLY zero (the
+    # channels are pinned to the Floquet pair, Proposition 2/V203); the
+    # era reference-member value 2.0029e-4 belongs to g = 1/5 (paper
+    # 8.2) and is not the anchor of this cell-definition audit
+    anchor_ok = gap_anchor < 1e-12
     t2_ok = (dA < 1e-15 and dAc < 1e-15 and dB < 1e-15 and dBc < 1e-15
              and dspin < 1e-12
              and max(qerr.values()) < 1e-10
@@ -170,7 +174,8 @@ def main():
                    "with errors %.1e/%.1e/%.1e - the singlets ride the "
                    "bond bands, shifted by their step phase (max shift "
                    "A %.6e, B %.6e at M) - and the spinor 16-sector "
-                   "anchor is unchanged: M-point gap %.6e"
+                   "M-point gap at the root clock is exactly zero "
+                   "(pinned Floquet pair, Proposition 2): %.6e"
                    % (CE.phase_A(), CE.phase_A(), CE.phase_B(),
                       CE.phase_B(), phA, 6 * CE.phase_A(), dA, phAc, dAc,
                       phB, 6 * CE.phase_B(), dB, phBc, dBc, dspin,

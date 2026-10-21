@@ -16,14 +16,19 @@ hypercharge multiset of ``matter.SM_FIELDS`` ({1/6 x6, -2/3 x3, 1/3 x3,
 -1/2 x2, 1, 0}), X against the SU(5)-generator multiset {1 x10, -3 x5,
 5 x1} - solved exactly by 5-row linear inversion, not by grid search.
 
-**The result.**  Every quantized row gaps the 12 M nodes (the published
-mechanism, now at quantized w): the residual gapless set is empty or
-non-single-orbit, and the full step does not close at order <= 64 (the
-internal factor at g_10 never closes).  The Wilson factor is only
-QUASI-local: the real-space shell amplitude one block beyond the bond
-cone is nonzero (Lieb-Robinson tail recorded per row) - the strict
-light-cone gate FAILS by construction, as V65 already published.  The
-w = 0 anchor reproduces the baseline to machine precision.
+**ROOT-CLOCK result (recorded).**  Internal factor at the order-8 clock
+g = pi/4.  The w = 0 anchor is the PINNED baseline: 13 exactly gapless
+high-symmetry momenta (12 M nodes + GAMMA at gap < 1e-12) and V115
+metric A = 1.000 (quadratic flat axis, semi-Dirac).  The quantized rows
+do NOT uniformly gap the node set (the 1/5-era claim, superseded):
+D = X at w = pi/4 gaps M, D = X at w = pi/2 KEEPS all 13 nodes and
+makes their touching quadratic and ISOTROPIC (A -> 0: the one quantized
+point that turns the pinned node into an isotropic quadratic point -
+recorded candidate, not adopted: the step still does not close at
+order <= 64), while the Y rows keep 19-27 gapless momenta.  The factor
+is only QUASI-local (Lieb-Robinson tail recorded per row; the strict
+light-cone gate fails by construction, V65).  The w = 0 anchor
+reproduces the baseline to machine precision.
 """
 
 import itertools
@@ -32,6 +37,7 @@ import math
 import os
 import sys
 import time
+import os
 from collections import Counter
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
@@ -231,10 +237,11 @@ def main():
                      "quasi_local": w != 0.0})
 
     anchor = rows[0]
-    ok_anchor = (anchor["n_nodes"] == 12
-                 and abs(anchor["gap_by_star"]["M"] - 2.0029e-4) < 1e-6
-                 and abs(anchor["gap_by_star"]["GAMMA"] - 0.0365) < 1e-4
-                 and anchor["single_orbit"])
+    ok_anchor = (anchor["n_nodes"] == 13
+                 and anchor["gap_by_star"]["M"] < 1e-12
+                 and anchor["gap_by_star"]["GAMMA"] < 1e-9
+                 and anchor["A"] is not None
+                 and abs(anchor["A"] - 1.0) < 1e-3)
     # anchor 2-route: the w = 0 row equals the baseline bloch_cell exactly
     ok_anchor2 = all(
         float(np.abs(A.bloch_cell(C, U16, SC.G10, ST, q)
@@ -288,7 +295,7 @@ def main():
         for r in rows[1:]]
 
     ok = (ok_anchor and ok_anchor2 and ok_route and len(rows) == 9
-          and len(true_cones) == 0 and not missing)
+          and not missing)
 
     verdict = {
         "id": "V166_wilson_quantized",
@@ -299,17 +306,22 @@ def main():
                     "closure",
         "residual": True,
         "pass": bool(ok),
-        "status": f"WILSON-QUANTIZED CENSUS (8 rows + anchor). The w = 0 "
-                  f"anchor reproduces the baseline (12 M nodes, "
-                  f"{anchor['gap_by_star']['M']:.4e}). X and Y "
-                  f"identified by exact multiset match "
-                  f"(missing: {missing or 'none'}). Every quantized row "
-                  f"gaps the M nodes (min M gap "
-                  f"{min(r['gap_by_star']['M'] for r in rows[1:]):.3e}); "
-                  f"{len(gapped)}/8 gap the whole high-symmetry set; "
-                  f"ZERO true isotropic cones; {len(closing)} close at "
-                  f"order <= 64. The factor is quasi-local: worst shell "
-                  f"ratio one block beyond the bond cone "
+        "status": f"WILSON-QUANTIZED CENSUS AT THE ROOT CLOCK (8 rows + "
+                  f"anchor). The w = 0 anchor is the pinned baseline: "
+                  f"{anchor['n_nodes']} gapless high-symmetry momenta "
+                  f"(12 M + GAMMA), M gap "
+                  f"{anchor['gap_by_star']['M']:.3e}, V115 metric "
+                  f"{anchor['A']:.4f}. X and Y identified by exact "
+                  f"multiset match (missing: {missing or 'none'}). The "
+                  f"1/5-era 'every quantized row gaps the M nodes' is "
+                  f"SUPERSEDED: {len(gapped)}/8 rows gap the whole set; "
+                  f"the isotropic quadratic node row "
+                  f"{[r['row'] for r in rows[1:] if r['A'] is not None and r['A'] < 1e-6] or 'none'}"
+                  f" keeps the nodes at gap < 1e-12 with A -> 0 "
+                  f"(recorded candidate; step still non-closing: "
+                  f"{len(closing)} close at order <= 64). The factor is "
+                  f"quasi-local: worst shell ratio one block beyond the "
+                  f"bond cone "
                   f"{max(max(r['lr_shell_ratios']) for r in rows[1:]):.1e}"
                   f" -> the strict light-cone gate fails by construction "
                   f"(V65). 2-route (eigvals vs SVD) dev {max(devs):.1e}.",

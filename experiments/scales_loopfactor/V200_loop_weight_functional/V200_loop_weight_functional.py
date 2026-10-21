@@ -44,6 +44,11 @@ import time
 
 os.environ["CL10_BACKEND"] = "numpy"
 
+# pinned reference-branch clock: the word census is Cartan-dark at the closed
+# default_branch angle, and V126's own pin latches too late here (V79/V85
+# import cl10 first) - pin the clock before any cl10 import.
+os.environ["CL10_ANGLE"] = "0.2"
+
 import numpy as np                                             # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))

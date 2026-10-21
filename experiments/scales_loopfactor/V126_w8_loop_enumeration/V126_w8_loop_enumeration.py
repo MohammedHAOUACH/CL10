@@ -34,14 +34,16 @@ of V89 is a fit to an interference pattern.
    (MG)^n to machine precision for every n.
 2. Word census n = 2..10: surviving words N_n, the growth rate, the largest
    single word, the top sector sequences.
-3. Interference: ||sum of word vectors|| / sum of word norms at eta = 0.2,
-   eta = 0 and eta = 1.4423; the eta = 0 loop factor against the root one.
+3. Interference: ||sum of word vectors|| / sum of word norms at the
+   branch phase eta = 1/5, at eta = 0, and at the division-optimal
+   phase 1.4423; the eta = 0 loop factor against the root one.
 4. The selection rule: which sectors appear at which n, and the mod-4 pattern
    explained (or not) by the word structure.
 5. The ladder extrapolation with multiplicity: the per-word decay and the
    entropy rate, and whether their product reaches (1/16 pi)^17.
 """
 import json
+import math
 import os
 import sys
 import time
@@ -51,6 +53,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: at the pi/4 clock every word Cartan
+# amplitude is a numerical zero (Cartan-dark propagator) and the word
+# census degenerates - verified, see V85/V89 BRANCH notes.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V85_closed_loop_factor"))
@@ -65,7 +71,7 @@ from cl10 import u10pred                                    # noqa: E402
 
 D_L = 45
 LOOP = u10pred.LOOP
-ETA_ROOT = 0.2
+ETA_ROOT = sm_qca.G10
 ETA_FMIN = 1.4423076923076923
 NMAX = 10
 
@@ -172,20 +178,23 @@ def main():
                      "total": round(float(np.abs(c["total"]).sum()), 12)})
     out["data"]["census"] = rows
     Ns = [r["surviving"] for r in rows]
-    growth = [(Ns[i + 1] / Ns[i]) if Ns[i] else 0.0 for i in range(len(Ns) - 1)]
-    checks.append(("T1 word census at the root: surviving words per length "
-                   "n = 2..%d are %s (out of 3^n); the survival rate %s, so "
-                   "the multiplicity grows like %.3f^n - the loop sum is NOT "
-                   "dominated by a single class"
+    growth = [(Ns[i + 1] / Ns[i]) if Ns[i] else 0.0
+              for i in range(len(Ns) - 1)]
+    growth_max = max((g for g in growth if g > 0), default=0.0)
+    checks.append(("T1 word census at the branch: surviving words per "
+                   "length n = 2..%d are %s (out of 3^n); the survival "
+                   "rate %s, so the multiplicity grows like %.3f^n - "
+                   "the loop sum is NOT dominated by a single class"
                    % (NMAX, Ns,
                       "falls with n" if growth and growth[-1] < growth[0]
                       else "is flat",
-                      max(g for g in growth if g > 0) if any(growth) else 0.0),
+                      growth_max),
                    all(s > 0 for s in Ns)))
 
     # ---- T2 interference: the eta = 0 control ------------------------------
     inter = {}
-    for eta, tag in ((ETA_ROOT, "root"), (0.0, "no phase"), (ETA_FMIN, "Fmin")):
+    for eta, tag in ((ETA_ROOT, "root"), (0.0, "no phase"),
+                     (ETA_FMIN, "Fmin")):
         Bx = sectors(eta, Ma, ev, G)
         cx = word_census(Bx, cartan, NMAX)
         rec = {}
@@ -204,7 +213,8 @@ def main():
     checks.append(("T2 interference at length 10: the ratio ||sum of words|| / "
                    "sum ||word|| is %.4f at the root (eta = %.2f), %.4f with "
                    "the Wilson phase switched off (eta = 0) and %.4f at the "
-                   "Fmin angle; F_10 = %.5f (root) against %.5f (eta = 0)"
+                   "division-optimal phase; F_10 = %.5f (root) against "
+                   "%.5f (eta = 0)"
                    % (root_c, ETA_ROOT,
                       inter["no phase"][10]["cancellation"],
                       inter["Fmin"][10]["cancellation"],
@@ -244,8 +254,8 @@ def main():
             avg = sum(c["norms"]) / c["surviving"]
             per_word.append((n, avg ** (1.0 / n)))
             entropy.append((n, c["surviving"] ** (1.0 / n)))
-    r_word = per_word[-1][1]
-    mu = entropy[-1][1]
+    r_word = per_word[-1][1] if per_word else float("nan")
+    mu = entropy[-1][1] if entropy else float("nan")
     F10_root = inter["root"]["F10"]
     ladder17 = LOOP ** (2 * u10pred.RUNG_B - u10pred.RUNG_A)  # 2*10-3 = 17 (config rungs)
     extrap = (mu * r_word) ** 170
@@ -283,7 +293,7 @@ def main():
         "%.4f with the Wilson phase off, and F_10 = %.5f at the root against "
         "%.5f at eta = 0 - the phase %s the factor. %s"
         % ([round(e, 2) for e in ev], dec_err, F10, v85_F10,
-           census[10]["surviving"], max(g for g in growth if g > 0),
+           census[10]["surviving"], growth_max,
            r_word, mu, mu * r_word, census[10]["surviving"], root_c,
            inter["no phase"][10]["cancellation"], inter["root"]["F10"],
            inter["no phase"]["F10"],

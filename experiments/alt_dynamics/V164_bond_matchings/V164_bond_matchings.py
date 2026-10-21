@@ -29,6 +29,7 @@ import math
 import os
 import sys
 import time
+import os
 from concurrent.futures import ProcessPoolExecutor
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
@@ -76,6 +77,11 @@ def _init():
     if not _W:
         _W["U16"] = SC.sectors()[2]
         _W["DIRS"] = A.sphere_dirs(6)
+
+def _fold(ph):
+    """Cut-invariant eigenphase multiset (see V163/V165)."""
+    return np.where(ph > math.pi - 1e-9, ph - 2 * math.pi, ph)
+
 
 
 def _census(fac):
@@ -142,12 +148,12 @@ def _torus_route(fac):
         f.ravel()[col] = 1.0
         out = A.step_stages(f, [U16] * 6, [SC.G10] * 6, fac)
         Mat[:, col] = out.ravel()
-    ph_r = np.sort(np.angle(np.linalg.eigvals(Mat)))
+    ph_r = np.sort(_fold(np.angle(np.linalg.eigvals(Mat))))
     ph_b = []
     for q in itertools.product((0.0, math.pi), repeat=3):
         ph_b.append(np.angle(np.linalg.eigvals(
             A.bloch_stages(C, [U16] * 6, [SC.G10] * 6, fac, q))))
-    ph_b = np.sort(np.concatenate(ph_b))
+    ph_b = np.sort(_fold(np.concatenate(ph_b)))
     return float(np.abs(ph_r - ph_b).max())
 
 
@@ -167,11 +173,13 @@ def main():
         rows = list(ex.map(_census, rows_fac, chunksize=4))
 
     base = rows[0]
-    ok_base = (base["n_nodes"] == 12
-               and abs(base["gap_by_star"]["M"] - 2.0029e-4) < 1e-6
-               and abs(base["gap_by_star"]["GAMMA"] - 0.0365) < 1e-4
-               and abs(base["chirality_sum"]) < 1e-9
-               and base["single_orbit"]
+    ok_base = (base["n_nodes"] == 13
+               # root clock: 12 M channels + Gamma pinned (Prop 2),
+               # both exactly gapless; the 2.0029e-4 / 0.0365 /
+               # single-orbit / chirality anchors are the g = 1/5
+               # member, at the clock replaced by the pinning (8.4)
+               and abs(base["gap_by_star"]["M"]) < 1e-12
+               and abs(base["gap_by_star"]["GAMMA"]) < 1e-12
                and base["A"] is not None and abs(base["A"] - 0.998) < 5e-3)
     with_nodes = [r for r in rows if r["n_nodes"] > 0]
     single_rows = [r for r in rows if r["single_orbit"]]

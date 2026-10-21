@@ -38,6 +38,7 @@ import json
 import os
 import sys
 import time
+import os
 
 os.environ["CL10_BACKEND"] = "numpy"
 os.environ.setdefault("JAX_PLATFORMS", "cpu")

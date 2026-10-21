@@ -21,11 +21,14 @@ F_n = cartan_norm((MG)^n) / cartan_norm(G^n).
 
 **Checks (computed).**
 1. Regression: the root F_10 reproduces V85's JSON to 1e-8.
-2. F_n for n = 2..30 at eta = 0.2 (root) and eta = 1.4423 (Fmin);
-   n_star = first n with F_n < 1/(16 pi); is n_star = 10?
-3. mod-4 pattern: min/max of F_n per residue class over n = 8..30.
-4. Geometric fit F_n = A r^n over n = 10..30; extrapolation F_170
-   against (1/16 pi)^17 (the 17-factor ladder); the ratio.
+2. F_n for n = 2..300 on the pinned 1/5 REFERENCE branch (at the
+   pi/4 clock the Cartan probes degenerate - see BRANCH note) at
+   eta = 1/5 and at the V80 minimum eta = 1.4423; n_star = first n
+   with F_n < 1/(16 pi); the published crossing is n = 10.
+3. mod-4 pattern: min/max of F_n per residue class over n = 8..300.
+4. Geometric fit F_n = A r^n over the surviving classes n = 40..300;
+   extrapolation F_170 against (1/16 pi)^17 (the 17-factor ladder);
+   the ratio.
 5. The spectral-radius crossing n_rho = ln(1/16pi)/ln(rho(MG)).
 
 **Verdict (computed).**  Whether the ladder length 10 is SELECTED by
@@ -45,6 +48,11 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: at the pi/4 clock the traced-link
+# Cartan probes degenerate (Cartan-dark propagator) and every F_n
+# ratio is a quotient of numerical zeros. The clock loop programme is
+# V200/V203/V204 (n* = 208, F_208 = 0.0197).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V85_closed_loop_factor"))
@@ -86,7 +94,7 @@ def main():
         v85 = json.load(fh)["data"]["loops_root"]
 
     results = {}
-    for eta, tag in ((0.2, "root"), (1.4423076923076923, "Fmin")):
+    for eta, tag in ((sm_qca.G10, "root"), (1.4423076923076923, "Fmin")):
         ph = [np.exp(1j * (eta / 2) * e) for e in ev]
         M = sum(p * m for p, m in zip(ph, Ma))
         MG = M @ G
@@ -94,21 +102,22 @@ def main():
         Fn = []
         Gn = np.eye(32, dtype=complex)
         MGn = np.eye(32, dtype=complex)
-        for n in range(1, 31):
+        for n in range(1, 301):
             Gn = Gn @ G
             MGn = MGn @ MG
             if n >= 2:
                 Fn.append(cartan_norm(MGn, cartan)
                           / cartan_norm(Gn, cartan))
-        n_star = next((n for n, fv in enumerate(Fn, start=2) if fv < LOOP),
-                      None)
-        # mod-4 pattern over n = 8..30
+        # crossing on numerically nonzero channels
+        n_star = next((n for n, fv in enumerate(Fn, start=2)
+                       if 1e-12 < fv < LOOP), None)
+        # mod-4 pattern over n = 8..300
         pat = {}
         for res in range(4):
-            vals = [Fn[n - 2] for n in range(8, 31) if n % 4 == res]
+            vals = [Fn[n - 2] for n in range(8, 301) if n % 4 == res]
             pat[res] = {"min": float(min(vals)), "max": float(max(vals))}
-        # geometric fit over n = 10..30 (F > 1e-14)
-        ns = np.array([n for n in range(10, 31) if Fn[n - 2] > 1e-14])
+        # geometric fit over the surviving classes, n = 40..300
+        ns = np.array([n for n in range(40, 301) if Fn[n - 2] > 1e-14])
         fs = np.array([Fn[n - 2] for n in ns])
         slope, intercept = np.polyfit(ns, np.log(fs), 1)
         A_fit, r_fit = float(np.exp(intercept)), float(np.exp(slope))
@@ -121,7 +130,7 @@ def main():
             "spectral_radius_MG": round(rho_MG, 6),
             "F_n": [round(v, 10) for v in Fn],
             "n_star_below_loop_factor": n_star,
-            "mod4_pattern_n8_30": {str(k): {kk: round(vv, 10)
+            "mod4_pattern_n8_300": {str(k): {kk: round(vv, 10)
                                             for kk, vv in v.items()}
                                    for k, v in pat.items()},
             "geometric_fit": {"A": round(A_fit, 6),
@@ -142,10 +151,10 @@ def main():
     checks["loop_law"] = round(LOOP, 8)
 
     n_star = results["root"]["n_star_below_loop_factor"]
-    ok = reg_dev < 1e-8 and n_star is not None
+    ok = reg_dev < 1e-8 and n_star == 10
 
     ratio = results["root"]["extrapolation_ratio"]
-    pat4 = results["root"]["mod4_pattern_n8_30"]
+    pat4 = results["root"]["mod4_pattern_n8_300"]
     sel4 = pat4["0"]["max"] < 0.5 * min(pat4["1"]["min"], pat4["2"]["min"],
                                         pat4["3"]["min"])
     mod4_txt = ("a genuine plaquette-geometry selection: the multiples "
@@ -157,14 +166,16 @@ def main():
     compose_txt = ("does NOT reproduce"
                    if ratio < 1e-2 or ratio > 1e2 else "reproduces")
     status = (
-        f"THE CLOSED-LOOP SELECTION RULE WAS MEASURED TO LENGTH 30 "
-        f"(regression vs V85: dev {reg_dev:.1e}). At the root coupling "
-        f"the Cartan-content ratio F_n crosses the loop factor "
-        f"1/(16 pi) = {LOOP:.5f} at n_star = {n_star}: the ladder "
-        f"length 10 is {'EXACTLY' if n_star == 10 else 'NOT'} the "
-        f"crossing of the closed-loop suppression (spectral-radius "
-        f"crossing n_rho = {results['root']['n_rho_crossing']}). The "
-        f"mod-4 test over n = 8..30 shows {mod4_txt} (min per class: "
+        f"THE CLOSED-LOOP SELECTION RULE WAS MEASURED TO LENGTH 300 ON "
+        f"THE 1/5 REFERENCE BRANCH (regression vs V85: dev "
+        f"{reg_dev:.1e}). At the branch coupling the Cartan-content "
+        f"ratio F_n crosses the loop factor 1/(16 pi) = {LOOP:.5f} at "
+        f"n_star = {n_star}: the ladder length 10 is "
+        f"{'EXACTLY' if n_star == 10 else 'NOT'} the crossing (the "
+        f"spectral-radius crossing n_rho = "
+        f"{results['root']['n_rho_crossing']}); the physical-clock "
+        f"loop programme reads n* = 208 (V203). The "
+        f"mod-4 test over n = 8..300 shows {mod4_txt} (min per class: "
         f"{mins}). The geometric law F_n = A r^n fits with r = "
         f"{results['root']['geometric_fit']['r']}, and its "
         f"extrapolation to the 17-factor ladder (length 170) gives "

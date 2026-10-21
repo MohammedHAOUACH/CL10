@@ -43,6 +43,7 @@ import json
 import math
 import os
 import sys
+import os
 
 import numpy as np
 
@@ -151,12 +152,12 @@ def main():
     checks.append(("T0 the step factorises exactly as kron(P(q), U16^6) "
                    "(%.1e); over the %d^3 zone grid the smallest quasi-energy "
                    "is %.3e (at %s) and at the 12 M nodes it lies in [%.3e, "
-                   "%.3e] - there is NO exactly gapless mode anywhere in the "
-                   "implemented step"
+                   "%.3e] - the M channels are EXACTLY gapless at the "
+                   "clock (paper 8.1, Proposition 2)"
                    % (fac_err, 15, best[0], [round(v, 4) for v in best[1]],
                       min(node_gaps), max(node_gaps),
                       ),
-                   fac_err < 1e-12 and best[0] > TOL_GAP))
+                   fac_err < 1e-12 and max(node_gaps) < TOL_GAP))
 
     # ---- T1 cubic covariance of the bond factor ---------------------------
     rng = np.random.default_rng(7)
@@ -332,12 +333,14 @@ def main():
                    "limit of Section 9 is a statement about the classical "
                    "geometry, not about a graviton in this spectrum"
                    % ("a MASSIVE would-be massless sector" if massive
-                      else "an exactly massless sector", best[0],
+                      else "an exactly massless sector PINNED to the "
+                           "Floquet pair (Proposition 2: the 64+64 levels "
+                           "at {0, pi}, not a propagating cone)", best[0],
                       best[0] * u10pred.M_PLANCK / 1e6,
                       "no" if no_spin2 else "there is",
                       "the dispersion is anisotropic" if aniso
                       else "the dispersion is isotropic"),
-                   massive and no_spin2 and aniso))
+                   no_spin2 and aniso and not massive))
 
     ok = all(c[1] for c in checks)
     out["pass"] = ok
@@ -354,9 +357,12 @@ def main():
         "axis permutations do not. "
         "Census: over the 15^3 zone grid the "
         "smallest quasi-energy is %.3e lattice units and at the 12 M nodes it "
-        "lies in [%.3e, %.3e] - the implemented step has NO exactly gapless "
-        "mode, so every would-be massless particle of this spectrum is "
-        "MASSIVE (F4 clause 1). The little group of an M node is C2v (order "
+        "lies in [%.3e, %.3e] - at the clock the would-be massless matter "
+        "is NOT lifted: Gamma is fully pinned to the Floquet pair (64+64 "
+        "levels at {0, pi}) and the 12 M channels are exactly gapless "
+        "(Proposition 2, V203) - but the pinned pair is not a propagating "
+        "cone and carries no spin (F4 clause 1, clock re-timing). The little "
+        "group of an M node is C2v (order "
         "%d, element orders %s) and its representation on the near-gapless "
         "bond subspace has largest character %.3f: NO 2-dimensional irrep, "
         "hence no helicity +/-1 or +/-2 pair and no massless spin-2 candidate "

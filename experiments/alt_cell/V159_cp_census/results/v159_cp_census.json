@@ -12,8 +12,8 @@
         "q": 0,
         "fs_type": "real",
         "J2": 1.0,
-        "mirror_commutator": 7.791361360319882e-16,
-        "cp_odd_invariant": 1.1045913674522466e-16,
+        "mirror_commutator": 3.3847663151590415e-16,
+        "cp_odd_invariant": 2.220446049250313e-16,
         "step_unitary": true,
         "admits_cp_phase": false
       },
@@ -22,13 +22,13 @@
         "q": 10,
         "fs_type": "quaternionic",
         "J2": -1.0,
-        "mirror_commutator": 3.1843038886244863e-16,
-        "cp_odd_invariant": 1.086108692045682e-16,
+        "mirror_commutator": 3.3743465378087275e-16,
+        "cp_odd_invariant": 3.2354269956215087e-16,
         "step_unitary": true,
         "admits_cp_phase": true
       }
     ],
     "missing_sources": []
   },
-  "wall_time": 74.911
+  "wall_time": 39.501
 }

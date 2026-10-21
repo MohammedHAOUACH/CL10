@@ -874,7 +874,10 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
     relative to the NEAREST node inside ``|q - p| < r1``: ``G0 =
     -(1/omega0(q) - 1/omega0(p + r0 n))`` - it cancels the 1/v(direction)
     singularity of the flat cone axes (V118) and makes the sum
-    grid-convergent.  Returns the list of Hermitian ``n_modes x n_modes``
+    grid-convergent.  On the closed root clock one tangent axis is exactly
+    flat: where the retuned gap is also zero the subtraction is singular
+    and the point is added to the excluded set (counted, never silently
+    divided).  Returns the list of Hermitian ``n_modes x n_modes``
     ``Sigma`` at ``k = q_star + kappa``.  ``current_vertex=True`` replaces
     the contact form factor by the gauged bond-current vertex ``M_ab =
     sum_A (Uk^dag Gamma^A Uq)_a (Uk^dag Gamma^A Uq)^*_b`` with ``Gamma^A =
@@ -889,6 +892,7 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
     if current_vertex:
         D = Uk.shape[1]
         Gammas = [np.kron(np.eye(D // 16), T) for T in weyl_generators()[1]]
+    n_singular = [0]              # exactly-zero retuned gaps on flat rays
     S = np.zeros((len(kappas), n_modes, n_modes), complex)
 
     def _row(qx):
@@ -911,7 +915,14 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
                     qr = tuple(b + sub[0] * (a - b) / d
                                for a, b in zip(q, near))
                     wr = gap_at(bloch_fn(qr))
-                    g0 = -(1.0 / w - 1.0 / wr)
+                    if wr > 1e-14:
+                        g0 = -(1.0 / w - 1.0 / wr)
+                    else:
+                        # exactly gapless ray (closed-clock flat tangent
+                        # axis, V118): the retuned subtraction is singular,
+                        # the point joins the excluded set instead
+                        n_singular[0] += 1
+                        continue
                 else:
                     g0 = -1.0 / w
                 if current_vertex:

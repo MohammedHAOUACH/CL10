@@ -8,14 +8,14 @@ to read $1/n_{\rm qubits}$ as the GUT coupling is a **mapping convention**.  Thi
 experiment makes the **1-loop data check** of that convention explicit and
 honest.
 
-The 0-parameter $g_{10} = 1/5$ (a **number of the root**: the 32-D module,
-5 qubits) gives $\alpha_{10} = 1/25 = 0.04$.  The 1-loop running up to $M_P$
-gives a GUT coupling (mean of the three) of $\sim 0.023$ (the 1-loop does not
-fully unify — the spread is the O4 named residual).  The 0-parameter
-$\alpha_{10} = 1/25$ is **within a factor 1.73** of this 1-loop GUT coupling —
-the **right order**.
+The **reading** $g_{10} = 1/5$ (from the 32-D module, 5 qubits; a mapping
+convention — the clock is closed at $\pi/4$, V131) gives $\alpha_{10} = 1/25 =
+0.04$.  The 1-loop running up to $M_P$ gives a GUT coupling (mean of the
+three) of $\sim 0.023$ (the 1-loop does not fully unify — the spread is the
+O4 named residual).  The reading $\alpha_{10} = 1/25$ is **within a factor
+1.73** of this 1-loop GUT coupling — the **right order**.
 
-The 0-parameter content: the $g_{10} = 1/5$ (a root number).  The named
+The checked content: the $1/5$ **reading** in the right order.  The named
 residual: the 1-loop matching (O4) and the exact GUT coupling.
 
 **The honest scan (this experiment states it explicitly).**  Scanning the
@@ -54,8 +54,8 @@ def main():
         "property": "P5,P6",
         "residual": True,   # the 1-loop matching (O4) and the exact GUT coupling are the named residual
         "pass": bool(ok),
-        "status": (f"the_0_parameter_GUT_coupling_g_10=1/5_is_a_number_of_the_root_the_32D_module_"
-                   f"5_qubits_giving_alpha_10=1/25=0.04_within_a_factor_{d['ratio_to_1loop']:.2f}_of_the_1_loop_GUT_"
+        "status": (f"the_GUT_reading_g_10=1/5_from_the_32D_module_5_qubits_a_mapping_convention_"
+                   f"giving_alpha_10=1/25=0.04_within_a_factor_{d['ratio_to_1loop']:.2f}_of_the_1_loop_GUT_"
                    f"coupling_{d['gut_1loop']['mean_GUT']:.3f}_at_M_P_the_1_loop_matching_is_the_O4_named_residual"),
         "tol": TOL,
         "data": {
@@ -75,7 +75,7 @@ def main():
             "gap_best_n": d["gap_best_n"],
             "data_check_selects_n": d["data_check_selects_n"],
             "residual": ("the 1-loop matching (O4) and the exact GUT coupling — "
-                         "the 0-parameter g_10 = 1/5 is a root number in the "
+                         "the g_10 = 1/5 reading sits in the "
                          "right order (within a factor 2 of the 1-loop GUT "
                          "coupling)"),
         },
@@ -101,7 +101,7 @@ def main():
     print("    -> reading 1/n_qubits as the coupling is therefore a MAPPING CONVENTION "
           "(n = 5 is the number of qubits of the 32-D module, 10 = 2 x 5)")
     print(f"  named residual (O6):  {verdict['data']['residual']}")
-    print(f"  VERDICT:  {'PASS (the 0-parameter g_10 = 1/5 is a root number in the right order; the 1-loop matching is the O4 named residual)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the g_10 = 1/5 reading is in the right order (the clock itself is closed at pi/4); the 1-loop matching is the O4 named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v56_g10_selection.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

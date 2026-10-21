@@ -40,6 +40,7 @@ sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
+from cl10 import config as _cfg  # noqa: E402
 
 
 def main():
@@ -77,7 +78,7 @@ def main():
 
     # the seesaw ladder identity: m_nu = S(17)/3 with S(n)=M_P(16pi)^-n
     S = lambda n: UN.M_P * u10pred.LOOP ** n  # noqa: E731
-    m_ladder_eV = S(17) * 1e9          # GeV -> eV
+    m_ladder_eV = S(17) * float(_cfg.CFG.units.ev_per_gev)          # GeV -> eV
     m_third_eV = m_ladder_eV / 3.0
     m_atm = math.sqrt(2.5e-3)          # eV
 

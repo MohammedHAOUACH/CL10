@@ -64,6 +64,12 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.4):
+# the entangling-bond search space (Propositions 4-5: gapless region
+# Abelian to 1e-11, non-commuting region gapped by >= 8e-3) is the
+# dispersive spectrum; the clock pinned pair is searched by
+# V192/V203 instead.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 

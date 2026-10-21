@@ -33,6 +33,7 @@ import math
 import os
 import sys
 import time
+import os
 
 # one BLAS thread: with the card's host busy (e.g. a model server),
 # OpenBLAS spin-waiting threads turn micro-matmuls into multi-second

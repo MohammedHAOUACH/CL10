@@ -21,7 +21,7 @@
     "scan_abs_diff_at_n9": 1.3839245114287433,
     "nstep": {
       "n_levels_1step": 32,
-      "min_level_small_n": 0.0007050900381777581,
+      "min_level_small_n": 0.7853981633972218,
       "max_n_scanned": 100,
       "any_level_at_target": false,
       "n_diophantine_est": 4.95049504950495e+16,
@@ -38,5 +38,5 @@
     },
     "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
   },
-  "wall_time": 0.058
+  "wall_time": 0.057
 }

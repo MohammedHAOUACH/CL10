@@ -76,7 +76,12 @@ d = json.load(open("results/validation_summary.json"))
 print(f"{d['n_pass']}/{d['n']} PASS   backend-wide pass = {d['pass']}")
 print("hard tier (0-3):", d["hard_tier"], "-", d["hard_tier_criterion"])
 print("named residuals:", ", ".join(d["named_residuals"]))
-fails = [e for e in d["experiments"] if not e.get("pass", False)]
+inc = [e for e in d["experiments"] if e.get("inconclusive")]
+fails = [e for e in d["experiments"] if not e.get("pass", False) and not e.get("inconclusive")]
+if inc:
+    print("INCONCLUSIVE (the honest third verdict; not a failure):")
+    for e in inc:
+        print(f"  {e['id']:34s} {str(e['status'])[:110]}")
 if fails:
     print("FAILING:")
     for e in fails:

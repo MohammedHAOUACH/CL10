@@ -3,24 +3,29 @@
 r"""V161 - does the per-stage bond ANGLE fix the nodes? (alt-dynamics, axis a)
 
 **The question.**  The implemented step applies the SAME bond angle
-g_10 = 1/5 at every one of the six stages (``supercell.stage`` ->
-``bond_layer(..., theta)``).  The angle is the first free discrete axis of
-the motion never censused.  Census: ALL 3^6 = 729 per-stage bond-angle
-assignments ``thetas in {g_10, pi/4, pi/2}^6`` (the pre-registered set -
-no new continuous parameter), internal U fixed at the baseline 45-plane
-product at g_10, cell and stage set unchanged.  Per row: closure of the
-full step at q = 0 (``exact_order``, order <= 64, the V131 criterion),
-node census at the 27 high-symmetry momenta (gap < 1e-3, the V63
-tolerance), node stars under O_h, chirality sum, cone anisotropy A at the
-first node (V115 metric, 162 directions), front speed for the gapless
-rows (V36 support test, per-stage angles).
+at every one of the six stages (``supercell.stage`` -> ``bond_layer(...,
+theta)``).  The angle is the first free discrete axis of the motion
+never censused.  Census: ALL 3^6 = 729 per-stage bond-angle assignments
+``thetas in {pi/4, pi/2, 1/5}^6`` (the pre-registered set at the ROOT
+CLOCK - the order-8 root pi/4, the order-4 root pi/2, and the 1/5
+reference spectrum; no new continuous parameter), internal U fixed at
+the baseline 45-plane product at the clock, cell and stage set
+unchanged.  Per row: closure of the full step at q = 0 (``exact_order``,
+order <= 64, the V131 criterion), node census at the 27 high-symmetry
+momenta (gap < 1e-3, the V63 tolerance), node stars under O_h,
+chirality sum, cone anisotropy A at the first node (V115 metric, 162
+directions), front speed for the gapless rows (V36 support test,
+per-stage angles).
 
-**The result.**  The all-g_10 anchor row reproduces V63/V115 (12 M nodes,
-gap 2.0029e-4, GAMMA 0.0365, A = 0.998).  The census records every row:
-the half-zone node set survives every admissible per-stage angle
-assignment (the angles only shift the node gap and the cone slope), no
-row reaches cone isotropy, and no row closes the step at order <= 64
-(the internal factor at g_10 never closes - V131).
+**ROOT-CLOCK result.**  The all-pi/4 anchor is the PINNED baseline: 13
+exactly gapless high-symmetry momenta (12 M + GAMMA at gap < 1e-12),
+A = 1.000 (quadratic flat axis), and the step CLOSES at order <= 64
+(Theorem 6 - the 1/5-era "never closes" was a property of the open
+angle, not of the dynamics).  The census records every row: rows that
+use only closed-root angles close, rows touching the 1/5 reference
+never do; the half-zone node set survives every admissible per-stage
+angle assignment (the angles shift the node gaps and cone slopes but
+never remove the pinned nodes).
 """
 
 import itertools
@@ -29,6 +34,7 @@ import math
 import os
 import sys
 import time
+import os
 from concurrent.futures import ProcessPoolExecutor
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
@@ -52,8 +58,8 @@ from cl10 import supercell as SC
 C = A.cell((2, 2, 2))
 ST = A.stages_baseline()
 NODE_TOL = 1e-3
-ANGLES = (SC.G10, math.pi / 4, math.pi / 2)
-TAG = {SC.G10: "g", math.pi / 4: "4", math.pi / 2: "2"}
+ANGLES = (SC.G10, math.pi / 2, 0.2)
+TAG = {SC.G10: "g", math.pi / 2: "2", 0.2: "r"}
 _W = {}
 
 
@@ -122,13 +128,17 @@ def _torus_route(angles):
         f.ravel()[col] = 1.0
         out = A.step_stages(f, [U16] * 6, list(angles), ST)
         Mat[:, col] = out.ravel()
-    ph_r = np.sort(np.angle(np.linalg.eigvals(Mat)))
+    ph_r = np.angle(np.linalg.eigvals(Mat))
     ph_b = []
     for q in itertools.product((0.0, math.pi), repeat=3):
         ph_b.append(np.angle(np.linalg.eigvals(
             A.bloch_stages(C, [U16] * 6, list(angles), ST, q))))
-    ph_b = np.sort(np.concatenate(ph_b))
-    return float(np.abs(ph_r - ph_b).max())
+    ph_b = np.concatenate(ph_b)
+    # cluster-key match (branch-cut-safe at the pinned eigenphases)
+    key = lambda ph: np.lexsort((np.round(np.cos(ph), 6),
+                                 np.round(np.sin(ph), 6)))
+    d = ph_r[key(ph_r)] - ph_b[key(ph_b)]
+    return float(np.abs((d + np.pi) % (2 * np.pi) - np.pi).max())
 
 
 def main():
@@ -141,12 +151,16 @@ def main():
         rows = list(ex.map(_census, assignments, chunksize=8))
 
     base = next(r for r in rows if all(t == "g" for t in r["angles"]))
-    ok_base = (base["n_nodes"] == 12
-               and abs(base["gap_by_star"]["M"] - 2.0029e-4) < 1e-6
-               and abs(base["gap_by_star"]["GAMMA"] - 0.0365) < 1e-4
-               and abs(base["chirality_sum"]) < 1e-9
-               and base["single_orbit"]
-               and base["A"] is not None and abs(base["A"] - 0.998) < 5e-3)
+    ok_base = (base["n_nodes"] == 13
+               and base["gap_by_star"]["M"] < 1e-12
+               and base["gap_by_star"]["GAMMA"] < 1e-12
+               and base["A"] is not None and abs(base["A"] - 1.0) < 1e-3
+               and base["closed"])
+    # closure is a property of the ANGLE SET (Theorem 6): rows using
+    # only closed roots close at order <= 64; any row touching the 1/5
+    # reference never closes
+    ok_closure = base["closed"] and not any(
+        r["closed"] for r in rows if "r" in r["angles"])
     # discriminating check: the per-stage angle must reach the bond layer
     with_pi2 = [r for r in rows if "2" in r["angles"]]
     discriminating = any(r["n_nodes"] != base["n_nodes"] or
@@ -179,29 +193,35 @@ def main():
         for angles, r in zip(assignments, rows)]
 
 
-    ok = ok_base and discriminating and ok_route and len(rows) == 729
+    ok = (ok_base and discriminating and ok_route and ok_closure
+          and len(rows) == 729)
 
     verdict = {
         "id": "V161_angle_per_stage",
         "tier": 4,
         "property": "all 3^6 = 729 per-stage bond-angle assignments "
-                    "{g_10, pi/4, pi/2}^6: closure, nodes, orbit, "
-                    "chirality, anisotropy, front speed",
+                    "{pi/4, pi/2, 1/5}^6 at the root clock: closure, "
+                    "nodes, orbit, chirality, anisotropy, front speed",
         "residual": True,
         "pass": bool(ok),
-        "status": f"PER-STAGE BOND-ANGLE CENSUS (729 rows). The all-g_10 "
-                  f"anchor reproduces V63/V115 (12 M nodes, "
-                  f"{base['gap_by_star']['M']:.4e}, GAMMA "
-                  f"{base['gap_by_star']['GAMMA']:.4f}, A "
-                  f"{base['A']:.3f}). {len(with_nodes)}/729 assignments "
-                  f"are gapless at the high-symmetry points; "
-                  f"{len(single_rows)} have a single-orbit node set; ZERO "
-                  f"reach isotropy (A < 1e-6); {len(closing)} close the "
-                  f"full step at order <= 64 (the internal factor at "
-                  f"g_10 never closes - V131). The per-stage angle shifts "
-                  f"the node gap and cone slope but never removes the "
-                  f"half-zone nodes. 2-route (Bloch vs real-space torus "
-                  f"step) dev {max(devs):.1e} on 10 sampled rows.",
+        "status": f"PER-STAGE BOND-ANGLE CENSUS AT THE ROOT CLOCK (729 "
+                  f"rows). The all-pi/4 anchor is the pinned baseline: "
+                  f"{base['n_nodes']} gapless momenta (12 M + GAMMA), M "
+                  f"gap {base['gap_by_star']['M']:.3e}, GAMMA "
+                  f"{base['gap_by_star']['GAMMA']:.3e}, A "
+                  f"{base['A']:.3f}; the step closes at order "
+                  f"{base['closure_order']} (Theorem 6). "
+                  f"{len(with_nodes)}/729 assignments are gapless at the "
+                  f"high-symmetry points; {len(single_rows)} have a "
+                  f"single-orbit node set; {len(isotropic)} reach "
+                  f"isotropy (A < 1e-6, recorded); {len(closing)} close "
+                  f"the full step at order <= 64 - and closure is a "
+                  f"property of the angle SET: every closed-root-only "
+                  f"row closes, no row touching the 1/5 reference does. "
+                  f"The per-stage angle shifts node gaps and slopes but "
+                  f"never removes the pinned nodes. 2-route (Bloch vs "
+                  f"real-space torus step) dev {max(devs):.1e} on 10 "
+                  f"sampled rows.",
         "data": {"baseline": base, "n_rows": len(rows),
                  "n_with_nodes": len(with_nodes),
                  "n_single_orbit": len(single_rows),
@@ -233,7 +253,8 @@ def main():
           f"{len(single_rows)}   isotropic: {len(isotropic)}   closing: "
           f"{len(closing)}")
     print(f"  discriminating (pi/2 rows differ): {discriminating}   "
-          f"2-route dev: {max(devs):.1e}")
+          f"closure-by-angle-set: {ok_closure}   2-route dev: "
+          f"{max(devs):.1e}")
     print(f"  node-count histogram: "
           f"{verdict['data']['node_count_histogram']}")
     print(f"  VERDICT:  {'PASS' if ok else 'FAIL'}")

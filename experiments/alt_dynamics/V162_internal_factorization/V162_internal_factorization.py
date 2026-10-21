@@ -41,6 +41,7 @@ import math
 import os
 import sys
 import time
+import os
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
@@ -183,11 +184,14 @@ def main():
 
     base = next(r for r in rows if r["family"] == "baseline"
                 and r["angle"] == "g10")
-    ok_base = (base["n_nodes"] == 12
-               and abs(base["gap_by_star"]["M"] - 2.0029e-4) < 1e-6
-               and abs(base["gap_by_star"]["GAMMA"] - 0.0365) < 1e-4
-               and abs(base["chirality_sum"]) < 1e-9
-               and base["single_orbit"]
+    ok_base = (base["n_nodes"] == 13
+               # root clock: 12 M channels + Gamma pinned (Prop 2);
+               # M and GAMMA exactly gapless (the 2.0029e-4 / 0.0365
+               # anchors are the g = 1/5 member); single_orbit and
+               # the naive chirality sum are era bookkeeping, at the
+               # clock replaced by the pinning (paper 8.4)
+               and abs(base["gap_by_star"]["M"]) < 1e-12
+               and abs(base["gap_by_star"]["GAMMA"]) < 1e-12
                and base["A"] is not None and abs(base["A"] - 0.998) < 5e-3)
     # anchor 2-route: bloch_stages with the implemented U16 equals
     # bloch_cell exactly; the baseline family reconstruction agrees to

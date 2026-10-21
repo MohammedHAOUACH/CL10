@@ -78,12 +78,26 @@ physics:
   # the loop factor of the ladder; null -> 1 / (16 pi)
   loop_factor: null
 
+  # the measured hierarchy inputs of Section 12.1: F_10 on the closed traced
+  # word census at the rung-10 clock g = 1/5 (V85/V113) - the clock nature
+  # reads, measured to relative 1e-5 (V206) - and the observed electroweak /
+  # Planck ratio with the coefficient it is quoted as
+  f_10_measured: 0.019186
+  v_over_mplanck_observed: 2.0167e-17
+  hierarchy_coefficient_observed: 2.0765
+  # the V38 0-parameter quote of the ratio (the ladder reading of v/M_P); the
+  # 0.18% match against the observed value above is the 2-digit coincidence
+  # of Section 15, Point 2
+  v_over_mplanck_claimed_0param: 2.02e-17
+
 units:
   # exact conversions, not tunable inputs
   gev_to_s: 6.582119569e-25   # hbar in GeV s (exact since the 2019 SI redefinition)
   s_to_yr: 3.15576e+07        # the Julian year, 365.25 x 86400 s (exact)
   gev2_to_cm2: 3.89379338e-28 # (hbar c)^2: 1 GeV^-2 in cm^2
   c_cm_s: 2.99792458e+10      # the speed of light in cm/s (exact)
+  ev_per_gev: 1.0e+9            # 1 GeV = 10^9 eV (exact decimal prefix): the one
+                                # conversion every eV quote of the ladder uses
 
 sm:
   # the measured Standard Model inputs the running and the electroweak sector read
@@ -109,14 +123,16 @@ sm:
   m_unification_obs_gev: 2.0e+16
 
 angle:
-  # the one continuous number of the step (Section 1.4).  The branch values are
-  # conventions or closed roots; CL10_ANGLE selects the branch.
-  default_branch: implemented
+  # the one parameter of the step (Section 1.4).  The closure axiom (Theorem 6)
+  # fixes the physical clock: default_branch is the order-8 root.  The 1/5 entry
+  # is the reference spectrum of the Wilson family (convention 1/n_qubits), not a
+  # clock; CL10_ANGLE overrides.
+  default_branch: closed
   branches:
-    implemented: 0.2           # 1/n_qubits, the repository default (convention; V56 prefers n = 7)
-    closed: 0.7853981633974483 # pi/4, order 8 (the closure axiom, V131)
+    implemented: 0.2           # reference spectrum 1/5 (Wilson family; not the clock)
+    closed: 0.7853981633974483 # pi/4, order 8 - the root clock (closure axiom, V131)
     half: 1.5707963267948966   # pi/2, order 4 (the second closed root, reference only)
-  # the rotation-squared reading alpha_10 = g^2 at the implemented angle; kept
+  # the rotation-squared reading alpha_10 = g^2 at the reference angle 1/5; kept
   # as the exact 1/25 rather than recomputed (0.2**2 is not 0.04 in binary)
   alpha_10: 0.04
   # the second coupling reading: g_0 = 1/2^n_space (a convention, Section 15)
@@ -164,6 +180,19 @@ neutrino:
   m_atm_ev: 0.0501          # sqrt(|dm2_3l|)
   m_sol_ev: 0.0086          # sqrt(dm2_21)
   sum_mnu_max_ev: 0.12      # the cosmological bound on Sum m_nu (the F3 test)
+  # the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0,
+  # normal ordering; the second octant for theta23, the value the comparisons
+  # use — the octant is unresolved, Section 13.5)
+  obs_sin2_theta12: 0.307
+  obs_sin2_theta23: 0.579
+  obs_sin2_theta13: 0.022
+
+ckm:
+  # the measured CKM-side numbers of the flavour mixing comparisons (the
+  # (12, 23, 13) angles as the comparisons use them, world averages)
+  obs_sin2_theta12: 0.050
+  obs_sin2_theta23: 0.949
+  obs_sin2_theta13: 0.020
 
 tolerances:
   # the shared bands; each experiment still states the one it used

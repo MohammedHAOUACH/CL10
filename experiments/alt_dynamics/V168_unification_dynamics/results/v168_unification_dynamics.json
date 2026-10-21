@@ -4,215 +4,5296 @@
   "property": "the rigid V64 meeting with each candidate's node multiplicity (node-eigenspace content), zero fitted thresholds",
   "residual": null,
   "pass": true,
-  "status": "UNIFICATION-FORCING CENSUS (dynamics). 509 gapless candidates; every node eigenspace carries exactly one light Weyl mode (506/509 one-per-node), so the content is a complete 16+16-bar per node (proportional shift: True) and the V64 no-go applies to every count: 0 meetings found, 0 within a factor 2 of 2e16 GeV. No candidate motion forces the meeting; F5 stays open for the whole family.",
+  "status": "UNIFICATION-FORCING CENSUS (dynamics). 878 gapless candidates; every node eigenspace carries exactly one light Weyl mode (875/878 one-per-node), so the content is a complete 16+16-bar per node (proportional shift: True) and the V64 no-go applies to every count: 0 meetings found, 0 within a factor 2 of 2e16 GeV. No candidate motion forces the meeting; F5 stays open for the whole family.",
   "data": {
     "rows": [
       {
         "candidate": "angles:gggggg",
-        "n_nodes": 12,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          32.0,
-          32.0,
-          32.0
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:ggg444",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggggg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:gg444g",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:gggg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:g4g4g4",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:gggg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:g444gg",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:4ggg44",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggg2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:4g4g4g",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggg2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:44ggg4",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
         "fitted_thresholds": 0
       },
       {
-        "candidate": "angles:444ggg",
-        "n_nodes": 8,
-        "light_modes_per_node": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1
-        ],
+        "candidate": "angles:ggg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
         "one_mode_per_node": true,
         "delta_b": [
-          21.333,
-          21.333,
-          21.333
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggg2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gggrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gggr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gggrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gggrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2ggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2gg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg22gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg22g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg22gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg22rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2r2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2rrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2rr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gg2rrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrgrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggr2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggr2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggr2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:ggrrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2gggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2ggg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2gg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2gg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2ggrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2ggr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2g2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2grgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2gr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2grr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2grrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22ggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22gg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22grg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22gr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22grr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g222rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22rgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g22rrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rgr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2r2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2r222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2r2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2r2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:g2rrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grg2gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grg22r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grgrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr22gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2rgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2rg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2rgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:gr2r2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrgrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grr2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grr2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grr22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grr2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:grrrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gggg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gg2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gg2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gg2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2ggrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2ggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2gg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2grr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g22gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g22g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g22gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2rgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2rg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2rgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2r2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2r22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2r2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2g2rrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grgr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gr2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2gr2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2grrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22gggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22ggg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22gg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22gg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22ggrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22ggr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22ggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22g2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22grgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22grg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22grgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22gr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22gr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22grrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22grr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222ggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222gg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222grg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222gr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222grr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2222rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222r2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222r22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222r2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:222rrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rgr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22r2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22r222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22r2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:22rrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgg2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rg2gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgrg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgr2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rgr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2g22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2rgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2r2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2r22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2r2r2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrgrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rr2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rr2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrr22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:2rrrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rggggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rggg2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgggrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgggr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg22r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgg2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rggrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rggrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rggrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg2g2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg2grg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg2gr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg2grr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg22gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg22g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg22gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rg22rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrgr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrgrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgr2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgr22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgr2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rgrrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2gggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2gg2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2ggr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2ggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g2gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g2rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2g2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r22ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r22grg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r22222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222rg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r222rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2r2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2r2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2r222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2r2r2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:r2rrrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrggg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgg22",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgg2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrggrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrggrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrg2g2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrg2gr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrg22g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrg222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgrgr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgrrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrgrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2ggg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2gg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2ggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2g2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr22gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr222g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr222r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2rrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2rr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rr2rrr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrgg2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrggr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrg2g",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrgrg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrr2gg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrr222",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrr2rr",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrrgg",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrr2r",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "M_X_GeV": null,
+        "within_factor_2_of_2e16": false,
+        "fitted_thresholds": 0
+      },
+      {
+        "candidate": "angles:rrrrr2",
+        "n_nodes": 0,
+        "light_modes_per_node": [],
+        "one_mode_per_node": true,
+        "delta_b": [
+          0.0,
+          0.0,
+          0.0
         ],
         "M_X_GeV": null,
         "within_factor_2_of_2e16": false,
@@ -10661,10 +15742,10 @@
       }
     ],
     "proportional_shift": true,
-    "n_candidates": 509,
+    "n_candidates": 878,
     "n_meetings": 0,
     "n_forced": 0,
     "missing_sources": []
   },
-  "wall_time": 1025.493
+  "wall_time": 1063.257
 }

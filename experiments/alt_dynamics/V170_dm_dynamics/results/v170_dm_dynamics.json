@@ -4,117 +4,9 @@
   "property": "mirror Z2 stability + the light-mode census per candidate: stable neutral mode near the ladder?",
   "residual": null,
   "pass": true,
-  "status": "DM CARRIER CENSUS (dynamics). 509 gapless candidates scanned: the mirror Z2 survives every motion (max w-commutator 1.3e-15); the lightest excitation of every candidate is a gapless node (min eigenphase 0.0e+00) with paired mirror content, and the lightest NON-node excitation sits at the massive scale (min 0.001 step-phase); 0 isolated neutral light modes found. No candidate supplies the 118 GeV carrier from the spinor module: the carrier is the cell singlet B (cl10/cell.py, V195/V196).",
+  "status": "DM CARRIER CENSUS (dynamics). 500 gapless candidates scanned: the mirror Z2 survives every motion (max w-commutator 1.3e-15); the lightest excitation of every candidate is a gapless node (min eigenphase 0.0e+00) with paired mirror content, and the lightest NON-node excitation sits at the massive scale (min 0.001 step-phase); 0 isolated neutral light modes found. No candidate supplies the 118 GeV carrier from the spinor module: the carrier is the cell singlet B (cl10/cell.py, V195/V196).",
   "data": {
     "rows": [
-      {
-        "candidate": "angles:gggggg",
-        "n_nodes": 12,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.0002002895295297247,
-        "lightest_is_node": true,
-        "mirror_weight_16": -0.0,
-        "mirror_weight_16bar": 1.0,
-        "lightest_nonnode_eigenphase": 0.0012920252236214363,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:ggg444",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717772615,
-        "lightest_is_node": true,
-        "mirror_weight_16": 1.0,
-        "mirror_weight_16bar": 0.0,
-        "lightest_nonnode_eigenphase": 0.0021576785952707976,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:gg444g",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717757615,
-        "lightest_is_node": true,
-        "mirror_weight_16": 1.0,
-        "mirror_weight_16bar": 0.0,
-        "lightest_nonnode_eigenphase": 0.0021576785952702603,
-        "nonnode_mirror_weight_16": -0.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:g4g4g4",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.0003556134671788716,
-        "lightest_is_node": true,
-        "mirror_weight_16": 0.0,
-        "mirror_weight_16bar": 1.0,
-        "lightest_nonnode_eigenphase": 0.002157678595270363,
-        "nonnode_mirror_weight_16": 0.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:g444gg",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717913453,
-        "lightest_is_node": true,
-        "mirror_weight_16": -0.0,
-        "mirror_weight_16bar": 1.0,
-        "lightest_nonnode_eigenphase": 0.0021576785952696,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:4ggg44",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717813376,
-        "lightest_is_node": true,
-        "mirror_weight_16": 0.0,
-        "mirror_weight_16bar": 1.0,
-        "lightest_nonnode_eigenphase": 0.002157678595270259,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:4g4g4g",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717834924,
-        "lightest_is_node": true,
-        "mirror_weight_16": 0.0,
-        "mirror_weight_16bar": 1.0,
-        "lightest_nonnode_eigenphase": 0.002157678595269858,
-        "nonnode_mirror_weight_16": -0.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:44ggg4",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.00035561346717760266,
-        "lightest_is_node": true,
-        "mirror_weight_16": 1.0,
-        "mirror_weight_16bar": 0.0,
-        "lightest_nonnode_eigenphase": 0.0021576785952710418,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
-      {
-        "candidate": "angles:444ggg",
-        "n_nodes": 8,
-        "mirror_z2_commutator": 7.791361360319882e-16,
-        "lightest_eigenphase": 0.0003556134671787151,
-        "lightest_is_node": true,
-        "mirror_weight_16": 1.0,
-        "mirror_weight_16bar": 0.0,
-        "lightest_nonnode_eigenphase": 0.0021576785952709906,
-        "nonnode_mirror_weight_16": 1.0,
-        "neutral_isolated_light_mode": false
-      },
       {
         "candidate": "cartan5@g10",
         "n_nodes": 13,
@@ -6117,9 +6009,9 @@
       }
     ],
     "missing_sources": [],
-    "n_candidates": 509,
+    "n_candidates": 500,
     "n_carriers": 0,
     "max_z2_commutator": 1.2682809978676727e-15
   },
-  "wall_time": 888.659
+  "wall_time": 807.896
 }

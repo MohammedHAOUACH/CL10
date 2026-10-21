@@ -57,7 +57,7 @@ def main():
           and r["norm_rel_err"] < 1e-10
           and r["plane_square_to_I_err"] < 1e-10
           and r["n_planes"] == 45
-          and abs(r["g10"] - 0.2) < 1e-12
+          and abs(r["g10"] - float(sm_qca.G10)) < 1e-12
           and r["causal_radius"] == 1
           and sg["n_sm"] == 12
           and n_matter + n_antimatter == 32)

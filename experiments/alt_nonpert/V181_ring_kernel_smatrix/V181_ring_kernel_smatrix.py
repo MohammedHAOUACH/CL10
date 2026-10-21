@@ -41,12 +41,14 @@ import json
 import os
 import sys
 import time
+import os
 
 _NT = str(min(16, os.cpu_count() or 1))
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, _NT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core  # alt suite numpy-native
+os.environ["CL10_ANGLE"] = "0.2"  # the reference-branch clock: every number this experiment quotes or feeds is 1/5-branch; the closed default_branch angle must not leak in
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))

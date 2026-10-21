@@ -41,6 +41,10 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2):
+# the collision vertex is built over the dispersive node modes; the
+# A_free anchor 0.998 is the V115 g = 1/5 anisotropy.
+os.environ["CL10_ANGLE"] = "0.2"
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 
 import numpy as np

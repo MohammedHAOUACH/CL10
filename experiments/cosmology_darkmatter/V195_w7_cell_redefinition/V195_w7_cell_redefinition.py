@@ -67,6 +67,7 @@ import json
 import os
 import sys
 import time
+import os
 
 import numpy as np
 
@@ -93,8 +94,10 @@ V193 = json.load(open(exp("V193_w7_freeze_in",
 V147 = json.load(open(exp("V147_w7_relic_from_bond",
                           "results", "v147_w7_relic_from_bond.json")))
 
-M_P = 1.220890e19                                   # GeV (V123's constant)
+M_P = float(CFG.CFG.physics.m_planck_gev)           # GeV (config physics.m_planck_gev = V123's constant)
 LZ = CFG.CFG.bounds.lz_sigma_si_cm2                 # 1.5e-47 cm^2 (config)
+H0 = float(CFG.CFG.cosmology.hubble_coeff)           # 1.66 (config cosmology)
+GSTAR_RT = np.sqrt(float(CFG.CFG.cosmology.g_star))  # sqrt(106.75) (config cosmology): radiation-era H
 
 # the cell: the engine object of cl10/cell.py (spinor module + singlet sectors)
 M_B = CE.masses()["m_B_GeV"]                        # 118.5708... GeV: rung 10
@@ -204,7 +207,7 @@ def main():
     sigma_fid = 1.692e-9                            # GeV^-2 (V123 required)
     ov_grav = sigma_fid / sv_grav
     x = M_B
-    gam_h = (x ** 5 / M_P ** 4) / (1.66 * 10.33 * x * x / M_P)
+    gam_h = (x ** 5 / M_P ** 4) / (H0 * GSTAR_RT * x * x / M_P)
     checks.append(("T3 production of B (the (BB)(hh) portal is the V1 "
                    "operator structure at the same mass, so V193's K1 "
                    "kernel applies verbatim): the unique 0.120 solution "

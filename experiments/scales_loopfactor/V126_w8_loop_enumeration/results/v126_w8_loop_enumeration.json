@@ -18,7 +18,7 @@
    "F10_v85": 0.01918639,
    "F10_v126": 0.019186391026184534,
    "word_decomposition_error": 7.351626287044711e-17,
-   "elapsed_s": 37.4
+   "elapsed_s": 37.3
   },
   "census": [
    {
@@ -282,11 +282,11 @@
    "pass": true
   },
   {
-   "name": "T1 word census at the root: surviving words per length n = 2..10 are [9, 27, 81, 243, 729, 2187, 6560, 19472, 55326] (out of 3^n); the survival rate falls with n, so the multiplicity grows like 3.000^n - the loop sum is NOT dominated by a single class",
+   "name": "T1 word census at the branch: surviving words per length n = 2..10 are [9, 27, 81, 243, 729, 2187, 6560, 19472, 55326] (out of 3^n); the survival rate falls with n, so the multiplicity grows like 3.000^n - the loop sum is NOT dominated by a single class",
    "pass": true
   },
   {
-   "name": "T2 interference at length 10: the ratio ||sum of words|| / sum ||word|| is 0.0788 at the root (eta = 0.20), 1.0000 with the Wilson phase switched off (eta = 0) and 0.3869 at the Fmin angle; F_10 = 0.01919 (root) against 0.24337 (eta = 0)",
+   "name": "T2 interference at length 10: the ratio ||sum of words|| / sum ||word|| is 0.0788 at the root (eta = 0.20), 1.0000 with the Wilson phase switched off (eta = 0) and 0.3869 at the division-optimal phase; F_10 = 0.01919 (root) against 0.24337 (eta = 0)",
    "pass": true
   },
   {

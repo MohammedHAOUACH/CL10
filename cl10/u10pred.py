@@ -45,6 +45,7 @@ LOOP = float(_config.CFG.physics.loop)     # the loop factor of the ladder (Sect
 RUNG_A = int(_config.CFG.cell.rung_A)
 RUNG_B = int(_config.CFG.cell.rung_B)
 ALPHA_EM_INV = float(_config.CFG.sm.alpha_em_inv)   # the electromagnetic coupling at M_Z
+EV_PER_GEV = float(_config.CFG.units.ev_per_gev)  # GeV -> eV (config units)
 
 # the desert solution of V64 (two FITTED thresholds; the coupling is the root value)
 M_X_DESERT = float(_config.CFG.desert.m_x_gev)   # GeV
@@ -104,7 +105,7 @@ def neutrino_ladder():
     m_D = ladder_scale(RUNG_B)
     M_N = ladder_scale(RUNG_A)
     m_nu_gev = m_D ** 2 / M_N
-    m_nu_eV = m_nu_gev * 1e9
+    m_nu_eV = m_nu_gev * EV_PER_GEV
     return {
         "m_D_GeV": m_D,
         "M_N_GeV": M_N,
@@ -117,26 +118,34 @@ def neutrino_ladder():
     }
 
 
-def hierarchy(F10=0.019186):
-    """The electroweak/Planck hierarchy of Section 12.1 (V85/V89/V108/V113).
+def hierarchy(F10=None):
+    """The electroweak/Planck hierarchy of Section 12.1 (V85/V89/V108/V113, V206).
 
-    The closed traced loops measure ``F_10 = 0.019186`` (against
-    ``1/16pi = 0.0199``), so
+    The closed traced loops at the rung-10 clock ``g = 1/5`` measure
+    ``F_10 = 0.019186`` (against ``1/16pi = 0.0199``), so
 
         v / M_P = 3 F_10^10 = 2.0881 x (1/16pi)^10 ,
 
-    the coefficient being the number the publication quotes (2.0881 against the
-    observed 2.0765, 99.44%).  The factor 3 is the one-split-node-per-axis-
-    family choice, so the provenance is **conditional** on that node set (O8);
-    at the closed angle the crossing moves to ``n* = 208`` (V131) and this
-    coefficient no longer applies."""
+    99.44% of the observed coefficient 2.0765.  At the closed clock the
+    crossing moves to ``n* = 208`` and the coefficient there reads 2.702
+    (+30%).  V206 measures the clock tension: the closure class reads
+    {2.2995, 2.7018, 2.7048} while the observed value is read by the
+    non-closed clock ``1/5`` to relative 1e-5 - one tension with the O4
+    meeting coupling, not two.  The factor 3 is the one-split-node-per-
+    axis-family choice, so the provenance is **conditional** on that node
+    set (O8).  ``F10`` defaults to ``physics.f_10_measured`` of
+    ``config.yaml``."""
+    F10 = float(_config.CFG.physics.f_10_measured) if F10 is None \
+        else float(F10)
     ratio = 3.0 * F10 ** RUNG_B            # v / M_P
     coefficient = ratio / LOOP ** RUNG_B   # the quoted two-digit number
     return {"F10": F10,
             "v_over_MPlanck": ratio,
             "coefficient": coefficient,
-            "observed_v_over_MPlanck": 2.0167e-17,
-            "observed_coefficient": 2.0765}
+            "observed_v_over_MPlanck":
+                float(_config.CFG.physics.v_over_mplanck_observed),
+            "observed_coefficient":
+                float(_config.CFG.physics.hierarchy_coefficient_observed)}
 
 
 def family_number():

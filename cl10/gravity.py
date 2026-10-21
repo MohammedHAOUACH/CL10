@@ -50,7 +50,7 @@ hard-coded Schwarzschild) are **upgraded** here to a **complete** classical
         - flat:  ``R = 0``, ``G = 0`` (exact).
 
 **0-parameter:** ``G = 1``, ``c = 1``, the $(1,3)$ is the GUT sub-algebra,
-the internal unitary is the GUT 45 at ``g_10 = 1/5`` -- nothing fitted.  The
+the internal unitary is the GUT 45 at the root-clock ``g_10`` -- nothing fitted.  The
 **finite-difference** step ``h`` is a **numerical** (convergence) parameter,
 not a physical one; every result **converges** as ``h -> 0``.
 
@@ -83,7 +83,7 @@ M_P = u10pred.M_PLANCK
 H_FD = 1e-3
 
 # the 0-parameter GUT coupling (the internal QCA angle, from the root)
-G10 = sm_qca.G10  # = 1/5 = 0.2
+G10 = sm_qca.G10  # the root clock pi/4 (angle.default_branch in config.yaml)
 
 
 def _backend():
@@ -393,8 +393,8 @@ def nonlinear_qca(L=16, n_steps=12, x0=None, seed=0, lam=G10,
          linear free wave has **exact** superposition);
       3. **causal**: the bond layer moves the state exactly one cell per step
          (front speed ``c = 1``, the light cone of the $(1,3)$);
-      4. **0-parameter**: the **only** inputs are ``g_10 = 1/5`` (from the
-         root) and ``lambda = g_10`` (the 0-parameter GUT self-coupling).
+      4. **0-parameter**: the **only** inputs are ``g_10`` (the root clock,
+         from the single source config.yaml) and ``lambda = g_10`` (the 0-parameter GUT self-coupling).
     """
     import math as _m
 

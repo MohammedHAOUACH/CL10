@@ -13,13 +13,15 @@ of the ``kingdon`` Clifford-algebra library):
 
 **Point 1 — "0-parameter is partly conventional".**
 Every "0-parameter" number is **reclassified** into its true provenance
-(``provenance_table``), the audit's **$7+1+1+2+5$** split: **algebraic
+(``provenance_table``), the audit's **$8+0+1+2+5$** split: **algebraic
 0-param** (a property of the ``Cl(10)`` root: the 16/16-bar, the 45, the
 5/3, the anomalies, the 32-level spectrum, ``det U = 1``, the **16/16-bar
-spectral mirror**), **free 1-param** (the **one** free 't Hooft angle
-``g_10 = 1/5`` — ``g10_status`` shows it is **not** fixed by the
-UV-finiteness / 2-loop Landau-pole condition, which lies below ``M_P`` for
-**every** ``g_10``), **convention** (``g_0 = 1/8`` —
+spectral mirror**, the **closed clock angle** — the closure axiom (V131)
+forces the order-8 root ``g_10 = pi/4``), **free 1-param** (empty:
+``g10_status`` shows the UV-finiteness / 2-loop Landau-pole condition fixes
+**nothing** — the pole lies below ``M_P`` for **every** ``g_10``; the
+selection is algebraic), **convention** (``g_0 = 1/8`` and the
+``g_10 = 1/n_qubits = 1/5`` reading —
 mapping / scale-identification choices, not predictions), **coincidence**
 (the ``v/E_P = 2.02e-17`` 0.18% match), and **named residual** (``eta_CP``,
 ``Lambda_obs``, the sub-Planck DM scale (the rung-10 ladder value, carried
@@ -27,9 +29,10 @@ by the cell singlet B), the DM portal strength ``lambda_B``, the exact
 ``m_nu``).
 
 **Point 2 — "the hierarchy is fixed, not explained".**
-The **smallest** level of the 32-level QCA spectrum is ``0.0115`` (a mass
-``0.0115 * M_P ~ 1.4e17 GeV``) — the **only** sub-Planck scale in the
-single-step 0-parameter structure.  It is **not** ``2.02e-17``: the
+The **smallest** level of the 32-level QCA spectrum at the root clock is
+``pi/4 = 0.785`` (a mass ``0.785 * M_P ~ 9.6e18 GeV``) — the **only**
+sub-Planck scale in the single-step 0-parameter structure.  It is **not**
+``2.02e-17``: the
 **exponent** ``-17`` is **not** a 0-parameter consequence of the single
 step.  The 0-parameter content is the **existence** of the hierarchy (two
 widely separated scales); the **exponent** is the named residual (O8).  The
@@ -70,7 +73,7 @@ table** — the grand-physicist contribution.
 The **verdict**: ``pass`` when the **genuinely 0-parameter invariants hold**
 (the CP-odd theorem, the 16/16-bar spectral mirror, ``det U = 1``, the
 2-route root) **and** the four limits are **quantified** (the hierarchy
-exponent not in the spectrum, ``g_10`` a free angle, the DM gap, the
+exponent not in the spectrum, the clock closed by the root, the DM gap, the
 provenance table complete).  ``residual`` is **True** (it names the exact
 values the theory does not fix).
 """
@@ -106,12 +109,12 @@ def main():
         "residual": True,
         "pass": ok,
         "status": ("the_honest_parameter_audit: the '0-parameter' label is reclassified "
-                  "(the 7+1+1+2+5 split: algebraic 0-param / free 1-param / convention / "
+                  "(the 8+0+1+2+5 split: algebraic 0-param / free 1-param / convention / "
                   "coincidence / named residual); the 0-parameter CP-odd invariants all "
                   "vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT "
                   "generate the baryon asymmetry - a theorem); the 16/16-bar spectra are "
                   "exact CPT mirrors (antimatter = time-reversed matter; holds for ALL "
-                  "g_10); g_10 is the one free 't Hooft angle; g_0 = 1/8 is a "
+                  "g_10); the clock is fixed by closure (order-8 root), the 1/5 reading is a "
                   "convention and M_GUT=M_P is abandoned by V64; the hierarchy "
                   "exponent and the DM scale are NOT in the 0-parameter "
                   "single-step spectrum (quantified residuals O8/O7)"),
@@ -200,7 +203,7 @@ def main():
           f"ok {sp['mirror_holds_for_all_g10']})")
     print(f"  all CP-odd invariants vanish:  {cp['all_cp_odd_zero']}  "
           f"(the QCA satisfies none of the 3 Sakharov conditions)")
-    print(f"  g_10 is the free 't Hooft angle:  {g10['g10_is_free_t_hooft_angle']}")
+    print(f"  UV-finiteness does not fix the clock (closure does):  {not g10['uv_finiteness_fixes_g10']}")
     print(f"  hierarchy exponent not in the spectrum:  {not hi['spectrum_exponent_matches_observed']}")
     print(f"  observed DM not the 0-parameter (O7, quantified):  {dm['observed_DM_not_0param']}")
     print(f"  provenance classes:  {tb['counts_by_provenance']}")

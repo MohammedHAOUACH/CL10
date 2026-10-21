@@ -9,15 +9,15 @@
   "data": {
     "one_object": {
       "n_levels": 32,
-      "g10": 0.2,
-      "zero_point": 2.220446049250313e-15,
-      "det_U_minus_1": 5.329720999804419e-15,
+      "g10": 0.7853981633974483,
+      "zero_point": 8.881784197001252e-16,
+      "det_U_minus_1": 1.8984944158298135e-14,
       "sl32": true,
-      "pairing_resid": 1.6653345369377348e-15,
+      "pairing_resid": 8.881784197001252e-16,
       "max_trace_T45": 0.0,
-      "cpt_0point_16": 9.992007221626409e-16,
-      "cpt_0point_16bar": 4.440892098500626e-15,
-      "commutes_with_pseudoscalar": 7.043917247687978e-16
+      "cpt_0point_16": -6.283185307179586,
+      "cpt_0point_16bar": 6.283185307179586,
+      "commutes_with_pseudoscalar": 3.3465051065045716e-16
     },
     "nine_projections": [
       {
@@ -59,13 +59,13 @@
       {
         "wall": "O7",
         "residual": "the sub-Planck dark-matter scale",
-        "mechanism": "the stable soliton u = sqrt(2) sech x of the non-linear metric",
+        "mechanism": "the cell singlet $B$ at the rung-10 ladder mass (V195, V196)",
         "projection": "the dynamics (the non-linear metric)"
       },
       {
         "wall": "O8",
         "residual": "the derivation of the hierarchy exponent (v/E_P ~ 10^-17)",
-        "mechanism": "the 0-parameter value v/E_P = 2.02e-17 (a number of the root)",
+        "mechanism": "the 0-parameter value v/E_P = 2.02e-17 (a 2-digit coincidence, Section 15)",
         "projection": "the algebra (the two scales)"
       },
       {
@@ -76,5 +76,5 @@
       }
     ]
   },
-  "wall_time": 0.084
+  "wall_time": 0.021
 }

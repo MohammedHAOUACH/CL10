@@ -52,6 +52,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: the level structure of the traced
+# link division is a reference-spectrum statement; at the pi/4 clock
+# the Cartan probes degenerate (V85/V89 BRANCH notes).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V80_adjoint_link_division"))
@@ -154,7 +158,7 @@ def main():
     ref1 = cartan_norm(2 * G @ G, cartan)
     loop = u10pred.LOOP
 
-    for eta, tag in ((0.2, "root"), (1.4423, "Fmin")):
+    for eta, tag in ((sm_qca.G10, "root"), (1.4423, "Fmin")):
         blocks = level_blocks(G, P, ev, eta, 4)
         al = [cartan_norm(2 * B, cartan) for B in blocks]
         F = [a / ref1 for a in al]

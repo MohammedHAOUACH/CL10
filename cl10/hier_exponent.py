@@ -106,7 +106,8 @@ def loop_ladder():
     }
 
 
-def nstep_spectrum(max_n=100, target=2.02e-17):
+def nstep_spectrum(max_n=100,
+                   target=float(_config.CFG.physics.v_over_mplanck_claimed_0param)):
     """The n-step QCA spectrum (the $\\{n\\theta_k \\bmod 2\\pi\\}$ wrapped
     levels) and a search for the target $\\sim 10^{-17}$.
 
@@ -115,8 +116,13 @@ def nstep_spectrum(max_n=100, target=2.02e-17):
     this is just another 32-point set (typically with smallest level
     $\\sim O(1/32)$); reaching a level $\\sim \\epsilon$ requires a
     **Diophantine** $n \\sim 1/\\epsilon$ (Dirichlet).  We report, for
-    $n = 1..{\\rm max\\_n}$, the smallest wrapped level, and estimate the
-    Diophantine $n$ that would be needed to reach the target.
+    $n = 1..{\\rm max\\_n}$, the smallest **non-trivial** wrapped level, and
+    estimate the Diophantine $n$ that would be needed to reach the target.
+    On the closed root clock the one-step phases are rational multiples of
+    $\\pi$ and the step has finite order: $n$ a multiple of the order wraps
+    the whole spectrum to exactly $0$ — a periodicity artifact of the finite
+    cyclic group, not a hierarchy scale — and those $n$ are reported
+    separately, never as a level.
     """
     g10 = sm_qca.G10
     U = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(), g10))
@@ -126,9 +132,14 @@ def nstep_spectrum(max_n=100, target=2.02e-17):
         return (x + np.pi) % (2.0 * np.pi) - np.pi
 
     rows = []
+    periodic_n = []
     for n in range(1, max_n + 1):
         lvl = np.abs(wrap(n * th))
-        rows.append({"n": int(n), "min_level": float(lvl.min())})
+        nz = lvl[lvl > _config.CFG.tolerances.strict]
+        if len(nz) == 0:            # the whole n-step spectrum exactly 0:
+            periodic_n.append(int(n))   # the step order (closed clock)
+            continue
+        rows.append({"n": int(n), "min_level": float(nz.min())})
     min_small_n = float(min(r["min_level"] for r in rows))
 
     # the Diophantine estimate: a level ~ epsilon needs n ~ 1/epsilon
@@ -138,6 +149,7 @@ def nstep_spectrum(max_n=100, target=2.02e-17):
         "min_level_1step": float(np.abs(wrap(th)).min()),
         "min_level_small_n": min_small_n,
         "max_n_scanned": int(max_n),
+        "periodic_n": periodic_n,   # n with the whole n-step spectrum exactly 0
         "any_level_at_target": bool(min_small_n < target),
         "n_diophantine_est": n_dioph,
         "diophantine_is_0param": bool(n_dioph < 1e6),  # 5e16 -> False

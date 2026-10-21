@@ -42,6 +42,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: the composition law is a reference-
+# spectrum statement; at the pi/4 clock the traced-link Cartan
+# probes degenerate (V85/V89 BRANCH notes).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V85_closed_loop_factor"))
@@ -53,9 +57,11 @@ from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
 from cl10 import u10pred  # noqa: E402
+from cl10 import config as _cfg  # noqa: E402
 
 D_L = 45
 M_P_GEV = u10pred.M_PLANCK
+_EV = float(_cfg.CFG.units.ev_per_gev)
 
 
 def main():
@@ -76,7 +82,7 @@ def main():
     for Pa in P:
         r = (Pa @ Gi).reshape(32, D_L, 32, D_L)
         Ma.append(np.einsum("ajbj->ab", r) / D_L)
-    eta = 0.2
+    eta = sm_qca.G10
     ph = [np.exp(1j * (eta / 2) * e) for e in ev]
     M = sum(p * m for p, m in zip(ph, Ma))
     MG = M @ G
@@ -145,10 +151,10 @@ def main():
     m_chain = M_P_GEV * F[170]              # eV below: convert GeV->eV
     m_legs = M_P_GEV * F10 ** (2 * u10pred.RUNG_B - u10pred.RUNG_A)  # exponent 17 from the config rungs
     phys = {
-        "M_P_times_F170_chain_eV": float(f"{m_chain * 1e9:.3e}"),
-        "M_P_times_F10pow17_legs_eV": float(f"{m_legs * 1e9:.3e}"),
+        "M_P_times_F170_chain_eV": float(f"{m_chain * _EV:.3e}"),
+        "M_P_times_F10pow17_legs_eV": float(f"{m_legs * _EV:.3e}"),
         "neutrino_ladder_eV": 0.146,
-        "legs_to_ladder_ratio": float(f"{m_legs * 1e9 / 0.146:.3f}")}
+        "legs_to_ladder_ratio": float(f"{m_legs * _EV / 0.146:.3f}")}
     checks["physical_discriminator"] = phys
 
     op_ok = (legs["one_particle_hop_identity_dev"] < 1e-12
@@ -156,7 +162,7 @@ def main():
     R17 = chain["k_17"]["ratio_Rk"]
     ok = (reg85 < 1e-8 and op_ok and R17 > 1e6
           and 0.2 < phys["legs_to_ladder_ratio"] < 5
-          and m_chain * 1e9 / 0.146 > 1e5)
+          and m_chain * _EV / 0.146 > 1e5)
 
     status = (
         f"THE COMPOSITION LAW IS EXACT MULTIPLICATIVITY ACROSS LEGS - "
@@ -197,8 +203,8 @@ def main():
     print(f"  legs:  hop identity "
           f"{legs['one_particle_hop_identity_dev']} | block "
           f"{legs['block_factorization_dev']}")
-    print(f"  M_P*F_170 = {m_chain * 1e9:.1e} eV | "
-          f"M_P*(F_10)^17 = {m_legs * 1e9:.3f} eV | ladder 0.146 eV")
+    print(f"  M_P*F_170 = {m_chain * _EV:.1e} eV | "
+          f"M_P*(F_10)^17 = {m_legs * _EV:.3f} eV | ladder 0.146 eV")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'}")
     print(f"  JSON -> {outdir}/v94_composition_law.json")
     print(f"  Wall time = {time.time() - t0:.2f} s")

@@ -77,6 +77,7 @@ N_DIRAC = u10pred.RUNG_B                   # the Dirac loop position (config cel
 M_ATM_EV = float(_config.CFG.neutrino.m_atm_ev)       # sqrt(|dm2_3l|)
 M_SOL_EV = float(_config.CFG.neutrino.m_sol_ev)       # sqrt(dm2_21)
 SUM_MNU_MAX_EV = float(_config.CFG.neutrino.sum_mnu_max_ev)   # the F3 bound
+EV_PER_GEV = float(_config.CFG.units.ev_per_gev)   # GeV -> eV (config units)
 M_NU_OBS = M_ATM_EV                        # eV (the observed, the heaviest mass scale)
 
 
@@ -154,13 +155,13 @@ def seesaw_2step():
     M_GUT = M_P                            # the 1-step (full GUT) scale
 
     # the 2-step seesaw (the O2 result)
-    m_nu_2step = m_D ** 2 / M_N * 1e9       # GeV -> eV
+    m_nu_2step = m_D ** 2 / M_N * EV_PER_GEV   # GeV -> eV
     # the 1-step (full GUT) for comparison (the 6-orders-off 1-step)
-    m_nu_1step = m_D ** 2 / M_GUT * 1e9
+    m_nu_1step = m_D ** 2 / M_GUT * EV_PER_GEV
 
     # the 0-parameter loop identity: m_nu = M_P (1/16\pi)^(2*N_DIRAC - N_2STEP)
     exp_2step = 2 * N_DIRAC - N_2STEP       # = 17
-    m_nu_ladder = M_P * (LOOP ** exp_2step) * 1e9   # the ladder value (== m_nu_2step)
+    m_nu_ladder = M_P * (LOOP ** exp_2step) * EV_PER_GEV   # the ladder value (== m_nu_2step)
 
     off_2step = m_nu_2step / M_NU_OBS
     off_1step = m_nu_1step / M_NU_OBS

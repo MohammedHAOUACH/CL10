@@ -379,52 +379,49 @@ def fig22_composite():
 
 def fig13_closed_loops():
     import json
-    with open(exp("V85_closed_loop_factor",
-                           "results", "v85_closed_loop_factor.json")) as f:
-        d = json.load(f)["data"]
-    root, fmin = d["loops_root"], d["loops_Fmin"]
-    ns = list(range(2, 11))
+    with open(exp("V203_closed_branch_coefficient", "results",
+                  "v203_closed_branch_coefficient.json")) as f:
+        cl = json.load(f)["data"]["closed"]
+    Fn = {int(k): v for k, v in cl["F_n_2_30"].items()}
     loop = float(_config.CFG.physics.loop)
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.5))
 
-    axA.semilogy(ns, root["F_n"], "o-", color=C_ZERO, lw=1.8, ms=6,
-                 label=r"root coupling $\eta = 1/5$")
-    axA.semilogy(ns, fmin["F_n"], "s--", color=C_ROOT, lw=1.4, ms=5,
-                 alpha=0.8, label=r"division-optimal $\eta = 1.44$")
+    ev = sorted(n for n in Fn if n % 2 == 0)
+    axA.semilogy(ev, [Fn[n] for n in ev], "o-", color=C_ZERO, lw=1.8, ms=6,
+                 label=r"even lengths: the root clock $\pi/4$")
+    odd = [n for n in sorted(Fn) if n % 2]
+    axA.semilogy(odd, [1e-16] * len(odd), "x", color=C_ROOT, ms=7,
+                 label=r"odd lengths: $F_n = 0$ below $4\times10^{-15}$")
     axA.axhline(loop, color="0.35", ls=":", lw=1.5)
-    axA.text(2.1, loop * 1.25, rf"$1/(16\pi) = {loop:.4f}$", fontsize=11,
+    axA.text(2.1, loop * 1.4, rf"$1/(16\pi) = {loop:.4f}$", fontsize=11,
              color="0.3")
-    axA.plot([10], [root["F_n"][-1]], "*", ms=17, color=C_ZERO, zorder=5)
-    axA.annotate(f"$F_{{10}}$ = {root['F_n'][-1]:.4f}\nvs {loop:.4f} (3.6%)",
-                 xy=(10, root["F_n"][-1]), xytext=(7.9, 0.55),
-                 fontsize=11, color=C_ZERO,
-                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
     axA.set_xlabel("closed-loop length $n$ (hops on $n$ distinct links)")
     axA.set_ylabel(r"Cartan-content ratio $F_n = \alpha((MG)^n)/\alpha(G^n)$")
-    axA.set_ylim(0.01, 5)
+    axA.set_ylim(1e-17, 200)
     axA.legend(fontsize=10.5, loc="upper right")
-    axA.set_title("(a)  closed traced loops: geometric suppression,\n"
-                  "     the loop factor at the ladder length 10", fontsize=11.5)
+    axA.set_title("(a)  the even lengths contribute, the odd cancel:\n"
+                  r"     $F_2 = 64.4$, $F_{10} = 53.9$; the crossing is beyond",
+                  fontsize=11.5)
 
-    labels = [r"$G$", r"$MG$" + "\n(root)", r"$G$", r"$MG$" + "\n($\\eta$=1.44)"]
-    vals = [root["spectral_radius_G"], root["spectral_radius_MG"],
-            fmin["spectral_radius_G"], fmin["spectral_radius_MG"]]
-    cols = ["0.6", C_ZERO, "0.6", C_ROOT]
-    axB.bar(range(4), vals, color=cols, alpha=0.85, width=0.6)
+    labels = [r"$G$", r"$MG$" + "\n(root clock)",
+              r"$MG$" + "\n(reference $1/5$)"]
+    vals = [1.0, cl["rho_MG"], cl["rho_MG_implemented_V85"]]
+    cols = ["0.6", C_ZERO, C_ROOT]
+    axB.bar(range(3), vals, color=cols, alpha=0.85, width=0.6)
     for i, v in enumerate(vals):
         axB.text(i, v + 0.02, f"{v:.3f}", ha="center", fontsize=11)
     axB.axhline(1.0, color="0.35", ls=":", lw=1.2)
-    axB.set_xticks(range(4))
+    axB.set_xticks(range(3))
     axB.set_xticklabels(labels, fontsize=11)
     axB.set_ylim(0, 1.15)
     axB.set_ylabel("spectral radius")
     axB.set_title("(b)  the traced hop CONTRACTS the propagation:\n"
-                  f"     geometric ratio r = {root['geometric_ratio']}, "
-                  f"n* = {root['n_star_for_loop_factor']}", fontsize=11.5)
+                  f"     $\\rho(MG) = {cl['rho_MG']:.6f}$ at the root clock",
+                  fontsize=11.5)
 
-    fig.suptitle("The closed-loop factor of the traced adjoint link: "
-                 rf"$F_{{10}} = {root['F_n'][-1]:.4f}$ vs $1/(16\pi) = {loop:.4f}$", fontsize=13)
+    fig.suptitle("Closed traced loops at the root clock: the first crossing of "
+                 rf"$1/(16\pi)$ is $n^* = {cl['first_crossing_n']}$", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig13_closed_loops.png")
 

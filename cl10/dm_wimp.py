@@ -91,8 +91,9 @@ def dm_wimp():
     r"""The O7 scale: $M_P (1/16\pi)^{10} = 118$ GeV, the comparison with the
     $100$ GeV WIMP-miracle reference, the convention-normalised relic contrast,
     and the V42 Planck-soliton gap (for contrast).  **No state of the
-    implemented spectrum carries this scale** - the carrier is the open problem
-    O7 - and ``relic_abundance`` is normalised to the observed density at the
+    spinor module carries this scale** - the carrier is the cell's neutral
+    singlet sector $B$ (V195, V196), its portal strength the open problem O7 -
+    and ``relic_abundance`` is normalised to the observed density at the
     reference scale by construction, so the abundance numbers are a contrast,
     not a prediction."""
     f10 = F10()

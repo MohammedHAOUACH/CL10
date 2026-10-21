@@ -23,6 +23,11 @@ from . import engine as E
 
 import numpy as np
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
+# the structure of the root (config block `physics`; n_qubits is derived from
+# n_internal by the loader): editing the yaml moves the module
+NQ = int(_config.CFG.physics.n_qubits)      # 5 qubits: 2**5 = n_internal
+NGEN = int(_config.CFG.physics.n_gen)       # the 10 Cl(10) generators
+DIM = int(_config.CFG.physics.n_internal)   # the 32-D module
 
 # the Pauli matrices (2x2, complex)
 _X = E.Array_([[0, 1], [1, 0]])
@@ -45,9 +50,9 @@ def generators():
     (5 qubits = 32-D).  Each squares to ``I``; all 10 anticommute.
     """
     out = []
-    for k in range(5):
+    for k in range(NQ):
         prefix = [_Y] * k
-        tail = [_I] * (4 - k)
+        tail = [_I] * (NQ - 1 - k)
         out.append(_kron_n(prefix + [_X] + tail))
         out.append(_kron_n(prefix + [_Z] + tail))
     return out
@@ -59,11 +64,11 @@ def verify(tol=_TOL.strict):
     Returns a dict of the residual errors (all must be ~0).
     """
     g = [E.asnumpy(m) for m in generators()]
-    n = 32
+    n = DIM
     Id = np.eye(n, dtype=complex)
-    sq = max(float(np.abs(g[a] @ g[a] - Id).max()) for a in range(10))
+    sq = max(float(np.abs(g[a] @ g[a] - Id).max()) for a in range(NGEN))
     ac = max(float(np.abs(g[a] @ g[b] + g[b] @ g[a]).max())
-             for a in range(10) for b in range(a + 1, 10))
+             for a in range(NGEN) for b in range(a + 1, NGEN))
     return {"n": len(g), "square_to_I": sq, "anticommute": ac,
             "ok": (sq < tol and ac < tol)}
 
@@ -76,10 +81,10 @@ def basis():
     """
     import itertools
     g = [E.asnumpy(m) for m in generators()]
-    I = np.eye(32, dtype=complex)
+    I = np.eye(DIM, dtype=complex)
     out = [I]
-    for r in range(1, 11):
-        for combo in itertools.combinations(range(10), r):
+    for r in range(1, NGEN + 1):
+        for combo in itertools.combinations(range(NGEN), r):
             prod = I
             for a in combo:
                 prod = prod @ g[a]
@@ -95,7 +100,7 @@ def pseudoscalar():
     **16-bar** (-) halves.
     """
     g = [E.asnumpy(m) for m in generators()]
-    w = np.eye(32, dtype=complex)
+    w = np.eye(DIM, dtype=complex)
     for a in g:
         w = w @ a
     return w

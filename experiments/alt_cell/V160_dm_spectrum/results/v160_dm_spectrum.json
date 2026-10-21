@@ -17,7 +17,7 @@
       },
       {
         "candidate": "cycle:0a1b2a0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -25,7 +25,7 @@
       },
       {
         "candidate": "cycle:0a1b2a0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -33,7 +33,7 @@
       },
       {
         "candidate": "cycle:0a1b2a1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -41,7 +41,7 @@
       },
       {
         "candidate": "cycle:0a1b2a1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -49,7 +49,7 @@
       },
       {
         "candidate": "cycle:0a1b2a2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -57,7 +57,7 @@
       },
       {
         "candidate": "cycle:0a1b2a2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -65,7 +65,7 @@
       },
       {
         "candidate": "cycle:0a1b0b2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -73,7 +73,7 @@
       },
       {
         "candidate": "cycle:0a1b0b2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -81,7 +81,7 @@
       },
       {
         "candidate": "cycle:0a1b0b1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -89,7 +89,7 @@
       },
       {
         "candidate": "cycle:0a1b0b1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -97,7 +97,7 @@
       },
       {
         "candidate": "cycle:0a1b0b2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -105,7 +105,7 @@
       },
       {
         "candidate": "cycle:0a1b0b2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -113,7 +113,7 @@
       },
       {
         "candidate": "cycle:0a1b1a2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -121,7 +121,7 @@
       },
       {
         "candidate": "cycle:0a1b1a2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -129,7 +129,7 @@
       },
       {
         "candidate": "cycle:0a1b1a0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -137,7 +137,7 @@
       },
       {
         "candidate": "cycle:0a1b1a0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -145,7 +145,7 @@
       },
       {
         "candidate": "cycle:0a1b1a2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -153,7 +153,7 @@
       },
       {
         "candidate": "cycle:0a1b1a2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -161,7 +161,7 @@
       },
       {
         "candidate": "cycle:0a1b2b2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -169,7 +169,7 @@
       },
       {
         "candidate": "cycle:0a1b2b2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -177,7 +177,7 @@
       },
       {
         "candidate": "cycle:0a1b2b0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -185,7 +185,7 @@
       },
       {
         "candidate": "cycle:0a1b2b0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -193,7 +193,7 @@
       },
       {
         "candidate": "cycle:0a1b2b1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -201,7 +201,7 @@
       },
       {
         "candidate": "cycle:0a1b2b1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -209,7 +209,7 @@
       },
       {
         "candidate": "cycle:0a2a1b0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -217,7 +217,7 @@
       },
       {
         "candidate": "cycle:0a2a1b0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -225,7 +225,7 @@
       },
       {
         "candidate": "cycle:0a2a1b1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -233,7 +233,7 @@
       },
       {
         "candidate": "cycle:0a2a1b1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -241,7 +241,7 @@
       },
       {
         "candidate": "cycle:0a2a1b2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -249,7 +249,7 @@
       },
       {
         "candidate": "cycle:0a2a1b2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -257,7 +257,7 @@
       },
       {
         "candidate": "cycle:0a2a0b1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -265,7 +265,7 @@
       },
       {
         "candidate": "cycle:0a2a0b1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -273,7 +273,7 @@
       },
       {
         "candidate": "cycle:0a2a0b1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -281,7 +281,7 @@
       },
       {
         "candidate": "cycle:0a2a0b1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -289,7 +289,7 @@
       },
       {
         "candidate": "cycle:0a2a0b2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -297,7 +297,7 @@
       },
       {
         "candidate": "cycle:0a2a0b2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -305,7 +305,7 @@
       },
       {
         "candidate": "cycle:0a2a1a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -313,7 +313,7 @@
       },
       {
         "candidate": "cycle:0a2a1a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -321,7 +321,7 @@
       },
       {
         "candidate": "cycle:0a2a1a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -329,7 +329,7 @@
       },
       {
         "candidate": "cycle:0a2a1a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -337,7 +337,7 @@
       },
       {
         "candidate": "cycle:0a2a1a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -345,7 +345,7 @@
       },
       {
         "candidate": "cycle:0a2a1a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -353,7 +353,7 @@
       },
       {
         "candidate": "cycle:0a2a2b1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -361,7 +361,7 @@
       },
       {
         "candidate": "cycle:0a2a2b1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -369,7 +369,7 @@
       },
       {
         "candidate": "cycle:0a2a2b0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -377,7 +377,7 @@
       },
       {
         "candidate": "cycle:0a2a2b0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -385,7 +385,7 @@
       },
       {
         "candidate": "cycle:0a2a2b1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -393,7 +393,7 @@
       },
       {
         "candidate": "cycle:0a2a2b1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -401,7 +401,7 @@
       },
       {
         "candidate": "cycle:0a0b1b2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -409,7 +409,7 @@
       },
       {
         "candidate": "cycle:0a0b1b2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -417,7 +417,7 @@
       },
       {
         "candidate": "cycle:0a0b1b1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -425,7 +425,7 @@
       },
       {
         "candidate": "cycle:0a0b1b1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -433,7 +433,7 @@
       },
       {
         "candidate": "cycle:0a0b1b2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -441,7 +441,7 @@
       },
       {
         "candidate": "cycle:0a0b1b2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -449,7 +449,7 @@
       },
       {
         "candidate": "cycle:0a0b2a1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -457,7 +457,7 @@
       },
       {
         "candidate": "cycle:0a0b2a1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -465,7 +465,7 @@
       },
       {
         "candidate": "cycle:0a0b2a1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -473,7 +473,7 @@
       },
       {
         "candidate": "cycle:0a0b2a1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -481,7 +481,7 @@
       },
       {
         "candidate": "cycle:0a0b2a2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -489,7 +489,7 @@
       },
       {
         "candidate": "cycle:0a0b2a2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -497,7 +497,7 @@
       },
       {
         "candidate": "cycle:0a0b1a1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -505,7 +505,7 @@
       },
       {
         "candidate": "cycle:0a0b1a1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -513,7 +513,7 @@
       },
       {
         "candidate": "cycle:0a0b1a2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -521,7 +521,7 @@
       },
       {
         "candidate": "cycle:0a0b1a2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -529,7 +529,7 @@
       },
       {
         "candidate": "cycle:0a0b1a2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -537,7 +537,7 @@
       },
       {
         "candidate": "cycle:0a0b1a2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -545,7 +545,7 @@
       },
       {
         "candidate": "cycle:0a0b2b1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -553,7 +553,7 @@
       },
       {
         "candidate": "cycle:0a0b2b1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -561,7 +561,7 @@
       },
       {
         "candidate": "cycle:0a0b2b2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -569,7 +569,7 @@
       },
       {
         "candidate": "cycle:0a0b2b2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -577,7 +577,7 @@
       },
       {
         "candidate": "cycle:0a0b2b1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -585,7 +585,7 @@
       },
       {
         "candidate": "cycle:0a0b2b1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -593,7 +593,7 @@
       },
       {
         "candidate": "cycle:0a1a1b2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -601,7 +601,7 @@
       },
       {
         "candidate": "cycle:0a1a1b2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -609,7 +609,7 @@
       },
       {
         "candidate": "cycle:0a1a1b0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -617,7 +617,7 @@
       },
       {
         "candidate": "cycle:0a1a1b0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -625,7 +625,7 @@
       },
       {
         "candidate": "cycle:0a1a1b2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -633,7 +633,7 @@
       },
       {
         "candidate": "cycle:0a1a1b2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -641,7 +641,7 @@
       },
       {
         "candidate": "cycle:0a1a2a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -649,7 +649,7 @@
       },
       {
         "candidate": "cycle:0a1a2a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -657,7 +657,7 @@
       },
       {
         "candidate": "cycle:0a1a2a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -665,7 +665,7 @@
       },
       {
         "candidate": "cycle:0a1a2a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -673,7 +673,7 @@
       },
       {
         "candidate": "cycle:0a1a2a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -681,7 +681,7 @@
       },
       {
         "candidate": "cycle:0a1a2a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -689,7 +689,7 @@
       },
       {
         "candidate": "cycle:0a1a0b1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -697,7 +697,7 @@
       },
       {
         "candidate": "cycle:0a1a0b1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -705,7 +705,7 @@
       },
       {
         "candidate": "cycle:0a1a0b2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -713,7 +713,7 @@
       },
       {
         "candidate": "cycle:0a1a0b2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -721,7 +721,7 @@
       },
       {
         "candidate": "cycle:0a1a0b2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -729,7 +729,7 @@
       },
       {
         "candidate": "cycle:0a1a0b2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -737,7 +737,7 @@
       },
       {
         "candidate": "cycle:0a1a2b1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -745,7 +745,7 @@
       },
       {
         "candidate": "cycle:0a1a2b1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -753,7 +753,7 @@
       },
       {
         "candidate": "cycle:0a1a2b2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -761,7 +761,7 @@
       },
       {
         "candidate": "cycle:0a1a2b2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -769,7 +769,7 @@
       },
       {
         "candidate": "cycle:0a1a2b0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -777,7 +777,7 @@
       },
       {
         "candidate": "cycle:0a1a2b0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -785,7 +785,7 @@
       },
       {
         "candidate": "cycle:0a2b1b2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -793,7 +793,7 @@
       },
       {
         "candidate": "cycle:0a2b1b2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -801,7 +801,7 @@
       },
       {
         "candidate": "cycle:0a2b1b0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -809,7 +809,7 @@
       },
       {
         "candidate": "cycle:0a2b1b0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -817,7 +817,7 @@
       },
       {
         "candidate": "cycle:0a2b1b1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -825,7 +825,7 @@
       },
       {
         "candidate": "cycle:0a2b1b1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -833,7 +833,7 @@
       },
       {
         "candidate": "cycle:0a2b2a1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -841,7 +841,7 @@
       },
       {
         "candidate": "cycle:0a2b2a1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -849,7 +849,7 @@
       },
       {
         "candidate": "cycle:0a2b2a0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -857,7 +857,7 @@
       },
       {
         "candidate": "cycle:0a2b2a0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -865,7 +865,7 @@
       },
       {
         "candidate": "cycle:0a2b2a1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -873,7 +873,7 @@
       },
       {
         "candidate": "cycle:0a2b2a1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -881,7 +881,7 @@
       },
       {
         "candidate": "cycle:0a2b0b1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -889,7 +889,7 @@
       },
       {
         "candidate": "cycle:0a2b0b1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -897,7 +897,7 @@
       },
       {
         "candidate": "cycle:0a2b0b2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -905,7 +905,7 @@
       },
       {
         "candidate": "cycle:0a2b0b2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -913,7 +913,7 @@
       },
       {
         "candidate": "cycle:0a2b0b1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -921,7 +921,7 @@
       },
       {
         "candidate": "cycle:0a2b0b1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -929,7 +929,7 @@
       },
       {
         "candidate": "cycle:0a2b1a1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -937,7 +937,7 @@
       },
       {
         "candidate": "cycle:0a2b1a1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -945,7 +945,7 @@
       },
       {
         "candidate": "cycle:0a2b1a2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -953,7 +953,7 @@
       },
       {
         "candidate": "cycle:0a2b1a2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -961,7 +961,7 @@
       },
       {
         "candidate": "cycle:0a2b1a0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -969,7 +969,7 @@
       },
       {
         "candidate": "cycle:0a2b1a0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -977,7 +977,7 @@
       },
       {
         "candidate": "cycle:1b0a2a0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -985,7 +985,7 @@
       },
       {
         "candidate": "cycle:1b0a2a0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -993,7 +993,7 @@
       },
       {
         "candidate": "cycle:1b0a2a1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1001,7 +1001,7 @@
       },
       {
         "candidate": "cycle:1b0a2a1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1009,7 +1009,7 @@
       },
       {
         "candidate": "cycle:1b0a2a2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1017,7 +1017,7 @@
       },
       {
         "candidate": "cycle:1b0a2a2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1025,7 +1025,7 @@
       },
       {
         "candidate": "cycle:1b0a0b2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1033,7 +1033,7 @@
       },
       {
         "candidate": "cycle:1b0a0b2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1041,7 +1041,7 @@
       },
       {
         "candidate": "cycle:1b0a0b1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1049,7 +1049,7 @@
       },
       {
         "candidate": "cycle:1b0a0b1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1057,7 +1057,7 @@
       },
       {
         "candidate": "cycle:1b0a0b2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1065,7 +1065,7 @@
       },
       {
         "candidate": "cycle:1b0a0b2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1073,7 +1073,7 @@
       },
       {
         "candidate": "cycle:1b0a1a2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1081,7 +1081,7 @@
       },
       {
         "candidate": "cycle:1b0a1a2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1089,7 +1089,7 @@
       },
       {
         "candidate": "cycle:1b0a1a0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1097,7 +1097,7 @@
       },
       {
         "candidate": "cycle:1b0a1a0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1105,7 +1105,7 @@
       },
       {
         "candidate": "cycle:1b0a1a2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1113,7 +1113,7 @@
       },
       {
         "candidate": "cycle:1b0a1a2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1121,7 +1121,7 @@
       },
       {
         "candidate": "cycle:1b0a2b2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1129,7 +1129,7 @@
       },
       {
         "candidate": "cycle:1b0a2b2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1137,7 +1137,7 @@
       },
       {
         "candidate": "cycle:1b0a2b0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1145,7 +1145,7 @@
       },
       {
         "candidate": "cycle:1b0a2b0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1153,7 +1153,7 @@
       },
       {
         "candidate": "cycle:1b0a2b1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1161,7 +1161,7 @@
       },
       {
         "candidate": "cycle:1b0a2b1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1169,7 +1169,7 @@
       },
       {
         "candidate": "cycle:1b2a0a0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1177,7 +1177,7 @@
       },
       {
         "candidate": "cycle:1b2a0a0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1185,7 +1185,7 @@
       },
       {
         "candidate": "cycle:1b2a0a1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1193,7 +1193,7 @@
       },
       {
         "candidate": "cycle:1b2a0a1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1201,7 +1201,7 @@
       },
       {
         "candidate": "cycle:1b2a0a2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1209,7 +1209,7 @@
       },
       {
         "candidate": "cycle:1b2a0a2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1217,7 +1217,7 @@
       },
       {
         "candidate": "cycle:1b2a0b0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1225,7 +1225,7 @@
       },
       {
         "candidate": "cycle:1b2a0b0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1233,7 +1233,7 @@
       },
       {
         "candidate": "cycle:1b2a0b1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1241,7 +1241,7 @@
       },
       {
         "candidate": "cycle:1b2a0b1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1249,7 +1249,7 @@
       },
       {
         "candidate": "cycle:1b2a0b2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1257,7 +1257,7 @@
       },
       {
         "candidate": "cycle:1b2a0b2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1265,7 +1265,7 @@
       },
       {
         "candidate": "cycle:1b2a1a0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1273,7 +1273,7 @@
       },
       {
         "candidate": "cycle:1b2a1a0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1281,7 +1281,7 @@
       },
       {
         "candidate": "cycle:1b2a1a0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1289,7 +1289,7 @@
       },
       {
         "candidate": "cycle:1b2a1a0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1297,7 +1297,7 @@
       },
       {
         "candidate": "cycle:1b2a1a2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1305,7 +1305,7 @@
       },
       {
         "candidate": "cycle:1b2a1a2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1313,7 +1313,7 @@
       },
       {
         "candidate": "cycle:1b2a2b0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1321,7 +1321,7 @@
       },
       {
         "candidate": "cycle:1b2a2b0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1329,7 +1329,7 @@
       },
       {
         "candidate": "cycle:1b2a2b0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1337,7 +1337,7 @@
       },
       {
         "candidate": "cycle:1b2a2b0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1345,7 +1345,7 @@
       },
       {
         "candidate": "cycle:1b2a2b1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1353,7 +1353,7 @@
       },
       {
         "candidate": "cycle:1b2a2b1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1361,7 +1361,7 @@
       },
       {
         "candidate": "cycle:1b0b0a2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1369,7 +1369,7 @@
       },
       {
         "candidate": "cycle:1b0b0a2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1377,7 +1377,7 @@
       },
       {
         "candidate": "cycle:1b0b0a1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1385,7 +1385,7 @@
       },
       {
         "candidate": "cycle:1b0b0a1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1393,7 +1393,7 @@
       },
       {
         "candidate": "cycle:1b0b0a2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1401,7 +1401,7 @@
       },
       {
         "candidate": "cycle:1b0b0a2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1409,7 +1409,7 @@
       },
       {
         "candidate": "cycle:1b0b2a0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1417,7 +1417,7 @@
       },
       {
         "candidate": "cycle:1b0b2a0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1425,7 +1425,7 @@
       },
       {
         "candidate": "cycle:1b0b2a1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1433,7 +1433,7 @@
       },
       {
         "candidate": "cycle:1b0b2a1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1441,7 +1441,7 @@
       },
       {
         "candidate": "cycle:1b0b2a2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1449,7 +1449,7 @@
       },
       {
         "candidate": "cycle:1b0b2a2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1457,7 +1457,7 @@
       },
       {
         "candidate": "cycle:1b0b1a0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1465,7 +1465,7 @@
       },
       {
         "candidate": "cycle:1b0b1a0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1473,7 +1473,7 @@
       },
       {
         "candidate": "cycle:1b0b1a2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1481,7 +1481,7 @@
       },
       {
         "candidate": "cycle:1b0b1a2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1489,7 +1489,7 @@
       },
       {
         "candidate": "cycle:1b0b1a2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1497,7 +1497,7 @@
       },
       {
         "candidate": "cycle:1b0b1a2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1505,7 +1505,7 @@
       },
       {
         "candidate": "cycle:1b0b2b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1513,7 +1513,7 @@
       },
       {
         "candidate": "cycle:1b0b2b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1521,7 +1521,7 @@
       },
       {
         "candidate": "cycle:1b0b2b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1529,7 +1529,7 @@
       },
       {
         "candidate": "cycle:1b0b2b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1537,7 +1537,7 @@
       },
       {
         "candidate": "cycle:1b0b2b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1545,7 +1545,7 @@
       },
       {
         "candidate": "cycle:1b0b2b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1553,7 +1553,7 @@
       },
       {
         "candidate": "cycle:1b1a0a2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1561,7 +1561,7 @@
       },
       {
         "candidate": "cycle:1b1a0a2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1569,7 +1569,7 @@
       },
       {
         "candidate": "cycle:1b1a0a0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1577,7 +1577,7 @@
       },
       {
         "candidate": "cycle:1b1a0a0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1585,7 +1585,7 @@
       },
       {
         "candidate": "cycle:1b1a0a2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1593,7 +1593,7 @@
       },
       {
         "candidate": "cycle:1b1a0a2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1601,7 +1601,7 @@
       },
       {
         "candidate": "cycle:1b1a2a0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1609,7 +1609,7 @@
       },
       {
         "candidate": "cycle:1b1a2a0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1617,7 +1617,7 @@
       },
       {
         "candidate": "cycle:1b1a2a0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1625,7 +1625,7 @@
       },
       {
         "candidate": "cycle:1b1a2a0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1633,7 +1633,7 @@
       },
       {
         "candidate": "cycle:1b1a2a2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1641,7 +1641,7 @@
       },
       {
         "candidate": "cycle:1b1a2a2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1649,7 +1649,7 @@
       },
       {
         "candidate": "cycle:1b1a0b0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1657,7 +1657,7 @@
       },
       {
         "candidate": "cycle:1b1a0b0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1665,7 +1665,7 @@
       },
       {
         "candidate": "cycle:1b1a0b2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1673,7 +1673,7 @@
       },
       {
         "candidate": "cycle:1b1a0b2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1681,7 +1681,7 @@
       },
       {
         "candidate": "cycle:1b1a0b2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1689,7 +1689,7 @@
       },
       {
         "candidate": "cycle:1b1a0b2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1697,7 +1697,7 @@
       },
       {
         "candidate": "cycle:1b1a2b0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1705,7 +1705,7 @@
       },
       {
         "candidate": "cycle:1b1a2b0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1713,7 +1713,7 @@
       },
       {
         "candidate": "cycle:1b1a2b2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1721,7 +1721,7 @@
       },
       {
         "candidate": "cycle:1b1a2b2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1729,7 +1729,7 @@
       },
       {
         "candidate": "cycle:1b1a2b0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1737,7 +1737,7 @@
       },
       {
         "candidate": "cycle:1b1a2b0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1745,7 +1745,7 @@
       },
       {
         "candidate": "cycle:1b2b0a2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1753,7 +1753,7 @@
       },
       {
         "candidate": "cycle:1b2b0a2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1761,7 +1761,7 @@
       },
       {
         "candidate": "cycle:1b2b0a0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1769,7 +1769,7 @@
       },
       {
         "candidate": "cycle:1b2b0a0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1777,7 +1777,7 @@
       },
       {
         "candidate": "cycle:1b2b0a1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1785,7 +1785,7 @@
       },
       {
         "candidate": "cycle:1b2b0a1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1793,7 +1793,7 @@
       },
       {
         "candidate": "cycle:1b2b2a0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1801,7 +1801,7 @@
       },
       {
         "candidate": "cycle:1b2b2a0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1809,7 +1809,7 @@
       },
       {
         "candidate": "cycle:1b2b2a0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1817,7 +1817,7 @@
       },
       {
         "candidate": "cycle:1b2b2a0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1825,7 +1825,7 @@
       },
       {
         "candidate": "cycle:1b2b2a1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1833,7 +1833,7 @@
       },
       {
         "candidate": "cycle:1b2b2a1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1841,7 +1841,7 @@
       },
       {
         "candidate": "cycle:1b2b0b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1849,7 +1849,7 @@
       },
       {
         "candidate": "cycle:1b2b0b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1857,7 +1857,7 @@
       },
       {
         "candidate": "cycle:1b2b0b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1865,7 +1865,7 @@
       },
       {
         "candidate": "cycle:1b2b0b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1873,7 +1873,7 @@
       },
       {
         "candidate": "cycle:1b2b0b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1881,7 +1881,7 @@
       },
       {
         "candidate": "cycle:1b2b0b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1889,7 +1889,7 @@
       },
       {
         "candidate": "cycle:1b2b1a0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1897,7 +1897,7 @@
       },
       {
         "candidate": "cycle:1b2b1a0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1905,7 +1905,7 @@
       },
       {
         "candidate": "cycle:1b2b1a2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1913,7 +1913,7 @@
       },
       {
         "candidate": "cycle:1b2b1a2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1921,7 +1921,7 @@
       },
       {
         "candidate": "cycle:1b2b1a0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1929,7 +1929,7 @@
       },
       {
         "candidate": "cycle:1b2b1a0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1937,7 +1937,7 @@
       },
       {
         "candidate": "cycle:2a0a1b0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1945,7 +1945,7 @@
       },
       {
         "candidate": "cycle:2a0a1b0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1953,7 +1953,7 @@
       },
       {
         "candidate": "cycle:2a0a1b1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1961,7 +1961,7 @@
       },
       {
         "candidate": "cycle:2a0a1b1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1969,7 +1969,7 @@
       },
       {
         "candidate": "cycle:2a0a1b2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1977,7 +1977,7 @@
       },
       {
         "candidate": "cycle:2a0a1b2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1985,7 +1985,7 @@
       },
       {
         "candidate": "cycle:2a0a0b1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -1993,7 +1993,7 @@
       },
       {
         "candidate": "cycle:2a0a0b1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2001,7 +2001,7 @@
       },
       {
         "candidate": "cycle:2a0a0b1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2009,7 +2009,7 @@
       },
       {
         "candidate": "cycle:2a0a0b1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2017,7 +2017,7 @@
       },
       {
         "candidate": "cycle:2a0a0b2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2025,7 +2025,7 @@
       },
       {
         "candidate": "cycle:2a0a0b2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2033,7 +2033,7 @@
       },
       {
         "candidate": "cycle:2a0a1a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2041,7 +2041,7 @@
       },
       {
         "candidate": "cycle:2a0a1a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2049,7 +2049,7 @@
       },
       {
         "candidate": "cycle:2a0a1a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2057,7 +2057,7 @@
       },
       {
         "candidate": "cycle:2a0a1a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2065,7 +2065,7 @@
       },
       {
         "candidate": "cycle:2a0a1a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2073,7 +2073,7 @@
       },
       {
         "candidate": "cycle:2a0a1a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2081,7 +2081,7 @@
       },
       {
         "candidate": "cycle:2a0a2b1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2089,7 +2089,7 @@
       },
       {
         "candidate": "cycle:2a0a2b1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2097,7 +2097,7 @@
       },
       {
         "candidate": "cycle:2a0a2b0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2105,7 +2105,7 @@
       },
       {
         "candidate": "cycle:2a0a2b0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2113,7 +2113,7 @@
       },
       {
         "candidate": "cycle:2a0a2b1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2121,7 +2121,7 @@
       },
       {
         "candidate": "cycle:2a0a2b1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2129,7 +2129,7 @@
       },
       {
         "candidate": "cycle:2a1b0a0b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2137,7 +2137,7 @@
       },
       {
         "candidate": "cycle:2a1b0a0b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2145,7 +2145,7 @@
       },
       {
         "candidate": "cycle:2a1b0a1a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2153,7 +2153,7 @@
       },
       {
         "candidate": "cycle:2a1b0a1a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2161,7 +2161,7 @@
       },
       {
         "candidate": "cycle:2a1b0a2b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2169,7 +2169,7 @@
       },
       {
         "candidate": "cycle:2a1b0a2b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2177,7 +2177,7 @@
       },
       {
         "candidate": "cycle:2a1b0b0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2185,7 +2185,7 @@
       },
       {
         "candidate": "cycle:2a1b0b0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2193,7 +2193,7 @@
       },
       {
         "candidate": "cycle:2a1b0b1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2201,7 +2201,7 @@
       },
       {
         "candidate": "cycle:2a1b0b1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2209,7 +2209,7 @@
       },
       {
         "candidate": "cycle:2a1b0b2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2217,7 +2217,7 @@
       },
       {
         "candidate": "cycle:2a1b0b2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2225,7 +2225,7 @@
       },
       {
         "candidate": "cycle:2a1b1a0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2233,7 +2233,7 @@
       },
       {
         "candidate": "cycle:2a1b1a0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2241,7 +2241,7 @@
       },
       {
         "candidate": "cycle:2a1b1a0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2249,7 +2249,7 @@
       },
       {
         "candidate": "cycle:2a1b1a0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2257,7 +2257,7 @@
       },
       {
         "candidate": "cycle:2a1b1a2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2265,7 +2265,7 @@
       },
       {
         "candidate": "cycle:2a1b1a2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2273,7 +2273,7 @@
       },
       {
         "candidate": "cycle:2a1b2b0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2281,7 +2281,7 @@
       },
       {
         "candidate": "cycle:2a1b2b0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2289,7 +2289,7 @@
       },
       {
         "candidate": "cycle:2a1b2b0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2297,7 +2297,7 @@
       },
       {
         "candidate": "cycle:2a1b2b0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2305,7 +2305,7 @@
       },
       {
         "candidate": "cycle:2a1b2b1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2313,7 +2313,7 @@
       },
       {
         "candidate": "cycle:2a1b2b1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2321,7 +2321,7 @@
       },
       {
         "candidate": "cycle:2a0b0a1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2329,7 +2329,7 @@
       },
       {
         "candidate": "cycle:2a0b0a1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2337,7 +2337,7 @@
       },
       {
         "candidate": "cycle:2a0b0a1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2345,7 +2345,7 @@
       },
       {
         "candidate": "cycle:2a0b0a1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2353,7 +2353,7 @@
       },
       {
         "candidate": "cycle:2a0b0a2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2361,7 +2361,7 @@
       },
       {
         "candidate": "cycle:2a0b0a2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2369,7 +2369,7 @@
       },
       {
         "candidate": "cycle:2a0b1b0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2377,7 +2377,7 @@
       },
       {
         "candidate": "cycle:2a0b1b0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2385,7 +2385,7 @@
       },
       {
         "candidate": "cycle:2a0b1b1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2393,7 +2393,7 @@
       },
       {
         "candidate": "cycle:2a0b1b1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2401,7 +2401,7 @@
       },
       {
         "candidate": "cycle:2a0b1b2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2409,7 +2409,7 @@
       },
       {
         "candidate": "cycle:2a0b1b2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2417,7 +2417,7 @@
       },
       {
         "candidate": "cycle:2a0b1a0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2425,7 +2425,7 @@
       },
       {
         "candidate": "cycle:2a0b1a0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2433,7 +2433,7 @@
       },
       {
         "candidate": "cycle:2a0b1a1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2441,7 +2441,7 @@
       },
       {
         "candidate": "cycle:2a0b1a1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2449,7 +2449,7 @@
       },
       {
         "candidate": "cycle:2a0b1a2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2457,7 +2457,7 @@
       },
       {
         "candidate": "cycle:2a0b1a2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2465,7 +2465,7 @@
       },
       {
         "candidate": "cycle:2a0b2b0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2473,7 +2473,7 @@
       },
       {
         "candidate": "cycle:2a0b2b0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2481,7 +2481,7 @@
       },
       {
         "candidate": "cycle:2a0b2b1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2489,7 +2489,7 @@
       },
       {
         "candidate": "cycle:2a0b2b1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2497,7 +2497,7 @@
       },
       {
         "candidate": "cycle:2a0b2b1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2505,7 +2505,7 @@
       },
       {
         "candidate": "cycle:2a0b2b1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2513,7 +2513,7 @@
       },
       {
         "candidate": "cycle:2a1a0a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2521,7 +2521,7 @@
       },
       {
         "candidate": "cycle:2a1a0a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2529,7 +2529,7 @@
       },
       {
         "candidate": "cycle:2a1a0a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2537,7 +2537,7 @@
       },
       {
         "candidate": "cycle:2a1a0a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2545,7 +2545,7 @@
       },
       {
         "candidate": "cycle:2a1a0a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2553,7 +2553,7 @@
       },
       {
         "candidate": "cycle:2a1a0a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2561,7 +2561,7 @@
       },
       {
         "candidate": "cycle:2a1a1b0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2569,7 +2569,7 @@
       },
       {
         "candidate": "cycle:2a1a1b0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2577,7 +2577,7 @@
       },
       {
         "candidate": "cycle:2a1a1b0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2585,7 +2585,7 @@
       },
       {
         "candidate": "cycle:2a1a1b0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2593,7 +2593,7 @@
       },
       {
         "candidate": "cycle:2a1a1b2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2601,7 +2601,7 @@
       },
       {
         "candidate": "cycle:2a1a1b2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2609,7 +2609,7 @@
       },
       {
         "candidate": "cycle:2a1a0b0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2617,7 +2617,7 @@
       },
       {
         "candidate": "cycle:2a1a0b0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2625,7 +2625,7 @@
       },
       {
         "candidate": "cycle:2a1a0b1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2633,7 +2633,7 @@
       },
       {
         "candidate": "cycle:2a1a0b1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2641,7 +2641,7 @@
       },
       {
         "candidate": "cycle:2a1a0b2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2649,7 +2649,7 @@
       },
       {
         "candidate": "cycle:2a1a0b2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2657,7 +2657,7 @@
       },
       {
         "candidate": "cycle:2a1a2b0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2665,7 +2665,7 @@
       },
       {
         "candidate": "cycle:2a1a2b0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2673,7 +2673,7 @@
       },
       {
         "candidate": "cycle:2a1a2b1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2681,7 +2681,7 @@
       },
       {
         "candidate": "cycle:2a1a2b1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2689,7 +2689,7 @@
       },
       {
         "candidate": "cycle:2a1a2b0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2697,7 +2697,7 @@
       },
       {
         "candidate": "cycle:2a1a2b0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2705,7 +2705,7 @@
       },
       {
         "candidate": "cycle:2a2b0a1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2713,7 +2713,7 @@
       },
       {
         "candidate": "cycle:2a2b0a1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2721,7 +2721,7 @@
       },
       {
         "candidate": "cycle:2a2b0a0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2729,7 +2729,7 @@
       },
       {
         "candidate": "cycle:2a2b0a0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2737,7 +2737,7 @@
       },
       {
         "candidate": "cycle:2a2b0a1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2745,7 +2745,7 @@
       },
       {
         "candidate": "cycle:2a2b0a1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2753,7 +2753,7 @@
       },
       {
         "candidate": "cycle:2a2b1b0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2761,7 +2761,7 @@
       },
       {
         "candidate": "cycle:2a2b1b0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2769,7 +2769,7 @@
       },
       {
         "candidate": "cycle:2a2b1b0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2777,7 +2777,7 @@
       },
       {
         "candidate": "cycle:2a2b1b0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2785,7 +2785,7 @@
       },
       {
         "candidate": "cycle:2a2b1b1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2793,7 +2793,7 @@
       },
       {
         "candidate": "cycle:2a2b1b1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2801,7 +2801,7 @@
       },
       {
         "candidate": "cycle:2a2b0b0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2809,7 +2809,7 @@
       },
       {
         "candidate": "cycle:2a2b0b0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2817,7 +2817,7 @@
       },
       {
         "candidate": "cycle:2a2b0b1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2825,7 +2825,7 @@
       },
       {
         "candidate": "cycle:2a2b0b1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2833,7 +2833,7 @@
       },
       {
         "candidate": "cycle:2a2b0b1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2841,7 +2841,7 @@
       },
       {
         "candidate": "cycle:2a2b0b1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2849,7 +2849,7 @@
       },
       {
         "candidate": "cycle:2a2b1a0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2857,7 +2857,7 @@
       },
       {
         "candidate": "cycle:2a2b1a0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2865,7 +2865,7 @@
       },
       {
         "candidate": "cycle:2a2b1a1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2873,7 +2873,7 @@
       },
       {
         "candidate": "cycle:2a2b1a1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2881,7 +2881,7 @@
       },
       {
         "candidate": "cycle:2a2b1a0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2889,7 +2889,7 @@
       },
       {
         "candidate": "cycle:2a2b1a0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2897,7 +2897,7 @@
       },
       {
         "candidate": "cycle:0b0a1b2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2905,7 +2905,7 @@
       },
       {
         "candidate": "cycle:0b0a1b2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2913,7 +2913,7 @@
       },
       {
         "candidate": "cycle:0b0a1b1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2921,7 +2921,7 @@
       },
       {
         "candidate": "cycle:0b0a1b1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2929,7 +2929,7 @@
       },
       {
         "candidate": "cycle:0b0a1b2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2937,7 +2937,7 @@
       },
       {
         "candidate": "cycle:0b0a1b2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2945,7 +2945,7 @@
       },
       {
         "candidate": "cycle:0b0a2a1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2953,7 +2953,7 @@
       },
       {
         "candidate": "cycle:0b0a2a1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2961,7 +2961,7 @@
       },
       {
         "candidate": "cycle:0b0a2a1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2969,7 +2969,7 @@
       },
       {
         "candidate": "cycle:0b0a2a1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2977,7 +2977,7 @@
       },
       {
         "candidate": "cycle:0b0a2a2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2985,7 +2985,7 @@
       },
       {
         "candidate": "cycle:0b0a2a2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -2993,7 +2993,7 @@
       },
       {
         "candidate": "cycle:0b0a1a1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3001,7 +3001,7 @@
       },
       {
         "candidate": "cycle:0b0a1a1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3009,7 +3009,7 @@
       },
       {
         "candidate": "cycle:0b0a1a2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3017,7 +3017,7 @@
       },
       {
         "candidate": "cycle:0b0a1a2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3025,7 +3025,7 @@
       },
       {
         "candidate": "cycle:0b0a1a2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3033,7 +3033,7 @@
       },
       {
         "candidate": "cycle:0b0a1a2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3041,7 +3041,7 @@
       },
       {
         "candidate": "cycle:0b0a2b1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3049,7 +3049,7 @@
       },
       {
         "candidate": "cycle:0b0a2b1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3057,7 +3057,7 @@
       },
       {
         "candidate": "cycle:0b0a2b2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3065,7 +3065,7 @@
       },
       {
         "candidate": "cycle:0b0a2b2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3073,7 +3073,7 @@
       },
       {
         "candidate": "cycle:0b0a2b1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3081,7 +3081,7 @@
       },
       {
         "candidate": "cycle:0b0a2b1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3089,7 +3089,7 @@
       },
       {
         "candidate": "cycle:0b1b0a2a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3097,7 +3097,7 @@
       },
       {
         "candidate": "cycle:0b1b0a2a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3105,7 +3105,7 @@
       },
       {
         "candidate": "cycle:0b1b0a1a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3113,7 +3113,7 @@
       },
       {
         "candidate": "cycle:0b1b0a1a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3121,7 +3121,7 @@
       },
       {
         "candidate": "cycle:0b1b0a2b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3129,7 +3129,7 @@
       },
       {
         "candidate": "cycle:0b1b0a2b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3137,7 +3137,7 @@
       },
       {
         "candidate": "cycle:0b1b2a0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3145,7 +3145,7 @@
       },
       {
         "candidate": "cycle:0b1b2a0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3153,7 +3153,7 @@
       },
       {
         "candidate": "cycle:0b1b2a1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3161,7 +3161,7 @@
       },
       {
         "candidate": "cycle:0b1b2a1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3169,7 +3169,7 @@
       },
       {
         "candidate": "cycle:0b1b2a2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3177,7 +3177,7 @@
       },
       {
         "candidate": "cycle:0b1b2a2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3185,7 +3185,7 @@
       },
       {
         "candidate": "cycle:0b1b1a0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3193,7 +3193,7 @@
       },
       {
         "candidate": "cycle:0b1b1a0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3201,7 +3201,7 @@
       },
       {
         "candidate": "cycle:0b1b1a2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3209,7 +3209,7 @@
       },
       {
         "candidate": "cycle:0b1b1a2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3217,7 +3217,7 @@
       },
       {
         "candidate": "cycle:0b1b1a2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3225,7 +3225,7 @@
       },
       {
         "candidate": "cycle:0b1b1a2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3233,7 +3233,7 @@
       },
       {
         "candidate": "cycle:0b1b2b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3241,7 +3241,7 @@
       },
       {
         "candidate": "cycle:0b1b2b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3249,7 +3249,7 @@
       },
       {
         "candidate": "cycle:0b1b2b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3257,7 +3257,7 @@
       },
       {
         "candidate": "cycle:0b1b2b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3265,7 +3265,7 @@
       },
       {
         "candidate": "cycle:0b1b2b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3273,7 +3273,7 @@
       },
       {
         "candidate": "cycle:0b1b2b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3281,7 +3281,7 @@
       },
       {
         "candidate": "cycle:0b2a0a1b1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3289,7 +3289,7 @@
       },
       {
         "candidate": "cycle:0b2a0a1b2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3297,7 +3297,7 @@
       },
       {
         "candidate": "cycle:0b2a0a1a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3305,7 +3305,7 @@
       },
       {
         "candidate": "cycle:0b2a0a1a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3313,7 +3313,7 @@
       },
       {
         "candidate": "cycle:0b2a0a2b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3321,7 +3321,7 @@
       },
       {
         "candidate": "cycle:0b2a0a2b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3329,7 +3329,7 @@
       },
       {
         "candidate": "cycle:0b2a1b0a1a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3337,7 +3337,7 @@
       },
       {
         "candidate": "cycle:0b2a1b0a2b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3345,7 +3345,7 @@
       },
       {
         "candidate": "cycle:0b2a1b1a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3353,7 +3353,7 @@
       },
       {
         "candidate": "cycle:0b2a1b1a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3361,7 +3361,7 @@
       },
       {
         "candidate": "cycle:0b2a1b2b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3369,7 +3369,7 @@
       },
       {
         "candidate": "cycle:0b2a1b2b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3377,7 +3377,7 @@
       },
       {
         "candidate": "cycle:0b2a1a0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3385,7 +3385,7 @@
       },
       {
         "candidate": "cycle:0b2a1a0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3393,7 +3393,7 @@
       },
       {
         "candidate": "cycle:0b2a1a1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3401,7 +3401,7 @@
       },
       {
         "candidate": "cycle:0b2a1a1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3409,7 +3409,7 @@
       },
       {
         "candidate": "cycle:0b2a1a2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3417,7 +3417,7 @@
       },
       {
         "candidate": "cycle:0b2a1a2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3425,7 +3425,7 @@
       },
       {
         "candidate": "cycle:0b2a2b0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3433,7 +3433,7 @@
       },
       {
         "candidate": "cycle:0b2a2b0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3441,7 +3441,7 @@
       },
       {
         "candidate": "cycle:0b2a2b1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3449,7 +3449,7 @@
       },
       {
         "candidate": "cycle:0b2a2b1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3457,7 +3457,7 @@
       },
       {
         "candidate": "cycle:0b2a2b1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3465,7 +3465,7 @@
       },
       {
         "candidate": "cycle:0b2a2b1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3473,7 +3473,7 @@
       },
       {
         "candidate": "cycle:0b1a0a1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3481,7 +3481,7 @@
       },
       {
         "candidate": "cycle:0b1a0a1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3489,7 +3489,7 @@
       },
       {
         "candidate": "cycle:0b1a0a2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3497,7 +3497,7 @@
       },
       {
         "candidate": "cycle:0b1a0a2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3505,7 +3505,7 @@
       },
       {
         "candidate": "cycle:0b1a0a2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3513,7 +3513,7 @@
       },
       {
         "candidate": "cycle:0b1a0a2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3521,7 +3521,7 @@
       },
       {
         "candidate": "cycle:0b1a1b0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3529,7 +3529,7 @@
       },
       {
         "candidate": "cycle:0b1a1b0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3537,7 +3537,7 @@
       },
       {
         "candidate": "cycle:0b1a1b2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3545,7 +3545,7 @@
       },
       {
         "candidate": "cycle:0b1a1b2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3553,7 +3553,7 @@
       },
       {
         "candidate": "cycle:0b1a1b2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3561,7 +3561,7 @@
       },
       {
         "candidate": "cycle:0b1a1b2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3569,7 +3569,7 @@
       },
       {
         "candidate": "cycle:0b1a2a0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3577,7 +3577,7 @@
       },
       {
         "candidate": "cycle:0b1a2a0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3585,7 +3585,7 @@
       },
       {
         "candidate": "cycle:0b1a2a1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3593,7 +3593,7 @@
       },
       {
         "candidate": "cycle:0b1a2a1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3601,7 +3601,7 @@
       },
       {
         "candidate": "cycle:0b1a2a2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3609,7 +3609,7 @@
       },
       {
         "candidate": "cycle:0b1a2a2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3617,7 +3617,7 @@
       },
       {
         "candidate": "cycle:0b1a2b0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3625,7 +3625,7 @@
       },
       {
         "candidate": "cycle:0b1a2b0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3633,7 +3633,7 @@
       },
       {
         "candidate": "cycle:0b1a2b1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3641,7 +3641,7 @@
       },
       {
         "candidate": "cycle:0b1a2b1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3649,7 +3649,7 @@
       },
       {
         "candidate": "cycle:0b1a2b2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3657,7 +3657,7 @@
       },
       {
         "candidate": "cycle:0b1a2b2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3665,7 +3665,7 @@
       },
       {
         "candidate": "cycle:0b2b0a1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3673,7 +3673,7 @@
       },
       {
         "candidate": "cycle:0b2b0a1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3681,7 +3681,7 @@
       },
       {
         "candidate": "cycle:0b2b0a2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3689,7 +3689,7 @@
       },
       {
         "candidate": "cycle:0b2b0a2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3697,7 +3697,7 @@
       },
       {
         "candidate": "cycle:0b2b0a1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3705,7 +3705,7 @@
       },
       {
         "candidate": "cycle:0b2b0a1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3713,7 +3713,7 @@
       },
       {
         "candidate": "cycle:0b2b1b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3721,7 +3721,7 @@
       },
       {
         "candidate": "cycle:0b2b1b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3729,7 +3729,7 @@
       },
       {
         "candidate": "cycle:0b2b1b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3737,7 +3737,7 @@
       },
       {
         "candidate": "cycle:0b2b1b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3745,7 +3745,7 @@
       },
       {
         "candidate": "cycle:0b2b1b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3753,7 +3753,7 @@
       },
       {
         "candidate": "cycle:0b2b1b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3761,7 +3761,7 @@
       },
       {
         "candidate": "cycle:0b2b2a0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3769,7 +3769,7 @@
       },
       {
         "candidate": "cycle:0b2b2a0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3777,7 +3777,7 @@
       },
       {
         "candidate": "cycle:0b2b2a1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3785,7 +3785,7 @@
       },
       {
         "candidate": "cycle:0b2b2a1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3793,7 +3793,7 @@
       },
       {
         "candidate": "cycle:0b2b2a1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3801,7 +3801,7 @@
       },
       {
         "candidate": "cycle:0b2b2a1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3809,7 +3809,7 @@
       },
       {
         "candidate": "cycle:0b2b1a0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3817,7 +3817,7 @@
       },
       {
         "candidate": "cycle:0b2b1a0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3825,7 +3825,7 @@
       },
       {
         "candidate": "cycle:0b2b1a1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3833,7 +3833,7 @@
       },
       {
         "candidate": "cycle:0b2b1a1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3841,7 +3841,7 @@
       },
       {
         "candidate": "cycle:0b2b1a2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3849,7 +3849,7 @@
       },
       {
         "candidate": "cycle:0b2b1a2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3857,7 +3857,7 @@
       },
       {
         "candidate": "cycle:1a0a1b2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3865,7 +3865,7 @@
       },
       {
         "candidate": "cycle:1a0a1b2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3873,7 +3873,7 @@
       },
       {
         "candidate": "cycle:1a0a1b0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3881,7 +3881,7 @@
       },
       {
         "candidate": "cycle:1a0a1b0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3889,7 +3889,7 @@
       },
       {
         "candidate": "cycle:1a0a1b2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3897,7 +3897,7 @@
       },
       {
         "candidate": "cycle:1a0a1b2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3905,7 +3905,7 @@
       },
       {
         "candidate": "cycle:1a0a2a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3913,7 +3913,7 @@
       },
       {
         "candidate": "cycle:1a0a2a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3921,7 +3921,7 @@
       },
       {
         "candidate": "cycle:1a0a2a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3929,7 +3929,7 @@
       },
       {
         "candidate": "cycle:1a0a2a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3937,7 +3937,7 @@
       },
       {
         "candidate": "cycle:1a0a2a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3945,7 +3945,7 @@
       },
       {
         "candidate": "cycle:1a0a2a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3953,7 +3953,7 @@
       },
       {
         "candidate": "cycle:1a0a0b1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3961,7 +3961,7 @@
       },
       {
         "candidate": "cycle:1a0a0b1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3969,7 +3969,7 @@
       },
       {
         "candidate": "cycle:1a0a0b2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3977,7 +3977,7 @@
       },
       {
         "candidate": "cycle:1a0a0b2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3985,7 +3985,7 @@
       },
       {
         "candidate": "cycle:1a0a0b2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -3993,7 +3993,7 @@
       },
       {
         "candidate": "cycle:1a0a0b2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4001,7 +4001,7 @@
       },
       {
         "candidate": "cycle:1a0a2b1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4009,7 +4009,7 @@
       },
       {
         "candidate": "cycle:1a0a2b1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4017,7 +4017,7 @@
       },
       {
         "candidate": "cycle:1a0a2b2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4025,7 +4025,7 @@
       },
       {
         "candidate": "cycle:1a0a2b2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4033,7 +4033,7 @@
       },
       {
         "candidate": "cycle:1a0a2b0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4041,7 +4041,7 @@
       },
       {
         "candidate": "cycle:1a0a2b0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4049,7 +4049,7 @@
       },
       {
         "candidate": "cycle:1a1b0a2a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4057,7 +4057,7 @@
       },
       {
         "candidate": "cycle:1a1b0a2a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4065,7 +4065,7 @@
       },
       {
         "candidate": "cycle:1a1b0a0b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4073,7 +4073,7 @@
       },
       {
         "candidate": "cycle:1a1b0a0b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4081,7 +4081,7 @@
       },
       {
         "candidate": "cycle:1a1b0a2b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4089,7 +4089,7 @@
       },
       {
         "candidate": "cycle:1a1b0a2b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4097,7 +4097,7 @@
       },
       {
         "candidate": "cycle:1a1b2a0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4105,7 +4105,7 @@
       },
       {
         "candidate": "cycle:1a1b2a0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4113,7 +4113,7 @@
       },
       {
         "candidate": "cycle:1a1b2a0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4121,7 +4121,7 @@
       },
       {
         "candidate": "cycle:1a1b2a0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4129,7 +4129,7 @@
       },
       {
         "candidate": "cycle:1a1b2a2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4137,7 +4137,7 @@
       },
       {
         "candidate": "cycle:1a1b2a2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4145,7 +4145,7 @@
       },
       {
         "candidate": "cycle:1a1b0b0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4153,7 +4153,7 @@
       },
       {
         "candidate": "cycle:1a1b0b0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4161,7 +4161,7 @@
       },
       {
         "candidate": "cycle:1a1b0b2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4169,7 +4169,7 @@
       },
       {
         "candidate": "cycle:1a1b0b2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4177,7 +4177,7 @@
       },
       {
         "candidate": "cycle:1a1b0b2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4185,7 +4185,7 @@
       },
       {
         "candidate": "cycle:1a1b0b2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4193,7 +4193,7 @@
       },
       {
         "candidate": "cycle:1a1b2b0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4201,7 +4201,7 @@
       },
       {
         "candidate": "cycle:1a1b2b0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4209,7 +4209,7 @@
       },
       {
         "candidate": "cycle:1a1b2b2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4217,7 +4217,7 @@
       },
       {
         "candidate": "cycle:1a1b2b2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4225,7 +4225,7 @@
       },
       {
         "candidate": "cycle:1a1b2b0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4233,7 +4233,7 @@
       },
       {
         "candidate": "cycle:1a1b2b0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4241,7 +4241,7 @@
       },
       {
         "candidate": "cycle:1a2a0a1b0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4249,7 +4249,7 @@
       },
       {
         "candidate": "cycle:1a2a0a1b2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4257,7 +4257,7 @@
       },
       {
         "candidate": "cycle:1a2a0a0b1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4265,7 +4265,7 @@
       },
       {
         "candidate": "cycle:1a2a0a0b2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4273,7 +4273,7 @@
       },
       {
         "candidate": "cycle:1a2a0a2b1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4281,7 +4281,7 @@
       },
       {
         "candidate": "cycle:1a2a0a2b0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4289,7 +4289,7 @@
       },
       {
         "candidate": "cycle:1a2a1b0a0b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4297,7 +4297,7 @@
       },
       {
         "candidate": "cycle:1a2a1b0a2b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4305,7 +4305,7 @@
       },
       {
         "candidate": "cycle:1a2a1b0b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4313,7 +4313,7 @@
       },
       {
         "candidate": "cycle:1a2a1b0b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4321,7 +4321,7 @@
       },
       {
         "candidate": "cycle:1a2a1b2b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4329,7 +4329,7 @@
       },
       {
         "candidate": "cycle:1a2a1b2b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4337,7 +4337,7 @@
       },
       {
         "candidate": "cycle:1a2a0b0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4345,7 +4345,7 @@
       },
       {
         "candidate": "cycle:1a2a0b0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4353,7 +4353,7 @@
       },
       {
         "candidate": "cycle:1a2a0b1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4361,7 +4361,7 @@
       },
       {
         "candidate": "cycle:1a2a0b1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4369,7 +4369,7 @@
       },
       {
         "candidate": "cycle:1a2a0b2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4377,7 +4377,7 @@
       },
       {
         "candidate": "cycle:1a2a0b2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4385,7 +4385,7 @@
       },
       {
         "candidate": "cycle:1a2a2b0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4393,7 +4393,7 @@
       },
       {
         "candidate": "cycle:1a2a2b0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4401,7 +4401,7 @@
       },
       {
         "candidate": "cycle:1a2a2b1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4409,7 +4409,7 @@
       },
       {
         "candidate": "cycle:1a2a2b1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4417,7 +4417,7 @@
       },
       {
         "candidate": "cycle:1a2a2b0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4425,7 +4425,7 @@
       },
       {
         "candidate": "cycle:1a2a2b0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4433,7 +4433,7 @@
       },
       {
         "candidate": "cycle:1a0b0a1b2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4441,7 +4441,7 @@
       },
       {
         "candidate": "cycle:1a0b0a1b2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4449,7 +4449,7 @@
       },
       {
         "candidate": "cycle:1a0b0a2a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4457,7 +4457,7 @@
       },
       {
         "candidate": "cycle:1a0b0a2a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4465,7 +4465,7 @@
       },
       {
         "candidate": "cycle:1a0b0a2b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4473,7 +4473,7 @@
       },
       {
         "candidate": "cycle:1a0b0a2b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4481,7 +4481,7 @@
       },
       {
         "candidate": "cycle:1a0b1b0a2a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4489,7 +4489,7 @@
       },
       {
         "candidate": "cycle:1a0b1b0a2b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4497,7 +4497,7 @@
       },
       {
         "candidate": "cycle:1a0b1b2a0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4505,7 +4505,7 @@
       },
       {
         "candidate": "cycle:1a0b1b2a2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4513,7 +4513,7 @@
       },
       {
         "candidate": "cycle:1a0b1b2b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4521,7 +4521,7 @@
       },
       {
         "candidate": "cycle:1a0b1b2b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4529,7 +4529,7 @@
       },
       {
         "candidate": "cycle:1a0b2a0a1b2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4537,7 +4537,7 @@
       },
       {
         "candidate": "cycle:1a0b2a0a2b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4545,7 +4545,7 @@
       },
       {
         "candidate": "cycle:1a0b2a1b0a2b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4553,7 +4553,7 @@
       },
       {
         "candidate": "cycle:1a0b2a1b2b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4561,7 +4561,7 @@
       },
       {
         "candidate": "cycle:1a0b2a2b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4569,7 +4569,7 @@
       },
       {
         "candidate": "cycle:1a0b2a2b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4577,7 +4577,7 @@
       },
       {
         "candidate": "cycle:1a0b2b0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4585,7 +4585,7 @@
       },
       {
         "candidate": "cycle:1a0b2b0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4593,7 +4593,7 @@
       },
       {
         "candidate": "cycle:1a0b2b1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4601,7 +4601,7 @@
       },
       {
         "candidate": "cycle:1a0b2b1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4609,7 +4609,7 @@
       },
       {
         "candidate": "cycle:1a0b2b2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4617,7 +4617,7 @@
       },
       {
         "candidate": "cycle:1a0b2b2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4625,7 +4625,7 @@
       },
       {
         "candidate": "cycle:1a2b0a1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4633,7 +4633,7 @@
       },
       {
         "candidate": "cycle:1a2b0a1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4641,7 +4641,7 @@
       },
       {
         "candidate": "cycle:1a2b0a2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4649,7 +4649,7 @@
       },
       {
         "candidate": "cycle:1a2b0a2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4657,7 +4657,7 @@
       },
       {
         "candidate": "cycle:1a2b0a0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4665,7 +4665,7 @@
       },
       {
         "candidate": "cycle:1a2b0a0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4673,7 +4673,7 @@
       },
       {
         "candidate": "cycle:1a2b1b0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4681,7 +4681,7 @@
       },
       {
         "candidate": "cycle:1a2b1b0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4689,7 +4689,7 @@
       },
       {
         "candidate": "cycle:1a2b1b2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4697,7 +4697,7 @@
       },
       {
         "candidate": "cycle:1a2b1b2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4705,7 +4705,7 @@
       },
       {
         "candidate": "cycle:1a2b1b0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4713,7 +4713,7 @@
       },
       {
         "candidate": "cycle:1a2b1b0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4721,7 +4721,7 @@
       },
       {
         "candidate": "cycle:1a2b2a0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4729,7 +4729,7 @@
       },
       {
         "candidate": "cycle:1a2b2a0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4737,7 +4737,7 @@
       },
       {
         "candidate": "cycle:1a2b2a1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4745,7 +4745,7 @@
       },
       {
         "candidate": "cycle:1a2b2a1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4753,7 +4753,7 @@
       },
       {
         "candidate": "cycle:1a2b2a0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4761,7 +4761,7 @@
       },
       {
         "candidate": "cycle:1a2b2a0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4769,7 +4769,7 @@
       },
       {
         "candidate": "cycle:1a2b0b0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4777,7 +4777,7 @@
       },
       {
         "candidate": "cycle:1a2b0b0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4785,7 +4785,7 @@
       },
       {
         "candidate": "cycle:1a2b0b1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4793,7 +4793,7 @@
       },
       {
         "candidate": "cycle:1a2b0b1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4801,7 +4801,7 @@
       },
       {
         "candidate": "cycle:1a2b0b2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4809,7 +4809,7 @@
       },
       {
         "candidate": "cycle:1a2b0b2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4817,7 +4817,7 @@
       },
       {
         "candidate": "cycle:2b0a1b2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4825,7 +4825,7 @@
       },
       {
         "candidate": "cycle:2b0a1b2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4833,7 +4833,7 @@
       },
       {
         "candidate": "cycle:2b0a1b0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4841,7 +4841,7 @@
       },
       {
         "candidate": "cycle:2b0a1b0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4849,7 +4849,7 @@
       },
       {
         "candidate": "cycle:2b0a1b1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4857,7 +4857,7 @@
       },
       {
         "candidate": "cycle:2b0a1b1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4865,7 +4865,7 @@
       },
       {
         "candidate": "cycle:2b0a2a1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4873,7 +4873,7 @@
       },
       {
         "candidate": "cycle:2b0a2a1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4881,7 +4881,7 @@
       },
       {
         "candidate": "cycle:2b0a2a0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4889,7 +4889,7 @@
       },
       {
         "candidate": "cycle:2b0a2a0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4897,7 +4897,7 @@
       },
       {
         "candidate": "cycle:2b0a2a1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4905,7 +4905,7 @@
       },
       {
         "candidate": "cycle:2b0a2a1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4913,7 +4913,7 @@
       },
       {
         "candidate": "cycle:2b0a0b1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4921,7 +4921,7 @@
       },
       {
         "candidate": "cycle:2b0a0b1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4929,7 +4929,7 @@
       },
       {
         "candidate": "cycle:2b0a0b2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4937,7 +4937,7 @@
       },
       {
         "candidate": "cycle:2b0a0b2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4945,7 +4945,7 @@
       },
       {
         "candidate": "cycle:2b0a0b1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4953,7 +4953,7 @@
       },
       {
         "candidate": "cycle:2b0a0b1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4961,7 +4961,7 @@
       },
       {
         "candidate": "cycle:2b0a1a1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4969,7 +4969,7 @@
       },
       {
         "candidate": "cycle:2b0a1a1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4977,7 +4977,7 @@
       },
       {
         "candidate": "cycle:2b0a1a2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4985,7 +4985,7 @@
       },
       {
         "candidate": "cycle:2b0a1a2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -4993,7 +4993,7 @@
       },
       {
         "candidate": "cycle:2b0a1a0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5001,7 +5001,7 @@
       },
       {
         "candidate": "cycle:2b0a1a0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5009,7 +5009,7 @@
       },
       {
         "candidate": "cycle:2b1b0a2a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5017,7 +5017,7 @@
       },
       {
         "candidate": "cycle:2b1b0a2a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5025,7 +5025,7 @@
       },
       {
         "candidate": "cycle:2b1b0a0b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5033,7 +5033,7 @@
       },
       {
         "candidate": "cycle:2b1b0a0b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5041,7 +5041,7 @@
       },
       {
         "candidate": "cycle:2b1b0a1a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5049,7 +5049,7 @@
       },
       {
         "candidate": "cycle:2b1b0a1a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5057,7 +5057,7 @@
       },
       {
         "candidate": "cycle:2b1b2a0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5065,7 +5065,7 @@
       },
       {
         "candidate": "cycle:2b1b2a0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5073,7 +5073,7 @@
       },
       {
         "candidate": "cycle:2b1b2a0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5081,7 +5081,7 @@
       },
       {
         "candidate": "cycle:2b1b2a0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5089,7 +5089,7 @@
       },
       {
         "candidate": "cycle:2b1b2a1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5097,7 +5097,7 @@
       },
       {
         "candidate": "cycle:2b1b2a1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5105,7 +5105,7 @@
       },
       {
         "candidate": "cycle:2b1b0b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5113,7 +5113,7 @@
       },
       {
         "candidate": "cycle:2b1b0b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5121,7 +5121,7 @@
       },
       {
         "candidate": "cycle:2b1b0b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5129,7 +5129,7 @@
       },
       {
         "candidate": "cycle:2b1b0b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5137,7 +5137,7 @@
       },
       {
         "candidate": "cycle:2b1b0b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5145,7 +5145,7 @@
       },
       {
         "candidate": "cycle:2b1b0b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5153,7 +5153,7 @@
       },
       {
         "candidate": "cycle:2b1b1a0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5161,7 +5161,7 @@
       },
       {
         "candidate": "cycle:2b1b1a0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5169,7 +5169,7 @@
       },
       {
         "candidate": "cycle:2b1b1a2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5177,7 +5177,7 @@
       },
       {
         "candidate": "cycle:2b1b1a2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5185,7 +5185,7 @@
       },
       {
         "candidate": "cycle:2b1b1a0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5193,7 +5193,7 @@
       },
       {
         "candidate": "cycle:2b1b1a0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5201,7 +5201,7 @@
       },
       {
         "candidate": "cycle:2b2a0a1b0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5209,7 +5209,7 @@
       },
       {
         "candidate": "cycle:2b2a0a1b1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5217,7 +5217,7 @@
       },
       {
         "candidate": "cycle:2b2a0a0b1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5225,7 +5225,7 @@
       },
       {
         "candidate": "cycle:2b2a0a0b1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5233,7 +5233,7 @@
       },
       {
         "candidate": "cycle:2b2a0a1a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5241,7 +5241,7 @@
       },
       {
         "candidate": "cycle:2b2a0a1a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5249,7 +5249,7 @@
       },
       {
         "candidate": "cycle:2b2a1b0a0b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5257,7 +5257,7 @@
       },
       {
         "candidate": "cycle:2b2a1b0a1a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5265,7 +5265,7 @@
       },
       {
         "candidate": "cycle:2b2a1b0b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5273,7 +5273,7 @@
       },
       {
         "candidate": "cycle:2b2a1b0b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5281,7 +5281,7 @@
       },
       {
         "candidate": "cycle:2b2a1b1a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5289,7 +5289,7 @@
       },
       {
         "candidate": "cycle:2b2a1b1a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5297,7 +5297,7 @@
       },
       {
         "candidate": "cycle:2b2a0b0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5305,7 +5305,7 @@
       },
       {
         "candidate": "cycle:2b2a0b0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5313,7 +5313,7 @@
       },
       {
         "candidate": "cycle:2b2a0b1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5321,7 +5321,7 @@
       },
       {
         "candidate": "cycle:2b2a0b1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5329,7 +5329,7 @@
       },
       {
         "candidate": "cycle:2b2a0b1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5337,7 +5337,7 @@
       },
       {
         "candidate": "cycle:2b2a0b1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5345,7 +5345,7 @@
       },
       {
         "candidate": "cycle:2b2a1a0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5353,7 +5353,7 @@
       },
       {
         "candidate": "cycle:2b2a1a0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5361,7 +5361,7 @@
       },
       {
         "candidate": "cycle:2b2a1a1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5369,7 +5369,7 @@
       },
       {
         "candidate": "cycle:2b2a1a1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5377,7 +5377,7 @@
       },
       {
         "candidate": "cycle:2b2a1a0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5385,7 +5385,7 @@
       },
       {
         "candidate": "cycle:2b2a1a0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5393,7 +5393,7 @@
       },
       {
         "candidate": "cycle:2b0b0a1b2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5401,7 +5401,7 @@
       },
       {
         "candidate": "cycle:2b0b0a1b1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5409,7 +5409,7 @@
       },
       {
         "candidate": "cycle:2b0b0a2a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5417,7 +5417,7 @@
       },
       {
         "candidate": "cycle:2b0b0a2a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5425,7 +5425,7 @@
       },
       {
         "candidate": "cycle:2b0b0a1a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5433,7 +5433,7 @@
       },
       {
         "candidate": "cycle:2b0b0a1a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5441,7 +5441,7 @@
       },
       {
         "candidate": "cycle:2b0b1b0a2a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5449,7 +5449,7 @@
       },
       {
         "candidate": "cycle:2b0b1b0a1a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5457,7 +5457,7 @@
       },
       {
         "candidate": "cycle:2b0b1b2a0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5465,7 +5465,7 @@
       },
       {
         "candidate": "cycle:2b0b1b2a1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5473,7 +5473,7 @@
       },
       {
         "candidate": "cycle:2b0b1b1a0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5481,7 +5481,7 @@
       },
       {
         "candidate": "cycle:2b0b1b1a2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5489,7 +5489,7 @@
       },
       {
         "candidate": "cycle:2b0b2a0a1b1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5497,7 +5497,7 @@
       },
       {
         "candidate": "cycle:2b0b2a0a1a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5505,7 +5505,7 @@
       },
       {
         "candidate": "cycle:2b0b2a1b0a1a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5513,7 +5513,7 @@
       },
       {
         "candidate": "cycle:2b0b2a1b1a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5521,7 +5521,7 @@
       },
       {
         "candidate": "cycle:2b0b2a1a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5529,7 +5529,7 @@
       },
       {
         "candidate": "cycle:2b0b2a1a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5537,7 +5537,7 @@
       },
       {
         "candidate": "cycle:2b0b1a0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5545,7 +5545,7 @@
       },
       {
         "candidate": "cycle:2b0b1a0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5553,7 +5553,7 @@
       },
       {
         "candidate": "cycle:2b0b1a1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5561,7 +5561,7 @@
       },
       {
         "candidate": "cycle:2b0b1a1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5569,7 +5569,7 @@
       },
       {
         "candidate": "cycle:2b0b1a2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5577,7 +5577,7 @@
       },
       {
         "candidate": "cycle:2b0b1a2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5585,7 +5585,7 @@
       },
       {
         "candidate": "cycle:2b1a0a1b2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5593,7 +5593,7 @@
       },
       {
         "candidate": "cycle:2b1a0a1b0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5601,7 +5601,7 @@
       },
       {
         "candidate": "cycle:2b1a0a2a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5609,7 +5609,7 @@
       },
       {
         "candidate": "cycle:2b1a0a2a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5617,7 +5617,7 @@
       },
       {
         "candidate": "cycle:2b1a0a0b1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5625,7 +5625,7 @@
       },
       {
         "candidate": "cycle:2b1a0a0b2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5633,7 +5633,7 @@
       },
       {
         "candidate": "cycle:2b1a1b0a2a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5641,7 +5641,7 @@
       },
       {
         "candidate": "cycle:2b1a1b0a0b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5649,7 +5649,7 @@
       },
       {
         "candidate": "cycle:2b1a1b2a0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5657,7 +5657,7 @@
       },
       {
         "candidate": "cycle:2b1a1b2a0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5665,7 +5665,7 @@
       },
       {
         "candidate": "cycle:2b1a1b0b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5673,7 +5673,7 @@
       },
       {
         "candidate": "cycle:2b1a1b0b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5681,7 +5681,7 @@
       },
       {
         "candidate": "cycle:2b1a2a0a1b0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5689,7 +5689,7 @@
       },
       {
         "candidate": "cycle:2b1a2a0a0b1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5697,7 +5697,7 @@
       },
       {
         "candidate": "cycle:2b1a2a1b0a0b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5705,7 +5705,7 @@
       },
       {
         "candidate": "cycle:2b1a2a1b0b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5713,7 +5713,7 @@
       },
       {
         "candidate": "cycle:2b1a2a0b0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5721,7 +5721,7 @@
       },
       {
         "candidate": "cycle:2b1a2a0b1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5729,7 +5729,7 @@
       },
       {
         "candidate": "cycle:2b1a0b0a1b2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5737,7 +5737,7 @@
       },
       {
         "candidate": "cycle:2b1a0b0a2a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5745,7 +5745,7 @@
       },
       {
         "candidate": "cycle:2b1a0b1b0a2a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5753,7 +5753,7 @@
       },
       {
         "candidate": "cycle:2b1a0b1b2a0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5761,7 +5761,7 @@
       },
       {
         "candidate": "cycle:2b1a0b2a0a1b",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5769,7 +5769,7 @@
       },
       {
         "candidate": "cycle:2b1a0b2a1b0a",
-        "n_nodes": 12,
+        "n_nodes": 13,
         "lightest_eigenphase": 0.00020028952952923508,
         "mirror_weight_16": 0.0,
         "mirror_weight_16bar": 1.0,
@@ -5786,5 +5786,5 @@
     ],
     "missing_sources": []
   },
-  "wall_time": 4160.251
+  "wall_time": 4159.267
 }

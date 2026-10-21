@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # run_all_gpus.sh - the whole verification tree, one command.
 #
-# Fans the 160 experiments across every GPU the host reports, one
+# Fans the 167 experiments across every GPU the host reports, one
 # run_experiments.sh runner per card (CUDA_VISIBLE_DEVICES pins each runner to
 # its card), and runs with the CPU core as well: the off-core suite (alt_*,
 # V186-V192) executes on the host inside every runner.  When all halves are

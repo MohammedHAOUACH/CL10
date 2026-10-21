@@ -69,13 +69,13 @@ only exactly massless multiplets of the step, and the only exact degeneracy of
 the zone.
 
 **The one number.**  The only parameter of the whole step is the rotation angle
-$g_{10}$.  Two readings are kept apart (Sections 1.4 and 9): the **implemented**
-branch $g_{10} = 1/5$ - a convention, the branch on which the phenomenology is
-computed and the default of the repository - and the **closed** branch
-$g_{10} = \pi/4$, the order-8 step the closure axiom forces, where the zone
-centre is exactly gapless and $M(0)^2 = I$.  Select the branch with
-``CL10_ANGLE=implemented|closed|half``.  The cell, the cycle and the staggering
-are fixed by the algebra.
+$g_{10}$, and the closure axiom fixes it (Sections 1.4 and 9): the physical clock
+is the **closed** root $g_{10} = \pi/4$, the order-8 step, where the zone
+centre is pinned to the Floquet pair and $M(0)^2 = I$.  The reference angle
+$g_{10} = 1/5$ (the convention $1/n_{\rm qubits}$, the dispersive Wilson-family
+member of the Section 8 searches) and the degenerate second root $\pi/2$ stay
+selectable with ``CL10_ANGLE=implemented|closed|half``; the default is ``closed``.
+The cell, the cycle and the staggering are fixed by the algebra.
 """
 
 import math
@@ -99,7 +99,7 @@ NSECTOR = int(_config.CFG.physics.n_sector)     # the Weyl sector (the +i eigens
 NONSITE = NSUB * NINT          # 256
 NSECTOR_ONSITE = NSUB * NSECTOR  # 128
 
-G10 = coupling.G10        # the active branch: 1/5 implemented, pi/4 closed (CL10_ANGLE)
+G10 = coupling.G10        # the root clock pi/4 (angle.default_branch; CL10_ANGLE overrides)
 
 # the six stages of the one step: (intra-block?, axis).
 # The order is not free: the product of the six stage matrices is exactly
@@ -245,7 +245,7 @@ def cubic_equivariance(qs=(GAMMA, X_POINTS[0], M_POINTS[0], R_POINTS[0],
     ``W P(q) W^T = P(R q)``, maximized over the 48 group elements, per
     momentum.
 
-    Measured (V191, V192): the implemented six-stage product is exact at
+    Measured (V191, V192): the engine's six-stage product is exact at
     GAMMA (1.1e-16) and broken at every other momentum (1.07e-1 generic,
     1.40e-1 M, 1.46e-1 R), while its stage SUM is invariant to 1.1e-15 at all
     momenta. Section 8.4 uses exactly this: the node analysis at GAMMA is a
@@ -405,10 +405,13 @@ def verify(tol=_TOL.standard):
        sub-site index, the internal layer is even): the 16 -> 16bar leakage
        is 0, and the 16bar spectrum is the exact conjugate of the 16;
     4. the **zone structure of the active branch** (Sections 8.3 and 9):
-       implemented (g = 1/5) - GAMMA gapped (0.0365), the 12 **M** momenta
-       near-gapless (2.0e-4), every **R** corner an exactly 3-fold multiplet;
-       closed (g = pi/4) - GAMMA exactly gapless, the 12 M nodes exactly
-       gapless, and the zone-centre step an involution, M(0)^2 = I;
+       closed (g = pi/4, the root clock) - GAMMA pinned to the Floquet pair
+       {0, pi} with a gapless band, the 12 **M** channels exactly gapless
+       (64+64 of 128 quasi-energies, V203), and the zone-centre step an
+       involution, M(0)^2 = I;
+       implemented (g = 1/5, the reference Wilson-family member) - GAMMA gapped
+       (0.0365), the 12 **M** momenta near-gapless (2.0e-4), every **R** corner
+       an exactly 3-fold multiplet;
        half (g = pi/2) - M(0) = I on the whole 128-dimensional space: the bond
        layer is a pure translation (V134);
     5. the stars and little groups: the M momenta form a 12-point star (little

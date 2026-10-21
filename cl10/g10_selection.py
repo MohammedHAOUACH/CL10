@@ -3,8 +3,9 @@
 r"""
 CL10 — the rotation angle and the coupling readings: the 1-loop data check (V56).
 
-The step has **one** parameter, the angle $g_{10}$.  The implemented branch
-reads it as $1/n_{\rm qubits} = 1/5$ (the 32-D module of the $\mathrm{Cl}(10)$
+The step has **one** parameter, the angle $g_{10}$, fixed by the closure axiom
+to the root $\\pi/4$ (Theorem 6).  The reference reading
+reads it as $1/n_{\\rm qubits} = 1/5$ (the 32-D module of the $\\mathrm{Cl}(10)$
 root is a $2^5$ space: **5** qubits, $10 = 2\times 5$ generators) and the
 coupling as $\alpha_{10} = g_{10}^2 = 1/25$.  Both readings are **mapping
 conventions** (Section 15): what the algebra fixes is the *form* of the step —
@@ -58,7 +59,7 @@ def gut_1loop():
 
 
 def g10_selection():
-    """The V56 result: the implemented angle $g_{10} = 1/5$ (the root reading)
+    """The V56 result: the reference angle $g_{10} = 1/5$ (the root reading)
     against the 1-loop GUT coupling (the data check).  Returns the angle and
     the $\\alpha_{10} = g^2$ reading, the 1-loop GUT coupling, the ratio, and
     the candidate scan over the reading $\\alpha = 1/n^2$."""
@@ -83,7 +84,7 @@ def g10_selection():
     fit_prefers_root = bool(best_n == n_root)
 
     one_line = (
-        "the implemented angle g_10 = 1/5 (the 1/n_qubits reading of the root "
+        "the reference angle g_10 = 1/5 (the 1/n_qubits reading of the root "
         "module: the 32-D space, 5 qubits) gives alpha_10 = g^2 = 1/25 = 0.04, "
         "within a factor %.2f of the 1-loop GUT-range mean (%.3f at M_P; the "
         "three couplings do not meet, the open problem O4).  HONEST: the "
@@ -113,7 +114,7 @@ def g10_selection():
 
 
 def verify(tol=_config.CFG.tolerances.strict):
-    """Checks: (i) the implemented angle is the root reading $1/n_{\rm qubits}$
+    """Checks: (i) the reference angle is the root reading $1/n_{\rm qubits}$
     (the 32-D module, 5 qubits) and matches the SM QCA step; (ii) the
     $\alpha_{10} = g^2$ reading is within a factor 3 of the 1-loop GUT-range
     mean (the order check; the values are the open problem O4)."""
@@ -134,18 +135,18 @@ def main():
     print("CL10 - the rotation angle and the coupling readings (the 1-loop data check, O4)")
     print("=" * 72)
     print(f"  backend (GPU):  {d['backend']}")
-    print(f"  the implemented angle g_10 = 1/{d['n_qubits']} = {d['g10']:.3f}   "
+    print(f"  the reference angle g_10 = 1/{d['n_qubits']} = {d['g10']:.3f}   "
           f"(the 1/n_qubits reading: a CONVENTION, Section 15)")
     print(f"  the rotation-squared reading alpha_10 = g^2 = 1/25 = {d['alpha_10_0param']:.4f}   (a convention)")
     g = d["gut_1loop"]
     print(f"  1-loop GUT coupling (mean at M_P) = {g['mean_GUT']:.4f}   (spread {g['spread']:.2f}, the open problem O4)")
-    print(f"  ratio implemented / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
+    print(f"  ratio reference / 1-loop = {d['ratio_to_1loop']:.3f}   (within a factor ~2 = the right order)")
     print(f"  candidate scan alpha = 1/n^2:  n closest to the 1-loop GUT coupling = {d['n_closest_to_1loop']}")
     print(f"    -> the DATA-optimal n is {d['best_n_1loop']} (gap {d['gap_best_n']:.3f}), "
           f"NOT the root n = {d['n_qubits']} (gap {d['gap_root_n5']:.3f})")
     print(f"    -> the data check confirms the ORDER only; it does NOT select n "
           f"(selects n: {d['data_check_selects_n']}) — reading 1/n_qubits is a MAPPING CONVENTION")
-    print(f"  VERDICT:  {'PASS (the implemented angle has the right ORDER; the data prefer n = 7, so 1/n_qubits is a convention and the coupling VALUES are the open problem O4)' if r['ok'] else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the reference reading has the right ORDER; the data prefer n = 7, so 1/n_qubits is a convention and the coupling VALUES are the open problem O4)' if r['ok'] else 'FAIL'}")
     sys.exit(0 if r["ok"] else 1)
 
 

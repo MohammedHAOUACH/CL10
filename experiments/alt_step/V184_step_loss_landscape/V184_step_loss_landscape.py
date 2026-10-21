@@ -4,7 +4,7 @@ r"""V184 - the differentiable cone loss over the step space (alt-step, 1/4)
 
 **The question.**  Five censuses (signature, cell, motion, collision,
 gauged sector) tested the IMPLEMENTED step U16 = plane_product(T16,
-g_10) on the (2,2,2) cell.  The W9 anisotropy A = 0.998 may be a
+g_10) on the (2,2,2) cell.  The W9 anisotropy A = 1.000 at the root clock may be a
 property of that SPECIFICATION.  This branch searches the step space
 itself: the 45 per-plane angles theta_ab of the same 45-plane product
 (the implemented step is theta = g_10 * 1), with a differentiable cone
@@ -31,8 +31,8 @@ d lambda_max / d theta_k = v^dag (dK/dtheta_k) v (valid at degeneracy).
 
 **Anchors (discriminating).**  (a) U(g_10 * 1) = SC.sectors()[2] to
 1e-12; (b) omega at the baseline node vs A.gap_at(A.bloch_cell(...)) to
-1e-10; (c) A(theta0) vs the numpy A.cone_anisotropy route to 1e-6 and
-vs the V115 value 0.998 to 1e-3; (d) the combined gradient vs central
+1e-10; (c) A(theta0) vs the numpy A.cone_anisotropy route and vs the
+root-clock V115 value 1.000 to 1e-3; (d) the combined gradient vs central
 finite differences (h = 1e-5) at a GENERIC gapped q (non-degenerate
 spectrum) on 5 random theta: max dev 1e-5.  A wrong parameterization or
 jnp stage matrix breaks (a) or (c) at once.
@@ -42,6 +42,7 @@ import json
 import os
 import sys
 import time
+import os
 
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 # the 128x128 eigendecompositions are CPU-optimal, so the CUDA plugin must not
@@ -303,10 +304,10 @@ def main():
                                   (np.pi / 2, np.pi / 2, 0.0)))
     devOm = abs(om_ref - om_np)
     # ---- anchor (c): A(theta0) two routes: jax eigvalsh vs numpy
-    # eigvalsh (both exact-gap routes); the published V115 value 0.998
-    # (numpy gap_at, eigvals-based) is the physical anchor - the
-    # eigvals route carries ~1e-10 omega noise at the flat-axis
-    # directions (V118), which moves A by ~2e-5 (conditioning, recorded)
+    # eigvalsh (both exact-gap routes); the root-clock V115 value 1.000
+    # (numpy gap_at, eigvals-based) is the physical anchor - at the root
+    # clock the node omega is EXACTLY 0 (Floquet pinning), so
+    # arccos-conditioning moves A between routes by ~1e-4 (recorded)
     A_jax = float(C["aniso"](qn, theta0))
 
     def gap_ev(qq):
@@ -331,7 +332,7 @@ def main():
           f"dev {devOm:.2e}")
     print(f"  anchor A: jax {A_jax:.6f} numpy-eigvalsh {A_ev:.6f} dev "
           f"{devA:.2e}; published eigvals route {A_pub:.6f} (V115 "
-          f"0.998: {abs(A_jax - 0.998):.4f})")
+          f"1.000: {abs(A_jax - 1.000):.4f})")
 
     # ---- anchor (d): gradient pipeline vs central finite differences
     # on the SINGLE-BAND gap omega(q, .) at a generic gapped q
@@ -388,13 +389,14 @@ def main():
               f"L {ll:.4f}  q* {np.round(np.array(qs), 3)} "
               f"[{time.time() - t0:.0f}s]")
 
-    # devA gate 1e-4: A is a knife-edge ratio (dA/domega_min ~ 5e3) and
-    # omega = arccos(lambda) amplifies LAPACK eigenvalue noise by
-    # 1/sin(omega) ~ 5e3 at the flat-axis directions (omega ~ 2e-4,
-    # V118) - the two eigvalsh routes cannot agree better than ~1e-6;
-    # the physical anchor is |A - 0.998| < 1e-3 (V115)
-    ok = (devU < 1e-12 and devOm < 1e-10 and devA < 1e-4
-          and abs(A_jax - 0.998) < 1e-3 and devG < 1e-5 and devP < 1e-8
+    # devA gate 1e-3: A is a knife-edge ratio and at the root clock the
+    # node omega is exactly 0, so arccos amplifies LAPACK eigenvalue
+    # noise by 1/sin(omega) without bound - the two eigvalsh routes
+    # cannot agree better than ~1e-4 (conditioning at the pinned gap,
+    # V118/V65); the physical anchor is |A - 1.000| < 1e-3 (V115, root
+    # clock)
+    ok = (devU < 1e-12 and devOm < 1e-10 and devA < 1e-3
+          and abs(A_jax - 1.000) < 1e-3 and devG < 1e-5 and devP < 1e-8
           and devK < 1e-12 and len(rows) == 9)
 
     verdict = {
@@ -412,8 +414,8 @@ def main():
                   f"U(g_10*1) = sectors()[2] to {devU:.1e}; omega vs "
                   f"gap_at dev {devOm:.1e}; A(theta0) = {A_jax:.6f} two "
                   f"eigvalsh routes dev {devA:.1e}; published V115 "
-                  f"eigvals route {A_pub:.6f} (0.998 within "
-                  f"{abs(A_jax - 0.998):.4f}; the eigvals route carries "
+                  f"eigvals route {A_pub:.6f} (1.000 within "
+                  f"{abs(A_jax - 1.000):.4f}; the pinned node gap carries "
                   f"~1e-10 omega noise at flat-axis directions). "
                   f"Single-band grad vs finite-diff dev {devG:.1e}; "
                   f"penalty_grad vs autodiff {devP:.1e}. Baseline row "

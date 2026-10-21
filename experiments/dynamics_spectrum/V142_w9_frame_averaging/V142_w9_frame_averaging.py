@@ -54,6 +54,11 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2:
+# "the g = 1/5 member of the Wilson family used as the reference
+# spectrum"): anisotropy 0.7545 and the frame-blindness statement are
+# stated on that member.
+os.environ["CL10_ANGLE"] = "0.2"
 import cl10.engine as E
 from cl10 import clifford, supercell as SC
 G10 = SC.G10

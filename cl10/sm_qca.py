@@ -10,8 +10,8 @@ structure.  The **45** Spin(10) gauge generators are the **plane rotations**
 
 of the 10-D GUT space: each is **Hermitian** and **squares to I** (a
 rotation in the (a,b) plane).  A QCA step is the **product** of these plane
-rotations, each by the **0-parameter** angle ``theta = g_10 = 1/5`` (the GUT
-coupling):
+rotations, each by the **0-parameter** angle ``theta = g_10`` (the root clock,
+the single source ``cl10/config.yaml``):
 
     U  =  prod_{a<b}  [cos(g_10) I - i sin(g_10) T_{ab}]
 
@@ -42,7 +42,7 @@ from . import config as _config
 from . import engine as E
 from . import coupling
 
-G10 = coupling.G10   # the active branch: 1/5 implemented, pi/4 closed (CL10_ANGLE)
+G10 = coupling.G10   # the root clock pi/4 by default (CL10_ANGLE overrides)
 
 
 def plane_generators():

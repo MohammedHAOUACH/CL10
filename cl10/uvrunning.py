@@ -17,7 +17,8 @@ is the *discrete* RG of the automaton, and what the module makes concrete is
 its boundedness:
 
 - the **UV anchor** is the rotation-squared reading ``alpha_10 = 1/25`` (the
-  square of the implemented angle: a convention, Section 15);
+  square of the ``1/n_qubits = 1/5`` reading - a convention, not the closed
+  root clock ``pi/4``; Section 15);
 - the **1-loop non-unification** is a **known feature of the non-SUSY SM**
   (the ``U(1)`` Landau pole) — **not** a defect of the theory;
 - the **completion** is the QCA's **discrete RG**: the **coarse-graining
@@ -195,7 +196,7 @@ def uv_verdict():
 def verify(tol=_config.CFG.tolerances.standard):
     """The UV checks.  Returns ``{"ok": bool, "checks": {...}}``:
 
-    - **UV anchor:** ``alpha_10 = 1/25`` (the square of the implemented angle);
+    - **UV anchor:** ``alpha_10 = 1/25`` (the square of the ``1/5`` reading);
     - **1-loop non-unification:** the ``U(1)`` Landau pole is **above** the
       cutoff (1-loop UV-bounded) but the **2-loop** pole is **below** it
       (the perturbative UV divergence);

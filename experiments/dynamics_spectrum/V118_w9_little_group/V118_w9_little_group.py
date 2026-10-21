@@ -67,6 +67,11 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2):
+# the dispersive node tangent speeds (0, 0.14189, 0.14189) and the
+# C2v little-group bookkeeping are properties of that member; at the
+# pi/4 clock the M channels are pinned to the Floquet pair (V203).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 

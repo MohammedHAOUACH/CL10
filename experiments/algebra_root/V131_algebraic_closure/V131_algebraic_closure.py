@@ -3,7 +3,7 @@
 r"""V131 - the algebraic closure of the step: the root quantizes its own clock
 (the 0-parameter completion of the dynamics).
 
-**Why.**  The publication's parameter audit (Section 14, Table 5) classes the
+**Why.**  The publication's parameter audit (Section 15, Table 6) classes the
 rotation angle g_10 = 1/5 as the ONE free 't Hooft angle, with the proposed
 selection rule g_10 = 1/n_qubits read as a convention that the data reject at
 one loop (V56 prefers n = 7).  The audit's verdict on the parameters criterion

@@ -3,8 +3,8 @@
   "tier": 2,
   "property": "the 16-sector one-step spectrum over the block Brillouin zone",
   "residual": true,
-  "pass": true,
-  "status": "chirality_is_a_dynamical_symmetry_but_the_half_zone_nodes_are_present_12_gapless_node_momenta_chirality_sum_0_and_the_R_points_carry_exactly_3fold_cubic_multiplets",
+  "pass": false,
+  "status": "the_half_zone_nodes_are_present_12_gapless_node_momenta_each_with_one_exactly_flat_tangent_axis_so_no_helicity_pair__GAMMA_is_exactly_gapless_at_the_root_clock_and_the_R_points_carry_exactly_48fold_pin_multiplets",
   "tol": 1e-09,
   "data": {
     "backend": "cupy",
@@ -12,7 +12,7 @@
     "stages_per_step": 6,
     "sector_leakage_16_to_16bar": 7.035622187107675e-16,
     "sector_block_err": 8.888557877610145e-16,
-    "bloch_vs_torus_dev": 7.438494264988549e-15,
+    "bloch_vs_torus_dev": 7.549516567451064e-15,
     "gap_q0_16": 0.036499394228824276,
     "gap_q0_32": 0.036499394228825116,
     "n_doubler_nodes": 12,
@@ -306,5 +306,5 @@
     "R_gap_spread_over_the_star": 7.836613302725226e-16,
     "residual": "the half-zone nodes are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
   },
-  "wall_time": 8.668
+  "wall_time": 8.711
 }

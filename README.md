@@ -126,7 +126,7 @@ CL10/
 │   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator) and the GPU/host routing policy
 │   ├── config.py             # the configuration loader: reads config.yaml, applies the environment, exposes CFG
 │   ├── config.yaml           # ONE file for the numbers: backend policy, routing thresholds, pool, physics + SM inputs, angle branches, desert thresholds, tolerance bands
-│   ├── coupling.py           # the one parameter of the step: the angle branches (implemented 1/5, closed pi/4, half pi/2) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - all conventions, Section 15
+│   ├── coupling.py           # the one parameter of the step: the root-clock angle (closed pi/4, the default; implemented 1/5 and half pi/2 are reference angles) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - the readings are conventions, Section 15
 │   ├── parpool.py            # the forked process pool the experiments batch through (pool: in config.yaml, CL10_NJOBS)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
@@ -165,7 +165,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 165 experiments in 18 categories (123 publication + 42 alt_* exploration)
+├── experiments/              # the verification program: 169 experiments in 18 categories (127 publication + 42 alt_* exploration)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content
@@ -245,9 +245,10 @@ pinned GPU core never falls back: if the card cannot host it, the run fails
 loudly rather than reporting a GPU verdict computed on the CPU),
 `CL10_GPU_MIN_FREE_MIB` (the free-memory gate, default 2048),
 `CL10_ANGLE=implemented|closed|half` (the rotation-angle branch, Section 1.4:
-`implemented` $g_{10} = 1/5$ is the convention the phenomenology is computed
-on, `closed` $g_{10} = \pi/4$ is the algebraic closure root, `half`
-$g_{10} = \pi/2$; the values live in `cl10/config.yaml`), `CL10_NJOBS` (the
+the default `closed` $g_{10} = \pi/4$ is the order-8 root clock the closure axiom
+forces, `implemented` $g_{10} = 1/5$ is the Wilson-family reference spectrum
+(convention $1/n_{\rm qubits}$), `half` $g_{10} = \pi/2$ the degenerate second
+root; the values live in `cl10/config.yaml`), `CL10_NJOBS` (the
 worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh`), and
 `CL10_SMOKE=1` (the shrunken experiment grids).
 
@@ -265,7 +266,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 165 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 169 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
@@ -292,8 +293,8 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **nine open problems** (O1–O9) and the
-**seven falsifiers** (F1–F7). `run_validation.py` runs the **164** experiments
-of `experiments/` (18 categories — the 122 of the publication programme and the 42 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
+**seven falsifiers** (F1–F7). `run_validation.py` runs the **169** experiments
+of `experiments/` (18 categories — the 127 of the publication programme and the 42 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
@@ -366,9 +367,10 @@ from measured inputs); **9 open residuals** (O1–O9).
   candidates kills the resonant route for $9$ of them (branching below the
   $6.4\%$ CP-strength ratio): the route survives only for $\kappa < 3.04$,
   and the channel produces no relic (V199).
-- **Doubling (O9).** The implemented 16-sector spectrum is gapless at 12 doubler
-  momenta; the internal Wilson factor gaps them, but the split-node set is an
-  input and the scale it predicts is excluded.
+- **Doubling (O9).** At the root clock the 16-sector spectrum is exactly gapless
+  on a line network ($\Gamma$ plus six face-diagonal lines, the 12 M points
+  pinned); the quantized internal Wilson factor re-gaps the M nodes, but the
+  split-node set is an input and the scale it predicts is excluded.
 - **$\Lambda$ (O1/F4).** The tree-level $\Lambda = 0$ is protected
   ($\det U = 1$ pins the quasi-energy sum, V78); the observed $\Lambda$ is a
   named trace-phase breaking of $1.6\times10^{-120}$, no mechanism.
@@ -401,4 +403,4 @@ symbolic construction of Appendix A, the exact $3^n$-word loop enumeration — a
 the pipeline has **not** been independently re-executed by a second party;
 independent re-execution is invited. The published runs used one RTX 3090 with
 CuPy; `CL10_BACKEND=numpy` runs the same suite on the CPU core, and
-`CL10_ANGLE=closed|half` re-runs it at the other angle branches.
+`CL10_ANGLE=implemented|half` re-runs it at the reference angles.

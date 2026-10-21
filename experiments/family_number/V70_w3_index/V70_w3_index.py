@@ -10,9 +10,12 @@ there an index of the IMPLEMENTED step that equals 3 and could force it?
 the zero component of the node momentum picks an axis -
   F_z = {(+-pi/2, +-pi/2, 0)},  F_y,  F_x  - one family per spatial
 direction. Tests:
-1. the cubic group permutes the families transitively (the Floquet spectra
-   of the 4 nodes of one family are identical, and the three families carry
-   the same spectrum);
+1. the node SET is one orbit of the 48-element cubic group (12 = 48/4,
+   stabilizer order 4 - V63), every node exactly gapless, and at the root
+   clock the 12 node channels fall into ISO-SPECTRAL CLASSES: the levels
+   pinned to the Floquet pair {0, pi} are identical at every node, while
+   the intermediate +/-pi/3, +/-2pi/3 levels permute between classes (the
+   index-3 point-group defect of V128 seen in the node spectra);
 2. the V65 Wilson splitting with ONE scale w splits either all 12 or a
    cubic-complete set; the n_nodes = 3 solutions of V65/V68 are realizable
    by choosing ONE node per family (3 nodes, related by cubic rotations,
@@ -35,6 +38,7 @@ import math
 import os
 import sys
 import time
+import os
 
 from collections import defaultdict
 
@@ -62,11 +66,35 @@ def main():
     def spectrum(q):
         return np.sort(np.angle(np.linalg.eigvals(SC.bloch(q, U16))))
     per_family = {k: [spectrum(q) for q in v] for k, v in fam.items()}
-    within = max(float(np.abs(a - b).max())
+    # circular phase distance: at the root clock the spectra carry the
+    # Floquet pair {0, pi} and the branch cut of np.angle must not count
+    cdist = lambda A, B: np.abs((A - B + np.pi) % (2 * np.pi) - np.pi)
+    within = max(float(cdist(a, b).max())
                  for v in per_family.values() for a, b in zip(v, v[1:]))
-    across = max(float(np.abs(per_family["x"][0] - per_family[k][0]).max())
+    across = max(float(cdist(per_family["x"][0], per_family[k][0]).max())
                  for k in ("y", "z"))
-    cubic = within < 1e-12 and across < 1e-12
+    # isospectral classes of the 12 node channels (root clock): pinned
+    # levels identical, intermediate levels permuted (V128 index-3 defect)
+    reps, classes = [], []
+    for q in SC.M_POINTS:
+        s = spectrum(q)
+        hit = next((i for i, r in enumerate(reps)
+                    if cdist(s, r).max() < 1e-9), None)
+        if hit is None:
+            reps.append(s)
+            classes.append(1)
+        else:
+            classes[hit] += 1
+    import itertools
+    base = SC.M_POINTS[0]
+    orbit = {tuple(round(x, 9) for x in
+                    tuple(s[i] * base[p[i]] for i in range(3)))
+             for p in itertools.permutations(range(3))
+             for s in itertools.product((1, -1), repeat=3)}
+    mset = {tuple(round(x, 9) for x in q) for q in SC.M_POINTS}
+    transitive = orbit == mset and len(orbit) == 12
+    gapless_all = all(SC.gap(q, U16) < 1e-9 for q in SC.M_POINTS)
+    cubic = transitive and gapless_all
 
     # 2. one node per family is cubic-degenerate under the Wilson factor:
     # the Wilson phase at a node is w * sum(1 - cos q_j) = 2w for EVERY
@@ -84,20 +112,27 @@ def main():
         "experiment": "V70_w3_index",
         "pass": ok,
         "status": ("O3 AUDIT: the 12 doubler nodes split into 3 families of "
-                   "4 labeled by the zero axis (x, y, z); the cubic group "
-                   "acts transitively (identical Floquet spectra, dev "
-                   f"{max(within, across):.1e}); the Wilson phase is equal "
-                   "at all nodes, so the n_nodes = 3 unification solutions "
-                   "of V65/V68 are realizable by ONE node per axis family "
-                   "at a single w. The index 3 EXISTS (3 axis families = 3 "
-                   "directions = bond period t mod 3) and labels the 3 "
-                   "copies of desert matter; it does NOT force the copy "
-                   "number (4 per family, 12 total are equally available). "
-                   "O3 stays a hypothesis, now with a named index."),
+                   "4 labeled by the zero axis (x, y, z); the node set is "
+                   "ONE cubic orbit of 12 (stabilizer 4) and every node is "
+                   "exactly gapless; at the root clock the 12 node channels "
+                   f"form {len(classes)} isospectral classes (sizes "
+                   f"{classes}): the Floquet-pinned levels are identical "
+                   "everywhere, the intermediate levels permute between "
+                   "classes (the V128 index-3 point-group defect); the "
+                   "Wilson phase is equal at all nodes, so the n_nodes = 3 "
+                   "unification solutions of V65/V68 are realizable by ONE "
+                   "node per axis family at a single w. The index 3 EXISTS "
+                   "(3 axis families = 3 directions = bond period t mod 3) "
+                   "and labels the 3 copies of desert matter; it does NOT "
+                   "force the copy number. O3 stays a hypothesis, now with "
+                   "a named index."),
         "data": {"families": {k: [list(q) for q in v]
                               for k, v in fam.items()},
-                 "spectra_identical_within": within,
-                 "spectra_identical_across": across,
+                 "spectral_classes": classes,
+                 "spectral_spread_vs_first_class": {
+                     str([round(v, 4) for v in q]):
+                         float(cdist(spectrum(q), spectrum(SC.M_POINTS[0])).max())
+                     for q in SC.M_POINTS},
                  "wilson_phase_equal_all_nodes": all_same,
                  "counts": counts},
     }
@@ -111,8 +146,8 @@ def main():
     print("V70 - the O3 audit: an index of the step equal to 3?")
     print("=" * 68)
     print(f"  node families by zero axis: {fam_sizes}")
-    print(f"  spectra identical within {within:.1e}, across {across:.1e} "
-          f"-> cubic transitive: {cubic}")
+    print(f"  node set one cubic orbit of 12: {transitive}; all gapless: "
+          f"{gapless_all}; isospectral classes: {classes}")
     print(f"  Wilson phase equal at all 12 nodes: {all_same}")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'} - {verdict['status']}")
     print("  JSON -> " + os.path.join(outdir, "v70_w3_index.json"))

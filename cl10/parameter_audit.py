@@ -17,19 +17,22 @@ symbolic ``Cl(10,0)`` of the ``kingdon`` Clifford-algebra library).
 
 The four points and their solutions:
 
-**Point 1 — "0-parameter is partly conventional" (g10=1/5, g0=1/8,
-M_GUT=M_P, the 0.18% match).**
+**Point 1 — "0-parameter is partly conventional" (the closed clock angle,
+g0=1/8, M_GUT=M_P, the 0.18% match).**
 The theory's numbers split into **five** provenance classes, not one
 (see ``provenance_table``):
   * **algebraic 0-param** — a property of the ``Cl(10)`` root, no parameter:
     the 16/16-bar, the 45, the 5/3, the anomaly cancellation, the 32-level
     spectrum, ``det U = 1``, the **16/16-bar spectral mirror** (newly
     computed here).
-  * **free 1-param** — the **free** 't Hooft angle of the finite-state
-    QCA: ``g_10 = 1/5``.  **Not** derived from the algebra.  ``g10_status``
-    shows ``g_10`` is **not** fixed by the UV-finiteness (Landau-pole)
-    condition — the 2-loop U(1) pole lies **below** ``M_P`` for **every**
-    ``g_10`` — so the honest status (**one** free angle) is stated.
+  * **algebraic clock** — the 't Hooft angle of the finite-state QCA is
+    **not free**: the closure axiom (Theorem 6, V131) forces the update to be
+    an element of the root and the physical clock is the order-8 root
+    ``g_10 = pi/4``; the finest closed clock has no continuous unfixed
+    number.  ``g10_status`` still records that the UV-finiteness
+    (Landau-pole) condition selects nothing — the 2-loop U(1) pole lies
+    **below** ``M_P`` for **every** ``g_10`` — the selection is algebraic,
+    not analytic.
   * **convention** — the **mapping / scale-identification** choices, not
     predictions: ``g_0 = 1/8`` (the ``1/2^n_space`` mapping the theory
     calls "derived from the 3-space" — the same ``1/n_qubits`` convention
@@ -112,8 +115,8 @@ from . import u10pred
 from . import coupling
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
-# the rotation angle of the active branch: 1/5 implemented (a convention),
-# pi/4 closed (algebraic, the closure axiom) - selected by CL10_ANGLE
+# the rotation angle of the active branch: pi/4 the root clock (algebraic, the
+# closure axiom) by default; CL10_ANGLE selects the reference angles
 G10 = coupling.G10
 M_P = u10pred.M_PLANCK              # 1.22e19 GeV
 V_EW = u10pred.V_EW                 # 246 GeV
@@ -436,20 +439,21 @@ def _unitary(U, tol=_TOL.strict):
 # ---------------------------------------------------------------------------
 
 def g10_status():
-    """**Point 1.**  ``g_10`` is the **one free** ('t Hooft) angle of the
-    finite-state QCA, **not** a number derived from the ``Cl(10)`` algebra.
-    The publication's reading ``g_10 = 1/n_qubits = 1/5`` is a **mapping
-    convention**.  This function shows the honest status: the **UV-finiteness
-    (2-loop Landau-pole) condition does NOT fix** ``g_10`` — the 2-loop
+    """**Point 1.**  ``g_10`` is **not free**: the closure axiom (Theorem 6,
+    V131) forces the update to be an element of the root and the physical
+    clock is the order-8 root ``g_10 = pi/4``; the publication's reading
+    ``g_10 = 1/n_qubits = 1/5`` is a **mapping convention**.
+    This function records the complementary honest fact: the **UV-finiteness
+    (2-loop Landau-pole) condition does NOT fix** ``g_10`` either — the 2-loop
     U(1) pole lies **below** the Planck cutoff ``M_P`` for **every**
     ``g_10`` in the perturbative range (the QCA is UV-bounded by the lattice
     cutoff regardless of the angle; the perturbative 2-loop pole being inside
-    the lattice is the V47 UV-divergence contrast).  So the angle is a free
-    input, and the "0-parameter" label on it is removed.
+    the lattice is the V47 UV-divergence contrast).  The selection of the
+    clock is therefore **algebraic, not analytic**.
 
     The 1-loop pole (for reference) is **above** ``M_P`` (V12 UV-bounded).
     """
-    b1, b2 = 41.0 / 10.0, 199.0 / 25.0     # SM U(1) 1-loop, 2-loop beta
+    b1, b2 = (float(_config.CFG.sm.beta1), float(_config.CFG.sm.beta21))  # SM U(1) 1-, 2-loop beta (config sm:)
     def pole_2loop(g):
         a0 = 1.0 / (g * g)
         b = b1 / (2.0 * np.pi)
@@ -483,8 +487,9 @@ def g10_status():
         "grid": rows,
         "verdict": (
             "g_10 is NOT fixed by the UV-finiteness (2-loop Landau-pole) "
-            "condition (the pole is below M_P for every g_10) -> it is the one "
-            "free 't Hooft angle; the '0-parameter' label on it is removed"
+            "condition (the pole is below M_P for every g_10); it is fixed "
+            "algebraically by the closure axiom (V131: the order-8 root "
+            "pi/4); the 1/n_qubits = 1/5 reading stays a convention"
         ),
     }
 
@@ -591,7 +596,8 @@ def provenance_table():
     publication calls '0-parameter', classified by its **true** provenance:
 
     * ``algebraic_0param`` — a property of the ``Cl(10)`` root, no parameter;
-    * ``free_1param`` — the **free** 't Hooft angle of the QCA (not derived);
+    * ``free_1param`` — empty on the branch: the 't Hooft angle is fixed by
+      the closure axiom (the ``1/n_{\rm qubits}`` reading is the convention);
     * ``convention`` — a **mapping / scale-identification** choice, not a
       prediction (``g_0 = 1/8``, ``M_GUT = M_P``);
     * ``coincidence`` — a 2-digit numerical match, not a prediction;
@@ -616,8 +622,10 @@ def provenance_table():
          "every plane rotation is a special unitary (the root)"),
         ("the 16/16-bar spectral mirror", "omega_16bar = -omega_16",
          "algebraic_0param", "CPT = spectral conjugation (computed here)"),
-        ("g_10 = 1/5 (the GUT angle)", "0.2", "free_1param",
-         "the **one** free 't Hooft angle; 1/n_qubits is a mapping choice"),
+        ("g_10 = pi/4 (the root clock)", "0.7854", "algebraic_0param",
+         "the closure axiom: the order-8 root is the one periodic six-stage "
+         "clock (V131); the 1/5 reading (1/n_qubits) is a mapping convention "
+         "kept for the alpha_10 = 1/25 anchor"),
         ("g_0 = 1/8 (the Dirac coupling)", "0.125", "convention",
          "1/2^n_space; the mapping the theory calls 'derived' (a convention)"),
         ("the desert thresholds (V64)", "1.2e7, 1.0e12 GeV", "coincidence",
@@ -652,7 +660,8 @@ def provenance_table():
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
          "the exact light-neutrino mass (O2)"),
     ]
-    counts = {}
+    counts = {k: 0 for k in ("algebraic_0param", "free_1param", "convention",
+                             "coincidence", "named_residual")}
     for r in rows:
         counts[r[2]] = counts.get(r[2], 0) + 1
     return {
@@ -688,7 +697,8 @@ def verify(tol=_TOL.standard):
         and sp["mirror_holds_for_all_g10"]          # CPT form, all 't Hooft angles
         and sp["preserves_chiral_split"]           # [U, w] = 0
         and sp["sl32"]
-        and abs(sp["zp_16"]) < 1e-8 and abs(sp["zp_16bar"]) < 1e-8
+        and (lambda m: min(m, 2 * math.pi - m))(sp["zp_16"] % (2 * math.pi)) < 1e-8
+        and (lambda m: min(m, 2 * math.pi - m))(sp["zp_16bar"] % (2 * math.pi)) < 1e-8
         and cp["all_cp_odd_zero"]
         and not cp["sakharov"]["any_sakharov_met"]
     )
@@ -752,7 +762,7 @@ def main():
     print("\n[g_10 status]  (point 1: conventionality):")
     print(f"    UV-finiteness (2-loop pole) fixes g_10: {g10['uv_finiteness_fixes_g10']}")
     print(f"    2-loop pole below M_P for every g_10: {g10['pole_2loop_below_MP_for_all_g10']}")
-    print(f"    -> g_10 is the one free 't Hooft angle ({g10['mapping_convention']})")
+    print(f"    -> the clock is fixed by closure; the reading stays a convention ({g10['mapping_convention']})")
     hi = r["hierarchy_status"]
     print("\n[hierarchy]  (point 2: fixed, not explained):")
     print(f"    v/E_P observed = {hi['v_over_EP_observed']:.3e}   claimed 0-param = {hi['v_over_EP_claimed_0param']:.3e}")

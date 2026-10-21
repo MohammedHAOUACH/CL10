@@ -41,6 +41,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2).
+# The exact grading set and its invariance under the V65 weight-
+# diagonal Wilson term are stated for that member (paper 12.2).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65                      # noqa: E402

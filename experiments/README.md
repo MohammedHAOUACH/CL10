@@ -1,6 +1,6 @@
 # The verification program
 
-165 experiments (the 123 of the publication programme plus the 42 exploration
+169 experiments (the 127 of the publication programme plus the 42 exploration
 experiments of the `alt_*` programmes: 12 `alt_cell`, 10 `alt_dynamics`,
 4 `alt_interactions`, 5 `alt_gauged`, 4 `alt_nonpert`, 7 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
@@ -9,7 +9,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-audit checks.  **82 of the 115 publication experiments still write the older
+audit checks.  **83 of the 127 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -61,6 +61,16 @@ to the host where it enters). Their linear algebra is host-side, so their
 verdicts do not depend on what else holds the card; the runner lists them
 OFF-CORE. The GPU engine stays with the publication programme.
 
+The same self-containment holds for the clock: an experiment whose numbers
+are 1/5-reference-branch numbers - the whole `alt_*` programmes, the relic
+and portal DM family, the W3/W4/W5 bond numbers, the gauged layer, the W9
+cone chain - pins `CL10_ANGLE = 0.2` at the top of the script, before
+`cl10` latches the configuration: since the closure discovery (V203-V206)
+the CLOSED branch is the config default, and the pin keeps the two branches
+from leaking into each other's numbers. Closed-branch experiments take
+their angles explicitly (`pi/4`, `pi/2`), so the default cannot leak the
+other way either.
+
 ## Which experiment backs which numbered claim
 
 The paper's numbered claims are not named inside the scripts. This is the
@@ -88,6 +98,9 @@ the claim asserts, not when a script merely mentions the word.
 | the rung arithmetic and its joint falsifier (Table 4, F3) | `V197_rung_arithmetic` | rung exponents of every quoted scale: the four ladder rows integer-exact, every other scale off-integer by 0.06–0.42 rungs, and the [rung-10 DM, 0.05 eV neutrino] pair forcing the seesaw partner to rung 2.72 |
 | the traced-loop weight functional (Section 12.1, O8) | `V200_loop_weight_functional` | `F_n = N_n r_n I_n` exact to 2.3e-16 for n = 2..10 on the word census; word norms angle-independent; `F_10` crosses 1/(16 pi) at 8 angles, deficit factor 0.9644 at the root angle |
 | the loop angle-selection census (Section 12.1, O8) | `V202_loop_angle_selection` | `F_10(eta)` is an exact real cosine functional: even Casimir eigenvalues, 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors to 2e-17; the four crossings of 1/(16 pi) in (0, pi/2] contain no closed or rational angle of the root - nearest 0.198100, g_10 = 1/5 short by 1.9e-3 (branch ANGLE-OUTSIDE) |
+| the closed-branch self-consistency (Section 12.1, O8) | `V203_closed_branch_coefficient` | step and phase both at pi/4: odd-n selection rule exact (3.4e-15), rho(MG) = 0.978030 angle-independent, the first crossing stays at n* = 208 (deficit 0.9896) - the published ladder length survives closure - while F_10(pi/4) = 53.89 (the eta-law 0.1949 is a step@1/5 hybrid); the 12 M channels exactly gapless with identical pinned spectra (64/128), gapless set Gamma + six face-diagonal lines, gapped bulk; required node-set factor 2.306 not natural |
+| channel-blindness of the O8 deficit (Section 12.1, O8) | `V205_channel_filtered_deficit` | required insertion amplitude $0.96388$ against measured $0.98948$ at the crossing, blind to channel: sector phases fourth roots $\{1,-1,-1\}$ at $\pi/2$ and $\{1,i,i\}$ at $\pi/4$, $\mathbb{Z}_3$-filtered traces empty-kernel to 3e-14 on the pinned channel spectra, per-Cartan amplitudes bimodal $\{0.90, 0.99\}$, none at $0.964$; observed coefficient with current constants $2.07656$; adjacent lengths $6.5$/$1.1$ bracket, none match |
+| the clock tension of the hierarchy deficit (Sections 12.1, 13.1; O4 and O8) | `V206_clock_tension` | closure-class readings of the coefficient: 2.7018 (pi/4, n* = 208), 2.2995 (pi/2, n* = 102), 2.7048 (3pi/4) - the closest closed reading is +10.7% off the observed 2.076556; the observed value is read by the SAME self-consistent functional at rung 10 at g_obs = 0.1999980, the rational clock 1/5 to relative 1e-5 (rung-10 crossing at 0.200133); the exact odd-length cancellation exists only on the order-8 clock family (odd loops 1e17 at pi/2); dead-zone collapse to n = 3 between 1/3 and 1/2; no principled link mixture or sector reading bridges it |
 | the A->BB channel bound on O5 (Section 13.3) | `V199_a_to_bb_channel` | `Gamma_B/H` from 4.7 to 1.2e5 over the 13 root bond strengths; 9/13 drive `Br(A->LH)` below the 6.4% CP-strength ratio; survivable below kappa 3.04, negligible below 0.080 |
 
 ## The experiments
@@ -187,12 +200,16 @@ the claim asserts, not when a script merely mentions the word.
 | `V197_rung_arithmetic` | the rung ruler on every quoted scale: ladder rows integer-exact, every other scale off-integer by $0.06$–$0.42$ rungs, and the [$m_B$ at rung 10, $\sum m_\nu$ at $0.05$ eV] pair forces the seesaw partner to rung $2.72$ — mutually exclusive (F3) |
 | `V200_loop_weight_functional` | the weight of the traced loop census is exactly $F_n = N_n\, r_n\, I_n$ (multiplicity, mean-word Cartan amplitude, interference), word norms angle-independent, and the O8 residual is the single deficit factor $0.9644$ at the root angle |
 | `V202_loop_angle_selection` | the weight functional as an exact real cosine series of the angle (63 even phase classes, period $\pi$, $\eta \to \pi - \eta$ pairing, coefficient mirrors): the $1/(16\pi)$ crossings $0.1981004$, $0.5778509$, $1.0048608$, $1.3473566$ in $(0,\pi/2]$ - no root angle among them, $g_{10} = 1/5$ short by $1.9\times10^{-3}$ (branch ANGLE-OUTSIDE) |
+| `V203_closed_branch_coefficient` | **the closed branch measured self-consistently** (step and traced-link phase both at $\pi/4$): the odd-$n$ selection rule is exact ($3.4\times10^{-15}$), the word norms stay angle-independent, the first crossing of $1/(16\pi)$ stays at $n^* = 208$ with deficit $0.9896$ - the published ladder length survives closure - and $F_{10}(\pi/4) = 53.9$, not the hybrid eta-law $0.1949$; at $\pi/4$ the 12 M channels are EXACTLY gapless with identical spectra $\{0^{32}, \pm\pi/3, \pm2\pi/3, \pi^{32}\}$ ($64/128$ pinned, $3\times10^{-15}$ across the 12), $\Gamma$ fully pinned $64+64$, and the exactly gapless set is $\Gamma$ plus the six face-diagonal lines with a gapped bulk ($\ge 1.2\times10^{-2}$) - the V132 line network (V166 re-gaps the M nodes under the quantized Wilson factor); the reference branch's $99.44\%$ is identified exactly as a compensation $2.0881 = 3 \times 0.9644^{10}$; the per-channel factor at $n^*$ is $0.9006$ and the node-set readings $0.901\,/\,2.702\,/\,10.8$ for $\{1,3,12\}$ channels miss the required sum factor $2.306$ (closest $+30.1\%$) - the mechanism survives with zero free parameters, the precision is angle-generic |
+| `V204_closed_ladder_limits_audit` | the closed-ladder concepts audited end-to-end at $\pi/4$: per-channel $(16\pi F_*)^{10} = 0.9006$, readings $0.901/2.702/10.8$ vs observed $2.0766$ and required $2.306$; rung 3 $= 9.6\times10^{13}$ GeV and rung 10 $= 118.57$ GeV (the $m_B$ the cell carries); bare rung-17 neutrino $0.146$ eV (the $1/3$ candidate $0.0487$); $\alpha_X$ root/observed $= 1.227$, $\tau_p = 2.8\times10^{39}$ yr; the $f_6$ out-of-equilibrium clause fails ($2.8\times$ observed rate, washout survives) |
+| `V205_channel_filtered_deficit` | the O8 residual measured channel-blind: the required insertion amplitude $0.96388$ (deficit $3.61\%$) against the measured crossing deficit $0.98948$ ($1.05\%$) — the traced-word sector phases at the closed clocks are fourth roots of unity, every filtered propagator trace on the pinned channel spectrum is an empty kernel ($3\times10^{-14}$), the per-Cartan insertion amplitudes are bimodal $\{0.90, 0.99\}$; the constants of observation shift the observed coefficient by only $10^{-4}$ ($2.07656$); the required deficit matches the discarded reference branch's interference deficit to $0.055\%$ |
+| `V206_clock_tension` | **O4 and O8 are one clock tension, measured**: the closure class reads the hierarchy coefficient $\{2.2995, 2.7018, 2.7048\}$ — the closest reading $10.7\%$ off, the physical branch $30.1\%$ off — while the observed $2.0766$ is read by the same self-consistent functional at $g_{\rm obs} = 0.1999980$, the rational clock $1/5$ to $10^{-5}$, with the rung-10 crossing at $0.20013$; nature's clock is not closed, the exact ladder (odd-loop cancellation below $2\times10^{-15}$) lives only on the order-$8$ closed clock family, and F2 (deficit $0.9896$ predicted against $0.96388$ required) is the decision |
 
 ### `couplings_unification`
 | id | verdict |
 |---|---|
-| `V38_couplings_root` | $g_{10} = 1/5$ and $g_0$ are numbers of the root; the running is the named residual |
-| `V56_g10_selection` | the one-loop data check of $g_{10} = 1/5$ |
+| `V38_couplings_root` | the readings $g_{10} = 1/5$ and $g_0 = 1/8$ are root-data conventions (the clock closed at $\pi/4$); the running is the named residual |
+| `V56_g10_selection` | the one-loop data check of the $1/5$ reading (right order, factor 1.73) |
 | `V64_desert` | the desert solution: $\alpha_X = 1/25$, $M_X = 1.8\times10^{16}$ GeV, $\tau_p$ |
 | `V74_multiscale_nodes` | multi-scale node thresholds cannot move $M_X$ (rank-1 Jacobian) |
 | `V81_link_desert_content` | the composite spectrum does not deliver the meeting |
@@ -263,7 +280,7 @@ the claim asserts, not when a script merely mentions the word.
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
 
-### `alt_cell` (exploration programme — the signature census and the cell/cycle census; not one of the publication's 115)
+### `alt_cell` (exploration programme — the signature census and the cell/cycle census; not one of the publication's 125)
 | id | verdict |
 |---|---|
 | `V149_signature_algebra` | only Cl(10,0) and Cl(0,10) keep the 45-plane product exactly unitary; mixed signatures give anti-Hermitian planes and an O(1) unitarity residual |

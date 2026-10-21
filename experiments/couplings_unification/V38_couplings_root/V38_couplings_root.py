@@ -8,10 +8,11 @@ coupling ``g_0 = 1/8`` were *chosen* rationals labelled "0-parameter".
 
 **The 0-parameter selection rule.**  The 32-D module of the Cl(10) root is a
 **2^5** space (the symplectic Pauli pattern: **5** qubits, 10 = 2x5
-generators), so the GUT coupling is a **number of the root** read as a
-coupling: $g_{10} = 1/n_{qubits} = 1/5$, $\alpha_{10} = g_{10}^2 = 1/25$ —
-a **0-parameter selection rule** (the *reading* is the audit's mapping
-convention, not a derivation: no 0-parameter condition selects the angle —
+generators), so a **reading** of the root data gives the coupling:
+$g_{10} = 1/n_{qubits} = 1/5$, $\alpha_{10} = g_{10}^2 = 1/25$ — the
+*reading* is the audit's mapping convention, not a derivation: the clock
+itself is **closed** by the closure axiom at $g_{10} = \pi/4$ (V131,
+Theorem 6), and no 0-parameter **analytic** condition selects an angle —
 the audit's Point 1).  The **Dirac** coupling (O2) is
 $g_0 = 1/2^{n_{space}} = 1/2^3 = 1/8$, the **3** being the spatial
 dimension of the (1,3) (the same 0-parameter number as the family count —
@@ -109,7 +110,7 @@ def main():
     print(f"      the U(1) 1-loop pole of the UP-running:  {down['u1_up_pole_scale']:.2e} GeV (above the cutoff: {down['u1_pole_above_cutoff']})")
     print(f"      the SU(3) 1-loop pole of the DOWN-running:  {down['su3_down_pole_scale']:.2e} GeV (inside the lattice: {down['su3_pole_inside_lattice']})")
     print(f"  named residual:  {down['residual']}")
-    print(f"  VERDICT:  {'PASS (g_10 = 1/5 and g_0 = 1/8 are numbers of the root; the 1-loop down-running is the quantified named residual)' if ok else 'FAIL'}")
+    print(f"  VERDICT:  {'PASS (the readings g_10 = 1/5 and g_0 = 1/8 are root-data conventions; the clock is closed at pi/4; the 1-loop down-running is the quantified named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v38_couplings_root.json"))
     print("  Wall time = " + f"{time.time() - t0:.2f} s")
     return 0 if ok else 1

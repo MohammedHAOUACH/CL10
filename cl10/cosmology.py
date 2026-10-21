@@ -89,7 +89,7 @@ def hierarchy():
     E_P = u10pred.M_PLANCK        # 1.22e19 GeV (the Planck lattice)
     v = u10pred.V_EW             # 246 GeV (the electroweak scale)
     # the 0-parameter prediction (the 0-parameter number of the root)
-    v_over_EP_0p = 2.02e-17
+    v_over_EP_0p = float(_config.CFG.physics.v_over_mplanck_claimed_0param)
     observed = v / E_P           # the actual v/E_P
     rel_err = abs(v_over_EP_0p - observed) / observed
     # the 0-parameter content: the EXISTENCE of the hierarchy (v << E_P)

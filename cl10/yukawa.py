@@ -106,7 +106,9 @@ def tribimaximal_mixing():
       **adapted to the transposition (23)** of S3, not a consequence.
     """
     m = yukawa_3x3.mixing_3x3()
-    obs = (0.307, 0.579, 0.022)     # the observed PMNS (world average)
+    obs = (float(_config.CFG.neutrino.obs_sin2_theta12),
+           float(_config.CFG.neutrino.obs_sin2_theta23),
+           float(_config.CFG.neutrino.obs_sin2_theta13))   # the observed PMNS (world average)
     return {
         "sin2_12": m["sin2_12"], "sin2_23": m["sin2_23"], "sin2_13": m["sin2_13"],
         "obs": obs, "backend": E._BACKEND,

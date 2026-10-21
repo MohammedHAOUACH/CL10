@@ -42,6 +42,12 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2):
+# the exactly gapless 24-point orbit at q0 = (-2.1890561, -1.4445961,
+# 0), little group of order 2, in-plane v in [0.031, 0.219], is a
+# statement about THAT member; at the pi/4 clock the gapless set is
+# Gamma plus six face-diagonal lines (V203).
+os.environ["CL10_ANGLE"] = "0.2"
 
 from cl10 import supercell as SC                                       # noqa: E402
 

@@ -25,7 +25,7 @@ completes the program at the **cross-section** level, with **no fit**:
   step**, averaged over the 1024 two-particle basis states:
       P2 = 1 - dbar^2,   dbar = (1/32) sum_i |U_ii|^2.
   It is **nonzero** (the 45 planes mix the 32, so the QCA scatters) and
-  **0-parameter** (the only input is ``g_10 = 1/5``).
+  **0-parameter** (the only input is ``g_10``, the root clock).
 
 - **The 0-parameter GUT-scale cross-section.**
       sigma_0 = P2 * l_P^2 = P2 / M_P^2
@@ -56,7 +56,7 @@ from . import u10pred
 from . import config as _config
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
-# the 0-parameter GUT coupling (the only input): g_10 = sqrt(alpha_10) = 1/5
+# the 0-parameter GUT coupling (the only input): the root-clock angle g_10
 G10 = sm_qca.G10
 # the Planck scale (= the GUT scale = the UV cutoff, 0-parameter)
 M_P = u10pred.M_PLANCK          # GeV
@@ -65,7 +65,7 @@ GEV2_TO_CM2 = float(_config.CFG.units.gev2_to_cm2)   # 1/GeV^2 in cm^2 (the exac
 
 def qca_step():
     """The 0-parameter GUT QCA step (32x32): the product of the 45
-    Spin(10) plane rotations at ``g_10 = 1/5`` (the only input)."""
+    Spin(10) plane rotations at ``g_10``, the root clock (the only input)."""
     return sm_qca.gut_qca_step(sm_qca.plane_generators(), G10)
 
 
@@ -143,7 +143,7 @@ def cross_section():
         sigma_0    = P2 / M_P^2        (the QCA, non-perturbative, UV-finite)
         sigma_pert = g_10^4 / (4 pi M_P^2)   (the tree-level perturbative GUT)
         R          = sigma_0 / sigma_pert = 4 pi P2 / g_10^4
-    All 0-parameter (the only inputs are g_10 = 1/5 and M_P)."""
+    All 0-parameter (the only inputs are g_10 and M_P)."""
     U = qca_step()
     p2 = two_particle(U)["P2"]
     p1 = one_particle_inelastic(U)["P1"]
@@ -277,7 +277,7 @@ def main():
     print("CL10 - the QCA lattice RG: the S-matrix to the cross-sections (O9)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
-    print(f"  the ONLY inputs:  g_10 = {r['g10']:.4f} (= 1/5)  and  M_P = {r['M_P_GeV']:.3e} GeV")
+    print(f"  the ONLY inputs:  g_10 = {r['g10']:.6f} (the root clock)  and  M_P = {r['M_P_GeV']:.3e} GeV")
     print(f"  [1] UV-finiteness (the lattice RG cutoff):  sigma <= sigma_max = 4 pi / M_P^2 "
           f"= {uv['sigma_max_cm2']:.3e} cm^2  (finite, no UV divergence)")
     print(f"  [2] 2->2 inelastic probability per step:  P2 = {cs['P2']:.4e}  "

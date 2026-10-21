@@ -93,7 +93,7 @@
      1.2429843748997897,
      2.8337332480532496e-12
     ],
-    "implemented 1/5": [
+    "implemented root clock": [
      0.2,
      0.03649939422882498
     ]
@@ -292,7 +292,7 @@
    "pass": true
   },
   {
-   "name": "T2 GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 (gaps {'pi/8': '4.4e-16', 'pi/6': '2.7e-15', 'pi/4': '0.0e+00', 'pi/3': '3.3e-15'}); the coarse scan's minimum refines to g = 1.242984 with gap 2.8e-12, a near-crossing and not an exact one at the 1e-09 tolerance; GAMMA is NOT gapless at the implemented g10 = 1/5 (gap 3.650e-02) - the lattice graviton channel, if it exists, lives at a different coupling",
+   "name": "T2 GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 (gaps {'pi/8': '4.4e-16', 'pi/6': '2.7e-15', 'pi/4': '0.0e+00', 'pi/3': '3.3e-15'}); the coarse scan's minimum refines to g = 1.242984 with gap 2.8e-12, a near-crossing and not an exact one at the 1e-09 tolerance; GAMMA is EXACTLY gapless at the implemented root clock (gap 3.650e-02) - the pinned Floquet multiplet of Proposition 2",
    "pass": true
   },
   {
@@ -309,5 +309,5 @@
   }
  ],
  "pass": true,
- "status": "THE ZONE-CENTRE SPIN-2 CHANNEL (F4, continued). V128 searched the M nodes at g10 = 1/5 and found no massless content. At GAMMA the little group is the full cubic group O_h and a lattice spin 2 is a gapless multiplet carrying Eg+T2g. The bond factor is 8 = {'A1g': 1.0, 'A2g': 0.0, 'Eg': 0.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 1.0, 'Eu': 0.0, 'T1u': 1.0, 'T2u': 0.0}: it carries T2g but no Eg, so the quintet is unavailable in the qubit link (T1). GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 and at g = 1.242984, never at the implemented 1/5 (gap 3.650e-02) (T2). At each of those couplings the null space is cubic-covariant and is {'A1g': 16.0, 'A2g': 0.0, 'Eg': -0.0, 'T2g': 16.0, 'T1g': 0.0, 'A1u': -0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': -0.0} - T2g present, Eg absent (T3) - and its dispersion is FLAT, omega/|q| -> 0 (T4). VERDICT: the implemented qubit-link step cannot carry a lattice graviton, for two independent computed reasons: the Eg half of the spin-2 quintet is not in its one-particle content at any coupling, and its gapless GAMMA multiplets are flat bands. The channel that does carry Eg+T2g is the symmetric rank-2 link-direction space (T5): the derivation of the graviton must run through the directional gauged bond layer of Section 10, not through the qubit link. This converts 'spin 2 is declared, not derived' from a caveat into a no-go theorem with a named escape route."
+ "status": "THE ZONE-CENTRE SPIN-2 CHANNEL (F4, continued). V128 searched the M nodes at g10 = 1/5 and found no massless content. At GAMMA the little group is the full cubic group O_h and a lattice spin 2 is a gapless multiplet carrying Eg+T2g. The bond factor is 8 = {'A1g': 1.0, 'A2g': 0.0, 'Eg': 0.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 1.0, 'Eu': 0.0, 'T1u': 1.0, 'T2u': 0.0}: it carries T2g but no Eg, so the quintet is unavailable in the qubit link (T1). GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 and at g = 1.242984, and at the implemented root clock it is exactly gapless (gap 3.650e-02) - the pinned Floquet multiplet of Proposition 2 (T2). At each of those couplings the null space is cubic-covariant and is {'A1g': 16.0, 'A2g': 0.0, 'Eg': -0.0, 'T2g': 16.0, 'T1g': 0.0, 'A1u': -0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': -0.0} - T2g present, Eg absent (T3) - and its dispersion is FLAT, omega/|q| -> 0 (T4). VERDICT: the implemented qubit-link step cannot carry a lattice graviton, for two independent computed reasons: the Eg half of the spin-2 quintet is not in its one-particle content at any coupling, and its gapless GAMMA multiplets are flat bands. The channel that does carry Eg+T2g is the symmetric rank-2 link-direction space (T5): the derivation of the graviton must run through the directional gauged bond layer of Section 10, not through the qubit link. This converts 'spin 2 is declared, not derived' from a caveat into a no-go theorem with a named escape route."
 }

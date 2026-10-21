@@ -49,6 +49,11 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 member of the Wilson FAMILY (paper
+# 8.1-8.2: this is where the doubler-gap mechanism and the dispersive
+# node spectrum are stated). The write is inert for importers - they
+# have already loaded cl10 - and only pins standalone runs.
+os.environ["CL10_ANGLE"] = "0.2"
 
 from cl10 import clifford
 from cl10 import engine as E

@@ -57,8 +57,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.a
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
 from cl10 import neutrino as nv  # noqa: E402
+from cl10 import config as _cfg  # noqa: E402
 
-S17 = nv.loop_ladder(17) * 1e9   # eV, the neutrino ladder S(17) (V57)
+EV_PER_GEV = float(_cfg.CFG.units.ev_per_gev)
+S17 = nv.loop_ladder(17) * EV_PER_GEV   # eV, the neutrino ladder S(17) (V57)
 M_ATM = nv.M_ATM_EV              # eV, sqrt(|dm2_3l|), NuFIT 6.0 (NO)
 COSMO = nv.SUM_MNU_MAX_EV        # eV, sum m_nu < 0.12 (Planck+BAO)
 

@@ -24,7 +24,7 @@ def fig3_one_object():
     ax.set_xlabel("spectrum index  $k$  (32 levels, sorted)")
     ax.set_ylabel(r"eigenphase  $\omega_k$  (rad/step)")
     ax.set_title("The one 0-parameter object: the 32-level QCA spectrum\n"
-                 r"$H=-i\log U$,  $U=\prod_{a<b}(\cos g_{10}\,I-i\sin g_{10}\,T_{ab})$ at $g_{10}=1/5$")
+                 r"$H=-i\log U$,  $U=\prod_{a<b}(\cos g_{10}\,I-i\sin g_{10}\,T_{ab})$ at the root clock $g_{10}=\pi/4$")
     # the 9-to-1 invariants, computed
     from cl10 import parameter_audit
     sm = parameter_audit.spectral_mirror()
@@ -51,19 +51,10 @@ def fig5_brillouin_doublers():
     gap0 = SC.gap(SC.GAMMA, U16)
     nodes = []
     for q in SC.M_POINTS:
-        sl = []
-        for ax in range(3):
-            if abs(q[ax]) < 1e-12:
-                continue
-            dq = 1e-4
-            qa = list(q); qa[ax] -= dq
-            qb = list(q); qb[ax] += dq
-            pa = np.angle(np.linalg.eigvals(SC.bloch(tuple(qa), U16)))
-            pb = np.angle(np.linalg.eigvals(SC.bloch(tuple(qb), U16)))
-            sl.append((pb[np.argmin(np.abs(pb))]
-                       - pa[np.argmin(np.abs(pa))]) / (2 * dq))
-        nodes.append((q, float(np.sign(sl[0] * sl[1]))))
-    chir_sum = sum(c for _, c in nodes)
+        w = np.angle(np.linalg.eigvals(SC.bloch(tuple(q), U16)))
+        pinned = (int(np.sum(np.abs(w) < 1e-9))
+                  + int(np.sum(np.abs(np.abs(w) - math.pi) < 1e-9)))
+        nodes.append((q, pinned))
     fig = plt.figure(figsize=(6.2, 5.2))
     ax = fig.add_subplot(projection="3d")
     pi = math.pi
@@ -81,9 +72,20 @@ def fig5_brillouin_doublers():
                  ((-pi, pi, -pi), (-pi, pi, pi))]:
         ax.plot([s[0], e[0]], [s[1], e[1]], [s[2], e[2]],
                 color="0.6", lw=0.8)
-    for q, ch in nodes:
-        c = C_FIT if ch > 0 else C_ALG
-        ax.scatter(*q, color=c, s=90, edgecolor="black", lw=0.6,
+    t = np.linspace(-pi / 2, pi / 2, 25)
+    for zero_axis in range(3):
+        for s1 in (1.0, -1.0):
+            a, b = [j for j in range(3) if j != zero_axis]
+            pts = []
+            for u in t:
+                q = [0.0, 0.0, 0.0]
+                q[a], q[b] = s1 * u, u
+                pts.append(q)
+            ax.plot([p[0] for p in pts], [p[1] for p in pts],
+                    [p[2] for p in pts], color=C_ALG, lw=1.6, alpha=0.85)
+    for q, pinned in nodes:
+        assert pinned == 64
+        ax.scatter(*q, color=C_FIT, s=90, edgecolor="black", lw=0.6,
                    depthshade=False)
     for q in SC.R_POINTS:
         ax.scatter(*q, color="none", s=150, marker="^", edgecolor=C_GUT,
@@ -91,17 +93,17 @@ def fig5_brillouin_doublers():
     ax.scatter(0, 0, 0, color="#d4a017", s=130, marker="D",
                edgecolor="black", lw=0.6, depthshade=False)
     ax.text(-0.2 * pi, -0.2 * pi, 0.78 * pi,
-            f"$\\Gamma$ gap {gap0:.4f}", fontsize=12)
+            f"$\\Gamma$ pinned (gap {gap0:.1e})", fontsize=12)
     ax.set_xlim(-pi, pi)
     ax.set_ylim(-pi, pi)
     ax.set_zlim(-pi, pi)
     ax.set_xlabel("$q_x$")
     ax.set_ylabel("$q_y$")
     ax.set_zlabel("$q_z$")
-    ax.set_title("12 gapless half-zone nodes at the edge midpoints of the\n"
-                 f"block zone ($\\sum$ chirality = {chir_sum:.0f}); the 8 R corners\n"
-                 "carry exactly 3-fold multiplets - the doubling of the\n"
-                 "block cell, displayed, not hidden", fontsize=13)
+    ax.set_title("At the root clock the exactly gapless set is $\\Gamma$ plus the six\n"
+                 "face-diagonal lines $\\{(\\pm t,\\pm t,0)\\}$ and axis permutations: the 12\n"
+                 "M endpoints are pinned to $\\{0,\\pi\\}$ (64 of 128 levels, gap exactly 0),\n"
+                 "the 8 R corners carry exactly 3-fold multiplets", fontsize=13)
     ax.view_init(elev=18, azim=-58)
     fig.tight_layout()
     save(fig, "fig5_brillouin_doublers.png")

@@ -68,6 +68,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2);
+# the grading counts regressed in T0 are the V124 values measured on
+# that member.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp                                        # noqa: E402
 from cl10 import clifford as CL                                   # noqa: E402
 from cl10 import supercell as SC                                  # noqa: E402

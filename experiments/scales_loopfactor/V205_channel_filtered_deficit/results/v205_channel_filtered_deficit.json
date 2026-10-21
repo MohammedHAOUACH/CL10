@@ -1,0 +1,127 @@
+{
+ "id": "V205_channel_filtered_deficit",
+ "tier": 4,
+ "property": "channel-side filters of the O8 hierarchy deficit at the closed clock: measured blind (V205)",
+ "residual": true,
+ "programme": "V205",
+ "branch": "W-NAMED",
+ "data": {
+  "sector_phases": {
+   "pi/2": {
+    "max_dev_ph4_1": 3.234057918767554e-14,
+    "min_order64_dev": 1.617028959383777e-14,
+    "phases": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      -1.0,
+      0.0
+     ],
+     [
+      -1.0,
+      0.0
+     ]
+    ]
+   },
+   "pi/4": {
+    "max_dev_ph4_1": 1.617028959383777e-14,
+    "min_order64_dev": 1.617028959383777e-14,
+    "phases": [
+     [
+      1.0,
+      0.0
+     ],
+     [
+      0.0,
+      1.0
+     ],
+     [
+      0.0,
+      1.0
+     ]
+    ]
+   },
+   "1/5": {
+    "max_dev_ph4_1": 1.4347121817990451,
+    "min_order64_dev": 0.3938562248994066,
+    "phases": [
+     [
+      -0.9983,
+      0.0584
+     ],
+     [
+      0.3624,
+      -0.932
+     ],
+     [
+      0.9211,
+      0.3894
+     ]
+    ]
+   }
+  },
+  "closed_crossing": {
+   "n": 208,
+   "F": 0.019686011642300074,
+   "deficit_vs_loop": 0.9895268728629288,
+   "rho": 0.9780302704295729
+  },
+  "pinned_channel": {
+   "residue_multiplicities": {
+    "0": 64,
+    "1": 32,
+    "2": 32
+   },
+   "z3_filtered_traces": {
+    "z3_filter_k0": 1.6434326657742803e-14,
+    "z3_filter_k1": 7.16321533339453e-15,
+    "z3_filter_k2": 1.6071771489647577e-14
+   }
+  },
+  "per_cartan_insertion_at_crossing": [
+   0.9351598606474064,
+   0.9898912050929384,
+   0.9892978599820293,
+   0.9899419882344261,
+   1.0179724688316842
+  ],
+  "arithmetic": {
+   "coef_observed": 2.076564111173832,
+   "closed_insertion_amplitude": 0.9895268728629288,
+   "required_insertion_amplitude": 0.9638787569864106,
+   "branch_1_5_insertion_amplitude": 0.9644131499665388,
+   "fingerprint_deviation": -0.0005541120837545543,
+   "adjacent_length_coefficients": {
+    "204": 6.56606716658591,
+    "208": 2.7002077805452327,
+    "212": 1.1104245316314827
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 the traced-word sector phases e^(i(g/2)ev), ev = [-32.0, -12.0, 4.0], are exactly 4th roots of unity at the closed clocks (max |ph^4-1|: pi/2 3.2e-14, pi/4 1.6e-14; the values are {1,-1,-1} and {1,i,i}) and irrational at the reference angle (no order <= 64 within 0.39): at the closed clock the sector interference is a finite fourth-root filter - the generic-angle interference that carried the old 0.56% agreement cannot be re-created at any closed clock (V202)",
+   "pass": true
+  },
+  {
+   "name": "T2 the closed branch regresses V203: first crossing of 1/(16 pi) at n* = 208, F = 0.019686, measured deficit 0.989527 (rho = 0.978030)",
+   "pass": true
+  },
+  {
+   "name": "T3 the pinned M-channel spectrum at pi/4 (V203: {0^32, +-pi/3^16, +-2pi/3^16, pi^32}) filters to zero: residue multiplicities [(0, 64), (1, 32), (2, 32)] and the propagator trace with every nontrivial Z_3 filter is 1.64e-14, 7.16e-15, 1.61e-14 - every channel-side filter supported by the pinned Floquet phases has EMPTY KERNEL: the channel cannot re-phase the loop interference it does not trace over",
+   "pass": true
+  },
+  {
+   "name": "T4 the per-Cartan insertion amplitudes at n* = 208: [0.9352, 0.9899, 0.9893, 0.9899, 1.018] - bimodal {0.90, 0.99}: the choice of Cartan insertion direction puts the deficit at 1% or at 10%, never at the required 3.61% (closest direction misses by 0.0254 in amplitude): the Cartan-direction freedom does not realize the observed coefficient",
+   "pass": true
+  },
+  {
+   "name": "T5 the named residual, localized: closed deficit 0.989527 -> C(3) = 2.7002 vs observed 2.0766; the observed value needs insertion amplitude 0.963879 (deficit 3.612%) against the measured 1.047% - a 2.66% gap; the 1/5-branch deficit 0.964413 matches the required value to 0.055% (fingerprint: nature still reads the generic clock); adjacent lengths bracket the observed coefficient between 2.700 and 6.566 - no length reading realizes it; and by T1-T4 no channel or Cartan filter moves it",
+   "pass": true
+  }
+ ],
+ "status": "THE O8 DEFICIT IS CHANNEL-BLIND, MEASURED. (i) The closed-clock sector phases are exactly 4th roots of unity at both closed angles (max |ph^4-1| 3.2e-14; {1,-1,-1} and {1,i,i}) and irrational at 1/5: at the closed clock the sector interference is a finite fourth-root filter the pinned channel cannot re-weight. (ii) The pinned M-channel Z_3 of Floquet phases {0, +-pi/3, +-2pi/3, pi} has every filtered trace zero (max 1.6e-14): the only re-phasing the pinned channel supports has empty kernel. (iii) The per-Cartan insertion amplitudes at n* = 208 are bimodal (0.90, 0.99): no Cartan direction supplies the required 0.963879 (closest miss 0.0254). (iv) Arithmetic: closed C(3) = 2.7002 vs observed 2.0766 (+30.0%); required insertion 0.963879 vs measured 0.989527 - a 2.66% gap; the required value equals the 1/5-branch deficit to 0.055%; adjacent lengths bracket, none matches. VERDICT: no measured structure inside the built automaton closes O8 at the closed clock; the named residual is the crossing-length deficit itself (3.61% required, 1.05% measured), and the only measured fact about it is the fingerprint: nature's coefficient is the generic-clock deficit to 0.055%.",
+ "pass": true
+}

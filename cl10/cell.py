@@ -71,6 +71,7 @@ from . import u10pred as _u10
 RUNG_A = int(_config.CFG.cell.rung_A)
 RUNG_B = int(_config.CFG.cell.rung_B)
 DIM = 36
+EV_PER_GEV = float(_config.CFG.units.ev_per_gev)  # GeV -> eV (config units)
 
 
 def rung_phase(n):
@@ -132,7 +133,7 @@ def masses():
     m_A = _u10.ladder_scale(RUNG_A)
     m_B = _u10.ladder_scale(RUNG_B)
     return {"m_A_GeV": m_A, "m_B_GeV": m_B,
-            "m_nu_eV_identity": (m_B * m_B / m_A) * 1e9}
+            "m_nu_eV_identity": (m_B * m_B / m_A) * EV_PER_GEV}
 
 
 def content():
@@ -188,13 +189,14 @@ def verify():
     ys = [(y, n) for y, n in content()]
     r["trY"] = float(sum(y * n for y, n in ys))
     r["trY3"] = float(sum(y ** 3 * n for y, n in ys))
-    r["ok"] = (r["unitarity"] < 1e-12 and r["G_squared"] < 1e-12
-               and r["parity_step_comm"] < 1e-12 and r["parity_gauge_max"] < 1e-12
-               and r["pairing"] < 1e-12 and r["det_phase"] < 1e-12
-               and r["vacuum_sum"] < 1e-12
+    _s = _config.CFG.tolerances.strict          # cl10/config.yaml tolerances:
+    r["ok"] = (r["unitarity"] < _s and r["G_squared"] < _s
+               and r["parity_step_comm"] < _s and r["parity_gauge_max"] < _s
+               and r["pairing"] < _s and r["det_phase"] < _s
+               and r["vacuum_sum"] < _s
                and r["m_A_eq_M_N"] and r["m_B_eq_dm_ladder"]
-               and r["m_nu_identity_rel"] < 1e-12 and r["rung_B_eq_n_gen"]
-               and abs(r["trY"]) < 1e-12 and abs(r["trY3"]) < 1e-12)
+               and r["m_nu_identity_rel"] < _s and r["rung_B_eq_n_gen"]
+               and abs(r["trY"]) < _s and abs(r["trY3"]) < _s)
     return r
 
 

@@ -4,8 +4,8 @@
 projections of ONE 0-parameter object - the 32-level QCA spectrum.
 
 The single 0-parameter object of the theory is the GUT QCA step U (the 32x32
-product of the 45 Spin(10) plane rotations at g_10 = 1/5; the only input is
-g_10).  Its spectrum - the 32 levels of H = -i log(U) - is the one computed
+product of the 45 Spin(10) plane rotations at the root clock $g_{10} = \\pi/4$;
+the only input is the angle).  Its spectrum - the 32 levels of H = -i log(U) - is the one computed
 0-parameter object.  This experiment verifies the 0-parameter invariants of
 that one object:
 
@@ -14,7 +14,7 @@ that one object:
   plane rotations is a special unitary: each T_ab = i h_a h_b is a traceless
   16/16 involution)
 - the CPT (16/16-bar) split  (U commutes with the pseudoscalar; each sector's
-  0-point is 0)
+  determinant is 1, its phase sum 0 mod 2pi)
 
 and reports the **nine residuals O1-O9** as the **nine named projections of
 this one object** (the 0-parameter mechanism of each is a consequence of the
@@ -62,10 +62,10 @@ NINE = [
      "the 10-Higgs mass term + the tribimaximal PMNS (only sin^2_12 = 1/3 is 0-parameter as a number)",
      "the spectrum (the 16 levels)"),
     ("O7", "the sub-Planck dark-matter scale",
-     "the stable soliton u = sqrt(2) sech x of the non-linear metric",
+     "the cell singlet $B$ at the rung-10 ladder mass (V195, V196)",
      "the dynamics (the non-linear metric)"),
     ("O8", "the derivation of the hierarchy exponent (v/E_P ~ 10^-17)",
-     "the 0-parameter value v/E_P = 2.02e-17 (a number of the root)",
+     "the 0-parameter value v/E_P = 2.02e-17 (a 2-digit coincidence, Section 15)",
      "the algebra (the two scales)"),
     ("O9", "the QCA lattice RG (S-matrix to cross-sections)",
      "the 0-parameter S-matrix = U (the 't Hooft program)",

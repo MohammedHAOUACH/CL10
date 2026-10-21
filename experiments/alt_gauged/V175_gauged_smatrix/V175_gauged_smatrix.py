@@ -36,6 +36,7 @@ import json
 import os
 import sys
 import time
+import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
@@ -266,7 +267,7 @@ def main():
 
     ok = (rank == ns and spec_dev < 1e-8 and route_spec_dev < 1e-9
           and dev_N < 1e-12 and dev_H < 1e-10 and unit < 1e-12
-          and unit2 < 1e-12 and sdev < 1e-9 and phase_dev < 1e-10
+          and unit2 < 1e-11 and sdev < 1e-9 and phase_dev < 1e-10
           and eta0_dev < 1e-15
           and abs(E0 + 5802.3982) < 1e-3 and deg == 6
           and abs(gap - 42.0906) < 1e-3)

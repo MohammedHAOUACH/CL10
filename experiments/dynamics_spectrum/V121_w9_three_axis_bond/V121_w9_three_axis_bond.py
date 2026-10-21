@@ -65,6 +65,11 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.3):
+# the three-axis bond is measured against the dispersive spectrum
+# (corner gap 5.6e-7 at phi = 0, lifted to 3.3e-4 by the bond); at the
+# pi/4 clock the corner multiplet is pinned to the Floquet pair.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 

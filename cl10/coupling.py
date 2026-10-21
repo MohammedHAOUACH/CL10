@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 - the angle and the coupling: ONE source, TWO branches.
+CL10 - the angle and the coupling: ONE source, the root clock plus two references.
 
-The step carries exactly one continuous number, the rotation angle ``g``.  The
-publication keeps two readings of it apart (Sections 1.4, 7.1, 9, 15) and so
-does the code:
+The step carries one parameter, the rotation angle ``g``, and the closure axiom
+fixes it: the physical clock is the order-8 root ``g = pi/4`` (Sections 1.4, 7.1,
+9).  Two reference angles stay addressable for the family searches:
+PUT 10:=14:
+``implemented``   ``g = 1/5``  (rotation-squared reading ``alpha_10 = g^2 = 1/25``)
+    Provenance **convention** - a reference spectrum, not the clock.  The rule
+    ``g = 1/n_qubits`` (the five qubits of the 32-dimensional module) is not
+    selected by anything: the ``alpha = 1/n^2`` scan prefers ``n = 7`` (V56).
+    The name is kept for the pre-closure code paths and for the Section 8
+    node-geometry searches, whose objects are Wilson-family members.
 
 ``implemented``   ``g = 1/5``  (rotation-squared reading ``alpha_10 = g^2 = 1/25``)
     Provenance **convention**.  The rule ``g = 1/n_qubits`` (the five qubits of
@@ -25,8 +32,8 @@ does the code:
     translation and the gapless set is a line network (V134): no mixing, hence
     no mass generation.  Kept for reference, not used as a physical branch.
 
-Select the branch with ``CL10_ANGLE=implemented|closed|half``; the default is
-``implemented``, so every number already in the repository is unchanged.
+Select the clock with ``CL10_ANGLE=implemented|closed|half``; the default is
+``closed`` (``cl10/config.yaml``, ``angle.default_branch``).
 
 Coupling conventions (Section 1.4, stated once and used everywhere):
 

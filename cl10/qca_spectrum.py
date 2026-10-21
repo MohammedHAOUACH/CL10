@@ -5,8 +5,8 @@ CL10 — the QCA spectrum: the **one** 0-parameter object and its invariants.
 
 The **single** object of the theory is the **GUT QCA step** ``U`` — the 32x32
 product of the 45 ``Spin(10)`` plane rotations at the angle of
-``cl10.coupling`` (the implemented branch ``g_10 = 1/5``; the angle itself is a
-convention, the paper's O4).  The
+``cl10.coupling`` (the root clock ``g_10 = pi/4`` by default; the angle's
+provenance is algebraic — the closure axiom, Theorem 6).  The
 **spectrum** of ``U`` — the **32 levels** of
 
     H = -i log(U),   levels in (-pi, pi]
@@ -29,8 +29,8 @@ off.  This module computes that spectrum and its **0-parameter invariants**
   **group-theoretic identity of the root**, not a counting accident.
 - **the CPT (16/16-bar) split** (O3/O5).  ``U`` **commutes with the
   pseudoscalar** (the 45 are even in the ``Z2`` grading), so it preserves
-  the 16/16-bar (matter/antimatter) eigenspaces; the 0-point of **each**
-  sector is 0.
+  the 16/16-bar (matter/antimatter) eigenspaces; **each** sector's
+  determinant is 1 (its phase sum is 0 mod 2pi).
 - **the S-matrix** (O9): the step **is** the 0-parameter S-matrix (the
   't Hooft program) — ``S = U``.
 
@@ -38,6 +38,8 @@ The **nine residuals O1-O9** (the named exact values the 0-parameter
 structure does not fix) are the **nine projections of this one object**
 (see the publication, the 9-to-1 reduction).
 """
+
+import math
 
 import numpy as np
 
@@ -74,8 +76,8 @@ def cpt_block_phases(g10=None):
     CPT is phase conjugation, so the 16-bar multiset is the **mirror** of
     the 16 (``omega_16bar = -omega_16``) — the 0-parameter CPT mirror.
 
-    Note: each block carries a **mix** of + and - phases (the 16 has 9
-    negative / 7 positive); the mirror is between the two **blocks**, not
+    Note: each block carries a **mix** of + and - phases (the counts are
+    angle-dependent); the mirror is between the two **blocks**, not
     between the + and - halves of the full 32-level spectrum."""
     g10 = G10 if g10 is None else g10
     U = _asnp(sm_qca.gut_qca_step(sm_qca.plane_generators(), g10))
@@ -150,7 +152,8 @@ def verify(tol=1e-10):
     """0-parameter checks on the one object: the 0-point = 0 (the +/--
     pairing), the SL(32) identity (det U = 1, the 45 traceless), and the CPT
     (16/16-bar) split (U commutes with the pseudoscalar, each sector's
-    0-point = 0)."""
+    determinant = 1: the block phase sum is 0 mod 2pi — exactly 0 at a
+    generic angle, a multiple of 2pi at the root clock's algebraic levels)."""
     s = qca_spectrum()
     ok = (
         abs(s["zero_point"]) < tol
@@ -158,8 +161,8 @@ def verify(tol=1e-10):
         and s["pairing_resid"] < tol
         and s["max_trace_T45"] < tol
         and s["commutes_with_pseudoscalar"] < _TOL.standard
-        and abs(s["cpt_0point_16"]) < 1e-8
-        and abs(s["cpt_0point_16bar"]) < 1e-8
+        and (lambda m: min(m, 2 * math.pi - m))(s["cpt_0point_16"] % (2 * math.pi)) < 1e-8
+        and (lambda m: min(m, 2 * math.pi - m))(s["cpt_0point_16bar"] % (2 * math.pi)) < 1e-8
     )
     return {"spectrum": s, "ok": bool(ok)}
 

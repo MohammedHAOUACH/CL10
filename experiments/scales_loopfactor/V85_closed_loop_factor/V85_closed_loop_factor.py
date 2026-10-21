@@ -28,13 +28,23 @@ T.L joint Casimir (three eigenvalues -32, -12, 4 on 32, 288, 1120
 states: V83), so M = sum_a e^{i (eta/2) ev_a} Tr_L[P_a (G (x) I) rho]
 is computed exactly from the 1440-D eigendecomposition.
 
-**What is measured.**
+**BRANCH (pinned).**  This family is measured on the 1/5 REFERENCE
+branch (config angle.branches.implemented): at the physical pi/4
+clock the traced-link Cartan probes DEGENERATE - the clock propagator
+is Cartan-dark (cartan(G^2) ~ 7e-17, cartan(G^10) ~ 7e-17) and every
+F_n ratio is a quotient of numerical zeros (the F_10 = 53.9 recorded
+by earlier drafts of this file is such a quotient, not a suppression
+law). The physical-clock loop statements (n* = 208, F_208 = 0.019687,
+coefficient 2.702) are the CLOSED-BRANCH programme V200/V203/V204.
+
+**What is measured (on the reference branch).**
 1. Regression: the backtracking two-hop (same bond twice) reproduces
-   V80's F(g10) = 1.0596866584601925 to 1e-12.
+   V80's F(g10) = 1.0596866584601925 to 1e-9.
 2. The spectral radius of M G against that of G (contraction).
-3. F_n for n = 2..10 at the root coupling eta = 1/5 and at the
-   division-optimal eta = 1.4423; the geometric ratio r and the level
-   n* at which r^{n*} crosses 1/(16 pi) = 0.0199.
+3. F_n for n = 2..10 at the branch coupling eta = 1/5 and at the
+   division-optimal eta = 1.4423 (the V80 minimum); the geometric
+   ratio r and the level n* at which r^{n*} crosses
+   1/(16 pi) = 0.0199.
 
 **Verdict.** The closed-loop suppression law of the traced adjoint
 link, measured exactly: whether plaquette loops deliver the loop
@@ -53,6 +63,9 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch (see docstring BRANCH): the step angle
+# and the hop phase are read self-consistently at 0.2.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 
@@ -114,7 +127,8 @@ def main():
 
     loop = u10pred.LOOP
 
-    for eta, tag in ((0.2, "root"), (1.4423076923076923, "Fmin")):
+    for eta, tag in ((sm_qca.G10, "root"),
+                     (1.4423076923076923, "Fmin")):
         ph = [np.exp(1j * (eta / 2) * e) for e in ev]
         M = sum(p * m for p, m in zip(ph, Ma))
         MG = M @ G
@@ -140,27 +154,32 @@ def main():
             "n_star_for_loop_factor": nstar,
             "loop_law": round(loop, 6)}
 
-    # regression: backtracking two-hop = V80's B2 (same bond twice)
-    eta = 0.2
+    # regression: backtracking two-hop = V80's B2 (same bond twice),
+    # branch-valid literal
+    eta = sm_qca.G10  # pinned 0.2: self-consistent branch coupling
     ph = [np.exp(1j * (eta / 2) * e) for e in ev]
     k1 = sum(p * Pa for p, Pa in zip(ph, P))
-    B2 = np.einsum("ajbj->ab", (k1 @ Gi @ k1 @ Gi).reshape(32, D_L, 32, D_L)) \
-        / D_L
+    B2 = np.einsum("ajbj->ab", (k1 @ Gi @ k1 @ Gi)
+                   .reshape(32, D_L, 32, D_L)) / D_L
     F2 = cartan_norm(2 * B2, cartan) / cartan_norm(2 * G @ G, cartan)
     reg_err = abs(F2 - 1.0596866584601925)
     checks["regression_v80"] = {"F_backtrack_2hop": F2, "err": reg_err}
-
-    ok = reg_err < 1e-9
+    # gates: the V80 anchor + the published crossing F_10 ~ 1/(16 pi)
+    F10 = checks["loops_root"]["F_n"][8]
+    ok = (reg_err < 1e-9 and abs(F10 - loop) < 0.05 * loop
+          and 0.0 < checks["loops_root"]["spectral_radius_MG"] < 1.0)
 
     lv = checks["loops_root"]
     status = (
-        "THE CLOSED-LOOP FACTOR IS MEASURED: at the root coupling the "
-        f"n-hop traced-loop ratios are F_n = "
-        f"{', '.join(str(f) for f in lv['F_n'][:6])} (n = 2..7); the "
-        f"geometric ratio is r = {lv['geometric_ratio']} "
-        f"(spectral radius MG = {lv['spectral_radius_MG']} vs G = "
-        f"{lv['spectral_radius_G']}); the loop factor 1/(16 pi) = "
-        f"{lv['loop_law']} is reached at loop order n* = "
+        "THE CLOSED-LOOP FACTOR IS MEASURED ON THE 1/5 REFERENCE BRANCH "
+        f"(the clock Cartan probes are degenerate; V203/V204 read the "
+        f"clock): at the branch coupling the n-hop traced-loop ratios "
+        f"are F_n = {', '.join(str(f) for f in lv['F_n'][:6])} "
+        f"(n = 2..7) with F_10 = {lv['F_n'][8]} against 1/(16 pi) = "
+        f"{lv['loop_law']}; the geometric ratio is r = "
+        f"{lv['geometric_ratio']} (spectral radius MG = "
+        f"{lv['spectral_radius_MG']} vs G = {lv['spectral_radius_G']}); "
+        "the loop factor is reached at loop order n* = "
         f"{lv['n_star_for_loop_factor']} if the geometric law holds. "
         "Closed traced-link loops are the true Feynman-loop analogue "
         "and their suppression law is now a measured number of the "
@@ -184,7 +203,9 @@ def main():
         print(f"      F_n = {lv['F_n']}")
         print(f"      r = {lv['geometric_ratio']}, n* = "
               f"{lv['n_star_for_loop_factor']}")
-    print(f"  regression vs V80 = {reg_err:.2e}")
+    print(f"  regression vs V80 = {reg_err:.2e}; "
+          f"F_10 = {checks['loops_root']['F_n'][8]:.6f} vs loop "
+          f"{loop:.6f}")
     print(f"  VERDICT: {'PASS' if ok else 'FAIL'}")
     print(f"  JSON -> {outdir}/v85_closed_loop_factor.json")
     print(f"  Wall time = {time.time() - t0:.2f} s")

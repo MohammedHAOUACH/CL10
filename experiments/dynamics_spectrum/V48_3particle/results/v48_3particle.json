@@ -8,13 +8,13 @@
   "tol": 1e-08,
   "data": {
     "backend": "cupy",
-    "n1_unitary_residual": 1.6653345381979549e-15,
-    "n2_unitary_residual": 3.3306690763959098e-15,
-    "n3_unitary_residual": 1.6653345381979549e-15,
-    "n4_unitary_residual": 1.6653345381979549e-15,
+    "n1_unitary_residual": 1.3322676295501878e-15,
+    "n2_unitary_residual": 2.6645352591003757e-15,
+    "n3_unitary_residual": 1.3322676295501878e-15,
+    "n4_unitary_residual": 1.3322676295501878e-15,
     "n1_bounded": true,
     "uv_finite": true,
     "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the O9 open part"
   },
-  "wall_time": 0.131
+  "wall_time": 0.171
 }

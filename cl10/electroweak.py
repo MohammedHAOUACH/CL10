@@ -86,7 +86,7 @@ def qca_step_spectrum():
 # ---------------------------------------------------------------------------
 
 def electroweak_breaking():
-    """The electroweak sector of the implemented branch.
+    """The electroweak sector at the root clock.
 
     The single gauge coupling is the rotation angle ``g`` (Section 13.1), and
     the ``5/3`` normalisation fixes the ratio ``g'/g``.  What this returns is
@@ -94,9 +94,9 @@ def electroweak_breaking():
     the ratio ``m_W/m_Z = sqrt(5/8)`` - the standard GUT reading, not a
     prediction of the root (Section 13.2: no electroweak-mixing prediction is
     claimed, and the running that connects it to ``M_Z`` is the named residual
-    O4).  The absolute W/Z masses follow from ``g = 1/5`` and the measured
-    ``v``; the coupling *value* is the open part of O4, so they are reported,
-    never asserted."""
+    O4).  The absolute W/Z masses follow from the root-clock ``g`` and the
+    measured ``v``; the coupling *value* is the open part of O4, so they are
+    reported, never asserted."""
     g10 = coupling.G10                              # the single gauge coupling = the angle
     v = u10pred.V_EW                                    # 246 GeV
     g2 = g10                                            # the SU(2) = the GUT coupling
@@ -152,7 +152,7 @@ def main():
     print("  the electroweak sector (the GUT boundary condition, not a prediction - Section 13.2):")
     print(f"    the unified coupling g_10 = {ew['g10']:.4f}, the 5/3 U(1) -> g' = {ew['gprime']:.4f}")
     print(f"    the vev v = {ew['vev_v']:.1f} GeV")
-    print(f"    the W/Z masses at g = 1/5 and v = 246 GeV:  m_W = {ew['m_W']:.1f}, m_Z = {ew['m_Z']:.1f} GeV")
+    print(f"    the W/Z masses at the root-clock g and v = 246 GeV:  m_W = {ew['m_W']:.1f}, m_Z = {ew['m_Z']:.1f} GeV")
     print(f"    the GUT boundary condition:  sin^2(theta_W) = {ew['sin2_w']:.4f}  (= 3/8 from the 5/3)")
     print(f"    the ratio at the boundary:  m_W/m_Z = {ew['mw_over_mz']:.4f}  (= sqrt(5/8))")
     print("    the Higgs: the 16's H doublet (the mass is the named residual)")

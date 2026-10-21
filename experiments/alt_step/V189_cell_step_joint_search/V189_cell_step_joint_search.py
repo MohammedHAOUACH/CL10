@@ -42,6 +42,7 @@ import json
 import os
 import sys
 import time
+import os
 
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native
 os.environ.setdefault("JAX_PLATFORMS", "cpu")  # no card needed: see the header

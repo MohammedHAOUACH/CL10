@@ -9,13 +9,13 @@
   "data": {
     "backend": "cupy",
     "n_planes": 45,
-    "g10": 0.2,
+    "g10": 0.7853981633974483,
     "plane_square_to_I_err": 0.0,
-    "step_unitary_err": 1.6653345381979549e-15,
+    "step_unitary_err": 1.3322676295501878e-15,
     "n_steps": 50,
     "norm_before": 180.61652446349362,
-    "norm_after": 180.6165244634923,
-    "norm_rel_err": 7.238532784760992e-15,
+    "norm_after": 180.61652446348864,
+    "norm_rel_err": 2.7537896463764645e-14,
     "causal_radius": 1,
     "sm_gauge_bosons": 12,
     "n_gluon": 8,
@@ -27,5 +27,5 @@
     "n_module": 32,
     "named_residual": "the 3-family structure + the Yukawa matrix"
   },
-  "wall_time": 0.128
+  "wall_time": 0.076
 }

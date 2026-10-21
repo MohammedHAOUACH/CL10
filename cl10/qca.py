@@ -16,10 +16,11 @@ and the on-site QCA factor.
 
 What the sector does **not** claim (Section 11.1): that the tensor field, its
 coupling or diffeomorphism invariance follow from Cl(10,0), and that the
-implemented one-particle spectrum contains a massless spin-2 state - it does
-not.  The cubic-symmetric kink of Section 11.4 is a **planar domain wall**
+one-particle spectrum contains a massless spin-2 state - it does not.  The
+cubic-symmetric kink of Section 11.4 is a **planar domain wall**
 (finite energy per unit area, infinite total energy), not a dark-matter
-candidate: the carrier is the open problem O7.
+candidate: the carrier is the cell singlet $B$ (V195, V196), its portal the
+open problem O7.
 
 The QCA dynamics is a product of **local unitaries**: the on-site internal
 factor acts on the 32-D module of every sub-site of the block cell, and the

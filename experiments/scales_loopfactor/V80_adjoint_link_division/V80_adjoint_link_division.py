@@ -56,6 +56,10 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: F(g10 = 1/5) = 1.0596866584601925 and
+# the eta_* division scan are reference-branch statements; at the
+# pi/4 clock the Cartan probes degenerate (V85/V89 BRANCH notes).
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402

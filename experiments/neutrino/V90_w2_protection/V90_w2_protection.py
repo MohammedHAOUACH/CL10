@@ -55,7 +55,7 @@ from cl10 import config as _config, neutrino as nv  # noqa: E402
 
 W0 = 0.15
 THETA = float(_config.CFG.desert.theta_root_rad)
-S17 = nv.loop_ladder(17) * 1e9   # eV, the neutrino ladder S(17) (V57)
+S17 = nv.loop_ladder(17) * float(_config.CFG.units.ev_per_gev)   # eV, the neutrino ladder S(17) (V57)
 SUM_MNU_MAX = nv.SUM_MNU_MAX_EV  # eV, cosmological bound
 SEL = [(math.pi / 2, math.pi / 2, 0.0),
        (math.pi / 2, 0.0, math.pi / 2),

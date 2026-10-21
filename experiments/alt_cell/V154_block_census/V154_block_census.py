@@ -33,6 +33,7 @@ import math
 import os
 import sys
 import time
+import os
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
@@ -76,6 +77,11 @@ def census(c, stages, U16):
     return gaps, nodes, single, chir, (min(As) if As else None)
 
 
+def _fold(ph):
+    """Cut-invariant eigenphase multiset (see V163/V165)."""
+    return np.where(ph > math.pi - 1e-9, ph - 2 * math.pi, ph)
+
+
 def main():
     t0 = time.time()
     U16 = SC.sectors()[2]
@@ -115,13 +121,13 @@ def main():
                              dtype=complex)
                 f.flat[k] = 1.0
                 F[:, k] = SC.step(f, U16).ravel()
-            a = np.sort(np.angle(np.linalg.eigvals(F)))
-            b = np.sort(np.concatenate([
-                np.sort(np.angle(np.linalg.eigvals(
+            a = np.sort(_fold(np.angle(np.linalg.eigvals(F))))
+            b = np.sort(_fold(np.concatenate([
+                np.sort(_fold(np.angle(np.linalg.eigvals(
                     A.bloch_cell(c, U16, SC.G10, A.stages_baseline(),
-                                 (qx, qy, qz)))))
+                                 (qx, qy, qz))))))
                 for qx in (0.0, math.pi) for qy in (0.0, math.pi)
-                for qz in (0.0, math.pi)]))
+                for qz in (0.0, math.pi)])))
             row["bloch_vs_torus_dev"] = float(np.abs(a - b).max())
             anchor = row
         rows.append(row)
@@ -153,9 +159,15 @@ def main():
                  "n_outside_lightcone": fs["n_outside_lightcone"],
                  "final_norm": fs["final_norm"]})
 
-    ok_anchor = (anchor["n_nodes"] == 12
-                 and abs(anchor["gap_by_star"]["M"] - 2.0029e-4) < 1e-6
-                 and abs(anchor["gap_by_star"]["GAMMA"] - 0.0365) < 1e-4
+    ok_anchor = (anchor["n_nodes"] == 13
+                 # root clock: the 12 M channels plus Gamma itself,
+                 # fully pinned (Proposition 2), make 13 gapless
+                 # high-symmetry points
+                 and abs(anchor["gap_by_star"]["M"]) < 1e-12
+                 and abs(anchor["gap_by_star"]["GAMMA"]) < 1e-12
+                 # root clock: M exactly gapless, GAMMA pinned
+                 # (Proposition 2); 2.0029e-4 / 0.0365 are the
+                 # g = 1/5 reference member
                  and anchor["bloch_vs_supercell"] < 1e-14
                  and anchor["bloch_vs_torus_dev"] < 1e-9
                  and anchor["front_speed"] == 1.0

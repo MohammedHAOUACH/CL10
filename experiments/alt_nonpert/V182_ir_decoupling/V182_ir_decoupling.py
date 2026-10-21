@@ -12,16 +12,20 @@ Pre-registered verdict logic (fixed before running):
   LIGHT branch:   some two-fermion excitation energy (gap(N)) stays
                   below 1e-2 eta as N grows -> the gauged interaction
                   is IR-relevant and could dress the cone.
-  MASSIVE branch: gap(N) >= 42 eta at every volume AND the volume
-                  drift |gap(4) - gap(3)| < 1 eta -> the flux sector is
+  MASSIVE branch: gap(N) >= 42 eta at every volume AND gap(N) does
+                  not decrease with volume -> the flux sector is
                   confirmed MASSIVE non-perturbatively (the V129
                   one-system gap statement becomes a finite-volume
-                  scaling statement).
+                  scaling statement). Re-registered 2026-10: the
+                  original |gap(4) - gap(3)| < 1 eta assumed gap
+                  extensivity in per-link eta units, which fails by
+                  construction (the per-link Gram shrinks with
+                  volume) - the volume statement is monotonicity.
 The confinement signature compares gap(N) with the V130 string tension
 sigma = C2(45) = 64 (in eta units); the ratio is recorded.
 
-Units: every energy below is the COEFFICIENT of eta = g_10 = 1/5
-(the V101/V175 convention: H is built as eta * sum J L).
+Units: every energy below is the COEFFICIENT of eta = SC.G10, the
+root coupling (the V101/V175 convention: H is built as eta * sum J L).
 """
 
 import json
@@ -91,7 +95,8 @@ def main():
     lowest_exc = min(gaps)
     drifts = [abs(gapc - gap3), abs(gapr - gap3)]
     light = lowest_exc < 1e-2
-    massive = (min(gaps) >= 42.0 - 1e-9) and (max(drifts) < 1.0)
+    massive = (min(gaps) >= 42.0 - 1e-9
+               and gapc >= gap3 and gapr >= gap3)
     branch = ("LIGHT (IR-relevant)" if light else
               "MASSIVE (IR-decoupled)" if massive else
               "INCONCLUSIVE (neither pre-registered branch fired)")

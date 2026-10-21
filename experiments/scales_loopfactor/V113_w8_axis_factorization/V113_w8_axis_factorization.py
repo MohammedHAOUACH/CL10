@@ -40,6 +40,11 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# pinned 1/5 reference branch: F10_REF = 0.01918639 and the
+# coefficient-3 reading are reference-branch statements (the clock
+# reading is V203: F_208 = 0.0197, coefficient 2.702). At the pi/4
+# clock the traced-link Cartan probes degenerate.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V85_closed_loop_factor"))
@@ -74,7 +79,7 @@ def main():
         r = (Pa @ Gi).reshape(32, D_L, 32, D_L)
         Ma.append(np.einsum("ajbj->ab", r) / D_L)
 
-    eta = 0.2
+    eta = sm_qca.G10
     ph = [np.exp(1j * (eta / 2) * e) for e in ev]
     M = sum(p * m for p, m in zip(ph, Ma))
     MG = M @ G

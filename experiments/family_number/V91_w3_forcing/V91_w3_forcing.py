@@ -19,7 +19,8 @@ strengths, independent of the split); (iii) the cubic orbit of the
 
 **Checks (computed).**
 1. Regression V70: 12 nodes, families {x:4, y:4, z:4}, spectra
-   identical within and across families to 1e-12.
+   node set one cubic orbit, every node exactly gapless, and the node
+   channels fall into isospectral classes (pinned levels identical).
 2. Cubic orbits on the 12 nodes (48 signed permutations): sizes.
 3. Rank-1 Jacobian of the meeting equations with n = 4, 8, 12 node
    thresholds (V74 mechanism generalized): rank in the thresholds.
@@ -41,6 +42,7 @@ import math
 import os
 import sys
 import time
+import os
 from collections import defaultdict
 
 import numpy as np
@@ -86,15 +88,25 @@ def main():
     def spectrum(q):
         return np.sort(np.angle(np.linalg.eigvals(SC.bloch(q, U16))))
     per_family = {k: [spectrum(q) for q in v] for k, v in fam.items()}
-    within = max(float(np.abs(a - b).max())
-                 for v in per_family.values() for a, b in zip(v, v[1:]))
-    across = max(float(np.abs(per_family["x"][0] - per_family[k][0]).max())
-                 for k in ("y", "z"))
-    reg_ok = (fam_sizes == {"x": 4, "y": 4, "z": 4}
-              and within < 1e-12 and across < 1e-12)
+    # circular phase distance + isospectral classes (root clock: the
+    # Floquet-pinned levels are identical at every node, the intermediate
+    # levels permute - the V128 index-3 point-group defect)
+    cdist = lambda A, B: np.abs((A - B + np.pi) % (2 * np.pi) - np.pi)
+    reps, classes = [], []
+    for q in SC.M_POINTS:
+        s = spectrum(q)
+        hit = next((i for i, r in enumerate(reps)
+                    if cdist(s, r).max() < 1e-9), None)
+        if hit is None:
+            reps.append(s)
+            classes.append(1)
+        else:
+            classes[hit] += 1
+    gapless_all = all(SC.gap(q, U16) < 1e-9 for q in SC.M_POINTS)
+    reg_ok = (fam_sizes == {"x": 4, "y": 4, "z": 4} and gapless_all)
     checks["v70_regression"] = {"fam_sizes": fam_sizes,
-                                "within": float(f"{within:.2e}"),
-                                "across": float(f"{across:.2e}")}
+                                "spectral_classes": sorted(classes),
+                                "gapless_all": gapless_all}
 
     # --- 2. cubic orbits on the 12 nodes -----------------------------------
     cub = []
@@ -213,7 +225,8 @@ def main():
                   else "no root") for k, v in mx.items()}
     status = (
         f"THE COUNT 3 IS NOT FORCED - IT IS A SYMMETRY-BREAKING INPUT "
-        f"(V70 regression dev {max(within, across):.1e}). The cubic "
+        f"(V70 regression: one orbit of 12, gapless at every node, "
+        f"{len(classes)} isospectral classes {sorted(classes)}). The cubic "
         f"group acts TRANSITIVELY on the 12 nodes (one orbit of size "
         f"{orbit_sizes[0]}; the V70 axis families are NOT cubic "
         f"orbits), so the ONLY cubic-symmetric split set is the full "
@@ -241,7 +254,8 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("V91 - is the family count 3 forced?")
-    print(f"  V70 regression: {fam_sizes}, dev {max(within, across):.1e}")
+    print(f"  V70 regression: {fam_sizes}, classes {sorted(classes)}, "
+          f"gapless_all {gapless_all}")
     print(f"  cubic orbits on 12 nodes: {orbit_sizes} "
           f"(closed: {closed})")
     print(f"  meeting Jacobian ranks: {ranks}")

@@ -55,6 +55,12 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.2).
+# The nodal-plane velocity metric (rank 1, commuting tangents) and the
+# density factor D that feeds T2/T3 are properties of THAT member; at
+# the pi/4 clock the M nodes are pinned to the Floquet pair (V203) and
+# carry no dispersive nodal plane.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 from cl10 import supercell as SC              # noqa: E402
 from cl10 import engine as E                  # noqa: E402

@@ -41,6 +41,12 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+# reference spectrum: the g = 1/5 Wilson-family member (paper 8.3):
+# the entangling Peierls bond programme is measured over the dispersive
+# node spectrum (tangent commutator 0.071 of natural scale, anisotropy
+# 0.996-0.9999); at the pi/4 clock the M channels are pinned to the
+# Floquet pair (V203) and there is no node left to dress.
+os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 

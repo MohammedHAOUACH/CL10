@@ -99,20 +99,21 @@ singleton `CFG`. Precedence: environment → YAML → the built-in defaults.
 ## 4. `cl10.coupling` — the one parameter of the step
 
 The single source of the rotation angle and of the two coupling readings. The
-branch *values* live in `cl10/config.yaml` (`angle:`); the branch is selected by
-`angle.default_branch` or by the environment `CL10_ANGLE=implemented|closed|half`
-(the aliases `pi/4`, `pi/2`, `1/5`, `impl`, `quantized` are resolved by
-`cl10/config.py`).
+clock is the order-8 root $\pi/4$ (closure axiom, Theorem 6); reference angles
+stay addressable. The *values* live in `cl10/config.yaml` (`angle:`,
+`default_branch: closed`); the branch is selected by `angle.default_branch` or
+by the environment `CL10_ANGLE=implemented|closed|half` (the aliases `pi/4`,
+`pi/2`, `1/5`, `impl`, `quantized` are resolved by `cl10/config.py`).
 
 | symbol | signature | returns |
 |---|---|---|
-| `G_IMPLEMENTED` | (constant) | `0.2` — the implemented branch $g_{10} = 1/n_{\rm qubits}$: a **convention** |
+| `G_IMPLEMENTED` | (constant) | `0.2` — the reference spectrum $g_{10} = 1/n_{\rm qubits}$ (Wilson-family member): a **convention**, not the clock |
 | `G_CLOSED` | (constant) | $\pi/4$ — the closure root: **algebraic** (V131, order 8) |
 | `G_HALF` | (constant) | $\pi/2$ — the degenerate second root: **algebraic** (V134) |
 | `G0` | (constant) | `1/8` — the $g_0 = 1/2^{n_{\rm space}}$ reading: a **convention** |
 | `ALPHA_10` | (constant) | `1/25` — the rotation-squared reading $\alpha_{10} = g^2$: a **convention** |
 | `BRANCHES` | (constant) | name → `(angle, provenance, the experiment that fixes it)` |
-| `branch` | `()` | the active branch name, from `CL10_ANGLE` (default `implemented`) |
+| `branch` | `()` | the active branch name, from `CL10_ANGLE` (default `closed` — the root clock) |
 | `angle` | `(name=None)` | `float` — the angle of the branch (default: the active one) |
 | `provenance` | `(name=None)` | `str` — the provenance class of that angle |
 | `alpha_std` | `(g=None)` | `float` — the standard-normalised coupling $\alpha = g^2/4\pi$ |
@@ -618,8 +619,12 @@ $1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
 | `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
 | `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |
 | `CFG.physics.wimp_window_gev` | `[100, 1000]` GeV | the observed WIMP window the 0-parameter DM scale is compared against (`parameter_audit`, point 4) |
+| `CFG.physics.f_10_measured`, `v_over_mplanck_observed`, `hierarchy_coefficient_observed` | `0.019186`, `2.0167e-17`, `2.0765` | the measured hierarchy inputs of Section 12.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) — and the observed electroweak/Planck ratio and coefficient; the closed clock reads 2.702 instead (+30%, the clock tension) — read by `u10pred.hierarchy()` |
+| `CFG.units.ev_per_gev` | `1e9` | the eV↔GeV conversion (an exact decimal prefix): the one conversion every eV quote of the ladder uses |
+| `CFG.neutrino.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.307`, `0.579`, `0.022` | the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0, NO; the second octant — the octant is unresolved, Section 13.5) |
+| `CFG.ckm.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.050`, `0.949`, `0.020` | the measured CKM-side numbers of the same mixing comparisons |
 | `cl10.u10pred` (atomic) | `13.605693` eV | the hydrogen Rydberg energy (CODATA), the input of `simulation/hydrogen` |
-| `cl10.coupling.G10` | the active branch angle | `implemented` $1/5$ (convention), `closed` $\pi/4$, `half` $\pi/2$ |
+| `cl10.coupling.G10` | the active branch angle | `closed` $\pi/4$ (default, the root clock), reference `implemented` $1/5$ (convention), `half` $\pi/2$ |
 | `cl10.coupling.ALPHA_10` | `1/25` | the rotation-squared reading (convention) |
 | `cl10.coupling.G0` | `1/8` | the $g_0 = 1/2^{n_{\rm space}}$ reading (convention) |
 | `cl10.unification.M_Z` | `91.1876` GeV | measured (PDG) |
@@ -657,7 +662,7 @@ fallback default: a key the code requires must be in the panel.
 |---|---|---|
 | env `CL10_BACKEND` | `backend.force` | `numpy` / `cpu` forces the CPU core; `cupy` / `jax` pins a GPU core — a pinned GPU core skips the gate and never falls back, so a run that cannot get the card fails loudly |
 | env `CL10_GPU_MIN_FREE_MIB` | `backend.gpu_min_free_mib` | the free-memory gate for the GPU in auto mode (default 2048) |
-| env `CL10_ANGLE` | `angle.branch` | `implemented` (default) / `closed` / `half` (aliases `pi/4`, `pi/2`, `1/5`) |
+| env `CL10_ANGLE` | `angle.branch` | `closed` (default) / `implemented` / `half` (aliases `pi/4`, `pi/2`, `1/5`) |
 | env `CL10_NJOBS` | `pool.njobs` | the worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh` |
 | env `CL10_SMOKE` | `smoke` | `1` shrinks the grids, pools and bond counts (`cl10.config.smoke()`) |
 

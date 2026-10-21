@@ -34,6 +34,8 @@ from cl10 import eta_cp, u10pred
 from cl10 import neutrino as nv
 from cl10 import baryogenesis as BARY
 from cl10 import cosmology as COS
+from cl10 import config as _cfg
+EV_PER_GEV = float(_cfg.CFG.units.ev_per_gev)
 
 M_P = u10pred.M_PLANCK     # GeV
 GSTAR = COS.G_STAR
@@ -86,7 +88,7 @@ def main():
 
     # y allowed by out-of-equilibrium K < 1, and the m_nu it caps
     y_ooeq = math.sqrt(H * 8.0 * math.pi / M_N)
-    m_nu_max = y_ooeq ** 2 * (u10pred.V_EW / math.sqrt(2)) ** 2 / M_N * 1e9   # eV
+    m_nu_max = y_ooeq ** 2 * (u10pred.V_EW / math.sqrt(2)) ** 2 / M_N * EV_PER_GEV   # eV
 
     atm = cases["y=atmospheric(v=174)"]
     D_guessed = u10pred.LOOP ** 2

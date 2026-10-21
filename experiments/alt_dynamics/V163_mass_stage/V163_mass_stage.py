@@ -27,6 +27,7 @@ import math
 import os
 import sys
 import time
+import os
 
 for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
@@ -48,6 +49,14 @@ ST = A.stages_baseline()
 NODE_TOL = 1e-3
 ANGLES = (("pi2", math.pi / 2), ("pi4", math.pi / 4))
 
+
+def _fold(ph):
+    """Represent every eigenphase at ONE Floquet-zone cut: at the pi/4
+    clock the spectrum is pinned to {0, pi} (Proposition 2), and an
+    eigenvalue at -1 lands at +pi or -pi by 1e-16 of noise, so raw
+    sorted angles misalign the two multisets. Fold the +pi side to -pi
+    BEFORE sorting; the multiset comparison is then cut-invariant."""
+    return np.where(ph > math.pi - 1e-9, ph - 2 * math.pi, ph)
 
 def main():
     t0 = time.time()
@@ -147,7 +156,7 @@ def main():
             f = A.step_stages(f, [U16] * 6, [SC.G10] * 6, ST)
             f = SC.internal_layer(f, Mab16)
             Mat[:, col] = f.ravel()
-        ph_r = np.sort(np.angle(np.linalg.eigvals(Mat)))
+        ph_r = np.sort(_fold(np.angle(np.linalg.eigvals(Mat))))
         ph_b = []
         for q in itertools.product((0.0, math.pi), repeat=3):
             Mab = math.cos(g) * I16 - 1j * math.sin(g) * planes16[
@@ -155,7 +164,7 @@ def main():
             Mq = np.kron(np.eye(8, dtype=complex), Mab) \
                 @ A.bloch_cell(C, U16, SC.G10, ST, q)
             ph_b.append(np.angle(np.linalg.eigvals(Mq)))
-        ph_b = np.sort(np.concatenate(ph_b))
+        ph_b = np.sort(_fold(np.concatenate(ph_b)))
         return float(np.abs(ph_r - ph_b).max())
 
     sample = [(0, 1, math.pi / 2), (4, 9, math.pi / 4),

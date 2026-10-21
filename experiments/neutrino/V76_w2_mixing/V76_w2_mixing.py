@@ -52,6 +52,7 @@ import math
 import os
 import sys
 import time
+import os
 
 import numpy as np
 
@@ -65,7 +66,7 @@ from cl10 import config as _config, neutrino as nv  # noqa: E402
 
 W0 = 0.15                   # lattice units; the structure is scale-free
 THETA = float(_config.CFG.desert.theta_root_rad)  # the V65 root direction
-S17 = nv.loop_ladder(17) * 1e9  # eV, the neutrino ladder S(17)
+S17 = nv.loop_ladder(17) * float(_config.CFG.units.ev_per_gev)  # eV, the neutrino ladder S(17)
 SUM_MNU_MAX = nv.SUM_MNU_MAX_EV  # eV, cosmological bound
 
 SEL = [(math.pi / 2, math.pi / 2, 0.0),

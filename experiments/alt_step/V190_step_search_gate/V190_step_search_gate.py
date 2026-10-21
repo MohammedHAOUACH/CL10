@@ -29,6 +29,7 @@ import json
 import os
 import sys
 import time
+import os
 
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
 # the gate only reads the three verdict JSONs: no reason to probe CUDA.

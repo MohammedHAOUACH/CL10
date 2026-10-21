@@ -1,0 +1,66 @@
+{
+ "id": "V204_closed_ladder_limits_audit",
+ "tier": 4,
+ "property": "the closed-branch ladder concepts and the seven limits audited at g = pi/4 (V204)",
+ "residual": true,
+ "programme": "V204",
+ "branch": "W-NAMED",
+ "data": {
+  "machinery": {
+   "odd_max_n11": 3.2969618106700556e-15,
+   "rho": 0.9780302704295731,
+   "crossing_n": 208,
+   "F_cross": 0.01968515418112789,
+   "deficit_vs_loop": 0.9894837721634204
+  },
+  "coefficient": {
+   "per_channel": 0.8996772949619244,
+   "readings": {
+    "single_channel": 0.8996772949619244,
+    "one_per_family": 2.6990318848857733,
+    "all_twelve": 10.796127539543093
+   },
+   "required_sum_factor": 2.308121059409102,
+   "selective_reading_over": 0.29975851473233583,
+   "coef_observed": 2.076564111173832
+  },
+  "rungs": {
+   "weight_F3": 1.0740490456368736e-15,
+   "weight_F17": 4.45947704121973e-15,
+   "F_10_closed": 55.030071533615185,
+   "dyn_decades_off_rung10": 34.41869932701178,
+   "rung3_gev": 96131777036496.42,
+   "rung10_gev": 118.57086360835625,
+   "m_nu_ladder_eV": 0.14624768344284225
+  },
+  "limits": {
+   "alpha_X_root": 0.04908738521234052,
+   "alpha_X_root_over_observed": 1.227184630308513,
+   "tau_p_closed_yr": 2.7691459418312644e+39,
+   "f6_unwashed_ratio_to_observed": 2.8128703457026494,
+   "f6_out_of_equilibrium": false,
+   "f6_washout_survives": true,
+   "m_B_gev": 118.57086360835625
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 the loop machinery at the root angle g = pi/4: odd-n ratios cancel to 3.3e-15 (n <= 11), the word norm is the angle-independent 0.978030, and the FIRST crossing of 1/(16 pi) is n* = 208 with F_* = 0.019685 (deficit 0.9895)",
+   "pass": true
+  },
+  {
+   "name": "T2 the hierarchy coefficient of the closed ladder: per-channel factor (16 pi F_*)^10 = 0.89968; node-set readings single 0.900 / one-per-family 2.699 / all-twelve 10.8 against the observed 2.0766: the observed value requires sum factor 2.308, no natural set realizes it, and the selective reading sits +30.0% over - the named O8 residual",
+   "pass": true
+  },
+  {
+   "name": "T3 rung census under the odd-n rule: the odd rungs carry EXACTLY zero dynamical loop weight (|F_3| = 1.1e-15, |F_17| = 4.5e-15) - the seesaw rung 3 (9.613e+13 GeV) and the neutrino rung 17 are cell phases (V196), never loop-dynamical products - while rung 10 at the closed angle supplies F_10 = 55.03, i.e. a factor 10^34.4 off the ladder mass 118.57 GeV: the dynamical factor exists ONLY at n* = 208; the rung masses themselves are reproduced from the module (m_B = 118.57 GeV, m_nu ladder 0.1462 eV)",
+   "pass": true
+  },
+  {
+   "name": "T4 the seven limits at the closed branch: F1 anomaly-free content is charge algebra, no angle argument (V26/V91); F2 the root coupling is alpha_X = pi/64 = 0.04909, a factor 1.227 above the observed 1/25 meeting - O4 tension unchanged; F3 the ladder m_nu = 0.146 eV stays excluded by sum m_nu < 0.12 eV, the 1/3 candidate unchanged (V103); F4 the quintet channel defect persists at g{1,2} = 1.571 != 1 (V138); F5 tau_p = 2.77e+39 yr - the desert ordering is destroyed and the Hyper-Kamiokande channel closes (V133); F6 the decay at the model's own y is in equilibrium (out_of_equilibrium = False): the unwashed value is 2.81 x observed and the washed agreement (ratio in [0.1, 10]: True) survives only as the product of two wrong factors (V106) - no angle input; F7 m_B = 118.57 GeV inside the WIMP window 100-1000 GeV, branch-independent",
+   "pass": true
+  }
+ ],
+ "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.3e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019685, deficit 0.9895). (ii) Hierarchy: per-channel factor 0.89968, readings 0.900 / 2.699 / 10.8 against the observed 2.0766 - the required sum factor 2.308 is no natural node set, the selective reading sits +30.0% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.5e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); rung 10 is off by 10^34.4 decades - the dynamical factor exists only at n*. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
+ "pass": true
+}

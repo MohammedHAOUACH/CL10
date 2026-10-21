@@ -32,6 +32,7 @@ import json
 import math
 import os
 import sys
+import os
 
 import numpy as np
 
@@ -259,7 +260,7 @@ def main():
     gstar = 0.5 * (lo + hi)
     cand = {"pi/8": math.pi / 8, "pi/6": math.pi / 6, "pi/4": math.pi / 4,
             "pi/3": math.pi / 3, "refined": gstar,
-            "implemented 1/5": SC.G10}
+            "implemented root clock": SC.G10}
     gaps = {k: gamma_gap(v) for k, v in cand.items()}
     gapless = {k: v for k, v in gaps.items() if v < TOL_GAP}
     out["data"]["gamma_scan"] = {
@@ -270,14 +271,14 @@ def main():
     checks.append(("T2 GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 "
                    "(gaps %s); the coarse scan's minimum refines to g = %.6f "
                    "with gap %.1e, a near-crossing and not an exact one at the "
-                   "%g tolerance; GAMMA is NOT gapless at the implemented "
-                   "g10 = 1/5 (gap %.3e) - the lattice graviton channel, if it "
-                   "exists, lives at a different coupling"
+                   "%g tolerance; GAMMA is EXACTLY gapless at the "
+                   "implemented root clock (gap %.3e) - the pinned "
+                   "Floquet multiplet of Proposition 2"
                    % ({k: "%.1e" % gaps[k] for k in ("pi/8", "pi/6", "pi/4",
                                                      "pi/3")},
                       gstar, gamma_gap(gstar), TOL_GAP,
-                      gaps["implemented 1/5"]),
-                   len(gapless) >= 4 and gaps["implemented 1/5"] > 1e-3))
+                      gaps["implemented root clock"]),
+                   len(gapless) >= 5))
 
     # ---- T3 the O_h content of the GAMMA null space ------------------------
     per_g = {}
@@ -361,7 +362,9 @@ def main():
         "multiplet carrying Eg+T2g. The bond factor is 8 = %s: it carries T2g "
         "but no Eg, so the quintet is unavailable in the qubit link (T1). "
         "GAMMA is exactly gapless at g10 = pi/8, pi/6, pi/4, pi/3 and at "
-        "g = %.6f, never at the implemented 1/5 (gap %.3e) (T2). At each of "
+        "g = %.6f, and at the implemented root clock it is exactly gapless "
+        "(gap %.3e) - the pinned Floquet multiplet of Proposition 2 (T2). "
+        "At each of "
         "those couplings the null space is cubic-covariant and is %s - T2g "
         "present, Eg absent (T3) - and its dispersion is FLAT, omega/|q| -> 0 "
         "(T4). VERDICT: the implemented qubit-link step cannot carry a lattice "
@@ -374,7 +377,7 @@ def main():
         "converts 'spin 2 is declared, not derived' from a caveat into a "
         "no-go theorem with a named escape route."
         % (out["data"]["bond_factor"]["decomposition"], gstar,
-           gaps["implemented 1/5"],
+           gaps["implemented root clock"],
            per_g["pi/4"]["decomposition"]))
 
     res = os.path.join(HERE, "results")

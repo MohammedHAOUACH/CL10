@@ -142,7 +142,7 @@ def fig15_w7_portal():
     axB.text(0.02, 0.01,
              "O7: the built portal carrier is exactly stable, but the observed\n"
              "abundance and the exact mirror $\\mathbb{Z}_2$ cannot both hold (F7);\n"
-             "no state of the implemented spectrum carries the 118 GeV scale.",
+             "no state of the spinor module carries the 118 GeV scale.",
              fontsize=10.5, color=C_ROOT, weight="bold", va="bottom")
 
     fig.suptitle("The built dark-matter fix, audited against its own "
@@ -152,73 +152,60 @@ def fig15_w7_portal():
 
 def fig14_loop_selection():
     import json
-    with open(exp("V89_loop_selection",
-                           "results", "v89_loop_selection.json")) as f:
-        d = json.load(f)["data"]
-    root = d["root"]
-    Fn = root["F_n"]
-    ns = np.arange(2, 31)
-    loop = d["loop_law"]
-    nstar = root["n_star_below_loop_factor"]
-    fit = root["geometric_fit"]
+    with open(exp("V203_closed_branch_coefficient",
+                  "results", "v203_closed_branch_coefficient.json")) as f:
+        cl = json.load(f)["data"]["closed"]
+    Fn = {int(k): v for k, v in cl["F_n_2_30"].items()}
+    Fev = {int(k): v for k, v in cl["F_even_2_260"].items()}
+    loop = float(_config.CFG.physics.loop)
+    nstar = cl["first_crossing_n"]
 
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.7),
                                    gridspec_kw={"width_ratios": [1.3, 1.0]})
 
-    axA.semilogy(ns, Fn, "o-", color=C_GUT, ms=5, lw=1.6,
-                 label=r"Cartan ratio $F_n$ (root coupling)")
-    nn = np.arange(10, 171)
-    axA.semilogy(nn, fit["A"] * fit["r"] ** nn, "--", color=C_ROOT, lw=1.4,
-                 label=fr"geometric law $A r^n$, $r = {fit['r']:.3f}$")
+    ev = sorted(n for n in Fn if n % 2 == 0)
+    odd = sorted(n for n in Fn if n % 2)
+    axA.semilogy(ev, [Fn[n] for n in ev], "o-", color=C_GUT, ms=5, lw=1.6,
+                 label=r"even lengths (root clock $\pi/4$)")
+    axA.semilogy(odd, [1e-16] * len(odd), "x", color=C_ROOT, ms=7,
+                 label=r"odd lengths: identically zero (selection rule)")
     axA.axhline(loop, color=C_ZERO, ls="--", lw=1.8,
-                label=rf"loop factor $1/(16\pi) = {float(_config.CFG.physics.loop):.4f}$")
-    axA.axvline(10, color=C_ZERO, lw=1.2, alpha=0.6)
-    axA.plot([10], [Fn[8]], "*", ms=17, color=C_ZERO, zorder=6)
-    axA.plot([11], [Fn[9]], "o", ms=11, mfc="none", mec=C_SU2, mew=2.0,
-             ls="none", zorder=6)
-    axA.plot([170], [root["F_170_extrapolated"]], "D", ms=9, color=C_ROOT,
-             ls="none", zorder=6)
+                label=rf"loop factor $1/(16\pi) = {loop:.4f}$")
     axA.set_xlabel("closed-loop length $n$")
     axA.set_ylabel(r"Cartan-content ratio $F_n$")
-    axA.set_title("(a)  the ladder length 10 is the CROSSING of the\n"
-                  "     closed-loop suppression through $1/(16\\pi)$",
+    axA.set_ylim(1e-17, 200)
+    axA.set_title("(a)  the exact odd-$n$ selection rule and the even ratios\n"
+                  "     at the root clock, measured to $n = 30$",
                   fontsize=12.5)
     axA.legend(loc="lower left", fontsize=9.5, framealpha=0.95)
 
-    axB.axis("off")
-    axB.set_title("(b)  the selection rule, measured to $n = 30$",
+    nn = sorted(Fev)
+    axB.loglog(nn, [Fev[n] for n in nn], "-", color=C_GUT, lw=1.5)
+    axB.axhline(loop, color=C_ZERO, ls="--", lw=1.8)
+    axB.plot([nstar], [Fev[nstar]], "*", ms=18, color=C_ZERO, zorder=6)
+    axB.annotate(f"first crossing\n$n^* = {nstar}$, $F = {Fev[nstar]:.5f}$\n"
+                 f"deficit $\\times{cl['deficit_vs_loop']:.4f}$"
+                 if "deficit_vs_loop" in cl else
+                 f"first crossing\n$n^* = {nstar}$",
+                 xy=(nstar, Fev[nstar]), xytext=(40, 0.006), fontsize=10.5,
+                 color=C_ZERO,
+                 arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    axB.set_xlabel("closed-loop length $n$ (even lengths, log scale)")
+    axB.set_ylabel(r"even-length ratio $F_n$")
+    axB.set_title("(b)  the even ratios to the crossing:\n"
+                  rf"     the ladder length at the root clock IS $n^* = {nstar}$",
                   fontsize=12.5)
-    rows = [
-        ("crossing $n_*$", f"EXACTLY {nstar} (ladder length)", "#2c7a3f"),
-        ("spectral radius", f"$n_\\rho = {root['n_rho_crossing']}$ "
-         "(different object)", C_SU2),
-        ("mod-4 rule", "ABSENT (min per class "
-         f"{min(v['min'] for v in root['mod4_pattern_n8_30'].values()):.0e}"
-         " in every class)", C_ZERO),
-        ("geometric ratio", f"$r = {fit['r']:.3f}$ (fit $n = 10..30$)",
-         C_GUT),
-        ("17-factor comp.", f"misses by x"
-         f"{root['extrapolation_ratio']:.0e} - named residual", C_ZERO),
-    ]
-    for i, (k, v, c) in enumerate(rows):
-        y = 0.95 - i * 0.115
-        axB.text(0.02, y, k, fontsize=11, weight="bold", va="top")
-        axB.text(0.50, y, v, fontsize=11, color=c, va="top")
-    axB.text(0.02, 0.01,
-             "O8: the LENGTH-10 factor is selected by the crossing;\n"
-             "the COMPOSITION of 17 factors is not supplied by one\n"
-             "geometric law - the residual is now precisely named.",
-             fontsize=10, color=C_ROOT, weight="bold", va="bottom")
 
     fig.text(0.03, 0.015,
-             f"star: crossing at EXACTLY $n = {nstar}$ "
-             f"($F_{{10}} = {Fn[8]:.4f}$ vs {float(_config.CFG.physics.loop):.4f});   "
-             f"open circle: $F_{{11}} = {Fn[9]:.2f}$ spike - no mod-4 rule;\n"
-             f"diamond: $F_{{170}} = {root['F_170_extrapolated']:.0e}$ vs "
-             f"$(1/16\\pi)^{{17}} = {root['ladder_17_factor']:.0e}$ - "
-             f"composition misses by x{root['extrapolation_ratio']:.0e}",
+             f"odd lengths cancel identically (below $4\\times10^{{-15}}$, "
+             f"exact selection rule of the root clock); the even ratios stay "
+             f"above $1/(16\\pi)$ until $n^* = {nstar}$,\n"
+             f"where the closed-loop suppression first crosses the loop "
+             f"factor - rung 208 is the ladder length, and the "
+             f"$n = 10$ reading of the reference angle is a compensation, "
+             f"not the crossing.",
              fontsize=10.5, color="0.25", va="bottom")
-    fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.30)
+    fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.24)
     save(fig, "fig14_loop_selection.png")
 
 def fig16_w2_protection():
@@ -267,7 +254,7 @@ def fig16_w2_protection():
     axA.set_ylabel(r"$\sum m_\nu$ [eV]")
     axA.set_ylim(0.012, 2e3)
     axA.set_title("(a)  the identity $m_D$ scan (divergent, one point);\n"
-                  "     the implemented democratic $m_D$ gives a finite window",
+                  "     the democratic $m_D$ gives a finite window",
                   fontsize=12.5)
     axA.legend(loc="upper left", fontsize=9.5)
 

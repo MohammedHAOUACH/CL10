@@ -3,8 +3,8 @@
   "tier": 4,
   "property": "the differentiable cone loss over the 45-plane step space: U(theta) = Pi (cos theta_k I - i sin theta_k T16[k]) in the plane_product order, Bloch matrix of the (2,2,2) block cell, gap via arccos of the Hermitian part; anchors tie theta = g_10*1 to the implemented step and the V115 metric",
   "residual": null,
-  "pass": true,
-  "status": "LOSS DEFINED AND ANCHORED (9 landscape rows). U(g_10*1) = sectors()[2] to 5.7e-16; omega vs gap_at dev 7.2e-12; A(theta0) = 0.997966 two eigvalsh routes dev 2.8e-12; published V115 eigvals route 0.997985 (0.998 within 0.0000; the eigvals route carries ~1e-10 omega noise at flat-axis directions). Single-band grad vs finite-diff dev 1.8e-08; penalty_grad vs autodiff 5.3e-13. Baseline row A = 0.9994 at node omega 4.47e-08; random seeds A 0.9919-1.0000. Node search: grid + Nelder-Mead (eigvalsh VJP invalid at the degenerate node). Route: JAX cpu:0.",
+  "pass": false,
+  "status": "LOSS DEFINED AND ANCHORED (9 landscape rows). U(g_10*1) = sectors()[2] to 5.7e-16; omega vs gap_at dev 7.2e-12; A(theta0) = 0.997966 two eigvalsh routes dev 2.8e-12; published V115 eigvals route 0.997985 (1.000 within 0.0020; the pinned node gap carries ~1e-10 omega noise at flat-axis directions). Single-band grad vs finite-diff dev 1.8e-08; penalty_grad vs autodiff 5.3e-13. Baseline row A = 0.9994 at node omega 4.47e-08; random seeds A 0.9919-1.0000. Node search: grid + Nelder-Mead (eigvalsh VJP invalid at the degenerate node). Route: JAX cpu:0.",
   "data": {
     "rows": [
       {
@@ -118,5 +118,5 @@
     "n_dirs": 179,
     "device": "cpu:0"
   },
-  "wall_time": 167.069
+  "wall_time": 71.365
 }

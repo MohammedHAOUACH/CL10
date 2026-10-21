@@ -5,7 +5,7 @@ CL10 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (O6, C4).
 
 The **9-to-1** reduction (Section 12) says the nine residuals O1-O9 are
 projections of **one** 0-parameter object — the GUT QCA step
-``U`` (the 32-level spectrum ``H = -i log U`` at ``g_10 = 1/5``).  This
+``U`` (the 32-level spectrum ``H = -i log U`` at the root-clock ``g_10``).  This
 module is the **O6 projection**: the **3-generation Yukawa mass matrix**
 and the **mixing**, read off from that one object, with **no fit**.
 
@@ -55,6 +55,13 @@ from . import sm_qca
 from . import coupling
 from . import config as _config
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
+# the measured mixing inputs of the comparisons (config blocks neutrino/ckm)
+_OBS_PMNS = (float(_config.CFG.neutrino.obs_sin2_theta12),
+             float(_config.CFG.neutrino.obs_sin2_theta23),
+             float(_config.CFG.neutrino.obs_sin2_theta13))
+_OBS_CKM = (float(_config.CFG.ckm.obs_sin2_theta12),
+            float(_config.CFG.ckm.obs_sin2_theta23),
+            float(_config.CFG.ckm.obs_sin2_theta13))
 
 # the rotation angle of the active branch (CL10_ANGLE: 1/5 implemented, pi/4 closed)
 G10 = coupling.G10
@@ -276,7 +283,7 @@ def mixing_from_democratic():
     ckm_naive = Vu.conj().T @ Vd
     ckm_is_identity = bool(np.allclose(np.abs(ckm_naive), np.eye(3)))
 
-    obs_pmns = (0.307, 0.579, 0.022)
+    obs_pmns = _OBS_PMNS
     return {
         "spectrum_fixed": [3.0, 0.0, 0.0],
         "heavy_eigenvector": [1/np.sqrt(3)] * 3,
@@ -326,8 +333,8 @@ def mixing_3x3():
     tbm = family.tribimaximal_3x3()
     # the TBM angles (the numbers of the (23)-adapted choice)
     s12, s23, s13 = (1.0 / 3.0, 0.5, 0.0)
-    obs_pmns = (0.307, 0.579, 0.022)   # the observed PMNS (world average)
-    obs_ckm = (0.050, 0.949, 0.020)    # the observed CKM (world average)
+    obs_pmns = _OBS_PMNS         # the observed PMNS (config neutrino)
+    obs_ckm = _OBS_CKM           # the observed CKM (config ckm)
     dev_pmns = (abs(s12 - obs_pmns[0]) + abs(s23 - obs_pmns[1])
                 + abs(s13 - obs_pmns[2])) / 3
     dev_ckm = (abs(s12 - obs_ckm[0]) + abs(s23 - obs_ckm[1])
@@ -427,7 +434,7 @@ def quark_ckm():
 
     tbm = family.tribimaximal_3x3()
     s12, s23, s13 = (1.0 / 3.0, 0.5, 0.0)
-    obs_ckm = (0.050, 0.949, 0.020)             # the observed CKM (world average)
+    obs_ckm = _OBS_CKM                       # the observed CKM (config ckm)
     dev_ckm = (abs(s12 - obs_ckm[0]) + abs(s23 - obs_ckm[1])
                + abs(s13 - obs_ckm[2])) / 3
     ok = (bool(np.allclose(tbm.conj().T @ tbm, np.eye(3)))
@@ -528,7 +535,7 @@ def main():
     print("CL10 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (O6, C4)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
-    print(f"  the ONLY input:  g_10 = {r['g10']:.4f} (= 1/5)")
+    print(f"  the ONLY input:  g_10 = {r['g10']:.6f}  (the root clock, cl10/config.yaml)")
     print(f"  [1] the one object -> 3 families:  32 levels (1 gen) x 3 = {one['n_levels_3gen']} levels (3 gen)")
     fs = r["family_symmetry"]
     print(f"  [2] 3-fold family symmetry (the DERIVATION of the democratic 3x3):  the 3 spatial directions are "

@@ -16,8 +16,8 @@ theory — the 0-parameter **transition amplitudes**:
 with ``|i>, |j>, |k>, |l>`` running over the **32-D internal basis**
 (the 16 Weyl + the 16-bar) and ``U_QCA`` = the 0-parameter step of
 ``sm_qca``: the product of the **45** Spin(10) plane rotations at
-``g_10 = 1/5`` — the **only** input (``g_10 = sqrt(alpha_10)``,
-derived from the root).  No matrix exponential, no fit.
+``g_10`` — the **only** input (the root-clock angle of
+``cl10/coupling.py``, single source ``cl10/config.yaml``).  No matrix exponential, no fit.
 
 The 0-parameter checks:
 - **unitarity**: ``||U U^dag - I|| ~ 0`` (the QCA evolution is unitary);
@@ -50,12 +50,12 @@ from . import config as _config
 _TOL = _config.CFG.tolerances   # the shared bands: cl10/config.yaml
 
 # the 0-parameter GUT coupling (the rotation angle) — the ONLY input:
-G10 = sm_qca.G10  # = sqrt(alpha_10) = 1/5 = 0.2
+G10 = sm_qca.G10  # the root clock pi/4 (angle.default_branch in config.yaml)
 
 
 def qca_step():
     """The 0-parameter GUT QCA step (32x32): the product of the 45
-    Spin(10) plane rotations at ``g_10 = 1/5``."""
+    Spin(10) plane rotations at the active branch angle ``g_10``."""
     return sm_qca.gut_qca_step(sm_qca.plane_generators(), G10)
 
 
@@ -163,7 +163,7 @@ def smatrix():
         "n_internal": s1["n"],
         "one_particle": s1,
         "two_particle": s2,
-        # the ONLY number in the construction is g_10 (= sqrt(alpha_10) = 1/5)
+        # the ONLY number in the construction is g_10 (the root-clock angle)
         "only_g10": True,
         "residual": ("the matching of these 0-parameter amplitudes to measured "
                      "cross-sections (the QCA lattice RG vs the perturbative "
@@ -179,7 +179,7 @@ def main():
     r = smatrix()
     s1, s2 = r["one_particle"], r["two_particle"]
     print(f"  backend (GPU):  {r['backend']}")
-    print(f"  the ONLY input:  g_10 = {r['g10']:.4f}  (= 1/5, from the root)")
+    print(f"  the ONLY input:  g_10 = {r['g10']:.6f}  (the active branch, cl10/config.yaml)")
     print(f"  U = the product of the {r['n_planes']} Spin(10) plane rotations "
           f"(the {r['n_internal']}-D internal basis: 16 Weyl + 16-bar):")
     print("  1-particle  S_ij = <i|U|j>:")
