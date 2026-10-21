@@ -2,7 +2,7 @@
 # CL10 / simulation/blackhole -- the 3-D black hole: fire particles and watch
 # the GEODESIC build itself, step by step, through the CL10 Christoffels.
 #
-# Same physics as fig24 (the left panel): the Schwarzschild metric of
+# Same physics as fig12 (the gravity figure, fig12_gravity_3d.png): the Schwarzschild metric of
 # cl10.gravity, the Christoffel symbols by central finite difference, the
 # geodesic integrated with a fixed-step RK4.  Here the integration is
 # INCREMENTAL: every fired particle leaves a trail that grows in real time,
@@ -22,7 +22,7 @@ escape_radius: 70.0    # a particle beyond this radius is "escaped" (trail kept)
 
 # --- the integration ----------------------------------------------------------
 # the fixed affine-parameter step of the RK4 (the same geodesic equation as
-# fig24's solve_ivp DOP853; the fixed step is what lets the trail grow live)
+# fig12's solve_ivp DOP853; the fixed step is what lets the trail grow live)
 dlambda: 0.04
 # RK4 steps per fired particle per rendered frame (interactive speed)
 steps_per_frame: 12
@@ -32,14 +32,14 @@ max_trail: 6000
 # --- the fired particles (the keyboard shortcuts) -----------------------------
 # each preset: a LOCAL orthonormal velocity (vr, vt) at the start radius r0,
 # the start angle phi0 (rad) for visual variety, and a colour.
-#   1  rosette        (the fig24 orbit: slightly bound, it precesses)
+#   1  rosette        (the fig12 orbit: slightly bound, it precesses)
 #   2  tight rosette  (closer, the precession per turn is much larger)
 #   3  plunge         (below the circular speed at r0: it spirals in)
 #   4  radial infall  (zero angular momentum: straight down the well)
 #   5  fly-by         (a hyperbolic scattering: the deflected trajectory)
 #   p  near-photon    (v -> c near the photon sphere: the extreme bending)
 presets:
-  "1": {r0: 10.0, vr: 0.0,  vt: 0.34,  phi0: 0.0,  color: "#ffd23f", name: "rosette (fig24)"}
+  "1": {r0: 10.0, vr: 0.0,  vt: 0.34,  phi0: 0.0,  color: "#ffd23f", name: "rosette (fig12)"}
   "2": {r0: 8.0,  vr: 0.0,  vt: 0.42,  phi0: 1.2,  color: "#43e08a", name: "tight rosette"}
   "3": {r0: 8.0,  vr: 0.0,  vt: 0.18,  phi0: 2.4,  color: "#ff5a5a", name: "plunge"}
   "4": {r0: 20.0, vr: -0.3, vt: 0.0,   phi0: 4.0,  color: "#ff9a3c", name: "radial infall"}
