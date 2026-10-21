@@ -25,7 +25,7 @@ def fig3_one_object():
     ax.set_ylabel(r"eigenphase  $\omega_k$  (rad/step)")
     ax.set_title("The one 0-parameter object: the 32-level QCA spectrum\n"
                  r"$H=-i\log U$,  $U=\prod_{a<b}(\cos g_{10}\,I-i\sin g_{10}\,T_{ab})$ at the root clock $g_{10}=\pi/4$")
-    # the 9-to-1 invariants, computed
+    # the 10-to-1 invariants, computed
     from cl10 import parameter_audit
     sm = parameter_audit.spectral_mirror()
     fig.text(0.5, 0.02,

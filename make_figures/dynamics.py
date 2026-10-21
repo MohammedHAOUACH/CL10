@@ -16,7 +16,7 @@ def fig1_young():
     only a blob, so we integrate over the passage).  The points are collected
     one per electron and build the fringes.  Panels: (a) the wave (x-z slice,
     the two diffracted waves interfering), (b) the time-integrated interference
-    pattern + its x-profile (the fringe groups), (c) the 9-to-1 collapse of one
+    pattern + its x-profile (the fringe groups), (c) the 10-to-1 collapse of one
     electron onto a point, (d) the reality -- the accumulated single-electron
     detections cluster into the fringe groups."""
     import matplotlib.patches as mpatches

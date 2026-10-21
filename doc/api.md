@@ -21,7 +21,7 @@ number. The same classes are used here:
 | **measured** | computed on the automaton | the closed-loop factor $F_{10} = 0.019186$ |
 | **fitted** | a threshold or scale read in | $M_N$, the two desert thresholds, the six $\kappa_s$ |
 | **conditional** | holds only under a stated choice | $3F_{10}^{10}$ under the one-node-per-family set |
-| **open** | one of the nine open problems O1–O9 | the family count, the DM carrier, the couplings meeting |
+| **open** | one of the ten open problems O1–O10 | the family count, the DM carrier, the couplings meeting |
 
 The old wall labels W1–W9 map one-to-one onto O1–O9 (Section 16); `cl10.walls`
 records the mapping.
@@ -622,7 +622,7 @@ $1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
 | `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
 | `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |
 | `CFG.physics.wimp_window_gev` | `[100, 1000]` GeV | the observed WIMP window the 0-parameter DM scale is compared against (`parameter_audit`, point 4) |
-| `CFG.physics.f_10_measured`, `v_over_mplanck_observed`, `hierarchy_coefficient_observed` | `0.019186`, `2.0167e-17`, `2.0765` | the measured hierarchy inputs of Section 12.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) — and the observed electroweak/Planck ratio and coefficient; the closed clock reads 2.702 instead (+30%, the clock tension) — read by `u10pred.hierarchy()` |
+| `CFG.physics.f_10_measured`, `v_over_mplanck_observed`, `hierarchy_coefficient_observed` | `0.019186`, `2.0167e-17`, `2.0765` | the measured hierarchy inputs of Section 12.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) — and the observed electroweak/Planck ratio and coefficient; the closed clock reads 2.700 instead (+30%, the clock tension) — read by `u10pred.hierarchy()` |
 | `CFG.units.ev_per_gev` | `1e9` | the eV↔GeV conversion (an exact decimal prefix): the one conversion every eV quote of the ladder uses |
 | `CFG.neutrino.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.307`, `0.579`, `0.022` | the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0, NO; the second octant — the octant is unresolved, Section 13.5) |
 | `CFG.ckm.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.050`, `0.949`, `0.020` | the measured CKM-side numbers of the same mixing comparisons |

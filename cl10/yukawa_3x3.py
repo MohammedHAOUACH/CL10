@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-CL10 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (O6, C4).
+CL10 — the 3-generation Yukawa mass matrix: the 10-to-1 projection (O6, C4).
 
-The **9-to-1** reduction (Section 12) says the nine residuals O1-O9 are
+The **10-to-1** reduction (Section 12) says the ten residuals O1-O10 are
 projections of **one** 0-parameter object — the GUT QCA step
 ``U`` (the 32-level spectrum ``H = -i log U`` at the root-clock ``g_10``).  This
 module is the **O6 projection**: the **3-generation Yukawa mass matrix**
@@ -462,7 +462,7 @@ def quark_ckm():
         "ok": bool(ok),
     }
 def w6_verdict():
-    """The full 0-parameter O6 verdict: the 9-to-1 projection of the one
+    """The full 0-parameter O6 verdict: the 10-to-1 projection of the one
     object onto the 3-family space — the 3x3 mass matrix (the democratic
     base), the TBM mixing (only sin^2_12 = 1/3 is 0-parameter as a number),
     the 3-level hierarchy structure, the
@@ -532,7 +532,7 @@ def main():
     hier = r["hierarchy"]
     obs = mix["obs_pmns"]
     print("=" * 68)
-    print("CL10 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (O6, C4)")
+    print("CL10 - the 3-gen Yukawa mass matrix: the 10-to-1 projection (O6, C4)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY input:  g_10 = {r['g10']:.6f}  (the root clock, cl10/config.yaml)")

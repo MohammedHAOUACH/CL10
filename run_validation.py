@@ -346,7 +346,7 @@ def main():
     # kinematics, the dynamics, the anomaly-free matter and the 5/3
     # normalisation.  Tier 4 is the exploration programme, tier 5 the
     # falsifiers, tier 6 the provenance and audit checks: all supporting.
-    # The open problems O1-O9 of Section 16 are reported as the named
+    # The open problems O1-O10 of Section 16 are reported as the named
     # residuals below: they are listed, not hidden.
     # An experiment that writes no tier is NOT folded into the hard tier: the
     # denominator is printed, because "hard tier MET" over 22 of 156 checks
@@ -407,7 +407,7 @@ def main():
         print(f"  OFF-CORE (an experiment pinned a different core than the parent, "
               f"by construction - the cone programme is CPU-only): {', '.join(mismatch)}")
     if named:
-        print(f"  NAMED RESIDUALS ({len(named)}, the open problems O1-O9 of Section 16):")
+        print(f"  NAMED RESIDUALS ({len(named)}, the open problems O1-O10 of Section 16):")
         print(f"    {', '.join(named)}")
     return 0 if n_failed == 0 else 1
 

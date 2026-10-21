@@ -1,7 +1,7 @@
 {
   "experiment": "V76_w2_mixing",
   "pass": true,
-  "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 2.000) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). O2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
+  "status": "INGREDIENT BUILT: a cubic-symmetric, zero-mean Wilson-strength junction whose Fourier support closes the selected node triangle (A,B,C, one node per V70 family) with NO edge leaving it (verified against the full 12x12 doubler difference table; the other 9 nodes form components [[3, 4, 5, 6, 7, 8], [9, 10, 11]]); the node gap opens linearly in w on the supercell Floquet (ratio 1.983) and the resonant off-diagonal element exact (K_node = 2, supercell Fourier factor 1/2): M = c_s(2w0 I + kappa(J-I)), democratic at kappa = 2 w0 with eigenvalues {6 w0 c_s, 0, 0} - the V68 structure from a named automaton background. Physics: every r < 2 violates Sum m_nu < 0.12 eV (generic pass: False); the 1/3 candidate (0.0487 eV, two massless neutrinos) survives ONLY at the measure-zero democratic point AND a democratic m_D (else gapless colored doublers). O2: the 1/3 is a named, F3-falsifiable structure, not a coefficient.",
   "data": {
     "triangle_closed": true,
     "components": [
@@ -26,7 +26,7 @@
     ],
     "cubic_ok": true,
     "zero_mean_ok": true,
-    "gap_dev": 3.169908779909747e-12,
+    "gap_dev": 0.016706679971847604,
     "K_node": 1.9999999999999998,
     "fourier_factor": 0.5,
     "eigenvalues": {

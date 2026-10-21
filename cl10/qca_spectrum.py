@@ -34,9 +34,9 @@ off.  This module computes that spectrum and its **0-parameter invariants**
 - **the S-matrix** (O9): the step **is** the 0-parameter S-matrix (the
   't Hooft program) — ``S = U``.
 
-The **nine residuals O1-O9** (the named exact values the 0-parameter
-structure does not fix) are the **nine projections of this one object**
-(see the publication, the 9-to-1 reduction).
+The **ten residuals O1-O10** (nine named exact values the 0-parameter
+structure does not fix, plus the kinematics of its gapless subset) are the
+**ten projections of this one object** (see the publication, the 10-to-1 reduction).
 """
 
 import math

@@ -127,9 +127,9 @@ def hierarchy(F10=None):
         v / M_P = 3 F_10^10 = 2.0881 x (1/16pi)^10 ,
 
     99.44% of the observed coefficient 2.0765.  At the closed clock the
-    crossing moves to ``n* = 208`` and the coefficient there reads 2.702
+    crossing moves to ``n* = 208`` and the coefficient there reads 2.700
     (+30%).  V206 measures the clock tension: the closure class reads
-    {2.2995, 2.7018, 2.7048} while the observed value is read by the
+    {2.2994, 2.7002, 2.7084} while the observed value is read by the
     non-closed clock ``1/5`` to relative 1e-5 - one tension with the O4
     meeting coupling, not two.  The factor 3 is the one-split-node-per-
     axis-family choice, so the provenance is **conditional** on that node

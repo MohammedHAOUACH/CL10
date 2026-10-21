@@ -54,6 +54,13 @@ import sys
 import time
 import os
 
+# The mixing attempt is made on the IMPLEMENTED automaton, so the implemented
+# clock g = 1/5 is pinned here. cl10/config.py resolves the clock once, at its
+# own import, so the pin must precede every cl10 import below; an unpinned run
+# would silently measure the default closed clock instead (the failure mode
+# cl10.config.enforce_angle now raises on).
+os.environ["CL10_ANGLE"] = "0.2"
+
 import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))

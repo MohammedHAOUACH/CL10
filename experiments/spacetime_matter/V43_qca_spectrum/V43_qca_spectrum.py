@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V43 - the 9-to-1 reduction: the nine residuals O1-O9 are the nine named
+"""V43 - the 10-to-1 reduction: the ten residuals O1-O10 are the ten named
 projections of ONE 0-parameter object - the 32-level QCA spectrum.
 
 The single 0-parameter object of the theory is the GUT QCA step U (the 32x32
@@ -16,15 +16,17 @@ that one object:
 - the CPT (16/16-bar) split  (U commutes with the pseudoscalar; each sector's
   determinant is 1, its phase sum 0 mod 2pi)
 
-and reports the **nine residuals O1-O9** as the **nine named projections of
+and reports the **ten residuals O1-O10** as the **ten named projections of
 this one object** (the 0-parameter mechanism of each is a consequence of the
 single Cl(10) object; the exact value of each is the named fine-tuning).
 
-The **elegant 9-to-1 reduction**: the nine residuals are not nine independent
-fine-tunings; they are the nine independent exact values (scales / angles)
-that the one 0-parameter object does not fix.  The 0-point (O1) is the most
-invariant of the nine - a group-theoretic identity (SL(32)) of the object,
-equal to 0 for **every** coupling.
+The **elegant 10-to-1 reduction**: the ten residuals are not ten independent
+fine-tunings; they are the ten named faces of the object that the one
+0-parameter object does not fix - nine exact values (scales / angles) plus the
+kinematics of its gapless subset (O10, which levels of the spectrum are light,
+dispersing and chiral).  The 0-point (O1) is the most invariant of them - a
+group-theoretic identity (SL(32)) of the object, equal to 0 for **every**
+coupling.
 """
 
 import sys
@@ -39,10 +41,10 @@ from cl10 import qca_spectrum
 
 TOL = 1e-12
 
-# the nine residuals O1-O9 as the nine named projections of the one object.
+# the ten residuals O1-O10 as the ten named projections of the one object.
 # Each: (the named residual, the 0-parameter mechanism, the face of the
 # object it projects).
-NINE = [
+TEN = [
     ("O1", "the exact Lambda ~ 10^-122",
      "the 0-point = 0 (the 512/512 s-mechanism; the SL(32) identity: det U = 1)",
      "the spectrum (the 0-point)"),
@@ -70,6 +72,9 @@ NINE = [
     ("O9", "the QCA lattice RG (S-matrix to cross-sections)",
      "the 0-parameter S-matrix = U (the 't Hooft program)",
      "the step (S = U)"),
+    ("O10", "which levels of the spectrum are light, dispersing and chiral (the low-energy spectrum)",
+     "the gapless subset of the spectrum and its tangent velocities: the node cones, the corner multiplets, the six nodal planes (V118, V185, V207)",
+     "the spectrum (the gapless subset and its velocities)"),
 ]
 
 
@@ -85,7 +90,7 @@ def main():
         "property": "P2,P5",
         "residual": True,
         "pass": ok,
-        "status": "the_9_to_1_reduction: one object (the 32-level QCA spectrum), nine named projections (O1-O9)",
+        "status": "the_10_to_1_reduction: one object (the 32-level QCA spectrum), ten named projections (O1-O10)",
         "tol": TOL,
         "data": {
             "one_object": {
@@ -100,9 +105,9 @@ def main():
                 "cpt_0point_16bar": s["cpt_0point_16bar"],
                 "commutes_with_pseudoscalar": s["commutes_with_pseudoscalar"],
             },
-            "nine_projections": [
+            "ten_projections": [
                 {"wall": w, "residual": res, "mechanism": mech, "projection": proj}
-                for (w, res, mech, proj) in NINE
+                for (w, res, mech, proj) in TEN
             ],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -114,7 +119,7 @@ def main():
         json.dump(verdict, f, indent=2, ensure_ascii=False)
 
     print("=" * 68)
-    print("V43 - the 9-to-1 reduction: one object, nine projections")
+    print("V43 - the 10-to-1 reduction: one object, ten projections")
     print("=" * 68)
     print(f"  the one object : the {s['n_levels']}-level QCA spectrum (g_10 = {s['g10']})")
     print(f"    0-point     = {s['zero_point']:.2e}   (the 32 levels are +/---paired)")
@@ -122,8 +127,8 @@ def main():
           f"45 max|tr| = {s['max_trace_T45']:.1e}")
     print(f"    CPT split   : 0-point 16/16-bar = "
           f"{s['cpt_0point_16']:.1e} / {s['cpt_0point_16bar']:.1e}")
-    print("  the nine projections (O1-O9):")
-    for (w, res, mech, proj) in NINE:
+    print("  the ten projections (O1-O10):")
+    for (w, res, mech, proj) in TEN:
         print(f"    {w}  {proj}")
     print(f"  VERDICT      : {'PASS (the one object: 0-point = 0, det U = 1, CPT)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v43_qca_spectrum.json"))

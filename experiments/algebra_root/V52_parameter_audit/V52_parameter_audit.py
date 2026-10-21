@@ -63,7 +63,7 @@ observed DM (``~1e2-1e3 GeV``).  The observed DM **requires a sub-Planck
 scale not in the 0-parameter structure** — a **quantified**, honest failure
 (O7).
 
-**The unifying 9-to-1 statement.**  The four "failures" are **honest,
+**The unifying 10-to-1 statement.**  The four "failures" are **honest,
 quantified residuals** of the one 0-parameter object; the **genuinely
 0-parameter** content (the algebraic invariants) **holds** and is computed
 here; the **exact values** are the **named** projections.  The audit turns

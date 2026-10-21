@@ -19,7 +19,7 @@ residual set to its minimum:
   **unique** ``n`` in ``1..20`` within **one decade** of **both** closures:
   the hierarchy (``2.08 (1/16\pi)^10``) and the DM WIMP mass
   (``1.18 x 100 GeV = 118`` GeV) -- **two statements of one scale** (the
-  "9-to-1"), **not** two independent constraints; the strict factor-2 test
+  "10-to-1"), **not** two independent constraints; the strict factor-2 test
   of both is **empty**.  The 2-digit coefficients are **named residuals**
   (``observed / 10-loop factor``).
 - **L3 (baryogenesis):** the rank-1 (1 heavy ``N``) Yukawa has **0** CP

@@ -99,7 +99,11 @@ NSECTOR = int(_config.CFG.physics.n_sector)     # the Weyl sector (the +i eigens
 NONSITE = NSUB * NINT          # 256
 NSECTOR_ONSITE = NSUB * NSECTOR  # 128
 
-G10 = coupling.G10        # the root clock pi/4 (angle.default_branch; CL10_ANGLE overrides)
+_config.enforce_angle()   # a CL10_ANGLE pin set after config was imported is
+                         # invisible here: fail instead of binding the wrong clock
+G10 = coupling.G10        # the active clock: angle.default_branch in
+                          # cl10/config.yaml, overridden by CL10_ANGLE only when
+                          # it is set BEFORE cl10 is imported for the first time
 
 # the six stages of the one step: (intra-block?, axis).
 # The order is not free: the product of the six stage matrices is exactly

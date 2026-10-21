@@ -88,7 +88,7 @@ in the 0-parameter structure as the **10-loop suppression** of the Planck
 scale, ``M_P (1/16pi)^10 = 118 GeV`` (the WIMP scale, V54), which gives the
 observed abundance.
 
-**The unifying (9-to-1) statement.**  The four "failures" are **honest,
+**The unifying (10-to-1) statement.**  The four "failures" are **honest,
 quantified residuals** of the one 0-parameter object.  The **genuinely
 0-parameter** content (the algebraic invariants: the 16/16-bar, the 45, the
 5/3, the anomalies, the spectral mirror, ``det U = 1``, the vanishing

@@ -75,6 +75,14 @@ BRANCHES = {
 
 DEFAULT_BRANCH = _config.CFG.angle.default_branch
 
+# CL10_ANGLE is read ONCE, at the import of cl10/config.py. A pin set after
+# that moment - a module imported later that sets it in its own preamble, the
+# way V186 does - cannot reach this module: CFG keeps the clock that was in
+# the environment when config was imported. Reading the wrong clock silently is
+# how an artifact of one clock ends up cited as a measurement of another, so
+# this fails loudly instead.
+_config.enforce_angle()
+
 
 def branch():
     """The active branch: ``angle.default_branch`` in ``cl10/config.yaml``,

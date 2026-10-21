@@ -201,6 +201,30 @@ _ANGLE_ALIASES = {
 }
 
 
+def enforce_angle():
+    """Fail loudly when the environment pins a clock this process did not
+    have at config-import time.
+
+    The clock is resolved exactly once, in ``_derive`` above. A script that
+    sets ``CL10_ANGLE`` afterwards - typically a module imported after config,
+    whose own preamble pins it - keeps measuring on the frozen clock and never
+    finds out. Every module that binds the clock (``coupling``, ``supercell``)
+    calls this at import, so the mismatch raises instead of shipping an
+    artifact measured on a clock its caller did not ask for.
+    """
+    raw = os.environ.get("CL10_ANGLE")
+    if raw is None or not str(raw).strip():
+        return
+    want = str(raw).strip().lower()
+    want = _ANGLE_ALIASES.get(want, want)
+    if want != CFG.angle.branch:
+        raise RuntimeError(
+            "CL10_ANGLE=%r pins the %r clock, but cl10.config froze the %r "
+            "clock at its own import: set CL10_ANGLE before importing any cl10 "
+            "module (the V118/V186/V187/V207 preambles do)."
+            % (raw, want, CFG.angle.branch))
+
+
 def _derive(tree):
     """The values that follow from the file instead of being written twice."""
     physics = tree["physics"]

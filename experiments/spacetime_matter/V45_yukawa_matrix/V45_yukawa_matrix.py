@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""V45 — the 3-generation Yukawa mass matrix: the 9-to-1 projection (O6, C4).
+"""V45 — the 3-generation Yukawa mass matrix: the 10-to-1 projection (O6, C4).
 
-The **9-to-1 reduction** (Section 12): the nine residuals O1-O9 are
+The **10-to-1 reduction** (Section 12): the ten residuals O1-O10 are
 projections of **one** 0-parameter object — the GUT QCA step ``U`` (the
 32-level spectrum at ``g_10 = 1/5``).  This experiment is the **O6
 projection**: the **3-generation Yukawa mass matrix** and the **mixing**,
@@ -137,7 +137,7 @@ def main():
     with open(os.path.join(outdir, "v45_yukawa_matrix.json"), "w") as f:
         json.dump(verdict, f, indent=2, ensure_ascii=False)
     print("=" * 68)
-    print("V45 - the 3-gen Yukawa mass matrix: the 9-to-1 projection (O6, C4)")
+    print("V45 - the 3-gen Yukawa mass matrix: the 10-to-1 projection (O6, C4)")
     print("=" * 68)
     print(f"  backend (GPU):  {r['backend']}")
     print(f"  the ONLY input:  g_10 = {r['g10']:.4f} (= 1/5)")

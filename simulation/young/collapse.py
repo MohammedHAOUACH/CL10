@@ -16,7 +16,7 @@ The screen must show the **reduction of the wave packet as the reality**:
 4.  Repeated over many events, the **detected points build the interference
     pattern** -- the *reality* (the measured pattern) emerges from the
     individual *reductions*.  This is the Young experiment as a **measurement
-    process**, the 9-to-1 / Z2 projection of the CL10 root made visible.
+    process**, the 10-to-1 / Z2 projection of the CL10 root made visible.
 
 The sampling and the contraction work on **host** numpy (the field is already
 there for rendering); the heavy wave propagation stays on the GPU.

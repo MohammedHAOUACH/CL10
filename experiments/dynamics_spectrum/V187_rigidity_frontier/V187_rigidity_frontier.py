@@ -30,15 +30,19 @@ T3  the frontier table gap_min(c), c = 0.05..0.5, and the anchor: the
 T4  log-log scaling of comm_ratio vs gap along the ray from each tuned
     point toward the implemented gapless point (w*, theta*).
 
-Measured 2026-10-17 (full run, 880 tuned bonds): top comm_ratio 1.033
-at su2 (5, 8, 9) - a genuinely non-commuting algebra, beyond V186's
-0.362 scan bound (V186 measured comm only at each bond's best-gap
-point) - but every top-comm bond is gapped (min tuned gap 8.0e-3); the
-5292-point sweep found no gapless point with comm > 0.5; the frontier
-gap_min(c) is monotone with a floor of 8.0e-3 for c >= 0.2; the ray
-slopes are not systematically positive (median -0.28). Gaplessness and
-non-commuting tangent algebras are mutually exclusive: the separation
-is a wall, not a power law.
+Measured 2026-10-21 (full re-run on the implemented clock, 880 tuned
+bonds; the artifact first committed here had been measured on the DEFAULT
+closed clock, because this preamble pinned no angle and cl10/config freezes
+the clock at its own import time - V187 imports cl10 before V186, whose own
+pin then arrives too late): top comm_ratio 1.033 at su2 (5, 8, 9) - a
+genuinely non-commuting algebra, beyond V186's 0.362 scan bound (V186
+measured comm only at each bond's best-gap point) - but every top-comm bond
+is gapped (min tuned gap 8.0e-3); the 5292-point sweep found no gapless
+point with comm > 0.5; the frontier gap_min(c) is monotone - 6.6e-3 at
+c = 0.05 and 0.10, floored at 8.0e-3 for c >= 0.2; the ray slopes are not
+systematically positive (median -0.28, 4/12 positive). Gaplessness and
+non-commuting tangent algebras are mutually exclusive: the separation is a
+wall, not a power law.
 
 Smoke: CL10_SMOKE=1 shrinks pool, grids and bond count.
 """
@@ -60,6 +64,14 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 # ~40x faster on CPU workers than on a 3090, and the GPU route needs a CUDA
 # context per pool worker). Pinned BEFORE any cl10 import; inherited by the pool.
 os.environ["CL10_BACKEND"] = "numpy"
+
+# The frontier is measured over the bond space of the IMPLEMENTED automaton,
+# so it runs on the implemented clock g = 1/5 - the clock V186 pins (V186
+# resolves it in its own preamble, which is too late when V187 imports cl10
+# first: cl10/config.py freezes the clock at ITS import time, so the pin has
+# to precede every cl10 import here or the frontier is measured on the wrong
+# step). Inherited by the forked pool.
+os.environ["CL10_ANGLE"] = "0.2"
 
 import numpy as np                            # noqa: E402
 

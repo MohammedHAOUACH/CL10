@@ -46,6 +46,13 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
            "NUMEXPR_NUM_THREADS", "VECLIB_MAXIMUM_THREADS"):
     os.environ.setdefault(_v, "1")
 
+# The separation lemma is stated in the paper for the IMPLEMENTED automaton,
+# so it is measured on the implemented clock g = 1/5. The clock is resolved
+# once, at the import of cl10/config.py, so the pin must precede every cl10
+# import below (V118/V186/V187/V207 carry the same pin; a pin that arrives
+# later now raises there instead of measuring the wrong step silently).
+os.environ["CL10_ANGLE"] = "0.2"
+
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))

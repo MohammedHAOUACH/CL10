@@ -4,7 +4,7 @@ r"""V206 - the clock tension: closure, the data clock, and the dead zone (O8/O4)
 
 **Why (O8, Section 12.1; and O4).** V203 measured the self-consistent
 closed branch: step and traced-link phase both at pi/4, first crossing of
-1/(16 pi) at n* = 208 with deficit 0.9896, coefficient 2.702 against the
+1/(16 pi) at n* = 208 with deficit 0.9895, coefficient 2.700 against the
 observed 2.0765 (+30%); V205 showed the deficit is channel-blind and that
 the required insertion amplitude equals the 1/5-branch deficit to 0.055%
 - the fingerprint that the data reads another clock. This experiment closes
@@ -12,8 +12,8 @@ the question MEASURED, with zero free parameters, over the WHOLE closure
 class (V131: the internal step is exactly periodic only at pi/2 and pi/4):
 
 1. the closure-class readings of the hierarchy coefficient: pi/4 gives
-   2.7018 (+30.1%); pi/2 - the degenerate branch with no mass generation
-   (V134) - gives 2.2995 (+10.7%, crossing n* = 102); 3*pi/4 gives 2.7048.
+   2.7002 (+30.0%); pi/2 - the degenerate branch with no mass generation
+   (V134) - gives 2.2994 (+10.7%, crossing n* = 102); 3*pi/4 gives 2.7084.
    The closest reading over the whole closure class is 10.7% from the
    observed value: the closure axiom CANNOT reproduce the hierarchy
    coefficient (certificate under the V131 theorem, which exhausts the
@@ -34,7 +34,7 @@ class (V131: the internal step is exactly periodic only at pi/2 and pi/4):
    The exact ladder exists only on the order-8 closed clock, yet the data
    reads a non-closed clock: this is the named tension.
 4. no principled object bridges it: the Cartan-5 link mixture deepens the
-   pi/4 miss (0.9915 against 0.9896), roots-only links collapse the ladder
+   pi/4 miss (0.9915 against 0.9895), roots-only links collapse the ladder
    (n* <= 4), and no single Casimir sector crosses anywhere near (best
    0.047 of the observed).
 
