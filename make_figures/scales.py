@@ -20,7 +20,7 @@ def fig17_ladder():
          C_ZERO, -1, 0.5),
         (s17 / 3 * 1e-9, rf"$\frac{{1}}{{3}}$ cand.  ${s17 / 3:.4f}$ eV", C_FIT, -1, 0.95),
         (0.2, r"QCD  $\Lambda_{\rm QCD} \sim 0.2$ GeV  (reference only)", C_SU3, 1, 0.5),
-        (mDM, rf"DM  ${mDM:.0f}$ GeV  (O7)",
+        (mDM, rf"DM  ${mDM:.1f}$ GeV  (O7)",
          C_SU2, -1, 0.95),
         (tp.V_EW, rf"electroweak  $v = {tp.V_EW:.0f}$ GeV  (measured)", C_GUT, 1, 0.95),
         (MP * LOOP ** 3, rf"seesaw  $M_N = {MP * LOOP ** 3:.2e}$ GeV  ($n = 3$)",

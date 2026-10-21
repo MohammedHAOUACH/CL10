@@ -47,8 +47,16 @@ C_FIT = "#c0392b"     # fitted coefficients
 C_OPEN = "#7f8c8d"    # open residuals
 
 
-def save(fig, name):
+def save(fig, name, tight=True):
+    """``bbox_inches='tight'`` crops the outer margins - except for figures
+    with 3D axes, where mplot3d draws its scene outside the axes bbox and
+    matplotlib computes a wrong tight box (the panel shrinks and a white
+    band opens above the titles).  Those figures place everything
+    themselves (subplots_adjust) and save with tight=False."""
     path = os.path.join(OUT, name)
-    fig.savefig(path, bbox_inches="tight", facecolor="white")
+    if tight:
+        fig.savefig(path, bbox_inches="tight", facecolor="white")
+    else:
+        fig.savefig(path, facecolor="white")
     plt.close(fig)
     print("  wrote", path)

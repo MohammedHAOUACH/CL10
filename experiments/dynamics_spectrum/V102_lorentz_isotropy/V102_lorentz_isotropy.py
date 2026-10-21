@@ -49,6 +49,15 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..")
 sys.path.insert(0, ROOT)
 
 
+# the paper's doubler-cone Lorentz-structure measurement (Section 9, Fig. 7)
+# runs on the REFERENCE spectrum: the 1/5 branch of config
+# angle.branches.implemented, the dispersive Wilson-family member of
+# Section 8.  At the engine clock (pi/4) the node spectra are pinned to
+# {0, pi} (Proposition 2) and the cone geometry measured there is not the
+# one the paper quotes.  Pin the branch so the measurement reproduces from
+# a bare checkout.
+os.environ["CL10_ANGLE"] = "0.2"
+
 from cl10 import supercell as SC  # noqa: E402
 import cl10.engine as E  # noqa: E402
 

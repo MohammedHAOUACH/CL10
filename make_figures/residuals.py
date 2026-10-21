@@ -772,7 +772,7 @@ def fig7_doubler_cones():
     fig.suptitle("The twelve doubler cones: exactly linear, never Lorentz-"
                  "round", fontsize=14.5)
     fig.subplots_adjust(left=0.03, right=0.99, bottom=0.12, top=0.79)
-    save(fig, "fig7_doubler_cones.png")
+    save(fig, "fig7_doubler_cones.png", tight=False)
 
 
 def fig8_isotropy_search():

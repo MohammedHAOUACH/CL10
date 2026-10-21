@@ -125,7 +125,7 @@ def fig20_desert():
             u.B_SM[k] * L0 + n10 * d10[k] * LA + d2[k] * LB)
         axA.plot(np.log10(s), ds, color=cols[k], lw=2.2)
     axA.axhline(1.0 / A10, color=C_ZERO, ls="--", lw=1.4,
-                label=r"root value  $1/\alpha_X = 25$  (not refitted)")
+                label=r"reference anchor  $g^2 = 1/25$  (not refitted)")
     axA.plot([np.log10(M_X)], [25.0], marker="*", ms=16, color=C_ROOT,
              mec="k", mew=0.8, ls="none",
              label=rf"meeting:  $M_X = {M_X:.1e}$ GeV")
@@ -172,7 +172,7 @@ def fig20_desert():
     axB.legend(fontsize=10, loc="upper left", framealpha=0.95)
     fig.suptitle("The desert solution:  three $\\mathbf{10}\\oplus"
                  "\\overline{\\mathbf{10}}$ pairs + one $(1,2)$ pair unify at "
-                 "the root value", fontsize=13)
+                 "the reference-angle anchor $g^2 = 1/25$", fontsize=13)
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     save(fig, "fig20_desert_unification.png")
 
