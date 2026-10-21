@@ -211,6 +211,31 @@ def main():
                                     vr["cell_parity_step_comm"],
                                     vr["cell_parity_gauge_max"]), t4_ok))
 
+    # ---- T5 the cell matrix M(q): unitarity and det at four momenta -----
+    _, _, U16 = SC.sectors()
+    pts = {"zone_centre": (0.0, 0.0, 0.0),
+           "generic": (0.7311, 1.9017, -2.3181),
+           "M_point": tuple(float(c) for c in SC.M_POINTS[0]),
+           "R_point": tuple(float(c) for c in SC.R_POINTS[0])}
+    sweep = {}
+    for nm, q in pts.items():
+        Mq = SC.bloch(q, U16)
+        nq = Mq.shape[0]
+        sweep[nm] = {
+            "dim": int(nq),
+            "MM_dagger_minus_I": float(np.linalg.norm(
+                Mq @ Mq.conj().T - np.eye(nq), 2)),
+            "det_M_minus_1": float(abs(np.linalg.det(Mq) - 1.0)),
+        }
+    mm_max = max(v["MM_dagger_minus_I"] for v in sweep.values())
+    dm_max = max(v["det_M_minus_1"] for v in sweep.values())
+    t5_ok = mm_max < 1e-13 and dm_max < 1e-11
+    checks.append(("T5 the %d-level cell matrix M(q) is unitary with det 1 "
+                   "at the zone centre, a generic momentum and the two "
+                   "high-symmetry points: max ||MM+-I|| %.1e, max |detM-1| "
+                   "%.1e" % (sweep["zone_centre"]["dim"], mm_max, dm_max),
+                   t5_ok))
+
     ok = all(p for _, p in checks)
     branch = ("THE 36-LEVEL CELL IS AN ENGINE FACT: spinor module + the "
               "conjugate singlet pairs at rungs 3 and 10, exact B-parity, "
@@ -229,6 +254,7 @@ def main():
         "full_cell_theorems": {"pairing": pairing, "det_phase": detph,
                                "vacuum_sum": vsum},
         "bloch_factorisation_err": qerr,
+        "M_q_sweep": sweep,
         "singlet_band_shift_at_M": {"A": shA, "B": shB},
         "spinor_M_gap": gap_anchor,
         "content": {"levels": nlev, "trY": trY, "trY3": trY3,
