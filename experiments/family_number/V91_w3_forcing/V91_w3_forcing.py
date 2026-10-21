@@ -18,9 +18,11 @@ strengths, independent of the split); (iii) the cubic orbit of the
 3-node triangle: whether the count 3 is cubic-symmetric at all.
 
 **Checks (computed).**
-1. Regression V70: 12 nodes, families {x:4, y:4, z:4}, spectra
-   node set one cubic orbit, every node exactly gapless, and the node
-   channels fall into isospectral classes (pinned levels identical).
+1. Regression V70: 12 nodes, families {x:4, y:4, z:4}, the node set one
+   cubic orbit, the M-point gap census on the clock pinned here (exactly
+   gapless at the closed root; the twelve carrying the one equal doubler gap
+   2.003e-04 at 1/5 - the defect the closure repairs, V203), and the node
+   channels falling into isospectral classes.
 2. Cubic orbits on the 12 nodes (48 signed permutations): sizes.
 3. Rank-1 Jacobian of the meeting equations with n = 4, 8, 12 node
    thresholds (V74 mechanism generalized): rank in the thresholds.
@@ -50,6 +52,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+os.environ["CL10_ANGLE"] = "0.2"  # built on the V65/V74 desert machinery: its anchors are 1/5-branch, so pin the clock BEFORE cl10 latches it (V65 pins the same)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 sys.path.insert(0, exp("V74_multiscale_nodes"))
@@ -88,9 +91,10 @@ def main():
     def spectrum(q):
         return np.sort(np.angle(np.linalg.eigvals(SC.bloch(q, U16))))
     per_family = {k: [spectrum(q) for q in v] for k, v in fam.items()}
-    # circular phase distance + isospectral classes (root clock: the
-    # Floquet-pinned levels are identical at every node, the intermediate
-    # levels permute - the V128 index-3 point-group defect)
+    # circular phase distance + isospectral classes: at the closed clock the
+    # Floquet-pinned levels are identical at every node; at the 1/5 clock the
+    # twelve carry the one equal doubler gap 2.003e-04 (the defect the closure
+    # repairs to exactly zero, V203) - the V128 index-3 point-group defect
     cdist = lambda A, B: np.abs((A - B + np.pi) % (2 * np.pi) - np.pi)
     reps, classes = [], []
     for q in SC.M_POINTS:
@@ -102,11 +106,21 @@ def main():
             classes.append(1)
         else:
             classes[hit] += 1
-    gapless_all = all(SC.gap(q, U16) < 1e-9 for q in SC.M_POINTS)
-    reg_ok = (fam_sizes == {"x": 4, "y": 4, "z": 4} and gapless_all)
+    m_gaps = [SC.gap(q, U16) for q in SC.M_POINTS]
+    branch = _config.CFG.angle.branch
+    if branch == "closed":
+        census_ok = all(g < 1e-9 for g in m_gaps)       # exactly gapless at pi/4
+    else:
+        census_ok = (min(m_gaps) > 1.9e-4 and max(m_gaps) < 2.1e-4
+                     and max(m_gaps) - min(m_gaps) < 1e-8)   # one equal doubler gap at 1/5
+    gapless_all = all(g < 1e-9 for g in m_gaps)
+    reg_ok = (fam_sizes == {"x": 4, "y": 4, "z": 4} and census_ok)
     checks["v70_regression"] = {"fam_sizes": fam_sizes,
                                 "spectral_classes": sorted(classes),
-                                "gapless_all": gapless_all}
+                                "branch": branch,
+                                "gapless_all": gapless_all,
+                                "m_gap_min": float(min(m_gaps)),
+                                "m_gap_max": float(max(m_gaps))}
 
     # --- 2. cubic orbits on the 12 nodes -----------------------------------
     cub = []
@@ -225,7 +239,8 @@ def main():
                   else "no root") for k, v in mx.items()}
     status = (
         f"THE COUNT 3 IS NOT FORCED - IT IS A SYMMETRY-BREAKING INPUT "
-        f"(V70 regression: one orbit of 12, gapless at every node, "
+        f"(V70 regression, {branch} clock: one orbit of 12, M-point gaps "
+        f"{min(m_gaps):.3e}-{max(m_gaps):.3e}, "
         f"{len(classes)} isospectral classes {sorted(classes)}). The cubic "
         f"group acts TRANSITIVELY on the 12 nodes (one orbit of size "
         f"{orbit_sizes[0]}; the V70 axis families are NOT cubic "
@@ -254,8 +269,8 @@ def main():
         json.dump(verdict, fh, indent=2, ensure_ascii=False)
 
     print("V91 - is the family count 3 forced?")
-    print(f"  V70 regression: {fam_sizes}, classes {sorted(classes)}, "
-          f"gapless_all {gapless_all}")
+    print(f"  V70 regression ({branch}): {fam_sizes}, classes {sorted(classes)}, "
+          f"M gaps {min(m_gaps):.3e}-{max(m_gaps):.3e}, gapless_all {gapless_all}")
     print(f"  cubic orbits on 12 nodes: {orbit_sizes} "
           f"(closed: {closed})")
     print(f"  meeting Jacobian ranks: {ranks}")

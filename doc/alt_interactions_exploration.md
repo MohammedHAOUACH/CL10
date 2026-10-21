@@ -71,7 +71,7 @@ contingency for the flat-axis IR sensitivity). Result: the anisotropic
 part of Sigma scales as |k|^1.00 - the SAME power as the bare cone, so
 the contact self-energy is MARGINAL, not irrelevant. The dressed
 anisotropy is NOT grid-convergent (grids 24 vs 32 disagree by
-0.019-0.66 on A_dressed(1e-3)): the exactly flat tangent axis (V118)
+0.024-0.66 on A_dressed(1e-3)): the exactly flat tangent axis (V118)
 makes the static propagator non-integrable and the one-loop coefficient
 grows with resolution. The one-loop flow is INCONCLUSIVE at this order -
 and the flat direction is IR-singular against the collision. 3 rows,

@@ -23,7 +23,7 @@ algebra, V118), and (iii) has direction-independent speeds (anisotropy < 0.1).
 **The correction this experiment also establishes.**  V121 reported that the
 three-axis bond "breaks the degree-1 Fourier support that proves Theorem 5
 (leakage 0.27)". Re-measured here with the Wilson factor OFF, the
-three-axis bond is EXACTLY radius-1 (leakage 2e-16): the 0.27 leakage is the
+three-axis bond is EXACTLY radius-1 (leakage 8.7e-17): the 0.27 leakage is the
 Wilson Bessel tail, present identically for the implemented bond. The
 entangling bond does NOT cost the causal radius - the price V121 named was
 misattributed to the bond.

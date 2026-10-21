@@ -26,7 +26,7 @@ relue dans le fichier ou dans l'artefact correspondant.
   hors entier partout ailleurs ; $m_{\rm DM}=118.6$ GeV et le $\times1/3$
   neutronique sont deux coïncidences ; le second accord $\nu$
   ($0.0084/0.0086$) est explicitement concédé comme coïncidence.
-- **Lorentz.** $A\ge0.997$ sur 2726 points, mur de rigidité $4.8\times10^{-3}$,
+- **Lorentz.** $A\ge0.997$ sur 2726 points, mur de rigidité $8.0\times10^{-3}$,
   « cônes : 0 ». Aucune confrontation aux bornes publiées de violation de Lorentz.
   Paragraphe manquant → ajouté (§3 ci-dessous, action 3).
 - **Gravité.** Champ symétrique ajouté à la main avec $G=1$ ; aucun graviton
@@ -41,12 +41,14 @@ relue dans le fichier ou dans l'artefact correspondant.
 - **Falsifiabilité surtout négative.** $\tau_p=2.8\times10^{39}$ yr hors d'atteinte,
   la version testable ($1.8\times10^{36}$ yr) étant déclarée convention abandonnée ;
   le barreau nu $\nu$ est déjà exclu ; seul F3 mord à courte échéance.
-- **Auditabilité.** 143 expériences auto-produites, tolérances définies par
-  l'auteur, dépôt sans version épinglée (la note de disponibilité parle de
-  « the archived release » sans tag, sans commit, sans DOI) ; et le résultat du
-  coin (§8.2, Table 5, O9) — six états exactement sans masse à
-  $w=2.8894,\ \theta=1.5717$ — provenait d'un calcul en direct sans artefact
- -commité, alors que la Table 9 l'attribue à la famille V118.
+- **Auditabilité.** 144 expériences auto-produites, tolérances définies par
+  l'auteur. Deux griefs de détail sont fermés : la libération est épinglée par
+  le tag `v1.0` et le résultat du coin (§8.2, Table 5, O9) a son artefact
+  commité, `V207`, avec le scan complet du plan $(w,\theta)$. Deux restent
+  ouverts : le DOI archivé (Zenodo 10.5281/zenodo.23321228) et la release
+  GitHub sont les instantanés `v1.0.2` / `v1.0.3`, donc une capture antérieure
+  au tag `v1.0` que la note de disponibilité nomme ; et les tolérances de
+  chaque verdict sont choisies par l'auteur, sans re-run indépendant fourni.
 
 ## 3. Actions exécutables dans le dépôt
 
@@ -60,7 +62,9 @@ relue dans le fichier ou dans l'artefact correspondant.
 | 6 | Expérience commitée pour le zéro de paire du corner (scan $(w,\theta)$, espace nul de six états, commutateurs tangents, isolement, vitesses, planéité) : `V207` | `experiments/dynamics_spectrum/V207_corner_pair_zero/` | fait |
 | 7 | Chaîne de décomptes 143 → 144 (127 → 128 publiées ; V207 écrit le verdict sans `tier`, donc 83 expériences hors tier), Table 9 / §8.3 / Table 5 / O9 rattachés à l'artefact V207 | `doc/final_publication.md`, `README.md`, `doc/reference.md`, `experiments/README.md` | fait |
 | 8 | Épinglage de la libération : tag git annoté + note de disponibilité qui le nomme | `doc/final_publication.md`, git | fait (DOI Zenodo : action hors dépôt, voir §5) |
-| 9 | Docstring de `V187_rigidity_frontier.py` et de `V186_rigidity_wall_scan.py` alignés sur leurs artefacts commités (le docstring citait 1.033 / $8.0\times10^{-3}$ / médiane $-0.28$, l'artefact 1.140 / $4.8\times10^{-3}$ / $-0.62$) | `experiments/dynamics_spectrum/V186…, V187…` | fait |
+| 9 | Docstrings alignés sur leurs artefacts commités : `V187_rigidity_frontier.py` nomme le sommet $1.033$ (la liaison $\mathfrak{su}(2)$ d'indice $(5,8,9)$), le plancher $8.0\times10^{-3}$ et la médiane $-0.28$ — ceux de la re-exécution corrigée à l'horloge $1/5$, que le papier cite aussi ; `V186_cone_inverse.py` (le problème inverse du cône — il n'existe pas de script « rigidity_wall_scan ») ne chiffre son verdict que dans le status, et sa fuite radius-1, Wilson éteint, y est $8.7\times10^{-17}$ (le docstring disait $2\times10^{-16}$) | `experiments/dynamics_spectrum/V186_cone_inverse/V186_cone_inverse.py`, `experiments/dynamics_spectrum/V187_rigidity_frontier/V187_rigidity_frontier.py` | fait |
+| 10 | Épinglage explicite de l'horloge, exigé par le tripwire : **25 scripts** posent `CL10_ANGLE = 0.2` avant tout import de `cl10` — les 20 que le tripwire faisait échouer, `V176` (seul de la chaîne V171–V179 à ne pas l'avoir : son artefact commité était passé en horloge fermée et contredisait son propre verdict documenté, $F(0)=5.000000$, poids $E_g+T_{2g}=5/6$), et `V174`, `V175`, `V179`, `V182`, qui lisaient le défaut en silence depuis l'intérieur des chaînes 1/5 — pour `V175` l'angle d'horloge *est* le couplage $\eta$ ($0.7854 \to 0.2$), donc tout son spectre de diffusion bouge ; le recensement `v70_regression` de `V91` est rendu conditionnel à la branche (exactement sans masse à $\pi/4$, les douze portant le même gap doubleur $2.003\times10^{-4}$ à $1/5$) ; re-exécution complète des 144 ($144/144$, 19 des 20 artefacts identiques au bit de physique près) et ré-ancrage des planchers machine (V196, V185) et des digits de `experiments/README.md` et des deux docs d'exploration (V172, V175, V177, V179) ; tag `v1.0` déplacé sur le commit final | `experiments/…` (25 scripts), `doc/final_publication.md`, `doc/paper1_core.md`, `experiments/README.md`, `doc/alt_gauged_exploration.md`, `doc/alt_interactions_exploration.md`, git | fait |
+| 11 | Épinglage du PDF journal : `publication/publication.pdf` (14:29) était plus vieux que le maître `doc/final_publication.md` (16:11) — rebuild par `publication/build.sh` après la dernière passe de texte (52 pages ; le PDF porte $1.033$, $(5,8,9)$, le mur $8.0\times10^{-3}$, $2.699$, $0.019685$, O10, Kochen, la note de disponibilité nommant `v1.0`, et le décompte 144) | `publication/publication.pdf` | fait |
 
 ## 4. Ce qui est fort et doit rester en tête d'affiche
 
@@ -77,9 +81,11 @@ $55326/3^{10}$, et le fait que $n^*=208$ est un théorème du fonctionnel (polyn
 
 ## 5. Ce qui reste hors du dépôt (décisions auteur)
 
-- **Dépôt Zenodo (DOI) et version épinglée publiquement.** Le tag `v1.0`
-  est créé dans le dépôt ; le DOI Zenodo nécessite le compte auteur et ne peut
-  être minté ici. La note de disponibilité reste donc au tag + au dépôt GitHub.
+- **DOI et version épinglée publiquement.** Le DOI Zenodo est minté
+  (concept 10.5281/zenodo.23321106, version 10.5281/zenodo.23321228) et la
+  release GitHub existe, mais ils archivent les instantanés `v1.0.2` /
+  `v1.0.3` : une nouvelle édition doit être déclenchée pour que le DOI pointe
+  sur le commit que le tag `v1.0` de la note de disponibilité nomme.
 - **Découpage en volets.** `doc/paper1_core.md`, `doc/paper2_gauge_gravity.md`,
   `doc/paper3_phenomenology.md` existent et sont régénérés depuis le maître par
   `review/tools/build_series.py` ; la décision de soumettre un volet plutôt que

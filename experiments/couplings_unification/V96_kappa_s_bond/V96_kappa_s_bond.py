@@ -38,6 +38,7 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
+os.environ["CL10_ANGLE"] = "0.2"  # built on the V65 desert machinery: its anchors are 1/5-branch, so pin the clock BEFORE cl10 latches it (V65 pins the same)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
 import V65_wilson as V65  # noqa: E402

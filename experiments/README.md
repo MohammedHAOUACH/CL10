@@ -284,18 +284,18 @@ the claim asserts, not when a script merely mentions the word.
 | id | verdict |
 |---|---|
 | `V171_collision_vertex` | block-contact collision U_c in {g_10, pi/4, pi/2}: the vertex is O_h-scalar and its node-mode form factor is irrelevant on the cone (anisotropic weight ~ k^2.00, A1g = 1.0000) - the interaction adds no anisotropy but a scalar vertex cannot remove the propagator's |
-| `V172_self_energy_flow` | one-loop Fock self-energy of the contact: anisotropic part ~ |k|^1.00 = MARGINAL (same power as the cone); dressed anisotropy not grid-convergent (dev 0.019-0.66) - the flat tangent axis (V118) is IR-singular against the collision; one-loop flow inconclusive |
+| `V172_self_energy_flow` | one-loop Fock self-energy of the contact: anisotropic part ~ |k|^1.00 = MARGINAL (same power as the cone); dressed anisotropy not grid-convergent (route deviation 0.02-0.66, grids 24 vs 32 disagree by 6.6e-01 on A_dressed(1e-3)) - the flat tangent axis (V118) is IR-singular against the collision; one-loop flow inconclusive |
 | `V173_block_rg` | energy-window downfold at b = 1, 2, 4: A(b) = 0.9980 exactly, bare and with the self-energy insertion - the cubic anisotropy is MARGINAL under coarse-graining (2-route 3.5e-13) |
 | `V174_isotropy_gate` | 18 census rows, 0 candidates (3 unconverged rows excluded): the minimal admissible collision does not isotropize the W9 cone - only the non-perturbative gauged-layer fixed point (V79-V101) remains |
 
 ### `alt_gauged` (exploration programme — the two-fermion S-matrix of the gauged bond layer)
 | id | verdict |
 |---|---|
-| `V175_gauged_smatrix` | THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS: S = exp(-i g_10 L^-1 H L^-dagger) on the 24-state three-site kernel, unitary to 2.4e-13, spectrum = V101 to 7.8e-16, fusion channels preserved (mixing ~1e-29), eta->0 gives S = I |
+| `V175_gauged_smatrix` | THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS: S = exp(-i g_10 L^-1 H L^-dagger) on the 24-state three-site kernel, unitary to 2.2e-13, spectrum = V101 exactly (0.0e+00), fusion channels preserved (mixing up to 6.1e-29), eta->0 gives S = I |
 | `V176_gauged_vertex_content` | the gauged current vertex is NOT a scalar: Eg + T2g weight 5/6 at |k| = 0.4 (vs contact A1g = 1.0000), anisotropic part scale-independent (alpha = 0 - MARGINAL, vs contact alpha = 2); on-node current F(0) = 5.000000 |
-| `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.199), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 2.2e-2, flat-axis IR, V172 precedent) |
+| `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.204), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 1.2e-2, flat-axis IR, V172 precedent) |
 | `V178_gauged_block_rg` | block RG b = 1, 2, 4 with the gauged insertion: A(b) = 0.997985 EXACTLY unchanged (bare = gauged at every scale) - anisotropy stays marginal (2-route 1.3e-12) |
-| `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9656): the gauged bond-current interaction does not isotropize the W9 cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |
+| `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9322): the gauged bond-current interaction does not isotropize the W9 cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |
 
 ### `alt_nonpert` (exploration programme — exact cone flux dressing, ring kernels, IR decoupling, non-perturbative isotropy gate)
 | id | verdict |

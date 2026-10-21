@@ -48,9 +48,9 @@ S = exp(-i g_10 L^-1 H L^-dagger),   N = L L^dagger (exact Gram)
 
 | quantity | value |
 |---|---|
-| unitarity ‖S S† - I‖ | 2.4e-13 (route 2: 2.3e-13) |
-| spectrum vs V101 JSON | 7.8e-16 |
-| 2-route (einsum/per-generator vs explicit-sum/per-bond; Cholesky vs orthogonal whitening) | H dev 2.7e-14, eigenphase-set dev 5.8e-11 |
+| unitarity ‖S S† - I‖ | 2.2e-13 |
+| spectrum vs V101 JSON | 0.0e+00 - exact |
+| 2-route (einsum/per-generator vs explicit-sum/per-bond; Cholesky vs orthogonal whitening) | eigenphase-set dev 5.7e-11, spectrum-set dev 2.5e-10 |
 | E0 / degeneracy / gap | -5802.3982 eta / 6 / 42.0906 eta |
 | ground scattering phase (6-fold) | -1.909644 rad (= -g_10 E0 mod 2pi) |
 | fusion-channel mixing (r = 1, 45, 210) | 2.8e-30, 6.1e-29, 6.1e-29 - the interaction PRESERVES the channels |
@@ -96,18 +96,18 @@ all 12 M-node singularities excluded and ray-subtracted) with
 
 | grid | A_dressed(1e-2) | A_dressed(1e-3) | A_dressed(1e-4) | alpha_aniso(Sigma) |
 |---|---|---|---|---|
-| 16 | 0.9975 | 0.9969 | 0.9998 | 1.00 |
-| 24 | 0.9985 | 0.9748 | 0.9656 | 1.00 |
+| 16 | 0.9914 | 0.9322 | 0.9876 | 1.00 |
+| 24 | 0.9984 | 0.9439 | 0.9582 | 1.00 |
 
 The gauged self-energy is NOT zero on the cone (max |Sigma - tadpole| =
-0.199 - the vertex reaches the cone, discriminating check), and its
+0.204 - the vertex reaches the cone, discriminating check), and its
 anisotropic part scales as |k|^1.00: exactly the MARGINAL power of the
 contact self-energy (V172), even though the VERTEX itself is marginal
 (alpha = 0, V176) - the 1/omega propagator, not the vertex, sets the
-power. The dressed anisotropy is NOT grid-convergent (drift 2.2e-2 on
+power. The dressed anisotropy is NOT grid-convergent (drift 1.2e-2 on
 A_dressed(1e-3)): the flat tangent axis (V118) makes the static
 propagator non-integrable, as for the contact. The grid-24 drift toward
-0.9656 at dq = 1e-4 is an unconverged measurement and cannot nominate
+0.9582 at dq = 1e-4 is an unconverged measurement and cannot nominate
 (V179 exclusion). Bare anchor A(1e-3) = 0.9980 (V63/V115).
 
 ## V178 - block RG with the gauged insertion
@@ -131,11 +131,11 @@ bare row reproduces A = 0.998 (anchor).
 ## V179 - the gate
 
 Scans the 12 census rows of V175-V178. The 2 V177 rows are excluded
-from candidacy (grid drift 2.2e-2 >= 1e-6: an unconverged measurement
-cannot nominate); minimum anisotropy over the remaining rows 0.9656;
+from candidacy (grid drift 1.2e-2 >= 1e-6: an unconverged measurement
+cannot nominate); minimum anisotropy over the remaining rows 0.9322;
 ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5).
 No hard-tier run was triggered; the gate's defensive branch (bond-layer
-S unitarity 2.4e-13 + free front speed exactly 1) stands ready.
+S unitarity 2.2e-13 + free front speed exactly 1) stands ready.
 
 ## Verdict
 
