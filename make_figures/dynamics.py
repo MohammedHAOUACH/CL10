@@ -123,7 +123,7 @@ def fig1_young():
     # being pasted over that panel's tick labels; panel (a) spans rows 0-1 so it
     # keeps its height.
     gs = fig.add_gridspec(3, 2, height_ratios=[1.0, 0.22, 1.0],
-                          hspace=0.34, wspace=0.26,
+                          hspace=0.70, wspace=0.26,
                           left=0.05, right=0.97, top=0.89, bottom=0.08)
     # (a) the wave: the propagation + double-slit diffraction (x-z slice)
     ax1 = fig.add_subplot(gs[0:2, 0])
@@ -136,7 +136,7 @@ def fig1_young():
     ax1.annotate("screen", xy=(scr_z, Lx * 0.5), xytext=(scr_z - 30, Lx * 0.62),
                  color="yellow", fontsize=12, ha="center")
     ax1.set_xlabel("propagation $z$  (source $\\leftarrow$ , screen $\\rightarrow$)",
-                   color=TXT)
+                   color=TXT, fontsize=11, labelpad=1)
     ax1.set_ylabel("transverse $x$", color=TXT)
     ax1.set_title("(a) the wave: one electron, propagation $+$ diffraction",
                  color=TXT)
@@ -200,7 +200,10 @@ def fig1_young():
     fig.suptitle("The CL10 Young double-slit as a single-electron measurement: "
                  "one electron at a time, each reduced onto a point (Tonomura flow)",
                  fontsize=14, color="#111")
-    fig.tight_layout(rect=[0, 0, 1, 0.95])
+    # the gridspec carries its own spacing (tight_layout would push panel (a)'s
+    # xlabel onto panel (c)'s title); keep the manual geometry.
+    fig.subplots_adjust(left=0.05, right=0.97, top=0.89, bottom=0.08,
+                        hspace=0.70, wspace=0.26)
     save(fig, "fig1_young.png")
 
 def fig12_gravity_3d():

@@ -399,9 +399,9 @@ def fig13_closed_loops():
     axA.set_xlabel("closed-loop length $n$ (hops on $n$ distinct links)")
     axA.set_ylabel(r"Cartan-content ratio $F_n = \alpha((MG)^n)/\alpha(G^n)$")
     axA.set_ylim(1e-17, 200)
-    axA.legend(fontsize=10.5, loc="upper right")
+    axA.legend(fontsize=10.5, loc="center right")
     axA.set_title("(a)  the even lengths contribute, the odd cancel:\n"
-                  r"     $F_2 = 64.4$, $F_{10} = 53.9$; the crossing is beyond",
+                  rf"     $F_2 = {Fn[2]:.1f}$, $F_{{10}} = {Fn[10]:.1f}$; the crossing is beyond",
                   fontsize=11.5)
 
     labels = [r"$G$", r"$MG$" + "\n(root clock)",

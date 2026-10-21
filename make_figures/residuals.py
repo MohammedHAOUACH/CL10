@@ -177,7 +177,7 @@ def fig14_loop_selection():
     axA.set_title("(a)  the exact odd-$n$ selection rule and the even ratios\n"
                   "     at the root clock, measured to $n = 30$",
                   fontsize=12.5)
-    axA.legend(loc="lower left", fontsize=9.5, framealpha=0.95)
+    axA.legend(loc="center left", fontsize=9.5, framealpha=0.95)
 
     nn = sorted(Fev)
     axB.loglog(nn, [Fev[n] for n in nn], "-", color=C_GUT, lw=1.5)
@@ -196,16 +196,22 @@ def fig14_loop_selection():
                   rf"     the ladder length at the root clock IS $n^* = {nstar}$",
                   fontsize=12.5)
 
+    rho4 = cl["rho_MG"] ** 4
     fig.text(0.03, 0.015,
              f"odd lengths cancel identically (below $4\\times10^{{-15}}$, "
              f"exact selection rule of the root clock); the even ratios stay "
              f"above $1/(16\\pi)$ until $n^* = {nstar}$,\n"
              f"where the closed-loop suppression first crosses the loop "
              f"factor - rung 208 is the ladder length, and the "
-             f"$n = 10$ reading of the reference angle is a compensation, "
-             f"not the crossing.",
+             f"$n = 10$ reading of the reference\n"
+             f"angle is a compensation, not the crossing. The zigzag is "
+             f"structure: the even lengths fall on the two period-4 branches "
+             f"$n = 4k$ and $n = 4k+2$ (clock phases of order 4),\n"
+             f"each geometric at $\\rho^4 = {rho4:.4f}$ per $+4$ links and "
+             f"$33\\times$ apart - the $4k$ branch is the one that crosses "
+             f"at $208$, the $4k+2$ branch is still $33\\times$ above.",
              fontsize=10.5, color="0.25", va="bottom")
-    fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.24)
+    fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.31)
     save(fig, "fig14_loop_selection.png")
 
 def fig16_w2_protection():
