@@ -23,40 +23,42 @@ import os
 import subprocess
 import sys
 
-from . import algebra, couplings, dynamics, residuals, scales
-from .style import exp
-
-from cl10 import config as _config      # the gate only: no backend import here
+# the figure modules, style and cl10 are imported LAZILY (setup_gpu first,
+# then the registry): the engine picks the backend and the CUDA device at the
+# first cl10 import, and the card pin must happen strictly before that.
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# (number, callable) in paper order
-FIGURES = [
-    (1, dynamics.fig1_young),
-    (3, algebra.fig3_one_object),
-    (4, couplings.fig4_uv_2loop),
-    (5, algebra.fig5_brillouin_doublers),
-    (6, couplings.fig6_wilson),
-    (7, residuals.fig7_doubler_cones),
-    (8, residuals.fig8_isotropy_search),
-    (9, residuals.fig9_tangent_algebra),
-    (10, residuals.fig10_gauged_layer),
-    (11, residuals.fig11_vertex_ground_state),
-    (12, dynamics.fig12_gravity_3d),
-    (13, couplings.fig13_closed_loops),
-    (14, residuals.fig14_loop_selection),
-    (15, residuals.fig15_w7_portal),
-    (16, residuals.fig16_w2_protection),
-    (17, scales.fig17_ladder),
-    (18, scales.fig18_residual_reduction),
-    (19, couplings.fig19_couplings_mz),
-    (20, couplings.fig20_desert),
-    (21, couplings.fig21_equal_shift),
-    (22, couplings.fig22_composite),
-    (23, residuals.fig23_w4_cone),
-    (24, residuals.fig24_w3_forcing),
-    (25, residuals.fig25_residual_attacks),
-]
+def _figures():
+    """The (number, callable) pairs in paper order; the modules import after
+    the card pin (and the engine picks its backend then)."""
+    from . import algebra, couplings, dynamics, residuals, scales
+    return [
+        (1, dynamics.fig1_young),
+        (3, algebra.fig3_one_object),
+        (4, couplings.fig4_uv_2loop),
+        (5, algebra.fig5_brillouin_doublers),
+        (6, couplings.fig6_wilson),
+        (7, residuals.fig7_doubler_cones),
+        (8, residuals.fig8_isotropy_search),
+        (9, residuals.fig9_tangent_algebra),
+        (10, residuals.fig10_gauged_layer),
+        (11, residuals.fig11_vertex_ground_state),
+        (12, dynamics.fig12_gravity_3d),
+        (13, couplings.fig13_closed_loops),
+        (14, residuals.fig14_loop_selection),
+        (15, residuals.fig15_w7_portal),
+        (16, residuals.fig16_w2_protection),
+        (17, scales.fig17_ladder),
+        (18, scales.fig18_residual_reduction),
+        (19, couplings.fig19_couplings_mz),
+        (20, couplings.fig20_desert),
+        (21, couplings.fig21_equal_shift),
+        (22, couplings.fig22_composite),
+        (23, residuals.fig23_w4_cone),
+        (24, residuals.fig24_w3_forcing),
+        (25, residuals.fig25_residual_attacks),
+    ]
 
 YOUNG = 1
 HYDROGEN = 2  # produced by experiments/phenomenology/V62_hydrogen_production
@@ -89,6 +91,7 @@ def setup_gpu(force_cpu=False):
             capture_output=True, text=True, timeout=10)
         free = int(out.stdout.strip())
         print(f"GPU {gpu} free: {free} MiB")
+        from cl10 import config as _config   # after the pin: the gate value
         gate = int(_config.CFG.backend.gpu_min_free_mib)
         if free < gate:
             print(f"GPU {gpu} has less than {gate} MiB free -> falling back to "
@@ -101,6 +104,7 @@ def setup_gpu(force_cpu=False):
 
 def run_v62():
     """Fig. 2: the production hydrogen experiment writes its own PNG + meta."""
+    from .style import exp
     script = exp("V62_hydrogen_production", "V62_hydrogen_production.py")
     rc = subprocess.call([sys.executable, script], cwd=ROOT)
     if rc != 0:
@@ -108,11 +112,11 @@ def run_v62():
 
 
 def main(only=None, cpu=False, fast=False):
-    from .style import OUT
     from tqdm import tqdm
-    setup_gpu(force_cpu=cpu)
+    setup_gpu(force_cpu=cpu)       # pins the card before any cl10 import
+    from .style import OUT         # pulls cl10.paths: after the pin
     print("Generating CL10 publication figures ->", OUT)
-    todo = [(num, fn) for num, fn in FIGURES
+    todo = [(num, fn) for num, fn in _figures()
             if (only is None or num in only) and not (fast and num == YOUNG)]
     hydrogen = (only is None or HYDROGEN in only) and not fast
     # the bar goes to stderr (run_figures.sh keeps it on the terminal): the
