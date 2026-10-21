@@ -4,52 +4,52 @@
   "property": "O_h (cubic-harmonic) content of the gauged bond-current vertex Gamma^A = I_8 (x) T^A_16 on the W9 node cone: form factor sum_A |<u(q*)|Gamma^A|u(q*+k n)>|^2 over 26 directions, 4 |k| values",
   "residual": null,
   "pass": true,
-  "status": "GAUGED VERTEX CONTENT ON THE CONE (4 rows). The on-node current expectation F(0) = 1.824092 (the cone mode carries Spin(10) charge). The form factor decomposes as A1g = 0.8946, Eg = 0.0185, T2g = 0.0420 at |k| = 0.4: the gauged vertex is NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked. Anisotropic part scales as k^0.36, the A1g shift as k^0.39 (V171 contact: alpha_aniso = 2, A1g = 1.0000). Casimir anchor 45 I_128 err 7.1e-15; 2-route (16-D vs 32-D module) dev 0.0e+00.",
+  "status": "GAUGED VERTEX CONTENT ON THE CONE (4 rows). The on-node current expectation F(0) = 1.820064 (the cone mode carries Spin(10) charge). The form factor decomposes as A1g = 0.8637, Eg = 0.0347, T2g = 0.0620 at |k| = 0.4: the gauged vertex is NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked. Anisotropic part scales as k^0.01, the A1g shift as k^0.04 (V171 contact: alpha_aniso = 2, A1g = 1.0000). Casimir anchor 45 I_128 err 7.1e-15; 2-route (16-D vs 32-D module) dev 4.4e-16.",
   "data": {
     "rows": [
       {
         "kappa": 0.05,
-        "F_mean": 1.6122182357120824,
-        "w_A1g": 0.964977867165441,
-        "w_Eg": 0.00821157314756312,
-        "w_T2g": 0.00789119486236822,
-        "aniso_max": 0.5608289125492754,
-        "iso_shift": 0.21187337419212926
+        "F_mean": 1.3405158209262884,
+        "w_A1g": 0.8454958634688697,
+        "w_Eg": 0.01635959558996943,
+        "w_T2g": 0.032218126522154215,
+        "aniso_max": 1.1564658661504639,
+        "iso_shift": 0.4795484696111749
       },
       {
         "kappa": 0.1,
-        "F_mean": 1.2650812363648827,
-        "w_A1g": 0.9099685439750175,
-        "w_Eg": 0.005216667234420649,
-        "w_T2g": 0.06118446765263245,
-        "aniso_max": 1.2647012652248453,
-        "iso_shift": 0.559010373539329
+        "F_mean": 1.354126061884148,
+        "w_A1g": 0.8814909542749844,
+        "w_Eg": 0.005945980188784622,
+        "w_T2g": 0.024709823302198505,
+        "aniso_max": 1.1592949794882044,
+        "iso_shift": 0.46593822865331536
       },
       {
         "kappa": 0.2,
-        "F_mean": 1.3597137095832796,
-        "w_A1g": 0.902319318988553,
-        "w_Eg": 0.005739026859016096,
-        "w_T2g": 0.08507627714449771,
-        "aniso_max": 1.3583897054179375,
-        "iso_shift": 0.46437790032093207
+        "F_mean": 1.2160611391122973,
+        "w_A1g": 0.875306812365361,
+        "w_Eg": 0.03845555468474363,
+        "w_T2g": 0.03915801212630773,
+        "aniso_max": 1.1807355664894585,
+        "iso_shift": 0.604003151425166
       },
       {
         "kappa": 0.4,
-        "F_mean": 1.2701819459277028,
-        "w_A1g": 0.8946381434017905,
-        "w_Eg": 0.0184580169239706,
-        "w_T2g": 0.04195967319582537,
-        "aniso_max": 1.2701819459277028,
-        "iso_shift": 0.5539096639765089
+        "F_mean": 1.3341564790549776,
+        "w_A1g": 0.8636853636816356,
+        "w_Eg": 0.03471522575659446,
+        "w_T2g": 0.062005747658027716,
+        "aniso_max": 1.1687781102274748,
+        "iso_shift": 0.48590781148248574
       }
     ],
-    "F0": 1.8240916099042117,
-    "alpha_aniso": 0.36413083956484976,
-    "alpha_iso": 0.3891769495048438,
+    "F0": 1.8200642905374633,
+    "alpha_aniso": 0.0072273334214936775,
+    "alpha_iso": 0.04314353275851035,
     "casimir_err": 7.105427357601002e-15,
-    "route_dev": 0.0,
-    "spin2_weight_k04": 0.060417690119795975
+    "route_dev": 4.440892098500626e-16,
+    "spin2_weight_k04": 0.09672097341462219
   },
-  "wall_time": 5.606
+  "wall_time": 5.255
 }
