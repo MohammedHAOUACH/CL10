@@ -52,11 +52,12 @@ import sys
 import os
 import json
 import time
+import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
 
-from cl10 import gravity
+from cl10 import cosmology3, gravity
 
 TOL = 1e-4  # the O(h^2) finite-difference tolerance of the 2-route check
 
@@ -71,6 +72,18 @@ def main():
     nl = r["nonlinear_gamma_gamma"]
     qca = r["nonlinear_qca"]
 
+    # the constant-curvature 2-sphere: the computed scalar must match 2/r^2
+    sphere_res = 0.0
+    for rr in (1.0, 1.5, 3.0):
+        for th in (0.6, 1.3, 2.2):
+            xx = np.array([0.0, 0.0, th, 0.9])
+            mf = lambda z, rr=rr: gravity.metric_2sphere(rr, z)
+            Ric = gravity.ricci_4d(gravity.riemann_4d(mf, xx))
+            scal = gravity.ricci_scalar_4d(Ric, np.linalg.inv(mf(xx)))
+            sphere_res = max(sphere_res, abs(scal - 2.0 / rr ** 2))
+    # the exact kink u = sqrt(2) sech x of the cubic completion (Section 11.4)
+    dk = cosmology3.dark_matter()
+
     ok = bool(
         r["ok"]
         and r2["ok"]
@@ -78,6 +91,8 @@ def main():
         and fl["ok"]
         and nl["ok"]
         and qca["unitary_ok"] and qca["nonlinear_ok"] and qca["causal_ok"]
+        and sphere_res < 1e-5
+        and dk["stable_massive_non_dispersive_neutral"]
     )
 
     verdict = {
@@ -86,7 +101,7 @@ def main():
         "property": "C2",
         "residual": True,   # the full 4-D NR + the quantum completion: the O9 named residual
         "pass": ok,
-        "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
+        "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics_the_two_sphere_scalar_the_kink_residual",
         "tol": TOL,
         "data": {
             "backend": r["backend"],
@@ -103,6 +118,10 @@ def main():
             "nonlinear_qca_unitary_ok": qca["unitary_ok"],
             "nonlinear_qca_nonlinear_ok": qca["nonlinear_ok"],
             "nonlinear_qca_causal_ok": qca["causal_ok"],
+            "two_sphere_scalar_residual": sphere_res,
+            "kink_ode_residual": dk["ode_residual"],
+            "kink_energy_per_area": dk["mass_energy_E"],
+            "kink_neutral_stable_non_dispersive": dk["stable_massive_non_dispersive_neutral"],
             "residual": r["residual"],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -120,6 +139,8 @@ def main():
     print(f"  [flat]  R = {fl['ricci_scalar']:.2e} (exact vacuum)")
     print(f"  [non-linear] Gamma*Gamma:  flat = {nl['gamma_gamma_flat']:.2e} (=0),  de Sitter = {nl['gamma_gamma_de_sitter']:.2e} (>0)")
     print(f"  [non-linear QCA]  norm rel err = {qca['norm_rel_err']:.2e} (unitary/UV-finite);  superpose err = {qca['superpose_err']:.2e} (non-linear);  front speed = {qca['front_speed']} (causal)")
+    print(f"  [2-sphere]  max |R - 2/r^2| = {sphere_res:.2e}  (r = 1.0, 1.5, 3.0)")
+    print(f"  [kink]  u = sqrt(2) sech x:  4th-order ODE residual = {dk['ode_residual']:.2e};  E/area = {dk['mass_energy_E']:.4f};  neutral, localized, stable")
     print(f"  named residual (O9):  {r['residual']}")
     print(f"  VERDICT:  {'PASS (the 4-D non-linear gravity is complete: computed curvature, 2-route check, black hole recovered, non-linear QCA)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v50_complete_gravity.json"))

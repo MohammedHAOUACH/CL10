@@ -4,7 +4,7 @@
   "property": "C2",
   "residual": true,
   "pass": true,
-  "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics",
+  "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics_the_two_sphere_scalar_the_kink_residual",
   "tol": 0.0001,
   "data": {
     "backend": "cupy",
@@ -21,7 +21,11 @@
     "nonlinear_qca_unitary_ok": true,
     "nonlinear_qca_nonlinear_ok": true,
     "nonlinear_qca_causal_ok": true,
+    "two_sphere_scalar_residual": 7.17136346350955e-06,
+    "kink_ode_residual": 4.766645134157699e-10,
+    "kink_energy_per_area": 1.3333305333439112,
+    "kink_neutral_stable_non_dispersive": true,
     "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
   },
-  "wall_time": 8.472
+  "wall_time": 8.117
 }
