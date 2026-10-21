@@ -37,7 +37,8 @@ V68 structure, from a named automaton background.
 
 **Physics verdict (computed).**  The pattern
 m_nu = S17 {1/(1+r), 1/(1-r/2), 1/(1-r/2)}, r = kappa/w0, exceeds
-Sum m_nu < 0.12 eV for every r < 2.  At r = 2 the two zero heavy
+Sum m_nu < 0.0642 eV (nv.SUM_MNU_MAX_EV, DESI DR2) for every r < 2.  At r
+= 2 the two zero heavy
 eigenvalues leave two gapless node combinations per triangle for EVERY
 weight - gapless colored doublers - UNLESS the Dirac matrix is also
 democratic, decoupling the antisymmetric combinations: then

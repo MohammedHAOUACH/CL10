@@ -130,17 +130,22 @@ for num, entry in entries:
 # (generic titles, translations, or multi-paper entries).
 MANUAL_DOIS = {
     5: "10.1007/s11467-016-0616-z",
-    13: "10.1103/PhysRevD.110.030001",
-    14: "10.1051/0004-6361/201833910",
-    15: "10.1103/PhysRevD.102.112011",
-    16: "10.1126/science.adq9592",
-    29: "10.1016/0550-3213(85)90418-3",
-    49: "10.1016/0550-3213(83)90610-7",
-    52: "10.1103/PhysRevD.90.072005",
-    53: "10.1103/4dyc-z8zf",
+    15: "10.1103/PhysRevD.110.030001",
+    16: "10.1051/0004-6361/201833910",
+    17: "10.1103/PhysRevD.102.112011",
+    18: "10.1126/science.adq9592",
+    29: "10.1016/S0370-2693(02)01336-9",
+    30: "10.1016/0550-3213(85)90418-3",
+    50: "10.1016/0550-3213(83)90610-7",
+    53: "10.1103/PhysRevD.90.072005",
+    54: "10.1103/4dyc-z8zf",
+    59: "10.1103/RevModPhys.83.11",
+    57: "10.1512/iumj.1968.17.17004",
+    60: "10.3847/2041-8213/aa920c",
+    61: "10.1103/w9pk-xsk7",
 }
 for _n, _d in MANUAL_DOIS.items():
-    results.setdefault(_n, _d)
+    results[str(_n)] = _d
 
 json.dump(results, open(OUT, "w"), indent=2)
 print(f"\nwrote {OUT}: {len(results)} verified DOIs of {len(entries)}")

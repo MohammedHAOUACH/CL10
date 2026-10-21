@@ -21,10 +21,12 @@ $\sim2\\times10^{16}$, **below** the Planck scale).
 
 **The QCA UV completion.**  The lattice UV cutoff is the Planck scale.  The SM
 $\mathrm{U}(1)$ (the GUT-normalised $g_1$, $b_1=41/10$, $\alpha_1(M_Z)=0.0169$)
-has a **1-loop** **Landau pole** at $\sim1.4\\times10^{39}$ GeV, far
-**above** the QCA cutoff $M_P$ — so in the QCA the running is **UV-bounded**
-(the coupling is **bounded** on the lattice, no Landau pole below the Planck
-scale).  This is the **0-parameter UV completion** of the theory.
+has a **1-loop** **Landau pole** at $\sim2.2\\times10^{41}$ GeV, far
+**above** the QCA cutoff $M_P$ — so the 1-loop running is **UV-bounded**.  The
+**2-loop** running from the same measured input has its pole at
+$\sim2.5\\times10^{12}$ GeV, **below** the cutoff: perturbative QFT is not
+UV-bounded, while the automaton step $U^{2^p}$ stays unitary and bounded at
+every coarse-graining level (Section 7.4 and Fig. 4).
 """
 
 import numpy as np

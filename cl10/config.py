@@ -100,7 +100,7 @@ _DEFAULTS = {
     "dm": {"f_n_nucleon": 3.0e-4, "sigma_fiducial_cm3s": 3.0e-26,
            "sigma_relic_target_cm3s": 2.2e-26},
     "neutrino": {"m_atm_ev": 0.0501, "m_sol_ev": 0.0086,
-                 "sum_mnu_max_ev": 0.12,
+                 "sum_mnu_max_ev": 0.0642,   # DESI DR2 BAO + Planck PR4 + CMB lensing, 95% CL (LambdaCDM)
                  "obs_sin2_theta12": 0.307, "obs_sin2_theta23": 0.579,
                  "obs_sin2_theta13": 0.022},
     "ckm": {"obs_sin2_theta12": 0.050, "obs_sin2_theta23": 0.949,

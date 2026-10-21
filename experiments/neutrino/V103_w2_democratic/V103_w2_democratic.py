@@ -22,7 +22,7 @@ J M^+ J = 3 J / (2 w0 + 2 k) for EVERY r, hence
 - anchoring the r = 2 value to the V68/V76 ladder S17/3 (as V90 does)
   gives m_3(r) = S17 / (1 + r) - finite everywhere, no 1/|2 - r|
   divergence;
-- the cosmological window sum m_nu < 0.12 eV is r > S17/0.12 - 1:
+- the cosmological window sum m_nu < 0.0642 eV is r > S17/0.0642 - 1:
   a FINITE window, not a measure-zero point.
 
 **Checks (computed).**
@@ -62,7 +62,7 @@ from cl10 import config as _cfg  # noqa: E402
 EV_PER_GEV = float(_cfg.CFG.units.ev_per_gev)
 S17 = nv.loop_ladder(17) * EV_PER_GEV   # eV, the neutrino ladder S(17) (V57)
 M_ATM = nv.M_ATM_EV              # eV, sqrt(|dm2_3l|), NuFIT 6.0 (NO)
-COSMO = nv.SUM_MNU_MAX_EV        # eV, sum m_nu < 0.12 (Planck+BAO)
+COSMO = nv.SUM_MNU_MAX_EV        # eV, sum m_nu < 0.0642 (DESI DR2 + Planck PR4 + lensing)
 
 
 def seesaw(w0, k, m0=1.0, c=1.0):

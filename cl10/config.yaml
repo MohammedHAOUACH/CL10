@@ -176,10 +176,13 @@ dm:
                                     # in the dark-U(1) window scan (V112)
 
 neutrino:
-  # the measured neutrino inputs (NuFIT 6.0, normal ordering; Planck+BAO)
+  # the measured neutrino inputs (NuFIT 6.0, normal ordering) and the
+  # cosmological ceiling on Sum m_nu: DESI DR2 BAO + Planck PR4 + CMB lensing,
+  # LambdaCDM with three degenerate states, 95% CL (the F3 test). In w0waCDM the
+  # same data gives 0.163 eV; the Feldman-Cousins boundary limit is 0.053 eV.
   m_atm_ev: 0.0501          # sqrt(|dm2_3l|)
   m_sol_ev: 0.0086          # sqrt(dm2_21)
-  sum_mnu_max_ev: 0.12      # the cosmological bound on Sum m_nu (the F3 test)
+  sum_mnu_max_ev: 0.0642    # the DESI DR2 ceiling on Sum m_nu (the F3 test)
   # the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0,
   # normal ordering; the second octant for theta23, the value the comparisons
   # use — the octant is unresolved, Section 13.5)

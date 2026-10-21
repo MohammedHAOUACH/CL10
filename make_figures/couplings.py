@@ -51,7 +51,7 @@ def fig4_uv_2loop():
     """The 2-loop running of the U(1) coupling: the perturbative QFT reaches a
     Landau pole below M_P, the 1-loop running stays bounded, and the unitary QCA
     step remains bounded at every order."""
-    from cl10 import unification as u, u10pred as tp
+    from cl10 import unification as u, u10pred as tp, uvrunning as uv
 
     M_Z, M_P = u.M_Z, tp.M_PLANCK
     b1, b2 = u.B_SM[0], u.B2_SM[0]
@@ -59,8 +59,7 @@ def fig4_uv_2loop():
     c = 1.0 / a1z
     Bcoef = b1 / (2.0 * np.pi)
     Acoef = b2 / (b1 ** 2 * 2.0 * np.pi)
-    t2 = (-Bcoef + np.sqrt(Bcoef ** 2 + 4.0 * Acoef * c)) / (2.0 * Acoef)
-    pole2 = M_Z * float(np.exp(t2))
+    pole2 = uv.two_loop_pole_u1()   # the library value, not a local copy
 
     t = np.linspace(0.0, np.log(3.0e20 / M_Z), 400)
     M = M_Z * np.exp(t)
@@ -388,20 +387,26 @@ def fig13_closed_loops():
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.5))
 
     ev = sorted(n for n in Fn if n % 2 == 0)
-    axA.semilogy(ev, [Fn[n] for n in ev], "o-", color=C_ZERO, lw=1.8, ms=6,
-                 label=r"even lengths: the root clock $\pi/4$")
+    fourk = [n for n in ev if n % 4 == 0]
+    fourk2 = [n for n in ev if n % 4]
+    axA.semilogy(fourk, [Fn[n] for n in fourk], "o-", color=C_ZERO, lw=1.8,
+                 ms=6, label=r"$n = 4k$: the measured branch (removable)")
+    axA.semilogy(fourk2, [Fn[n] for n in fourk2], "o", mfc="none", mew=1.4,
+                 color="0.55", ms=7,
+                 label=r"$n = 4k+2$: $0/0$, no limit at the root clock")
     odd = [n for n in sorted(Fn) if n % 2]
     axA.semilogy(odd, [1e-16] * len(odd), "x", color=C_ROOT, ms=7,
-                 label=r"odd lengths: $F_n = 0$ below $4\times10^{-15}$")
+                 label=r"odd lengths: $F_n = 0$ exactly (selection rule)")
     axA.axhline(loop, color="0.35", ls=":", lw=1.5)
     axA.text(2.1, loop * 1.4, rf"$1/(16\pi) = {loop:.4f}$", fontsize=11,
              color="0.3")
     axA.set_xlabel("closed-loop length $n$ (hops on $n$ distinct links)")
     axA.set_ylabel(r"Cartan-content ratio $F_n = \alpha((MG)^n)/\alpha(G^n)$")
     axA.set_ylim(1e-17, 200)
-    axA.legend(fontsize=10.5, loc="center right")
-    axA.set_title("(a)  the even lengths contribute, the odd cancel:\n"
-                  rf"     $F_2 = {Fn[2]:.1f}$, $F_{{10}} = {Fn[10]:.1f}$; the crossing is beyond",
+    axA.legend(fontsize=9.5, loc="center right")
+    axA.set_title("(a)  the clock filter splits the even lengths: the $4k$ class\n"
+                  rf"     carries the ladder ($F_4 = {Fn[4]:.2f}$, $F_{{12}} ="
+                  rf" {Fn[12]:.2f}$); the $4k + 2$ points are floor ratios (V209)",
                   fontsize=11.5)
 
     labels = [r"$G$", r"$MG$" + "\n(root clock)",

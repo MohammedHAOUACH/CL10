@@ -148,23 +148,32 @@ def main():
     pin4, pin2 = closed["pi/4"], closed["pi/2"]
     checks.append({
         "name": f"T1 closure-class readings of the hierarchy coefficient"
-                f" (self-consistent, step = phase): pi/4 crosses at"
+                f" (self-consistent, step = phase, float64): pi/4 crosses at"
                 f" n* = {pin4['n_star']} deficit {pin4['deficit']:.6f}"
                 f" coef {pin4['coef']:.4f} ({pin4['miss_pct']:+.2f}%);"
-                f" pi/2 (the V134 degenerate branch: no mass generation)"
-                f" crosses at n* = {pin2['n_star']} deficit"
-                f" {pin2['deficit']:.6f} coef {pin2['coef']:.4f}"
-                f" ({pin2['miss_pct']:+.2f}%); 3pi/4 coef"
-                f" {closed['3pi/4']['coef']:.4f}. The closest reading over"
-                f" the WHOLE closure class (V131 theorem: pi/2 and pi/4"
-                f" only) misses the observed {COEF_OBS:.4f} by"
-                f" {abs(pin2['miss_pct']):.2f}%: the closure axiom cannot"
-                f" reproduce the coefficient",
+                f" 3pi/4 coef {closed['3pi/4']['coef']:.4f}"
+                f" ({closed['3pi/4']['miss_pct']:+.2f}%); pi/2 (the V134"
+                f" degenerate branch: no mass generation) crosses at"
+                f" n* = {pin2['n_star']} deficit {pin2['deficit']:.6f} coef"
+                f" {pin2['coef']:.4f} ({pin2['miss_pct']:+.2f}%) - a"
+                f" floor-conditioned number: n* = 102 is a 4k+2 length and the"
+                f" ladder there falls through 1/(16 pi) with a slope of ~3% of"
+                f" the coefficient per rung, so one rung of floor noise moves"
+                f" the reading by decades (V209: at the closure class every"
+                f" even-n ratio is 0/0 in exact arithmetic, and the 4k+2 class"
+                f" has no limit). On the two members whose crossing is on the"
+                f" n = 4k class the miss is"
+                f" {min(pin4['miss_pct'], closed['3pi/4']['miss_pct']):+.2f}%:"
+                f" the closure axiom cannot reproduce the coefficient",
         "pass": bool(pin4["n_star"] == 208
                      and abs(pin4["deficit"] - 0.989585) < 1e-4
                      and pin2["n_star"] == 102
                      and abs(pin2["deficit"] - 0.973758) < 1e-4
-                     and min(abs(c["miss_pct"]) for c in closed.values()) > 10.0)})
+                     and closed["3pi/4"]["n_star"] == 208
+                     and all(c["n_star"] % 4 == 0
+                             for k, c in closed.items() if k != "pi/2")
+                     and min(abs(c["miss_pct"]) for c in closed.values())
+                     > 10.0)})
     data["closure_class"] = closed
 
     # ---- T2 the data-clock inversion -----------------------------------
@@ -282,11 +291,19 @@ def main():
 
     status = (f"CLOCK TENSION, MEASURED (O8/O4, zero free parameters). "
               f"(i) The closure class ({', '.join(closed)}) reads the "
-              f"hierarchy coefficient as {pin4['coef']:.4f} (physical "
-              f"branch, {pin4['miss_pct']:+.1f}%) and {pin2['coef']:.4f} "
-              f"(degenerate pi/2 branch, {pin2['miss_pct']:+.1f}%): the "
-              f"closest reading over the whole closed set misses by "
-              f"{abs(pin2['miss_pct']):.1f}% - the closure axiom cannot "
+              f"hierarchy coefficient as {pin4['coef']:.4f} (pi/4) and "
+              f"{closed['3pi/4']['coef']:.4f} (3pi/4) - both crossings on the "
+              f"n = 4k class, and certified by continuity at 50 digits to "
+              f"2.7096 / 2.7113 (V209 T5) - i.e. {pin4['miss_pct']:+.1f}% and "
+              f"{closed['3pi/4']['miss_pct']:+.1f}% over the observed "
+              f"{COEF_OBS:.4f}. The pi/2 reading {pin2['coef']:.4f} "
+              f"({pin2['miss_pct']:+.1f}%) is floor-conditioned: n* = 102 is a "
+              f"4k+2 length, whose ratio has no limit at the closure angle "
+              f"(V209), and the ladder there falls through 1/(16 pi) at ~3% of "
+              f"the coefficient per rung - it is not a stable closure-class "
+              f"number. The closest STABLE reading misses by "
+              f"{min(pin4['miss_pct'], closed['3pi/4']['miss_pct']):.1f}% - the "
+              f"closure axiom cannot "
               f"produce the coefficient. (ii) The observed value is read by "
               f"the SAME functional at rung 10 at g_obs = {g_obs:.7f}, the "
               f"rung-10 rational clock 1/5 to relative "

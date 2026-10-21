@@ -617,7 +617,7 @@ $1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
 | `cl10.dm_wimp.LZ_BOUND` | `1.5e-47` cm$^2$ | the LZ spin-independent direct-detection limit at ~118 GeV |
 | `cl10.dm_wimp.F_N`, `SIGMA_FIDUCIAL` | `3.0e-4`, `3.0e-26` cm$^3$/s | the nucleon Higgs coupling (named hadronic input); the thermal-relic reference |
 | `cl10.cosmology.G_STAR`, `HUBBLE_COEFF`, `S0_CM3`, `RHO_C_OVER_H2` | `106.75`, `1.66`, `2891.2` cm$^{-3}$, `1.0537e-5` GeV cm$^{-3}$ | the standard-cosmology inputs of the relic / washout checks |
-| `cl10.neutrino.M_ATM_EV`, `M_SOL_EV`, `SUM_MNU_MAX_EV` | `0.0501`, `0.0086`, `0.12` eV | the measured neutrino splittings (NuFIT 6.0, NO) and the cosmological $\sum m_\nu$ bound (the F3 test) |
+| `cl10.neutrino.M_ATM_EV`, `M_SOL_EV`, `SUM_MNU_MAX_EV` | `0.0501`, `0.0086`, `0.0642` eV | the measured neutrino splittings (NuFIT 6.0, NO) and the cosmological $\sum m_\nu$ ceiling — DESI DR2 BAO + Planck PR4 + CMB lensing, $\Lambda$CDM, 95% CL (the F3 test; the same data gives `0.163` eV in $w_0w_a$CDM, and the Feldman–Cousins boundary limit `0.053` eV) |
 | `cl10.dm_wimp.DD_BOUND`, `SIGMA_RELIC_TARGET` | `2.0e-47` cm$^2$, `2.2e-26` cm$^3$/s | the direct-detection limit and the relic-closing $\langle\sigma v\rangle$ of the dark-$U(1)$ portal scan (V112) |
 | `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
 | `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |

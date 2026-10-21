@@ -240,7 +240,10 @@ def main():
     print("  checks:")
     for name, okk in v["checks"].items():
         print(f"    [{'PASS' if okk else 'FAIL'}]  {name}")
-    print(f"\n  VERDICT:  {'PASS (both scales sit on the ladder; the ladder value 0.146 eV is excluded by sum m_nu < 0.12 eV (F3) - the open problem O2)' if v['ok'] else 'FAIL'}")
+    ladder_note = (f"PASS (both scales sit on the ladder; the ladder value "
+                   f"0.146 eV is excluded by sum m_nu < {SUM_MNU_MAX_EV} eV "
+                   f"(F3 - the open problem O2)" if v["ok"] else "FAIL")
+    print(f"\n  VERDICT:  {ladder_note}")
     print("  residual:  the 2-digit coefficient (2.9x), the loop integer n_2step = 3 (fitted), and the excluded ladder value")
     sys.exit(0 if v["ok"] else 1)
 

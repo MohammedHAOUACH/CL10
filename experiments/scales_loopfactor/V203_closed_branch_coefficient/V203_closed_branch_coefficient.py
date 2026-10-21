@@ -172,6 +172,31 @@ def main():
         "F_even_2_260": {n: float(F4[n]) for n in range(2, 261, 2)},
         "F_10_hybrid_eta_law": round(float(Fh[10]), 6),
     }
+    checks.append({
+        "name": f"T1b the even ladder splits into the two period-4 classes of"
+                f" the clock filter, and every crossing of 1/(16 pi) in n <= 260"
+                f" sits on the n = 4k class (n* = {first} = 4 x {first // 4};"
+                f" {len(crossings)} crossings, all 4k:"
+                f" {all(n % 4 == 0 for n in crossings)}). The n = 4k+2 entries"
+                f" (F_2 = {F4[2]:.1f}, F_6 = {F4[6]:.1f}, F_10 ="
+                f" {F4[10]:.1f}, F_206 = {F4[206]:.3f}) are ratios of two"
+                f" quantities that both vanish exactly at the closure angle"
+                f" (V209, exact integer arithmetic) and have NO finite"
+                f" continuum limit: approaching pi/4 the 4k+2 ratio diverges"
+                f" while the 4k ratio tends to the value quoted here (V209 T4)."
+                f" Only the 4k class, and with it the n* = {first} crossing and"
+                f" the coefficient built on it, is a measurement",
+        "pass": bool(first % 4 == 0 and F4[first] < LOOP
+                     and all(n % 4 == 0 for n in crossings))})
+    data["closed"]["crossing_on_4k_class"] = bool(first % 4 == 0)
+    data["closed"]["all_crossings_on_4k_class"] = bool(
+        all(n % 4 == 0 for n in crossings))
+    data["closed"]["class_note"] = (
+        "the n = 4k+2 entries of F_even_2_260 are floor ratios of an exactly"
+        " vanishing numerator over an exactly vanishing denominator (V209):"
+        " they are reported for the shape of the ladder, not as measured"
+        " numbers; the 4k entries (n* = 208 included) are the g -> pi/4 limits")
+
 
     # ---- 3. channels at pi/4: exact gaplessness, pinning, zero band ---
     nodes = [tuple(float(v) for v in q) for q in SC.M_POINTS]

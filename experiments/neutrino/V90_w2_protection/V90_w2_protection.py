@@ -13,7 +13,7 @@ point: (i) does any symmetry of the junction enlarge the stabilizer
 of r = 2 beyond the family of matrices c_s(2w0 I + kappa'(J - I))?
 (ii) does any quantization condition (single-valuedness of the
 Wilson factor on the compact group) fix r? (iii) how wide is the
-cosmological window |r - 2| < delta with sum m_nu < 0.12 eV?
+cosmological window |r - 2| < delta with sum m_nu < 0.0642 eV?
 
 **Checks (computed).**
 1. Regression: eigenvalues of M match c_s{2w0+2k, 2w0-k, 2w0-k} for
@@ -29,7 +29,7 @@ cosmological window |r - 2| < delta with sum m_nu < 0.12 eV?
    that the RATIO r is a free continuous parameter.
 4. Window: scan r in [1.0, 3.0] step 1e-4 with the V76 mass formula
    (m = S17/|1+r|, 2 S17/|2-r| twice; at r = 2 exactly: S17/3, 0, 0):
-   count the r with sum m_nu < 0.12 eV and report the window width.
+   count the r with sum m_nu < 0.0642 eV and report the window width.
 
 **Verdict (computed).**  Whether r = 2 is protected (commutant larger
 than {I, J}), quantized (period fixing the ratio), or has a finite
@@ -217,7 +217,7 @@ def main():
         f"and the ratio r = kappa/w0 is a free continuous parameter. "
         f"The cosmological window is EXACTLY the point: over r in "
         f"[1, 3] at step 1e-4, {checks['window_count']} value passes "
-        f"sum m_nu < 0.12 eV (r = 2: {checks['sum_at_r2_eV']} eV; at "
+        f"sum m_nu < {SUM_MNU_MAX} eV (r = 2: {checks['sum_at_r2_eV']} eV; at "
         f"r = 2.0001 the sum is {checks['sum_at_r_2p0001_eV']} eV - "
         f"the would-be massless states go heavy as 1/|2 - r|). O2: "
         f"the 1/3 candidate requires r = 2 EXACTLY, with no "

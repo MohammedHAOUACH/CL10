@@ -20,7 +20,8 @@ here, so that no PASS can ever be printed for them:
 * the seesaw with ``m_D = v/2`` and ``M_R = M_P``.  The ladder of Section 12.3
   puts ``m_D = M_P (1/16pi)^10 = 118`` GeV and
   ``M_N = M_P (1/16pi)^3 = 9.6e13`` GeV, and the bare ladder value 0.146 eV is
-  already excluded by ``sum m_nu < 0.12`` eV (falsifier F3).
+  already excluded by ``sum m_nu < 0.0642`` eV (DESI DR2 BAO + Planck PR4 + CMB
+  lensing, LambdaCDM at 95% CL; falsifier F3).
 """
 
 from . import config as _config
@@ -112,7 +113,8 @@ def neutrino_ladder():
         "m_nu_eV_ladder": m_nu_eV,
         "m_nu_eV_third": m_nu_eV / 3.0,          # the 1/3 candidate (sin^2 theta_12 = 1/3)
         "sum_m_nu_candidate_eV": m_nu_eV / 3.0,  # normal ordering, two massless states
-        "status_ladder": "EXCLUDED by sum m_nu < 0.12 eV (F3)",
+        "status_ladder": (f"EXCLUDED by sum m_nu < "
+                          f"{_config.CFG.neutrino.sum_mnu_max_ev} eV (F3, DESI DR2)"),
         "status_third": "candidate, not a result: the junction amplitude is free inside a finite window (O2)",
         "provenance_exponent": "fitted (n_2step = 3); the structure 2*10-3 = 17 is exact",
     }
@@ -210,7 +212,7 @@ def main():
           f"[fitted scale; the carrier is OPEN (O7)]")
     print(f"  seesaw    M_N:                      {r['values']['M_N_GeV']:.2e} GeV   [fitted n = 3]")
     print(f"  neutrino  ladder:                   {r['values']['m_nu_ladder_eV']:.3f} eV   "
-          f"[EXCLUDED by sum m_nu < 0.12 eV (F3)]")
+          f"[EXCLUDED by sum m_nu < {_config.CFG.neutrino.sum_mnu_max_ev} eV (F3)]")
     print(f"  neutrino  1/3 candidate:            {r['values']['m_nu_third_eV']:.4f} eV   "
           f"[candidate, structure protected (O2)]")
     print(f"  hierarchy 3 F_10^10:                {r['values']['hierarchy_coefficient']:.4f} x (1/16pi)^10 "

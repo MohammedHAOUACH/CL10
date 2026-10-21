@@ -157,6 +157,9 @@ def fig14_loop_selection():
         cl = json.load(f)["data"]["closed"]
     Fn = {int(k): v for k, v in cl["F_n_2_30"].items()}
     Fev = {int(k): v for k, v in cl["F_even_2_260"].items()}
+    with open(exp("V209_root_clock_degeneracy", "results",
+                  "v209_root_clock_degeneracy.json")) as f:
+        cert = json.load(f)["data"]["certified"]["pi/4@1e-8"]
     loop = float(_config.CFG.physics.loop)
     nstar = cl["first_crossing_n"]
 
@@ -164,9 +167,14 @@ def fig14_loop_selection():
                                    gridspec_kw={"width_ratios": [1.3, 1.0]})
 
     ev = sorted(n for n in Fn if n % 2 == 0)
+    fourk = [n for n in ev if n % 4 == 0]
+    fourk2 = [n for n in ev if n % 4]
     odd = sorted(n for n in Fn if n % 2)
-    axA.semilogy(ev, [Fn[n] for n in ev], "o-", color=C_GUT, ms=5, lw=1.6,
-                 label=r"even lengths (root clock $\pi/4$)")
+    axA.semilogy(fourk, [Fn[n] for n in fourk], "o-", color=C_GUT, ms=5, lw=1.6,
+                 label=r"$n = 4k$: measured (removable at the root clock)")
+    axA.semilogy(fourk2, [Fn[n] for n in fourk2], "o", mfc="none", mew=1.4,
+                 color="0.55", ms=6,
+                 label=r"$n = 4k+2$: $0/0$ at the root clock, no limit (V209)")
     axA.semilogy(odd, [1e-16] * len(odd), "x", color=C_ROOT, ms=7,
                  label=r"odd lengths: identically zero (selection rule)")
     axA.axhline(loop, color=C_ZERO, ls="--", lw=1.8,
@@ -174,17 +182,24 @@ def fig14_loop_selection():
     axA.set_xlabel("closed-loop length $n$")
     axA.set_ylabel(r"Cartan-content ratio $F_n$")
     axA.set_ylim(1e-17, 200)
-    axA.set_title("(a)  the exact odd-$n$ selection rule and the even ratios\n"
-                  "     at the root clock, measured to $n = 30$",
+    axA.set_title("(a)  the exact odd-$n$ rule and the two period-4 classes\n"
+                  "     of even lengths at the root clock, measured to $n = 30$",
                   fontsize=12.5)
-    axA.legend(loc="center left", fontsize=9.5, framealpha=0.95)
+    axA.legend(loc="center left", fontsize=9, framealpha=0.95)
 
     nn = sorted(Fev)
-    axB.loglog(nn, [Fev[n] for n in nn], "-", color=C_GUT, lw=1.5)
+    kf = [n for n in nn if n % 4 == 0]
+    k2 = [n for n in nn if n % 4]
+    axB.loglog(kf, [Fev[n] for n in kf], "-", color=C_GUT, lw=1.5,
+               label=r"$n = 4k$: the ladder branch")
+    axB.loglog(k2, [Fev[n] for n in k2], "", marker="o", mfc="none", mew=1.1,
+               ms=3.5, color="0.6",
+               label=r"$n = 4k+2$: floor ratios, no limit")
     axB.axhline(loop, color=C_ZERO, ls="--", lw=1.8)
     axB.plot([nstar], [Fev[nstar]], "*", ms=18, color=C_ZERO, zorder=6)
-    axB.annotate(f"first crossing\n$n^* = {nstar}$, $F = {Fev[nstar]:.5f}$\n"
-                 f"deficit $\\times{cl['deficit_vs_loop']:.4f}$"
+    axB.annotate(f"first crossing\n$n^* = {nstar}$, $F = {Fev[nstar]:.6f}$\n"
+                 f"deficit $\\times{cl['deficit_vs_loop']:.4f}$, certified"
+                 f"\n$F = {cert['F_208']:.6f}$ (V209)"
                  if "deficit_vs_loop" in cl else
                  f"first crossing\n$n^* = {nstar}$",
                  xy=(nstar, Fev[nstar]), xytext=(40, 0.006), fontsize=10.5,
@@ -192,24 +207,28 @@ def fig14_loop_selection():
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
     axB.set_xlabel("closed-loop length $n$ (even lengths, log scale)")
     axB.set_ylabel(r"even-length ratio $F_n$")
-    axB.set_title("(b)  the even ratios to the crossing:\n"
+    axB.set_title("(b)  the $4k$ ratios to the crossing:\n"
                   rf"     the ladder length at the root clock IS $n^* = {nstar}$",
                   fontsize=12.5)
+    axB.legend(loc="lower left", fontsize=9.5, framealpha=0.95)
 
     rho4 = cl["rho_MG"] ** 4
     fig.text(0.03, 0.015,
-             f"odd lengths cancel identically (below $4\\times10^{{-15}}$, "
-             f"exact selection rule of the root clock); the even ratios stay "
-             f"above $1/(16\\pi)$ until $n^* = {nstar}$,\n"
-             f"where the closed-loop suppression first crosses the loop "
-             f"factor - rung 208 is the ladder length, and the "
-             f"$n = 10$ reading of the reference\n"
-             f"angle is a compensation, not the crossing. The zigzag is "
-             f"structure: the even lengths fall on the two period-4 branches "
-             f"$n = 4k$ and $n = 4k+2$ (clock phases of order 4),\n"
-             f"each geometric at $\\rho^4 = {rho4:.4f}$ per $+4$ links and "
-             f"$33\\times$ apart - the $4k$ branch is the one that crosses "
-             f"at $208$, the $4k+2$ branch is still $33\\times$ above.",
+             f"the even lengths fall on the two period-4 classes of the clock "
+             f"filter, and the two behave differently at the root clock. On "
+             f"$n = 4k$ the ratio is geometric,\n"
+             f"each $+4$ links multiplying it by $\\rho^4 = {rho4:.4f}$ "
+             f"($F_4 \\cdot (\\rho^4)^{{51}} = {Fev[4] * rho4 ** 51:.6f}$ against "
+             f"the measured $F_{{{nstar}}} = {Fev[nstar]:.6f}$), and it\n"
+             f"crosses $1/(16\\pi)$ at $n^* = {nstar}$ - rung 208 is the ladder "
+             f"length, and the $n = 10$ reading of the reference angle is a "
+             f"compensation, not the crossing.\n"
+             f"On $n = 4k+2$ both Cartan norms vanish identically at the root "
+             f"clock (exact integer arithmetic) and the ratio has no limit "
+             f"there: it diverges with poles\n"
+             f"accumulating at the closure angle (V209). The open markers are "
+             f"floor ratios - the old \u201c$33\\times$ branch separation\u201d "
+             f"is the two classes' distance in a degenerate limit.",
              fontsize=10.5, color="0.25", va="bottom")
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.31)
     save(fig, "fig14_loop_selection.png")

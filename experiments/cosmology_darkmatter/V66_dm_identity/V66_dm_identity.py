@@ -53,6 +53,7 @@ from cl10 import supercell as SC
 from cl10 import sm_qca
 from cl10 import unification as UN
 from cl10 import dm_wimp as dw
+from cl10 import config as _config
 
 M_P = UN.M_P
 
@@ -176,7 +177,8 @@ def main():
     cand = [
         {"name": "nu (ladder)", "mass_GeV": 0.146, "neutral": True,
          "stable": "yes (lepton number)",
-         "verdict": "EXCLUDED: hot, sum m_nu < 0.12 eV"},
+         "verdict": f"EXCLUDED: hot, sum m_nu < "
+                    f"{_config.CFG.neutrino.sum_mnu_max_ev} eV (DESI DR2)"},
         {"name": "desert fragments (V65)",
          "mass_GeV": min(Ms.values()), "neutral": False,
          "stable": "no (chiral, decays)",

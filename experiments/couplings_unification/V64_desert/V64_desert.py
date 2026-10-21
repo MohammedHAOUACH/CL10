@@ -175,6 +175,13 @@ def main():
     # [5] the old failure, restated for the record
     old = UN.running_down()
 
+    # [6] the abandoned convention M_GUT = M_P and the GUT scale that the
+    # Super-Kamiokande bound excludes, both from the same tau_p(M_X) estimate
+    tau_mplanck = tau_p(u10pred.M_PLANCK, A10)
+    SK_BOUND_YR = 2.4e34        # tau_p/B(p -> e+ pi0), Super-K (paper ref 17)
+    m_excluded = (SK_BOUND_YR * u10pred.S_TO_YR / u10pred.GEV_TO_S
+                  * A10 ** 2 * u10pred.M_P_ROBSON ** 5) ** 0.25
+
     ok = sel is not None
     verdict = {
         "experiment": "V64_desert",
@@ -182,7 +189,8 @@ def main():
         "status": ("O4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the "
                    "root value, not refitted), CL10-realizable vectorlike "
                    "desert content makes the three measured couplings meet at "
-                   "M_X < M_P; the convention M_GUT = M_P is abandoned; "
+                   "M_X < M_P; the convention M_GUT = M_P is abandoned "
+                   f"(it would give tau_p = {tau_mplanck:.2e} yr, and the Super-K bound excludes M_GUT < {m_excluded:.2e} GeV); "
                    "tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can "
                    "REFUTE it by observing GUT-pattern decay but cannot "
                    "confirm it; confirmation needs ~1e36 yr (megaton era)"
@@ -196,6 +204,12 @@ def main():
             },
             "solutions": solutions[:12],
             "selected": sel,
+            "mplanck_convention": {
+                "M_GUT_GeV": u10pred.M_PLANCK,
+                "tau_p_yr": tau_mplanck,
+                "superk_bound_yr": SK_BOUND_YR,
+                "gut_scale_excluded_below_GeV": m_excluded,
+            },
             "old_failure": {
                 "ratio_to_measured": old["ratio_to_measured"],
                 "su3_down_pole_GeV": old["su3_down_pole_scale"],

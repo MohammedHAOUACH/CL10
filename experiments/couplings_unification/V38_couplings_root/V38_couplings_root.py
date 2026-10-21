@@ -38,7 +38,7 @@ import time
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
 
-from cl10 import unification
+from cl10 import unification, uvrunning
 
 TOL = 1e-9
 
@@ -89,6 +89,8 @@ def main():
             "u1_pole_above_cutoff": down["u1_pole_above_cutoff"],
             "su3_down_pole_scale": down["su3_down_pole_scale"],
             "su3_pole_inside_lattice": down["su3_pole_inside_lattice"],
+            "u1_pole_from_MZ_input_1loop_GeV": unification.landau_pole_u1(),
+            "u1_pole_from_MZ_input_2loop_GeV": uvrunning.two_loop_pole_u1(),
             "residual": down["residual"],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -109,6 +111,8 @@ def main():
     print(f"      a2(M_Z) = {a2:.4f}  (measured {m2}, ratio {down['ratio_to_measured'][1]:.2f}),  a3(M_Z) = {a3:.4f}  (measured {m3}; below its pole -> non-perturbative)")
     print(f"      the U(1) 1-loop pole of the UP-running:  {down['u1_up_pole_scale']:.2e} GeV (above the cutoff: {down['u1_pole_above_cutoff']})")
     print(f"      the SU(3) 1-loop pole of the DOWN-running:  {down['su3_down_pole_scale']:.2e} GeV (inside the lattice: {down['su3_pole_inside_lattice']})")
+    print(f"      the U(1) poles of the perturbative QFT run UP from the measured M_Z input (Fig. 4): "
+          f"1-loop {unification.landau_pole_u1():.2e} GeV, 2-loop {uvrunning.two_loop_pole_u1():.2e} GeV")
     print(f"  named residual:  {down['residual']}")
     print(f"  VERDICT:  {'PASS (the readings g_10 = 1/5 and g_0 = 1/8 are root-data conventions; the clock is closed at pi/4; the 1-loop down-running is the quantified named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v38_couplings_root.json"))

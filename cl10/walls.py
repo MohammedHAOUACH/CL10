@@ -21,7 +21,8 @@ the mechanism gives and the named residual that is left.
   9.6e13`` GeV (the loop integer fitted) and the Dirac
   mass is ``m_D = g_0 v`` with the ``g_0 = 1/8`` reading, so the 2-step seesaw
   gives the **right order**.  The ladder value ``m_nu = 0.146`` eV is
-  **excluded** by the measured ``sum m_nu < 0.12`` eV (the falsifier F3); the
+  **excluded** by the measured ``sum m_nu < 0.0642`` eV (DESI DR2 BAO + Planck
+  PR4 + CMB lensing, LambdaCDM at 95% CL - the falsifier F3); the
   ``1/3`` candidate ``0.0487`` eV is a candidate whose junction amplitude is
   free inside a finite window.  ``M_N`` is **fitted**, not derived.
 
