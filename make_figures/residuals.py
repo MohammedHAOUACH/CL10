@@ -343,14 +343,14 @@ def fig24_w3_forcing():
             for v in vals]
     axB.bar([str(n) for n in ns], vals, color=cols, width=0.6)
     axB.axhline(obs, color=C_ZERO, ls="--", lw=1.8,
-                label=r"observed unification $2\times10^{16}$ GeV (F5)")
+                label=r"data-preferred meeting scale $2\times10^{16}$ GeV (F5)")
     for n, v in zip(ns, vals):
         axB.text(str(n), v * 1.15, f"{v:.1e}", ha="center", fontsize=11)
     axB.set_yscale("log")
     axB.set_ylim(1e14, 1e18)
     axB.set_xlabel("split-set size $n$ (cubic-symmetric: only 12)")
     axB.set_ylabel(r"fixed meeting $M_X(n)$ [GeV]")
-    axB.set_title("(b)  every size misses the observed scale;\n"
+    axB.set_title("(b)  every size misses the data-preferred scale;\n"
                   "     the rank-1 rigidity holds for $n = 4, 8, 12$",
                   fontsize=12.5)
     axB.legend(loc="upper left", fontsize=10.5)

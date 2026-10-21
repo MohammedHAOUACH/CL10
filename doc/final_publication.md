@@ -947,20 +947,34 @@ Every theorem, proposition, table entry and falsifier in this paper is produced 
 |----------------------------------------------|--------------------------|
 | cell module: $\pm$-pairing, $\det = 1$, quasi-energy sum, B-parity, rung phases, protected-pole factorisation (2, 4, 7.1, 12.4, 15, 16, App. A) | V196 |
 | grading theorem: exact $\mathbb{Z}_2$ gradings of the step (4, 12.2, 16) | V194 |
+| spacetime subalgebra and causal structure: the $(1{+}3)$ inside the root, causal radius $1$, the realized light cone, the four limits (3, 7.3) | V1, V36, V59 |
+| matter and gauge content: the anomaly-free Weyl $\mathbf{16}$, the $45$ adjoint, the three families, statistics, CPT conjugation, the zero-parameter $S$-matrix (4, 5, 6, 7.4) | V3, V11, V23, V24, V26, V41 |
+| doubling census: the twelve half-zone node momenta, flat tangent axes, the three axis families (8, Fig. 5) | V63, V70 |
 | Proposition 2: $\Gamma$ pinning, M spectra, line network, bulk gap (8.1, 8.3, 9.2, 15, 16) | V203, V132 |
 | Wilson mechanism: unitarity, quasi-local kernel, re-gapping of the $12$ nodes (8.1, 9, 15) | V65 |
 | cone anisotropy and the Wilson-family gap scan: $2726$ points, $A \ge 0.997$ (8.2, 16) | V115 |
 | node kinematics, tangent velocities, little groups (8.2, 8.3) | V118 |
 | frame averaging over the internal frames (8.2) | V142 |
 | massless spin content and dispersion of the step: point group, $\Gamma$ multiplet (8.3, 9, F4) | V128 |
+| the cone programme: separation lemma, the $880$-point entangling-bond space, tangent algebras, the rigidity frontier (8.4) | V185, V120, V121, V186, V187 |
 | stage-family search and sector-swap interleaves (8.4, 16) | V192, V201 |
 | closure: exhaustive census of closed angles (9, Theorem 6) | V131, V134, V135 |
-| closed-loop enumeration, cosine functional, crossing at $n^* = 208$, channel-blindness and the clock tension of the deficit (9.2, 12.1, 13.1, 16) | V85, V113, V200, V202, V205, V206 |
+| closed-loop enumeration, cosine functional, crossing at $n^* = 208$, channel-blindness and the clock tension of the deficit (9.2, 12.1, 13.1, 16) | V85, V113, V126, V200, V202, V205, V206 |
 | branch regressions: gap gradients, channel closures (9.2, 15) | V203, V204 |
-| dark matter: carrier census, stability certificate, relic computation, portals (12.2, 14, 16) | V66, V75, V112, V147, V148, V193, V195 |
-| $A \to BB$ channel census (13.3, 16) | V199 |
+| gauged bond layer: Gauss closure, matter–flux entanglement, area law and saturation, ground state, mass gap, vertex and $S$-matrix censuses (10, 10.1–10.3) | V79, V97, V98, V101, V129, V175–V183 |
+| dressed gate on the directed-link network: quintet dispersion, the regular-link hop, the parity no-go (10.4, 11.1) | V140, V141, V191 |
+| traced-link division and its failure to compound: level-1 division, factor $26$, the kinematic tower (12.1) | V69, V77, V80, V83 |
+| desert supplier exclusions: composite spectra and mass-ansatz families, the equal-shift content, $\Delta L = 2$ not a link composite (13.1) | V81, V82, V136 |
+| junction route and repair: stabilizer ratio, fragment pattern, meeting residuals, the count-$3$ forcing, triangle orbits and energies, the $\kappa_s$ bond layer (13.1, F5, Figs. 23–24) | V70, V74, V76, V86, V91, V96, V114, V116, V127 |
 | desert solution and proton lifetime (9.2, 13.4, 16) | V64, V133 |
-| rung ruler and neutrino verdicts (12.3, 12.4, 16) | V197 |
+| electroweak mixing and flavour: democratic masses, the derived $\sin^2\theta_{12} = 0.307$, identity CKM, the unprotected democratic point, splitting exclusions (13.2, 13.5, Table 5) | V28, V45, V49, V90, V103, V104, V107, V111 |
+| baryon asymmetry: factorised product, mirror-preserving phases, the CP flux spent (13.3, O5) | V55, V109, V125 |
+| $A \to BB$ channel census (13.3, 16) | V199 |
+| rung ruler and neutrino verdicts: the two-step seesaw at zero input, the ladder exponent (12.3, 12.4, 16) | V57, V197 |
+| dark matter: carrier census, stability certificate, relic computation, portals (12.2, 14.2, 16) | V66, V75, V112, V147, V148, V193, V195 |
+| lattice gravity: the discrete Einstein–Hilbert action, curvature from an arbitrary metric, the $2$-route check, the black hole, the $2$-sphere scalar, the kink, BSSN/Z4 evolution (11.2–11.4, Table 3) | V37, V50, V51 |
+| the measured photon and atom: resonant hydrogen absorption on the $296^3$ production grid, with the two-slit and hydrogen simulation suites (6, Figs. 1–2) | V62 |
+| provenance audit and the nine-to-one bookkeeping (15) | V43, V52 |
 ---
 
 ## References
