@@ -10,10 +10,10 @@ Markdown. Nothing here is hand-copied from another file. Back to the
 
 | file | what it is |
 |---|---|
-| `final_publication.md` | **the master**: the whole theory in one manuscript (1004 lines, 61 pp compiled, 25 figures, 10 tables, 55 references). Every claim, number and provenance label lives here first. |
-| `paper1_core.md` | the core: the root, the automaton, the spectrum, the S-matrix (454 lines, 23 pp). |
-| `paper2_gauge_gravity.md` | the gauge and gravity sectors (186 lines, 9 pp). |
-| `paper3_phenomenology.md` | the couplings, the flavour sector, the cosmology, the falsifiers (428 lines, 30 pp). |
+| `final_publication.md` | **the master**: the whole theory in one manuscript (1081 lines, 66 pp compiled, 54 pp in the journal layout, 25 figures, 9 tables, 60 references). Every claim, number and provenance label lives here first. |
+| `paper1_core.md` | the core: the root, the automaton, the spectrum, the S-matrix (462 lines, 25 pp). |
+| `paper2_gauge_gravity.md` | the gauge and gravity sectors (210 lines, 11 pp). |
+| `paper3_phenomenology.md` | the couplings, the flavour sector, the cosmology, the falsifiers (433 lines, 31 pp). |
 | `reference.md` | the technical reference: the exact constructions, the numerical protocol, the reproducibility statement, the reading map of the code. |
 | `api.md` | the API reference of the 43 `cl10` modules — signatures, returned keys, provenance vocabulary, the runner contract. Regenerated from the live modules, never from memory. |
 | `figures/` | the 25 PNGs, every one computed by [`make_figures`](../make_figures/README.md). |

@@ -95,5 +95,5 @@
  "pass": true,
  "residual": true,
  "status": "the traced-loop weight of O8 is an exact real cosine functional of the Wilson angle - 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors - and its four crossings of 1/(16 pi) in (0, pi/2] are [np.float64(0.1981), np.float64(0.577851), np.float64(1.004861), np.float64(1.347357)]; NO angle of the root reaches the crossing (branch ANGLE-OUTSIDE): the nearest to g_10 = 1/5 sits at eta* = 0.198100, gap 1.90e-03, and the closed angles miss by >= 7e-04. The named weight stays F_10(1/5) = 0.019186391, 3.5587% below the continuum loop factor; the residual is the interference deficit ratio 0.9644",
- "wall_time": 113.9
+ "wall_time": 110.7
 }

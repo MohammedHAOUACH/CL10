@@ -1,6 +1,6 @@
 # The verification program
 
-144 experiments (the 128 of the publication programme plus the 16 exploration
+145 experiments (the 129 of the publication programme plus the 16 exploration
 experiments of the `alt_*` programmes: 4 `alt_interactions`, 5 `alt_gauged`,
 4 `alt_nonpert`, 3 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
@@ -9,7 +9,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-audit checks.  **83 of the 128 publication experiments still write the older
+audit checks.  **84 of the 129 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -180,6 +180,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V37_eh_action` | the discrete Einstein–Hilbert action derives the metric dynamics |
 | `V50_complete_gravity` | Riemann from an arbitrary metric, two-route verification, the black hole by computation |
 | `V51_numrel` | $3{+}1$ BSSN/Z4 evolution: the constraint rows agree to $O(h^2)$ |
+| `V208_metric_bilinear_cone` | the metric is a bilinear of the bond layer: bond(6 oriented) $= A_{1g}\oplus E_g\oplus T_{1u}$ lacks the quintet's $T_{2g}$ and $\mathrm{Sym}^2 = A_{1g}\oplus E_g\oplus T_{2g}$ lacks the $T_{1u}$, so one bond amplitude cannot be the metric (exact characters); the commutant of the $36$-state bilinear has dimension $34$ — $34$ allowed self-couplings, none chosen; parity wall: the hop velocity is polar and its block inside the even (metric) sector vanishes ($2.7\times10^{-16}$), the axial dressing survives with spectrum $g\{0,\pm1,\pm2\}$ in every direction; the committed triple `cone_generator.json` is Clifford-regular (defect $1.4\times10^{-13}$) with an exactly direction-independent $36$-branch spectrum ($5.2\times10^{-15}$ over $44$ directions), a cone subspace of dim $8$ at slope $1$ with content $E\oplus T_1\oplus T_2$ (quintet weight $5.0000$), $4$ branches at slope $0$, $\mathrm{M}(0) = I$ exactly — no mass term writable in the class — and an exponentially local kernel; the covariant velocity space is $160$-dimensional and the exact-cone family through the generator $53$-dimensional (Jacobian rank $107$), and neither implemented triple lies in it (hop $0.0029$, dressing $0.0092$): the layer gives $c_{\rm gw}/c = 1.5708 = 2\pi/4$, excluded by GW170817 (**F8**), and the clock $g = 1/2$ that would fix it is in V206's dead zone ($n^* = 3$, deficit $1.4\times10^{-3}$); $G = 1/(4\ln 45) = 6.567\times10^{-2}$, cell $2\sqrt{\ln 45} = 3.902\,\ell_{\rm P}$, Bekenstein gap $4\ln 45 = 15.227$ |
 
 ### `scales_loopfactor`
 | id | verdict |

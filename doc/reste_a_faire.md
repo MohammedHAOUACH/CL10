@@ -1,7 +1,7 @@
 # Risques de rejet et reste à faire
 
 Analyse en posture de referee, menée le 2026-10-21 sur `doc/final_publication.md`
-(51 pages, Table 1, 10 open problems, 144 expériences). Chaque preuve citée a été
+(54 pages, Table 1, 10 open problems, 145 expériences). Chaque preuve citée a été
 relue dans le fichier ou dans l'artefact correspondant.
 
 ## 1. Risques rédhibitoires (sélectivité éditoriale)
@@ -29,19 +29,31 @@ relue dans le fichier ou dans l'artefact correspondant.
 - **Lorentz.** $A\ge0.997$ sur 2726 points, mur de rigidité $8.0\times10^{-3}$,
   « cônes : 0 ». Aucune confrontation aux bornes publiées de violation de Lorentz.
   Paragraphe manquant → ajouté (§3 ci-dessous, action 3).
-- **Gravité.** Champ symétrique ajouté à la main avec $G=1$ ; aucun graviton
-  (spin 2 calculé négatif, §11.1, §10.4) ; quintet $E_g$ à $\lambda^2$ avec des
-  vitesses $\pi/4,\pi/2\ne1$ ; tension de corde $5.4\times10^{40}\times$ QCD.
-  Table 1 : « one object: partial ». Le titre et le résumé portent pourtant
-  « gravitational sector » : sur-revendication perçue.
+- **Gravité.** Le contenu est maintenant calculé, pas seulement ajouté : §11.5
+  (artefact `V208`) établit par caractères exacts qu'une amplitude de liaison
+  unique ne peut pas être la métrique — $\mathrm{bond}(6) = A_{1g}\oplus E_g\oplus
+  T_{1u}$ n'a pas le $T_{2g}$ du quintet — et que le hop, vecteur polaire, ne
+  déplace pas la métrique au premier ordre (bloc nul à $2.7\times10^{-16}$ dans
+  le secteur pair) ; le contenu est forcé, la dynamique non : $34$ auto-couplages
+  autorisés, aucun choisi. §11.6 exhibe un cône exactement lightlike sur ce module
+  (quintet sur le cône, aucune masse écrivable dans la classe) mais dans une
+  famille de $53$ paramètres que la dynamique ne sélectionne pas, et la vitesse
+  réellement prédite par la couche construite est $c_{\rm gw}/c = 2\pi/4 =
+  1.5708$, exclue par GW170817 : nouveau falsificateur **F8**, déjà mordu, et
+  l'horloge $g = 1/2$ qui réparerait tombe dans la zone morte de `V206`
+  (échelle de boucles effondrée à $n = 3$). $G = 1$ reste une entrée ; le root
+  ne fournit qu'un candidat, $1/(4\ln 45) = 6.567\times10^{-2}$ (§11.7).
+  Table 1 : « one object: partial » inchangé.
 - **Matière noire.** Le porteur est un secteur singulet ajouté nommément ;
   $\Omega h^2=0.120$ n'est obtenu qu'avec $\lambda_B=4.06\times10^{-14}$ fitté
   (les valeurs fournies par le root donnent $0.798$, $0.0246$, $2.3\times10^{-5}$,
   $7.6\times10^{-4}$).
 - **Falsifiabilité surtout négative.** $\tau_p=2.8\times10^{39}$ yr hors d'atteinte,
   la version testable ($1.8\times10^{36}$ yr) étant déclarée convention abandonnée ;
-  le barreau nu $\nu$ est déjà exclu ; seul F3 mord à courte échéance.
-- **Auditabilité.** 144 expériences auto-produites, tolérances définies par
+  le barreau nu $\nu$ est déjà exclu ; F3 mord à courte échéance, et F8 mord déjà :
+  la couche construite donne $c_{\rm gw}/c = 1.5708$ contre la borne
+  $10^{-15}$ de GW170817 — le papier l'écrit au lieu de le masquer.
+- **Auditabilité.** 145 expériences auto-produites, tolérances définies par
   l'auteur. Deux griefs de détail sont fermés : la libération est épinglée par
   le tag `v1.0` et le résultat du coin (§8.2, Table 5, O9) a son artefact
   commité, `V207`, avec le scan complet du plan $(w,\theta)$. Deux restent
@@ -65,6 +77,8 @@ relue dans le fichier ou dans l'artefact correspondant.
 | 9 | Docstrings alignés sur leurs artefacts commités : `V187_rigidity_frontier.py` nomme le sommet $1.033$ (la liaison $\mathfrak{su}(2)$ d'indice $(5,8,9)$), le plancher $8.0\times10^{-3}$ et la médiane $-0.28$ — ceux de la re-exécution corrigée à l'horloge $1/5$, que le papier cite aussi ; `V186_cone_inverse.py` (le problème inverse du cône — il n'existe pas de script « rigidity_wall_scan ») ne chiffre son verdict que dans le status, et sa fuite radius-1, Wilson éteint, y est $8.7\times10^{-17}$ (le docstring disait $2\times10^{-16}$) | `experiments/dynamics_spectrum/V186_cone_inverse/V186_cone_inverse.py`, `experiments/dynamics_spectrum/V187_rigidity_frontier/V187_rigidity_frontier.py` | fait |
 | 10 | Épinglage explicite de l'horloge, exigé par le tripwire : **25 scripts** posent `CL10_ANGLE = 0.2` avant tout import de `cl10` — les 20 que le tripwire faisait échouer, `V176` (seul de la chaîne V171–V179 à ne pas l'avoir : son artefact commité était passé en horloge fermée et contredisait son propre verdict documenté, $F(0)=5.000000$, poids $E_g+T_{2g}=5/6$), et `V174`, `V175`, `V179`, `V182`, qui lisaient le défaut en silence depuis l'intérieur des chaînes 1/5 — pour `V175` l'angle d'horloge *est* le couplage $\eta$ ($0.7854 \to 0.2$), donc tout son spectre de diffusion bouge ; le recensement `v70_regression` de `V91` est rendu conditionnel à la branche (exactement sans masse à $\pi/4$, les douze portant le même gap doubleur $2.003\times10^{-4}$ à $1/5$) ; re-exécution complète des 144 ($144/144$, 19 des 20 artefacts identiques au bit de physique près) et ré-ancrage des planchers machine (V196, V185) et des digits de `experiments/README.md` et des deux docs d'exploration (V172, V175, V177, V179) ; tag `v1.0` déplacé sur le commit final | `experiments/…` (25 scripts), `doc/final_publication.md`, `doc/paper1_core.md`, `experiments/README.md`, `doc/alt_gauged_exploration.md`, `doc/alt_interactions_exploration.md`, git | fait |
 | 11 | Épinglage du PDF journal : `publication/publication.pdf` (14:29) était plus vieux que le maître `doc/final_publication.md` (16:11) — rebuild par `publication/build.sh` après la dernière passe de texte (52 pages ; le PDF porte $1.033$, $(5,8,9)$, le mur $8.0\times10^{-3}$, $2.699$, $0.019685$, O10, Kochen, la note de disponibilité nommant `v1.0`, et le décompte 144) | `publication/publication.pdf` | fait |
+| 12 | Expérience commitée sur le secteur gravitationnel : contenu de la métrique (caractères exacts, le bilinéaire $\mathrm{bond}\otimes\mathrm{Sym}^2$ de $36$ états, commutant de dimension $34$), mur de parité hop (polaire, bloc pair nul) / dressing (axial, spectre $g\{0,\pm1,\pm2\}$), générateur de cône exactement lightlike commité `cone_generator.json` (régulier Clifford à $1.4\times10^{-13}$, sous-espace conique de dimension $8$, contenu $E\oplus T_1\oplus T_2$, poids du quintet $5.0000$, $4$ branches de pente $0$, $\mathrm{M}(0) = I$ exact), noyau quasi-local, dimension de la famille ($53$ dans un espace covariant de $160$, Jacobien de rang $107$), distance des triples implémentés ($0.0029$ / $0.0092$), zone morte de l'horloge $1/2$, et $G = 1/(4\ln 45)$ : `V208` ; sections §11.5–§11.7, falsificateur **F8**, ligne de Table 9, référence [60] | `experiments/gravity/V208_metric_bilinear_cone/`, `doc/final_publication.md` | fait |
+| 13 | Chaîne de décomptes 144 → 145 (128 → 129 publiées ; `V208` écrit son verdict sans `tier`, donc $84$ expériences hors tier) | `README.md`, `doc/reference.md`, `experiments/README.md`, `doc/final_publication.md` (Annexe B, note de disponibilité) | fait |
 
 ## 4. Ce qui est fort et doit rester en tête d'affiche
 

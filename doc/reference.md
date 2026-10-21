@@ -6,7 +6,7 @@ by the code, the **numerical** protocol, and the **reproducibility**
 information.
 
 The **physics** (the theorems, the claims, the verification program, the
-ten open problems O1–O10, the falsifiers F1–F7) lives in
+ten open problems O1–O10, the falsifiers F1–F8) lives in
 `doc/final_publication.md`; the **Python interface** lives in `doc/api.md`.
 This reference is the companion to both: it says *how* each construction
 is built, so that every number in the publication is reproducible.
@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (144 of them under `experiments/<category>/`: the 128 of the publication programme, and the 16 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (145 of them under `experiments/<category>/`: the 129 of the publication programme, and the 16 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **144** experiments in name order,
+`run_validation.py` runs all **145** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -154,7 +154,7 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (128/128 publication, 144 PASS of 144).**  Every
+**The result (129/129 publication, 145 PASS of 145).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
 positive. The 16 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V171–V183, V191–V201) run on the host numpy
@@ -233,7 +233,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (144 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (145 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
