@@ -222,6 +222,13 @@ def _derive(tree):
         # rather than written to the file at a lossier 5 digits
         phys["v_over_mplanck_observed"] = (float(phys["v_electroweak_gev"])
                                            / float(phys["m_planck_gev"]))
+    if "hierarchy_coefficient_observed" not in phys:
+        # the observed coefficient is not a fourth measured number either: it
+        # is that quotient measured in units of the ladder factor, so the file
+        # holds the two constants and the loader holds every quotient of them
+        # (V52/V53/V108/V203 all compute this same value)
+        phys["hierarchy_coefficient_observed"] = (
+            phys["v_over_mplanck_observed"] / phys["loop"] ** 10)
     pool = tree["pool"]
     njobs = pool.get("njobs")
     pool["njobs_effective"] = int(njobs) if njobs else max(

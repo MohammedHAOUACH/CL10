@@ -80,14 +80,13 @@ physics:
 
   # the measured hierarchy inputs of Section 12.1: F_10 on the closed traced
   # word census at the rung-10 clock g = 1/5 (V85/V113) - the clock nature
-  # reads, measured to relative 1e-5 (V206) - and the observed electroweak /
-  # Planck ratio with the coefficient it is quoted as.  The ratio itself is NOT
-  # written here: v_over_mplanck_observed is derived by the loader as
-  # v_electroweak_gev / m_planck_gev = 2.0167255e-17, the number the artefacts
-  # of V52/V53 carry; a 5-digit copy of it in this file was a second value for
-  # one measured quantity.
+  # reads, measured to relative 1e-5 (V206).  Neither observed ratio is written
+  # here: the loader derives v_over_mplanck_observed as
+  # v_electroweak_gev / m_planck_gev = 2.0167255e-17 (the number the artefacts
+  # of V52/V53 carry) and hierarchy_coefficient_observed as that quotient in
+  # units of loop^10 = 2.0765641 (the number V59/V108/V203 compute).  Five-digit
+  # copies of either in this file were second values for one measured quantity.
   f_10_measured: 0.019186
-  hierarchy_coefficient_observed: 2.0765
   # the V38 0-parameter quote of the ratio (the ladder reading of v/M_P); the
   # 0.18% match against the observed value above is the 2-digit coincidence
   # of Section 15, Point 2

@@ -42,7 +42,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 # pinned 1/5 reference branch: F10_REF = 0.01918639 and the
 # coefficient-3 reading are reference-branch statements (the clock
-# reading is V203: F_208 = 0.0197, coefficient 2.702). At the pi/4
+# reading is V203/V209: F_208 = 0.019685 float64, 0.0196928 certified at
+# 50 digits; coefficient 2.699-2.702 float64, 2.710 certified). At the pi/4
 # clock the traced-link Cartan probes degenerate.
 os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp
@@ -56,10 +57,13 @@ from cl10 import clifford  # noqa: E402
 from cl10 import engine as E  # noqa: E402
 from cl10 import sm_qca  # noqa: E402
 from cl10 import supercell as SC  # noqa: E402
+from cl10 import config as _config  # noqa: E402
 
 D_L = 45
 F10_REF = 0.01918639          # V85 / V108
-COEF_OBS = 2.07654710270376   # observed v/M_P / (1/16pi)^10 (V108)
+COEF_OBS = float(_config.CFG.physics.hierarchy_coefficient_observed)
+                               # the one observed coefficient: config derives it
+                               # as (v / M_P) / loop^10 from the measured constants
 
 
 def main():

@@ -106,6 +106,11 @@ def _derived():
         "physics.v_over_mplanck_observed": (float(phys["v_electroweak_gev"])
                                             / float(phys["m_planck_gev"]),
                                             "v_electroweak_gev / m_planck_gev"),
+        "physics.hierarchy_coefficient_observed": (
+            (float(phys["v_electroweak_gev"]) / float(phys["m_planck_gev"]))
+            / (float(phys["loop_factor"]) if phys.get("loop_factor")
+               else 1.0 / (16.0 * math.pi)) ** 10,
+            "v_over_mplanck_observed / loop**10"),
         "angle.branch": (branch, "angle.default_branch after alias resolution"),
         "angle.g10": (float(angle["branches"][branch]),
                       "angle.branches[angle.branch]"),
