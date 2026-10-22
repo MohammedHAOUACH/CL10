@@ -47,6 +47,7 @@ def main():
     t0 = time.time()
     root = unification.g10_from_root()
     down = unification.running_down()
+    meet = unification.pairwise_meeting_scales()
 
     a1, a2, a3 = down["couplings_at_M_Z"]
     m1, m2, m3 = down["measured_at_M_Z"]
@@ -59,7 +60,11 @@ def main():
           and abs(root["alpha_10"] - 1.0 / 25.0) < 1e-12
           and abs(root["g0"] - 1.0 / 8.0) < 1e-12
           and down["a1_within_factor_2"]
-          and down["su3_pole_inside_lattice"])
+          and down["su3_pole_inside_lattice"]
+          # the paper's Section 13.1 statement: under pure SM running the three
+          # pairs meet at three DIFFERENT scales, all above the input scale
+          and all(v > unification.M_Z for v in meet.values())
+          and len({round(v / max(meet.values()), 3) for v in meet.values()}) == 3)
 
     verdict = {
         "id": "V38_couplings_root",
@@ -91,6 +96,8 @@ def main():
             "su3_pole_inside_lattice": down["su3_pole_inside_lattice"],
             "u1_pole_from_MZ_input_1loop_GeV": unification.landau_pole_u1(),
             "u1_pole_from_MZ_input_2loop_GeV": uvrunning.two_loop_pole_u1(),
+            "pairwise_meeting_scales_sm_GeV": meet,
+            "m_z_ref_GeV": unification.M_Z,
             "residual": down["residual"],
         },
         "wall_time": round(time.time() - t0, 3),
@@ -113,6 +120,8 @@ def main():
     print(f"      the SU(3) 1-loop pole of the DOWN-running:  {down['su3_down_pole_scale']:.2e} GeV (inside the lattice: {down['su3_pole_inside_lattice']})")
     print(f"      the U(1) poles of the perturbative QFT run UP from the measured M_Z input (Fig. 4): "
           f"1-loop {unification.landau_pole_u1():.2e} GeV, 2-loop {uvrunning.two_loop_pole_u1():.2e} GeV")
+    print(f"      pure-SM pairwise meeting scales (1-loop from the measured M_Z inputs): "
+          f"(1,2) {meet['12']:.3e}, (1,3) {meet['13']:.3e}, (2,3) {meet['23']:.3e} GeV")
     print(f"  named residual:  {down['residual']}")
     print(f"  VERDICT:  {'PASS (the readings g_10 = 1/5 and g_0 = 1/8 are root-data conventions; the clock is closed at pi/4; the 1-loop down-running is the quantified named residual)' if ok else 'FAIL'}")
     print("  JSON -> " + os.path.join(outdir, "v38_couplings_root.json"))

@@ -62,12 +62,13 @@ N_GEN = int(_config.CFG.physics.n_gen)   # the 0-parameter number of Cl(10) gene
 LOOP = float(_config.CFG.physics.loop)   # the 0-parameter 1-loop QFT factor
 WEAK_SCALE = float(_config.CFG.physics.weak_scale_gev)   # GeV (the 0-parameter WIMP-miracle reference)
 OMEGA_OBS = float(_config.CFG.physics.omega_dm_h2)       # the observed dark-matter density (Omega h^2)
-LZ_BOUND = float(_config.CFG.bounds.lz_sigma_si_cm2)     # cm^2: the LZ SI direct-detection limit (~118 GeV)
+LZ_BOUND = float(_config.CFG.bounds.sigma_si_lz_cm2)  # cm^2: the one SI direct-detection
+                                                      # ceiling (LZ, ~118 GeV recoil - the
+                                                      # recoil mass of this model's singlet B)
 M_H = float(_config.CFG.sm.higgs_mass_gev)               # GeV: the Higgs pole mass (PDG)
 F_N = float(_config.CFG.dm.f_n_nucleon)                  # the nucleon Higgs coupling f_N (named input)
 SIGMA_FIDUCIAL = float(_config.CFG.dm.sigma_fiducial_cm3s)  # cm^3/s: the thermal-relic reference <sigma v>
 SIGMA_RELIC_TARGET = float(_config.CFG.dm.sigma_relic_target_cm3s)  # cm^3/s: the relic-closing <sigma v>
-DD_BOUND = float(_config.CFG.bounds.dd_sigma_si_cm2)  # cm^2: the portal-scan SI limit
 
 
 def _backend():

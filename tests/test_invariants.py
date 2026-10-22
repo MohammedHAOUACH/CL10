@@ -49,10 +49,13 @@ def test_matter_antimatter_spectral_mirror():
     V16b = np.kron(np.eye(SC.NSUB), Bb)
     for q in QS:
         M = SC.bloch(q, U32)
-        p16 = np.sort(np.angle(np.linalg.eigvals(V16.conj().T @ M @ V16)))
-        p16b = np.sort(-np.angle(
+        p16 = np.exp(1j * np.angle(np.linalg.eigvals(V16.conj().T @ M @ V16)))
+        p16b = np.exp(-1j * np.angle(
             np.linalg.eigvals(V16b.conj().T @ M @ V16b)))
-        assert np.abs(p16 - p16b).max() < 1e-9
+        # quasienergies live on the circle: compare phases as points, not as
+        # branch-cut-dependent reals (the -pi/+pi pair is one quasienergy)
+        d = np.abs(p16[:, None] - p16b[None, :])
+        assert max(d.min(axis=1).max(), d.min(axis=0).max()) < 1e-9
 
 
 def test_16_sector_closed_by_the_full_step():

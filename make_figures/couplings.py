@@ -76,7 +76,7 @@ def fig4_uv_2loop():
     ax.text(M_P * 1.05, 57, r"$M_P$", fontsize=11.5, va="bottom", ha="left")
     ax.axvline(pole2, color=C_ZERO, ls=":", lw=1.4)
     ax.scatter([pole2], [0], s=130, marker="x", color=C_ZERO, zorder=5,
-               label=r"2-loop Landau pole $\sim$ " + f"{pole2:.0e}" + " GeV")
+               label=r"2-loop Landau pole $\sim$ " + f"{pole2:.2e}" + " GeV")
     ax.axhline(1.0 / u.ALPHA_10, color="0.35", ls="--", lw=1.3,
                label=r"0-parameter GUT $1/\alpha_{10} = 25$")
     fig.text(0.5, 0.012,

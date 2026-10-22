@@ -66,10 +66,26 @@ from cl10 import supercell as SC  # noqa: E402
 from cl10 import u10pred  # noqa: E402
 from cl10 import config as _config  # noqa: E402
 
-D_L = 45
+NG = int(_config.CFG.physics.n_gen)     # the Cl(10) generators
+D_L = NG * (NG - 1) // 2                # the adjoint link degrees of freedom (45)
 REF_G = float(_config.CFG.angle.branches.implemented)   # the 1/5 reference angle
-F10_REF = 0.01918639            # V85 / V108 / V113 regression
-F10_HYBRID_REF = 0.194894       # V200 eta_law: step at 1/5, phase at pi/4
+G_CLOSED = float(_config.CFG.angle.branches.closed)     # the root clock pi/4
+
+
+def art(name, key):
+    """A sibling verdict JSON, read by experiment name: what another experiment
+    measured is an input with a source, not a decimal typed into this file."""
+    with open(exp(name, "results", "%s.json" % name.lower())) as fh:
+        j = json.load(fh)
+    for part in key.split("."):
+        j = j[part]
+    return j
+
+
+F10_REF = art("V113_w8_axis_factorization", "data.F_10_measured")   # the V85 line
+F10_HYBRID_REF = art("V200_loop_weight_functional", "data.eta_law.F_10_at.pi/4")
+COEF_PUB = art("V113_w8_axis_factorization", "data.coef_one_per_family")
+RHO_V85 = art("V85_closed_loop_factor", "data.loops_root.spectral_radius_MG")
 
 
 def hop_machinery(g10):
@@ -109,7 +125,7 @@ def main():
     # measured inputs (config), not typed in (V108's COEF_OBS)
     COEF_OBS = float((u10pred.V_EW / u10pred.M_PLANCK) / LOOP ** 10)
     G15, cartan, Ma15, ev = hop_machinery(REF_G)        # reference branch, pinned
-    G4, _, Ma4, _ = hop_machinery(math.pi / 4)
+    G4, _, Ma4, _ = hop_machinery(G_CLOSED)
 
     checks = []
     data = {}
@@ -125,12 +141,12 @@ def main():
         "name": f"T0 the implemented branch reproduces V85 (F_10 = {F10:.8f}"
                 f", regression {reg_err:.2e}) and the compensation identity"
                 f" 3 x deficit^10 = {coef_impl:.4f} against the published"
-                f" 2.0881 (|d| {abs(coef_impl - 2.0881):.4f}); the bare"
+                f" {COEF_PUB} (|d| {abs(coef_impl - COEF_PUB):.4f}); the bare"
                 f" factor-3 reading overpredicts the observed coefficient"
                 f" by x{coef_3_bare / COEF_OBS:.3f} and"
                 f" deficit^10 = {deficit ** 10:.4f} supplies exactly the"
                 f" compensation",
-        "pass": bool(reg_err < 1e-6 and abs(coef_impl - 2.0881) < 1e-3)})
+        "pass": bool(reg_err < 1e-6 and abs(coef_impl - COEF_PUB) < 1e-3)})
     data["implemented"] = {
         "F_10": round(F10, 8), "deficit_vs_loop": round(deficit, 6),
         "coef_3_deficit10": round(coef_impl, 5),
@@ -152,14 +168,14 @@ def main():
                 f"{abs(rho4 - rho_hyb):.2e}: the decay law is fixed by the"
                 f" traced-link phase alone (V200 norms); the implemented"
                 f" branch gives rho = {rho15:.6f}, regressing V85's 0.776"
-                f" to {abs(rho15 - 0.775661):.2e}); the FIRST"
+                f" to {abs(rho15 - RHO_V85):.2e}); the FIRST"
                 f" crossing of 1/(16 pi) is at n* = {first} with F = "
                 f"{F_first:.6f} (deficit {F_first / LOOP:.4f}); and"
                 f" F_10(self-consistent) = {F4[10]:.4f} is NOT the V200"
                 f" eta-law value {Fh[10]:.4f} (hybrid: step at 1/5, phase"
                 f" at pi/4) - the two objects are recorded apart",
         "pass": bool(odd_max < 1e-12 and abs(rho4 - rho_hyb) < 1e-9
-                     and abs(rho15 - 0.775661) < 1e-6
+                     and abs(rho15 - RHO_V85) < 1e-6
                      and first == 208 and abs(F_first - LOOP) < 5e-4
                      and abs(Fh[10] - F10_HYBRID_REF) < 1e-3)})
     data["closed"] = {

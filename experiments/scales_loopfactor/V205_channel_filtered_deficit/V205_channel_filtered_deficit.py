@@ -68,6 +68,22 @@ from cl10 import u10pred
 PI3 = math.pi / 3.0
 
 
+def art(name, key):
+    """A sibling verdict JSON, read by experiment name (cl10.paths resolves the
+    category): the number another experiment measured is an input with a source."""
+    with open(exp(name, "results", "%s.json" % name.lower())) as fh:
+        j = json.load(fh)
+    for part in key.split("."):
+        j = j[part]
+    return j
+
+
+F208_REF = art("V203_closed_branch_coefficient", "data.closed.F_even_2_260.208")
+RHO_REF = art("V131_algebraic_closure", "data.loop_machinery_pi_4.even_decay_per_step")
+COEF_ONE_PER_FAMILY = art("V204_closed_ladder_limits_audit",
+                          "data.coefficient.readings.one_per_family")
+
+
 def main():
     LOOP = float(u10pred.LOOP)
     COEF_OBS = float((u10pred.V_EW / u10pred.M_PLANCK) / LOOP ** 10)
@@ -115,8 +131,8 @@ def main():
         "name": f"T2 the closed branch regresses V203: first crossing of"
                 f" 1/(16 pi) at n* = {first}, F = {F_first:.6f}, measured"
                 f" deficit {deficit_closed:.6f} (rho = {rho4:.6f})",
-        "pass": bool(first == 208 and abs(F_first - 0.019685154) < 5e-5
-                     and abs(rho4 - 0.978030) < 1e-5)})
+        "pass": bool(first == 208 and abs(F_first - F208_REF) < 5e-5
+                     and abs(rho4 - RHO_REF) < 1e-5)})
     data["closed_crossing"] = {"n": first, "F": float(F_first),
                                "deficit_vs_loop": float(deficit_closed),
                                "rho": float(rho4)}
@@ -199,7 +215,7 @@ def main():
                 f" between {sorted(bracket.values())[1]:.3f} and"
                 f" {max(bracket.values()):.3f} - no length reading realizes"
                 f" it; and by T1-T4 no channel or Cartan filter moves it",
-        "pass": bool(abs(3.0 * x_closed ** 10 - 2.699) < 0.05
+        "pass": bool(abs(3.0 * x_closed ** 10 - COEF_ONE_PER_FAMILY) < 0.05
                      and abs(x_req / x_branch - 1) < 1e-3
                      and min(bracket.values()) < COEF_OBS
                      < max(bracket.values()))})

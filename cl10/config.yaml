@@ -81,9 +81,12 @@ physics:
   # the measured hierarchy inputs of Section 12.1: F_10 on the closed traced
   # word census at the rung-10 clock g = 1/5 (V85/V113) - the clock nature
   # reads, measured to relative 1e-5 (V206) - and the observed electroweak /
-  # Planck ratio with the coefficient it is quoted as
+  # Planck ratio with the coefficient it is quoted as.  The ratio itself is NOT
+  # written here: v_over_mplanck_observed is derived by the loader as
+  # v_electroweak_gev / m_planck_gev = 2.0167255e-17, the number the artefacts
+  # of V52/V53 carry; a 5-digit copy of it in this file was a second value for
+  # one measured quantity.
   f_10_measured: 0.019186
-  v_over_mplanck_observed: 2.0167e-17
   hierarchy_coefficient_observed: 2.0765
   # the V38 0-parameter quote of the ratio (the ladder reading of v/M_P); the
   # 0.18% match against the observed value above is the 2-digit coincidence
@@ -133,8 +136,10 @@ angle:
     closed: 0.7853981633974483 # pi/4, order 8 - the root clock (closure axiom, V131)
     half: 1.5707963267948966   # pi/2, order 4 (the second closed root, reference only)
   # the rotation-squared reading alpha_10 = g^2 at the reference angle 1/5; kept
-  # as the exact 1/25 rather than recomputed (0.2**2 is not 0.04 in binary)
-  alpha_10: 0.04
+  # as the exact 1/25 rather than recomputed (0.2**2 is not 0.04 in binary).  The
+  # desert solution runs at that same clock, so its coupling is this number - the
+  # anchor below, not another copy of it.
+  alpha_10: &alpha_10 0.04
   # the second coupling reading: g_0 = 1/2^n_space (a convention, Section 15)
   g0_from_n_space: true
 
@@ -144,7 +149,9 @@ desert:
   # angle the ladder is read at, at the precision the root was measured at
   theta_root_rad: 1.7307836435290485
   m_x_gev: 1.8e+16
-  alpha_x: 0.04
+  alpha_x: *alpha_10          # alpha_10: the meeting coupling 1/25 at the 1/5 clock
+                              # (the closed-angle reading pi/64 = 0.049087 is computed
+                              # by cl10.coupling.alpha_std, never written here)
   # the same solution at the closed angle (V133): the threshold ordering breaks
   m_x_closed_gev: 1.235e+17
 
@@ -155,11 +162,13 @@ cell:
   rung_B: 10                # the dark-matter singlet (Section 12.2): m_B = M_P*loop^10
 
 bounds:
-  # the experimental bounds the phenomenology tests against (measured, not fitted)
-  lz_sigma_si_cm2: 1.5e-47     # the LZ spin-independent direct-detection limit
-                               # at ~118 GeV recoil (4.2 t yr); V88/V148, fig. 15
-  dd_sigma_si_cm2: 2.0e-47     # the spin-independent limit used by the dark-U(1)
-                               # portal scan (V112, fig. 25)
+  # the one experimental direct-detection ceiling the phenomenology tests
+  # against (measured, not fitted): the LZ spin-independent limit at ~118 GeV
+  # recoil (4.2 t yr), which is the recoil mass of this model's singlet B
+  # (M_P*loop^10 = 118.57 GeV).  One ceiling, one value: the portal scan of V112
+  # and fig. 25 used to compare against a second, weaker SI number written
+  # beside this one, which made the same observable have two limits.
+  sigma_si_lz_cm2: 1.5e-47    # V88/V148/V193/V195, fig. 15; V112, fig. 25
 
 cosmology:
   # the standard-cosmology inputs of the relic / washout / detection checks

@@ -100,7 +100,10 @@ C = (math.pi / 2,) * 3                        # the (w, theta) family direction
 RESULTS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
 
 # the coordinates the live measurement quoted in the paper (Section 8.2,
-# Table 5, O9, Appendix B), recorded here so the correction is measured.
+# Table 5, O9, Appendix B), recorded here at the 4-decimal precision the paper
+# printed them. Provenance: the V115 cone scan, data.gapless_points[548]
+# (theta = 1.5717554519091528). They are kept rounded on purpose: this check
+# measures the error that the paper's own rounding introduced.
 QUOTED = (2.8894, 1.5717)
 
 
@@ -223,7 +226,9 @@ def main():
     if m:
         dirs = V118.sphere(2 if smoke else 6)
         planar, zero_dir = 0.0, 0
-        G = (S[0] + 0.718281828459045 * S[1] + 0.367879441171442 * S[2])
+        # an irrational generic direction in the Cartan plane (1, e-2, 1/e):
+        # no rational direction can accidentally align with a symmetry axis
+        G = (S[0] + (math.e - 2.0) * S[1] + math.exp(-1.0) * S[2])
         _, Ww = np.linalg.eigh(G)
         vecs = [[float(np.real(Ww[:, a].conj().T @ s @ Ww[:, a])) for s in S]
                 for a in range(m)]

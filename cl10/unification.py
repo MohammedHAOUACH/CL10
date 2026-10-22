@@ -72,6 +72,25 @@ def landau_pole_u1():
     return M_Z * float(np.exp(ln_pole))
 
 
+def pairwise_meeting_scales():
+    """The pairwise meeting scales of the pure-Standard-Model one-loop running
+    from the measured M_Z inputs (the paper's Section 13.1 statement that the
+    three pairs meet at three different scales).
+
+    With 1/a_i(M) = 1/a_i(M_Z) - (b_i/2pi) ln(M/M_Z), the pair (i,j) meets where
+    the two lines cross:  ln(M/M_Z) = 2pi (1/a_i - 1/a_j)/(b_i - b_j).  A
+    negative or sub-M_Z solution means the pair never meets above the input
+    scale; it is returned as the formal crossing and left flagged.
+    """
+    out = {}
+    for i, j in ((0, 1), (0, 2), (1, 2)):
+        db = float(B_SM[i] - B_SM[j])
+        da = float(1.0 / A_Z[i] - 1.0 / A_Z[j])
+        m_z = M_Z * float(np.exp(2.0 * np.pi * da / db)) if db else float("inf")
+        out[f"{i + 1}{j + 1}"] = m_z
+    return out
+
+
 def g10_from_root():
     """The 0-parameter numbers **are numbers of the root** (C3).
 

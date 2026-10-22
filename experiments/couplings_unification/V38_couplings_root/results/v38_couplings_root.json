@@ -40,6 +40,12 @@
     "su3_pole_inside_lattice": true,
     "u1_pole_from_MZ_input_1loop_GeV": 2.195631775386089e+41,
     "u1_pole_from_MZ_input_2loop_GeV": 2473231264863.0254,
+    "pairwise_meeting_scales_sm_GeV": {
+      "12": 11745980260274.762,
+      "13": 264829221450651.78,
+      "23": 9.725872510865462e+16
+    },
+    "m_z_ref_GeV": 91.1876,
     "residual": "the 1-loop SM matching to the measured M_Z values (O4, now quantified by the down-running); the QCA lattice RG is the open part"
   },
   "wall_time": 0.001

@@ -14,7 +14,9 @@ Precedence, highest first:
     1. the environment   CL10_BACKEND, CL10_GPU_MIN_FREE_MIB, CL10_ANGLE,
                          CL10_NJOBS, CL10_SMOKE
     2. cl10/config.yaml
-    3. the built-in defaults below (a missing key never crashes the engine)
+    3. the built-in fallbacks below - which cover only how the engine runs and
+       the root's own structure; the measured inputs exist in the file alone,
+       so a missing one fails loudly instead of running on a stale number
 
 Read it through the singleton `CFG`:
 
@@ -39,9 +41,13 @@ import yaml
 
 PATH = pathlib.Path(__file__).with_name("config.yaml")
 
-# the built-in defaults: the same values as config.yaml (pool.njobs excepted -
-# without the file the pool sizes itself), so a missing key or a missing file
-# degrades to the documented behaviour instead of failing
+# the built-in fallbacks: how the engine runs (backend policy, the GPU gate, the
+# routing thresholds, the pool shape, the tolerance bands) and the structure of
+# the root object (the Cl(10) shape, the clock branches, the cell rungs). No
+# measured input is duplicated here: a second copy of `m_planck_gev` or of a
+# neutrino mass is exactly how a value drifts out of sync with the file that is
+# supposed to own it, silently. With no config.yaml the engine still builds the
+# algebra; the phenomenology modules fail on the missing key and say which one.
 _DEFAULTS = {
     "backend": {
         "priority": ["cupy", "jax", "numpy"],
@@ -57,13 +63,6 @@ _DEFAULTS = {
     "pool": {"njobs": None, "njobs_cap": 8},
     "cell": {"rung_A": 3, "rung_B": 10},
     "physics": {
-        "m_planck_gev": 1.220890e19,
-        "proton_mass_gev": 0.93827208943,
-        "v_electroweak_gev": 246.22,
-        "omega_dm_h2": 0.120,
-        "weak_scale_gev": 100.0,
-        "wimp_window_gev": [1.0e2, 1.0e3],
-        "hydrogen_rydberg_ev": 13.605693,
         "n_gen": 10,
         "n_space": 3,
         "n_subsites": 8,
@@ -71,40 +70,11 @@ _DEFAULTS = {
         "n_sector": 16,
         "loop_factor": None,
     },
-    "units": {"gev_to_s": 6.582119569e-25, "s_to_yr": 3.15576e7,
-              "gev2_to_cm2": 3.89379338e-28, "c_cm_s": 2.99792458e10,
-              "ev_per_gev": 1.0e9},
-    "sm": {
-        "m_z_gev": 91.1876,
-        "beta1": 41 / 10, "beta2": -19 / 6, "beta3": -7,
-        "alpha1_mz": 0.0169, "alpha2_mz": 0.0338, "alpha3_mz": 0.118,
-        "beta21": 199 / 25, "beta22": 25 / 2 - 27 / 50 * 6,
-        "beta23": -143 / 3 + 23 / 15 * 6,
-        "sphaleron": 28.0 / 79.0,
-        "higgs_mass_gev": 125.25,
-        "delta_b_obs": 6.12e-10,
-        "m_unification_obs_gev": 2.0e16,
-        "alpha_em_inv": 127.9,
-    },
     "angle": {
         "default_branch": "closed",
         "branches": {"implemented": 0.2, "closed": math.pi / 4, "half": math.pi / 2},
-        "alpha_10": 0.04,
         "g0_from_n_space": True,
     },
-    "desert": {"theta_root_rad": 1.7307836435290485, "m_x_gev": 1.8e16,
-               "alpha_x": 0.04, "m_x_closed_gev": 1.235e17},
-    "bounds": {"lz_sigma_si_cm2": 1.5e-47, "dd_sigma_si_cm2": 2.0e-47},
-    "cosmology": {"g_star": 106.75, "hubble_coeff": 1.66,
-                  "entropy_density_cm3": 2891.2, "rho_c_over_h2_gev_cm3": 1.0537e-5},
-    "dm": {"f_n_nucleon": 3.0e-4, "sigma_fiducial_cm3s": 3.0e-26,
-           "sigma_relic_target_cm3s": 2.2e-26},
-    "neutrino": {"m_atm_ev": 0.0501, "m_sol_ev": 0.0086,
-                 "sum_mnu_max_ev": 0.0642,   # DESI DR2 BAO + Planck PR4 + CMB lensing, 95% CL (LambdaCDM)
-                 "obs_sin2_theta12": 0.307, "obs_sin2_theta23": 0.579,
-                 "obs_sin2_theta13": 0.022},
-    "ckm": {"obs_sin2_theta12": 0.050, "obs_sin2_theta23": 0.949,
-            "obs_sin2_theta13": 0.020},
     "tolerances": {"strict": 1e-12, "standard": 1e-9, "loose": 1e-6, "coarse": 1e-4},
 }
 
@@ -245,6 +215,13 @@ def _derive(tree):
         angle["g0"] = 1.0 / (2.0 ** n_space)
     loop = tree["physics"].get("loop_factor")
     tree["physics"]["loop"] = float(loop) if loop else 1.0 / (16.0 * math.pi)
+    phys = tree["physics"]
+    if "v_over_mplanck_observed" not in phys:
+        # the observed electroweak/Planck ratio is not a third input: it is the
+        # quotient of the two measured constants above, so it is derived here
+        # rather than written to the file at a lossier 5 digits
+        phys["v_over_mplanck_observed"] = (float(phys["v_electroweak_gev"])
+                                           / float(phys["m_planck_gev"]))
     pool = tree["pool"]
     njobs = pool.get("njobs")
     pool["njobs_effective"] = int(njobs) if njobs else max(

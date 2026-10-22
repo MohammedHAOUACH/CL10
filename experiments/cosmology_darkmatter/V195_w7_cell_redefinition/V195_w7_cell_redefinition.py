@@ -95,7 +95,7 @@ V147 = json.load(open(exp("V147_w7_relic_from_bond",
                           "results", "v147_w7_relic_from_bond.json")))
 
 M_P = float(CFG.CFG.physics.m_planck_gev)           # GeV (config physics.m_planck_gev = V123's constant)
-LZ = CFG.CFG.bounds.lz_sigma_si_cm2                 # 1.5e-47 cm^2 (config)
+LZ = CFG.CFG.bounds.sigma_si_lz_cm2               # 1.5e-47 cm^2 (config bounds, the one ceiling)
 H0 = float(CFG.CFG.cosmology.hubble_coeff)           # 1.66 (config cosmology)
 GSTAR_RT = np.sqrt(float(CFG.CFG.cosmology.g_star))  # sqrt(106.75) (config cosmology): radiation-era H
 

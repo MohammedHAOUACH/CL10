@@ -154,7 +154,7 @@ def main():
     #   sigma_N [GeV^-2] = gD^2 eps^2 e2 mu_N^2 / (pi mZp^4);
     # 1 GeV^-2 = 0.3894e-27 cm^2.
     target_sv = dw.SIGMA_RELIC_TARGET / (u10pred.GEV2_TO_CM2 * u10pred.C_CM_S)  # GeV^-2
-    dd_bound = dw.DD_BOUND / u10pred.GEV2_TO_CM2      # GeV^-2
+    dd_bound = dw.LZ_BOUND / u10pred.GEV2_TO_CM2   # GeV^-2, the one SI ceiling (config bounds)
     lep_mz = 2900.0                      # GeV, LEP-class reach
     mu_N = u10pred.M_P_ROBSON                    # GeV
     e2 = 4 * math.pi / u10pred.ALPHA_EM_INV

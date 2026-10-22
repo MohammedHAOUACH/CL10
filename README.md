@@ -113,6 +113,7 @@ CL10/
 │       ├── fit_tables.py     # per-table column widths from content (sqrt(L) balance + longest-word floor)
 │       ├── fix_tables.py     # post-pandoc: atomic table cells (no mid-row page splits), repeated headers
 │       ├── build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
+│       ├── number_audit.py   # every decimal the manuscripts print, traced to an artefact
 │       └── headers/          # per-paper head/foot blocks (the title block, the citation and availability footers)
 ├── publication/              # the REVTeX 4.2 journal build of the master (alt pipeline)
 │   ├── README.md             # the pipeline, the files, the prerequisites, the checks after a build
@@ -283,6 +284,9 @@ python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the 
 python3 review/tools/build_series.py   # master -> the three companion papers (doc/paper*.md)
 ./review/tools/build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
                                  # needs pandoc >= 3 + texlive (xelatex, pandoc filters)
+python3 review/tools/number_audit.py # the provenance guard: every printed decimal is an artefact
+                                 # number (leaf or status text), a citation, a section reference, or
+                                 # declared arithmetic - exit 1 means a number nothing produced
 bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the master -> publication/publication.pdf
 python3 -m pytest tests/         # the engine invariants as an executable guard (unitarity, the causal
                                  # front, the 16-sector closure, the spectral mirror, the cubic equivariance)

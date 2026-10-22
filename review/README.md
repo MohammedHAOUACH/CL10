@@ -24,11 +24,13 @@ the [CL10 README](../README.md).
 | `fit_tables.py` | pre-pass: measures each Markdown table's wrapped height and marks the ones that need a smaller font or a split, so LaTeX never clips rows. |
 | `fix_tables.py` | post-pass on the generated LaTeX: applies the sizing decisions and repairs the float placement. |
 | `build_pdfs.sh` | the one command: `fit_tables` → pandoc → `fix_tables` → `xelatex` ×2 → `doc/*.pdf`. Needs `pandoc >= 3` and `texlive`. |
+| `number_audit.py` | the provenance check the paper claims: every decimal the manuscripts print must be a number an experiment artefact prints (leaf or status text), a power-of-ten multiple of one, a bibliography identifier, a section cross-reference, or arithmetic declared in its `DERIVED` table. Exits non-zero on a number nothing in the repository produced. |
 
 ```bash
 python3 review/tools/build_series.py   # master -> doc/paper{1,2,3}_*.md
 ./review/tools/build_pdfs.sh           # -> doc/final_publication.pdf + the three companion PDFs
 bash publication/build.sh              # the REVTeX build of the master (see publication/README.md)
+python3 review/tools/number_audit.py   # every printed decimal traced to an artefact
 ```
 
 The bibliography resolver is **not** here: `publication/fetch_dois.py` resolves

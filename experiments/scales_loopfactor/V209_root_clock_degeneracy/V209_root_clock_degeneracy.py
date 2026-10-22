@@ -65,10 +65,24 @@ from cl10 import config as _config                           # noqa: E402
 from cl10 import engine as E                                 # noqa: E402
 from cl10 import sm_qca, u10pred                             # noqa: E402
 
-D_L, D_S = 45, 32
+_NG = int(_config.CFG.physics.n_gen)
+D_L = _NG * (_NG - 1) // 2          # adjoint link dimension (45)
+D_S = int(_config.CFG.physics.n_internal)   # the spinor block (32)
+
+
+def art(name, key):
+    """A sibling verdict JSON, read by experiment name: a published number has a
+    source, it is not a decimal restated here."""
+    with open(exp(name, "results", "%s.json" % name.lower())) as fh:
+        j = json.load(fh)
+    for part in key.split("."):
+        j = j[part]
+    return j
+
 EIGS = (-32, -12, 4)
 CLOSURE = (("pi/2", math.pi / 2), ("pi/4", math.pi / 4), ("3pi/4", 3 * math.pi / 4))
-OPEN = (("1/5", 0.2), ("pi/3", math.pi / 3))
+OPEN = (("1/5", float(_config.CFG.angle.branches.implemented)),
+        ("pi/3", math.pi / 3))
 LOOP = float(u10pred.LOOP)
 REF_G = float(_config.CFG.angle.branches.implemented)
 N_EXACT = 60                        # exact-integer scan length
@@ -356,12 +370,16 @@ def main():
         "name": f"T3 the open branch g = 1/5 IS a measurement: F_10 ="
                 f" {F10_30:.11f} at 30 digits and {F10_15:.11f} at 15 digits"
                 f" (precision drift {abs(F10_30 - F10_15):.1e}), matching V85's"
-                f" float64 0.01918639 to {abs(F10_30 - 0.01918639):.1e};"
+                f" float64 {art('V113_w8_axis_factorization', 'data.F_10_measured'):.8f}"
+                f" to {abs(F10_30 - art('V113_w8_axis_factorization', 'data.F_10_measured')):.1e};"
                 f" deficit {F10_30 / LOOP:.7f}, coefficient"
                 f" 3 x deficit^10 = {3 * (F10_30 / LOOP) ** 10:.4f}",
         "pass": bool(abs(F10_30 - F10_15) < 1e-12
-                     and abs(F10_30 - 0.01918639) < 1e-7
-                     and abs(3 * (F10_30 / LOOP) ** 10 - 2.0881) < 5e-4)})
+                     and abs(F10_30 - art("V113_w8_axis_factorization",
+                                          "data.F_10_measured")) < 1e-7
+                     and abs(3 * (F10_30 / LOOP) ** 10
+                             - art("V113_w8_axis_factorization",
+                                   "data.coef_one_per_family")) < 5e-4)})
     data["open_branch"] = {"F_10_15dp": F10_15, "F_10_30dp": F10_30,
                            "deficit": F10_30 / LOOP,
                            "coef_3_deficit10": 3 * (F10_30 / LOOP) ** 10}

@@ -74,7 +74,7 @@ def fig15_w7_portal():
         d = json.load(f)["data"]
     lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
     lam1, sig1 = d["V1_lam_for_Omega"], d["V1_sigma_SI_cm2"]
-    lz = float(_config.CFG.bounds.lz_sigma_si_cm2)
+    lz = float(_config.CFG.bounds.sigma_si_lz_cm2)
     gap = d["ss_hh_gap_GeV"]
     cloud = d["V1_virtual_Pmax"]
 
@@ -632,7 +632,7 @@ def fig25_residual_attacks():
     target_sv = (float(_config.CFG.dm.sigma_relic_target_cm3s)
                  / (float(_config.CFG.units.gev2_to_cm2)
                     * float(_config.CFG.units.c_cm_s)))
-    dd_lim = (float(_config.CFG.bounds.dd_sigma_si_cm2)
+    dd_lim = (float(_config.CFG.bounds.sigma_si_lz_cm2)
               / float(_config.CFG.units.gev2_to_cm2))
     mzp = np.geomspace(20.0, 5000.0, 200)
     gD = 1.0
@@ -644,7 +644,9 @@ def fig25_residual_attacks():
     ax4.plot(mzp, eps_relic, color=C_FIT, lw=2.4, zorder=5,
              label=r"relic $\Omega h^2$: $\varepsilon$ needed")
     ax4.plot(mzp, eps_dd, color=C_OPEN, lw=2.0, zorder=5,
-             label=r"DD bound $\sigma_{\rm SI} < 2\times10^{-47}$: ceiling")
+             label=r"LZ bound $\sigma_{\rm SI} < "
+                   + f"{float(_config.CFG.bounds.sigma_si_lz_cm2):.1e}"
+                   + r"$ cm$^2$: ceiling")
     ax4.fill_between(mzp, eps_dd, eps_relic, facecolor="none",
                      edgecolor=C_OPEN, hatch="///", alpha=0.6,
                      label="no overlap: window empty")
@@ -658,7 +660,7 @@ def fig25_residual_attacks():
     ax4.set_ylabel("kinetic mixing $\\varepsilon$")
     ax4.legend(fontsize=9.5, loc="lower right")
     ax4.set_title("(d) O7: dark U(1) portal — relic needs\n"
-                  r"$g_D\varepsilon \gtrsim 0.02$, DD allows "
+                  r"$g_D\varepsilon \gtrsim 0.02$, LZ allows "
                   r"$\lesssim 10^{-3}$:" "\nwindow EMPTY",
                   fontsize=12)
 

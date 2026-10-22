@@ -53,15 +53,28 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                                   # noqa: E402
+from cl10 import config as _config                           # noqa: E402
 sys.path.insert(0, exp("V209_root_clock_degeneracy"))
 from V209_root_clock_degeneracy import (LOOP, mp_ladder,     # noqa: E402
                                         skeleton)
 
-REF_G = "0.2"                       # the implemented (open) clock, g = 1/5
+REF_G = str(float(_config.CFG.angle.branches.implemented))   # the open clock, g = 1/5
 N_CHAIN = 172                       # one chain longer than the 170-hop ladder
 RUNGS = 17                          # insertions in the neutrino ladder
-ODD_REF_V206 = 0.24298720160182485  # V206 data.odd_selection["1/5"]
-F10_REF_V85 = 0.0191863910262       # V85/V203/V209 open-branch F_10
+
+
+def art(name, key):
+    """A sibling verdict JSON, read by experiment name: a published number has a
+    source, it is not a decimal restated here."""
+    with open(exp(name, "results", "%s.json" % name.lower())) as fh:
+        j = json.load(fh)
+    for part in key.split("."):
+        j = j[part]
+    return j
+
+
+ODD_REF_V206 = art("V206_clock_tension", "data.odd_selection.1/5")
+F10_REF_V85 = art("V209_root_clock_degeneracy", "data.open_branch.F_10_30dp")
 
 
 def main():
