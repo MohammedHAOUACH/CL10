@@ -1,7 +1,7 @@
 # CL10 — the API reference
 
 The Python interface of Causal Clifford Theory. One section per module of the
-`cl10` package (43 modules), in the order the theory is built: the core, the
+`cl10` package (45 modules), in the order the theory is built: the core, the
 algebra root, the automaton, the spectrum and the S-matrix, gravity, the
 couplings, the flavour sector, the cosmology, the audits.
 
@@ -58,7 +58,8 @@ a 128×128 matrix, and CuPy has no batched eigendecomposition).
 | `where` | `(cond, a, b)` | the elementwise choice, where the data lives |
 | `field_norm` | `(a)` | the L2 (Frobenius) norm of a field, reduced on the device when the field is on it |
 | `norm` | `(a, *args, **kwargs)` | `linalg.norm`, reduced where the data lives |
-| `eigvals` / `eigvalsh` / `eig` / `eigh` | `(a)` | routed by `routing.eig_gpu_min_dim` (host below, device above) |
+| `eigvals` / `eigvalsh` / `eig` / `eigh` | `(a)` | routed by `routing.eig_gpu_min_dim` (host below, device above); a device spectrum from `eigvals`/`eig` is kept only if it satisfies the two trace identities $\sum_a\lambda_a=\operatorname{tr}A$ and $\sum_a\lambda_a^2=\operatorname{tr}A^2$ to `EIG_VERIFY_TOL` ($10^{-6}$ relative), otherwise the whole call is redone on the host — the guard that catches the non-Hermitian device solver folding the spectrum of a large unitary onto $\pm1$ |
+| `eig_verify_count` | `()` | `{"calls", "rejected"}` — how many device eigendecompositions were taken and how many failed those identities; carried in the `engine.eig_verification` block of every verdict |
 | `det` / `inv` / `qr` / `matrix_rank` | `(a, ...)` | routed by `routing.device_min_dim` (and residency) |
 | `to_device` | `(x)` | move a host array to the active backend |
 | `asnumpy` | `(x)` | the host copy (printing, JSON) |
@@ -602,6 +603,61 @@ $V$ accumulating the eigenvectors), one thread block per matrix; `gpu_modes`
 runs the grid on the card. Measured against numpy: eigenphase
 $1.2\times10^{-11}$, Fock $\Sigma$ $2.9\times10^{-13}$. Exploration code;
 `python -m cl10.altgpu` is the check (`./run_altgpu.sh`).
+
+## 43. `cl10.continuum` — the continuum criterion: point groups, the star module, and the shift group of a module
+
+The library side of Section 8.5: which symmetries a gapless locus carries, what
+the icosahedral route costs, and what algebra the loop ladder of Section 12.1
+lives on. Exact rational arithmetic for the star (`exact` coordinates as
+$(a,b)$ meaning $a + b\sqrt5$), float matrices for the group actions.
+
+| symbol | signature | returns |
+|---|---|---|
+| `cubic_group` | `()` | the $48$ signed permutation matrices of $O_h$ |
+| `polyhedral_group` | `(orders=None)` | `{elements, generators, generator_orders, order, element_orders, orders, axis, product_order, trace_defect}` — the $[2,3,5]$ presentation: $60$ elements for the icosahedral group |
+| `polyhedral_axes` | `(group, order)` | the group's axes of that order, one per conjugacy-pair of directions |
+| `molien_counts` | `(mats, dmax=None)` | the invariant counts of a matrix group by averaging over its elements: $O_h$ gives $[0,1,0,2,0,3,0,4]$, the icosahedral group $[0,1,0,1,0,2,0,2]$ |
+| `so3_counts` | `(dmax=None)` | the rotation-group reference counts $[0,1,1,1,1,\dots]$ |
+| `first_anisotropic_degree` / `isotropy_forced` | `(counts)` | $4$ for $O_h$ against $6$ for the icosahedral group; whether the quadratic count is exactly $1$ |
+| `little_group` | `(q, group, tol=None)` | the stabiliser of a momentum: measured $48$ at $\Gamma$, $8$ at $X$, $4$ at $M$, $6$ at $R$ |
+| `locus_census` | `(loci, group=None, dmax=None)` | per locus `{locus, q, little_group_order, invariants, quadratic_invariants, isotropy_forced, first_anisotropic_degree}` — the two jaws of the trap: isotropy is forced only where the touching is quadratic |
+| `root_link_group` | `()` | `{order, element_orders, generators, is_2_group}`: the $2048$-element group of the $10$ Clifford involutions, a $2$-group, so it contains no order-$5$ element and no icosahedral subgroup |
+| `binary_polyhedral` | `(group_generators)` | the double cover inside the quaternions: `{order, element_orders, unit_norm_defect}` (order $120$ for the binary icosahedral group) |
+| `clifford_even_3d` | `()` | `{E, identity, square_to_minus_one, quaternion_products}` — the quaternion units inside $\mathrm{Cl}^0(\mathbb R^3)$ |
+| `embed_quaternions` | `(qel, even)` | the quaternion image of a rotation, in the even Clifford basis |
+| `icosahedral_star` | `()` | `{directions, exact, axes, norm, phi}` — the $12$ signed directions of the six $5$-fold axes, exact coordinates in $\mathbb Q(\sqrt5)$ |
+| `axes_of` / `angle_spectrum` / `frame_defect` | `(star \| vectors)` | the six axes; the multiset of pairwise angles; whether a single frame carries the star |
+| `star_invariance` | `(star, group)` | the defect with which the group permutes the star (frame-dependent by nature; the cubic group fails) |
+| `module_generators` | `(star=None)` | `{indices, count, exact, vectors, norms}` — the $\mathbb Z$-basis of the module: $6$ independent axes of norm $1.902113$ |
+| `module_shortness` | `(star, bounds=(1,2,3,4,5))` | per bound `{bound, generators, min_norm, coefs, displacement}` — the signature of density: the shortest element keeps falling |
+| `star_module` | `(star=None, group=None)` | `{direction_count, axis_count, directions, axes, axial, angle_spectrum, fourth_moment_defect, cubic_axes_fourth_moment_defect, frame_defect, module_rank, relation_rank, relations, dense, shortness}` |
+| `fourth_moment_defect` | `(vectors)` | the deviation of the direction set's fourth moment from the isotropic one: $0.4$ for the three cubic axes, $2.2\times10^{-16}$ for the star's six |
+| `axial_cost` | `(star, target)` | what it costs, in module steps, to move along a direction the cubic lattice offered |
+| `shortest_rational_displacement` | `(star, search=1)` | `{displacement, norm, steps}` — the shortest nonzero element of the module at that word bound |
+
+## 44. `cl10.starcell` — the automaton step on the icosahedral shift module
+
+The committed construction (altcell/supercell) is a staggered matching step on a
+mixed-radix block cell whose bonds hop along the three cubic axes; the only
+cubic input is that list of displacements. This module rebuilds the same step
+with the six independent axes of the icosahedral star substituted, on the exact
+$6$-dimensional footing the module deserves (rank $6$, dense in $\mathbb R^3$):
+$\mathbb Z^6$ is the module's word group and the physical step is its image
+under the projection carrying the $i$-th basis vector to the $i$-th module
+generator. Used by V214-V217 and V219-V220.
+
+| symbol | signature | returns |
+|---|---|---|
+| `module_cell` | `(shape=(2,)*6)` | `{kind: "module", shape, ndim, nsub, radix, digit, site_index, sites}` — the mixed-radix periodic cell over the six axes ($64$ sub-sites at the default shape) |
+| `module_bonds` | `(c, i, phase)` | the perfect matching of stage $(i,\text{phase})$ as `(a, b, axis, wraps)`; a wrap is the inter-cell hop and carries the Bloch phase |
+| `module_stages` | `(shape=(2,)*6, order="phase-major")` | the stagger; `phase-major` alternates intra-/inter-cell as `supercell.STAGES` does, `block-major` runs the cell through - V214 measures both, the choice is part of the construction |
+| `stage_matrix` | `(bonds, q, axes, g10, nsub)` | the matching matrix: on each bond the $2\times2$ rotation $[[c, -is\, e^{+i\mathbf q\cdot\mathbf v}], [-is\, e^{-i\mathbf q\cdot\mathbf v}, c]]$ with $\mathbf v$ the module generator, $c = \cos g_{10}$ |
+| `bloch_star` | `(cell, U, g10, stages, q, axes)` | the one-step matrix $\prod \operatorname{kron}(S_{\text{stage}}, U)$, built on the device when the engine is on a GPU core ($1024$-dimensional) |
+| `eigenphases` / `gap_star` | `(M)` / `(cell, U, g10, stages, q, axes)` | the eigenphases; $\min\lvert\text{eigenphase}\rvert$ |
+| `parity` | `(cell)` | the digit-wise reflection $d \to -d \bmod n$: the operator the mirror $\mathbb Z_2$ is compared against |
+| `lr_radius` | `(axes)` | the Lieb-Robinson radius per step, the longest module generator: $1.902113$ |
+| `word_displacement` | `(coefs, axes)` | `{steps, displacement, norm}` — the physical reach of a word in module steps |
+| `star_axes` | `(shape=None)` | the module generators as physical displacements (delegates to `continuum.module_generators`) |
 
 ## Shared constants and switches
 

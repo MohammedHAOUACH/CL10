@@ -268,10 +268,51 @@ def _on_device(op, a):
     return n >= int(_CFG.routing.device_min_dim)
 
 
+def _trace(a):
+    """The trace, wherever the matrix lives."""
+    return _E.trace(a) if _device_work((a,)) else np.trace(np.asarray(a))
+
+
+#: How far the two trace identities may be violated before a device
+#: eigendecomposition is refused and redone on the host.  A correct
+#: eigendecomposition of a dense matrix misses them at the level of the matrix
+#: entries times a small power of the dimension; the failure this catches
+#: (cupy's non-Hermitian solver folding the spectrum of a large unitary onto
+#: exactly +/-1, measured on the 1024-dimensional module step) misses them at
+#: order one, so the band between the two is enormous.
+EIG_VERIFY_TOL = 1e-6
+_EIG_VERIFY = {"calls": 0, "rejected": 0}
+
+
+def eig_verify_count():
+    """How many device eigendecompositions have been taken, and how many of
+    them failed the trace identities and were redone on the host."""
+    return dict(_EIG_VERIFY)
+
+
+def _eig_identities(a, lam):
+    """The largest relative violation of `sum(lam) = tr A` and
+    `sum(lam^2) = tr A^2` by a computed eigenvalue set."""
+    tr1 = complex(asnumpy(_trace(a)))
+    tr2 = complex(asnumpy(_trace(matmul(a, a))))
+    s1 = abs(complex(asnumpy(_E.sum(lam) if _device_work((lam,))
+                             else np.sum(lam))) - tr1)
+    s2 = abs(complex(asnumpy(_E.sum(lam * lam) if _device_work((lam,))
+                             else np.sum(lam * lam))) - tr2)
+    scale = max(abs(tr1), abs(tr2), 1e-30)
+    return max(s1, s2) / scale
+
+
 def eigvals(a):
-    """The eigenvalues, on the device above ``routing.eig_gpu_min_dim``."""
+    """The eigenvalues, on the device above ``routing.eig_gpu_min_dim``, and
+    verified there: the two trace identities decide, and a device answer that
+    fails them is discarded for the host one."""
     if _on_device("eigvals", a):
-        return _E.linalg.eigvals(a)
+        _EIG_VERIFY["calls"] += 1
+        lam = _E.linalg.eigvals(a)
+        if _eig_identities(a, lam) <= EIG_VERIFY_TOL:
+            return lam
+        _EIG_VERIFY["rejected"] += 1
     return np.linalg.eigvals(asnumpy(a))
 
 
@@ -284,9 +325,15 @@ def eigvalsh(a):
 
 def eig(a):
     """``eig`` (values + vectors); the vectors of a device matrix are returned
-    on the host when the call is routed to the host."""
+    on the host when the call is routed to the host.  The values are verified
+    by the same two trace identities, and a rejection redoes the whole call on
+    the host -- the vectors of a rejected decomposition are not usable either."""
     if _on_device("eig", a):
-        return _E.linalg.eig(a)
+        _EIG_VERIFY["calls"] += 1
+        w, v = _E.linalg.eig(a)
+        if _eig_identities(a, w) <= EIG_VERIFY_TOL:
+            return w, v
+        _EIG_VERIFY["rejected"] += 1
     return np.linalg.eig(asnumpy(a))
 
 
@@ -375,6 +422,9 @@ def route_report():
         "square_algebra_min_dim": dev_min if gpu else 0,
         "eigendecomposition_min_dim": eig_min if gpu else 0,
         "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+        "eig_verification": {"tolerance": EIG_VERIFY_TOL,
+                             "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+                             **eig_verify_count()},
         "pool_njobs": int(_CFG.pool.njobs_effective),
     }
 

@@ -1,0 +1,571 @@
+{
+  "id": "V218_closed_word_census_module",
+  "tier": 4,
+  "property": "the closed words of the icosahedral module and their return amplitude: the exact census C(n) on six axes against three, verified by brute-force walk counts; the dynamical F_n = < tr M(q)^n > of the module step against the committed cubic step on the same (2,2,2) cell, the cubic one by an exact Fourier projector and the icosahedral one by an almost-periodic box mean whose resolution is measured length by length; their ratio where the mean resolves; and the position of both box means against the loop scale 1/(16 pi)",
+  "residual": true,
+  "pass": true,
+  "status": "LOOP FACTOR ON THE ICOSAHEDRAL MODULE at the closed clock g = 0.785398, cell (2,2,2), step dimension 128, ladder n <= 12 on the momentum grids [12, 16, 24, 32]. (T1) closed words of length n on the module's six-axis lattice against the cubic three-axis one, closed form verified against brute-force walk counts up to n = 12: n = 2: 12 / 6, n = 4: 396 / 90, n = 6: 19920 / 1860, n = 8: 1281420 / 44730, n = 10: 96807312 / 1172556; the count ratio at n = 6, 8, 10 is 10.7, 28.6, 82.6 against 2^n = 64, 256, 1024: the module offers 12 choices per step against the cubic 6, so the path algebra is 2^n larger, and the closed-word ratio falls short of 2^n by the return-law prefactor. (T2) the dynamical return amplitude F_n = < tr M(q)^n >: the cubic control is exact on its trapezoid (the grids agree to 5.1e-14); the icosahedral box mean is resolution-limited at every measured length - largest relative change of F_n between grids finer than n+1, on the fixed box |q| <= 12.5664: n=2: 3.9e-01, n=4: 1.1e+00, n=6: 1.4e+00, n=8: 1.1e+00, n=10: 2.0e+00, n=12: 1.3e+00; no length is resolved at the 0.05 level (drift from 0.24 at n = 2 up to 2.0 at its worst, a factor 8.4). The six axes have irrational images in Q(sqrt 5), so tr M(q)^n is almost periodic: no finite grid is a projector, and box convergence is not established either. (T3) the ratio F_n(icosahedral)/F_n(cubic) at the finest grid: axes (0, 1, 2) [-24.0867, 5.0517]; axes (0, 2, 4) [-0.3659, 1.7296]; over the resolved lengths the within-triple spread is not measurable and the typical value not measurable; over the unresolved lengths it swings by a relative 1.21 and is not quotable. (T4) the cubic control's box mean falls below the loop scale 1/(16 pi) = 0.019894 at n = 3 on its exact grid, while the module's stays above it at every measured length ({(0, 1, 2): None, (0, 2, 4): None}); the log-log slopes of |F_n| are cubic -1.3879 (r2 0.9998) over n = 4..12, the module over its resolved lengths not measurable (r2 not measurable), not measurable (r2 not measurable), and over all measured lengths 0.3584 (r2 0.1114), -2.5126 (r2 0.7896) - the mean is of the trace, with sign cancellation, so none of these is the closed-walk n^-3/2 census slope of T1.. NOT MEASURED, and it is the named residual: the published n* = 208 and the coefficient 2.710 (2.699-2.702 on the float64 ladder) live on V203's traced-link Cartan-norm estimator, not on this return amplitude; resolving the box mean at n = 208 would need a grid of order 4n per axis, (832)**3 = 5.8e+08 diagonalisations of a 128-dimensional step. What the module move does to the loop factor is therefore measured exactly in its combinatorial half (the closed-word count, 2^n), while its dynamical half is bounded by resolution: any shift of n* is outside what this instrument can see.",
+  "data": {
+    "clock_branch": "closed",
+    "g10": 0.7853981633974483,
+    "cell": [
+      2,
+      2,
+      2
+    ],
+    "step_dim": 128,
+    "n_comb": 40,
+    "n_dp": 12,
+    "n_max": 12,
+    "grids": [
+      12,
+      16,
+      24,
+      32
+    ],
+    "box": 12.566370614359172,
+    "census": [
+      {
+        "n": 0,
+        "module_axes6": 1,
+        "cubic_axes3": 1,
+        "module_dp": 1,
+        "cubic_dp": 1,
+        "dp_matches": true
+      },
+      {
+        "n": 2,
+        "module_axes6": 12,
+        "cubic_axes3": 6,
+        "module_dp": 12,
+        "cubic_dp": 6,
+        "dp_matches": true
+      },
+      {
+        "n": 4,
+        "module_axes6": 396,
+        "cubic_axes3": 90,
+        "module_dp": 396,
+        "cubic_dp": 90,
+        "dp_matches": true
+      },
+      {
+        "n": 6,
+        "module_axes6": 19920,
+        "cubic_axes3": 1860,
+        "module_dp": 19920,
+        "cubic_dp": 1860,
+        "dp_matches": true
+      },
+      {
+        "n": 8,
+        "module_axes6": 1281420,
+        "cubic_axes3": 44730,
+        "module_dp": 1281420,
+        "cubic_dp": 44730,
+        "dp_matches": true
+      },
+      {
+        "n": 10,
+        "module_axes6": 96807312,
+        "cubic_axes3": 1172556,
+        "module_dp": 96807312,
+        "cubic_dp": 1172556,
+        "dp_matches": true
+      },
+      {
+        "n": 12,
+        "module_axes6": 8175770064,
+        "cubic_axes3": 32496156,
+        "module_dp": 8175770064,
+        "cubic_dp": 32496156,
+        "dp_matches": true
+      },
+      {
+        "n": 14,
+        "module_axes6": 748315668672,
+        "cubic_axes3": 936369720
+      },
+      {
+        "n": 16,
+        "module_axes6": 72729762868620,
+        "cubic_axes3": 27770358330
+      },
+      {
+        "n": 18,
+        "module_axes6": 7402621930738320,
+        "cubic_axes3": 842090474940
+      },
+      {
+        "n": 20,
+        "module_axes6": 781429888276676496,
+        "cubic_axes3": 25989269017140
+      },
+      {
+        "n": 22,
+        "module_axes6": 84955810313787521472,
+        "cubic_axes3": 813689707488840
+      },
+      {
+        "n": 24,
+        "module_axes6": 9463540456205136873936,
+        "cubic_axes3": 25780447171287900
+      },
+      {
+        "n": 26,
+        "module_axes6": 1075903653146632508721600,
+        "cubic_axes3": 825043888527957000
+      },
+      {
+        "n": 28,
+        "module_axes6": 124461755084172965028753600,
+        "cubic_axes3": 26630804377937061000
+      },
+      {
+        "n": 30,
+        "module_axes6": 14615050011682746903615601920,
+        "cubic_axes3": 865978374333905289360
+      },
+      {
+        "n": 32,
+        "module_axes6": 1738716894494832448888925728140,
+        "cubic_axes3": 28342398385058078078010
+      },
+      {
+        "n": 34,
+        "module_axes6": 209236391501774701621173475723920,
+        "cubic_axes3": 932905175625150142902300
+      },
+      {
+        "n": 36,
+        "module_axes6": 25436579108685507465742483486534800,
+        "cubic_axes3": 30862498453931119524941700
+      },
+      {
+        "n": 38,
+        "module_axes6": 3120460584270952497044823059914468800,
+        "cubic_axes3": 1025612461904076314913090600
+      },
+      {
+        "n": 40,
+        "module_axes6": 385936266788668062203954938445616811920,
+        "cubic_axes3": 34221233837555288931672244980
+      }
+    ],
+    "census_dp_verified": true,
+    "module_axes": [
+      [
+        0.0,
+        1.0,
+        1.618033988749895
+      ],
+      [
+        0.0,
+        1.0,
+        -1.618033988749895
+      ],
+      [
+        1.0,
+        1.618033988749895,
+        0.0
+      ],
+      [
+        1.0,
+        -1.618033988749895,
+        0.0
+      ],
+      [
+        1.618033988749895,
+        0.0,
+        1.0
+      ],
+      [
+        1.618033988749895,
+        0.0,
+        -1.0
+      ]
+    ],
+    "triples": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        4
+      ]
+    ],
+    "angles_between_triples": {
+      "(0, 1, 2)": [
+        116.565,
+        63.435,
+        63.435
+      ],
+      "(0, 2, 4)": [
+        63.435,
+        63.435,
+        63.435
+      ]
+    },
+    "F_cubic": {
+      "12": [
+        0.0,
+        1.213808503297142e-15,
+        1.999999999999967,
+        1.9298437269517814e-15,
+        0.8437499999999718,
+        -4.61664930178773e-15,
+        0.48828124999994804,
+        -3.26689088107901e-15,
+        0.3271102905272784,
+        7.799565587448674e-15,
+        0.23846340179440872,
+        -1.059489289800048e-14,
+        0.18248740769915353
+      ],
+      "16": [
+        0.0,
+        9.21316042662608e-16,
+        1.9999999999999676,
+        1.7703920333856857e-16,
+        0.8437499999999886,
+        4.335021450423311e-16,
+        0.4882812499999692,
+        1.784710490084309e-15,
+        0.3271102905273005,
+        1.8187569793991958e-15,
+        0.23846340179439682,
+        8.927504917911671e-16,
+        0.1836775392293224
+      ],
+      "24": [
+        0.0,
+        3.358478106681547e-16,
+        1.999999999999968,
+        -6.323216084990997e-16,
+        0.843749999999981,
+        1.1312684836616135e-15,
+        0.48828124999999256,
+        -4.014170703173791e-17,
+        0.3271102905273107,
+        2.0067528127261213e-16,
+        0.23846340179441203,
+        1.441868485240848e-15,
+        0.18367753922933178
+      ],
+      "32": [
+        0.0,
+        5.117492520733929e-16,
+        1.9999999999999536,
+        -3.5630593127484854e-17,
+        0.8437500000000224,
+        -5.580606692766809e-16,
+        0.4882812499999925,
+        1.1327443154754744e-15,
+        0.3271102905273057,
+        1.4834896657031394e-15,
+        0.23846340179442027,
+        1.904357943760258e-15,
+        0.18367753922934132
+      ]
+    },
+    "F_star": {
+      "(0, 1, 2)": {
+        "12": [
+          0.0,
+          -3.7574381540200763e-16,
+          1.659883876767935,
+          -1.4347909916494975e-15,
+          -5.702781671505141,
+          1.3691847135233193e-15,
+          9.339916000454263,
+          1.1996295482191925e-16,
+          7.538515244193392,
+          -5.172628175838296e-16,
+          3.0515555277012463,
+          9.198945456962076e-15,
+          10.20740053945323
+        ],
+        "16": [
+          0.0,
+          3.560462759718457e-16,
+          1.3314893870174054,
+          7.366891181825354e-16,
+          -5.3227019323817775,
+          1.4153073515672104e-16,
+          4.106816315675892,
+          4.1265965000154186e-15,
+          -0.8754276365017606,
+          5.439047582006355e-15,
+          -3.0722200128862114,
+          -7.964375517324328e-16,
+          12.952403565747987
+        ],
+        "24": [
+          0.0,
+          -1.3748070986260588e-16,
+          2.1754255784208754,
+          1.9891160966137314e-16,
+          -1.8181586248612351,
+          -7.063238497422112e-16,
+          -1.5204208294324606,
+          1.3012963090361032e-15,
+          0.980182051860079,
+          1.3766505246635998e-15,
+          1.4544573202257938,
+          -7.432950026518091e-16,
+          0.17464965359932139
+        ],
+        "32": [
+          0.0,
+          4.573508473631986e-16,
+          2.072176843665136,
+          6.921469294672962e-16,
+          0.6112077247112405,
+          -8.308662812083802e-16,
+          -3.709282653908546,
+          -1.290766012837267e-16,
+          1.6524631104850855,
+          -1.7222814718803152e-15,
+          -1.4918629110995465,
+          9.173409832155925e-16,
+          -4.424179485542695
+        ]
+      },
+      "(0, 2, 4)": {
+        "12": [
+          0.0,
+          5.093822740153007e-16,
+          2.7082743838383223,
+          7.022721303822016e-16,
+          3.37477094707958,
+          2.067710072092318e-15,
+          -0.019021135369973834,
+          2.0591488904932843e-15,
+          0.7463188717334425,
+          3.4039162479892852e-15,
+          -0.750213562556624,
+          4.857647366913248e-15,
+          -1.346656290879672
+        ],
+        "16": [
+          0.0,
+          3.4759855169108254e-16,
+          2.1114821657141203,
+          -1.4543771697757887e-15,
+          0.3419371607944383,
+          1.1129371299463961e-15,
+          0.564259468477228,
+          -1.7725341797092918e-15,
+          0.9320463933816349,
+          -1.3733834558428588e-15,
+          0.9939375921049739,
+          1.4437100603545416e-15,
+          1.290693691494013
+        ],
+        "24": [
+          0.0,
+          4.147726152558253e-16,
+          2.0775884793768897,
+          -1.3326648566308594e-16,
+          0.6368651116925164,
+          1.896278760181614e-15,
+          0.6923427024357555,
+          2.370137044920598e-16,
+          0.228228107496632,
+          6.056003228552496e-16,
+          0.03887148308713534,
+          1.2810134776822863e-15,
+          0.17658159922840208
+        ],
+        "32": [
+          0.0,
+          4.893118445491689e-16,
+          2.063965463278861,
+          8.060926806633137e-16,
+          1.459347313745084,
+          1.6308488419111452e-15,
+          0.11664631856784365,
+          1.7028212524290511e-15,
+          -0.02390131440776478,
+          2.0572299887207276e-15,
+          -0.04367634445807958,
+          -3.1061736661783175e-15,
+          -0.06720194590479954
+        ]
+      }
+    },
+    "exactness": 5.062616992290714e-14,
+    "resolution_cubic": {
+      "2": 7.216449660063633e-15,
+      "4": 6.000138657529576e-14,
+      "6": 9.117684385273745e-14,
+      "8": 9.876635175405671e-14,
+      "10": 9.835245668190922e-14,
+      "12": 1.0305725266834957e-13
+    },
+    "resolution_star": {
+      "(0, 1, 2)": {
+        "2": 0.38794073204567026,
+        "4": 1.1071771216080808,
+        "6": 1.3971430421567108,
+        "8": 1.1161273285447113,
+        "10": 1.9932737612871834,
+        "12": 1.3415720845235415
+      },
+      "(0, 2, 4)": {
+        "2": 0.23790385656800014,
+        "4": 0.8986784092442363,
+        "6": 1.0274735839679612,
+        "8": 1.0256439106223527,
+        "10": 1.7547894037972867,
+        "12": 1.0520665331733445
+      }
+    },
+    "resolved_lengths": [],
+    "unresolved_lengths": [
+      2,
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "ratio": {
+      "(0, 1, 2)": [
+        null,
+        null,
+        1.036088421832592,
+        null,
+        0.724394340398488,
+        null,
+        -7.596610875204819,
+        null,
+        5.051700170671167,
+        null,
+        -6.256150419198013,
+        null,
+        -24.086665708313017
+      ],
+      "(0, 2, 4)": [
+        null,
+        null,
+        1.0319827316394545,
+        null,
+        1.729596816290424,
+        null,
+        0.23889166042694746,
+        null,
+        -0.07306806022285503,
+        null,
+        -0.18315743266856957,
+        null,
+        -0.3658691540988614
+      ]
+    },
+    "ratio_resolved": {
+      "(0, 1, 2)": [],
+      "(0, 2, 4)": []
+    },
+    "ratio_unresolved": {
+      "(0, 1, 2)": [
+        1.036088421832592,
+        0.724394340398488,
+        -7.596610875204819,
+        5.051700170671167,
+        -6.256150419198013,
+        -24.086665708313017
+      ],
+      "(0, 2, 4)": [
+        1.0319827316394545,
+        1.729596816290424,
+        0.23889166042694746,
+        -0.07306806022285503,
+        -0.18315743266856957,
+        -0.3658691540988614
+      ]
+    },
+    "ratio_spread": null,
+    "ratio_typical": null,
+    "ratio_swing": 1.211534359136694,
+    "drift_shortest_n": 0.23790385656800014,
+    "drift_worst": 1.9932737612871834,
+    "decay": {
+      "cubic": [
+        -1.3878931394325056,
+        0.9998425123779155
+      ],
+      "(0, 1, 2)": [
+        null,
+        null
+      ],
+      "(0, 2, 4)": [
+        null,
+        null
+      ],
+      "(0, 1, 2)_all_lengths": [
+        0.35842916602421804,
+        0.11137141329750566
+      ],
+      "(0, 2, 4)_all_lengths": [
+        -2.512602392309141,
+        0.789583172117968
+      ]
+    },
+    "crossing": {
+      "cubic": 3,
+      "(0, 1, 2)": null,
+      "(0, 2, 4)": null
+    },
+    "loop_scale": 0.019894367886486918,
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 0,
+        "rejected": 0
+      },
+      "pool_njobs": 8
+    },
+    "checks": [
+      {
+        "name": "T1 the closed-word census is right: the closed form agrees with a brute-force walk count on Z^d for every n it can be checked against",
+        "pass": true,
+        "detail": "closed words of length n: n = 2: 12 / 6, 4: 396 / 90, 6: 19920 / 1860, 8: 1281420 / 44730, 10: 96807312 / 1172556; the ratio module/cubic over n >= 6 runs 10.7097, 28.6479, 82.5609, 251.5919 against 2^n = [64, 256, 1024] (the module lattice offers 12 choices a step against the cubic 6)"
+      },
+      {
+        "name": "T2 the cubic control really is exact on its (n+1)^3 grid: refining the momentum grid does not move F_n",
+        "pass": true,
+        "detail": "largest change of F_n between the grids [12, 16, 24, 32] for the cubic step: 5.06e-14 (the integrand is a Laurent polynomial of degree n in each angle, so the trapezoid on n+1 points per angle is the exact Fourier projector)"
+      },
+      {
+        "name": "T2 the icosahedral module's box mean is unresolved at every measured length - its relative grid drift is of order unity already at the shortest loop on the ladder - where the cubic control sits at round-off: the step's axes carry irrational components, so the integrand is not a Laurent polynomial on the torus and the exact projector of the cubic lattice does not exist here",
+        "pass": true,
+        "detail": "largest relative change of F_n between grids finer than n+1, on the box |q| <= 12.5664: cubic 1.03e-13 (flat: the trapezoid is the exact projector); icosahedral n=2: 3.9e-01, n=4: 1.1e+00, n=6: 1.4e+00, n=8: 1.1e+00, n=10: 2.0e+00, n=12: 1.3e+00; resolved (change < 0.05): n = []; unresolved: n = [2, 4, 6, 8, 10, 12]. Resolving n = 208 would need a grid of order 4n per axis, i.e. (832)**3 = 5.76e+08 128-dimensional eigendecompositions: the estimator that is exact on the cubic lattice does not reach the crossing length on the quasilattice"
+      },
+      {
+        "name": "T3 the ratio of the return amplitudes is quotable only over the lengths the module mean resolves, and is an artifact of resolution beyond them",
+        "pass": true,
+        "detail": "F_n(icosahedral)/F_n(cubic) at the finest grid (grid 32): axes (0, 1, 2): [-24.0867, 5.0517]; axes (0, 2, 4): [-0.3659, 1.7296]; over the resolved lengths n = none the relative spread within a triple is not measurable and the typical value not measurable; over the unresolved lengths n = [2, 4, 6, 8, 10, 12] the same ratio swings by a relative 1.21 - not quotable"
+      },
+      {
+        "name": "T4 the cubic control's box mean falls below the loop scale 1/(16 pi) inside the range its grid resolves exactly, while the module's box mean stays above it at every measured length; the log-log slopes are reported as measured - the mean is taken of the trace, with sign cancellation, so it is not the closed-walk n^-3/2 law of T1",
+        "pass": true,
+        "detail": "log-log slope of F_n: cubic over n = 4..12: -1.3879 (r2 0.9998); icosahedral over the resolved lengths none: (0, 1, 2): not measurable (r2 not measurable), (0, 2, 4): not measurable (r2 not measurable); over all measured lengths: (0, 1, 2): 0.3584 (r2 0.1114), (0, 2, 4): -2.5126 (r2 0.7896); crossing of 1/(16 pi) = 0.019894 within the resolved range: cubic 3, icosahedral {(0, 1, 2): None, (0, 2, 4): None}"
+      }
+    ]
+  },
+  "wall_time": 1825.127
+}

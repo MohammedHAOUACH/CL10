@@ -110,3 +110,26 @@ def test_stage_order_is_the_causal_one():
     assert len(SC.STAGES) == 6
     assert sorted(j for even, j in SC.STAGES if even) == [0, 1, 2]
     assert sorted(j for even, j in SC.STAGES if not even) == [0, 1, 2]
+
+
+def test_eigensolver_is_verified_by_the_trace_identities():
+    """The engine checks every device eigendecomposition against `sum(lam) =
+    tr A` and `sum(lam^2) = tr A^2` and redoes it on the host if it fails. The
+    failure this guards against is real and was measured: under GPU memory
+    contention the device solver folded the 1024-dimensional module step's
+    spectrum onto exactly +/-1, pinning 512 modes to 1 at every momentum and
+    turning the star sector's nodal-line structure into a flat half-zero band.
+    The true spectrum misses the identities at 4.5e-15; the corrupted one
+    misses them at 4.7e-2, so the guard is nowhere near its own threshold."""
+    from cl10 import engine as E
+    _, _, U16 = SC.sectors()
+    M = SC.bloch((0.31, -0.77, 0.44), U16)
+    lam = np.linalg.eigvals(np.asarray(M))
+    assert E._eig_identities(M, lam) < 1e-9
+    folded = np.where(np.real(lam) >= 0, 1.0 + 0j, -1.0 + 0j)
+    assert E._eig_identities(M, folded) > 1e-2
+    pinned = lam.copy()
+    pinned[:512] = 1.0 + 0j
+    assert E._eig_identities(M, pinned) > 1e-2
+    assert np.abs(np.sort_complex(E.eigvals(M))
+                  - np.sort_complex(lam)).max() < 1e-9

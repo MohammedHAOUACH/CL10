@@ -4,7 +4,7 @@
   "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the 16-fold node multiplet by the gauged bond current, with the gauge-safe multiplet-averaged source: semi-Dirac exponents, eps cubic weights, kappa-exponents, dressed vs free anisotropy",
   "residual": "eps anisotropy is sublinear in k: the flux dressing contributes at O(eta) to the node dispersion (recorded exponent in data)",
   "pass": true,
-  "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 3.1e-16.",
+  "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 1.7e-16.",
   "data": {
     "rows": [
       {
@@ -114,10 +114,10 @@
     "casimir_err": 2.2565282975506307e-14,
     "eta0_dev": 0.0,
     "v115_dev": 1.5359419471949742e-05,
-    "eps_route_dev": 3.0531133177191805e-16,
+    "eps_route_dev": 1.6653345369377348e-16,
     "projector_window_dev": 0.0,
     "stage_sum_err": 6.661338147750939e-16,
     "n_bonds": 24
   },
-  "wall_time": 113.606
+  "wall_time": 108.509
 }

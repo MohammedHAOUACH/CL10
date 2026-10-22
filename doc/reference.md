@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (148 of them under `experiments/<category>/`: the 132 of the publication programme, and the 16 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (158 of them under `experiments/<category>/`: the 142 of the publication programme, and the 16 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **148** experiments in name order,
+`run_validation.py` runs all **158** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -154,7 +154,7 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (132/132 publication, 148 PASS of 148).**  Every
+**The result (142/142 publication, 158 PASS of 158).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
 positive. The 16 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V171–V183, V191–V201) run on the host numpy
@@ -233,7 +233,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (148 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (158 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
@@ -349,11 +349,38 @@ exponents being a permutation of $(1,1,2)$ at all twelve nodes.  The
 and at 12/12 nodes the gap along the line through the node stays below
 $10^{-9}$ at steps $10^{-3},10^{-2},10^{-1}$, so the $\pm1$ charges whose sum
 was exactly $0$ become sign noise — the naive sum is no longer quantized ($-2$ on the numpy backend, $-6$ on cupy).  The Nielsen–Ninomiya count
-at the closed angle must be redone **per line**, and has not been.  At the other
+at the closed angle must be redone **per line**; the per-line programme is reported below (V219, V220), and it dissolves the count rather than completing it.  At the other
 closed angle $\pi/2$ the bond layer is diagonal to $1.2\times10^{-16}$ with the
 identity permutation and the eight corner shifts $\{\pm1\}^3$ — a pure lattice
 translation, $M(0) = I$ on all 128 internal states, bands exactly linear with
 slope $\pm1$, 513 gapless grid points: no mixing, no mass generation (V134).
+
+*The per-line programme, run (V219, V220).*  The count has now been taken per
+line on the icosahedral-module step with the cubic module's $\Gamma$–$M$ line as
+control, and the first finding is that **there is nothing band-resolved to
+count**: at the line the touching is a cluster of **128 of 1024** eigenphases at
+phase zero (cubic $M$: 64), the largest phase inside the cluster at
+$2.3\times10^{-14}$ with the first one outside at $3.2\times10^{-1}$, and the
+cluster stays isolated along circles of every radius (smallest relative gap 5.2
+at $r = 3\times10^{-2}$, rising to 1479 at $r = 3\times10^{-3}$).  Consecutive
+eigenvectors of the single closest phase overlap at $10^{-14}$ in the worst
+case, so a per-band Berry phase there is a choice of basis inside the
+degeneracy: the $\pm1$ charges of the protocol do not exist at these lines, and
+their sum can be neither quantized nor sign noise.  (Inside a 128-fold
+degenerate cluster the eigensolver's basis is non-orthogonal, so the frame has
+to be re-orthonormalised before transport — `V220` records its condition.)  What
+is gauge invariant is the cluster's own parallel transport.  The transverse
+closing exponent measures $1.006$ for a circle cut across the line and $1.008$
+for one tilted $45^\circ$ about it (cubic line: $1.000$): the touching is
+linear.  The symmetry test then decides stability: the commutant of the internal
+map is computed (obstruction $4.2\times10^{-15}$ over 240 powers of the map), and
+the unitary perturbation it supplies opens a gap at the line that grows linearly
+with the coupling ($1.277\times10^{-4}$ at $\theta = 10^{-3}$,
+$1.277\times10^{-3}$ at $\theta = 10^{-2}$, ratio $10.00$) — the lines are
+**not** protected against a symmetry-respecting mass.  The symmetry available to
+protect them is small: of the icosahedral point group's 60 elements exactly 2
+preserve the line direction, and those leave the spectrum at the line fixed to
+exactly $0$ (V220).
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the

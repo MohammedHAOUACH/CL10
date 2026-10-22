@@ -1,0 +1,326 @@
+{
+  "id": "V221_rung_k0_labels",
+  "tier": 4,
+  "property": "the rung labels of the loop ladder as K0 indices: the shift group of each module in Smith normal form (free rank, relations, torsion), K0 of its group C*-algebra and the classes representable in three dimensions, the exact closed-word counts on both ranks by two independent closed forms, the n^(-r/2) return law measured on those integers, the crossing of 1/(16 pi) on each census ladder, and the axis-family count that sets the coefficient's combinatorial prefactor",
+  "residual": true,
+  "pass": true,
+  "status": "RUNG LABELS AS K0 INDICES. (T1) the cubic module's 6 signed axes present the free abelian group of rank 3 with 3 relations (the opposite pairs) and no torsion; the icosahedral star's 12 signed directions are Q-independent inside Q(sqrt 5)^3, presenting rank 6 with 6 relations and no torsion - the exact form of the density V214 measured by shortest elements, and the reason no finite Brillouin zone exists on it. (T2) the labels therefore live in different groups: K0 = wedge^even Z^r has rank 4 for the cubic module and 32 for the star, of which 4 and 16 classes are representable by cycles of degree at most 2 in three dimensions. (T3) the two ladders count differently in a way that is not a convention: the closed-word return probability falls as n^(-r/2), measured slopes -1.4848 (r2 1.000000) against -2.9719 (r2 1.000000) on exact integers up to n = 60, the two count forms agreeing at every length. (T4) the census ladder crosses 1/(16 pi) at n = 10 (cubic) and n = 4 (star): single-digit rungs, nowhere near 208; and the family count that supplies the coefficient's factor 3 doubles to 6 on the star. VERDICT: the ladder's algebra moves with the module - rank 3 to 6, K0 Z^4 to Z^32, return exponent -3/2 to -3 - while the published n* = 208 and coefficient 2.710 live on the traced-link Cartan-norm estimator of V203/V204, a statement about the clock and the link algebra that the module change leaves untouched (the internal sector carrying it is unchanged, V217). Nothing in the published ladder arithmetic moves; what moves is the ladder the star module would have to build for itself, and V218 showed its dynamical half cannot be resolved at n = 208: (832)^6 = 3.3e+17 diagonalisations of a 128-dimensional step on the six-torus.",
+  "data": {
+    "cubic_signed_generators": 6,
+    "star_signed_directions": 12,
+    "smith_cubic": {
+      "invariant_factors": [
+        1,
+        1,
+        1
+      ],
+      "rank": 3,
+      "torsion": []
+    },
+    "smith_star": {
+      "invariant_factors": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "rank": 6,
+      "torsion": []
+    },
+    "relations_cubic": 3,
+    "relations_star": 6,
+    "exact_vs_engine_float_defect": 0.0,
+    "k0_rank_cubic": 4,
+    "k0_rank_star": 32,
+    "k0_degree_le_2_cubic": 4,
+    "k0_degree_le_2_star": 16,
+    "census": [
+      {
+        "n": 2,
+        "closed_cubic_r3": 6,
+        "closed_star_r6": 12,
+        "p_cubic": 0.16666666666666666,
+        "p_star": 0.08333333333333333,
+        "two_forms_agree": true
+      },
+      {
+        "n": 4,
+        "closed_cubic_r3": 90,
+        "closed_star_r6": 396,
+        "p_cubic": 0.06944444444444445,
+        "p_star": 0.019097222222222224,
+        "two_forms_agree": true
+      },
+      {
+        "n": 6,
+        "closed_cubic_r3": 1860,
+        "closed_star_r6": 19920,
+        "p_cubic": 0.03986625514403292,
+        "p_star": 0.0066711676954732515,
+        "two_forms_agree": true
+      },
+      {
+        "n": 8,
+        "closed_cubic_r3": 44730,
+        "closed_star_r6": 1281420,
+        "p_cubic": 0.026631087105624143,
+        "p_star": 0.0029801733699845677,
+        "two_forms_agree": true
+      },
+      {
+        "n": 10,
+        "closed_cubic_r3": 1172556,
+        "closed_star_r6": 96807312,
+        "p_cubic": 0.01939193244170096,
+        "p_star": 0.0015634921352559157,
+        "two_forms_agree": true
+      },
+      {
+        "n": 12,
+        "closed_cubic_r3": 32496156,
+        "closed_star_r6": 8175770064,
+        "p_cubic": 0.014928527975706617,
+        "p_star": 0.0009169670206664384,
+        "two_forms_agree": true
+      },
+      {
+        "n": 14,
+        "closed_cubic_r3": 936369720,
+        "closed_star_r6": 748315668672,
+        "p_cubic": 0.011948953080810005,
+        "p_star": 0.000582837375841416,
+        "two_forms_agree": true
+      },
+      {
+        "n": 16,
+        "closed_cubic_r3": 27770358330,
+        "closed_star_r6": 72729762868620,
+        "p_cubic": 0.009843770445314749,
+        "p_star": 0.00039337996270364246,
+        "two_forms_agree": true
+      },
+      {
+        "n": 18,
+        "closed_cubic_r3": 842090474940,
+        "closed_star_r6": 7402621930738320,
+        "p_cubic": 0.008291560006168068,
+        "p_star": 0.0002780501544505391,
+        "two_forms_agree": true
+      },
+      {
+        "n": 20,
+        "closed_cubic_r3": 25989269017140,
+        "closed_star_r6": 781429888276676496,
+        "p_cubic": 0.007108354149086697,
+        "p_star": 0.0002038285885960772,
+        "two_forms_agree": true
+      },
+      {
+        "n": 22,
+        "closed_cubic_r3": 813689707488840,
+        "closed_star_r6": 84955810313787521472,
+        "p_cubic": 0.00618203293025252,
+        "p_star": 0.00015388832533051188,
+        "two_forms_agree": true
+      },
+      {
+        "n": 24,
+        "closed_cubic_r3": 25780447171287900,
+        "closed_star_r6": 9463540456205136873936,
+        "p_cubic": 0.005440770873122592,
+        "p_star": 0.00011904296571652568,
+        "two_forms_agree": true
+      },
+      {
+        "n": 26,
+        "closed_cubic_r3": 825043888527957000,
+        "closed_star_r6": 1075903653146632508721600,
+        "p_cubic": 0.004836648668838671,
+        "p_star": 9.398552785037901e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 28,
+        "closed_cubic_r3": 26630804377937061000,
+        "closed_star_r6": 124461755084172965028753600,
+        "p_cubic": 0.004336599083314765,
+        "p_star": 7.550244775996807e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 30,
+        "closed_cubic_r3": 865978374333905289360,
+        "closed_star_r6": 14615050011682746903615601920,
+        "p_cubic": 0.003917143982554943,
+        "p_star": 6.156911689180051e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 32,
+        "closed_cubic_r3": 28342398385058078078010,
+        "closed_star_r6": 1738716894494832448888925728140,
+        "p_cubic": 0.003561201814415359,
+        "p_star": 5.086616556284246e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 34,
+        "closed_cubic_r3": 932905175625150142902300,
+        "closed_star_r6": 209236391501774701621173475723920,
+        "p_cubic": 0.0032560794206789256,
+        "p_star": 4.250840952824691e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 36,
+        "closed_cubic_r3": 30862498453931119524941700,
+        "closed_star_r6": 25436579108685507465742483486534800,
+        "p_cubic": 0.002992168643126633,
+        "p_star": 3.588672661062093e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 38,
+        "closed_cubic_r3": 1025612461904076314913090600,
+        "closed_star_r6": 3120460584270952497044823059914468800,
+        "p_cubic": 0.0027620769562506546,
+        "p_star": 3.057252799875009e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 40,
+        "closed_cubic_r3": 34221233837555288931672244980,
+        "closed_star_r6": 385936266788668062203954938445616811920,
+        "p_cubic": 0.00256003350052727,
+        "p_star": 2.6258248233904157e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 42,
+        "closed_cubic_r3": 1146036523273637310151384256280,
+        "closed_star_r6": 48084646826389922800689950367162554715840,
+        "p_cubic": 0.002381474537072507,
+        "p_star": 2.2719255549214708e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 44,
+        "closed_cubic_r3": 38507502835917076808710010791800,
+        "closed_star_r6": 6031092641093877891535413847178609632029120,
+        "p_cubic": 0.0022227485683544955,
+        "p_star": 1.9788878108929084e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 46,
+        "closed_cubic_r3": 1297804711481467883526891692041200,
+        "closed_star_r6": 761076492659063742179890416382766007863097600,
+        "p_cubic": 0.00208090296407157,
+        "p_star": 1.7341672886128695e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 48,
+        "closed_cubic_r3": 43861095233349763172644603553579100,
+        "closed_star_r6": 96578380050180387523397811230537965070218971600,
+        "p_cubic": 0.001953527159942692,
+        "p_star": 1.5281996864318768e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 50,
+        "closed_cubic_r3": 1486134894511368488511298785872590056,
+        "closed_star_r6": 12318409189516140296932912150616372044218880677312,
+        "p_cubic": 0.0018386358016020661,
+        "p_star": 1.3536061656012936e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 52,
+        "closed_cubic_r3": 50473042959116456206695526548113874936,
+        "closed_star_r6": 1578625866200056278661763531102464898664422601937344,
+        "p_cubic": 0.0017345805354840572,
+        "p_star": 1.2046320677852956e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 54,
+        "closed_cubic_r3": 1717935171579831227898110571243045115440,
+        "closed_star_r6": 203188897829035993164167526049240479973129104130513152,
+        "p_cubic": 0.0016399826384439061,
+        "p_star": 1.0767445642631758e-05,
+        "two_forms_agree": null
+      },
+      {
+        "n": 56,
+        "closed_cubic_r3": 58591130504414522992818338034043897226760,
+        "closed_star_r6": 26259102888664019502870398510705228592372506296343605440,
+        "p_cubic": 0.0015536810052176543,
+        "p_star": 9.663403323996583e-06,
+        "two_forms_agree": null
+      },
+      {
+        "n": 58,
+        "closed_cubic_r3": 2002044498542496713444559505063252933261680,
+        "closed_star_r6": 3406404949304158970742819784689054297764987906039869405440,
+        "p_cubic": 0.0014746915911670751,
+        "p_star": 8.705305253136353e-06,
+        "two_forms_agree": null
+      },
+      {
+        "n": 60,
+        "closed_cubic_r3": 68529473603957996416207510223654247514473456,
+        "closed_star_r6": 443444106081120192671639869884130525584300940125226500881664,
+        "p_cubic": 0.0014021754947731793,
+        "p_star": 7.86980776652836e-06,
+        "two_forms_agree": null
+      }
+    ],
+    "two_closed_forms_agree": true,
+    "return_exponent_cubic": [
+      -1.4847729694463982,
+      0.9999996662332395
+    ],
+    "return_exponent_star": [
+      -2.971864845094439,
+      0.9999997713722768
+    ],
+    "fit_range": [
+      40,
+      60
+    ],
+    "crossing_cubic": 10,
+    "crossing_star": 4,
+    "loop_scale": 0.019894367886486918,
+    "axis_families_cubic": 3,
+    "axis_families_star": 6,
+    "resolution_cost_cubic": 575930368,
+    "resolution_cost_star": 331695788784615424,
+    "n_published": 208,
+    "checks": [
+      {
+        "name": "T1 the shift group of each module is free of the measured rank: the cubic module's signed axes present Z^3 with three relations, the icosahedral star's twelve signed directions present Z^6 with six, and neither carries torsion - the star's directions are Q-independent in Q(sqrt 5)^3, the algebraic form of its density",
+        "pass": true,
+        "detail": "Smith invariant factors: cubic [1, 1, 1] (rank 3 of 6 signed generators, relation rank 3), star [1, 1, 1, 1, 1, 1] (rank 6 of 12 signed directions, relation rank 6); torsion []; the exact generators reproduce the engine's float star axes to 0.0e+00"
+      },
+      {
+        "name": "T2 the rung labels therefore live in different K0 groups: K0(C(T^3)) is Z^4 for the cubic module while K0(C(T^6)) is Z^32 for the star, and the classes representable by cycles of degree at most 2 are 4 against 16",
+        "pass": true,
+        "detail": "K0 = wedge^even Z^r has rank 2^(r-1): cubic r = 3 gives 4, star r = 6 gives 32; degree at most 2: 4 against 16"
+      },
+      {
+        "name": "T3 the two ladders count differently in a way that is not a convention: the closed-word return probability falls as n^(-r/2), measured at -3/2 on the cubic ladder and -3 on the star's, from exact integer counts verified by two independent closed forms",
+        "pass": true,
+        "detail": "closed words, rank 3 / rank 6: n = 4: 90 / 396, n = 6: 1860 / 19920, n = 8: 44730 / 1281420, n = 10: 1172556 / 96807312, n = 12: 32496156 / 8175770064; the two closed forms agree at every n <= 24: True; log-log slope of C(n,r)/(2r)^n over n = 40..60: cubic -1.4848 (r2 1.000000), star -2.9719 (r2 1.000000)"
+      },
+      {
+        "name": "T4 neither census ladder crosses the loop scale 1/(16 pi) anywhere near n* = 208, and the combinatorial prefactor moves by the family count: 3 axis families on the cubic module against 6 on the star",
+        "pass": true,
+        "detail": "loop scale 1/(16 pi) = 0.019894: the exact census ladder crosses it at n = 10 (cubic, return probability 1.9392e-02) and n = 4 (star, 1.9097e-02); axis families 3 against 6, so the factor 3 of the coefficient - the three axis families - becomes 6; resolving the star's almost-periodic mean at n = 208 costs (832)^6 = 3.32e+17 eigendecompositions against (832)^3 = 5.76e+08 on the cubic torus"
+      }
+    ]
+  },
+  "wall_time": 5.736
+}

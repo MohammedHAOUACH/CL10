@@ -478,11 +478,37 @@ def angle_spectrum(vectors, tol=1e-8):
 def frame_defect(vectors):
     """How isotropic the second moment of a direction set is: the deviation of
     sum v v^T from a scalar multiple of the identity.  Zero says the set is a
-    tight frame -- the reason an icosahedral star can carry an isotropic linear
-    response, where the three cubic axes cannot hide their directions at
-    second order (V212 measures the same obstruction in the invariant rings)."""
+    tight frame: both the three cubic axes and the six icosahedral axes pass
+    that test, which is why the difference between them is a fourth-order one
+    (`fourth_moment_defect` below, and V212's invariant rings: the cubic group
+    admits an anisotropic invariant at degree 4, the icosahedral one not until
+    degree 6)."""
     S = sum(np.outer(np.asarray(v, float), np.asarray(v, float)) for v in vectors)
     return float(np.max(np.abs(S - (np.trace(S) / 3.0) * np.eye(3))))
+
+def _module_rows(star):
+    """The 6 x 12 rational matrix of the star: each coordinate a + b sqrt 5
+    contributes one row of rational parts and one of sqrt 5 parts."""
+    return ([[v[k][0] for v in star["exact"]] for k in range(3)]
+            + [[v[k][1] for v in star["exact"]] for k in range(3)])
+
+
+def module_generators(star=None):
+    """The independent axes of the star, exact and as physical displacements:
+    the Z-basis of the module, i.e. the displacements a step on the module hops
+    on.  The other six star directions are their negatives -- the relation
+    lattice of the signed star is exactly the six pairs of opposites -- so these
+    six generate the whole module and every module displacement has a unique
+    word in them."""
+    star = star or icosahedral_star()
+    cols = _independent_columns(_module_rows(star))
+    rt5 = math.sqrt(5.0)
+    exact = [star["exact"][i] for i in cols]
+    vectors = [np.array([float(a) + float(b) * rt5 for a, b in v]) for v in exact]
+    return {"indices": cols, "count": len(cols), "exact": exact,
+            "vectors": vectors,
+            "norms": [float(np.linalg.norm(v)) for v in vectors]}
+
 
 
 def module_shortness(star, bounds=(1, 2, 3, 4, 5)):
@@ -492,9 +518,7 @@ def module_shortness(star, bounds=(1, 2, 3, 4, 5)):
     rank of this module is 6 (measured below), so it is dense, and the
     signature of density is what this measures: the shortest nonzero element
     keeps falling with the bound instead of settling at a lattice spacing."""
-    rows = [[v[k][0] for v in star["exact"]] for k in range(3)] + \
-           [[v[k][1] for v in star["exact"]] for k in range(3)]
-    gens = [star["exact"][i] for i in _independent_columns(rows)]
+    gens = module_generators(star)["exact"]
     rt5 = math.sqrt(5.0)
     G = np.array([[float(a) + float(b) * rt5 for a, b in v] for v in gens])
     half = len(gens) // 2

@@ -78,8 +78,28 @@ def render(nums):
     return ",".join(str(n) for n in nums)
 
 
+def in_math(text, pos):
+    """Whether `pos` sits inside a `$...$` span: the unescaped `$` before it on
+    its own line are odd.  A bracketed number list inside math
+    (`$[0,1,0,2,0,3,0,4]$: the Molien counts of a point group`) is a sequence,
+    not a citation; the test is line-local because the body ranges cut the
+    assembled text wherever a displayed equation is not."""
+    start = text.rfind("\n", 0, pos) + 1
+    n, i = 0, start
+    while i < pos:
+        if text[i] == "\\":
+            i += 2
+            continue
+        if text[i] == "$":
+            n += 1
+        i += 1
+    return n % 2 == 1
+
+
 def remap_refs(text, order):
     def sub(m):
+        if in_math(text, m.start()):
+            return m.group(0)
         old = expand(m.group(1))
         for n in old:
             if n not in order:
