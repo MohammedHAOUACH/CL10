@@ -7,7 +7,7 @@
   "backend_parent": "numpy",
   "backend_requested": "auto",
   "n_backend_reported": 29,
-  "n_backend_gpu": 27,
+  "n_backend_gpu": 29,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
   "hard_tier_n": 25,
@@ -155,7 +155,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.411,
+      "wall_time": 0.072,
       "backend": null,
       "verdict": {
         "id": "V0_root",
@@ -172,7 +172,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.411
+        "wall_time": 0.072
       }
     },
     {
@@ -8846,10 +8846,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "AXIS-FAMILY FACTORIZATION AUDIT: F_10 reproduced at 0.01918639 (V85 regression 1.03e-09). The 12 doubler nodes form 3 axis families of 4; the Floquet spectra are identical WITHIN families to 0.00e+00 and ACROSS families to 0.00e+00 - every node channel carries the same link-local loop factor, so per-node contributions are EQUAL. The sum is then a NODE-SET choice: all 12 nodes give coefficient 8.3524 (4.02x the observed 2.0766); one split node per family (the V68/V96 selective reading) gives 2.0881 (99.44% agreement); a single node gives 0.6960. VERDICT: the factorization is CONFIRMED as family symmetry (equal contributions) but the coefficient 3 is EXACTLY the choice of one split node per axis family - V108's conditionality is O9's split-node-set input, not a factorization theorem.",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 8.59,
+      "wall_time": null,
       "backend": null,
       "verdict": {
         "experiment": "V113_w8_axis_factorization",
@@ -8857,7 +8857,7 @@
         "status": "AXIS-FAMILY FACTORIZATION AUDIT: F_10 reproduced at 0.01918639 (V85 regression 1.03e-09). The 12 doubler nodes form 3 axis families of 4; the Floquet spectra are identical WITHIN families to 0.00e+00 and ACROSS families to 0.00e+00 - every node channel carries the same link-local loop factor, so per-node contributions are EQUAL. The sum is then a NODE-SET choice: all 12 nodes give coefficient 8.3524 (4.02x the observed 2.0766); one split node per family (the V68/V96 selective reading) gives 2.0881 (99.44% agreement); a single node gives 0.6960. VERDICT: the factorization is CONFIRMED as family symmetry (equal contributions) but the coefficient 3 is EXACTLY the choice of one split node per axis family - V108's conditionality is O9's split-node-set input, not a factorization theorem.",
         "data": {
           "F_10_measured": 0.01918639,
-          "regression_vs_V85": 1.0261844082815053e-09,
+          "regression_vs_V85": 1.026184501956573e-09,
           "n_nodes": 12,
           "families": {
             "x": [
@@ -45033,7 +45033,7 @@
             "F10_v85": 0.01918639,
             "F10_v126": 0.019186391026184534,
             "word_decomposition_error": 7.351626287044711e-17,
-            "elapsed_s": 45.0
+            "elapsed_s": 41.5
           },
           "census": [
             {
@@ -46672,7 +46672,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 6.7e-16 along each; 0 of the 15^3 grid's gapless points lie off the lines); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (the naive sum is -6 - sign noise, backend-dependent - where V63 measured exactly 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with 4 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
-        "wall_s": 2.259920358657837
+        "wall_s": 2.63077974319458
       }
     },
     {
@@ -47997,7 +47997,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the desert re-closure at alpha_X = pi/64 exists but leaves the desert: M_X = 1.235e17 GeV with M_(1,2) = 4.86e17 GeV above it, tau_p = 2.77e39 yr; holding M_X = 1.8e16 GeV needs alpha_X = 0.040050; the kappa_s LP is feasible for 9/10 node counts at pi/64 against 10/10 at 1/25 - the meeting becomes a fit",
-        "wall_s": 14.735173225402832
+        "wall_s": 6.207608938217163
       }
     },
     {
@@ -48365,7 +48365,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
-        "wall_s": 1.9810442924499512
+        "wall_s": 3.6593117713928223
       }
     },
     {
@@ -48473,7 +48473,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
-        "wall_s": 0.00024175643920898438
+        "wall_s": 0.00015163421630859375
       }
     },
     {
@@ -48597,7 +48597,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE DELTA L = 2 OPERATOR IS NOT A GAUGE-LINK COMPOSITE (O2). The operator exists inside the root: the weight 2 lambda_nu (norm^2 20.0) has a 1-dimensional algebra weight space sitting in Clifford grade 5 - the 126-type channel - with no field outside the root. But Clifford multiplication changes grade by +-2, so products of the 45 adjoint link factors are always EVEN-grade (exact on the whole table) and the span S_k (dims [45, 126, 208, 291, 352, 407]) never contains it: k* = None for every k, and the vector-10 Higgs weight (grades [1, 3, 5, 7, 9], all odd) is likewise unreachable (k = None). The ladder exponent n_2step = 3 is therefore NOT the length of an adjoint word: the seesaw operator belongs to the odd (matter) half of the Clifford module, and O2 stays open",
-        "wall_s": 189.63099026679993
+        "wall_s": 150.2767243385315
       }
     },
     {
@@ -49053,7 +49053,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE GAUGED LAYER SUPPLIES A PER-CLASS BOND NUMBER, BUT IT IS NOT THE ONE THAT CLOSES THE MEETING (O4). At theta* the Wilson direction leaves a 13-dimensional centralizer, and the flux of BROKEN generators through each fragment class, K_s = 45 - C_2^{unbroken}(s) = [32.0, 36.0, 40.0, 28.0, 32.0, 40.0], is an integer number of the root with no free parameter (the FULL adjoint sum is class-blind to 1e-13, which is the V93/V95 degeneracy as an identity). Fed into the V96 meeting as kappa_s = A K_s it leaves a residual 6.05e-01 and closes in the desert for 0/10 node counts; against the six kappa_s V96 fits it explains at best R^2 = 0.015 of their variance. The kappa_s pattern is still NOT supplied by the broken flux",
-        "wall_s": 12.245580911636353
+        "wall_s": 7.249267339706421
       }
     },
     {
@@ -49871,7 +49871,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 17.30273151397705,
+      "wall_time": 17.77509069442749,
       "backend": null,
       "verdict": {
         "experiment": "V142_w9_frame_averaging",
@@ -49955,7 +49955,7 @@
           "max_frame_shift_dgap": 1.9309369641423713e-15,
           "max_commutator": 9.421528483851691e-12
         },
-        "wall_time": 17.30273151397705
+        "wall_time": 17.77509069442749
       }
     },
     {
@@ -50421,7 +50421,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE SUPEREXCHANGE PATTERN DOES NOT CLOSE O4: the exact second-order bond-current class shift kappa~_s = [0.0002, -0.13, -0.2534, 0.1271, 0.0013, -0.2532] (channels 16+144+560 of 45 x 16, denominators 20 and 36, screened channel removed) fed as kappa_s = A kappa~_s leaves a residual 5.77e-01 (best n = 3) and closes in the desert for 0/10 node counts; against the V96 fits it explains at best R^2 = 0.076. The supplier space of the six kappa_s narrows further: not Cartan (V105), not class invariants (V122), not the broken flux (V137), not the general bond operator (V110), not superexchange.",
-        "wall_s": 20.768584966659546
+        "wall_s": 14.548783540725708
       }
     },
     {
@@ -50630,7 +50630,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE O4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 8e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is now exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
-        "wall_s": 122.9685230255127
+        "wall_s": 128.08405709266663
       }
     },
     {
@@ -50792,7 +50792,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "THE BOND COUPLING DOES NOT SET THE RELIC ABUNDANCE: every candidate kappa_singlet - the ten V96 values that close the meeting ([9.186, 4.39, 5.677, 4.819, 4.208, 4.056, 2.159, 3.265, 3.147, 2.689]), the superexchange -0.2534, the broken flux 40, the junction ratio 1.919 - gives, through alpha = kappa^2/4pi and sigma v = alpha^2/(pi m^2) with D = 1485, an Omega h^2 between 9.56e-13 and 0.00076; the closest is root g10^2/4pi at 0.0008 (|dOmega| = 0.119). The measured 0.120 needs alpha_eff = 0.0086 without D or 0.00022 with D - no bond number of the layer lands there. O7's portal remains named, not derived.",
-        "wall_s": 17.63348126411438
+        "wall_s": 18.772975206375122
       }
     },
     {
@@ -50927,7 +50927,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (O7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.7e-46] cm^2 - 14 of 15 exceed the LZ-class bound 1.5e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3297) predicts 4.27e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. O7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
-        "wall_s": 10.155696868896484
+        "wall_s": 10.647323369979858
       }
     },
     {
@@ -50942,7 +50942,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 18.674,
+      "wall_time": 23.636,
       "backend": null,
       "verdict": {
         "id": "V171_collision_vertex",
@@ -51217,7 +51217,7 @@
           ],
           "candidates": []
         },
-        "wall_time": 18.674
+        "wall_time": 23.636
       }
     },
     {
@@ -51232,7 +51232,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2744.981,
+      "wall_time": 2713.657,
       "backend": null,
       "verdict": {
         "id": "V172_self_energy_flow",
@@ -51343,7 +51343,7 @@
           "grid_converged": false,
           "candidates": []
         },
-        "wall_time": 2744.981
+        "wall_time": 2713.657
       }
     },
     {
@@ -51358,7 +51358,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 507.163,
+      "wall_time": 614.757,
       "backend": null,
       "verdict": {
         "id": "V173_block_rg",
@@ -51408,7 +51408,7 @@
           "route_dev": 2.240208019088641e-12,
           "candidates": []
         },
-        "wall_time": 507.163
+        "wall_time": 614.757
       }
     },
     {
@@ -51423,7 +51423,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.001,
+      "wall_time": 0.0,
       "backend": null,
       "verdict": {
         "id": "V174_isotropy_gate",
@@ -51439,7 +51439,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.001
+        "wall_time": 0.0
       }
     },
     {
@@ -51454,7 +51454,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 57.512,
+      "wall_time": 50.212,
       "backend": null,
       "verdict": {
         "id": "V175_gauged_smatrix",
@@ -51548,7 +51548,7 @@
           "gram_rank": 24,
           "eta": 0.2
         },
-        "wall_time": 57.512
+        "wall_time": 50.212
       }
     },
     {
@@ -51563,7 +51563,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 5.331,
+      "wall_time": 5.378,
       "backend": null,
       "verdict": {
         "id": "V176_gauged_vertex_content",
@@ -51618,7 +51618,7 @@
           "route_dev": 8.881784197001252e-16,
           "spin2_weight_k04": 0.8333266265966814
         },
-        "wall_time": 5.331
+        "wall_time": 5.378
       }
     },
     {
@@ -51633,7 +51633,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 929.838,
+      "wall_time": 1203.566,
       "backend": null,
       "verdict": {
         "id": "V177_gauged_self_energy_flow",
@@ -51715,7 +51715,7 @@
           "sigma_nonzero": 0.20372827950532724,
           "candidates": []
         },
-        "wall_time": 929.838
+        "wall_time": 1203.566
       }
     },
     {
@@ -51730,7 +51730,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 197.957,
+      "wall_time": 223.063,
       "backend": null,
       "verdict": {
         "id": "V178_gauged_block_rg",
@@ -51781,7 +51781,7 @@
           "route_dev": 2.240208019088641e-12,
           "candidates": []
         },
-        "wall_time": 197.957
+        "wall_time": 223.063
       }
     },
     {
@@ -51796,7 +51796,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.14,
+      "wall_time": 0.0,
       "backend": null,
       "verdict": {
         "id": "V179_gauged_isotropy_gate",
@@ -51813,7 +51813,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.14
+        "wall_time": 0.0
       }
     },
     {
@@ -51824,11 +51824,11 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 2.5e-16.",
+      "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 3.1e-16.",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 100.858,
+      "wall_time": 113.606,
       "backend": null,
       "verdict": {
         "id": "V180_cone_flux_dressing",
@@ -51836,7 +51836,7 @@
         "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the 16-fold node multiplet by the gauged bond current, with the gauge-safe multiplet-averaged source: semi-Dirac exponents, eps cubic weights, kappa-exponents, dressed vs free anisotropy",
         "residual": "eps anisotropy is sublinear in k: the flux dressing contributes at O(eta) to the node dispersion (recorded exponent in data)",
         "pass": true,
-        "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 2.5e-16.",
+        "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 3.1e-16.",
         "data": {
           "rows": [
             {
@@ -51946,12 +51946,12 @@
           "casimir_err": 2.2565282975506307e-14,
           "eta0_dev": 0.0,
           "v115_dev": 1.5359419471949742e-05,
-          "eps_route_dev": 2.498001805406602e-16,
+          "eps_route_dev": 3.0531133177191805e-16,
           "projector_window_dev": 0.0,
           "stage_sum_err": 6.661338147750939e-16,
           "n_bonds": 24
         },
-        "wall_time": 100.858
+        "wall_time": 113.606
       }
     },
     {
@@ -51966,7 +51966,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 580.936,
+      "wall_time": 154.347,
       "backend": null,
       "verdict": {
         "id": "V181_ring_kernel_smatrix",
@@ -54636,7 +54636,7 @@
           },
           "gpu": false
         },
-        "wall_time": 580.936
+        "wall_time": 154.347
       }
     },
     {
@@ -54715,7 +54715,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.002,
+      "wall_time": 0.001,
       "backend": null,
       "verdict": {
         "id": "V183_nonpert_isotropy_gate",
@@ -54731,7 +54731,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.002
+        "wall_time": 0.001
       }
     },
     {
@@ -54808,7 +54808,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1829.4443242549896,
+      "wall_time": 1835.1014530658722,
       "backend": null,
       "verdict": {
         "experiment": "V186_cone_inverse",
@@ -55182,7 +55182,7 @@
           }
         ],
         "status": "CONE INVERSE PROBLEM (cone programme, Phase 2): NO CONE IN THE FAMILY. The axis-covariant entangling family - hop along axis j carries exp(+/- i phi_j D_j), D_j from a pool of 220 triples (all 120 su(2) plane triples, 60 disjoint, 40 random even involutions) x strength patterns, with (theta,w) retuned per bond - was scanned (880 bonds, batched GPU eigvals) and the best was continuously optimised. STRUCTURE CORRECTION: the entangling bond is exactly radius-1 with the Wilson factor OFF (leakage 8.7e-17); V121's 0.27 leakage is the Wilson tail (implemented bond: 2.7e-01 at the same w) - the bond does NOT cost the causal radius. BASELINE: the implemented corner triplet is gapless (top 1.5e-16) with commuting tangent (comm 0.000), V118 reproduced. RESULT: no bond in the family reaches a Clifford-type tangent algebra at a gapless cubic multiplet - best gap+spread 6.9e-16, max comm_ratio 0.362 (a cone needs > 0.5), min anisotropy 0.9947 (a cone needs < 0.1). The M-node doubling survives the best bond (gap 1.9e-18). O9 stays open: the obstruction is not the bond strength or the generator choice - it is the separation lemma (V185) plus the gaplessness rigidity measured here.",
-        "wall_time": 1829.4443242549896
+        "wall_time": 1835.1014530658722
       }
     },
     {
@@ -55197,7 +55197,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2100.169921875,
+      "wall_time": 2021.6054456233978,
       "backend": null,
       "verdict": {
         "experiment": "V187_rigidity_frontier",
@@ -87325,7 +87325,7 @@
         },
         "pass": true,
         "status": "RIGIDITY FRONTIER (cone programme, Phase 2c): 5292 sweep points around the 12 top-comm bonds; no point is gapless with comm_ratio > 0.5; the frontier gap_min(c) is monotone with a floor of 8.0e-03 at c = 0.5; the ray slopes toward the implemented gapless point are not systematically positive (median -0.28, 4/12 positive). Gaplessness and non-commuting tangent algebras are mutually exclusive over the axis-covariant entangling space: the nodal-plane structure is a rigidity phenomenon (the V185 separation lemma, the V186 scan, this measurement).",
-        "wall_time": 2100.169921875
+        "wall_time": 2021.6054456233978
       }
     },
     {
@@ -87340,7 +87340,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 10.192588806152344,
+      "wall_time": 11.103952884674072,
       "backend": null,
       "verdict": {
         "id": "V191_parity_dirac_cone",
@@ -87538,7 +87538,7 @@
             }
           }
         },
-        "wall_time": 10.192588806152344
+        "wall_time": 11.103952884674072
       }
     },
     {
@@ -87553,7 +87553,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1003.865213394165,
+      "wall_time": 1272.936352968216,
       "backend": null,
       "verdict": {
         "id": "V192_engine_two_angle_cone",
@@ -89270,7 +89270,7 @@
             }
           ]
         },
-        "wall_time": 1003.865213394165
+        "wall_time": 1272.936352968216
       }
     },
     {
@@ -89285,7 +89285,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 121.89840292930603,
+      "wall_time": 130.94129395484924,
       "backend": null,
       "verdict": {
         "id": "V193_w7_freeze_in",
@@ -89575,7 +89575,7 @@
         ],
         "status": "THE PRODUCTION SIDE IS COMPUTED (O7). The exact-Z2 ladder scalar (m_s = 118.57 GeV, stable: T4) has ONE production solution inside the LZ-class ceiling lambda_LZ = 1.95e-02: FREEZE-IN at lambda = 4.06e-14 with the V1 portal kernel (Omega_FI = 7.27e+25 lambda^2; regime self-consistent - below the boundary lambda_th = 7.63e-10 the yield stays under the equilibrium ceiling Omega = 4.24e+07), predicting sigma_SI = 6.48e-71 cm^2, 23.4 orders below the bound: freeze-in is DD-blind by construction. The freeze-out solution of the same kernel sits at lambda = 3.08e-01 - above the ceiling, its sigma_SI = 3.73e-45 cm^2: the V88/V148 direct-detection exclusion of the thermal Z2 portal is confirmed by computed production, not by an inverted coupling. The pair (Z2-breaking) kernel: freeze-out solution lambda = 1.30e-03 (sigma_SI = 6.67e-50 cm^2) inside the ceiling; its named point lambda_* = 3.53e-04 gives Omega = 1.42 via freeze-out - the inverted fiducial coupling is NOT a production solution. Nodal-plane D on the production channel multiplies the freeze-in coupling by 1/sqrt(D) (D-on variants reported). The h -> s sbar channel is closed (2m_s = 237.1 > M_h = 125.25): the s-channel pole is always off-shell; the exact Moller convolution agrees with seeded Monte Carlo to 4e-03. VERDICT: the O7 freeze-in parenthetical is retired - the production side is computed, with a quantified and (for the Z2 portal) DD-blind solution. PASS",
         "inconclusive": false,
-        "wall_time": 121.89840292930603
+        "wall_time": 130.94129395484924
       }
     },
     {
@@ -89590,7 +89590,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 2.6898391246795654,
+      "wall_time": 2.7586019039154053,
       "backend": null,
       "verdict": {
         "experiment": "V194_w7_carrier_in_cell",
@@ -89722,7 +89722,7 @@
         "tier": 5,
         "property": "is the dark-matter carrier a state of the automaton's own cell: grading x gauge x mass census over the built cell, and the quantitative certificate any redefinition of the cell content must satisfy (O7)",
         "programme": "V194",
-        "wall_time": 2.6898391246795654
+        "wall_time": 2.7586019039154053
       }
     },
     {
@@ -89737,7 +89737,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.002658843994140625,
+      "wall_time": 0.0029897689819335938,
       "backend": null,
       "verdict": {
         "id": "V195_w7_cell_redefinition",
@@ -89786,7 +89786,7 @@
           }
         ],
         "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is 32 spinor levels plus the two neutral Clifford-singlet sectors, four levels, 36 in all. A is even and sits at M_A = m_B^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates hold verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named number: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2). The carrier is a state of the cell: stable, neutral, at the derived ladder mass. VERDICT: PASS",
-        "wall_time": 0.002658843994140625
+        "wall_time": 0.0029897689819335938
       }
     },
     {
@@ -89801,7 +89801,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.943,
+      "wall_time": 0.849,
       "backend": null,
       "verdict": {
         "experiment": "V196_cell_definition",
@@ -89900,7 +89900,7 @@
         "tier": 2,
         "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
         "programme": "V196",
-        "wall_time": 0.943
+        "wall_time": 0.849
       }
     },
     {
@@ -90171,7 +90171,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.007,
+      "wall_time": 0.006,
       "backend": null,
       "verdict": {
         "id": "V1_spacetime",
@@ -90188,7 +90188,7 @@
           "ss": 0.0,
           "err": 0.0
         },
-        "wall_time": 0.007
+        "wall_time": 0.006
       }
     },
     {
@@ -90203,7 +90203,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 72.698,
+      "wall_time": 51.472,
       "backend": null,
       "verdict": {
         "experiment": "V200_loop_weight_functional",
@@ -90326,7 +90326,7 @@
         "tier": 4,
         "property": "the loop-factor weight is exactly multiplicity x per-word geometry x interference of the traced word census (V200)",
         "programme": "V200",
-        "wall_time": 72.698
+        "wall_time": 51.472
       }
     },
     {
@@ -90341,7 +90341,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1083.21,
+      "wall_time": 1372.586,
       "backend": null,
       "verdict": {
         "experiment": "V201_root_swap_cone",
@@ -91891,7 +91891,7 @@
         "tier": 3,
         "property": "the root's 10 sector-swap involutions h_c w with the two-angle six-stage family carry no conical node at Gamma (V201)",
         "programme": "V201",
-        "wall_time": 1083.21
+        "wall_time": 1372.586
       }
     },
     {
@@ -91906,7 +91906,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 110.7,
+      "wall_time": 101.2,
       "backend": null,
       "verdict": {
         "experiment": "V202_loop_angle_selection",
@@ -92005,7 +92005,7 @@
         "pass": true,
         "residual": true,
         "status": "the traced-loop weight of O8 is an exact real cosine functional of the Wilson angle - 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors - and its four crossings of 1/(16 pi) in (0, pi/2] are [np.float64(0.1981), np.float64(0.577851), np.float64(1.004861), np.float64(1.347357)]; NO angle of the root reaches the crossing (branch ANGLE-OUTSIDE): the nearest to g_10 = 1/5 sits at eta* = 0.198100, gap 1.90e-03, and the closed angles miss by >= 7e-04. The named weight stays F_10(1/5) = 0.019186391, 3.5587% below the continuum loop factor; the residual is the interference deficit ratio 0.9644",
-        "wall_time": 110.7
+        "wall_time": 101.2
       }
     },
     {
@@ -92016,7 +92016,7 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "THE CLOSED BRANCH MEASURED SELF-CONSISTENTLY (step AND traced-link phase at pi/4). (i) The implemented branch's 99.44% is a COMPENSATION: coefficient 2.0881 = 3 x (F_10/(1/16pi))^10 = 3 x 0.9644^10 - the factor 3 overpredicts by x1.445 and the interference deficit of the GENERIC clock angle supplies exactly the rest. (ii) At pi/4: odd-n loop ratios vanish exactly (3.4e-15), rho(MG) = 0.978030 equals the phase-scan value (norms angle-independent), the FIRST crossing of 1/(16 pi) is at n* = 208 (F = 0.019686, deficit 0.9895) - the published 208 is confirmed for the self-consistent branch - while the self-consistent F_10 = 53.8864 is NOT the eta-law 0.1949 (a hybrid of step@1/5 with phase@pi/4; both values recorded apart). (iii) Channels at pi/4: the 12 M points are EXACTLY gapless (max M gap 5.0e-16, the 2.003e-4 defect repaired); Gamma is FULLY pinned to the Floquet pair, 64+64 of 128, and every M spectrum is {0^32, +-pi/3, +-2pi/3, pi^32} - 64 of 128 pinned (32 zero + 32 at pi); the exactly gapless set is Gamma plus the six face-diagonal lines (max gap over 144 line points 7.7e-16) with gapped sampled bulk momenta (min quasi-energy 0.012) - the V132 line network, not a zone-wide band; V166 re-gaps the M nodes when the Wilson factor is quantized. The V113 family equality of the 1/5 spectra is replaced by identical pinned M spectra (folded deviation 3.1e-15 within / 2.4e-15 across), while the loop factor itself is link-local and momentum-independent (V113). (iv) The hierarchy at pi/4: per-channel factor 0.90007; readings {1, 3, 12} -> 0.900..10.80 against observed 2.0766; required sum_factor 2.307 is not a natural node set. VERDICT: the loop-factor MECHANISM survives closure with zero free parameters (selection rule, exact crossing, link-local factor), but the 99.44% PRECISION is carried by the generic-angle interference deficit and is not recoverable at any root angle (V202): the closed branch predicts the hierarchy to +30.0% (one channel per family, the same selective reading that gives +0.6% at 1/5).",
+      "status": "THE CLOSED BRANCH MEASURED SELF-CONSISTENTLY (step AND traced-link phase at pi/4). (i) The implemented branch's 99.44% is a COMPENSATION: coefficient 2.0881 = 3 x (F_10/(1/16pi))^10 = 3 x 0.9644^10 - the factor 3 overpredicts by x1.445 and the interference deficit of the GENERIC clock angle supplies exactly the rest. (ii) At pi/4: odd-n loop ratios vanish exactly (3.3e-15), rho(MG) = 0.978030 equals the phase-scan value (norms angle-independent), the FIRST crossing of 1/(16 pi) is at n* = 208 (F = 0.019685, deficit 0.9895) - the published 208 is confirmed for the self-consistent branch - while the self-consistent F_10 = 55.0301 is NOT the eta-law 0.1949 (a hybrid of step@1/5 with phase@pi/4; both values recorded apart). (iii) Channels at pi/4: the 12 M points are EXACTLY gapless (max M gap 7.4e-16, the 2.003e-4 defect repaired); Gamma is FULLY pinned to the Floquet pair, 64+64 of 128, and every M spectrum is {0^32, +-pi/3, +-2pi/3, pi^32} - 64 of 128 pinned (32 zero + 32 at pi); the exactly gapless set is Gamma plus the six face-diagonal lines (max gap over 144 line points 1.0e-15) with gapped sampled bulk momenta (min quasi-energy 0.012) - the V132 line network, not a zone-wide band; V166 re-gaps the M nodes when the Wilson factor is quantized. The V113 family equality of the 1/5 spectra is replaced by identical pinned M spectra (folded deviation 3.6e-15 within / 2.7e-15 across), while the loop factor itself is link-local and momentum-independent (V113). (iv) The hierarchy at pi/4: per-channel factor 0.89968; readings {1, 3, 12} -> 0.900..10.80 against observed 2.0766; required sum_factor 2.308 is not a natural node set. VERDICT: the loop-factor MECHANISM survives closure with zero free parameters (selection rule, exact crossing, link-local factor), but the 99.44% PRECISION is carried by the generic-angle interference deficit and is not recoverable at any root angle (V202): the closed branch predicts the hierarchy to +30.0% (one channel per family, the same selective reading that gives +0.6% at 1/5).",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -92037,174 +92037,174 @@
             "coef_observed_from_config": 2.07656
           },
           "closed": {
-            "odd_max_n_le_11": 3.381988936451062e-15,
+            "odd_max_n_le_11": 3.2969618106700556e-15,
             "rho_MG": 0.97803,
             "rho_MG_hybrid_phase_scan": 0.97803,
             "rho_MG_implemented_V85": 0.775661,
             "first_crossing_n": 208,
             "n_below_loop_in_2_260": 14,
             "F_n_2_30": {
-              "2": 64.36664475141282,
-              "3": 1.1017482755772333e-15,
-              "4": 1.8293181124305578,
-              "5": 1.75644971999431e-15,
-              "6": 58.893865140390155,
-              "7": 2.352168074410162e-15,
-              "8": 1.6737801796013891,
-              "9": 2.8927933715126597e-15,
-              "10": 53.88640909542404,
-              "11": 3.381988936451062e-15,
-              "12": 1.5314668731422212,
-              "13": 3.823203744501595e-15,
-              "14": 49.30471243953007,
-              "15": 4.2196841328203166e-15,
-              "16": 1.4012537680369521,
-              "17": 4.574484899082728e-15,
-              "18": 45.11257494333918,
-              "19": 4.890479818182823e-15,
-              "20": 1.2821120436050155,
-              "21": 5.170371606607374e-15,
-              "22": 41.276874305156994,
-              "23": 5.416701362633008e-15,
-              "24": 1.173100354734376,
-              "25": 5.631857509082067e-15,
-              "26": 37.767304449893565,
-              "27": 5.8180842640491584e-15,
-              "28": 1.0733573942636467,
-              "29": 5.977489663729757e-15,
-              "30": 34.55613607914939
+              "2": 65.73273529465592,
+              "3": 1.0740490456368736e-15,
+              "4": 1.829238433048006,
+              "5": 1.7122905361305443e-15,
+              "6": 60.143803715471,
+              "7": 2.293031839940156e-15,
+              "8": 1.6737072749653212,
+              "9": 2.8200651898184395e-15,
+              "10": 55.030071533615185,
+              "11": 3.2969618106700556e-15,
+              "12": 1.5314001672292243,
+              "13": 3.727083966531163e-15,
+              "14": 50.35113487868444,
+              "15": 4.113596377875166e-15,
+              "16": 1.4011927338000536,
+              "17": 4.45947704121973e-15,
+              "18": 46.07002522289691,
+              "19": 4.767527481423714e-15,
+              "20": 1.2820561988094585,
+              "21": 5.040382465545653e-15,
+              "22": 42.152917290785275,
+              "23": 5.280519205703171e-15,
+              "24": 1.173049258147455,
+              "25": 5.490266076997759e-15,
+              "26": 38.56886180389316,
+              "27": 5.6718108752772436e-15,
+              "28": 1.0733106421685066,
+              "29": 5.82720863826138e-15,
+              "30": 35.2895409488774
             },
             "F_even_2_260": {
-              "2": 64.36664475141282,
-              "4": 1.8293181124305578,
-              "6": 58.893865140390155,
-              "8": 1.6737801796013891,
-              "10": 53.88640909542404,
-              "12": 1.5314668731422212,
-              "14": 49.30471243953007,
-              "16": 1.4012537680369521,
-              "18": 45.11257494333918,
-              "20": 1.2821120436050155,
-              "22": 41.276874305156994,
-              "24": 1.173100354734376,
-              "26": 37.767304449893565,
-              "28": 1.0733573942636467,
-              "30": 34.55613607914939,
-              "32": 0.9820950877483232,
-              "34": 31.617997580551588,
-              "36": 0.8985923668426098,
-              "38": 28.92967456529284,
-              "40": 0.8221894721000063,
-              "42": 26.469926450008618,
-              "44": 0.7522827401787722,
-              "46": 24.21931863379652,
-              "48": 0.6883198342657031,
-              "50": 22.160068944399065,
-              "52": 0.6297953800335426,
-              "54": 20.275907140313393,
-              "56": 0.5762469726515015,
-              "58": 18.551946358746314,
-              "60": 0.5272515233000518,
-              "62": 16.974565493718305,
-              "64": 0.48242191632362513,
-              "66": 15.531301574979528,
-              "68": 0.44140395060919463,
-              "70": 14.21075129741784,
-              "72": 0.40387354102441064,
-              "74": 13.00248092293766,
-              "76": 0.3695341578037036,
-              "78": 11.896943842939363,
-              "80": 0.3381144836508091,
-              "82": 10.885405150056185,
-              "84": 0.309366270046356,
-              "86": 9.959872623185719,
-              "88": 0.2830623758230886,
-              "90": 9.11303358052524,
-              "92": 0.25899497251140347,
-              "94": 8.338197101683164,
-              "96": 0.23697390227553966,
-              "98": 7.629241162360596,
-              "100": 0.21682517546638655,
-              "102": 6.980564263911182,
-              "104": 0.1983895959199976,
-              "106": 6.387041175601877,
-              "108": 0.18152150314021764,
-              "110": 5.843982439891884,
-              "112": 0.16608762142734262,
-              "114": 5.347097320778806,
-              "116": 0.1519660068597161,
-              "118": 4.892459902464871,
-              "120": 0.1390450838083073,
-              "122": 4.4764780704870875,
-              "124": 0.1272227633717224,
-              "126": 4.095865130229484,
-              "128": 0.11640563676635544,
-              "130": 3.7476138385738533,
-              "132": 0.10650823729861289,
-              "134": 3.4289726435116674,
-              "136": 0.09745236508801415,
-              "138": 3.137423943985064,
-              "140": 0.08916646920576984,
-              "142": 2.8706641981867738,
-              "144": 0.08158508234708171,
-              "146": 2.6265857231535623,
-              "148": 0.07464830357047936,
-              "150": 2.4032600418508645,
-              "152": 0.06830132501729051,
-              "154": 2.198922646172986,
-              "156": 0.06249399887182993,
-              "158": 2.0119590554705615,
-              "160": 0.057180441140835855,
-              "162": 1.8408920604529269,
-              "164": 0.05231866912159489,
-              "166": 1.6843700516788223,
-              "168": 0.04787026969437113,
-              "170": 1.5411563404181823,
-              "172": 0.04380009581830071,
-              "174": 1.4101193875085962,
-              "176": 0.04007598883274947,
-              "178": 1.2902238630041052,
-              "180": 0.03666852437002207,
-              "182": 1.1805224659781437,
-              "184": 0.033550779871865104,
-              "186": 1.0801484398484442,
-              "188": 0.030698121872900216,
-              "190": 0.98830872408711,
-              "192": 0.028088011370301636,
-              "194": 0.9042776882071317,
-              "196": 0.025699825741934197,
-              "198": 0.8273913985172523,
-              "200": 0.023514695805917096,
-              "202": 0.7570423723464986,
-              "204": 0.021515356734212628,
-              "206": 0.6926747782912376,
-              "208": 0.019686011642300074,
-              "210": 0.6337800445616424,
-              "212": 0.018012206777149514,
-              "214": 0.5798928407288859,
-              "216": 0.016480717317349108,
-              "218": 0.5305874011246346,
-              "220": 0.015079442883086552,
-              "222": 0.4854741608438186,
-              "224": 0.013797311930403573,
-              "226": 0.44419667777156235,
-              "228": 0.012624194274337253,
-              "230": 0.4064288163150455,
-              "232": 0.011550821049788926,
-              "234": 0.37187217058880917,
-              "236": 0.010568711477727264,
-              "238": 0.3402537066939591,
-              "240": 0.009670105858101324,
-              "242": 0.3113236054627816,
-              "244": 0.008847904260037055,
-              "246": 0.2848532886241927,
-              "248": 0.008095610424905194,
-              "250": 0.2606336127946392,
-              "252": 0.007407280439035761,
-              "254": 0.2384732170250836,
-              "256": 0.006777475770539483,
-              "258": 0.21819701084795134,
-              "260": 0.006201220299177606
+              "2": 65.73273529465592,
+              "4": 1.829238433048006,
+              "6": 60.143803715471,
+              "8": 1.6737072749653212,
+              "10": 55.030071533615185,
+              "12": 1.5314001672292243,
+              "14": 50.35113487868444,
+              "16": 1.4011927338000536,
+              "18": 46.07002522289691,
+              "20": 1.2820561988094585,
+              "22": 42.152917290785275,
+              "24": 1.173049258147455,
+              "26": 38.56886180389316,
+              "28": 1.0733106421685066,
+              "30": 35.2895409488774,
+              "32": 0.9820523107541689,
+              "34": 32.289044636956035,
+              "36": 0.8985532269661324,
+              "38": 29.543665786916524,
+              "40": 0.8221536600949564,
+              "42": 27.03171301420411,
+              "44": 0.7522499730925898,
+              "46": 24.73333924613681,
+              "48": 0.6882898532038949,
+              "50": 22.63038490912681,
+              "52": 0.6297679481141423,
+              "54": 20.706234448922093,
+              "56": 0.5762218731334523,
+              "58": 18.945685050227052,
+              "60": 0.5272285578707241,
+              "62": 17.334826518449,
+              "64": 0.48240090353193854,
+              "66": 15.860931374509546,
+              "68": 0.44138472443196275,
+              "70": 14.512354294354367,
+              "72": 0.4038559495545828,
+              "74": 13.278440098627438,
+              "76": 0.3695180620501394,
+              "78": 12.149439565531297,
+              "80": 0.3380997564401023,
+              "82": 11.116432401706238,
+              "84": 0.30935279501803004,
+              "86": 10.171256762517201,
+              "88": 0.28305004651022686,
+              "90": 9.306444764884546,
+              "92": 0.2589836914994484,
+              "94": 8.515163483141936,
+              "96": 0.23696358043261465,
+              "98": 7.7911609617266535,
+              "100": 0.21681573123906073,
+              "102": 7.128716818145628,
+              "104": 0.19838095468892775,
+              "106": 6.522597045928579,
+              "108": 0.1815135966305768,
+              "110": 5.968012660464072,
+              "112": 0.16608038716937698,
+              "114": 5.460581860976947,
+              "116": 0.1519593876951679,
+              "118": 4.9962954096869865,
+              "120": 0.1390390274388049,
+              "122": 4.571484954607594,
+              "124": 0.12721722194556767,
+              "126": 4.182794045701327,
+              "128": 0.11640056650044514,
+              "130": 3.8271516153893272,
+              "132": 0.10650359813250593,
+              "134": 3.501747713882784,
+              "136": 0.09744812036741198,
+              "138": 3.2040113076199357,
+              "140": 0.08916258539290887,
+              "142": 2.931589965392932,
+              "144": 0.0815815287557496,
+              "146": 2.6823312716635375,
+              "148": 0.07464505212356165,
+              "150": 2.4542658202132883,
+              "152": 0.06829835002493193,
+              "154": 2.245591653760043,
+              "156": 0.062491276828457336,
+              "158": 2.054660026597498,
+              "160": 0.057177950539439575,
+              "162": 1.879962377767522,
+              "164": 0.052316390283800585,
+              "166": 1.7201184118396562,
+              "168": 0.04786818461495998,
+              "170": 1.5738651931233867,
+              "172": 0.04379818802294923,
+              "174": 1.4400471671459654,
+              "176": 0.04007424324786495,
+              "178": 1.3176070305549636,
+              "180": 0.03666692720364531,
+              "182": 1.205577377308154,
+              "184": 0.0335493185046995,
+              "186": 1.1030730551468302,
+              "188": 0.030696784758605943,
+              "190": 1.0092841719606573,
+              "192": 0.02808678794426741,
+              "194": 0.9234696967869612,
+              "196": 0.025698706337805736,
+              "198": 0.8449516048856105,
+              "200": 0.02351367157922276,
+              "202": 0.7731095206294256,
+              "204": 0.02151441959248274,
+              "206": 0.7073758158832979,
+              "208": 0.01968515418112789,
+              "210": 0.6472311251440518,
+              "212": 0.01801142222168864,
+              "214": 0.5922002420059358,
+              "216": 0.016479999468785037,
+              "218": 0.5418483645294941,
+              "220": 0.015078786069659553,
+              "222": 0.49577765984827943,
+              "224": 0.013796710962595774,
+              "226": 0.4536241208701794,
+              "228": 0.01262364440386997,
+              "230": 0.4150546902379898,
+              "232": 0.011550317932106311,
+              "234": 0.3797646288254918,
+              "236": 0.010568251137669706,
+              "238": 0.34747510797737985,
+              "240": 0.009669684658497501,
+              "242": 0.31793100646920286,
+              "244": 0.008847518872966458,
+              "246": 0.29089889478097647,
+              "248": 0.00809525780540405,
+              "250": 0.2661651907581112,
+              "252": 0.007406957801038599,
+              "254": 0.24353447208742898,
+              "256": 0.006777180564866308,
+              "258": 0.222827932255057,
+              "260": 0.006200950193392662
             },
             "F_10_hybrid_eta_law": 0.194894,
             "crossing_on_4k_class": true,
@@ -92212,8 +92212,8 @@
             "class_note": "the n = 4k+2 entries of F_even_2_260 are floor ratios of an exactly vanishing numerator over an exactly vanishing denominator (V209): they are reported for the shape of the ladder, not as measured numbers; the 4k entries (n* = 208 included) are the g -> pi/4 limits"
           },
           "channels_pi4": {
-            "m_gap_max": 4.996003610813223e-16,
-            "gamma_gap": 5.551115123125785e-17,
+            "m_gap_max": 7.407269242420975e-16,
+            "gamma_gap": 1.1102230246251514e-16,
             "gamma_pinned_n0_npi": [
               64,
               64
@@ -92223,10 +92223,10 @@
               32
             ],
             "m_spectral_interior": 64,
-            "spectral_equality_within": 3.1086244689504383e-15,
-            "spectral_equality_across": 2.4424906541753444e-15,
-            "face_line_gap_max": 7.702172233337037e-16,
-            "bulk_gap_min": 0.012007961010870745
+            "spectral_equality_within": 3.552713678800501e-15,
+            "spectral_equality_across": 2.6645352591003757e-15,
+            "face_line_gap_max": 1.0005017647696249e-15,
+            "bulk_gap_min": 0.01200796101086897
           }
         },
         "checks": [
@@ -92235,23 +92235,23 @@
             "pass": true
           },
           {
-            "name": "T1 the self-consistent closed branch (step and phase at pi/4): odd-n loop ratios vanish (max |F_2k+1| = 3.38e-15 for n <= 11); rho(MG) = 0.978030 scan value, rho(MG) closed = 0.978030 (|d| 2.00e-15: the decay law is fixed by the traced-link phase alone (V200 norms); the implemented branch gives rho = 0.775661, regressing V85's 0.776 to 2.08e-07); the FIRST crossing of 1/(16 pi) is at n* = 208 with F = 0.019686 (deficit 0.9895); and F_10(self-consistent) = 53.8864 is NOT the V200 eta-law value 0.1949 (hybrid: step at 1/5, phase at pi/4) - the two objects are recorded apart",
+            "name": "T1 the self-consistent closed branch (step and phase at pi/4): odd-n loop ratios vanish (max |F_2k+1| = 3.30e-15 for n <= 11); rho(MG) = 0.978030 scan value, rho(MG) closed = 0.978030 (|d| 8.88e-16: the decay law is fixed by the traced-link phase alone (V200 norms); the implemented branch gives rho = 0.775661, regressing V85's 0.776 to 2.08e-07); the FIRST crossing of 1/(16 pi) is at n* = 208 with F = 0.019685 (deficit 0.9895); and F_10(self-consistent) = 55.0301 is NOT the V200 eta-law value 0.1949 (hybrid: step at 1/5, phase at pi/4) - the two objects are recorded apart",
             "pass": true
           },
           {
-            "name": "T1b the even ladder splits into the two period-4 classes of the clock filter, and every crossing of 1/(16 pi) in n <= 260 sits on the n = 4k class (n* = 208 = 4 x 52; 14 crossings, all 4k: True). The n = 4k+2 entries (F_2 = 64.4, F_6 = 58.9, F_10 = 53.9, F_206 = 0.693) are ratios of two quantities that both vanish exactly at the closure angle (V209, exact integer arithmetic) and have NO finite continuum limit: approaching pi/4 the 4k+2 ratio diverges while the 4k ratio tends to the value quoted here (V209 T4). Only the 4k class, and with it the n* = 208 crossing and the coefficient built on it, is a measurement",
+            "name": "T1b the even ladder splits into the two period-4 classes of the clock filter, and every crossing of 1/(16 pi) in n <= 260 sits on the n = 4k class (n* = 208 = 4 x 52; 14 crossings, all 4k: True). The n = 4k+2 entries (F_2 = 65.7, F_6 = 60.1, F_10 = 55.0, F_206 = 0.707) are ratios of two quantities that both vanish exactly at the closure angle (V209, exact integer arithmetic) and have NO finite continuum limit: approaching pi/4 the 4k+2 ratio diverges while the 4k ratio tends to the value quoted here (V209 T4). Only the 4k class, and with it the n* = 208 crossing and the coefficient built on it, is a measurement",
             "pass": true
           },
           {
-            "name": "T2 at pi/4 the 12 M channels are EXACTLY gapless (max M gap 5.00e-16 - the 2.003e-4 defect of the reference angle repaired exactly); Gamma is FULLY pinned to the Floquet pair {0, pi} (64+64 of 128, M(0)^2 = I), and every M spectrum is {0^32, +-pi/3^16, +-2pi/3^16, pi^32}: 64 of 128 pinned (32 zero + 32 at pi) - identical across all 12 M nodes (folded deviation 3.11e-15 within, 2.44e-15 across); the exactly gapless set is Gamma plus the six face-diagonal lines (144 sampled line points, max gap 7.70e-16) and the sampled bulk momenta are gapped (min quasi-energy >= 0.012) - the V132 line network, not a zone-wide band (V166 re-gaps the M nodes when the Wilson factor is quantized)",
+            "name": "T2 at pi/4 the 12 M channels are EXACTLY gapless (max M gap 7.41e-16 - the 2.003e-4 defect of the reference angle repaired exactly); Gamma is FULLY pinned to the Floquet pair {0, pi} (64+64 of 128, M(0)^2 = I), and every M spectrum is {0^32, +-pi/3^16, +-2pi/3^16, pi^32}: 64 of 128 pinned (32 zero + 32 at pi) - identical across all 12 M nodes (folded deviation 3.55e-15 within, 2.66e-15 across); the exactly gapless set is Gamma plus the six face-diagonal lines (144 sampled line points, max gap 1.00e-15) and the sampled bulk momenta are gapped (min quasi-energy >= 0.012) - the V132 line network, not a zone-wide band (V166 re-gaps the M nodes when the Wilson factor is quantized)",
             "pass": true
           },
           {
-            "name": "T4 the closed-branch per-channel factor is (16 pi F_208)^10 = 0.90007; the node-set readings give the coefficients all_points = 10.801, one_per_family = 2.700, single_channel = 0.900 against the observed 2.0766: the closest natural reading is over by 30.0% and the coefficient requires sum_factor = 2.307, which no natural node set (1, 3 or 12 point channels) realizes",
+            "name": "T4 the closed-branch per-channel factor is (16 pi F_208)^10 = 0.89968; the node-set readings give the coefficients all_points = 10.796, one_per_family = 2.699, single_channel = 0.900 against the observed 2.0766: the closest natural reading is over by 30.0% and the coefficient requires sum_factor = 2.308, which no natural node set (1, 3 or 12 point channels) realizes",
             "pass": true
           }
         ],
-        "status": "THE CLOSED BRANCH MEASURED SELF-CONSISTENTLY (step AND traced-link phase at pi/4). (i) The implemented branch's 99.44% is a COMPENSATION: coefficient 2.0881 = 3 x (F_10/(1/16pi))^10 = 3 x 0.9644^10 - the factor 3 overpredicts by x1.445 and the interference deficit of the GENERIC clock angle supplies exactly the rest. (ii) At pi/4: odd-n loop ratios vanish exactly (3.4e-15), rho(MG) = 0.978030 equals the phase-scan value (norms angle-independent), the FIRST crossing of 1/(16 pi) is at n* = 208 (F = 0.019686, deficit 0.9895) - the published 208 is confirmed for the self-consistent branch - while the self-consistent F_10 = 53.8864 is NOT the eta-law 0.1949 (a hybrid of step@1/5 with phase@pi/4; both values recorded apart). (iii) Channels at pi/4: the 12 M points are EXACTLY gapless (max M gap 5.0e-16, the 2.003e-4 defect repaired); Gamma is FULLY pinned to the Floquet pair, 64+64 of 128, and every M spectrum is {0^32, +-pi/3, +-2pi/3, pi^32} - 64 of 128 pinned (32 zero + 32 at pi); the exactly gapless set is Gamma plus the six face-diagonal lines (max gap over 144 line points 7.7e-16) with gapped sampled bulk momenta (min quasi-energy 0.012) - the V132 line network, not a zone-wide band; V166 re-gaps the M nodes when the Wilson factor is quantized. The V113 family equality of the 1/5 spectra is replaced by identical pinned M spectra (folded deviation 3.1e-15 within / 2.4e-15 across), while the loop factor itself is link-local and momentum-independent (V113). (iv) The hierarchy at pi/4: per-channel factor 0.90007; readings {1, 3, 12} -> 0.900..10.80 against observed 2.0766; required sum_factor 2.307 is not a natural node set. VERDICT: the loop-factor MECHANISM survives closure with zero free parameters (selection rule, exact crossing, link-local factor), but the 99.44% PRECISION is carried by the generic-angle interference deficit and is not recoverable at any root angle (V202): the closed branch predicts the hierarchy to +30.0% (one channel per family, the same selective reading that gives +0.6% at 1/5).",
+        "status": "THE CLOSED BRANCH MEASURED SELF-CONSISTENTLY (step AND traced-link phase at pi/4). (i) The implemented branch's 99.44% is a COMPENSATION: coefficient 2.0881 = 3 x (F_10/(1/16pi))^10 = 3 x 0.9644^10 - the factor 3 overpredicts by x1.445 and the interference deficit of the GENERIC clock angle supplies exactly the rest. (ii) At pi/4: odd-n loop ratios vanish exactly (3.3e-15), rho(MG) = 0.978030 equals the phase-scan value (norms angle-independent), the FIRST crossing of 1/(16 pi) is at n* = 208 (F = 0.019685, deficit 0.9895) - the published 208 is confirmed for the self-consistent branch - while the self-consistent F_10 = 55.0301 is NOT the eta-law 0.1949 (a hybrid of step@1/5 with phase@pi/4; both values recorded apart). (iii) Channels at pi/4: the 12 M points are EXACTLY gapless (max M gap 7.4e-16, the 2.003e-4 defect repaired); Gamma is FULLY pinned to the Floquet pair, 64+64 of 128, and every M spectrum is {0^32, +-pi/3, +-2pi/3, pi^32} - 64 of 128 pinned (32 zero + 32 at pi); the exactly gapless set is Gamma plus the six face-diagonal lines (max gap over 144 line points 1.0e-15) with gapped sampled bulk momenta (min quasi-energy 0.012) - the V132 line network, not a zone-wide band; V166 re-gaps the M nodes when the Wilson factor is quantized. The V113 family equality of the 1/5 spectra is replaced by identical pinned M spectra (folded deviation 3.6e-15 within / 2.7e-15 across), while the loop factor itself is link-local and momentum-independent (V113). (iv) The hierarchy at pi/4: per-channel factor 0.89968; readings {1, 3, 12} -> 0.900..10.80 against observed 2.0766; required sum_factor 2.308 is not a natural node set. VERDICT: the loop-factor MECHANISM survives closure with zero free parameters (selection rule, exact crossing, link-local factor), but the 99.44% PRECISION is carried by the generic-angle interference deficit and is not recoverable at any root angle (V202): the closed branch predicts the hierarchy to +30.0% (one channel per family, the same selective reading that gives +0.6% at 1/5).",
         "pass": true
       }
     },
@@ -92263,7 +92263,7 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.4e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019687, deficit 0.9896). (ii) Hierarchy: per-channel factor 0.90060, readings 0.901 / 2.702 / 10.8 against the observed 2.0766 - the required sum factor 2.306 is no natural node set, the selective reading sits +30.1% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.6e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
+      "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.3e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019685, deficit 0.9895). (ii) Hierarchy: per-channel factor 0.89968, readings 0.900 / 2.699 / 10.8 against the observed 2.0766 - the required sum factor 2.308 is no natural node set, the selective reading sits +30.0% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.5e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -92278,27 +92278,27 @@
         "branch": "W-NAMED",
         "data": {
           "machinery": {
-            "odd_max_n11": 3.435816138647013e-15,
-            "rho": 0.9780302704295738,
+            "odd_max_n11": 3.2969618106700556e-15,
+            "rho": 0.9780302704295731,
             "crossing_n": 208,
-            "F_cross": 0.019687173907888624,
-            "deficit_vs_loop": 0.9895852947034809
+            "F_cross": 0.01968515418112789,
+            "deficit_vs_loop": 0.9894837721634204
           },
           "coefficient": {
-            "per_channel": 0.9006008038611147,
+            "per_channel": 0.8996772949619244,
             "readings": {
-              "single_channel": 0.9006008038611147,
-              "one_per_family": 2.701802411583344,
-              "all_twelve": 10.807209646333376
+              "single_channel": 0.8996772949619244,
+              "one_per_family": 2.6990318848857733,
+              "all_twelve": 10.796127539543093
             },
-            "required_sum_factor": 2.305754227923238,
-            "selective_reading_over": 0.3010927026260122,
+            "required_sum_factor": 2.308121059409102,
+            "selective_reading_over": 0.29975851473233583,
             "coef_observed": 2.076564111173832
           },
           "rungs": {
-            "weight_F3": 1.1192835272628164e-15,
-            "weight_F17": 4.647291678830407e-15,
-            "F_10_closed_float64_floor_ratio": 53.88959055849216,
+            "weight_F3": 1.0740490456368736e-15,
+            "weight_F17": 4.45947704121973e-15,
+            "F_10_closed_float64_floor_ratio": 55.030071533615185,
             "F_10_open_branch": 0.019186391026184392,
             "dyn_decades_off_rung10_open": -0.15736853333684728,
             "rung3_gev": 96131777036496.42,
@@ -92317,15 +92317,15 @@
         },
         "checks": [
           {
-            "name": "T1 the loop machinery at the root angle g = pi/4: odd-n ratios cancel to 3.4e-15 (n <= 11), the word norm is the angle-independent 0.978030, and the FIRST crossing of 1/(16 pi) is n* = 208 with F_* = 0.019687 (deficit 0.9896) - the crossing is on the n = 4k class, and its certified value by continuity at 50 digits is F_* = 0.0196928, deficit 0.989868 (V209 T5): the float64 reading is low by 4e-4 relative",
+            "name": "T1 the loop machinery at the root angle g = pi/4: odd-n ratios cancel to 3.3e-15 (n <= 11), the word norm is the angle-independent 0.978030, and the FIRST crossing of 1/(16 pi) is n* = 208 with F_* = 0.019685 (deficit 0.9895) - the crossing is on the n = 4k class, and its certified value by continuity at 50 digits is F_* = 0.0196928, deficit 0.989868 (V209 T5): the float64 reading is low by 4e-4 relative",
             "pass": true
           },
           {
-            "name": "T2 the hierarchy coefficient of the closed ladder: per-channel factor (16 pi F_*)^10 = 0.90060; node-set readings single 0.901 / one-per-family 2.702 / all-twelve 10.8 against the observed 2.0766: the observed value requires sum factor 2.306, no natural set realizes it, and the selective reading sits +30.1% over - the named O8 residual",
+            "name": "T2 the hierarchy coefficient of the closed ladder: per-channel factor (16 pi F_*)^10 = 0.89968; node-set readings single 0.900 / one-per-family 2.699 / all-twelve 10.8 against the observed 2.0766: the observed value requires sum factor 2.308, no natural set realizes it, and the selective reading sits +30.0% over - the named O8 residual",
             "pass": true
           },
           {
-            "name": "T3 rung census under the odd-n rule: the odd rungs carry EXACTLY zero dynamical loop weight (|F_3| = 1.1e-15, |F_17| = 4.6e-15) - the seesaw rung 3 (9.613e+13 GeV) and the neutrino rung 17 are cell phases (V196), never loop-dynamical products - while the rung-10 ratio at the CLOSED angle is not a number: n = 10 is a 4k+2 length, both Cartan norms vanish exactly there, and the float64 F_10 = 53.89 (10^34.3 decades) is a floor ratio with no limit (V209). On the OPEN clock the rung-10 factor IS measured, F_10(1/5) = 0.0191864 = 0.96441 x 1/(16 pi), i.e. -0.157 decades from the ladder mass 118.57 GeV: the dynamical loop factor lives on the open branch (and, at the closed angle, only at n* = 208 on the 4k class); the rung masses themselves are reproduced from the module (m_B = 118.57 GeV, m_nu ladder 0.1462 eV)",
+            "name": "T3 rung census under the odd-n rule: the odd rungs carry EXACTLY zero dynamical loop weight (|F_3| = 1.1e-15, |F_17| = 4.5e-15) - the seesaw rung 3 (9.613e+13 GeV) and the neutrino rung 17 are cell phases (V196), never loop-dynamical products - while the rung-10 ratio at the CLOSED angle is not a number: n = 10 is a 4k+2 length, both Cartan norms vanish exactly there, and the float64 F_10 = 55.03 (10^34.4 decades) is a floor ratio with no limit (V209). On the OPEN clock the rung-10 factor IS measured, F_10(1/5) = 0.0191864 = 0.96441 x 1/(16 pi), i.e. -0.157 decades from the ladder mass 118.57 GeV: the dynamical loop factor lives on the open branch (and, at the closed angle, only at n* = 208 on the 4k class); the rung masses themselves are reproduced from the module (m_B = 118.57 GeV, m_nu ladder 0.1462 eV)",
             "pass": true
           },
           {
@@ -92333,7 +92333,7 @@
             "pass": true
           }
         ],
-        "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.4e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019687, deficit 0.9896). (ii) Hierarchy: per-channel factor 0.90060, readings 0.901 / 2.702 / 10.8 against the observed 2.0766 - the required sum factor 2.306 is no natural node set, the selective reading sits +30.1% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.6e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
+        "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.3e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019685, deficit 0.9895). (ii) Hierarchy: per-channel factor 0.89968, readings 0.900 / 2.699 / 10.8 against the observed 2.0766 - the required sum factor 2.308 is no natural node set, the selective reading sits +30.0% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.5e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
         "pass": true
       }
     },
@@ -92487,7 +92487,7 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7018 (pi/4) and 2.7048 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.1% and +30.3% over the observed 2.0766. The pi/2 reading 2.2995 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.1% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
+      "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7002 (pi/4) and 2.7084 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.0% and +30.4% over the observed 2.0766. The pi/2 reading 2.2994 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.0% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -92504,72 +92504,72 @@
           "closure_class": {
             "pi/2": {
               "n_star": 102,
-              "deficit": 0.9737584624805451,
-              "coef": 2.299501537011996,
-              "miss_pct": 10.73587974667165
+              "deficit": 0.973756015764892,
+              "coef": 2.2994437592056225,
+              "miss_pct": 10.733097371397871
             },
             "pi/4": {
               "n_star": 208,
-              "deficit": 0.9895852947034801,
-              "coef": 2.70180241158332,
-              "miss_pct": 30.109270262600063
+              "deficit": 0.9895268728629105,
+              "coef": 2.7002077805447326,
+              "miss_pct": 30.032478458773394
             },
             "3pi/4": {
               "n_star": 208,
-              "deficit": 0.9896966419687239,
-              "coef": 2.704843995591902,
-              "miss_pct": 30.255742215583137
+              "deficit": 0.9898267775590208,
+              "coef": 2.7084027105235036,
+              "miss_pct": 30.42711736901338
             }
           },
           "data_clock": {
             "g_obs": 0.19999798835751165,
             "g_obs_minus_fifth": -2.0116424883642736e-06,
-            "g_cross_rung10": 0.2001331673004168,
-            "coef_at_fifth": 2.088106865906645
+            "g_cross_rung10": 0.20013316730041675,
+            "coef_at_fifth": 2.088106865906787
           },
           "dead_zone": {
             "pi/3": {
               "n_star": 3,
-              "deficit": 0.03834645367163443
+              "deficit": 0.038346453671634355
             },
             "pi/5": {
               "n_star": 3,
-              "deficit": 0.009129251582343555
+              "deficit": 0.009129251581952734
             },
             "pi/6": {
               "n_star": 3,
-              "deficit": 0.003547816549018272
+              "deficit": 0.003547816549017421
             },
             "1/2": {
               "n_star": 3,
-              "deficit": 0.001439967230125253
+              "deficit": 0.0014399672301228746
             },
             "1/3": {
               "n_star": 3,
-              "deficit": 0.5165647005703793
+              "deficit": 0.516564700570372
             }
           },
           "odd_selection": {
-            "pi/2": 1.2480989425816478e+17,
-            "pi/4": 1.784405096549846e-15,
-            "3pi/4": 1.863033754508161e-15,
+            "pi/2": 1.2480958065439805e+17,
+            "pi/4": 1.7564497199943114e-15,
+            "3pi/4": 1.789655239922638e-15,
             "1/5": 0.24298720160182485
           },
           "variants": {
             "pi/4:cartan5": {
               "n_star": 208,
-              "deficit": 0.9914550427057602,
-              "coef": 2.753287193987246
+              "deficit": 0.9906242993880203,
+              "coef": 2.7303041058490876
             },
             "pi/4:roots40": {
               "n_star": 4,
-              "deficit": 2.2421867372021972e-05,
-              "coef": 9.634718895210517e-47
+              "deficit": 2.242750738658084e-05,
+              "coef": 9.658981595741133e-47
             },
             "1/5:cartan5": {
               "n_star": 10,
-              "deficit": 0.9644132015482061,
-              "coef": 2.0881068659067075
+              "deficit": 0.9644132015481971,
+              "coef": 2.088106865906513
             },
             "1/5:roots40": {
               "n_star": 2,
@@ -92577,11 +92577,11 @@
               "coef": 6.790055212946252e-12
             }
           },
-          "sector_best_over_obs": 0.02245916413806093
+          "sector_best_over_obs": 0.022581067606720073
         },
         "checks": [
           {
-            "name": "T1 closure-class readings of the hierarchy coefficient (self-consistent, step = phase, float64): pi/4 crosses at n* = 208 deficit 0.989585 coef 2.7018 (+30.11%); 3pi/4 coef 2.7048 (+30.26%); pi/2 (the V134 degenerate branch: no mass generation) crosses at n* = 102 deficit 0.973758 coef 2.2995 (+10.74%) - a floor-conditioned number: n* = 102 is a 4k+2 length and the ladder there falls through 1/(16 pi) with a slope of ~3% of the coefficient per rung, so one rung of floor noise moves the reading by decades (V209: at the closure class every even-n ratio is 0/0 in exact arithmetic, and the 4k+2 class has no limit). On the two members whose crossing is on the n = 4k class the miss is +30.11%: the closure axiom cannot reproduce the coefficient",
+            "name": "T1 closure-class readings of the hierarchy coefficient (self-consistent, step = phase, float64): pi/4 crosses at n* = 208 deficit 0.989527 coef 2.7002 (+30.03%); 3pi/4 coef 2.7084 (+30.43%); pi/2 (the V134 degenerate branch: no mass generation) crosses at n* = 102 deficit 0.973756 coef 2.2994 (+10.73%) - a floor-conditioned number: n* = 102 is a 4k+2 length and the ladder there falls through 1/(16 pi) with a slope of ~3% of the coefficient per rung, so one rung of floor noise moves the reading by decades (V209: at the closure class every even-n ratio is 0/0 in exact arithmetic, and the 4k+2 class has no limit). On the two members whose crossing is on the n = 4k class the miss is +30.03%: the closure axiom cannot reproduce the coefficient",
             "pass": true
           },
           {
@@ -92589,15 +92589,15 @@
             "pass": true
           },
           {
-            "name": "T3 the dead zone: at pi/3, pi/5, pi/6, 1/2, 1/3 the first crossing is n = [3] (the loop ladder collapses at length 3). The exact odd-length cancellation holds ONLY on the order-8 closed clock family: max(|F_3|,|F_5|) = pi/2:1.2e+17, pi/4:1.8e-15, 3pi/4:1.9e-15, 1/5:2.4e-01 - it holds at pi/4 and 3pi/4, blows up at pi/2 (the order-4 branch has no exact ladder at all) and is tiny but nonzero at 1/5. The exact ladder exists only on the order-8 closed clock, yet the data reads a non-closed clock",
+            "name": "T3 the dead zone: at pi/3, pi/5, pi/6, 1/2, 1/3 the first crossing is n = [3] (the loop ladder collapses at length 3). The exact odd-length cancellation holds ONLY on the order-8 closed clock family: max(|F_3|,|F_5|) = pi/2:1.2e+17, pi/4:1.8e-15, 3pi/4:1.8e-15, 1/5:2.4e-01 - it holds at pi/4 and 3pi/4, blows up at pi/2 (the order-4 branch has no exact ladder at all) and is tiny but nonzero at 1/5. The exact ladder exists only on the order-8 closed clock, yet the data reads a non-closed clock",
             "pass": true
           },
           {
-            "name": "T4 no principled object bridges it: Cartan-5 link at pi/4 deepens the miss (deficit 0.991455 vs baseline 0.989585); roots-only links collapse the ladder (n* = 4); the best single Casimir sector at pi/4 reaches only 0.022 of the observed coefficient",
+            "name": "T4 no principled object bridges it: Cartan-5 link at pi/4 deepens the miss (deficit 0.990624 vs baseline 0.989585); roots-only links collapse the ladder (n* = 4); the best single Casimir sector at pi/4 reaches only 0.023 of the observed coefficient",
             "pass": true
           }
         ],
-        "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7018 (pi/4) and 2.7048 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.1% and +30.3% over the observed 2.0766. The pi/2 reading 2.2995 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.1% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
+        "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7002 (pi/4) and 2.7084 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.0% and +30.4% over the observed 2.0766. The pi/2 reading 2.2994 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.0% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
         "pass": true
       }
     },
@@ -92613,7 +92613,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 173.71161150932312,
+      "wall_time": 207.87378096580505,
       "backend": null,
       "verdict": {
         "experiment": "V207_corner_pair_zero",
@@ -92713,19 +92713,19 @@
           "T4": {
             "branch_velocity_vectors": [
               [
-                -0.04339742803637184,
-                -0.3271723568308239,
-                -0.32717235683060497
+                -0.04339742803637186,
+                -0.3271723568308241,
+                -0.3271723568306051
               ],
               [
-                -0.32717235682835255,
-                -0.043397428036616115,
-                -0.32717235683037144
+                -0.32717235682835244,
+                -0.043397428036616094,
+                -0.32717235683037127
               ],
               [
-                -0.327172356828373,
-                -0.3271723568296926,
-                -0.043397428036349606
+                -0.32717235682837315,
+                -0.3271723568296927,
+                -0.04339742803634962
               ],
               [
                 0.12985293613658655,
@@ -92733,30 +92733,30 @@
                 -0.15392199266066964
               ],
               [
-                0.1298529361336868,
-                -0.1539219926599762,
+                0.12985293613368684,
+                -0.15392199265997625,
                 0.1298529361325294
               ],
               [
-                -0.15392199265985532,
-                0.1298529361317684,
-                0.1298529361326723
+                -0.1539219926598554,
+                0.12985293613176846,
+                0.12985293613267238
               ]
             ],
             "branch_speeds": [
-              0.4647223245213218,
-              0.46472232451944034,
-              0.4647223245189519,
+              0.464722324521322,
+              0.4647223245194401,
+              0.4647223245189521,
               0.23961542076918543,
-              0.2396154207666858,
-              0.23961542076564593
+              0.23961542076668582,
+              0.23961542076564607
             ],
             "exactly_zero_branch_vectors": 0,
             "n_nodal_planes": 6,
             "planar_branch_err": 4.7774458000748865e-12,
             "n_directions": 2196,
             "zero_branch_directions": 72,
-            "anisotropy": 1.9394508209713264
+            "anisotropy": 1.9394508209713262
           },
           "T5": {
             "quoted_coordinates": [
@@ -92821,7 +92821,7 @@
         ],
         "pass": true,
         "status": "CORNER PAIR QUESTION (cone programme, the V118 family): the two lowest corner cubic triplets CAN be driven to zero together - the min-max pair objective reaches 2.13e-16 at w = 0.241747262, theta = 0.913136625 (6 exact pair points among 6 refined), the null space there is 6-dimensional and isolated from the next level by 0.0087. On that six-state space the tangent velocity algebra is ABELIAN (max commutator 5.3e-12 against ||S|| = 0.523, sum_j S_j^2 NOT scalar but deviating by 7.2e-02), the branches are planar to 4.8e-12 with velocity vectors (-0.0434, -0.3272, -0.3272); (-0.3272, -0.0434, -0.3272); (-0.3272, -0.3272, -0.0434) defining 6 nodal planes: the LARGEST gapless multiplet the corner offers carries nodal planes, not a cone (V118 single-triplet points, V186 bond scan, V187 rigidity wall, Proposition 6). The coordinates the uncommitted live measurement quoted (w = 2.8894, theta = 1.5717) are NOT gapless - P = 2.6e-04 there, because the two lowest individual phases belong to the SAME triplet under the corner's particle-hole pairing; the pair objective must be taken on the two triplets. The pair itself is an isolated point of the family plane, not a mechanism (O9).",
-        "wall_time": 173.71161150932312
+        "wall_time": 207.87378096580505
       }
     },
     {
@@ -92836,7 +92836,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 4.909,
+      "wall_time": 29.234,
       "backend": null,
       "verdict": {
         "experiment": "V208_metric_bilinear_cone",
@@ -92928,7 +92928,7 @@
             "V206_dead_zone_entry_for_1_2": {
               "1/2": {
                 "n_star": 3,
-                "deficit": 0.0014399672301228746
+                "deficit": 0.001439967230125253
               }
             },
             "covariant_velocity_space_dim": 160,
@@ -92947,12 +92947,12 @@
           "T1 content: bond(6 oriented) = {'A1g': 1, 'Eg': 1, 'T1u': 1} while Sym^2 = {'A1g': 1, 'Eg': 1, 'T2g': 1} - the quintet's T2g is absent from a single bond (0 copies) and T1u is absent from Sym^2 (0), so the metric is a bilinear: bond (x) Sym^2 = {'A1g': 2, 'A2g': 1, 'Eg': 3, 'T1g': 1, 'T2g': 2, 'A2u': 1, 'Eu': 1, 'T1u': 3, 'T2u': 2}, whose invariant algebra has dimension 34 (= sum m^2: 34 independent self-couplings, none chosen)",
           "T2 parity: the hop velocity is a polar vector (covariance 4.4e-16) and the dressing an axial one (4.4e-16); the even (metric) half of the bilinear module has rank 18 and the hop's velocity block inside it vanishes (['2.7e-16', '2.7e-16', '2.7e-16']), while the dressing survives (['5.477', '5.477', '5.477']); the dressing's spectrum is exactly g x {0,+-1,+-2} in all 44 directions (max deviation 2.2e-15), so the implemented cone radius is 2g = 1.570796",
           "T3 the committed triple (cone_generator.json) is Hermitian (9.9e-15) and O-covariant (1.1e-15), is exactly Clifford-regular ({H_i,H_j} = 2 delta_ij S, S = H_1^2 = H_2^2 = H_3^2, defect 1.4e-13), its 36-branch spectrum is direction-independent over 44 directions to 5.2e-15, the cone subspace has dim 8 at slope 1.000000000000 (4 branches at +1, 4 at -1) with content {'E': 1, 'T1': 1, 'T2': 1} - the quintet weight on it is 5.0000, i.e. E + T2 of the metric appaired with the odd T1 connection vector - the non-propagating subspace has dim 4 with content {'A1': 1, 'A2': 1, 'E': 1} (the trace A1 does not propagate), the step exp(i sum sin(q) H) is unitary to 1.0e-14 with M(0) = I to 0.0e+00 (no mass term exists in this class), and the hopping kernel falls 9.1e-01 -> 1.1e-01 -> 3.4e-02 -> 5.4e-03 -> 7.9e-04 -> 7.2e-05 -> below 6.9e-06",
-          "T4 the implemented layer is not a cone generator: the covariant velocity space is 160-dimensional by characters, the Clifford-regularity Jacobian at the committed generator has rank 107 in it, so the exact-cone family through it is 53-dimensional, and neither implemented triple lies in it - the hop accounts for 0.0029 of the committed generator and the dressing for 0.0092; the implemented cone speed is 1.570796 (V141 dressing_only_speed = 2 g_root, g_root = pi/4) against the matter cone 1 and |c_gw/c - 1| < 1e-15 (GW170817); the clock that would give exactly 1, g = 1/2, sits in V206's dead zone {'1/2': {'n_star': 3, 'deficit': 0.0014399672301228746}}",
+          "T4 the implemented layer is not a cone generator: the covariant velocity space is 160-dimensional by characters, the Clifford-regularity Jacobian at the committed generator has rank 107 in it, so the exact-cone family through it is 53-dimensional, and neither implemented triple lies in it - the hop accounts for 0.0029 of the committed generator and the dressing for 0.0092; the implemented cone speed is 1.570796 (V141 dressing_only_speed = 2 g_root, g_root = pi/4) against the matter cone 1 and |c_gw/c - 1| < 1e-15 (GW170817); the clock that would give exactly 1, g = 1/2, sits in V206's dead zone {'1/2': {'n_star': 3, 'deficit': 0.001439967230125253}}",
           "T5 the bond entropy is committed as ln 45 = 3.8066624897703196 (V129); identifying one Planck bond with one Planck area gives G = 1/(4 ln 45) = 0.065674 in cell units, 16 pi G = 3.30115, and a cell of 2 sqrt(ln 45) = 3.90213 Planck lengths; the Bekenstein gap the paper names is the factor 4 ln 45 = 15.22665"
         ],
         "pass": true,
         "status": "THE METRIC IS A BILINEAR OF THE BOND LAYER AND ITS CONE IS A MODULE FACT, NOT A MODULE VERDICT. (i) Content: Sym^2 = A1g+Eg+T2g while the six oriented bonds carry A1g+Eg+T1u - one bond amplitude is not the metric, by exact characters; the metric content first appears in the 36-state bilinear, whose invariant algebra has dimension 34. (ii) Parity: the hop's velocity is polar and vanishes inside the even (metric) sector to 2.7e-16, so the metric's first-order motion can only come from the axial dressing (isotropic exactly, radius 2g) or from pairing the even and odd halves. (iii) Such a pairing exists and is exactly lightlike: the committed triple has Clifford defect 1.4e-13, a direction-independent 36-branch spectrum (5e-15 over 44 directions), the quintet E+T2 appaired with the odd connection vector T1 on the cone at slope 1, four branches at slope exactly 0 (the trace among them), M(0) = I exactly (no mass term in the class), and a quasi-local kernel. (iv) It is not the implemented generator (hop 0.3% of it, dressing 0.9%; the exact-cone family is 53-dimensional), and the implemented one gives c_gw = 1.570796 against the matter cone 1 - excluded by GW170817 at 1e-15 - while the clock that would fix it, g = 1/2, lies in the closed-class dead zone. So the content of the gravitational field is supplied by the root; its light cone is permitted in a 53-parameter family and not selected by anything in the current construction.",
-        "wall_time": 4.909
+        "wall_time": 29.234
       }
     },
     {
@@ -92963,7 +92963,7 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "ROOT-CLOCK PHASE DEGENERACY, MEASURED (zero free parameters, 706 s). (i) The closure class IS the phase-degenerate set: 8g in 2pi Z makes the 288 and 1120 Casimir sectors share their traced-link phase (separation < 7e-16), while the open angles separate them by > 1.43. (ii) Exact integer arithmetic at g = pi/4: Tr(C_a N^n) = 0 for every even n <= 60 and Tr(C_a W^n) = 0 for every n <= 60 - every even-n Cartan ratio is exactly 0/0, so float64 returns ratios of round-off floors (pi/4 floor 4e-13 over 7e-13). (iii) The period-4 classes of the clock filter resolve that 0/0 differently: on n = 4k numerator and denominator vanish to the SAME (first) order in g - pi/4, the singularity is REMOVABLE, and the float64 ladder is the g -> pi/4 limit to ~4e-4 relative (T4: F_4 1.82884 vs 1.82995 at pi/4 + 1e-7); on n = 4k+2 the denominator vanishes to far higher order, the ratio is unbounded with poles accumulating at the closure angle (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3; F_210 3.9e+48 at +1e-8), so the quoted F_2 = 65.7, F_6 = 60.1, F_10 = 55.0, F_170 = 1.57 and everything built on them - (F_10)^17, R_17 = 4.0e-30, the 33x branch separation - are floor artefacts, not measurements. (iv) Certified root-clock readings (T5): n* = 208 at pi/4 and 3pi/4, deficit 0.989868 / 0.989933, hierarchy coefficient 3 x deficit^10 = 2.7095 / 2.7113. The pi/2 branch carries no period-4 filter (traced phases +/-1) and its crossing is steep and floor-conditioned (n* = 102 certified vs 102 at float64): its 2.30 reading is not a stable closure-class number. (v) The loop factor that is measured without any limiting procedure lives on the open branch: F_10(1/5) = 0.019186391 stable to 0e+00, deficit 0.964413, coefficient 3 x deficit^10 = 2.0881, reproducing V85/V108/V113. VERDICT: the closed-root ladder STRUCTURE (V131, the exact odd-n selection rule, V197's vanishing odd rungs) and the 4k-class crossing survive; the certified closure-class coefficient is 2.710 (pi/4) / 2.711 (3pi/4) against the float64 2.699-2.700, and every n = 4k+2 reading at a closure-class angle is withdrawn.",
+      "status": "ROOT-CLOCK PHASE DEGENERACY, MEASURED (zero free parameters, 877 s). (i) The closure class IS the phase-degenerate set: 8g in 2pi Z makes the 288 and 1120 Casimir sectors share their traced-link phase (separation < 7e-16), while the open angles separate them by > 1.43. (ii) Exact integer arithmetic at g = pi/4: Tr(C_a N^n) = 0 for every even n <= 60 and Tr(C_a W^n) = 0 for every n <= 60 - every even-n Cartan ratio is exactly 0/0, so float64 returns ratios of round-off floors (pi/4 floor 4e-13 over 7e-13). (iii) The period-4 classes of the clock filter resolve that 0/0 differently: on n = 4k numerator and denominator vanish to the SAME (first) order in g - pi/4, the singularity is REMOVABLE, and the float64 ladder is the g -> pi/4 limit to ~4e-4 relative (T4: F_4 1.82937 vs 1.82995 at pi/4 + 1e-7); on n = 4k+2 the denominator vanishes to far higher order, the ratio is unbounded with poles accumulating at the closure angle (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3; F_210 3.9e+48 at +1e-8), so the quoted F_2 = 65.7, F_6 = 60.1, F_10 = 55.0, F_170 = 1.57 and everything built on them - (F_10)^17, R_17 = 4.0e-30, the 33x branch separation - are floor artefacts, not measurements. (iv) Certified root-clock readings (T5): n* = 208 at pi/4 and 3pi/4, deficit 0.989868 / 0.989933, hierarchy coefficient 3 x deficit^10 = 2.7095 / 2.7113. The pi/2 branch carries no period-4 filter (traced phases +/-1) and its crossing is steep and floor-conditioned (n* = 102 certified vs 102 at float64): its 2.30 reading is not a stable closure-class number. (v) The loop factor that is measured without any limiting procedure lives on the open branch: F_10(1/5) = 0.019186391 stable to 0e+00, deficit 0.964413, coefficient 3 x deficit^10 = 2.0881, reproducing V85/V108/V113. VERDICT: the closed-root ladder STRUCTURE (V131, the exact odd-n selection rule, V197's vanishing odd rungs) and the 4k-class crossing survive; the certified closure-class coefficient is 2.710 (pi/4) / 2.711 (3pi/4) against the float64 2.699-2.700, and every n = 4k+2 reading at a closure-class angle is withdrawn.",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -93009,356 +93009,356 @@
           "float64_floors": {
             "pi/2": {
               "max_even_cnorm_G": 1.175660927181459e-13,
-              "max_cnorm_MG": 1.3628400765130342e-13,
+              "max_cnorm_MG": 1.362767990184142e-13,
               "min_odd_cnorm_G": 9.449728677624615e-48,
               "cnorm_MG_n2_n6_n12": [
-                3.578773623246153e-14,
-                8.951158549192571e-14,
-                1.3628400765130342e-13
+                3.578584326895921e-14,
+                8.950685084865933e-14,
+                1.362767990184142e-13
               ],
               "F_n_float": {
-                "2": 1.8264315197542242,
-                "4": 1.6676898172965748,
-                "6": 1.5227449245340094,
-                "8": 1.390397711339944,
-                "10": 1.2695532682802757,
-                "12": 1.1592118484198675,
-                "14": 1.0584605964090557,
-                "16": 0.9664659964248618,
-                "18": 0.8824669764886774,
-                "20": 0.8057686121123782,
-                "22": 0.7357363771831054,
-                "24": 0.6717908945242289,
-                "26": 0.613403142703852,
-                "28": 0.5600900794367524,
-                "30": 0.5114106453721265,
-                "32": 0.46696211520645076,
-                "34": 0.42637676593418666,
-                "36": 0.3893188346727467,
-                "38": 0.3554817408937824,
-                "40": 0.3245855500802984,
-                "42": 0.29637465782640604,
-                "44": 0.27061567522025937,
-                "46": 0.24709549801593092,
-                "48": 0.22561954362047248,
-                "50": 0.2060101413107427,
-                "52": 0.18810506236225363,
-                "54": 0.17175617792978135,
-                "56": 0.1568282335763783,
-                "58": 0.14319773031245617,
-                "60": 0.13075190288776872,
-                "62": 0.11938778688369607,
-                "64": 0.10901136688787864,
-                "66": 0.09953679870404335,
-                "68": 0.09088569916235871,
-                "70": 0.08298649765491425,
-                "72": 0.07577384403157364,
-                "74": 0.06918806795771842,
-                "76": 0.0631746852611464,
-                "78": 0.057683947184128295,
-                "80": 0.052670428811581876,
-                "82": 0.04809265327042716,
-                "84": 0.04391274859112094,
-                "86": 0.04009613439258404,
-                "88": 0.03661123579846319,
-                "90": 0.03342922221795482,
-                "92": 0.030523768830122727,
-                "94": 0.027870838798467638,
-                "96": 0.02544848441400825,
-                "98": 0.02323666552172904,
-                "100": 0.021217083728235574,
-                "102": 0.019373031019016104,
-                "104": 0.017689251532918917,
-                "106": 0.016151815350304743,
-                "108": 0.014748003250722716,
-                "110": 0.013466201486709295,
-                "112": 0.012295805703173093,
-                "114": 0.011227133207489913,
-                "116": 0.010251342864517959,
-                "118": 0.00936036195382406,
-                "120": 0.008546819384010224,
-                "122": 0.007803984711622181,
-                "124": 0.007125712460142927,
-                "126": 0.006506391278421869,
-                "128": 0.005940897517926936,
-                "130": 0.005424552844763909,
-                "132": 0.004953085535786902,
-                "134": 0.004522595138602464,
-                "136": 0.0041295202030992425,
-                "138": 0.0037706088175459293,
-                "140": 0.0034428917055024334,
-                "142": 0.003143657660974818,
-                "144": 0.0028704311185888606,
-                "146": 0.0026209516732201526,
-                "148": 0.002393155379646453,
-                "150": 0.00218515767751422,
-                "152": 0.00199523780035743,
-                "154": 0.0018218245396843908,
-                "156": 0.0016634832463587365,
-                "158": 0.0015189039617369414,
-                "160": 0.0013868905803711643,
-                "162": 0.001266350954620388,
-                "164": 0.0011562878593052344,
-                "166": 0.0010557907416569778,
-                "168": 0.0009640281883080263,
-                "170": 0.0008802410470032311,
-                "172": 0.0008037361461278891,
-                "174": 0.0007338805600940585,
-                "176": 0.0006700963731426743,
-                "178": 0.0006118558982423731,
-                "180": 0.0005586773115309378,
-                "182": 0.0005101206661830643,
-                "184": 0.0004657842527271539,
-                "186": 0.00042530127570000417,
-                "188": 0.0003883368191453375,
-                "190": 0.0003545850758517184,
-                "192": 0.00032376681740732235,
-                "194": 0.00029562708414130354,
-                "196": 0.0002699330758406275,
-                "198": 0.0002464722257922572,
-                "200": 0.00022505044221722665,
-                "202": 0.00020549050254797655,
-                "204": 0.0001876305872647945,
-                "206": 0.00017132294116178047,
-                "208": 0.0001564326509669789,
-                "210": 0.00014283652920392311,
-                "212": 0.00013042209506076744
+                "2": 1.8263349121290893,
+                "4": 1.6676016061860188,
+                "6": 1.5226643801668893,
+                "8": 1.3903241673721387,
+                "10": 1.2694861162820181,
+                "12": 1.159150532842199,
+                "14": 1.058404609987767,
+                "16": 0.9664148759838926,
+                "18": 0.8824202991082565,
+                "20": 0.8057259916302063,
+                "22": 0.7356974609996311,
+                "24": 0.6717553606855896,
+                "26": 0.6133706972383487,
+                "28": 0.5600604539228188,
+                "30": 0.5113835947176755,
+                "32": 0.46693741562122604,
+                "34": 0.42635421307834437,
+                "36": 0.38929824196635043,
+                "38": 0.35546293797322603,
+                "40": 0.32456838138888655,
+                "42": 0.296358981327433,
+                "44": 0.27060136122193784,
+                "46": 0.2470824280984511,
+                "48": 0.22560760965631435,
+                "50": 0.20599924457013608,
+                "52": 0.18809511269638615,
+                "54": 0.1717470930249967,
+                "56": 0.15681993827319465,
+                "58": 0.14319015598377144,
+                "60": 0.1307449868711079,
+                "62": 0.11938147196280433,
+                "64": 0.10900560081937055,
+                "66": 0.09953153378519325,
+                "68": 0.09088089183645554,
+                "70": 0.08298210815091678,
+                "72": 0.07576983603508408,
+                "74": 0.06918440831055336,
+                "76": 0.06317134368701892,
+                "78": 0.05768089603817188,
+                "80": 0.052667642851644395,
+                "82": 0.048090109448242255,
+                "84": 0.043910425861629625,
+                "86": 0.04009401353982876,
+                "88": 0.036609299276614056,
+                "90": 0.03342745400615281,
+                "92": 0.030522154299939066,
+                "94": 0.027869364592882653,
+                "96": 0.025447138336908683,
+                "98": 0.023235436437009472,
+                "100": 0.021215961467669412,
+                "102": 0.019372006298133716,
+                "104": 0.01768831587419717,
+                "106": 0.01615096101303239,
+                "108": 0.01474722316696144,
+                "110": 0.013465489202820606,
+                "112": 0.01229515532642732,
+                "114": 0.01122653935731562,
+                "116": 0.010250800627988445,
+                "118": 0.009359866845012667,
+                "120": 0.00854636730687824,
+                "122": 0.007803571926132286,
+                "124": 0.007125335551317831,
+                "126": 0.006506047128092188,
+                "128": 0.005940583278934552,
+                "130": 0.005424265917407405,
+                "132": 0.0049528235463142225,
+                "134": 0.004522355919572843,
+                "136": 0.004129301775451947,
+                "138": 0.003770409374227485,
+                "140": 0.0034427095965168515,
+                "142": 0.0031434913797331676,
+                "144": 0.0028702792894452506,
+                "146": 0.0026208130400909987,
+                "148": 0.0023930287956188947,
+                "150": 0.0021850420953576986,
+                "152": 0.0019951322638599445,
+                "154": 0.0018217281757417483,
+                "156": 0.001663395257751356,
+                "158": 0.0015188236205344492,
+                "160": 0.0013868172219102218,
+                "162": 0.0012662839720059271,
+                "164": 0.0011562266983896105,
+                "166": 0.0010557348964555019,
+                "168": 0.0009639771968129505,
+                "170": 0.000880194487361554,
+                "172": 0.0008036936331513655,
+                "174": 0.0007338417420725312,
+                "176": 0.0006700609289343762,
+                "178": 0.0006118235346171172,
+                "180": 0.0005586477607442225,
+                "182": 0.0005100936837610214,
+                "184": 0.00046575961544401454,
+                "186": 0.00042527877973135003,
+                "188": 0.0003883162783818601,
+                "190": 0.00035456632035953584,
+                "192": 0.0003237496920221146,
+                "194": 0.00029561144718463734,
+                "196": 0.0002699187979478493,
+                "198": 0.0002464591888422587,
+                "200": 0.000225038538355228,
+                "202": 0.00020547963329324294,
+                "204": 0.00018762066269590441,
+                "206": 0.00017131387917270502,
+                "208": 0.0001564243765878182,
+                "210": 0.00014282897398067954,
+                "212": 0.00013041519648902548
               }
             },
             "pi/4": {
               "max_even_cnorm_G": 4.491628641793865e-13,
-              "max_cnorm_MG": 6.876970215146834e-13,
+              "max_cnorm_MG": 6.878986136241345e-13,
               "min_odd_cnorm_G": 5.656854249492389,
               "cnorm_MG_n2_n6_n12": [
-                1.4312744779703063e-13,
-                3.9287407201358865e-13,
-                6.876970215146834e-13
+                1.4316940430290327e-13,
+                3.9298923946443994e-13,
+                6.878986136241345e-13
               ],
               "F_n_float": {
-                "2": 65.71829920451758,
-                "4": 1.8288366994097258,
-                "6": 60.13059505516183,
-                "8": 1.6733396987648428,
-                "10": 55.017985940806376,
-                "12": 1.5310638442274052,
-                "14": 50.34007686446335,
-                "16": 1.4008850066909386,
-                "18": 46.05990741730407,
-                "20": 1.2817746362247646,
-                "22": 42.14365975249966,
-                "24": 1.1727916354462002,
-                "26": 38.56039138861158,
-                "28": 1.0730749238600035,
-                "30": 35.28179073139748,
-                "32": 0.9818366344155041,
-                "34": 32.28195338239655,
-                "36": 0.8983558885270637,
-                "38": 29.537177466897422,
-                "40": 0.821973100373964,
-                "42": 27.025776364163253,
-                "44": 0.7520847654776986,
-                "46": 24.727907360285947,
-                "48": 0.6881386923809384,
-                "50": 22.625414869846455,
-                "52": 0.6296296397534051,
-                "54": 20.701686987667117,
-                "56": 0.5760953244532077,
-                "58": 18.941524237263813,
-                "60": 0.5271127690031076,
-                "62": 17.331019478972596,
-                "64": 0.4822949596229387,
-                "66": 15.857448028898267,
-                "68": 0.44128778841311034,
-                "70": 14.509167120508963,
-                "72": 0.4037672555292286,
-                "74": 13.275523914517555,
-                "76": 0.36943690924206385,
-                "78": 12.146771330230925,
-                "80": 0.3380255036566454,
-                "82": 11.113991033346116,
-                "84": 0.309284855583994,
-                "86": 10.169022971715854,
-                "88": 0.2829878836325237,
-                "90": 9.304400902341849,
-                "92": 0.25892681402586976,
-                "94": 8.513293400191051,
-                "96": 0.23691153897121167,
-                "98": 7.789449882742557,
-                "100": 0.21676811460747433,
-                "102": 7.127151223802109,
-                "104": 0.198337386665615,
-                "106": 6.521164566381322,
-                "108": 0.1814737329822644,
-                "110": 5.966701977615859,
-                "112": 0.1660439129312559,
-                "114": 5.45938261905277,
-                "116": 0.15192601468233957,
-                "118": 4.9951981334125115,
-                "120": 0.13900849196931703,
-                "122": 4.570480974344519,
-                "124": 0.12718928275704908,
-                "126": 4.181875428948107,
-                "128": 0.11637500284387887,
-                "130": 3.826311104106055,
-                "132": 0.10648020802807955,
-                "134": 3.5009786671450325,
-                "136": 0.0974267190086643,
-                "138": 3.2033076491484596,
-                "140": 0.08914300368656429,
-                "142": 2.930946135544659,
-                "144": 0.08156361198570307,
-                "146": 2.681742183504538,
-                "148": 0.07462865872845849,
-                "150": 2.4537268193266337,
-                "152": 0.06828335047968412,
-                "154": 2.2450984814710133,
-                "156": 0.06247755262085873,
-                "158": 2.054208786325563,
-                "160": 0.057165393233794805,
-                "162": 1.8795495042392545,
-                "164": 0.05230490066416876,
-                "166": 1.7197406429193132,
-                "168": 0.047857671901244264,
-                "170": 1.5735195440386025,
-                "172": 0.04378856915363851,
-                "174": 1.4397309069049065,
-                "176": 0.04006544222376034,
-                "178": 1.3173176603686172,
-                "180": 0.03665887448738651,
-                "182": 1.2053126108472614,
-                "184": 0.03354195047134632,
-                "186": 1.1028308004774785,
-                "188": 0.030690043192934332,
-                "190": 1.0090625150157981,
-                "192": 0.028080619580807844,
-                "194": 0.9232668862432643,
-                "196": 0.0256930624399899,
-                "198": 0.8447660383261648,
-                "200": 0.02350850755431333,
-                "202": 0.7729397318829597,
-                "204": 0.021509694639243796,
-                "206": 0.7072204634398802,
-                "208": 0.019680830967452177,
-                "210": 0.6470889815557501,
-                "212": 0.018007466589634577
+                "2": 65.7375639245203,
+                "4": 1.8293728062075474,
+                "6": 60.14822179065796,
+                "8": 1.673830223035196,
+                "10": 55.03411396157217,
+                "12": 1.5315126616286823,
+                "14": 50.35483359885008,
+                "16": 1.4012956633533384,
+                "18": 46.07340945905631,
+                "20": 1.2821503767684543,
+                "22": 42.15601378196861,
+                "24": 1.1731354286172333,
+                "26": 38.57169501564225,
+                "28": 1.07338948598654,
+                "30": 35.29213326654923,
+                "32": 0.9821244508696639,
+                "34": 32.2914165425906,
+                "36": 0.8986192333619847,
+                "38": 29.54583602106664,
+                "40": 0.8222140542912165,
+                "42": 27.03369872400541,
+                "44": 0.7523052322670201,
+                "46": 24.73515612078822,
+                "48": 0.688340413962176,
+                "50": 22.632047303851753,
+                "52": 0.6298142099395193,
+                "54": 20.70775549838985,
+                "56": 0.5762642015430721,
+                "58": 18.947076772330504,
+                "60": 0.5272672873036061,
+                "62": 17.33609990925863,
+                "64": 0.4824363399913955,
+                "66": 15.862096495153985,
+                "68": 0.44141714790334874,
+                "70": 14.513420350513902,
+                "72": 0.40388561621747243,
+                "74": 13.279415513268575,
+                "76": 0.3695452063024168,
+                "78": 12.150332045457088,
+                "80": 0.33812459274995077,
+                "82": 11.117248998448115,
+                "84": 0.30937551961845705,
+                "86": 10.172003928049532,
+                "88": 0.2830708389495109,
+                "90": 9.307128402602004,
+                "92": 0.25900271605976,
+                "94": 8.515788994502556,
+                "96": 0.23698098742801837,
+                "98": 7.791733288929014,
+                "100": 0.21683165820315473,
+                "102": 7.129240483177447,
+                "104": 0.19839552746150377,
+                "106": 6.523076186295172,
+                "108": 0.18152693035188733,
+                "110": 5.968451061879001,
+                "112": 0.16609258718986447,
+                "114": 5.460982987273151,
+                "116": 0.15197055040784418,
+                "118": 4.996662430184701,
+                "120": 0.13904924104085756,
+                "122": 4.571820769155323,
+                "124": 0.1272265671352107,
+                "126": 4.1831013075877035,
+                "128": 0.11640911711451973,
+                "130": 3.827432752306885,
+                "132": 0.10651142172986941,
+                "134": 3.5020049471092873,
+                "136": 0.09745527876272395,
+                "138": 3.204246669568812,
+                "140": 0.08916913514503205,
+                "142": 2.9318053156714767,
+                "144": 0.08158752161462449,
+                "146": 2.682528311765775,
+                "148": 0.07465053543908547,
+                "150": 2.454446106963564,
+                "152": 0.06830336712107275,
+                "154": 2.245756611613576,
+                "156": 0.062495867345559085,
+                "158": 2.054810958895077,
+                "160": 0.057182150747422424,
+                "162": 1.880100477033271,
+                "164": 0.052320233368731574,
+                "166": 1.7202447692032319,
+                "168": 0.047871700941257894,
+                "170": 1.5739808069410497,
+                "172": 0.04380140537329548,
+                "174": 1.4401529508886488,
+                "176": 0.04007718704271604,
+                "178": 1.3177038200256546,
+                "180": 0.036669620702081185,
+                "182": 1.2056659372456162,
+                "184": 0.0335517829881948,
+                "186": 1.1031540852678483,
+                "188": 0.030699039699176055,
+                "190": 1.0093583124885341,
+                "192": 0.028088851158317923,
+                "194": 0.9235375335099576,
+                "196": 0.025700594126900782,
+                "198": 0.8450136737852886,
+                "200": 0.023515398858884547,
+                "202": 0.7731663121154688,
+                "204": 0.021516000010039896,
+                "206": 0.707427778668263,
+                "208": 0.01968660022354374,
+                "210": 0.647278669788671,
+                "212": 0.018012745314221344
               }
             },
             "3pi/4": {
               "max_even_cnorm_G": 7.395921209236381e-13,
-              "max_cnorm_MG": 1.1328470638069602e-12,
+              "max_cnorm_MG": 1.1330050574642535e-12,
               "min_odd_cnorm_G": 5.6568542494923975,
               "cnorm_MG_n2_n6_n12": [
-                2.357746273641352e-13,
-                6.47183607028281e-13,
-                1.1328470638069602e-12
+                2.3580750991012427e-13,
+                6.472738671421846e-13,
+                1.1330050574642535e-12
               ],
               "F_n_float": {
-                "2": 114.04421210388388,
-                "4": 1.8296188871078005,
-                "6": 104.34759297502124,
-                "8": 1.6740553808853378,
-                "10": 95.47542973739289,
-                "12": 1.5317186754128838,
-                "14": 87.35762295659217,
-                "16": 1.401484160797483,
-                "18": 79.93003340876619,
-                "20": 1.2823228472008898,
-                "22": 73.13397531319123,
-                "24": 1.1732932347360356,
-                "26": 66.91575265279273,
-                "28": 1.0735338746262608,
-                "30": 61.22623491905402,
-                "32": 0.9822565628526384,
-                "34": 56.020468929250455,
-                "36": 0.8987401125120281,
-                "38": 51.25732364895861,
-                "40": 0.8223246556809336,
-                "42": 46.89916521356121,
-                "44": 0.7524064297638834,
-                "46": 42.91155958107845,
-                "48": 0.6884330071329996,
-                "50": 39.2630004669676,
-                "52": 0.6298989303678786,
-                "54": 35.9246604112904,
-                "56": 0.576341718609585,
-                "58": 32.87016301141623,
-                "60": 0.5273382134747453,
-                "62": 30.07537452065969,
-                "64": 0.4825012356586175,
-                "66": 27.518213166262424,
-                "68": 0.4414765258107776,
-                "70": 25.17847468013005,
-                "72": 0.40393994551311835,
-                "74": 23.03767266383365,
-                "76": 0.36959491624493895,
-                "78": 21.078892526590764,
-                "80": 0.3381700761002534,
-                "82": 19.286657842182628,
-                "84": 0.30941713574291396,
-                "86": 17.646808068886088,
-                "88": 0.2831089166593387,
-                "90": 16.146386666279007,
-                "92": 0.2590375562089725,
-                "94": 14.773538724924142,
-                "96": 0.2370128652904907,
-                "98": 13.517417300098105,
-                "100": 0.21686082564757653,
-                "102": 12.368097709503239,
-                "104": 0.19842221494140735,
-                "106": 11.316499117824007,
-                "108": 0.1815513487264732,
-                "110": 10.354312788563437,
-                "112": 0.16611492939001107,
-                "114": 9.473936436273375,
-                "116": 0.15199099296046528,
-                "118": 8.668414160492153,
-                "120": 0.13906794546365045,
-                "122": 7.931381486804454,
-                "124": 0.1272436812128163,
-                "126": 7.257015080789919,
-                "128": 0.11642477606617704,
-                "130": 6.639986737547627,
-                "132": 0.10652574927778968,
-                "134": 6.075421283265306,
-                "136": 0.09746838810962664,
-                "138": 5.558858056211342,
-                "140": 0.08918112986856545,
-                "142": 5.086215662808767,
-                "144": 0.08159849648573823,
-                "146": 4.653759730327191,
-                "148": 0.07466057717082092,
-                "150": 4.258073401404901,
-                "152": 0.06831255505368736,
-                "154": 3.8960303372768172,
-                "156": 0.06250427407339788,
-                "158": 3.564770016405343,
-                "160": 0.05718984269248997,
-                "162": 3.2616751333473153,
-                "164": 0.05232727130549563,
-                "166": 2.984350919284251,
-                "168": 0.04787814047683179,
-                "170": 2.730606220826337,
-                "172": 0.04380729738679282,
-                "174": 2.4984361875927577,
-                "176": 0.040082578087249375,
-                "178": 2.2860064317820323,
-                "180": 0.036674553372580604,
-                "182": 2.091638534576262,
-                "184": 0.03355629625795271,
-                "186": 1.9137967848646364,
-                "188": 0.030703169227777237,
-                "190": 1.7510760455081293,
-                "192": 0.028092629573387887,
-                "194": 1.6021906512761048,
-                "196": 0.025704051281898278,
-                "198": 1.4659642507368378,
-                "200": 0.02351856206897539,
-                "202": 1.3413205118421785,
-                "204": 0.021518894267915537,
-                "206": 1.2272746177707,
-                "208": 0.019689248396889854,
-                "210": 1.1229254858375268,
-                "212": 0.01801516832639662
+                "2": 114.06011739484421,
+                "4": 1.8298740567495488,
+                "6": 104.36214591722374,
+                "8": 1.6742888547059338,
+                "10": 95.48874531440926,
+                "12": 1.5319322981014218,
+                "14": 87.36980637550573,
+                "16": 1.401679620198207,
+                "18": 79.9411809314189,
+                "20": 1.2825016876489375,
+                "22": 73.14417501675345,
+                "24": 1.1734568692593146,
+                "26": 66.92508512566567,
+                "28": 1.0736835961098574,
+                "30": 61.23477389760308,
+                "32": 0.9823935542539708,
+                "34": 56.02828188040004,
+                "36": 0.8988654562074568,
+                "38": 51.26447230325199,
+                "40": 0.8224393420176734,
+                "42": 46.90570605289679,
+                "44": 0.7525113648847909,
+                "46": 42.917544284976294,
+                "48": 0.6885290201360555,
+                "50": 39.268476320892034,
+                "52": 0.6299867798569354,
+                "54": 35.92967068025502,
+                "56": 0.5764220986881358,
+                "58": 32.87474728182304,
+                "60": 0.5274117592300729,
+                "62": 30.079569013073403,
+                "64": 0.4825685281796529,
+                "66": 27.52205102159106,
+                "68": 0.44153809677931455,
+                "70": 25.18198622147303,
+                "72": 0.40399628140465943,
+                "74": 23.040885636066193,
+                "76": 0.3696464621723646,
+                "78": 21.081832315577657,
+                "80": 0.33821723933068226,
+                "82": 19.289347675353273,
+                "84": 0.3094602889155423,
+                "86": 17.64926919875566,
+                "88": 0.2831484007296824,
+                "90": 16.148638538365734,
+                "92": 0.2590736831427749,
+                "94": 14.775599131389344,
+                "96": 0.23704592052858045,
+                "98": 13.519302520323036,
+                "100": 0.2168910703611508,
+                "102": 12.369822638713327,
+                "104": 0.19844988809555938,
+                "106": 11.318077384776835,
+                "108": 0.1815766689682682,
+                "110": 10.35575686323028,
+                "112": 0.16613809677602845,
+                "114": 9.475257728365115,
+                "116": 0.15201219053745613,
+                "118": 8.669623109607999,
+                "120": 0.13908734071479995,
+                "122": 7.932487644915774,
+                "124": 0.12726142738103705,
+                "126": 7.258027187710883,
+                "128": 0.11644101336488957,
+                "130": 6.640912789988936,
+                "132": 0.10654060599875619,
+                "134": 6.076268598016634,
+                "136": 0.09748198163659091,
+                "138": 5.559633327951681,
+                "140": 0.0891935676047083,
+                "142": 5.086925017001441,
+                "144": 0.0816098767022755,
+                "146": 4.654408771617466,
+                "148": 0.07467098978344977,
+                "150": 4.25866725790259,
+                "152": 0.06832208233301489,
+                "154": 3.896573701073745,
+                "156": 0.06251299129496564,
+                "158": 3.565267180647818,
+                "160": 0.05719781873152997,
+                "162": 3.2621300261565023,
+                "164": 0.05233456918111723,
+                "166": 2.984767134792471,
+                "168": 0.047884817849939094,
+                "170": 2.7309870475744944,
+                "172": 0.04381340701566649,
+                "174": 2.498784634513278,
+                "176": 0.040088168244392625,
+                "178": 2.286325251972598,
+                "180": 0.036679668226122834,
+                "182": 2.091930247052184,
+                "184": 0.033560976220624254,
+                "186": 1.914063694461728,
+                "188": 0.03070745127621249,
+                "190": 1.7513202610933367,
+                "192": 0.028096547540279657,
+                "194": 1.6024141024097778,
+                "196": 0.025707636123311714,
+                "198": 1.4661687029182868,
+                "200": 0.02352184210893348,
+                "202": 1.341507580458982,
+                "204": 0.02152189542218873,
+                "206": 1.2274457808619652,
+                "208": 0.01969199437775796,
+                "210": 1.123082095771957,
+                "212": 0.018017680830000757
               }
             },
             "1/5": {
@@ -93367,116 +93367,116 @@
               "min_odd_cnorm_G": 0.18000630469868253,
               "cnorm_MG_n2_n6_n12": [
                 6.344641583748309,
-                0.20866329974446263,
-                0.0703029114430969
+                0.20866329974446274,
+                0.0703029114430965
               ],
               "F_n_float": {
                 "2": 2.7582293618526945,
                 "4": 0.46564226482182913,
-                "6": 0.029878191097531367,
-                "8": 0.06358197217972897,
-                "10": 0.01918639102618458,
-                "12": 0.07337671660411633,
-                "14": 0.012088052774578716,
-                "16": 0.021070847004248362,
-                "18": 0.026238686416978116,
-                "20": 0.014408655622352495,
-                "22": 0.0006828661360853008,
-                "24": 0.00038291090634673153,
-                "26": 0.000394886704782452,
-                "28": 0.00042022342911658147,
-                "30": 0.00032369880882818144,
-                "32": 2.708595096237614e-05,
-                "34": 1.4357144845313193e-05,
-                "36": 1.011831972810425e-05,
-                "38": 0.0001942165562849665,
-                "40": 9.008421541069036e-05,
-                "42": 0.002347766269636756,
-                "44": 0.00012176126869693374,
-                "46": 0.004510326513052847,
-                "48": 0.0003806653548068595,
-                "50": 6.336564209317996e-05,
-                "52": 9.230798340657684e-06,
-                "54": 1.2499335110045208e-06,
-                "56": 3.252085576436784e-07,
-                "58": 1.683320163012147e-07,
-                "60": 3.308406023985868e-07,
-                "62": 1.7769184788702183e-08,
-                "64": 3.8790459892655894e-07,
-                "66": 1.369575396821658e-08,
-                "68": 2.5831851939096614e-07,
-                "70": 6.837668487172539e-09,
-                "72": 1.7540243679063913e-08,
-                "74": 1.2383772805846156e-09,
-                "76": 2.061956993348631e-09,
-                "78": 8.653191541028219e-10,
-                "80": 1.3469034847245478e-10,
-                "82": 4.838631654000142e-10,
-                "84": 1.8983852888520435e-10,
-                "86": 1.0662603735112837e-09,
-                "88": 1.6748702128543497e-10,
-                "90": 7.489908043168828e-10,
-                "92": 1.2485687306225988e-11,
-                "94": 1.7483074001152893e-10,
-                "96": 1.2621213518889731e-11,
-                "98": 4.520005202789131e-12,
-                "100": 5.597859860056077e-12,
-                "102": 8.230432448516489e-13,
-                "104": 1.2485473139806689e-12,
-                "106": 1.9935469873259257e-12,
-                "108": 4.553844061257857e-12,
-                "110": 2.4253941705610946e-13,
-                "112": 2.717449759599985e-12,
-                "114": 8.501162614298405e-14,
-                "116": 2.3707529900011494e-13,
-                "118": 1.1377910898675342e-14,
-                "120": 3.532515346544607e-14,
-                "122": 1.0791716804943218e-15,
-                "124": 1.005552072779226e-15,
-                "126": 3.127723361869766e-15,
-                "128": 2.3898217701664326e-15,
-                "130": 2.687834131111995e-14,
-                "132": 3.257762843337867e-15,
-                "134": 1.7177150553510755e-14,
-                "136": 1.0410614390799913e-14,
-                "138": 3.8779754505958673e-14,
-                "140": 1.282420270334335e-16,
-                "142": 8.32637046746875e-15,
-                "144": 5.073628900037442e-16,
-                "146": 1.6302534733051982e-16,
-                "148": 6.614411775013926e-17,
-                "150": 5.520732598988608e-17,
-                "152": 3.0505055465390425e-17,
-                "154": 1.620308435884931e-17,
-                "156": 5.507227758353748e-17,
-                "158": 3.786699519360578e-18,
-                "160": 6.563846392889799e-17,
-                "162": 3.4097497674159753e-19,
-                "164": 3.18629308524927e-19,
-                "166": 4.886782153902496e-20,
-                "168": 1.553347056749587e-20,
-                "170": 1.308858320684245e-21,
-                "172": 1.4463747442130584e-20,
-                "174": 4.067915220181704e-20,
-                "176": 2.1560753204642494e-20,
-                "178": 2.5553305303015995e-19,
-                "180": 1.6861416596722216e-20,
-                "182": 8.385268014482563e-20,
-                "184": 3.362502523069737e-21,
-                "186": 8.063086132848861e-21,
-                "188": 2.175117647091743e-21,
-                "190": 3.118347626492629e-21,
-                "192": 4.018670028502608e-23,
-                "194": 2.4019869320554993e-23,
-                "196": 7.089377822418652e-22,
-                "198": 9.045461877016175e-23,
-                "200": 1.7094883877844416e-22,
-                "202": 1.730233818137586e-23,
-                "204": 1.355431681368207e-22,
-                "206": 9.448495044989382e-24,
-                "208": 1.3987219817767693e-23,
-                "210": 2.3883336441687264e-24,
-                "212": 4.4768707405003e-25
+                "6": 0.029878191097531384,
+                "8": 0.06358197217972901,
+                "10": 0.019186391026184524,
+                "12": 0.07337671660411592,
+                "14": 0.012088052774578707,
+                "16": 0.021070847004248366,
+                "18": 0.026238686416978133,
+                "20": 0.014408655622352556,
+                "22": 0.0006828661360853003,
+                "24": 0.0003829109063467355,
+                "26": 0.00039488670478245294,
+                "28": 0.00042022342911658277,
+                "30": 0.0003236988088281813,
+                "32": 2.7085950962376843e-05,
+                "34": 1.4357144845311402e-05,
+                "36": 1.0118319728104624e-05,
+                "38": 0.0001942165562849659,
+                "40": 9.00842154106902e-05,
+                "42": 0.00234776626963675,
+                "44": 0.00012176126869693356,
+                "46": 0.0045103265130528435,
+                "48": 0.00038066535480685916,
+                "50": 6.336564209318003e-05,
+                "52": 9.230798340657679e-06,
+                "54": 1.2499335110045115e-06,
+                "56": 3.2520855764368055e-07,
+                "58": 1.6833201630121612e-07,
+                "60": 3.308406023985902e-07,
+                "62": 1.7769184788702524e-08,
+                "64": 3.879045989265555e-07,
+                "66": 1.3695753968216538e-08,
+                "68": 2.5831851939096534e-07,
+                "70": 6.837668487172424e-09,
+                "72": 1.7540243679064128e-08,
+                "74": 1.2383772805846214e-09,
+                "76": 2.0619569933486606e-09,
+                "78": 8.653191541028349e-10,
+                "80": 1.3469034847244968e-10,
+                "82": 4.838631654000129e-10,
+                "84": 1.898385288852031e-10,
+                "86": 1.0662603735112802e-09,
+                "88": 1.674870212854347e-10,
+                "90": 7.489908043168831e-10,
+                "92": 1.2485687306225992e-11,
+                "94": 1.7483074001152875e-10,
+                "96": 1.2621213518889694e-11,
+                "98": 4.520005202789104e-12,
+                "100": 5.597859860056047e-12,
+                "102": 8.230432448515091e-13,
+                "104": 1.248547313980645e-12,
+                "106": 1.9935469873259104e-12,
+                "108": 4.5538440612578415e-12,
+                "110": 2.425394170561133e-13,
+                "112": 2.7174497595999813e-12,
+                "114": 8.501162614298503e-14,
+                "116": 2.3707529900011383e-13,
+                "118": 1.1377910898675124e-14,
+                "120": 3.5325153465446344e-14,
+                "122": 1.0791716804942583e-15,
+                "124": 1.005552072779296e-15,
+                "126": 3.1277233618697964e-15,
+                "128": 2.3898217701664255e-15,
+                "130": 2.6878341311120026e-14,
+                "132": 3.2577628433378454e-15,
+                "134": 1.71771505535105e-14,
+                "136": 1.0410614390799875e-14,
+                "138": 3.8779754505958484e-14,
+                "140": 1.2824202703343908e-16,
+                "142": 8.32637046746876e-15,
+                "144": 5.073628900037483e-16,
+                "146": 1.6302534733052512e-16,
+                "148": 6.614411775013846e-17,
+                "150": 5.520732598988607e-17,
+                "152": 3.050505546539077e-17,
+                "154": 1.6203084358848926e-17,
+                "156": 5.507227758353749e-17,
+                "158": 3.786699519360627e-18,
+                "160": 6.563846392889752e-17,
+                "162": 3.4097497674159367e-19,
+                "164": 3.1862930852492617e-19,
+                "166": 4.886782153901805e-20,
+                "168": 1.5533470567496488e-20,
+                "170": 1.3088583206844747e-21,
+                "172": 1.4463747442130503e-20,
+                "174": 4.067915220181496e-20,
+                "176": 2.1560753204642202e-20,
+                "178": 2.5553305303015754e-19,
+                "180": 1.6861416596722162e-20,
+                "182": 8.385268014482512e-20,
+                "184": 3.3625025230697653e-21,
+                "186": 8.063086132848852e-21,
+                "188": 2.1751176470917426e-21,
+                "190": 3.118347626492632e-21,
+                "192": 4.0186700285017514e-23,
+                "194": 2.4019869320553597e-23,
+                "196": 7.089377822418312e-22,
+                "198": 9.045461877015895e-23,
+                "200": 1.7094883877844493e-22,
+                "202": 1.7302338181375667e-23,
+                "204": 1.3554316813681876e-22,
+                "206": 9.448495044989337e-24,
+                "208": 1.398721981776766e-23,
+                "210": 2.388333644168703e-24,
+                "212": 4.476870740500406e-25
               }
             },
             "pi/3": {
@@ -93484,117 +93484,117 @@
               "max_cnorm_MG": 4.286238448684164,
               "min_odd_cnorm_G": 1.1403426091458224,
               "cnorm_MG_n2_n6_n12": [
-                0.5122386390557461,
+                0.512238639055746,
                 0.7289572951874379,
-                0.12302478903438167
+                0.1230247890343816
               ],
               "F_n_float": {
-                "2": 391.0174602016634,
+                "2": 391.01746020166337,
                 "4": 4.351182873327143,
                 "6": 314.2073929109689,
-                "8": 0.049816258616257235,
+                "8": 0.04981625861625726,
                 "10": 48.212843195393496,
-                "12": 0.0237301549085923,
-                "14": 53.40814634933178,
-                "16": 0.0067766687965760235,
-                "18": 12.78833312522943,
-                "20": 0.0063550150204396885,
-                "22": 3.6166874982768777,
-                "24": 0.00046733882109328443,
-                "26": 0.0906660113027675,
-                "28": 5.4211550638704914e-05,
-                "30": 0.13558983333709634,
-                "32": 8.018428427465196e-06,
-                "34": 0.004743224575047906,
-                "36": 5.79281230051739e-06,
-                "38": 0.0015637560061068803,
-                "40": 2.344056452459762e-06,
-                "42": 4.4341633153392496e-05,
-                "44": 6.881579300756382e-07,
-                "46": 1.2244759356672423e-05,
-                "48": 2.595076340978309e-07,
-                "50": 6.841101058361071e-05,
-                "52": 4.7979207893200695e-08,
-                "54": 2.9425542442246836e-06,
-                "56": 4.9132230777233386e-09,
-                "58": 0.0001582970987452384,
-                "60": 1.3854346000735528e-09,
-                "62": 9.363435365698683e-07,
-                "64": 1.575821009947369e-10,
-                "66": 4.431727745284684e-06,
-                "68": 4.248358196344903e-11,
-                "70": 1.0601092473335999e-07,
-                "72": 3.707768210424986e-11,
-                "74": 2.876677153340942e-08,
-                "76": 3.736786583455953e-11,
-                "78": 1.3225484981953019e-09,
-                "80": 1.8719779431963465e-12,
-                "82": 3.3493933873540327e-10,
-                "84": 1.3080953319706728e-11,
-                "86": 2.6828534726312796e-10,
-                "88": 4.548502971490702e-13,
-                "90": 6.624763478931044e-12,
-                "92": 1.6013742540006252e-12,
-                "94": 2.7339474091825928e-12,
-                "96": 2.782197211046644e-14,
-                "98": 1.3798188130062528e-11,
-                "100": 5.746851691280274e-15,
-                "102": 9.50230277618931e-13,
-                "104": 1.0220733619938945e-15,
-                "106": 3.0224790628955367e-13,
-                "108": 5.906778830284588e-16,
-                "110": 6.66472596969195e-14,
-                "112": 5.409786299469312e-16,
-                "114": 1.001571102734946e-14,
-                "116": 2.884573414214019e-17,
-                "118": 7.623916186245125e-15,
-                "120": 1.6792139404312242e-17,
-                "122": 2.7087799085722644e-16,
-                "124": 9.6821439468958e-19,
-                "126": 2.29004817247437e-15,
-                "128": 1.2955126208243569e-17,
-                "130": 9.83044194514693e-18,
-                "132": 1.3111413949178378e-19,
-                "134": 4.384158727149984e-19,
-                "136": 5.626678134685705e-19,
-                "138": 9.447650618525822e-18,
-                "140": 1.0175492373124402e-20,
-                "142": 2.888424278693398e-19,
-                "144": 1.836991154150319e-21,
-                "146": 1.6795502180514482e-18,
-                "148": 6.313519884130973e-22,
-                "150": 1.0291590864179983e-19,
-                "152": 3.090822718315059e-22,
-                "154": 5.5316851198537e-20,
-                "156": 9.229790436414435e-23,
-                "158": 2.5467291711636275e-21,
-                "160": 2.5454142191784723e-23,
-                "162": 1.5137979746510919e-21,
-                "164": 5.856297328995543e-24,
-                "166": 3.822873229247666e-21,
-                "168": 1.3910221971297475e-24,
-                "170": 4.0259156086144536e-23,
-                "172": 1.3113697728436353e-24,
-                "174": 3.809633341150265e-24,
-                "176": 4.837879010549095e-26,
-                "178": 5.81991563447568e-25,
-                "180": 4.635375646359273e-25,
-                "182": 7.229887826212087e-25,
-                "184": 6.59661710841629e-27,
-                "186": 3.3162783602820596e-25,
-                "188": 3.022297362698748e-27,
-                "190": 4.72774273292667e-25,
-                "192": 9.0395995954322e-29,
-                "194": 1.3507387294020193e-25,
-                "196": 3.489191917108623e-30,
-                "198": 2.5365640557409097e-25,
-                "200": 2.769538893699724e-29,
-                "202": 2.7505972004274946e-27,
-                "204": 8.667548034193827e-30,
-                "206": 4.3204325226075114e-26,
-                "208": 6.007975668539602e-30,
-                "210": 2.8352436076306154e-29,
-                "212": 1.2821619649059926e-31
+                "12": 0.023730154908592288,
+                "14": 53.408146349331815,
+                "16": 0.006776668796576021,
+                "18": 12.788333125229437,
+                "20": 0.006355015020439684,
+                "22": 3.616687498276879,
+                "24": 0.00046733882109328465,
+                "26": 0.09066601130276747,
+                "28": 5.421155063870499e-05,
+                "30": 0.1355898333370963,
+                "32": 8.018428427465208e-06,
+                "34": 0.00474322457504791,
+                "36": 5.7928123005174e-06,
+                "38": 0.0015637560061068855,
+                "40": 2.3440564524597607e-06,
+                "42": 4.4341633153391805e-05,
+                "44": 6.881579300756383e-07,
+                "46": 1.2244759356672668e-05,
+                "48": 2.595076340978314e-07,
+                "50": 6.841101058361121e-05,
+                "52": 4.7979207893200775e-08,
+                "54": 2.9425542442246844e-06,
+                "56": 4.913223077723318e-09,
+                "58": 0.00015829709874523858,
+                "60": 1.385434600073551e-09,
+                "62": 9.363435365698704e-07,
+                "64": 1.5758210099473609e-10,
+                "66": 4.431727745284762e-06,
+                "68": 4.248358196344926e-11,
+                "70": 1.0601092473335996e-07,
+                "72": 3.707768210424994e-11,
+                "74": 2.876677153340945e-08,
+                "76": 3.736786583455964e-11,
+                "78": 1.3225484981952949e-09,
+                "80": 1.8719779431963477e-12,
+                "82": 3.349393387354033e-10,
+                "84": 1.3080953319706744e-11,
+                "86": 2.682853472631306e-10,
+                "88": 4.548502971490706e-13,
+                "90": 6.624763478931315e-12,
+                "92": 1.6013742540006313e-12,
+                "94": 2.7339474091826416e-12,
+                "96": 2.7821972110466483e-14,
+                "98": 1.3798188130062543e-11,
+                "100": 5.746851691280316e-15,
+                "102": 9.50230277618935e-13,
+                "104": 1.022073361993888e-15,
+                "106": 3.0224790628955543e-13,
+                "108": 5.90677883028456e-16,
+                "110": 6.664725969691987e-14,
+                "112": 5.409786299469319e-16,
+                "114": 1.0015711027349486e-14,
+                "116": 2.884573414214034e-17,
+                "118": 7.623916186245103e-15,
+                "120": 1.6792139404312356e-17,
+                "122": 2.7087799085722807e-16,
+                "124": 9.68214394689582e-19,
+                "126": 2.290048172474382e-15,
+                "128": 1.2955126208243634e-17,
+                "130": 9.830441945147029e-18,
+                "132": 1.3111413949178797e-19,
+                "134": 4.384158727150645e-19,
+                "136": 5.626678134685716e-19,
+                "138": 9.44765061852591e-18,
+                "140": 1.0175492373124456e-20,
+                "142": 2.8884242786934055e-19,
+                "144": 1.8369911541503156e-21,
+                "146": 1.6795502180514545e-18,
+                "148": 6.313519884130955e-22,
+                "150": 1.0291590864180024e-19,
+                "152": 3.0908227183150593e-22,
+                "154": 5.531685119853727e-20,
+                "156": 9.229790436414509e-23,
+                "158": 2.546729171163613e-21,
+                "160": 2.5454142191784967e-23,
+                "162": 1.5137979746510893e-21,
+                "164": 5.856297328995578e-24,
+                "166": 3.8228732292476755e-21,
+                "168": 1.3910221971297575e-24,
+                "170": 4.025915608614508e-23,
+                "172": 1.3113697728436469e-24,
+                "174": 3.809633341150361e-24,
+                "176": 4.8378790105491115e-26,
+                "178": 5.819915634475088e-25,
+                "180": 4.635375646359304e-25,
+                "182": 7.229887826212112e-25,
+                "184": 6.596617108416318e-27,
+                "186": 3.3162783602820725e-25,
+                "188": 3.0222973626988138e-27,
+                "190": 4.7277427329266845e-25,
+                "192": 9.03959959543213e-29,
+                "194": 1.3507387294020271e-25,
+                "196": 3.489191917107907e-30,
+                "198": 2.5365640557409533e-25,
+                "200": 2.7695388936997253e-29,
+                "202": 2.7505972004274964e-27,
+                "204": 8.667548034193883e-30,
+                "206": 4.3204325226075326e-26,
+                "208": 6.0079756685396386e-30,
+                "210": 2.8352436076305576e-29,
+                "212": 1.2821619649059893e-31
               }
             }
           },
@@ -93606,112 +93606,112 @@
           },
           "branch_structure": {
             "float64_pi4": {
-              "2": 65.71829920451758,
-              "4": 1.8288366994097258,
-              "6": 60.13059505516183,
-              "8": 1.6733396987648428,
-              "10": 55.017985940806376,
-              "12": 1.5310638442274052,
-              "14": 50.34007686446335,
-              "16": 1.4008850066909386,
-              "18": 46.05990741730407,
-              "20": 1.2817746362247646,
-              "22": 42.14365975249966,
-              "24": 1.1727916354462002,
-              "26": 38.56039138861158,
-              "28": 1.0730749238600035,
-              "30": 35.28179073139748,
-              "32": 0.9818366344155041,
-              "34": 32.28195338239655,
-              "36": 0.8983558885270637,
-              "38": 29.537177466897422,
-              "40": 0.821973100373964,
-              "42": 27.025776364163253,
-              "44": 0.7520847654776986,
-              "46": 24.727907360285947,
-              "48": 0.6881386923809384,
-              "50": 22.625414869846455,
-              "52": 0.6296296397534051,
-              "54": 20.701686987667117,
-              "56": 0.5760953244532077,
-              "58": 18.941524237263813,
-              "60": 0.5271127690031076,
-              "62": 17.331019478972596,
-              "64": 0.4822949596229387,
-              "66": 15.857448028898267,
-              "68": 0.44128778841311034,
-              "70": 14.509167120508963,
-              "72": 0.4037672555292286,
-              "74": 13.275523914517555,
-              "76": 0.36943690924206385,
-              "78": 12.146771330230925,
-              "80": 0.3380255036566454,
-              "82": 11.113991033346116,
-              "84": 0.309284855583994,
-              "86": 10.169022971715854,
-              "88": 0.2829878836325237,
-              "90": 9.304400902341849,
-              "92": 0.25892681402586976,
-              "94": 8.513293400191051,
-              "96": 0.23691153897121167,
-              "98": 7.789449882742557,
-              "100": 0.21676811460747433,
-              "102": 7.127151223802109,
-              "104": 0.198337386665615,
-              "106": 6.521164566381322,
-              "108": 0.1814737329822644,
-              "110": 5.966701977615859,
-              "112": 0.1660439129312559,
-              "114": 5.45938261905277,
-              "116": 0.15192601468233957,
-              "118": 4.9951981334125115,
-              "120": 0.13900849196931703,
-              "122": 4.570480974344519,
-              "124": 0.12718928275704908,
-              "126": 4.181875428948107,
-              "128": 0.11637500284387887,
-              "130": 3.826311104106055,
-              "132": 0.10648020802807955,
-              "134": 3.5009786671450325,
-              "136": 0.0974267190086643,
-              "138": 3.2033076491484596,
-              "140": 0.08914300368656429,
-              "142": 2.930946135544659,
-              "144": 0.08156361198570307,
-              "146": 2.681742183504538,
-              "148": 0.07462865872845849,
-              "150": 2.4537268193266337,
-              "152": 0.06828335047968412,
-              "154": 2.2450984814710133,
-              "156": 0.06247755262085873,
-              "158": 2.054208786325563,
-              "160": 0.057165393233794805,
-              "162": 1.8795495042392545,
-              "164": 0.05230490066416876,
-              "166": 1.7197406429193132,
-              "168": 0.047857671901244264,
-              "170": 1.5735195440386025,
-              "172": 0.04378856915363851,
-              "174": 1.4397309069049065,
-              "176": 0.04006544222376034,
-              "178": 1.3173176603686172,
-              "180": 0.03665887448738651,
-              "182": 1.2053126108472614,
-              "184": 0.03354195047134632,
-              "186": 1.1028308004774785,
-              "188": 0.030690043192934332,
-              "190": 1.0090625150157981,
-              "192": 0.028080619580807844,
-              "194": 0.9232668862432643,
-              "196": 0.0256930624399899,
-              "198": 0.8447660383261648,
-              "200": 0.02350850755431333,
-              "202": 0.7729397318829597,
-              "204": 0.021509694639243796,
-              "206": 0.7072204634398802,
-              "208": 0.019680830967452177,
-              "210": 0.6470889815557501,
-              "212": 0.018007466589634577
+              "2": 65.7375639245203,
+              "4": 1.8293728062075474,
+              "6": 60.14822179065796,
+              "8": 1.673830223035196,
+              "10": 55.03411396157217,
+              "12": 1.5315126616286823,
+              "14": 50.35483359885008,
+              "16": 1.4012956633533384,
+              "18": 46.07340945905631,
+              "20": 1.2821503767684543,
+              "22": 42.15601378196861,
+              "24": 1.1731354286172333,
+              "26": 38.57169501564225,
+              "28": 1.07338948598654,
+              "30": 35.29213326654923,
+              "32": 0.9821244508696639,
+              "34": 32.2914165425906,
+              "36": 0.8986192333619847,
+              "38": 29.54583602106664,
+              "40": 0.8222140542912165,
+              "42": 27.03369872400541,
+              "44": 0.7523052322670201,
+              "46": 24.73515612078822,
+              "48": 0.688340413962176,
+              "50": 22.632047303851753,
+              "52": 0.6298142099395193,
+              "54": 20.70775549838985,
+              "56": 0.5762642015430721,
+              "58": 18.947076772330504,
+              "60": 0.5272672873036061,
+              "62": 17.33609990925863,
+              "64": 0.4824363399913955,
+              "66": 15.862096495153985,
+              "68": 0.44141714790334874,
+              "70": 14.513420350513902,
+              "72": 0.40388561621747243,
+              "74": 13.279415513268575,
+              "76": 0.3695452063024168,
+              "78": 12.150332045457088,
+              "80": 0.33812459274995077,
+              "82": 11.117248998448115,
+              "84": 0.30937551961845705,
+              "86": 10.172003928049532,
+              "88": 0.2830708389495109,
+              "90": 9.307128402602004,
+              "92": 0.25900271605976,
+              "94": 8.515788994502556,
+              "96": 0.23698098742801837,
+              "98": 7.791733288929014,
+              "100": 0.21683165820315473,
+              "102": 7.129240483177447,
+              "104": 0.19839552746150377,
+              "106": 6.523076186295172,
+              "108": 0.18152693035188733,
+              "110": 5.968451061879001,
+              "112": 0.16609258718986447,
+              "114": 5.460982987273151,
+              "116": 0.15197055040784418,
+              "118": 4.996662430184701,
+              "120": 0.13904924104085756,
+              "122": 4.571820769155323,
+              "124": 0.1272265671352107,
+              "126": 4.1831013075877035,
+              "128": 0.11640911711451973,
+              "130": 3.827432752306885,
+              "132": 0.10651142172986941,
+              "134": 3.5020049471092873,
+              "136": 0.09745527876272395,
+              "138": 3.204246669568812,
+              "140": 0.08916913514503205,
+              "142": 2.9318053156714767,
+              "144": 0.08158752161462449,
+              "146": 2.682528311765775,
+              "148": 0.07465053543908547,
+              "150": 2.454446106963564,
+              "152": 0.06830336712107275,
+              "154": 2.245756611613576,
+              "156": 0.062495867345559085,
+              "158": 2.054810958895077,
+              "160": 0.057182150747422424,
+              "162": 1.880100477033271,
+              "164": 0.052320233368731574,
+              "166": 1.7202447692032319,
+              "168": 0.047871700941257894,
+              "170": 1.5739808069410497,
+              "172": 0.04380140537329548,
+              "174": 1.4401529508886488,
+              "176": 0.04007718704271604,
+              "178": 1.3177038200256546,
+              "180": 0.036669620702081185,
+              "182": 1.2056659372456162,
+              "184": 0.0335517829881948,
+              "186": 1.1031540852678483,
+              "188": 0.030699039699176055,
+              "190": 1.0093583124885341,
+              "192": 0.028088851158317923,
+              "194": 0.9235375335099576,
+              "196": 0.025700594126900782,
+              "198": 0.8450136737852886,
+              "200": 0.023515398858884547,
+              "202": 0.7731663121154688,
+              "204": 0.021516000010039896,
+              "206": 0.707427778668263,
+              "208": 0.01968660022354374,
+              "210": 0.647278669788671,
+              "212": 0.018012745314221344
             },
             "detuned": {
               "1e-1": {
@@ -93832,15 +93832,15 @@
             "pass": true
           },
           {
-            "name": "T4 the period-4 classes resolve the 0/0 differently: on n = 4k the ratio CONVERGES as g -> pi/4 (F_4 1.82992 at +1e-5 vs 1.82995 at +1e-7; F_8 1.67431 vs 1.67436; F_12 1.53192 vs 1.53200) - the singularity is REMOVABLE - and the float64 root-clock reading IS that limit, to 6e-04 relative (F_4 1.8288, F_8 1.6733, F_12 1.5311); on n = 4k+2 the ratio DIVERGES (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3 and 1.1e+52 at +1e-5 against the floor ratio 65.7; F_6 3.8e+28; F_10 7.5e+27) - the numerator vanishes to LOWER order than the denominator",
+            "name": "T4 the period-4 classes resolve the 0/0 differently: on n = 4k the ratio CONVERGES as g -> pi/4 (F_4 1.82992 at +1e-5 vs 1.82995 at +1e-7; F_8 1.67431 vs 1.67436; F_12 1.53192 vs 1.53200) - the singularity is REMOVABLE - and the float64 root-clock reading IS that limit, to 3e-04 relative (F_4 1.8294, F_8 1.6738, F_12 1.5315); on n = 4k+2 the ratio DIVERGES (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3 and 1.1e+52 at +1e-5 against the floor ratio 65.7; F_6 3.8e+28; F_10 7.5e+27) - the numerator vanishes to LOWER order than the denominator",
             "pass": true
           },
           {
-            "name": "T5 the 4k class is certified by continuity (50 digits, g = pi/4 + 1e-6 then + 1e-8): the first crossing of 1/(16 pi) is n* = 208 at both detunings, F_208 = 0.0196911 -> 0.0196928 (drift 8e-05) - deficit 0.989868, coefficient 3 x deficit^10 = 2.7095; the float64 root-clock ladder sits within 1e-2 of these limits (F_4 1.8288 vs 1.82995, F_8 1.6733 vs 1.67436, F_208 0.0196808 vs 0.0196928); 3pi/4 crosses at n* = 208 (float64 208) with coefficient 2.7113; the 4k+2 class has no limit (F_210 = 3.9e+48 at pi/4 +1e-8 vs the floor ratio 0.65), and the pi/2 branch - no period-4 filter, its traced phases are +/-1 - crosses at n* = 102 certified vs 102 at float64",
+            "name": "T5 the 4k class is certified by continuity (50 digits, g = pi/4 + 1e-6 then + 1e-8): the first crossing of 1/(16 pi) is n* = 208 at both detunings, F_208 = 0.0196911 -> 0.0196928 (drift 8e-05) - deficit 0.989868, coefficient 3 x deficit^10 = 2.7095; the float64 root-clock ladder sits within 1e-2 of these limits (F_4 1.8294 vs 1.82995, F_8 1.6738 vs 1.67436, F_208 0.0196866 vs 0.0196928); 3pi/4 crosses at n* = 208 (float64 208) with coefficient 2.7113; the 4k+2 class has no limit (F_210 = 3.9e+48 at pi/4 +1e-8 vs the floor ratio 0.65), and the pi/2 branch - no period-4 filter, its traced phases are +/-1 - crosses at n* = 102 certified vs 102 at float64",
             "pass": true
           }
         ],
-        "status": "ROOT-CLOCK PHASE DEGENERACY, MEASURED (zero free parameters, 706 s). (i) The closure class IS the phase-degenerate set: 8g in 2pi Z makes the 288 and 1120 Casimir sectors share their traced-link phase (separation < 7e-16), while the open angles separate them by > 1.43. (ii) Exact integer arithmetic at g = pi/4: Tr(C_a N^n) = 0 for every even n <= 60 and Tr(C_a W^n) = 0 for every n <= 60 - every even-n Cartan ratio is exactly 0/0, so float64 returns ratios of round-off floors (pi/4 floor 4e-13 over 7e-13). (iii) The period-4 classes of the clock filter resolve that 0/0 differently: on n = 4k numerator and denominator vanish to the SAME (first) order in g - pi/4, the singularity is REMOVABLE, and the float64 ladder is the g -> pi/4 limit to ~4e-4 relative (T4: F_4 1.82884 vs 1.82995 at pi/4 + 1e-7); on n = 4k+2 the denominator vanishes to far higher order, the ratio is unbounded with poles accumulating at the closure angle (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3; F_210 3.9e+48 at +1e-8), so the quoted F_2 = 65.7, F_6 = 60.1, F_10 = 55.0, F_170 = 1.57 and everything built on them - (F_10)^17, R_17 = 4.0e-30, the 33x branch separation - are floor artefacts, not measurements. (iv) Certified root-clock readings (T5): n* = 208 at pi/4 and 3pi/4, deficit 0.989868 / 0.989933, hierarchy coefficient 3 x deficit^10 = 2.7095 / 2.7113. The pi/2 branch carries no period-4 filter (traced phases +/-1) and its crossing is steep and floor-conditioned (n* = 102 certified vs 102 at float64): its 2.30 reading is not a stable closure-class number. (v) The loop factor that is measured without any limiting procedure lives on the open branch: F_10(1/5) = 0.019186391 stable to 0e+00, deficit 0.964413, coefficient 3 x deficit^10 = 2.0881, reproducing V85/V108/V113. VERDICT: the closed-root ladder STRUCTURE (V131, the exact odd-n selection rule, V197's vanishing odd rungs) and the 4k-class crossing survive; the certified closure-class coefficient is 2.710 (pi/4) / 2.711 (3pi/4) against the float64 2.699-2.700, and every n = 4k+2 reading at a closure-class angle is withdrawn.",
+        "status": "ROOT-CLOCK PHASE DEGENERACY, MEASURED (zero free parameters, 877 s). (i) The closure class IS the phase-degenerate set: 8g in 2pi Z makes the 288 and 1120 Casimir sectors share their traced-link phase (separation < 7e-16), while the open angles separate them by > 1.43. (ii) Exact integer arithmetic at g = pi/4: Tr(C_a N^n) = 0 for every even n <= 60 and Tr(C_a W^n) = 0 for every n <= 60 - every even-n Cartan ratio is exactly 0/0, so float64 returns ratios of round-off floors (pi/4 floor 4e-13 over 7e-13). (iii) The period-4 classes of the clock filter resolve that 0/0 differently: on n = 4k numerator and denominator vanish to the SAME (first) order in g - pi/4, the singularity is REMOVABLE, and the float64 ladder is the g -> pi/4 limit to ~4e-4 relative (T4: F_4 1.82937 vs 1.82995 at pi/4 + 1e-7); on n = 4k+2 the denominator vanishes to far higher order, the ratio is unbounded with poles accumulating at the closure angle (F_2 8.0e+06 at +1e-1, 1.1e+30 at +1e-3; F_210 3.9e+48 at +1e-8), so the quoted F_2 = 65.7, F_6 = 60.1, F_10 = 55.0, F_170 = 1.57 and everything built on them - (F_10)^17, R_17 = 4.0e-30, the 33x branch separation - are floor artefacts, not measurements. (iv) Certified root-clock readings (T5): n* = 208 at pi/4 and 3pi/4, deficit 0.989868 / 0.989933, hierarchy coefficient 3 x deficit^10 = 2.7095 / 2.7113. The pi/2 branch carries no period-4 filter (traced phases +/-1) and its crossing is steep and floor-conditioned (n* = 102 certified vs 102 at float64): its 2.30 reading is not a stable closure-class number. (v) The loop factor that is measured without any limiting procedure lives on the open branch: F_10(1/5) = 0.019186391 stable to 0e+00, deficit 0.964413, coefficient 3 x deficit^10 = 2.0881, reproducing V85/V108/V113. VERDICT: the closed-root ladder STRUCTURE (V131, the exact odd-n selection rule, V197's vanishing odd rungs) and the 4k-class crossing survive; the certified closure-class coefficient is 2.710 (pi/4) / 2.711 (3pi/4) against the float64 2.699-2.700, and every n = 4k+2 reading at a closure-class angle is withdrawn.",
         "pass": true
       }
     },
@@ -93852,7 +93852,7 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "COMPOSITION LAW, MEASURED ON THE OPEN CLOCK (zero free parameters, 189 s). At g = 1/5 the traced-loop Cartan ladder is precision-stable end to end: 30- and 50-digit evaluations of F_n agree to 0e+00 for every n <= 172. The one-line chain of 170 hops gives F_170 = 1.3089e-21; the 17 separate insertions multiply to (F_10)^17 = 6.4697e-30; a chain therefore suppresses 2.02e+08 times less than the product of its pieces, which is why the ladder's 17 factors must be insertions on different lines and why a geometric fit of (MG)^170 cannot supply them. The rung-17 suppression carried by the ladder is 6.4697e-30 = 0.5401 x (1/16 pi)^17: the clock deficit 0.964413 raised to the 17th power. The odd-length cancellation used elsewhere is specific to the closure class (odd chains at 1/5: F_3 = 0.2430). VERDICT: the composition law stands on these numbers; the root-clock version (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30) is withdrawn by V209.",
+      "status": "COMPOSITION LAW, MEASURED ON THE OPEN CLOCK (zero free parameters, 312 s). At g = 1/5 the traced-loop Cartan ladder is precision-stable end to end: 30- and 50-digit evaluations of F_n agree to 0e+00 for every n <= 172. The one-line chain of 170 hops gives F_170 = 1.3089e-21; the 17 separate insertions multiply to (F_10)^17 = 6.4697e-30; a chain therefore suppresses 2.02e+08 times less than the product of its pieces, which is why the ladder's 17 factors must be insertions on different lines and why a geometric fit of (MG)^170 cannot supply them. The rung-17 suppression carried by the ladder is 6.4697e-30 = 0.5401 x (1/16 pi)^17: the clock deficit 0.964413 raised to the 17th power. The odd-length cancellation used elsewhere is specific to the closure class (odd chains at 1/5: F_3 = 0.2430). VERDICT: the composition law stands on these numbers; the root-clock version (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30) is withdrawn by V209.",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -94268,7 +94268,7 @@
             "pass": true
           }
         ],
-        "status": "COMPOSITION LAW, MEASURED ON THE OPEN CLOCK (zero free parameters, 189 s). At g = 1/5 the traced-loop Cartan ladder is precision-stable end to end: 30- and 50-digit evaluations of F_n agree to 0e+00 for every n <= 172. The one-line chain of 170 hops gives F_170 = 1.3089e-21; the 17 separate insertions multiply to (F_10)^17 = 6.4697e-30; a chain therefore suppresses 2.02e+08 times less than the product of its pieces, which is why the ladder's 17 factors must be insertions on different lines and why a geometric fit of (MG)^170 cannot supply them. The rung-17 suppression carried by the ladder is 6.4697e-30 = 0.5401 x (1/16 pi)^17: the clock deficit 0.964413 raised to the 17th power. The odd-length cancellation used elsewhere is specific to the closure class (odd chains at 1/5: F_3 = 0.2430). VERDICT: the composition law stands on these numbers; the root-clock version (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30) is withdrawn by V209.",
+        "status": "COMPOSITION LAW, MEASURED ON THE OPEN CLOCK (zero free parameters, 312 s). At g = 1/5 the traced-loop Cartan ladder is precision-stable end to end: 30- and 50-digit evaluations of F_n agree to 0e+00 for every n <= 172. The one-line chain of 170 hops gives F_170 = 1.3089e-21; the 17 separate insertions multiply to (F_10)^17 = 6.4697e-30; a chain therefore suppresses 2.02e+08 times less than the product of its pieces, which is why the ladder's 17 factors must be insertions on different lines and why a geometric fit of (MG)^170 cannot supply them. The rung-17 suppression carried by the ladder is 6.4697e-30 = 0.5401 x (1/16 pi)^17: the clock deficit 0.964413 raised to the 17th power. The odd-length cancellation used elsewhere is specific to the closure class (odd chains at 1/5: F_3 = 0.2430). VERDICT: the composition law stands on these numbers; the root-clock version (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30) is withdrawn by V209.",
         "pass": true
       }
     },
@@ -94281,10 +94281,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "THE GRAVITATIONAL AND GAUGE STRUCTURES ARE THE STABILISER OF THE CAUSAL FRAME INSIDE THE 45: NOT ADDED, NOT FITTED.",
-      "returncode": null,
+      "returncode": 0,
       "crashed": false,
       "stale": false,
-      "wall_time": 9.907,
+      "wall_time": 2.169,
       "backend": null,
       "verdict": {
         "id": "V211_frame_stabiliser_gravity_gauge",
@@ -94330,7 +94330,7 @@
           "su2L_su2R_commutator": 0.0,
           "complex_structure_defect": 0.0,
           "u3_dim": 9,
-          "u3_closure": 4.665440427474662e-15,
+          "u3_closure": 4.8880901439295135e-15,
           "J_in_span_defect": 2.220446049250313e-16,
           "J_commutes_u3": 7.641665968952292e-16,
           "su3_dim": 8,
@@ -94384,7 +94384,7 @@
             "pass": true
           },
           {
-            "name": "T4 inside spin(6) the centraliser of a complex structure has dim 9 and closes to 4.7e-15 - u(3) = su(3) (dim 8, closure 2.6e-15) + u(1) generated by J itself (J in the bivector span to 2.2e-16, [J, u(3)] 7.6e-16); the group is Spin(4)xSpin(6) by construction and 9 of the 45 gauge generators are gluons + U(1)",
+            "name": "T4 inside spin(6) the centraliser of a complex structure has dim 9 and closes to 4.9e-15 - u(3) = su(3) (dim 8, closure 2.6e-15) + u(1) generated by J itself (J in the bivector span to 2.2e-16, [J, u(3)] 7.6e-16); the group is Spin(4)xSpin(6) by construction and 9 of the 45 gauge generators are gluons + U(1)",
             "pass": true
           },
           {
@@ -94398,7 +94398,7 @@
         ],
         "status": "THE GRAVITATIONAL AND GAUGE STRUCTURES ARE THE STABILISER OF THE CAUSAL FRAME INSIDE THE 45: NOT ADDED, NOT FITTED.",
         "pass": true,
-        "wall_time": 9.907
+        "wall_time": 1.446
       }
     },
     {
@@ -94413,7 +94413,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.076,
+      "wall_time": 0.07,
       "backend": "cupy",
       "verdict": {
         "id": "V23_full_sm_qca",
@@ -94444,7 +94444,7 @@
           "n_module": 32,
           "named_residual": "the 3-family structure + the Yukawa matrix"
         },
-        "wall_time": 0.076
+        "wall_time": 0.07
       }
     },
     {
@@ -94459,7 +94459,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.047,
+      "wall_time": 0.043,
       "backend": "cupy",
       "verdict": {
         "id": "V24_cpt",
@@ -94484,7 +94484,7 @@
           "cpt_equal_norm": true,
           "c16_into_16bar": 44.43441706294196
         },
-        "wall_time": 0.047
+        "wall_time": 0.043
       }
     },
     {
@@ -94499,7 +94499,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.011,
+      "wall_time": 0.01,
       "backend": null,
       "verdict": {
         "id": "V26_family",
@@ -94519,7 +94519,7 @@
           "n_weyl_3gen": 48,
           "residual": "the 'why-3' full derivation (the 0-parameter candidate is 3, three ways)"
         },
-        "wall_time": 0.011
+        "wall_time": 0.01
       }
     },
     {
@@ -94534,7 +94534,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.013,
+      "wall_time": 0.015,
       "backend": null,
       "verdict": {
         "id": "V28_yukawa",
@@ -94563,7 +94563,7 @@
           "mass_term": "16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)",
           "residual": "the 3-level mass hierarchy (the 10-Higgs vev breaking the 2-fold light degeneracy; the observed ratios) + the exact mixing angles (CKM/PMNS) — the 0-parameter object fixes the 2-level structure, not the 3 levels"
         },
-        "wall_time": 0.013
+        "wall_time": 0.015
       }
     },
     {
@@ -94578,7 +94578,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.006,
+      "wall_time": 0.005,
       "backend": null,
       "verdict": {
         "id": "V2_matter",
@@ -94596,7 +94596,7 @@
           "bl16": -1,
           "bl16bar": 1
         },
-        "wall_time": 0.006
+        "wall_time": 0.005
       }
     },
     {
@@ -94611,7 +94611,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.024,
+      "wall_time": 0.019,
       "backend": "cupy",
       "verdict": {
         "id": "V32_qca_qft",
@@ -94636,7 +94636,7 @@
           "mw_over_mz_0p": 0.7905694150420949,
           "residual": "the Higgs mass (not 0-parameter in the SM)"
         },
-        "wall_time": 0.024
+        "wall_time": 0.019
       }
     },
     {
@@ -94651,7 +94651,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 87.844,
+      "wall_time": 12.31,
       "backend": "cupy",
       "verdict": {
         "id": "V36_local_qca",
@@ -94755,7 +94755,7 @@
           "theta_tested": 0.3,
           "residual": "none new (the QCA lattice RG remains the named open problem, as before)"
         },
-        "wall_time": 87.844
+        "wall_time": 12.31
       }
     },
     {
@@ -94770,7 +94770,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.18,
+      "wall_time": 0.122,
       "backend": "cupy",
       "verdict": {
         "id": "V37_eh_action",
@@ -94799,7 +94799,7 @@
           "continuum_ok": true,
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
-        "wall_time": 0.18
+        "wall_time": 0.122
       }
     },
     {
@@ -94814,8 +94814,8 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.001,
-      "backend": "numpy",
+      "wall_time": 0.004,
+      "backend": "cupy",
       "verdict": {
         "id": "V38_couplings_root",
         "tier": 3,
@@ -94825,7 +94825,7 @@
         "status": "the_g10_and_g0_readings_are_root_numbers_the_1loop_down_running_is_the_named_residual_O4_quantified",
         "tol": 1e-09,
         "data": {
-          "backend": "numpy",
+          "backend": "cupy",
           "n_module": 32,
           "n_qubits": 5,
           "g10": 0.2,
@@ -94866,7 +94866,7 @@
           "m_z_ref_GeV": 91.1876,
           "residual": "the 1-loop SM matching to the measured M_Z values (O4, now quantified by the down-running); the QCA lattice RG is the open part"
         },
-        "wall_time": 0.001
+        "wall_time": 0.004
       }
     },
     {
@@ -94881,7 +94881,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.028,
+      "wall_time": 0.022,
       "backend": null,
       "verdict": {
         "id": "V3_gauge",
@@ -94895,7 +94895,7 @@
           "n45": 45,
           "rank45": 45
         },
-        "wall_time": 0.028
+        "wall_time": 0.022
       }
     },
     {
@@ -94910,7 +94910,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1.552,
+      "wall_time": 0.569,
       "backend": "cupy",
       "verdict": {
         "id": "V41_smatrix",
@@ -94937,7 +94937,7 @@
           "s2_max_offdiag": 0.4999999999999998,
           "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (O9)"
         },
-        "wall_time": 1.552
+        "wall_time": 0.569
       }
     },
     {
@@ -94952,7 +94952,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.029,
+      "wall_time": 0.02,
       "backend": null,
       "verdict": {
         "id": "V43_qca_spectrum",
@@ -95038,7 +95038,7 @@
             }
           ]
         },
-        "wall_time": 0.029
+        "wall_time": 0.02
       }
     },
     {
@@ -95053,7 +95053,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.502,
+      "wall_time": 0.342,
       "backend": "cupy",
       "verdict": {
         "id": "V45_yukawa_matrix",
@@ -95149,7 +95149,7 @@
           "s2_unitary_err": 1.3322676295501878e-15,
           "residual": "the exact 3-gen hierarchy (the 10-Higgs vev breaking, the ratios m1:m2:m3) and the exact CKM/PMNS angles beyond the TBM (O6); sin^2_23 and sin^2_13 are an O(2) choice, not a derivation"
         },
-        "wall_time": 0.502
+        "wall_time": 0.342
       }
     },
     {
@@ -95164,7 +95164,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.411,
+      "wall_time": 0.132,
       "backend": "cupy",
       "verdict": {
         "id": "V48_3particle",
@@ -95184,7 +95184,7 @@
           "uv_finite": true,
           "residual": "the 3- and 4-particle amplitudes (32^3, 32^4): the 1-particle is unitary (0), so all n-particle are unitary (0) by the Kronecker product property — the UV-finite property (the n-step is bounded for all n); the matching to measured cross-sections is the O9 open part"
         },
-        "wall_time": 0.411
+        "wall_time": 0.132
       }
     },
     {
@@ -95255,7 +95255,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.225,
+      "wall_time": 0.075,
       "backend": null,
       "verdict": {
         "id": "V4_statistics",
@@ -95270,7 +95270,7 @@
           "n_even": 512,
           "n_odd": 512
         },
-        "wall_time": 0.225
+        "wall_time": 0.075
       }
     },
     {
@@ -95285,8 +95285,8 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 16.902,
-      "backend": "numpy",
+      "wall_time": 64.608,
+      "backend": "cupy",
       "verdict": {
         "id": "V50_complete_gravity",
         "tier": 2,
@@ -95296,7 +95296,7 @@
         "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics_the_two_sphere_scalar_the_kink_residual",
         "tol": 0.0001,
         "data": {
-          "backend": "numpy",
+          "backend": "cupy",
           "analytic_vs_computed_diff": 6.533453154045077e-07,
           "blackhole_ricci_max": 1.789145549591087e-05,
           "blackhole_kretschmann": 0.06584420678590194,
@@ -95307,8 +95307,8 @@
           "flat_ricci_scalar": 0.0,
           "gamma_gamma_flat": 0.0,
           "gamma_gamma_de_sitter": 1.0000006533336736,
-          "nonlinear_qca_norm_rel_err": 1.570092458683775e-16,
-          "nonlinear_qca_superpose_err": 1.8197741062693642,
+          "nonlinear_qca_norm_rel_err": 0.0,
+          "nonlinear_qca_superpose_err": 1.8197741062693644,
           "nonlinear_qca_unitary_ok": true,
           "nonlinear_qca_nonlinear_ok": true,
           "nonlinear_qca_causal_ok": true,
@@ -95318,7 +95318,7 @@
           "kink_neutral_stable_non_dispersive": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 16.902
+        "wall_time": 64.608
       }
     },
     {
@@ -95333,7 +95333,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 81.46757316589355,
+      "wall_time": 67.5291063785553,
       "backend": "cupy",
       "verdict": {
         "id": "V51_numrel",
@@ -95377,7 +95377,7 @@
             "max_abs": 1.9718631545217424
           }
         },
-        "wall_time": 81.46757316589355
+        "wall_time": 67.5291063785553
       }
     },
     {
@@ -95392,7 +95392,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 13.806,
+      "wall_time": 18.248,
       "backend": "cupy",
       "verdict": {
         "id": "V52_parameter_audit",
@@ -95593,7 +95593,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 13.806
+        "wall_time": 18.248
       }
     },
     {
@@ -95608,7 +95608,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.039,
+      "wall_time": 0.022,
       "backend": "cupy",
       "verdict": {
         "id": "V53_hier_exponent",
@@ -95650,7 +95650,7 @@
           },
           "residual": "the exact 2-digit coefficient (predicted/observed = 0.482, a factor 2.08) — the exponent -17 is 0-parameter-derived (10 = n_gen)"
         },
-        "wall_time": 0.039
+        "wall_time": 0.022
       }
     },
     {
@@ -95665,7 +95665,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.002,
+      "wall_time": 0.003,
       "backend": "cupy",
       "verdict": {
         "id": "V54_dm_wimp",
@@ -95693,7 +95693,7 @@
           "relic_convention": "Omega(m) = Omega_obs*(100 GeV/m)^3: normalised to the observed value at the reference scale by construction (a contrast device, not an abundance prediction)",
           "residual": "the DM portal strength (not supplied by the root, O7) and the exact cross-section (the RG running, O9) — the ladder scale (118 GeV), its carrier (the cell singlet B, V196) and the V42 contrast are computed"
         },
-        "wall_time": 0.002
+        "wall_time": 0.003
       }
     },
     {
@@ -95757,7 +95757,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.007,
+      "wall_time": 0.005,
       "backend": "cupy",
       "verdict": {
         "id": "V56_g10_selection",
@@ -95797,7 +95797,7 @@
           "data_check_selects_n": false,
           "residual": "the 1-loop matching (O4) and the exact GUT coupling — the g_10 = 1/5 reading sits in the right order (within a factor 2 of the 1-loop GUT coupling)"
         },
-        "wall_time": 0.007
+        "wall_time": 0.005
       }
     },
     {
@@ -95812,7 +95812,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.047,
+      "wall_time": 0.04,
       "backend": "cupy",
       "verdict": {
         "id": "V57_neutrino",
@@ -95846,7 +95846,7 @@
             "right_order": true
           }
         },
-        "wall_time": 0.047
+        "wall_time": 0.04
       }
     },
     {
@@ -95861,7 +95861,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.184,
+      "wall_time": 0.048,
       "backend": "cupy",
       "verdict": {
         "id": "V59_four_limits",
@@ -95946,7 +95946,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the value g_10 = 1/5 is a MAPPING CONVENTION (1/n_qubits: a root number, not a selection rule — the 1-loop data prefer n = 7, V56).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 — the ORDER is fixed, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0 and alpha_10 = g_10^2) are the honest caveat; the identification M_GUT = M_P is NOT in force (V64: the desert solution meets at M_X = 1.8e16).  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.184
+        "wall_time": 0.048
       }
     },
     {
@@ -95961,7 +95961,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 211.893,
+      "wall_time": 571.604,
       "backend": "cupy",
       "verdict": {
         "id": "V62_hydrogen_production",
@@ -95972,7 +95972,7 @@
         "status": "the production 296^3 hydrogen experiment on the GPU: the resonant photons (Lyman-alpha, 1s->3p, 2p->3d) are absorbed, the off-resonant control is mostly not, the cloud deforms (1s sphere -> 2p dumbbell), the excited atom radiates and decays, and the figure (Fig. 2) regenerated as a product of the experiment; the ATOM is an input (real hydrogen), the PHOTON is CL10",
         "data": {
           "backend": "cupy",
-          "gpu": "GPU cuda:1 (19399/24177 MiB)",
+          "gpu": "GPU cuda:1 (18043/24177 MiB)",
           "grid": [
             296,
             296,
@@ -96121,7 +96121,7 @@
             "png": "/home/yo/Desktop/code/CL10/doc/figures/fig2_hydrogen.png",
             "meta": {
               "backend": "cupy",
-              "gpu": "GPU cuda:1 (19399/24177 MiB)",
+              "gpu": "GPU cuda:1 (18043/24177 MiB)",
               "grid": [
                 296,
                 296,
@@ -96205,7 +96205,7 @@
           },
           "ok": true
         },
-        "wall_time": 211.893
+        "wall_time": 571.604
       }
     },
     {
@@ -96220,7 +96220,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 9.814,
+      "wall_time": 9.219,
       "backend": "cupy",
       "verdict": {
         "id": "V63_bz_chirality",
@@ -96530,7 +96530,7 @@
           "R_gap_spread_over_the_star": 1.887379141862766e-15,
           "residual": "the half-zone nodes are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
         },
-        "wall_time": 9.814
+        "wall_time": 9.219
       }
     },
     {
@@ -97171,7 +97171,7 @@
       "residual": false,
       "pass": true,
       "inconclusive": false,
-      "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.9e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
+      "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.5e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
       "returncode": null,
       "crashed": false,
       "stale": false,
@@ -97180,9 +97180,9 @@
       "verdict": {
         "experiment": "V66_dm_identity",
         "pass": true,
-        "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.9e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
+        "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.5e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
         "data": {
-          "mirror_Z2_leak": 4.850653270064569e-16,
+          "mirror_Z2_leak": 4.506383499325787e-16,
           "weights_conjugate": true,
           "mirror_masses_equal": true,
           "candidates": [
@@ -97812,7 +97812,7 @@
           ],
           "cubic_ok": true,
           "zero_mean_ok": true,
-          "gap_dev": 0.016706679971478122,
+          "gap_dev": 0.016706679971776994,
           "K_node": 1.9999999999999998,
           "fourier_factor": 0.5,
           "eigenvalues": {
@@ -98223,7 +98223,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.012,
+      "wall_time": 0.039,
       "backend": null,
       "verdict": {
         "id": "V7_qca",
@@ -98238,7 +98238,7 @@
           "causal_radius": 1,
           "n_gates": 4
         },
-        "wall_time": 0.012
+        "wall_time": 0.039
       }
     },
     {

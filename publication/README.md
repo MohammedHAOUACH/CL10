@@ -14,7 +14,7 @@ and archived on [Zenodo](https://zenodo.org/records/23321228)
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 44 pp., 25 figures, 10 tables, 55 references, REVTeX 4.2
+Current artifact: 56 pp., 25 figures, 12 tables, 61 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
@@ -89,4 +89,6 @@ the bug this group exists to prevent.
 ## Checks after a build
 
 `build.sh` prints pages + page size. For the full clean-build claim, grep
-`build/publication.log` for `!`, `undefined`, `Overfull`.
+`build/publication.log` for `!`, `undefined`, `Overfull`. Then
+`python3 review/tools/number_audit.py` re-traces every decimal the manuscript
+prints to the artefact that produces it — a build is only clean if that passes.

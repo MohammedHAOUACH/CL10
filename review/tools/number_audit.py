@@ -21,6 +21,7 @@ A token that is neither produced nor derived nor classifiable is a number
 nothing in the repository backs: the audit prints it and exits non-zero.
 """
 import json
+import math
 import os
 import re
 import sys
@@ -37,11 +38,48 @@ HEADING = re.compile(r"^#{1,6}\s*$")
 ART_TOKEN = re.compile(r"\d+\.\d+(?:[eE][-+]?\d+)?")
 PAPER_TOKEN = re.compile(r"\d+\.\d+(?:\\times10\^\{?(-?\d+)\}?)?")
 
-# the paper's own arithmetic on sourced inputs: token -> (inputs, verdict of the check)
+# the paper's own arithmetic on sourced inputs: token -> the arithmetic and its inputs
 DERIVED = {
     r"5.98\times10^{10}": r"Gamma_N = y^2 M_N/8pi at y=1/8, M_N = 9.6132e13 GeV (V106 M_N_GeV); Gamma/H = 4.6 = V106 cases.y=g0=1/8.K",
     r"1.93\times10^{12}": r"Gamma_N = y^2 M_N/8pi at y=0.71, M_N = 9.6132e13 GeV (V106 M_N_GeV); the sentence quotes Gamma/H = 148 from the same two numbers",
+    r"0.91497": r"rho^4 at rho = 0.978030, the closed-branch norm (V200/V203): 0.978030^4 = 0.9149739",
+    r"7.613": r"2 ln 45, the naive bond entropy of the 45-generator bond algebra: 7.6133250 nats",
+    r"7.61": r"2 ln 45 = 7.61333 nats (the same naive bond entropy, printed to four digits)",
+    r"10.84": r"12 (16 pi F_208)^10 at the certified F_208 = 0.0196928 (V204, V209): 10.8381; the float64 ladder reads 10.8",
+    r"1.013": r"100 (1 - 16 pi F_208) at the certified F_208 = 0.0196928 (V204, V209): 1.0132%",
+    r"1.1\times10^{8}": r"the chain reading over the rung: 1.6e7 eV / 0.146 eV (V210, and the rung of V196) = 1.096e8",
+    r"50.3": r"16 pi = 50.2655, the rung spacing of the ladder",
+    r"43.9": r"(7/2pi) ln(M_P/M_Z) at M_P = 1.220890e19 GeV (config) and M_Z = 91.1876 GeV: 43.935",
+    r"11.6": r"the rung ruler at 0.2 GeV: ln(0.2 / 1.220890e19) / ln(1/(16 pi)) = 11.630",
+    r"18.5": r"|1/5^2 - pi/64| / (pi/64) = 18.51% (the closed coupling pi/64 = 0.049087, V135)",
+    r"0.0084": r"0.0487 eV x m_sol/m_atm = 0.0487 x 0.0086/0.0501 eV (config m_sol_ev, m_atm_ev) = 0.00836 eV",
 }
+
+# a number whose own sentence cites a source is backed by that source: the
+# citation marker must lie in the same sentence (for a display equation, in the
+# sentence that introduces or closes it).
+CIT_MARK = re.compile(r"\[\d+(?:[-,\s]\d+)*\]")
+SENT_END = re.compile(r"\.(?=\s+[A-Z(]|\s*$)")
+DISPLAY = re.compile(r"\$\$.*\$\$")
+
+
+def cite_scope(lines, ln, col):
+    """the text inside which a citation would back the number on this line"""
+    line = lines[ln - 1]
+    if DISPLAY.fullmatch(line.strip()):
+        prev = next((lines[j] for j in range(ln - 2, -1, -1) if lines[j].strip()),
+                    "")
+        nxt = next((lines[j] for j in range(ln, len(lines)) if lines[j].strip()),
+                   "")
+        return prev + " " + nxt
+    start, end = 0, len(line)
+    for m in SENT_END.finditer(line):
+        if m.end() <= col:
+            start = m.end()
+        elif m.start() >= col:
+            end = m.start()
+            break
+    return line[start:end]
 
 
 def artefact_values():
@@ -79,13 +117,26 @@ def artefact_values():
     return out
 
 
-def close(a, b, rel=5e-4):
-    """Same number, allowing the manuscript's rounding at its printed precision."""
+def sigfigs(mant):
+    """Significant digits the manuscript prints for a mantissa."""
+    return max(len(mant.replace(".", "").lstrip("0")), 1)
+
+
+def close(a, b, sig=4):
+    """The artefact value rounds to the printed value at its printed precision.
+
+    A token is backed only when the artefact leaf agrees to the LAST PRINTED
+    DIGIT: no absolute band, because a leaf that is exactly zero is not
+    evidence for a printed 1e-15 defect, and a band wide enough to forgive a
+    stale rounding is wide enough to forgive a wrong one.
+    """
     if a == b:
         return True
-    if not a or not b:
-        return abs(a - b) < 1e-12
-    return abs(a - b) / max(abs(a), abs(b)) <= rel
+    if a == 0 or b == 0:
+        return False
+    exp = math.floor(math.log10(abs(a)))
+    half_ulp = 0.5 * 10.0 ** (exp - sig + 1)
+    return abs(a - b) <= half_ulp * (1.0 + 1e-9)
 
 
 def audit(path, values):
@@ -110,37 +161,36 @@ def audit(path, values):
                 val *= 10.0 ** int(m.group(1))
             pre = line[:m.start()]
             hits.setdefault(tok, []).append(
-                (ln, val, pre, bool(HEADING.match(pre))))
+                (ln, val, pre, bool(HEADING.match(pre)), m.start()))
 
     produced, refs, xrefs, derived, unknown = [], 0, 0, 0, []
     for tok, ent in sorted(hits.items(),
-                           key=lambda kv: min(l for l, _, _, _ in kv[1])):
+                           key=lambda kv: min(l for l, *_ in kv[1])):
         val = ent[0][1]
         struct = tok in sections and re.fullmatch(r"\d{1,2}\.\d", tok)
-        src = next((w for v, w in values if close(val, v)), None)
-        if src is None:  # the paper's own power of ten: 2.193e9 vs 2193467237.372068
-            for e in (-2, -1, 1, 2, 3, 6, 9, 10, 17, 18, 19, 20, 21, 29, 30,
-                      34, 40, 44, 46, 51, 53, 62, 71):
-                src = next((w for v, w in values if close(val * 10.0 ** e, v)), None)
-                if src:
-                    break
+        sig = sigfigs(tok.split("\\times")[0])
+        src = next((w for v, w in values if close(val, v, sig)), None)
         if src:
             produced.append((tok, src))
             continue
-        if all(ln >= ref_start for ln, _, _, _ in ent):
+        if all(ln >= ref_start for ln, *_ in ent):
+            refs += len(ent)
+            continue
+        if all(CIT_MARK.search(cite_scope(lines, l2, col))
+               for l2, _, _, _, col in ent):
             refs += len(ent)
             continue
         if all(head or struct or XREF_BEFORE.search(ctx[-40:])
-               for _, _, ctx, head in ent):
+               for _, _, ctx, head, _col in ent):
             xrefs += len(ent)
             continue
-        if tok in DERIVED and all(ln < ref_start for ln, _, _, _ in ent):
+        if tok in DERIVED and all(ln < ref_start for ln, *_ in ent):
             derived += len(ent)
             print(f"  derived {tok} (lines "
-                  f"{sorted(l for l, _, _, _ in ent)}): {DERIVED[tok]}")
+                  f"{sorted(l for l, *_ in ent)}): {DERIVED[tok]}")
             continue
-        unknown.append((min(l for l, _, _, _ in ent), tok,
-                        sorted({l for l, _, _, _ in ent})[:6]))
+        unknown.append((min(l for l, *_ in ent), tok,
+                        sorted({l for l, *_ in ent})[:6]))
 
     print(f"{os.path.relpath(path, ROOT)}: {len(hits)} decimal tokens -> "
           f"{len(produced)} artefact-backed, {refs} bibliography, {xrefs} xrefs, "

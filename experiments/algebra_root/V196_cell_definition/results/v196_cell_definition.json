@@ -95,5 +95,5 @@
  "tier": 2,
  "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
  "programme": "V196",
- "wall_time": 0.943
+ "wall_time": 0.849
 }
