@@ -1,6 +1,6 @@
 # The verification program
 
-147 experiments (the 131 of the publication programme plus the 16 exploration
+148 experiments (the 132 of the publication programme plus the 16 exploration
 experiments of the `alt_*` programmes: 4 `alt_interactions`, 5 `alt_gauged`,
 4 `alt_nonpert`, 3 `alt_step`), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
@@ -9,7 +9,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-audit checks.  **84 of the 131 publication experiments still write the older
+audit checks.  **84 of the 132 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -181,6 +181,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V50_complete_gravity` | Riemann from an arbitrary metric, two-route verification, the black hole by computation |
 | `V51_numrel` | $3{+}1$ BSSN/Z4 evolution: the constraint rows agree to $O(h^2)$ |
 | `V208_metric_bilinear_cone` | the metric is a bilinear of the bond layer: bond(6 oriented) $= A_{1g}\oplus E_g\oplus T_{1u}$ lacks the quintet's $T_{2g}$ and $\mathrm{Sym}^2 = A_{1g}\oplus E_g\oplus T_{2g}$ lacks the $T_{1u}$, so one bond amplitude cannot be the metric (exact characters); the commutant of the $36$-state bilinear has dimension $34$ — $34$ allowed self-couplings, none chosen; parity wall: the hop velocity is polar and its block inside the even (metric) sector vanishes ($2.7\times10^{-16}$), the axial dressing survives with spectrum $g\{0,\pm1,\pm2\}$ in every direction; the committed triple `cone_generator.json` is Clifford-regular (defect $1.4\times10^{-13}$) with an exactly direction-independent $36$-branch spectrum ($5.2\times10^{-15}$ over $44$ directions), a cone subspace of dim $8$ at slope $1$ with content $E\oplus T_1\oplus T_2$ (quintet weight $5.0000$), $4$ branches at slope $0$, $\mathrm{M}(0) = I$ exactly — no mass term writable in the class — and an exponentially local kernel; the covariant velocity space is $160$-dimensional and the exact-cone family through the generator $53$-dimensional (Jacobian rank $107$), and neither implemented triple lies in it (hop $0.0029$, dressing $0.0092$): the layer gives $c_{\rm gw}/c = 1.5708 = 2\pi/4$, excluded by GW170817 (**F8**), and the clock $g = 1/2$ that would fix it is in V206's dead zone ($n^* = 3$, deficit $1.4\times10^{-3}$); $G = 1/(4\ln 45) = 6.567\times10^{-2}$, cell $2\sqrt{\ln 45} = 3.902\,\ell_{\rm P}$, Bekenstein gap $4\ln 45 = 15.227$ |
+| `V211_frame_stabiliser_gravity_gauge` | **what the root forces in the gravity/gauge sector, measured on the committed generators**: the $45$ bivectors close on $\mathfrak{so}(10)$ (defect $1.8\times10^{-15}$, Killing $64\,\mathbb 1$) with one trace form $\mathrm{Tr}(T_aT_b) = -32\delta_{ab}$; the background metric is the Clifford pairing of the causal span, $\mathrm{diag}(1,-1,-1,-1)$ exactly; the stabiliser of that plane is $\mathrm{spin}(4)\oplus\mathrm{spin}(6)$ ($21 = 6+15$) and the other $24$ generators form a $\mathbb Z_2$-graded coset ($10^{-15}$ both ways); $\mathfrak{su}(2)_L\oplus\mathfrak{su}(2)_R$ closes with residual exactly $0$; $\mathfrak{u}(3) = \mathfrak{su}(3)\oplus\mathfrak u(1)$ sits inside $\mathrm{spin}(6)$; the $B-L$ spectrum of the $\mathbf{16}$ is $(+\tfrac13)^6(-1)^2(-\tfrac13)^6(+1)^2$ and $\mathrm{Tr}\,Y^2/\mathrm{Tr}\,T_{3L}^2 = 5/3$ as a trace ratio. The boundary is recorded at V208's committed values (hop $0.29\%$, dressing $0.92\%$, a $53$-dimensional exact-cone family, $c_{\rm gw} = 1.570796$): content and couplings forced, the selected cone not |
 
 ### `scales_loopfactor`
 | id | verdict |

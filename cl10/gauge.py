@@ -50,6 +50,12 @@ def five_thirds():
     ``T = diag(-1/6,-1/6,-1/6,1/4,1/4)`` with ``Tr(T^2) = 5/24``.  The GUT
     normalizes generators to ``Tr(T^2)=1/2``; the SM uses ``Y = 2T``.  The
     coupling ratio ``g_1^2/g'^2 = 8 * Tr(T^2) = 5/3`` is 0-parameter.
+
+    V211 derives the same ratio without the written diagonal.  Reading the gauge
+    group as the stabiliser of the causal frame inside the 45 (``spin(6) > u(3)``),
+    the hypercharge ``Y = T_3R + (B-L)/2`` is a sum of two subalgebra generators of
+    that one algebra, and ``Tr Y^2 / Tr T_3L^2 = (2 + 4/3)/2 = 5/3`` is a trace
+    ratio there - the diagonal above is a shortcut, not the reason.
     """
     T = np.diag([-1 / 6, -1 / 6, -1 / 6, 1 / 4, 1 / 4])
     trT2 = float(np.trace(T @ T))  # 5/24
