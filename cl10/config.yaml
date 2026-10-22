@@ -212,3 +212,29 @@ tolerances:
   loose: 1.0e-6
   coarse: 1.0e-4
 
+
+continuum:
+  # the continuum-limit programme (the O9/O10 cone question): what has to be
+  # true of the infrared for the discrete root to have a rotational-invariant
+  # continuum.  The tools are cl10/continuum.py; the measurements are V212 (the
+  # symmetry census: which momentum locus forces isotropy, which forbids it) and
+  # V213 (the relevance exponent of the cubic anisotropy at the measured node).
+  # Inputs only: every group order, every invariant count and the link-group
+  # order are MEASURED by the experiments, never written here.
+  # the probe ladder for the node-dispersion scaling, in units of the inverse
+  # cubic lattice spacing: the exponent of the anisotropic correction is read
+  # from a log-log fit over these radii (V213).
+  radii: [1.0e-2, 3.16e-3, 1.0e-3, 3.16e-4, 1.0e-4, 3.16e-5, 1.0e-5]
+  direction_grid: 6            # the V115 cone-direction grid (cl10.altcell.sphere_dirs)
+  # the coarse-graining energy windows, as V173/V178 use them (b = 1, 2, 4);
+  # V213 re-measures the flow with the windows SCALED with b, which is what
+  # makes the verdict a statement about relevance rather than about a ratio
+  # measured at one fixed radius.
+  rg_cuts: [1.5707963267948966, 0.7853981633974483, 0.39269908169872414]
+  census_degrees: 8            # the invariant census sweeps degrees 1..this
+  # which polyhedral symmetry to test as the replacement for the cubic one:
+  # the rotation orders of the triangle-group generators (2,3,5) = icosahedral
+  icosahedral_generator_orders: [2, 3, 5]
+  # |p| below this reads as marginal; p > 0 irrelevant, p < 0 relevant
+  relevance_marginal_band: 1.0e-2
+
