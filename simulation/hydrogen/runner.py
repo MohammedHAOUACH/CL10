@@ -14,6 +14,12 @@ The runner for the 3-D hydrogen atom (CL10).
     1s->2p, the 1s->3p, a 2p->3d, and one **off-resonant** control).
     Writes the video (``video/hydrogen.mp4``) + stills.
 
+``python -m simulation.hydrogen --table-only`` -> no rendering, no
+    time-stepping: build the drawn eigenstates and write the **transition
+    table** (the Rydberg gaps and every dipole matrix element the drive reads)
+    to ``results/hydrogen_transition_table.json``, the artefact the selection
+    rules quoted in ``doc/reference.md`` are read from.
+
 ``python -m simulation.hydrogen --interactive`` -> the **live VisPy window**:
     the atom as a **MIP volume** of ``|psi|**2``, the photon fields as the
     faint overlay, the nucleus, a 2-D mid-plane cut, a HUD, and the
@@ -208,11 +214,54 @@ def run_interactive(cfg):
     vispy_h.run(cfg)
 
 
+# ---------------------------------------------------------------------------
+# the transition table (``--table-only``): what the drive reads
+# ---------------------------------------------------------------------------
+def write_transition_table(cfg):
+    """Record the level scheme and every dipole matrix element ``<i|z|j>``
+    (in cells) that the dipole approximation uses, as a JSON artefact.
+
+    The selection rules quoted in ``doc/reference.md`` are statements about
+    this table - the forbidden elements against the allowed ones - so the
+    table is written where the number audit looks for evidence: each quoted
+    dipole is a leaf of this file, not a sentence about it. The construction
+    needs no time-stepping: the table is a property of the drawn eigenstates.
+    """
+    import json
+    sim = QCA.AtomQCA(cfg)
+    labels = sim.labels
+    out = {
+        "grid": [sim.Lx, sim.Ly, sim.Lz],
+        "bohr_radius_cells": float(cfg["bohr_radius"]),
+        "levels": [{"label": labels[i],
+                    "n": QCA.HYDROGEN_LEVELS[i][1],
+                    "l": QCA.HYDROGEN_LEVELS[i][2]}
+                   for i in range(len(labels))],
+        "gaps_eV": {"%s-%s" % (labels[i], labels[j]): sim.gaps_eV[(i, j)]
+                    for (i, j) in sim.gaps_eV},
+        "dipole_cells": {"%s|z|%s" % (labels[i], labels[j]): sim.dipole_mat[(i, j)]
+                         for (i, j) in sim.dipole_mat},
+    }
+    root = os.path.dirname(os.path.dirname(HERE))
+    residir = os.path.join(root, "results")
+    os.makedirs(residir, exist_ok=True)
+    path = os.path.join(residir, "hydrogen_transition_table.json")
+    with open(path, "w") as fh:
+        json.dump(out, fh, indent=1)
+    print("[hydrogen] transition table -> %s" % path, flush=True)
+    for key, val in sorted(out["dipole_cells"].items(),
+                           key=lambda kv: -abs(kv[1]))[:6]:
+        print("  %-12s % .4g" % (key, val), flush=True)
+    return path
+
+
 def main(argv):
     """The dispatcher.  The GPU is pinned in ``__main__.py`` (before the
     CuPy import) to the ``gpu`` id from the config."""
     cfg = load_config()
-    if "--interactive" in argv:
+    if "--table-only" in argv:
+        write_transition_table(cfg)
+    elif "--interactive" in argv:
         run_interactive(cfg)
     else:
         run_headless(cfg)

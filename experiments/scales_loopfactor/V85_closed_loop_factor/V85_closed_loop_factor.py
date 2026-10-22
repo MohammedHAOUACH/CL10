@@ -35,7 +35,7 @@ is Cartan-dark (cartan(G^2) ~ 7e-17, cartan(G^10) ~ 7e-17) and every
 F_n ratio is a quotient of numerical zeros (the F_10 = 53.9 recorded
 by earlier drafts of this file is such a quotient, not a suppression
 law). The physical-clock loop statements (n* = 208, F_208 = 0.019687,
-coefficient 2.702) are the CLOSED-BRANCH programme V200/V203/V204.
+coefficient 2.700) are the CLOSED-BRANCH programme V200/V203/V204.
 
 **What is measured (on the reference branch).**
 1. Regression: the backtracking two-hop (same bond twice) reproduces

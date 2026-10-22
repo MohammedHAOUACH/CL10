@@ -706,11 +706,12 @@ as do the entry points (the runner's `--jobs`, the `JOBS` and card gate of
 the figure modules (`make_figures` reads `CFG` directly, never a copy).
 Measured constants are written ONCE, at the best published precision: the
 file's value is the PDG/CODATA/Planck value, so no experiment carries a second
-precision of the same quantity (the former `1.2209e19` / `246.0` / `6.1e-10` /
-`125.1` / `0.939` / `0.30e-3` / `106.75` / `0.3894e-27` / `0.0501` / `0.12` /
-`127.9` / `1.731` / `1.730784` / `2.0e16` / `100.0` duplicates in the DM,
-baryogenesis, neutrino and coupling experiments, and the `0.389e-27` of
-`cl10.lattice_rg`, are gone). The shared tolerance bands follow the same rule
+precision of the same quantity: the fewer-digit duplicates of the Planck
+scale, the electroweak vev, the Higgs and proton masses, the neutrino mass
+splittings, the entropy density and the relativistic degrees of freedom, the
+unit conversions and the coupling values, in the DM, baryogenesis, neutrino
+and coupling experiments, and the cross-section conversion of
+`cl10.lattice_rg`, are gone. The shared tolerance bands follow the same rule
 inside the library: the modules compare against `CFG.tolerances.<band>` (bound
 once per module as `_TOL`), never against a literal; an experiment that
 measures at its own band states that band itself.

@@ -43,7 +43,7 @@ sys.path.insert(0, ROOT)
 # pinned 1/5 reference branch: F10_REF = 0.01918639 and the
 # coefficient-3 reading are reference-branch statements (the clock
 # reading is V203/V209: F_208 = 0.019685 float64, 0.0196928 certified at
-# 50 digits; coefficient 2.699-2.702 float64, 2.710 certified). At the pi/4
+# 50 digits; coefficient 2.699-2.700 float64, 2.710 certified). At the pi/4
 # clock the traced-link Cartan probes degenerate.
 os.environ["CL10_ANGLE"] = "0.2"
 from cl10.paths import exp

@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
-"""Provenance audit of the manuscript's numbers.
+r"""Provenance audit of the manuscript's numbers.
 
     python3 review/tools/number_audit.py [doc/final_publication.md ...]
 
 Every distinctive decimal the manuscript prints must be a number the repository
 produces: a numeric leaf of an experiment artefact, or a number that appears in
-one of its check names / status strings, or a power-of-ten multiple of one (the
-artefacts print 2193467237.372068; the paper quotes 2.193e9).
+one of its check names / status strings, or a numeric scalar of the
+configuration the code itself reads (`cl10/config.yaml`), or a power-of-ten
+multiple of one (the artefacts print 2193467237.372068; the paper quotes
+2.193e9). A percentage print (`$99.44\%$`) may be backed by the same quantity
+stored as a fraction (V113 records agreement_one_per_family = 0.99444); the unit
+conversion is the only scaling beyond powers of ten the audit allows, and it
+applies only to a token spelled with a `\%`.
 
-Three classes are exempt and are *reported as such*, never skipped silently:
+Four classes are exempt and are *reported as such*, never skipped silently:
 
   ref      bibliography lines (`## References` onward): the decimals there are
            volume, page, year and arXiv identifiers, not physics numbers
   xref     structure, not data: cross-references (Section 12.1, Fig. 13.2,
            Eq. 4.1) and the section numbers the headings themselves carry
+  ident    persistent identifiers on the same line (a DOI, an arXiv id, a Zenodo
+           concept record): names of objects, not measurements
   derived  arithmetic the sentence performs on sourced inputs, listed in
            DERIVED with the input it starts from
 
@@ -35,8 +42,20 @@ XREF_BEFORE = re.compile(
     r"(Sections?|Figs?|Eqs?|Equations?|Propositions?|Tables?|"
     r"Appendixes?|Appendices?)(?:[\s,.&\-–—]|\d|\.|and)*$")
 HEADING = re.compile(r"^#{1,6}\s*$")
-ART_TOKEN = re.compile(r"\d+\.\d+(?:[eE][-+]?\d+)?")
-PAPER_TOKEN = re.compile(r"\d+\.\d+(?:\\times10\^\{?(-?\d+)\}?)?")
+ART_TOKEN = re.compile(r"\d+\.\d+(?:[eE]([-+]?\d+)|\\times\s*10\^\{?(-?\d+)\}?)?")
+PAPER_TOKEN = re.compile(r"\d+\.\d+(?:\\times10\^\{?(-?\d+)\}?|[eE]([-+]?\d+))?")
+IDENT_LINE = re.compile(r"doi\.org|arxiv\.org|zenodo|10\.\d{4,}/")
+CONFIG = os.path.join(ROOT, "cl10", "config.yaml")
+CONFIG_ENTRY = re.compile(r"^\s*[A-Za-z0-9_.\-]+:\s*(.+?)\s*(?:#.*)?$")
+
+def art_value(m):
+    """the value an artefact text carries: 1.1e-16, 1.10\\times10^{-16}, 2.7e-15"""
+    v = float(m.group(0).split("\\times")[0].split("e")[0].split("E")[0])
+    if m.group(1):
+        v *= 10.0 ** int(m.group(1))
+    elif m.group(2):
+        v *= 10.0 ** int(m.group(2))
+    return v
 
 # the paper's own arithmetic on sourced inputs: token -> the arithmetic and its inputs
 DERIVED = {
@@ -53,6 +72,9 @@ DERIVED = {
     r"11.6": r"the rung ruler at 0.2 GeV: ln(0.2 / 1.220890e19) / ln(1/(16 pi)) = 11.630",
     r"18.5": r"|1/5^2 - pi/64| / (pi/64) = 18.51% (the closed coupling pi/64 = 0.049087, V135)",
     r"0.0084": r"0.0487 eV x m_sol/m_atm = 0.0487 x 0.0086/0.0501 eV (config m_sol_ev, m_atm_ev) = 0.00836 eV",
+    r"8.4\times10^{-38}": r"4 pi / M_P^2 at M_P = 1.220890e19 GeV (cl10/config.yaml physics.m_planck_gev): 8.430e-38 GeV^-2, the UV bound of cl10.lattice_rg",
+    r"5.3\times10^{-39}": r"P_2 / M_P^2 with P_2 = 0.789 (the 2-particle S-matrix S^(2) = U (x) U) at M_P = 1.220890e19 GeV: 5.293e-39 GeV^-2",
+    r"2.1\times10^{-66}": r"5.293e-39 GeV^-2 x 3.89379338e-28 cm^2/GeV^2 (cl10/config.yaml units.gev2_to_cm2): 2.061e-66 cm^2",
 }
 
 # a number whose own sentence cites a source is backed by that source: the
@@ -109,11 +131,36 @@ def artefact_values():
                 elif isinstance(node, str):
                     for m in ART_TOKEN.finditer(node):
                         try:
-                            out.append((float(m.group(0)), where))
+                            out.append((art_value(m), where))
                         except ValueError:
                             pass
                 elif isinstance(node, (int, float)) and not isinstance(node, bool):
                     out.append((float(node), where))
+    out += config_values()
+    return out
+
+
+def config_values():
+    """(value, provenance) pairs over the scalars of cl10/config.yaml.
+
+    The constants the code reads are part of what the repository produces: a
+    number the API or the README quotes from the configuration is backed by the
+    file that states it, and the provenance names the line.
+    """
+    out = []
+    try:
+        lines = open(CONFIG).read().split("\n")
+    except OSError:
+        return out
+    for ln, raw in enumerate(lines, 1):
+        m = CONFIG_ENTRY.match(raw)
+        if not m:
+            continue
+        for t in ART_TOKEN.finditer(m.group(1)):
+            try:
+                out.append((art_value(t), f"cl10/config.yaml:{ln}"))
+            except ValueError:
+                pass
     return out
 
 
@@ -129,12 +176,18 @@ def close(a, b, sig=4):
     DIGIT: no absolute band, because a leaf that is exactly zero is not
     evidence for a printed 1e-15 defect, and a band wide enough to forgive a
     stale rounding is wide enough to forgive a wrong one.
+
+    The match is on MAGNITUDE: the manuscript's token carries no sign (the
+    regex extracts a mantissa), while the artefacts print signed levels -
+    $E_0 = -5802.40$ in the text is the leaf -5802.398188196636 in V101. The
+    sign itself is a claim the sentence makes, not one a value can witness.
     """
     if a == b:
         return True
+    a, b = abs(a), abs(b)
     if a == 0 or b == 0:
         return False
-    exp = math.floor(math.log10(abs(a)))
+    exp = math.floor(math.log10(a))
     half_ulp = 0.5 * 10.0 ** (exp - sig + 1)
     return abs(a - b) <= half_ulp * (1.0 + 1e-9)
 
@@ -150,26 +203,32 @@ def audit(path, values):
     sections = {m.group(1) for m in
                 map(re.compile(r"^#{2,6}\s+(\d+\.\d+)(?=$|[\s.:])").match, lines) if m}
     hits = {}
+    pct = set()
     for ln, line in enumerate(lines, 1):
         for m in PAPER_TOKEN.finditer(line):
             tok = m.group(0)
             try:
-                val = float(tok.split("\\times")[0])
+                val = float(tok.split("\\times")[0].split("e")[0].split("E")[0])
             except ValueError:
                 continue
             if m.group(1):
                 val *= 10.0 ** int(m.group(1))
+            elif m.group(2):
+                val *= 10.0 ** int(m.group(2))
             pre = line[:m.start()]
             hits.setdefault(tok, []).append(
                 (ln, val, pre, bool(HEADING.match(pre)), m.start()))
+            if line[m.end():m.end() + 2] == "\\%":
+                pct.add(tok)
 
-    produced, refs, xrefs, derived, unknown = [], 0, 0, 0, []
+    produced, refs, xrefs, idents, derived, unknown = [], 0, 0, 0, 0, []
     for tok, ent in sorted(hits.items(),
                            key=lambda kv: min(l for l, *_ in kv[1])):
         val = ent[0][1]
         struct = tok in sections and re.fullmatch(r"\d{1,2}\.\d", tok)
-        sig = sigfigs(tok.split("\\times")[0])
-        src = next((w for v, w in values if close(val, v, sig)), None)
+        sig = sigfigs(tok.split("\\times")[0].split("e")[0].split("E")[0])
+        src = next((w for v, w in values if close(val, v, sig)
+                    or (tok in pct and close(val / 100.0, v, sig))), None)
         if src:
             produced.append((tok, src))
             continue
@@ -184,6 +243,9 @@ def audit(path, values):
                for _, _, ctx, head, _col in ent):
             xrefs += len(ent)
             continue
+        if all(IDENT_LINE.search(lines[ln - 1]) for ln, *_ in ent):
+            idents += len(ent)
+            continue
         if tok in DERIVED and all(ln < ref_start for ln, *_ in ent):
             derived += len(ent)
             print(f"  derived {tok} (lines "
@@ -194,7 +256,7 @@ def audit(path, values):
 
     print(f"{os.path.relpath(path, ROOT)}: {len(hits)} decimal tokens -> "
           f"{len(produced)} artefact-backed, {refs} bibliography, {xrefs} xrefs, "
-          f"{derived} derived, {len(unknown)} unexplained")
+          f"{idents} identifiers, {derived} derived, {len(unknown)} unexplained")
     for ln, tok, ls in unknown:
         print(f"  UNEXPLAINED L{ln}: {tok}  lines={ls}")
     return unknown

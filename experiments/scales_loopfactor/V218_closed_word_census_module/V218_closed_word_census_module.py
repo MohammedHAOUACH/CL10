@@ -476,7 +476,7 @@ def main():
             + " - the mean is of the trace, with sign cancellation, so none of "
             "these is the closed-walk n^-3/2 census slope of T1."
             + ". NOT MEASURED, and it is the named residual: the published "
-            "n* = 208 and the coefficient 2.710 (2.699-2.702 on the float64 "
+            "n* = 208 and the coefficient 2.710 (2.699-2.700 on the float64 "
             "ladder) live on V203's traced-link Cartan-norm estimator, not on "
             "this return amplitude; resolving the box mean at n = 208 would need "
             f"a grid of order 4n per axis, ({4 * 208})**3 = {832 ** 3:.1e} "
