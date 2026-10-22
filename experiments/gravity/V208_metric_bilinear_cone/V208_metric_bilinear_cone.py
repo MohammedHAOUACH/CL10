@@ -362,6 +362,7 @@ def main():
             and prof[1] < 0.2 and prof[5] < 1e-4
             and max(v for r, v in prof.items() if r >= 6) < 1e-5)
     out["data"]["cone"] = {
+        "hermiticity_defect": herm,
         "clifford_defect": cliff, "O_covariance_violation": cov,
         "band_spectrum_spread_over_%d_directions" % len(dirs44): bs,
         "cone_subspace_dim": len(cone_sel),

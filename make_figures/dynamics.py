@@ -253,15 +253,9 @@ def fig12_gravity_3d():
     hpx, hpy = 2 * M * np.cos(a), 2 * M * np.sin(a)
 
     # ---- RIGHT: the 2-route Kretschmann (computed vs analytic) ----
-    rv = np.linspace(2.3, 20.0, 12)
-    Kc, Ka = [], []
-    for ri in rv:
-        x = np.array([0.0, ri, 0.5, 0.7])
-        Rm = gravity.riemann_4d(sw, x, H)
-        gm, _ = gravity._metric_and_dg(sw, x, H)
-        Kc.append(gravity.kretschmann_4d(Rm, gm))
-        Ka.append(48.0 * M**2 / ri**6)
-    Kc, Ka = np.array(Kc), np.array(Ka)
+    scan = gravity.verify_kretschmann_scan(H)
+    rv = np.asarray(scan["radii"])
+    Kc, Ka = np.asarray(scan["computed"]), np.asarray(scan["expected"])
 
     fig = plt.figure(figsize=(11.5, 5.2))
     ax1 = fig.add_subplot(1, 2, 1, projection="3d")

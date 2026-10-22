@@ -72,6 +72,10 @@ def main():
     nl = r["nonlinear_gamma_gamma"]
     qca = r["nonlinear_qca"]
 
+    # the 2-route Kretschmann scan that Fig. 12 (right) plots: computed K vs
+    # the analytic 48 M^2/r^6 along a radial line
+    ks = gravity.verify_kretschmann_scan()
+
     # the constant-curvature 2-sphere: the computed scalar must match 2/r^2
     sphere_res = 0.0
     for rr in (1.0, 1.5, 3.0):
@@ -87,7 +91,7 @@ def main():
     ok = bool(
         r["ok"]
         and r2["ok"]
-        and bh["vacuum_ok"] and bh["kretschmann_ok"]
+        and bh["vacuum_ok"] and bh["kretschmann_ok"] and ks["ok"]
         and fl["ok"]
         and nl["ok"]
         and qca["unitary_ok"] and qca["nonlinear_ok"] and qca["causal_ok"]
@@ -110,6 +114,8 @@ def main():
             "blackhole_kretschmann": bh["kretschmann"],
             "blackhole_kretschmann_expected": bh["kretschmann_expected"],
             "blackhole_kretschmann_ratio": bh["kretschmann_ratio"],
+            "blackhole_kretschmann_max_rel_dev": ks["max_rel_dev"],
+            "blackhole_kretschmann_max_rel_dev_at_r": ks["max_rel_dev_at"],
             "flat_ricci_scalar": fl["ricci_scalar"],
             "gamma_gamma_flat": nl["gamma_gamma_flat"],
             "gamma_gamma_de_sitter": nl["gamma_gamma_de_sitter"],
@@ -136,6 +142,7 @@ def main():
     print(f"  backend:  {r['backend']}")
     print(f"  [2-route] de Sitter computed vs analytic Riemann:  max diff = {r2['max_abs_diff']:.2e}  (O(h^2) = {r2['h2']:.0e})")
     print(f"  [black hole] Schwarzschild Ricci max = {bh['ricci_max']:.2e} (vacuum G=0);  Kretschmann = {bh['kretschmann']:.6f} vs 48 M^2/r^6 = {bh['kretschmann_expected']:.6f}  (ratio {bh['kretschmann_ratio']:.6f})")
+    print(f"  [2-route scan] K computed vs 48 M^2/r^6 over r = {ks['radii'][0]:.1f}...{ks['radii'][-1]:.1f}:  max relative deviation = {ks['max_rel_dev']:.2e} (at r = {ks['max_rel_dev_at']:.1f}) — the right panel of Fig. 12")
     print(f"  [flat]  R = {fl['ricci_scalar']:.2e} (exact vacuum)")
     print(f"  [non-linear] Gamma*Gamma:  flat = {nl['gamma_gamma_flat']:.2e} (=0),  de Sitter = {nl['gamma_gamma_de_sitter']:.2e} (>0)")
     print(f"  [non-linear QCA]  norm rel err = {qca['norm_rel_err']:.2e} (unitary/UV-finite);  superpose err = {qca['superpose_err']:.2e} (non-linear);  front speed = {qca['front_speed']} (causal)")

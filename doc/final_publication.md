@@ -509,21 +509,21 @@ The Riemann, Ricci, Einstein and Kretschmann tensors are computed by central fin
 **Table 3.** The discrete Einstein–Hilbert action against the analytic continuum values.
 
 | test | computed | analytic | residual |
-|---------------------------|-------------------|---------------|---------------------------------------|
+|--------------------------|------------------|---------------|-----------------------------------------|
 | de Sitter $R^\mu{}_{\nu\rho\sigma}$ (flat FRW, $a = e^{Hx^0}/H$) | finite differences | $H^2(g_{\mu\rho}g_{\nu\sigma} - g_{\mu\sigma}g_{\nu\rho})$ | $6.5\times10^{-7}$ ($O(h^2)$) |
 | Einstein tensor of de Sitter | $-3H^2 g_{\mu\nu}$ | same | $O(h^2)$ |
 | Schwarzschild Ricci / Einstein tensor | $\simeq 0$ | vacuum $G_{\mu\nu} = 0$ | satisfied by computation |
-| Schwarzschild Kretschmann | $48 M^2/r^6$ | $48 M^2/r^6$ | ratio $1.000009$; max relative deviation $5.4\times10^{-5}$ (the 2-route scan of Fig. 12) |
+| Schwarzschild Kretschmann | $48 M^2/r^6$ | $48 M^2/r^6$ | ratio $1.000009$ at $r = 3$; max relative deviation $5.4\times10^{-5}$ over the $r = 2.3\ldots20$ 2-route scan (V50) |
 | flat metric | $R = G = K = 0$ | $0$ | exact |
 | 2-sphere of radius $r$ | $R = 2/r^2$ | $2/r^2$ | $7.2\times10^{-6}$ |
 
-The $3{+}1$ formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the $4$-D Einstein tensor agrees, computed by the $4$-D curvature and by the $3{+}1$ $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual $\sim 10^{-13}$); a Z4-damped evolution [35] drives a constraint violation to zero while the undamped one does not; the $0$-row is quadratic in $K$, so superposition fails; all $3{+}1$ quantities are bounded by the lattice cutoff.
+The $3{+}1$ formulation closes the classical evolution: the constraint row $(R_{00}, R_{0i})$ of the $4$-D Einstein tensor agrees, computed by the $4$-D curvature and by the $3{+}1$ $(\gamma_{ij}, K_{ij})$ decomposition with $K_{ij} = -\tfrac12\partial_0\gamma_{ij}$, to $O(h^2)$ (residual at most $2.7\times10^{-13}$: $1.8\times10^{-13}$ on $R_{00}$, $2.7\times10^{-13}$ on $R_{0i}$, against the $O(h^2) = 10^{-6}$ truncation — the identity is machine-exact, V51); a Z4-damped evolution [35] drives a constraint violation to zero while the undamped one does not; the $0$-row is quadratic in $K$, so superposition fails; all $3{+}1$ quantities are bounded by the lattice cutoff.
 (Fig. 12).
 
 **What this does and does not establish.** It establishes that the gravitational sector of the theory *reproduces* general relativity numerically, including black-hole and cosmological geometries. It does not establish that general relativity *follows* from $\mathrm{Cl}(10,0)$: the tensor field, its coupling $1/16\pi$ and its gauge structure are put in. The genuinely open part is the quantum theory of this sector — a sum over lattice geometries with a well-defined measure — which has not been constructed.
 
 ![Black hole](figures/fig12_gravity_3d.png)
-*Left: the potential well with a geodesic rosette integrated through the finite-difference Christoffel symbols, and the horizon ring $r = 2M$. Right: the two-route Kretschmann invariant.*
+*Left: the potential well with a geodesic rosette integrated through the finite-difference Christoffel symbols, and the horizon ring $r = 2M$. Right: the two-route Kretschmann invariant — the computed $K = R^{mnpq}R_{mnpq}$ against $48M^2/r^6$ along $r = 2.3\dots20$, the maximum relative deviation $5.4\times10^{-5}$ carried in V50.*
 
 ### 11.4 A self-interacting scalar completion
 

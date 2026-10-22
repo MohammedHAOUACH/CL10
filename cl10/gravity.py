@@ -556,6 +556,35 @@ def verify_blackhole(h=H_FD):
         "kretschmann_ok": bool(abs(K - K_expected) / K_expected < 0.01),
     }
 
+def verify_kretschmann_scan(h=H_FD, radii=None, m=1.0):
+    """The **2-route Kretschmann scan**: the computed invariant
+    $K = R^{mnpq}R_{mnpq}$ of the Schwarzschild metric against the analytic
+    $48 M^2/r^6$, along a radial line.  This is what Fig. 12 (right) plots; the
+    maximum relative deviation over the scan is carried in the V50 verdict."""
+    rv = np.asarray(radii if radii is not None else np.linspace(2.3, 20.0, 12))
+
+    def sw(xx):
+        return metric_schwarzschild(m, xx)
+
+    computed, expected = [], []
+    for ri in rv:
+        x = np.array([0.0, float(ri), 0.5, 0.7])
+        R = riemann_4d(sw, x, h)
+        g, _ = _metric_and_dg(sw, x, h)
+        computed.append(float(kretschmann_4d(R, g)))
+        expected.append(float(48.0 * m * m / float(ri) ** 6))
+    computed, expected = np.asarray(computed), np.asarray(expected)
+    rel = np.abs(computed - expected) / expected
+    return {
+        "h": float(h),
+        "radii": [float(r) for r in rv],
+        "computed": [float(c) for c in computed],
+        "expected": [float(e) for e in expected],
+        "max_rel_dev": float(rel.max()),
+        "max_rel_dev_at": float(rv[int(rel.argmax())]),
+        "ok": bool(rel.max() < 1e-3),
+    }
+
 
 def verify_flat(h=H_FD):
     """The **flat** $(1,3)$ Minkowski metric: ``R = 0``, ``G = 0`` (exact --

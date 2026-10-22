@@ -314,6 +314,7 @@ lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 | `nonlinear_qca` | `(L=16, n_steps=12, x0=None, seed=0, lam=0.2, tol=1e-12)` | `{backend, L, n_steps, g10, lam, norm_before, norm_after, norm_rel_err, unitary_ok, superpose_err, nonlinear_ok, front_speed, causal_ok, uv_finite, residual, ok}` — the state-dependent metric evolution |
 | `verify_analytic_vs_computed` | `(h=1e-3)` | `{H, max_abs_diff, h2, ok}` — the computed curvature against analytic de Sitter |
 | `verify_blackhole` | `(h=1e-3)` | `{M, r, ricci_max, ricci_scalar, einstein_max, kretschmann, kretschmann_expected, kretschmann_ratio, vacuum_ok, kretschmann_ok}` |
+| `verify_kretschmann_scan` | `(h=1e-3, radii=None, m=1.0)` | `{h, radii, computed, expected, max_rel_dev, max_rel_dev_at, ok}` — the 2-route Kretschmann scan along a radial line (the right panel of Fig. 12; the maximum is carried in V50's verdict) |
 | `verify_flat` / `verify_nonlinear` | `(h=1e-3)` | the flat and the $\Gamma\Gamma$ checks |
 | `verify` | `(tol=1e-9)` | `{backend, analytic_vs_computed, black_hole, flat, nonlinear_gamma_gamma, nonlinear_qca, residual, ok}` |
 | `main` | `()` | runs the self-check |

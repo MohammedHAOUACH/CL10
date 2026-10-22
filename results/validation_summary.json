@@ -7,7 +7,7 @@
   "backend_parent": "numpy",
   "backend_requested": "auto",
   "n_backend_reported": 29,
-  "n_backend_gpu": 28,
+  "n_backend_gpu": 27,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
   "hard_tier_n": 24,
@@ -92832,10 +92832,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "THE METRIC IS A BILINEAR OF THE BOND LAYER AND ITS CONE IS A MODULE FACT, NOT A MODULE VERDICT. (i) Content: Sym^2 = A1g+Eg+T2g while the six oriented bonds carry A1g+Eg+T1u - one bond amplitude is not the metric, by exact characters; the metric content first appears in the 36-state bilinear, whose invariant algebra has dimension 34. (ii) Parity: the hop's velocity is polar and vanishes inside the even (metric) sector to 2.7e-16, so the metric's first-order motion can only come from the axial dressing (isotropic exactly, radius 2g) or from pairing the even and odd halves. (iii) Such a pairing exists and is exactly lightlike: the committed triple has Clifford defect 1.4e-13, a direction-independent 36-branch spectrum (5e-15 over 44 directions), the quintet E+T2 appaired with the odd connection vector T1 on the cone at slope 1, four branches at slope exactly 0 (the trace among them), M(0) = I exactly (no mass term in the class), and a quasi-local kernel. (iv) It is not the implemented generator (hop 0.3% of it, dressing 0.9%; the exact-cone family is 53-dimensional), and the implemented one gives c_gw = 1.570796 against the matter cone 1 - excluded by GW170817 at 1e-15 - while the clock that would fix it, g = 1/2, lies in the closed-class dead zone. So the content of the gravitational field is supplied by the root; its light cone is permitted in a 53-parameter family and not selected by anything in the current construction.",
-      "returncode": null,
+      "returncode": 0,
       "crashed": false,
       "stale": false,
-      "wall_time": 47.089,
+      "wall_time": 5.133,
       "backend": null,
       "verdict": {
         "experiment": "V208_metric_bilinear_cone",
@@ -92884,6 +92884,7 @@
             "implemented_cone_radius_2g": 1.5707963267948966
           },
           "cone": {
+            "hermiticity_defect": 9.85971765407524e-15,
             "clifford_defect": 1.404214328156794e-13,
             "O_covariance_violation": 1.1106791558003129e-15,
             "band_spectrum_spread_over_44_directions": 5.218048215738236e-15,
@@ -92950,7 +92951,7 @@
         ],
         "pass": true,
         "status": "THE METRIC IS A BILINEAR OF THE BOND LAYER AND ITS CONE IS A MODULE FACT, NOT A MODULE VERDICT. (i) Content: Sym^2 = A1g+Eg+T2g while the six oriented bonds carry A1g+Eg+T1u - one bond amplitude is not the metric, by exact characters; the metric content first appears in the 36-state bilinear, whose invariant algebra has dimension 34. (ii) Parity: the hop's velocity is polar and vanishes inside the even (metric) sector to 2.7e-16, so the metric's first-order motion can only come from the axial dressing (isotropic exactly, radius 2g) or from pairing the even and odd halves. (iii) Such a pairing exists and is exactly lightlike: the committed triple has Clifford defect 1.4e-13, a direction-independent 36-branch spectrum (5e-15 over 44 directions), the quintet E+T2 appaired with the odd connection vector T1 on the cone at slope 1, four branches at slope exactly 0 (the trace among them), M(0) = I exactly (no mass term in the class), and a quasi-local kernel. (iv) It is not the implemented generator (hop 0.3% of it, dressing 0.9%; the exact-cone family is 53-dimensional), and the implemented one gives c_gw = 1.570796 against the matter cone 1 - excluded by GW170817 at 1e-15 - while the clock that would fix it, g = 1/2, lies in the closed-class dead zone. So the content of the gravitational field is supplied by the root; its light cone is permitted in a 53-parameter family and not selected by anything in the current construction.",
-        "wall_time": 47.089
+        "wall_time": 4.909
       }
     },
     {
@@ -94680,10 +94681,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "the_g10_and_g0_readings_are_root_numbers_the_1loop_down_running_is_the_named_residual_O4_quantified",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.883,
+      "wall_time": 0.001,
       "backend": "numpy",
       "verdict": {
         "id": "V38_couplings_root",
@@ -95148,8 +95149,8 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 35.622,
-      "backend": "cupy",
+      "wall_time": 16.902,
+      "backend": "numpy",
       "verdict": {
         "id": "V50_complete_gravity",
         "tier": 2,
@@ -95159,17 +95160,19 @@
         "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics_the_two_sphere_scalar_the_kink_residual",
         "tol": 0.0001,
         "data": {
-          "backend": "cupy",
+          "backend": "numpy",
           "analytic_vs_computed_diff": 6.533453154045077e-07,
           "blackhole_ricci_max": 1.789145549591087e-05,
           "blackhole_kretschmann": 0.06584420678590194,
           "blackhole_kretschmann_expected": 0.06584362139917696,
           "blackhole_kretschmann_ratio": 1.0000088905608857,
+          "blackhole_kretschmann_max_rel_dev": 5.4197932450837195e-05,
+          "blackhole_kretschmann_max_rel_dev_at_r": 20.0,
           "flat_ricci_scalar": 0.0,
           "gamma_gamma_flat": 0.0,
           "gamma_gamma_de_sitter": 1.0000006533336736,
-          "nonlinear_qca_norm_rel_err": 0.0,
-          "nonlinear_qca_superpose_err": 1.8197741062693644,
+          "nonlinear_qca_norm_rel_err": 1.570092458683775e-16,
+          "nonlinear_qca_superpose_err": 1.8197741062693642,
           "nonlinear_qca_unitary_ok": true,
           "nonlinear_qca_nonlinear_ok": true,
           "nonlinear_qca_causal_ok": true,
@@ -95179,7 +95182,7 @@
           "kink_neutral_stable_non_dispersive": true,
           "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
         },
-        "wall_time": 35.622
+        "wall_time": 16.902
       }
     },
     {
@@ -96403,10 +96406,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "O4 CONDITIONALLY RESOLVED: with alpha_X = 1/25 fixed (the root value, not refitted), CL10-realizable vectorlike desert content makes the three measured couplings meet at M_X < M_P; the convention M_GUT = M_P is abandoned (it would give tau_p = 3.98e+47 yr, and the Super-K bound excludes M_GUT < 6.05e+15 GeV); tau_p = 1.8e36 yr: Hyper-K (reach ~1e35 yr, 20 yr) can REFUTE it by observing GUT-pattern decay but cannot confirm it; confirmation needs ~1e36 yr (megaton era)",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.902,
+      "wall_time": null,
       "backend": null,
       "verdict": {
         "experiment": "V64_desert",

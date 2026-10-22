@@ -7,17 +7,19 @@
   "status": "the_complete_4d_nonlinear_gravity: the_general_riemann_computed_from_any_metric_the_2route_verification_the_blackhole_recovered_by_computation_the_nonlinear_qca_dynamics_the_two_sphere_scalar_the_kink_residual",
   "tol": 0.0001,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "analytic_vs_computed_diff": 6.533453154045077e-07,
     "blackhole_ricci_max": 1.789145549591087e-05,
     "blackhole_kretschmann": 0.06584420678590194,
     "blackhole_kretschmann_expected": 0.06584362139917696,
     "blackhole_kretschmann_ratio": 1.0000088905608857,
+    "blackhole_kretschmann_max_rel_dev": 5.4197932450837195e-05,
+    "blackhole_kretschmann_max_rel_dev_at_r": 20.0,
     "flat_ricci_scalar": 0.0,
     "gamma_gamma_flat": 0.0,
     "gamma_gamma_de_sitter": 1.0000006533336736,
-    "nonlinear_qca_norm_rel_err": 0.0,
-    "nonlinear_qca_superpose_err": 1.8197741062693644,
+    "nonlinear_qca_norm_rel_err": 1.570092458683775e-16,
+    "nonlinear_qca_superpose_err": 1.8197741062693642,
     "nonlinear_qca_unitary_ok": true,
     "nonlinear_qca_nonlinear_ok": true,
     "nonlinear_qca_causal_ok": true,
@@ -27,5 +29,5 @@
     "kink_neutral_stable_non_dispersive": true,
     "residual": "the **3+1 BSSN/Z4 numerical relativity** is now **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
   },
-  "wall_time": 35.622
+  "wall_time": 16.902
 }
