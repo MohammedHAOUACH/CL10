@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (158 of them under `experiments/<category>/`: the 142 of the publication programme, and the 16 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (162 of them under `experiments/<category>/`: the 146 of the publication programme, and the 16 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **158** experiments in name order,
+`run_validation.py` runs all **162** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced walls**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -154,7 +154,7 @@ paper does not use that label:
 $$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
 \quad\text{(the hard tiers 0–3.)}$$
 
-**The result (142/142 publication, 158 PASS of 158).**  Every
+**The result (146/146 publication, 162 PASS of 162).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
 positive. The 16 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V171–V183, V191–V201) run on the host numpy
@@ -233,7 +233,7 @@ all experiments still run (the $32\times32$ matrices are small).
 ```bash
 cd CL10
 source .venv/bin/activate
-python3 run_validation.py            # -> results/validation_summary.json (158 verdicts)
+python3 run_validation.py            # -> results/validation_summary.json (162 verdicts)
 python3 run_validation.py V11_anomaly V28_yukawa   # a subset (the exact directory names)
 CL10_BACKEND=numpy python3 run_validation.py   # force the CPU backend (GPU busy)
 python3 run_validation.py --report-only   # roll up the verdict JSONs on disk; run nothing
@@ -381,6 +381,51 @@ $1.277\times10^{-3}$ at $\theta = 10^{-2}$, ratio $10.00$) — the lines are
 protect them is small: of the icosahedral point group's 60 elements exactly 2
 preserve the line direction, and those leave the spectrum at the line fixed to
 exactly $0$ (V220).
+
+*The bond-layer programme, run (V225–V228).*  Proposition 6 said a
+parity-degenerate cone cannot live in the bond class: the committed step
+factorises, transport against internal layer, and a factorised step carries no
+non-Abelian tangent algebra on a degenerate subspace.  The boundary it leaves
+open is the **bond layer** of the shift module, and `cl10/spincell.py` builds
+it: the coin stays the twelve directed axes of the icosahedral star, and what a
+hop carries becomes $U_d=-\hat v_d\cdot\vec\sigma$ — Hermitian, an involution, a
+vector under the binary icosahedral group, with $U_{-d}=-U_d$.  `V225` measures
+the construction: covariance exact over the $120$ lifts ($3.5\times10^{-15}$),
+the quaternionic assignment equally covariant but squaring to $-I$ with a step
+gapped by $1.571$, the node present exactly at internal exponent $0$ or
+$4\bmod 8$, the $192$-vector gap cluster splitting as
+$\mathrm{sym}^1\oplus\mathrm{sym}^3\oplus\mathrm{sym}^5$ under projectors built
+from the group, the tangent algebra Abelian on the whole cluster (one norm to
+$3.6\times10^{-15}$, commutators $2\times10^{-14}$) and the Clifford relation
+holding on the $32$-dimensional spinor piece ($V_j^2 = 0.201002\,I$ to
+$5.8\times10^{-16}$, one speed $0.4483$).  `V227` classifies what is gapless:
+three coordinate-axis lines, no isolated point, and no reciprocal vector at all
+(integrality defect $0.1459$ over $\lvert n\rvert\le3$, the direction
+coefficients living in $\mathbb Q(\sqrt5)$) — so the doubling theorem has no
+hypothesis to satisfy — and no Berry charge: no sphere about any of the $12$
+resolved locus points keeps its link rank.  `V226` settles the charge at the
+zone-centre touching by *measuring* the piercing instead of assuming it — on the
+icosahedral mesh's $92$ directions no sampled point of the three spheres is
+gapless at all (their largest gaps $1.8\times10^{-3}$, $6.0\times10^{-3}$,
+$2.4\times10^{-2}$), while on the cell's own six signed coordinate axes $4$, $5$
+and $6$ of $6$ come back exactly gapless at those three radii (worst line gap
+$2.6\times10^{-8}$): the mesh is simply not sampling the lines the touching sits
+on, which is why one sphere of nine keeps rank and the readings run over
+$5,12,15,16,25,34$ — and then the protection question: the
+$2I$-invariant class is non-empty (obstruction $1.4\times10^{-15}$, norm $7.31$)
+and its on-site switch-on opens the touching linearly, gap over coupling
+constant to $0.3\%$.  `V228` measures the price: the internal sector is
+untouched (chirality conserved to $8\times10^{-31}$, the $5/3$ trace ratio and
+the anomaly coefficients unchanged, matter and antimatter blocks isospectral to
+$3.8\times10^{-15}$), but no CPT **operator** identity survives on the cell —
+the best of six candidates sits at $1.1$, and the one that holds on the
+scalar-bond control to $5.0\times10^{-16}$ fails by exactly $\sqrt2$, the same
+number as the cell's inversion defect — and the cell's loop return splits by
+parity, every odd length vanishing in modulus below $9\times10^{-18}$ while the
+even ones are not converged at the grids run ($2109$ points, changes up to
+$2.3\times10^{-1}$).  The cell buys a linear node with an isotropic velocity and
+a genuine spinor piece; it pays with the inversion, with the CPT operator, and
+with a loop factor that has to be recomputed from scratch.
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the

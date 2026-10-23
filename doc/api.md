@@ -61,7 +61,7 @@ a 128×128 matrix, and CuPy has no batched eigendecomposition).
 | `eigvals` / `eigvalsh` / `eig` / `eigh` | `(a)` | routed by `routing.eig_gpu_min_dim` (host below, device above); a device spectrum from `eigvals`/`eig` is kept only if it satisfies the two trace identities $\sum_a\lambda_a=\operatorname{tr}A$ and $\sum_a\lambda_a^2=\operatorname{tr}A^2$ to `EIG_VERIFY_TOL` ($10^{-6}$ relative), otherwise the whole call is redone on the host — the guard that catches the non-Hermitian device solver folding the spectrum of a large unitary onto $\pm1$ |
 | `eig_verify_count` | `()` | `{"calls", "rejected"}` — how many device eigendecompositions were taken and how many failed those identities; carried in the `engine.eig_verification` block of every verdict |
 | `det` / `inv` / `qr` / `matrix_rank` | `(a, ...)` | routed by `routing.device_min_dim` (and residency) |
-| `to_device` | `(x)` | move a host array to the active backend |
+| `to_device` | `(x)` | move a host array to the active backend; an array already on the device comes back untouched (cupy refuses the implicit host conversion `np.asarray` would attempt, so re-moving a device array is a crash unless it is decided here) |
 | `asnumpy` | `(x)` | the host copy (printing, JSON) |
 | `einops_rearrange` | `(x, pattern_in, pattern_out)` | `einops.rearrange` on the active backend when supported |
 | `laplacian_3d` | `(u)` | the 6-neighbour discrete Laplacian on the last three (spatial) axes, where the field lives |
@@ -659,6 +659,52 @@ generator. Used by V214-V217 and V219-V220.
 | `word_displacement` | `(coefs, axes)` | `{steps, displacement, norm}` — the physical reach of a word in module steps |
 | `star_axes` | `(shape=None)` | the module generators as physical displacements (delegates to `continuum.module_generators`) |
 
+## 45. `cl10.spincell` — the icosahedral star cell with a Clifford bond layer
+
+The step the equivariant census asks for, on the star's own kinematics. The
+committed construction (`supercell`) and `starcell` below both factorize — the
+step is transport $\otimes$ internal map — and V215/V216 measured the
+consequence: the touching at the zone centre has vanishing first order. The
+census (`cl10.continuum`) says what a linear isotropic node needs: a little
+group $2I$, for which $\mathrm{Hom}_{2I}(D, D\otimes V_1)$ is $1$-dimensional
+so that $v\,\boldsymbol\sigma\cdot\mathbf q$ is forced and the first anisotropic
+equivariant sits at degree $5$; no inversion symmetry; and a gap subspace on
+which the point group acts through a single irrep class. This module delivers
+the covariance by making the coin the twelve directed directions of the star and
+the bond operator the Hermitian Clifford generator along the direction,
+$U_d = -\hat v_d\cdot\vec\sigma$, so that $D(R)\,U_d\,D(R)^\dagger = U_{Rd}$
+holds exactly — measured over all $120$ lifts, not assumed. The clock keeps its
+committed role: the matching the icosahedral group preserves pairs each
+direction with its opposite and rotates each pair by $g_{10}$. The committed
+$16$-sector map rides the block layer with an exponent the node arithmetic
+selects ($4$, half the order of the map); it is a spectator for the covariance
+and carries the quantum numbers. Used by V225-V228. Where `starcell` is the
+spinless staggered matching step on the star's shift module ($1024$-dimensional
+$S$-matrix), this is the spinor coin cell ($384$ at one layer): the same star, a
+different Hilbert space.
+
+| symbol | signature | returns |
+|---|---|---|
+| `directions` / `opposite_pairs` | `()` | the twelve directed star directions (six axes, both signs) — the coin — and their pairing |
+| `star_geometry` | `()` | the six axes as lines, $\sum_d \hat v_d\hat v_d^{\mathsf T}$ over the twelve signed directions, and its defect from $8\,\mathbb 1$: the isotropy the geometry gives for free (the cubic axes give $0.400$) |
+| `spinor_lifts` | `()` | the $120$ elements of $2I$ as $2\times2$ unitaries (`order`, `su2`, the element orders, the unitarity defect) |
+| `image_group` | `(su2=None)` | the $120$ elements of $2I$ inside $\mathrm{SU}(2)$, with the closure and the $\pm\mathbb 1$ pair checked |
+| `axis_permutations` | `(spinor)` | for each lift, the permutation of the six axes and the matching matrix: the two pieces of the covariance statement |
+| `pauli` | `()` | the three Pauli matrices the bond operators are built from |
+| `bond_ops` | `(kind)` | the twelve bond operators for one of the four assignments (`clifford`, `vector`, `fivefold`, `scalar`); V225 measures which identities each satisfies |
+| `shift` / `coin` | `(q, bonds, layers)` / `(g10, layers)` | the hop with Bloch phases over the coin and layer index; the committed rotation $[[c,-is],[-is,c]]$ on each direction pair |
+| `internal_ride` | `(U16, legs, layers)` | the committed $16$-sector map riding the block layer at the requested exponent |
+| `step` | `(q, U16, g10, kind, layers, legs)` | the one-step unitary: internal ride $\cdot\;$ `kron(coin·shift, spinor)`; $12\cdot$ layers $\cdot\,2\cdot 16$ dimensions |
+| `phases` / `gap` | `(M)` / `(q, U16, **kw)` | eigenphases; $\min\lvert\text{eigenphase}\rvert$ and the count of zero eigenphases |
+| `tangent` | `(q, U16, g10, kind, layers, legs)` | the three tangent generators of the step at $q$, their norms, commutators and anticommutators on the gap cluster |
+| `covariance` / `invariance_defect` | `(kind, layers)` / `(U16, g10, kind, layers, legs)` | the measured hop-covariance and bond-intertwining defects over the $120$ lifts; the defect of step invariance at the zone centre |
+| `cluster_frame` / `sector_frame` | `(S, window)` / `(S, sector, window)` | an orthonormal frame of the gap cluster, or of a phase window cut further by the sign of $\sin$: the Hermitian route, because the generic eigenvectors of a degenerate unitary are not stable |
+| `cluster_projectors` | `(basis, n_internal, spinor, layers)` | the $2I$ character projectors onto the gap cluster: which irreps the touching carries |
+| `module_length` | `()` | the longest star generator, the Lieb-Robinson radius of one step on this module |
+| `symmetry_operator` | `(Pm, D, n_internal, layers)` | the permutation-on-axes operator lifted to the cell, against which inversion and rotation covariance are measured |
+| `icosahedral_sphere` | `(freq=3)` | a symmetry-uniform triangulation of $S^2$ built from the star's own directions (`vertices`, `triangles`, `faces`, `solid_angle_defect`) |
+| `berry_chern` | `(step_fn, q0, mesh, radius, sector, window)` | the first Chern number of the bands inside a sector over the mesh, by Fukui–Harigai–Watanabe link products — no gauge fixing, no eigenvector derivative. Reports `chern`, `integer_defect`, `bands_in_sector`, `min_link_overlap`, `link_rank_ok`, `window`; raises when the sector changes size on the sphere or when no window stays constant |
+
 ## Shared constants and switches
 
 | name | value | provenance |
@@ -680,7 +726,7 @@ generator. Used by V214-V217 and V219-V220.
 | `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |
 | `CFG.physics.wimp_window_gev` | `[100, 1000]` GeV | the observed WIMP window the 0-parameter DM scale is compared against (`parameter_audit`, point 4) |
 | `CFG.physics.f_10_measured` | `0.019186` | the measured hierarchy input of Section 12.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) |
-| `CFG.physics.v_over_mplanck_observed`, `hierarchy_coefficient_observed` | derived, never written | `2.0167255e-17` $=$ `physics.v_electroweak_gev / physics.m_planck_gev` and `2.0765641` $=$ that quotient in units of $loop^{10}$: the loader derives both from the two measured constants, so neither ratio has a second copy (V59/V108/V203 compute the same value; V113 reads it). The closed clock reads the coefficient as $2.710$ certified (float64 ladder $2.699$–$2.702$) — $+30\%$, the clock tension — read by `u10pred.hierarchy()` |
+| `CFG.physics.v_over_mplanck_observed`, `hierarchy_coefficient_observed` | derived, never written | `2.0167255e-17` $=$ `physics.v_electroweak_gev / physics.m_planck_gev` and `2.0765641` $=$ that quotient in units of $loop^{10}$: the loader derives both from the two measured constants, so neither ratio has a second copy (V59/V108/V203 compute the same value; V113 reads it). The closed clock reads the coefficient as $2.710$ certified (float64 ladder $2.699$–$2.700$) — $+30\%$, the clock tension — read by `u10pred.hierarchy()` |
 | `CFG.units.ev_per_gev` | `1e9` | the eV↔GeV conversion (an exact decimal prefix): the one conversion every eV quote of the ladder uses |
 | `CFG.neutrino.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.307`, `0.579`, `0.022` | the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0, NO; the second octant — the octant is unresolved, Section 13.5) |
 | `CFG.ckm.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.050`, `0.949`, `0.020` | the measured CKM-side numbers of the same mixing comparisons |

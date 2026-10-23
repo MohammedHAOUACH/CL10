@@ -166,10 +166,10 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 158 experiments in 16 categories (142 publication + 16 alt_* exploration)
+├── experiments/              # the verification program: 162 experiments in 16 categories (146 publication + 16 alt_* exploration)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
-│   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census and the icosahedral shift module (V212–V217, V219, V220)
+│   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228)
 │   ├── gauged_layer/         # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement, the dressed-gate quintet (V140/V141)
 │   ├── gravity/              # the discrete EH action, curvature from any metric, 3+1 evolution, the metric-as-bilinear content theorem and the committed exact-cone generator (V208)
 │   ├── scales_loopfactor/    # the closed-loop factor and its weight functional, the angle-selection census, the ladder length, the composition law, the rung arithmetic, the module's closed-word census and K0 rung labels (V218, V221)
@@ -189,7 +189,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 158, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 162, writes the hard-tier verdict
 ├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 ├── run_alt_interactions.sh   # exploration driver: the alt_interactions census alone (V171-V174), then a report-only rollup
@@ -266,7 +266,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 158 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 162 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
@@ -296,8 +296,8 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
-**eight falsifiers** (F1–F8). `run_validation.py` runs the **158** experiments
-of `experiments/` (16 categories — the 142 of the publication programme and the 16 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
+**eight falsifiers** (F1–F8). `run_validation.py` runs the **162** experiments
+of `experiments/` (16 categories — the 146 of the publication programme and the 16 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the

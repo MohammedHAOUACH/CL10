@@ -10,8 +10,8 @@ Markdown. Nothing here is hand-copied from another file. Back to the
 
 | file | what it is |
 |---|---|
-| `final_publication.md` | **the master**: the whole theory in one manuscript (1117 lines, 70 pp compiled, 59 pp in the journal layout, 25 figures, 9 tables, 61 references). Every claim, number and provenance label lives here first. |
-| `paper1_core.md` | the core: the root, the automaton, the spectrum, the S-matrix (480 lines, 27 pp). |
+| `final_publication.md` | **the master**: the whole theory in one manuscript (1130 lines, 73 pp compiled, 61 pp in the journal layout, 25 figures, 9 tables, 61 references). Every claim, number and provenance label lives here first. |
+| `paper1_core.md` | the core: the root, the automaton, the spectrum, the S-matrix (492 lines, 29 pp). |
 | `paper2_gauge_gravity.md` | the gauge and gravity sectors (222 lines, 12 pp). |
 | `paper3_phenomenology.md` | the couplings, the flavour sector, the cosmology, the falsifiers (438 lines, 33 pp). |
 | `reference.md` | the technical reference: the exact constructions, the numerical protocol, the reproducibility statement, the reading map of the code. |
