@@ -133,3 +133,38 @@ def test_eigensolver_is_verified_by_the_trace_identities():
     assert E._eig_identities(M, pinned) > 1e-2
     assert np.abs(np.sort_complex(E.eigvals(M))
                   - np.sort_complex(lam)).max() < 1e-9
+
+
+def test_moving_an_array_that_is_already_on_the_device_is_a_no_op():
+    """`to_device` must decide residency itself.  Under the cupy backend
+    `np.asarray` on a device array raises (`Implicit conversion to a NumPy array
+    is not allowed`), so a caller that re-moves what a builder already put on the
+    device crashes rather than copying: V226 and V228 both died exactly this way,
+    at `E.to_device(SP.step(...))`, because `step` returns a device array and the
+    experiment moved it again."""
+    from cl10 import engine as E
+
+    class DeviceArray:
+        """Stands for a cupy array: the implicit host conversion fails."""
+
+        def __array__(self, dtype=None):
+            raise TypeError("Implicit conversion to a NumPy array is not allowed.")
+
+    class StubBackend:
+        moved = 0
+
+        @staticmethod
+        def asarray(x):
+            StubBackend.moved += 1
+            return x
+
+    backend, real_backend = E._BACKEND, E._E
+    try:
+        E._BACKEND, E._E = "cupy", StubBackend
+        d = DeviceArray()
+        assert E.to_device(d) is d
+        assert StubBackend.moved == 0
+        h = np.eye(2)
+        assert np.array_equal(E.to_device(h), h) and StubBackend.moved == 1
+    finally:
+        E._BACKEND, E._E = backend, real_backend

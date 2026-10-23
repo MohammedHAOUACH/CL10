@@ -230,9 +230,14 @@ def asnumpy(x):
 
 
 def to_device(x):
-    """Move a host array to the active backend."""
+    """Move a host array to the active backend.  An array that is already on the
+    device comes back untouched: cupy refuses the implicit host conversion that
+    `np.asarray` would attempt, so asking to move a device array is not a no-op
+    unless it is decided here."""
     if _BACKEND == "numpy":
         return np.asarray(x)
+    if _device_work((x,)):
+        return x
     return _E.asarray(np.asarray(x))
 
 
