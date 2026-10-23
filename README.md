@@ -85,7 +85,7 @@ placed in the papers and validated by the named experiment
 |---|---|
 | <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
 | <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), master §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (Paper III). |
-| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_w9_cone_isotropy)) — reported as O9/F1, not hidden. |
+| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_cone_isotropy)) — reported as O9/F1, not hidden. |
 
 ## The layout
 
@@ -134,7 +134,6 @@ CL10/
 │   ├── gauge.py              # the 45 + the 5/3 unification + gauge-gravity
 │   ├── qca.py                # the (1,3) metric field + the on-site QCA factor (the 3+1 evolution: einstein / gravity / numrel)
 │   ├── u10pred.py            # the headline numbers (proton, seesaw, families)
-│   ├── walls.py              # the three named walls and their current status (O1/O2/O3) + the Sakharov audit
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
 │   ├── cell.py               # THE cell, one definition: the 32-D Cl(10,0) Dirac module S plus the singlet sectors A (rung 3, seesaw) and B (rung 10, dark matter), B-parity exact, rungs as on-site phases loop^n = m/M_P (Axiom 1; self-test + V196)
 │   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x the 36-level cell module = C^288; the 32-level spinor block carries the geometry), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
@@ -165,7 +164,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 162 experiments in 16 categories (146 publication + 16 alt_* exploration)
+├── experiments/              # the verification program: 158 experiments in 15 categories (146 publication + 12 alt_* exploration)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228)
@@ -178,7 +177,6 @@ CL10/
 │   ├── baryogenesis/         # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
 │   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
 │   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
-│   ├── alt_interactions/     # exploration: the collision vertex, self-energy flow, block RG, isotropy gate (V171-V174)
 │   ├── alt_gauged/           # exploration: the two-fermion S-matrix of the gauged bond layer (V175-V179)
 │   ├── alt_nonpert/          # exploration: exact cone flux dressing, ring kernels, IR decoupling, non-perturbative gate (V180-V183)
 │   ├── alt_step/             # exploration: the root-swap cone searches at the root's own clock (V191, V192, V201)
@@ -188,11 +186,9 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: runs all 162, writes the hard-tier verdict
+├── run_validation.py         # the runner: runs all 158, writes the hard-tier verdict
 ├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
-├── run_alt_interactions.sh   # exploration driver: the alt_interactions census alone (V171-V174), then a report-only rollup
-├── run_altgpu.sh             # exploration driver: the numba-CUDA Jacobi-Schur route of cl10.altgpu, checked against numpy
 └── results/
     ├── README.md               # what is tracked (the verdicts) and what is regenerable (the logs)
     ├── validation_summary.json # the full-suite verdict + the hard-tier verdict
@@ -265,12 +261,12 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # runs all 162 in parallel (--jobs N), prints the verdict; live progress bar
+python3 run_validation.py        # runs all 158 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 ./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
                                  # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
                                  # per-experiment verdict lines go to results/experiments_run_<date>.log
-./run_experiments.sh V142_w9_frame_averaging V141_regular_link_quintet_coupling
+./run_experiments.sh V142_frame_averaging V141_regular_link_quintet_coupling
                                  # single experiments by exact directory name
 ./run_figures.sh                 # the 25 figures on the pinned GPU card, with a figure progress bar; ABORTS if
                                  # the card has < 2 GiB free (FORCE=1 to run anyway, NEED=MiB to move the gate)
@@ -295,8 +291,8 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
-**eight falsifiers** (F1–F8). `run_validation.py` runs the **162** experiments
-of `experiments/` (16 categories — the 146 of the publication programme and the 16 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
+**eight falsifiers** (F1–F8). `run_validation.py` runs the **158** experiments
+of `experiments/` (15 categories — the 146 of the publication programme and the 12 of the `alt_*` exploration programmes, catalogued in [experiments/README.md](experiments/README.md)) and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the

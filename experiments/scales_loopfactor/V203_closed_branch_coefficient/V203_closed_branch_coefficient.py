@@ -82,9 +82,9 @@ def art(name, key):
     return j
 
 
-F10_REF = art("V113_w8_axis_factorization", "data.F_10_measured")   # the V85 line
+F10_REF = art("V113_axis_factorization", "data.F_10_measured")   # the V85 line
 F10_HYBRID_REF = art("V200_loop_weight_functional", "data.eta_law.F_10_at.pi/4")
-COEF_PUB = art("V113_w8_axis_factorization", "data.coef_one_per_family")
+COEF_PUB = art("V113_axis_factorization", "data.coef_one_per_family")
 RHO_V85 = art("V85_closed_loop_factor", "data.loops_root.spectral_radius_MG")
 
 
@@ -290,8 +290,7 @@ def main():
                 f" face-diagonal lines ({n_line} sampled line points, max"
                 f" gap {line_gap:.2e}) and the sampled bulk momenta are"
                 f" gapped (min quasi-energy >= {bulk_min:.3f}) - the V132"
-                f" line network, not a zone-wide band (V166 re-gaps the M"
-                f" nodes when the Wilson factor is quantized)",
+                f" line network, not a zone-wide band",
         "pass": bool(max(m_gaps) < 1e-10 and gamma_gap < 1e-10
                      and n0G + npiG == 128 and n0M + nPM == 64
                      and line_gap < 1e-9 and bulk_min > 1e-3
@@ -342,15 +341,14 @@ def main():
         f"while the self-consistent F_10 = {F4[10]:.4f} is NOT the eta-"
         f"law 0.1949 (a hybrid of step@1/5 with phase@pi/4; both values "
         f"recorded apart). (iii) Channels at pi/4: the 12 M points are "
-        f"EXACTLY gapless (max M gap {max(m_gaps):.1e}, the 2.003e-4 defect "
-        f"repaired); Gamma is FULLY pinned to the Floquet pair, {n0G}+{npiG} "
-        f"of 128, and every M spectrum is {{0^32, +-pi/3, +-2pi/3, pi^32}} - "
+        f"EXACTLY gapless (max M gap {max(m_gaps):.1e}); Gamma is FULLY "
+        f"pinned to the Floquet pair, {n0G}+{npiG} of 128, and every M "
+        f"spectrum is {{0^32, +-pi/3, +-2pi/3, pi^32}} - "
         f"64 of 128 pinned ({n0M} zero + {nPM} at pi); the exactly gapless "
         f"set is Gamma plus the six face-diagonal lines (max gap over "
         f"{n_line} line points {line_gap:.1e}) with gapped sampled bulk "
         f"momenta (min quasi-energy {bulk_min:.3f}) - the V132 line network, "
-        f"not a zone-wide band; V166 re-gaps the M nodes when the Wilson "
-        f"factor is quantized. The V113 family equality of the 1/5 spectra "
+        f"not a zone-wide band. The V113 family equality of the 1/5 spectra "
         f"is replaced by identical pinned M spectra (folded deviation "
         f"{within:.1e} within / {across:.1e} across), while the loop "
         f"factor itself is link-local and momentum-independent (V113). "

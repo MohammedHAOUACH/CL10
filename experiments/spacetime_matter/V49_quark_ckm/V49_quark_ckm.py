@@ -61,7 +61,7 @@ def main():
         "property": "P5",
         "residual": True,   # the non-trivial CKM (the computed one is the identity) + sin^2_23, sin^2_13 (O6)
         "pass": ok,
-        "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
+        "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_O6_residual",
         "tol": TOL,
         "data": {
             "backend": r["backend"],

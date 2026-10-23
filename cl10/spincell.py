@@ -325,8 +325,8 @@ def shift(q, bonds, layers=NLAYER):
     the $L$-stage cycle of the block.
 
     This hop is entangled between direction, layer and spinor: it is not a
-    tensor product, which is exactly what `supercell.bond_product` ($P(q)\otimes
-    U^{n_s}$, V189) cannot be."""
+    tensor product, which is exactly what `supercell.bond_product` ($P(q)
+    \otimes U^{n_s}$) cannot be."""
     dirs = module_length() * directions()
     th = dirs @ np.asarray(q, float)
     n = NDIR * layers
@@ -366,8 +366,9 @@ def internal_ride(U16, legs, layers=NLAYER):
     again.  It is also the committed construction's own stagger: `supercell`
     applies the internal layer once per stage and the stage bookkeeping *is*
     the sub-lattice index of the block.  With non-constant `legs` the step
-    stops being $P(q)\otimes U^{n_s}$ -- the factorization V189 records for the
-    cubic cell is broken, which is the point of the whole construction."""
+    stops being $P(q)\otimes U^{n_s}$ -- the factorization the cubic cell has
+    when its internal angle equals the bond angle -- and breaking it is the
+    point of the whole construction."""
     if len(legs) != layers:
         raise ValueError("one internal leg per layer")
     n = np.asarray(U16).shape[0]

@@ -220,7 +220,7 @@ def bond_product(q, g10=G10, stages=STAGES):
     """The 8x8 bond part P(q) of the one-step Bloch matrix: the six stage
     matrices multiplied in stage order. The full step is ``bloch(q, U)``;
     when the internal angle equals the bond angle it factorizes as
-    P(q) (x) U(g10)**ns (V189)."""
+    P(q) (x) U(g10)**ns."""
     M = np.eye(NSUB, dtype=complex)
     for even, j in stages:
         M = stage_matrix(even, j, q[j], g10) @ M

@@ -4,7 +4,7 @@
   "property": "hard-tier gate on the gauged census V175-V178: isotropy A < 1e-6 or flow toward isotropy > 0.5 across two decades",
   "residual": null,
   "pass": true,
-  "status": "GAUGED ISOTROPY GATE. 12 census rows scanned (V175 S-matrix channels, V176 vertex content, V177 one-loop flow, V178 block RG); 2 rows excluded from candidacy (V177 grid drift 1.2e-02 >= 1e-6 - an unconverged measurement cannot nominate); minimum anisotropy 0.9322; ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5): NO CANDIDATE - the gauged bond-current interaction (the only interaction in the theory, S-matrix now built in V175) does not isotropize the W9 cone at one loop or under coarse-graining. The non-perturbative fixed point remains beyond this order (V129: the flux sector is massive, gap 64 eta).",
+  "status": "GAUGED ISOTROPY GATE. 12 census rows scanned (V175 S-matrix channels, V176 vertex content, V177 one-loop flow, V178 block RG); 2 rows excluded from candidacy (V177 grid drift 1.2e-02 >= 1e-6 - an unconverged measurement cannot nominate); minimum anisotropy 0.9322; ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5): NO CANDIDATE - the gauged bond-current interaction (the only interaction in the theory, S-matrix now built in V175) does not isotropize the cone at one loop or under coarse-graining. The non-perturbative fixed point remains beyond this order (V129: the flux sector is massive, gap 64 eta).",
   "data": {
     "n_rows": 12,
     "min_A": 0.9321803604481975,

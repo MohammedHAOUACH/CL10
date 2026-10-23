@@ -226,7 +226,7 @@ continuum:
   # from a log-log fit over these radii (V213).
   radii: [1.0e-2, 3.16e-3, 1.0e-3, 3.16e-4, 1.0e-4, 3.16e-5, 1.0e-5]
   direction_grid: 6            # the V115 cone-direction grid (cl10.altcell.sphere_dirs)
-  # the coarse-graining energy windows, as V173/V178 use them (b = 1, 2, 4);
+  # the coarse-graining energy windows, as V178 uses them (b = 1, 2, 4);
   # V213 re-measures the flow with the windows SCALED with b, which is what
   # makes the verdict a statement about relevance rather than about a ratio
   # measured at one fixed radius.

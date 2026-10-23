@@ -43,7 +43,7 @@ def main():
         "property": "P6",
         "residual": True,   # the 2-digit coefficient and n_2step=3 are the named residual
         "pass": ok,
-        "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
+        "status": "the_O2_two_step_seesaw_on_the_10_loop_ladder_0param",
         "tol": TOL,
         "data": {
             'backend': s['backend'],

@@ -1,0 +1,37 @@
+{
+ "experiment": "V116_triangle_orbit8",
+ "pass": true,
+ "status": "TRIANGLE ORBIT-8 AUDIT (O3). T1: O_h (48 signed permutations) permutes the 12 nodes and is transitive (one orbit of 12): True. T2: the 220 node triples split into 9 cubic orbits (sizes [8, 8, 12, 24, 24, 24, 24, 48, 48]); the one-per-family triangles number 64 and split into 4 cubic orbits (sizes [8, 8, 24, 24]); the V68/V91 triangle orbit has 8 members. T3: the stabilizer of a triangle has order 6 with element orders {1: 1, 2: 3, 3: 2} - exactly S3 (axis permutations): the 3-node split breaks the cubic symmetry O_h -> S3, and the 9 unsplit nodes share that residual S3. T4: the stabilizer of one triangle maps it only to itself (1 reachable image): the other 7 triangles of its orbit are NOT stabilizer-equivalent - the triangle choice is an 8-fold degenerate set of PHYSICALLY DISTINCT vacua, related by broken cubic generators, with domain walls between them. Verdict: the O3 triangle is not a hidden-symmetry relabeling: it is a named input that reduces the crystal symmetry of the low-energy doubler spectrum from O_h to S3 and leaves 8 distinct choices.",
+ "data": {
+  "group_order": 48,
+  "transitive": true,
+  "n_triple_orbits": 9,
+  "orbit_sizes": [
+   8,
+   8,
+   12,
+   24,
+   24,
+   24,
+   24,
+   48,
+   48
+  ],
+  "n_triangles": 64,
+  "n_triangle_orbits": 4,
+  "triangle_orbit_sizes": [
+   8,
+   8,
+   24,
+   24
+  ],
+  "triangle_orbit_size": 8,
+  "stabilizer_order": 6,
+  "stabilizer_element_orders": {
+   "1": 1,
+   "2": 3,
+   "3": 2
+  },
+  "stabilizer_is_S3": true
+ }
+}

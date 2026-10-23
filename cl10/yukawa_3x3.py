@@ -461,7 +461,7 @@ def quark_ckm():
                      "the O6 named residual, now stated honestly"),
         "ok": bool(ok),
     }
-def w6_verdict():
+def o6_verdict():
     """The full 0-parameter O6 verdict: the 10-to-1 projection of the one
     object onto the 3-family space — the 3x3 mass matrix (the democratic
     base), the TBM mixing (only sin^2_12 = 1/3 is 0-parameter as a number),
@@ -525,7 +525,7 @@ def w6_verdict():
 def main():
     import sys
 
-    r = w6_verdict()
+    r = o6_verdict()
     one = r["one_object"]
     mm = r["mass_matrix"]
     mix = r["mixing"]

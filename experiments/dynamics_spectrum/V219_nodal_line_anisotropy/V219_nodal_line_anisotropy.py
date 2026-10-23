@@ -40,7 +40,7 @@ T3 the two-band cone test at the line: restricted to the two crossing bands, the
    tangent generators S_a = V_a - (tr V_a / 2) I are Clifford if and only if the
    touching is conical; the defect of {S_a, S_b} = 2 delta_ab is measured.
 T4 the same instrument on the committed cubic step at its M node, where the
-   paper's cone census (V63, V118, V174: anisotropy 0.998 with one exactly flat
+   paper's cone census (V63, V115, V118: anisotropy 0.998 with one exactly flat
    tangent axis) is the reference.
 
 Inputs: cl10/config.yaml (clock, tolerances), the committed internal map

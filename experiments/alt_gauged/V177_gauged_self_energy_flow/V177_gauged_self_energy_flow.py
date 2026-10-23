@@ -3,19 +3,21 @@
 r"""V177 - one-loop flow of the cone anisotropy from the GAUGED vertex
 (alt-gauged, step 3)
 
-**The question.**  V172 ran the one-loop Fock flow with the contact
-vertex: MARGINAL (alpha = 1), not grid-convergent (the flat axis, V118).
-V176 showed the gauged bond-current vertex is NOT a scalar: it carries
-Eg + T2g (spin-2) weight on the cone.  Does the one-loop self-energy of
-the GAUGED vertex (V79/V101 bond current, coupling eta = g_10 = 1/5 - the
-only admissible strength) drive the W9 anisotropy toward isotropy?  Same
-protocol as V172 (static Fock, normal-ordered tadpole subtraction, all 12
-M-node singularities excluded and ray-subtracted), vertex replaced by
-``current_vertex=True`` in ``altcell.fock_self_energy``.
+**The question.**  A contact collision whose vertex is a scalar gives a
+one-loop Fock self-energy whose anisotropic part is MARGINAL (the same power
+as the cone) and is not grid-convergent (the flat tangent axis, V118). V176
+showed the gauged bond-current vertex is NOT a scalar: it carries Eg + T2g
+(spin-2) weight on the cone.  Does the one-loop self-energy of the GAUGED
+vertex (V79/V101 bond current, coupling eta = g_10 = 1/5 - the only
+admissible strength) drive the cone anisotropy toward isotropy?  The static
+Fock protocol (normal-ordered tadpole subtraction, all 12 M-node
+singularities excluded and ray-subtracted) is run twice in this script: with
+the contact vertex (`altcell.fock_self_energy`, default) as the baseline, and
+with `current_vertex=True` for the Spin(10) bond current.
 
 **The result.**  Recorded: A_dressed(dq) at three scales for two grids
-(16, 24 - the grid drift is a RESULT, V172 precedent), the cubic-harmonic
-content and |k| exponent of the gauged self-energy, and the flow dA.
+(16, 24 - the grid drift is a RESULT), the cubic-harmonic content and |k|
+exponent of both self-energies, and the flow dA.
 """
 
 import json
@@ -32,7 +34,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
-os.environ["CL10_ANGLE"] = "0.2"  # the W9 cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
+os.environ["CL10_ANGLE"] = "0.2"  # the cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
 
 import numpy as np
 
@@ -102,6 +104,20 @@ def main():
              for gn in GRIDS}
     print(f"  self-energy grids {GRIDS} done [{time.time() - t0:.0f}s]")
 
+    # the contact-vertex baseline of the same protocol, same grids
+    grids_c = {gn: A.fock_self_energy(bf, QSTAR, 1.0, gn, kappas,
+                                      sub=(0.15, 0.6), nodes=SC.M_POINTS,
+                                      current_vertex=False)
+               for gn in GRIDS}
+    print(f"  contact-vertex self-energy done [{time.time() - t0:.0f}s]")
+    _, wts_c, aniso_c = dressed_A(grids_c, GRIDS[-1], dirs, D26,
+                                  ncone, ncub, blk)
+    a_contact = _fit(list(DQS), [aniso_c[dq] for dq in DQS])
+    nz_c = max(float(np.abs(grids_c[gn][1] - grids_c[gn][0]).max())
+               for gn in GRIDS)
+    print(f"  contact baseline: max |Sigma - tadpole| = {nz_c:.3e}, "
+          f"alpha_aniso = {a_contact}")
+
     # discriminating: Sigma not identically zero (vertex reaches the cone)
     nz = max(float(np.abs(grids[gn][1] - grids[gn][0]).max())
              for gn in GRIDS)
@@ -155,21 +171,29 @@ def main():
         "residual": True,
         "pass": bool(ok),
         "status": f"ONE-LOOP GAUGED-VERTEX FLOW (2 rows, grids 16/24, "
-                  f"normal-ordered, 12 M-node singularities ray-subtracted "
-                  f"- V172 protocol, vertex replaced by the Spin(10) "
-                  f"current). Sigma is NOT zero (max |Sigma - tadpole| = "
-                  f"{nz:.2e}): the gauged vertex reaches the cone. Its "
-                  f"anisotropic part scales as |k|^"
-                  f"{r24['alpha_aniso_Sigma']:.2f} (V172 contact: 1.00 - "
-                  f"MARGINAL) with aniso weight "
+                  f"normal-ordered tadpole subtraction, the 12 M-node "
+                  f"singularities ray-subtracted). Sigma is NOT zero "
+                  f"(max |Sigma - tadpole| = {nz:.2e}): the gauged vertex "
+                  f"reaches the cone. Its anisotropic part scales as |k|^"
+                  f"{r24['alpha_aniso_Sigma']:.2f} with aniso weight "
                   f"{r24['w_aniso_Sigma']['0.0001']:.4f} at dq=1e-4. "
-                  f"A_dressed(1e-4) = {r24['A_dressed']['0.0001']:.4f} vs "
-                  f"bare {r24['A_bare']['0.0001']:.4f}: flow dA = "
+                  f"Baseline measured in the same run with the contact "
+                  f"(scalar) vertex on the same grids and kappas: "
+                  f"|k|^{'-' if a_contact is None else format(a_contact, '.2f')}, "
+                  f"weight {wts_c[1e-4]['Eg'] + wts_c[1e-4]['T2g']:.4f}, "
+                  f"max |Sigma - tadpole| = {nz_c:.2e} - the gauged vertex "
+                  f"changes the strength and the harmonic content, not the "
+                  f"power. A_dressed(1e-4) = {r24['A_dressed']['0.0001']:.4f} "
+                  f"vs bare {r24['A_bare']['0.0001']:.4f}: flow dA = "
                   f"{r24['dA_vs_free']:+.4f}. Grid drift 16 vs 24 on "
-                  f"A_dressed(1e-3) = {devs[0]:.1e} (IR-sensitive, V172 "
-                  f"flat-axis precedent - drift recorded, not a failure).",
+                  f"A_dressed(1e-3) = {devs[0]:.1e} (the flat tangent axis "
+                  f"(V118) makes the static propagator non-integrable: the "
+                  f"drift is recorded, not a failure).",
         "data": {"rows": rows, "node": list(QSTAR), "dqs": list(DQS),
                  "route_dev": devs, "sigma_nonzero": nz,
+                 "contact_alpha_aniso": a_contact,
+                 "contact_sigma_nonzero": nz_c,
+                 "contact_aniso_weight_1e-4": wts_c[1e-4],
                  "candidates": [r for r in rows if r["isotropic"]]},
         "wall_time": round(time.time() - t0, 3),
     }

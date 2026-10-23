@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""
-CL10 alt-cell exploration: the generalizations the alt_cell census (V149-V160)
-needs, WITHOUT touching ``clifford``/``sm_qca``/``supercell``.
+CL10 alt-cell library: the generalizations of the cell and its signature that
+the alt-cell censuses required, WITHOUT touching ``clifford``/``sm_qca``/``supercell``.
 
 Two independent axes are generalized here:
 
@@ -654,7 +654,7 @@ def chirality_at(bloch_fn, q_star, dq=1e-4):
 
 
 # ---------------------------------------------------------------------------
-# 6. the (1+3) frame of a signature (V150)
+# 6. the (1+3) frame of a signature
 # ---------------------------------------------------------------------------
 
 
@@ -700,7 +700,7 @@ def frame_residual(q, time_idx, space_idx):
 
 # ---------------------------------------------------------------------------
 # 7. interactions: effective Hamiltonian, cone modes, cubic harmonics,
-#    downfolding, Fock self-energy (V171-V173)
+#    downfolding, Fock self-energy (the V176-V178 cone-interaction programme)
 # ---------------------------------------------------------------------------
 
 
@@ -917,7 +917,7 @@ def fock_self_energy(bloch_fn, q_star, U_c, grid_n, kappas,
     the contact form factor by the gauged bond-current vertex ``M_ab =
     sum_A (Uk^dag Gamma^A Uq)_a (Uk^dag Gamma^A Uq)^*_b`` with ``Gamma^A =
     I_(D/16) (x) T^A_16`` the 45 Weyl currents on the Bloch space
-    (``weyl_generators``); the default False is the V172 contact vertex."""
+    (``weyl_generators``); the default False is the block-contact vertex."""
     g = np.arange(grid_n) * (2 * math.pi / grid_n) - math.pi
     nodes = [q_star] if nodes is None else list(nodes)
     Uk = np.stack([node_modes(bloch_fn,
@@ -1028,7 +1028,7 @@ def main():
         abs(fs1["n_outside_lightcone"] - fs2["n_outside_lightcone"])
     print(f"altcell anchor: front_speed_stages vs front_speed "
           f"diff = {err_fs:.2e}")
-    # the interaction anchors (V171-V173 helpers)
+    # the interaction anchors (the V176-V178 helpers)
     def bf(qq):
         return bloch_cell(c, U16, SC.G10, st, qq)
     Mq = SC.M_POINTS[0]
@@ -1060,7 +1060,7 @@ def main():
     # the static downfold is exact in the P space AT the reference point -
     # the retained gapless M multiplet must reproduce the zero phase, while
     # at q != q_ref it is an energy-dependent approximation by construction
-    # (the V172/V173 flow uses it there on purpose).
+    # (the V177/V178 flow uses it there on purpose).
     err_df = float(np.abs(ev).max()) - gap_at(bf(Mq))
     print(f"altcell anchor: lowdin_downfold exact at the reference node "
           f"err = {err_df:.2e}")

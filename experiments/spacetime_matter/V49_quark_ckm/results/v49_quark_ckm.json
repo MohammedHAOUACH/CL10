@@ -4,7 +4,7 @@
   "property": "P5",
   "residual": true,
   "pass": true,
-  "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
+  "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_O6_residual",
   "tol": 1e-08,
   "data": {
     "backend": "cupy",

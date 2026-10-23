@@ -61,7 +61,7 @@ TOL = 1e-12
 
 def main():
     t0 = time.time()
-    r = yukawa_3x3.w6_verdict()
+    r = yukawa_3x3.o6_verdict()
     one = r["one_object"]
     mm = r["mass_matrix"]
     mix = r["mixing"]

@@ -89,11 +89,11 @@ import numpy as np                            # noqa: E402
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 "..", "..", ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                "..", "V118_w9_little_group"))
+                                "..", "V118_little_group"))
 from cl10.config import smoke as _smoke       # noqa: E402
 from cl10.paths import exp                    # noqa: E402
 from scipy.optimize import minimize           # noqa: E402
-import V118_w9_little_group as V118           # noqa: E402
+import V118_little_group as V118           # noqa: E402
 
 M = V118.M                                    # the implemented step dressed by
 C = (math.pi / 2,) * 3                        # the (w, theta) family direction
@@ -269,8 +269,8 @@ def main():
 
     # ---- T5: the correction recorded, and V118's single-triplet locus -----
     pq = phases(*QUOTED)
-    v118 = json.load(open(exp("V118_w9_little_group", "results",
-                              "v118_w9_little_group.json")))
+    v118 = json.load(open(exp("V118_little_group", "results",
+                              "v118_little_group.json")))
     pts = v118["data"]["T3"]["closed_multiplets"]
     second = []
     for pt in pts:

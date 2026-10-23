@@ -86,7 +86,7 @@ def art(name, key):
     return j
 
 
-COEF_AT_FIFTH_REF = art("V113_w8_axis_factorization", "data.coef_one_per_family")
+COEF_AT_FIFTH_REF = art("V113_axis_factorization", "data.coef_one_per_family")
 PAIRS = [(a, b) for a in range(_NG) for b in range(a + 1, _NG)]
 IDX = {p: i for i, p in enumerate(PAIRS)}
 CARTAN_PAIRS = [(0, 2), (2, 4), (4, 6), (6, 8), (0, 8)]

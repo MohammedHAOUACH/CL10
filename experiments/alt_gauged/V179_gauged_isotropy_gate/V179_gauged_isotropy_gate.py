@@ -5,13 +5,13 @@ r"""V179 - the isotropy gate on the gauged census (alt-gauged)
 Scans the census rows of V175-V178. A row becomes a CANDIDATE if its
 cone anisotropy is A < 1e-6 or its one-loop flow moves A toward 0 by
 more than 0.5 across two decades of scale. Unconverged measurements
-(grid drift >= 1e-6, V172 precedent) are excluded from candidacy and
-recorded. Candidates get the hard tier: for the gauged layer the hard
-tier is (a) unitarity of the bond-layer S-matrix (V175, exact) and (b)
-the six-stage front speed exactly 1 - the internal vertex does not touch
-the motion, so the free front is verified. ZERO candidates is a valid
-PASS: the gauged bond-current interaction does not isotropize the W9
-cone at one loop / under coarse-graining.
+(grid drift >= 1e-6) are excluded from candidacy and recorded. Candidates
+get the hard tier: for the gauged layer the hard tier is (a) unitarity of the
+bond-layer S-matrix (V175, exact) and (b) the six-stage front speed exactly 1 -
+the internal vertex does not touch the motion, so the free front is verified.
+ZERO candidates is a valid PASS: the gauged bond-current interaction does not
+isotropize the doubler cone at one loop / under coarse-graining (the open
+problem O9 of Section 16).
 """
 
 import json
@@ -28,7 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
-os.environ["CL10_ANGLE"] = "0.2"  # the W9 cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
+os.environ["CL10_ANGLE"] = "0.2"  # the cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
 
 from cl10 import altcell as A
 from cl10 import supercell as SC
@@ -124,7 +124,7 @@ def main():
                   f"isotropy > 0.5): NO CANDIDATE - the gauged "
                   f"bond-current interaction (the only interaction in the "
                   f"theory, S-matrix now built in V175) does not "
-                  f"isotropize the W9 cone at one loop or under "
+                  f"isotropize the cone at one loop or under "
                   f"coarse-graining. The non-perturbative fixed point "
                   f"remains beyond this order (V129: the flux sector is "
                   f"massive, gap 64 eta).",

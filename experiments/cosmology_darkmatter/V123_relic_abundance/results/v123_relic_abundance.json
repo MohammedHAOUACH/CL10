@@ -1,0 +1,117 @@
+{
+ "experiment": "V123_relic_abundance",
+ "data": {
+  "regression": {
+   "Omega_h2_at_100GeV_3e-26": 0.0800389864783524,
+   "table": [
+    {
+     "sigma_cm3s": 3e-27,
+     "Omega": 0.7104012439163414,
+     "over_fiducial_scaling": 0.5920010365969512
+    },
+    {
+     "sigma_cm3s": 3e-26,
+     "Omega": 0.0800389864783524,
+     "over_fiducial_scaling": 0.6669915539862701
+    },
+    {
+     "sigma_cm3s": 3.0000000000000002e-25,
+     "Omega": 0.008929009950553535,
+     "over_fiducial_scaling": 0.744084162546128
+    }
+   ]
+  },
+  "ladder": {
+   "m_DM_GeV": 118.57086360835625,
+   "sigma_required_cm3s": 1.9765506009782992e-26,
+   "alpha_required": 0.008647888574930034,
+   "Omega_at_fiducial_3e-26": 0.0807146489741817,
+   "dm_wimp_ansatz": 0.07198587648335639
+  },
+  "doublers": {
+   "n_nodes": 12,
+   "node_gap": 0.0002002894713292063,
+   "branch_speeds": [
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659,
+    0.200659
+   ],
+   "mean_speed": 0.20065917247613643,
+   "comm_max_max": 0.0,
+   "metric_rank_one": true,
+   "D_planar": 1485.2658492792891
+  },
+  "supplied_couplings": [
+   {
+    "coupling": "loop factor 1/16pi",
+    "alpha": 0.019894367886486918,
+    "sigma_cm3s": 1.0460394311282369e-25,
+    "Omega_h2": 0.024581632151352218,
+    "Omega_h2_with_doublers": 2.2491194866532875e-05
+   },
+   {
+    "coupling": "root g10^2/4pi",
+    "alpha": 0.0031830988618379076,
+    "sigma_cm3s": 2.6778609436882873e-27,
+    "Omega_h2": 0.7983115798148579,
+    "Omega_h2_with_doublers": 0.00075955104451178
+   },
+   {
+    "coupling": "required (inverted)",
+    "alpha": 0.008647888574930034,
+    "sigma_cm3s": 1.9765506009782992e-26,
+    "Omega_h2": 0.1199999999999999,
+    "Omega_h2_with_doublers": 0.00011161019203019647
+   }
+  ],
+  "named_portals": [
+   {
+    "portal": "V75 pair portal",
+    "lambda": 0.0003529869886705053,
+    "sigma_cm3s": 3e-26,
+    "Omega_h2": 0.0807146489741817,
+    "Omega_h2_with_doublers": 7.474916557072853e-05
+   },
+   {
+    "portal": "V88 exact-Z2 portal",
+    "lambda": 0.13080720169200494,
+    "sigma_cm3s": 1.5000000000000003e-26,
+    "Omega_h2": 0.15594772050694142,
+    "Omega_h2_with_doublers": 0.00014546912519688044
+   }
+  ]
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the freeze-out solver reproduces the WIMP miracle: Omega h^2 = 0.080 at m = 100 GeV, sigma v = 3e-26 cm^3/s (the canonical 0.10, within 0.03; the OBSERVED 0.120 needs 2e-26, see T1), and tracks 0.12*(3e-26/sigma v) within 45% over a decade",
+   "pass": true
+  },
+  {
+   "name": "T1 the ladder mass is m = 118.6 GeV and the measured Omega h^2 = 0.120 requires sigma v = 1.98e-26 cm^3/s there (alpha_eff = 0.0086 in sigma v = alpha^2/(pi m^2)); the dm_wimp (100/m)^3 ansatz gives 0.0720 at that mass",
+   "pass": true
+  },
+  {
+   "name": "T2 the implemented step has 12 M nodes, each with a one-dimensional node subspace at |omega| = 2.0e-04 whose velocity metric has rank 1 (commutator 0.0e+00): the crossing is a nodal PLANE, so the final-state density is enhanced by D = sum 1/|v|^3 = 1485.3 over one isotropic cone (mean |v| = 0.201)",
+   "pass": true
+  },
+  {
+   "name": "T3 with the ladder mass and NO fitted portal: the loop factor gives Omega h^2 = 0.0246, the root coupling g10^2/4pi gives 0.798, and the doubler final-state density D = 1485.3 moves them to 2.25e-05 and 0.00076",
+   "pass": true
+  },
+  {
+   "name": "T4 the named portals land near 0.120 only because their lambda was INVERTED from sigma v = 3e-26: computed abundances are 0.0807 (V75, lambda = 3.53e-04) and 0.156 (V88, lambda = 0.1308); with the doubler multiplicity included they become 7.47e-05 and 0.000145",
+   "pass": true
+  }
+ ],
+ "status": "THE RELIC ABUNDANCE IS COMPUTED (O7). The freeze-out integral reproduces the WIMP miracle (Omega h^2 = 0.080 at 100 GeV with sigma v = 3e-26 cm^3/s). At the ladder mass m = 118.6 GeV the measured Omega h^2 = 0.120 requires sigma v = 1.98e-26 cm^3/s, i.e. alpha_eff = 0.0086 in sigma v = alpha^2/(pi m^2) - while the theory supplies only the loop factor 1/16pi = 0.0199 (Omega h^2 = 0.0246) or the root g10^2/4pi = 0.0032 (Omega h^2 = 0.798). The automaton's own light spectrum matters: 12 M nodes, each a one-dimensional node subspace at |omega| = 2.0e-04 with a rank-1 velocity metric and commuting tangent velocities (max 0.0e+00) - nodal planes, not cones - so the final-state density is enhanced by D = sum 1/|v|^3 = 1485.3 (mean |v| = 0.201), which the dm_wimp (100/m)^3 ansatz never sees; with it the supplied couplings give Omega h^2 = 2.25e-05 and 0.00076. The named portals reproduce 0.120 only because their lambda was inverted from the fiducial 3e-26 cm^3/s (computed: 0.081 and 0.156; with doublers 0.000 and 0.000). VERDICT: the abundance is now a computed number, and it is NOT 0.120 for any coupling the root supplies - the WIMP miracle of Fig. 2 is a mass-scaling ansatz, and the doubler spectrum changes the annihilation rate by the factor D."
+}

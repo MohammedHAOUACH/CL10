@@ -1,25 +1,22 @@
-# Alt-nonperturbative exploration: exact flux dressing and the 4-site gauged sector against W9
+# Alt-nonperturbative exploration: exact flux dressing and the 4-site gauged sector against the cone anisotropy
 
-Exploration programme `alt_nonpert` (merged into `master`), following
-`alt_gauged`
-([alt_gauged_exploration.md](alt_gauged_exploration.md)),
-`alt-interactions-exploration`
-([alt_interactions_exploration.md](alt_interactions_exploration.md)),
-`alt-dynamics-exploration` ([alt_dynamics_exploration.md](alt_dynamics_exploration.md))
-and `alt-cell-exploration` ([alt_cell_exploration.md](alt_cell_exploration.md)).
 Experiments V180-V183, category `experiments/alt_nonpert/`, tier 4,
-0 new continuous parameters (eta = g_10 = 1/5, the root angle).
+0 new continuous parameters (eta = g_10 = 1/5, the root angle). The record of
+the `alt_gauged` programme (V175-V179) is
+[alt_gauged_exploration.md](alt_gauged_exploration.md).
 
 ## The question
 
-Five routes have failed to isotropize the 12 M-node cones of the master
-automaton (A = 0.998): signature, cell, motion, the minimal collision
-(V171-V174), and the gauged bond-current interaction at one loop / under
-coarse-graining (V175-V179, zero candidates). The alt-gauged report
-names the one route never measured: the **non-perturbative gauged
-sector** - the exact flux dressing of the cone, and the two-fermion
-spectrum one volume up (the IR-decoupling question is a VOLUME
-question). This branch computes both exactly, no truncation.
+Four routes have failed to isotropize the 12 M-node cones of the master
+automaton (A = 0.998): the cone-isotropy scan of the committed step (V115)
+and its frame-average control (V142), the tuned entangling-bond space with
+its rigidity frontier (V120/V121, V185-V187), the minimal admissible
+collision (the scalar contact vertex, measured as the baseline of V176), and
+the gauged bond-current interaction at one loop / under coarse-graining
+(V175-V179, zero candidates). One route was left unmeasured: the
+**non-perturbative gauged sector** - the exact flux dressing of the cone,
+and the two-fermion spectrum one volume up (the IR-decoupling question is a
+VOLUME question). Both are computed here exactly, no truncation.
 
 ## V180 - the exact cone dressing by the flux operators (PASS)
 
@@ -36,7 +33,7 @@ cone speed is measured against the free one on the V115 sphere:
 
 dA is at machine precision (2-route 8.5e-13; eta -> 0 gives dev 0;
 eps anisotropy 3-6e-15). **The exact one-order flux dressing does not
-move the W9 anisotropy at all.**
+move the cone anisotropy at all.**
 
 ## V181 - the 4-site gauged kernels and S-matrices (PASS)
 
@@ -91,7 +88,7 @@ in the JSON, not a crash.)
 9 census rows (V180 dressing + V181/V182 spectra), candidacy = A_np <
 1e-6 or |dA| > 0.5 or a light gap < 1e-2: **zero candidates**. Hard
 tier untouched (front speed 1, unitarity, closure). No
-non-perturbative gauged-sector mechanism isotropizes the W9 cone.
+non-perturbative gauged-sector mechanism isotropizes the cone.
 
 ## The engine-bug hypothesis, refuted
 
@@ -109,7 +106,8 @@ The non-perturbative gauged sector is measured exactly: the flux
 dressing leaves the cone anisotropy untouched (dA ~ 1e-12), the
 two-fermion flux spectrum is massive at every volume (gap/|E0|
 constant), and the ring's channel mixing does not produce a light
-isotropic mode. W9 (cone isotropy) remains open within the gauged
-sector; the remaining variable is the SPECIFICATION of the step and
-cell itself - see `alt-step-search`
-([alt_step_search_exploration.md](alt_step_search_exploration.md)).
+isotropic mode. The cone anisotropy (O9) remains open within the gauged
+sector; what is left is the SPECIFICATION of the step and the cell itself -
+the parity no-go and its reruns inside the engine's own six-stage circuit
+class and with the root's sector-swap involutions (V191, V192, V201,
+`experiments/alt_step/`).

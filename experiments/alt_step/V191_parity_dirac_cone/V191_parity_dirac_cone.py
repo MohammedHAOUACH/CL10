@@ -2,8 +2,8 @@
 """V191 - the parity no-go, and the Dirac cone it leaves open.
 
 Every earlier programme in this line - the cell-step censuses and the twelve
-W9 rounds that preceded this one - measured the same thing at every gapless point
-it could find: the touching is FLAT.  The exponent of omega(q) about the node
+cone censuses that preceded this one - measured the same thing at every gapless
+point it could find: the touching is FLAT.  The exponent of omega(q) about the node
 is 2, the cone anisotropy A is O(1), and the tangent operators are numerically
 zero.  Those programmes reported the measurement and treated the flatness as a
 property of the search.  It is not.  It is a theorem about the cell, and the
@@ -62,8 +62,8 @@ theorem says exactly what has to change.
         Lieb-Robinson bound on the front speed); the family allows it, the
         factorisation is the open piece.
 
-The verdict is not "W9 is solved".  It is sharper: W9 is impossible for any
-single-parity node, and it is solved - exactly, isotropically, with a
+The verdict is not "the cone is solved".  It is sharper: a conical node is
+impossible for any single-parity node, and it is solved - exactly, isotropically, with a
 non-abelian tangent algebra - by a parity-degenerate node; the remaining work
 is a stage factorisation of that bond layer, not another search.
 """

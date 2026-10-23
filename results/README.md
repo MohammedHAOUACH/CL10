@@ -8,7 +8,7 @@ the [CL10 README](../README.md).
 
 | path | what it is |
 |---|---|
-| `validation_summary.json` | the full-suite rollup written by `run_validation.py`: `n`, `n_pass`, `pass`, `hard_tier` + `hard_tier_criterion`, `backend_parent` + `backend_requested` + `n_backend_reported` + `n_backend_gpu` (the GPU coverage of the run), `n_named_residuals`, `named_residuals` (the open problems O1–O9), and one entry per experiment — `id`, `dir`, `tier`, `property`, `pass`, `status`, `residual`, `wall_time`, `returncode`, `crashed`, `backend` (where the experiment says which core computed it), and the experiment's own `verdict` object embedded whole (`data`, `tol`, …). |
+| `validation_summary.json` | the full-suite rollup written by `run_validation.py`: `n`, `n_pass`, `pass`, `hard_tier` + `hard_tier_criterion`, `backend_parent` + `backend_requested` + `n_backend_reported` + `n_backend_gpu` (the GPU coverage of the run), `n_named_residuals`, `named_residuals` (the experiments carrying a named residual, i.e. the open problems O1-O10), and one entry per experiment — `id`, `dir`, `tier`, `property`, `pass`, `status`, `residual`, `wall_time`, `returncode`, `crashed`, `backend` (where the experiment says which core computed it), and the experiment's own `verdict` object embedded whole (`data`, `tol`, …). |
 | `../experiments/<category>/<Vxx>/results/*.json` | each experiment's own verdict, written next to its code. The rollup folds them, so a subset run still produces a complete summary. |
 
 ## Ignored (regenerable)

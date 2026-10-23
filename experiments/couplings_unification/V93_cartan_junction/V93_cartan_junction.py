@@ -46,7 +46,7 @@ sys.path.insert(0, ROOT)
 os.environ["CL10_ANGLE"] = "0.2"  # built on the V65/V92 desert machinery: its anchors are 1/5-branch, so pin the clock BEFORE cl10 latches it (V65 pins the same)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))
-sys.path.insert(0, exp("V92_w4_feasibility"))
+sys.path.insert(0, exp("V92_unification_feasibility"))
 import V65_wilson as V65  # noqa: E402
 from cl10 import unification as UN  # noqa: E402
 from cl10 import u10pred  # noqa: E402
@@ -61,8 +61,8 @@ def main():
     t0 = time.time()
     checks = {}
 
-    with open(exp("V92_w4_feasibility",
-                           "results", "v92_w4_feasibility.json")) as fh:
+    with open(exp("V92_unification_feasibility",
+                           "results", "v92_unification_feasibility.json")) as fh:
         v92 = json.load(fh)["data"]
     checks["v92_feasible"] = v92["hull_feasible"]
 

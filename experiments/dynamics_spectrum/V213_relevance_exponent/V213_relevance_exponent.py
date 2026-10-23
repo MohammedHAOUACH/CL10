@@ -4,22 +4,23 @@ measured node: does coarse-graining remove the anisotropy or not?
 
 The continuum question of Section 13.1 is not "is the cone isotropic at one
 resolution" - it is whether the anisotropic terms in the tangent dispersion
-are RELEVANT, MARGINAL or IRRELEVANT at the gapless point.  The earlier reading
-of this (V173, and its gauged twin V178) reported the anisotropy of the node
-subspace at block scales b = 1, 2, 4, found it unchanged at 0.998, and called
-the cubic anisotropy marginal.  That verdict is not available from the data it
-describes, for two independent reasons, and V213 measures the slope with both
-removed.
+are RELEVANT, MARGINAL or IRRELEVANT at the gapless point.  The fixed-probe
+reading of this question (the convention the block-RG rows of V178 use)
+reports the anisotropy of the node subspace at block scales b = 1, 2, 4,
+finds it unchanged at 0.998, and calls the cubic anisotropy marginal.  That
+verdict is not available from the data that convention produces, for two
+independent reasons, and V213 measures the slope with both removed.
 
-(i) V173 measured the anisotropy at the SAME probe radius (dq = 1e-3 in lattice
-    units) at every b, so its three numbers differ only in the dimension of the
+(i) The fixed-probe convention measures the anisotropy at the SAME probe
+    radius (dq = 1e-3 in lattice units) at every b, so its three numbers differ only in the dimension of the
     downfolded subspace: holding the probe fixed in lattice units while the
     block grows is holding the probe at a momentum that grows by b each step,
     the opposite of the Wilsonian step.  V213 rescales the window pi/(2b) AND
     the probe b r_0 - it follows fixed physical momentum - and it recomputes the
     fixed-probe convention alongside, so the flaw is visible in the data rather
     than asserted.
-(ii) V173's value 0.998 is essentially the saturated value of its own measure.
+(ii) The fixed-probe value 0.998 is essentially the saturated value of the
+    measure itself.
     The gapless set through the node is a line (the GAMMA-M family,
     V132/V203/V212): probed over a sphere of directions, the directions inside
     the nodal set have EXACTLY zero velocity, so (v_max - v_min)/(v_max +
@@ -114,7 +115,7 @@ def power_ladder(xs, ys):
 
 
 def velocity_spread(vs):
-    """(v_max - v_min)/(v_max + v_min): the V115/V173 anisotropy measure."""
+    """(v_max - v_min)/(v_max + v_min): the V115 anisotropy measure."""
     return (max(vs) - min(vs)) / (max(vs) + min(vs)) if len(vs) > 1 else 0.0
 
 
@@ -171,7 +172,7 @@ def main():
         if b == BLOCKS[0]:                 # probe b r_0 == r_0: same downfold
             vs_fixed = list(vs_df)
         else:
-            for d in dirs:                 # the V173 convention, for contrast
+            for d in dirs:                 # the fixed-probe convention, for contrast
                 q = tuple(np.array(node, float) + r_ref * d)
                 Heff, ev = A.lowdin_downfold(bloch, q, node, cut=cut)
                 vs_fixed.append(float(np.min(np.abs(ev))) / r_ref)
@@ -233,7 +234,7 @@ def main():
         and abs(p_radius - p_block) < 0.35,
         f"radius ladder p = {p_radius:.4f} ({nA} points); block ladder with "
         f"rescaled window and probe p = {p_block:.4f} ({nB} points)")
-    chk("T2 the V173 fixed-probe convention carries no scaling information",
+    chk("T2 the fixed-probe convention carries no scaling information",
         p_fixed is not None and abs(p_fixed) < 0.05,
         f"fixed-probe slope {p_fixed:.4f} against rescaled-probe slope "
         f"{p_block:.4f}: the earlier marginality verdict measured the subspace "
@@ -270,7 +271,7 @@ def main():
                     "A(r) over the config radius ladder, and A(b) of the "
                     "Lowdin-downfolded node subspace at b = 1, 2, 4 with both "
                     "the window pi/(2b) and the probe b r_0 rescaled, against "
-                    "the fixed-probe convention of V173/V178, with the "
+                    "the fixed-probe convention, with the "
                     "codimension of the gapless set measured at every resolution",
         "residual": True,
         "pass": bool(ok),
@@ -284,7 +285,7 @@ def main():
             f"{tol:.0e}) at every radius of the ladder, so the saturated "
             f"anisotropy (v_max - v_min)/(v_max + v_min) is pinned at "
             f"{ladder[0]['A_saturated']:.4f} and carries no exponent, which is "
-            f"what V173's 0.998 was. Transverse anisotropy: "
+            f"what the fixed-probe reading reports. Transverse anisotropy: "
             + ", ".join(f"{row['A_transverse']:.4f} at r = {row['r']:.0e}"
                         for row in ladder)
             + f"; log-log slope p = {p_radius:.4f} over {nA} radii. "
@@ -292,8 +293,7 @@ def main():
               + ", ".join(f"{row['A_rescaled']:.4f} (b {row['b']})"
                           for row in blocks)
             + f", slope {p_block:.4f} - the same exponent from an independent "
-              f"ladder (agreement {abs(p_radius - p_block):.3f}). The "
-              f"V173/V178 fixed-probe convention gives "
+              f"ladder (agreement {abs(p_radius - p_block):.3f}). The fixed-probe convention gives "
               + ", ".join(f"{row['A_fixed_probe']:.4f} (b {row['b']})"
                           for row in blocks)
             + f", slope {p_fixed:.4f}: it measures the downfolded subspace, "

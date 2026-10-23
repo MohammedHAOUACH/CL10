@@ -67,7 +67,7 @@ def fig10_gauged_layer():
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig10_gauged_bond_layer.png")
 
-def fig15_w7_portal():
+def fig15_dm_portal():
     import json
     with open(exp("V88_mirror_scalar",
                            "results", "v88_mirror_scalar.json")) as f:
@@ -148,7 +148,7 @@ def fig15_w7_portal():
     fig.suptitle("The built dark-matter fix, audited against its own "
                  "symmetry", fontsize=13.5)
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.34)
-    save(fig, "fig15_w7_portal.png")
+    save(fig, "fig15_dm_portal.png")
 
 def fig14_loop_selection():
     import json
@@ -233,13 +233,13 @@ def fig14_loop_selection():
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.31)
     save(fig, "fig14_loop_selection.png")
 
-def fig16_w2_protection():
+def fig16_neutrino_protection():
     import json
-    with open(exp("V90_w2_protection",
-                           "results", "v90_w2_protection.json")) as f:
+    with open(exp("V90_neutrino_protection",
+                           "results", "v90_neutrino_protection.json")) as f:
         d90 = json.load(f)["data"]
-    with open(exp("V103_w2_democratic",
-                           "results", "v103_w2_democratic.json")) as f:
+    with open(exp("V103_democratic_point",
+                           "results", "v103_democratic_point.json")) as f:
         d103 = json.load(f)["data"]
     S17 = (float(_config.CFG.physics.m_planck_gev)
            * float(_config.CFG.physics.loop) ** 17 * 1e9)   # eV, the ladder S(17)
@@ -313,12 +313,12 @@ def fig16_w2_protection():
                  "artifact of the wrong Dirac assumption",
                  fontsize=13.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
-    save(fig, "fig16_w2_protection.png")
+    save(fig, "fig16_neutrino_protection.png")
 
-def fig24_w3_forcing():
+def fig24_family_forcing():
     import json
-    with open(exp("V91_w3_forcing",
-                           "results", "v91_w3_forcing.json")) as f:
+    with open(exp("V91_count3_forcing",
+                           "results", "v91_count3_forcing.json")) as f:
         d = json.load(f)["data"]
     mx = d["fixed_meeting_scale"]
     obs = float(_config.CFG.sm.m_unification_obs_gev)
@@ -388,12 +388,12 @@ def fig24_w3_forcing():
     fig.suptitle("Is the family count 3 forced? No - the symmetric "
                  "alternative is excluded", fontsize=13.5)
     fig.tight_layout(rect=[0, 0.13, 1, 0.93])
-    save(fig, "fig24_w3_forcing.png")
+    save(fig, "fig24_family_forcing.png")
 
-def fig23_w4_cone():
+def fig23_unification_cone():
     import json
-    with open(exp("V92_w4_feasibility",
-                           "results", "v92_w4_feasibility.json")) as fh:
+    with open(exp("V92_unification_feasibility",
+                           "results", "v92_unification_feasibility.json")) as fh:
         d92 = json.load(fh)["data"]
     G = np.array(d92["db_generators"])          # (6, 3) fragment classes
     Tp = np.array(d92["target_Tp"])             # data-preferred meeting
@@ -461,7 +461,7 @@ def fig23_w4_cone():
     ax.set_xlim(v2[:, 0].min() - 0.35, v2[:, 0].max() + 1.85)
     ax.set_ylim(v2[:, 1].min() - 1.45, v2[:, 1].max() + 0.30)
     fig.tight_layout()
-    save(fig, "fig23_w4_cone.png")
+    save(fig, "fig23_unification_cone.png")
 
 def fig11_vertex_ground_state():
     import json
@@ -544,9 +544,9 @@ def fig25_residual_attacks():
                          v.lower() + ".json")
         return json.load(open(p))["data"]
 
-    d109 = _load("V109_w5_cp_search")
-    d110 = _load("V110_w4_offdiagonal_bond")
-    d113 = _load("V113_w8_axis_factorization")
+    d109 = _load("V109_cp_phase_search")
+    d110 = _load("V110_offdiagonal_bond")
+    d113 = _load("V113_axis_factorization")
 
     fig, axs = plt.subplots(2, 3, figsize=(14.4, 8.8))
     (ax1, ax2, ax3), (ax4, ax5, ax6) = axs
@@ -805,8 +805,8 @@ def fig7_doubler_cones():
 def fig8_isotropy_search():
     """V115: no isotropy point on the whole V65 Wilson family."""
     import json
-    d = json.load(open(exp("V115_w9_cone_isotropy", "results",
-    "v115_w9_cone_isotropy.json")))["data"]
+    d = json.load(open(exp("V115_cone_isotropy", "results",
+    "v115_cone_isotropy.json")))["data"]
     pts = d["gapless_points"]
     A = np.array([p[0] for p in pts])
     th = np.array([p[2] for p in pts])
@@ -870,11 +870,11 @@ def fig8_isotropy_search():
 def fig9_tangent_algebra():
     """V118/V120: the massless corner node is three nodal planes, not a cone."""
     import json
-    with open(exp("V118_w9_little_group",
-                           "results", "v118_w9_little_group.json")) as f:
+    with open(exp("V118_little_group",
+                           "results", "v118_little_group.json")) as f:
         d118 = json.load(f)["data"]
-    with open(exp("V120_w9_entangling_bond",
-                           "results", "v120_w9_entangling_bond.json")) as f:
+    with open(exp("V120_entangling_bond",
+                           "results", "v120_entangling_bond.json")) as f:
         d120 = json.load(f)["data"]
     t = d118["T4"][0]
     vecs = np.array(t["branch_velocity_vectors"])

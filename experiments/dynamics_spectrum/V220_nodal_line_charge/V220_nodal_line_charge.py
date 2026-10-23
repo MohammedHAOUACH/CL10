@@ -31,7 +31,7 @@ loop.  That is what is measured here, on circles of three radii in two planes
 (one cut across the line, one tilted about it by 45 degrees), with the touching
 dimension m and the isolation gap both read from the spectrum rather than
 assumed.  The committed cubic module's GAMMA-M line, run through the identical
-instrument, is the control (V63, V118, V174).
+instrument, is the control (V63, V115, V118).
 
 T1 what the line is: the dimension of the touching cluster at the line, the
    failure of band-resolved tracking on it, the isolation of the cluster along

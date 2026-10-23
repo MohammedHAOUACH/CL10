@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 r"""V183 - the non-perturbative isotropy gate (alt-nonperturbative).
 
-Mirror of V174 (the interaction gate) on the non-perturbative census
-V180-V182. Pre-registered candidacy:
+The gate on the non-perturbative census V180-V182. Pre-registered candidacy:
   - a V180 row with A_np < 1e-6 (dressed cone isotropized) or
     |A_np - A_free| > 0.5 (the exact flux dressing moves the cone
     anisotropy by a macroscopic amount);
@@ -11,7 +10,7 @@ V180-V182. Pre-registered candidacy:
     excitation that could dress the IR).
 Candidates get the hard tier: the V181 S-matrix unitarity is exact by
 construction (recorded < 1e-12) and the front budget is the free one -
-the dressing does not touch the motion - verified with the V167
+the dressing does not touch the motion - verified with the free front-cone
 machinery (front_speed == 1.0, n_outside_lightcone == 0).
 ZERO candidates is a valid PASS.
 """
@@ -30,7 +29,7 @@ HERE = os.path.dirname(os.path.dirname(os.path.dirname(
 ROOT = HERE
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
-os.environ["CL10_ANGLE"] = "0.2"  # the W9 cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
+os.environ["CL10_ANGLE"] = "0.2"  # the cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
 
 from cl10 import altcell as A
 from cl10 import supercell as SC
@@ -112,10 +111,11 @@ def main():
                   f"minimum two-fermion gap {min_gap:.4f} eta. ZERO "
                   f"candidates: the exact bond-current dressing of the "
                   f"cone (all orders in eta, fixed adjoint link) does "
-                  f"not move the W9 anisotropy, and the gauged flux "
+                  f"not move the cone anisotropy, and the gauged flux "
                   f"sector has no light mode at any volume probed. The "
                   f"non-perturbative route of the gauged sector closes "
-                  f"without an isotropizing mechanism; W9 remains open.",
+                  f"without an isotropizing mechanism; the cone anisotropy "
+                  f"stays open (O9).",
         "data": {"n_rows": len(all_rows), "min_A_np": min_a,
                  "min_gap": min_gap,
                  "candidates": cands, "gates": gates},

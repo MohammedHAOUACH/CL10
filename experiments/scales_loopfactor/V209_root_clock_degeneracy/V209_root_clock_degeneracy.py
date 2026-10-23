@@ -370,15 +370,15 @@ def main():
         "name": f"T3 the open branch g = 1/5 IS a measurement: F_10 ="
                 f" {F10_30:.11f} at 30 digits and {F10_15:.11f} at 15 digits"
                 f" (precision drift {abs(F10_30 - F10_15):.1e}), matching V85's"
-                f" float64 {art('V113_w8_axis_factorization', 'data.F_10_measured'):.8f}"
-                f" to {abs(F10_30 - art('V113_w8_axis_factorization', 'data.F_10_measured')):.1e};"
+                f" float64 {art('V113_axis_factorization', 'data.F_10_measured'):.8f}"
+                f" to {abs(F10_30 - art('V113_axis_factorization', 'data.F_10_measured')):.1e};"
                 f" deficit {F10_30 / LOOP:.7f}, coefficient"
                 f" 3 x deficit^10 = {3 * (F10_30 / LOOP) ** 10:.4f}",
         "pass": bool(abs(F10_30 - F10_15) < 1e-12
-                     and abs(F10_30 - art("V113_w8_axis_factorization",
+                     and abs(F10_30 - art("V113_axis_factorization",
                                           "data.F_10_measured")) < 1e-7
                      and abs(3 * (F10_30 / LOOP) ** 10
-                             - art("V113_w8_axis_factorization",
+                             - art("V113_axis_factorization",
                                    "data.coef_one_per_family")) < 5e-4)})
     data["open_branch"] = {"F_10_15dp": F10_15, "F_10_30dp": F10_30,
                            "deficit": F10_30 / LOOP,

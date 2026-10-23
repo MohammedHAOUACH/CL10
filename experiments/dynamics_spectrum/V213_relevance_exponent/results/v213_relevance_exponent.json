@@ -1,10 +1,10 @@
 {
   "id": "V213_relevance_exponent",
   "tier": 4,
-  "property": "relevance exponent of the anisotropic tangent term at the exactly gapless node: the transverse-velocity anisotropy A(r) over the config radius ladder, and A(b) of the Lowdin-downfolded node subspace at b = 1, 2, 4 with both the window pi/(2b) and the probe b r_0 rescaled, against the fixed-probe convention of V173/V178, with the codimension of the gapless set measured at every resolution",
+  "property": "relevance exponent of the anisotropic tangent term at the exactly gapless node: the transverse-velocity anisotropy A(r) over the config radius ladder, and A(b) of the Lowdin-downfolded node subspace at b = 1, 2, 4 with both the window pi/(2b) and the probe b r_0 rescaled, against the fixed-probe convention, with the codimension of the gapless set measured at every resolution",
   "residual": true,
   "pass": true,
-  "status": "RELEVANCE EXPONENT at the closed clock g = 0.785398 at the node [1.5707963267948966, 1.5707963267948966, 0.0] (gap 1.2e-16). (T1) tangent dispersion over 179 directions: leading exponent alpha = 0.9998 (linear); the gapless set through the node holds its codimension at every resolution - 4 of 179 directions are exactly nodal (velocity <=1e-09) at every radius of the ladder, so the saturated anisotropy (v_max - v_min)/(v_max + v_min) is pinned at 1.0000 and carries no exponent, which is what V173's 0.998 was. Transverse anisotropy: 0.9993 at r = 1e-02, 0.9998 at r = 3e-03, 0.9999 at r = 1e-03, 1.0000 at r = 3e-04, 1.0000 at r = 1e-04, 1.0000 at r = 3e-05, 1.0000 at r = 1e-05; log-log slope p = -0.0001 over 7 radii. (T2) block ladder with window pi/(2b) and probe b r_0: A = 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000 - the same exponent from an independent ladder (agreement 0.000). The V173/V178 fixed-probe convention gives 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000: it measures the downfolded subspace, not the flow. (T3) the node's little group (order 4, 3 quadratic invariants) already allows an anisotropic invariant at degree 1 <= the leading order 1, predicting p = 0.000 against the measured -0.000. (T4) the b = 1 downfold reproduces the full matrix to 4.9e-14; window margins 5.2e-01, 2.6e-01, 3.9e-01; subspace sizes 64, 32, 32. VERDICT: the anisotropic term is MARGINAL at the measured node (p = -0.000, marginal band +/-1e-02) and the gapless set never loses its codimension, so no coarse-graining inside the implemented module removes the anisotropy: the module itself has to change.",
+  "status": "RELEVANCE EXPONENT at the closed clock g = 0.785398 at the node [1.5707963267948966, 1.5707963267948966, 0.0] (gap 1.2e-16). (T1) tangent dispersion over 179 directions: leading exponent alpha = 0.9998 (linear); the gapless set through the node holds its codimension at every resolution - 4 of 179 directions are exactly nodal (velocity <=1e-09) at every radius of the ladder, so the saturated anisotropy (v_max - v_min)/(v_max + v_min) is pinned at 1.0000 and carries no exponent, which is what the fixed-probe reading reports. Transverse anisotropy: 0.9993 at r = 1e-02, 0.9998 at r = 3e-03, 0.9999 at r = 1e-03, 1.0000 at r = 3e-04, 1.0000 at r = 1e-04, 1.0000 at r = 3e-05, 1.0000 at r = 1e-05; log-log slope p = -0.0001 over 7 radii. (T2) block ladder with window pi/(2b) and probe b r_0: A = 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000 - the same exponent from an independent ladder (agreement 0.000). The fixed-probe convention gives 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000: it measures the downfolded subspace, not the flow. (T3) the node's little group (order 4, 3 quadratic invariants) already allows an anisotropic invariant at degree 1 <= the leading order 1, predicting p = 0.000 against the measured -0.000. (T4) the b = 1 downfold reproduces the full matrix to 4.9e-14; window margins 5.2e-01, 2.6e-01, 3.9e-01; subspace sizes 64, 32, 32. VERDICT: the anisotropic term is MARGINAL at the measured node (p = -0.000, marginal band +/-1e-02) and the gapless set never loses its codimension, so no coarse-graining inside the implemented module removes the anisotropy: the module itself has to change.",
   "data": {
     "clock_branch": "closed",
     "g10": 0.7853981633974483,
@@ -209,7 +209,7 @@
         "detail": "radius ladder p = -0.0001 (7 points); block ladder with rescaled window and probe p = 0.0000 (3 points)"
       },
       {
-        "name": "T2 the V173 fixed-probe convention carries no scaling information",
+        "name": "T2 the fixed-probe convention carries no scaling information",
         "pass": true,
         "detail": "fixed-probe slope 0.0000 against rescaled-probe slope 0.0000: the earlier marginality verdict measured the subspace dimension, not the renormalisation"
       },
@@ -230,5 +230,5 @@
       }
     ]
   },
-  "wall_time": 267.812
+  "wall_time": 124.82
 }

@@ -1,0 +1,267 @@
+{
+ "experiment": "V127_triangle_energies",
+ "data": {
+  "orbit": {
+   "oh_size": 8,
+   "triangles": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     4,
+     5
+    ],
+    [
+     1,
+     3,
+     8
+    ],
+    [
+     2,
+     6,
+     7
+    ],
+    [
+     3,
+     4,
+     11
+    ],
+    [
+     5,
+     6,
+     10
+    ],
+    [
+     7,
+     8,
+     9
+    ],
+    [
+     9,
+     10,
+     11
+    ]
+   ],
+   "junction_group_order": 12,
+   "junction_orbit_size": 2,
+   "triangle_degrees": [
+    2,
+    2,
+    2
+   ],
+   "edges_total": 12,
+   "edges_leaving_triangle": 0
+  },
+  "spectra": {
+   "0.5": {
+    "n_spectral_classes": 2,
+    "class_sizes": [
+     2,
+     6
+    ],
+    "class_levels": [
+     [
+      0.225,
+      0.225,
+      0.45
+     ],
+     [
+      0.225,
+      0.3,
+      0.375
+     ]
+    ],
+    "zero_point_spread": 0.0,
+    "closed_triangles": 2
+   },
+   "1.0": {
+    "n_spectral_classes": 2,
+    "class_sizes": [
+     2,
+     6
+    ],
+    "class_levels": [
+     [
+      0.15,
+      0.15,
+      0.6
+     ],
+     [
+      0.15,
+      0.3,
+      0.45
+     ]
+    ],
+    "zero_point_spread": 0.0,
+    "closed_triangles": 2
+   },
+   "3.0": {
+    "n_spectral_classes": 2,
+    "class_sizes": [
+     2,
+     6
+    ],
+    "class_levels": [
+     [
+      0.15,
+      0.15,
+      1.2
+     ],
+     [
+      0.15,
+      0.3,
+      0.75
+     ]
+    ],
+    "zero_point_spread": 4.0,
+    "closed_triangles": 2
+   }
+  },
+  "trace_theorem": {
+   "max_trace_deviation": 6.661338147750939e-16,
+   "quadratic_interaction_max": {
+    "0.5": 0.0,
+    "1.0": 1.2360679774997898,
+    "3.0": 5.416407864998739
+   },
+   "first_zero_crossing_r": [
+    2.0
+   ]
+  },
+  "one_loop_interaction": {
+   "0.5": {
+    "0": {
+     "n_pairs": 16,
+     "min": -0.276609,
+     "max": 0.0,
+     "mean": -0.103729
+    },
+    "1": {
+     "n_pairs": 12,
+     "min": -0.008909,
+     "max": -0.0,
+     "mean": -0.004454
+    }
+   },
+   "1.0": {
+    "0": {
+     "n_pairs": 16,
+     "min": -1.750937,
+     "max": 0.0,
+     "mean": -0.656602
+    },
+    "1": {
+     "n_pairs": 12,
+     "min": -0.235566,
+     "max": 0.0,
+     "mean": -0.117783
+    }
+   },
+   "3.0": {
+    "0": {
+     "n_pairs": 16,
+     "min": -1.195674,
+     "max": 0.0,
+     "mean": -0.448378
+    },
+    "1": {
+     "n_pairs": 12,
+     "min": 0.0,
+     "max": 1.612952,
+     "mean": 0.806476
+    }
+   }
+  },
+  "selection_4096": {
+   "0.5": {
+    "min_value": -1.513114,
+    "n_massless_sets": 0,
+    "n_minimisers": 1,
+    "sizes": [
+     12
+    ],
+    "example": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "triangle_is_minimiser": false
+   },
+   "1.0": {
+    "min_value": -6.120542,
+    "n_massless_sets": 64,
+    "n_minimisers": 3,
+    "sizes": [
+     11
+    ],
+    "example": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     9,
+     10,
+     11
+    ],
+    "triangle_is_minimiser": false
+   },
+   "3.0": {
+    "min_value": -0.749387,
+    "n_massless_sets": 0,
+    "n_minimisers": 16,
+    "sizes": [
+     4,
+     5,
+     6
+    ],
+    "example": [
+     3,
+     4,
+     5,
+     8
+    ],
+    "triangle_is_minimiser": false
+   }
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the cubic orbit of the closing triangle has 8 members (V116); the support graph on it is K3 (degrees [2, 2, 2]) with 0 exiting edges out of 12; the junction profile's own symmetry group has order 12 (not 48) and its orbit of the triangle has 2 members",
+   "pass": true
+  },
+  {
+   "name": "T1 the 8 cubic images of the closing triangle are NOT junction-equivalent: 2 distinct node spectra [[0.15, 0.15, 0.6], [0.15, 0.3, 0.45]] (class sizes [2, 6]), only 2 of the 8 are closed K3 triangles; the quadratic zero-point energy is identical across the orbit while all modes are positive (spread 0.000 at r = 0.5 and 0.000 at r = 1) and splits by 4.000 at r = 3, beyond the zero crossing - the junction breaks the 8-fold choice spectrally first, energetically only past r = 2",
+   "pass": true
+  },
+  {
+   "name": "T2 trace theorem: sum of the eigenvalues of H_S equals 2 w0 |S| to 6.7e-16 for every image and every r. The inclusion-exclusion quadratic interaction between two triangle vacua is therefore exactly 0.0e+00 at r = 0.5 (all modes positive) and grows to 5.4e+00 at r = 3 once modes have crossed zero at r = [2.0] - V76's democratic point",
+   "pass": true
+  },
+  {
+   "name": "T3 one-loop interaction between triangle vacua at r = 1, by overlap |t cap t'| = ['0', '1']: {'0': (-1.750937, 0.0), '1': (-0.235566, 0.0)} - the junction support mediates an interaction, attractive (negative) at this coupling",
+   "pass": true
+  },
+  {
+   "name": "T4 over all 4096 split sets at r = 1: 64 sets drive a mode massless (the one-loop energy diverges there); among the finite ones the minimum is -6.120542 at [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11] (size [11], 3 minimisers), and a triangle of the cubic orbit-8 is NOT a minimiser",
+   "pass": true
+  }
+ ],
+ "status": "THE ENERGIES OF THE 8 TRIANGLE VACUA (O3). V116's 8-fold triangle degeneracy is NOT a degeneracy of the junction. The junction profile f = sum_pairs cos(pi (x_i - x_j)/2 is invariant under axis permutations and the global sign flip but not under a single axis flip (it sends a support vector e_a - e_b to e_g(a) + e_g(b), outside the support), so its symmetry group has order 12, not 48, and its orbit of the closing triangle has 2 members. Across the 8 cubic images the node Hamiltonian H_S = c_s(2 w0 I + kappa A_S) has 2 distinct spectra and only 2 of the 8 are closed K3 triangles; the quadratic zero-point energy is IDENTICAL across the orbit while all modes stay positive (spread 0.000 at r = 0.5 and 0.000 at r = 1) and splits by 4.000 only at r = 3, past the zero crossing: the junction breaks the 8-fold choice spectrally first, energetically only beyond r = 2. The trace theorem (sum of eigenvalues = 2 w0 |S| to 6.7e-16) makes the quadratic inclusion-exclusion interaction between two triangle vacua exactly 0.0e+00 while all modes are positive (r = 0.5), and it turns on only after modes cross zero at r = [2.0], V76's democratic point. The one-loop determinant gives a real interaction at r = 1: {'0': (-1.750937, 0.0), '1': (-0.235566, 0.0)} by overlap size. Over all 4096 split sets 64 drive a mode massless at r = 1, and the finite minimum sits at [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11] (size [11], 3 minimisers) - a triangle of the orbit-8 is NOT a minimiser. VERDICT: the 8-fold choice of V116 is lifted by the junction into 2 spectral classes, but the one-loop node energy does not pick a triangle: it prefers larger split sets."
+}

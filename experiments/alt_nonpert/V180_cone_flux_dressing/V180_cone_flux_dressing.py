@@ -4,8 +4,8 @@ r"""V180 - exact (all-orders-in-eta) flux dressing of the node multiplet
 (alt-nonpert, step 1: the non-perturbative side of the node)
 
 **The question.**  Every route tried so far dresses the node mode
-PERTURBATIVELY: one loop (V172/V177), tree-level block RG (V173/V178),
-vertex form factors (V171/V176).  The gauged bond-current coupling
+PERTURBATIVELY: one loop (V177), tree-level block RG (V178), vertex form
+factors (V176).  The gauged bond-current coupling
 (V79/V101) is ``eta * sum_A J^A L^A`` per bond with eta = g_10 = 1/5 NOT
 small compared with the flux scale, so the right question is the EXACT
 one: diagonalize the flux response to the node multiplet's current to
@@ -14,19 +14,19 @@ link space is the full adjoint C^45 (V79; V140 fixed-link sector), and
 on it ``sum_A L^A L^A = C2(45) I = 64 I`` EXACTLY (V129) - the flux
 "kinetic" term is a constant and drops from every anisotropy statement.
 
-**ROOT-CLOCK REDESIGN (current theory).**  The 1/5-era version dressed
-a SINGLE cone mode u_k.  At the root clock that construction is
-ill-defined and its "pure rest shift" structural facts are false: the
+**The multiplet, not an eigenvector.**  Dressing one eigenvector of the
+family is ill-defined at the root clock, and the single-mode construction
+carries "pure rest shift" structural facts that are false there: the
 one-step spectrum through the M family is an EXACTLY 16-fold dispersion
 multiplet at generic momentum (32 - particle plus hole - at the node
 itself), so any single eigenvector of the family is pure gauge and the
 per-bond currents, the -4*eta stage sums, and the dressed slopes built
-from them are eigenvector-gauge noise (recorded by this file's git
-history).  The gauge-SAFE source is the multiplet-AVERAGED current:
+from them are eigenvector-gauge noise.  The gauge-SAFE source is the
+multiplet-AVERAGED current:
 ``Jbar_b^A(q) = sum_s Tr(rho_b^s T^A_16)`` with ``rho^s`` the block-s
 diagonal of the projector onto the signed minimal-|phase| multiplet
 (eigh of the unitary, 1e-9 window around the lowest phase).  This
-experiment now measures:
+experiment measures:
   (1) the semi-Dirac structure of the node itself: gap ~ c k along the
       in-plane directions (exponent 1) and ~ g k^2 along the flat axis
       (exponent 2) - the V63/V118 "one flat tangent axis" made
@@ -271,7 +271,7 @@ def main():
     print(f"  anchor eta -> 0: A_dressed = {a_eta0:.6f} vs A_free = "
           f"{a_free1:.6f} (dev {err_eta0:.2e})")
     err_v115 = abs(a_free1 - 0.998)  # the bare reference-branch cone of the
-    # current theory (V115 T3 "up to 0.998", V102 flow, V172 anchor 0.998)
+    # current theory (V115 T3 "up to 0.998", V102 flow)
     print(f"  cross-check A_free vs V115/V102 0.998 (reference clock): dev "
           f"{err_v115:.2e}")
 

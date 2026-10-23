@@ -1,0 +1,73 @@
+{
+  "experiment": "V92_unification_feasibility",
+  "pass": true,
+  "status": "NODE-16 CONTENT CAN REACH THE DATA-PREFERRED MEETING: the target is inside the fragment-threshold convex hull (witness barycentric {0: 0.3415, 1: 0.3058, 2: 0.3061, 4: 0.0465}). The required thresholds are computed; junction realizability is the remaining test (best order agreement over 720 Wilson angles: 0.5).",
+  "data": {
+    "fragment_classes": 6,
+    "db_generators": [
+      [
+        1.0667,
+        0.0,
+        0.6667
+      ],
+      [
+        0.1333,
+        2.0,
+        1.3333
+      ],
+      [
+        0.2667,
+        0.0,
+        0.6667
+      ],
+      [
+        0.4,
+        0.6667,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.8,
+        0.0,
+        0.0
+      ]
+    ],
+    "x_star": 32.9162,
+    "target_T": [
+      12.6926,
+      21.1753,
+      20.146
+    ],
+    "target_Tp": [
+      0.3856,
+      0.64331,
+      0.61204
+    ],
+    "best_residual_norm": 4.3356e-16,
+    "best_residual_components": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "hull_feasible": true,
+    "witness_barycentric": {
+      "0": 0.3415,
+      "1": 0.3058,
+      "2": 0.3061,
+      "4": 0.0465
+    },
+    "separating_form_w": [
+      0.81116,
+      0.48671,
+      -0.32424
+    ],
+    "separating_margin_Tp": -0.22181,
+    "separating_form_T": 14.0697,
+    "max_form_over_fragments": 21.3709,
+    "junction_order_best_dev": 0.5
+  }
+}

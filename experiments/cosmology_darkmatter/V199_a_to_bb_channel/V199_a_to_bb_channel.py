@@ -49,12 +49,12 @@ from cl10.paths import exp                                     # noqa: E402
 
 from cl10 import cell, config, u10pred                         # noqa: E402
 
-V147 = json.load(open(exp("V147_w7_relic_from_bond",
-                          "results", "v147_w7_relic_from_bond.json")))
-V125 = json.load(open(exp("V125_w5_cp_flux_washout",
-                          "results", "v125_w5_cp_flux_washout.json")))
-V195 = json.load(open(exp("V195_w7_cell_redefinition",
-                          "results", "v195_w7_cell_redefinition.json")))
+V147 = json.load(open(exp("V147_relic_from_bond",
+                          "results", "v147_relic_from_bond.json")))
+V125 = json.load(open(exp("V125_cp_flux_washout",
+                          "results", "v125_cp_flux_washout.json")))
+V195 = json.load(open(exp("V195_cell_redefinition",
+                          "results", "v195_cell_redefinition.json")))
 
 
 def main():

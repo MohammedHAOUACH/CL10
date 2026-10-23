@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (162 of them under `experiments/<category>/`: the 146 of the publication programme, and the 16 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (158 of them under `experiments/<category>/`: the 146 of the publication programme, and the 12 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,9 +138,9 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **162** experiments in name order,
+`run_validation.py` runs all **158** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
-per-experiment verdicts, the **reduced walls**, the **named residuals**, and
+per-experiment verdicts, the **reduced residuals**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
 the verdict JSONs already on disk: a partial rerun never forces the whole
 suite to be re-executed just to rewrite the summary.  The driver exports the
@@ -151,13 +151,15 @@ inverse/rigidity searches do this, so their verdicts do not depend on what
 else is using the card.  The runner labels the hard-tier verdict `U10`; the
 paper does not use that label:
 
-$$\mathrm{hard} = \bigwedge_{V \in \{0..7,\,11\}} \mathrm{PASS}(V)
-\quad\text{(the hard tiers 0–3.)}$$
+$$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V)$$
 
-**The result (146/146 publication, 162 PASS of 162).**  Every
+and the runner prints that denominator next to the verdict, because an
+experiment that writes no tier is not folded into it.
+
+**The result (146/146 publication, 158 PASS of 158).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
-positive. The 16 exploration experiments all pass, each recording its own
-verdict; the cone programmes (V171–V183, V191–V201) run on the host numpy
+positive. The 12 exploration experiments all pass, each recording its own
+verdict; the cone programmes (V175–V183, V191–V201) run on the host numpy
 core, so their verdicts do not depend on what else holds the GPU.
 Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),

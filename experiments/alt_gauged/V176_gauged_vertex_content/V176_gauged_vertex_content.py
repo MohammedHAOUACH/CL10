@@ -3,8 +3,8 @@
 r"""V176 - the O_h content of the gauged vertex on the cone (alt-gauged,
 step 2: the discriminating measurement)
 
-**The question.**  V171 proved the minimal contact collision vertex is an
-O_h SCALAR (w_A1g = 1.0000): it cannot rotate the W9 cone.  The gauged
+**The question.**  A contact collision whose vertex is an O_h SCALAR cannot
+rotate the cone: it can only shift the mode energies.  The gauged
 bond-current interaction (V79/V101, S-matrix built in V175) has a
 DIFFERENT vertex: the Spin(10) current ``Gamma^A = I_8 (x) T^A_16`` on the
 128-D Bloch space (T^A_16 the Weyl generators of ``altcell.weyl_generators``
@@ -16,8 +16,9 @@ structure.  Measure the node-mode current form factor
 ``F(kappa n) = sum_A |<u(q*)| Gamma^A |u(q* + kappa n)>|^2``
 
 along the 26 O_h directions for |kappa| in {0.05, 0.1, 0.2, 0.4}, its
-cubic-harmonic weights, and the low-kappa exponents.  This is the
-discriminating comparison against V171's scalar contact.
+cubic-harmonic weights, and the low-kappa exponents.  The block-contact
+vertex (the identity form factor on the same node modes) is measured in the
+same run, as the scalar baseline the gauged vertex is compared against.
 
 **The result.**  Recorded: the weights (w_Eg + w_T2g nonzero or exactly
 zero - a structural fact either way) and the exponents.  Anchors: the
@@ -40,7 +41,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
-os.environ["CL10_ANGLE"] = "0.2"  # the W9 cone and its vertex anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
+os.environ["CL10_ANGLE"] = "0.2"  # the cone and its vertex anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
 
 import numpy as np
 
@@ -68,7 +69,7 @@ def _fit(ks, vals):
 def main():
     t0 = time.time()
     print("=" * 68)
-    print("V176 - the gauged current vertex on the W9 cone")
+    print("V176 - the gauged current vertex on the cone")
     print("=" * 68)
     B, T16, f = A.weyl_generators()
     Gammas = [np.kron(np.eye(8), T) for T in T16]
@@ -123,10 +124,35 @@ def main():
         print(f"  |k| = {kap:4.2f}: F_mean = {F.mean():.6f}  A1g = "
               f"{w['A1g']:.6f}  Eg = {w['Eg']:.6f}  T2g = {w['T2g']:.6f}  "
               f"aniso = {aniso:.3e}")
+
+    # The block-contact vertex on the same node modes: the identity form
+    # factor, measured in this run as the scalar baseline the gauged vertex
+    # is scored against, so the comparison quotes no number from outside.
+    def Fc_at(q):
+        uq = A.node_modes(bf, q, n=1)[0][:, 0]
+        return float(abs(u0.conj() @ uq) ** 2)
+    c_aniso, c_rows = [], []
+    for kap in KS:
+        Fc = np.array([Fc_at(tuple(a + kap * b
+                                  for a, b in zip(QSTAR, d))) for d in D26])
+        wc = A.cubic_harmonic_weights(Fc, D26)
+        an_c = float(np.abs(Fc - Fc.mean()).max())
+        c_aniso.append(an_c)
+        c_rows.append({"kappa": kap, "F_mean": float(Fc.mean()),
+                       "w_A1g": wc["A1g"], "w_Eg": wc["Eg"],
+                       "w_T2g": wc["T2g"], "aniso_max": an_c})
+    for r, cr in zip(rows, c_rows):
+        r["w_contact_A1g"] = cr["w_A1g"]
+        r["contact_aniso"] = cr["aniso_max"]
+    a_contact = _fit(kappas_used, c_aniso)
+    print(f"  contact baseline: A1g = {c_rows[-1]['w_A1g']:.6f} "
+          f"Eg = {c_rows[-1]['w_Eg']:.2e} T2g = {c_rows[-1]['w_T2g']:.2e} "
+          f"alpha_aniso = {a_contact}")
     a_an = _fit(kappas_used, aniso_vals)
     a_iso = _fit(kappas_used, iso_vals)
     w_last = rows[-1]
     spin2 = w_last["w_Eg"] + w_last["w_T2g"]
+    contact_spin2 = c_rows[-1]["w_Eg"] + c_rows[-1]["w_T2g"]
     print(f"  exponents: alpha_aniso = {a_an}, alpha_iso = {a_iso}")
     print(f"  discriminating: w_Eg + w_T2g at |k| = 0.4: {spin2:.4f}")
 
@@ -138,7 +164,7 @@ def main():
         "tier": 4,
         "property": "O_h (cubic-harmonic) content of the gauged "
                     "bond-current vertex Gamma^A = I_8 (x) T^A_16 on the "
-                    "W9 node cone: form factor sum_A |<u(q*)|Gamma^A|"
+                    "doubler node cone: form factor sum_A |<u(q*)|Gamma^A|"
                     "u(q*+k n)>|^2 over 26 directions, 4 |k| values",
         "residual": None,
         "pass": bool(ok),
@@ -148,15 +174,22 @@ def main():
                   f"decomposes as A1g = {w_last['w_A1g']:.4f}, Eg = "
                   f"{w_last['w_Eg']:.4f}, T2g = {w_last['w_T2g']:.4f} at "
                   f"|k| = 0.4: the gauged vertex is "
-                  f"{'NOT a scalar - it carries the spin-2 (Eg+T2g) pieces the contact vertex lacked' if spin2 > 1e-6 else 'EXACTLY an O_h scalar on the cone (structural no-go: the cone mode is invisible to the spin-2 pieces)'}. "
+                  f"{'NOT a scalar on the cone: it carries spin-2 (Eg+T2g) pieces' if spin2 > 1e-6 else 'an O_h scalar on the cone (the cone mode is invisible to the spin-2 pieces)'}. "
                   f"Anisotropic part scales as k^{a_an:.2f}, the A1g shift "
-                  f"as k^{a_iso:.2f} (V171 contact: alpha_aniso = 2, "
-                  f"A1g = 1.0000). Casimir anchor 45 I_128 err "
-                  f"{err_cas:.1e}; 2-route (16-D vs 32-D module) dev "
-                  f"{max(devs):.1e}.",
-        "data": {"rows": rows, "F0": F0, "alpha_aniso": a_an,
-                 "alpha_iso": a_iso, "casimir_err": err_cas,
-                 "route_dev": max(devs), "spin2_weight_k04": spin2},
+                  f"as k^{a_iso:.2f}. Baseline measured in the same run on "
+                  f"the same node modes with the identity (block-contact) "
+                  f"vertex: A1g = {w_last['w_contact_A1g']:.4f}, Eg + T2g = "
+                  f"{contact_spin2:.2e}, anisotropic part "
+                  f"{'not resolved' if a_contact is None else 'k^' + format(a_contact, '.2f')}"
+                  f" - the gauged vertex carries spin-2 weight "
+                  f"{spin2 - contact_spin2:+.4f} beyond that baseline. "
+                  f"Casimir anchor 45 I_128 err {err_cas:.1e}; 2-route "
+                  f"(16-D vs 32-D module) dev {max(devs):.1e}.",
+        "data": {"rows": rows, "contact_rows": c_rows, "F0": F0,
+                 "alpha_aniso": a_an, "alpha_iso": a_iso,
+                 "alpha_contact": a_contact, "casimir_err": err_cas,
+                 "route_dev": max(devs), "spin2_weight_k04": spin2,
+                 "contact_spin2_k04": contact_spin2},
         "wall_time": round(time.time() - t0, 3),
     }
     outdir = os.path.join(HERE, "results")

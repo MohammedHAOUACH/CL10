@@ -1,26 +1,24 @@
 # Alt-gauged exploration: the two-fermion S-matrix of the gauged bond layer
 
-Exploration programme `alt_gauged` (merged into `master`), following
-`alt_interactions`
-([alt_interactions_exploration.md](alt_interactions_exploration.md)),
-`alt-dynamics-exploration` ([alt_dynamics_exploration.md](alt_dynamics_exploration.md))
-and `alt-cell-exploration` ([alt_cell_exploration.md](alt_cell_exploration.md)).
 Experiments V175-V179, category `experiments/alt_gauged/`, tier 4,
 0 new continuous parameters (the gauged coupling is eta = g_10 = 1/5,
-the root angle - the only strength the construction admits).
+the root angle - the only strength the construction admits). The programme
+sits on the gauged bond layer (V79-V101, V129, V140, V141) and on the cone
+censuses of the committed step (V115, V118, V120/V121, V185-V187).
 
 ## The question
 
-Four exhaustive censuses have failed to isotropize the 12 M-node cones
-of the master automaton (A = 0.998; V118: one tangent axis exactly
-flat): signature (V149-V152), cell (V153-V157), motion (V161-V167), and
-the minimal admissible collision (V171-V174: the block-contact vertex is
-an O_h scalar, its one-loop self-energy is marginal and not
-grid-convergent, A(b) = 0.9980 exactly under coarse-graining, zero
-candidates). The alt-interactions report names the only surviving route:
-the interacting **gauged sector** (V79-V101, Spin(10) adjoint quantum
-links), whose two-fermion S-matrix is not built in the repo. This branch
-builds it and measures what it can do to the cone.
+Every search over the committed step has failed to isotropize the 12 M-node
+cones of the master automaton (A = 0.998; V118: one tangent axis exactly
+flat): the 2726-point cone-isotropy scan (V115), the frame-average control
+(V142), the 880-point entangling-bond space and its rigidity frontier
+(V120/V121, V185-V187), and the minimal admissible collision - the
+block-contact vertex is an O_h scalar (A1g = 1.0000, measured as the
+baseline of V176), its one-loop self-energy is marginal and not
+grid-convergent, and A(b) = 0.9980 exactly under coarse-graining (V178's
+bare rows). The only route left is the interacting **gauged sector**
+(V79-V101, Spin(10) adjoint quantum links), whose two-fermion S-matrix was
+not built. This programme builds it and measures what it can do to the cone.
 
 ## What the gauged sector already was (ground facts, cited)
 
@@ -78,7 +76,8 @@ directions:
 | 0.20 | 0.6618 | 0.0294 | 0.0588 | 3.261 |
 | 0.40 | 0.1667 | 0.3333 | 0.5000 | 0.381 |
 
-Contrast with V171: the contact vertex is A1g = 1.0000 (scalar) with
+Contrast with the contact baseline of the same run: the identity (block-
+contact) vertex is A1g = 1.0000 (scalar) with
 anisotropic weight ~ k^2.00 (irrelevant). The gauged vertex carries the
 spin-2 pieces (Eg + T2g = 5/6 at |kappa| = 0.4 - exactly the adjoint
 flux's sym^2 content A1g + Eg + T2g measured in V140), and its
@@ -90,9 +89,10 @@ module) dev 8.9e-16.
 
 ## V177 - one-loop flow with the gauged vertex
 
-The V172 protocol (static Fock self-energy, normal-ordered tadpole,
-all 12 M-node singularities excluded and ray-subtracted) with
-`current_vertex=True`, U_c = g_10, grids 16 and 24:
+The static Fock protocol (self-energy, normal-ordered tadpole, all 12 M-node
+singularities excluded and ray-subtracted) with `current_vertex=True`,
+U_c = g_10, grids 16 and 24 — and, in the same run, with the contact vertex
+as the baseline:
 
 | grid | A_dressed(1e-2) | A_dressed(1e-3) | A_dressed(1e-4) | alpha_aniso(Sigma) |
 |---|---|---|---|---|
@@ -101,8 +101,8 @@ all 12 M-node singularities excluded and ray-subtracted) with
 
 The gauged self-energy is NOT zero on the cone (max |Sigma - tadpole| =
 0.204 - the vertex reaches the cone, discriminating check), and its
-anisotropic part scales as |k|^1.00: exactly the MARGINAL power of the
-contact self-energy (V172), even though the VERTEX itself is marginal
+anisotropic part scales as |k|^1.00: the same MARGINAL power the contact
+baseline of the same run measures, even though the VERTEX itself is marginal
 (alpha = 0, V176) - the 1/omega propagator, not the vertex, sets the
 power. The dressed anisotropy is NOT grid-convergent (drift 1.2e-2 on
 A_dressed(1e-3)): the flat tangent axis (V118) makes the static
@@ -112,7 +112,7 @@ propagator non-integrable, as for the contact. The grid-24 drift toward
 
 ## V178 - block RG with the gauged insertion
 
-Same protocol as V173 (energy-window downfold of H(q) = i log U(q) onto
+The loop-free protocol (energy-window downfold of H(q) = i log U(q) onto
 the node subspace, cuts pi/2, pi/4, pi/8 = b = 1, 2, 4, dq = 1e-3), with
 the gauged self-energy (grid 16, normal-ordered) in the cone mode:
 
@@ -139,17 +139,17 @@ S unitarity 2.2e-13 + free front speed exactly 1) stands ready.
 
 ## Verdict
 
-The two-fermion S-matrix of the gauged layer NOW EXISTS: exact, 24x24,
+The two-fermion S-matrix of the gauged layer is exact: 24x24,
 unitary to 1e-13, on the minimal physical system (V175). Its
-momentum-space vertex is not the scalar the contact census used: it
+momentum-space vertex is not a scalar: it
 carries the Eg + T2g (spin-2) pieces that can rotate the cone, and it is
 marginal (alpha = 0) rather than irrelevant (alpha = 2) on the cone
-(V176). Yet at one loop and under block RG it does not move the W9
+(V176). Yet at one loop and under block RG it does not move the cone
 anisotropy: A(b) = 0.997985 exactly with the insertion (V177/V178), and
 the gate finds zero candidates (V179). This is consistent with what the
 gauged sector is known to be: the flux sector is MASSIVE (gap 64 eta =
 C2(45), V129) and CONFINING (V130), so it decouples from the IR cone as
 a light mode - the interacting fixed point, if it exists, is not
-reachable at one loop or at tree-level coarse-graining. The W9 isotropy
+reachable at one loop or at tree-level coarse-graining. The cone anisotropy
 question remains open, now with the S-matrix built and the last
 perturbative route measured.

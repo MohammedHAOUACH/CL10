@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 r"""V178 - block RG with the gauged vertex insertion (alt-gauged, step 4)
 
-**The question.**  V173: with the contact self-energy the cone anisotropy
-A(b) stays at 0.9980 for b = 1, 2, 4 - marginal under coarse-graining.
-V176 showed the gauged bond-current vertex carries the Eg + T2g (spin-2)
-pieces the contact lacked.  Does the GAUGED self-energy (V177 vertex,
-U_c = g_10, grid 16, normal-ordered) change the block-RG flow?  Same
-loop-free protocol as V173: downfold H(q) = i log U(q) onto the node
-subspace at cuts pi/2, pi/4, pi/8 (b = 1, 2, 4), recompute A(b) at
-dq = 1e-3, bare and with the gauged Sigma in the cone mode.
+**The question.**  With a contact self-energy the cone anisotropy A(b) sits
+at its bare value for b = 1, 2, 4 - marginal under coarse-graining (the
+bare rows of this very script measure it).  V176 showed the gauged
+bond-current vertex carries Eg + T2g (spin-2) pieces a scalar vertex cannot.
+Does the GAUGED self-energy (V177 vertex, U_c = g_10, grid 16,
+normal-ordered) change the block-RG flow?  The loop-free protocol: downfold
+H(q) = i log U(q) onto the node subspace at cuts pi/2, pi/4, pi/8 (b = 1, 2,
+4), recompute A(b) at dq = 1e-3, bare and with the gauged Sigma in the cone
+mode.
 
 **The result.**  Recorded: A(b) bare and gauged-dressed; the b = 1 bare
 row must reproduce A = 0.998 (anchor).
@@ -29,7 +30,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the alt programmes are numpy-native: pin the core
-os.environ["CL10_ANGLE"] = "0.2"  # the W9 cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
+os.environ["CL10_ANGLE"] = "0.2"  # the cone and its anisotropy anchors are 1/5-branch (V115/V123) numbers: pin the clock, the closed default_branch angle must not leak in
 
 import numpy as np
 

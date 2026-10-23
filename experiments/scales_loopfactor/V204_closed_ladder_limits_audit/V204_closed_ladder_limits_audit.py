@@ -65,7 +65,7 @@ def art(name, key):
 
 F208_REF = art("V203_closed_branch_coefficient", "data.closed.F_even_2_260.208")
 RHO_REF = art("V131_algebraic_closure", "data.loop_machinery_pi_4.even_decay_per_step")
-F10_REF = art("V113_w8_axis_factorization", "data.F_10_measured")
+F10_REF = art("V113_axis_factorization", "data.F_10_measured")
 M_A_REF = art("V196_cell_definition", "data.m_A_GeV")
 M_B_REF = art("V196_cell_definition", "data.m_B_GeV")
 M_NU_REF = art("V196_cell_definition", "data.m_nu_identity_eV")

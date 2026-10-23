@@ -63,12 +63,12 @@ sys.path.insert(0, ROOT)
 from cl10.paths import exp                                        # noqa: E402
 sys.path.insert(0, exp("V79_gauged_bond_layer"))
 sys.path.insert(0, exp("V85_closed_loop_factor"))
-sys.path.insert(0, exp("V126_w8_loop_enumeration"))
+sys.path.insert(0, exp("V126_loop_enumeration"))
 
 from V79_gauged_bond_layer import (adjoint_link_operators,       # noqa: E402
                                    root_generators, structure_constants)
 from V85_closed_loop_factor import projectors                    # noqa: E402
-from V126_w8_loop_enumeration import (cartan_vector, sectors,    # noqa: E402
+from V126_loop_enumeration import (cartan_vector, sectors,    # noqa: E402
                                       word_census)
 from cl10 import clifford as CL                                  # noqa: E402
 from cl10 import config                                          # noqa: E402

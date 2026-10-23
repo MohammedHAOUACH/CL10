@@ -4,7 +4,7 @@
   "property": "P6",
   "residual": true,
   "pass": true,
-  "status": "the_w2_twostep_seesaw_on_the_10loop_ladder_0param",
+  "status": "the_O2_two_step_seesaw_on_the_10_loop_ladder_0param",
   "tol": 1e-09,
   "data": {
     "backend": "cupy",
@@ -30,5 +30,5 @@
       "right_order": true
     }
   },
-  "wall_time": 0.066
+  "wall_time": 0.012
 }

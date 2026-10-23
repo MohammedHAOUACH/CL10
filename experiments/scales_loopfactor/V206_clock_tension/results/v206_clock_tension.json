@@ -9,72 +9,72 @@
   "closure_class": {
    "pi/2": {
     "n_star": 102,
-    "deficit": 0.973756015764892,
-    "coef": 2.2994437592056225,
-    "miss_pct": 10.733097371397871
+    "deficit": 0.9737584624805451,
+    "coef": 2.299501537011996,
+    "miss_pct": 10.73587974667165
    },
    "pi/4": {
     "n_star": 208,
-    "deficit": 0.9895268728629105,
-    "coef": 2.7002077805447326,
-    "miss_pct": 30.032478458773394
+    "deficit": 0.9895852947034801,
+    "coef": 2.70180241158332,
+    "miss_pct": 30.109270262600063
    },
    "3pi/4": {
     "n_star": 208,
-    "deficit": 0.9898267775590208,
-    "coef": 2.7084027105235036,
-    "miss_pct": 30.42711736901338
+    "deficit": 0.9896966419687239,
+    "coef": 2.704843995591902,
+    "miss_pct": 30.255742215583137
    }
   },
   "data_clock": {
    "g_obs": 0.19999798835751165,
    "g_obs_minus_fifth": -2.0116424883642736e-06,
-   "g_cross_rung10": 0.20013316730041675,
-   "coef_at_fifth": 2.088106865906787
+   "g_cross_rung10": 0.2001331673004168,
+   "coef_at_fifth": 2.088106865906645
   },
   "dead_zone": {
    "pi/3": {
     "n_star": 3,
-    "deficit": 0.038346453671634355
+    "deficit": 0.03834645367163443
    },
    "pi/5": {
     "n_star": 3,
-    "deficit": 0.009129251581952734
+    "deficit": 0.009129251582343555
    },
    "pi/6": {
     "n_star": 3,
-    "deficit": 0.003547816549017421
+    "deficit": 0.003547816549018272
    },
    "1/2": {
     "n_star": 3,
-    "deficit": 0.0014399672301228746
+    "deficit": 0.001439967230125253
    },
    "1/3": {
     "n_star": 3,
-    "deficit": 0.516564700570372
+    "deficit": 0.5165647005703793
    }
   },
   "odd_selection": {
-   "pi/2": 1.2480958065439805e+17,
-   "pi/4": 1.7564497199943114e-15,
-   "3pi/4": 1.789655239922638e-15,
+   "pi/2": 1.2480989425816478e+17,
+   "pi/4": 1.784405096549846e-15,
+   "3pi/4": 1.863033754508161e-15,
    "1/5": 0.24298720160182485
   },
   "variants": {
    "pi/4:cartan5": {
     "n_star": 208,
-    "deficit": 0.9906242993880203,
-    "coef": 2.7303041058490876
+    "deficit": 0.9914550427057602,
+    "coef": 2.753287193987246
    },
    "pi/4:roots40": {
     "n_star": 4,
-    "deficit": 2.242750738658084e-05,
-    "coef": 9.658981595741133e-47
+    "deficit": 2.2421867372021972e-05,
+    "coef": 9.634718895210517e-47
    },
    "1/5:cartan5": {
     "n_star": 10,
-    "deficit": 0.9644132015481971,
-    "coef": 2.088106865906513
+    "deficit": 0.9644132015482061,
+    "coef": 2.0881068659067075
    },
    "1/5:roots40": {
     "n_star": 2,
@@ -82,11 +82,11 @@
     "coef": 6.790055212946252e-12
    }
   },
-  "sector_best_over_obs": 0.022581067606720073
+  "sector_best_over_obs": 0.02245916413806093
  },
  "checks": [
   {
-   "name": "T1 closure-class readings of the hierarchy coefficient (self-consistent, step = phase, float64): pi/4 crosses at n* = 208 deficit 0.989527 coef 2.7002 (+30.03%); 3pi/4 coef 2.7084 (+30.43%); pi/2 (the V134 degenerate branch: no mass generation) crosses at n* = 102 deficit 0.973756 coef 2.2994 (+10.73%) - a floor-conditioned number: n* = 102 is a 4k+2 length and the ladder there falls through 1/(16 pi) with a slope of ~3% of the coefficient per rung, so one rung of floor noise moves the reading by decades (V209: at the closure class every even-n ratio is 0/0 in exact arithmetic, and the 4k+2 class has no limit). On the two members whose crossing is on the n = 4k class the miss is +30.03%: the closure axiom cannot reproduce the coefficient",
+   "name": "T1 closure-class readings of the hierarchy coefficient (self-consistent, step = phase, float64): pi/4 crosses at n* = 208 deficit 0.989585 coef 2.7018 (+30.11%); 3pi/4 coef 2.7048 (+30.26%); pi/2 (the V134 degenerate branch: no mass generation) crosses at n* = 102 deficit 0.973758 coef 2.2995 (+10.74%) - a floor-conditioned number: n* = 102 is a 4k+2 length and the ladder there falls through 1/(16 pi) with a slope of ~3% of the coefficient per rung, so one rung of floor noise moves the reading by decades (V209: at the closure class every even-n ratio is 0/0 in exact arithmetic, and the 4k+2 class has no limit). On the two members whose crossing is on the n = 4k class the miss is +30.11%: the closure axiom cannot reproduce the coefficient",
    "pass": true
   },
   {
@@ -94,14 +94,14 @@
    "pass": true
   },
   {
-   "name": "T3 the dead zone: at pi/3, pi/5, pi/6, 1/2, 1/3 the first crossing is n = [3] (the loop ladder collapses at length 3). The exact odd-length cancellation holds ONLY on the order-8 closed clock family: max(|F_3|,|F_5|) = pi/2:1.2e+17, pi/4:1.8e-15, 3pi/4:1.8e-15, 1/5:2.4e-01 - it holds at pi/4 and 3pi/4, blows up at pi/2 (the order-4 branch has no exact ladder at all) and is tiny but nonzero at 1/5. The exact ladder exists only on the order-8 closed clock, yet the data reads a non-closed clock",
+   "name": "T3 the dead zone: at pi/3, pi/5, pi/6, 1/2, 1/3 the first crossing is n = [3] (the loop ladder collapses at length 3). The exact odd-length cancellation holds ONLY on the order-8 closed clock family: max(|F_3|,|F_5|) = pi/2:1.2e+17, pi/4:1.8e-15, 3pi/4:1.9e-15, 1/5:2.4e-01 - it holds at pi/4 and 3pi/4, blows up at pi/2 (the order-4 branch has no exact ladder at all) and is tiny but nonzero at 1/5. The exact ladder exists only on the order-8 closed clock, yet the data reads a non-closed clock",
    "pass": true
   },
   {
-   "name": "T4 no principled object bridges it: Cartan-5 link at pi/4 deepens the miss (deficit 0.990624 vs baseline 0.989585); roots-only links collapse the ladder (n* = 4); the best single Casimir sector at pi/4 reaches only 0.023 of the observed coefficient",
+   "name": "T4 no principled object bridges it: Cartan-5 link at pi/4 deepens the miss (deficit 0.991455 vs baseline 0.989585); roots-only links collapse the ladder (n* = 4); the best single Casimir sector at pi/4 reaches only 0.022 of the observed coefficient",
    "pass": true
   }
  ],
- "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7002 (pi/4) and 2.7084 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.0% and +30.4% over the observed 2.0766. The pi/2 reading 2.2994 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.0% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
+ "status": "CLOCK TENSION, MEASURED (O8/O4, zero free parameters). (i) The closure class (pi/2, pi/4, 3pi/4) reads the hierarchy coefficient as 2.7018 (pi/4) and 2.7048 (3pi/4) - both crossings on the n = 4k class, and certified by continuity at 50 digits to 2.7096 / 2.7113 (V209 T5) - i.e. +30.1% and +30.3% over the observed 2.0766. The pi/2 reading 2.2995 (+10.7%) is floor-conditioned: n* = 102 is a 4k+2 length, whose ratio has no limit at the closure angle (V209), and the ladder there falls through 1/(16 pi) at ~3% of the coefficient per rung - it is not a stable closure-class number. The closest STABLE reading misses by 30.1% - the closure axiom cannot produce the coefficient. (ii) The observed value is read by the SAME functional at rung 10 at g_obs = 0.1999980, the rung-10 rational clock 1/5 to relative 1e-05, and the rung-10 crossing sits at g_cross = 0.200133 - 1.3e-04 from 1/5: nature's clock IS the rational rung-10 clock, the same clock O4's meeting coupling alpha_10 = g^2 = 1/25 prefers. (iii) The exact ladder (odd-length cancellation below 2e-15) exists only on the order-8 closed clock family; at pi/2 the odd loops blow up (1e17) and at 1/5 they are tiny but nonzero - nature's clock supports no exact ladder. (iv) No principled link mixture or sector reading bridges the gap. VERDICT: the hierarchy and the desert meeting are ONE tension - the closed clock pi/4 is not the clock nature reads at the loop level; the closure axiom and the loop-hierarchy identification cannot both hold, and the named residual is the clock itself.",
  "pass": true
 }

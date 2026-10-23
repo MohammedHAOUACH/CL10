@@ -7,29 +7,29 @@
  "branch": "W-NAMED",
  "data": {
   "machinery": {
-   "odd_max_n11": 3.2969618106700556e-15,
-   "rho": 0.9780302704295731,
+   "odd_max_n11": 3.377469014174313e-15,
+   "rho": 0.9780302704295725,
    "crossing_n": 208,
-   "F_cross": 0.01968515418112789,
-   "deficit_vs_loop": 0.9894837721634204
+   "F_cross": 0.019684263006753522,
+   "deficit_vs_loop": 0.9894389768535391
   },
   "coefficient": {
-   "per_channel": 0.8996772949619244,
+   "per_channel": 0.8992700814723377,
    "readings": {
-    "single_channel": 0.8996772949619244,
-    "one_per_family": 2.6990318848857733,
-    "all_twelve": 10.796127539543093
+    "single_channel": 0.8992700814723377,
+    "one_per_family": 2.697810244417013,
+    "all_twelve": 10.791240977668052
    },
-   "required_sum_factor": 2.308121059409102,
-   "selective_reading_over": 0.29975851473233583,
+   "required_sum_factor": 2.309166238216176,
+   "selective_reading_over": 0.29917021579073966,
    "coef_observed": 2.076564111173832
   },
   "rungs": {
-   "weight_F3": 1.0740490456368736e-15,
-   "weight_F17": 4.45947704121973e-15,
-   "F_10_closed_float64_floor_ratio": 55.030071533615185,
-   "F_10_open_branch": 0.019186391026184392,
-   "dyn_decades_off_rung10_open": -0.15736853333684728,
+   "weight_F3": 1.1002758235178885e-15,
+   "weight_F17": 4.568371243305466e-15,
+   "F_10_closed_float64_floor_ratio": 55.02758024555587,
+   "F_10_open_branch": 0.019186391026184517,
+   "dyn_decades_off_rung10_open": -0.15736853333681874,
    "rung3_gev": 96131777036496.42,
    "rung10_gev": 118.57086360835625,
    "m_nu_ladder_eV": 0.14624768344284225
@@ -46,15 +46,15 @@
  },
  "checks": [
   {
-   "name": "T1 the loop machinery at the root angle g = pi/4: odd-n ratios cancel to 3.3e-15 (n <= 11), the word norm is the angle-independent 0.978030, and the FIRST crossing of 1/(16 pi) is n* = 208 with F_* = 0.019685 (deficit 0.9895) - the crossing is on the n = 4k class, and its certified value by continuity at 50 digits is F_* = 0.0196928, deficit 0.989868 (V209 T5): the float64 reading is low by 4e-4 relative",
+   "name": "T1 the loop machinery at the root angle g = pi/4: odd-n ratios cancel to 3.4e-15 (n <= 11), the word norm is the angle-independent 0.978030, and the FIRST crossing of 1/(16 pi) is n* = 208 with F_* = 0.019684 (deficit 0.9894) - the crossing is on the n = 4k class, and its certified value by continuity at 50 digits is F_* = 0.0196928, deficit 0.989868 (V209 T5): the float64 reading is low by 4e-4 relative",
    "pass": true
   },
   {
-   "name": "T2 the hierarchy coefficient of the closed ladder: per-channel factor (16 pi F_*)^10 = 0.89968; node-set readings single 0.900 / one-per-family 2.699 / all-twelve 10.8 against the observed 2.0766: the observed value requires sum factor 2.308, no natural set realizes it, and the selective reading sits +30.0% over - the named O8 residual",
+   "name": "T2 the hierarchy coefficient of the closed ladder: per-channel factor (16 pi F_*)^10 = 0.89927; node-set readings single 0.899 / one-per-family 2.698 / all-twelve 10.8 against the observed 2.0766: the observed value requires sum factor 2.309, no natural set realizes it, and the selective reading sits +29.9% over - the named O8 residual",
    "pass": true
   },
   {
-   "name": "T3 rung census under the odd-n rule: the odd rungs carry EXACTLY zero dynamical loop weight (|F_3| = 1.1e-15, |F_17| = 4.5e-15) - the seesaw rung 3 (9.613e+13 GeV) and the neutrino rung 17 are cell phases (V196), never loop-dynamical products - while the rung-10 ratio at the CLOSED angle is not a number: n = 10 is a 4k+2 length, both Cartan norms vanish exactly there, and the float64 F_10 = 55.03 (10^34.4 decades) is a floor ratio with no limit (V209). On the OPEN clock the rung-10 factor IS measured, F_10(1/5) = 0.0191864 = 0.96441 x 1/(16 pi), i.e. -0.157 decades from the ladder mass 118.57 GeV: the dynamical loop factor lives on the open branch (and, at the closed angle, only at n* = 208 on the 4k class); the rung masses themselves are reproduced from the module (m_B = 118.57 GeV, m_nu ladder 0.1462 eV)",
+   "name": "T3 rung census under the odd-n rule: the odd rungs carry EXACTLY zero dynamical loop weight (|F_3| = 1.1e-15, |F_17| = 4.6e-15) - the seesaw rung 3 (9.613e+13 GeV) and the neutrino rung 17 are cell phases (V196), never loop-dynamical products - while the rung-10 ratio at the CLOSED angle is not a number: n = 10 is a 4k+2 length, both Cartan norms vanish exactly there, and the float64 F_10 = 55.03 (10^34.4 decades) is a floor ratio with no limit (V209). On the OPEN clock the rung-10 factor IS measured, F_10(1/5) = 0.0191864 = 0.96441 x 1/(16 pi), i.e. -0.157 decades from the ladder mass 118.57 GeV: the dynamical loop factor lives on the open branch (and, at the closed angle, only at n* = 208 on the 4k class); the rung masses themselves are reproduced from the module (m_B = 118.57 GeV, m_nu ladder 0.1462 eV)",
    "pass": true
   },
   {
@@ -62,6 +62,6 @@
    "pass": true
   }
  ],
- "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.3e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019685, deficit 0.9895). (ii) Hierarchy: per-channel factor 0.89968, readings 0.900 / 2.699 / 10.8 against the observed 2.0766 - the required sum factor 2.308 is no natural node set, the selective reading sits +30.0% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.5e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
+ "status": "THE CLOSED BRANCH AUDITED END TO END (the clock angle is the root element g = pi/4, V131). (i) Machinery: odd-n cancellation 3.4e-15, norm 0.978030 angle-independent, first crossing n* = 208 (F_* = 0.019684, deficit 0.9894). (ii) Hierarchy: per-channel factor 0.89927, readings 0.899 / 2.698 / 10.8 against the observed 2.0766 - the required sum factor 2.309 is no natural node set, the selective reading sits +29.9% over (the named O8 residual). (iii) Rungs: |F_3| = 1.1e-15 and |F_17| = 4.6e-15 - the odd rungs carry zero dynamical weight, the seesaw and neutrino scales are cell phases (V196); the rung-10 ratio at the closed angle is a floor ratio of two exactly vanishing norms and has NO limit (4k+2 class, V209), while on the open clock the rung-10 factor sits -0.157 decades from the ladder mass - the dynamical factor lives on the open branch, and at the closed angle only at n* = 208 on the 4k class. (iv) Limits: F2 forced to alpha_X = pi/64 (x1.227 the meeting), F5 tau_p = 2.77e+39 yr (Hyper-K channel closed), F3/F6/ F7 verdicts branch-independent, F1 algebraic, F4 defect persists. VERDICT: the ladder MECHANISM is a closed-root theorem with zero free parameters; what nature adds at the rung-10 scale is the node-set sum factor, and it is named, not fitted.",
  "pass": true
 }
