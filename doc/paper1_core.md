@@ -125,7 +125,10 @@ The step's own properties are separate claims, booked where they are measured: e
 ## 3. Spacetime as a subalgebra
 
 **Theorem 1.** *Let $T = h_1$ and $S_a = i h_{a+1}$ for $a = 1,2,3$. Then*
-$$T^2 = +I,\qquad S_a^2 = -I,\qquad \{T,S_a\} = 0,\qquad \{S_a,S_b\} = 0 .$$
+$$\begin{gathered}
+T^2 = +I,\qquad S_a^2 = -I,\\
+\{T,S_a\} = 0,\qquad \{S_a,S_b\} = 0 .
+\end{gathered}$$
 *The real span of $\{T, S_1, S_2, S_3\}$ inside the grade-1 part of the algebra, with the quadratic form induced by the Clifford product, is Minkowski space $\mathbb{R}^{1,3}$.*
 
 *Proof.* The four generators $h_1,\dots,h_4$ anticommute by Axiom 1. Multiplication by $i$ turns $h_a^2 = I$ into $(i h_a)^2 = -I$ and preserves anticommutation. For $v = v_0 T + \sum_a v_a S_a$ with real coefficients, $v^2 = (v_0^2 - \sum_a v_a^2)I$.
