@@ -213,6 +213,8 @@ def build(out_path, head, body_ranges, foot, smap, fmap, tmap, with_appendix):
 
 I, II, III = "Paper I", "Paper II", "Paper III"
 
+FULLTBL9 = "[the full manuscript, Appendix B, Table 9]"
+
 # Paper I: body = Sections 1-9 (24-341) + Appendix A
 s1 = {n: (None, n) for n in range(1, 10)}
 s1.update({10: (II, 2), 11: (II, 3), 12: (III, 2), 13: (III, 3),
@@ -222,7 +224,7 @@ f1 = {n: n for n in range(1, 26)}
 t1 = {1: "Table 1", 2: "Table 2", 3: f"[{II}, Table 1]",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
       6: f"[{III}, Table 3]", 7: f"[{III}, Table 4]",
-      8: f"[{III}, Table 5]"}
+      8: f"[{III}, Table 5]", 9: FULLTBL9}
 build("doc/paper1_core.md", f"{HDR}/paper1_head.md", [P1],
       f"{HDR}/paper1_foot.md", s1, f1, t1, True)
 
@@ -238,7 +240,7 @@ f2.update({10: 1, 11: 2, 12: 3, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5,
 t2 = {1: f"[{I}, Table 1]", 2: f"[{I}, Table 2]", 3: "Table 1",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
       6: f"[{III}, Table 3]", 7: f"[{III}, Table 4]",
-      8: f"[{III}, Table 5]"}
+      8: f"[{III}, Table 5]", 9: FULLTBL9}
 build("doc/paper2_gauge_gravity.md", f"{HDR}/paper2_head.md", [P2],
       f"{HDR}/paper2_foot.md", s2, f2, t2, False)
 
@@ -253,6 +255,6 @@ f3.update({13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 19: 7, 20: 8,
            21: 9, 22: 10, 23: 11, 24: 12, 25: 13})
 t3 = {1: f"[{I}, Table 1]", 2: f"[{I}, Table 2]",
       3: f"[{II}, Table 1]", 4: "Table 1", 5: "Table 2", 6: "Table 3",
-      7: "Table 4", 8: "Table 5"}
+      7: "Table 4", 8: "Table 5", 9: FULLTBL9}
 build("doc/paper3_phenomenology.md", f"{HDR}/paper3_head.md", [P3],
       f"{HDR}/paper3_foot.md", s3, f3, t3, False)

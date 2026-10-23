@@ -197,20 +197,19 @@ def fig14_loop_selection():
                label=r"$n = 4k+2$: floor ratios, no limit")
     axB.axhline(loop, color=C_ZERO, ls="--", lw=1.8)
     axB.plot([nstar], [Fev[nstar]], "*", ms=18, color=C_ZERO, zorder=6)
-    axB.annotate(f"first crossing\n$n^* = {nstar}$, $F = {Fev[nstar]:.6f}$\n"
-                 f"deficit $\\times{cl['deficit_vs_loop']:.4f}$, certified"
-                 f"\n$F = {cert['F_208']:.6f}$ (V209)"
-                 if "deficit_vs_loop" in cl else
-                 f"first crossing\n$n^* = {nstar}$",
-                 xy=(nstar, Fev[nstar]), xytext=(40, 0.006), fontsize=10.5,
-                 color=C_ZERO,
+    axB.annotate(f"first crossing\n$n^* = {nstar}$: float64 $F = {Fev[nstar]:.6f}$\n"
+                 f"certified $F = {cert['F_208']:.6f}$, deficit"
+                 f" $100(1-F/16\pi) = {(1.0 - cert['deficit']) * 100:.3f}\\%$ (V209)",
+                 xy=(nstar, Fev[nstar]), xytext=(40, 0.06), fontsize=10,
+                 color=C_ZERO, ha="left",
+                 bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.92),
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
     axB.set_xlabel("closed-loop length $n$ (even lengths, log scale)")
     axB.set_ylabel(r"even-length ratio $F_n$")
     axB.set_title("(b)  the $4k$ ratios to the crossing:\n"
                   rf"     the ladder length at the root clock IS $n^* = {nstar}$",
                   fontsize=12.5)
-    axB.legend(loc="lower left", fontsize=9.5, framealpha=0.95)
+    axB.legend(loc="lower left", fontsize=9, framealpha=0.95)
 
     rho4 = cl["rho_MG"] ** 4
     fig.text(0.03, 0.015,

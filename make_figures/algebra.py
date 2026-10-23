@@ -23,8 +23,9 @@ def fig3_one_object():
     ax.axhline(0, color="k", lw=0.9)
     ax.set_xlabel("spectrum index  $k$  (32 levels, sorted)")
     ax.set_ylabel(r"eigenphase  $\omega_k$  (rad/step)")
-    ax.set_title("The one 0-parameter object: the 32-level QCA spectrum\n"
-                 r"$H=-i\log U$,  $U=\prod_{a<b}(\cos g_{10}\,I-i\sin g_{10}\,T_{ab})$ at the root clock $g_{10}=\pi/4$")
+    ax.set_title("The root's module (Axiom 1) and the step's internal layer on it:\n"
+                 "the 32 spinor levels at the closed clock $g_{10} = \\pi/4$ (Construction 1)\n"
+                 r"$H=-i\log U$,  $U=\prod_{a<b}(\cos g_{10}\,I-i\sin g_{10}\,T_{ab})$")
     # the 10-to-1 invariants, computed
     from cl10 import parameter_audit
     sm = parameter_audit.spectral_mirror()

@@ -41,8 +41,9 @@ def fig17_ladder():
     ax.set_ylim(-0.72, 0.92)
     ax.set_yticks([])
     ax.set_xlabel("energy scale  (GeV, log scale)")
-    ax.set_title("The ladder of scales: one factor $(1/16\\pi)^n$, four scales spanning 30 decades\n"
-                 r"(QCD is shown for reference only: it is not produced by the ladder)", fontsize=13)
+    ax.set_title("The ladder of scales: the step's rung phases $(1/16\\pi)^n$ (Construction 1)\n"
+                 "organise four scales over 30 decades — the algebra fixes neither the rung nor the scale\n"
+                 r"(QCD is shown for reference only: it is not produced by the ladder)", fontsize=12.5)
     save(fig, "fig17_ladder_of_scales.png")
 
 def fig18_residual_reduction():

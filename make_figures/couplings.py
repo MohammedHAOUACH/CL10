@@ -17,14 +17,14 @@ def fig19_couplings_mz():
     p0 = rd["couplings_at_M_Z"]
     names = [r"$\alpha_1$  U(1)", r"$\alpha_2$  SU(2)", r"$\alpha_3$  SU(3)"]
     fig, axB = plt.subplots(figsize=(5.8, 3.6))
-    # at M_Z: measured vs the down-run from alpha_10 = 1/25 (paired bars)
+    # at M_Z: measured vs the down-run from the reference reading g = 1/5 (paired bars)
     m = [0, 1, 2]
     w = 0.36
     axB.bar([x - w / 2 - 0.02 for x in m], az, width=w, color="#9a9a9a",
             edgecolor="k", lw=0.5, label="measured (PDG 2024)")
     p0plot = [max(p, 0.0) for p in p0]
     axB.bar([x + w / 2 + 0.02 for x in m], p0plot, width=w, color=C_ZERO,
-            edgecolor="k", lw=0.5, label="CL10 ($1/\\alpha_{10} = 25$)")
+            edgecolor="k", lw=0.5, label="reference reading $g = 1/5$: $\\alpha_{10} \\equiv g^2 = 1/25$")
     for x in m:
         axB.text(x - w / 2, az[x] + 0.003, f"{az[x]:.3f}",
                  ha="center", fontsize=11.5, color="0.3")
@@ -42,8 +42,9 @@ def fig19_couplings_mz():
     axB.set_title(r"At $M_Z$: $\alpha_1$ matches ($1.17\times$); $\alpha_2$ $5.8\times$ too large;"
                   "\n" r"$\alpha_3$ negative — the 1-loop matching is the O4 named residual", fontsize=12)
     axB.legend(fontsize=9.5, loc="upper right", framealpha=0.95)
-    fig.suptitle("The root coupling $\\alpha_{10} = 1/25$ and the $5/3$ normalisation",
-                 fontsize=13)
+    fig.suptitle(r"Couplings at $M_Z$: the down-run uses the reference reading $\alpha_{10} \equiv g^2 = 1/25$;"
+                 "\n" r"the closed clock of Construction 1 is $\alpha = g^2/4\pi = \pi/64 = 0.0491$ (Theorem 6)",
+                 fontsize=12.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig19_couplings_mz.png")
 
@@ -78,7 +79,7 @@ def fig4_uv_2loop():
     ax.scatter([pole2], [0], s=130, marker="x", color=C_ZERO, zorder=5,
                label=r"2-loop Landau pole $\sim$ " + f"{pole2:.2e}" + " GeV")
     ax.axhline(1.0 / u.ALPHA_10, color="0.35", ls="--", lw=1.3,
-               label=r"0-parameter GUT $1/\alpha_{10} = 25$")
+               label=r"reference reading  $1/\alpha_{10} = 25$  ($g = 1/5$, a convention)")
     fig.text(0.5, 0.012,
              r"the 2-loop perturbative $QFT$ reaches a Landau pole below $M_P$;  the $QCA$ step is"
              " unitary,\nso its $n$-step amplitudes stay bounded — the perturbative UV divergence"
@@ -124,7 +125,7 @@ def fig20_desert():
             u.B_SM[k] * L0 + n10 * d10[k] * LA + d2[k] * LB)
         axA.plot(np.log10(s), ds, color=cols[k], lw=2.2)
     axA.axhline(1.0 / A10, color=C_ZERO, ls="--", lw=1.4,
-                label=r"reference anchor  $g^2 = 1/25$  (not refitted)")
+                label=r"reference reading  $g^2 = 1/25$  (a convention, not refitted)")
     axA.plot([np.log10(M_X)], [25.0], marker="*", ms=16, color=C_ROOT,
              mec="k", mew=0.8, ls="none",
              label=rf"meeting:  $M_X = {M_X:.1e}$ GeV")
@@ -141,8 +142,9 @@ def fig20_desert():
     axA.set_ylabel(r"$1/\alpha_i$  (1-loop, piecewise $\beta$)")
     axA.set_xlim(np.log10(MZ) - 0.1, np.log10(MP) + 0.3)
     axA.set_ylim(5, 62)
-    axA.set_title("(a)  desert content (solid) meets at $\\alpha_X = 1/25$;  "
-                  "SM-only (dashed) misses", fontsize=11.5)
+    axA.set_title("(a)  desert content (solid) meets at $\\alpha_{10} \\equiv g^2 = 1/25$\n"
+                  r"($\alpha_X = 0.0400$ standard); the closed clock reads $\pi/64 = 0.0491$ — $1.226\times$ above",
+                  fontsize=11)
     axA.legend(fontsize=10, loc="lower right", framealpha=0.95)
     # (b) proton lifetime: the desert point vs the bound and the abandoned
     Ms = np.logspace(14, 19, 200)
@@ -171,8 +173,9 @@ def fig20_desert():
     axB.legend(fontsize=10, loc="upper left", framealpha=0.95)
     fig.suptitle("The desert solution:  three $\\mathbf{10}\\oplus"
                  "\\overline{\\mathbf{10}}$ pairs + one $(1,2)$ pair unify at "
-                 "the reference-angle anchor $g^2 = 1/25$", fontsize=13)
-    fig.tight_layout(rect=[0, 0, 1, 0.94])
+                 "the reference reading $\\alpha_{10} \\equiv g^2 = 1/25$ — a convention of the step, not the clock",
+                 fontsize=12.5)
+    fig.tight_layout(rect=[0, 0, 1, 0.875])
     save(fig, "fig20_desert_unification.png")
 
 def _frag_label(k):

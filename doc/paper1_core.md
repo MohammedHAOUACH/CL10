@@ -65,7 +65,7 @@ Planck units $\hbar = c = \ell_P = t_P = 1$ unless stated; $G = 1$. Metric signa
 
 ---
 
-## 2. The axiom
+## 2. The root: the algebra, the theorem, and the step
 
 **Axiom 1 (the root).** *The universe is a $(1{+}3)$-dimensional causal quantum cellular automaton. Its cell is a $2{\times}2{\times}2$ block of Planck sites — site spacing $\ell_P$, so the cells tile a cubic lattice of spacing $2\ell_P$ — and each of the eight sub-sites carries the cell module*
 
@@ -75,9 +75,7 @@ $$M = S \oplus R_A \oplus R_B, \qquad \dim M = 36,$$
 
 $$h_a^\dagger = h_a,\qquad h_a^2 = I,\qquad \{h_a,h_b\} = 0 \quad (a\ne b),\qquad a,b = 1,\dots,10,$$
 
-*— and $R_A$, $R_B$ are two neutral singlet sectors: each is a conjugate pair of levels $\{A_\pm\}$, $\{B_\pm\}$; the generators act on them trivially, equivalently every one of the $45$ plane generators $\tfrac14[h_a,h_b]$ acts as zero (Section 4). A singlet of the full Clifford algebra is not chiral, so its levels come in conjugate pairs, at opposite phases — and with the pair the exact structural properties of the spinor block extend to the whole cell: the spectrum of the internal layer is $\pm$-paired, $\det = 1$, and the quasi-energy sum vanishes. The state of the universe is a tensor product of these modules over the sub-sites, so the cell's on-site space is $\mathbb{C}^{288}$, and the dynamics is one time-independent unitary **step** of six **stages** built from the algebra (Section 7.1): each stage applies the internal layer to every sub-site — on $S$ the product of the $45$ plane rotations, and on the two pairs the phases $e^{\pm i\,\mathrm{loop}^3}$ and $e^{\pm i\,\mathrm{loop}^{10}}$, with $\mathrm{loop} = 1/16\pi$: a level on ladder rung $n$ ([Paper III Section 2.4]) carries the phase $m/M_P$ per elementary time, its mass read as a phase. A $\mathbb{Z}_2$, the **B-parity**, is odd on $B$ alone. The elementary time is the stage, $t_P$; one step is $6t_P$.*
-
-**Why the cell is a block.** The bond part of the update pairs neighbouring sub-sites, and the pairing that treats the three directions alike has six stages: three pair sub-sites *inside* the cell, three pair sub-sites *across* cells. Written on a single Planck site the same rule alternates between bonds inside and outside the site, which forces a two-cell spatial period and a six-periodic time dependence; on the block it is one time-independent rule, and the block is the smallest region on which the update acts as a single unitary. The staggering is therefore not a time dependence of the law but the sub-lattice structure of the cell, and the Bloch decomposition of the step is exact at every step.
+*— and $R_A$, $R_B$ are two neutral singlet sectors: each is a conjugate pair of levels $\{A_\pm\}$, $\{B_\pm\}$; the generators act on them trivially, equivalently every one of the $45$ plane generators $\tfrac14[h_a,h_b]$ acts as zero (Section 4). A singlet of the full Clifford algebra is not chiral, so its levels come in conjugate pairs. A $\mathbb{Z}_2$, the **B-parity**, is odd on $B$ alone. The state of the universe is a tensor product of these modules over the sub-sites, so the cell's on-site space is $\mathbb{C}^{288}$. The hypothesis of everything proved below is this algebra and this module — nothing else: the time evolution is a separate construction (**Construction 1**), and no property of it enters the proofs.*
 
 Three structural facts about the root, all standard [10,26]:
 
@@ -87,7 +85,38 @@ Three structural facts about the root, all standard [10,26]:
    so $w$ is anti-Hermitian with eigenvalues $\pm i$, each of multiplicity $16$. The projectors $P_{16} = \tfrac12(I - i w)$ and $P_{\overline{16}} = \tfrac12(I + i w)$ split the Dirac module into two inequivalent $16$-dimensional Weyl modules.
 3. The algebra is $\mathbb{Z}_2$-graded by the parity of the number of generators in a product: $512$ even and $512$ odd elements.
 
-Everything derived below is representation theory of this one object plus the dynamics of Section 7.
+**Main Theorem (the content of the root).** *Let $\mathrm{Cl}(10,0)$ be the algebra of Axiom 1 and $M = S \oplus R_A \oplus R_B$ its cell module. From the algebra and the module alone — no evolution, no lattice spacing, no coupling, no measurement — the following are forced:*
+
+*(i) a $(1{+}3)$ spacetime subalgebra whose quadratic form is Minkowski, with its null cone (Theorem 1, Corollary 1);*
+
+*(ii) the split of $S$ into two inequivalent $16$-dimensional Weyl modules $P_{16}$, $P_{\overline{16}}$, and the $\mathbf{16}$ is exactly the six left-handed Weyl fields of one Standard Model generation (structural fact 2, Proposition 1);*
+
+*(iii) the gauge content: the $45$ plane generators close to $\mathfrak{so}(10)$ and contain the Model algebra, and the hypercharge on the $\mathbf 5$ obeys $\mathrm{Tr}\,Y^2 = \tfrac56$ — the $5/3$ normalisation (Theorem 3);*
+
+*(iv) anomaly freedom: the eight gauge and mixed anomaly coefficients of the $\mathbf{16}$ vanish (Theorem 2, Table 2);*
+
+*(v) statistics: the $\mathbb{Z}_2$ grading of the algebra is the grading that carries spin and statistics on the module, and the B-parity is a grading of the cell (Section 6);*
+
+*(vi) the content is one generation: $\mathrm{Cl}_{10}(\mathbb{C}) \simeq M_{32}(\mathbb{C})$ has a single irreducible complex module (structural fact 1), and $10$ is the smallest dimension with properties (ii) and (iii) ("Why $10$", below).*
+
+*Nothing in (i)-(vi) mentions time evolution; no measured property of the automaton's step is used in their proofs.*
+
+**Traceability of the Main Theorem.** Each clause, where it is proved, and the artifact of the companion release that measures it (the claims that do involve the step are traced in [the full manuscript, Appendix B, Table 9]):
+
+| clause | proved in | measured by |
+|----------------------------------------|------------------------------------|------------------------|
+| (i) the $(1{+}3)$ subalgebra and its null cone | Theorem 1, Corollary 1 (Section 3) | V1, V59 |
+| (ii) the Weyl split and the six fields of one generation | structural fact 2, Proposition 1 (Section 4) | V3, V23, V43 |
+| (iii) the $\mathbf{45}$, the Model algebra, the $5/3$ | Theorem 3 (Section 5) | V52, V196 |
+| (iv) anomaly freedom | Theorem 2, Table 2 (Section 4) | V11, V23, V196 |
+| (v) statistics and the B-parity grading | Section 6; the grading census of the cell | V4, V124, V194, V196 |
+| (vi) one module, one generation; why $10$ | structural fact 1, "Why $10$" (this section) | V43, V196 |
+
+**Construction 1 (the step).** *The dynamics is one time-independent unitary **step** of six **stages** built from the same algebra (Section 7.1): each stage applies the internal layer to every sub-site — on $S$ the product of the $45$ plane rotations, and on the two singlet pairs the phases $e^{\pm i\,\mathrm{loop}^3}$ and $e^{\pm i\,\mathrm{loop}^{10}}$, with $\mathrm{loop} = 1/16\pi$: a level on ladder rung $n$ ([Paper III Section 2.4]) carries the phase $m/M_P$ per elementary time, its mass read as a phase. The elementary time is the stage, $t_P$; one step is $6t_P$.*
+
+**Why the cell is a block.** The bond part of the update pairs neighbouring sub-sites, and the pairing that treats the three directions alike has six stages: three pair sub-sites *inside* the cell, three pair sub-sites *across* cells. Written on a single Planck site the same rule alternates between bonds inside and outside the site, which forces a two-cell spatial period and a six-periodic time dependence; on the block it is one time-independent rule, and the block is the smallest region on which the update acts as a single unitary. The staggering is therefore not a time dependence of the law but the sub-lattice structure of the cell, and the Bloch decomposition of the step is exact at every step.
+
+The step's own properties are separate claims, booked where they are measured: exact unitarity and $\det U = 1$ and the causal radius (Theorem 5, Section 7), the $\pm$-spectral mirror (Theorem 4, Section 7.2), the doubling census and its Wilson gapping (Proposition 2, Section 8), the closure of the clock to $g = \pi/4$ (Theorem 6, Section 9), and the empirical contacts of the rung phases ([Paper III Section 2]). None of them is a consequence of the Main Theorem, and none of them is needed by it.
 
 **Why $10$.** The number $10$ is the smallest $n$ for which a single complex Clifford algebra simultaneously provides (i) a pseudoscalar splitting a Dirac module into two *inequivalent* Weyl modules of dimension $16$ — at $n = 8$ the Weyl modules are $8$-dimensional ($\mathrm{Spin}(8)$ triality: $8_v, 8_s, 8_c$; the $16$-dimensional representations are reducible) — and (ii) an adjoint of dimension $\binom{10}{2} = 45$ large enough to contain $\mathfrak{su}(5)$ and hence the Standard Model algebra. At $n = 9$, $\mathrm{Cl}_9(\mathbb{C}) \simeq M_{16}\oplus M_{16}$ does have $16$-dimensional irreducibles, but they are the two simple factors of the algebra rather than a pseudoscalar split, and $\mathfrak{so}(9)$ does not contain $\mathfrak{su}(5)$. The root is therefore selected by the requirement of a single chiral generation with a unified gauge algebra, not chosen.
 
@@ -286,7 +315,7 @@ At the physical root $\theta = 1.731$ the Wilson direction completes the breakin
 
 The causal front speed of Theorem 5 is exactly $1$ Planck cell per stage; that is the statement the automaton proves. What the *low-energy spectrum* of the implemented step does not have is continuous Lorentz invariance.
 
-On the $g = 1/5$ member of the Wilson family, which carries the dispersive node spectrum (on the root clock the node spectra are pinned to $\{0,\pi\}$, Proposition 2, and the dispersion lives on the nodal lines, Section 8.3): at all twelve nodes and in all $1200$ sampled directions the dispersion is **linear** (local exponent $p = 1.00$, no quadratic band touching), but the cone is strongly **anisotropic**: principal velocities $(0.200, 0.200, 0.284)$ per unit block momentum — $(0.100, 0.100, 0.142)$ in Planck-cell units — anisotropy $0.748$–$0.758$, the same at every node of the $O_h$ orbit. The lattice signature is universal, not a defect. Exhaustive scanning of the whole Wilson family closes the hope that isotropy emerges somewhere: the node gap is located at every zero over the two orbit representatives $\times$ $60$ angles ($2726$ gapless points, tolerance $10^{-7}$) and the cone anisotropy $A = (v_{\max}-v_{\min})/(v_{\max}+v_{\min})$ measured over $162$ directions at each point; the Lorentz target $A < 10^{-6}$ contains $0$ of the $2726$ points, the closest approach being $A = 0.997$.
+On the $g = 1/5$ member of the Wilson family, which carries the dispersive node spectrum (on the root clock the node spectra are pinned to $\{0,\pi\}$, Proposition 2, and the dispersion lives on the nodal lines, Section 8.3): at all twelve nodes and in all $1200$ sampled directions the dispersion is **linear** (local exponent $p = 1.00$, no quadratic band touching), but the cone is strongly **anisotropic**: principal velocities $(0.200, 0.200, 0.284)$ per unit block momentum — $(0.100, 0.100, 0.142)$ in Planck-cell units — anisotropy $0.748$–$0.758$, the same at every node of the $O_h$ orbit. The lattice signature is universal, not a defect. Exhaustive scanning of the whole Wilson family closes the hope that isotropy emerges somewhere: the node gap is located at every zero over the two orbit representatives $\times$ $60$ angles ($2726$ gapless points, tolerance $10^{-7}$) and the cone anisotropy $A = (v_{\max}-v_{\min})/(v_{\max}+v_{\min})$ measured over the $179$ sphere directions at each point (V115); the Lorentz target $A < 10^{-6}$ contains $0$ of the $2726$ points, the closest approach being $A = 0.997$.
 
 Frame averaging over the internal frames is blind to the failure, and this closes the last proposed escape of this kind: rebuilding the internal step in four random $\mathrm{SO}(10)$ frames of the ten generators (the product of the $45$ plane rotations taken in the rotated frame's lexicographic order) leaves, on the $g = 1/5$ member of the Wilson family used as the reference spectrum, the node gap $2.003\times10^{-4}$, the principal velocities $(0.200, 0.200, 0.284)$ and the anisotropy $0.7545$ unchanged to $3\times10^{-15}$, and the tangent commutators at the noise floor ($\le 1\times10^{-11}$) in every frame. The momentum dependence lives entirely in the sub-site factor of the Kronecker bond layer, so no choice or averaging of the internal frame can move the cone.
 (Figs. 7, 8).
@@ -487,6 +516,6 @@ The falsifiers of the phenomenology (proton decay, the neutrino mass pattern, th
 31. D. Colladay and V. A. Kostelecký, "Lorentz-violating extension of the standard model," *Phys. Rev. D* **58**, 116002 (1998).
 32. V. A. Kostelecký and N. Russell, "Data tables for Lorentz and CPT violation," *Rev. Mod. Phys.* **83**, 11 (2011), continuing updates at arXiv:0801.0287.
 
-**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $162$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($162$ of $162$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
+**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $158$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($158$ of $158$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
 
 **Competing interests.** The author declares no competing interests.
