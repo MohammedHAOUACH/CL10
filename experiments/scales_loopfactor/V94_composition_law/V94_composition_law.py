@@ -166,7 +166,7 @@ def main():
 
     status = (
         f"THE COMPOSITION LAW IS EXACT MULTIPLICATIVITY ACROSS LEGS - "
-        f"the x929 was a CHAIN-VS-LEGS category error (regressions "
+        f"the x929 is a CHAIN-VS-LEGS category error (regressions "
         f"{reg85:.1e}). (i) CHAIN: on one line, (MG)^{{10k}} is NOT "
         f"multiplicative: R_k = F_{{10k}}/(F_10)^k grows to R_17 = "
         f"{R17:.1e} - consecutive hops interact through the "
@@ -187,7 +187,7 @@ def main():
         f"O8-composition: the 17 factors MULTIPLY, each selected at "
         f"the length-10 crossing; the named requirement is that the "
         f"17 insertions dress DIFFERENT lines (the standard reading of "
-        f"the ladder operator) - the composition law itself is now a "
+        f"the ladder operator) - the composition law itself is a "
         f"verified theorem of the traced-link formalism.")
 
     verdict = {"experiment": "V94_composition_law",

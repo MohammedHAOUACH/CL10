@@ -330,7 +330,7 @@ def main():
         "couplings give Omega h^2 = %.3g and %.3g. The named portals reproduce "
         "0.120 only because their lambda was inverted from the fiducial "
         "3e-26 cm^3/s (computed: %.3f and %.3f; with doublers %.3f and %.3f). "
-        "VERDICT: the abundance is now a computed number, and it is NOT 0.120 "
+        "VERDICT: the abundance is a computed number, and it is NOT 0.120 "
         "for any coupling the root supplies - the WIMP miracle of Fig. 2 is a "
         "mass-scaling ansatz, and the doubler spectrum changes the annihilation "
         "rate by the factor D."

@@ -144,7 +144,7 @@ def fig20_desert():
     axA.set_title("(a)  desert content (solid) meets at $\\alpha_X = 1/25$;  "
                   "SM-only (dashed) misses", fontsize=11.5)
     axA.legend(fontsize=10, loc="lower right", framealpha=0.95)
-    # (b) proton lifetime: the desert point vs the bound and the old point
+    # (b) proton lifetime: the desert point vs the bound and the abandoned
     Ms = np.logspace(14, 19, 200)
     ltau = np.log10(sel["tau_p_yr"]) + 4.0 * (np.log10(Ms) - np.log10(M_X))
     axB.semilogy(Ms, 10.0 ** ltau, color=C_ROOT, lw=2.0,
@@ -206,8 +206,8 @@ def fig6_wilson():
     fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
     # the selective reading rings three of the twelve nodes, one per axis
     # family.  which three is an input (Section 8.1), so the ring marks one
-    # signed representative per family -- the abs() that used to test
-    # membership matched all four members of every family and ringed all 12
+    # signed representative per family -- an abs() membership test would match
+    # all four members of every family and ring all 12
     split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
              (0.0, np.pi / 2, np.pi / 2)}
     # the ringed nodes are drawn last: in projection they overlap other nodes

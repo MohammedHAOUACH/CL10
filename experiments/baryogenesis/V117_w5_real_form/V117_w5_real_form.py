@@ -52,7 +52,7 @@ T4 - the lock is on-site; the bond layer is outside its scope.  (a) The
 **Verdict.**  The CP prohibition is a theorem about the on-site real form
 plus the real democratic Yukawa.  It is not a theorem of the automaton: the
 same model has a bond layer where a CP-odd invariant lives, and the spectral
-mirror that V109 used to forbid it is a one-cell statement that the bond
+mirror that V109 forbids it with is a one-cell statement that the bond
 layer cannot break.
 """
 import json

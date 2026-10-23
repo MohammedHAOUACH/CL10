@@ -83,7 +83,7 @@ def main():
     checks.append(("T2 at the closed angle the same convention gives alpha_10 "
                    "= (pi/4)^2 = %.6f in rotation units, pi/64 = %.6f in the "
                    "SM normalisation; its gap to the one-loop mean %.6f is "
-                   "%.3f against %.3f for the old root value 1/25 - the "
+                   "%.3f against %.3f for the reference root value 1/25 - the "
                    "closure WORSENS the coupling tension by a factor %.2f and "
                    "sits %.2fx above the data-optimal 1/%d = %.6f"
                    % (G4 ** 2, A_QUANT, mean_gut, gap_q, gap_r,

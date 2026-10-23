@@ -8,7 +8,7 @@ At that angle the one-step Bloch matrix at the zone centre is an exact
 involution, M(0)^2 = I, and the twelve M nodes are exactly gapless, against
 the 2.003e-4 near-miss of the implemented 1/5 where V128 found NO exactly
 gapless mode anywhere in the zone.  Three statements in the paper are computed
-on the OLD census:
+on the point-node census:
 
   (i)  the chirality sum of V63 (12 point nodes, sum 0) - the Nielsen-Ninomiya
        bookkeeping counts chiral charges of ISOLATED zeros;
@@ -302,8 +302,8 @@ def main():
                                 "nonisolated_nodes": nonisolated,
                                 "gap_along_line_per_node": line_gaps,
                                 "gamma_axis_slopes": [round(v, 6) for v in sl_g]}
-    checks.append(("T2 the V63 point-node chirality convention no longer "
-                   "applies: at %d of the 12 M nodes the gap stays below %.0e "
+    checks.append(("T2 the V63 point-node chirality convention does not apply: "
+                   "at %d of the 12 M nodes the gap stays below %.0e "
                    "along the line through the node at ALL of the steps 1e-3, "
                    "1e-2, 1e-1 - the node is not an isolated zero, so the "
                    "charge V63 assigns to it is sign noise (the naive sum is "
@@ -411,7 +411,7 @@ def main():
                    "three momenta: the stage is a pure swap times Bloch "
                    "phases, no mixing at all, so the half-angle branch carries "
                    "no bond dynamics - 'the bond layer collapses to pure "
-                   "swaps' is now measured" % worst, worst < 1e-14))
+                   "swaps' is measured" % worst, worst < 1e-14))
 
     ok = all(p for _, p in checks)
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]

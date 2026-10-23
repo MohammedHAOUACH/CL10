@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V186 - the cone inverse problem: search the entangling-bond space for a
-Clifford-type tangent algebra at a gapless cubic multiplet (Phase 2).
+Clifford-type tangent algebra at a gapless cubic multiplet.
 
 **Why.**  V185 proved the separation lemma: for the implemented step every
 tangent operator is (sub-site) x (internal identity), so no internal choice
@@ -580,7 +580,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "CONE INVERSE PROBLEM (cone programme, Phase 2): %s. The "
+        "CONE INVERSE PROBLEM: %s. The "
         "axis-covariant entangling family - hop along axis j carries "
         "exp(+/- i phi_j D_j), D_j from a pool of %d triples (all 120 su(2) "
         "plane triples, %d disjoint, %d random even involutions) x strength "

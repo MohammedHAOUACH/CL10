@@ -105,7 +105,7 @@ O_h-covariant - not an artifact.
 
 ## Verdict
 
-The non-perturbative gauged sector is now measured exactly: the flux
+The non-perturbative gauged sector is measured exactly: the flux
 dressing leaves the cone anisotropy untouched (dA ~ 1e-12), the
 two-fermion flux spectrum is massive at every volume (gap/|E0|
 constant), and the ring's channel mixing does not produce a light

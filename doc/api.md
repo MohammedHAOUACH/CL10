@@ -6,8 +6,8 @@ algebra root, the automaton, the spectrum and the S-matrix, gravity, the
 couplings, the flavour sector, the cosmology, the audits.
 
 Every entry is the real symbol: the signature is the real `def`, the *returns*
-column lists the keys the dict actually contains. A symbol that no longer exists
-is not listed.
+column lists the keys the dict actually contains. Only symbols the library
+exports are listed.
 
 ## The provenance vocabulary
 
@@ -35,8 +35,8 @@ module and experiment goes through these primitives.
 
 **The primitives work where the data lives.** A device array is never pulled to
 the host by a host call, and a host array is never pushed to the device: that
-is what used to run the real-space automaton on the CPU whatever the backend
-was. The linear algebra is routed by the size thresholds of `routing:` — above
+is how a real-space automaton ends up on the CPU whatever the backend is. The
+linear algebra is routed by the size thresholds of `routing:` — above
 `eig_gpu_min_dim` an eigendecomposition runs on the device, below it on the
 host, because that is measured to be faster here (CuPy ~50 ms vs NumPy ~8 ms on
 a 128×128 matrix, and CuPy has no batched eigendecomposition).
@@ -71,7 +71,7 @@ a 128×128 matrix, and CuPy has no batched eigendecomposition).
 
 ### `cl10.config` — the single configuration source
 
-`cl10/config.yaml` holds the numbers the code used to carry as literals;
+`cl10/config.yaml` holds the numbers the library carries as literals;
 `cl10/config.py` loads it, applies the environment over it, and exposes the
 singleton `CFG`. Precedence: environment → YAML → the built-in defaults.
 

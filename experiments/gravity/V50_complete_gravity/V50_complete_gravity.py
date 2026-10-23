@@ -40,7 +40,7 @@ of the $(1,3)$ GUT sub-algebra) is **complete**:
    **fails**: the evolved ``a+b`` differs from the sum of the separately
    evolved parts -- the hallmark of non-linear gravity).
 
-**The named residual (O9).**  The **3+1 BSSN/Z4 numerical relativity** is now
+**The named residual (O9).**  The **3+1 BSSN/Z4 numerical relativity** is
 **complete** (V51, `cl10.numrel`): the 2-route 0-row + the Z4 constraint
 damping + the non-linearity + the UV-finite property.  The remaining **open**
 part of O9 is the **quantum** completion (the UV of the quantum gravity) --

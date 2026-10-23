@@ -102,7 +102,7 @@
  },
  "checks": [
   {
-   "name": "T1 the traced-word sector phases e^(i(g/2)ev), ev = [-32.0, -12.0, 4.0], are exactly 4th roots of unity at the closed clocks (max |ph^4-1|: pi/2 3.2e-14, pi/4 1.6e-14; the values are {1,-1,-1} and {1,i,i}) and irrational at the reference angle (no order <= 64 within 0.39): at the closed clock the sector interference is a finite fourth-root filter - the generic-angle interference that carried the old 0.56% agreement cannot be re-created at any closed clock (V202)",
+   "name": "T1 the traced-word sector phases e^(i(g/2)ev), ev = [-32.0, -12.0, 4.0], are exactly 4th roots of unity at the closed clocks (max |ph^4-1|: pi/2 3.2e-14, pi/4 1.6e-14; the values are {1,-1,-1} and {1,i,i}) and irrational at the reference angle (no order <= 64 within 0.39): at the closed clock the sector interference is a finite fourth-root filter - the generic-angle interference that carries the 0.56% agreement cannot be re-created at any closed clock (V202)",
    "pass": true
   },
   {

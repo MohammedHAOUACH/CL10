@@ -4,8 +4,8 @@ The publication's traceability claim is that each published number has one
 named owner: it is declared in `cl10/config.yaml` (or measured by a named
 experiment and read back from its verdict JSON), never restated as a decimal
 somewhere else. A `CFG.a.b.c` lookup that resolves through neither the file nor
-a derivation in `cl10/_derive` breaks that claim silently - the file no longer
-says what the run used, and the fallback becomes the real input.
+a derivation in `cl10/_derive` breaks that claim silently - the file does not
+ say what the run used, and the fallback becomes the real input.
 
 So each lookup must be one of:
   * a key in the YAML file, or

@@ -55,7 +55,7 @@ M_P = UN.M_P
 X_MAX = math.log(M_P / MZ)
 Z_MIN = math.log(1e6 / MZ)
 M_X_OBS = u10pred.M_X_DESERT
-A_HALF = 1.0 / 25.0                     # the old root value
+A_HALF = 1.0 / 25.0                     # the reference root value
 A_QUANT = math.pi / 64.0                # pi/64 = 0.049087: the closed angle
 SK_BOUND = 2.4e34                       # yr, Super-Kamiokande p -> e+ pi0
 HK_REACH = 1.0e35                       # yr, Hyper-Kamiokande 20-year reach
@@ -204,7 +204,7 @@ def main():
                        "%.3e and %.3e GeV, desert box %s); the quantized "
                        "pi/64 = %.6f is a factor %.3f off it and 1/25 = %.6f "
                        "a factor %.3f - the root value and the meeting value "
-                       "are no longer the same number at the closed angle"
+                       "are not the same number at the closed angle"
                        % (need[0], need[1], need[2],
                           "satisfied" if need[3] else "violated",
                           A_QUANT, A_QUANT / need[0], A_HALF,
@@ -251,8 +251,8 @@ def main():
                    "for node counts %s at alpha_X = 1/25 (V96 reproduced) and "
                    "%s at alpha_X = pi/64 - the family absorbs the coupling "
                    "change because it is underdetermined (3 equations, 7 "
-                   "unknowns), so at the closed angle the meeting is no longer "
-                   "a prediction but a fit"
+                   "unknowns), so at the closed angle the meeting is not a "
+                   "prediction but a fit"
                    % (f25, f64), len(f25) == 10 and len(f64) >= 1))
 
     # ------------------------------------------- T5 the falsifier consequence

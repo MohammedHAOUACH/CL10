@@ -133,7 +133,7 @@ def compositions(total, parts):
 
 def closed_words_dp(n, d):
     """The same count by brute force: a walk count on Z^d, an independent
-    computation used to verify the closed form."""
+    computation that verifies the closed form."""
     counts = {(0,) * d: 1}
     for _ in range(n):
         nxt = {}

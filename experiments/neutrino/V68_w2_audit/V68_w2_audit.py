@@ -101,8 +101,8 @@ def main():
                    "prediction S(17)/2 = 0.073 eV, falsifiable. The exact "
                    "1/3 (0.0487 eV, 2.6% from data) requires a single "
                    "Majorana eigenvalue 3M - NO natural node structure "
-                   "supplies it. O2 stays open; the 1/3 candidate is now "
-                   "pinned to a named missing structure (3x-enhanced "
+                   "supplies it. O2 stays open; the 1/3 candidate is pinned "
+                   "to a named missing structure (3x-enhanced "
                    "Majorana eigenvalue), and the democratic alternative "
                    "predicts 0.073 eV."),
         "data": {

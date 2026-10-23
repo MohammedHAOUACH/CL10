@@ -3,7 +3,7 @@
 """
 CL10 — the single configuration source.
 
-One YAML file (`cl10/config.yaml`) carries every number the code used to hold as
+One YAML file (`cl10/config.yaml`) carries every number the library needs as
 a literal: the backend policy, the GPU gate, the routing thresholds that decide
 where a task runs, the process-pool shape, the physics and Standard Model
 inputs, the angle branches, the desert thresholds and the shared tolerance
@@ -16,7 +16,7 @@ Precedence, highest first:
     2. cl10/config.yaml
     3. the built-in fallbacks below - which cover only how the engine runs and
        the root's own structure; the measured inputs exist in the file alone,
-       so a missing one fails loudly instead of running on a stale number
+       so a missing one fails loudly instead of running on a made-up number
 
 Read it through the singleton `CFG`:
 

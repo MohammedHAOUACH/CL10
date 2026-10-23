@@ -649,7 +649,7 @@ def verify(tol=_TOL.standard):
         "flat": fl,
         "nonlinear_gamma_gamma": nl,
         "nonlinear_qca": qca,
-        "residual": ("the **3+1 BSSN/Z4 numerical relativity** is now "
+        "residual": ("the **3+1 BSSN/Z4 numerical relativity** is "
                      "**complete** (V51, `cl10.numrel`: the 2-route 0-row + "
                      "the Z4 constraint-damping + the non-linearity + the "
                      "UV-finite property) -- the remaining **open** part of "

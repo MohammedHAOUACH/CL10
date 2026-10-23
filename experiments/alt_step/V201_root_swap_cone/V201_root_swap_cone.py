@@ -300,7 +300,7 @@ def main():
             "Weyl step at %.0e) is measured insufficient in the two-angle "
             "stage family - the parity-mixed pairing that V192's no-go "
             "requires does not turn non-Abelian through the swap: O9 stays "
-            "open and the step-class extension is now a measured negative "
+            "open and the step-class extension is a measured negative "
             "(V201)"
             % ([round(pc["best_grid_residual"], 3) for pc in per_c],
                [round(pc["max_rho"], 3) for pc in per_c], anchor))

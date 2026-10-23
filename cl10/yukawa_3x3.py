@@ -219,7 +219,7 @@ def mixing_from_democratic():
     therefore an **extra input** (naming it is the honest correction), not a
     0-parameter consequence.
 
-    Second corrected point: the CKM built from two **identical** democratic
+    The CKM built from two **identical** democratic
     up/down matrices is the **identity**, not the TBM.  A non-trivial CKM needs
     a **misalignment** between up and down, which the symmetric democratic base
     does not supply.
@@ -246,8 +246,8 @@ def mixing_from_democratic():
     s23 = [abs(diagonalizer(t)[1, 2]) ** 2 for t in th]        # |U_mu3|^2
     s13 = [abs(diagonalizer(t)[0, 2]) ** 2 for t in th]        # |U_e3|^2
 
-    # every member of the family really diagonalizes M (the check the old code
-    # lacked: it checked the ANGLES, never the diagonalization)
+    # every member of the family really diagonalizes M - the ANGLES alone are
+    # not a diagonalization test
     diag_err = max(offdiag(diagonalizer(t)) for t in th[::40])
 
     # the TBM is a member of the family (the (23)-adapted one)
@@ -488,8 +488,8 @@ def w6_verdict():
         and mm["rank"] == 1
         and mm["n_distinct_levels"] == 2
         and mix["unitary"]
-        # the honest mixing checks (the old code checked only the ANGLES, never
-        # that the matrix actually diagonalizes the democratic base)
+        # the honest mixing checks: the ANGLES are not enough, the matrix has
+        # to diagonalize the democratic base
         and honest["tbm_diagonalizes_democratic"]
         and honest["sin2_12_fixed"]
         and abs(honest["sin2_12_value"] - 1.0 / 3.0) < _TOL.standard

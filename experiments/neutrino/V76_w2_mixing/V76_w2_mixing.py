@@ -43,7 +43,7 @@ eigenvalues leave two gapless node combinations per triangle for EVERY
 weight - gapless colored doublers - UNLESS the Dirac matrix is also
 democratic, decoupling the antisymmetric combinations: then
 m_nu = S17/3 = 0.0487 eV with two exactly massless neutrinos (the F3
-candidate).  O2: the 1/3 is now a NAMED structure (cubic junction +
+candidate).  O2: the 1/3 is a NAMED structure (cubic junction +
 democratic m_D), falsifiable by F3, not a free coefficient.
 """
 

@@ -1,7 +1,7 @@
 {
   "experiment": "V82_composite_desert_exclusion",
   "pass": true,
-  "status": "THE COMPOSITE CONTENT IS EXCLUDED AS THE DESERT SUPPLIER UNDER EVERY NATURAL MASS ANSATZ: full-weight min residual 5.68, broken-flux 6.12, light-composite 6.14 (target 0); relaxed-coupling pairwise meeting: 0 physical solutions. Structural reason measured: sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - the content shifts U(1) and SU(2) equally while the data require different shifts - and the no-contribution meeting scales differ (x_12 = 25.58 vs x_23 = 34.60). O4 is now closed in both directions: nodes excluded (V74), composites excluded (V81+V82); the V64 spectrum remains a named input.",
+  "status": "THE COMPOSITE CONTENT IS EXCLUDED AS THE DESERT SUPPLIER UNDER EVERY NATURAL MASS ANSATZ: full-weight min residual 5.68, broken-flux 6.12, light-composite 6.14 (target 0); relaxed-coupling pairwise meeting: 0 physical solutions. Structural reason measured: sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - the content shifts U(1) and SU(2) equally while the data require different shifts - and the no-contribution meeting scales differ (x_12 = 25.58 vs x_23 = 34.60). O4 is closed in both directions: nodes excluded (V74), composites excluded (V81+V82); the V64 spectrum remains a named input.",
   "data": {
     "index_identity": {
       "db1_total": 144.0,

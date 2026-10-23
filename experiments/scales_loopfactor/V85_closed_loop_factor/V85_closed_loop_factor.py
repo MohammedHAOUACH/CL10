@@ -182,7 +182,7 @@ def main():
         "the loop factor is reached at loop order n* = "
         f"{lv['n_star_for_loop_factor']} if the geometric law holds. "
         "Closed traced-link loops are the true Feynman-loop analogue "
-        "and their suppression law is now a measured number of the "
+        "and their suppression law is a measured number of the "
         "built gauged layer (O8).")
 
     verdict = {"experiment": "V85_closed_loop_factor",

@@ -117,7 +117,7 @@ def main():
         f"at eps_cross = {eps_str}; weak perturbations cannot "
         "move the zero at all. One-loop density ~ M_P^4 / 16 pi^2 "
         "times S: Lambda_obs = 1e-122 M_P^4 is equivalent to a "
-        f"trace-phase breaking eps Tr A ~ {eps_crit:.1e}. O1 is now a "
+        f"trace-phase breaking eps Tr A ~ {eps_crit:.1e}. O1 is a "
         "named bound: any internal U(1)-trace anomaly must satisfy "
         "|Tr A| eps < 1e-120, or Lambda lives outside the one-cell "
         "spectrum (geometry, measure postulate).")

@@ -25,7 +25,7 @@ with **n_gen = 10** (the number of the ``Cl(10)`` generators) and the
   *intermediate* scale between the GUT and the electroweak, ~ ``10^14``):
       M_N = S(3) = M_P (1/16\pi)^{3} \approx 9.6e13 GeV
   (``n_2step = 3`` is the 2-step's loop position on the ladder; it
-  **replaces** the previously hard-coded ``10^14``).
+  **sets** $M_N$ from the ladder instead of taking it as an input scale).
 
 The **type-I seesaw** then gives, at 0-parameter,
 
@@ -102,8 +102,8 @@ def dirac_mass():
 
 def twostep_scale():
     r"""The 0-parameter 2-step (Majorana) scale ``M_N = S(3) = M_P (1/16\pi)^3``
-    (the *intermediate* GUT-breaking scale, ~ ``10^14``; **replaces** the
-    previously hard-coded ``10^14``)."""
+    (the *intermediate* GUT-breaking scale, ~ ``10^14``; **set** by the ladder,
+    not taken as an input)."""
     return loop_ladder(N_2STEP)
 
 

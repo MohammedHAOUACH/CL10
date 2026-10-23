@@ -1,6 +1,6 @@
 # CL10 — the single configuration file.
 #
-# Every number the code used to carry as a literal lives here.  One edit here is
+# Every number the code carries as a literal lives here.  One edit here is
 # picked up by the engine and by every module that reads it; nothing has to be
 # changed file by file.  Loaded by cl10/config.py; the environment overrides the
 # file (CL10_BACKEND, CL10_GPU_MIN_FREE_MIB, CL10_ANGLE, CL10_NJOBS, CL10_SMOKE).
@@ -165,8 +165,8 @@ bounds:
   # against (measured, not fitted): the LZ spin-independent limit at ~118 GeV
   # recoil (4.2 t yr), which is the recoil mass of this model's singlet B
   # (M_P*loop^10 = 118.57 GeV).  One ceiling, one value: the portal scan of V112
-  # and fig. 25 used to compare against a second, weaker SI number written
-  # beside this one, which made the same observable have two limits.
+  # and fig. 25 read this ceiling alone, so the same observable never carries
+  # two limits.
   sigma_si_lz_cm2: 1.5e-47    # V88/V148/V193/V195, fig. 15; V112, fig. 25
 
 cosmology:

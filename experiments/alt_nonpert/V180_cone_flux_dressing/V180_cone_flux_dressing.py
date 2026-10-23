@@ -271,8 +271,7 @@ def main():
     print(f"  anchor eta -> 0: A_dressed = {a_eta0:.6f} vs A_free = "
           f"{a_free1:.6f} (dev {err_eta0:.2e})")
     err_v115 = abs(a_free1 - 0.998)  # the bare reference-branch cone of the
-    # current theory (V115 T3 "up to 0.998", V102 flow, V172 anchor 0.998):
-    # the old 1.000 was the pre-rework stage geometry
+    # current theory (V115 T3 "up to 0.998", V102 flow, V172 anchor 0.998)
     print(f"  cross-check A_free vs V115/V102 0.998 (reference clock): dev "
           f"{err_v115:.2e}")
 

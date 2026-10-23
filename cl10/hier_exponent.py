@@ -25,7 +25,7 @@ So the predicted exponent is $10 \cdot \log_{10}(16\pi) = 17.01$ (i.e.
 $v/E_P \sim 10^{-17.01}$), matching the observed $10^{-16.70}$ to **0.32
 decades**.  The **2-digit coefficient** ($(1/16\pi)^{10} = 9.7e-18$ vs the
 observed $2.02e-17$, a factor 2.08) is the **named residual**; the **exponent**
-is now a 0-parameter consequence of the root.
+is a 0-parameter consequence of the root.
 
 **The n-step spectrum check (secondary).**  The exponent -17 is **not** a raw
 QCA spectral number: it is **not** a single level of the 1-step (or $n$-step)

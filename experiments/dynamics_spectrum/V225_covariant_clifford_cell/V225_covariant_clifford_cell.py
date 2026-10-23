@@ -38,7 +38,7 @@ T2 the node arithmetic: the zone-centre gap as a function of the bond
    zone centre are pinned to $\{0,\pi\}$ independently of the clock, so the
    node closes exactly when the internal map's phase there is $0$ or $\pi$ --
    the map has order 8, measured -- i.e. exponent $0$ or $4$ mod 8.  The
-   scalar assignment (no spin, the old factorized kinematics) is in the same
+   scalar assignment (no spin, the factorized kinematics) is in the same
    table as the control that is gapless but has no velocity.
 T3 the gap subspace and its $2I$ content by the character projector, built from
    the group rather than from a table, together with an orthonormal basis of

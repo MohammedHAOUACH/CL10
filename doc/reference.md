@@ -348,14 +348,14 @@ exponents being a permutation of $(1,1,2)$ at all twelve nodes.  The
 **chirality protocol above therefore does not apply**: it needs isolated zeros,
 and at 12/12 nodes the gap along the line through the node stays below
 $10^{-9}$ at steps $10^{-3},10^{-2},10^{-1}$, so the $\pm1$ charges whose sum
-was exactly $0$ become sign noise — the naive sum is no longer quantized ($-2$ on the numpy backend, $-6$ on cupy).  The Nielsen–Ninomiya count
+was exactly $0$ become sign noise — the naive sum is not quantized ($-2$ on the numpy backend, $-6$ on cupy).  The Nielsen–Ninomiya count
 at the closed angle must be redone **per line**; the per-line programme is reported below (V219, V220), and it dissolves the count rather than completing it.  At the other
 closed angle $\pi/2$ the bond layer is diagonal to $1.2\times10^{-16}$ with the
 identity permutation and the eight corner shifts $\{\pm1\}^3$ — a pure lattice
 translation, $M(0) = I$ on all 128 internal states, bands exactly linear with
 slope $\pm1$, 513 gapless grid points: no mixing, no mass generation (V134).
 
-*The per-line programme, run (V219, V220).*  The count has now been taken per
+*The per-line programme, run (V219, V220).*  The count is taken per
 line on the icosahedral-module step with the cubic module's $\Gamma$–$M$ line as
 control, and the first finding is that **there is nothing band-resolved to
 count**: at the line the touching is a cluster of **128 of 1024** eigenphases at

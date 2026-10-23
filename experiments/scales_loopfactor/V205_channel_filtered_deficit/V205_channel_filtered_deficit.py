@@ -21,7 +21,7 @@ measures whether any channel-side filter can move the deficit.
    pi/2, {1, i, i} at pi/4) while at the 1/5 reference they are
    irrational rotations (no order <= 64): at the closed clock the
    interference is a finite fourth-root filter and nothing else - the
-   generic-angle interference that carried the old 0.56% agreement is
+   generic-angle interference that carries the 0.56% agreement is
    structurally absent at every closed clock (V202).
 2. Channel-side Z_3 filters on the pinned spectrum: the propagator
    trace and every nontrivial Z_3-filtered trace of the M-node channel
@@ -114,7 +114,7 @@ def main():
                 f"{phase_info['1/5']['min_order64_dev']:.2f}): at the "
                 f"closed clock the sector interference is a finite "
                 f"fourth-root filter - the generic-angle interference "
-                f"that carried the old 0.56% agreement cannot be "
+                f"that carries the 0.56% agreement cannot be "
                 f"re-created at any closed clock (V202)",
         "pass": bool(phase_info["pi/2"]["max_dev_ph4_1"] < 1e-13
                      and phase_info["pi/4"]["max_dev_ph4_1"] < 1e-13

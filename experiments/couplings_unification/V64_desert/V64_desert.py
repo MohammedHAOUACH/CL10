@@ -172,7 +172,7 @@ def main():
     # [4] the selected CL10 solution and its consequences
     sel = next((s for s in solutions if s["cl10_realizable"]), None)
 
-    # [5] the old failure, restated for the record
+    # [5] the coupling running down the desert, from the same estimate
     old = UN.running_down()
 
     # [6] the abandoned convention M_GUT = M_P and the GUT scale that the

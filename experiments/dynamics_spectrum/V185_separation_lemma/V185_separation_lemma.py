@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 r"""V185 - the separation lemma: every tangent operator of the implemented
-step is (sub-site) x (internal identity) (Phase 1 of the cone programme).
+step is (sub-site) x (internal identity).
 
 **Why.**  V118 closed O9 with one sentence: the tangent velocity operators
 commute "because the bond layer is a Kronecker product (cell index) x
@@ -297,7 +297,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "SEPARATION LEMMA (cone programme, Phase 1): PROVEN. For the "
+        "SEPARATION LEMMA: PROVEN. For the "
         "implemented step every tangent operator T_k(q) = i(d_k M)M^dag is "
         "exactly A_k(q) kron I_16 (max defect %.1e over %d points: the 12 M "
         "nodes, the 8 R corners, 20 random momenta), so the entire low-energy "

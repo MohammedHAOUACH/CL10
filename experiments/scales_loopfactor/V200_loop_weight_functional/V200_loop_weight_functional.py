@@ -228,7 +228,7 @@ def main():
            nearest_star, deficit,
            "the weight functional is a closed form and F_10 = 1/(16 pi) "
            "carries no free number" if branch == "W-CLOSED" else
-           "which loops contribute is now a three-number functional and the "
+           "which loops contribute is a three-number functional and the "
            "unnamed weight of O8 is the root-angle interference deficit %.4f"
            % deficit))
     if branch == "W-NAMED":

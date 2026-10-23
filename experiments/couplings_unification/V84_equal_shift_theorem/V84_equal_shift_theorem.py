@@ -224,7 +224,7 @@ def main():
         "content MUST contain SU(5)-fragment Weyl states (or split "
         "thresholds inside multiplets, excluded for every natural "
         "ansatz by V82). The automaton supplies only complete Spin(10) "
-        "multiplets: O4 is now a structural no-go - the desert spectrum "
+        "multiplets: O4 is a structural no-go - the desert spectrum "
         "is provably not automaton content, and a fragment-producing "
         "mechanism is the named open problem.")
 

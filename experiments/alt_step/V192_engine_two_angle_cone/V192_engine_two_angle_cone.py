@@ -19,8 +19,7 @@ one angle b on the three inter-block ones. This programme searches that family,
 together with the internal angle, for a four-state gapless node and measures
 what sits there.
 
-Three corrections to an earlier version of this script, all worth recording
-because all are easy to repeat.
+Three points about this search, each easy to get wrong.
 
 *(i) The pairing condition.* The step is the Kronecker product of the bond
 factor and the internal factor, so its 128 phases are the pairwise sums of the 8
@@ -28,10 +27,10 @@ bond phases and the 16 internal ones, and a state is gapless exactly when one
 such sum vanishes. A four-state node needs TWO such cancellations at the same
 point. The internal spectrum is +-symmetric, which supplies the partner of a
 cancellation but at the opposite internal phase, not at one half-turn away: two
-bond levels at opposite phases therefore do NOT pair for free. The earlier
-version searched for a degeneracy of the two bond phases with a root-finder on
-the wrapped phase difference, which converges on the wrap discontinuity, and
-then measured the cone on the two-level subspace it had assumed gapless.
+bond levels at opposite phases therefore do NOT pair for free. A search for a
+degeneracy of the two bond phases through a root-finder on the wrapped phase
+difference converges on the wrap discontinuity, and it measures the cone on a
+two-level subspace it has assumed gapless.
 
 *(ii) The subspace.* Everything here is measured on the gapless eigenspace of
 the full one-step matrix, orthonormalised (eig returns an arbitrary, non-
@@ -41,9 +40,9 @@ O_h content is decomposed by character inner product rather than assumed.
 *(iii) The internal phases.* They are computed from the sixth power of the
 internal step itself, never from a generator: C.U is a PRODUCT of exponentials
 of the 45 plane rotations, not the exponential of their sum, so the eigenphases
-of U^6 are not linear in the angle. An earlier version read them off a
-small-angle expansion and extrapolated, which is wrong by 4e-3 at theta = 2.36 -
-the whole size of the gap being asked about.
+of U^6 are not linear in the angle: they are never read off a small-angle
+expansion: that would be wrong by 4e-3 at theta = 2.36 - the whole size of the
+gap being asked about.
 """
 import itertools
 import json
@@ -128,10 +127,9 @@ CHAR = {
     # O_h, classes E, 8C3 (C3), 6C2' edge axes (C2), 3C2 face axes (C2p = C4^2),
     # 6C4, i, 8S6, 6sigma_d (sd), 3sigma_h (sh), 6S4. The improper entries
     # follow from i C2p = sigma_h, i C2 = sigma_d, i C4 = S4, i C3 = S6, with
-    # one extra minus for the u irreps. An earlier version of this table had
-    # five of those entries wrong, which made the 8-dimensional bond module
-    # decompose into seven irreps of total dimension 13 instead of the correct
-    # A1g + T2g + A2u + T1u of dimension 8.
+    # one extra minus for the u irreps. Get those entries wrong and the
+    # 8-dimensional bond module decomposes into seven irreps of total dimension
+    # 13 instead of the correct A1g + T2g + A2u + T1u of dimension 8.
     "A1g": dict(E=1, C3=1, C2=1, C2p=1, C4=1, i=1, S6=1, sd=1, sh=1, S4=1),
     "A2g": dict(E=1, C3=1, C2=-1, C2p=1, C4=-1, i=1, S6=1, sd=-1, sh=1, S4=-1),
     "Eg": dict(E=2, C3=-1, C2=0, C2p=2, C4=0, i=2, S6=-1, sd=0, sh=2, S4=0),
@@ -205,7 +203,7 @@ def pairing(a, b):
     """Im(lambda_A1g conj(lambda_T1u)): continuous, and zero exactly when the
     two bond phases coincide or are opposite; the sign of the real part tells
     the two apart. Searching the wrapped phase DIFFERENCE instead puts a
-    root-finder on the discontinuity, which is what an earlier version did."""
+    root-finder on the discontinuity."""
     z1, z3 = bond_levels(a, b)
     return float(np.imag(z1 * np.conj(z3)))
 

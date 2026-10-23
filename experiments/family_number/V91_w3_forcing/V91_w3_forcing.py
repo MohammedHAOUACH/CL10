@@ -259,7 +259,7 @@ def main():
         f"proper split (3, 4, 8 nodes) BREAKS the cubic symmetry of "
         f"the split set, so the family count 3 is an input choice - "
         f"not forced by the automaton - and its cubic-symmetric "
-        f"alternative is now excluded by computation.")
+        f"alternative is excluded by computation.")
 
     verdict = {"experiment": "V91_w3_forcing",
                "pass": bool(ok), "status": status, "data": checks}

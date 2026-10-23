@@ -67,7 +67,7 @@ before anything is measured, and one of them is a control:
                                           (gap 1.571)
     "fivefold" U_d = the 2I lift of the 2*pi/5 rotation about the axis of d
                                           -- offered, not measured
-    "scalar"   U_d = 1                   -- the control: the old factorized
+    "scalar"   U_d = 1                   -- the control: the factorized
                                           kinematics, no spin; it intertwines
                                           trivially (1.1e-15) but U_{-d} = U_d
                                           (defect 2.0)
@@ -404,7 +404,7 @@ def step(q, U16, g10=G10, kind="clifford", layers=NLAYER, legs=(1, 0)):
     The internal factor rides the block leg, so with a non-constant `legs` the
     step is not a tensor product of kinematics and internal layer: geometry and
     internal sector are coupled through the block, and a zone-centre eigenphase
-    is no longer a sum of one kinetic and one internal phase.  That coupling is
+    is not a sum of one kinetic and one internal phase.  That coupling is
     what the node arithmetic needs -- with a constant `legs` the Clifford bond
     layer pins the kinetic phases at the zone centre to $\{0,\pi\}$ while the
     committed internal map sits at $-3\pi/4$ and $+\pi/4$, and the two sets

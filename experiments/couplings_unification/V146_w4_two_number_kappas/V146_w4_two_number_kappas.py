@@ -361,7 +361,7 @@ def main():
                   "R^2 = %s of the variance of V96's fitted kappa_s. The "
                   "ground-state bond flux is zero to %.0e (Gauss law), so the "
                   "Cartan shift contributes nothing. The supplier space of "
-                  "the six kappa_s is now exhausted by every class number the "
+                  "the six kappa_s is exhausted by every class number the "
                   "gauged layer computes: Cartan elements (V105), class "
                   "invariants (V122), broken flux (V137), superexchange "
                   "(V145), and every fixed combination of them (V146)."

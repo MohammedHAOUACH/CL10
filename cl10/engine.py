@@ -22,8 +22,8 @@ Three rules the primitives enforce:
   ``einsum``, ``matmul``, ``kron``, ``where``, the reductions ``summ`` /
   ``mean`` / ``sum_axis`` / ``field_norm``) works **where the data lives**: a
   device array is never pulled to the host by a host call (calling
-  ``np.roll``/``np.einsum`` on a device array silently copies it, which is why
-  the real-space automaton used to run on the CPU whatever the backend was),
+  ``np.roll``/``np.einsum`` on a device array silently copies it, and that is how
+  a real-space automaton ends up on the CPU whatever the backend is),
   and a host array is never pushed to the device.  The linear-algebra helpers
   (``eigvals``, ``eigvalsh``, ``eig``, ``det``, ``inv``, ``norm``,
   ``matrix_rank``) route by ``routing.*``: above the configured size they run on
@@ -196,8 +196,8 @@ def matmul(a, b):
 
 def einsum(subscripts, *operands):
     """``einsum`` where the data lives: a NumPy call on a device array copies it
-    to the host (which is why the QCA layers used to run on the CPU whatever the
-    backend was), and a backend call on a host array copies it the other way."""
+    to the host (which is how the QCA layers end up on the CPU whatever the
+    backend is), and a backend call on a host array copies it the other way."""
     return _E.einsum(subscripts, *operands) if _device_work(operands) \
         else np.einsum(subscripts, *operands)
 

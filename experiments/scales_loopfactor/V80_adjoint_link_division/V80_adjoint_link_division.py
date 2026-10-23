@@ -41,7 +41,7 @@ algebra on 1440 dimensions.
 **Verdict (computed).**  The gauged bond layer divides, exactly, with a
 factor F(eta) that is a number of the link representation and the
 coupling: F(g10) = ..., and F = 1/(16 pi) at eta_* = ... . The loop
-factor is now a measurable quantity of a built model, not a wish;
+factor is a measurable quantity of a built model, not a wish;
 whether the automaton's link sits at eta_* is the named residual.
 """
 
@@ -201,7 +201,7 @@ def main():
             f"bond-layer coupling eta_* = {eta_star:.3f} (measured bisection "
             f"on the exact curve; small-eta coefficient {float(p[0]):.4f} = "
             f"<(T.L)^2>/2 = {theory_quad:.4f}). The traced two-hop contracts "
-            f"(max |eig| = {evM2.max():.4f} <= 1). O8 is now a measured "
+            f"(max |eig| = {evM2.max():.4f} <= 1). O8 is a measured "
             "quantity of a built model: the mechanism divides, and the "
             "residual is the number - whether the automaton's bond-layer "
             "coupling sits at eta_*.")

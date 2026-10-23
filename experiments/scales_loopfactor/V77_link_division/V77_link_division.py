@@ -31,8 +31,8 @@ traced Cartan content converges to cos(2 theta) (tunable: theta = pi/6
 gives 1/2, theta = pi/8 gives 1/sqrt 2), where the V72 control shows
 no geometric decay.  The loop factor 1/(16 pi) is the value this
 mechanism takes for the full dynamical Spin(10) adjoint link with the
-Gauss constraint - the gauged bond layer is no longer a wish, it is
-the theory of this mechanism with the right link representation.
+Gauss constraint - and the gauged bond layer is the theory of this
+mechanism with the right link representation.
 """
 
 import json

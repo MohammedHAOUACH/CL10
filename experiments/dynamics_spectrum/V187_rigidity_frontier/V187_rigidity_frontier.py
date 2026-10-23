@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """V187 - the rigidity frontier: gaplessness and tangent non-commutativity
-are mutually exclusive over the entangling-bond space (Phase 2c).
+are mutually exclusive over the entangling-bond space.
 
 V186 scanned 880 axis-covariant entangling bonds and found NO cone: the
 best gapless points carry commuting tangent algebras and the best
@@ -30,10 +30,9 @@ T3  the frontier table gap_min(c), c = 0.05..0.5, and the anchor: the
 T4  log-log scaling of comm_ratio vs gap along the ray from each tuned
     point toward the implemented gapless point (w*, theta*).
 
-Measured 2026-10-21 (full re-run on the implemented clock, 880 tuned
-bonds; the artifact first committed here had been measured on the DEFAULT
-closed clock, because this preamble pinned no angle and cl10/config freezes
-the clock at its own import time - V187 imports cl10 before V186, whose own
+Measured on the implemented clock (880 tuned bonds; the clock is pinned to
+0.2 by os.environ before cl10 is imported, because cl10/config freezes the
+clock at its own import time and V187 imports cl10 before V186, whose own
 pin then arrives too late): top comm_ratio 1.033 at su2 (5, 8, 9) - a
 genuinely non-commuting algebra, beyond V186's 0.362 scan bound (V186
 measured comm only at each bond's best-gap point) - but every top-comm bond
@@ -278,7 +277,7 @@ def main():
     out["pass"] = ok
     out["checks"] = [{"name": n, "pass": bool(p)} for n, p in checks]
     out["status"] = (
-        "RIGIDITY FRONTIER (cone programme, Phase 2c): %d sweep points around "
+        "RIGIDITY FRONTIER: %d sweep points around "
         "the %d top-comm bonds; no point is gapless with comm_ratio > 0.5; the "
         "frontier gap_min(c) is monotone with a floor of %s at c = 0.5; the ray "
         "slopes toward the implemented gapless point are not systematically "

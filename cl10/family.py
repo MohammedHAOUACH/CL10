@@ -66,14 +66,13 @@ def _backend():
 def tribimaximal_3x3():
     """The genuine tribimaximal (Harrison-Perkins-Scott) 3x3 unitary.
 
-    **Correction.**  The earlier implementation had a **wrong sign** in ``r23``:
-    it actually produced the **bimaximal** matrix, which has the **same squared
-    moduli** as the TBM (hence apparently correct angles, ``sin^2 12 = 1/3``,
-    ``sin^2 23 = 1/2``, ``sin^2 13 = 0``) but which **does not diagonalise** the
-    democratic base ``|1><1|``: its third column ``(0,1,1)/sqrt(2)`` does not
-    belong to the light eigenspace (the component sum is non-zero).  The bug was
-    invisible because the **angles** (the moduli) were checked, not the
-    **diagonalisation**.
+    **Warning.**  A **wrong sign** in ``r23`` produces the **bimaximal** matrix,
+    which has the **same squared moduli** as the TBM (hence apparently correct
+    angles, ``sin^2 12 = 1/3``, ``sin^2 23 = 1/2``, ``sin^2 13 = 0``) but which
+    **does not diagonalise** the democratic base ``|1><1|``: its third column
+    ``(0,1,1)/sqrt(2)`` does not belong to the light eigenspace (the component
+    sum is non-zero).  The **angles** (the moduli) are blind to this; only the
+    **diagonalisation** catches it.
 
     The genuine TBM has as its three columns the eigenvectors of ``|1><1|``:
     ``(2,-1,-1)/sqrt(6)`` and ``(0,1,-1)/sqrt(2)`` (the 2-fold light subspace,
@@ -152,9 +151,9 @@ def family_qca():
     tbm_angles_ok = (abs(tbm[0, 1] ** 2 - 1.0 / 3.0) < 1e-15
                      and abs(tbm[1, 2] ** 2 - 0.5) < 1e-15
                      and abs(tbm[0, 2]) < 1e-15)
-    # the check the old code lacked: the TBM must actually DIAGONALIZE the
-    # democratic base, not merely carry the right moduli (the old sign bug
-    # passed the angle test while failing this one).
+    # the TBM must actually DIAGONALIZE the democratic base, not merely carry
+    # the right moduli: a bimaximal matrix (the wrong sign in r23) passes the
+    # angle test and fails this one.
     _J = np.ones((3, 3), dtype=complex)
     _D = tbm.conj().T @ _J @ tbm
     tbm_diagonalizes = bool(float(np.abs(_D - np.diag(np.diag(_D))).max()) < _TOL.standard)

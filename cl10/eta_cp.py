@@ -100,8 +100,8 @@ def eta_cp():
     $M_N = M_P(1/16\pi)^3 = 9.6\times10^{13}$ GeV the out-of-equilibrium
     condition holds only for $y < 0.058$, while the neutrino mass needs
     $y \simeq 0.40$ — the two are mutually incompatible (Sakharov 3 fails).
-    The old $\Gamma/H \sim 6\times10^{-4}$ reading belonged to the abandoned
-    $M_N \sim 10^{14}$ GeV intermediate scale.
+    A $\\Gamma/H \\sim 6\\times10^{-4}$ reading needs $M_N \\sim 10^{14}$ GeV, the
+    intermediate scale the ladder does not supply.
 
     The 0-parameter QCA **alone** gives $\varepsilon_{CP} = 0$ (the
     CP-odd theorem): the asymmetry is nonzero **only** through the

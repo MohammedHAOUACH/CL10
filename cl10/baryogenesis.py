@@ -203,7 +203,7 @@ def leptogenesis_estimate():
     The **honest limit**: the QCA *alone* satisfies **no** Sakharov condition
     (V22/V33), the decay at the model's own Yukawa is **in** equilibrium, and
     the physical washout destroys the agreement of the unwashed product. The
-    unwashed number is reported only to expose the coincidence it used to be.
+    unwashed number is reported only because it is a coincidence, not a result.
     """
     ing = gut_ingredients()
     M_N = ing["seesaw_scale_GeV"]

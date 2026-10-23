@@ -7,9 +7,9 @@ the internal map reusable unchanged; V217 turned that into a measurement on the
 star module: chirality conservation, the 16/16-bar sector blocks of the
 32-internal step, the committed CPT operator acting on it, and the internal data
 (anomaly coefficients, the 5/3 trace-form ratio) untouched because the module
-enters none of them.  V225 then changed something deeper than the module: the
+enters none of them.  V225 changes something deeper than the module: the
 *bond layer*, so that a hop carries a spinor matrix $U_d = -\hat v_d\cdot\vec
-\sigma$ instead of the identity, and the step is no longer a tensor product of
+\sigma$ instead of the identity, and the step is not a tensor product of
 transport and internal layer.  That is exactly the change that could spoil the
 internal sector, so the same questions are asked of it.
 

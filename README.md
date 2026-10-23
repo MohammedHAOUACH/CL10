@@ -4,16 +4,16 @@
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--2907--0530-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-2907-0530)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Publication & citation
 
 | | |
 |---|---|
 | **Concept DOI** — always resolves to the latest Zenodo version | [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106) |
-| **Version DOI** — the archived v1.0.2 snapshot (Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
+| **Archive DOI** — the archived Zenodo snapshot (Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
 | **Zenodo record** — the four paper PDFs + the source archive | [zenodo.org/records/23321228](https://zenodo.org/records/23321228) |
-| **GitHub release** — the four PDFs as assets + source archives | [v1.0.3](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) |
+| **GitHub release** — the four PDFs as assets + source archives | [v1.0](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) |
 
 ```bibtex
 @misc{haouach2026cl10,
@@ -24,7 +24,6 @@
   year   = {2026},
   doi    = {10.5281/zenodo.23321106},
   url    = {https://doi.org/10.5281/zenodo.23321106},
-  note   = {latest release v1.0.3; archived snapshot v1.0.2: \url{https://doi.org/10.5281/zenodo.23321228}}
 }
 ```
 
@@ -73,7 +72,7 @@ plus the unified master:
 | [`doc/paper3_phenomenology.md`](doc/paper3_phenomenology.md) · [PDF](doc/paper3_phenomenology.pdf) | **Paper III** — the loop ladder, the coupling unification, the neutrino/DM/baryogenesis audits, the parameter audit, the failures, the falsifiers |
 | [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) | the unified master (all of the above, one reference list) |
 
-`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [v1.0.3 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3) and archived on [Zenodo](https://zenodo.org/records/23321228).
+`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [GitHub release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) and archived on [Zenodo](https://zenodo.org/records/23321228).
 
 ## Selected results
 
@@ -229,8 +228,8 @@ physical card** is pinned by the simulation panels (`gpu:` in
 
 **Where the work runs is a policy, not an accident.** The primitives work
 **where the data lives**: a device array is never pulled to the host by
-`np.roll`/`np.einsum` (that is what used to run the real-space automaton on the
-CPU whatever the backend was), and a host array is never pushed to the device.
+`np.roll`/`np.einsum` — without that rule a device array is pulled to the host
+by those calls and the real-space automaton runs on the CPU whatever the backend is; a host array is never pushed to the device.
 The linear algebra (`eigvals`, `eigvalsh`, `eig`, `det`, `inv`, `norm`,
 `matrix_rank`) is routed by the configured size thresholds: above
 `routing.eig_gpu_min_dim` it runs on the device, below it on the host, because
@@ -332,7 +331,7 @@ from measured inputs); **10 open residuals** (O1–O10).
   frames the node gap moves by $1.8\times10^{-15}$, the anisotropy by $0$, the
   tangent commutators stay at the noise floor — all momentum dependence lives
   in the sub-site factor of the Kronecker bond layer (V142).
-  The cone question is now closed in both directions: at an inversion-invariant
+  The cone question is closed in both directions: at an inversion-invariant
   momentum no single-parity multiplet can carry a linear crossing — an $O_h$
   representation theorem, $\mathrm{Hom}_{O_h}(T_{1u}, D\otimes D^*) = 0$ for all
   ten irreps — and an exactly isotropic non-abelian cone exists only on a

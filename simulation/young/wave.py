@@ -40,7 +40,7 @@ class WaveSim:
         self.sponge_width = int(cfg["sponge_width"])
 
         # the source model: "single" = one localized electron packet at a time
-        # (the real Tonomura experiment); "continuous" = the old driven beam.
+        # (the real Tonomura experiment); "continuous" = a driven beam.
         self.source_mode = str(cfg["source_mode"])
         # the packet shape: "point" = a 3D Gaussian (a true single electron);
         # "sheet" = full in y (a vertical sheet, clean x-fringes like the ref).

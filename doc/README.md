@@ -51,6 +51,6 @@ than its figures is a stale artifact, not a preview.
 ## Citation
 
 The four compiled PDFs are attached to the
-[v1.0.3 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0.3)
+[v1.0 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0)
 and archived on [Zenodo](https://zenodo.org/records/23321228); cite
 [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).

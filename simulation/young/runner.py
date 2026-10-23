@@ -135,7 +135,7 @@ def run_headless(cfg):
                 screened = False
                 flight_timer = 0
         else:
-            # the old continuous-beam mode: sample from the on-screen |psi|**2
+            # the continuous-beam mode: sample from the on-screen |psi|**2
             collapse_timer += 1
             if (
                 collapse_timer >= collapse_every

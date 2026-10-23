@@ -227,7 +227,7 @@ def fig14_loop_selection():
              f"clock (exact integer arithmetic) and the ratio has no limit "
              f"there: it diverges with poles\n"
              f"accumulating at the closure angle (V209). The open markers are "
-             f"floor ratios - the old \u201c$33\\times$ branch separation\u201d "
+             f"floor ratios - the \u201c$33\\times$ branch separation\u201d "
              f"is the two classes' distance in a degenerate limit.",
              fontsize=10.5, color="0.25", va="bottom")
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.31)

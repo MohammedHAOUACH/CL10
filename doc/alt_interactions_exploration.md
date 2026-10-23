@@ -151,6 +151,6 @@ the record.
 - F7 (why this g_10 and this root): untouched - the collision census
   changes no coupling.
 - O3 (why three families): untouched.
-- W9 (cone isotropy): the interaction route is now also censused and
+- W9 (cone isotropy): the interaction route is also censused and
   closed at every perturbative order computable at the automaton level;
   only the non-perturbative gauged-layer fixed point remains open.

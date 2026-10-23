@@ -42,7 +42,7 @@ measurement rather than a limit:
 **Verdict.** The composition law survives, with new numbers and in the only
 regime where it is measurable: chain $1.31\times10^{-21}$, product
 $6.47\times10^{-30}$, ratio $2.02\times10^{8}$.  Every version of it quoted at
-the root clock is withdrawn (V209).
+the root clock is a ratio of round-off floors with no limit there (V209).
 """
 import json
 import os
@@ -121,8 +121,9 @@ def main():
                 f" chain suppresses {ratio:.4g} times LESS than the product of"
                 f" its 17 ten-hop pieces, so consecutive hops interact through"
                 f" the propagation and a chain is not a stack of factors"
-                f" (the root-clock version F_170 = 1.57, (F_10)^17 = 3.9e29,"
-                f" R_17 = 4.0e-30 is withdrawn: n = 170 and n = 10 are both"
+                f" (the root-clock entries F_170 = 1.57, (F_10)^17 = 3.9e29,"
+                f" R_17 = 4.0e-30 are floor ratios, not measurements: n = 170"
+                f" and n = 10 are both"
                 f" 4k+2 lengths, and those ratios have no limit at the closure"
                 f" angle, V209)",
         "pass": bool(abs(F170 / F170_30 - 1) < 1e-11 and ratio > 1e7
@@ -185,8 +186,8 @@ def main():
               f" cancellation used elsewhere is specific to the closure class"
               f" (odd chains at 1/5: F_3 = {odd[3]:.4f}). VERDICT: the"
               f" composition law stands on these numbers; the root-clock"
-              f" version (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30) is"
-              f" withdrawn by V209.")
+              f" entries (F_170 = 1.57, (F_10)^17 = 3.9e29, R_17 = 4.0e-30)"
+              f" are floor ratios with no limit at the closure angle (V209).")
     out = {"id": "V210_open_branch_composition",
            "tier": 4,
            "property": "one-chain and multi-leg loop compositions are distinct "

@@ -1,7 +1,7 @@
 {
   "experiment": "V85_closed_loop_factor",
   "pass": true,
-  "status": "THE CLOSED-LOOP FACTOR IS MEASURED ON THE 1/5 REFERENCE BRANCH (the clock Cartan probes are degenerate; V203/V204 read the clock): at the branch coupling the n-hop traced-loop ratios are F_n = 2.75822936, 0.2429872, 0.46564226, 0.1042476, 0.02987819, 0.3677866 (n = 2..7) with F_10 = 0.01918639 against 1/(16 pi) = 0.019894; the geometric ratio is r = 0.537397 (spectral radius MG = 0.775661 vs G = 1.0); the loop factor is reached at loop order n* = 7 if the geometric law holds. Closed traced-link loops are the true Feynman-loop analogue and their suppression law is now a measured number of the built gauged layer (O8).",
+  "status": "THE CLOSED-LOOP FACTOR IS MEASURED ON THE 1/5 REFERENCE BRANCH (the clock Cartan probes are degenerate; V203/V204 read the clock): at the branch coupling the n-hop traced-loop ratios are F_n = 2.75822936, 0.2429872, 0.46564226, 0.1042476, 0.02987819, 0.3677866 (n = 2..7) with F_10 = 0.01918639 against 1/(16 pi) = 0.019894; the geometric ratio is r = 0.537397 (spectral radius MG = 0.775661 vs G = 1.0); the loop factor is reached at loop order n* = 7 if the geometric law holds. Closed traced-link loops are the true Feynman-loop analogue and their suppression law is a measured number of the built gauged layer (O8).",
   "data": {
     "loops_root": {
       "eta": 0.2,

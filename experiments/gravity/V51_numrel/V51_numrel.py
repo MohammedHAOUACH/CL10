@@ -10,7 +10,7 @@ $R_{0i}$) is **2-route verified** (the 4-D Riemann, `cl10.gravity`, vs the
 0-row of the 4-D Einstein tensor (the **constraints** $H, M$), the
 evolution is **non-linear** (superposition fails), **Z4-damped** (a
 constraint violation decays), and **UV-finite** (bounded).  The **open**
-part (O9) is now precisely the **quantum** completion (the UV of the
+part (O9) is precisely the **quantum** completion (the UV of the
 quantum gravity) -- **not** the classical 3+1 NR, which is complete here.
 
 The **0-parameter** result.

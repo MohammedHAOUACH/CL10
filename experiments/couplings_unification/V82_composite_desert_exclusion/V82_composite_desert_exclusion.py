@@ -37,7 +37,7 @@ A2 5.68, A3 3.26, A4 4.43 (targets are 0); A5: 0 physical solutions.
 **Verdict.** The desert spectrum of V64 is NOT the composite content of
 the gauged bond layer under any natural mass ansatz - a measured,
 quantified exclusion. O4's supplier remains the named V64 input; the
-question is now closed in both directions (V74: nodes excluded;
+question is closed in both directions (V74: nodes excluded;
 V81+V82: composites excluded).
 """
 
@@ -267,7 +267,7 @@ def main():
         "sum db1 = sum db2 = 144.06 EXACTLY (embedding-index identity) - "
         "the content shifts U(1) and SU(2) equally while the data require "
         "different shifts - and the no-contribution meeting scales differ "
-        f"(x_12 = {x12:.2f} vs x_23 = {x23:.2f}). O4 is now closed in both "
+        f"(x_12 = {x12:.2f} vs x_23 = {x23:.2f}). O4 is closed in both "
         "directions: nodes excluded (V74), composites excluded (V81+V82); "
         "the V64 spectrum remains a named input.")
 

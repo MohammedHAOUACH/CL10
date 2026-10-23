@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Build the three companion papers from the corrected master manuscript.
+"""Build the three companion papers from the master manuscript.
 
 Mechanical assembly: header prose + verbatim body ranges + footer prose,
 with per-paper remapping of section cross-references, figure numbers,

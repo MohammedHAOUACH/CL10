@@ -59,9 +59,8 @@ Branch C (the certificate realized): the carrier IS a state of the redefined
 automaton cell - neutral, exactly stable, at the ladder mass, with the
 neutrino ladder intact and the hard gates unchanged - and one named residual
 survives: the portal strength of B is a required nonzero input that the root
-does not supply (the published input scalar had the same open number; what
-changed is that the CARRIER is no longer an input field but a state of the
-cell, and its mass is derived, not named).
+does not supply (an input scalar would carry the same open number; the carrier
+here is a state of the cell, and its mass is derived, not named).
 """
 import json
 import os
@@ -111,7 +110,7 @@ GENS45_EXT = CE.gauge_ext_np()   # the 45 generators extended by zero on A, B
 
 
 def sigma_si(lam):
-    """The V148 map at the corrected reduced mass (V193's T2 regression):
+    """The V148 map at the reduced mass V193 measures:
     sigma_SI = lam^2 F_N^2 mu_red^2 / (pi M_h^4) x 0.3894e-27 cm^2."""
     from cl10 import dm_wimp as DW
     c = V193["data"]["constants"]

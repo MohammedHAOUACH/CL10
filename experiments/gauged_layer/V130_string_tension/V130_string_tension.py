@@ -263,7 +263,7 @@ def main():
         "every plaquette the identity, <W_square> = %.6f): no field strength, "
         "no area law, no confinement. Confinement is therefore PRESENT in the "
         "construction - in the gauged bond layer - but its string is a Planck "
-        "string: the residual of Section 13 is no longer a missing phase, it "
+        "string: the residual of Section 13 is not a missing phase, it "
         "is a measured tension forty orders of magnitude too large, and "
         "Lambda_QCD is not produced."
         % (c2_45, c2_spread, n_inv_link, sigma_lat, sig_mass2,

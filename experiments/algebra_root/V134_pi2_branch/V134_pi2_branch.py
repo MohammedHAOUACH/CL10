@@ -24,7 +24,7 @@ measures both, and the measurement is sharper than the sentence.
 4. The band velocities: at pi/2 the bands are exactly linear in q with slope
    +-1 in every direction (the translation), so no mass term and no
    interference is available anywhere in the zone.
-5. The verdict: the theory is on the pi/4 branch, and the reason is now a
+5. The verdict: the theory is on the pi/4 branch, and the reason is a
    measurement, not a sentence.
 """
 import itertools
@@ -250,8 +250,8 @@ def main():
                    "%d grid points against %d at pi/4 and %d at 1/5; a "
                    "translation-only automaton has no mixing, hence no mass "
                    "generation and no chiral structure, so the theory is on "
-                   "the pi/4 branch - the paper's one-sentence dismissal of "
-                   "pi/2 is now a measurement"
+                   "the pi/4 branch - the pi/2 branch is dismissed by "
+                   "measurement, not by sentence"
                    % (offdiag, c2["gapless_count"], c4["gapless_count"],
                       c5["gapless_count"]),
                    offdiag < 1e-14 and id2 < 1e-12

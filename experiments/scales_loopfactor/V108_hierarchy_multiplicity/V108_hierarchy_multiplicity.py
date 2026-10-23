@@ -69,7 +69,7 @@ def main():
     rel = abs(coef_pred - coef_obs) / coef_obs
 
     ok = rel < 0.01 and cross == 10
-    status = (f"THE 2.08 IS NO LONGER A FITTED NUMBER (conditional): "
+    status = (f"THE 2.08 IS NOT A FITTED NUMBER (conditional): "
               f"v/M_P = 3*F_10^10 with F_10 = {F10} measured (V85), "
               f"3 = the three axis families (V70), 10 = the measured "
               f"crossing (V89): predicted coefficient "

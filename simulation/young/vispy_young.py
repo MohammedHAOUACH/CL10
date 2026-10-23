@@ -308,7 +308,7 @@ class YoungVisPy(scene.SceneCanvas):
                     self._detected = False
                     self._flight_timer = 0
             else:
-                # the old continuous-beam mode: sample from the on-screen |psi|**2
+                # the continuous-beam mode: sample from the on-screen |psi|**2
                 self._det_timer += 1
                 if (
                     self._det_timer >= self.collapse_every
@@ -401,8 +401,8 @@ class YoungVisPy(scene.SceneCanvas):
         self.info_text.update()
 
     def _rebuild_slit_wall(self):
-        """Detach the old slit outlines and rebuild them from the current
-        (live-tuned) slits."""
+        """Detach the slit outlines in the scene and rebuild them from the
+        current (live-tuned) slits."""
         for n in self._slit_nodes:
             n.parent = None
         self._slit_nodes = make_slit_outlines(self.view_3d.scene, self.sim)

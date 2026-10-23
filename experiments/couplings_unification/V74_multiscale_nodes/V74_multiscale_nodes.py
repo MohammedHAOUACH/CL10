@@ -24,7 +24,7 @@ value for EVERY choice of the three strengths: M_X = 8.9e14 GeV,
 tau_p ~ 1e31 yr, EXCLUDED by F5.  The V64 data-preferred spectrum
 (three 10+10bar-type sets at 1.2e7 + one (1,2) pair at 1e12) is NOT a
 three-full-16 pattern - the automaton supplies full 16's per node, the
-data want partial suits.  O4's gap is now a NAMED INCOMPATIBILITY
+data want partial suits.  O4's gap is a NAMED INCOMPATIBILITY
 (node content = full split 16 vs the desert spectrum the couplings
 prefer), not a fitting problem: closing it needs new automaton content
 (partial-suit states), not new thresholds.
@@ -148,7 +148,7 @@ def main():
         "data-preferred spectrum (three 10+10bar sets at 1.2e7 + one "
         "(1,2) pair at 1e12) is not a three-full-16 pattern: the "
         "automaton supplies full split 16's per node, the couplings "
-        "prefer partial suits. O4 is now a NAMED INCOMPATIBILITY (node "
+        "prefer partial suits. O4 is a NAMED INCOMPATIBILITY (node "
         "content vs desert spectrum), not a fitting problem; closing it "
         "needs new automaton content, not new thresholds.")
 

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """V57 - O2 **completed**: the 2-step seesaw **on the 10-loop ladder**.
 
-The O2 open part (the 2-step seesaw scale) is now **0-parameter**: both the
+The O2 open part (the 2-step seesaw scale) is **0-parameter**: both the
 Dirac mass and the Majorana (2-step) mass are **numbers of the root** on the
 **same** 10-loop ladder that fixes the hierarchy (O8/V53) and the dark matter
 (O7/V54):
@@ -11,11 +11,11 @@ Dirac mass and the Majorana (2-step) mass are **numbers of the root** on the
     M_N  =  M_P (1/16\\pi)^{3}    (the 2-step, the 10^14 scale; 0-parameter)
     m_nu =  M_P (1/16\\pi)^{17}   (17 = 2*10 - 3, the 0-parameter loop identity)
 
-This **replaces** the previously hard-coded ``M_N = 10^14`` (V15/V18).  The
+The ladder itself **sets** ``M_N``; no ``10^14`` is taken as an input.  The
 2-step (``U^2``) is a 0-parameter **unitary** of the GUT QCA (the 2-loop, the
 same object as the O4 UV-finite completion).  The 0-parameter result gives
-``m_nu ~ 0.15 eV`` (2.9x the observed 0.05 eV — the **right order**, closer
-than the previous 5.3x).  The **named residual** is the 2-digit coefficient
+``m_nu ~ 0.15 eV`` (2.9x the observed 0.05 eV — the **right order**).  The
+**named residual** is the 2-digit coefficient
 and the loop integer ``n_2step = 3``.
 """
 

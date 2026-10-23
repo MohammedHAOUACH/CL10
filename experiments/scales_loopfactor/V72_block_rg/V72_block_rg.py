@@ -32,7 +32,7 @@ flow stays bounded and additive, never a (16 pi)^-p law. Every exact
 single-particle RG COMPOSES internal angles; none can DIVIDE them. The
 loop factor needs a trace over fluctuating internal (gauge) fields: a
 block RG on the many-cell space with a dynamical Spin(10) link variable
-on the bond (a gauged bond layer). The tool is now fully specified and
+on the bond (a gauged bond layer). The tool is fully specified and
 its single-particle impotence is proven.
 """
 
@@ -170,7 +170,7 @@ def main():
             "1/(16 pi) needs a trace over FLUCTUATING internal fields: a "
             "block RG on the many-cell space with a dynamical Spin(10) "
             "link variable on the bond (a gauged bond layer). The tool "
-            "is now fully specified and its single-particle impotence is "
+            "is fully specified and its single-particle impotence is "
             "proven, not assumed."),
         "data": results,
     }

@@ -37,9 +37,9 @@ identically on the even-$n$ class, so $F_n$ is not a measurement there.
    $3\,\mathrm{deficit}^{10} = 2.0881$ (V85, V108, V113).
 
 **Verdict.** The loop functional has a structurally caused zero on the closure
-class; the measured loop factor belongs to the open branch.  Any $F_n$ quoted
-at a closure-class angle must be defined by continuity (scanned here) or
-withdrawn.
+class; the measured loop factor belongs to the open branch.  Any $F_n$ at
+a closure-class angle is defined by continuity (scanned here); a raw float64
+reading on the $4k{+}2$ class is a ratio of round-off floors, not a measurement.
 """
 import json
 import math
@@ -528,7 +528,8 @@ def main():
               f" rungs) and the 4k-class crossing survive; the certified"
               f" closure-class coefficient is 2.710 (pi/4) / 2.711 (3pi/4)"
               f" against the float64 2.699-2.700, and every n = 4k+2 reading at"
-              f" a closure-class angle is withdrawn.")
+              f" a closure-class angle is a ratio of round-off floors, not a"
+              f" measurement.")
     out = {"id": "V209_root_clock_degeneracy",
            "tier": 4,
            "property": "the traced-loop Cartan ratio is 0/0 on the phase-"

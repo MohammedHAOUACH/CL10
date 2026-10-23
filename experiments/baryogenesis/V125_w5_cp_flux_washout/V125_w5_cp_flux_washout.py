@@ -295,7 +295,7 @@ def main():
         "is Sakharov 3: the same Yukawa that gives m_nu = 0.0501 eV puts the "
         "decay in equilibrium (K = %.1f), and out-of-equilibrium decay needs "
         "y < %.4f, which caps m_nu far below the atmospheric splitting. O5 "
-        "stays open, and it is now open for ONE named reason instead of two."
+        "stays open for ONE named reason, not two."
         % (max(r["unitarity"] for r in scan),
            max(r["vac_phase"] for r in scan), mirror_comm, lr, shift_max,
            Jmax, y_atm, cases["atmospheric y"]["K"],

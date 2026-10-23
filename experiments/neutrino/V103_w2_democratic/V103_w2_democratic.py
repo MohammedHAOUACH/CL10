@@ -43,7 +43,7 @@ STRUCTURE (two massless + one massive, normal ordering) is protected
 0-parameter by the same family symmetry that derives sin2(theta12) = 1/3;
 the VALUE m_3 = S17/(1+r) leaves a finite window, and the atmospheric
 scale selects r = 1.91 (the exact r = 2 giving S17/3 = 0.0487 is the
-convenient junction amplitude, no longer measure-zero).  The solar mass
+convenient junction amplitude, not measure-zero).  The solar mass
 still needs the O6 10-Higgs splitting - unchanged, named.
 """
 
