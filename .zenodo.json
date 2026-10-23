@@ -1,0 +1,29 @@
+{
+  "title": "Causal Clifford Theory (CL10): a quantum cellular automaton on Cl(10,0) — Standard Model kinematics, exactly unitary causal dynamics, and a lattice gravitational sector",
+  "upload_type": "publication",
+  "resource_type": "preprint",
+  "language": "eng",
+  "license": "CC-BY-4.0",
+  "access_right": "open",
+  "version": "v1.0.2",
+  "creators": [
+    { "name": "Haouach, Mohammed", "affiliation": "Independent researcher" }
+  ],
+  "description": "A quantum cellular automaton is defined on a Planck lattice whose 2x2x2 cells carry the 36-level cell module of the Clifford algebra Cl(10,0) — the 32-dimensional Dirac module and two neutral singlet sectors — on eight sub-sites (on-site space C^288) and are updated by one six-stage product of Spin(10) plane rotations and swap-rotations, the singlet pairs carrying the ladder masses as on-site phases. This repository contains the full construction (doc/final_publication.md and its compiled PDF) and its three companion papers (Paper I: core kinematics and unitarity; Paper II: the gauged bond layer and the lattice gravitational sector; Paper III: the loop-factor ladder and the phenomenology), together with the complete validation suite: 143 experiments, 143/143 PASS (run_validation.py), three simulation suites, and all figure generators. Every number quoted in the papers is produced by the open scripts in this repository; Appendix B of the paper maps each claim to its verifying experiment. Results carry a provenance classification (algebraic, conventional, fitted, open); nine tensions with observation and seven falsifiers are reported rather than hidden.",
+  "keywords": [
+    "Clifford algebra",
+    "quantum cellular automaton",
+    "Spin(10) grand unification",
+    "anomaly cancellation",
+    "lattice gauge theory",
+    "coupling unification",
+    "dark matter",
+    "provenance audit",
+    "falsifiability"
+  ],
+  "references": [
+    "M. Haouach, \"Causal Clifford Theory (CL10): Minkowski kinematics, one anomaly-free generation, and exactly unitary causal dynamics from a single Clifford algebra\" (Paper I, this repository, doc/paper1_core.pdf).",
+    "M. Haouach, \"The gauged bond layer of Causal Clifford Theory: exact Gauss constraint, bounded area law, string tension, and the lattice gravitational sector\" (Paper II, this repository, doc/paper2_gauge_gravity.pdf).",
+    "M. Haouach, \"The loop-factor ladder and the phenomenology of Causal Clifford Theory: four scales, coupling unification, dark matter, neutrinos, and the provenance audit\" (Paper III, this repository, doc/paper3_phenomenology.pdf)."
+  ]
+}

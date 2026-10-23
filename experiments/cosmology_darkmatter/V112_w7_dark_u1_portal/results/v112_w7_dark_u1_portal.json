@@ -1,0 +1,60 @@
+{
+ "experiment": "V112_w7_dark_u1_portal",
+ "pass": true,
+ "status": "DARK-U(1) PORTAL AUDIT (O7). T1: the extra U(1) of the V67 chain is constructed - hypercharge fixed by the Q and L classes PREDICTS the full SM pattern [(1, 1.0), (1, -0.0), (6, 0.166667), (3, 0.333333), (3, -0.666667), (2, -0.5)] on the six weight classes (all match: True); E is orthogonal to all 10 unbroken roots (max 8.9e-16). T2: the desert matter IS charged under E (max |q_E| over the 16 weights = 2.236) - an UNBROKEN extra U(1) is a massless Z' coupled to desert matter: it must be broken before nucleosynthesis. T3 (theorem): it cannot be broken inside the implemented spectrum - 40/45 generators of the 45 are E-charged and every broken root is cross-fragment (color-triplet leptoquark: 98/120 broken weight-pair directions connect fragments), so no SM-singlet scalar of the 45 carries E-charge: the extra U(1) is UNHIGGSABLE by the implemented spectrum. T4: with a dark Higgs OUTSIDE the spectrum (named input) breaking U(1)_D at v_D, the thermal relic window (Omega h^2 = 0.120 via Z' annihilation, LZ-class sigma_SI < 2e-47 cm^2, LEP-class Z' reach) contains 0 grid points in (g_D, m_Z', eps): the relic density needs g_D*eps >~ 0.02 while Z'-mediated direct detection bounds g_D*eps <~ 1e-3 at m_Z' ~ 2 m_s - the named-input dark-U(1) window is EMPTY in the minimal 118 GeV scalar setup. Verdict: the extra U(1) cannot serve as the O7 portal - inside the cell spectrum it is unbroken and the ladder scalar is E-neutral, and the named extension that Higgses it closes itself by relic/direct-detection squeeze. The O7 portal is the strength lambda_B of the cell singlet B, a named input (V195/V196).",
+ "data": {
+  "hypercharge_by_class_multiplicity": [
+   [
+    1,
+    1.0
+   ],
+   [
+    1,
+    -0.0
+   ],
+   [
+    6,
+    0.166667
+   ],
+   [
+    3,
+    0.333333
+   ],
+   [
+    3,
+    -0.666667
+   ],
+   [
+    2,
+    -0.5
+   ]
+  ],
+  "hypercharge_pattern_ok": true,
+  "E_orthogonality_roots": 8.881784197001252e-16,
+  "n_unbroken_roots": 10,
+  "matter_max_E_charge": 2.2360679774997894,
+  "E_charges_16": [
+   -0.4472,
+   -2.2361,
+   -0.4472,
+   -0.4472,
+   -0.4472,
+   -0.4472,
+   -0.4472,
+   1.3416,
+   -0.4472,
+   1.3416,
+   1.3416,
+   -0.4472,
+   -0.4472,
+   -0.4472,
+   1.3416,
+   1.3416
+  ],
+  "E_charged_generators_of_45": 40,
+  "broken_cross_fragment_roots": 98,
+  "broken_roots_total": 120,
+  "named_input_window_points": 0,
+  "window_sample": []
+ }
+}

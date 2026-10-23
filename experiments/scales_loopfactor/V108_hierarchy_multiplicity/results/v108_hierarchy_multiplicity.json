@@ -1,0 +1,18 @@
+{
+ "experiment": "V108_hierarchy_multiplicity",
+ "pass": true,
+ "status": "THE 2.08 IS NOT A FITTED NUMBER (conditional): v/M_P = 3*F_10^10 with F_10 = 0.01918639 measured (V85), 3 = the three axis families (V70), 10 = the measured crossing (V89): predicted coefficient 2.0881 vs observed 2.0766, agreement 99.44%. CONDITIONAL: the per-level F_10 reading is the V85/V89 identification and the axis-family multiplicity 3 is not proven to factorize in the single-link construction; sensitivity dln(coef)/dln(F_10) = 10. O8 narrows: the coefficient is a product of measured root numbers, its derivation needs the axis-factorization of the closed-loop sum.",
+ "data": {
+  "F_10_root": 0.01918639,
+  "v89_crossing": 10,
+  "coefficient_predicted_3_F10_10": 2.088105749082429,
+  "coefficient_observed": 2.076564111173832,
+  "relative_error": 0.005558045545760995,
+  "sensitivity_dln_coef_dln_F10": 10.0,
+  "caveats": [
+   "per-level F_10 reading is the V85/V89 identification, not a theorem",
+   "axis-family factorization of the loop sum NOT proven (V89: no mod-4 selection; nothing on axes)",
+   "1% shift of F_10 moves the coefficient by 10%"
+  ]
+ }
+}

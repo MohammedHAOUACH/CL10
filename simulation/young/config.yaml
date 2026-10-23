@@ -1,0 +1,172 @@
+# =============================================================================
+# CL10 / simulation/young  --  the 3-D Young (double-slit) simulation
+#
+# This file is the **parameter panel** of the simulation.  Every value can be
+# edited here; the runner also exposes them as a live panel in the window
+# (keyboard shortcuts in interactive mode).  Nothing is fitted: the wave
+# equation, the discrete Laplacian and the collapse are 0-parameter.
+# =============================================================================
+
+# --- the GPU -----------------------------------------------------------------
+# which GPU to run on (0 or 1).  Must be set **before** the process imports
+# CuPy -- the runner pins CUDA_VISIBLE_DEVICES to this id.  Default: 1 (the
+# free card; 0 is usually busy).
+gpu: 1
+
+# --- the grid / the 3-D scene (wide + flat, like the reference) -------------
+# (Lx, Ly, Lz) cells.  The wave propagates along +z (the long axis), the two
+# slits are separated along x, the slits are full-height slots along y.
+# 256 x 256 x 512 = the same wide, flat box as the reference example.
+grid: [300, 128, 520]
+
+# render only every N-th cell (a stride in each axis) to keep the point cloud
+# fast on the GPU and the window responsive.  2 -> 1/8 of the cells drawn.
+render_subsample: 2
+
+# --- the wave (the 3-D FDTD wave equation) ----------------------------------
+# r = c*dt/dx (the leapfrog coefficient).  CFL in 3-D: r <= 1/sqrt(3) ~ 0.577.
+# 0.5 is the 0-parameter choice (massless, propagates at the light speed).
+r: 0.5
+
+# the source wavelength in grid units (sets the fringe spacing on the screen).
+wavelength: 4.5
+
+# the Gaussian source-envelope width in x (the beam is full in y -- a sheet),
+# in grid units.  Broad enough to illuminate both slits.
+source_width: 18.0
+
+# the source amplitude (the beam height at the source).
+source_amplitude: 1.0
+# the z position of the source (a little inside the box, off the sponge,
+# like the reference).
+source_z: 20
+
+# --- the single-electron source (the real Tonomura experiment) --------------
+# "single": fire ONE localized electron packet at a time.  The packet flies to
+#   the screen, where one detection is taken (a point sampled from its
+#   on-screen |psi|^2 = the Born rule / the collapse).  The wave then keeps
+#   riding until the **sponge** at the edge of the box absorbs it (its total
+#   energy decays), and only then the NEXT electron is fired.  There is no
+#   reset in between -- the boundary takes each electron, like the real
+#   Tonomura flow.  The accumulated points build the interference pattern.
+# "continuous": the old driven beam (a sheet re-driven every step).
+source_mode: single
+# the packet shape: "point" = a 3-D Gaussian (a true single electron);
+#   "sheet" = full in y (a vertical sheet -> clean x-fringes, like the ref).
+source_shape: point
+# the y-width of the packet (for "point"; ignored for "sheet"), in grid units.
+source_y_width: 14.0
+# the z-width of the emitted packet (a thin sliver of the beam), in cells.
+packet_z_width: 8.0
+# absorb_frac: the fraction of the emitted energy the sponge must absorb before
+#   the NEXT electron is fired (the wave's total |psi|^2 decays below this
+#   fraction of the emitted energy).  Lower = the electron is fully absorbed.
+absorb_frac: 0.02
+# max_flight_steps: a safety cap on the absorb phase (after the on-screen
+#   detection).  If the sponge is slower than this, the next electron fires
+#   anyway (so the simulation never stalls).
+max_flight_steps: 300
+
+# the source ramp-in, in steps (avoid a launch shock; the beam fades in).
+ramp_steps: 200
+
+# the absorbing (sponge) boundary width, in cells (kills reflections).
+sponge_width: 16
+
+# --- the barrier + the two slits (the "fentes") ------------------------------
+# z position of the barrier plane.
+barrier_z: 44
+
+# the center-to-center distance between the two slits (x), in grid units.
+slit_separation: 22.0
+
+# the width of **each** slit (x), in grid units.
+slit_width: 5.0
+
+# the height of each slit (a slot along y) -- full height (= Ly), so the slits
+# are clean vertical lines like the reference (the sheet passes fully through).
+slit_height: 128.0
+
+# --- the detection screen (the "reality") ------------------------------------
+# z position of the detection screen (behind the slits; 82% down the box,
+# like the reference).
+screen_z: 480
+
+# how many collapse / detection events to accumulate on the screen.
+n_detections: 3000
+
+# run the wave K sim-steps between two detections.
+collapse_every: 2
+
+# --- the collapse (the wave-packet reduction) --------------------------------
+# render the wave-packet **contracting** onto the detected point.
+show_collapse: true
+
+# how many **rendered frames** the contraction lasts (frame-driven, so it is
+# visible in the video, not just a few sim-steps).
+collapse_frames: 3
+
+# the peak intensity multiplier of the contracted packet (the "flash").
+collapse_peak: 4.0
+
+# --- rendering ----------------------------------------------------------------
+# the window / offscreen buffer size (width, height) in pixels.
+render_size: [1280, 720]
+
+# how many frames to record into the video.
+n_video_frames: 300
+
+# the video frame rate (fps).
+fps: 30
+
+# the total number of sim-steps to run (the wave must reach the screen and the
+# pattern must build up; the frames are spread over these steps).
+n_steps: 3200
+
+# the camera: a wide pull-back so the whole big box is in frame.
+#   [x, y, z]  ->  a point high up and behind, looking at the box centre.
+camera: [64.0, 66.0, 205.0]
+camera_fov: 45
+
+# the colormap of the field intensity.
+colormap: inferno
+
+# --- output -------------------------------------------------------------------
+# where the video and the still frames are written (relative to this dir).
+out_video: video/young.mp4
+out_frames: video/frames
+# --- the live VisPy window (--interactive) -----------------------------------
+# (the headless video uses the blocks above; these tune the interactive one)
+
+visualization:
+  # the window size (width, height) in pixels -- the same as the reference.
+  window_size: [1200, 800]
+
+  # the colormap of the 3-D volume and the 2-D detection screen.
+  cmap: hot
+
+  # the colour range of the (frame-normalised) intensities.
+  clim: [0.0, 1.0]
+
+  # the volume translucency: < 1.0 makes the propagating cloud read as a
+  # semi-transparent "alpha" volume (like the reference); 1.0 = full.
+  volume_alpha: 0.7
+
+  # subsample the 3-D volume by this stride in each axis (2 -> 1/8 the cells).
+  volume_stride: 2
+
+  # refresh the (heavier) 3-D volume every N frames (the 2-D screen is every
+  # frame).  Throttling it keeps the window responsive.
+  volume_refresh_rate: 2
+
+  # how many sim-steps per rendered frame (the playback speed; tune live with
+  # the +/- keys).
+  steps_per_frame: 4
+
+  # draw the accumulated detections (the "reality") on the 2-D screen.
+  show_detections: true
+
+  # the anti-flicker auto-gain (AGC): how many frames it takes the gain to
+  # fall (the slow release) and its hard cap.
+  agc_release: 600
+  agc_gain_max: 8.0

@@ -1,0 +1,116 @@
+{
+  "experiment": "V208_metric_bilinear_cone",
+  "data": {
+    "content": {
+      "bond_module_6": {
+        "A1g": 1,
+        "Eg": 1,
+        "T1u": 1
+      },
+      "polarisation_Sym2": {
+        "A1g": 1,
+        "Eg": 1,
+        "T2g": 1
+      },
+      "bilinear_module_36": {
+        "A1g": 2,
+        "A2g": 1,
+        "Eg": 3,
+        "T1g": 1,
+        "T2g": 2,
+        "A2u": 1,
+        "Eu": 1,
+        "T1u": 3,
+        "T2u": 2
+      },
+      "invariant_algebra_dim": 34,
+      "single_bond_has_T2g": 0,
+      "polarisation_has_T1u": 0
+    },
+    "parity": {
+      "hop_polar_vector_violation": 4.440892098500626e-16,
+      "dressing_axial_vector_violation": 4.440892098500626e-16,
+      "even_sector_rank": 18,
+      "hop_velocity_block_in_even_sector": [
+        2.7194799110210365e-16,
+        2.7194799110210365e-16,
+        2.7194799110210365e-16
+      ],
+      "dressing_block_in_even_sector": [
+        5.47722557505166,
+        5.47722557505166,
+        5.47722557505166
+      ],
+      "dressing_spectrum_spread_over_directions": 2.220446049250313e-15,
+      "implemented_cone_radius_2g": 1.5707963267948966
+    },
+    "cone": {
+      "hermiticity_defect": 9.85971765407524e-15,
+      "clifford_defect": 1.404214328156794e-13,
+      "O_covariance_violation": 1.1106791558003129e-15,
+      "band_spectrum_spread_over_44_directions": 5.218048215738236e-15,
+      "cone_subspace_dim": 8,
+      "cone_slope": 1.0,
+      "cone_branches_at_plus_1": 4,
+      "cone_branches_at_minus_1": 4,
+      "cone_content": {
+        "E": 1,
+        "T1": 1,
+        "T2": 1
+      },
+      "quintet_weight_on_cone": 5.000000000000002,
+      "non_propagating_subspace_dim": 4,
+      "non_propagating_content": {
+        "A1": 1,
+        "A2": 1,
+        "E": 1
+      },
+      "step_unitarity": 9.992007241221707e-15,
+      "step_at_q0_minus_identity": 0.0,
+      "kernel_profile": {
+        "0": 0.9108612370986987,
+        "1": 0.10705424159710794,
+        "2": 0.034138977783196765,
+        "3": 0.005435677538772973,
+        "4": 0.0007878570698366837,
+        "5": 7.157945101618305e-05,
+        "6": 6.862468908269155e-06,
+        "7": 4.690556481458848e-07
+      },
+      "generator_file": "cone_generator.json"
+    },
+    "implemented": {
+      "hop_fraction_of_cone_generator": 0.0028977782769928693,
+      "dressing_fraction_of_cone_generator": 0.0092074659831694,
+      "implemented_cone_speed_from_V141": 1.5707963244218102,
+      "GW170817_bound_abs_cgw_over_c_minus_1": 1e-15,
+      "clock_giving_cone_1": 0.5,
+      "V206_dead_zone_entry_for_1_2": {
+        "1/2": {
+          "n_star": 3,
+          "deficit": 0.0014399672301228746
+        }
+      },
+      "covariant_velocity_space_dim": 160,
+      "clifford_constraint_jacobian_rank": 107,
+      "exact_cone_family_dimension": 53
+    },
+    "newton": {
+      "bond_entropy_ln45_from_V129": 3.8066624897703196,
+      "G_in_cell_units_1_over_4ln45": 0.06567432775346577,
+      "sixteen_pi_G": 3.301151769595781,
+      "cell_over_planck_2_sqrt_ln45": 3.9021340262837305,
+      "bekenstein_deficit_factor_4ln45": 15.226649959081278
+    }
+  },
+  "checks": [
+    "T1 content: bond(6 oriented) = {'A1g': 1, 'Eg': 1, 'T1u': 1} while Sym^2 = {'A1g': 1, 'Eg': 1, 'T2g': 1} - the quintet's T2g is absent from a single bond (0 copies) and T1u is absent from Sym^2 (0), so the metric is a bilinear: bond (x) Sym^2 = {'A1g': 2, 'A2g': 1, 'Eg': 3, 'T1g': 1, 'T2g': 2, 'A2u': 1, 'Eu': 1, 'T1u': 3, 'T2u': 2}, whose invariant algebra has dimension 34 (= sum m^2: 34 independent self-couplings, none chosen)",
+    "T2 parity: the hop velocity is a polar vector (covariance 4.4e-16) and the dressing an axial one (4.4e-16); the even (metric) half of the bilinear module has rank 18 and the hop's velocity block inside it vanishes (['2.7e-16', '2.7e-16', '2.7e-16']), while the dressing survives (['5.477', '5.477', '5.477']); the dressing's spectrum is exactly g x {0,+-1,+-2} in all 44 directions (max deviation 2.2e-15), so the implemented cone radius is 2g = 1.570796",
+    "T3 the committed triple (cone_generator.json) is Hermitian (9.9e-15) and O-covariant (1.1e-15), is exactly Clifford-regular ({H_i,H_j} = 2 delta_ij S, S = H_1^2 = H_2^2 = H_3^2, defect 1.4e-13), its 36-branch spectrum is direction-independent over 44 directions to 5.2e-15, the cone subspace has dim 8 at slope 1.000000000000 (4 branches at +1, 4 at -1) with content {'E': 1, 'T1': 1, 'T2': 1} - the quintet weight on it is 5.0000, i.e. E + T2 of the metric appaired with the odd T1 connection vector - the non-propagating subspace has dim 4 with content {'A1': 1, 'A2': 1, 'E': 1} (the trace A1 does not propagate), the step exp(i sum sin(q) H) is unitary to 1.0e-14 with M(0) = I to 0.0e+00 (no mass term exists in this class), and the hopping kernel falls 9.1e-01 -> 1.1e-01 -> 3.4e-02 -> 5.4e-03 -> 7.9e-04 -> 7.2e-05 -> below 6.9e-06",
+    "T4 the implemented layer is not a cone generator: the covariant velocity space is 160-dimensional by characters, the Clifford-regularity Jacobian at the committed generator has rank 107 in it, so the exact-cone family through it is 53-dimensional, and neither implemented triple lies in it - the hop accounts for 0.0029 of the committed generator and the dressing for 0.0092; the implemented cone speed is 1.570796 (V141 dressing_only_speed = 2 g_root, g_root = pi/4) against the matter cone 1 and |c_gw/c - 1| < 1e-15 (GW170817); the clock that would give exactly 1, g = 1/2, sits in V206's dead zone {'1/2': {'n_star': 3, 'deficit': 0.0014399672301228746}}",
+    "T5 the bond entropy is committed as ln 45 = 3.8066624897703196 (V129); identifying one Planck bond with one Planck area gives G = 1/(4 ln 45) = 0.065674 in cell units, 16 pi G = 3.30115, and a cell of 2 sqrt(ln 45) = 3.90213 Planck lengths; the Bekenstein gap the paper names is the factor 4 ln 45 = 15.22665"
+  ],
+  "pass": true,
+  "status": "THE METRIC IS A BILINEAR OF THE BOND LAYER AND ITS CONE IS A MODULE FACT, NOT A MODULE VERDICT. (i) Content: Sym^2 = A1g+Eg+T2g while the six oriented bonds carry A1g+Eg+T1u - one bond amplitude is not the metric, by exact characters; the metric content first appears in the 36-state bilinear, whose invariant algebra has dimension 34. (ii) Parity: the hop's velocity is polar and vanishes inside the even (metric) sector to 2.7e-16, so the metric's first-order motion can only come from the axial dressing (isotropic exactly, radius 2g) or from pairing the even and odd halves. (iii) Such a pairing exists and is exactly lightlike: the committed triple has Clifford defect 1.4e-13, a direction-independent 36-branch spectrum (5e-15 over 44 directions), the quintet E+T2 appaired with the odd connection vector T1 on the cone at slope 1, four branches at slope exactly 0 (the trace among them), M(0) = I exactly (no mass term in the class), and a quasi-local kernel. (iv) It is not the implemented generator (hop 0.3% of it, dressing 0.9%; the exact-cone family is 53-dimensional), and the implemented one gives c_gw = 1.570796 against the matter cone 1 - excluded by GW170817 at 1e-15 - while the clock that would fix it, g = 1/2, lies in the closed-class dead zone. So the content of the gravitational field is supplied by the root; its light cone is permitted in a 53-parameter family and not selected by anything in the current construction.",
+  "wall_time": 26.827
+}

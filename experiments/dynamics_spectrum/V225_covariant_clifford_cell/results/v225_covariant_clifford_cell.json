@@ -1,0 +1,1304 @@
+{
+  "id": "V225_covariant_clifford_cell",
+  "tier": 4,
+  "property": "the 2I-covariant star cell with a Clifford bond layer: the exactness of the intertwining, the node arithmetic in the internal-map exponent, the 2I content of the gap subspace, the tangent algebra's anticommutators, commutators and velocity spectra per irrep piece, and the exponent of the dispersion tracked through the gap subspace",
+  "residual": true,
+  "pass": true,
+  "status": "2I-COVARIANT CLIFFORD STAR CELL at the default clock g = 0.785398 (layers 1, internal exponent 4). (T1) the bond operators U_d = -(vhat_d . sigma) intertwine the binary icosahedral action exactly (3.5e-15 over 120 lifts, U_d^2 = 1 to 2.2e-16, U_(-d) = -U_d to 0.0e+00); the six axes are six equiangular lines at 0.447214 with fourth-moment defect 2.7e-15 where the cubic axes give 0.400; the step is 2I-invariant at the zone centre to 2.5e-15 and inversion is broken by 1.414. The census on 2I: 1.0 linear equivariant, so v.sigma.q is forced, and the first anisotropic equivariant sits at degree 5. (T2) the internal map has order 8 (U16^8 - I = 4.9e-15, U16^4 - I = 2.0e+00) and with the Clifford layer the kinetic phases at the zone centre are pinned to 0 and pi, so the node closes exactly for exponent 0 or 4 mod 8: 14 of 42 entries gapless, and the measured cell has gap 2.8e-17 with 192 zero eigenphases of 384. (T3) the cluster of 192 vectors splits as sym^1 x16, sym^3 x16, sym^5 x16 -- the coin-spinor representation times the internal sector, the projectors idempotent to 1.3e-15. (T4) on that subspace the three generators have equal norms 10.7600, 10.7600, 10.7600 (spread 3.6e-15); they COMMUTE (2.1e-14, 1.9e-14, 1.9e-14), which is the Abelian case V216 excluded, so the cluster as a whole does not carry the Clifford identity -- its off-diagonal anticommutators are 1.62, where V215 measured failures of 2.000 and 0.444 -- and the velocity spectrum is identical in the three directions to 3.6e-15. Per piece: sym^1 speeds [[0.448332, 32]]; sym^3 speeds [[0.089666, 32], [0.268999, 32]]; sym^5 speeds [[0.186477, 32], [0.682352, 32], [0.764874, 32]] -- the 2-dimensional spinor piece sym^1 carries the Clifford module exactly: anticommutators 8.0e-16, squares 0.201002 times the identity (scalar defect 5.8e-16), and one speed 0.448332 with multiplicity 32; the higher symmetric powers do not carry it (sym^3: 2.7e-02, sym^5: 1.5e-01); the generators are normal throughout (non-normality at most 7.1e-15). (T5) the phase spread tracked through the cluster is linear (exponent 1) in all 19 tracked directions (1 of the 20 sampled rays carry bands pinned at phase zero to machine precision and lie in the gapless set): inner-edge exponent 1.0000..1.0000, outer-edge 1.0000..1.0000, outer velocities 1.0688..1.3441. (T6) controls: the spinless assignment is gapless with inversion unbroken (0.0e+00) and exponent [2.0] on the 1 of 2 sampled rays that open at all, the other 1 staying gapless at every radius: quadratic at the edge that does open, as Proposition 6 says, and a gapless set rather than a point, as V227 T5 measures for the Clifford cell. Its tangent generator compressed to the touching subspace of norm 0.00; the quaternionic bond assignment intertwines exactly (3.5e-15) but its bonds square to minus the identity (2.0), and the cell built on it has no node at all (gap 1.571).",
+  "data": {
+    "clock": 0.7853981633974483,
+    "branch": "default",
+    "geometry": {
+      "axes": 6,
+      "cosines": [
+        0.4472136
+      ],
+      "expected_cosine": 0.4472135954999579,
+      "fourth_moment_defect": 2.6645352591003757e-15,
+      "cubic_reference_defect": 0.3999999999999999,
+      "module_length": 1.902113032590307,
+      "sum_over_directed_lines": 3.4477526114742923e-15
+    },
+    "covariance": {
+      "clifford": {
+        "kind": "clifford",
+        "group_order": 120,
+        "hop_covariance_defect": 3.5164270470678048e-15,
+        "bond_intertwining_defect": 3.488137194211933e-15,
+        "bond_unitarity_defect": 2.220446049250313e-16,
+        "bond_square_to_one_defect": 2.220446049250313e-16,
+        "opposite_is_minus_defect": 0.0
+      },
+      "vector": {
+        "kind": "vector",
+        "group_order": 120,
+        "hop_covariance_defect": 3.5036634570926184e-15,
+        "bond_intertwining_defect": 3.488137194211933e-15,
+        "bond_unitarity_defect": 2.220446049250313e-16,
+        "bond_square_to_one_defect": 2.0,
+        "opposite_is_minus_defect": 0.0
+      },
+      "scalar": {
+        "kind": "scalar",
+        "group_order": 120,
+        "hop_covariance_defect": 1.1102736420201291e-15,
+        "bond_intertwining_defect": 1.1102230246251565e-15,
+        "bond_unitarity_defect": 0.0,
+        "bond_square_to_one_defect": 0.0,
+        "opposite_is_minus_defect": 2.0
+      }
+    },
+    "invariance": {
+      "covariance_defect": 2.488045372620827e-15,
+      "inversion_defect_at_origin": 1.4142135623730943
+    },
+    "twoI": {
+      "order": 120,
+      "element_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10
+      ],
+      "unitarity_defect": 1.1102230246251565e-15,
+      "image_order": 60,
+      "lift_pairs": [
+        2
+      ],
+      "two_to_one_defect": 5.1326092764911646e-15,
+      "lift_minus_defect": 2.6637085510008747e-15,
+      "closure_defect": 5.2868861256261656e-15
+    },
+    "equivariant": {
+      "m_n": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        2.0,
+        3.0,
+        3.0,
+        3.0
+      ],
+      "invariants_n": [
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.0,
+        2.0,
+        -0.0,
+        2.0
+      ],
+      "prim_n": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first_anisotropic_degree": 5
+    },
+    "node_table": [
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 0,
+        "gap": 0.0,
+        "gapless_count": 192,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 1,
+        "gap": 0.7853981633974464,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 2,
+        "gap": 1.570796326794893,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 3,
+        "gap": 0.7853981633974423,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 4,
+        "gap": 2.775557561562895e-17,
+        "gapless_count": 192,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 6,
+        "gap": 1.5707963267948848,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 1,
+        "internal_exponent": 12,
+        "gap": 5.898059818321118e-17,
+        "gapless_count": 192,
+        "dim": 384
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 0,
+        "gap": 0.0,
+        "gapless_count": 384,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 1,
+        "gap": 0.7853981633974466,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 2,
+        "gap": 1.5707963267948928,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 3,
+        "gap": 0.7853981633974421,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 4,
+        "gap": 0.0,
+        "gapless_count": 384,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 6,
+        "gap": 1.570796326794885,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "clifford",
+        "layers": 2,
+        "internal_exponent": 12,
+        "gap": 0.0,
+        "gapless_count": 384,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 0,
+        "gap": 1.5707963267948961,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 1,
+        "gap": 0.7853981633974465,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 2,
+        "gap": 0.0,
+        "gapless_count": 192,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 3,
+        "gap": 0.7853981633974422,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 4,
+        "gap": 1.5707963267948895,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 6,
+        "gap": 4.3368086899420356e-17,
+        "gapless_count": 192,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 1,
+        "internal_exponent": 12,
+        "gap": 1.5707963267948728,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 0,
+        "gap": 1.570796326794896,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 1,
+        "gap": 0.7853981633974462,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 2,
+        "gap": 0.0,
+        "gapless_count": 384,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 3,
+        "gap": 0.7853981633974427,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 4,
+        "gap": 1.5707963267948895,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 6,
+        "gap": 3.2526065174564486e-17,
+        "gapless_count": 384,
+        "dim": 768
+      },
+      {
+        "kind": "vector",
+        "layers": 2,
+        "internal_exponent": 12,
+        "gap": 1.5707963267948741,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 0,
+        "gap": 0.7853981633974483,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 1,
+        "gap": 0.0,
+        "gapless_count": 120,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 2,
+        "gap": 0.7853981633974446,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 3,
+        "gap": 4.5102810375396726e-17,
+        "gapless_count": 72,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 4,
+        "gap": 2.3561944901923364,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 6,
+        "gap": 0.7853981633974368,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 1,
+        "internal_exponent": 12,
+        "gap": 2.356194490192321,
+        "gapless_count": 0,
+        "dim": 384
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 0,
+        "gap": 0.7853981633974467,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 1,
+        "gap": 0.0,
+        "gapless_count": 192,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 2,
+        "gap": 0.7853981633974434,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 3,
+        "gap": 5.559812089570314e-22,
+        "gapless_count": 192,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 4,
+        "gap": 0.7853981633974393,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 6,
+        "gap": 0.7853981633974368,
+        "gapless_count": 0,
+        "dim": 768
+      },
+      {
+        "kind": "scalar",
+        "layers": 2,
+        "internal_exponent": 12,
+        "gap": 0.7853981633974233,
+        "gapless_count": 0,
+        "dim": 768
+      }
+    ],
+    "cell": {
+      "layers": 1,
+      "legs": [
+        4
+      ],
+      "dim": 384,
+      "internal_order_defect_8": 4.927755118065419e-15,
+      "internal_order_defect_4": 1.9999999999999991
+    },
+    "node": {
+      "gap": 2.775557561562895e-17,
+      "gapless_count": 192,
+      "cluster": 192,
+      "irreps": {
+        "sym^0": {
+          "dimension": 1,
+          "projector_rank": 3.3192849510643716e-17,
+          "multiplicity": 3.3192849510643716e-17,
+          "basis_count": 0,
+          "hermiticity_defect": 1.572815951552305e-17,
+          "idempotency_defect": 1.3535290390672667e-17
+        },
+        "sym^1": {
+          "dimension": 2,
+          "projector_rank": 32.00000000000002,
+          "multiplicity": 16.00000000000001,
+          "basis_count": 32,
+          "hermiticity_defect": 1.582067810090848e-16,
+          "idempotency_defect": 5.551221205696099e-16
+        },
+        "sym^2": {
+          "dimension": 3,
+          "projector_rank": 3.415720515052275e-15,
+          "multiplicity": 1.138573505017425e-15,
+          "basis_count": 0,
+          "hermiticity_defect": 1.0889786314008533e-16,
+          "idempotency_defect": 8.249028094148771e-17
+        },
+        "sym^3": {
+          "dimension": 4,
+          "projector_rank": 64.00000000000003,
+          "multiplicity": 16.000000000000007,
+          "basis_count": 64,
+          "hermiticity_defect": 6.411537967210279e-16,
+          "idempotency_defect": 1.0549444690152045e-15
+        },
+        "sym^4": {
+          "dimension": 5,
+          "projector_rank": 8.655213965112449e-16,
+          "multiplicity": 1.7310427930224897e-16,
+          "basis_count": 0,
+          "hermiticity_defect": 2.442163137406733e-16,
+          "idempotency_defect": 1.8295862544496653e-16
+        },
+        "sym^5": {
+          "dimension": 6,
+          "projector_rank": 96.00000000000003,
+          "multiplicity": 16.000000000000004,
+          "basis_count": 96,
+          "hermiticity_defect": 1.0354657281458807e-15,
+          "idempotency_defect": 1.2772860912897383e-15
+        }
+      }
+    },
+    "tangent": {
+      "norms": [
+        10.759976191423277,
+        10.759976191423274,
+        10.759976191423277
+      ],
+      "anticommutators": [
+        1.559235560630715,
+        1.1755553864924795,
+        1.6180339887498891
+      ],
+      "commutators": [
+        2.1063153420352234e-14,
+        1.9109066130838133e-14,
+        1.887383917985004e-14
+      ],
+      "square_max": [
+        1.2079044666020835,
+        1.2796177803153557,
+        1.309016994374943
+      ],
+      "spectra": {
+        "d0": {
+          "frobenius": 10.759976191423277,
+          "levels": [
+            [
+              2.0819978832316886e-17,
+              64
+            ],
+            [
+              0.7071067811865428,
+              64
+            ],
+            [
+              1.1441228056353598,
+              64
+            ]
+          ],
+          "min": 2.0819978832316886e-17,
+          "max": 1.1441228056353743
+        },
+        "d1": {
+          "frobenius": 10.759976191423274,
+          "levels": [
+            [
+              8.070039761196294e-17,
+              64
+            ],
+            [
+              0.7071067811865418,
+              64
+            ],
+            [
+              1.1441228056353574,
+              64
+            ]
+          ],
+          "min": 8.070039761196294e-17,
+          "max": 1.1441228056353743
+        },
+        "d2": {
+          "frobenius": 10.759976191423277,
+          "levels": [
+            [
+              9.372492088380427e-16,
+              64
+            ],
+            [
+              0.7071067811865418,
+              64
+            ],
+            [
+              1.144122805635358,
+              64
+            ]
+          ],
+          "min": 9.372492088380427e-16,
+          "max": 1.144122805635376
+        }
+      },
+      "spectra_difference": [
+        3.552713678800501e-15,
+        3.219646771412954e-15,
+        2.886579864025407e-15
+      ],
+      "per_irrep": {
+        "sym^1": {
+          "size": 32,
+          "norms": [
+            2.5361507101204004,
+            2.536150710120399,
+            2.5361507101203995
+          ],
+          "levels": [
+            [
+              [
+                0.4483323413093014,
+                32
+              ]
+            ],
+            [
+              [
+                0.448332341309301,
+                32
+              ]
+            ],
+            [
+              [
+                0.4483323413093013,
+                32
+              ]
+            ]
+          ],
+          "spectra_diff": [
+            4.996003610813204e-16,
+            6.106226635438361e-16,
+            3.885780586188048e-16
+          ],
+          "anticommutator_defect": 8.036564042647813e-16,
+          "square_max": 0.20100188826388202,
+          "square_defect": 5.831698886613465e-16,
+          "nonnormality": 1.7702041257968502e-15
+        },
+        "sym^3": {
+          "size": 64,
+          "norms": [
+            1.6040025466867822,
+            1.604002546686782,
+            1.6040025466867827
+          ],
+          "levels": [
+            [
+              [
+                0.08966646826185942,
+                32
+              ],
+              [
+                0.2689994047855803,
+                32
+              ]
+            ],
+            [
+              [
+                0.08966646826185919,
+                32
+              ],
+              [
+                0.26899940478558004,
+                32
+              ]
+            ],
+            [
+              [
+                0.08966646826185957,
+                32
+              ],
+              [
+                0.2689994047855804,
+                32
+              ]
+            ]
+          ],
+          "spectra_diff": [
+            4.440892098500626e-16,
+            4.440892098500626e-16,
+            6.106226635438361e-16
+          ],
+          "anticommutator_defect": 0.027181010845443568,
+          "square_max": 0.052717449615056054,
+          "square_defect": 0.012517071962279754,
+          "nonnormality": 1.2519534436148312e-15
+        },
+        "sym^5": {
+          "size": 96,
+          "norms": [
+            5.893481678261051,
+            5.89348167826105,
+            5.893481678261055
+          ],
+          "levels": [
+            [
+              [
+                0.18647714839400664,
+                32
+              ],
+              [
+                0.6823518582658347,
+                32
+              ],
+              [
+                0.7648741146574075,
+                32
+              ]
+            ],
+            [
+              [
+                0.1864771483940063,
+                32
+              ],
+              [
+                0.6823518582658349,
+                32
+              ],
+              [
+                0.7648741146574068,
+                32
+              ]
+            ],
+            [
+              [
+                0.1864771483940062,
+                32
+              ],
+              [
+                0.6823518582658338,
+                32
+              ],
+              [
+                0.7648741146574085,
+                32
+              ]
+            ]
+          ],
+          "spectra_diff": [
+            2.9976021664879227e-15,
+            2.886579864025407e-15,
+            2.1094237467877974e-15
+          ],
+          "anticommutator_defect": 0.14607264922813196,
+          "square_max": 0.5200031871008189,
+          "square_defect": 0.2287526720093422,
+          "nonnormality": 7.14092872575367e-15
+        }
+      }
+    },
+    "dispersion": {
+      "directions": 20,
+      "tracked": 19,
+      "exponent_inner": [
+        0.9999999996240325,
+        0.9999999735433744,
+        0.9999999841626376,
+        0.9999986193168201,
+        0.9999998657342547,
+        0.9999992502970804,
+        0.9999999906706072,
+        0.9999998231830474,
+        0.9999998798469119,
+        0.9999999847517855,
+        0.9999998489959958,
+        0.999999880185162,
+        0.9999992370646987,
+        0.999998727683026,
+        0.9999995769835842,
+        0.9999998858076233,
+        0.9999995343836041,
+        0.9999999961329602,
+        0.999999717835104
+      ],
+      "exponent_outer": [
+        0.9999935196568704,
+        0.9999940559198236,
+        0.9999938244763296,
+        0.999991990933738,
+        0.9999931137539636,
+        0.9999922303549464,
+        0.9999935750909884,
+        0.9999927483588184,
+        0.9999929294449521,
+        0.9999933136705517,
+        0.9999928754791526,
+        0.999993239458244,
+        0.9999921848485291,
+        0.9999920039239708,
+        0.9999925200092542,
+        0.9999944140417392,
+        0.9999925320270839,
+        0.9999939008858995,
+        0.9999949360052645
+      ],
+      "velocity_inner": [
+        0.013799522555035068,
+        0.07738292654320157,
+        0.06000597758276791,
+        0.5580944679451978,
+        0.17406384710082126,
+        0.4112536200125119,
+        0.04625690055285812,
+        0.19974037840531636,
+        0.16466380633138505,
+        0.058805154813220066,
+        0.1845915201881926,
+        0.16443341406771314,
+        0.41486722946844024,
+        0.5357459793591588,
+        0.308922645504665,
+        0.16052861239025737,
+        0.3241067079682561,
+        0.030308638954304933,
+        0.25231105164778467
+      ],
+      "velocity_outer": [
+        1.2090341875966217,
+        1.1579341945159942,
+        1.18025973574367,
+        1.3440793867185616,
+        1.2463195108955891,
+        1.323839807321115,
+        1.2038525120122527,
+        1.2789540057351818,
+        1.2628861272349432,
+        1.2280970740037875,
+        1.2676958449474849,
+        1.2348929375788515,
+        1.327710457514337,
+        1.342989094915042,
+        1.2989320874565153,
+        1.1225138789257803,
+        1.2978884218308426,
+        1.172936196560811,
+        1.0687875502529505
+      ],
+      "radii": [
+        0.01,
+        0.003,
+        0.001,
+        0.0003
+      ],
+      "rays": [
+        {
+          "u": [
+            0.5948277112010819,
+            0.6891366333364154,
+            0.41384863728304494
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999996240325,
+          "exponent_outer": 0.9999935196568704,
+          "velocity_inner": 0.013799522555035068,
+          "velocity_outer": 1.2090341875966217
+        },
+        {
+          "u": [
+            -0.9793219856605122,
+            0.19523480732206758,
+            -0.05302658212506961
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999735433744,
+          "exponent_outer": 0.9999940559198236,
+          "velocity_inner": 0.07738292654320157,
+          "velocity_outer": 1.1579341945159942
+        },
+        {
+          "u": [
+            0.5420279693827045,
+            0.28051870161152886,
+            -0.7921584048995782
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999841626376,
+          "exponent_outer": 0.9999938244763296,
+          "velocity_inner": 0.06000597758276791,
+          "velocity_outer": 1.18025973574367
+        },
+        {
+          "u": [
+            0.8468177663278731,
+            0.035567178296505284,
+            0.5306926101421579
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999986193168201,
+          "exponent_outer": 0.999991990933738,
+          "velocity_inner": 0.5580944679451978,
+          "velocity_outer": 1.3440793867185616
+        },
+        {
+          "u": [
+            0.7582220069706115,
+            0.6207444290722486,
+            0.19943856678492763
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999998657342547,
+          "exponent_outer": 0.9999931137539636,
+          "velocity_inner": 0.17406384710082126,
+          "velocity_outer": 1.2463195108955891
+        },
+        {
+          "u": [
+            -0.766593785150625,
+            0.11433115743263558,
+            0.6318721033631343
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999992502970804,
+          "exponent_outer": 0.9999922303549464,
+          "velocity_inner": 0.4112536200125119,
+          "velocity_outer": 1.323839807321115
+        },
+        {
+          "u": [
+            -0.6062343501073069,
+            0.33424341850577205,
+            0.7216378939160184
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999906706072,
+          "exponent_outer": 0.9999935750909884,
+          "velocity_inner": 0.04625690055285812,
+          "velocity_outer": 1.2038525120122527
+        },
+        {
+          "u": [
+            -0.581700873692226,
+            -0.7583663578901081,
+            -0.2941165768299937
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999998231830474,
+          "exponent_outer": 0.9999927483588184,
+          "velocity_inner": 0.19974037840531636,
+          "velocity_outer": 1.2789540057351818
+        },
+        {
+          "u": [
+            -0.6520470976235078,
+            0.7008450252714975,
+            -0.2892245373977693
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999998798469119,
+          "exponent_outer": 0.9999929294449521,
+          "velocity_inner": 0.16466380633138505,
+          "velocity_outer": 1.2628861272349432
+        },
+        {
+          "u": [
+            0.5823140813097364,
+            0.7135332929221748,
+            -0.389590234220566
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999847517855,
+          "exponent_outer": 0.9999933136705517,
+          "velocity_inner": 0.058805154813220066,
+          "velocity_outer": 1.2280970740037875
+        },
+        {
+          "u": [
+            -0.4958722338530892,
+            0.8015705832834519,
+            -0.3340588686267349
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999998489959958,
+          "exponent_outer": 0.9999928754791526,
+          "velocity_inner": 0.1845915201881926,
+          "velocity_outer": 1.2676958449474849
+        },
+        {
+          "u": [
+            -0.37599038230132925,
+            0.846988604665816,
+            -0.3758211489301186
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.999999880185162,
+          "exponent_outer": 0.999993239458244,
+          "velocity_inner": 0.16443341406771314,
+          "velocity_outer": 1.2348929375788515
+        },
+        {
+          "u": [
+            0.6455043824695748,
+            0.7615519430297926,
+            0.05798905310591353
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999992370646987,
+          "exponent_outer": 0.9999921848485291,
+          "velocity_inner": 0.41486722946844024,
+          "velocity_outer": 1.327710457514337
+        },
+        {
+          "u": [
+            -0.0525080400253734,
+            0.5359384095833226,
+            0.8426226479664504
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.999998727683026,
+          "exponent_outer": 0.9999920039239708,
+          "velocity_inner": 0.5357459793591588,
+          "velocity_outer": 1.342989094915042
+        },
+        {
+          "u": [
+            -0.030072198275051615,
+            -0.28859436291838036,
+            -0.9569790784456262
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999995769835842,
+          "exponent_outer": 0.9999925200092542,
+          "velocity_inner": 0.308922645504665,
+          "velocity_outer": 1.2989320874565153
+        },
+        {
+          "u": [
+            -0.31473255802929856,
+            0.05420820597272413,
+            0.9476311979465182
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999998858076233,
+          "exponent_outer": 0.9999944140417392,
+          "velocity_inner": 0.16052861239025737,
+          "velocity_outer": 1.1225138789257803
+        },
+        {
+          "u": [
+            0.6885930216491534,
+            -0.7088540377797937,
+            0.1528581161056592
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999995343836041,
+          "exponent_outer": 0.9999925320270839,
+          "velocity_inner": 0.3241067079682561,
+          "velocity_outer": 1.2978884218308426
+        },
+        {
+          "u": [
+            -0.059349103535784466,
+            0.9885275737798225,
+            0.13889175564617448
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.9999999961329602,
+          "exponent_outer": 0.9999939008858995,
+          "velocity_inner": 0.030308638954304933,
+          "velocity_outer": 1.172936196560811
+        },
+        {
+          "u": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "pinned_zero_bands": [
+            64,
+            64,
+            64,
+            64
+          ],
+          "gapless_ray": true
+        },
+        {
+          "u": [
+            0.5773502691896258,
+            0.5773502691896258,
+            0.5773502691896258
+          ],
+          "pinned_zero_bands": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "gapless_ray": false,
+          "exponent_inner": 0.999999717835104,
+          "exponent_outer": 0.9999949360052645,
+          "velocity_inner": 0.25231105164778467,
+          "velocity_outer": 1.0687875502529505
+        }
+      ]
+    },
+    "controls": {
+      "scalar_no_spin": {
+        "gap": 0.0,
+        "gapless": 120,
+        "dim": 384,
+        "cluster": 120,
+        "max_tangent_norm": 1.293082219711663e-14,
+        "max_tangent_radius": 2.8900803867407692e-15,
+        "inversion_defect": 0.0,
+        "rotation_defect": 9.420554752102651e-16,
+        "gapless_rays": 1,
+        "exponents": [
+          2.0000001022707936
+        ]
+      },
+      "vector_quaternion": {
+        "gap": 1.5707963267948895,
+        "gapless": 0,
+        "dim": 384,
+        "cluster": 0,
+        "max_tangent_norm": 0.0,
+        "max_tangent_radius": 0.0,
+        "inversion_defect": 1.4142135623730943,
+        "rotation_defect": 2.485216525018636e-15,
+        "gapless_rays": 0,
+        "exponents": [
+          -0.000848233925948463,
+          -0.000792334417878183
+        ]
+      }
+    },
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 21,
+        "rejected": 7
+      },
+      "pool_njobs": 8
+    },
+    "checks": [
+      {
+        "name": "T1a the bond layer intertwines the binary icosahedral action exactly",
+        "pass": true,
+        "detail": "over the 120 lifts: hop defect 3.52e-15, bond defect 3.49e-15, U_d^2 - 1 2.22e-16, U_(-d) + U_d 0.00e+00.  Covariance alone does not choose the layer: the quaternionic (\"vector\") assignment intertwines just as exactly (3.5e-15) but its bond squares are minus the identity (2.0), and the step built on it has no node at all (T6); the scalar control is trivially covariant (1.1e-15) with U_(-d) = U_d, defect 2.0"
+      },
+      {
+        "name": "T1b the star geometry of the cell is the module V214 measured",
+        "pass": true,
+        "detail": "six axes, one cosine 0.4472136 against 1/sqrt(5) = 0.4472136, fourth-moment defect 2.7e-15 where the cubic axes give 0.400, generator length 1.902113, sum_d v_d v_d^T - (12/3) I 3.4e-15"
+      },
+      {
+        "name": "T1c the step is invariant under 2I at the zone centre and NOT under inversion",
+        "pass": true,
+        "detail": "rotation invariance defect 2.49e-15 over 120 lifts; inversion defect at the zone centre 1.414: the linear term is allowed only because inversion is not a symmetry of this step (the repository's Proposition 6, recomputed on this cell)"
+      },
+      {
+        "name": "T1d the equivariant census on the node's little group: one linear term, first anisotropy at degree 5 or higher",
+        "pass": true,
+        "detail": "dim Hom_2I(D, D tensor Sym^n V3) for n = 0..8: [1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 3.0, 3.0]; isotropic invariants: [1.0, 0.0, 1.0, 0.0, 1.0, -0.0, 2.0, -0.0, 2.0]; primitive equivariants (the counts divided by the primary invariant ring, degrees 2, 6, 10): [1.0, 1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]; first anisotropy degree 5 (the cubic module's point group puts it at 4); a mass term is allowed by the point group alone (degree-0 count 1.0), so the node's protection has to come from its charge"
+      },
+      {
+        "name": "T2 the node exists exactly when the internal map rides with exponent 0 or 4 mod 8",
+        "pass": true,
+        "detail": "the internal map has order 8: U16^8 - I = 4.9e-15 while U16^4 - I = 2.0e+00; with the Clifford bond layer the kinetic phases at the zone centre are pinned to 0 and pi independently of the clock, so the node closes only for exponent 0 or 4 mod 8; gapless entries 14 of 42 (kind, layers, exponent) tried: clifford/L1/x0(192/384 zeros), clifford/L1/x4(192/384 zeros), clifford/L1/x12(192/384 zeros), clifford/L2/x0(384/768 zeros), clifford/L2/x4(384/768 zeros), clifford/L2/x12(384/768 zeros), vector/L1/x2(192/384 zeros), vector/L1/x6(192/384 zeros), vector/L2/x2(384/768 zeros), vector/L2/x6(384/768 zeros), scalar/L1/x1(120/384 zeros), scalar/L1/x3(72/384 zeros), scalar/L2/x1(192/768 zeros), scalar/L2/x3(192/768 zeros)"
+      },
+      {
+        "name": "T3 the gap subspace at the node is the 12-dimensional coin-spinor representation times the internal sector, with no component missing",
+        "pass": true,
+        "detail": "gap 2.8e-17, 192 zero eigenphases of 384; the cluster holds 192 vectors (largest |sin theta| inside it 7.6e-15) and splits as sym^1: multiplicity 16.0 (rank 32 of dim 2), sym^3: multiplicity 16.0 (rank 64 of dim 4), sym^5: multiplicity 16.0 (rank 96 of dim 6); the six projectors' ranks sum to 192 (the cluster size) and their idempotency defects are at most 1.3e-15 -- the characters come from the group, not from a table, and the internal sector is the multiplicity space"
+      },
+      {
+        "name": "T4 on the gap cluster the three tangent generators commute, share one norm, and have a direction-independent velocity spectrum",
+        "pass": true,
+        "detail": "norms of the three generators on the 192-vector cluster: 10.759976, 10.759976, 10.759976 (spread 3.6e-15); their commutators ['2.1e-14', '1.9e-14', '1.9e-14'] -- on the cluster as a whole the compressed algebra is commutative, the three branches of the cone are simultaneously diagonalisable, and that is the Abelian case V216 excluded: the Clifford structure is not to be looked for at this level; off-diagonal anticommutators ['1.56', '1.18', '1.62'] against the failure V215 measured of 2.000 (star zone centre) and 0.444 (cubic M); the velocity spectrum is identical for the three directions to 3.6e-15, levels [[[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]]] (max |V_j^2| on the cluster 1.3090)"
+      },
+      {
+        "name": "T4b the Clifford identity and a single velocity live on the spinor piece: the anticommutators vanish, the squares are scalar, and the speed is one number",
+        "pass": true,
+        "detail": "sym^1 (32-dimensional): speed levels [[0.448332, 32]], norms [2.536151, 2.536151, 2.536151], spectra of the three directions equal to 6.1e-16, off-diagonal anticommutator 8.0e-16, max |V_j^2| 0.201002 with scalar defect 5.8e-16, non-normality 1.8e-15; sym^3 (64-dimensional): speed levels [[0.089666, 32], [0.268999, 32]], norms [1.604003, 1.604003, 1.604003], spectra of the three directions equal to 6.1e-16, off-diagonal anticommutator 2.7e-02, max |V_j^2| 0.052717 with scalar defect 1.3e-02, non-normality 1.3e-15; sym^5 (96-dimensional): speed levels [[0.186477, 32], [0.682352, 32], [0.764874, 32]], norms [5.893482, 5.893482, 5.893482], spectra of the three directions equal to 3.0e-15, off-diagonal anticommutator 1.5e-01, max |V_j^2| 0.520003 with scalar defect 2.3e-01, non-normality 7.1e-15; pieces with a single speed: ['sym^1'].  On the 2-dimensional spinor piece the generators therefore form a Clifford module: sym^1 carries squares 0.201002 times the identity (defect 5.8e-16) and vanishing anticommutators (8.0e-16), with one velocity 0.448332 -- isotropy by uniqueness, since the piece is the spinor representation tensored with the internal multiplicity space, and Schur leaves no room for a direction-dependent coefficient.  The higher pieces (the symmetric powers of the spinor inside the cluster) do not carry the identity, which is why the cluster as a whole does not either."
+      },
+      {
+        "name": "T5 the phase spread at the touching grows linearly with the radius in every sampled direction that is not itself in the gapless set, and the bands pinned at phase zero are counted rather than stepped over",
+        "pass": true,
+        "detail": "19/20 sampled rays carry no band pinned at phase zero below 1e-12 and are tracked through the gap subspace; on the 1 that do, the count of pinned bands is [64] at every sampled radius, along [(1.0, 0.0, 0.0)]); exponent of the inner edge of the phase spread min/median/max 1.0000/1.0000/1.0000 and of the outer edge 1.0000/1.0000/1.0000; velocities at radius 0.01: inner 0.013800..0.558094, outer 1.068788..1.344079 (outer-edge spread ratio 0.7952) -- the linear term is there in every tracked direction, and the band-by-band velocities fill the spectrum T4 measured, which is direction-independent; a ray carrying bands pinned at phase zero is not a cone direction at all, the gapless set runs along it"
+      },
+      {
+        "name": "T6 the controls behave as the analysis says: no spin leaves the edge of the phase spread quadratic on the rays that open at all (the rays that stay gapless are counted), inversion intact, and the quaternionic bond layer is covariant but carries the wrong bond algebra",
+        "pass": true,
+        "detail": "scalar assignment: gapless 120 of 384, cluster 120 vectors, inversion defect 0.0e+00 (inversion is a symmetry there, which is what kills the linear term -- Proposition 6), dispersion exponent [2.0] on the 1 ray(s) that open, 1 of 2 staying gapless at every radius -- the touching is a gapless set, not a point (V227 T5 finds the same for the Clifford cell), and the quadratic number is the law of the edge that does open; on the touching's own subspace the compressed tangent generators are not necessarily small (norm 0.00, spectral radius 0.00, against 10.760 and 1.144 on the Clifford cell) -- what separates the two cells is the exponent, not the size of the generator: the linear term is absent here because inversion is a symmetry, exactly as Proposition 6 says; the quaternionic assignment: zone-centre gap 1.571, no node: its bonds intertwine to 3.5e-15 yet square to minus the identity (defect 2.0)"
+      }
+    ]
+  },
+  "wall_time": 411.866
+}

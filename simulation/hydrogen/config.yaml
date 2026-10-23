@@ -1,0 +1,99 @@
+# =============================================================================
+# CL10 / simulation/hydrogen -- the 3-D hydrogen atom as a CL10 QCA
+#
+# This file is the **parameter panel** of the simulation. Every value can be
+# edited here; the live window (``--interactive``) exposes the dynamic ones
+# (keyboard shortcuts fire the resonant photons). The *physics* is
+# 0-parameter: the levels are the **real hydrogen** eigenstates (Rydberg
+# energies, R_nl(r) Y_lm shapes), the photon is the free CL10 3-D field, and
+# only the light-matter coupling (A), the radiated source strength (h) and
+# the radiative lifetime (gamma) are free -- they are not fitted to any data.
+# =============================================================================
+
+# --- the GPU -----------------------------------------------------------------
+# which GPU to run on (0 or 1). Must be set **before** the process imports
+# CuPy -- the runner pins CUDA_VISIBLE_DEVICES to this id.
+gpu: 1
+
+# the field precision: "float32" (fast) or "float64" (robust for long runs)
+field_dtype: float64
+
+# --- the lattice -------------------------------------------------------------
+# the (Lx, Ly, Lz) box of Planck cells.
+grid: [296, 296, 296]
+# the CFL number r = c dt/dx of the massless fields (must stay < 1/sqrt(3)).
+r: 0.5
+# the sponge (absorbing boundary) width, in cells.
+sponge_width: 20
+
+# --- the atom ----------------------------------------------------------------
+# the Bohr radius a0, in cells (the length scale of the hydrogen eigenfunctions
+# drawn on the lattice).  Chosen large enough that the cloud fills a good
+# fraction of the box (the 2p lobes reach ~2*a0 from the centre).
+bohr_radius: 18.0
+# the electron isosurface level (a fraction of the peak density) for the 3-D
+# surface (the shape: sphere / dumbbell / doughnut).
+iso_fraction: 0.04
+# the atom's spectrum mapped onto the lattice (a unit choice, not a fit):
+# the Lyman-alpha (1s->2p) gap in rad/step, and the base (1s) frequency.
+lattice_gap_12: 0.25
+omega_base: 0.60
+# the emission-source width and the local photon-amplitude weight width, in
+# cells (the dipole approximation's localisation).
+emission_width: 6.0
+local_weight_width: 4.0
+
+# --- the light-matter coupling (the only free knobs) -------------------------
+# absorption: the strength of the (Fermi-golden-rule) dipole drive. Larger ->
+# a resonant photon inverts the atom faster.
+coupling_absorb: 0.02
+# emission: the strength of the dipole source that radiates into F_out.
+coupling_emit: 0.5
+# the Einstein-A spontaneous-decay rate (per step) of an excited level.
+reaction_gamma_max: 0.002
+# the natural linewidth (HWHM, rad/step) of the absorption line: 0 = tie it to
+# the lifetime (the energy-time uncertainty).
+line_width: 0.0
+
+# --- the photons -------------------------------------------------------------
+# the (Gaussian) width of a fired photon packet, in cells. 0 = auto (3/k0).
+# keep it << the box (a localised packet, not a slab that fills the box).
+photon_width: 20
+# the amplitude of a fired photon.
+photon_amp: 0.7
+
+# --- the video (headless mode) -----------------------------------------------
+# the total number of QCA steps in the video.
+n_steps: 3600
+# the number of rendered frames (3-D scene on GPU, off-screen PyVista).
+n_video_frames: 300
+# the movie frame rate (fps).
+fps: 30
+# where the video and the stills are written.
+out_video: video/hydrogen.mp4
+out_frames: video/frames
+
+# the 3-D volume render method: "mip" (max-intensity, the solid cloud) or
+# "additive".  "mip" is the old-project look.
+method: mip
+# the offscreen buffer of the headless video (width, height) in pixels.
+render_size: [900, 600]
+# the interactive window size (width, height) in pixels.
+window_size: [1200, 800]
+# the log1p contrast of the electron/photon clouds (the old-project log_gain).
+log_gain: 1.0e4
+# the display gamma (the old-project alpha_gamma).
+alpha_gamma: 1.0
+# the transparency of the **faint shell** of the 3-D volumes (the bright core
+# always stays opaque, so it keeps its brightness).  1.0 = the old solid look
+# (no see-through); lower = the dilute halo gets see-through, so the nucleus
+# and the far lobe read through the near side ("see inside the cloud").
+# The alpha ramps from this value (the faint shell) up to 1.0 (the core).
+# Only the 3-D is affected; the 2-D cut stays opaque.
+volume_alpha: 0.4
+# the (Lx, Ly, Lz) sub-sampling of the 3-D volume (draw every Nth cell).
+volume_stride: 2
+# the simulation speed (QCA steps per rendered frame).
+steps_per_frame: 4
+# the AGC (auto-gain) release time (flicker-free brightness).
+agc_release: 300.0

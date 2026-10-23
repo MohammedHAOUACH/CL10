@@ -1,0 +1,49 @@
+{
+  "experiment": "V66_dm_identity",
+  "pass": true,
+  "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.5e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
+  "data": {
+    "mirror_Z2_leak": 4.506383499325787e-16,
+    "weights_conjugate": true,
+    "mirror_masses_equal": true,
+    "candidates": [
+      {
+        "name": "nu (ladder)",
+        "mass_GeV": 0.146,
+        "neutral": true,
+        "stable": "yes (lepton number)",
+        "verdict": "EXCLUDED: hot, sum m_nu < 0.0642 eV (DESI DR2)"
+      },
+      {
+        "name": "desert fragments (V65)",
+        "mass_GeV": 133363321.17316295,
+        "neutral": false,
+        "stable": "no (chiral, decays)",
+        "verdict": "not DM: colored/chiral"
+      },
+      {
+        "name": "mirror Q-bar doubler",
+        "mass_GeV": 133363321.17316295,
+        "neutral": false,
+        "stable": "EXACT (16-bar Z2)",
+        "verdict": "EXCLUDED: stable COLORED relic"
+      },
+      {
+        "name": "mirror N-bar doubler",
+        "mass_GeV": 20300114024.89537,
+        "neutral": true,
+        "stable": "EXACT (16-bar Z2)",
+        "verdict": "viable ONLY if heavier than every other mirror state - NOT the case at the V65 root"
+      },
+      {
+        "name": "domain wall / Planck soliton (classical)",
+        "mass_GeV": 1.22089e+19,
+        "neutral": true,
+        "stable": "classical",
+        "verdict": "EXCLUDED: Planck tension, overcloses"
+      }
+    ],
+    "sigma_v_est_GeV2": 1.8547731846083686e-56,
+    "omega_overclosure_factor": 1.6174484432356313e+30
+  }
+}

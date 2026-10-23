@@ -1,0 +1,241 @@
+{
+ "experiment": "V140_dressed_gate_quintet",
+ "data": {
+  "machinery": {
+   "link_algebra_err": 0.0,
+   "casimir64_err": 0.0,
+   "casimir45_err": 0.0,
+   "sym2_decomposition": {
+    "A1g": 1.0,
+    "A2g": 0.0,
+    "Eg": 1.0,
+    "T2g": 1.0,
+    "T1g": 0.0,
+    "A1u": 0.0,
+    "A2u": 0.0,
+    "Eu": 0.0,
+    "T1u": 0.0,
+    "T2u": 0.0
+   },
+   "sum_d_squared": 48,
+   "su2_err": 2.220446049250313e-16,
+   "trace_annihilated_err": 3.559238568635683e-17,
+   "spin2_spectrum_err": 1.3367934059765382e-15
+  },
+  "gauss_convention": {
+   "naive_sign_leak": 4.7788177224808575,
+   "conjugate_leak": 5.00950653665275e-16,
+   "note": "same-link commutator carries s^2 = +1: the head must carry the conjugate generator -Lbar, not -L"
+  },
+  "bare_gate": {
+   "vertex_leak": 7.553271592910121
+  },
+  "dressed_electric_gate": {
+   "generator_hermiticity_err": 0.0,
+   "unitarity_err": 5.10702687082034e-14,
+   "gauss_invariance_err_max45": 2.543268051400211e-14,
+   "C2_levels": [
+    45.0,
+    85.0,
+    117.0
+   ],
+   "multiplicities": [
+    32,
+    288,
+    1120
+   ],
+   "gate_phases_mod2pi": [
+    3.926991
+   ]
+  },
+  "hopping_obstruction": {
+   "current_current_leak_tail": 12.473740601366993,
+   "current_current_leak_head": 12.489010619937712,
+   "transporter_leak_tail": 12.473740601366993,
+   "transporter_leak_head": 12.489010619937712,
+   "note": "no exactly invariant two-site gate on the fixed adjoint link; the invariant hopping needs a regular-representation (group-algebra) link with a true parallel transporter"
+  },
+  "directional_gate": {
+   "unitarity_err": 6.661338147750939e-16,
+   "covariance_proper_err": 6.106226635438361e-16,
+   "covariance_improper_as_inverse_err": 6.661338147750939e-16,
+   "note": "the 24 improper elements map the step to its inverse: the directed network is chiral"
+  },
+  "gamma_content": {
+   "M0_minus_I": 0.0,
+   "n_gapless": 6,
+   "decomposition": {
+    "A1g": 1.0,
+    "A2g": 0.0,
+    "Eg": 1.0,
+    "T2g": 1.0,
+    "T1g": 0.0,
+    "A1u": 0.0,
+    "A2u": 0.0,
+    "Eu": 0.0,
+    "T1u": 0.0,
+    "T2u": 0.0
+   }
+  },
+  "dispersion": {
+   "bands_by_direction": {
+    "G-X": {
+     "bands_by_eps": {
+      "1e-02": [
+       0.0,
+       0.0,
+       0.00785385,
+       0.00785385,
+       0.0157077,
+       0.0157077
+      ],
+      "1e-03": [
+       0.0,
+       0.0,
+       0.0007854,
+       0.0007854,
+       0.0015708,
+       0.0015708
+      ],
+      "1e-04": [
+       0.0,
+       0.0,
+       7.854e-05,
+       7.854e-05,
+       0.00015708,
+       0.00015708
+      ]
+     },
+     "top_speed": 1.5708,
+     "local_exponent": 0.9999958527632817
+    },
+    "G-M": {
+     "bands_by_eps": {
+      "1e-02": [
+       0.0,
+       0.0,
+       0.00785392,
+       0.00785392,
+       0.01570783,
+       0.01570783
+      ],
+      "1e-03": [
+       0.0,
+       0.0,
+       0.0007854,
+       0.0007854,
+       0.0015708,
+       0.0015708
+      ],
+      "1e-04": [
+       0.0,
+       0.0,
+       7.854e-05,
+       7.854e-05,
+       0.00015708,
+       0.00015708
+      ]
+     },
+     "top_speed": 1.5708,
+     "local_exponent": 0.9999976499089179
+    },
+    "G-R": {
+     "bands_by_eps": {
+      "1e-02": [
+       0.0,
+       0.0,
+       0.00785394,
+       0.00785394,
+       0.01570788,
+       0.01570788
+      ],
+      "1e-03": [
+       0.0,
+       0.0,
+       0.0007854,
+       0.0007854,
+       0.0015708,
+       0.0015708
+      ],
+      "1e-04": [
+       0.0,
+       0.0,
+       7.854e-05,
+       7.854e-05,
+       0.00015708,
+       0.00015708
+      ]
+     },
+     "top_speed": 1.5708,
+     "local_exponent": 0.9999983411148176
+    }
+   },
+   "helicity_ladder_speeds": [
+    0.0,
+    0.0,
+    0.7854,
+    0.7854,
+    1.5708,
+    1.5708
+   ],
+   "predicted_speeds": [
+    0.0,
+    0.0,
+    0.7853981633974483,
+    0.7853981633974483,
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   "isotropy": {
+    "1e-02": {
+     "min": 1.57077,
+     "max": 1.570787,
+     "spread": 1.697e-05
+    },
+    "1e-03": {
+     "min": 1.570796,
+     "max": 1.570796,
+     "spread": 1.7e-07
+    }
+   },
+   "zone_top_max": 2.7206990463513265,
+   "uv_bound_2g10sqrt3": 2.7206990463513265
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 machinery validates: adjoint link algebra to 0.0e+00, Casimirs 64/45 to 0.0e+00/0.0e+00, sym^2 = {'A1g': 1.0, 'A2g': 0.0, 'Eg': 1.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': 0.0}, sum d^2 = 48, spin-2 generators: su(2) to 2.2e-16, trace annihilated, n.J spectrum = {-2,-1,0,0,1,2} over 20 directions to 1.3e-15",
+   "pass": true
+  },
+  {
+   "name": "T1 the directed-link Gauss charge closes ONLY with the conjugate head convention (tail +L, head -Lbar): [C^A,C^B] = i f C on the two-link star to 5.0e-16, while the naive V79 chain sign convention leaks 4.8e+00",
+   "pass": true
+  },
+  {
+   "name": "T2 the bare V79 bond gate K = exp(i g10 J.L) leaks the directed vertex charge (relative leak 7.55e+00): the V79 named open step re-measured on the directed link",
+   "pass": true
+  },
+  {
+   "name": "T3 the Kogut-Susskind ELECTRIC gate K_E = exp(i g10 C_x^2) is EXACTLY gauge-invariant: [C^A, K_E] = 0 for all 45 A to 2.5e-14, unitary to 5.1e-14, and its spectrum is the V79 content theorem: C2 levels [44.99999999999975, 84.99999999999946, 116.99999999999903] with multiplicities [32, 288, 1120] (phases g10 x {45,85,117})",
+   "pass": true
+  },
+  {
+   "name": "T4 the two-site DRESSED HOPPING is obstructed on the fixed adjoint link: the flux-dressed current-current leaks the tail/head vertex charges (1.25e+01 / 1.25e+01) and the transporter-completed version leaks (1.25e+01 / 1.25e+01) - V79's open step split by computation: electric part CLOSED (T3), hopping part obstructed, named fix = regular-representation link",
+   "pass": true
+  },
+  {
+   "name": "T5 the dressed directional step M(q) = exp(-i g10 sin(q).J) is exactly unitary (6.7e-16) and O_h-covariant: D(g) M(q) D(g)^dag = M(gq) for the 24 proper rotations to 6.1e-16; the 24 improper ones give M(gq)^dag instead (to 6.7e-16) - the directed network is chiral",
+   "pass": true
+  },
+  {
+   "name": "T6 at GAMMA the directional step is the identity (dev 0.0e+00): SIX gapless bands with content {'A1g': 1.0, 'A2g': 0.0, 'Eg': 1.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': 0.0} - the quintet Eg+T2g IS present in the directional layer, where the qubit bond factor A1g+T2g+A2u+T1u never had Eg (V138 T1)",
+   "pass": true
+  },
+  {
+   "name": "T7 the quintet dispersion is MASSLESS LINEAR with the helicity ladder speeds [0.0, 0.0, 0.7854, 0.7854, 1.5708, 1.5708] (predicted {0,0,g10,g10,2g10,2g10} = [0.0, 0.0, 0.785, 0.785, 1.571, 1.571]): local exponent {'G-X': 1.0, 'G-M': 1.0, 'G-R': 1.0}, direction spread of the top speed {'1e-02': {'min': np.float64(1.57077), 'max': np.float64(1.570787), 'spread': np.float64(1.697e-05)}, '1e-03': {'min': np.float64(1.570796), 'max': np.float64(1.570796), 'spread': np.float64(1.7e-07)}} at |q| = eps (isotropy exact to leading order, the spin-2 spectrum theorem), UV-bounded by 2 g10 sqrt(3) = 2.7207 (zone max 2.7207)",
+   "pass": true
+  }
+ ],
+ "pass": true,
+ "status": "THE DRESSED GAUGE GATE ON THE DIRECTED-LINK NETWORK, AND THE QUINTET DISPERSION. Part A (the V79 open step, split by computation): the directed-link Gauss charge closes ONLY with the conjugate head convention (tail +L, head -Lbar) - the naive chain sign convention leaks 4.8e+00 on the two-link star (T1); the bare bond gate leaks the vertex charge 7.55 (T2); the Kogut-Susskind ELECTRIC gate exp(i g10 C_x^2) is exactly gauge-invariant (max over all 45 charges 2.5e-14) and its spectrum IS the V79 content theorem, phases g10 x {45, 85, 117} with multiplicities 32, 288, 1120 (T3); every two-site dressed-hopping candidate on the fixed adjoint link leaks (min 1.25e+01) - the invariant hopping needs a regular-representation link (T4). Part B (the V138 T5 escape route, run): on the directional network the flux is the link orientation (a c-number), the dressed hop exists exactly, and the step M(q) = exp(-i g10 sin(q).J) is unitary and O_h-covariant (improper elements invert the step: the network is chiral, T5). At GAMMA it is the identity: six gapless bands with content A1g + Eg + T2g - the quintet is present where the qubit link never had Eg (T6). Its dispersion is massless, linear (exponent 1.00), EXACTLY isotropic to leading order (direction spread O(eps^2)), with the helicity ladder speeds {0, g10, 2 g10} - the m = 0 branch and the A1g trace do not propagate - and UV-bounded by 2 g10 sqrt(3) (T7). VERDICT: the directional bond layer supplies the kinematics the qubit link was proved not to have (V138: no Eg, flat bands; V139: anisotropy 0.857): a massless, linear, isotropic quintet at the zone centre. What is NOT derived: the directional network's gauge group is the lattice direction group O_h, not Spin(10); the Spin(10)-invariant dressed hopping is obstructed on the fixed adjoint link (T4); the ladder speeds g10 x {1,2} = {0.2, 0.4} are not 1 (the dressing angle per hop is an input); the coupling of the quintet to the matter layer and the non-linear completion are not constructed."
+}

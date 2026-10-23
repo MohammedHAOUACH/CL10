@@ -1,0 +1,82 @@
+{
+  "id": "V177_gauged_self_energy_flow",
+  "tier": 4,
+  "property": "static Fock self-energy of the GAUGED bond-current vertex (Gamma^A = I_8 (x) T^A_16, U_c = g_10) on the M-node cone: dressed anisotropy A(dq), cubic-harmonic content and |k| scaling of Sigma, grids 16 vs 24",
+  "residual": true,
+  "pass": true,
+  "status": "ONE-LOOP GAUGED-VERTEX FLOW (2 rows, grids 16/24, normal-ordered, 12 M-node singularities ray-subtracted - V172 protocol, vertex replaced by the Spin(10) current). Sigma is NOT zero (max |Sigma - tadpole| = 2.04e-01): the gauged vertex reaches the cone. Its anisotropic part scales as |k|^1.00 (V172 contact: 1.00 - MARGINAL) with aniso weight 0.0000 at dq=1e-4. A_dressed(1e-4) = 0.9582 vs bare 0.1002: flow dA = +0.8580. Grid drift 16 vs 24 on A_dressed(1e-3) = 1.2e-02 (IR-sensitive, V172 flat-axis precedent - drift recorded, not a failure).",
+  "data": {
+    "rows": [
+      {
+        "grid": 16,
+        "U_c": 0.2,
+        "A_dressed": {
+          "0.01": 0.99141088197392,
+          "0.001": 0.9321803604481975,
+          "0.0001": 0.987613711838955
+        },
+        "A_bare": {
+          "0.01": 0.8463067689080986,
+          "0.001": 0.9979846405782179,
+          "0.0001": 0.10018473013513782
+        },
+        "dA_vs_free": 0.8874289817038171,
+        "w_A1g_Sigma": {
+          "0.01": 9.596198312397007e-06,
+          "0.001": 9.596259028293948e-08,
+          "0.0001": 9.596256018601137e-10
+        },
+        "w_aniso_Sigma": {
+          "0.01": 1.6970415848002902e-07,
+          "0.001": 1.6970690776143113e-09,
+          "0.0001": 1.697073863564734e-11
+        },
+        "alpha_aniso_Sigma": 1.0000257094917413,
+        "isotropic": false
+      },
+      {
+        "grid": 24,
+        "U_c": 0.2,
+        "A_dressed": {
+          "0.01": 0.9984016141039922,
+          "0.001": 0.9439311627113918,
+          "0.0001": 0.9582252313662496
+        },
+        "A_bare": {
+          "0.01": 0.8463067689080986,
+          "0.001": 0.9979846405782179,
+          "0.0001": 0.10018473013513782
+        },
+        "dA_vs_free": 0.8580405012311118,
+        "w_A1g_Sigma": {
+          "0.01": 1.110024889784572e-05,
+          "0.001": 1.1100339612174238e-07,
+          "0.0001": 1.1100333187387994e-09
+        },
+        "w_aniso_Sigma": {
+          "0.01": 1.8234189261252201e-07,
+          "0.001": 1.8234528721687142e-09,
+          "0.0001": 1.8234490506515794e-11
+        },
+        "alpha_aniso_Sigma": 1.0000276746610965,
+        "isotropic": false
+      }
+    ],
+    "node": [
+      1.5707963267948966,
+      1.5707963267948966,
+      0.0
+    ],
+    "dqs": [
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "route_dev": [
+      0.011750802263194249
+    ],
+    "sigma_nonzero": 0.20372827950532724,
+    "candidates": []
+  },
+  "wall_time": 1327.082
+}

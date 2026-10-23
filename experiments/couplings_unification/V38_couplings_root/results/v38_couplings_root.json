@@ -1,0 +1,52 @@
+{
+  "id": "V38_couplings_root",
+  "tier": 3,
+  "property": "P3",
+  "residual": true,
+  "pass": true,
+  "status": "the_g10_and_g0_readings_are_root_numbers_the_1loop_down_running_is_the_named_residual_O4_quantified",
+  "tol": 1e-09,
+  "data": {
+    "backend": "cupy",
+    "n_module": 32,
+    "n_qubits": 5,
+    "g10": 0.2,
+    "alpha_10": 0.04000000000000001,
+    "g10_matches_sm_qca": true,
+    "alpha_10_matches_u10pred": true,
+    "n_space": 3,
+    "g0": 0.125,
+    "g0_matches_coupling": true,
+    "alpha_10_at_M_P": 0.04,
+    "couplings_at_M_Z": [
+      0.019710944565147045,
+      0.19513198320941536,
+      -0.052812829904814736
+    ],
+    "measured_at_M_Z": [
+      0.0169,
+      0.0338,
+      0.118
+    ],
+    "ratio_to_measured": [
+      1.1663280807779317,
+      5.773135597911698,
+      -0.44756635512554865
+    ],
+    "a1_within_factor_2": true,
+    "u1_up_pole_scale": 5.3138899871005236e+35,
+    "u1_pole_above_cutoff": true,
+    "su3_down_pole_scale": 2193467237.372068,
+    "su3_pole_inside_lattice": true,
+    "u1_pole_from_MZ_input_1loop_GeV": 2.195631775386089e+41,
+    "u1_pole_from_MZ_input_2loop_GeV": 2473231264863.0254,
+    "pairwise_meeting_scales_sm_GeV": {
+      "12": 11745980260274.762,
+      "13": 264829221450651.78,
+      "23": 9.725872510865462e+16
+    },
+    "m_z_ref_GeV": 91.1876,
+    "residual": "the 1-loop SM matching to the measured M_Z values (O4, now quantified by the down-running); the QCA lattice RG is the open part"
+  },
+  "wall_time": 0.008
+}

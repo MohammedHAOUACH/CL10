@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cl10"
+version = "0.1.0"
+description = "The Standard Model as a Single Clifford Root — Cl(10): 0-parameter matter, gauge, and gravity on a Planck-lattice QCA (0-parameter, GPU-first)."
+authors = [{ name = "Mohammed Haouach", email = "haouach.mohammed@gmail.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "CC-BY-4.0" }
+
+# The unique engine dependencies (the "ga" list): GPU-first, CPU-fallback.
+# pyyaml is core: cl10/config.py loads cl10/config.yaml, the single source of
+# the backend policy, the routing thresholds and the physics inputs.
+dependencies = [
+    "kingdon",
+    "einops",
+    "jax[cuda13]",
+    "cupy-cuda13x",
+    "numpy",
+    "pyyaml",
+    # tqdm: the live progress bar of the runner and the figure generator (and the
+    # progress display inside the cone scans).
+    "tqdm",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "pytest"]
+# the simulation/young visualizations: the live VisPy window (vispy + its
+# PySide6/PyOpenGL backend), the headless PyVista video (imageio writes the
+# mp4), and PyYAML (loads config.yaml).  None of these is a default
+# dependency, so a bare `pip install cl10` lacks them and the sim crashes on
+# startup.
+young = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "imageio-ffmpeg"]
+# the simulation/hydrogen visualizations: the same deps as young (the live
+# VisPy window + the headless PyVista video).
+hydrogen = ["vispy", "PySide6", "PyOpenGL", "PyVista", "PyYAML", "imageio", "imageio-ffmpeg"]
+
+[tool.setuptools.packages.find]
+include = ["cl10*"]
+
+[tool.setuptools.package-data]
+cl10 = ["config.yaml"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+# the compact numerical style:  E702 (one-line `;`), E402 (lazy GPU
+# import), E741 (the identity `I`).  Keep F4xx/F5xx (the real bugs).
+ignore = ["E501", "E702", "E402", "E741"]

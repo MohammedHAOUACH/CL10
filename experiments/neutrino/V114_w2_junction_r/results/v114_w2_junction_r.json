@@ -1,0 +1,18 @@
+{
+ "experiment": "V114_w2_junction_r",
+ "pass": true,
+ "status": "JUNCTION RATIO AUDIT on (Z/4)^3: the V76 modulation's exact stabilizer in the 48-element signed-permutation group has 12 elements (6 of them chiral) - NOT the 24-element chiral cubic group: V76's 'cubic symmetric' holds only for the triangle SUPPORT (an orbit), not for the profile. The cubic-symmetric closed space (24 rotations + Fourier closure) has dimension 1 (modulation 0): the V76 profile lies outside it to 3.00e+00 - NO cubic-symmetric closed junction exists on the period-4 lattice. Inside the V76 stabilizer the closed space has dimension 2 (modulation 1, V76 shape error 8.55e-15, basis verified to 2.78e-16): the constant w0 is an independent direction, so r = kappa/w0 is NOT DERIVED - the conditions fix at most the shape, never the amplitude ratio. O2's r = 2 (democratic) and r = 1.91 (atmospheric) remain named inputs; F3 measures the outcome.",
+ "data": {
+  "stabilizer_size": 12,
+  "stabilizer_chiral": 6,
+  "dim_cubic_closed": 1,
+  "dim_cubic_mod": 0,
+  "dim_stab_closed": 2,
+  "dim_stab_mod": 1,
+  "v76_in_cubic_err": 2.9999999999999996,
+  "v76_in_stab_err": 3.552713678800501e-15,
+  "v76_shape_err": 8.547433047200445e-15,
+  "verify": 2.7755575615628914e-16,
+  "r_verdict": "NOT DERIVED"
+ }
+}

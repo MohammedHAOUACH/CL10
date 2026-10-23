@@ -1,0 +1,41 @@
+{
+  "id": "V49_quark_ckm",
+  "tier": 4,
+  "property": "P5",
+  "residual": true,
+  "pass": true,
+  "status": "the_democratic_2level_mass_matrices_are_0parameter_the_computed_CKM_IS_THE_IDENTITY_a_nontrivial_CKM_needs_an_up_down_misalignment_the_w6_residual",
+  "tol": 1e-08,
+  "data": {
+    "backend": "cupy",
+    "up_eigenvalues": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "down_eigenvalues": [
+      0.0,
+      9.064933036736789e-17,
+      3.0
+    ],
+    "two_level": true,
+    "ckm_unitary": true,
+    "ckm_is_identity": true,
+    "ckm_computed_angles": [
+      2.3906227480241556e-32,
+      1.334283281158008e-32,
+      4.762224389213186e-32
+    ],
+    "sin2_12": 0.3333333333333333,
+    "sin2_23": 0.5,
+    "sin2_13": 0.0,
+    "obs_ckm": [
+      0.05,
+      0.949,
+      0.02
+    ],
+    "dev_ckm": 0.25077777777777777,
+    "residual": "the quark CKM is NOT derived 0-parameter: with H_u = H_d (both democratic) the computed CKM is the IDENTITY.  A non-trivial CKM requires an up/down MISALIGNMENT, which the symmetric democratic base does not provide — it comes from the 10-Higgs vev breaking.  The TBM angles are the lepton-sector (23)-adapted choice, not a quark result: the O6 named residual, now stated honestly"
+  },
+  "wall_time": 0.001
+}

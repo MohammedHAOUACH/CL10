@@ -1,0 +1,98 @@
+{
+ "experiment": "V139_nodal_plane_crossing",
+ "data": {
+  "coarse": {
+   "grid": 15,
+   "min_gap": 0.0005085414602750693
+  },
+  "node": {
+   "gap": 4.18554080283684e-14,
+   "q0": [
+    -2.1890560982273333,
+    -1.4445960718722506,
+    0.0
+   ],
+   "gap_at_q0": 9.637457498712365e-12,
+   "star_size": 24,
+   "stabilizer_order": 2,
+   "orbits": 12
+  },
+  "zero": {
+   "gap_at_q0": 9.637457498712365e-12,
+   "in_plane_profile": {
+    "1e-03": 0.00017727463921324293,
+    "1e-02": 0.0017707458120722608,
+    "5e-02": 0.00880855687469223
+   },
+   "profile_over_gap": [
+    18394336.80894864,
+    183735784.2884231,
+    913991773.8541641
+   ]
+  },
+  "dispersion": {
+   "slopes_by_direction": {
+    "(1, 0, 0)": [
+     0.17727,
+     0.17729
+    ],
+    "(0, 1, 0)": [
+     0.13279,
+     0.13282
+    ],
+    "(1, 1, 0)": [
+     0.03145,
+     0.03145
+    ],
+    "(1, -1, 0)": [
+     0.2193,
+     0.21929
+    ],
+    "(1, 2, 0)": [
+     0.03949,
+     0.03951
+    ],
+    "(2, 1, 0)": [
+     0.09917,
+     0.09918
+    ]
+   },
+   "v_min": 0.03145,
+   "v_max": 0.2193,
+   "anisotropy": 0.8565891472868217,
+   "off_plane_gap": {
+    "1e-01": 0.0005066565062487594,
+    "1e-02": 5.067729390406672e-06,
+    "1e-03": 5.066786951113401e-08
+   }
+  },
+  "little_group": {
+   "order": 2,
+   "max_irrep_dimension": 1
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 the 15^3 census of V128 sees a smallest quasi-energy of 5.085e-04 - no exact zero on the grid",
+   "pass": true
+  },
+  {
+   "name": "T1 one orbit of exactly gapless points: 24 points, little group of order 2, representative (np.float64(-2.1890560982273333), np.float64(-1.4445960718722506), 0.0), refined gap 4.2e-14",
+   "pass": true
+  },
+  {
+   "name": "T2 the gap at the refined point is 9.6e-12, while moving 1e-3, 1e-2, 5e-2 along the plane costs {'1e-03': '1.8e-04', '1e-02': '1.8e-03', '5e-02': '8.8e-03'} - a factor 913991773 above the point value: the gap vanishes at the point and grows linearly away from it, the signature of a simple zero, not a floor",
+   "pass": true
+  },
+  {
+   "name": "T3 the branch is linear in every in-plane direction with v in [0.0314, 0.2193] (anisotropy 0.857), and leaving the plane costs a gap linear in q_z ({'1e-01': '5.1e-04', '1e-02': '5.1e-06', '1e-03': '5.1e-08'}): a massless point node confined to the nodal plane",
+   "pass": true
+  },
+  {
+   "name": "T4 the little group of the node has order 2, so its tangent space carries only 1-dimensional irreps: no helicity +/-1 or +/-2 pair, no spin-2 content - the same representation-theoretic closure as at the M nodes, now at a node that is exactly massless at g10 = 1/5",
+   "pass": true
+  }
+ ],
+ "pass": true,
+ "status": "THE NODAL-PLANE CROSSING AT THE IMPLEMENTED COUPLING. The V128 census ('no exactly gapless mode anywhere', grid minimum 5.1e-04) is too coarse: on each coordinate plane the step has an exactly gapless point (representative [np.float64(-2.1890560982273333), np.float64(-1.4445960718722506), 0.0], gap 4.2e-14), one O_h orbit of 24 points with little group of order 2. The dispersion is linear in the plane with v in [0.0314, 0.2193] and the node is gapped linearly off the plane, so it is a massless point node confined to the nodal plane. Representation content: a group of order 2 has only 1-dimensional irreps, so this node carries no helicity pair and no spin 2 - consistent with V138, which closed the zone-centre route on Eg-absence. VERDICT: the implemented step does contain exactly massless excitations at g10 = 1/5, contrary to the coarse census; they are anisotropic Weyl-type nodes (O9), not gravitons, and the spin-2 no-go of V138 stands."
+}

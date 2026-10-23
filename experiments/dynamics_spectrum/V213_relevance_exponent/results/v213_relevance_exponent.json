@@ -1,0 +1,234 @@
+{
+  "id": "V213_relevance_exponent",
+  "tier": 4,
+  "property": "relevance exponent of the anisotropic tangent term at the exactly gapless node: the transverse-velocity anisotropy A(r) over the config radius ladder, and A(b) of the Lowdin-downfolded node subspace at b = 1, 2, 4 with both the window pi/(2b) and the probe b r_0 rescaled, against the fixed-probe convention of V173/V178, with the codimension of the gapless set measured at every resolution",
+  "residual": true,
+  "pass": true,
+  "status": "RELEVANCE EXPONENT at the closed clock g = 0.785398 at the node [1.5707963267948966, 1.5707963267948966, 0.0] (gap 1.2e-16). (T1) tangent dispersion over 179 directions: leading exponent alpha = 0.9998 (linear); the gapless set through the node holds its codimension at every resolution - 4 of 179 directions are exactly nodal (velocity <=1e-09) at every radius of the ladder, so the saturated anisotropy (v_max - v_min)/(v_max + v_min) is pinned at 1.0000 and carries no exponent, which is what V173's 0.998 was. Transverse anisotropy: 0.9993 at r = 1e-02, 0.9998 at r = 3e-03, 0.9999 at r = 1e-03, 1.0000 at r = 3e-04, 1.0000 at r = 1e-04, 1.0000 at r = 3e-05, 1.0000 at r = 1e-05; log-log slope p = -0.0001 over 7 radii. (T2) block ladder with window pi/(2b) and probe b r_0: A = 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000 - the same exponent from an independent ladder (agreement 0.000). The V173/V178 fixed-probe convention gives 1.0000 (b 1), 1.0000 (b 2), 1.0000 (b 4), slope 0.0000: it measures the downfolded subspace, not the flow. (T3) the node's little group (order 4, 3 quadratic invariants) already allows an anisotropic invariant at degree 1 <= the leading order 1, predicting p = 0.000 against the measured -0.000. (T4) the b = 1 downfold reproduces the full matrix to 4.9e-14; window margins 5.2e-01, 2.6e-01, 3.9e-01; subspace sizes 64, 32, 32. VERDICT: the anisotropic term is MARGINAL at the measured node (p = -0.000, marginal band +/-1e-02) and the gapless set never loses its codimension, so no coarse-graining inside the implemented module removes the anisotropy: the module itself has to change.",
+  "data": {
+    "clock_branch": "closed",
+    "g10": 0.7853981633974483,
+    "node": [
+      1.5707963267948966,
+      1.5707963267948966,
+      0.0
+    ],
+    "node_gap": 1.2143064331837724e-16,
+    "directions": 179,
+    "radius_ladder": [
+      {
+        "r": 0.01,
+        "v_max": 0.816494312879882,
+        "v_mean": 0.3856607869525203,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 0.0002777775193606278,
+        "v_trans_max": 0.816494312879882,
+        "A_saturated": 0.9999999999999992,
+        "A_transverse": 0.9993198163291185,
+        "E_mean": 0.0038566078695252033
+      },
+      {
+        "r": 0.00316,
+        "v_max": 0.8164963544464866,
+        "v_mean": 0.38608527157353184,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 8.777776604642075e-05,
+        "v_trans_max": 0.8164963544464866,
+        "A_saturated": 1.0,
+        "A_transverse": 0.9997850123151216,
+        "E_mean": 0.0012200294581723606
+      },
+      {
+        "r": 0.001,
+        "v_max": 0.816496558236639,
+        "v_mean": 0.3862190844655799,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 2.7777766642422897e-05,
+        "v_trans_max": 0.816496558236639,
+        "A_saturated": 0.9999999999997281,
+        "A_transverse": 0.9999319609583753,
+        "E_mean": 0.0003862190844655799
+      },
+      {
+        "r": 0.000316,
+        "v_max": 0.8164965786274639,
+        "v_mean": 0.3862614349916658,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 8.777741411713958e-06,
+        "v_trans_max": 0.8164965786274639,
+        "A_saturated": 0.9999999999999108,
+        "A_transverse": 0.9999784992435303,
+        "E_mean": 0.0001220586134573664
+      },
+      {
+        "r": 0.0001,
+        "v_max": 0.8164965805914088,
+        "v_mean": 0.3862748064254075,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 2.777664053627017e-06,
+        "v_trans_max": 0.8164965805914088,
+        "A_saturated": 0.9999999999986912,
+        "A_transverse": 0.999993196163535,
+        "E_mean": 3.862748064254075e-05
+      },
+      {
+        "r": 3.16e-05,
+        "v_max": 0.8164965805681637,
+        "v_mean": 0.386279040275474,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 8.774195933369136e-07,
+        "v_trans_max": 0.8164965805681637,
+        "A_saturated": 0.9999999999811744,
+        "A_transverse": 0.9999978507720148,
+        "E_mean": 1.220641767270498e-05
+      },
+      {
+        "r": 1e-05,
+        "v_max": 0.8164965798157856,
+        "v_mean": 0.3862803766176705,
+        "nodal_directions": 4,
+        "nodal_fraction": 0.0223463687150838,
+        "v_trans_min": 2.7668214941378806e-07,
+        "v_trans_max": 0.8164965798157856,
+        "A_saturated": 0.9999999999859776,
+        "A_transverse": 0.9999993222701418,
+        "E_mean": 3.8628037661767055e-06
+      }
+    ],
+    "p_radius": -7.836813176608495e-05,
+    "p_radius_prefactor": 0.9992266169130936,
+    "n_radius_points": 7,
+    "leading_order": 1,
+    "leading_exponent": 0.9998149941595754,
+    "leading_coefficient": 0.3855761520115726,
+    "blocks": [
+      {
+        "b": 1,
+        "cut": 1.5707963267948966,
+        "probe_r": 0.01,
+        "n_low": 64,
+        "window_margin": 0.5235987755982818,
+        "A_rescaled": 0.9999999999999499,
+        "nodal_fraction_rescaled": 0.0223463687150838,
+        "A_fixed_probe": 0.9999999999999499,
+        "nodal_fraction_fixed_probe": 0.0223463687150838,
+        "A_full_matrix": 0.9999999999999992
+      },
+      {
+        "b": 2,
+        "cut": 0.7853981633974483,
+        "probe_r": 0.02,
+        "n_low": 32,
+        "window_margin": 0.26179938779913603,
+        "A_rescaled": 0.9999999999999948,
+        "nodal_fraction_rescaled": 0.0223463687150838,
+        "A_fixed_probe": 0.9999999999999611,
+        "nodal_fraction_fixed_probe": 0.0223463687150838,
+        "A_full_matrix": 0.9999999999999336
+      },
+      {
+        "b": 4,
+        "cut": 0.39269908169872414,
+        "probe_r": 0.04,
+        "n_low": 32,
+        "window_margin": 0.39269908169871304,
+        "A_rescaled": 0.9999999999999893,
+        "nodal_fraction_rescaled": 0.0223463687150838,
+        "A_fixed_probe": 0.9999999999999611,
+        "nodal_fraction_fixed_probe": 0.0223463687150838,
+        "A_full_matrix": 0.9999999999999994
+      }
+    ],
+    "p_block": 2.843041022135824e-14,
+    "p_fixed_probe": 8.088651922132991e-15,
+    "n_block_points": 3,
+    "blocks_used": [
+      1,
+      2,
+      4
+    ],
+    "little_group": {
+      "locus": "M",
+      "q": [
+        1.5707963267948966,
+        1.5707963267948966,
+        0.0
+      ],
+      "little_group_order": 4,
+      "invariants": [
+        1,
+        3,
+        3,
+        6,
+        6,
+        10,
+        10,
+        15
+      ],
+      "quadratic_invariants": 3,
+      "isotropy_forced": false,
+      "first_anisotropic_degree": 1
+    },
+    "predicted_p": 0.0,
+    "route_dev": 4.929390229335695e-14,
+    "checks": [
+      {
+        "name": "T1 the node is exactly gapless at the clock in force",
+        "pass": true,
+        "detail": "node [1.5707963267948966, 1.5707963267948966, 0.0] gap 1.21e-16 at the closed clock g = 0.785398"
+      },
+      {
+        "name": "T1 the tangent dispersion is linear in the probe radius",
+        "pass": true,
+        "detail": "leading exponent alpha = 0.9998 over 7 radii"
+      },
+      {
+        "name": "T1 the gapless set through the node keeps its codimension at every resolution",
+        "pass": true,
+        "detail": "4 of 179 directions are exactly nodal at every radius: fractions 0.0223, 0.0223, 0.0223, 0.0223, 0.0223, 0.0223, 0.0223"
+      },
+      {
+        "name": "T1 the transverse-velocity anisotropy has enough usable radii",
+        "pass": true,
+        "detail": "7 of 7 radii usable"
+      },
+      {
+        "name": "T2 the windows are the block scales they claim to be",
+        "pass": true,
+        "detail": "cuts 1.5708, 0.7854, 0.3927 = pi/(2b) for b = 1, 2, 4"
+      },
+      {
+        "name": "T2 the two ladders read the same exponent",
+        "pass": true,
+        "detail": "radius ladder p = -0.0001 (7 points); block ladder with rescaled window and probe p = 0.0000 (3 points)"
+      },
+      {
+        "name": "T2 the V173 fixed-probe convention carries no scaling information",
+        "pass": true,
+        "detail": "fixed-probe slope 0.0000 against rescaled-probe slope 0.0000: the earlier marginality verdict measured the subspace dimension, not the renormalisation"
+      },
+      {
+        "name": "T4 the b = 1 downfold is exact on the low band",
+        "pass": true,
+        "detail": "|A(downfold, b = 1) - A(full matrix)| = 4.93e-14"
+      },
+      {
+        "name": "T4 every block window is clean of edge contamination",
+        "pass": true,
+        "detail": "b 1: n_low 64, margin 5.24e-01; b 2: n_low 32, margin 2.62e-01; b 4: n_low 32, margin 3.93e-01"
+      },
+      {
+        "name": "T3 the measured exponent matches the little-group prediction in sign class",
+        "pass": true,
+        "detail": "little group of [1.5707963267948966, 1.5707963267948966, 0.0]: order 4, quadratic invariants 3, first anisotropic degree 1, leading exponent alpha 1.000: predicted p = 0.000, measured -0.000"
+      }
+    ]
+  },
+  "wall_time": 267.812
+}

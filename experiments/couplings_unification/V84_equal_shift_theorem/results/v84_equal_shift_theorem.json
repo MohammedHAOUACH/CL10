@@ -1,0 +1,64 @@
+{
+  "experiment": "V84_equal_shift_theorem",
+  "pass": true,
+  "status": "THE EQUAL-SHIFT THEOREM IS VERIFIED AND UNIVERSAL: over the matter 16 sum db1 = sum db2 = 1.333333; the identity also holds over the flux 45, over the SO(10) vector 10, and over the SU(5) 10 inside the 16 - it is the index-proportionality of Tr Y^2 and Tr T3^2: both are proportional to the representation index and their ratio is fixed by the fundamental, (3/5) Tr_5 Y^2 = Tr_5 T3^2. Hence EVERY complete-multiplet content at common thresholds - in particular every fermionic content of the automaton (full 16's x any breaking-sector flux) - shifts U(1) and SU(2) EQUALLY and cannot reconcile x12 = 25.582 with x23 = 34.603. The V64 repair's mismatch is carried ENTIRELY by its (1,2) pair (db1/db2 = 3/5, mismatch_from_10s = 0, mismatch_from_(1,2) = -0.2667): the desert content MUST contain SU(5)-fragment Weyl states (or split thresholds inside multiplets, excluded for every natural ansatz by V82). The automaton supplies only complete Spin(10) multiplets: O4 is a structural no-go - the desert spectrum is provably not automaton content, and a fragment-producing mechanism is the named open problem.",
+  "data": {
+    "over_16": {
+      "sum_db1": 1.3333333333,
+      "sum_db2": 1.3333333333,
+      "sum_db3": 1.3333333333,
+      "diff_12": 4.884981308350689e-15
+    },
+    "zero_sum_16": {
+      "sum_Y": 2.220446049250313e-15,
+      "sum_m": 8.326672684688674e-16
+    },
+    "over_flux45": {
+      "sum_db1": 5.3333333333,
+      "sum_db2": 5.3333333333,
+      "diff_12": 1.865174681370263e-14
+    },
+    "composite_expansion": {
+      "sum_db1_measured": 145.33333333,
+      "sum_db1_predicted": 145.33333333,
+      "sum_db2_measured": 145.33333333,
+      "sum_db2_predicted": 145.33333333,
+      "cross_term_db1": 0.0,
+      "cross_term_db2": 4.263256414560601e-13
+    },
+    "vector10": {
+      "sum_db1": 0.1666666667,
+      "sum_db2": 0.1666666667,
+      "ratio_db1_over_db2": 1.0,
+      "note": "the identity holds on the vector 10 too: it is the index-proportionality of Tr Y^2 and Tr T3^2 over any complete SU(5)/Spin(10) multiplet"
+    },
+    "V64_content": {
+      "n_10": 10,
+      "db_10": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "ratio_db1_over_db2_for_10": 1.0,
+      "db_(1,2)pair": [
+        0.4,
+        0.666667,
+        0.0
+      ],
+      "ratio_db1_over_db2_for_(1,2)": 0.6,
+      "total_3x10+3x10bar+1x(1,2)": [
+        6.4,
+        6.666667,
+        6.0
+      ],
+      "mismatch_from_10s": 2.398081733190338e-14,
+      "mismatch_from_(1,2)": -0.26666666666666505,
+      "note": "the 10 + 10bar pairs shift U(1) and SU(2) EQUALLY (complete SU(5) multiplets): the whole db1 - db2 mismatch of the V64 repair is carried by the (1,2) pair, which is not an SU(5) multiplet"
+    },
+    "required_mismatch": {
+      "x12_no_content": 25.582,
+      "x23_no_content": 34.603,
+      "note": "a content with sum db1 = sum db2 at common thresholds contributes equally to the two meeting equations and cannot reconcile x12 != x23"
+    }
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "id": "V219_nodal_line_anisotropy",
+  "tier": 4,
+  "property": "the nodal lines of the icosahedral-module step: gaplessness along the line and linear transverse touching, the velocity field v(n) measured on a dense direction set at three radii, the azimuthal Fourier profile on circles around the line at two radii (leading degree and odd-harmonic fraction), the two-band Clifford cone test at the line, and the line's own two-fold invariance in the linear-response limit",
+  "residual": true,
+  "pass": true,
+  "status": "NODAL LINES of the icosahedral module at the closed clock g = 0.785398, measured at q0 = [np.float64(0.8258), np.float64(0.0), np.float64(0.0)] on the axis (the icosahedron's two-fold direction). (T1) the gap along the line stays at the floor (9.9e-17, 7.3e-17, 4.9e-16, 0.0e+00, 2.9e-16) and the transverse exponent is 0.995: the touching is LINEAR, which no locus of the implemented cubic module achieves at an isotropic point (V212: GAMMA quadratic, M linear but little-group anisotropic). (T2) the velocity field on 64 directions: mean v = 0.4631, anisotropy min v/max v = 0.0004 against 0.0013 at the cubic M node. Around the line itself the profile on a circle of radius 3e-03 has leading azimuthal degree 2, odd-harmonic fraction 0.0000 of the mean (the profile carries the period pi of the line's own two-fold), and total anisotropy 0.68 of the mean, 1.5e-04 to 1.204 in v: the transverse velocity dips by three orders of magnitude between azimuths. The cubic GAMMA-M line gives leading degree 2, odd 0.0000, total 0.50. The anisotropy of the touching is a property of the line, not of the point group: the module's first anisotropic invariant is degree 6 against the cubic group's 4 (V212), but around a line the little group is only the two-fold and both modules vary at low degree.. (T3) the two-band Clifford test on the line: |S_a| [0.0, 0.177, 1.318] with defect 2.000 of {S_a,S_b} = 2 delta_ab, against |S_a| [0.444, 0.444, 0.0] and defect 2.000 at M; the field respects the line's two-fold symmetries to 2.1e-03 at r = 3e-03, falling as r^1.00.",
+  "data": {
+    "clock_branch": "closed",
+    "g10": 0.7853981633974483,
+    "lr_radius": 1.902113032590307,
+    "q0": [
+      0.825816499798531,
+      0.0,
+      0.0
+    ],
+    "along": [
+      {
+        "t": 0.0,
+        "gap": 9.887923813067728e-17
+      },
+      {
+        "t": 0.001,
+        "gap": 7.285838599102605e-17
+      },
+      {
+        "t": 0.01,
+        "gap": 4.909267437014305e-16
+      },
+      {
+        "t": 0.1,
+        "gap": 0.0
+      },
+      {
+        "t": 0.5,
+        "gap": 2.931682674400763e-16
+      }
+    ],
+    "transverse_ladder": [
+      {
+        "eps": 0.03,
+        "gap": 0.03569471361908727
+      },
+      {
+        "eps": 0.01,
+        "gap": 0.012001095790591543
+      },
+      {
+        "eps": 0.003,
+        "gap": 0.0036109265371176273
+      }
+    ],
+    "transverse_exponent": 0.9950262681888543,
+    "n_directions": 64,
+    "radii": [
+      0.03,
+      0.01,
+      0.003
+    ],
+    "star_field": [
+      {
+        "eps": 0.03,
+        "min": 0.0036408559416119452,
+        "max": 1.10001204254546,
+        "mean": 0.4542154946838496,
+        "anisotropy": 0.003309832802545414
+      },
+      {
+        "eps": 0.01,
+        "min": 0.0021099591789833253,
+        "max": 1.1052296352198854,
+        "mean": 0.4656187977423597,
+        "anisotropy": 0.001909068587871831
+      },
+      {
+        "eps": 0.003,
+        "min": 0.00042354750668648625,
+        "max": 1.1096280989084213,
+        "mean": 0.4696069247717054,
+        "anisotropy": 0.00038170221816043073
+      }
+    ],
+    "cubic_field": [
+      {
+        "eps": 0.03,
+        "min": 0.0035084542411958214,
+        "max": 0.8064383666202559,
+        "mean": 0.405952924709866,
+        "anisotropy": 0.004350554718644629
+      },
+      {
+        "eps": 0.01,
+        "min": 0.0010286523434225767,
+        "max": 0.8058754891907424,
+        "mean": 0.4075186941081872,
+        "anisotropy": 0.0012764407867219614
+      },
+      {
+        "eps": 0.003,
+        "min": 0.0026167746104921955,
+        "max": 0.8056740694332933,
+        "mean": 0.4081024390405266,
+        "anisotropy": 0.003247932023346389
+      }
+    ],
+    "azimuth_star": {
+      "1e-02": {
+        "leading": 2,
+        "powers": {
+          "0": 0.5915342788640909,
+          "1": 1.1968055169692379e-14,
+          "2": 0.06071042706244526,
+          "3": 1.3621215610831267e-14,
+          "4": 0.22739529609831544,
+          "5": 7.22237312614164e-15,
+          "6": 0.02563882269911339,
+          "7": 5.121793252796834e-15,
+          "8": 0.0045019784242343016
+        },
+        "odd_fraction": 3.706590323759695e-13,
+        "relative": 0.6778334684442227,
+        "v_min": 0.006854724080002232,
+        "v_max": 1.2001095790592164
+      },
+      "3e-03": {
+        "leading": 2,
+        "powers": {
+          "0": 0.5973204263250154,
+          "1": 8.640389714590569e-15,
+          "2": 0.05937498049056068,
+          "3": 5.377496798520322e-14,
+          "4": 0.22793847354872523,
+          "5": 5.15107706212294e-14,
+          "6": 0.025854089162385407,
+          "7": 5.2224501459947996e-14,
+          "8": 0.00498616091509172
+        },
+        "odd_fraction": 1.1573583879405495e-12,
+        "relative": 0.6801854136876136,
+        "v_min": 0.00014733365353662798,
+        "v_max": 1.2036421790394214
+      }
+    },
+    "azimuth_cubic": {
+      "1e-02": {
+        "leading": 2,
+        "powers": {
+          "0": 0.5184655111768286,
+          "1": 9.16607794567486e-15,
+          "2": 0.17397193373611902,
+          "3": 2.677897997210678e-15,
+          "4": 0.0347353117412821,
+          "5": 5.607221786124697e-15,
+          "6": 0.014934218379533085,
+          "7": 4.3679066782734685e-15,
+          "8": 0.008334736197252984
+        },
+        "odd_fraction": 2.837370112476667e-13,
+        "relative": 0.4980256315364978,
+        "v_min": 0.0024999791658410534,
+        "v_max": 0.8164943128799989
+      },
+      "3e-03": {
+        "leading": 2,
+        "powers": {
+          "0": 0.5192684637068595,
+          "1": 2.8039177169909036e-14,
+          "2": 0.17360788019917356,
+          "3": 1.0934473926675248e-14,
+          "4": 0.03480815374807544,
+          "5": 1.566847576068955e-14,
+          "6": 0.015007125858958881,
+          "7": 5.640706171803448e-15,
+          "8": 0.008407649743900092
+        },
+        "odd_fraction": 9.513620361811084e-13,
+        "relative": 0.4997839380076809,
+        "v_min": 0.0007499994336229137,
+        "v_max": 0.8164963768002305
+      }
+    },
+    "cone_star": {
+      "gap": 9.887923813067728e-17,
+      "band_gaps": [
+        9.887923813067728e-17,
+        1.9428902930940096e-16
+      ],
+      "velocity_norms": [
+        2.6902633578174968e-06,
+        0.1771677033799899,
+        1.3175681635982424
+      ],
+      "clifford_defect": 2.000000000008338,
+      "squares": [
+        7.237516934371487e-12,
+        0.03138839511195562,
+        1.7359858656535325
+      ]
+    },
+    "cone_cubic": {
+      "gap": 5.551115123125791e-17,
+      "band_gaps": [
+        5.551115123125791e-17,
+        3.7470027081099137e-16
+      ],
+      "velocity_norms": [
+        0.4439278646728128,
+        0.44392786467282574,
+        8.272392866084554e-15
+      ],
+      "clifford_defect": 2.0,
+      "squares": [
+        0.19707194903296293,
+        0.19707194903297257,
+        4.6822669361237496e-29
+      ]
+    },
+    "symmetry_defect": [
+      {
+        "eps": 0.003,
+        "defect": 0.002064621619817575
+      },
+      {
+        "eps": 0.01,
+        "defect": 0.006882184053728091
+      }
+    ],
+    "symmetry_slope": 1.0000135154584062,
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 585,
+        "rejected": 0
+      },
+      "pool_njobs": 8
+    },
+    "checks": [
+      {
+        "name": "T1 the nodal line is exactly gapless along its own direction and its transverse touching is linear",
+        "pass": true,
+        "detail": "gap along the axis t=0.0: 9.9e-17, t=0.001: 7.3e-17, t=0.01: 4.9e-16, t=0.1: 0.0e+00, t=0.5: 2.9e-16; transverse exponent 0.995 over 3e-02:3.57e-02, 1e-02:1.20e-02, 3e-03:3.61e-03"
+      },
+      {
+        "name": "T2 the azimuthal velocity profile around each line carries the line's own period, and its leading harmonic is measured on both modules",
+        "pass": true,
+        "detail": "circle of radius 3e-03 with 96 azimuths. star two-fold axis line: leading azimuthal degree 2, odd-harmonic fraction 0.0000 of the mean (the profile has the period pi of the line's own two-fold), total anisotropy 0.68 of the mean, powers [m=0: 5.97e-01, m=1: 8.64e-15, m=2: 5.94e-02, m=3: 5.38e-14, m=4: 2.28e-01, m=5: 5.15e-14, m=6: 2.59e-02, m=7: 5.22e-14, m=8: 4.99e-03]. cubic GAMMA-M line: leading degree 2, odd fraction 0.0000, total 0.50, powers [m=0: 5.19e-01, m=1: 2.80e-14, m=2: 1.74e-01, m=3: 1.09e-14, m=4: 3.48e-02, m=5: 1.57e-14, m=6: 1.50e-02, m=7: 5.64e-15, m=8: 8.41e-03]"
+      },
+      {
+        "name": "T2 the velocity anisotropy of the two modules is measured on the same footing",
+        "pass": true,
+        "detail": "min v / max v over 64 directions and radii ['3e-02', '1e-02', '3e-03']: icosahedral line 0.0004 (mean v 0.4631), cubic M node 0.0013; per-radius star anisotropy 3e-02: 0.0033, 1e-02: 0.0019, 3e-03: 0.0004"
+      },
+      {
+        "name": "T3 the two-band Clifford test is decided at the nodal line: the defect of {S_a, S_b} = 2 delta_ab is measured, on both modules",
+        "pass": true,
+        "detail": "star line: gap 9.9e-17, band gaps ['9.9e-17', '1.9e-16'], |S_a| ['0.000', '0.177', '1.318'], Clifford defect 2.000; cubic M: |S_a| ['0.444', '0.444', '0.000'], defect 2.000"
+      },
+      {
+        "name": "T3 the velocity field on the line respects the line's own two-fold symmetries in the linear-response limit",
+        "pass": true,
+        "detail": "largest change of v(n) under the three two-fold rotations that preserve the axis: 2.1e-03 at r = 3e-03, 6.9e-03 at r = 1e-02 (slope 1.00 in r: the defect is the O(eps) correction to gap/eps, not a breaking of the line's symmetry)"
+      }
+    ]
+  },
+  "wall_time": 2358.11
+}

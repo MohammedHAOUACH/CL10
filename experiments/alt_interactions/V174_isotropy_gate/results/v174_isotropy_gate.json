@@ -1,0 +1,16 @@
+{
+  "id": "V174_isotropy_gate",
+  "tier": 4,
+  "property": "hard-tier gate on the interaction census V171-V173: isotropy A < 1e-6 or flow toward isotropy > 0.5",
+  "residual": null,
+  "pass": true,
+  "status": "INTERACTION ISOTROPY GATE. 18 census rows scanned (V171-V173); 3 rows excluded from candidacy (V172 one-loop flow not grid-convergent - an unconverged measurement cannot nominate); minimum converged anisotropy 0.9980; ZERO candidates (no A < 1e-6, no converged flow toward isotropy > 0.5): NO CANDIDATE - the minimal admissible collision (block contact, U_c in {g_10, pi/4, pi/2}) does not isotropize the W9 cone. The interacting fixed-point mechanism (Ising/Wilson-Fisher universality) needs the gauged-layer 2-fermion S-matrix (V79-V101), not built.",
+  "data": {
+    "n_rows": 18,
+    "min_A": 0.9979846405764595,
+    "excluded_unconverged": 3,
+    "candidates": [],
+    "gates": []
+  },
+  "wall_time": 0.0
+}

@@ -1,0 +1,34 @@
+{
+  "id": "V55_eta_cp",
+  "tier": 6,
+  "property": "P5,P6",
+  "residual": true,
+  "pass": true,
+  "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.11_to_the_observed_6.12e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.11",
+  "tol": 1e-12,
+  "data": {
+    "backend": "cupy",
+    "loop_factor": 0.019894367886486918,
+    "eta_CP_0param": 0.000395785873602882,
+    "eta_CP_observed": 0.001,
+    "eta_CP_over_observed": 0.395785873602882,
+    "g0": 0.125,
+    "cp_odd_loop_factor": 4.857023409786845e-06,
+    "sphaleron": 0.35443037974683544,
+    "delta_B_0param": 6.813361404286049e-10,
+    "delta_B_observed": 6.12e-10,
+    "delta_B_ratio": 1.1132943471055636,
+    "delta_B_v40": 1.7214766515700212e-09,
+    "delta_B_ratio_v40": 2.8128703457026494,
+    "structure": {
+      "sphaleron": 0.35443037974683544,
+      "eps_CP": 4.857023409786845e-06,
+      "D_dilution": 0.000395785873602882,
+      "g0": 0.125,
+      "g0_is_1_over_2_cubed": true,
+      "loop_count": 3
+    },
+    "residual": "the CP phase (which makes eps_CP nonzero, an O(1) input) and the 2-digit ratio 1.11.  Provenances: the 16pi and the loop counts are numbers of the root; eps_CP and D are QFT loop factors at g_0 = 1/2^3; the 28/79 sphaleron is an input of the SM sector (a root number only conditional on V23)"
+  },
+  "wall_time": 0.0
+}

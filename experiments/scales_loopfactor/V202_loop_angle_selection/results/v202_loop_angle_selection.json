@@ -1,0 +1,99 @@
+{
+ "experiment": "V202_loop_angle_selection",
+ "tier": 4,
+ "programme": "V202",
+ "data": {
+  "phase_classes": {
+   "eigenvalues": [
+    -31.999999999999993,
+    -12.000000000000002,
+    3.9999999999999982
+   ],
+   "classes": 63,
+   "nonzero": 58,
+   "k_range": [
+    -160,
+    20
+   ],
+   "grouped_vs_census_error": 8.569533971325427e-16
+  },
+  "structure": {
+   "pairing_pi_minus_eta_error": 1.0516761073109393e-17,
+   "period_error": 3.0032400177848473e-16,
+   "mirror_C04_error": 1.3545322072625313e-17,
+   "mirror_C13_error": 2.276187181548937e-17,
+   "component_moduli_at_pi_minus_eta": [
+    0.0010903509179085791,
+    0.002135147227329723,
+    0.010502028985572212,
+    0.0021351472273296386,
+    0.0010903509179085323
+   ]
+  },
+  "crossings": {
+   "n_roots_0_pi2": 4,
+   "eta_star": [
+    0.1981004295290223,
+    0.5778508619180092,
+    1.0048607861890555,
+    1.3473565810237371
+   ],
+   "residuals": [
+    3.469446951953614e-18,
+    0.0,
+    1.0408340855860843e-17,
+    5.551115123125783e-17
+   ],
+   "pi_pairs_in_(0,pi/2]": 0,
+   "cos2eta_star": [
+    0.922533798565764,
+    0.40327650129291565,
+    -0.4249668334063723,
+    -0.9018000296966945
+   ]
+  },
+  "selection": {
+   "candidates": {
+    "g_10 = 1/5": -0.0007079768603021619,
+    "1/6": 0.01642248243601942,
+    "1/7": 0.03660099624077308,
+    "pi/16": 0.0006767685642893387,
+    "pi/15": -0.003851121188694965,
+    "pi/14": -0.007744663088186315,
+    "pi/12": -0.01355108197684653,
+    "pi/8": -0.018570209748893354,
+    "pi/4": 0.1749993615249495,
+    "pi/2": 0.13457213646712873,
+    "theta_root": 0.04526244580981674
+   },
+   "best_abs_mismatch": 0.0006767685642893387,
+   "nearest_crossing": 0.1981004295290223,
+   "angle_gap_g10_to_crossing": 0.0018995704709777184,
+   "rational_reconstruction_errors": {
+    "eta/pi": 3.355788008585492e-10,
+    "cos^2 eta": 7.063509209759289e-07,
+    "cos 2eta": 1.4127018416187909e-06
+   }
+  },
+  "named": {
+   "F10_at_g10": 0.019186391026184756,
+   "F10_at_eta0": 0.2433744036366277,
+   "deficit_vs_loop": -0.03558679845178947,
+   "interference_root": 0.07883487638589622,
+   "interference_at_crossing": 0.08174387934480727,
+   "interference_deficit_ratio": 0.9644132015482105
+  }
+ },
+ "branch": "ANGLE-OUTSIDE",
+ "checks": [
+  "T0 the three Casimir eigenvalues [-32, -12, 4] are even, every word phase index k is even, and 63 phase classes (58 nonzero) reconstruct the enumerated word sum exactly at eta = 0, 0.200, 1.442 (8.6e-16)",
+  "T1 the functional is exact: period pi (error 3.0e-16), the per-component moduli are pi-pairing invariant (max error 1.1e-17), and the coefficient mirror identities C_k[0] = C_k[4], C_k[1] = C_k[3] hold (errors 1.4e-17 / 2.3e-17) - F_10 is a sum of three real cosine polynomials in even harmonics",
+  "T2 F_10(eta) = 1/(16 pi) has exactly 4 solutions in (0, pi/2]: [np.float64(0.1981004), np.float64(0.5778509), np.float64(1.0048608), np.float64(1.3473566)] (residuals <= 5.6e-17); with the period and the pairing the eight crossings in (0, pi) close into four pi-sum pairs",
+  "T3 no root angle selects the crossing: the smallest mismatch of F_10(candidate) against 1/(16 pi) over the root's closed angles and rational conventions is 6.8e-04 (at pi/16); the nearest crossing to g_10 = 1/5 sits at eta* = 0.198100, an angle gap of 1.90e-03, and cos(2 eta*) reconstructs to no rational of denominator <= 2000 (best residual 1e-06)",
+  "T4 the named weight: F_10(g_10 = 1/5) = 0.019186391, the interference factor at the root is 0.0788 against 0.0817 required at the nearest crossing (ratio 0.9644); the root sits 3.5587% below the continuum loop factor"
+ ],
+ "pass": true,
+ "residual": true,
+ "status": "the traced-loop weight of O8 is an exact real cosine functional of the Wilson angle - 63 even phase classes, period pi, eta -> pi - eta pairing, coefficient mirrors - and its four crossings of 1/(16 pi) in (0, pi/2] are [np.float64(0.1981), np.float64(0.577851), np.float64(1.004861), np.float64(1.347357)]; NO angle of the root reaches the crossing (branch ANGLE-OUTSIDE): the nearest to g_10 = 1/5 sits at eta* = 0.198100, gap 1.90e-03, and the closed angles miss by >= 7e-04. The named weight stays F_10(1/5) = 0.019186391, 3.5587% below the continuum loop factor; the residual is the interference deficit ratio 0.9644",
+ "wall_time": 45.4
+}

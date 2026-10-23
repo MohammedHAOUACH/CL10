@@ -1,0 +1,100 @@
+{
+ "experiment": "V197_rung_arithmetic",
+ "data": {
+  "ladder_rows": [
+   {
+    "name": "singlet A (seesaw)",
+    "value_gev": 96131777036496.42,
+    "rung_exp": 3.0,
+    "rung": 3,
+    "off": -4.440892098500626e-16
+   },
+   {
+    "name": "singlet B (dark matter)",
+    "value_gev": 118.57086360835625,
+    "rung_exp": 10.0,
+    "rung": 10,
+    "off": -1.7763568394002505e-15
+   },
+   {
+    "name": "bare neutrino m_D^2/M_N",
+    "value_gev": 1.4624768344284226e-10,
+    "rung_exp": 17.0,
+    "rung": 17,
+    "off": 0.0
+   },
+   {
+    "name": "Planck (rung 0)",
+    "value_gev": 1.22089e+19,
+    "rung_exp": -0.0,
+    "rung": 0,
+    "off": -0.0
+   }
+  ],
+  "off_ladder_rows": [
+   {
+    "name": "electroweak v",
+    "value_gev": 246.22,
+    "rung_exp": 9.8135,
+    "nearest_rung": 10,
+    "off": -0.1865
+   },
+   {
+    "name": "desert unification M_X",
+    "value_gev": 1.8e+16,
+    "rung_exp": 1.6643,
+    "nearest_rung": 2,
+    "off": -0.3357
+   },
+   {
+    "name": "M_10 (10-pair threshold)",
+    "value_gev": 12000000.0,
+    "rung_exp": 7.058,
+    "nearest_rung": 7,
+    "off": 0.058
+   },
+   {
+    "name": "M_(1,2) (1-2 pair threshold)",
+    "value_gev": 1000000000000.0,
+    "rung_exp": 4.1655,
+    "nearest_rung": 4,
+    "off": 0.1655
+   }
+  ],
+  "neutrino": {
+   "x_bare": 17.0,
+   "x_m_atm": 17.273472940387453,
+   "x_third_candidate": 17.280450072761376,
+   "x_A_required_by_pair": 2.719549927238622
+  },
+  "lambda_phase": {
+   "rung_convention": 81.63464256840106,
+   "bare_loop_convention": 70.41556613762164
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T1 the ladder entries are integer-exact on the rung ruler: A 3.000000, B 10.000000, bare neutrino 17.000000, Planck 0 (max off 1.8e-15) - and the rung is a protected pole (M(q) = kron (P(q), U_cell^6), V196), so no bond dressing can move a rung mass; off-rung scales can only be paid by loop weights",
+   "pass": true
+  },
+  {
+   "name": "T2 off-ladder scales on the same ruler: electroweak v 9.81 (nearest rung 10, off -0.19); desert unification M_X 1.66 (nearest rung 2, off -0.34); M_10 (10-pair threshold) 7.06 (nearest rung 7, off +0.06); M_(1,2) (1-2 pair threshold) 4.17 (nearest rung 4, off +0.17); every one is off by at least 0.06 rungs, i.e. no integer rung supplies it - the residue is loop-weight territory (O8), not a shifted mass",
+   "pass": true
+  },
+  {
+   "name": "T3 neutrino and phase exponents: bare ladder m_nu = 17.000000 (rung 17 exact); measured m_atm = 0.0501 eV needs rung 17.2735 (off +0.27 from rung 17); the 1/3 candidate 0.0487 eV needs 17.2805 (off +0.28); the trace-phase suppression 1.6e-120 sits at rung 81.6346 against M_P, bare loop exponent 70.4156 - nearest integer rung 82, 0.37 rungs away: no integer rung supplies either (O1/O2)",
+   "pass": true
+  },
+  {
+   "name": "T4 joint falsifier: with the dark matter at rung 10 and a measured sum m_nu at the 1/3 candidate 0.0487 eV, the seesaw partner m_B^2/m_nu = 2.884e+14 GeV is forced to rung 2.7195 - not an integer (0.28 rungs from rung 3, where the built A sits): the three facts [integer rungs, m_B at rung 10, m_nu near 0.05 eV] are mutually exclusive and one must give; a confirmation of both measurements refutes the rung arithmetic and demands a named mechanism",
+   "pass": true
+  }
+ ],
+ "status": "the rung arithmetic of every quoted scale (computed, nothing fitted): integer rung 3 for the singlet A, 10 for the singlet B (the dark matter) and 17 for the bare neutrino mass, exact to 2e-15; the electroweak v sits 0.19 rungs off its nearest rung, M_X 0.34 off, the two desert thresholds 0.06 and 0.17 off, the measured m_atm 0.27 off rung 17, the 1/3 neutrino candidate 0.28 off, and the trace phase 0.37 off its nearest rung (70.42 bare loop exponent). The rung is a protected pole of M(q) = kron(P(q), U_cell^6), so none of these residues can be a shifted mass: each is a loop weight (O8). Joint falsifier: integer rungs + m_B at rung 10 + sum m_nu at 0.05 eV force m_A to rung 2.7195, not an integer - one of the three must give, and a confirmation of the two measurements refutes the rung arithmetic (F3 strengthened, V197)",
+ "residual": true,
+ "tier": 5,
+ "property": "every off-rung scale is a loop weight, never a shifted mass; the rung-integer structure and a measured 0.05 eV neutrino mass cannot both stand (V197)",
+ "programme": "V197",
+ "wall_time": 0.0
+}

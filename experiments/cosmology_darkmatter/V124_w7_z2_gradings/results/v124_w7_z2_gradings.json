@@ -1,0 +1,102 @@
+{
+ "experiment": "V124_w7_z2_gradings",
+ "data": {
+  "mirror": {
+   "involution_err": 0.0,
+   "commutes_with_U32": 7.043917247687978e-16,
+   "sector_split": 6.661338147750939e-16
+  },
+  "commutant": {
+   "eigenvalue_multiplicities": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "commutant_dimension": 32,
+   "spectrum_simple": true,
+   "n_commuting_involutions": 2147483648
+  },
+  "gradings": [
+   {
+    "bits": 1023,
+    "n_generators": 10,
+    "is_mirror": true,
+    "offdiag_on_16": 2.4424906541753444e-15,
+    "n_odd_in_16": 16,
+    "odd_labels": [
+     "L(1,2)",
+     "N",
+     "Q(3,2)",
+     "d^c",
+     "e^c",
+     "u^c"
+    ],
+    "neutral_only": false,
+    "has_neutral_odd": true
+   }
+  ],
+  "summary": {
+   "n_exact_nontrivial": 1,
+   "n_mirror_type": 1,
+   "n_nonmirror": 0,
+   "n_neutral_only_odd": 0
+  },
+  "wilson_extension": {
+   "n_before": 2,
+   "n_after": 2
+  }
+ },
+ "pass": true,
+ "checks": [
+  {
+   "name": "T0 the pseudoscalar is an exact Z2 of the internal step (G^2 = I to 0.0e+00, [G,U32] = 7.0e-16) and splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16)",
+   "pass": true
+  },
+  {
+   "name": "T1 of the 1024 Clifford grading elements, 2 commute with the internal step: the exact Z2 grading group has 1 independent generators (0b1111111111)",
+   "pass": true
+  },
+  {
+   "name": "T2 the commutant of U32 has dimension 32 (eigenvalue multiplicities [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]), so the exact gradings found are not accidents of degeneracy",
+   "pass": true
+  },
+  {
+   "name": "T3 the mirror type appears 1 times and the non-mirror exact gradings 0 times; of the non-mirror ones, 0 make some neutral weight odd and 0 of those are neutral-only (no coloured weight odd)",
+   "pass": true
+  },
+  {
+   "name": "T4 the V65 Wilson extension (weight-diagonal at the physical selective root) preserves the exact grading set: 2 before, 2 after",
+   "pass": true
+  }
+ ],
+ "status": "EXACT Z2 GRADINGS OF THE STEP (O7). The mirror is the pseudoscalar: G^2 = I to 0.0e+00, [G,U32] = 7.0e-16, and it splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16). Enumerating the whole Clifford grading group: 2 of the 1024 products commute with the internal step, generating a grading group of 1 independent elements; U32 has a simple spectrum, so its commutant is abelian of dimension 32 and every exact internal Z2 is a sign choice on its 32 eigenstates (2147483648 of them), of which exactly two are Clifford elements. Of the 1 non-trivial exact gradings, 1 are mirror-type (constant on the 16) and 0 are not; 0 of the non-mirror ones make a neutral colour-singlet weight odd, and 0 of those do it WITHOUT making any coloured weight odd. The V65 Wilson extension is weight-diagonal and changes nothing (2 -> 2). VERDICT: no exact Z2 grading of the implemented step (nor of its Wilson extension) makes a neutral weight odd without also making a coloured one odd: V88's asked-for parity does not exist inside the Clifford algebra of the root, so the mirror Z2 really is the only exact stability carrier, and V75's spectral no-go stands on top of a symmetry-level one."
+}

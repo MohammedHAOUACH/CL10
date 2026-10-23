@@ -1,0 +1,163 @@
+{
+ "experiment": "V117_w5_real_form",
+ "data": {
+  "T1": {
+   "module_type": "real",
+   "J2": 1.0,
+   "intertwiner_nullity": 1,
+   "intertwiner_rank": 32,
+   "J_commutates_with_h": 9.9909177351302e-16,
+   "J_commutates_with_45": 1.4708464947457413e-15,
+   "J_commutates_with_step": 7.386582113839282e-16,
+   "antiunitary_on_ordered_product": 0.8138542720380968
+  },
+  "T2": {
+   "validation": {
+    "Cl(2,0)": "real",
+    "Cl(0,2)": "quaternionic",
+    "Cl(1,1)": "real"
+   },
+   "roots_p_plus_q_10": {
+    "Cl(10,0)": {
+     "pq_mod8": 2,
+     "type": "real"
+    },
+    "Cl(9,1)": {
+     "pq_mod8": 0,
+     "type": "real"
+    },
+    "Cl(8,2)": {
+     "pq_mod8": 6,
+     "type": "quaternionic"
+    },
+    "Cl(7,3)": {
+     "pq_mod8": 4,
+     "type": "quaternionic"
+    },
+    "Cl(6,4)": {
+     "pq_mod8": 2,
+     "type": "real"
+    },
+    "Cl(5,5)": {
+     "pq_mod8": 0,
+     "type": "real"
+    },
+    "Cl(4,6)": {
+     "pq_mod8": 6,
+     "type": "quaternionic"
+    },
+    "Cl(3,7)": {
+     "pq_mod8": 4,
+     "type": "quaternionic"
+    },
+    "Cl(2,8)": {
+     "pq_mod8": 2,
+     "type": "real"
+    },
+    "Cl(1,9)": {
+     "pq_mod8": 0,
+     "type": "real"
+    },
+    "Cl(0,10)": {
+     "pq_mod8": 6,
+     "type": "quaternionic"
+    }
+   }
+  },
+  "T3": {
+   "module_type": "quaternionic",
+   "J2": -1.0,
+   "n_involutions": 21,
+   "involution_err": 0.0,
+   "hermiticity_err": 0.0,
+   "trace_err": 0.0,
+   "pairing_dev": 2.9227514935193457e-15,
+   "unitarity_err": 6.661700961039871e-16,
+   "det_U_re": 0.9999999999999987,
+   "det_U_im": 5.5511151231257716e-17,
+   "antiunitary_on_ordered_product": 0.5845567935177376
+  },
+  "T4a": {
+   "k=(0.3, 0.4, 0.5)": {
+    "conj_closed": 0.003583583792766573,
+    "sum_omega": -100.53096491487338
+   },
+   "k=(1.1, -0.7, 0.2)": {
+    "conj_closed": 0.02322409347065031,
+    "sum_omega": -7.549516567451064e-15
+   },
+   "k=(1.5707963267948966, 1.0471975511965976, -0.9)": {
+    "conj_closed": 0.9908491196636097,
+    "sum_omega": -6.661338147750939e-15
+   },
+   "one_cell_32": {
+    "conj_closed": 2.9639247490390035e-15
+   }
+  },
+  "T4b": {
+   "holonomy": {
+    "Phi=0.000": {
+     "holonomy_re": 0.24999999999999992,
+     "holonomy_im": -0.0
+    },
+    "Phi=1.047": {
+     "holonomy_re": 0.12499999999999997,
+     "holonomy_im": 0.2165063509461096
+    },
+    "Phi=1.571": {
+     "holonomy_re": 1.530808498934191e-17,
+     "holonomy_im": 0.24999999999999992
+    }
+   },
+   "step_invariants": {
+    "Phi=0.000": {
+     "unitarity_err": 8.104628998028314e-15,
+     "abs_det": 0.999999999999607,
+     "band_pairing_dev": 3.063765870727196
+    },
+    "Phi=1.047": {
+     "unitarity_err": 8.104653839100896e-15,
+     "abs_det": 0.9999999999996079,
+     "band_pairing_dev": 0.0863033225484835
+    },
+    "Phi=1.571": {
+     "unitarity_err": 7.993625225849648e-15,
+     "abs_det": 0.9999999999996048,
+     "band_pairing_dev": 0.12249400690685297
+    }
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 real/Majorana module, J^2=+1, J commutes with h, 45, U",
+   "pass": true
+  },
+  {
+   "name": "T2 validation Cl(2,0)=real, Cl(0,2)=quaternionic",
+   "pass": true
+  },
+  {
+   "name": "T2 all 11 roots follow the mod-8 pattern",
+   "pass": true
+  },
+  {
+   "name": "T2 quaternionic roots exist at p+q=10 (Cl(8,2), Cl(7,3))",
+   "pass": true
+  },
+  {
+   "name": "T3 quaternionic root: 21 involutions, exactly unitary step, det=1, exact spectral mirror",
+   "pass": true
+  },
+  {
+   "name": "T4a band spectrum NOT conjugation-closed, one-cell spectrum exact",
+   "pass": true
+  },
+  {
+   "name": "T4b flux bond layer: unitary, |det|=1, CP-odd holonomy nonzero",
+   "pass": true
+  }
+ ],
+ "pass": true,
+ "status": "WHAT FORBIDS THE CP PHASE (O5). T1: the 32-D module of Cl(10,0) is of REAL (Majorana) type - the intertwiner between the module and its conjugate is unique (nullity 1, rank 32), Q h Q^dag = h^* to 1.0e-15 for the 10 generators (and Q T Q^dag = -T^* for the 45, to 1.5e-15), the step to 7.4e-16, and J = Q^dag K has J^2 = +1.000: this is the content of Cl(10,0) ~ M_32(R), i.e. Spin(10) lands in SO(32), and a real form of U(32) carries no CP-odd invariant. T2: the real form is a CHOICE of root - the complex algebra is the same for all 11 signatures p+q=10 and the Frobenius-Schur indicator is +1 for p-q = 0,2 mod 8 and -1 for p-q = 4,6 mod 8 (validated on Cl(2,0) ~ M_2(R) and Cl(0,2) ~ H): Cl(8,2), Cl(7,3), Cl(4,6), Cl(3,7), Cl(0,10) are quaternionic. T3: the mirror is not a privilege of reality - on the quaternionic root Cl(7,3) (J^2 = -1.000) the 21 mixed even products h'_a h'_b (a < 3 <= b) are Hermitian traceless involutions (squared to I to 0.0e+00, traceless to 0.0e+00) generating an exactly unitary step (6.7e-16) with det U = 1 whose spectrum is still exactly conjugation-closed (2.9e-15). The naive mechanism fails on BOTH roots: the intertwiner inverts every single factor (J F J^-1 = F^-1) but reverses the order of the ordered product, so J U J^-1 != U^-1 (dev 5.8e-01 for Cl(7,3), 8.1e-01 for Cl(10,0)) - the mirror is a property of the whole ordered step, not of a one-factor symmetry. T4: the pairing is a ONE-CELL statement - the implemented 128-level Floquet spectrum at generic Bloch momentum is not conjugation-closed at all (0.99), while the one-cell 32 spectrum is exact (3.0e-15); and a complex bond layer (Peierls flux) leaves unitarity and |det| = 1 at machine precision while the gauge-invariant plaquette holonomy acquires Im = 0.217. VERDICT: the CP prohibition is a property of the real form of the on-site algebra plus the real democratic Yukawa - it is not a theorem of the automaton. The mirror it leans on survives any real form (T3), it does not extend to the band spectrum (T4), and it does not cover the bond layer, where V105 locates the kappa_s and where a gauge-invariant CP-odd quantity is available as a named input."
+}

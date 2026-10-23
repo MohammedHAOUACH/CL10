@@ -1,0 +1,63 @@
+{
+  "experiment": "V81_link_desert_content",
+  "pass": true,
+  "status": "DESERT CONTENT OF THE GAUGED LAYER: the composite spectrum (db = (np.float64(145.33), np.float64(145.33), np.float64(226.33))) does NOT meet the three couplings at alpha_X = 1/25 for any (w, c0, theta) with desert thresholds: O4 stays open, now with the composite content excluded by name.",
+  "data": {
+    "composite": {
+      "n_states": 720,
+      "flux_zero_multiplicity": 5,
+      "db_total": [
+        145.3333,
+        145.3333,
+        226.3333
+      ],
+      "net_16_copies": 5,
+      "note": "the content carries FIVE net chiral 16-copies (the zero-flux quintet); the alpha != 0 composites are vectorlike under the SM and shift the running through their indices only"
+    },
+    "lib_regression": {
+      "3,2": {
+        "measured": [
+          0.133333,
+          2.0,
+          1.333333
+        ],
+        "V64_LIB": [
+          0.13333333333333333,
+          2.0,
+          1.3333333333333333
+        ],
+        "err": 7.993605777301127e-15
+      },
+      "3b,1": {
+        "measured": [
+          1.066667,
+          0.0,
+          0.666667
+        ],
+        "V64_LIB": [
+          1.0666666666666667,
+          0.0,
+          0.6666666666666666
+        ],
+        "err": 6.661338147750939e-16
+      },
+      "1,2": {
+        "measured": [
+          0.4,
+          0.666667,
+          0.0
+        ],
+        "V64_LIB": [
+          0.4,
+          0.6666666666666666,
+          0.0
+        ],
+        "err": 1.5543122344752192e-15
+      }
+    },
+    "meeting": {
+      "n_solutions": 0,
+      "solutions": []
+    }
+  }
+}

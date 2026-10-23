@@ -1,0 +1,635 @@
+{
+  "id": "V214_star_module_step",
+  "tier": 4,
+  "property": "the icosahedral star substituted for the cubic shift module, with the committed internal map and stagger: the module's exact rank, relations, density witness and word costs, its growth, the unitarity and determinant of the resulting step for both staggers, and the mirror Z2 relation transferred from the cubic step by measurement",
+  "residual": true,
+  "pass": true,
+  "status": "STAR MODULE at the closed clock g = 0.785398. (T1) the shift module is the icosahedral star: 6 independent generators, each of norm 1.902113 (the Lieb-Robinson radius per step), rank 6 in three physical dimensions with relation rank 6 (exactly the six pairs of opposites), so the module is dense, measured by its shortest element falling from 1.0705 to 0.2527 between word bounds 1 and 5. Its directions are six equiangular lines at 0.447214 - the same spectrum the measured icosahedral group's own axes give - and its fourth moment is isotropic to 2.2e-16 where the three cubic axes are off by 0.400. The price of the change is exact: the cubic axis the engine hops on is NOT a module point (unique rational representation ['0', '0', '1/2', '1/2', '0', '0']), x+y is at 2 steps, 2x at None steps, and the shortest rational-direction hop is 8 steps long. (T2) growth: the words of at most k steps are exactly the l1 ball of Z^6 - enumerated 1:12, 2:84, 3:376, 4:1288, 5:3652, 6:8988 against the closed form 12, 84, 376, 1288, 3652, 8988 - and the front after k steps is exactly k times the Lieb-Robinson radius (11.4127 at 6 steps against 11.4127). The reachable count grows like the front radius to the 6 (finite differences of the word ball), where the cubic lattice gives 3; measured log-log slopes 3.695 against 2.566. And the module is dense in physical space, not merely high-dimensional: inside the single fixed ball of radius 1.2 the module puts 0 at 1 steps, 0 at 2 steps, 20 at 3 steps, 20 at 4 steps, 20 at 5 steps, 50 at 6 steps, while that ball of the cubic lattice has the same handful of points at every word bound. (T3) with the committed 16-sector internal map (unitarity 1.3e-15, det phase 1.1e-16) the 64-site module cell gives a 12-stage step of dimension 1024 and 12-stage step of dimension 1024; unitarity 1.6e-14, 1.6e-14 and determinant phase +2.8e-14, +2.2e-14; both staggers are exactly gapless at q = 0 (1.0e-17 and 8.9e-18). (T4) the mirror Z2 of the step is measured, not assumed: of the 6 candidate relations between M(-q) conjugated by the cell reflection and the step at q, the one the cubic step satisfies is 'reverse-reflect-transpose' to 5.0e-15 (the reflection maps the step to the TRANSPOSE of the reverse-ordered composition: mirroring reverses the walk), and the star step satisfies the same relation to 9.8e-15, while every relation that keeps the stage order is broken on both modules by O(0.4). On the internal side the committed pseudoscalar w still conjugates U32 to its complex conjugate to 9.8e-16 (the internal map is real), but on the 16-sector w restricts to an antiunitary with w^2 = -1.0, so it does not act as a Z2 mirror of U16 (1.41) - unchanged by the module swap, since the swap does not touch the internal map.",
+  "data": {
+    "clock_branch": "closed",
+    "g10": 0.7853981633974483,
+    "generators": [
+      [
+        0.0,
+        1.0,
+        1.618033988749895
+      ],
+      [
+        0.0,
+        1.0,
+        -1.618033988749895
+      ],
+      [
+        1.0,
+        1.618033988749895,
+        0.0
+      ],
+      [
+        1.0,
+        -1.618033988749895,
+        0.0
+      ],
+      [
+        1.618033988749895,
+        0.0,
+        1.0
+      ],
+      [
+        1.618033988749895,
+        0.0,
+        -1.0
+      ]
+    ],
+    "generator_norms": [
+      1.902113032590307,
+      1.902113032590307,
+      1.902113032590307,
+      1.902113032590307,
+      1.902113032590307,
+      1.902113032590307
+    ],
+    "lr_radius": 1.902113032590307,
+    "growth_words": [
+      {
+        "steps": 1,
+        "enumerated": 12,
+        "exact": 12,
+        "front_radius": 1.902113032590307
+      },
+      {
+        "steps": 2,
+        "enumerated": 84,
+        "exact": 84,
+        "front_radius": 3.804226065180614
+      },
+      {
+        "steps": 3,
+        "enumerated": 376,
+        "exact": 376,
+        "front_radius": 5.706339097770922
+      },
+      {
+        "steps": 4,
+        "enumerated": 1288,
+        "exact": 1288,
+        "front_radius": 7.608452130361228
+      },
+      {
+        "steps": 5,
+        "enumerated": 3652,
+        "exact": 3652,
+        "front_radius": 9.510565162951536
+      },
+      {
+        "steps": 6,
+        "enumerated": 8988,
+        "exact": 8988,
+        "front_radius": 11.412678195541844
+      }
+    ],
+    "growth_density": [
+      {
+        "radius": 1.2,
+        "steps": 1,
+        "points": 0
+      },
+      {
+        "radius": 1.2,
+        "steps": 2,
+        "points": 0
+      },
+      {
+        "radius": 1.2,
+        "steps": 3,
+        "points": 20
+      },
+      {
+        "radius": 1.2,
+        "steps": 4,
+        "points": 20
+      },
+      {
+        "radius": 1.2,
+        "steps": 5,
+        "points": 20
+      },
+      {
+        "radius": 1.2,
+        "steps": 6,
+        "points": 50
+      },
+      {
+        "radius": 2.0,
+        "steps": 1,
+        "points": 12
+      },
+      {
+        "radius": 2.0,
+        "steps": 2,
+        "points": 42
+      },
+      {
+        "radius": 2.0,
+        "steps": 3,
+        "points": 62
+      },
+      {
+        "radius": 2.0,
+        "steps": 4,
+        "points": 92
+      },
+      {
+        "radius": 2.0,
+        "steps": 5,
+        "points": 152
+      },
+      {
+        "radius": 2.0,
+        "steps": 6,
+        "points": 242
+      },
+      {
+        "radius": 3.5,
+        "steps": 1,
+        "points": 12
+      },
+      {
+        "radius": 3.5,
+        "steps": 2,
+        "points": 72
+      },
+      {
+        "radius": 3.5,
+        "steps": 3,
+        "points": 212
+      },
+      {
+        "radius": 3.5,
+        "steps": 4,
+        "points": 422
+      },
+      {
+        "radius": 3.5,
+        "steps": 5,
+        "points": 722
+      },
+      {
+        "radius": 3.5,
+        "steps": 6,
+        "points": 1164
+      },
+      {
+        "radius": 6.0,
+        "steps": 1,
+        "points": 12
+      },
+      {
+        "radius": 6.0,
+        "steps": 2,
+        "points": 84
+      },
+      {
+        "radius": 6.0,
+        "steps": 3,
+        "points": 376
+      },
+      {
+        "radius": 6.0,
+        "steps": 4,
+        "points": 1126
+      },
+      {
+        "radius": 6.0,
+        "steps": 5,
+        "points": 2578
+      },
+      {
+        "radius": 6.0,
+        "steps": 6,
+        "points": 4816
+      }
+    ],
+    "growth_degree_star": 6,
+    "growth_degree_cubic": 3,
+    "growth_slope_star": 3.6945390458593694,
+    "growth_slope_cubic": 2.5658733059697987,
+    "module_rank": 6,
+    "relation_rank": 6,
+    "relations": [
+      [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "dense": true,
+    "shortness": [
+      {
+        "bound": 1,
+        "generators": 6,
+        "min_norm": 1.0704662693192697,
+        "coefs": [
+          -1,
+          -1,
+          0,
+          -1,
+          0,
+          0
+        ],
+        "displacement": [
+          -1.0,
+          -0.3819660112501051,
+          0.0
+        ]
+      },
+      {
+        "bound": 2,
+        "generators": 6,
+        "min_norm": 0.4490279765795854,
+        "coefs": [
+          -2,
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "displacement": [
+          0.0,
+          0.2360679774997898,
+          0.3819660112501051
+        ]
+      },
+      {
+        "bound": 3,
+        "generators": 6,
+        "min_norm": 0.4490279765795854,
+        "coefs": [
+          -2,
+          -1,
+          1,
+          -1,
+          1,
+          -1
+        ],
+        "displacement": [
+          0.0,
+          0.2360679774997898,
+          0.3819660112501051
+        ]
+      },
+      {
+        "bound": 4,
+        "generators": 6,
+        "min_norm": 0.2527028071799449,
+        "coefs": [
+          -4,
+          -1,
+          -1,
+          -4,
+          4,
+          -1
+        ],
+        "displacement": [
+          -0.1458980337503153,
+          -0.1458980337503153,
+          0.1458980337503153
+        ]
+      },
+      {
+        "bound": 5,
+        "generators": 6,
+        "min_norm": 0.2527028071799449,
+        "coefs": [
+          -4,
+          -1,
+          -1,
+          -4,
+          4,
+          -1
+        ],
+        "displacement": [
+          -0.1458980337503153,
+          -0.1458980337503153,
+          0.1458980337503153
+        ]
+      }
+    ],
+    "angle_spectrum": [
+      0.4472135954999579
+    ],
+    "group_axis_count": 6,
+    "spectrum_match": true,
+    "frame_defect": 0.0,
+    "fourth_moment_defect": 2.220446049250313e-16,
+    "cubic_fourth_moment_defect": 0.3999999999999999,
+    "hops": {
+      "x": {
+        "target": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "in_module": false,
+        "cost": null,
+        "coefs": null,
+        "rational_coefs": [
+          "0",
+          "0",
+          "1/2",
+          "1/2",
+          "0",
+          "0"
+        ]
+      },
+      "x+y": {
+        "target": [
+          1.0,
+          1.0,
+          0.0
+        ],
+        "in_module": true,
+        "cost": 2,
+        "coefs": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "generators": [
+          0,
+          1,
+          4,
+          5,
+          8,
+          9
+        ]
+      },
+      "x+y+z": {
+        "target": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "in_module": false,
+        "cost": null,
+        "coefs": null,
+        "rational_coefs": [
+          "1/2",
+          "1/2",
+          "0",
+          "0",
+          "1",
+          "1"
+        ]
+      },
+      "2x": {
+        "target": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "in_module": false,
+        "cost": null,
+        "coefs": null,
+        "rational_coefs": [
+          "0",
+          "0",
+          "1/2",
+          "1/2",
+          "0",
+          "0"
+        ]
+      }
+    },
+    "internal_map": {
+      "unitarity": 1.3325526772126356e-15,
+      "det_phase": 1.1102230246251565e-16
+    },
+    "steps": {
+      "phase-major": {
+        "stages": 12,
+        "dim": 1024,
+        "nsub": 64,
+        "unitarity": 1.5543122734300296e-14,
+        "det_phase": 2.7847523211036193e-14,
+        "gap_at_zero": 1.0408340855860522e-17
+      },
+      "block-major": {
+        "stages": 12,
+        "dim": 1024,
+        "nsub": 64,
+        "unitarity": 1.5543122864967377e-14,
+        "det_phase": 2.176912981979477e-14,
+        "gap_at_zero": 8.866227543104963e-18
+      }
+    },
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 2,
+        "rejected": 0
+      },
+      "pool_njobs": 8
+    },
+    "mirror": {
+      "relation": "reverse-reflect-transpose",
+      "cubic": {
+        "reflect-momentum": 0.48680753803030125,
+        "reflect-momentum-transpose": 0.3894183423086499,
+        "reflect-momentum-adjoint": 0.48680753803030213,
+        "reverse-reflect-transpose": 5.018782159518244e-15,
+        "reverse-reflect": 0.48680753803030136,
+        "reverse-reflect-adjoint": 0.4868075380303021
+      },
+      "star": {
+        "reflect-momentum": 1.5027201431051103,
+        "reflect-momentum-transpose": 0.5491052257574489,
+        "reflect-momentum-adjoint": 1.5027201431051112,
+        "reverse-reflect-transpose": 9.804846716427583e-15,
+        "reverse-reflect": 1.50272014310511,
+        "reverse-reflect-adjoint": 1.502720143105111
+      },
+      "internal": {
+        "w_square_defect": 0.0,
+        "w_u32": 9.840004667892059e-16,
+        "sector_invariance": 5.130696249588555e-16,
+        "s16_unitarity": 1.3322676295501878e-15,
+        "s16_square": -1.0,
+        "s16_defect": 1.4142135623730951
+      },
+      "probes": [
+        [
+          0.4,
+          0.0,
+          0.0
+        ],
+        [
+          0.3,
+          0.2,
+          0.0
+        ],
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    "checks": [
+      {
+        "name": "T1 the module has rank 6 with the six pairs of opposites as its only relations",
+        "pass": true,
+        "detail": "rank 6, relation rank 6, 6 independent generators of norm 1.902113"
+      },
+      {
+        "name": "T1 the star is the measured icosahedral group's own star, and it is isotropic at fourth order where the cubic axes are not",
+        "pass": true,
+        "detail": "spectrum [0.4472135954999579] (1/sqrt 5 = 0.447213595), measured group axes 6; fourth-moment defect 2.22e-16 for the star against 0.400 for the cubic axes"
+      },
+      {
+        "name": "T1 the module is dense: the shortest nonzero displacement falls with the word bound",
+        "pass": true,
+        "detail": "shortest displacement 1.0705 (bound 1), 0.4490 (bound 2), 0.4490 (bound 3), 0.2527 (bound 4), 0.2527 (bound 5)"
+      },
+      {
+        "name": "T1 the cubic hop the implemented engine uses does not exist on the star module",
+        "pass": true,
+        "detail": "x in module False (rational coefficients ['0', '0', '1/2', '1/2', '0', '0']), x+y in module True at cost 2, 2x at cost None, shortest rational-direction hop {'norm': 2.0, 'displacement': [0.0, 0.0, 2.0], 'steps': 8}"
+      },
+      {
+        "name": "T2 the word ball is the exact l1 ball of the free abelian module",
+        "pass": true,
+        "detail": "words of at most k steps, enumerated against the closed form 1:12=12, 2:84=84, 3:376=376, 4:1288=1288, 5:3652=3652, 6:8988=8988"
+      },
+      {
+        "name": "T2 the front after k steps is exactly k times the Lieb-Robinson radius",
+        "pass": true,
+        "detail": "largest physical displacement 1:1.9021, 2:3.8042, 3:5.7063, 4:7.6085, 5:9.5106, 6:11.4127 against the bound k * 1.902113"
+      },
+      {
+        "name": "T2 the growth degree of the reachable set is 6 where a cubic lattice gives 3",
+        "pass": true,
+        "detail": "finite-difference degree of the word ball: 6 for the icosahedral module, 3 for the cubic lattice; measured log-log slope of the reachable count against the front radius 3.695 (module, k <= 6) against 2.566 (cubic lattice, k <= 16)"
+      },
+      {
+        "name": "T2 points keep accumulating inside a fixed physical ball: the module is dense in space, a lattice is not",
+        "pass": true,
+        "detail": "module points inside the ball of radius 1.2: 1 steps:0, 2 steps:0, 3 steps:20, 4 steps:20, 5 steps:20, 6 steps:50; the same ball of the cubic lattice contains 6 points at every word bound"
+      },
+      {
+        "name": "T3 the module step is unitary with unit determinant for both staggers",
+        "pass": true,
+        "detail": "phase-major: dim 1024, 12 stages, unitarity 1.6e-14, det phase +2.8e-14; block-major: dim 1024, 12 stages, unitarity 1.6e-14, det phase +2.2e-14"
+      },
+      {
+        "name": "T3 the internal map is the committed one",
+        "pass": true,
+        "detail": "16x16 unitarity 1.3e-15, det phase 1.1e-16, clock 0.785398 (closed)"
+      },
+      {
+        "name": "T4 the mirror Z2 the committed cubic step satisfies still holds on the star step",
+        "pass": true,
+        "detail": "cubic defects {\"reflect-momentum\": 0.49, \"reflect-momentum-transpose\": 0.39, \"reflect-momentum-adjoint\": 0.49, \"reverse-reflect-transpose\": 5e-15, \"reverse-reflect\": 0.49, \"reverse-reflect-adjoint\": 0.49} -> the relation that holds is 'reverse-reflect-transpose' (P M(-q) P = M_rev(q)^T) to 5.0e-15; on the star module it holds to 9.8e-15, and every order-preserving candidate is broken on both modules"
+      },
+      {
+        "name": "T4 the internal mirror is not a symmetry of the 16-sector map, before or after the module change",
+        "pass": true,
+        "detail": "the committed pseudoscalar w conjugates U32 to its complex conjugate to 9.8e-16 (so U32 is real), w^2 = -1.0 on the 16-sector, and the induced antiunitary fails to be a Z2 mirror of U16 with defect 1.414"
+      }
+    ]
+  },
+  "wall_time": 19.809
+}

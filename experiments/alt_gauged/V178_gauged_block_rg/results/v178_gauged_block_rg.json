@@ -1,0 +1,51 @@
+{
+  "id": "V178_gauged_block_rg",
+  "tier": 4,
+  "property": "energy-window downfold of H(q) = i log U(q) onto the node subspace at cuts pi/2, pi/4, pi/8 (b = 1, 2, 4): cone anisotropy A(b), bare and with the GAUGED bond-current self-energy (U_c = g_10, grid 16)",
+  "residual": true,
+  "pass": true,
+  "status": "GAUGED BLOCK-RG FLOW (6 rows). A(b) = 0.9980, 0.9980, 0.9980 (bare) and 0.9980, 0.9980, 0.9980 with the gauged self-energy: the cubic anisotropy is MARGINAL under coarse-graining (gauged-bare shifts -8.99e-13..-1.51e-13); the gauged vertex does NOT restore isotropy at this order. Subspace sizes n_low = 70, 39, 18, window margins 7.3e-03, 7.1e-05, 2.7e-03. 2-route (b=1 downfold vs full gap_at) dev 2.2e-12.",
+  "data": {
+    "rows": [
+      {
+        "b": 1,
+        "cut": 1.5707963267948966,
+        "n_low": 70,
+        "window_margin": 0.007295721023717672,
+        "A_bare": 0.9979846405782878,
+        "A_gauged": 0.9979846405773893,
+        "isotropic": false
+      },
+      {
+        "b": 2,
+        "cut": 0.7853981633974483,
+        "n_low": 39,
+        "window_margin": 7.080883322485576e-05,
+        "A_bare": 0.9979846405781756,
+        "A_gauged": 0.9979846405777241,
+        "isotropic": false
+      },
+      {
+        "b": 4,
+        "cut": 0.39269908169872414,
+        "n_low": 18,
+        "window_margin": 0.002708012670412485,
+        "A_bare": 0.9979846405783854,
+        "A_gauged": 0.9979846405781364,
+        "isotropic": false
+      }
+    ],
+    "node": [
+      1.5707963267948966,
+      1.5707963267948966,
+      0.0
+    ],
+    "dq": 0.001,
+    "U_c": 0.2,
+    "grid": 16,
+    "A_full": 0.997984640580528,
+    "route_dev": 2.240208019088641e-12,
+    "candidates": []
+  },
+  "wall_time": 246.202
+}

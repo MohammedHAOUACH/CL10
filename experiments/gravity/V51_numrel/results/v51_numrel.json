@@ -1,0 +1,44 @@
+{
+  "id": "V51_numrel",
+  "tier": 2,
+  "property": "C2",
+  "residual": true,
+  "pass": true,
+  "status": "the 3+1 BSSN/Z4 numerical relativity: the 2-route 0-row (R_00, R_0i) agrees to O(h^2), the 0-row is the 0-row of the 4-D Einstein tensor (the constraints), non-linear (superposition fails), Z4-damped, UV-finite",
+  "tol": 0.0001,
+  "data": {
+    "backend": "cupy",
+    "two_route_0row": {
+      "max_r00": 1.7630341631047486e-13,
+      "max_r0i": 2.716958602544395e-13,
+      "h2": 1e-06
+    },
+    "r00_3p1": 1.9718631545217424,
+    "r00_4d": 1.971863154521754,
+    "r0i_3p1": [
+      0.0009674804766802159,
+      0.009154169195575853,
+      0.0
+    ],
+    "r0i_4d": [
+      0.0009674804767120994,
+      0.009154169195572168,
+      0.0
+    ],
+    "nonlinear": {
+      "superpose_err": 5.011420320642858
+    },
+    "z4": {
+      "H0": -1.106843696003573,
+      "damped_final": -0.40718504034992825,
+      "undamped_final": -1.106843696003573,
+      "damped_ratio": 0.36787944117144233,
+      "undamped_ratio": 1.0,
+      "damp": 1.0
+    },
+    "uv_finite": {
+      "max_abs": 1.9718631545217424
+    }
+  },
+  "wall_time": 55.61399030685425
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "V88_mirror_scalar",
+  "pass": true,
+  "status": "THE NAMED FIX WAS BUILT AND AUDITED AGAINST ITS OWN SYMMETRY: the ladder scalar (119 GeV) is stable under BOTH portals - scalar parity (-1)^Ns is exact (phi^2 structure: the odd sector is untouched, a single s cannot decay). But the two portals split the physics. The Higgs portal V1 = phi_s^2 phi_h^2 PRESERVES the exact mirror Z2 (commutator 0.0e+00), and then h* -> f f-bar is FORBIDDEN (fermion pairs are mirror-odd, V66): ss -> hh is kinematically closed (gap 13.4 GeV; virtual cloud P_max = 1.4e-08 vs theory 1.4e-08) and the only open annihilation is the invisible ss -> h h*: Omega h^2 = 0.120 then needs lam = 1.31e-01, predicting sigma_SI = 6.72e-46 cm^2 - ABOVE the LZ-class bound 1.5e-47: the EXACT-Z2 version of the named fix is EXCLUDED by direct detection. The V75 numbers (lam_* = 3.5e-04, sigma_SI = 4.9e-51 cm^2, below reach) hold ONLY with the fermion-pair portal V2, which BREAKS the mirror Z2 at O(lam) (anticommutator 0.0e+00; real pair channel P = 5.12e-06 at t = 1 GeV^-1). The mirror colored relic Q-bar (1.3e8 GeV) stays stable under both portals (Q-bar -> Q s s closed by 237 GeV): V66's exclusion of the mirror thermal relic is unchanged. O7 verdict: the carrier EXISTS and is exactly stable; but the named fix is a NAMED TENSION - exact mirror Z2 excludes it by direct detection, and the version that reproduces Omega h^2 = 0.120 with a falsifiable cross section breaks the exact mirror Z2 that V66/V75 rest on (F7).",
+  "data": {
+    "scalar_parity_exact": true,
+    "V1_mirror_even": 0.0,
+    "V2_mirror_odd": 0.0,
+    "ss_hh_gap_GeV": 13.358272783287504,
+    "V1_virtual_Pmax": 1.4346281008313296e-08,
+    "V1_virtual_Pmax_theory": 1.4346281552250813e-08,
+    "V1_pairs_zero": 0.0,
+    "V2_pairs_P_at_t1": 5.1199912618633354e-06,
+    "V2_mirror_leak_at_t1": 5.1199912618633354e-06,
+    "V2_lam_star": 0.0003529869886705053,
+    "V2_sigma_SI_cm2": 4.8942184057014555e-51,
+    "V1_lam_for_Omega": 0.13080720169200494,
+    "V1_sigma_SI_cm2": 6.720928287117722e-46,
+    "V1_excluded_by_DD": true,
+    "Qbar_Qss_closed_GeV": 237.1417272167125,
+    "Qbar_stable": true
+  }
+}

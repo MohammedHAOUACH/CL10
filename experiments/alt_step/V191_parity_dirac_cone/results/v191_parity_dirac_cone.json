@@ -1,0 +1,198 @@
+{
+  "id": "V191_parity_dirac_cone",
+  "tier": 4,
+  "property": "why every gapless node of the 2x2x2 cell found so far is flat, and the node that is not: the linear-term multiplicity Hom_O_h(T1u, D (x) D*) for all ten irreps at an inversion-invariant momentum, and the cone on a parity-degenerate A1g+T1u pair",
+  "residual": null,
+  "programme": "V191",
+  "question": "can a gapless node of the 2x2x2 cell be conical?",
+  "no_go": "no linear term exists for any single irrep of O_h at a momentum whose little group contains inversion: Hom(T1u, D x D*) = 0 for all ten irreps",
+  "construction": "a parity-degenerate A1g+T1u pair at Gamma gives an exactly gapless, exactly isotropic, non-abelian cone",
+  "cone_anisotropy": 1.0408348985470997e-15,
+  "gap": 2.8526514483928622e-11,
+  "rho_comm": 0.7071067811865478,
+  "velocity": [
+    1.9199985003527917,
+    4.7999807680299815,
+    9.599850944749202,
+    19.198817174300334,
+    38.39055711621671,
+    67.14942283462217,
+    95.85259600239976
+  ],
+  "engine_o_h_defect": {
+    "Gamma": 6.550210545578398e-17,
+    "M": 1.0,
+    "R": 0.7071067811865476,
+    "generic": 0.7044629490796265
+  },
+  "status": "parity no-go: linear-term multiplicity 0 for all ten irreps (direct solve on the T1u block: dim 0); the parity-degenerate A1g+T1u pair gives an isolated cone - min gap 2.9e-11, min anisotropy 1.0e-15, rho_comm 0.707; the implemented 6-stage product is O_h-equivariant at Gamma to 6.6e-17 and broken elsewhere (M 1.0e+00, R 7.1e-01, generic 7.0e-01)",
+  "pass": true,
+  "data": {
+    "site_module": {
+      "A1g": 1,
+      "T2g": 1,
+      "A2u": 1,
+      "T1u": 1
+    },
+    "projector_idempotence": 0.0,
+    "linear_term_multiplicity": {
+      "A1g": 0,
+      "A2g": 0,
+      "Eg": 0,
+      "T1g": 0,
+      "T2g": 0,
+      "A1u": 0,
+      "A2u": 0,
+      "Eu": 0,
+      "T1u": 0,
+      "T2u": 0
+    },
+    "linear_term_dim_direct": 0,
+    "linear_coupling": {
+      "A1g/T1u": {
+        "orbits": 44,
+        "isotropy_defect": 5.551115123125785e-16,
+        "TTdag": [
+          15.99999999999999,
+          15.999999999999998,
+          16.000000000000004
+        ]
+      },
+      "T1u/T2g": {
+        "orbits": 40,
+        "isotropy_defect": 4.440892098500621e-16,
+        "TTdag": [
+          8.000000000000005,
+          8.00000000000001,
+          8.000000000000012
+        ]
+      }
+    },
+    "construction": {
+      "orbits": [
+        14,
+        50
+      ],
+      "weights": [
+        -24.0,
+        7.999999999999996
+      ],
+      "levels": {
+        "A1g": -191.99999999999997,
+        "T2g": 192.0,
+        "A2u": 191.99999999999997,
+        "T1u": -192.0
+      },
+      "equivariance_defect": 1.2319462883628764e-14,
+      "T": 96.00000000000001,
+      "isotropy_defect": 3.947459643111667e-16,
+      "rows": [
+        {
+          "g": 0.02,
+          "theta": 2.8379663598565137,
+          "gap": 5.7989613111431026e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 1.0408348985470997e-15,
+          "rho_comm": 0.7071067811865478,
+          "v": 1.9199985003527917,
+          "flat_band": 4.929348570904505e-16,
+          "hermiticity": 3.0099303936570716e-06
+        },
+        {
+          "g": 0.05,
+          "theta": 2.021636562235896,
+          "gap": 2.8526514483928622e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 1.2952653850845685e-15,
+          "rho_comm": 0.7071067811865478,
+          "v": 4.7999807680299815,
+          "flat_band": 3.155485088670116e-15,
+          "hermiticity": 1.881200429316399e-05
+        },
+        {
+          "g": 0.1,
+          "theta": 1.4947867728914805,
+          "gap": 3.432532036384828e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 2.5905606133609832e-15,
+          "rho_comm": 0.7071067811865479,
+          "v": 9.599850944749202,
+          "flat_band": 1.2194207874427215e-14,
+          "hermiticity": 7.524715031600229e-05
+        },
+        {
+          "g": 0.2,
+          "theta": 0.028738660611862747,
+          "gap": 7.256062417582143e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 4.626214269538682e-15,
+          "rho_comm": 0.7071067811865483,
+          "v": 19.198817174300334,
+          "flat_band": 4.907925721449497e-14,
+          "hermiticity": 0.0003009747318146566
+        },
+        {
+          "g": 0.4,
+          "theta": 3.1024293210476297,
+          "gap": 3.8627767651178146e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 9.439216892337778e-15,
+          "rho_comm": 0.7071067811865491,
+          "v": 38.39055711621671,
+          "flat_band": 2.026991762924213e-13,
+          "hermiticity": 0.0012036770314307575
+        },
+        {
+          "g": 0.7,
+          "theta": 1.9862451353874013,
+          "gap": 1.3317347224983678e-10,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 1.2909450312957403e-14,
+          "rho_comm": 0.7071067811865493,
+          "v": 67.14942283462217,
+          "flat_band": 4.432036735282921e-13,
+          "hermiticity": 0.003684392513973998
+        },
+        {
+          "g": 1.0,
+          "theta": 1.7217639469085806,
+          "gap": 3.2950975281664796e-11,
+          "mult": 4,
+          "module": "A1g+T1u",
+          "A": 3.5433513734445405e-14,
+          "rho_comm": 0.7071067811865518,
+          "v": 95.85259600239976,
+          "flat_band": 2.289125812583042e-13,
+          "hermiticity": 0.0075132777980972355
+        }
+      ]
+    },
+    "engine": {
+      "product_o_h_defect": {
+        "Gamma": 6.550210545578398e-17,
+        "M": 1.0,
+        "R": 0.7071067811865476,
+        "generic": 0.7044629490796265
+      },
+      "sum_o_h_defect": {
+        "Gamma": 5.551115123125783e-16,
+        "M": 4.440909016677259e-16,
+        "R": 4.726604209672303e-16,
+        "generic": 1.1202016302111223e-15
+      },
+      "stage_levels": {
+        "A1g": 5.999999999999998,
+        "T2g": -2.0000000000000004,
+        "A2u": -5.999999999999998,
+        "T1u": 2.0000000000000004
+      }
+    }
+  },
+  "wall_time": 10.258954524993896
+}

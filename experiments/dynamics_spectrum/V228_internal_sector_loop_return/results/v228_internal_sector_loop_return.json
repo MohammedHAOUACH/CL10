@@ -1,0 +1,469 @@
+{
+  "id": "V228_internal_sector_loop_return",
+  "tier": 4,
+  "property": "the internal sector of the 2I-covariant Clifford cell: chirality conservation of the 32-internal step, its pseudoscalar sector blocks and their relation to the 16-sector step, the committed CPT operator against every candidate the cell offers, the unchanged anomaly and trace-form data, and the grid-converged loop return amplitude F_n against the spinless control",
+  "residual": true,
+  "pass": true,
+  "status": "INTERNAL SECTOR AND LOOP RETURN OF THE 2I-COVARIANT CLIFFORD CELL at the closed clock g = 0.785398 (layers 1, internal exponent 4). (T1) the 32-internal step commutes with 1 (x) w to 8.4e-31 at the probe momenta: the bond layer acts on direction, layer and spinor and does not leak into the internal factor. (T2) in the pseudoscalar eigenbasis the step is block diagonal to 2.9e-16 and its 16-block is spectrally the 16-sector step to 4.1e-15 -- the reuse of U16 is a consequence -- and the matter and antimatter blocks are isospectral to 5.4e-15: CPT on the spectrum survives the bond layer. (T3) the CPT candidates, worst defect over the probe momenta -- control (scalar bonds, same clock and internal exponent): P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 5.0e-16, g1 S(q) g1^-1 vs S(-q) = 1.2e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.2e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.2e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.3e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.4e+00, so 'P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)' holds at 5.0e-16; Clifford cell: g1 S(q) g1^-1 vs S(-q) = 1.1e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.1e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.1e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.4e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.4e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 1.4e+00, so the best is 'g1 S(q) g1^-1 vs S(-q)' at 1.1e+00 and none holds: the identity the committed CPT operator has to satisfy fails exactly where V225 T1 measured inversion broken (1.414 at the zone centre). (T4) the 5/3 trace-form ratio stays 1.6666666667, the 8 anomaly coefficients stay zero (largest 2.2e-16) and the sector dimensions 32 = 2 x 16: the internal data are untouched. (T5) the loop return F_n on the momentum ball is [0.0, 0.460082, -0.0, -0.334407, -0.0, -0.293981, -0.0, 0.212037, -0.0, 0.208772, 0.0, -0.180884] for n = 1..12: the odd lengths vanish in modulus to ['3.3e-18', '5.8e-18', '6.5e-18', '7.8e-18', '8.3e-18', '8.6e-18'] -- the split is exact, not a real-part artefact -- while the even lengths are resolved at [] and not at [2, 4, 6, 8, 10, 12] (refinement changes ['0.0e+00', '3.1e-02', '9.1e-19', '3.4e-02', '2.0e-19', '5.4e-02', '4.6e-19', '7.5e-02', '1.0e-18', '8.4e-02', '9.6e-19', '2.3e-01']), against [-0.218513, -0.539918, 0.31623, -0.174733, 0.02754, 0.233438, -0.207769, 0.134859, -0.010502, -0.162805, 0.161383, -0.120024] for the matched scalar-bond control. The bond layer kills the odd returns, so the loop factor of Section 12 has to be recomputed on this cell, and at these grids no converged even-length value is available to recompute it from.",
+  "data": {
+    "clock": 0.7853981633974483,
+    "branch": "closed",
+    "cell": {
+      "layers": 1,
+      "legs": [
+        4
+      ],
+      "coin_dim": 12,
+      "block_dim": 24
+    },
+    "chirality": [
+      {
+        "q": [
+          0.31,
+          -0.17,
+          0.44
+        ],
+        "defect": 7.110696107458241e-31
+      },
+      {
+        "q": [
+          0.09,
+          0.52,
+          -0.23
+        ],
+        "defect": 8.425038160928628e-31
+      },
+      {
+        "q": [
+          -0.61,
+          0.12,
+          0.08
+        ],
+        "defect": 7.110696107458241e-31
+      }
+    ],
+    "internal_map": {
+      "u32_order_defect_8": 4.8867655767170405e-15,
+      "sector_frame_agreement": 0.0
+    },
+    "sector_blocks": {
+      "[0.31, -0.17, 0.44]": {
+        "off_block": 2.945857717511127e-16,
+        "dim16": 384,
+        "dimbar": 384,
+        "total": 768,
+        "sector16_equals_16_step": 4.107825191113079e-15,
+        "matter_vs_antimatter": 3.774758283725532e-15
+      },
+      "[0.09, 0.52, -0.23]": {
+        "off_block": 2.9458577175111264e-16,
+        "dim16": 384,
+        "dimbar": 384,
+        "total": 768,
+        "sector16_equals_16_step": 2.9976021664879227e-15,
+        "matter_vs_antimatter": 5.440092820663267e-15
+      }
+    },
+    "cpt_candidates": {
+      "g1 S(q) g1^-1 vs S(-q)": 1.134825491234086,
+      "g1 S(q) g1^-1 vs S(-q)^T": 1.4135123758236119,
+      "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)": 1.4142135623730925,
+      "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T": 1.4135123758236117,
+      "g1 S(q) g1^-1 vs S(-q)^-1": 1.1348254912340885,
+      "g1 S(q) g1^-1 vs S_inv(-q) (internal inverted)": 1.1348254912340887
+    },
+    "cpt_identity_holding": "g1 S(q) g1^-1 vs S(-q)",
+    "cpt_holding_candidates": [],
+    "cpt_control": {
+      "candidates": {
+        "g1 S(q) g1^-1 vs S(-q)": 1.238506776591572,
+        "g1 S(q) g1^-1 vs S(-q)^T": 1.238506776591572,
+        "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)": 4.965068306494546e-16,
+        "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T": 1.238506776591572,
+        "g1 S(q) g1^-1 vs S(-q)^-1": 1.4141505137050276,
+        "g1 S(q) g1^-1 vs S_inv(-q) (internal inverted)": 1.3085497756188957
+      },
+      "holding": "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)",
+      "holding_candidates": [
+        "P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)"
+      ]
+    },
+    "internal_data": {
+      "anomalies": {
+        "su3_cubed": 0.0,
+        "su2_cubed": 0.0,
+        "u1_cubed": 2.220446049250313e-16,
+        "grav2_su3": 0.0,
+        "grav2_su2": 0.0,
+        "grav2_u1": 0.0,
+        "u1_su3_sq": 0.0,
+        "u1_su2_sq": 0.0
+      },
+      "five_thirds": 1.6666666666666665,
+      "sector_dims": {
+        "n32": 32,
+        "n16": 16
+      }
+    },
+    "return_amplitude": {
+      "cell": [
+        {
+          "grid": 5,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            0.0,
+            0.4884308761313284,
+            1.3974161334257613e-18,
+            -0.29648590884482645,
+            -4.468227135091776e-19,
+            -0.32366702797323565,
+            -2.409338161078899e-19,
+            0.15948996392052422,
+            1.2572364585993525e-18,
+            0.27957619857481875,
+            1.8223357727433127e-18,
+            0.023791128775320795
+          ],
+          "absF": [
+            2.7824828741720078e-18,
+            0.4884308761313284,
+            5.57619228272308e-18,
+            0.3893181960590015,
+            5.98140807781159e-18,
+            0.4579430822223636,
+            8.181389488403886e-18,
+            0.3162936996352406,
+            8.895086050399863e-18,
+            0.27957619857481875,
+            9.570400737761822e-18,
+            0.15975517331468161
+          ],
+          "dim": 384,
+          "points": 33
+        },
+        {
+          "grid": 9,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            0.0,
+            0.45721206868852704,
+            7.914253990594577e-19,
+            -0.3305387830037069,
+            -2.453868730203898e-19,
+            -0.26960713028886624,
+            -7.003721037696569e-19,
+            0.23410759760986152,
+            9.060330217022186e-19,
+            0.19519232584521182,
+            8.6342429819208785e-19,
+            -0.20811584437696415
+          ],
+          "absF": [
+            2.7032579041443295e-18,
+            0.45721206868852704,
+            5.4552299691742726e-18,
+            0.36351582240217883,
+            6.380206940897107e-18,
+            0.2921179666356771,
+            7.912376581519474e-18,
+            0.3204600959637702,
+            8.210142729183262e-18,
+            0.24577982448119862,
+            9.328325476874075e-18,
+            0.3125383227855557
+          ],
+          "dim": 384,
+          "points": 257
+        },
+        {
+          "grid": 17,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            0.0,
+            0.46008159940410165,
+            -1.1961438619396146e-19,
+            -0.3344066246003804,
+            -2.0506149553215346e-19,
+            -0.29398068200349187,
+            -7.010985551443921e-19,
+            0.21203699078043145,
+            -1.344906784492006e-19,
+            0.20877193362547458,
+            1.611651878018993e-19,
+            -0.1808844601289331
+          ],
+          "absF": [
+            3.2791271428030412e-18,
+            0.46008159940410165,
+            5.793508616360671e-18,
+            0.36538294236227803,
+            6.508909860248744e-18,
+            0.3086052326632333,
+            7.804652494179323e-18,
+            0.2812030314763943,
+            8.330558959710497e-18,
+            0.2574455034738817,
+            8.57322526591429e-18,
+            0.2803675620497656
+          ],
+          "dim": 384,
+          "points": 2109
+        }
+      ],
+      "control_scalar_bond": [
+        {
+          "grid": 5,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            -0.2230212426485397,
+            -0.5115691238686673,
+            0.30600392536092186,
+            -0.2502094133701489,
+            0.061963664119646905,
+            0.3164189386716951,
+            -0.20384525466866124,
+            0.09592933017733171,
+            -0.12363059937628944,
+            -0.1979501051391637,
+            0.3943834473155653,
+            -0.018253035970829216
+          ],
+          "absF": [
+            0.2230212426485397,
+            0.5115691238686673,
+            0.3549809639753439,
+            0.2502094133701489,
+            0.33024712498289516,
+            0.36037596768970614,
+            0.20384525466866124,
+            0.3489547493059136,
+            0.12363059937628944,
+            0.1979501051391637,
+            0.4939137414321374,
+            0.1628583013120862
+          ],
+          "dim": 384,
+          "points": 33
+        },
+        {
+          "grid": 9,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            -0.22488822084808674,
+            -0.5427879313114693,
+            0.32432287934343024,
+            -0.1593870577578199,
+            0.02793274317078903,
+            0.20017039199571934,
+            -0.2062395961467742,
+            0.1695511002906776,
+            -0.01936700306867501,
+            -0.17198877508046606,
+            0.16346358153714638,
+            -0.14091037224414873
+          ],
+          "absF": [
+            0.22488822084808674,
+            0.5427879313114693,
+            0.34202351157830724,
+            0.19702332607958542,
+            0.24301461070876876,
+            0.24457412268231768,
+            0.32252330960122466,
+            0.2510770623135436,
+            0.2715403813997205,
+            0.2645392653922835,
+            0.3298344268411309,
+            0.28472407807296046
+          ],
+          "dim": 384,
+          "points": 257
+        },
+        {
+          "grid": 17,
+          "n": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "F": [
+            -0.2185127651536117,
+            -0.539918400595894,
+            0.316229537344695,
+            -0.1747330222168021,
+            0.027540305960603795,
+            0.2334382584480599,
+            -0.20776925676417554,
+            0.13485948023500147,
+            -0.010501912044948863,
+            -0.16280512370949973,
+            0.16138268986147974,
+            -0.1200236847557829
+          ],
+          "absF": [
+            0.21853760889365606,
+            0.539918400595894,
+            0.32564915772038483,
+            0.2119465557757465,
+            0.23445872083136127,
+            0.26596619569120966,
+            0.28764921431177914,
+            0.23041536087282316,
+            0.2198487279770102,
+            0.23702222310098245,
+            0.2880397081695708,
+            0.24009183416657554
+          ],
+          "dim": 384,
+          "points": 2109
+        }
+      ],
+      "refinement_shift": 0.23190697315228495,
+      "per_length_change": [
+        0.0,
+        0.031218807442801366,
+        9.110397852534191e-19,
+        0.034052874158880475,
+        2.014358404887878e-19,
+        0.05405989768436942,
+        4.59438287661767e-19,
+        0.0746176336893373,
+        1.0405237001514192e-18,
+        0.08438387272960693,
+        9.589114745512248e-19,
+        0.23190697315228495
+      ],
+      "resolved_n": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        11
+      ],
+      "rmax": 1.651632999597062,
+      "nmax": 12
+    },
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 0,
+        "rejected": 0
+      },
+      "pool_njobs": 8
+    },
+    "checks": [
+      {
+        "name": "T1 the Clifford bond layer does not leak into the internal factor: the 32-internal step commutes with 1 (x) w",
+        "pass": true,
+        "detail": "the pseudoscalar is the committed one (w^2 = -1 to 0.0e+00, g1 exchanges the sectors: g1 w g1^-1 + w = 0.0e+00), the internal map U32 has U32^8 - I = 4.9e-15; the step commutes with 1 (x) w at the probe momenta to 8.4e-31"
+      },
+      {
+        "name": "T2 the 32-internal step of the new cell is block diagonal in the pseudoscalar basis, its 16-block is the 16-sector step, and its matter and antimatter blocks are isospectral",
+        "pass": true,
+        "detail": "off-block norms 2.9e-16, 2.9e-16; the 16-block's eigenphases agree with the step built directly on the 16 sector to 4.1e-15 (so the reuse of U16 is forced, not chosen); the matter and antimatter blocks' sorted eigenphase spectra agree to 3.8e-15, 5.4e-15 -- CPT on the spectrum carries over to the cell that carries the spinor bond layer, as it did on the star module (V217 T2); the pseudoscalar eigenbasis reproduces the committed sector frame to 0.0e+00"
+      },
+      {
+        "name": "T3 the CPT candidate set is decided by measurement on both cells: it holds on the spinless-bond control, and the Clifford cell is no better -- whether any identity survives there is a finding, not a hope",
+        "pass": true,
+        "detail": "control (scalar bonds, same clock and internal exponent): P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 5.0e-16, g1 S(q) g1^-1 vs S(-q) = 1.2e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.2e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.2e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.3e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.4e+00 -- 'P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)' holds at 5.0e-16; Clifford cell: g1 S(q) g1^-1 vs S(-q) = 1.1e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.1e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.1e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.4e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.4e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 1.4e+00 -- best 'g1 S(q) g1^-1 vs S(-q)' at 1.1e+00, no candidate holds, which is the inversion V225 T1 measured broken (defect 1.414 at the zone centre) showing up in the identity the CPT operator is asked to satisfy"
+      },
+      {
+        "name": "T4 the internal data the paper reads off the internal sector are unchanged by the bond layer: the trace-form ratio, the anomaly coefficients and the sector dimensions",
+        "pass": true,
+        "detail": "the 5/3 trace-form ratio is 1.6666666667; all 8 anomaly coefficients stay zero, largest 2.2e-16 over the keys ['grav2_su2', 'grav2_su3', 'grav2_u1', 'su2_cubed', 'su3_cubed', 'u1_cubed', 'u1_su2_sq', 'u1_su3_sq']: grav2_su2 = 0.0e+00, grav2_su3 = 0.0e+00, grav2_u1 = 0.0e+00, su2_cubed = 0.0e+00, su3_cubed = 0.0e+00, u1_cubed = 2.2e-16, u1_su2_sq = 0.0e+00, u1_su3_sq = 0.0e+00; the sector dimensions stay 32 = 2 x 16: the bond layer acts on direction, layer and spinor only"
+      },
+      {
+        "name": "T5 the loop return of the new cell splits by parity at the grids run: every odd length vanishes in modulus to machine precision, the even lengths are what survives and whether they are resolved at these grids is read off the refinement, and the spinor bond layer moves them against the matched scalar-bond control",
+        "pass": true,
+        "detail": "momentum ball |q| <= 1.6516, grids [5, 9, 17] with 2109 points and dimension 384: F_n for n = 1..12 is [0.0, 0.460082, -0.0, -0.334407, -0.0, -0.293981, -0.0, 0.212037, -0.0, 0.208772, 0.0, -0.180884]. The parity split is exact and not a matter of taking real parts: the mean modulus at the odd lengths is ['3.3e-18', '5.8e-18', '6.5e-18', '7.8e-18', '8.3e-18', '8.6e-18']. The largest change under refinement, length by length, is ['0.0e+00', '3.1e-02', '9.1e-19', '3.4e-02', '2.0e-19', '5.4e-02', '4.6e-19', '7.5e-02', '1.0e-18', '8.4e-02', '9.6e-19', '2.3e-01'], so the even lengths ['0.460', '-0.334', '-0.294', '0.212', '0.209', '-0.181'] are resolved at [] and unresolved at [2, 4, 6, 8, 10, 12] (changes ['3.1e-02', '3.4e-02', '5.4e-02', '7.5e-02', '8.4e-02', '2.3e-01']) -- at these grids the cell supplies no converged loop factor yet. The matched scalar-bond control gives [-0.218513, -0.539918, 0.31623, -0.174733, 0.02754, 0.233438, -0.207769, 0.134859, -0.010502, -0.162805, 0.161383, -0.120024], nonzero at every length including the odd ones, so it is the Clifford bond layer that kills the odd returns: the same odd-even structure the closed branch shows for the loop ratios at the root angle (V203 T1), now in the kinematic return of the cell itself. The hierarchy's loop factor has to be rebuilt on this cell, not carried over"
+      }
+    ]
+  },
+  "wall_time": 161.555
+}

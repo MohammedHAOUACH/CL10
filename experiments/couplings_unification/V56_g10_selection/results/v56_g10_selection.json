@@ -1,0 +1,40 @@
+{
+  "id": "V56_g10_selection",
+  "tier": 6,
+  "property": "P5,P6",
+  "residual": true,
+  "pass": true,
+  "status": "the_GUT_reading_g_10=1/5_from_the_32D_module_5_qubits_a_mapping_convention_giving_alpha_10=1/25=0.04_within_a_factor_1.73_of_the_1_loop_GUT_coupling_0.023_at_M_P_the_1_loop_matching_is_the_O4_named_residual",
+  "tol": 1e-12,
+  "data": {
+    "backend": "cupy",
+    "n_qubits": 5,
+    "g10": 0.2,
+    "alpha_10_0param": 0.04000000000000001,
+    "g10_matches_sm_qca": true,
+    "a_at_M_P": [
+      0.029905771320979543,
+      0.020217924029706586,
+      0.01908055782059214
+    ],
+    "mean_GUT": 0.023068084390426086,
+    "spread": 0.46927232089025017,
+    "ratio_to_1loop": 1.7339974712681887,
+    "n_closest_to_1loop": 7,
+    "best_n_1loop": 7,
+    "candidate_scan_gap": {
+      "2": 9.837484195426176,
+      "3": 3.8166596424116337,
+      "4": 1.7093710488565441,
+      "5": 0.7339974712681883,
+      "6": 0.20416491060290842,
+      "7": 0.11530741261827138,
+      "8": 0.32265723778586397
+    },
+    "gap_root_n5": 0.7339974712681883,
+    "gap_best_n": 0.11530741261827138,
+    "data_check_selects_n": false,
+    "residual": "the 1-loop matching (O4) and the exact GUT coupling — the g_10 = 1/5 reading sits in the right order (within a factor 2 of the 1-loop GUT coupling)"
+  },
+  "wall_time": 0.004
+}

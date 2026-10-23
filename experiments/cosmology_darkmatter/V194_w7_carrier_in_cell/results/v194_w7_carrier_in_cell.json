@@ -1,0 +1,132 @@
+{
+ "experiment": "V194_w7_carrier_in_cell",
+ "data": {
+  "mass_scan": [
+   {
+    "root": "X_0 th=1.7349 w=0.0000",
+    "physical": true,
+    "neutral_in_wimp_window": [],
+    "coloured_or_charged_below_TeV": [],
+    "lightest_neutral_GeV": 20299260598.100292,
+    "survivor": false
+   },
+   {
+    "root": "X_0 th=1.7370 w=0.0000",
+    "physical": true,
+    "neutral_in_wimp_window": [],
+    "coloured_or_charged_below_TeV": [],
+    "lightest_neutral_GeV": 21167117910.22883,
+    "survivor": false
+   },
+   {
+    "root": "X_1 th=1.7308 w=0.0000",
+    "physical": true,
+    "neutral_in_wimp_window": [],
+    "coloured_or_charged_below_TeV": [],
+    "lightest_neutral_GeV": 20300114024.89537,
+    "survivor": false
+   },
+   {
+    "root": "X_1 th=1.7412 w=0.0000",
+    "physical": true,
+    "neutral_in_wimp_window": [],
+    "coloured_or_charged_below_TeV": [],
+    "lightest_neutral_GeV": 21166037856.66018,
+    "survivor": false
+   }
+  ],
+  "surviving_gradings": [
+   {
+    "odd_16": [],
+    "odd_16bar": []
+   },
+   {
+    "odd_16": [
+     "(-3,0.333333)",
+     "(1,-0.666667)",
+     "(1,0.166667)",
+     "L(1,2)",
+     "N",
+     "e^c"
+    ],
+    "odd_16bar": []
+   },
+   {
+    "odd_16": [],
+    "odd_16bar": [
+     "(-3,0.333333)",
+     "(1,-0.666667)",
+     "(1,0.166667)",
+     "L(1,2)",
+     "N",
+     "e^c"
+    ]
+   },
+   {
+    "odd_16": [
+     "(-3,0.333333)",
+     "(1,-0.666667)",
+     "(1,0.166667)",
+     "L(1,2)",
+     "N",
+     "e^c"
+    ],
+    "odd_16bar": [
+     "(-3,0.333333)",
+     "(1,-0.666667)",
+     "(1,0.166667)",
+     "L(1,2)",
+     "N",
+     "e^c"
+    ]
+   }
+  ],
+  "certificate": {
+   "R1_new_neutral_classes": {
+    "A_seesaw_partner": {
+     "mass_GeV_required": 96131777036496.42,
+     "parity": "even",
+     "from": "the n=3 ladder floor: m_nu = m_B^2 / M_A with the exponent identity 2*10 - 3 = 17 (the built neutrino mechanism, F3 0.14624768344284225 eV)",
+     "in_desert": true
+    },
+    "B_carrier": {
+     "mass_GeV_required": 118.57086360835625,
+     "parity": "odd",
+     "rung": 10,
+     "from": "u10pred.dm_ladder_mass (n=10 rung)"
+    }
+   },
+   "R2_parity": "exact on B alone; B enters only through bilinears (the V88 phi_s^2 portal structure): production computed by the V193 solver, direct detection by the V148 map",
+   "R3_hard_gates": "the five cell-module gates recomputed on the cell (root, kinematics, unitary causal dynamics, anomaly-free matter, 5/3)"
+  }
+ },
+ "pass": true,
+ "branch": "B",
+ "checks": [
+  {
+   "name": "T0 the Clifford grading group: 2 of 1024 commute with the internal step (V124 regression, stored 2); the 2-particle step is Kronecker-factorized (V41: shape 1024, unitary 2.4e-15) so particle number is a superselection of the bare step and an exact grading is the only stability structure",
+   "pass": true
+  },
+  {
+   "name": "T1 no built root places a NEUTRAL fragment in the WIMP window 100-1000 GeV: over 4 roots the lightest neutral threshold is 2.030e+10 GeV - 8.2 orders above the ladder rung 118.57 GeV; survivors 0",
+   "pass": true
+  },
+  {
+   "name": "T2 of the 4096 class-constant sign patterns: 4 commute with all 45 gauge generators and 4 additionally with the internal step: the exact grading group of the step with its gauge invariance is Z2 x Z2 - global sign x mirror - and no fragment-selective grading survives (the 16 is Spin(10)-irreducible)",
+   "pass": true
+  },
+  {
+   "name": "T3 carrier identification: under the mirror grading the only stable in-cell state is the LIGHTEST odd fragment, (1,0.166667) at 1.334e+08 GeV (neutral: False, coloured: True) - every heavier odd state (neutral N-bar at 2.030e+10 GeV included) decays down through the gauged vertices; and the implemented Dirac mass term '16 . 10-Higgs . 16bar -> 1 (the 0-parameter Dirac mass)' (present: True) is ODD under the mirror and under any single-neutral-odd grading, killing the F3 neutrino ladder (0.14624768344284225 eV): the built cell has NO stable neutral fragment in the window",
+   "pass": true
+  },
+  {
+   "name": "T4 no bypass: every single-neutral-odd pattern fails - [('N', 0), ('N', 1)]: the smallest commutator over the 45 generators is 2.00e+00 and over the internal step 8.20e-01 (both need 0): a grading cannot protect a neutral cell state while respecting the built gauge structure",
+   "pass": true
+  }
+ ],
+ "status": "THE IN-CELL CARRIER IS CLOSED, WITH A CERTIFICATE (O7). Stability: the bare step is Kronecker-factorized (T0), so an exact grading is the only stability structure; of the 4096 class-constant gradings exactly 4 commute with the 45 gauge generators AND the internal step - a Z2 x Z2 (global sign x mirror), with no fragment-selective grading (T2). Masses: no built root places a neutral fragment in the 100-1000 GeV window - the lightest neutral threshold is 2.030e+10 GeV (T1). Carrier: under the mirror the only stable state is the lightest odd fragment, the COLOURED (1,0.166667) at 1.334e+08 GeV (excluded); the neutral N-bar is heavier and decays down through the gauged vertices (T3); and the implemented Dirac mass term (the F3 0.14624768344284225 eV ladder) is odd under the mirror and under every single-neutral-odd grading, which all fail the gauge and the step outright (T4). THE AUTOMATON'S CURRENT CELL CANNOT HOLD THE CARRIER - and the certificate is quantitative: the redefined cell must add >= 2 neutral classes: A even at the n=3 ladder floor M_A = 9.613e+13 GeV (inside the desert: True), m_nu = m_B^2/M_A exactly, and B odd at the n=10 rung 118.57 GeV, coupled only through bilinears (R2: V88 portal, V193 production, V148 direct detection), with the five hard gates recomputed (R3). VERDICT: PASS",
+ "tier": 5,
+ "property": "is the dark-matter carrier a state of the automaton's own cell: grading x gauge x mass census over the built cell, and the quantitative certificate any redefinition of the cell content must satisfy (O7)",
+ "programme": "V194",
+ "wall_time": 3.916229248046875
+}

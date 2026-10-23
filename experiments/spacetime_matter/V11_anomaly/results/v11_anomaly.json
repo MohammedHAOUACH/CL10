@@ -1,0 +1,21 @@
+{
+  "id": "V11_anomaly",
+  "tier": 3,
+  "property": "P4",
+  "pass": true,
+  "residual": false,
+  "status": "the_16_weyl_is_anomaly_free",
+  "tol": 1e-12,
+  "data": {
+    "max_abs_anomaly": 2.220446049250313e-16,
+    "su3_cubed": 0.0,
+    "su2_cubed": 0.0,
+    "u1_cubed": 2.220446049250313e-16,
+    "grav2_su3": 0.0,
+    "grav2_su2": 0.0,
+    "grav2_u1": 0.0,
+    "u1_su3_sq": 0.0,
+    "u1_su2_sq": 0.0
+  },
+  "wall_time": 0.0
+}

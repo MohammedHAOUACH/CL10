@@ -1,0 +1,290 @@
+{
+ "id": "V193_w7_freeze_in",
+ "tier": 5,
+ "property": "the production side of the ladder-scalar abundance: freeze-in and freeze-out computed through the two named portal kernels with exact thermal convolution, the regime decided from the computed in-equilibrium rate, against the LZ-class direct-detection ceiling",
+ "programme": "V193",
+ "data": {
+  "constants": {
+   "M_S_GeV": 118.57086360835625,
+   "M_H_GeV": 125.25,
+   "mu_red_GeV": 0.9309056692089587,
+   "LZ_bound_cm2": 1.5e-47,
+   "lambda_LZ_ceiling": 0.01954171404147136,
+   "D_planar_engine": 1485.265849282178,
+   "Omega_equilibrium_ceiling": 42372475.96543351,
+   "convolution_unit_GeV2": {
+    "K1 p_f (V1 Z2 portal)": {
+     "hh_at_MS": 1.704136233938299e-08,
+     "ss_at_MS": 1.784530750850111e-08
+    },
+    "K1p p_f^3 (p-wave)": {
+     "hh_at_MS": 3.898892006421725e-09,
+     "ss_at_MS": 4.056082472004952e-09
+    },
+    "K2 (V2 pair portal)": {
+     "hh_at_MS": 0.0008610553645261054,
+     "ss_at_MS": 0.0009976991106883746
+    }
+   },
+   "hh_over_ss_conv_ratio_at_MS": {
+    "K1 p_f (V1 Z2 portal)": 0.954949211789422,
+    "K1p p_f^3 (p-wave)": 0.9612457422480548,
+    "K2 (V2 pair portal)": 0.8630411266298612
+   },
+   "Rmax_annihilation_criterion_per_lambda2": {
+    "K1 p_f (V1 Z2 portal)": 95848180621.7721,
+    "K1p p_f^3 (p-wave)": 21462329608.59035,
+    "K2 (V2 pair portal)": 7424203653997999.0
+   }
+  },
+  "regression": {
+   "Omega_h2_at_100GeV_3e-26": 0.0800389864783524,
+   "stored": 0.0800389864783524,
+   "D_planar_stored": 1485.2658492792891,
+   "sigma_SI_stored_pair_cm2": 4.8942184057014555e-51,
+   "sigma_SI_stored_Z2_cm2": 6.720928287117722e-46
+  },
+  "variants": [
+   {
+    "variant": "K1 p_f (V1 Z2 portal) D-off",
+    "kernel": "K1 p_f (V1 Z2 portal)",
+    "tag": "D-off",
+    "D_factor": 1.0,
+    "lambda_thermal": 7.633509285496086e-10,
+    "Rmax_annihilation_criterion_per_lambda2": 95848180621.7721,
+    "C_FI_omega_per_lambda2": 7.271690157965049e+25,
+    "Omega_equilibrium_ceiling": 42372475.96543351,
+    "lambda_fi_solution": 4.0623088619285984e-14,
+    "lambda_freeze_out_solution": null,
+    "lambda_freeze_out_solution_uncapped": 0.30803151212779395,
+    "sigma_SI_at_fi_cm2": 6.482041867030838e-71,
+    "sigma_SI_at_to_cm2": null,
+    "named_points": {
+     "lambda_*": {
+      "lambda": 0.0003529869886705053,
+      "R": 11942.665494069754,
+      "route": "freeze-out",
+      "Omega_h2": 34460.63043684547
+     },
+     "lambda_Z2": {
+      "lambda": 0.13080720169200494,
+      "R": 1640012596.2742805,
+      "route": "freeze-out",
+      "Omega_h2": 0.6090617655897168
+     },
+     "lambda_LZ": {
+      "lambda": 0.01954171404147136,
+      "R": 36602367.84740941,
+      "route": "freeze-out",
+      "Omega_h2": 21.86619561175091
+     },
+     "lambda_thermal": {
+      "lambda": 7.633509285496086e-10,
+      "route": "boundary",
+      "Omega_h2_fi": 42372475.96543351,
+      "Omega_h2_fo": 169242416.14780042
+     }
+    }
+   },
+   {
+    "variant": "K1 p_f (V1 Z2 portal) D-on",
+    "kernel": "K1 p_f (V1 Z2 portal)",
+    "tag": "D-on",
+    "D_factor": 1485.265849282178,
+    "lambda_thermal": 1.9807156840195453e-11,
+    "Rmax_annihilation_criterion_per_lambda2": 95848180621.7721,
+    "C_FI_omega_per_lambda2": 1.0800393058186812e+29,
+    "Omega_equilibrium_ceiling": 42372475.96543351,
+    "lambda_fi_solution": 1.0540733724450635e-15,
+    "lambda_freeze_out_solution": null,
+    "lambda_freeze_out_solution_uncapped": 0.3080315121279191,
+    "sigma_SI_at_fi_cm2": 4.364230060338074e-74,
+    "sigma_SI_at_to_cm2": null,
+    "named_points": {
+     "lambda_*": {
+      "lambda": 0.0003529869886705053,
+      "R": 11942.665494069754,
+      "route": "freeze-out",
+      "Omega_h2": 34460.63043684547
+     },
+     "lambda_Z2": {
+      "lambda": 0.13080720169200494,
+      "R": 1640012596.2742805,
+      "route": "freeze-out",
+      "Omega_h2": 0.6090617655897168
+     },
+     "lambda_LZ": {
+      "lambda": 0.01954171404147136,
+      "R": 36602367.84740941,
+      "route": "freeze-out",
+      "Omega_h2": 21.86619561175091
+     },
+     "lambda_thermal": {
+      "lambda": 1.9807156840195453e-11,
+      "route": "boundary",
+      "Omega_h2_fi": 42372475.96543351,
+      "Omega_h2_fo": 169242449.80685693
+     }
+    }
+   },
+   {
+    "variant": "K1p p_f^3 (p-wave) D-off",
+    "kernel": "K1p p_f^3 (p-wave)",
+    "tag": "D-off",
+    "D_factor": 1.0,
+    "lambda_thermal": 1.6074979287163645e-09,
+    "Rmax_annihilation_criterion_per_lambda2": 21462329608.59035,
+    "C_FI_omega_per_lambda2": 1.6397702318037177e+25,
+    "Omega_equilibrium_ceiling": 42372475.96543351,
+    "lambda_fi_solution": 8.55458850854332e-14,
+    "lambda_freeze_out_solution": null,
+    "lambda_freeze_out_solution_uncapped": 0.6461060049231439,
+    "sigma_SI_at_fi_cm2": 2.8745124855789975e-70,
+    "sigma_SI_at_to_cm2": null,
+    "named_points": {
+     "lambda_*": {
+      "lambda": 0.0003529869886705053,
+      "R": 2674.202280900057,
+      "route": "freeze-out",
+      "Omega_h2": 126952.6056953774
+     },
+     "lambda_Z2": {
+      "lambda": 0.13080720169200494,
+      "R": 367231706.17474633,
+      "route": "freeze-out",
+      "Omega_h2": 2.4692185454660973
+     },
+     "lambda_LZ": {
+      "lambda": 0.01954171404147136,
+      "R": 8196004.119221917,
+      "route": "freeze-out",
+      "Omega_h2": 87.2038664336238
+     },
+     "lambda_thermal": {
+      "lambda": 1.6074979287163645e-09,
+      "route": "boundary",
+      "Omega_h2_fi": 42372475.965433516,
+      "Omega_h2_fo": 169242415.88033506
+     }
+    }
+   },
+   {
+    "variant": "K2 (V2 pair portal) D-off",
+    "kernel": "K2 (V2 pair portal)",
+    "tag": "D-off",
+    "D_factor": 1.0,
+    "lambda_thermal": 3.1099138867701866e-12,
+    "Rmax_annihilation_criterion_per_lambda2": 7424203653997999.0,
+    "C_FI_omega_per_lambda2": 4.3811398329065204e+30,
+    "Omega_equilibrium_ceiling": 42372475.96543351,
+    "lambda_fi_solution": 1.6549964465315144e-16,
+    "lambda_freeze_out_solution": 0.00130273887555313,
+    "lambda_freeze_out_solution_uncapped": 0.0013027388755529263,
+    "sigma_SI_at_fi_cm2": 1.0758707059284874e-75,
+    "sigma_SI_at_to_cm2": 6.666236204262961e-50,
+    "named_points": {
+     "lambda_*": {
+      "lambda": 0.0003529869886705053,
+      "R": 925054395.6533705,
+      "route": "freeze-out",
+      "Omega_h2": 1.42448971568172
+     },
+     "lambda_Z2": {
+      "lambda": 0.13080720169200494,
+      "R": 127032014910218.4,
+      "route": "freeze-out",
+      "Omega_h2": 1.7700277155915676e-05
+     },
+     "lambda_LZ": {
+      "lambda": 0.01954171404147136,
+      "R": 2835144406027.346,
+      "route": "freeze-out",
+      "Omega_h2": 0.0006824271311504555
+     },
+     "lambda_thermal": {
+      "lambda": 3.1099138867701866e-12,
+      "route": "boundary",
+      "Omega_h2_fi": 42372475.96543351,
+      "Omega_h2_fo": 169242418.5746225
+     }
+    }
+   },
+   {
+    "variant": "K2 (V2 pair portal) D-on",
+    "kernel": "K2 (V2 pair portal)",
+    "tag": "D-on",
+    "D_factor": 1485.265849282178,
+    "lambda_thermal": 8.06949331047493e-14,
+    "Rmax_annihilation_criterion_per_lambda2": 7424203653997999.0,
+    "C_FI_omega_per_lambda2": 6.507157374745882e+33,
+    "Omega_equilibrium_ceiling": 42372475.96543351,
+    "lambda_fi_solution": 4.2943255795470614e-18,
+    "lambda_freeze_out_solution": 0.0013027388755532756,
+    "lambda_freeze_out_solution_uncapped": 0.0013027388755531561,
+    "sigma_SI_at_fi_cm2": 7.243623802758613e-79,
+    "sigma_SI_at_to_cm2": 6.666236204264453e-50,
+    "named_points": {
+     "lambda_*": {
+      "lambda": 0.0003529869886705053,
+      "R": 925054395.6533705,
+      "route": "freeze-out",
+      "Omega_h2": 1.42448971568172
+     },
+     "lambda_Z2": {
+      "lambda": 0.13080720169200494,
+      "R": 127032014910218.4,
+      "route": "freeze-out",
+      "Omega_h2": 1.7700277155915676e-05
+     },
+     "lambda_LZ": {
+      "lambda": 0.01954171404147136,
+      "R": 2835144406027.346,
+      "route": "freeze-out",
+      "Omega_h2": 0.0006824271311504555
+     },
+     "lambda_thermal": {
+      "lambda": 8.06949331047493e-14,
+      "route": "boundary",
+      "Omega_h2_fi": 42372475.96543351,
+      "Omega_h2_fo": 169242449.80849376
+     }
+    }
+   }
+  ]
+ },
+ "pass": true,
+ "branch": "A",
+ "checks": [
+  {
+   "name": "T0 the freeze-out solver reused from V123 reproduces its stored WIMP-miracle regression: Omega h^2 = 0.080039 (stored 0.080039)",
+   "pass": true
+  },
+  {
+   "name": "T1 the nodal-plane final-state density recomputed from the implemented step: 12 M nodes, rank-1 metric, comm < 0e+00, D = 1485.27 (V123 stored 1485.27)",
+   "pass": true
+  },
+  {
+   "name": "T2 the V148 sigma_SI map (mu_red = 0.931 GeV) reproduces V88's stored cross sections at the named couplings: 6.721e-46 vs 6.721e-46 (lambda_Z2), 4.894e-51 vs 4.894e-51 (lambda_*); the LZ-class ceiling is lambda_LZ = 1.954e-02",
+   "pass": true
+  },
+  {
+   "name": "T3 K2(s = 4 m_s^2) equals V123's stored sigmav_V75 per unit lambda (2.0626e-02 vs 2.0626e-02 GeV^-2, rel 1.7e-16); the h -> s sbar on-shell width is 0 - 2m_s = 237.1 GeV > M_h = 125.25 GeV, so the s-channel pole s = M_h^2 is strictly off-shell for every thermal pair",
+   "pass": true
+  },
+  {
+   "name": "T3b the exact convolution vs the seeded Monte-Carlo average of the same thermal quantity: const(T=m_s) 9.8085e-01 vs 9.8109e-01 (rel 2.5e-04), K2_hh(T=m_s) 8.6106e-04 vs 8.5766e-04 (rel 4.0e-03), K2_ss(T=m_s) 9.9770e-04 vs 9.9349e-04 (rel 4.2e-03) - the constant-kernel value is the mean Moller velocity <v_M> = 0.981 at T = m_s",
+   "pass": true
+  },
+  {
+   "name": "T3c convergence under refinement: thermal convolution (80x160 vs 160x320) drift 1.77e-06; freeze-in integral (4000/128, 8000/256, 16000/512) drifts 3.12e-04, 7.76e-05",
+   "pass": true
+  },
+  {
+   "name": "T4 the stability premise the production interpretation needs, regressed from V88's stored verdicts: the scalar parity Q_s is exact (True) and the V1 portal commutator [Q_s,V1] = 0.0e+00 - the single s cannot decay",
+   "pass": true
+  }
+ ],
+ "status": "THE PRODUCTION SIDE IS COMPUTED (O7). The exact-Z2 ladder scalar (m_s = 118.57 GeV, stable: T4) has ONE production solution inside the LZ-class ceiling lambda_LZ = 1.95e-02: FREEZE-IN at lambda = 4.06e-14 with the V1 portal kernel (Omega_FI = 7.27e+25 lambda^2; regime self-consistent - below the boundary lambda_th = 7.63e-10 the yield stays under the equilibrium ceiling Omega = 4.24e+07), predicting sigma_SI = 6.48e-71 cm^2, 23.4 orders below the bound: freeze-in is DD-blind by construction. The freeze-out solution of the same kernel sits at lambda = 3.08e-01 - above the ceiling, its sigma_SI = 3.73e-45 cm^2: the V88/V148 direct-detection exclusion of the thermal Z2 portal is confirmed by computed production, not by an inverted coupling. The pair (Z2-breaking) kernel: freeze-out solution lambda = 1.30e-03 (sigma_SI = 6.67e-50 cm^2) inside the ceiling; its named point lambda_* = 3.53e-04 gives Omega = 1.42 via freeze-out - the inverted fiducial coupling is NOT a production solution. Nodal-plane D on the production channel multiplies the freeze-in coupling by 1/sqrt(D) (D-on variants reported). The h -> s sbar channel is closed (2m_s = 237.1 > M_h = 125.25): the s-channel pole is always off-shell; the exact Moller convolution agrees with seeded Monte Carlo to 4e-03. VERDICT: the O7 freeze-in parenthetical is retired - the production side is computed, with a quantified and (for the Z2 portal) DD-blind solution. PASS",
+ "inconclusive": false,
+ "wall_time": 160.97485160827637
+}

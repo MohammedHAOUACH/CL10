@@ -1,0 +1,575 @@
+{
+  "id": "V226_node_charge_protection",
+  "tier": 4,
+  "property": "the Berry flux (first Chern number) of the node of the 2I-covariant Clifford cell over a icosahedrally-uniform sphere, its sector and empty-region consistency, and the response of the node to a perturbation projected onto the invariants of the 2I action, against the same perturbation on the inversion-symmetric spinless control",
+  "residual": true,
+  "pass": true,
+  "status": "NODE CHARGE AND PROTECTION at the closed clock g = 0.785398, cell layers 1 internal exponent 4. (T1) of the 9 spheres about the zone-centre touching (gap 2.8e-17, 192 zero eigenphases of 384), no Berry charge is defined at this touching, and T0b says why: of the mesh's 92 icosahedral directions none is gapless on the three sampled spheres (their largest gaps are ['1.8e-03', '6.0e-03', '2.4e-02']), while on the cell's six signed coordinate axes [4, 5, 6] of 6 come back exactly gapless at those radii (worst line gap 2.6e-08) -- the mesh is simply not sampling the lines the touching sits on. 1 of 9 spheres keep full link rank and the ladder reads [5, 12, 15, 16, 25, 34], a spread of 29, which is a mesh artefact and not a charge: the same verdict V227 T2 reached for every point of the locus. (T2) at the node the positive sector reads [20, None, 26] and the two-band sector [4, 2, 1], of which 0 and 0 of 3 spheres kept rank -- no sector sphere at the node kept rank, so these two clauses cannot be exercised at this touching -- T0b and T1 say why: every sphere about it is cut by a gapless line; the spheres around the gapped point (gap 0.0684) are all trusted and give [0, 0, 0]. (T3) the perturbation projected onto the 2I invariants (obstruction 1.4e-15, generator norm 7.307): the class contains a symmetry-respecting term that masses the zone-centre touching, and it masses it linearly in the coupling (gap/theta constant to 0.3% over the scan); theta 1e-03: gap 8.05e-06, theta 1e-02: gap 8.05e-05, theta 1e-01: gap 8.02e-04, and the cell's smallest gap at the strongest coupling is 3.6e-06 at radius 0.005, and no point of the scan sits exactly gapless, so the Schur-protection expectation does not apply to this touching: V227 T1 and T2 measured it as a point of a gapless set of lines, not an isolated Weyl node whose mass term would have to anticommute with three generators. (T4) the spinless control has flux [0, None, 0] and the same kind of perturbation gaps it to 3.24e-04 at theta 1e-01.",
+  "data": {
+    "clock": 0.7853981633974483,
+    "branch": "closed",
+    "cell": {
+      "layers": 1,
+      "legs": [
+        4
+      ],
+      "dim": 384,
+      "gap_at_origin": 2.775557561562895e-17,
+      "zero_eigenphases": 192
+    },
+    "meshes": {
+      "3": {
+        "vertices": 92,
+        "triangles": 180,
+        "faces": 20,
+        "solid_angle_defect": 0.0
+      },
+      "4": {
+        "vertices": 162,
+        "triangles": 320,
+        "faces": 20,
+        "solid_angle_defect": 0.0
+      },
+      "5": {
+        "vertices": 252,
+        "triangles": 500,
+        "faces": 20,
+        "solid_angle_defect": 0.0
+      }
+    },
+    "instrument": {
+      "toy": {
+        "chern": 0.9999999999999996,
+        "nearest_integer": 1,
+        "integer_defect": 4.440892098500626e-16,
+        "sector": "negative",
+        "bands_in_sector": 1,
+        "min_link_overlap": 0.9510565162951531,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.0,
+        "radius": 0.3,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 42,
+        "mesh_triangles": 80
+      },
+      "toy_positive": {
+        "chern": -0.9999999999999994,
+        "nearest_integer": -1,
+        "integer_defect": 5.551115123125783e-16,
+        "sector": "positive",
+        "bands_in_sector": 1,
+        "min_link_overlap": 0.9510565162951531,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.0,
+        "radius": 0.3,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 42,
+        "mesh_triangles": 80
+      },
+      "toy_window_sweep": {
+        "chern": 0.9999999999999996,
+        "nearest_integer": 1,
+        "integer_defect": 4.440892098500626e-16,
+        "sector": "negative",
+        "bands_in_sector": 1,
+        "min_link_overlap": 0.9510565162951531,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.0,
+        "radius": 0.3,
+        "window": 1.2,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 42,
+        "mesh_triangles": 80
+      },
+      "toy_dense_phase": {
+        "frequency": null,
+        "radius": 0.3,
+        "sector": "negative",
+        "error": "no phase window in [1.571, 1.2, 0.9, 0.7, 0.5, 0.35, 0.2, 0.1, 0.05] keeps the sector size constant over the mesh: the sphere crosses a gap closing, or the eigenphases are too dense in phase to separate a branch",
+        "link_rank_ok": false,
+        "nearest_integer": null,
+        "integer_defect": null,
+        "min_link_overlap": 0.0,
+        "bands_in_sector": 0
+      }
+    },
+    "piercing": [
+      {
+        "radius": 0.003,
+        "mesh_points": 92,
+        "gapless_to_1e-12": 0,
+        "below_1e-6": 0,
+        "largest_gap": 0.0018045018854877548,
+        "line_points": 6,
+        "line_gapless_to_1e-12": 4,
+        "largest_line_gap": 1.4901161193847656e-08
+      },
+      {
+        "radius": 0.01,
+        "mesh_points": 92,
+        "gapless_to_1e-12": 0,
+        "below_1e-6": 0,
+        "largest_gap": 0.0060149732787535375,
+        "line_points": 6,
+        "line_gapless_to_1e-12": 5,
+        "largest_line_gap": 2.580956827951785e-08
+      },
+      {
+        "radius": 0.04,
+        "mesh_points": 92,
+        "gapless_to_1e-12": 0,
+        "below_1e-6": 0,
+        "largest_gap": 0.02405771639562283,
+        "line_points": 6,
+        "line_gapless_to_1e-12": 6,
+        "largest_line_gap": 0.0
+      }
+    ],
+    "point_node_reading_available": false,
+    "flux": [
+      {
+        "chern": 14.500000000000009,
+        "nearest_integer": 15,
+        "integer_defect": 0.4999999999999911,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 8.450169343198971e-19,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.000000000000003,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "chern": 16.00000000000001,
+        "nearest_integer": 16,
+        "integer_defect": 1.0658141036401503e-14,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 2.590926440538076e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.000000000000003,
+        "radius": 0.01,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "chern": 12.000000000000007,
+        "nearest_integer": 12,
+        "integer_defect": 7.105427357601002e-15,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 3.66694015885527e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.000000000000003,
+        "radius": 0.04,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "chern": 5.000000000107425,
+        "nearest_integer": 5,
+        "integer_defect": 1.0742517986273015e-10,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 4.24156614856491e-07,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.000000000000003,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 162,
+        "mesh_triangles": 320,
+        "frequency": 4
+      },
+      {
+        "frequency": 4,
+        "radius": 0.01,
+        "sector": "negative",
+        "error": "the sector changes size over the sphere: the mesh crosses a gap closing",
+        "link_rank_ok": false,
+        "nearest_integer": null,
+        "integer_defect": null,
+        "min_link_overlap": 0.0,
+        "bands_in_sector": 0
+      },
+      {
+        "frequency": 4,
+        "radius": 0.04,
+        "sector": "negative",
+        "error": "the sector changes size over the sphere: the mesh crosses a gap closing",
+        "link_rank_ok": false,
+        "nearest_integer": null,
+        "integer_defect": null,
+        "min_link_overlap": 0.0,
+        "bands_in_sector": 0
+      },
+      {
+        "chern": 33.999999999999964,
+        "nearest_integer": 34,
+        "integer_defect": 3.552713678800501e-14,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 1.6055076585980778e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000036,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      },
+      {
+        "chern": 34.49999999999996,
+        "nearest_integer": 34,
+        "integer_defect": 0.49999999999995737,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 3.497281417770075e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000038,
+        "radius": 0.01,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      },
+      {
+        "chern": 24.500000000000004,
+        "nearest_integer": 25,
+        "integer_defect": 0.49999999999999645,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 2.0148839857342237e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.000000000000003,
+        "radius": 0.04,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      }
+    ],
+    "mirror": [
+      {
+        "chern": 20.000000000000014,
+        "nearest_integer": 20,
+        "integer_defect": 1.4210854715202004e-14,
+        "sector": "positive",
+        "bands_in_sector": 96,
+        "min_link_overlap": 3.603624322412169e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000029,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "frequency": 4,
+        "radius": 0.01,
+        "sector": "positive",
+        "error": "the sector changes size over the sphere: the mesh crosses a gap closing",
+        "link_rank_ok": false,
+        "nearest_integer": null,
+        "integer_defect": null,
+        "min_link_overlap": 0.0,
+        "bands_in_sector": 0
+      },
+      {
+        "chern": 25.999999999999996,
+        "nearest_integer": 26,
+        "integer_defect": 3.552713678800501e-15,
+        "sector": "positive",
+        "bands_in_sector": 96,
+        "min_link_overlap": 2.5401547780542187e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000029,
+        "radius": 0.04,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      }
+    ],
+    "pair": [
+      {
+        "chern": 4.000000471738706,
+        "nearest_integer": 4,
+        "integer_defect": 4.7173870587613465e-07,
+        "sector": "pair",
+        "bands_in_sector": 2,
+        "min_link_overlap": 2.791226946871202e-17,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000016,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "chern": 2.0000000000001172,
+        "nearest_integer": 2,
+        "integer_defect": 1.1723955140041653e-13,
+        "sector": "pair",
+        "bands_in_sector": 2,
+        "min_link_overlap": 4.1737419261030124e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000016,
+        "radius": 0.01,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 162,
+        "mesh_triangles": 320,
+        "frequency": 4
+      },
+      {
+        "chern": 1.000000000001336,
+        "nearest_integer": 1,
+        "integer_defect": 1.3360423878339134e-12,
+        "sector": "pair",
+        "bands_in_sector": 2,
+        "min_link_overlap": 2.0432619802890706e-18,
+        "link_rank_ok": false,
+        "frame_condition_max": 1.0000000000000016,
+        "radius": 0.04,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      }
+    ],
+    "elsewhere": [
+      {
+        "chern": 1.663792944577826e-15,
+        "nearest_integer": 0,
+        "integer_defect": 1.663792944577826e-15,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 0.9999996739668224,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.0000000000000036,
+        "radius": 0.003,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 92,
+        "mesh_triangles": 180,
+        "frequency": 3
+      },
+      {
+        "chern": 9.637933710160509e-16,
+        "nearest_integer": 0,
+        "integer_defect": 9.637933710160509e-16,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 0.9999978505026531,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.0000000000000036,
+        "radius": 0.01,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 162,
+        "mesh_triangles": 320,
+        "frequency": 4
+      },
+      {
+        "chern": -2.648225598069053e-15,
+        "nearest_integer": 0,
+        "integer_defect": 2.648225598069053e-15,
+        "sector": "negative",
+        "bands_in_sector": 96,
+        "min_link_overlap": 0.9999774122273639,
+        "link_rank_ok": true,
+        "frame_condition_max": 1.000000000000004,
+        "radius": 0.04,
+        "window": 1.5707963267948966,
+        "window_chosen_by_ladder": true,
+        "mesh_points": 252,
+        "mesh_triangles": 500,
+        "frequency": 5
+      }
+    ],
+    "gapped_probe": {
+      "q": [
+        0.21,
+        0.07,
+        0.13
+      ],
+      "gap": 0.06835039568698904
+    },
+    "invariant_generator": {
+      "obstruction": 1.4475537224895361e-15,
+      "norm": 7.307107148632977
+    },
+    "mass_scan": [
+      {
+        "theta": 0.001,
+        "gap_at_origin": 8.045661170726963e-06,
+        "min_gap_found": 8.045661170726963e-06,
+        "radius": 0.0,
+        "direction": [
+          -1.0416012055487326e-16,
+          -0.5257311121191331,
+          0.8506508083520402
+        ]
+      },
+      {
+        "theta": 0.01,
+        "gap_at_origin": 8.045193648228159e-05,
+        "min_gap_found": 3.6336230264113447e-06,
+        "radius": 0.005,
+        "direction": [
+          1.0416012055487326e-16,
+          0.5257311121191331,
+          -0.8506508083520402
+        ]
+      },
+      {
+        "theta": 0.1,
+        "gap_at_origin": 0.0008020719548113278,
+        "min_gap_found": 1.2335281681067361e-05,
+        "radius": 0.01,
+        "direction": [
+          0.85065080835204,
+          8.622713346732012e-17,
+          -0.5257311121191336
+        ]
+      }
+    ],
+    "displaced_charge": null,
+    "control_scalar": {
+      "invariant_obstruction": 1.4475537224895361e-15,
+      "flux": [
+        {
+          "chern": 5.629242410454555e-16,
+          "nearest_integer": 0,
+          "integer_defect": 5.629242410454555e-16,
+          "sector": "negative",
+          "bands_in_sector": 192,
+          "min_link_overlap": 0.9999989494723848,
+          "link_rank_ok": true,
+          "frame_condition_max": 1.0000000000000049,
+          "radius": 0.003,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180,
+          "frequency": 3
+        },
+        {
+          "frequency": 4,
+          "radius": 0.01,
+          "sector": "negative",
+          "error": "the sector changes size over the sphere: the mesh crosses a gap closing",
+          "link_rank_ok": false,
+          "nearest_integer": null,
+          "integer_defect": null,
+          "min_link_overlap": 0.0,
+          "bands_in_sector": 0
+        },
+        {
+          "chern": -1.0256320113564605e-14,
+          "nearest_integer": 0,
+          "integer_defect": 1.0256320113564605e-14,
+          "sector": "negative",
+          "bands_in_sector": 192,
+          "min_link_overlap": 0.9999283807746514,
+          "link_rank_ok": true,
+          "frame_condition_max": 1.000000000000005,
+          "radius": 0.04,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 252,
+          "mesh_triangles": 500,
+          "frequency": 5
+        }
+      ],
+      "gap_scan": [
+        {
+          "theta": 0.001,
+          "gap_at_origin": 2.0310998781211068e-06
+        },
+        {
+          "theta": 0.01,
+          "gap_at_origin": 2.137618187610975e-05
+        },
+        {
+          "theta": 0.1,
+          "gap_at_origin": 0.0003241605155051671
+        }
+      ]
+    },
+    "engine": {
+      "backend": "cupy",
+      "einops": true,
+      "kingdon": true,
+      "array": "ndarray",
+      "gpu_min_free_mib": 2048,
+      "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
+      "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
+      "eig_verification": {
+        "tolerance": 1e-06,
+        "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
+        "calls": 0,
+        "rejected": 0
+      },
+      "pool_njobs": 8
+    },
+    "checks": [
+      {
+        "name": "T0a the instrument is right before it is used: the two-level Weyl step of known charge comes back with that charge, the sector bookkeeping reverses with the sector, a band sweeping the half-circle window is survived by the window ladder, and a phase spanning the ladder is refused",
+        "pass": true,
+        "detail": "toy Weyl: C = +1.000000 (defect 4.4e-16, 1 band in sector, window 1.571, min link overlap 0.9511); positive sector -1 (the pair must cancel); sweep variant: C = 1 with the window narrowed to 1.200 of the ladder [1.571, 1.2, 0.9, 0.7, 0.5, 0.35]; dense variant refused: no phase window in [1.571, 1.2, 0.9, 0.7, 0.5, 0.35, 0.2, 0.1, 0.05] keeps the s"
+      },
+      {
+        "name": "T0b the question is settled before any flux is read: on the mesh's own directions *and* on the cell's measured gapless lines, either no sphere about the touching is pierced, or every one of them is",
+        "pass": true,
+        "detail": "r 3.0e-03: 0 of 92 mesh directions gapless to 1e-12 (0 below 1e-6, largest gap 1.805e-03), while 4 of 6 signed coordinate-axis directions are exactly gapless (largest line gap 1.5e-08); r 1.0e-02: 0 of 92 mesh directions gapless to 1e-12 (0 below 1e-6, largest gap 6.015e-03), while 5 of 6 signed coordinate-axis directions are exactly gapless (largest line gap 2.6e-08); r 4.0e-02: 0 of 92 mesh directions gapless to 1e-12 (0 below 1e-6, largest gap 2.406e-02), while 6 of 6 signed coordinate-axis directions are exactly gapless (largest line gap 0.0e+00) -- every sphere about the zone centre is pierced by a gapless line of the cell itself: the touching is a point of a gapless set, not an isolated node. The icosahedral mesh misses those lines by gaps of 1.8e-03 down to 2.4e-02, which is why it looks clean and why any sphere flux read on it is a mesh artefact, exactly as V227 T2 found for the locus points."
+      },
+      {
+        "name": "T1 the flux question at the touching comes out one way or the other: either the mesh-refined spheres keep their rank and agree, or the piercing of T0b closes the question and the ladder's disagreement is the record of that",
+        "pass": true,
+        "detail": "1 of 9 spheres kept full link rank (mesh frequencies [3, 4, 5], radii [0.003, 0.01, 0.04]); the trusted readings are [5] with largest integer defect 1.07e-10 and smallest kept link overlap 4.2e-07; the untrusted readings at the same radius run [15, 16, 12, None, None, 34, 34, 25] -- a spread of 29 across the refinement ladder, which is not a charge; 8 spheres failed or lost rank: ['the sector changes size over the sphere: the mesh crosses a gap closin']. The mesh is the icosahedron's own (20 faces, [(0, 6, 1), (6, 7, 1), (1, 7, 2), (7, 8, 2), (2, 8, 3), (8, 9, 3), (3, 9, 4), (9, 10, 4), (4, 10, 5), (6, 11, 7), (11, 12, 7), (7, 12, 8), (12, 13, 8), (8, 13, 9), (13, 14, 9), (9, 14, 10), (11, 15, 12), (15, 16, 12), (12, 16, 13), (16, 17, 13), (13, 17, 14), (15, 18, 16), (18, 19, 16), (16, 19, 17), (18, 20, 19), (0, 1, 21), (1, 26, 21), (21, 26, 22), (26, 27, 22), (22, 27, 23), (27, 28, 23), (23, 28, 24), (28, 29, 24), (24, 29, 25), (1, 2, 26), (2, 30, 26), (26, 30, 27), (30, 31, 27), (27, 31, 28), (31, 32, 28), (28, 32, 29), (2, 3, 30), (3, 33, 30), (30, 33, 31), (33, 34, 31), (31, 34, 32), (3, 4, 33), (4, 35, 33), (33, 35, 34), (4, 5, 35), (0, 36, 6), (36, 37, 6), (6, 37, 11), (37, 38, 11), (11, 38, 15), (38, 39, 15), (15, 39, 18), (39, 40, 18), (18, 40, 20), (36, 41, 37), (41, 42, 37), (37, 42, 38), (42, 43, 38), (38, 43, 39), (43, 44, 39), (39, 44, 40), (41, 45, 42), (45, 46, 42), (42, 46, 43), (46, 47, 43), (43, 47, 44), (45, 48, 46), (48, 49, 46), (46, 49, 47), (48, 50, 49), (0, 51, 36), (51, 52, 36), (36, 52, 41), (52, 53, 41), (41, 53, 45), (53, 54, 45), (45, 54, 48), (54, 55, 48), (48, 55, 50), (51, 56, 52), (56, 57, 52), (52, 57, 53), (57, 58, 53), (53, 58, 54), (58, 59, 54), (54, 59, 55), (56, 60, 57), (60, 61, 57), (57, 61, 58), (61, 62, 58), (58, 62, 59), (60, 63, 61), (63, 64, 61), (61, 64, 62), (63, 65, 64), (0, 21, 51), (21, 66, 51), (51, 66, 56), (66, 67, 56), (56, 67, 60), (67, 68, 60), (60, 68, 63), (68, 69, 63), (63, 69, 65), (21, 22, 66), (22, 70, 66), (66, 70, 67), (70, 71, 67), (67, 71, 68), (71, 72, 68), (68, 72, 69), (22, 23, 70), (23, 73, 70), (70, 73, 71), (73, 74, 71), (71, 74, 72), (23, 24, 73), (24, 75, 73), (73, 75, 74), (24, 25, 75), (5, 10, 76), (10, 81, 76), (76, 81, 77), (81, 82, 77), (77, 82, 78), (82, 83, 78), (78, 83, 79), (83, 84, 79), (79, 84, 80), (10, 14, 81), (14, 85, 81), (81, 85, 82), (85, 86, 82), (82, 86, 83), (86, 87, 83), (83, 87, 84), (14, 17, 85), (17, 88, 85), (85, 88, 86), (88, 89, 86), (86, 89, 87), (17, 19, 88), (19, 90, 88), (88, 90, 89), (19, 20, 90), (5, 76, 91), (76, 96, 91), (91, 96, 92), (96, 97, 92), (92, 97, 93), (97, 98, 93), (93, 98, 94), (98, 99, 94), (94, 99, 95), (76, 77, 96), (77, 100, 96), (96, 100, 97), (100, 101, 97), (97, 101, 98), (101, 102, 98), (98, 102, 99), (77, 78, 100), (78, 103, 100), (100, 103, 101), (103, 104, 101), (101, 104, 102), (78, 79, 103), (79, 105, 103), (103, 105, 104), (79, 80, 105), (5, 91, 35), (91, 106, 35), (35, 106, 34), (106, 107, 34), (34, 107, 32), (107, 108, 32), (32, 108, 29), (108, 109, 29), (29, 109, 25), (91, 92, 106), (92, 110, 106), (106, 110, 107), (110, 111, 107), (107, 111, 108), (111, 112, 108), (108, 112, 109), (92, 93, 110), (93, 113, 110), (110, 113, 111), (113, 114, 111), (111, 114, 112), (93, 94, 113), (94, 115, 113), (113, 115, 114), (94, 95, 115), (80, 84, 116), (84, 121, 116), (116, 121, 117), (121, 122, 117), (117, 122, 118), (122, 123, 118), (118, 123, 119), (123, 124, 119), (119, 124, 120), (84, 87, 121), (87, 125, 121), (121, 125, 122), (125, 126, 122), (122, 126, 123), (126, 127, 123), (123, 127, 124), (87, 89, 125), (89, 128, 125), (125, 128, 126), (128, 129, 126), (126, 129, 127), (89, 90, 128), (90, 130, 128), (128, 130, 129), (90, 20, 130), (80, 116, 131), (116, 136, 131), (131, 136, 132), (136, 137, 132), (132, 137, 133), (137, 138, 133), (133, 138, 134), (138, 139, 134), (134, 139, 135), (116, 117, 136), (117, 140, 136), (136, 140, 137), (140, 141, 137), (137, 141, 138), (141, 142, 138), (138, 142, 139), (117, 118, 140), (118, 143, 140), (140, 143, 141), (143, 144, 141), (141, 144, 142), (118, 119, 143), (119, 145, 143), (143, 145, 144), (119, 120, 145), (80, 131, 105), (131, 146, 105), (105, 146, 104), (146, 147, 104), (104, 147, 102), (147, 148, 102), (102, 148, 99), (148, 149, 99), (99, 149, 95), (131, 132, 146), (132, 150, 146), (146, 150, 147), (150, 151, 147), (147, 151, 148), (151, 152, 148), (148, 152, 149), (132, 133, 150), (133, 153, 150), (150, 153, 151), (153, 154, 151), (151, 154, 152), (133, 134, 153), (134, 155, 153), (153, 155, 154), (134, 135, 155), (50, 156, 49), (156, 157, 49), (49, 157, 47), (157, 158, 47), (47, 158, 44), (158, 159, 44), (44, 159, 40), (159, 130, 40), (40, 130, 20), (156, 160, 157), (160, 161, 157), (157, 161, 158), (161, 162, 158), (158, 162, 159), (162, 129, 159), (159, 129, 130), (160, 163, 161), (163, 164, 161), (161, 164, 162), (164, 127, 162), (162, 127, 129), (163, 165, 164), (165, 124, 164), (164, 124, 127), (165, 120, 124), (50, 166, 156), (166, 167, 156), (156, 167, 160), (167, 168, 160), (160, 168, 163), (168, 169, 163), (163, 169, 165), (169, 170, 165), (165, 170, 120), (166, 171, 167), (171, 172, 167), (167, 172, 168), (172, 173, 168), (168, 173, 169), (173, 174, 169), (169, 174, 170), (171, 175, 172), (175, 176, 172), (172, 176, 173), (176, 177, 173), (173, 177, 174), (175, 178, 176), (178, 179, 176), (176, 179, 177), (178, 180, 179), (50, 55, 166), (55, 181, 166), (166, 181, 171), (181, 182, 171), (171, 182, 175), (182, 183, 175), (175, 183, 178), (183, 184, 178), (178, 184, 180), (55, 59, 181), (59, 185, 181), (181, 185, 182), (185, 186, 182), (182, 186, 183), (186, 187, 183), (183, 187, 184), (59, 62, 185), (62, 188, 185), (185, 188, 186), (188, 189, 186), (186, 189, 187), (62, 64, 188), (64, 190, 188), (188, 190, 189), (64, 65, 190), (120, 170, 145), (170, 191, 145), (145, 191, 144), (191, 192, 144), (144, 192, 142), (192, 193, 142), (142, 193, 139), (193, 194, 139), (139, 194, 135), (170, 174, 191), (174, 195, 191), (191, 195, 192), (195, 196, 192), (192, 196, 193), (196, 197, 193), (193, 197, 194), (174, 177, 195), (177, 198, 195), (195, 198, 196), (198, 199, 196), (196, 199, 197), (177, 179, 198), (179, 200, 198), (198, 200, 199), (179, 180, 200), (135, 194, 201), (194, 206, 201), (201, 206, 202), (206, 207, 202), (202, 207, 203), (207, 208, 203), (203, 208, 204), (208, 209, 204), (204, 209, 205), (194, 197, 206), (197, 210, 206), (206, 210, 207), (210, 211, 207), (207, 211, 208), (211, 212, 208), (208, 212, 209), (197, 199, 210), (199, 213, 210), (210, 213, 211), (213, 214, 211), (211, 214, 212), (199, 200, 213), (200, 215, 213), (213, 215, 214), (200, 180, 215), (135, 201, 155), (201, 216, 155), (155, 216, 154), (216, 217, 154), (154, 217, 152), (217, 218, 152), (152, 218, 149), (218, 219, 149), (149, 219, 95), (201, 202, 216), (202, 220, 216), (216, 220, 217), (220, 221, 217), (217, 221, 218), (221, 222, 218), (218, 222, 219), (202, 203, 220), (203, 223, 220), (220, 223, 221), (223, 224, 221), (221, 224, 222), (203, 204, 223), (204, 225, 223), (223, 225, 224), (204, 205, 225), (180, 184, 215), (184, 226, 215), (215, 226, 214), (226, 227, 214), (214, 227, 212), (227, 228, 212), (212, 228, 209), (228, 229, 209), (209, 229, 205), (184, 187, 226), (187, 230, 226), (226, 230, 227), (230, 231, 227), (227, 231, 228), (231, 232, 228), (228, 232, 229), (187, 189, 230), (189, 233, 230), (230, 233, 231), (233, 234, 231), (231, 234, 232), (189, 190, 233), (190, 235, 233), (233, 235, 234), (190, 65, 235), (65, 69, 235), (69, 236, 235), (235, 236, 234), (236, 237, 234), (234, 237, 232), (237, 238, 232), (232, 238, 229), (238, 239, 229), (229, 239, 205), (69, 72, 236), (72, 240, 236), (236, 240, 237), (240, 241, 237), (237, 241, 238), (241, 242, 238), (238, 242, 239), (72, 74, 240), (74, 243, 240), (240, 243, 241), (243, 244, 241), (241, 244, 242), (74, 75, 243), (75, 245, 243), (243, 245, 244), (75, 25, 245), (95, 219, 115), (219, 246, 115), (115, 246, 114), (246, 247, 114), (114, 247, 112), (247, 248, 112), (112, 248, 109), (248, 245, 109), (109, 245, 25), (219, 222, 246), (222, 249, 246), (246, 249, 247), (249, 250, 247), (247, 250, 248), (250, 244, 248), (248, 244, 245), (222, 224, 249), (224, 251, 249), (249, 251, 250), (251, 242, 250), (250, 242, 244), (224, 225, 251), (225, 239, 251), (251, 239, 242), (225, 205, 239)] triangles at frequency 5), and T0b shows every one of these spheres is crossed by the cell's gapless axes -- the answer is that no Chern number is defined at this touching, not that the ladder needs another triangulation."
+      },
+      {
+        "name": "T2 the sector bookkeeping is asserted only where a sphere can be read: spheres about a gapped point give exactly zero, and at the touching a sector clause binds only on spheres that kept their link rank",
+        "pass": true,
+        "detail": "node at the zone centre: gap 2.8e-17, 192 zero eigenphases of 384, Chern +5 on the single sphere that kept rank (see T0b/T1: the reading is not corroborated by the ladder); at the node the positive sector reads [20, None, 26] and the two-band sector [4, 2, 1], with 0 and 0 of the 3 spheres trusted -- no sector sphere at the node kept rank, so these two clauses cannot be exercised at this touching -- T0b and T1 say why: every sphere about it is cut by a gapless line; at the gapped point [np.float64(0.21), np.float64(0.07), np.float64(0.13)] (gap 0.0684) all 3 of 3 spheres keep rank and give [0, 0, 0] with defects ['1.7e-15', '9.6e-16', '2.6e-15']: the flux belongs to a gapless touching, not to the band structure"
+      },
+      {
+        "name": "T3 the invariant switch-on is decided: this symmetry-respecting class either masses the zone-centre touching linearly in the coupling or it does not -- and where the cell is least gapped under the switch-on, and whether a sphere can be read there, are read off the scan",
+        "pass": true,
+        "detail": "the invariant generator is symmetry-respecting to 1.4e-15 (exact group average over 120 lifts, norm 7.307, operator normalised to unit spectral scale); switched on: theta 1e-03: gap at the zone centre 8.05e-06, smallest gap found 8.0e-06 at radius 0.000, theta 1e-02: gap at the zone centre 8.05e-05, smallest gap found 3.6e-06 at radius 0.005, theta 1e-01: gap at the zone centre 8.02e-04, smallest gap found 1.2e-05 at radius 0.010 -- consecutive gap ratios [9.999, 9.97] against the coupling ratios [10.0, 10.0]. the class contains a symmetry-respecting term that masses the zone-centre touching, and it masses it linearly in the coupling (gap/theta constant to 0.3% over the scan). The cell's smallest gap at that coupling is 3.6e-06 at radius 0.005, against the zone-centre gap 8.02e-04: a smaller gap opens away from the zone centre, so the touching is not where the cell is least gapped. No displaced point was located to scan."
+      },
+      {
+        "name": "T4 control without spin: the same kind of symmetry-respecting perturbation gaps the quadratic touching, so the protection is the cone's and not the perturbation's weakness",
+        "pass": true,
+        "detail": "the scalar bond assignment (inversion a symmetry, touching quadratic) gives Chern [0, None, 0] on the same spheres -- the charge of a touching, quadratic or not, is quantised the same way -- and the invariant perturbation (obstruction 1.4e-15) opens its gap to 2.03e-06 at theta 1e-03, 2.14e-05 at theta 1e-02, 3.24e-04 at theta 1e-01, where the Clifford cell's gap at the same moment is 8.02e-04 with a node still present at radius not found"
+      }
+    ]
+  },
+  "wall_time": 972.071
+}

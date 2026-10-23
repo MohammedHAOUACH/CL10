@@ -1,0 +1,111 @@
+{
+  "id": "V172_self_energy_flow",
+  "tier": 4,
+  "property": "static Fock self-energy of the block contact on the M-node cone: dressed anisotropy A(dq) at three scales, cubic-harmonic content and |k| scaling of Sigma",
+  "residual": true,
+  "pass": true,
+  "status": "ONE-LOOP ANISOTROPY FLOW (3 rows, normal-ordered: the k-independent tadpole is absorbed in the node; all 12 M-node singularities excluded, ray-subtracted). The self-energy is A1g-dominant (w_A1g = 0.0000 at dq=1e-4) and its anisotropic part scales as |k|^1.00 - the SAME power as the bare cone, so the contact self-energy is MARGINAL, not irrelevant. The dressed anisotropy is NOT grid-convergent: grids 24 vs 32 disagree by 6.6e-01 on A_dressed(1e-3) (A_dressed = 0.0470 vs bare 0.1002 at dq=1e-4, U_c = g_10). The static Fock approximation is IR-sensitive on the W9 cone (the exactly flat tangent axis, V118, makes the static propagator non-integrable) - the one-loop flow is INCONCLUSIVE at this order. The convergent statements of the branch are V171 (vertex irrelevant, alpha=2) and V173 (block-RG marginal).",
+  "data": {
+    "rows": [
+      {
+        "U_c": 0.2,
+        "A_dressed": {
+          "0.01": 0.978049476808618,
+          "0.001": 0.4697186141264599,
+          "0.0001": 0.046966359463719166
+        },
+        "A_bare": {
+          "0.01": 0.8463067689080986,
+          "0.001": 0.9979846405782179,
+          "0.0001": 0.10018473013513782
+        },
+        "dA_vs_free": -0.05321837067141865,
+        "shift_1e-3": 0.528266026451758,
+        "w_A1g_Sigma": {
+          "0.01": 1.0328459981053474e-05,
+          "0.001": 1.0328515533023613e-07,
+          "0.0001": 1.0328566696095175e-09
+        },
+        "w_aniso_Sigma": {
+          "0.01": 4.157928612427035e-07,
+          "0.001": 4.157975954748352e-09,
+          "0.0001": 4.1579947455075174e-11
+        },
+        "alpha_aniso_Sigma": 1.0001744906239207,
+        "isotropic": false
+      },
+      {
+        "U_c": 0.7853981633974483,
+        "A_dressed": {
+          "0.01": 0.9017400881223251,
+          "0.001": 0.9756441751979166,
+          "0.0001": 0.10880298453680645
+        },
+        "A_bare": {
+          "0.01": 0.8463067689080986,
+          "0.001": 0.9979846405782179,
+          "0.0001": 0.10018473013513782
+        },
+        "dA_vs_free": 0.008618254401668635,
+        "shift_1e-3": 0.022340465380301322,
+        "w_A1g_Sigma": {
+          "0.01": 1.032845998111601e-05,
+          "0.001": 1.0328515528998706e-07,
+          "0.0001": 1.0328566349125855e-09
+        },
+        "w_aniso_Sigma": {
+          "0.01": 4.1579286123025616e-07,
+          "0.001": 4.157976005379152e-09,
+          "0.0001": 4.1579853214334025e-11
+        },
+        "alpha_aniso_Sigma": 1.0001744906239207,
+        "isotropic": false
+      },
+      {
+        "U_c": 1.5707963267948966,
+        "A_dressed": {
+          "0.01": 0.9369112097430657,
+          "0.001": 0.9979851838238412,
+          "0.0001": 0.3177897915881461
+        },
+        "A_bare": {
+          "0.01": 0.8463067689080986,
+          "0.001": 0.9979846405782179,
+          "0.0001": 0.10018473013513782
+        },
+        "dA_vs_free": 0.21760506145300826,
+        "shift_1e-3": 5.432456232634664e-07,
+        "w_A1g_Sigma": {
+          "0.01": 1.032845998111601e-05,
+          "0.001": 1.0328515528998706e-07,
+          "0.0001": 1.0328566349125855e-09
+        },
+        "w_aniso_Sigma": {
+          "0.01": 4.1579286123025616e-07,
+          "0.001": 4.157976005379152e-09,
+          "0.0001": 4.1579853214334025e-11
+        },
+        "alpha_aniso_Sigma": 1.0001744906239205,
+        "isotropic": false
+      }
+    ],
+    "node": [
+      1.5707963267948966,
+      1.5707963267948966,
+      0.0
+    ],
+    "dqs": [
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "route_dev": [
+      0.19632628241767935,
+      0.6584291154317439,
+      0.023876802104236705
+    ],
+    "grid_converged": false,
+    "candidates": []
+  },
+  "wall_time": 3247.688
+}

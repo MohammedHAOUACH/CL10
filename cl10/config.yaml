@@ -1,0 +1,240 @@
+# CL10 — the single configuration file.
+#
+# Every number the code carries as a literal lives here.  One edit here is
+# picked up by the engine and by every module that reads it; nothing has to be
+# changed file by file.  Loaded by cl10/config.py; the environment overrides the
+# file (CL10_BACKEND, CL10_GPU_MIN_FREE_MIB, CL10_ANGLE, CL10_NJOBS, CL10_SMOKE).
+#
+# Provenance is a property of the *value*, not of this file: the labels
+# (measured / convention / derived / open) are stated in doc/final_publication.md
+# Section 15 and in doc/api.md.  Changing a value here does not change its
+# provenance, and the experiments re-measure whatever they check.
+
+backend:
+  # tried in order; the first that passes its probe wins
+  priority: [cupy, jax, numpy]
+  # null = auto.  "numpy"/"cpu" forces the CPU core, "cupy"/"jax" pins a GPU core.
+  # A pinned GPU core skips the gate below and never falls back: the run fails
+  # loudly if the card cannot host it (run_experiments.sh pins cupy after checking the card).
+  force: null
+  # auto mode only: a card with less than this free is not committed to; a
+  # saturated card lets tiny probe ops through but queues real work indefinitely
+  # (measured: the CL10 batches are tens of MB, but cuSOLVER handles need headroom).
+  gpu_min_free_mib: 2048
+  # which physical card is NOT decided here: the simulations own that choice in
+  # their own panel (gpu: in simulation/{young,hydrogen,blackhole}/config.yaml),
+  # and make_figures / run_figures.sh read it from simulation/young/config.yaml.
+  # One key per concern: this file owns the backend and its gate, the panels own
+  # the scene and the card.
+  probe:
+    # the allocation the backend probe makes before committing (float64 elements)
+    elements: 4194304          # 1 << 22  = 32 MiB
+    # the dense linear algebra the probe runs (cuBLAS + cuSOLVER handles)
+    matrix_dim: 64
+  jax:
+    # XLA preallocates a fraction of the card; 0.5 leaves room for the other tenant
+    mem_fraction: 0.5
+    # the repository works at 1e-12 and below: float32/complex64 would break every
+    # tolerance, so x64 is enabled before the first array is built
+    enable_x64: true
+
+routing:
+  # Where the GPU actually wins.  These are measured on this host (2x RTX 3090,
+  # 12 cores), not guesses: cupy's per-call overhead is ~50 ms on a 128x128
+  # eigendecomposition against ~8 ms for numpy, so small matrices go to the host
+  # and the parallelism comes from the process pool (cl10/parpool.py).
+  # Raise eig_gpu_min_dim only if a batched device eigensolver is wired in.
+  device_min_dim: 64           # matmul / kron / einsum on square matrices at least this wide stay on the device
+  eig_gpu_min_dim: 512         # eigendecomposition on the device only above this size
+
+pool:
+  # the worker count of everything that fans out: the experiment runner
+  # (run_validation.py --jobs), the process pool inside the experiments
+  # (cl10/parpool.py) and the shell entry point (run_experiments.sh JOBS).
+  # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides.
+  njobs: 8
+  njobs_cap: 8
+
+physics:
+  # measured inputs, at the best published precision: ONE value per quantity,
+  # here and nowhere else (the code reads the library names for them).
+  m_planck_gev: 1.220890e+19  # PDG 2024 / CODATA 2022: (1.220890 +- 0.000014)e19 GeV.
+                              # the lattice cutoff; M_GUT = M_P is NOT assumed
+  proton_mass_gev: 0.93827208943   # CODATA 2022: 938.27208943 MeV (the proton in the lifetime formula)
+  v_electroweak_gev: 246.22   # GeV, v = (sqrt(2) G_F)^-1/2 from muon decay (PDG)
+  omega_dm_h2: 0.120          # the observed cold-DM density: Planck 2018 0.1200 +- 0.0012
+  weak_scale_gev: 100.0       # GeV, the WIMP-miracle window center (a convention)
+  wimp_window_gev: [1.0e+2, 1.0e+3]   # GeV, the observed WIMP window the 0-parameter
+                                      # DM scale is compared against (point 4)
+  hydrogen_rydberg_ev: 13.605693   # the hydrogen ionisation energy (CODATA), the
+                                   # atomic input of simulation/hydrogen
+  # numbers of the root
+  n_gen: 10                    # the Cl(10) generators = the ladder length
+  n_space: 3                   # the spatial directions of the cell
+  n_subsites: 8                # the 2x2x2 block
+  n_internal: 32               # the Cl(10,0) module per sub-site
+  # (n_qubits = log2(n_internal) is derived by the loader, not written twice)
+  n_sector: 16                 # the Weyl sector (the +i eigenspace of w)
+  # the loop factor of the ladder; null -> 1 / (16 pi)
+  loop_factor: null
+
+  # the measured hierarchy inputs of Section 12.1: F_10 on the closed traced
+  # word census at the rung-10 clock g = 1/5 (V85/V113) - the clock nature
+  # reads, measured to relative 1e-5 (V206).  Neither observed ratio is written
+  # here: the loader derives v_over_mplanck_observed as
+  # v_electroweak_gev / m_planck_gev = 2.0167255e-17 (the number the artefacts
+  # of V52/V53 carry) and hierarchy_coefficient_observed as that quotient in
+  # units of loop^10 = 2.0765641 (the number V59/V108/V203 compute).  Five-digit
+  # copies of either in this file were second values for one measured quantity.
+  f_10_measured: 0.019186
+  # the V38 0-parameter quote of the ratio (the ladder reading of v/M_P); the
+  # 0.18% match against the observed value above is the 2-digit coincidence
+  # of Section 15, Point 2
+  v_over_mplanck_claimed_0param: 2.02e-17
+
+units:
+  # exact conversions, not tunable inputs
+  gev_to_s: 6.582119569e-25   # hbar in GeV s (exact since the 2019 SI redefinition)
+  s_to_yr: 3.15576e+07        # the Julian year, 365.25 x 86400 s (exact)
+  gev2_to_cm2: 3.89379338e-28 # (hbar c)^2: 1 GeV^-2 in cm^2
+  c_cm_s: 2.99792458e+10      # the speed of light in cm/s (exact)
+  ev_per_gev: 1.0e+9            # 1 GeV = 10^9 eV (exact decimal prefix): the one
+                                # conversion every eV quote of the ladder uses
+
+sm:
+  # the measured Standard Model inputs the running and the electroweak sector read
+  m_z_gev: 91.1876             # PDG 2024 world average
+  # the one-loop beta-function coefficients (b1, b2, b3) of the SM content
+  beta1: 4.1                   # 41/10
+  beta2: -3.1666666666666665   # -19/6
+  beta3: -7                    # -7 (an integer in the SM convention)
+  # the gauge couplings at M_Z (a1 GUT-normalised: a1^-1 = 59.0)
+  alpha1_mz: 0.0169
+  alpha2_mz: 0.0338
+  alpha3_mz: 0.118
+  # the two-loop coefficients (b21, b22, b23) of the SM content
+  beta21: 7.96                 # 199/25
+  beta22: 9.26                 # 25/2 - 27/50*6
+  beta23: -38.46666666666666   # -143/3 + 23/15*6
+  sphaleron: 0.35443037974683544   # the SM conversion factor, 28/79
+  higgs_mass_gev: 125.25      # the Higgs pole mass (PDG 2024: 125.25 +- 0.17)
+  alpha_em_inv: 127.9         # the electromagnetic coupling at M_Z (PDG)
+  delta_b_obs: 6.12e-10       # the observed baryon asymmetry n_B/n_gamma (Planck 2018)
+  # the observed 1-loop meeting scale of the three couplings (the MSSM-scale
+  # reference the desert and the forcing checks compare against)
+  m_unification_obs_gev: 2.0e+16
+
+angle:
+  # the one parameter of the step (Section 1.4).  The closure axiom (Theorem 6)
+  # fixes the physical clock: default_branch is the order-8 root.  The 1/5 entry
+  # is the reference spectrum of the Wilson family (convention 1/n_qubits), not a
+  # clock; CL10_ANGLE overrides.
+  default_branch: closed
+  branches:
+    implemented: 0.2           # reference spectrum 1/5 (Wilson family; not the clock)
+    closed: 0.7853981633974483 # pi/4, order 8 - the root clock (closure axiom, V131)
+    half: 1.5707963267948966   # pi/2, order 4 (the second closed root, reference only)
+  # the rotation-squared reading alpha_10 = g^2 at the reference angle 1/5; kept
+  # as the exact 1/25 rather than recomputed (0.2**2 is not 0.04 in binary).  The
+  # desert solution runs at that same clock, so its coupling is this number - the
+  # anchor below, not another copy of it.
+  alpha_10: &alpha_10 0.04
+  # the second coupling reading: g_0 = 1/2^n_space (a convention, Section 15)
+  g0_from_n_space: true
+
+desert:
+  # the fitted thresholds of the desert solution (V64) - conditional, not derived
+  # the root direction of the Wilson term (V65, the X_1 selective root): the
+  # angle the ladder is read at, at the precision the root was measured at
+  theta_root_rad: 1.7307836435290485
+  m_x_gev: 1.8e+16
+  alpha_x: *alpha_10          # alpha_10: the meeting coupling 1/25 at the 1/5 clock
+                              # (the closed-angle reading pi/64 = 0.049087 is computed
+                              # by cl10.coupling.alpha_std, never written here)
+  # the same solution at the closed angle (V133): the threshold ordering breaks
+  m_x_closed_gev: 1.235e+17
+
+cell:
+  # the two singlet levels of the cell (Section 2, Axiom 1; cl10/cell.py): a rung
+  # n means the mass M_P*loop^n and the on-site step phase loop^n = (M_P*loop^n)/M_P
+  rung_A: 3                 # the seesaw singlet (Section 12.3): m_A = M_P*loop^3
+  rung_B: 10                # the dark-matter singlet (Section 12.2): m_B = M_P*loop^10
+
+bounds:
+  # the one experimental direct-detection ceiling the phenomenology tests
+  # against (measured, not fitted): the LZ spin-independent limit at ~118 GeV
+  # recoil (4.2 t yr), which is the recoil mass of this model's singlet B
+  # (M_P*loop^10 = 118.57 GeV).  One ceiling, one value: the portal scan of V112
+  # and fig. 25 read this ceiling alone, so the same observable never carries
+  # two limits.
+  sigma_si_lz_cm2: 1.5e-47    # V88/V148/V193/V195, fig. 15; V112, fig. 25
+
+cosmology:
+  # the standard-cosmology inputs of the relic / washout / detection checks
+  g_star: 106.75              # the SM relativistic d.o.f. at the EW transition
+  hubble_coeff: 1.66          # H = 1.66 sqrt(g_*) T^2 / M_P (Friedmann, radiation era)
+  entropy_density_cm3: 2891.2 # today's entropy density s_0 (Planck)
+  rho_c_over_h2_gev_cm3: 1.0537e-5   # the critical density divided by h^2
+
+dm:
+  # the named hadronic / reference inputs of the portal checks
+  f_n_nucleon: 3.0e-4         # the nucleon Higgs coupling f_N (m_q/m_N estimate)
+  sigma_fiducial_cm3s: 3.0e-26  # the thermal-relic reference <sigma v>
+  sigma_relic_target_cm3s: 2.2e-26  # the <sigma v> that closes the relic density
+                                    # in the dark-U(1) window scan (V112)
+
+neutrino:
+  # the measured neutrino inputs (NuFIT 6.0, normal ordering) and the
+  # cosmological ceiling on Sum m_nu: DESI DR2 BAO + Planck PR4 + CMB lensing,
+  # LambdaCDM with three degenerate states, 95% CL (the F3 test). In w0waCDM the
+  # same data gives 0.163 eV; the Feldman-Cousins boundary limit is 0.053 eV.
+  m_atm_ev: 0.0501          # sqrt(|dm2_3l|)
+  m_sol_ev: 0.0086          # sqrt(dm2_21)
+  sum_mnu_max_ev: 0.0642    # the DESI DR2 ceiling on Sum m_nu (the F3 test)
+  # the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0,
+  # normal ordering; the second octant for theta23, the value the comparisons
+  # use — the octant is unresolved, Section 13.5)
+  obs_sin2_theta12: 0.307
+  obs_sin2_theta23: 0.579
+  obs_sin2_theta13: 0.022
+
+ckm:
+  # the measured CKM-side numbers of the flavour mixing comparisons (the
+  # (12, 23, 13) angles as the comparisons use them, world averages)
+  obs_sin2_theta12: 0.050
+  obs_sin2_theta23: 0.949
+  obs_sin2_theta13: 0.020
+
+tolerances:
+  # the shared bands; each experiment still states the one it used
+  strict: 1.0e-12
+  standard: 1.0e-9
+  loose: 1.0e-6
+  coarse: 1.0e-4
+
+
+continuum:
+  # the continuum-limit programme (the O9/O10 cone question): what has to be
+  # true of the infrared for the discrete root to have a rotational-invariant
+  # continuum.  The tools are cl10/continuum.py; the measurements are V212 (the
+  # symmetry census: which momentum locus forces isotropy, which forbids it) and
+  # V213 (the relevance exponent of the cubic anisotropy at the measured node).
+  # Inputs only: every group order, every invariant count and the link-group
+  # order are MEASURED by the experiments, never written here.
+  # the probe ladder for the node-dispersion scaling, in units of the inverse
+  # cubic lattice spacing: the exponent of the anisotropic correction is read
+  # from a log-log fit over these radii (V213).
+  radii: [1.0e-2, 3.16e-3, 1.0e-3, 3.16e-4, 1.0e-4, 3.16e-5, 1.0e-5]
+  direction_grid: 6            # the V115 cone-direction grid (cl10.altcell.sphere_dirs)
+  # the coarse-graining energy windows, as V173/V178 use them (b = 1, 2, 4);
+  # V213 re-measures the flow with the windows SCALED with b, which is what
+  # makes the verdict a statement about relevance rather than about a ratio
+  # measured at one fixed radius.
+  rg_cuts: [1.5707963267948966, 0.7853981633974483, 0.39269908169872414]
+  census_degrees: 8            # the invariant census sweeps degrees 1..this
+  # which polyhedral symmetry to test as the replacement for the cubic one:
+  # the rotation orders of the triangle-group generators (2,3,5) = icosahedral
+  icosahedral_generator_orders: [2, 3, 5]
+  # |p| below this reads as marginal; p > 0 irrelevant, p < 0 relevant
+  relevance_marginal_band: 1.0e-2
+
