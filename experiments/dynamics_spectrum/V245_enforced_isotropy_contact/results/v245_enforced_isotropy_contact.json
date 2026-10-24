@@ -1,0 +1,163 @@
+{
+ "id": "V245_enforced_isotropy_contact",
+ "tier": 5,
+ "property": "the SME electron velocity-anisotropy bound at the icosahedrally enforced star-module node: is F9 closed by symmetry (V245, F9)",
+ "residual": true,
+ "programme": "V245",
+ "branch": "F9-STILL-FIRED",
+ "data": {
+  "inputs": {
+   "clock": "closed",
+   "g": 0.7853981633974483,
+   "sme_electron_velocity_aniso": {
+    "value": 8e-15,
+    "source": "the fetched record in cl10/config.yaml (V235 row: Kostelecky-Mewes Table D6, tightest component)",
+    "retrieved": "2026-10-23"
+   },
+   "radii_ladder": [
+    0.01,
+    0.00316,
+    0.001,
+    0.000316,
+    0.0001,
+    3.16e-05,
+    1e-05
+   ]
+  },
+  "dispersion_rows": [
+   {
+    "r": 0.01,
+    "w_max": 4.0223313961362805e-05,
+    "w_min": 1.4908163592508572e-07,
+    "quad_coeff_max": 0.40223313961362805,
+    "quad_coeff_min": 0.0014908163592508572,
+    "rel_aniso_of_quad_coeff": 0.9962936510883144,
+    "branch_sum_e1_max": 0.046236405663737656,
+    "branch_sum_e1_min": 0.04053831282845444,
+    "rel_aniso_of_branch_sum": 0.12323823085911123
+   },
+   {
+    "r": 0.00316,
+    "w_max": 4.0166117329931694e-06,
+    "w_min": 1.4900011890972564e-08,
+    "quad_coeff_max": 0.4022403994745603,
+    "quad_coeff_min": 0.0014921498849315578,
+    "rel_aniso_of_quad_coeff": 0.9962904027370678,
+    "branch_sum_e1_max": 0.004617107625321637,
+    "branch_sum_e1_min": 0.004048066879974499,
+    "rel_aniso_of_branch_sum": 0.12324615138411409
+   },
+   {
+    "r": 0.001,
+    "w_max": 4.0224110797737467e-07,
+    "w_min": 1.4922676427886472e-09,
+    "quad_coeff_max": 0.40224110797737467,
+    "quad_coeff_min": 0.0014922676427886472,
+    "rel_aniso_of_quad_coeff": 0.9962901165167023,
+    "branch_sum_e1_max": 0.0004623778356283026,
+    "branch_sum_e1_min": 0.0004053911813883815,
+    "rel_aniso_of_branch_sum": 0.12324694189219675
+   },
+   {
+    "r": 0.000316,
+    "w_max": 4.0166177939227055e-08,
+    "w_min": 1.489972589752142e-10,
+    "quad_coeff_max": 0.4022410064415464,
+    "quad_coeff_min": 0.0014921212443439976,
+    "rel_aniso_of_quad_coeff": 0.9962904795372701,
+    "branch_sum_e1_max": 4.617121375005695e-05,
+    "branch_sum_e1_min": 4.048074932150314e-05,
+    "rel_aniso_of_branch_sum": 0.12324701835560455
+   },
+   {
+    "r": 0.0001,
+    "w_max": 4.0223930852789636e-09,
+    "w_min": 1.49036338825681e-11,
+    "quad_coeff_max": 0.40223930852789636,
+    "quad_coeff_min": 0.0014903633882568101,
+    "rel_aniso_of_quad_coeff": 0.9962948340536105,
+    "branch_sum_e1_max": 4.623779767953806e-06,
+    "branch_sum_e1_min": 4.053912686430294e-06,
+    "rel_aniso_of_branch_sum": 0.1232470208622629
+   },
+   {
+    "r": 3.16e-05,
+    "w_max": 4.0164138681575423e-10,
+    "w_min": 1.4708234630234074e-12,
+    "quad_coeff_max": 0.4022205844573728,
+    "quad_coeff_min": 0.0014729445031078825,
+    "rel_aniso_of_quad_coeff": 0.9963379683685384,
+    "branch_sum_e1_max": 4.6171206591338887e-07,
+    "branch_sum_e1_min": 4.0480747998117295e-07,
+    "rel_aniso_of_branch_sum": 0.12324691108005498
+   },
+   {
+    "r": 1e-05,
+    "w_max": 4.020606070298527e-11,
+    "w_min": 1.3145040611561853e-13,
+    "quad_coeff_max": 0.40206060702985263,
+    "quad_coeff_min": 0.0013145040611561851,
+    "rel_aniso_of_quad_coeff": 0.9967305823097994,
+    "branch_sum_e1_max": 4.6237751405442395e-08,
+    "branch_sum_e1_min": 4.053906543788344e-08,
+    "rel_aniso_of_branch_sum": 0.12324747191075985
+   }
+  ],
+  "leading_degree_q": 2.000043118544799,
+  "anisotropy_fit": {
+   "branch_exponent_p": -4.3910164781876015e-05,
+   "branch_sum_exponent_p1": -7.380885890355414e-06,
+   "branch_D": [
+    0.9962936510883144,
+    0.9962904027370678,
+    0.9962901165167023,
+    0.9962904795372701,
+    0.9962948340536105,
+    0.9963379683685384,
+    0.9967305823097994
+   ],
+   "branch_sum_D1": [
+    0.12323823085911123,
+    0.12324615138411409,
+    0.12324694189219675,
+    0.12324701835560455,
+    0.1232470208622629,
+    0.12324691108005498,
+    0.12324747191075985
+   ]
+  },
+  "contact": {
+   "delta_v_over_v_light_branch": 0.9967305823097994,
+   "delta_v_over_v_branch_sum": 0.12324747191075985,
+   "symmetry_scalar_prediction": "0.0 by isotropy_forced - governs only the trivial-irrep (single-branch) content; the 512-fold multiplet splits at order k^2 and the splitting anisotropy is k-independent (T2)",
+   "bound": 8e-15,
+   "ratio_light_branch_to_bound": 124591322788724.9,
+   "no_light_candidate_clause": "the enforced node is a quadratic touching (512 flat modes, V215): no mode has a nonzero k->0 velocity, so F9's SME row never bites on a single relativistic mode here; the no-light-candidate clause (V138/O10) is NOT superseded - no electron interpretation is asserted at this node",
+   "context_published_v235": {
+    "best_dvv": 0.29231871836806855,
+    "worst_dvv": 1.0
+   }
+  },
+  "backend": "cupy"
+ },
+ "checks": [
+  {
+   "name": "T0 the V244 enforced row: q = [0.0, 0.0, 0.0], stabilizer order 60, Molien counts [0, 1, 0, 1, 0, 2] (rank-2 count 1), first anisotropic degree 6; star-frame conjugate census (T2b) agrees",
+   "pass": true
+  },
+  {
+   "name": "T1 leading dispersion degree at the enforced node: log-log slope of the min-eigenphase vs radius over the ladder q = 2.000 (V215/V132: the node is a FLAT 512-mode touching - quadratic, not a linear cone; a linear cone would need q = 1)",
+   "pass": true
+  },
+  {
+   "name": "T2 radius-ladder anisotropies: lightest-branch D = [0.9963, 0.9963, 0.9963, 0.9963, 0.9963, 0.9963, 0.9967] (slope p = -0.000); branch-sum (trace over the 512 flat modes) D1 = [0.1232, 0.1232, 0.1232, 0.1232, 0.1232, 0.1232, 0.1232] (slope p1 = -0.000) - both k-INDEPENDENT: the 512-fold multiplet splits at order k^2 with a fixed anisotropic coefficient pattern (range 0.0015 - 0.4022), so the rank-2 content of the ENFORCED node is isotropic only in the scalar Molien sense, not branchwise",
+   "pass": true
+  },
+  {
+   "name": "T3 the contact, two numbers: lightest-branch delta_v/v = 0.9967 against the bound 8.0e-15 (ratio 1.25e+14); branch-sum (trace) anisotropy 0.1232; both k-independent, so the isotropy_forced route delivers NO sub-bound value at the multiplet; for context the published V235 contact at the non-enforced nodes: best delta_v/v 0.2923 (1/5-clock M nodes), worst 1.0",
+   "pass": true
+  }
+ ],
+ "status": "ENFORCED-ISOTROPY CONTACT, F9-STILL-FIRED (zero fitted parameters, 2 s): the V244 enforced-locus symmetry route FAILS at the multiplet: the node q = [0.0, 0.0, 0.0] has the full 60-element stabilizer and Molien rank-2 count 1, but that forcing governs only SINGLE-branch (trivial-irrep) content - the node is a 512-fold flat multiplet and the rank-2 perturbation SPLITS it: the lightest-branch quadratic coefficient spans [0.0015, 0.4022] over the Fibonacci directions and the branch sum is anisotropic at 0.123, both k-INDEPENDENT (ladder slopes p = -0.00, p1 = -0.00). The two numbers: lightest-branch delta_v/v 0.997 vs the committed bound 8.0e-15 (ratio 1.2e+14). No linear cone exists at this node (leading degree 2.00: all velocities vanish as k -> 0), so F9's SME row never bites on a single relativistic mode and the no-light-candidate clause (V138/O10) stands. F9 remains FIRED as dead weight across the whole closed two-dial content: the M nodes gave delta_v/v 0.292-1.0 (V235), the enforced node gives 0.997; no node satisfies the bound, and the clock stays open.",
+ "pass": true
+}

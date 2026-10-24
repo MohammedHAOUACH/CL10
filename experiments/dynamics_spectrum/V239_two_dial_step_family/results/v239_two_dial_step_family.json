@@ -1,0 +1,209 @@
+{
+ "id": "V239_two_dial_step_family",
+ "tier": 2,
+ "property": "the two-dial step family: exact unitarity, the published step as the exact diagonal slice, and the closure set C(beta, g) (V239)",
+ "residual": false,
+ "programme": "V239",
+ "branch": "FAMILY-OK",
+ "data": {
+  "unitarity": {
+   "max_err": 3.3750780560982876e-14,
+   "worst_at": [
+    0.09753981633974483,
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "grid": [
+    41,
+    0.02,
+    1.5707963267948966
+   ],
+   "q_points": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     1.5707963267948966,
+     0.0,
+     0.0
+    ],
+    [
+     1.5707963267948966,
+     1.5707963267948966,
+     0.0
+    ],
+    [
+     0.31,
+     -0.77,
+     0.44
+    ]
+   ]
+  },
+  "diagonal_slice": {
+   "bit_identity_max_abs": 0.0,
+   "factorization_max_abs": 1.1157603309187458e-15,
+   "samples": [
+    [
+     0.043519924052385486,
+     [
+      -1.6144021429693811,
+      1.3435453716555115,
+      -0.5614728777236233
+     ]
+    ],
+    [
+     1.4012990123004379,
+     [
+      -1.56846008687255,
+      -0.9422322674359536,
+      -2.7386712534009043
+     ]
+    ],
+    [
+     1.477422730677855,
+     [
+      0.7215511200309916,
+      2.1136594722131647,
+      -2.7707806015312477
+     ]
+    ],
+    [
+     0.1675393152028183,
+     [
+      -0.1550984118948846,
+      -2.40421483210375,
+      -1.0846498526782726
+     ]
+    ],
+    [
+     1.4856528851083257,
+     [
+      1.399503333427882,
+      1.0165219091566193,
+      -2.3703321973184757
+     ]
+    ],
+    [
+     0.313973710999828,
+     [
+      -1.3350965062906024,
+      -0.10630632951208119,
+      0.7081924080928159
+     ]
+    ],
+    [
+     0.07413848174144416,
+     [
+      0.9153538132863215,
+      -0.3868399779297662,
+      2.9864138327792293
+     ]
+    ],
+    [
+     0.2,
+     [
+      0.0,
+      0.0,
+      0.0
+     ]
+    ],
+    [
+     0.7853981633974483,
+     [
+      0.0,
+      0.0,
+      0.0
+     ]
+    ],
+    [
+     1.5707963267948966,
+     [
+      0.0,
+      0.0,
+      0.0
+     ]
+    ]
+   ]
+  },
+  "closure": {
+   "grid_labels_none": 1680,
+   "grid_labels_by_order": {
+    "2": 1,
+    "4": 0,
+    "8": 0,
+    "16": 0
+   },
+   "boundary_flips": [
+    {
+     "along": "beta",
+     "g": 1.5707963267948966,
+     "beta_lo": 1.5707963267226819,
+     "beta_hi": 1.5707963267948966
+    },
+    {
+     "along": "g",
+     "beta": 1.5707963267948966,
+     "g_lo": 1.5707963267226819,
+     "g_hi": 1.5707963267948966
+    }
+   ],
+   "closure_set": [
+    {
+     "beta": 0.7853981633974483,
+     "g": 0.7853981633974483,
+     "order": 2,
+     "closure_err": 7.391586503204494e-15
+    },
+    {
+     "beta": 1.5707963267948966,
+     "g": 1.5707963267948966,
+     "order": 2,
+     "closure_err": 8.02730632557773e-15
+    },
+    {
+     "beta": 0.7853981633974483,
+     "g": 1.5707963267948966,
+     "order": 4,
+     "closure_err": 1.5170380868518282e-14
+    },
+    {
+     "beta": 1.5707963267948966,
+     "g": 0.7853981633974483,
+     "order": 4,
+     "closure_err": 1.5212890144382526e-14
+    }
+   ],
+   "published_point": {
+    "beta": 0.7853981633974483,
+    "g": 0.7853981633974483,
+    "order": 2
+   }
+  },
+  "backend": "cupy"
+ },
+ "checks": [
+  {
+   "name": "T1 the two-dial step is exactly unitary on the whole 41x41 dial grid beta,g in [0.02, pi/2] at q = GAMMA, X, M and (0.31,-0.77,0.44): max ||M M^dag - I|| = 3.38e-14 < 1e-13 (worst at g = 0.0975, q = (0.0, 0.0, 0.0))",
+   "pass": true
+  },
+  {
+   "name": "T2 the diagonal slice bond_g10=g equals the published bloch BIT-IDENTICALLY (max abs diff over 10 samples 0.0, required exactly 0.0 via np.array_equal), and M(q; beta, g) = P(q; beta) kron U(g)^6 to 1.12e-15 < 1e-14 (the factorization holds for ANY pair, not only the diagonal: the published slice beta = g = g10 is one angle driving both hop and couplings)",
+   "pass": true
+  },
+  {
+   "name": "T3 the closure axiom M(GAMMA; beta, g)^k = I measured on the 41x41 grid and at the config branch values: grid points closing at some k <= 16: 1 (by order {2: 1, 4: 0, 8: 0, 16: 0}), none at 1680; 2 order-plateau boundaries refined to 1e-10 by bisection; the closure set refines to 4 point(s), the published closed clock (pi/4, pi/4) closes at k = 2 (the verify artifact fact M(0)^2 = I reads P^2 = -I tensor U^12 = -I)",
+   "pass": true
+  },
+  {
+   "name": "T4 C non-empty: 4 refined closure point(s) with max refined closure error 1.52e-14",
+   "pass": true
+  }
+ ],
+ "status": "TWO-DIAL STEP FAMILY, FAMILY-OK (zero fitted parameters, 60 s): the step with the hop decoupled from the couplings, M(q; beta, g) = kron(P(q; beta), U16(g)^6), is exactly unitary for ANY angle pair (max defect 3.4e-14); the published step is the diagonal slice beta = g = g10 and that sentence is literal - the slice reproduces the published matrices bit-for-bit (0.0). The closure axiom M(GAMMA; beta, g)^k = I is no longer a single clock: it is the measured set C with 4 closed points (orders [2, 4]), and it contains the published closed clock (pi/4, pi/4) at order 2.",
+ "pass": true
+}

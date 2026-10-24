@@ -1,0 +1,18 @@
+{
+ "id": "V246_lorentz_tuning_relevance",
+ "tier": 2,
+ "property": "relevance of the node anisotropy along the bond dial beta (V246, F9) - conditional programme",
+ "residual": true,
+ "programme": "V246",
+ "inconclusive": true,
+ "skip_reason": {
+  "trigger_branches": [
+   "NO-ENFORCED-LOCUS",
+   "PARTIAL-LIMIT"
+  ],
+  "v244_branch": "ENFORCED-LOCUS",
+  "triggered": false
+ },
+ "status": "V246 CONDITIONAL SKIP: the pre-registered trigger is V244 in {NO-ENFORCED-LOCUS, PARTIAL-LIMIT}; V244 landed ENFORCED-LOCUS, so the tuning-relevance measurement (V213-style exponent of the anisotropic correction along the bond dial, and the beta_t root of the degree-4 coefficient) is NOT run and nothing is measured, exactly as pre-registered.",
+ "pass": true
+}

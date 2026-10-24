@@ -641,6 +641,18 @@ NO-LOOP-FACTOR: the thermodynamic limit of the same functional does not
 produce 1/(16π) either: the ladder coefficient is not supplied by the
 construction's own free-field combinatorics at any angle.
 
+**Addendum 1 (recorded at run time; the entry above is not edited).**
+Two pre-registered numeric bands landed on the float64 resolution floor,
+and the experiment's own null-result clause governs both: (i) control
+(ii) - the N = 1 grid against the direct 128-dimensional ladder -
+measured 4.87e-12 at the implemented pair (both chains are float64; the
+control verifies agreement at that measured floor); (ii) the
+certification band `< 1e-20` against the float64 chain is unreachable in
+float64 - the measured floor 1.87e-11 is recorded as the measurement per
+the clause "if certification fails at every N, the measured resolution
+floor is the measurement (null result, not failure)". The mp
+self-consistency requirement `< 1e-40` was met (4.11e-66) and is never
+lowered. The branch is decided on the F_infty measurement regardless.
 ---
 
 ## V243 — does the BZ loop factor read the observed hierarchy?
@@ -739,6 +751,15 @@ isotropy_forced` plus the float64 floor as the numeric and the k-scaling;
 else `F9-STILL-FIRED` with the ratio δv/v : bound. This is where F9 either
 dies from symmetry or stays dead weight, stated with the two numbers.
 
+**Addendum 1 (recorded at run time; the entry above is not edited).**
+The predicted k^p suppression of the enforced node's anisotropy (p = 4
+from the first anisotropic degree 6) is a SINGLE-branch (trivial-irrep)
+statement. The V244 enforced node is a 512-fold flat multiplet, and the
+rank-2 perturbation splits it: V245 measured both the lightest-branch
+anisotropy (0.996, quadratic-coefficient range 0.0015-0.4022) and the
+branch-sum (trace) anisotropy (0.123), both k-INDEPENDENT (ladder slopes
+0). The acceptance branch is evaluated against the measurement:
+`F9-STILL-FIRED`, 0.997 : 8.0e-15.
 ---
 
 ## V246 — the tuning alternative: relevance of the anisotropy along β

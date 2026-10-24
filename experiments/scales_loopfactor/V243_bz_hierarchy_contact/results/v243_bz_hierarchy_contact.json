@@ -1,0 +1,90 @@
+{
+ "id": "V243_bz_hierarchy_contact",
+ "tier": 4,
+ "property": "the V108/V203 ladder reading evaluated at V242's Brillouin-zone loop factor: does the observed hierarchy coefficient follow (V243, O8/F2)",
+ "residual": true,
+ "programme": "V243",
+ "branch": "HIERARCHY-UNREAD",
+ "data": {
+  "inputs": {
+   "observed_coefficient": 2.076564111173832,
+   "observed_derivation": "v_over_mplanck_observed / loop^10 (cl10/config.yaml loader; V52/V53/V108/V203 all read this same value)",
+   "v242_branch": "NO-LOOP-FACTOR",
+   "pairs_tested": [
+    [
+     "closed",
+     0.7853981633974483,
+     0.7853981633974483
+    ],
+    [
+     "implemented",
+     0.2,
+     0.2
+    ]
+   ]
+  },
+  "copy_control": {
+   "F_10_root": 0.01918639,
+   "recomputed": 2.0881057490824304,
+   "published": 2.088105749082429
+  },
+  "ratio_table": [
+   {
+    "pair": "closed",
+    "beta": 0.7853981633974483,
+    "g": 0.7853981633974483,
+    "class": "even",
+    "F_infinity": 0.17428116544548147,
+    "measurable": false,
+    "coefficient": null,
+    "rel_distance_to_observed": null,
+    "note": "V242: ratio of floors (structural zero denominator), never quoted as a measurement"
+   },
+   {
+    "pair": "closed",
+    "beta": 0.7853981633974483,
+    "g": 0.7853981633974483,
+    "class": "odd",
+    "F_infinity": 0.22190965566639378,
+    "measurable": false,
+    "coefficient": null,
+    "rel_distance_to_observed": null,
+    "note": "V242: ratio of floors (structural zero denominator), never quoted as a measurement"
+   },
+   {
+    "pair": "implemented",
+    "beta": 0.2,
+    "g": 0.2,
+    "class": "even",
+    "F_infinity": 0.14206646804704023,
+    "measurable": true,
+    "coefficient": 1034512262.838161,
+    "rel_distance_to_observed": 498184599.83728206,
+    "note": null
+   },
+   {
+    "pair": "implemented",
+    "beta": 0.2,
+    "g": 0.2,
+    "class": "odd",
+    "F_infinity": 0.1448134775240944,
+    "measurable": true,
+    "coefficient": 1252880458.6256235,
+    "rel_distance_to_observed": 603343017.3464935,
+    "note": null
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 COPY CONTROL: the reading definition coefficient = 3 (16 pi F)^10 evaluated at V108's own published F_10 = 0.01918639 gives 2.088106 against the published 2.0881 (dev 1.3e-15); the observed coefficient from the config loader = 2.0765641",
+   "pass": true
+  },
+  {
+   "name": "T1 ratio table (coefficient 3 (16 pi F_infinity)^10 against observed 2.0766): closed/even: floor, not quotable; closed/odd: floor, not quotable; implemented/even: F = 0.142066 -> coef 1.035e+09 (rel 4.98e+08); implemented/odd: F = 0.144813 -> coef 1.253e+09 (rel 6.03e+08); best measurable relative distance 4.98e+08",
+   "pass": true
+  }
+ ],
+ "status": "BZ HIERARCHY CONTACT, HIERARCHY-UNREAD (zero fitted parameters, 0 s): the V108 ladder reading evaluated at V242's measured F_infinity lands at coefficient 1.035e+09 (implemented/even) against the observed 2.0766 - a relative distance of 4.98e+08: the measured F_infinity is 7.41x the loop value the reading needs ((obs/3)^(1/10)/(16 pi) = 0.01918) - too little suppression per loop to close the hierarchy ladder. The closed-clock pair is a floor ratio (structural zero), recorded, never quoted. No pair on C reaches the observed coefficient within 1e-3; the ladder coefficient remains the named O8 residual - V243 contacts it from the momentum side and measures the miss.",
+ "pass": true
+}

@@ -1,0 +1,135 @@
+{
+ "id": "V247_two_dial_desert_contacts",
+ "tier": 3,
+ "property": "V233's 2x2 clock arbitration and V237's desert-threshold rule re-contacted at the closed points of the two-dial slice (V247, F2/O4)",
+ "residual": true,
+ "programme": "V247",
+ "branch": "F2-FIRED-EXTENDED",
+ "data": {
+  "fitted_inputs": [],
+  "mode": "C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY)",
+  "dial_points": [
+   {
+    "beta": 1.5707963267948966,
+    "g": 1.5707963267948966
+   },
+   {
+    "beta": 1.5707963267948966,
+    "g": 0.7853981633974483
+   },
+   {
+    "beta": 0.7853981633974483,
+    "g": 1.5707963267948966
+   }
+  ],
+  "functional": "cell F_n ladder (V209-verbatim, imported from V242) at the point's g; BZ F_infinity recorded as measured/not-measurable per V242",
+  "two_by_two": [
+   {
+    "beta": 1.5707963267948966,
+    "g": 1.5707963267948966,
+    "hierarchy_coef": 3.3599211584906276e+18,
+    "hierarchy_fun": "cell F_10 = 1.269553 (imported ladder), coef = 3 (16 pi F)^10",
+    "hierarchy_dev": 3.3599211584906276e+18,
+    "hierarchy_fits": false,
+    "alpha_std": 0.19634954084936207,
+    "ratio_std": 4.908738521234052,
+    "alpha10": 2.4674011002723395,
+    "ratio_10": 61.68502750680849,
+    "coupling_fits": false
+   },
+   {
+    "beta": 1.5707963267948966,
+    "g": 0.7853981633974483,
+    "hierarchy_coef": 2.7095258500787756,
+    "hierarchy_fun": "V209 certified reading (via V233)",
+    "hierarchy_dev": 0.6329617389049433,
+    "hierarchy_fits": false,
+    "alpha_std": 0.04908738521234052,
+    "ratio_std": 1.227184630308513,
+    "alpha10": 0.6168502750680849,
+    "ratio_10": 15.421256876702122,
+    "coupling_fits": false
+   },
+   {
+    "beta": 0.7853981633974483,
+    "g": 1.5707963267948966,
+    "hierarchy_coef": 3.3599211584906276e+18,
+    "hierarchy_fun": "cell F_10 = 1.269553 (imported ladder), coef = 3 (16 pi F)^10",
+    "hierarchy_dev": 3.3599211584906276e+18,
+    "hierarchy_fits": false,
+    "alpha_std": 0.19634954084936207,
+    "ratio_std": 4.908738521234052,
+    "alpha10": 2.4674011002723395,
+    "ratio_10": 61.68502750680849,
+    "coupling_fits": false
+   }
+  ],
+  "desert_table": [
+   {
+    "alpha_X": 0.19634954084936207,
+    "M_X_solved_GeV": 7.4299217122964e+19,
+    "M_10_solved_GeV": 0.002734184325202829,
+    "M_12_solved_GeV": 2.80901664747767e+36,
+    "zA_solved_GeV": 70524.58450042644,
+    "zB_solved_GeV": 4.877111362966396e+17,
+    "dz10_efolds": -5.136700563421213,
+    "dz12_efolds": 13.097478575754934,
+    "shift_over_spacing_12": 1.117151361168841,
+    "third_eq_residual": -95.99421806818893,
+    "restored_by_thresholds": false,
+    "beta": 1.5707963267948966,
+    "g": 1.5707963267948966
+   },
+   {
+    "alpha_X": 0.04908738521234052,
+    "M_X_solved_GeV": 1.234524046017877e+17,
+    "M_10_solved_GeV": 70597.11391958076,
+    "M_12_solved_GeV": 4.864438250605381e+17,
+    "zA_solved_GeV": 70524.58450042456,
+    "zB_solved_GeV": 4.877111362966257e+17,
+    "dz10_efolds": -5.13670056342124,
+    "dz12_efolds": 13.097478575754906,
+    "shift_over_spacing_12": 1.1171513611688386,
+    "third_eq_residual": 0.005781931811235097,
+    "restored_by_thresholds": false,
+    "beta": 1.5707963267948966,
+    "g": 0.7853981633974483
+   },
+   {
+    "alpha_X": 0.19634954084936207,
+    "M_X_solved_GeV": 7.4299217122964e+19,
+    "M_10_solved_GeV": 0.002734184325202829,
+    "M_12_solved_GeV": 2.80901664747767e+36,
+    "zA_solved_GeV": 70524.58450042644,
+    "zB_solved_GeV": 4.877111362966396e+17,
+    "dz10_efolds": -5.136700563421213,
+    "dz12_efolds": 13.097478575754934,
+    "shift_over_spacing_12": 1.117151361168841,
+    "third_eq_residual": -95.99421806818893,
+    "restored_by_thresholds": false,
+    "beta": 0.7853981633974483,
+    "g": 1.5707963267948966
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 COPY CONTROLS: the imported V209-verbatim cell ladder at pi/4 reproduces V242's published cell values (max dev 1.4e+00); V237's rule recomputed at alpha_X = alpha_std(pi/4) = 0.0490874 = pi/64 reproduces the artifact's shift 13.0975 vs 13.0975 (< 1e-9: True) and the same verdict (fires = True)",
+   "pass": false
+  },
+  {
+   "name": "T1 the 2x2 (V233's bands: hierarchy dev <= 1e-04; coupling reading = 0.04 to 1e-9): (beta=1.5708, g=1.5708): coef 3359921158490627584.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS); (beta=1.5708, g=0.7854): coef 2.7095 (dev 6.33e-01, MISS); alpha_std/0.04 = 1.2272, alpha10/0.04 = 15.4213 (MISS); (beta=0.7854, g=1.5708): coef 3359921158490627584.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS)",
+   "pass": true
+  },
+  {
+   "name": "T2 V237's rule at each clock: g=1.5708: M_X solved 7.430e+19 GeV, (1,2) at 2.809e+36 (above M_X: True), required (1,2) shift +13.10 e-folds = 1.12x the spectrum's own spacing -> NOT RESTORED; g=0.7854: M_X solved 1.235e+17 GeV, (1,2) at 4.864e+17 (above M_X: True), required (1,2) shift +13.10 e-folds = 1.12x the spectrum's own spacing -> NOT RESTORED; g=1.5708: M_X solved 7.430e+19 GeV, (1,2) at 2.809e+36 (above M_X: True), required (1,2) shift +13.10 e-folds = 1.12x the spectrum's own spacing -> NOT RESTORED",
+   "pass": true
+  },
+  {
+   "name": "T3 beta-blindness of the running: cl10/unification reads coupling.angle() only - both unification functions are unchanged (bitwise) across construction of two-dial bloch matrices at beta = pi/2 and pi/4: pairwise scales x12 = 1.174598e+13, g10_from_root = 0.04000000000000001; identical: True",
+   "pass": true
+  }
+ ],
+ "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 7 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3359921158490627584.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3359921158490627584.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
+ "pass": false
+}

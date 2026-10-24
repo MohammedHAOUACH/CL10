@@ -11,5 +11,5 @@
     "causal_radius": 1,
     "n_gates": 4
   },
-  "wall_time": 0.008
+  "wall_time": 0.011
 }

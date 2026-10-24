@@ -190,5 +190,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "THE TWO-NUMBER COMBINATION DOES NOT CLOSE O4: the best joint (A, B, C) = (1085.9674, 34.4091, -0.0000) over 30 equations in 13 unknowns leaves residual 3.459e+00 (desert for 0/10 node counts), and the (kappa~, K) combination explains at best R^2 = 0.301 of the variance of V96's fitted kappa_s. The ground-state bond flux is zero to 8e-17 (Gauss law), so the Cartan shift contributes nothing. The supplier space of the six kappa_s is exhausted by every class number the gauged layer computes: Cartan elements (V105), class invariants (V122), broken flux (V137), superexchange (V145), and every fixed combination of them (V146).",
- "wall_s": 77.65240836143494
+ "wall_s": 111.34570384025574
 }

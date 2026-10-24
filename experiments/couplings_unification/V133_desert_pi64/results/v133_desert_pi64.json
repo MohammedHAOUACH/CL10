@@ -1306,5 +1306,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the desert re-closure at alpha_X = pi/64 exists but leaves the desert: M_X = 1.235e17 GeV with M_(1,2) = 4.86e17 GeV above it, tau_p = 2.77e39 yr; holding M_X = 1.8e16 GeV needs alpha_X = 0.040050; the kappa_s LP is feasible for 9/10 node counts at pi/64 against 10/10 at 1/25 - the meeting becomes a fit",
- "wall_s": 4.814037322998047
+ "wall_s": 7.407083749771118
 }
