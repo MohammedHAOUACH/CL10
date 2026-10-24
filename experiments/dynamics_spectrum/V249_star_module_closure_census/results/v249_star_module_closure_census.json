@@ -1,0 +1,248 @@
+{
+ "id": "V249_star_module_closure_census",
+ "tier": 2,
+ "property": "the star module's own closure census C_star(beta, g, eta): the Cartan twist from the committed Wilson direction, and the 1/5 and 1/2 clock contacts (V249)",
+ "residual": true,
+ "programme": "V249",
+ "branch": "STAR-CLOCK-QUANTIZED",
+ "data": {
+  "factorization": {
+   "max_defect": 7.947987303456223e-16,
+   "samples": [
+    {
+     "q": [
+      0.898233151858344,
+      0.9663646705412423,
+      0.8730182675550922
+     ],
+     "beta": 0.2,
+     "g": 1.1,
+     "max_abs": 7.947987303456223e-16
+    },
+    {
+     "q": [
+      0.7267643051070372,
+      0.819779380240661,
+      -0.9722932842246679
+     ],
+     "beta": 0.7853981633974483,
+     "g": 0.37,
+     "max_abs": 4.847302891456678e-16
+    },
+    {
+     "q": [
+      -0.6432005489385144,
+      0.5744154112275848,
+      0.11159042913481487
+     ],
+     "beta": 0.63,
+     "g": 1.1,
+     "max_abs": 3.1031676915590914e-16
+    },
+    {
+     "q": [
+      -0.5671822167573555,
+      0.009217113356429163,
+      -0.2556846813037734
+     ],
+     "beta": 0.63,
+     "g": 0.7853981633974483,
+     "max_abs": 5.623929632534478e-16
+    },
+    {
+     "q": [
+      -0.2349293944339772,
+      -0.3159831097249477,
+      -0.23553424907766685
+     ],
+     "beta": 0.2,
+     "g": 1.1,
+     "max_abs": 6.291476391278812e-16
+    },
+    {
+     "q": [
+      -0.6839345366635148,
+      0.594008062100986,
+      0.1943306060730159
+     ],
+     "beta": 1.21,
+     "g": 1.1,
+     "max_abs": 3.201681141057157e-16
+    },
+    {
+     "q": [
+      0.47104466115930865,
+      -0.8329270464628258,
+      -0.27698325490431763
+     ],
+     "beta": 1.21,
+     "g": 0.37,
+     "max_abs": 2.9893669801409083e-16
+    },
+    {
+     "q": [
+      0.41749827065674117,
+      0.1972968516145852,
+      0.3772074799981837
+     ],
+     "beta": 0.63,
+     "g": 0.7853981633974483,
+     "max_abs": 4.742874840267547e-16
+    }
+   ]
+  },
+  "closure": {
+   "grid": [
+    61,
+    0.02,
+    1.5707963267948966
+   ],
+   "eta_values": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    1.7307836435290485
+   ],
+   "eta_source": "0, 0.05, 0.1, 0.2 are grid dials; the fifth is the V65/V67 selective-root angle theta_rad = 1.7307836435290485 (config desert.theta_root_rad) - the theta-coupled choice through the committed direction",
+   "grid_labels_none": 18604,
+   "grid_labels_by_order": {
+    "1": 1,
+    "2": 3
+   },
+   "boundary_flips": [
+    {
+     "along": "beta",
+     "eta": 0.0,
+     "g": 1.5707963267948966,
+     "beta_lo": 1.5707963266986105,
+     "beta_hi": 1.5707963267948966
+    },
+    {
+     "along": "g",
+     "eta": 0.0,
+     "beta": 1.5707963267948966,
+     "g_lo": 1.5707963266986105,
+     "g_hi": 1.5707963267948966
+    }
+   ],
+   "C_star": [
+    {
+     "beta": 1.5707963267948966,
+     "g": 1.5707963267948966,
+     "eta": 0.0,
+     "order": 1,
+     "closure_err": 3.974615676361377e-14
+    },
+    {
+     "beta": 0.7853981633974483,
+     "g": 0.7853981633974483,
+     "eta": 0.0,
+     "order": 2,
+     "closure_err": 4.715192032976612e-14
+    },
+    {
+     "beta": 0.7853981633974483,
+     "g": 1.5707963267948966,
+     "eta": 0.0,
+     "order": 2,
+     "closure_err": 8.060256139848932e-14
+    },
+    {
+     "beta": 1.5707963267948966,
+     "g": 0.7853981633974483,
+     "eta": 0.0,
+     "order": 2,
+     "closure_err": 4.654523966144964e-14
+    }
+   ]
+  },
+  "membership": {
+   "clock_1_5": 0.2,
+   "clock_1_2": 0.5,
+   "nearest_1_5": {
+    "g": 0.7853981633974483,
+    "beta": 0.7853981633974483,
+    "eta": 0.0,
+    "order": 2,
+    "distance": 0.5853981633974483
+   },
+   "nearest_1_2": {
+    "g": 0.7853981633974483,
+    "beta": 0.7853981633974483,
+    "eta": 0.0,
+    "order": 2,
+    "distance": 0.2853981633974483
+   },
+   "per_eta": {
+    "0.0": {
+     "closed_points": 4,
+     "min_dist_to_0.2": 0.5853981633974483,
+     "min_dist_to_0.5": 0.2853981633974483
+    },
+    "0.05": {
+     "closed_points": 0,
+     "min_dist_to_0.2": null,
+     "min_dist_to_0.5": null
+    },
+    "0.1": {
+     "closed_points": 0,
+     "min_dist_to_0.2": null,
+     "min_dist_to_0.5": null
+    },
+    "0.2": {
+     "closed_points": 0,
+     "min_dist_to_0.2": null,
+     "min_dist_to_0.5": null
+    },
+    "1.7307836435290485": {
+     "closed_points": 0,
+     "min_dist_to_0.2": null,
+     "min_dist_to_0.5": null
+    }
+   },
+   "open": false
+  },
+  "control": {
+   "beta": 0.7853981633974483,
+   "g": 0.7853981633974483,
+   "eta": 0.0,
+   "gap_at_gamma": 3.491130995403318e-17,
+   "v214_gap_at_zero": 1.0408340855860522e-17,
+   "unitarity": 1.4876988529977098e-14,
+   "v214_unitarity": 1.5543122734300296e-14,
+   "closure_order": 2,
+   "spectral_err": 4.715192032976612e-14,
+   "direct_entry_max": 4.0538346080553665e-14,
+   "direct_spectral": 6.170859891691043e-14,
+   "note": "V214 recorded the published star step at the closed clock but no closure order; T4 measures it here and reproduces V214's recorded numbers as the control"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "inputs": {
+   "twist_direction": "D = cos(theta_root) X + sin(theta_root) Y, the V67 Cartan combinations with the V65 X_coef [1.0, 1.0, -1.0, -1.0, -1.0], Y_coef [-0.25, -0.25, -0.16666666666666666, -0.16666666666666666, -0.16666666666666666], theta_root 1.7307836435290485 (desert.theta_root_rad); restricted to the 16 sector through sectors()[0] exactly as V67:64-66 (no fallback needed)",
+   "step": "cl10.starcell phase-major 12 stages, bond_g10 = beta",
+   "internal": "supercell.sectors(g)[2]"
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 the star step factorizes exactly, bloch_star(q; beta, g) = kron(Pi_t S_t(q; beta), U16(g)^12): max element defect over 8 random q-points 7.95e-16 < 1e-13 (the mixed-product identity; the 512-fold flat GAMMA node of V244 is its consequence)",
+   "pass": true
+  },
+  {
+   "name": "T2 closure census of M_star(GAMMA; beta, g, eta) on the 61x61 grid beta,g in [0.02, pi/2] plus the config branch values, at the eta ladder [0.0, 0.05, 0.1, 0.2, 1.7307836435290485] (last entry = the V65/V67 root angle, the theta-coupled choice; source recorded): grid points closing at some k <= 16: 4 (by order {1: 1, 2: 3}), none at 18604; 2 order-plateau boundaries refined to 1e-10 by bisection; C_star refines to 4 point(s), max refined closure error 8.06e-14 (spectral form, verified directly in T4)",
+   "pass": true
+  },
+  {
+   "name": "T3 clock contacts: nearest closed star point to g = 0.2 (reads 2.0766/0.04): distance 5.854e-01 at (beta, g, eta, k) = (0.785398, 0.785398, 0.000000, 2); nearest to g = 0.5 (V208 lightlike pin): distance 2.854e-01 at (beta, g, eta, k) = (0.785398, 0.785398, 0.000000, 2); STAR-CLOCK-OPEN requires some k <= 16 within 1e-6 of a pin",
+   "pass": true
+  },
+  {
+   "name": "T4 control at (beta = g = pi/4, eta = 0): the kron form reproduces the published bloch_star to 6.66e-16, the GAMMA gap 3.491e-17 matches V214's 1.041e-17 (|diff| 2.5e-17 < 1e-15), the unitarity defect 1.488e-14 matches V214's 1.554e-14; the closure order of the published star step (first measurement; V214 recorded no order) is k = 2, spectral err 4.715e-14, direct 1024-dim check entry-max 4.054e-14, spectral 6.171e-14",
+   "pass": true
+  }
+ ],
+ "status": "star module closure, STAR-CLOCK-QUANTIZED (10 s): no closed star clock reaches either pin: the clock exclusion is a property of the module class, not of one lattice. C_star: 4 closed point(s) on the 61x61 grid at the eta ladder, orders [1, 2]; nearest closed point to g = 0.2 at distance 5.854e-01, to g = 0.5 at distance 2.854e-01; the factorization kron identity holds to 7.9e-16 and the published step reproduces V214 exactly at the closed clock.",
+ "pass": true
+}
