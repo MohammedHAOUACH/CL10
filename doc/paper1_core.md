@@ -19,6 +19,8 @@ The results of this paper are the kinematics (Theorem 1), the matter content and
 
 ---
 
+---
+
 ## 1. Introduction
 
 ### 1.1 The picture
@@ -554,6 +556,6 @@ The falsifiers of the phenomenology (proton decay, the neutrino mass pattern, th
 40. CMS Collaboration, search for new physics in dimuon and dielectron final
 41. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics,"
 
-**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $168$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($168$ of $168$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
+**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $178$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($178$ of $178$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
 
 **Competing interests.** The author declares no competing interests.

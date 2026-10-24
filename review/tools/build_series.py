@@ -34,11 +34,14 @@ def body_end(heading_line):
 H10 = sect_line("## 10. The gauged bond layer")
 H12 = sect_line("## 12. The loop factor and the scale ladder")
 H18 = sect_line("## 18. Discussion")
+H20 = sect_line("## 20. The founding-repair programme")
 P1 = (24, body_end(H10))
 P2 = (H10, body_end(H12))
 P3 = (H12, body_end(H18))
 HA = sect_line("## Appendix A. The explicit 32-dimensional representation")
 REF = sect_line("## References")
+P3R = (H20, next(i for i in range(H20 + 1, REF)
+                 if lines[i - 1].strip() == "---") - 1)
 HA_END = next(i for i in range(HA + 1, REF)
               if lines[i - 1].strip() == "---") - 1
 
@@ -219,7 +222,7 @@ FULLTBL9 = "[the full manuscript, Appendix B, Table 9]"
 s1 = {n: (None, n) for n in range(1, 10)}
 s1.update({10: (II, 2), 11: (II, 3), 12: (III, 2), 13: (III, 3),
            14: (III, 4), 15: (III, 5), 16: (III, 6), 17: (III, 7),
-           18: (II, "Discussion"), 19: (III, "Conclusion")})
+           18: (II, "Discussion"), 19: (III, "Conclusion"), 20: (III, 8)})
 f1 = {n: n for n in range(1, 26)}
 t1 = {1: "Table 1", 2: "Table 2", 3: f"[{II}, Table 1]",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
@@ -233,7 +236,7 @@ s2 = {n: (I, n) for n in range(1, 10)}
 s2.update({10: (None, 2), 11: (None, 3)})
 s2.update({12: (III, 2), 13: (III, 3), 14: (III, 4), 15: (III, 5),
            16: (III, 6), 17: (III, 7), 18: (III, "Discussion"),
-           19: (III, "Conclusion")})
+           19: (III, "Conclusion"), 20: (III, 8)})
 f2 = {n: n for n in range(1, 10)}
 f2.update({10: 1, 11: 2, 12: 3, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5,
            18: 6, 19: 7, 20: 8, 21: 9, 22: 10, 23: 11, 24: 12, 25: 13})
@@ -249,12 +252,12 @@ s3 = {n: (I, n) for n in range(1, 10)}
 s3.update({10: (II, 2), 11: (II, 3)})
 s3.update({12: (None, 2), 13: (None, 3), 14: (None, 4), 15: (None, 5),
            16: (None, 6), 17: (None, 7), 18: (III, "Discussion"),
-           19: (III, "Conclusion")})
+           19: (III, "Conclusion"), 20: (None, 8)})
 f3 = {n: n for n in range(1, 10)}
 f3.update({13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 19: 7, 20: 8,
            21: 9, 22: 10, 23: 11, 24: 12, 25: 13})
 t3 = {1: f"[{I}, Table 1]", 2: f"[{I}, Table 2]",
       3: f"[{II}, Table 1]", 4: "Table 1", 5: "Table 2", 6: "Table 3",
       7: "Table 4", 8: "Table 5", 9: FULLTBL9}
-build("doc/paper3_phenomenology.md", f"{HDR}/paper3_head.md", [P3],
+build("doc/paper3_phenomenology.md", f"{HDR}/paper3_head.md", [P3, P3R],
       f"{HDR}/paper3_foot.md", s3, f3, t3, False)
