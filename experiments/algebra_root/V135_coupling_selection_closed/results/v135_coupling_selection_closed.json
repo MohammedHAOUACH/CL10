@@ -70,7 +70,7 @@
    "pass": true
   },
   {
-   "name": "T2 at the closed angle the same convention gives alpha_10 = (pi/4)^2 = 0.616850 in rotation units, pi/64 = 0.049087 in the SM normalisation; its gap to the one-loop mean 0.023068 is 1.128 against 0.734 for the old root value 1/25 - the closure WORSENS the coupling tension by a factor 1.54 and sits 2.41x above the data-optimal 1/7 = 0.020408",
+   "name": "T2 at the closed angle the same convention gives alpha_10 = (pi/4)^2 = 0.616850 in rotation units, pi/64 = 0.049087 in the SM normalisation; its gap to the one-loop mean 0.023068 is 1.128 against 0.734 for the reference root value 1/25 - the closure WORSENS the coupling tension by a factor 1.54 and sits 2.41x above the data-optimal 1/7 = 0.020408",
    "pass": true
   },
   {
@@ -89,5 +89,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
- "wall_s": 0.00012803077697753906
+ "wall_s": 0.00016808509826660156
 }

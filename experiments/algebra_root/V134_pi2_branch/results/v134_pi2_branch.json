@@ -342,12 +342,12 @@
    "pass": true
   },
   {
-   "name": "T5 the closure axiom has two roots and they are not equivalent: at pi/2 the bond layer is a pure translation (diagonal to 1e-16), M(0) = I on the whole 128-dimensional internal space, and the gapless set is a line network with 513 grid points against 73 at pi/4 and 0 at 1/5; a translation-only automaton has no mixing, hence no mass generation and no chiral structure, so the theory is on the pi/4 branch - the paper's one-sentence dismissal of pi/2 is now a measurement",
+   "name": "T5 the closure axiom has two roots and they are not equivalent: at pi/2 the bond layer is a pure translation (diagonal to 1e-16), M(0) = I on the whole 128-dimensional internal space, and the gapless set is a line network with 513 grid points against 73 at pi/4 and 0 at 1/5; a translation-only automaton has no mixing, hence no mass generation and no chiral structure, so the theory is on the pi/4 branch - the pi/2 branch is dismissed by measurement, not by sentence",
    "pass": true
   }
  ],
  "verdict": "PASS",
  "pass": true,
  "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
- "wall_s": 2.869060516357422
+ "wall_s": 2.1160781383514404
 }

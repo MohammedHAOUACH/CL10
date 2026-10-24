@@ -1,0 +1,71 @@
+{
+ "id": "V236_dressed_hop_isotropy",
+ "tier": 2,
+ "property": "whether dressing the hop by the regular-link network (or the star module) isotropizes a gapless cone below 1e-6 (V236, O9, one bounded attempt)",
+ "residual": true,
+ "programme": "V236",
+ "branch": "ANISOTROPY",
+ "data": {
+  "fitted_inputs": [],
+  "v141_facts": {
+   "insertion_err": 0.0,
+   "gate_scalar_err": 3.0312910814668394e-14,
+   "gate_phase": 3.926991,
+   "front_speed": [
+    1.0000000003618226,
+    0.9999999999177334
+   ]
+  },
+  "dressing": {
+   "A_sign_per_bond": -1,
+   "dev": 0.0,
+   "gate_phase": 3.926991
+  },
+  "star": {
+   "dvv": 0.999877593477445,
+   "leading": 2,
+   "v_min": 0.00014733365353662798,
+   "v_max": 1.2036421790394214
+  },
+  "bare_control": [
+   {
+    "clock": "pi/4",
+    "v_principal": [
+     0.0,
+     0.00064,
+     0.8165
+    ],
+    "dvv": 1.0
+   },
+   {
+    "clock": "1/5",
+    "v_principal": [
+     0.19993,
+     0.20145,
+     0.28329
+    ],
+    "dvv": 0.2942588139667458
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 V141 Part A facts: the link insertion is A(h) = rho(h^2) = sign(h^2) I exactly (err 0.0e+00); the V140 electric gate at the closed clock is a scalar (err 3.0e-14, phase 3.9270 = 5 pi/4 on all three Casimir blocks), and the dressed hop front runs at v = 1 (1.000000000 to 1.000000000)",
+   "pass": true
+  },
+  {
+   "name": "T1 dressing identity: every bond biflection squares to sign -1, so A(h) = -I on every link; the step carries six bond factors and the six insertions multiply to +I: the dressed and bare one-step spectra at the closed clock are identical (max sorted-eigenphase deviation 0.0e+00). At the closed clock the dressing carries NO dispersion content - the v = 1 front of T0 is a maximum-speed statement, not a cone statement",
+   "pass": true
+  },
+  {
+   "name": "T2 the dressed hop at the closed clock pi/4: 3 exactly gapless points located on the probe lines (gap < 1e-9); their cone anisotropy delta_v/v = [0.9996, 1.0, 1.0] - worst 1.0000: the v = 1 front of the dressed network is the MAXIMUM-velocity statement (T0); the gapless cone of the same network is not isotropic - a flat direction survives the dressing",
+   "pass": true
+  },
+  {
+   "name": "T3 the star module: the equivariant census makes the star's invariants start at degree 2 (V219 measured leading azimuthal degree 2 on the two-fold line, odd-harmonic fraction 1.2e-12); the measured nodal-line cone is still delta_v/v = 0.9999 (v from 1.473e-04 to 1.204): pushing the first anisotropic harmonic up does not isotropize the node",
+   "pass": true
+  }
+ ],
+ "status": "dressed-hop isotropy attempt: ANISOTROPY (zero fitted parameters, 3 s): at the closed clock pi/4 the V141 dressing is degenerate as a mechanism - A(h) = rho(h^2) = -I per bond, the step's six bond factors make the six insertions multiply to +I (dressed and bare spectra identical to 0e+00), and the electric gate is a scalar (5 pi/4, err 3e-14) - so it CANNOT move the cone: the dressed network's gapless points carry delta_v/v = 1.0000 (flat directions survive; the v = 1 statement is the front-speed maximum, measured 1.000000000 to 1.000000000); the star module, whose equivariant census starts at degree 2 with the odd harmonics dead (1e-12), gives delta_v/v = 0.9999 at its nodal line. Bare control: 1/5 0.294, pi/4 1.000. BEST delta_v/v over the attempt: 0.294 >= 1e-6. The bounded attempt fails; per the pre-registration this programme stops here - no third attempt.",
+ "pass": true
+}

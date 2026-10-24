@@ -4,7 +4,7 @@
   "property": "the internal sector of the 2I-covariant Clifford cell: chirality conservation of the 32-internal step, its pseudoscalar sector blocks and their relation to the 16-sector step, the committed CPT operator against every candidate the cell offers, the unchanged anomaly and trace-form data, and the grid-converged loop return amplitude F_n against the spinless control",
   "residual": true,
   "pass": true,
-  "status": "INTERNAL SECTOR AND LOOP RETURN OF THE 2I-COVARIANT CLIFFORD CELL at the closed clock g = 0.785398 (layers 1, internal exponent 4). (T1) the 32-internal step commutes with 1 (x) w to 8.4e-31 at the probe momenta: the bond layer acts on direction, layer and spinor and does not leak into the internal factor. (T2) in the pseudoscalar eigenbasis the step is block diagonal to 2.9e-16 and its 16-block is spectrally the 16-sector step to 4.1e-15 -- the reuse of U16 is a consequence -- and the matter and antimatter blocks are isospectral to 5.4e-15: CPT on the spectrum survives the bond layer. (T3) the CPT candidates, worst defect over the probe momenta -- control (scalar bonds, same clock and internal exponent): P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 5.0e-16, g1 S(q) g1^-1 vs S(-q) = 1.2e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.2e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.2e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.3e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.4e+00, so 'P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)' holds at 5.0e-16; Clifford cell: g1 S(q) g1^-1 vs S(-q) = 1.1e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.1e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.1e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.4e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.4e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 1.4e+00, so the best is 'g1 S(q) g1^-1 vs S(-q)' at 1.1e+00 and none holds: the identity the committed CPT operator has to satisfy fails exactly where V225 T1 measured inversion broken (1.414 at the zone centre). (T4) the 5/3 trace-form ratio stays 1.6666666667, the 8 anomaly coefficients stay zero (largest 2.2e-16) and the sector dimensions 32 = 2 x 16: the internal data are untouched. (T5) the loop return F_n on the momentum ball is [0.0, 0.460082, -0.0, -0.334407, -0.0, -0.293981, -0.0, 0.212037, -0.0, 0.208772, 0.0, -0.180884] for n = 1..12: the odd lengths vanish in modulus to ['3.3e-18', '5.8e-18', '6.5e-18', '7.8e-18', '8.3e-18', '8.6e-18'] -- the split is exact, not a real-part artefact -- while the even lengths are resolved at [] and not at [2, 4, 6, 8, 10, 12] (refinement changes ['0.0e+00', '3.1e-02', '9.1e-19', '3.4e-02', '2.0e-19', '5.4e-02', '4.6e-19', '7.5e-02', '1.0e-18', '8.4e-02', '9.6e-19', '2.3e-01']), against [-0.218513, -0.539918, 0.31623, -0.174733, 0.02754, 0.233438, -0.207769, 0.134859, -0.010502, -0.162805, 0.161383, -0.120024] for the matched scalar-bond control. The bond layer kills the odd returns, so the loop factor of Section 12 has to be recomputed on this cell, and at these grids no converged even-length value is available to recompute it from.",
+  "status": "INTERNAL SECTOR AND LOOP RETURN OF THE 2I-COVARIANT CLIFFORD CELL at the closed clock g = 0.785398 (layers 1, internal exponent 4). (T1) the 32-internal step commutes with 1 (x) w to 7.1e-31 at the probe momenta: the bond layer acts on direction, layer and spinor and does not leak into the internal factor. (T2) in the pseudoscalar eigenbasis the step is block diagonal to 2.9e-16 and its 16-block is spectrally the 16-sector step to 4.0e-15 -- the reuse of U16 is a consequence -- and the matter and antimatter blocks are isospectral to 3.8e-15: CPT on the spectrum survives the bond layer. (T3) the CPT candidates, worst defect over the probe momenta -- control (scalar bonds, same clock and internal exponent): P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 5.0e-16, g1 S(q) g1^-1 vs S(-q) = 1.2e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.2e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.2e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.3e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.4e+00, so 'P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)' holds at 5.0e-16; Clifford cell: g1 S(q) g1^-1 vs S(-q) = 1.1e+00, g1 S(q) g1^-1 vs S(-q)^-1 = 1.1e+00, g1 S(q) g1^-1 vs S_inv(-q) (internal inverted) = 1.1e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q)^T = 1.4e+00, g1 S(q) g1^-1 vs S(-q)^T = 1.4e+00, P g1 S(q) g1^-1 (P g1)^-1 vs S(-q) = 1.4e+00, so the best is 'g1 S(q) g1^-1 vs S(-q)' at 1.1e+00 and none holds: the identity the committed CPT operator has to satisfy fails exactly where V225 T1 measured inversion broken (1.414 at the zone centre). (T4) the 5/3 trace-form ratio stays 1.6666666667, the 8 anomaly coefficients stay zero (largest 2.2e-16) and the sector dimensions 32 = 2 x 16: the internal data are untouched. (T5) the loop return F_n on the momentum ball is [0.0, 0.460082, -0.0, -0.334407, -0.0, -0.293981, -0.0, 0.212037, -0.0, 0.208772, 0.0, -0.180884] for n = 1..12: the odd lengths vanish in modulus to ['3.3e-18', '5.8e-18', '6.5e-18', '7.8e-18', '8.3e-18', '8.6e-18'] -- the split is exact, not a real-part artefact -- while the even lengths are resolved at [] and not at [2, 4, 6, 8, 10, 12] (refinement changes ['0.0e+00', '3.1e-02', '9.1e-19', '3.4e-02', '2.0e-19', '5.4e-02', '4.6e-19', '7.5e-02', '1.0e-18', '8.4e-02', '9.6e-19', '2.3e-01']), against [-0.218513, -0.539918, 0.31623, -0.174733, 0.02754, 0.233438, -0.207769, 0.134859, -0.010502, -0.162805, 0.161383, -0.120024] for the matched scalar-bond control. The bond layer kills the odd returns, so the loop factor of Section 12 has to be recomputed on this cell, and at these grids no converged even-length value is available to recompute it from.",
   "data": {
     "clock": 0.7853981633974483,
     "branch": "closed",
@@ -31,7 +31,7 @@
           0.52,
           -0.23
         ],
-        "defect": 8.425038160928628e-31
+        "defect": 6.8495037132809865e-31
       },
       {
         "q": [
@@ -52,7 +52,7 @@
         "dim16": 384,
         "dimbar": 384,
         "total": 768,
-        "sector16_equals_16_step": 4.107825191113079e-15,
+        "sector16_equals_16_step": 3.9968028886505635e-15,
         "matter_vs_antimatter": 3.774758283725532e-15
       },
       "[0.09, 0.52, -0.23]": {
@@ -60,8 +60,8 @@
         "dim16": 384,
         "dimbar": 384,
         "total": 768,
-        "sector16_equals_16_step": 2.9976021664879227e-15,
-        "matter_vs_antimatter": 5.440092820663267e-15
+        "sector16_equals_16_step": 2.7755575615628914e-15,
+        "matter_vs_antimatter": 3.219646771412954e-15
       }
     },
     "cpt_candidates": {
@@ -146,9 +146,9 @@
             0.4579430822223636,
             8.181389488403886e-18,
             0.3162936996352406,
-            8.895086050399863e-18,
+            8.895086050399865e-18,
             0.27957619857481875,
-            9.570400737761822e-18,
+            9.570400737761823e-18,
             0.15975517331468161
           ],
           "dim": 384,
@@ -441,12 +441,12 @@
       {
         "name": "T1 the Clifford bond layer does not leak into the internal factor: the 32-internal step commutes with 1 (x) w",
         "pass": true,
-        "detail": "the pseudoscalar is the committed one (w^2 = -1 to 0.0e+00, g1 exchanges the sectors: g1 w g1^-1 + w = 0.0e+00), the internal map U32 has U32^8 - I = 4.9e-15; the step commutes with 1 (x) w at the probe momenta to 8.4e-31"
+        "detail": "the pseudoscalar is the committed one (w^2 = -1 to 0.0e+00, g1 exchanges the sectors: g1 w g1^-1 + w = 0.0e+00), the internal map U32 has U32^8 - I = 4.9e-15; the step commutes with 1 (x) w at the probe momenta to 7.1e-31"
       },
       {
         "name": "T2 the 32-internal step of the new cell is block diagonal in the pseudoscalar basis, its 16-block is the 16-sector step, and its matter and antimatter blocks are isospectral",
         "pass": true,
-        "detail": "off-block norms 2.9e-16, 2.9e-16; the 16-block's eigenphases agree with the step built directly on the 16 sector to 4.1e-15 (so the reuse of U16 is forced, not chosen); the matter and antimatter blocks' sorted eigenphase spectra agree to 3.8e-15, 5.4e-15 -- CPT on the spectrum carries over to the cell that carries the spinor bond layer, as it did on the star module (V217 T2); the pseudoscalar eigenbasis reproduces the committed sector frame to 0.0e+00"
+        "detail": "off-block norms 2.9e-16, 2.9e-16; the 16-block's eigenphases agree with the step built directly on the 16 sector to 4.0e-15 (so the reuse of U16 is forced, not chosen); the matter and antimatter blocks' sorted eigenphase spectra agree to 3.8e-15, 3.2e-15 -- CPT on the spectrum carries over to the cell that carries the spinor bond layer, as it did on the star module (V217 T2); the pseudoscalar eigenbasis reproduces the committed sector frame to 0.0e+00"
       },
       {
         "name": "T3 the CPT candidate set is decided by measurement on both cells: it holds on the spinless-bond control, and the Clifford cell is no better -- whether any identity survives there is a finding, not a hope",
@@ -465,5 +465,5 @@
       }
     ]
   },
-  "wall_time": 161.555
+  "wall_time": 306.865
 }

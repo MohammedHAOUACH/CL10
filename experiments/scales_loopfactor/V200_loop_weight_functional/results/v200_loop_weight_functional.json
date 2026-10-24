@@ -7,72 +7,72 @@
     "N": 9,
     "r": 0.5093826983485575,
     "r_root": 0.7137105143884022,
-    "I": 0.6016496635797277,
-    "F_n": 2.7582293618526923
+    "I": 0.6016496635797279,
+    "F_n": 2.758229361852693
    },
    {
     "n": 3,
     "N": 27,
     "r": 0.01928431060973304,
     "r_root": 0.268164554255228,
-    "I": 0.46667605430035863,
-    "F_n": 0.24298720160182444
+    "I": 0.46667605430035874,
+    "F_n": 0.24298720160182455
    },
    {
     "n": 4,
     "N": 81,
     "r": 0.015881079420749435,
     "r_root": 0.35499317573662476,
-    "I": 0.36198231768559985,
-    "F_n": 0.465642264821829
+    "I": 0.3619823176855998,
+    "F_n": 0.46564226482182897
    },
    {
     "n": 5,
     "N": 243,
-    "r": 0.001527919889993939,
+    "r": 0.0015279198899939392,
     "r_root": 0.2734136023074092,
-    "I": 0.28077549107052563,
-    "F_n": 0.10424759715536161
+    "I": 0.28077549107052546,
+    "F_n": 0.10424759715536157
    },
    {
     "n": 6,
     "N": 729,
-    "r": 0.0001881896513796353,
-    "r_root": 0.23938629855130839,
-    "I": 0.21778653965735154,
-    "F_n": 0.029878191097531405
+    "r": 0.00018818965137963546,
+    "r_root": 0.23938629855130844,
+    "I": 0.21778653965735142,
+    "F_n": 0.029878191097531412
    },
    {
     "n": 7,
     "N": 2187,
     "r": 0.0009955068346576537,
     "r_root": 0.3725196429328228,
-    "I": 0.16892847974401468,
-    "F_n": 0.3677866006076906
+    "I": 0.1689284797440147,
+    "F_n": 0.36778660060769064
    },
    {
     "n": 8,
     "N": 6560,
-    "r": 7.396996999473068e-05,
-    "r_root": 0.30453129570694565,
-    "I": 0.13103119831704688,
-    "F_n": 0.06358197217972929
+    "r": 7.396996999473061e-05,
+    "r_root": 0.3045312957069456,
+    "I": 0.1310311983170468,
+    "F_n": 0.0635819721797292
    },
    {
     "n": 9,
     "N": 19472,
-    "r": 1.7589915179065178e-05,
+    "r": 1.7589915179065174e-05,
     "r_root": 0.29627565825238084,
-    "I": 0.10163576301873814,
-    "F_n": 0.03481134938323542
+    "I": 0.10163576301873804,
+    "F_n": 0.03481134938323538
    },
    {
     "n": 10,
     "N": 55326,
-    "r": 4.39891556230256e-06,
+    "r": 4.398915562302565e-06,
     "r_root": 0.2912960278497181,
-    "I": 0.07883487678648371,
-    "F_n": 0.019186391026184278
+    "I": 0.07883487678648392,
+    "F_n": 0.01918639102618435
    }
   ],
   "eta_law": {
@@ -102,11 +102,11 @@
  "pass": true,
  "checks": [
   {
-   "name": "T0 the weight functional is the census: enumerating the 3^n words of the three sector hop matrices reproduces the Cartan projection of (MG)^n for every n = 2..10 to 7.7e-17, and F_10 = 0.019186 against V85's measured 0.019186",
+   "name": "T0 the weight functional is the census: enumerating the 3^n words of the three sector hop matrices reproduces the Cartan projection of (MG)^n for every n = 2..10 to 7.5e-17, and F_10 = 0.019186 against V85's measured 0.019186",
    "pass": true
   },
   {
-   "name": "T1 exact three-factor law F_n = N_n * r_n * I_n: for every n = 2..10 the identity holds to 2.3e-16 relative; at n = 10: multiplicity N = 55326 surviving words (eta-independent norms, the phase cancels in every word norm - verified to 2.9e-18), mean-word amplitude ratio r_10 = 4.399e-06 (per-hop decay 0.2913), interference I_10 = 0.0788; the ladder factor is multiplicity x geometry x interference with no further number",
+   "name": "T1 exact three-factor law F_n = N_n * r_n * I_n: for every n = 2..10 the identity holds to 2.2e-16 relative; at n = 10: multiplicity N = 55326 surviving words (eta-independent norms, the phase cancels in every word norm - verified to 2.8e-18), mean-word amplitude ratio r_10 = 4.399e-06 (per-hop decay 0.2913), interference I_10 = 0.0788; the ladder factor is multiplicity x geometry x interference with no further number",
    "pass": true
   },
   {
@@ -114,10 +114,10 @@
    "pass": true
   }
  ],
- "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.7e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.3e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.9e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1981); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
+ "status": "the traced-loop weight functional of O8, exactly factorised. The weight of a length-n word is its Cartan-amplitude vector times the sector phase e^{i(eta/2) sum ev}; the sum of the weights is (MG)^n exactly (7.5e-17), and the factorisation F_n = N_n * r_n * I_n holds for every n = 2..10 to 2.2e-16: at n = 10 the three factors are multiplicity N = 55326, mean-word amplitude ratio r_10 = 4.399e-06 (per-hop 0.2913), interference I_10 = 0.0788, and the word norms do not depend on eta (phase cancels in a norm, 2.8e-18) - so all of the ladder factor is these three numbers. F_10 hits 1/(16 pi) exactly at 8 angles (nearest to the root: eta* = 0.1981); at the root angle eta = 0.2 the interference overshoots by the single named deficit factor 0.9644: which loops contribute is a three-number functional and the unnamed weight of O8 is the root-angle interference deficit 0.9644",
  "residual": true,
  "tier": 4,
  "property": "the loop-factor weight is exactly multiplicity x per-word geometry x interference of the traced word census (V200)",
  "programme": "V200",
- "wall_time": 37.413
+ "wall_time": 19.018
 }

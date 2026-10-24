@@ -1,0 +1,68 @@
+{
+ "id": "V237_desert_threshold_matching",
+ "tier": 3,
+ "property": "the root-coupling desert solution tested against its own one-loop thresholds (V237, O4/F2)",
+ "residual": true,
+ "programme": "V237",
+ "branch": "NOT REALIZABLE BY ITS OWN CONTENT",
+ "data": {
+  "branching_exact": {
+   "k1": "3/5",
+   "sY2_16": "10/3",
+   "10+10bar": [
+    "6/5",
+    "2",
+    "2"
+   ],
+   "(1,2)": [
+    "2/5",
+    "2/3",
+    "0"
+   ],
+   "16+16bar": [
+    "8/3",
+    "8/3",
+    "8/3"
+   ]
+  },
+  "solution_pi64": {
+   "M_X_GeV": 1.234524046017877e+17,
+   "M_10_GeV": 70597.11391958076,
+   "M_12_GeV": 4.864438250605381e+17
+  },
+  "matching": {
+   "M_X_pinned_GeV": 1.235e+17,
+   "alpha_X": 0.04908738521234052,
+   "zA_solved_GeV": 70524.58450042456,
+   "zB_solved_GeV": 4.877111362966257e+17,
+   "dz10_efolds": -5.13670056342124,
+   "dz12_efolds": 13.097478575754906,
+   "spacing12": 11.723996435050168,
+   "spacing10": 23.05460034322644,
+   "residual": 0.005781931811235097,
+   "shift_over_spacing_12": 1.1171513611688386,
+   "floor_violated": true,
+   "ordering_violated": true
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 exact-integer branching from the root charge data: the U1 normalisation is fixed by the completeness identity to k1 = 3/5 (sum Y^2 over the 16 = 10/3); the desert Delta b vectors come out (6/5, 2, 2) for a 10 + 10bar pair, (2/5, 2/3, 0) for a (1,2) pair and the complete 16 + 16bar adds equally (8/3,8/3,8/3) to all three - all equalities exact Fractions, all matching the closed V64 library to 1e-12 (16 Weyl = 16, B-L = -1/1)",
+   "pass": true
+  },
+  {
+   "name": "T1 the closed SM one-loop beta functions (config sm:) are reproduced from the same charge data with one scalar doublet: (41/10, -19/6, -7) = (4.1, -3.1666666666666665, -7.0) against B_SM = (4.1, -3.1666666666666665, -7)",
+   "pass": true
+  },
+  {
+   "name": "T2 the pi/64 meeting solved independently over the three desert thresholds reproduces the committed V133 artifact to 1e-9 relative: M_X = 1.2345e+17 GeV, M_10 = 7.0597e+04 GeV, M_(1,2) = 4.8644e+17 GeV - the (1,2) threshold lands ABOVE M_X (ordering destroyed) and M_10 below the 1e6 GeV desert floor (artifact in_desert_box = False)",
+   "pass": true
+  },
+  {
+   "name": "T3 with M_X pinned at the fitted 1.235e+17 GeV and alpha_X = pi/64, the content at its preferred thresholds misses the meeting; the required threshold shifts are Delta ln M_10 = -5.137 e-folds (to 7.052e+04 GeV) and Delta ln M_(1,2) = +13.097 e-folds (to 4.877e+17 GeV) against the spectrum's own log-spacings ln(M_X/M_12) = 11.724 and ln(M_X/M_10) = 23.055: the (1,2) pair must move 1.12x its entire spacing to M_X, and it lands above M_X; third-equation residual 5.782e-03",
+   "pass": true
+  }
+ ],
+ "status": "desert threshold matching: NOT REALIZABLE BY ITS OWN CONTENT (zero fitted parameters, 0 s): the root-coupling solution alpha_X = pi/64, M_X = 1.235e+17 GeV needs its three 10 + 10bar pairs at 7.052e+04 GeV (below the 1e6 GeV desert floor) and its (1,2) pair at 4.877e+17 GeV - above M_X itself; the (1,2) threshold must move +13.1 e-folds, 1.12x the log-spacing between 1.0e12 GeV and M_X, so no one-loop threshold correction within the spectrum's own spacings restores the meeting - F2's unification side fires (Table 5, O4 gap column); tau_p = 2.76e+39 yr inherits the destroyed-ordering M_X and stays 1e+05x above the Super-Kamiokande p -> e+ pi0 bound either way; the branching that drives it is exact-integer from the root charges (k1 = 3/5, Delta b 10+10bar = (6/5, 2, 2), 16+16bar = (8/3, 8/3, 8/3) proportional - the no-go is the model's own content).",
+ "pass": true
+}

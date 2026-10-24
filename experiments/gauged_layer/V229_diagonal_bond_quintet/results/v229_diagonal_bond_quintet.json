@@ -1,0 +1,655 @@
+{
+ "id": "V229_diagonal_bond_quintet",
+ "tier": 5,
+ "property": "the diagonal-bond quintet: the T2g coupling gap closes on the star axes, the speeds double to {0, 2 g10, 4 g10} and no branch reaches c = 1 at any closed clock (V229, F8)",
+ "residual": true,
+ "programme": "V229",
+ "branch": "F8-FIRED",
+ "data": {
+  "fitted_inputs": [],
+  "stress_vertex": {
+   "axis_bond_control_t2g": 0.0,
+   "star_axis_T2g_entries": {
+    "g2_a0": 0.0,
+    "g2_a1": 0.0,
+    "g2_a2": 0.6324555320336758,
+    "g2_a3": -0.6324555320336758,
+    "g2_a4": 0.0,
+    "g2_a5": 0.0,
+    "g3_a0": 0.0,
+    "g3_a1": 0.0,
+    "g3_a2": 0.0,
+    "g3_a3": 0.0,
+    "g3_a4": 0.6324555320336758,
+    "g3_a5": -0.6324555320336758,
+    "g4_a0": 0.6324555320336758,
+    "g4_a1": -0.6324555320336758,
+    "g4_a2": 0.0,
+    "g4_a3": 0.0,
+    "g4_a4": 0.0,
+    "g4_a5": 0.0
+   },
+   "star_axis_T2g_nonzero_count": 6,
+   "all_components_max": 0.6324555320336758
+  },
+  "dispersion": {
+   "pi/4": {
+    "gap_gamma": 0.0,
+    "predicted_speeds_full": [
+     0.0,
+     2.9878321647415556,
+     5.975664329483111
+    ],
+    "predicted_speeds_unit": [
+     0.0,
+     1.5707963267948966,
+     3.141592653589793
+    ],
+    "measured_by_radius": {
+     "full": {
+      "0.01": {
+       "v1_mean": 2.9877240656531043,
+       "v2_mean": 5.975448131306202,
+       "v1_band": [
+        2.9877240657
+       ],
+       "v2_band": [
+        5.9754481313
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 2.9878213702465826,
+       "v2_mean": 5.975642740493272,
+       "v1_band": [
+        2.9878213702
+       ],
+       "v2_band": [
+        5.9756427405
+       ]
+      },
+      "0.001": {
+       "v1_mean": 2.9878310837337847,
+       "v2_mean": 5.975662167467647,
+       "v1_band": [
+        2.9878310837
+       ],
+       "v2_band": [
+        5.9756621675
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 2.9878320567958183,
+       "v2_mean": 5.975664113591534,
+       "v1_band": [
+        2.9878320568
+       ],
+       "v2_band": [
+        5.9756641136
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 2.9878321539313615,
+       "v2_mean": 5.975664307861218,
+       "v1_band": [
+        2.9878321539
+       ],
+       "v2_band": [
+        5.9756643079
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 2.9878321636636502,
+       "v2_mean": 5.975664327319538,
+       "v1_band": [
+        2.9878321637
+       ],
+       "v2_band": [
+        5.9756643273
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 2.9878321646280845,
+       "v2_mean": 5.9756643292487075,
+       "v1_band": [
+        2.9878321646
+       ],
+       "v2_band": [
+        5.9756643292,
+        5.9756643293
+       ]
+      }
+     },
+     "unit": {
+      "0.01": {
+       "v1_mean": 1.5707806188996862,
+       "v2_mean": 3.1415612377993756,
+       "v1_band": [
+        1.5707806189
+       ],
+       "v2_band": [
+        3.1415612378
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 1.5707947582612365,
+       "v2_mean": 3.1415895165222794,
+       "v1_band": [
+        1.5707947583
+       ],
+       "v2_band": [
+        3.1415895165
+       ]
+      },
+      "0.001": {
+       "v1_mean": 1.5707961697152328,
+       "v2_mean": 3.141592339430444,
+       "v1_band": [
+        1.5707961697
+       ],
+       "v2_band": [
+        3.1415923394
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 1.5707963111088408,
+       "v2_mean": 3.14159262221851,
+       "v1_band": [
+        1.5707963111
+       ],
+       "v2_band": [
+        3.1415926222
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 1.5707963252238513,
+       "v2_mean": 3.1415926504479326,
+       "v1_band": [
+        1.5707963252
+       ],
+       "v2_band": [
+        3.1415926504
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 1.5707963266367535,
+       "v2_mean": 3.1415926532701715,
+       "v1_band": [
+        1.5707963266
+       ],
+       "v2_band": [
+        3.1415926533
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 1.5707963267668397,
+       "v2_mean": 3.141592653544134,
+       "v1_band": [
+        1.5707963267,
+        1.5707963268
+       ],
+       "v2_band": [
+        3.1415926535,
+        3.1415926536
+       ]
+      }
+     }
+    },
+    "direction_spread_smallest_radius": {
+     "full": {
+      "v1": 2.8406166308059255e-11,
+      "v2": 3.3304914381915296e-11
+     },
+     "unit": {
+      "v1": 5.2117643534188574e-11,
+      "v2": 4.0249137356340725e-11
+     }
+    },
+    "closed_form_agreement": {
+     "full_v1_dev": 1.134710103656289e-10,
+     "unit_v2_dev": 4.565903211073419e-11
+    }
+   },
+   "pi/2": {
+    "gap_gamma": 0.0,
+    "predicted_speeds_full": [
+     0.0,
+     5.975664329483111,
+     11.951328658966222
+    ],
+    "predicted_speeds_unit": [
+     0.0,
+     3.141592653589793,
+     6.283185307179586
+    ],
+    "measured_by_radius": {
+     "full": {
+      "0.01": {
+       "v1_mean": 5.975448131306227,
+       "v2_mean": 11.950896262612439,
+       "v1_band": [
+        5.9754481313
+       ],
+       "v2_band": [
+        11.9508962626
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 5.97564274049325,
+       "v2_mean": 11.951285480986554,
+       "v1_band": [
+        5.9756427405
+       ],
+       "v2_band": [
+        11.951285481
+       ]
+      },
+      "0.001": {
+       "v1_mean": 5.975662167467658,
+       "v2_mean": 11.951324334935437,
+       "v1_band": [
+        5.9756621675
+       ],
+       "v2_band": [
+        11.9513243349
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 5.975664113592056,
+       "v2_mean": 11.951328227185167,
+       "v1_band": [
+        5.9756641136
+       ],
+       "v2_band": [
+        11.9513282272
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 5.975664307862419,
+       "v2_mean": 11.95132861572363,
+       "v1_band": [
+        5.9756643079
+       ],
+       "v2_band": [
+        11.9513286157
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 5.975664327321944,
+       "v2_mean": 11.951328654642701,
+       "v1_band": [
+        5.9756643273
+       ],
+       "v2_band": [
+        11.9513286546
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 5.975664329261437,
+       "v2_mean": 11.951328658523865,
+       "v1_band": [
+        5.9756643292,
+        5.9756643293
+       ],
+       "v2_band": [
+        11.9513286585,
+        11.9513286586
+       ]
+      }
+     },
+     "unit": {
+      "0.01": {
+       "v1_mean": 3.1415612377993773,
+       "v2_mean": 6.2831224755987565,
+       "v1_band": [
+        3.1415612378
+       ],
+       "v2_band": [
+        6.2831224756
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 3.1415895165223677,
+       "v2_mean": 6.283179033044646,
+       "v1_band": [
+        3.1415895165
+       ],
+       "v2_band": [
+        6.283179033
+       ]
+      },
+      "0.001": {
+       "v1_mean": 3.1415923394303973,
+       "v2_mean": 6.283184678860962,
+       "v1_band": [
+        3.1415923394
+       ],
+       "v2_band": [
+        6.2831846789
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 3.1415926222188326,
+       "v2_mean": 6.283185244437944,
+       "v1_band": [
+        3.1415926222
+       ],
+       "v2_band": [
+        6.2831852444
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 3.141592650447686,
+       "v2_mean": 6.283185300896247,
+       "v1_band": [
+        3.1415926504
+       ],
+       "v2_band": [
+        6.2831853009
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 3.141592653272888,
+       "v2_mean": 6.283185306547478,
+       "v1_band": [
+        3.1415926533
+       ],
+       "v2_band": [
+        6.2831853065,
+        6.2831853066
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 3.1415926535568706,
+       "v2_mean": 6.283185307100827,
+       "v1_band": [
+        3.1415926535,
+        3.1415926536
+       ],
+       "v2_band": [
+        6.283185307,
+        6.2831853071
+       ]
+      }
+     }
+    },
+    "direction_spread_smallest_radius": {
+     "full": {
+      "v1": 2.913491670142321e-11,
+      "v2": 4.885514215402509e-11
+     },
+     "unit": {
+      "v1": 2.142419575079657e-11,
+      "v2": 6.87565560042458e-11
+     }
+    },
+    "closed_form_agreement": {
+     "full_v1_dev": 2.2167423452401636e-10,
+     "unit_v2_dev": 7.87592213669086e-11
+    }
+   },
+   "3pi/4": {
+    "gap_gamma": 0.0,
+    "predicted_speeds_full": [
+     0.0,
+     8.963496494224668,
+     17.926992988449335
+    ],
+    "predicted_speeds_unit": [
+     0.0,
+     4.71238898038469,
+     9.42477796076938
+    ],
+    "measured_by_radius": {
+     "full": {
+      "0.01": {
+       "v1_mean": 8.96317219695934,
+       "v2_mean": 17.926344393918672,
+       "v1_band": [
+        8.963172197
+       ],
+       "v2_band": [
+        17.9263443939
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 8.963464110739904,
+       "v2_mean": 17.926928221479802,
+       "v1_band": [
+        8.9634641107
+       ],
+       "v2_band": [
+        17.9269282215
+       ]
+      },
+      "0.001": {
+       "v1_mean": 8.963493251201564,
+       "v2_mean": 17.926986502403366,
+       "v1_band": [
+        8.9634932512
+       ],
+       "v2_band": [
+        17.9269865024
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 8.963496170388702,
+       "v2_mean": 17.926992340778607,
+       "v1_band": [
+        8.9634961704
+       ],
+       "v2_band": [
+        17.9269923408
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 8.963496461792916,
+       "v2_mean": 17.92699292358681,
+       "v1_band": [
+        8.9634964618
+       ],
+       "v2_band": [
+        17.9269929236
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 8.96349649097647,
+       "v2_mean": 17.926992981965224,
+       "v1_band": [
+        8.963496491
+       ],
+       "v2_band": [
+        17.926992982
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 8.963496493895326,
+       "v2_mean": 17.92699298779068,
+       "v1_band": [
+        8.9634964939
+       ],
+       "v2_band": [
+        17.9269929878
+       ]
+      }
+     },
+     "unit": {
+      "0.01": {
+       "v1_mean": 4.712341856699072,
+       "v2_mean": 9.424683713398144,
+       "v1_band": [
+        4.7123418567
+       ],
+       "v2_band": [
+        9.4246837134
+       ]
+      },
+      "0.00316": {
+       "v1_mean": 4.71238427478352,
+       "v2_mean": 9.424768549567117,
+       "v1_band": [
+        4.7123842748
+       ],
+       "v2_band": [
+        9.4247685496
+       ]
+      },
+      "0.001": {
+       "v1_mean": 4.712388509145748,
+       "v2_mean": 9.424777018291488,
+       "v1_band": [
+        4.7123885091
+       ],
+       "v2_band": [
+        9.4247770183
+       ]
+      },
+      "0.000316": {
+       "v1_mean": 4.712388933328224,
+       "v2_mean": 9.424777866657415,
+       "v1_band": [
+        4.7123889333
+       ],
+       "v2_band": [
+        9.4247778667
+       ]
+      },
+      "0.0001": {
+       "v1_mean": 4.712388975672136,
+       "v2_mean": 9.42477795134212,
+       "v1_band": [
+        4.7123889757
+       ],
+       "v2_band": [
+        9.4247779513
+       ]
+      },
+      "3.16e-05": {
+       "v1_mean": 4.712388979912121,
+       "v2_mean": 9.424777959824183,
+       "v1_band": [
+        4.7123889799
+       ],
+       "v2_band": [
+        9.4247779598
+       ]
+      },
+      "1e-05": {
+       "v1_mean": 4.712388980328036,
+       "v2_mean": 9.424777960667045,
+       "v1_band": [
+        4.7123889803
+       ],
+       "v2_band": [
+        9.4247779606,
+        9.4247779607
+       ]
+      }
+     }
+    },
+    "direction_spread_smallest_radius": {
+     "full": {
+      "v1": 3.240607782117877e-11,
+      "v2": 3.3292479884039494e-11
+     },
+     "unit": {
+      "v1": 2.948485899878506e-11,
+      "v2": 5.056755014720693e-11
+     }
+    },
+    "closed_form_agreement": {
+     "full_v1_dev": 3.2934188709532464e-10,
+     "unit_v2_dev": 1.0233414116100903e-10
+    }
+   }
+  },
+  "f8_closure_test": {
+   "closest_branch": "pi/4 bond=unit v=1.570796",
+   "closest_abs_v_minus_1": 0.5707963267948966,
+   "closed_at_any_clock": false
+  },
+  "star_automaton_branches": {
+   "pi/4": {
+    "branch_speeds_min_nonzero": [
+     314159.2653
+    ],
+    "closest_abs_v_minus_1": 314158.2653445048
+   },
+   "pi/2": {
+    "branch_speeds_min_nonzero": [
+     0.6498
+    ],
+    "closest_abs_v_minus_1": 0.3501606081041493
+   },
+   "3pi/4": {
+    "branch_speeds_min_nonzero": [
+     314159.2653
+    ],
+    "closest_abs_v_minus_1": 314158.2653445042
+   }
+  },
+  "mass_shift": {
+   "star_bond_bubble_eigenvalues": [
+    -21.414212600884234,
+    -20.645011868445177,
+    -5.791886392995528,
+    -9.313568778522607e-15,
+    -3.523384943705493e-15
+   ],
+   "star_bond_shifts_at_lambda_g10": [
+    -6.604681466610945,
+    -6.367440624917142,
+    -1.7863633573411948,
+    -2.872538731448599e-15,
+    -1.086700485847741e-15
+   ],
+   "star_bond_max_abs_shift": 6.604681466610945,
+   "axis_bond_bubble_eigenvalues": [
+    -54.238966410365975,
+    -53.398252766988634,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis_bond_shifts_at_lambda_g10": [
+    -16.728660674821434,
+    -16.469363453736033,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "axis_bond_max_abs_shift": 16.728660674821434,
+   "v141_control": {
+    "Pi_Eg_eigenvalues": [
+     -54.238966410365975,
+     -53.398252766988634
+    ],
+    "Pi_T2g_max": 0.0,
+    "mass_shift_at_lambda_g10": [
+     -16.728660674821434,
+     -16.469363453736033
+    ]
+   },
+   "zero_modes_excluded": 0
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 the stress vertex V_gamma(d) = d^T E^gamma d: on the axis bonds the T2g half vanishes identically (V141 control, max 0.0e+00); on the six DIAGONAL star axes every T2g-type component acquires a nonzero vertex (6 of 15 axis x component entries nonzero, the rest exactly zero by the star selection rules; magnitudes 0.6325 to 0.6325; full vertex max 0.6325): the named gap is exactly what the star bond set supplies",
+   "pass": true
+  },
+  {
+   "name": "T2 the quintet step on the six diagonal star bonds: the tight-frame identity sum_a (n.d_a) J_dhat = 2|d| (n.J) holds to 8.9e-16 (six equiangular axes -> exact leading-order isotropy of the STAR bond set); at GAMMA the step is the identity (0.0e+00, six gapless bands); the measured branch speeds at the smallest radius agree with the closed form {0, 2 g10 |d|, 4 g10 |d|} = [0.0, 2.9878, 5.9757] (module displacement) and {0, 2 g10, 4 g10} = [0.0, 1.5708, 3.1416] (unit bonds) at the pi/4 clock; the closest propagating quintet branch to v = 1 over all closed clocks is pi/4 bond=unit v=1.570796 with |v - 1| = 0.5708 (pre-registered acceptance band 1e-12: NOT closed)",
+   "pass": true
+  },
+  {
+   "name": "T3 control layer, the star automaton itself (bloch_star, 1024-dimensional): the smallest nonzero branch slopes at the closed clocks stay away from v = 1 (closest |v - 1| = 0.3502 at the smallest radius) - the fermion layer supplies no c = 1 branch either",
+   "pass": true
+  },
+  {
+   "name": "T4 the quintet mass shift under the diagonal bonds (lambda = g10 = pi/4): the V141 axis-bond vertex gaps only the Eg half (max |shift| 16.7287 on the two Eg directions, T2g bubble 0 to the V141 record 0e+00); on the six diagonal star bonds the bubble is nonzero on the FULL quintet: 3 of 5 shift eigenvalues nonzero, max |shift| = 6.6047 (0 zero modes of -i log M excluded from the resolvent) - closing the T2g coupling gap does not protect gaplessness, it gaps every quintet component at order lambda^2",
+   "pass": true
+  }
+ ],
+ "status": "F8 STAYS FIRED, measured through the named diagonal-bond gap (zero fitted parameters, 1154 s). (T1) the T2g half of the quintet, whose axis-bond stress vertex vanishes identically (V141 control 0.0e+00), acquires a nonzero vertex on every diagonal star axis (6/15 entries, 0.6325-0.6325): the star bond set is exactly the coupling the named gap asked for. (T2) the quintet step on the star bonds is exactly isotropic to leading order by a measured exact identity (tight frame, sum_a (n.d_a)J_dhat = 2|d| (n.J) to 9e-16), massless and linear with six gapless bands at GAMMA (gap 0.0e+00), but its speeds are {0, 2 g10 |d|, 4 g10 |d|} = [0.0, 2.9878, 5.9757] at pi/4 (unit bonds: {0, 2 g10, 4 g10} = [0.0, 1.5708, 3.1416]) - the diagonal bond set DOUBLES the axis-bond ladder {0, g10, 2 g10}; the closest propagating branch to c = 1 over all closed clocks is pi/4 bond=unit v=1.570796, |v - 1| = 0.5708 >> 1e-12. (T3) the star automaton's own branches stay away from v = 1 too (closest |v - 1| = 0.3502). (T4) the diagonal bonds couple the full quintet: 3 of 5 mass shifts nonzero at lambda = g10 = pi/4 (max 6.6047 against the axis-bond Eg-only 16.7287): the gap is closed and the price is that EVERY quintet component is gapped at order lambda^2. VERDICT: no root-supplied bond network gives a massless spin-2 branch at c = 1 - axis bonds give {0, g10, 2 g10}, diagonal star bonds give {0, 2 g10, 4 g10} x |d| - and the clock that would force one branch to c = 1 (2 g10 |d| = 1 -> g10 = 0.262866, or 2 g10 = 1 -> g10 = 1/2) lies outside the closed class (0.262866 and 1/2 are not pi/4, pi/2, 3pi/4): F8 stays fired with the measured set.",
+ "pass": true
+}

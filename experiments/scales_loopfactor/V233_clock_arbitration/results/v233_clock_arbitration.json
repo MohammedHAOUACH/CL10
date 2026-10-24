@@ -1,0 +1,78 @@
+{
+ "id": "V233_clock_arbitration",
+ "tier": 5,
+ "property": "the 2x2 clock decision (hierarchy coefficient and meeting coupling) between the closed clock pi/4 and the rational clock 1/5 (V233, F2)",
+ "residual": true,
+ "programme": "V233",
+ "branch": "F2-FIRED",
+ "data": {
+  "fitted_inputs": [],
+  "readings": {
+   "pi4_certified": 2.7095258500787756,
+   "pi4_float64": 2.7002077805447326,
+   "fifth": 2.088106865906787,
+   "g_obs": 0.19999798835751165,
+   "observed": 2.076564111173832,
+   "obs_uncertainty": 0.0001,
+   "alpha_x_fitted": 0.04
+  },
+  "score_hierarchy": {
+   "pi/4": {
+    "coef": 2.7095258500787756,
+    "dev": 0.6329617389049433,
+    "fits": false,
+    "miss_pct": 30.481203806760636
+   },
+   "1/5": {
+    "coef": 2.088106865906787,
+    "dev": 0.01154275473295474,
+    "fits": false,
+    "miss_pct": 0.555858336896225
+   }
+  },
+  "score_meeting_coupling": {
+   "pi/4": {
+    "alpha_std": 0.04908738521234052,
+    "ratio_std": 1.227184630308513,
+    "alpha10": 0.6168502750680849,
+    "ratio_10": 15.421256876702122,
+    "fits_std": false,
+    "fits_10": false
+   },
+   "1/5": {
+    "alpha_std": 0.0031830988618379076,
+    "ratio_std": 0.07957747154594769,
+    "alpha10": 0.04000000000000001,
+    "ratio_10": 1.0000000000000002,
+    "fits_std": false,
+    "fits_10": true
+   }
+  },
+  "g_obs_alpha10": {
+   "a": 0.03999919534705136,
+   "ratio": 0.999979883676284,
+   "circular": "g_obs was itself fitted to read the observed coefficient"
+  },
+  "clock_fits_both": []
+ },
+ "checks": [
+  {
+   "name": "T0 reading audit: the certified pi/4 coefficient 2.7095259 (V209, detuning +1e-8, dps >= 50) and the float64 reading 2.7002078 (V206) differ by 9.318e-03 (0.35%) - the certified value is used; the observed coefficient 2.076564 agrees with V204 to 1e-12; the fitted clock of V206 is g_obs = 0.1999980 (2.0e-6 off the fifth)",
+   "pass": true
+  },
+  {
+   "name": "T1 hierarchy-coefficient score against 2.076564 +- 1e-04: pi/4 reads 2.7095 (dev 6.330e-01 = 6330 x the stated uncertainty, +30.5% -> MISS; 1/5 reads 2.0881 (dev 1.154e-02 = 115 x the uncertainty, +0.56% -> MISS; NEITHER clock reads the observed coefficient within its stated uncertainty (the 1/5 agreement claimed by V206 is a FIT of the clock: g_obs = 0.1999980, not 1/5)",
+   "pass": true
+  },
+  {
+   "name": "T2 meeting-coupling score against the fitted desert.alpha_x = 0.04: pi/4 standard reading alpha_std = pi/64 = 0.049087, ratio 1.2272 (the published 1.227, V204) -> MISS; 1/5 standard reading 0.003183, ratio 0.0796 -> MISS (12.6x low); the g^2 convention at 1/5 is 0.04 EXACTLY (ratio 1.000000) but that convention is the fitted one - at the fitted clock g_obs it reads 0.0399992 BY CONSTRUCTION (circular)",
+   "pass": true
+  },
+  {
+   "name": "T3 clock decision: 2x2 score (pi/4: hierarchy MISS +30.5%, coupling MISS 1.227; 1/5: hierarchy MISS 0.55% = 115x the stated uncertainty, coupling standard MISS 0.0796 / g^2 convention exact but circular): no clock in {pi/4, 1/5} fits both readings within the stated uncertainties -> F2 is FIRED for the closure axiom: the closure axiom and the loop-hierarchy identification are mutually exclusive at the measured precision, and the clock becomes a fitted number g_obs = 0.1999980 (algebraic -> fitted)",
+   "pass": true
+  }
+ ],
+ "status": "F2 CLOCK DECISION, F2-FIRED (zero fitted parameters, 0 s): the 2x2 score on clocks {pi/4, 1/5} against (i) the observed hierarchy coefficient 2.076564 +- 1e-4 and (ii) the fitted desert coupling 0.04. (i) pi/4 reads 2.7095 certified (+30.5%, 6330x the uncertainty - the number V209 certified); 1/5 reads 2.0881 (+0.55%, 115x the uncertainty); neither fits. The claimed 1/5 agreement is a FIT: V206's clock is g_obs = 0.1999980 (2.0e-6 off the fifth), read to close the gap. (ii) pi/4's standard reading is pi/64 = 0.049087, ratio 1.227 to the fitted 0.04 (the published root/observed comparison, V204); 1/5's standard reading 0.0031831 is 12.6x low; only the g^2 convention matches, and at the fitted clock it matches BY CONSTRUCTION. VERDICT: F2 fires for the closure axiom - the closure axiom and the loop-hierarchy identification are mutually exclusive at the measured precision; the clock is a fitted number (g_obs = 0.1999980), Table 6 reclasses it algebraic -> fitted, and Table 7 O8's gap states the +30% miss as unresolved rather than a named single number.",
+ "pass": true
+}

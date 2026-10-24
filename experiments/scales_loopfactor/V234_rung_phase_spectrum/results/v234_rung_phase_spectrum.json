@@ -1,0 +1,416 @@
+{
+ "id": "V234_rung_phase_spectrum",
+ "tier": 5,
+ "property": "which rung exponents are realized cell-level phases and whether the ladder identity has any integer pair solution inside the measured scale contacts (V234, F3)",
+ "residual": true,
+ "programme": "V234",
+ "branch": "RUNGS-DECLARED",
+ "data": {
+  "fitted_inputs": [],
+  "instruments": {
+   "rung_phase_max_err": 0.0,
+   "m_A_GeV": 96131777036496.42,
+   "m_B_GeV": 118.57086360835625,
+   "m_nu_identity_eV": 0.14624768344284225
+  },
+  "realized_rungs_float64": {
+   "3": 0.0
+  },
+  "level_phase_inversions": [
+   {
+    "level_phase": 7.874e-06,
+    "rung": 2.999997074829504
+   },
+   {
+    "level_phase": 0.785398163,
+    "rung": 0.061665771907781955
+   },
+   {
+    "level_phase": 2.35619449,
+    "rung": -0.21878430096193852
+   }
+  ],
+  "pair_search": {
+   "dm_window_runks": [
+    10
+   ],
+   "candidate_pairs": [
+    {
+     "pair": [
+      0,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.1515410640460172e-06,
+     "in_contacts": false,
+     "vs_atm_factor": 2.2984851577764816e-05,
+     "excluded_by_sum": false
+    },
+    {
+     "pair": [
+      1,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 5.788276715382306e-05,
+     "in_contacts": false,
+     "vs_atm_factor": 0.0011553446537689233,
+     "excluded_by_sum": false
+    },
+    {
+     "pair": [
+      2,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 0.0029095052169583854,
+     "in_contacts": false,
+     "vs_atm_factor": 0.05807395642631508,
+     "excluded_by_sum": false
+    },
+    {
+     "pair": [
+      3,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 0.14624768344284225,
+     "in_contacts": false,
+     "vs_atm_factor": 2.9191154379808832,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      4,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 7.351210366536941,
+     "in_contacts": false,
+     "vs_atm_factor": 146.73074583906072,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      5,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 369.51213572008936,
+     "in_contacts": false,
+     "vs_atm_factor": 7375.491730939908,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      6,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 18573.705775848117,
+     "in_contacts": false,
+     "vs_atm_factor": 370732.65021652926,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      7,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 933616.281845484,
+     "in_contacts": false,
+     "vs_atm_factor": 18635055.525857966,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      8,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 46928672.83708144,
+     "in_contacts": false,
+     "vs_atm_factor": 936700056.6283721,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      9,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 2358892381.243103,
+     "in_contacts": false,
+     "vs_atm_factor": 47083680264.3334,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      10,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 118570863608.35625,
+     "in_contacts": false,
+     "vs_atm_factor": 2366683904358.408,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      11,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 5960021664668.949,
+     "in_contacts": false,
+     "vs_atm_factor": 118962508276825.34,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      12,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 299583364431359.7,
+     "in_contacts": false,
+     "vs_atm_factor": 5979707872881431.0,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      13,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.5058702349364372e+16,
+     "in_contacts": false,
+     "vs_atm_factor": 3.005729011849176e+17,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      14,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 7.569329387737356e+17,
+     "in_contacts": false,
+     "vs_atm_factor": 1.510844189169133e+19,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      15,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 3.804759935538721e+19,
+     "in_contacts": false,
+     "vs_atm_factor": 7.594331208660121e+20,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      16,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.9124809379457946e+21,
+     "in_contacts": false,
+     "vs_atm_factor": 3.817327221448692e+22,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      17,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 9.613177703649642e+22,
+     "in_contacts": false,
+     "vs_atm_factor": 1.918797944840248e+24,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      18,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 4.832110152230226e+24,
+     "in_contacts": false,
+     "vs_atm_factor": 9.644930443573306e+25,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      19,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 2.4288834808933014e+26,
+     "in_contacts": false,
+     "vs_atm_factor": 4.84807082014631e+27,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      20,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.22089e+28,
+     "in_contacts": false,
+     "vs_atm_factor": 2.4369061876247505e+29,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      21,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 6.136862487745989e+29,
+     "in_contacts": false,
+     "vs_atm_factor": 1.2249226522447084e+31,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      22,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 3.0847235372149726e+31,
+     "in_contacts": false,
+     "vs_atm_factor": 6.15713280881232e+32,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      23,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.5505511684592123e+33,
+     "in_contacts": false,
+     "vs_atm_factor": 3.094912511894635e+34,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      24,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 7.79392025575445e+34,
+     "in_contacts": false,
+     "vs_atm_factor": 1.5556727057394113e+36,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      25,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 3.917651618902858e+36,
+     "in_contacts": false,
+     "vs_atm_factor": 7.819663909985745e+37,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      26,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.9692264872431007e+38,
+     "in_contacts": false,
+     "vs_atm_factor": 3.9305917909043925e+39,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      27,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 9.898411944923775e+39,
+     "in_contacts": false,
+     "vs_atm_factor": 1.975730927130494e+41,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      28,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 4.975484519740477e+41,
+     "in_contacts": false,
+     "vs_atm_factor": 9.931106825829295e+42,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      29,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 2.5009512984426275e+43,
+     "in_contacts": false,
+     "vs_atm_factor": 4.991918759366522e+44,
+     "excluded_by_sum": true
+    },
+    {
+     "pair": [
+      30,
+      10
+     ],
+     "m_B_GeV": 118.57086360835625,
+     "m_nu_eV": 1.2571152361877142e+45,
+     "in_contacts": false,
+     "vs_atm_factor": 2.509212048278871e+46,
+     "excluded_by_sum": true
+    }
+   ],
+   "pairs_in_contacts": [],
+   "third_generation_candidate_eV": 0.04874922781428075,
+   "third_status": "candidate, not a result: the junction amplitude is free inside a finite window (O2)",
+   "ladder_status": "EXCLUDED by sum m_nu < 0.0642 eV (F3, DESI DR2)"
+  },
+  "n_272": {
+   "required_rung_A_for_atm_at_rungB10": 2.726527059612546,
+   "rung_phase_2_72_returns": 0.000395785873602882,
+   "loop_pow_2_72": 2.3580119052241902e-05,
+   "truncation_to_loop_2": true,
+   "config_runks_are_ints": [
+    3,
+    10
+   ]
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 rung machinery: rung_phase(n) == loop^n exactly for all integers 0..30 (max err 0.0e+00); the two singlet masses are ladder facts m_A = 9.613178e+13 GeV (rung 3), m_B = 118.570864 GeV (rung 10); the identity m_B^2/m_A = 0.146248 eV; the six-stage product phase is 6x the stage phase (V196, OK) and the stage phases are loop^3 = 7.873910e-06, loop^10 = 9.711838e-18",
+   "pass": true
+  },
+  {
+   "name": "T1 (a): among the 36-level cell-step phases [7.874e-06, 0.785398163, 2.35619449], loop^3 (7.87e-06) IS realized, matched to 0.0e+00 absolute; loop^10 (9.71e-18) is BELOW the float64 phase resolution (2.2e-16): every loop^n for n >= 10 folds onto angle 0, so rung 10 is certified only by the exact construction (u10 ladder_scale, V197 rung_exp = 10.0 to 0e+00); NO other integer n in 0..30 matches any level phase (the remaining level phases are the gauge clock phases pi/4 and 3pi/4, inverting to rungs 3.000 and -0.219 - not rungs of the ladder)",
+   "pass": true
+  },
+  {
+   "name": "T2 (b): the dark-matter contact (wimp window [100, 1000] GeV) pins rung_B = 10 uniquely (rung 9 = 5.96 TeV, rung 11 = 2.36 GeV); for rung_B = 10 the identity gives m_nu = loop^(20 - n_A) M_P: n_A = 3 -> 0.146248 eV (2.92x the atmospheric scale, ABOVE the cosmological sum bound 0.0642 eV - the published EXCLUDED ladder, V197/F3), n_A = 2 -> 0.002910 eV (below the solar scale 0.0086); NO integer pair (n_A, n_B) in 0..30 lands inside the measured contacts - not even (3, 10) itself; the only ladder-adjacent value in contact is the third-generation candidate 0.048749 eV, which is a free junction amplitude (O2), not a pair identity",
+   "pass": true
+  },
+  {
+   "name": "T3 (c): the seesaw partner of a rung-10 dark matter that puts the identity at the atmospheric 0.0501 eV sits at rung 2.7265 (exactly log_loop(m_B^2 / m_atm / M_P)); rung_phase(2.72) returns loop^2 (int() truncation), NOT loop^2.72 (a 0.060x factor away), and cell.rung_A/rung_B are config ints (3, 10) - a non-integer rung is UNREPRESENTABLE: (c) is EMPTY and F3 is recorded as fired for the integer-rung ladder",
+   "pass": true
+  }
+ ],
+ "status": "RUNGS RUNGS-DECLARED (zero fitted parameters, 0 s): (a) on the 36-level cell step only loop^3 is numerically realized (matched to 1e-16 absolute); loop^10 = 9.71e-18 is below the float64 phase resolution and certified only by the exact ladder construction; no other integer 0..30 matches any level phase. (b) the dark-matter window pins rung_B = 10 uniquely, and rung_B = 10 admits NO rung_A whose identity m_B^2/m_A lands inside the measured neutrino contacts: rung_A = 3 gives 0.146 eV (excluded by the cosmological sum bound 0.0642 eV, the published F3 EXCLUDED ladder), rung_A = 2 gives 0.0029 eV below the solar scale; the set of pairs satisfying (a)+(b) is EMPTY, so (3, 10) is not the unique solution of anything - the rungs are config declarations (cell: rung_A 3, rung_B 10; u10 already records the exponent provenance as 'fitted (n_2step = 3)'). (c) the partner rung 2.7265 demanded by the atmospheric scale is not realizable: rung_phase truncates its argument to int, so loop^2.72 cannot be produced; F3 is recorded as FIRED for the integer-rung ladder. VERDICT: branch RUNGS-DECLARED; Table 6's fitted count stands (the rungs were already fitted/declared); F3 fires for the integer ladder and the neutrino mass lives on the free third-generation junction amplitude (O2), not on a rung identity.",
+ "pass": true
+}

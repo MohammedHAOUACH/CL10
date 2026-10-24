@@ -1,0 +1,213 @@
+{
+ "id": "V230_quintet_helicity2_content",
+ "tier": 2,
+ "property": "the helicity-2 content of the quintet carrier under O_h and the icosahedral group, and its survival against the mass shift (V230, F4)",
+ "residual": true,
+ "programme": "V230",
+ "branch": "F4-FIRED",
+ "data": {
+  "fitted_inputs": [],
+  "content": {
+   "oh_decomposition": {
+    "A1g": 1.0,
+    "A2g": 0.0,
+    "Eg": 1.0,
+    "T2g": 1.0,
+    "T1g": 0.0,
+    "A1u": 0.0,
+    "A2u": 0.0,
+    "Eu": 0.0,
+    "T1u": 0.0,
+    "T2u": 0.0
+   },
+   "v208_sym2": {
+    "A1g": 1,
+    "Eg": 1,
+    "T2g": 1
+   },
+   "v138_bond_factor": {
+    "A1g": 1.0,
+    "A2g": 0.0,
+    "Eg": 0.0,
+    "T2g": 1.0,
+    "T1g": 0.0,
+    "A1u": 0.0,
+    "A2u": 1.0,
+    "Eu": 0.0,
+    "T1u": 1.0,
+    "T2u": 0.0
+   },
+   "v138_link_channel": {
+    "A1g": 1.0,
+    "A2g": 0.0,
+    "Eg": 1.0,
+    "T2g": 1.0,
+    "T1g": 0.0,
+    "A1u": 0.0,
+    "A2u": 0.0,
+    "Eu": 0.0,
+    "T1u": 0.0,
+    "T2u": 0.0
+   },
+   "icosahedral": {
+    "order": 60,
+    "class_sizes": [
+     15,
+     12,
+     1,
+     20,
+     12
+    ],
+    "chi_sym2": [
+     [
+      "2",
+      "0"
+     ],
+     [
+      "1",
+      "0"
+     ],
+     [
+      "6",
+      "0"
+     ],
+     [
+      "0",
+      "0"
+     ],
+     [
+      "1",
+      "0"
+     ]
+    ],
+    "end_sym2": 2.0,
+    "invariants": 1.0,
+    "end_W": 1.0,
+    "dim_W": 5.0
+   },
+   "commutant_ranks": {
+    "sym2_6d": 2,
+    "invariant_rank": 1,
+    "traceless_5d": 1
+   }
+  },
+  "channels": {
+   "qubit_link_gamma": {
+    "gapless": true,
+    "flat": true,
+    "note": "V138/V128: GAMMA gapless multiplets are flat bands (omega/|q| -> 0) and the bond factor lacks Eg"
+   },
+   "directional_axis_bonds": {
+    "gap_at_gamma": 0.0,
+    "ladder_speeds": [
+     0.0,
+     0.0,
+     0.7854,
+     0.7854,
+     1.5708,
+     1.5708
+    ],
+    "linear": true
+   },
+   "diagonal_star_bonds": {
+    "gap_at_gamma": 0.0,
+    "speeds_at_pi4": [
+     0.0,
+     1.5707963267948966,
+     3.141592653589793
+    ],
+    "linear": true
+   },
+   "star_automaton_gamma": {
+    "quadratic": true,
+    "note": "V215: 512/1024 phases zero at GAMMA, first-order splitting 1.7e-13/2.0e-13/1.3e-13 - no linear term"
+   },
+   "star_spinor_cell_node": {
+    "irreps": {
+     "sym^0": {
+      "dimension": 1,
+      "projector_rank": 8.922623008227133e-17,
+      "multiplicity": 8.922623008227133e-17,
+      "basis_count": 0,
+      "hermiticity_defect": 1.536270057191454e-17,
+      "idempotency_defect": 1.24716766557524e-17
+     },
+     "sym^1": {
+      "dimension": 2,
+      "projector_rank": 32.000000000000014,
+      "multiplicity": 16.000000000000007,
+      "basis_count": 32,
+      "hermiticity_defect": 1.262398081224171e-16,
+      "idempotency_defect": 5.27836898610756e-16
+     },
+     "sym^2": {
+      "dimension": 3,
+      "projector_rank": 3.2132959178813795e-15,
+      "multiplicity": 1.0710986392937932e-15,
+      "basis_count": 0,
+      "hermiticity_defect": 1.022673699196952e-16,
+      "idempotency_defect": 7.593865946244521e-17
+     },
+     "sym^3": {
+      "dimension": 4,
+      "projector_rank": 64.00000000000004,
+      "multiplicity": 16.00000000000001,
+      "basis_count": 64,
+      "hermiticity_defect": 4.916648255427464e-16,
+      "idempotency_defect": 1.182627150547274e-15
+     },
+     "sym^4": {
+      "dimension": 5,
+      "projector_rank": 5.605338448116679e-16,
+      "multiplicity": 1.1210676896233357e-16,
+      "basis_count": 0,
+      "hermiticity_defect": 2.0308603736647433e-16,
+      "idempotency_defect": 1.5248088080603855e-16
+     },
+     "sym^5": {
+      "dimension": 6,
+      "projector_rank": 96.00000000000004,
+      "multiplicity": 16.000000000000007,
+      "basis_count": 96,
+      "hermiticity_defect": 1.1562881926962544e-15,
+      "idempotency_defect": 1.3589960773148655e-15
+     }
+    },
+    "note": "V225: the gap cluster is the coin-spinor representation times the internal sector - helicity 1/2 content, no quintet piece"
+   }
+  },
+  "shifts": {
+   "axis_bond_Eg_shifts": [
+    -16.728660674821434,
+    -16.469363453736033
+   ],
+   "axis_bond_T2g_bubble": 0.0,
+   "axis_bond_max_abs_shift": 16.728660674821434,
+   "star_bond_quintet_shifts": [
+    -6.604681466610945,
+    -6.367440624917142,
+    -1.7863633573411948,
+    -2.872538731448599e-15,
+    -1.086700485847741e-15
+   ],
+   "star_bond_max_abs_shift": 6.604681466610945,
+   "acceptance_vanishing_shift": 1e-16
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 content, constructed: sym^2 (6-dimensional) decomposes under the CUBIC group as A1g+Eg+T2g ({'A1g': 1.0, 'A2g': 0.0, 'Eg': 1.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 0.0, 'Eu': 0.0, 'T1u': 0.0, 'T2u': 0.0}; V208 control {'A1g': 1, 'Eg': 1, 'T2g': 1}; qubit bond factor lacks Eg: {'A1g': 1.0, 'A2g': 0.0, 'Eg': 0.0, 'T2g': 1.0, 'T1g': 0.0, 'A1u': 0.0, 'A2u': 1.0, 'Eu': 0.0, 'T1u': 1.0, 'T2u': 0.0}); under the icosahedral group of order 60 built from the [2,3,5] presentation it decomposes as A (+) W with W one irreducible 5-dimensional piece: exact Q(sqrt5) character inner products give <Sym2,Sym2> = 2, <1,Sym2> = 1, <W,W> = 1, dim W = 5; the commutant of the 6-dim rep is 2-dimensional, the invariant rank is 1, and the commutant of the traceless 5-dim piece is 1 (scalars: Schur says irreducible). The Eg/T2g split is a cubic-subgroup property; under the star's own symmetry the quintet is ONE representation",
+   "pass": true
+  },
+  {
+   "name": "T2 masslessness and propagation per channel: the only MASSLESS LINEAR quintet branches are on the directional layer - axis bonds [0.0, 0.0, 0.7854, 0.7854, 1.5708, 1.5708] (V140), diagonal star bonds [0.0, 1.5708, 3.1416] at pi/4 with gap 0.0e+00 at GAMMA (V229); the qubit-link GAMMA bands are flat, the 1024-dimensional star automaton at GAMMA is quadratic (V215), and the star spinor node carries spinor (not spin-2) content (V225)",
+   "pass": true
+  },
+  {
+   "name": "T3 survival: at the closed clock the axis-bond channel shifts only the Eg half (bubble [-54.238966410365975, -53.398252766988634], shifts [-16.7287, -16.4694], T2g bubble 0e+00), the diagonal star-bond channel shifts the whole quintet (shifts [-6.6047, -6.3674, -1.7864, -0.0, -0.0], max 6.6047); NO massless branch carries the full spin-2 content with a vanishing shift (acceptance 1e-16): axis bonds gap the Eg half by 16.7287, star bonds gap every component by up to 6.6047",
+   "pass": true
+  }
+ ],
+ "status": "F4 STAYS FIRED, content test with constructed characters (zero fitted parameters, 0 s). (T1) the quintet carrier: under the cubic group sym^2 = A1g (+) Eg (+) T2g (V208 control), and the qubit bond factor carries T2g but never Eg; under the icosahedral group of order 60 (built from the presentation) the SAME space is A (+) W with W irreducible of dimension 5 - the Eg/T2g split is a cubic-subgroup artifact, the quintet is one representation of the star's symmetry (character inner products exact in Q(sqrt 5), commutant ranks 2/1/1). (T2) the massless linear quintet branches exist only on the directional layer: axis bonds [0.0, 0.0, 0.7854, 0.7854, 1.5708, 1.5708], diagonal star bonds [0.0, 1.5708, 3.1416] at pi/4; the qubit-link bands are flat and the star spinor node is spinor content. (T3) neither channel carries the full content with vanishing shift: axis bonds gap the Eg half by 16.7287 (T2g bubble exactly 0), the diagonal bonds gap the whole quintet by up to 6.6047. VERDICT: the implemented spectrum carries T2g content but the branch is gapped by 6.6047 (diagonal-bond channel) / 16.7287 (axis-bond channel, Eg half) - the lattice spin-2 content is complete only before the matter coupling, and the coupling that closes the T2g gap gaps everything.",
+ "pass": true
+}

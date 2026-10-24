@@ -1,0 +1,93 @@
+{
+ "id": "V238_desert_spectrum_bounds",
+ "tier": 3,
+ "property": "every desert threshold against its fetched experimental ceiling (V238, F10 candidate)",
+ "residual": true,
+ "programme": "V238",
+ "branch": "NO THRESHOLD EXCLUDED",
+ "data": {
+  "inputs": {
+   "tau_p_e_pi_superk_yr": {
+    "value": 2.4e+34,
+    "source": "Super-Kamiokande I-IV, 450 kt yr, tau/B(p -> e+ pi0) > 2.4e34 yr at 90% CL, arXiv:2010.16098 [Phys. Rev. D 105, 012004 (2022)]; PDG 2025 summary",
+    "retrieved": "2026-10-23"
+   },
+   "m_coloured_direct_gev": {
+    "value": 5000.0,
+    "source": "CMS t-channel leptoquark exchange in dimuon + dielectron, LQ masses probed up to 5 TeV, JHEP 12 (2025) 052 (CMS-EXO-22-013); direct pair-production ceiling ~2 TeV (PDG 2025 leptoquark review, scalar LQ > 1435 GeV first generation)",
+    "retrieved": "2026-10-23"
+   },
+   "m_doublet_ew_gev": {
+    "value": 1000.0,
+    "source": "PDG 2025 Sec. 10 (Electroweak Model and Constraints on New Physics): oblique STU fit window, extra SU(2) doublets probed to the TeV scale; GFitter new-physics scale reaches a few TeV",
+    "retrieved": "2026-10-23"
+   },
+   "sqrts_lhc_gev": {
+    "value": 13600.0,
+    "source": "LHC Run 3 centre-of-mass energy, PDG 2025",
+    "retrieved": "2026-10-23"
+   }
+  },
+  "closed_solution": {
+   "M_X_GeV": 1.234524046017877e+17,
+   "M_10_GeV": 70597.11391958076,
+   "M_12_solved_GeV": 4.864438250605381e+17,
+   "tau_p_yr": 2.7648796282113785e+39
+  },
+  "table": [
+   {
+    "threshold": "10 + 10bar pairs, closed M_10",
+    "GeV": 70597.11391958076,
+    "bound": "coloured-state ceiling (t-channel LQ search)",
+    "bound_GeV": 5000.0,
+    "ratio": 14.119422783916152,
+    "status": "NOT EXCLUDED: 14x above the strongest LHC colour probe; pair production itself is kinematically closed (2 M_10 = 141.2 TeV > sqrt(s) = 13.6 TeV)"
+   },
+   {
+    "threshold": "10 + 10bar pairs, preferred (:983)",
+    "GeV": 12000000.0,
+    "bound": "coloured-state ceiling",
+    "bound_GeV": 5000.0,
+    "ratio": 2400.0,
+    "status": "NOT EXCLUDED: 2400x above the ceiling"
+   },
+   {
+    "threshold": "(1,2) pair (:983)",
+    "GeV": 1000000000000.0,
+    "bound": "EW-precision doublet ceiling",
+    "bound_GeV": 1000.0,
+    "ratio": 1000000000.0,
+    "status": "NOT EXCLUDED: 1e9x above; the vector-like pair decouples, oblique effects ~ (v/M)^2 = 6.1e-20 against a fit window of ~0.1"
+   },
+   {
+    "threshold": "(1,2) pair of the destroyed-ordering solution",
+    "GeV": 4.864438250605381e+17,
+    "bound": "EW-precision doublet ceiling",
+    "bound_GeV": 1000.0,
+    "ratio": 486443825060538.1,
+    "status": "NOT EXCLUDED: above M_X itself (V237), hence also outside every collider and precision window"
+   },
+   {
+    "threshold": "proton decay at the closed M_X",
+    "yr": 2.7648796282113785e+39,
+    "bound": "Super-K tau/B(p -> e+ pi0)",
+    "bound_yr": 2.4e+34,
+    "ratio": 115203.31784214078,
+    "status": "NOT EXCLUDED: 1.2e5x above the bound (F5 margin; Hyper-K in 20 yr reaches ~1e35 yr, still 4 orders away)"
+   },
+   {
+    "threshold": "all desert thresholds",
+    "bound": "GW speed |c_gw| < 1e-15 (LVK, [60])",
+    "status": "VACUOUS: static thresholds do not mediate the propagating GW; the bound is carried by the graviton branch itself (cone programme)"
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T1 the five threshold/bound rows: every named threshold sits above its fetched ceiling - the closest is the closed M_10 = 7.060e+04 GeV at 14.1x the 5 TeV colour ceiling, and the proton lifetime at 2.76e+39 yr is 1.2e+05x the Super-K bound; 0 thresholds excluded",
+   "pass": true
+  }
+ ],
+ "status": "desert spectrum bounds: NO THRESHOLD EXCLUDED (zero fitted parameters, 0 s): the three 10 + 10bar pairs at M_10 = 7.060e+04 GeV sit 14.1x above the strongest LHC colour probe (5 TeV, CMS t-channel) and pair production is kinematically closed at the LHC (2 M_10 = 141 TeV > 13.6 TeV); the (1,2) pair at 1.0e12 GeV is 1e9x above the electroweak-precision doublet ceiling and fully decoupled ((v/M)^2 = 6e-20); the proton lifetime 2.76e+39 yr is 1.2e+05x the Super-Kamiokande p -> e+ pi0 bound - no F10 fires from the desert spectrum; its failure (V237) is internal threshold ordering, not exclusion)",
+ "pass": true
+}

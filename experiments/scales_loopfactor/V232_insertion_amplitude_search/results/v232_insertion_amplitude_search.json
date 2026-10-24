@@ -1,0 +1,517 @@
+{
+ "id": "V232_insertion_amplitude_search",
+ "tier": 5,
+ "property": "the bounded insertion-amplitude search over the closed structure set against the O8 target 0.9638788 (V232, O8)",
+ "residual": true,
+ "programme": "V232",
+ "branch": "O8-OPEN",
+ "data": {
+  "fitted_inputs": [],
+  "target": 0.9638787569864106,
+  "candidates": [
+   {
+    "id": "reference_1_5_deficit",
+    "a": 0.9644132015482024,
+    "source": "V209 open_branch deficit at g = 1/5 (V205/V210 agree)",
+    "closed_inputs": false,
+    "flag": "clock 1/5 is NOT a closed angle (F2's branch question)",
+    "dev": 0.0005344445617918581
+   },
+   {
+    "id": "crossing_deficit_pi/2@1e-6",
+    "a": 0.973656319038818,
+    "source": "V209 certified crossing deficit",
+    "closed_inputs": true,
+    "flag": "floor-conditioned, not a stable number",
+    "dev": 0.00977756205240743
+   },
+   {
+    "id": "cartan_2",
+    "a": 0.9892978599820293,
+    "source": "V205 per_cartan_insertion_at_crossing",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.02541910299561878
+   },
+   {
+    "id": "crossing_deficit_pi/4@1e-8",
+    "a": 0.9898678167368703,
+    "source": "V209 certified crossing deficit",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.02598905975045973
+   },
+   {
+    "id": "cartan_1",
+    "a": 0.9898912050929384,
+    "source": "V205 per_cartan_insertion_at_crossing",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.026012448106527808
+   },
+   {
+    "id": "crossing_deficit_3pi/4@1e-6",
+    "a": 0.9899334459868855,
+    "source": "V209 certified crossing deficit",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.026054689000474918
+   },
+   {
+    "id": "cartan_3",
+    "a": 0.9899419882344261,
+    "source": "V205 per_cartan_insertion_at_crossing",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.026063231248015573
+   },
+   {
+    "id": "cartan_0",
+    "a": 0.9351598606474064,
+    "source": "V205 per_cartan_insertion_at_crossing",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.028718896339004152
+   },
+   {
+    "id": "KE_trace_pi/4",
+    "a": 1.0,
+    "source": "V140 content theorem (C2 levels/multiplicities), evaluated at the closed clock",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.03612124301358943
+   },
+   {
+    "id": "KE_trace_pi/2",
+    "a": 1.0,
+    "source": "V140 content theorem (C2 levels/multiplicities), evaluated at the closed clock",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.03612124301358943
+   },
+   {
+    "id": "KE_trace_3pi/4",
+    "a": 1.0,
+    "source": "V140 content theorem (C2 levels/multiplicities), evaluated at the closed clock",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.03612124301358943
+   },
+   {
+    "id": "regular_link_insertion",
+    "a": 1.0,
+    "source": "V141: A(h) = rho(h^2) = +-I exactly (err < 1e-12)",
+    "closed_inputs": true,
+    "flag": "exactly 1",
+    "dev": 0.03612124301358943
+   },
+   {
+    "id": "dressed_hop_speed",
+    "a": 1.000000000139778,
+    "source": "V141: the dressed hop front speed v = 1",
+    "closed_inputs": true,
+    "flag": "a speed, counted as an amplitude analogue",
+    "dev": 0.0361212431533674
+   },
+   {
+    "id": "cartan_4",
+    "a": 1.0179724688316842,
+    "source": "V205 per_cartan_insertion_at_crossing",
+    "closed_inputs": true,
+    "flag": null,
+    "dev": 0.05409371184527367
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 1, 2)', 3.141592653589793)_n6",
+    "a": 0.8441693011665283,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.11970945581988224
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n3",
+    "a": 0.5085990436083253,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.45527971337808526
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n6",
+    "a": 0.36680680304605795,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.5970719539403526
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n7",
+    "a": 0.2885224920111954,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.6753562649752152
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n9",
+    "a": 0.20522817925727843,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.7586505777291321
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n12",
+    "a": 0.08262057549429574,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.8812581814921148
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n3",
+    "a": 0.08262057549429574,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.8812581814921148
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 1, 2)', 12.566370614359172)_n6",
+    "a": 0.05520590206931568,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9086728549170949
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 1, 2)', 50.26548245743669)_n6",
+    "a": 0.051019855951877885,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9128589010345327
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n5",
+    "a": 0.027690951498733747,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9361878054876768
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n11",
+    "a": 0.024698754332761367,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9391800026536492
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n10",
+    "a": 0.024510253681023192,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9393685033053873
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n5",
+    "a": 0.014723034838494718,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9491557221479159
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 1, 2)', 201.06192982974676)_n6",
+    "a": 0.005487309547161136,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9583914474392494
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n7",
+    "a": 0.003953394666883241,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9599253623195273
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 2, 4)', 50.26548245743669)_n6",
+    "a": 0.0023027983078980235,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9615759586785125
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 3.141592653589793)_n8",
+    "a": 0.0016361548674927095,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9622426021189179
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n2",
+    "a": 0.0016361548674927095,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9622426021189179
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n4",
+    "a": 0.0015622627046251605,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9623164942817855
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n6",
+    "a": 0.0014455192695600899,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9624332377168505
+   },
+   {
+    "id": "star_certified_('1/5', '(0, 2, 4)', 201.06192982974676)_n6",
+    "a": 0.0014043441300684706,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.962474412856342
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n8",
+    "a": 0.0012947817562832848,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9625839752301273
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n2",
+    "a": 0.0012947817562832848,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9625839752301273
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n9",
+    "a": 0.0011924680076811358,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9626862889787294
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n10",
+    "a": 0.0011210412447960319,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9627577157416145
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n12",
+    "a": 0.0009362466960427501,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9629425102903678
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n3",
+    "a": 0.0009362466960427501,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9629425102903678
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n4",
+    "a": 0.0005788725267073515,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9632998844597033
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 12.566370614359172)_n11",
+    "a": 0.0003466857838747994,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9635320712025358
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n5",
+    "a": 0.0002948521912373408,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9635839047951732
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n6",
+    "a": 0.00011506242983733627,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9637636945565732
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n7",
+    "a": 2.9158103609268162e-05,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638495988828013
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n12",
+    "a": 1.4873471398608253e-05,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.963863883515012
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n3",
+    "a": 1.4873471398608253e-05,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.963863883515012
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n11",
+    "a": 8.054582160767068e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638707024042498
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n8",
+    "a": 2.8128066640306063e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638759441797465
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n2",
+    "a": 2.8128066640306063e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638759441797465
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n4",
+    "a": 2.35588759775812e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638764010988128
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n6",
+    "a": 1.7358740571607762e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638770211123534
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 50.26548245743669)_n10",
+    "a": 1.6906120258258674e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638770663743847
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n5",
+    "a": 1.386033464680624e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638773709529459
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n8",
+    "a": 1.1054729989951535e-06,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638776515134115
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n10",
+    "a": 5.892563013458872e-07,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638781677301093
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n12",
+    "a": 2.474162755581335e-07,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.963878509570135
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n7",
+    "a": 8.95774579402763e-08,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638786674089527
+   },
+   {
+    "id": "star_certified_('pi/2', '(0, 2, 4)', 201.06192982974676)_n11",
+    "a": 1.1881520198173345e-08,
+    "source": "V231 certified star crossing",
+    "closed_inputs": true,
+    "flag": "CERTIFIED-CROSSING",
+    "dev": 0.9638787451048904
+   }
+  ],
+  "near_misses": [
+   {
+    "id": "reference_1_5_deficit",
+    "a": 0.9644132015482024,
+    "dev": 0.0005344445617918581,
+    "why": "outside the closed input set"
+   },
+   {
+    "id": "crossing_deficit_pi/2@1e-6",
+    "a": 0.973656319038818,
+    "dev": 0.00977756205240743,
+    "why": "outside the 1e-6 band"
+   }
+  ],
+  "acceptance_band": 1e-06
+ },
+ "checks": [
+  {
+   "name": "the bounded search: 60 candidate insertion amplitudes from the closed set only (five Cartan directions [0.9352, 0.9893, 0.9899, 0.9899, 1.018], certified closed-clock deficits, dressed-gate amplitudes, star-module certified values, reference-branch deficit), target 0.9638788: NOTHING within 1e-6 with closed inputs (closest reference_1_5_deficit a = 0.964413, |a - target| = 5.344e-04; flagged non-closed input); the reference-branch deficit 0.9644132 misses the target by 5.34e-04 - the fingerprint deviation V205 already named (-5.5e-4): O8 stays open",
+   "pass": true
+  }
+ ],
+ "status": "O8 STAYS OPEN, bounded search (zero fitted parameters, 0 s): 60 candidate insertion amplitudes inside the closed structure set only - the five unification Cartan directions (V205, bimodal in the 0.94-1.02 band), the certified crossing deficits at pi/4 (0.989868) and 3pi/4 (0.989933), the dressed electric-gate trace amplitudes at the closed clocks, the regular-link insertion (1 exactly) and the dressed hop (v = 1), the V231 star-module certified deficits (inherited), and the reference-branch deficit 0.9644132 at the 1/5 clock (flagged: not a closed angle): none satisfies |a - 0.9638788| < 1e-6 with closed inputs (closest overall reference_1_5_deficit: 0.9644132, dev 5.34e-04; closest closed-input candidate crossing_deficit_pi/2@1e-6: 0.9736563, dev 9.78e-03). The required amplitude is NOT supplied by any structure of the closed set; the nearest object remains the discarded reference branch, off by 5.3e-4. VERDICT: branch O8-OPEN with the full measured set; the O8 deficit stays a named open number (0.989868 measured vs 0.963879 required).",
+ "pass": true
+}

@@ -81,5 +81,5 @@
     "total_named_residuals": 3,
     "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the value g_10 = 1/5 is a MAPPING CONVENTION (1/n_qubits: a root number, not a selection rule — the 1-loop data prefer n = 7, V56).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 — the ORDER is fixed, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0 and alpha_10 = g_10^2) are the honest caveat; the identification M_GUT = M_P is NOT in force (V64: the desert solution meets at M_X = 1.8e16).  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
   },
-  "wall_time": 0.054
+  "wall_time": 0.033
 }

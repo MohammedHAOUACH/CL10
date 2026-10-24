@@ -168,6 +168,36 @@ bounds:
   # and fig. 25 read this ceiling alone, so the same observable never carries
   # two limits.
   sigma_si_lz_cm2: 1.5e-47    # V88/V148/V193/V195, fig. 15; V112, fig. 25
+  # the electron-sector velocity-anisotropy ceiling of the Standard-Model
+  # Extension: the strongest single component of the traceless velocity
+  # operator c_(TJ) in the Kostelecký-Mewes data tables
+  # (arXiv:0801.0287v16, Table D6, electron d=3,4: |c_(TX)| <= 3.0e-14,
+  # |c_(TY)| <= 8.0e-15, |c_(TZ)| <= 1.3e-13; collider-physics rows).
+  # The tightest component is recorded as the ceiling; retrieved 2026-10-23.
+  sme_electron_velocity_aniso: 8.0e-15   # V235 (F9)
+  # the three experimental ceilings the desert spectrum is read against
+  # (V237/V238); each fetched with source and date, recorded again in the
+  # experiment's data.inputs
+  tau_p_e_pi_superk_yr: 2.4e+34   # tau/B(p -> e+ pi0) > 2.4e34 yr at 90% CL:
+                                  # Super-Kamiokande I-IV, 450 kt yr
+                                  # (arXiv:2010.16098, Phys. Rev. D 105,
+                                  # 012004 (2022); PDG 2025 summary table);
+                                  # retrieved 2026-10-23
+  m_coloured_direct_gev: 5.0e+3   # the strongest LHC probe of a coloured
+                                  # state: CMS t-channel leptoquark exchange
+                                  # in dimuon + dielectron final states,
+                                  # LQ masses probed up to 5 TeV
+                                  # (JHEP 12 (2025) 052, CMS-EXO-22-013;
+                                  # direct pair-production limits reach only
+                                  # ~2 TeV, PDG 2025 leptoquark review);
+                                  # retrieved 2026-10-23
+  m_doublet_ew_gev: 1.0e+3        # the electroweak-precision ceiling for a
+                                  # non-decoupling extra SU(2) doublet: the
+                                  # oblique STU fit window, Delta T ~ 0.07
+                                  # with new-physics scales ~ TeV
+                                  # (PDG 2025 Sec. 10, Electroweak Model
+                                  # and Constraints on New Physics);
+                                  # retrieved 2026-10-23
 
 cosmology:
   # the standard-cosmology inputs of the relic / washout / detection checks

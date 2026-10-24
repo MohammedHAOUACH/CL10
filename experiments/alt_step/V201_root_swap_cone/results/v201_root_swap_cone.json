@@ -1542,9 +1542,9 @@
    "pass": true
   }
  ],
- "status": "the sector swap does not reach the cone: all 10 root involutions h_c w interleaved with the internal layer, rerun on the V192 grid (33800 points each), leave best four-state grid residuals [0.001, 0.002, 0.001, 0.0, 0.0, 0.0, 0.0, 0.001, 0.002, 0.001] and exact four-cancellation points with tangent commutator rho at most [0.666, 0.801, 0.746, 0.73, 0.501, 0.503, 0.701, 0.564, 0.635, 0.663]: conical nodes 0. The internal module doubled to the root's own Dirac module (16 + 16-bar, anchored to the V192 Weyl step at 8e-15) is measured insufficient in the two-angle stage family - the parity-mixed pairing that V192's no-go requires does not turn non-Abelian through the swap: O9 stays open and the step-class extension is now a measured negative (V201)",
+ "status": "the sector swap does not reach the cone: all 10 root involutions h_c w interleaved with the internal layer, rerun on the V192 grid (33800 points each), leave best four-state grid residuals [0.001, 0.002, 0.001, 0.0, 0.0, 0.0, 0.0, 0.001, 0.002, 0.001] and exact four-cancellation points with tangent commutator rho at most [0.666, 0.801, 0.746, 0.73, 0.501, 0.503, 0.701, 0.564, 0.635, 0.663]: conical nodes 0. The internal module doubled to the root's own Dirac module (16 + 16-bar, anchored to the V192 Weyl step at 8e-15) is measured insufficient in the two-angle stage family - the parity-mixed pairing that V192's no-go requires does not turn non-Abelian through the swap: O9 stays open and the step-class extension is a measured negative (V201)",
  "tier": 3,
  "property": "the root's 10 sector-swap involutions h_c w with the two-angle six-stage family carry no conical node at Gamma (V201)",
  "programme": "V201",
- "wall_time": 1565.709
+ "wall_time": 819.953
 }

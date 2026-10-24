@@ -1291,11 +1291,11 @@
    "pass": true
   },
   {
-   "name": "T3 keeping M_X at the data-preferred 1.8e16 GeV with that content requires alpha_X = 0.040050 (thresholds 1.199e+07 and 1.103e+12 GeV, desert box satisfied); the quantized pi/64 = 0.049087 is a factor 1.226 off it and 1/25 = 0.040000 a factor 0.999 - the root value and the meeting value are no longer the same number at the closed angle",
+   "name": "T3 keeping M_X at the data-preferred 1.8e16 GeV with that content requires alpha_X = 0.040050 (thresholds 1.199e+07 and 1.103e+12 GeV, desert box satisfied); the quantized pi/64 = 0.049087 is a factor 1.226 off it and 1/25 = 0.040000 a factor 0.999 - the root value and the meeting value are not the same number at the closed angle",
    "pass": true
   },
   {
-   "name": "T4 the V96 per-class kappa_s family (6 kappa_s + z0, LP with the desert box, M_X pinned at 1.8e16 GeV): feasible for node counts [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] at alpha_X = 1/25 (V96 reproduced) and [4, 5, 6, 7, 8, 9, 10, 11, 12] at alpha_X = pi/64 - the family absorbs the coupling change because it is underdetermined (3 equations, 7 unknowns), so at the closed angle the meeting is no longer a prediction but a fit",
+   "name": "T4 the V96 per-class kappa_s family (6 kappa_s + z0, LP with the desert box, M_X pinned at 1.8e16 GeV): feasible for node counts [3, 4, 5, 6, 7, 8, 9, 10, 11, 12] at alpha_X = 1/25 (V96 reproduced) and [4, 5, 6, 7, 8, 9, 10, 11, 12] at alpha_X = pi/64 - the family absorbs the coupling change because it is underdetermined (3 equations, 7 unknowns), so at the closed angle the meeting is not a prediction but a fit",
    "pass": true
   },
   {
@@ -1306,5 +1306,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "the desert re-closure at alpha_X = pi/64 exists but leaves the desert: M_X = 1.235e17 GeV with M_(1,2) = 4.86e17 GeV above it, tau_p = 2.77e39 yr; holding M_X = 1.8e16 GeV needs alpha_X = 0.040050; the kappa_s LP is feasible for 9/10 node counts at pi/64 against 10/10 at 1/25 - the meeting becomes a fit",
- "wall_s": 8.213139295578003
+ "wall_s": 4.814037322998047
 }

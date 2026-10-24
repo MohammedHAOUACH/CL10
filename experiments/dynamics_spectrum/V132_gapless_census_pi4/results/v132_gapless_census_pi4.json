@@ -319,7 +319,7 @@
    "pass": true
   },
   {
-   "name": "T2 the V63 point-node chirality convention no longer applies: at 12 of the 12 M nodes the gap stays below 1e-09 along the line through the node at ALL of the steps 1e-3, 1e-2, 1e-1 - the node is not an isolated zero, so the charge V63 assigns to it is sign noise (the naive sum is -6 where V63 measured exactly 0 at 1/5); at GAMMA the three axis slopes are [0.0, -0.0, -0.0] (quadratic touching, not a linear one) - GAMMA is a line crossing - so the Nielsen-Ninomiya bookkeeping must be redone per line, not per node",
+   "name": "T2 the V63 point-node chirality convention does not apply: at 12 of the 12 M nodes the gap stays below 1e-09 along the line through the node at ALL of the steps 1e-3, 1e-2, 1e-1 - the node is not an isolated zero, so the charge V63 assigns to it is sign noise (the naive sum is -6 where V63 measured exactly 0 at 1/5); at GAMMA the three axis slopes are [0.0, -0.0, -0.0] (quadratic touching, not a linear one) - GAMMA is a line crossing - so the Nielsen-Ninomiya bookkeeping must be redone per line, not per node",
    "pass": true
   },
   {
@@ -331,12 +331,12 @@
    "pass": true
   },
   {
-   "name": "T5 at pi/2 every bond stage is exactly a monomial - one unit-modulus entry per row and column, diagonal vanishing to 6.1e-17 (cos(pi/2) = 6.1e-17) - over the six stages at three momenta: the stage is a pure swap times Bloch phases, no mixing at all, so the half-angle branch carries no bond dynamics - 'the bond layer collapses to pure swaps' is now measured",
+   "name": "T5 at pi/2 every bond stage is exactly a monomial - one unit-modulus entry per row and column, diagonal vanishing to 6.1e-17 (cos(pi/2) = 6.1e-17) - over the six stages at three momenta: the stage is a pure swap times Bloch phases, no mixing at all, so the half-angle branch carries no bond dynamics - 'the bond layer collapses to pure swaps' is measured",
    "pass": true
   }
  ],
  "verdict": "PASS",
  "pass": true,
  "status": "the gapless census at pi/4 is GAMMA plus six face-diagonal nodal lines (max gap 6.7e-16 along each; 0 of the 15^3 grid's gapless points lie off the lines); quadratic touching (transverse exponents 1 and 2, slope 0.577); the V63 point-node chirality convention is inapplicable at 12/12 nodes (the naive sum is -6 - sign noise, backend-dependent - where V63 measured exactly 0 at 1/5); the gapless subspace at GAMMA is 64 of 128 with 4 1-dimensional bond constituents - no 2-dim irrep, no helicity candidate",
- "wall_s": 2.525254964828491
+ "wall_s": 1.876178503036499
 }
