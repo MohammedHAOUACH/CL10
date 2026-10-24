@@ -860,3 +860,401 @@ never-realized and add no fitted parameter.
   only the landed wording is applied.
 - No tag, no merge: the branch `founding-repair` is pushed for the reader's
   decision.
+
+---
+
+# Pre-registrations: the interacting continuum programme (V249–V258)
+
+The V239–V248 diagnosis closed the single-particle route: every miss traces
+to the founding trio — finite on-site module, exactly unitary finite-order
+step, closure-quantized angles. c = 1, the Lorentz cone and 1/(16π) are
+properties of an interacting/continuum sector the construction does not yet
+have. This programme builds that sector, falsifiably, on both sides:
+(A) the module side measures the closure census of the icosahedral star
+module itself (never censused — only the supercell's C was, V239), with a
+Cartan-twist axis built from the committed Wilson direction, and measures
+the three single-particle walls exactly (bond time-reversal parity, the
+Mermin icosahedral-flux obstruction, the missing internal l = 1 in the 45);
+(B) the interaction side constructs the gauged two-particle sector (spinor
+⊗ one adjoint bond-current flux, the V177 committed vertex, the V126 flux
+tower, the V141 zero-parameter dressed-hop gate), runs the exact Feshbach
+dynamical self-energy over the Brillouin zone, extends the V178 block-RG
+downfold ladder, and re-contacts F9/F8/F2/O8 with the dressed numbers.
+If the interacting sector supplies 1/(16π) and a dressed isotropic cone the
+falsifiers close from inside; if not, they are closed as theorems of the
+only sector the root can carry — both outcomes are first-class results and
+both wordings are pre-registered below.
+
+**Ground rules.** Same protocol as the two prior programmes with these
+deltas: the closed input set gains exactly one new class of object, the
+Cartan-twist angle η (V249/V250) — any quoted (β*, g*, η*) must lie on the
+star-module closure set C_star measured by V249, else it goes to
+`data.fitted_inputs` and reclasses fitted in Table 6. The interaction
+strength is never a dial: the only coupling is η_c = g₁₀ (the V177 named
+vertex coupling) and the V141 zero-parameter dressed hop gate. The Feshbach
+regulator δ ∈ {1e-2, 1e-3, 1e-4} is a measurement window, recorded per κ
+exactly as V177's kappas, never a fitted input. No `cl10/` core changes in
+this programme: all new machinery lives in the experiment files (V251–V253
+copy V177's vertex, V178's downfold, V141's gate); the full suite at the
+end is the regression. Artifact format unchanged from the V239–V248 cohort,
+no `wall_time`; a fired falsifier is a PASS with `residual: true`. Tier
+assignment (semantics `experiments/README.md`): V249 → 2, V250 → 1,
+V251 → 2, V252 → 4, V253 → 2, V254 → 5, V255 → 3, V256 → 4, V257 → 6,
+V258 → 5. New hard-tier (0–3) experiments: 5 (V249–V251, V253, V255); the
+runner measures the denominator, report, never adjust. Backend: GPU 1,
+`CL10_BACKEND=cupy`, batched q-grids in chunks ≤ 512 for the 1440-dim H₂
+diagonalizations; mpmath certification is direct mp matrix algebra at 5
+interior points, never mp eigensolves of big matrices (V242's pattern).
+Branch `founding-repair` continues; no merge, no tag; push at the end.
+
+---
+
+## V249 — the closure census of the star module and its clock contacts
+`experiments/dynamics_spectrum/V249_star_module_closure_census/` — tier 2,
+`residual: true` (F2 clock side)
+
+**Question.** The supercell closure C (V239) quantized the clock to
+π-multiples and excluded both 1/5 (the fitted clock that reads the
+decimals) and 1/2 (the V208 lightlike pin). The star module's closure was
+never censused. Is there a closed point of the star step near either
+contact clock?
+
+**Closed input set.** `cl10.starcell` (module_cell, module_bonds,
+module_stages phase-major, stage_matrix with bond_g10, bloch_star,
+star_axes); `supercell.sectors()[2]` as U16; the Cartan-twist
+W(η) = expm(iηD), D = cosθ·X + sinθ·Y with θ = `config desert.theta_root_rad`
+and X/Y copied from V67's source (Cartan combinations of the root; V67
+verifies `dim_at_V65_root`). If V67's source does not expose explicit X/Y
+matrices, the fallback — decided now — is D = the V65 selective Wilson
+direction at `desert.theta_root_rad` applied on the Cartan planes listed in
+V209's `skeleton` at that angle; the source used is recorded in
+`data.inputs`. Either way zero new parameters. The dials (β, g, η) are grid
+values, never quoted measurements.
+
+**Measured quantity.** `M_star(Γ; β, g, η) = kron(B(Γ; β), (U16(g)·W(η))^12)`
+at Γ, B(Γ;β) = the product of the 12 stage matrices with bond_g10 = β at
+q = 0. (1) the factorization identity against `bloch_star` at 8 random
+q-points (the kron claim `M = kron(Π_t S_t(q), U^12)` — a measured
+identity, max defect, expected < 1e-13); (2) the census: a 61×61 (β, g)
+grid at η ∈ {0, 0.05, 0.1, 0.2, the θ_root-coupled value from V67's
+`dim_at_V65_root` context — record which}, smallest order k ≤ 16 with
+‖M^k − I‖ < 1e-12, every plateau boundary refined by bisection to 1e-10
+along each dial; C_star stored as `[{beta, g, eta, order}]`; (3) the
+membership distances: nearest closed point to g = 0.2 (the clock that
+reads 2.0766/0.04) and to g = 0.5 (the V208 lightlike pin), each with its
+order and k-refined value; (4) the control: η = 0, β = g = π/4 must close
+at the same order the published star step does (V214's artifact order,
+read through `cl10.paths.exp`).
+
+**Acceptance (pre-registered).** Branch `STAR-CLOCK-OPEN` iff any closed
+point with k ≤ 16 lies within 1e-6 of g = 0.2 or g = 0.5 (then it is a
+theory point, no fitting, and V255 uses it); else `STAR-CLOCK-QUANTIZED`
+with the distance table. Wording on OPEN: the icosahedral module's own
+closure admits the hierarchy pin / the lightlike pin: the dead-zone
+diagnosis was supercell-specific. Wording on QUANTIZED: no closed star
+clock reaches either pin: the clock exclusion is a property of the module
+class, not of one lattice.
+
+---
+
+## V250 — the three single-particle walls, stated as measured theorems
+`experiments/dynamics_spectrum/V250_single_particle_walls/` — tier 1,
+`residual: false` (structural)
+
+**Question.** State as measured theorems the three walls that decide
+whether any single-particle step on a root module can carry an isotropic
+lightlike cone; they decide, before construction, what the interacting
+sector must do.
+
+**Closed input set.** `cl10.starcell` stage matrices (real bond rotations);
+`continuum.polyhedral_group([2,3,5])` acting on `module_generators()["vectors"]`;
+the 45 internal generators from the committed construction; the SO(3)
+spin-connection stabilizer structure of V211 with generators in
+`experiments/gravity/V208_metric_bilinear_cone/cone_generator.json` and
+the `continuum` frames; V245's artifact numbers for the cross-check. The
+cone_generator frame vs `polyhedral_group` mismatch is reported through
+the same `conjugating_frame_defect` key V244 recorded.
+
+**Measured quantity.** (1) Bond TR-parity wall: `max ‖K B(q) K − B(−q)‖`
+over a 41³ q-grid (expect 0.0), and the direct consequence — the group
+velocity of every one of the 64 bond bands at Γ, central-difference
+∇_q θ_b(0) at dq = 1e-4, max |v_b| (expect ≤ 1e-8, i.e. every Γ touching
+is at least quadratic; this is why V245's enforced node had degree 2.00).
+(2) Mermin flux wall: the A5-invariance linear system for bond phases
+(φ_i)_{i=1..6} on the 6 star lines — φ_{σ(i)} = φ_i for all 60 permutation
+actions (the 6×60 action built from `polyhedral_group([2,3,5])` acting on
+the module generators), projective/gauge equivalence modded out by
+per-site phases (the 64-site gauge orbit); the dimension of the invariant
+flux space (expect 0 — Mermin's theorem measured on this module).
+(3) Missing-l=1 wall: the 60×60 adjoint-character matrices of the 45
+internal generators restricted to the spin-connection SO(3) stabilizer of
+the causal frame, reduced into A5 irreps by inner products of characters;
+the multiplicities of each irrep and specifically whether any 3-dimensional
+internal vector (l = 1 / T1-type) exists that A5 rotates as spatial vectors
+(expect none: the 45 restricted to the spin connection contains only even-l
+content — V140's C₂ spectra {45, 85, 117} = l = 2, 3, 4 already imply it;
+this experiment makes it exact). (4) The consistency table: the product of
+the three walls against V245's measured numbers (Γ degree 2.00, off-Γ
+first anisotropic degree 1, stabilizers [2, 2, 60]).
+
+**Acceptance (pre-registered).** Branch `WALLS-CONFIRMED` iff all three
+measured: TR defect 0, invariant flux dim 0, no l=1 — then no
+single-particle module extension inside the root algebra can put an
+isotropic lightlike fermion cone anywhere, and the interacting sector is
+the only route (V251–V258 are that route). Else `WALL-<n>-BROKEN` naming
+which wall admits a decoration; then this experiment must additionally
+build the decoration on the star step and re-measure its unitarity and the
+Γ cone degree (pre-registered continuation; the artifact carries the
+construction).
+
+---
+
+## V251 — the gauged two-particle sector: construction and Gauss check
+`experiments/dynamics_spectrum/V251_gauged_two_particle_sector/` — tier 2,
+`residual: false` (sector construction)
+
+**Question.** Does the root carry an exact gauged two-particle sector —
+spinor ⊗ one adjoint bond-current flux — with the committed coupling,
+Gauss-preserving and bounded? This is the minimal interacting block O9
+never had.
+
+**Closed input set.** Per crystal-momentum Q on a 6³ torus grid (chunked
+≤ 512): the 128-dim one-particle Bloch space via `supercell.bloch` with
+H₁ = i log through the `altcell.effective_hamiltonian` pattern copied from
+V242; the 45 adjoint link with the T·L Casimir eigenspaces [−32, −12, 4]
+exactly (V126's `C2` eigenspace code copied); the vertex
+Γ^A = I_8 ⊗ T^A_16 at strength g₁₀ (V177's named vertex, copied from its
+source); the V141 dressed-hop gate as the P→P vertex correction (copied,
+zero-parameter per V141's verdict); the committed intertwiner code of
+V98/V99 for Q_G. Flux at rest at leading order (V101's measured gap
+42.09η ≫ the node scales; the static-flux decision is recorded), with the
+sensitivity row ω ∈ {0, ±42.09η} stored in `data.sensitivity` — a measured
+window, not a dial. Preamble note: `smatrix.two_particle` (:87, the 't
+Hooft on-site 1024² tensor product) is a different object and no
+two-particle Bloch spectrum exists anywhere in `cl10/`; new code is
+justified by that grep. V98's one-body non-existence (center obstruction)
+is recorded in `data.constraints`: the P⊕Q coupled space carries total
+Gauss; intermediate Q states need not be singlets.
+
+**Measured quantity.** H₂(Q) = H₁(Q) ⊕ E_flux ⊕ g₁₀·Γ on the 1440-dim
+space, for: (a) boundedness — spectrum min/max finite, recorded;
+(b) Gauss — total charge Q_G on P⊕Q, ‖[exp(iH₂), Q_G]‖ < 1e-12 on 40
+random states; (c) block structure — the P-block restriction equals H₁ to
+0.0; (d) unitarity of exp(iH₂) to 1e-13; plus the 6³ × 1440-dim spectrum
+(cupy eigh, chunked; wall-time recorded in data as measured cost).
+
+**Acceptance (pre-registered).** Branch `TWO-PARTICLE-SECTOR-CLOSED` iff
+(a)–(d) pass with `fitted_inputs == []`; else `SECTOR-BLOCKED` naming the
+failed check — a real result: the interaction is then not constructible on
+this module and V252–V256 record the floor.
+
+---
+
+## V252 — the dynamical self-energy loop and the loop factor
+`experiments/dynamics_spectrum/V252_dynamical_self_energy_loop/` — tier 4,
+`residual: true` (O8)
+
+**Question.** V242 showed the free one-particle BZ combinatorics misses
+1/(16π) by 7.14×; V177 showed the static Fock dressing is marginal. Does
+the dynamical (resolvent) self-energy of the V251 sector supply the loop
+factor?
+
+**Closed input set.** Σ(k, z) = g₁₀² Σ_{q,A} Γ^A G₀(k−q, z) Γ^A ⊗ D_A(z)
+with G₀ = (z − H₁)^{-1} the one-particle resolvent and D_A(z) =
+(z − ε_A)^{-1} on the three Casimir sectors (ε = −32, −12, 4; sensitivity
+at ±42.09η recorded), z = E_node ± iδ, δ ladder {1e-2, 1e-3, 1e-4}; q-grid
+N ∈ {16, 32} (GPU, eigh of H₁(q) once per q, reused as
+Σ_k (u_k†Γu_k)/(z−E_k) — the same resolvent-sum shape as V242's power
+sums); evaluation at the 12 cubic M nodes AND the 12 star loci (V244's
+stored `orbits[].members`) at the implemented clock (β = g = g₁₀ = 0.2)
+and the closed clock (π/4); the Cartan list copied from V209/V242's
+`skeleton`. No fitted input; δ is a measurement window recorded per κ.
+
+**Measured quantity.** (1) the loop factor F_int = ‖Cartan content of
+Σ‖ / ‖Cartan content of tree‖ at every evaluated node/clock; (2) grid
+convergence |F(16) − F(32)|; (3) mpmath certification: 5 interior q-samples
+at dps 60 vs 100, direct mp resolvents of the 128-dim matrices at n ≤ 40
+words, agreement < 1e-40 between precisions and < 1e-20 vs float64;
+(4) the naturalness split: Σ's mass-shift vs cone-slope-shift ratio
+(diagnostic, not a contact).
+
+**Acceptance (pre-registered).** Contact `LOOP-FROM-INTERACTION` iff
+|16π·F_int − 1| < 1e-6 at any evaluated node/clock with
+`fitted_inputs == []`; else `NO-LOOP-EITHER` recording F_int to 15 digits
+per class/node/clock and the ratio. Grid convergence |F(16) − F(32)| <
+1e-8, else record the finite-size floor as the measurement (V242's
+convention). Wording on EMERGENCE: the interaction supplies in dynamical
+form what the free combinatorics could not: the loop factor is a property
+of the gauged two-particle sector. Wording on NO-LOOP: neither the free
+limit nor the dynamical interaction of the only coupled sector the root
+carries produces 1/(16π): O8's residual is measured from both sides. A
+flux-dispersing upgrade (ω ≠ 0) runs only if F_int lands within the
+EMERGENCE band; otherwise the sensitivity row records the window.
+
+---
+
+## V253 — the block-RG window on the dressed sector
+`experiments/dynamics_spectrum/V253_block_rg_window/` — tier 2,
+`residual: true` (O9/F9)
+
+**Question.** V213 measured the bare tangent anisotropy marginal
+(exponent −0.0001); V177's static dressing did not change it. Does the
+dressed sector flow?
+
+**Closed input set.** V178's downfold ladder machinery
+(`altcell.lowdin_downfold`) applied to the V251 Σ-corrected effective step
+on the node subspace (n_low = 4), cuts b = 1, 2, 4, 8, 16; the config
+marginal band 1e-2 as the comparator. The V178 artifact keys (`rows`,
+`A_full`) are the ladder being extended.
+
+**Measured quantity.** v(b), A(b), m(b) per cut; the log-log exponents
+p_v, p_A against the band.
+
+**Acceptance (pre-registered).** Branch `CONTINUUM-WINDOW` iff
+p_A < −1e-2 (anisotropy relevant: the coarse-grained cone rotates) —
+report b*, the cut where A(b) < 8e-15 would extrapolate, honestly labeled
+as an extrapolation with its exponent; else `NO-WINDOW` with
+(p_v, p_A, the full b-table).
+
+---
+
+## V254 — the dressed F9 contact at the deepest cut
+`experiments/dynamics_spectrum/V254_dressed_f9_contact/` — tier 5,
+`residual: true` (F9)
+
+**Question.** Does the dressed effective step satisfy the SME electron
+velocity-anisotropy bound at the deepest block-RG cut, measured (not
+extrapolated)?
+
+**Closed input set.** V253's artifact at b = 16 (the dressed effective
+step), V235's exact normalization and `altcell.cone_anisotropy`, the same
+node class V235 used (M, implemented clock) and the star loci; the bound
+8.0e-15 from config `bounds.sme_electron_velocity_aniso`.
+
+**Measured quantity.** δv/v at b = 16 measured on the dressed step; the
+A(b=16) value and the V253 exponent as supporting numbers.
+
+**Acceptance (pre-registered).** Branch `F9-DRESSED-CLOSED` iff
+δv/v < 8.0e-15 measured (not extrapolated) with `fitted_inputs == []`;
+else `F9-STILL-FIRED` with the ratio.
+
+---
+
+## V255 — the dressed F2 contact: does the interaction read the decimals?
+`experiments/dynamics_spectrum/V255_dressed_f2_contact/` — tier 3,
+`residual: true` (F2)
+
+**Question.** With the dynamical loop factor F_int from V252 (and any
+C_star clock from V249 if `STAR-CLOCK-OPEN`), does any theory point land
+inside both F2 bands?
+
+**Closed input set.** F_int from V252's artifact; C_star clocks from
+V249's artifact if OPEN; the closed clocks (π/4, π/2), the implemented
+0.2; the ladder coefficient rule 3(16π·F)^10 vs 2.0765641 (V108's rule,
+read from its artifact for the rule shape; ladder reading coefficient =
+3(16πF)^10 per `cl10/config.yaml:87` and V108); `unification.alpha_std(g)`
+vs 0.04 with `alpha_10 = 0.04`; V233's band for the second contact.
+
+**Measured quantity.** The 2×2 recomputation at every theory point: the
+ladder coefficient vs 2.0765641 and α_std(g) vs 0.04; which functional was
+used recorded per row. β-independence control: the running reads
+`coupling.angle()` only — one numeric assertion as V247 did.
+
+**Acceptance (pre-registered).** Branch `F2-INTERACTION-READS` iff some
+theory point lands inside both bands (1e-3 / V233's) with
+`fitted_inputs == []`; else `F2-FIRED-X4` with the full table.
+
+---
+
+## V256 — the ladder rungs at the interacting loop factor
+`experiments/dynamics_spectrum/V256_ladder_rung_reconstruction/` — tier 4,
+`residual: true` (O8)
+
+**Question.** V197's rung arithmetic at F_int: the ladder's four scales
+(rung 3 singlet A, rung 10 singlet B, rung 17 neutrino) recomputed with
+loop = F_int^(1/10) — do the three rungs land jointly within V197's bands?
+This is the joint falsifier guarding against a single-coincidence loop
+factor.
+
+**Closed input set.** V197's artifact (rung arithmetic and bands),
+V252's F_int, the config ladder hierarchy coefficient 2.0765641.
+
+**Measured quantity.** The three rung values and their band residuals at
+loop = F_int^(1/10).
+
+**Acceptance (pre-registered).** Branch `LADDER-CONSISTENT` /
+`LADDER-BROKEN` plus the residual table.
+
+---
+
+## V257 — the interacting ledger
+`experiments/algebra_root/V257_interacting_ledger/` — tier 6,
+`residual: true` iff anything landed fitted
+
+**Question.** The provenance of every number the interacting programme
+produced: η twist values (algebraic only if on C_star, else
+never-realized), F_int (measured), dressed cone/flux scales (measured),
+the sector coupling (algebraic: g₁₀, the V177/V141 zero-parameter gates),
+any C_star clock (algebraic if closed). The Table-6-class counts per
+quantity.
+
+**Closed input set.** Only the V249–V256 verdict artifacts
+(`cl10.paths.exp`); the published Table 6 rows it compares against. No
+new number is measured.
+
+**Measured quantity.** The counts (algebraic, fitted, measured-input) per
+quantity and the reclassification flags for §15/Table 6.
+
+**Acceptance (pre-registered).** Branch string `INTERACTING-LEDGER`
+(informational). `residual: true` iff anything landed fitted. If V251
+landed `SECTOR-BLOCKED`, the would-be sector numbers are recorded as
+never-realized and add no fitted parameter.
+
+---
+
+## V258 — the falsifier conjunction of the interacting programme
+`experiments/algebra_root/V258_falsifier_conjunction/` — tier 5,
+`residual: true`
+
+**Question.** Does any single theory point satisfy (F9 dressed ∧ F8 ratio
+∧ F2 both bands ∧ O8 ladder) simultaneously? The programme's roll-up as
+an experiment.
+
+**Closed input set.** Only the V249–V257 artifacts read through
+`cl10.paths.exp`, plus the F8-ratio input computed here: the dressed
+fermion cone slope vs V208's cone machinery re-evaluated on the dressed
+effective step (`cone_generator.json` re-diagonalized on H_eff at b = 16,
+the 8-dim cone-subspace check). The ratio, not the absolute, is the
+GW170817 contact. No recomputation of any other artifact's numbers.
+
+**Measured quantity.** The conjunction table (per experiment × per theory
+point) and the F8 dressed ratio.
+
+**Acceptance (pre-registered).** Branch `CONJUNCTION-ALIVE` (a named
+point; the falsifiers become decidable by a next programme) or
+`CONJUNCTION-DEAD` (the per-experiment table is the artifact; F2/F8/F9/O8
+become theorems of the whole construction, both single-particle and
+interacting).
+
+---
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- The suite recount (178 → 188) propagates to `README.md`,
+  `doc/reference.md`, `experiments/README.md` (counts, catalogue tables,
+  claim mapping), availability lines and Appendix B, whether or not any
+  contact succeeds.
+- Any dial value used off C_star reclasses to `fitted` in Table 6 and the
+  falsifier stays fired. The hard-tier denominator is whatever the runner
+  measures over the new tier-0–3 experiments (5 of them pre-registered:
+  V249–V251, V253, V255).
+- The manuscript gains a §21 (the interacting continuum programme) and the
+  woven verdicts in the abstract, §12.1, §15/§16/§17 tables and the
+  comparison paragraphs; no existing section is renumbered. Both outcomes
+  of every branch are drafted above; only the landed wording is applied.
+- If V251 lands `SECTOR-BLOCKED`, V252–V256 run on the P-only dressed
+  system (V177's static vertex + V178 downfold) and the branch strings
+  carry `sector-floor`; V257 books the would-be sector as never-realized.
+- No tag, no merge: the branch `founding-repair` is pushed for the
+  reader's decision.
+
