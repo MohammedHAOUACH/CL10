@@ -197,12 +197,17 @@ def sectors(g10=G10):
 # the bond stages
 # ---------------------------------------------------------------------------
 
-def stage_matrix(even, j, q, g10=G10):
+def stage_matrix(even, j, q, g10=G10, bond_g10=None):
     """The 8x8 sub-site matrix of one bond stage at block momentum ``q``.
 
     An intra-block stage (``even=True``) carries no phase; an inter-block
-    stage carries $\\exp(\\pm i q_j)$ for a hop in $\\pm\\hat e_j$."""
-    c, s = math.cos(g10), math.sin(g10)
+    stage carries $\\exp(\\pm i q_j)$ for a hop in $\\pm\\hat e_j$.
+
+    Two-dial family (V239): ``bond_g10`` is the **bond (hop) angle** beta,
+    decoupled from the internal Spin(10) angle ``g10`` = g.  The default
+    ``None`` means beta = g10 and is bit-identical to the published step."""
+    b = g10 if bond_g10 is None else bond_g10
+    c, s = math.cos(b), math.sin(b)
     S = np.eye(NSUB, dtype=complex)
     bit = 1 << j
     for e in range(NSUB):
@@ -216,14 +221,16 @@ def stage_matrix(even, j, q, g10=G10):
     return S
 
 
-def bond_product(q, g10=G10, stages=STAGES):
-    """The 8x8 bond part P(q) of the one-step Bloch matrix: the six stage
-    matrices multiplied in stage order. The full step is ``bloch(q, U)``;
-    when the internal angle equals the bond angle it factorizes as
-    P(q) (x) U(g10)**ns."""
+def bond_product(q, g10=G10, stages=STAGES, bond_g10=None):
+    """The 8x8 bond part P(q; beta) of the one-step Bloch matrix: the six
+    stage matrices multiplied in stage order. The full step is ``bloch(q, U)``;
+    for any (beta, g) it factorizes exactly as
+    ``kron(P(q; beta), U(g)**len(stages))`` - the stages and the internal
+    layer commute across the kron - so the published diagonal slice
+    (beta = g = g10) is the slice where ONE angle drives both."""
     M = np.eye(NSUB, dtype=complex)
     for even, j in stages:
-        M = stage_matrix(even, j, q[j], g10) @ M
+        M = stage_matrix(even, j, q[j], g10, bond_g10) @ M
     return M
 
 
@@ -266,18 +273,20 @@ def cubic_equivariance(qs=(GAMMA, X_POINTS[0], M_POINTS[0], R_POINTS[0],
     return out
 
 
-def bloch(q, U, g10=G10, stages=STAGES):
+def bloch(q, U, g10=G10, stages=STAGES, bond_g10=None):
     """The exact one-step Bloch matrix of the automaton at block momentum
     ``q``: ``(8*n, 8*n)`` for an ``(n,n)`` internal unitary (128 on the 16
     sector, 256 on the full module).
 
-    The build goes through ``E.kron``/``E.matmul``, so it runs where ``U``
+    ``bond_g10`` decouples the bond (hop) angle beta from the internal angle
+    ``g10`` (V239); ``None`` is the published step, bit-identically.  The
+    build goes through ``E.kron``/``E.matmul``, so it runs where ``U``
     lives: host for the 128/256 matrices of the momentum sweeps (measured
     faster there, and the sweeps are parallelised by ``cl10/parpool.py``),
     device if a caller hands in a device ``U``."""
     M = np.eye(NSUB * U.shape[0], dtype=complex)
     for even, j in stages:
-        S = stage_matrix(even, j, q[j], g10)
+        S = stage_matrix(even, j, q[j], g10, bond_g10)
         M = E.matmul(E.kron(S, U), M)
     return M
 
@@ -289,8 +298,8 @@ def phases(M):
     return np.sort(np.angle(E.asnumpy(E.eigvals(M))))
 
 
-def gap(q, U, g10=G10, stages=STAGES):
-    return float(np.min(np.abs(phases(bloch(q, U, g10, stages)))))
+def gap(q, U, g10=G10, stages=STAGES, bond_g10=None):
+    return float(np.min(np.abs(phases(bloch(q, U, g10, stages, bond_g10)))))
 
 
 def degeneracy(q, U, g10=G10, stages=STAGES, tol=_TOL.standard):

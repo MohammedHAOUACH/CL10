@@ -109,35 +109,40 @@ def module_stages(shape=(2,) * NDIM, order="phase-major"):
     raise ValueError("unknown stage order " + str(order))
 
 
-def stage_matrix(bonds, q, axes, g10, nsub):
+def stage_matrix(bonds, q, axes, g10, nsub, bond_g10=None):
     """The matching matrix of one module stage: identity on the unpaired
     sub-sites, and on a bond (i, j, axis, wraps) the 2x2 rotation
 
         [[c, -i s e^{+i q.v}], [-i s e^{-i q.v}, c]]
 
     with v the physical image of that module axis -- the `altcell` convention
-    with the integer image label replaced by the module generator."""
-    c, s = math.cos(g10), math.sin(g10)
+    with the integer image label replaced by the module generator.
+    ``bond_g10`` is the decoupled bond angle beta (V239/V244); ``None`` is
+    the published step, bit-identically."""
+    b = g10 if bond_g10 is None else bond_g10
+    c, s = math.cos(b), math.sin(b)
     S = np.eye(nsub, dtype=complex)
-    for (a, b, axis, wraps) in bonds:
+    for (a, b_i, axis, wraps) in bonds:
         ph = np.exp(1j * float(np.dot(q, axes[axis]))) if wraps else 1.0 + 0j
         S[a, a] = c
-        S[b, b] = c
-        S[a, b] = -1j * s * ph
-        S[b, a] = -1j * s * np.conj(ph)
+        S[b_i, b_i] = c
+        S[a, b_i] = -1j * s * ph
+        S[b_i, a] = -1j * s * np.conj(ph)
     return S
 
 
-def bloch_star(cell, U, g10, stages, q, axes):
+def bloch_star(cell, U, g10, stages, q, axes, bond_g10=None):
     """The one-step Bloch matrix of the module: `Pi kron(S_stage, U)` over the
-    stagger, with U the committed internal map.  The product runs on the device
-    when the engine is on a GPU core, which is where the 1024-dimensional
-    module step belongs; `U` is moved once and the stage matrices ride along."""
+    stagger, with U the committed internal map.  ``bond_g10`` decouples the
+    bond angle beta from the internal angle g10 (V244); ``None`` is the
+    published step.  The product runs on the device when the engine is on a
+    GPU core, which is where the 1024-dimensional module step belongs; `U`
+    is moved once and the stage matrices ride along."""
     U = E.to_device(U)
     M = E.eye(cell["nsub"] * U.shape[0], complex)
     for (i, phase) in stages:
         S = stage_matrix(module_bonds(cell, i, phase), q, axes, g10,
-                         cell["nsub"])
+                         cell["nsub"], bond_g10)
         M = E.matmul(E.kron(E.to_device(S), U), M)
     return M
 
@@ -147,10 +152,10 @@ def eigenphases(M):
     return np.angle(E.asnumpy(E.eigvals(M)))
 
 
-def gap_star(cell, U, g10, stages, q, axes):
+def gap_star(cell, U, g10, stages, q, axes, bond_g10=None):
     """min |eigenphase| of the module's one-step matrix."""
     return float(np.min(np.abs(eigenphases(
-        bloch_star(cell, U, g10, stages, q, axes)))))
+        bloch_star(cell, U, g10, stages, q, axes, bond_g10)))))
 
 
 def parity(cell):
