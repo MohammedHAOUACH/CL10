@@ -454,3 +454,388 @@ no re-tuning of the desert content to escape it.
 - No new free parameter is introduced silently anywhere in this programme:
   every new experimental number in the manuscripts must be an artifact read
   or an entry of `DERIVED` in `review/tools/number_audit.py`.
+
+---
+
+# Pre-registrations: the founding-repair programme (V239–V248)
+
+The V229–V238 diagnosis put every failure on the continuum-dynamics side and
+every PASS on the algebraic side. This programme repairs the three founding
+choices that produced that split and re-contacts the falsifiers from the
+repaired theory: (a) the hop angle is decoupled from the internal Spin(10)
+angle — two dials, the bond angle β (kinematics) and the internal angle g
+(couplings), published theory being only the diagonal slice β = g = g₁₀;
+(b) the traced-loop ratio F_n gets its missing Brillouin-zone (thermodynamic)
+average; (c) the node's little group is computed with the committed Molien
+machinery, and either forbids the rank-2 velocity anisotropy or its relevance
+is measured.
+
+**Ground rules.** Same protocol as V229–V238 with one addition: the closed
+input set gains the bond angle β as a free real dial and the internal angle
+g as a free real dial, under the constraint that any (β*, g*) quoted as a
+theory point must lie on the closure set C measured by V239. Any dial value
+used off that set goes into `data.fitted_inputs` and reclasses to `fitted`
+in Table 6. No silently redefined published number: every new parameter
+enters the code as an optional kwarg defaulting to the old behavior
+(`bond_g10=None ⇒ g10`); all 168 existing experiments must still PASS
+unchanged. Tier assignment (semantics `experiments/README.md`): V239 → 2,
+V240 → 2, V241 → 1, V242 → 4, V243 → 4, V244 → 2, V245 → 5, V246 → 2,
+V247 → 3, V248 → 6. The hard-tier denominator grows with the number of new
+tier-0–3 experiments **as the runner measures it** — reported in the commit
+message, never adjusted. Backend: GPU 1, `CL10_BACKEND=cupy`, one backend
+for every run; mpmath certification is host math, exactly as in V209/V231.
+No `wall_time` key (the V229–V238 cohort artifact format).
+
+---
+
+## V239 — the two-dial step family and the closure set
+`experiments/dynamics_spectrum/V239_two_dial_step_family/` — tier 2,
+`residual: false`
+
+**Question.** The step family with the hop decoupled from the couplings —
+`M(q; β, g) = Π_t kron(S_t(β, q_j), U16(g))`, the `altcell.bloch_stages`
+shape on the cubic block — is it exactly unitary for arbitrary dials, does it
+contain the published step as the exact diagonal slice, and where does the
+closure axiom `M(Γ; β, g)^k = I` hold?
+
+**Closed input set.** `cl10.supercell` with the new optional `bond_g10` kwarg
+on `stage_matrix`/`bond_product`/`bloch`/`gap` and the matching kwarg on
+`cl10.starcell.stage_matrix`/`bloch_star`/`gap_star` (defaults bit-identical
+to the published step); `supercell.sectors(g)` for U16(g); `GAMMA`,
+`X_POINTS`, `M_POINTS`; the grid β, g ∈ linspace(0.02, π/2, 41); no
+measured dial value is introduced — every (β, g) tested is a grid point.
+
+**Measured quantity.** (1) unitarity defect `max ‖M M† − I‖_∞` over the
+41×41 dial grid at q ∈ {Γ, X, M, (0.31,−0.77,0.44)}; (2) the diagonal-slice
+identity `bloch(q,U,g,bond_g10=g) − bloch(q,U,g)` (exact equality expected,
+0.0) and the factorization `M(q,g,g) = P(q,g) ⊗ U16(g)^6` to < 1e-14;
+(3) the closure order: the smallest k ∈ {2,4,8,16} with
+`‖M(Γ; β, g)^k − I‖ < 1e-12` at every grid point (`none` otherwise), each
+order-plateau boundary refined to 1e-10 by bisection along β at fixed g and
+along g at fixed β. The closure set C is stored as ordered
+`[{beta, g, order}]`.
+
+**Acceptance (pre-registered).** Branch `FAMILY-OK` iff (1) < 1e-13, (2) is
+exact, and C is non-empty and contains the published closed point
+(β = g = π/4, order 2 at Γ); otherwise the experiment FAILS (a broken family
+is an engineering failure, not a physics verdict). Manuscript wording on
+success: the closure axiom is a set C(β, g) in the two-dial plane, not a
+single clock.
+
+---
+
+## V240 — where the cone speed is exactly 1, on the closure set
+`experiments/dynamics_spectrum/V240_two_dial_velocity_manifold/` — tier 2,
+`residual: true` (F8-side)
+
+**Question.** Does any closed two-dial point (β*, g*) ∈ C carry a gapless
+node whose chiral cone propagates at exactly c = 1 (lattice units)? The F8
+obstruction was measured on the diagonal slice only; the decoupled hop
+supplies the missing dial.
+
+**Closed input set.** Every (β, g) stored in V239's artifact C (read through
+`cl10.paths.exp`), plus 25 points dense on any continuous component of C
+re-refined with V239's own bisection; `supercell.bloch(..., bond_g10=β)` on a
+24³ q-grid; local gap minima < 1e-9 refined by `scipy.optimize.minimize`
+(exploration-licensed, as altcell already licenses it); the V115 estimators
+`cone_anisotropy` and `chirality_at` verbatim from `cl10.altcell`; the star
+module control through `starcell.bloch_star(..., bond_g10=β)` at the V215
+artifact's recorded loci (rescan with `gap_star` if the artifact stores no
+momenta — it does). No dial value off C.
+
+**Measured quantity.** Per C-point: the gapless nodes, and per node the cone
+speeds v_max, v_min and A = (v_max − v_min)/(v_max + v_min) (V115 metric),
+v̄ = (v_max + v_min)/2, and the V63 chirality sign. The velocity manifold
+M_v = {C-points where some node has |v̄ − 1| < 1e-9}.
+
+**Acceptance (pre-registered).** Branch `MANIFOLD-FOUND` (the artifact lists
+each point: β*, g*, q*, v̄, A, chirality) or `MANIFOLD-EMPTY` (the closest
+|v̄ − 1| found and its A are the artifact). Manuscript wordings — FOUND: the
+closure curve carries points whose chiral cone propagates at c = 1; the
+single-dial obstruction was the diagonal slice β = g₁₀. EMPTY: even with the
+hop decoupled, no closed step on this module puts a gapless chiral cone at
+c = 1: F8 stays fired for the repaired theory too.
+
+---
+
+## V241 — the algebraic wins on the repaired slice
+`experiments/dynamics_spectrum/V241_two_dial_algebra_replication/` — tier 1,
+`residual: false`
+
+**Question.** Do the tier-0–3 algebraic kernels of the published theory
+survive on the repaired two-dial slice (at up to 3 points of M_v, else at the
+3 C-points closest to v̄ = 1)? A failed kernel here is a real result:
+decoupling the hop would break a win.
+
+**Closed input set.** The kernels exactly as the suite computes them:
+`cl10.cell.content()` and the V2 multiset; V11's exact-zero anomaly checks
+(`Tr Y`, `Tr Y³` on `cell.gauge_ext_np()`); the supercell `verify()` CPT
+machinery (`sector_leakage`, `spectral_mirror_err`) on
+`bloch(q, U16bar(g), g, bond_g10=β)`; `cl10.clifford`'s 45 generators and
+the V45-style Yukawa mass matrices (internal-only, β-blind: one numerical
+control each); the V63 `chirality_at` sign at the matched nodes. Every
+comparison row is read from the published artifact it comes from
+(`cl10.paths.exp`), never restated.
+
+**Measured quantity.** Per kernel: the value at the dial point against the
+artifact band that published it. The anomaly kernels are β-independent by
+construction (the internal sector carries them) — stated as such AND
+verified numerically at each dial point.
+
+**Acceptance (pre-registered).** Branch `REPLICATION-OK` iff every
+comparison lands within the band its published artifact states; otherwise
+`COLLATERAL-DAMAGE`, naming the failed kernels and by how much.
+
+---
+
+## V242 — the loop functional with the Brillouin-zone average
+`experiments/scales_loopfactor/V242_bz_loop_factor_census/` — tier 4,
+`residual: true` (O8)
+
+**Question.** V209's traced-loop Cartan-content ratio F_n contains no
+momentum anywhere. What is the thermodynamic limit of that functional — the
+ratio with the single-cell propagator replaced by the full one-particle
+Bloch step, BZ-averaged — and does it supply 1/(16π)?
+
+**Closed input set.** The Cartan machinery copied **verbatim** from
+`V209_root_clock_degeneracy.py` (`cint`, the `cart` list of `skeleton`,
+`tr_AB`, the `cnorm_np` formula); the 16-sector Cartan generators
+C_a^(16) = B†(i h_a h_{a+1})B, a ∈ {0,2,4,6,8}, B from `supercell.sectors()`
+(the +i eigenspace of w — the same B that defines U16), embedded as
+`kron(I_8, C_a^(16))`; the powered matrix
+`M(q; β, g) = Π_t kron(S_t(β, q_j), U16(g))` (128-dimensional, the 16
+sector); the internal-only one-step map `G_6(g) = kron(I_8, U16(g)^6)` as
+the denominator; q = product Gauss–Legendre on [−π, π)³, N ∈ {8, 16, 32} per
+axis (GPU-batched cupy, chunked); the three pre-registered angle pairs
+(π/4, π/4), (0.2, 0.2), and (β*, g*) ∈ M_v only if V240 landed a
+`MANIFOLD-FOUND` before this run — `data.pairs_tested` records the truth.
+No other angle, no fitted dial.
+
+**Measured quantity.**
+`F_n^BZ(N; β, g) = [N^-3 Σ_q cnorm_128(M(q; β, g)^n)] / cnorm_128(G_6(g)^n)`
+for n ≤ 256, per pair and per class (even/odd n), with the Cartan norms
+themselves recorded (V209's phase-degeneracy caveat: at a clock where the
+denominator norm sits at the float64 floor, the ratio is a ratio of floors,
+recorded as such and never quoted as a measurement). F_∞ := F_256^BZ(32; β, g).
+Convergence check: |F_n^BZ(16) − F_n^BZ(32)| < 1e-8. Certification (V231's
+pattern): 5 fixed interior q-points, direct 128×128 mpmath matrix powers
+n ≤ 40, dps 60 vs dps 100 agreement < 1e-40, and vs the float64 grid values
+< 1e-20. Copy controls, pre-registered because the plan's N=1 expectation
+was probed FALSE at design time (V209's numerator X = M̃·G carries the
+Casimir-phase dressing M̃ — the ladder contraction itself — which the bare
+Bloch step does not have): (i) the copied cnorm/Cartan machinery evaluated on
+V209's own cell construction must reproduce the published artifact values
+F_2 = 65.7375639245203, F_10 = 55.03411396157217 at g = π/4 and F_2 =
+2.7582293618526945, F_10 = 0.019186391026184524 at g = 1/5 to < 1e-12;
+(ii) the N = 1 grid (q = Γ only) evaluated by the grid machinery must equal
+the direct 128-dimensional ladder value to < 1e-12.
+
+**Acceptance (pre-registered).** Branch `LOOP-FACTOR-EMERGES` iff
+|16π F_∞ − 1| < 1e-6 at a pair with `data.fitted_inputs == []`; else
+`NO-LOOP-FACTOR`, recording F_∞ to 15 digits per class and per pair. If
+certification fails at every N, the measured resolution floor is the
+measurement (null result, not failure) — the 1e-40 requirement is never
+lowered. Manuscript wordings — EMERGES: O8's momentum-integration route is
+alive (V231's cell-combinatorics null result stands, now explained);
+NO-LOOP-FACTOR: the thermodynamic limit of the same functional does not
+produce 1/(16π) either: the ladder coefficient is not supplied by the
+construction's own free-field combinatorics at any angle.
+
+---
+
+## V243 — does the BZ loop factor read the observed hierarchy?
+`experiments/scales_loopfactor/V243_bz_hierarchy_contact/` — tier 4,
+`residual: true` (F2's ladder side)
+
+**Question.** With F_∞ from V242's artifact at each tested pair, does the
+ladder reading of v/M_P — exactly as V203/V108 compute it, the definition
+read from their artifacts and `cl10/config.yaml` (the loader derives
+`hierarchy_coefficient_observed = 2.0765641` from `v_electroweak_gev /
+m_planck_gev`; it is never restated here) — land on the observed value when
+the loop is F_∞^(1/10) at the pair's own class?
+
+**Closed input set.** V242's artifact F_∞ values; the V203/V108 artifacts
+for the reading definition (`cl10.paths.exp`); `cl10/config.yaml` physics
+inputs. No new number.
+
+**Measured quantity.** The ladder coefficient with loop = F_∞^(1/10), and
+its relative distance from 2.0765641, per pair and class. If V242 returned
+`NO-LOOP-FACTOR` the experiment still runs on the measured F_∞ values: the
+ratio table is the artifact.
+
+**Acceptance (pre-registered).** Branch `HIERARCHY-READS` iff any
+(β, g) on C ∩ M_v with an EMERGED F_∞ gives relative |coef − 2.0765641| <
+1e-3; else `HIERARCHY-UNREAD` with the full ratios table.
+
+---
+
+## V244 — little groups of the star-module gapless loci
+`experiments/dynamics_spectrum/V244_icosahedral_node_census/` — tier 2,
+`residual: false`
+
+**Question.** On the icosahedral star module, what is the little group of
+each gapless locus, and does any stabilizer force the rank-2 (velocity)
+invariant of the dispersion to be isotropic — the symmetry route by which
+F9 could die?
+
+**Closed input set.** `cl10.starcell` (`module_cell`, `module_stages`,
+`bloch_star`, `gap_star`, `star_axes`) at the published closed clock, and at
+(β*, g*) ∈ M_v only if V240 landed one; the V215 artifact's recorded loci
+and grid (matched through `cl10.paths.exp`); the committed group machinery
+`cl10.continuum`: `polyhedral_group(orders=[2,3,5])`, `little_group`,
+`molien_counts`, `so3_counts`, `first_anisotropic_degree`,
+`isotropy_forced`, `cubic_group` (the O_h control row),
+`binary_polyhedral`, `clifford_even_3d`, `embed_quaternions`,
+`icosahedral_star`, `axes_of`, and the committed `cone_generator.json`
+(V208) as the cross-check generator source: both generator sets are built,
+compared, and their defect ≤ 1e-14 recorded in `checks`. The node mode space
+comes from `altcell.node_modes` (n = 4 smallest |θ|, or an energy cut
+recorded in `data.inputs`). The module momenta q are already R³ (the stage
+phase is `exp(i q · a_axis)` with a_axis the physical module generator) —
+the projection convention is stated in `data.inputs`.
+
+**Measured quantity.** Per orbit representative of the gapless loci: the
+stabilizer order |S_q|, its Molien invariant counts to dmax = 6, the SO(3)
+reference counts, `isotropy_forced`, `first_anisotropic_degree`; plus the
+spinorial check — whether the node's mode space carries the binary
+icosahedral 2I representation (the condition that makes forced isotropy
+apply to the fermion cone, not only to a scalar); plus the O_h control row
+computed identically from `cubic_group()` (its rank-2 count is the cubic
+anisotropy F9 measures).
+
+**Acceptance (pre-registered).** Branch `ENFORCED-LOCUS` iff some node has
+|S_q| ≥ 60 (full icosahedral) AND `isotropy_forced` is true — the artifact
+lists the loci, stabilizer orders and Molien counts; `PARTIAL-LIMIT` iff
+icosahedral stabilizers exist but the Molien rank-2 count is > 1; else
+`NO-ENFORCED-LOCUS`. V246 is mandatory in the latter two cases.
+
+---
+
+## V245 — the SME contact at the enforced node, settled
+`experiments/dynamics_spectrum/V245_enforced_isotropy_contact/` — tier 5,
+`residual: true`
+
+**Question.** At the enforced locus of V244 (or, if none exists, at the
+best available C ∩ M_v node), the node velocity anisotropy against the
+committed SME electron bound: does symmetry close F9?
+
+**Closed input set.** V244's artifact (the locus and its Molien row); the
+V235 estimator exactly as published (`experiments/dynamics_spectrum/
+V235_node_velocity_contact/`: Fibonacci `fib_dirs(100)` directions,
+min-eigenphase velocity, tensor least-squares, same normalization as the
+published 0.748–0.758 and 0.680 numbers); `bounds.
+sme_electron_velocity_aniso = 8.0e-15` from `cl10/config.yaml`; the V213
+radii ladder (`continuum.radii`) as the supporting k-scaling row.
+
+**Measured quantity.** δv/v = (v_max − v_min)/v_max at the node, the
+float64 measurement floor recorded, and the symmetry statement: a node
+whose stabilizer forces rank-2 isotropy has its anisotropy bounded by the
+first allowed degree's k^p correction — the exponent p from the V213-style
+radius fit is printed as the supporting number.
+
+**Acceptance (pre-registered).** Branch `F9-CLOSED` iff δv/v < 8.0e-15
+**by the enforced-locus route**: the artifact reports `0.0 by
+isotropy_forced` plus the float64 floor as the numeric and the k-scaling;
+else `F9-STILL-FIRED` with the ratio δv/v : bound. This is where F9 either
+dies from symmetry or stays dead weight, stated with the two numbers.
+
+---
+
+## V246 — the tuning alternative: relevance of the anisotropy along β
+`experiments/dynamics_spectrum/V246_lorentz_tuning_relevance/` — tier 2,
+`residual: true`. **Conditional, pre-registered as MANDATORY iff V244 ∈
+{NO-ENFORCED-LOCUS, PARTIAL-LIMIT}**; if V244 landed ENFORCED-LOCUS the
+experiment writes a conditional-skip verdict (`inconclusive: true`, no
+branch string) and nothing is measured.
+
+**Question.** If no stabilizer forces isotropy, is the anisotropy a
+relevant direction the bond dial controls: at the best C ∩ M_v node, what
+is the relevance exponent p of the anisotropic correction A(r) ∝ r^p
+(V213's method verbatim: `continuum.radii` ladder, log-log fit, marginal
+band `continuum.relevance_marginal_band = 1e-2`), and does ∂/∂β — the new
+two-dial direction — have a root β_t where the degree-4 coefficient of A
+vanishes?
+
+**Closed input set.** The three β values along C nearest the node's C-point
+(the C set from V239's artifact); the cubic module `supercell` step at the
+matched (β, g); V213's estimator verbatim; a scalar root-find on the β-line
+at tolerance 1e-12. No dial off C without the `fitted_inputs` flag.
+
+**Measured quantity.** p(β) at the three β's, ∂A/∂β along the line, β_t and
+the residual A if a root exists.
+
+**Acceptance (pre-registered).** Branch `TUNED-SURFACE` (β_t, p, residual A)
+or `NOT-ATTRACTIVE` (p and the closest approach). Manuscript wordings —
+TUNED-SURFACE with F9-CLOSED: the node sits on a surface where cubic
+anisotropy is marginal-cancelled by the bond dial: β is a relevant
+direction the closure curve fixes, not a free parameter. NOT-ATTRACTIVE:
+the anisotropy is marginal (p ≈ 0) and no closed dial cancels it: F9 is a
+measurement death, not a philosophy.
+
+---
+
+## V247 — F2 and the desert, re-contacted on the two-dial slice
+`experiments/couplings_unification/V247_two_dial_desert_contacts/` — tier 3,
+`residual: true`
+
+**Question.** At C ∩ M_v points (else at the C-points nearest v̄ = 1, the
+branch string records which) with the internal dial g as the clock: does
+any closed point restore V233's 2×2 arbitration (hierarchy coefficient vs
+the loader-derived 2.0765641; α_std(g) vs `angle.alpha_10 = 0.04`, the
+V233 bands verbatim) AND the V237 desert-threshold rule (shifted solution
+against the spectrum's own log-spacings, acceptance rule read from V237's
+artifact)? β enters the running nowhere — `cl10/unification.py` reads
+`coupling.angle()` only: stated AND verified numerically once through
+`g10_from_root`/`pairwise_meeting_scales`.
+
+**Closed input set.** C from V239; M_v from V240; the F_∞ value from V242
+if EMERGED, else the cell F_n values of V242's record — the functional used
+is recorded in `data`; the V233/V237 artifacts and bands;
+`cl10/unification`; config `desert:`/`sm:`/`angle:` inputs.
+
+**Measured quantity.** The 2×2 table per C ∩ M_v point and the desert
+threshold table with g varied along C.
+
+**Acceptance (pre-registered).** Branch `F2-REPAIRED` iff some C ∩ M_v
+point passes both V233 bands and V237's rule with `fitted_inputs == []`;
+else `F2-FIRED-EXTENDED` (the 2×2 and desert tables are the artifact).
+
+---
+
+## V248 — the honest ledger of the repaired theory
+`experiments/algebra_root/V248_two_dial_parameter_ledger/` — tier 6,
+category `algebra_root`, `residual: true` iff any dial landed fitted
+
+**Question.** The provenance of every number of the repaired theory — for
+each landed dial value (β*, g*, β_t, F_∞) is it algebraic (unique on C or
+C ∩ M_v and fixed by a measured acceptance rule with `fitted_inputs == []`)
+or fitted? The Table-6-class counts per quantity.
+
+**Closed input set.** Only the ten verdict artifacts of this programme
+(`cl10.paths.exp`); the published Table 6 rows it compares against. No new
+number is measured.
+
+**Measured quantity.** The counts (algebraic, fitted, measured-input) per
+quantity, and the reclassification flags for §15/Table 6 of the manuscript.
+
+**Acceptance (pre-registered).** Branch string `TWO-DIAL-LEDGER`
+(informational). `residual: true` iff any dial landed fitted. If V240
+landed `MANIFOLD-EMPTY`, the would-be dials never realized are recorded as
+never-realized and add no fitted parameter.
+
+---
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- The suite recount (168 → 178) propagates to `README.md`,
+  `doc/reference.md`, `experiments/README.md` (counts, catalogue tables,
+  claim mapping), whether or not any repair succeeds.
+- A repair that needs a fitted dial reclasses that dial into Table 6 and
+  the falsifier stays fired. The hard-tier denominator is whatever the
+  runner measures over the new tier-0–3 experiments.
+- The manuscript gains a §20 (the founding-repair programme) and the woven
+  verdicts in the abstract, §12.1, §15/§16/§17 tables and §18; no existing
+  section is renumbered. Both outcomes of every branch are drafted above;
+  only the landed wording is applied.
+- No tag, no merge: the branch `founding-repair` is pushed for the reader's
+  decision.
