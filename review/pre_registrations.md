@@ -1258,3 +1258,308 @@ interacting).
 - No tag, no merge: the branch `founding-repair` is pushed for the
   reader's decision.
 
+
+---
+
+# Pre-registrations: the gauge-invariant physical sector programme (V259–V268)
+
+The interacting programme (V249–V258) localized the failure: V98 proved
+the Gauss law admits **no one-particle physical state** (the spinor centre
+charge cannot be screened by adjoint flux), and V251 showed dynamically
+that the leak sits in the one-particle block itself. Yet every fired
+falsifier (F2, F8, F9, O8, O10) measures **one-particle Bloch modes** —
+states the theory's own Gauss law says are not physical. This programme
+re-measures the falsifiers' objects on the **physical gauge-singlet
+sector**: composite (matter + flux) states, their dispersion, gaplessness,
+chirality/statistics, and their scales. The end state is a
+pre-registered, artifact-backed verdict on whether the compositeness
+route rescues any falsifier — either the route yields a gapless physical
+cone/scale (contacts reopen, the theory is rewritten on the physical
+sector) or it is falsified too (the falsifiers stand as theorems of every
+construction, and the manuscript says so).
+
+**Ground rules.** All ten experiments use the **same closed construction**:
+V251's fiber machinery (128-dim spinor Bloch block + 1440-dim 32 × 45
+adjoint-link flux block, the V177 named vertex at strength g₁₀ = 0.2, the
+V126 Casimir tower with the omega rows measured by V251's artifact). The
+shared per-q construction — the **V259 kernel recipe** — is fixed now:
+build H₂(q) (1568 × 1568) exactly as V251's `build_H2` does at each q;
+build C₂ = Σ_a Q_G^a Q_G^a from V251's 45 total-charge operators;
+`w, V = eigh(C₂)`; kernel basis `W = V[:, w < 1e-9]` (tolerance 1e-9 —
+the same convention as "exactly gapless below 1e-9" elsewhere in the
+repo); projected composite Hamiltonian H_k(q) = W† H₂(q) W; composite
+bands = eigh(H_k). Zero fitted parameters anywhere: every number is
+measured or read from a committed artifact (grid N = 6, the omega rows,
+the gap scales); any dial used outside the V251 artifact conventions
+reclasses to fitted and the falsifier stays fired. Every artifact gains
+`wall_time`. GPU 1 (`CUDA_VISIBLE_DEVICES=1`), cupy backend with the
+V254 memory-pin fallback (host numpy under 3.5 GiB free). Branch
+`founding-repair` continues; no merge, no tag; push at the end. Tier
+assignment: V259 → 1, V260 → 2, V261 → 5, V262 → 3, V263 → 2, V264 → 3,
+V265 → 5, V266 → 2, V267 → 6, V268 → 5. New hard-tier (0–3) experiments:
+6 (V259, V260, V262, V263, V264, V266); the runner measures the
+denominator, report, never adjust. A fired contact is a PASS with
+`residual: true`.
+
+---
+
+## V259 — the singlet kernel census of the coupled fiber
+`experiments/dynamics_spectrum/V259_singlet_kernel_census/` — tier 1,
+`residual: false` (structural, hard tier)
+
+**Question.** Does the coupled two-particle fiber carry gauge singlets at
+any momentum, and how many?
+
+**Closed input set.** The V259 kernel recipe over V251's 6³ q-grid (216
+points): V251's charges, vertex, tower and `build_H2` (copy-modified in
+the experiment file), g₁₀ = 0.2, the omega convention read from the V251
+artifact (`data.sensitivity.omega_rows`); the kernel tolerance 1e-9. No
+other number.
+
+**Measured quantity.** Per-q kernel dim; the total singlet count; the
+q-points carrying ≥ 1 singlet, with their little groups via
+`cl10.continuum` (V244's import line, `K.molien_counts`) computed at each
+such q. Regression checks (pre-registered): T0 — V251's tower
+multiplicities {32, 288, 1120} on the 1440 block reproduced to 1e-9; T1 —
+C₂ commutes with H₂'s flux block to < 1e-9 on 40 random states (seed
+0x51, V251's convention).
+
+**Acceptance (pre-registered).** Branch `COMPOSITE-KERNEL`
+(informational) iff kernel dim > 0 at ≥ 1 q (record dim and loci); else
+`KERNEL-EMPTY` — the cascade rule of the roll-up fires and V260–V266 are
+recorded NEVER-REALIZED.
+
+---
+
+## V260 — the composite gap ladder on the singlet kernel
+`experiments/dynamics_spectrum/V260_composite_gap_ladder/` — tier 2,
+`residual: false` (structural, hard tier)
+
+**Question.** Is the composite projected band gapless anywhere in the
+zone, at the published N = 6 grid?
+
+**Closed input set.** The kernel basis per q from the V259 recipe;
+composite band E₀(q) = lowest eigenvalue of H_k(q) above the
+q-independent ground offset (the offset subtraction recorded explicitly
+in `data.conventions`); V251's grid and omega rows (the ± omega rows
+booked as the coupling sensitivity); the gaplessness tolerance 1e-9; V235's
+velocity normalization dvv = (v_max − v_min)/v_max along the 12 star rays
+at dq = 1e-3 (V254's measurement loop); V129's committed gap read from
+its artifact.
+
+**Measured quantity.** min E₀ over the grid; the set of q with E₀ < 1e-9
+(gapless loci); the velocity tensor at those loci by V235's
+normalization; the ± omega-row minima; V129's gap as the comparison.
+Cross-check (new-behavior proof): at q = 0 the composite kernel dimension
+and the C₂ kernel eigenvalue count must equal the singlet-copy count
+computed tower-sector by tower-sector (assert equality < 1e-9 inside the
+script — a wrong projection shows up here).
+
+**Acceptance (pre-registered).** Branch `COMPOSITE-GAPLESS` iff ≥ 1 locus
+with E₀ < 1e-9; else `COMPOSITE-GAPPED` recording min gap and the ratio
+to V129's committed gap.
+
+---
+
+## V261 — the composite F9 contact
+`experiments/dynamics_spectrum/V261_composite_f9_contact/` — tier 5,
+`residual: true` (F9)
+
+**Question.** At composite gapless loci, does the velocity anisotropy
+meet the SME ceiling 8.0e-15 (`_config.CFG.bounds.sme_electron_velocity_aniso`)?
+
+**Closed input set.** V260's loci; the same 12-ray finite-difference
+gradient V254 uses (dq = 1e-3, V235 normalization); the bound read from
+config, not retyped.
+
+**Measured quantity.** dvv per locus; the best value and its ratio to the
+bound.
+
+**Acceptance (pre-registered).** `F9-COMPOSITE-CLOSED` iff best dvv <
+8.0e-15; `F9-COMPOSITE-FIRED` with the ratio; `F9-COMPOSITE-NO-LOCUS` if
+V260 landed GAPPED or V259 KERNEL-EMPTY (recorded, exit 0).
+
+---
+
+## V262 — the composite chirality/statistics census
+`experiments/dynamics_spectrum/V262_composite_chirality_statistics/` —
+tier 3, `residual: false` (structural, hard tier)
+
+**Question.** What are the little-group and statistics content of the
+composite gapless loci — could they carry the electron?
+
+**Closed input set.** At each gapless locus, V244's little-group/Molien
+census; the statistics census: the singlet kernel is built from an even
+number of centre-charged matter quanta (V98's theorem), so composite
+centres are integer-spin unless an odd-matter sector exists — measured,
+not assumed: decompose the kernel basis under the internal Spin(10)
+Cartan (the V99/V100 Cartan-eigenspace machinery from
+`experiments/gauged_layer/V99_three_site_chain/` and `V100_vertex_correction`)
+and record the parity of the matter weight per kernel state.
+
+**Measured quantity.** Per-locus little-group Molien counts; per kernel
+state the Cartan matter weight and its parity.
+
+**Acceptance (pre-registered).** `CHIRAL-COMPOSITE` iff a gapless locus
+has half-integer matter-parity content (impossible by V98 — if it fires,
+the theory is rebuilt); `BOSONIC-COMPOSITE-ONLY` iff every kernel state
+is even-parity (the centre obstruction re-derived at the composite
+level); else the NO-LOCUS cascade.
+
+---
+
+## V263 — the composite loop scale (O8)
+`experiments/dynamics_spectrum/V263_composite_loop_scale/` — tier 2,
+`residual: true` (O8, hard tier)
+
+**Question.** Does the composite sector generate a dimensionless scale
+playing the role of the loop factor?
+
+**Closed input set.** The composite gap at its minimum (V260 recipe); the
+V101 bond-current ground-state scale E₀ read from the
+`V101_bond_current_ground_state` artifact (the implementer reads the field
+from that JSON's `data`, never retypes a digit); V129's gap as the second
+candidate from its artifact.
+
+**Measured quantity.** Both candidate quotients
+F_phys = (composite gap at minimum)/(V101 E₀ scale) and (composite gap)/
+(V129 gap); their deviations from the target 1/(16π) = 1.9894e-2.
+
+**Acceptance (pre-registered).** Bands fixed now, not at run time:
+`SCALE-LOOP-CANDIDATE` iff either candidate lies in [1.5e-2, 3.0e-2]
+(factor 1.5 of 1/(16π)); else `NO-SCALE-ROUTE` recording the closest
+value.
+
+---
+
+## V264 — the composite desert content (F2)
+`experiments/dynamics_spectrum/V264_composite_desert_content/` — tier 3,
+`residual: true` (F2, hard tier)
+
+**Question.** Does the composite singlet multiplicity table supply desert
+content that V237's threshold rule can realize?
+
+**Closed input set.** The composite multiplicity table (decomposition of
+the kernel under the Cartan, from V262's machinery); V237's threshold
+rule — the exact rule code copied from
+`experiments/dynamics_spectrum/V237_desert_threshold_matching/` (thresholds
+and the (1,2)-shift demand, verbatim inequality); the M_X log-spacing
+from V237's artifact.
+
+**Measured quantity.** The (1,2)-shift demand realized by the composite
+content and V237's own inequality margin.
+
+**Acceptance (pre-registered).** `F2-COMPOSITE-CLOSED` iff the (1,2)-shift
+demand ≤ the log-spacing to M_X (V237's own inequality, verbatim); else
+`F2-COMPOSITE-FIRED` with the shift ratio; else the NO-CONTENT cascade.
+
+---
+
+## V265 — the composite F8 contact
+`experiments/dynamics_spectrum/V265_composite_f8_contact/` — tier 5,
+`residual: true` (F8)
+
+**Question.** Does the composite sector carry a spin-2 channel
+propagating at c = 1?
+
+**Closed input set.** V229's T2g stress vertex (the `Emat`,
+`spin2_generators` functions of
+`experiments/gauged_layer/V229_diagonal_bond_quintet/`) sandwiched
+between composite ground and first-excited kernel states along the 15
+star axes; the slope of the linear part gives the composite c_gw; the
+band |c_gw − 1| < 1e-15 is the one V258 used.
+
+**Measured quantity.** The composite c_gw and its deviation from 1.
+
+**Acceptance (pre-registered).** `F8-COMPOSITE-OK` iff |c_gw − 1| <
+1e-15; else `F8-COMPOSITE-FIRED` with the ratio.
+
+---
+
+## V266 — finite-size convergence of the gap verdict
+`experiments/dynamics_spectrum/V266_finite_size_convergence/` — tier 2,
+`residual: false` (structural, hard tier)
+
+**Question.** Is the V260 gap verdict finite-size or thermodynamic?
+
+**Closed input set.** The kernel-recipe gap ladder on q-grids N = 4, 6, 8
+(the fiber stays 1568-dim — cheap; only the q-grid grows); the same
+tolerances.
+
+**Measured quantity.** min gap per grid; the trend exponent by least
+squares on log E_min vs 1/N.
+
+**Acceptance (pre-registered).** `GAP-CONFIRMED` iff the gaps agree across
+N = 4, 6, 8 to 1e-6 and all > 1e-9; `GAPLESS-EMERGES` iff E_min crosses
+below 1e-9 at N = 8 with a negative trend exponent; `GRID-NEUTRAL`
+otherwise (values recorded).
+
+---
+
+## V267 — the physical ledger
+`experiments/algebra_root/V267_physical_ledger/` — tier 6,
+`residual: true` iff anything landed fitted
+
+**Question.** The provenance of every number the physical-sector
+programme produced: algebraic, measured-input, fitted, never-realized,
+with the Table-6-class counts.
+
+**Closed input set.** Only the artifacts V251, V259–V266 (all read via
+the `art()` pattern); the published Table 6 rows it compares against. No
+new number is measured.
+
+**Measured quantity.** The counts per provenance class and the
+reclassification flags for §15/Table 6. `fitted_inputs` must be []; if
+anything is fitted, `residual: true` and the Table-6 flag is recorded
+(the V257 bookkeeping shape).
+
+**Acceptance (pre-registered).** Branch string `PHYSICAL-LEDGER`
+(informational). If V259 landed KERNEL-EMPTY, the sector is booked as
+never-realized and adds no fitted parameter.
+
+---
+
+## V268 — the final conjunction of the physical sector
+`experiments/algebra_root/V268_final_conjunction/` — tier 5,
+`residual: true`
+
+**Question.** Does any single theory point satisfy the composite F9 ∧
+composite F8 ∧ composite F2 ∧ composite loop scale simultaneously? The
+programme's roll-up as an experiment (the V258 code shape).
+
+**Closed input set.** Three theory points: the implemented clock
+composite point (the V260 loci), the N = 8 grid point (V266), the
+coupling V251's omega (V251's artifact sensitivity rows). Four legs:
+composite F8 (V265), composite F9 (V261), composite F2 (V264), composite
+loop scale (V263). Only artifacts read via `art()`; no recomputation of
+any other artifact's numbers.
+
+**Measured quantity.** The conjunction table (per leg × per theory point)
+and the per-leg deviations.
+
+**Acceptance (pre-registered).** `COMPOSITE-CONJUNCTION-ALIVE` iff any
+point passes all four legs; else `CONJUNCTION-DEAD` with the per-leg
+deviations recorded.
+
+---
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- The suite recount (188 → 198) propagates to `README.md`,
+  `doc/reference.md`, `experiments/README.md` (counts, catalogue tables,
+  claim mapping), and the manuscript's Appendix B and availability note,
+  whether or not any route succeeds.
+- If V259 lands KERNEL-EMPTY (no q-point carries a singlet), V260–V266
+  are recorded NEVER-REALIZED by the pre-registered cascade rule and
+  V267 books the sector as never-realized; V268 fires CONJUNCTION-DEAD.
+- Any dial used outside the V251 artifact conventions reclasses to fitted
+  and the falsifier stays fired. The hard-tier denominator is whatever
+  the runner measures over the new tier-0–3 experiments (V259 T1, V260
+  T2, V262 T3, V263 T2, V264 T3, V266 T2 pre-registered).
+- The manuscript gains a section 22 (the gauge-invariant physical sector
+  programme); woven verdicts in the abstract, section 12.1, Tables
+  6/7/8/9; no existing section renumbered. Both branch outcomes are
+  drafted; only the landed wording is applied.
+- No tag, no merge: `founding-repair` is pushed for the reader's
+  decision.
+
