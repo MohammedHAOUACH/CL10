@@ -19,6 +19,8 @@ The results of this paper are the kinematics (Theorem 1), the matter content and
 
 ---
 
+**Keywords.** Clifford algebra; quantum cellular automaton; $\mathrm{Spin}(10)$ grand unification; anomaly cancellation; lattice gravity; dark matter; cosmological constant; baryogenesis; falsifiability.
+
 ---
 
 ## 1. Introduction
@@ -532,13 +534,13 @@ The falsifiers of the phenomenology (proton decay, the neutrino mass pattern, th
 16. D. B. Kaplan, "A method for simulating chiral fermions on the lattice," *Phys. Lett. B* **288**, 342 (1992); Y. Shamir, "Chiral fermions from lattice boundaries," *Nucl. Phys. B* **406**, 90 (1993); R. Narayanan and H. Neuberger, "Exactly massless quarks on the lattice," *Phys. Lett. B* **417**, 141 (1998).
 17. E. H. Lieb and D. W. Robinson, "The finite group velocity of quantum spin systems," *Commun. Math. Phys.* **28**, 251 (1972).
 18. J. B. Kogut and L. Susskind, "Hamiltonian formulation of Wilson's lattice gauge theories," *Phys. Rev. D* **11**, 395 (1975).
-19. M. Lorente and P. Krämer, "Representations of the discrete inhomogeneous
-20. J. C. Baez and K. E. Langenberg, "Higher gauge theory and a non-geometric
-21. J. C. Baez, "The standard model algebra," *Lett. Math. Phys.* **108**,
-22. R. Eto, M. Mochizuki, and S. Watanabe, "Predicted versatile topological
-23. P. Cvitanović and H. Liang, "A chaotic lattice field theory in two
+19. M. Lorente and P. Krämer, "Representations of the discrete inhomogeneous Lorentz group and Dirac wave equation on the lattice," *J. Phys. A* **32**, 2481 (1999), arXiv:hep-lat/0401019.
+20. J. C. Baez and K. E. Langenberg, "Higher gauge theory and a non-geometric approach to the standard model," *Adv. Theor. Math. Phys.* **5**, 1017 (2001), arXiv:hep-th/0011017.
+21. J. C. Baez, "The standard model algebra," *Lett. Math. Phys.* **108**, 129 (2018), arXiv:1702.04336.
+22. R. Eto, M. Mochizuki, and S. Watanabe, "Predicted versatile topological nodal magnons in Tb-based icosahedral quasicrystal 1/1 approximants," *Phys. Rev. B* **112**, L020405 (2025), arXiv:2502.11286.
+23. P. Cvitanović and H. Liang, "A chaotic lattice field theory in two dimensions," *Chaos* **36** (2026), 10.1063/5.0273642, arXiv:2503.22972.
 24. H. B. Nielsen and M. Ninomiya, "A no-go theorem for regularizing chiral fermions," *Phys. Lett. B* **105**, 219 (1981); "Absence of neutrinos on a lattice. I. Proof by homotopy theory," *Nucl. Phys. B* **185**, 20 (1981); "Absence of neutrinos on a lattice. II. Intuitive topological proof," *Nucl. Phys. B* **193**, 173 (1981).
-25. X. Wan, A. M. Turner, A. Vishwanath, and S. Y. Savrasov, "Topological
+25. X. Wan, A. M. Turner, A. Vishwanath, and S. Y. Savrasov, "Topological semimetal and Fermi-arc surface states in the electronic structure of pyrochlore iridates," *Phys. Rev. B* **83**, 205101 (2011).
 26. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics," *Phys. Rev. D* **110**, 030001 (2024).
 27. Planck Collaboration (N. Aghanim *et al.*), "Planck 2018 results. VI. Cosmological parameters," *Astron. Astrophys.* **641**, A6 (2020).
 28. Super-Kamiokande Collaboration (A. Takenaka *et al.*), "Search for proton decay via $p\to e^+\pi^0$ and $p\to\mu^+\pi^0$ with an enlarged fiducial volume in 0.37 megaton-years exposure of Super-Kamiokande," *Phys. Rev. D* **102**, 112011 (2020).
@@ -553,9 +555,9 @@ The falsifiers of the phenomenology (proton decay, the neutrino mass pattern, th
 37. S. Koch and E. Specker, "The problem of hidden variables in quantum mechanics," *J. Math. Mech.* **17**, 59 (1967).
 38. V. A. Kostelecký and N. Russell, "Data tables for Lorentz and CPT violation," *Rev. Mod. Phys.* **83**, 11 (2011), continuing updates at arXiv:0801.0287.
 39. D. Colladay and V. A. Kostelecký, "Lorentz-violating extension of the standard model," *Phys. Rev. D* **58**, 116002 (1998).
-40. CMS Collaboration, search for new physics in dimuon and dielectron final
-41. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics,"
+40. CMS Collaboration, search for new physics in dimuon and dielectron final states through $t$-channel leptoquark exchange (JHEP **12** (2025) 052, CMS-EXO-22-013) — the strongest LHC probe of a coloured state, reach up to $5$ TeV; direct pair-production limits reach only $\sim2$ TeV (PDG 2025 leptoquark summary) [69]. Retrieved 2026-10-23; the coloured-threshold ceiling of V238.
+41. Particle Data Group (S. Navas *et al.*), "Review of Particle Physics," *Phys. Rev. D* **112**, 030001 (2025), Sec. 10 (Electroweak Model and Constraints on New Physics: the oblique $STU$ window, $\Delta T \sim 0.07$ with new-physics scales at the TeV, taken as the non-decoupling-doublet ceiling of V238) and the leptoquark summary tables. Retrieved 2026-10-23.
 
-**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $178$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($178$ of $178$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
+**Code and data availability.** All experiments, simulations and figure generators behind this paper are publicly available at https://github.com/MohammedHAOUACH/CL10 . Every numerical claim of the paper is produced by this open suite — $188$ verification experiments, each emitting a machine-readable property, residual and verdict, all passing ($188$ of $188$) — and can be reproduced independently from the repository; the claim-to-artifact mapping is Appendix B. The suite includes the exact symbolic cross-construction of Appendix A and the complete $3^n$-word loop enumeration; independent re-execution is invited.
 
 **Competing interests.** The author declares no competing interests.

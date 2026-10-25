@@ -1,0 +1,156 @@
+{
+ "id": "V253_block_rg_window",
+ "tier": 2,
+ "property": "V178's downfold ladder extended to b = 8, 16 on the Sigma-dressed step: v(b), A(b), m(b) and the log-log exponents against the marginal band (V253)",
+ "residual": true,
+ "programme": "V253",
+ "branch": "NO-WINDOW:sector-floor",
+ "data": {
+  "rows": [
+   {
+    "b": 1,
+    "cut": 1.5707963267948966,
+    "n_low": 70,
+    "window_margin": 0.0072957210237167835,
+    "A_bare": 0.9979846405783406,
+    "A_dressed": 0.29784267210164755,
+    "v_bare_max": 0.4009139439274844,
+    "v_dressed_max": 0.5554735272626238,
+    "m_bare": 0.00020028952953167218,
+    "m_dressed": 0.0004280076061734628
+   },
+   {
+    "b": 2,
+    "cut": 0.7853981633974483,
+    "n_low": 39,
+    "window_margin": 7.080883323284937e-05,
+    "A_bare": 0.9979846405800004,
+    "A_dressed": 0.29784267210164483,
+    "v_bare_max": 0.4009139439274299,
+    "v_dressed_max": 0.5554735272631103,
+    "m_bare": 0.0002002895295325891,
+    "m_dressed": 0.00042800760617352093
+   },
+   {
+    "b": 4,
+    "cut": 0.39269908169872414,
+    "n_low": 18,
+    "window_margin": 0.0027080126704131513,
+    "A_bare": 0.9979846405787935,
+    "A_dressed": 0.29784267210156634,
+    "v_bare_max": 0.40091396899252935,
+    "v_dressed_max": 0.5554735272631174,
+    "m_bare": 0.00020028952953245983,
+    "m_dressed": 0.0004280076061735222
+   },
+   {
+    "b": 8,
+    "cut": 0.19634954084936207,
+    "n_low": 10,
+    "window_margin": 0.003364501009885612,
+    "A_bare": 0.9979846405788612,
+    "A_dressed": 0.29784267210160714,
+    "v_bare_max": 0.4009139689924019,
+    "v_dressed_max": 0.5554735272633679,
+    "m_bare": 0.00020028952953236515,
+    "m_dressed": 0.0004280076061734707
+   },
+   {
+    "b": 16,
+    "cut": 0.09817477042468103,
+    "n_low": 6,
+    "window_margin": 0.0031868263973136857,
+    "A_bare": 0.9979846405788843,
+    "A_dressed": 0.29784267210150833,
+    "v_bare_max": 0.4009139689924134,
+    "v_dressed_max": 0.5554735272634748,
+    "m_bare": 0.00020028952953237444,
+    "m_dressed": 0.00042800760617360545
+   }
+  ],
+  "static_control_rows": [
+   {
+    "b": 1,
+    "cut": 1.5707963267948966,
+    "A_static": 0.9979846405793826
+   },
+   {
+    "b": 2,
+    "cut": 0.7853981633974483,
+    "A_static": 0.9979846405785329
+   },
+   {
+    "b": 4,
+    "cut": 0.39269908169872414,
+    "A_static": 0.9979846405790058
+   },
+   {
+    "b": 8,
+    "cut": 0.19634954084936207,
+    "A_static": 0.9979846405790149
+   },
+   {
+    "b": 16,
+    "cut": 0.09817477042468103,
+    "A_static": 0.8848010006152993
+   }
+  ],
+  "fixed_nlow4_row": {
+   "n_low": 4,
+   "A_bare": 0.9979846405788292,
+   "A_dressed": 0.2978426721014974,
+   "v_bare_max": 0.40091396899235787,
+   "v_dressed_max": 0.5554735272633571
+  },
+  "exponents": {
+   "p_v_bare": 2.7058975251642404e-08,
+   "p_v_dressed": 5.08928368661076e-13,
+   "p_A_bare": -7.495079515068354e-15,
+   "p_A_dressed": -1.5312378688235306e-13,
+   "p_A_static": -0.03473291898346135
+  },
+  "comparator_band": 0.01,
+  "bstar_extrapolation": {
+   "value": Infinity,
+   "note": "no finite b* (dressed anisotropy not decreasing)"
+  },
+  "sigma_conventions": {
+   "grid_N": 16,
+   "delta": 0.01,
+   "d_mode": "contact d_A = 1 (sector floor: V251 SECTOR-BLOCKED)",
+   "z": [
+    0.00020028952953325387,
+    0.01
+   ],
+   "origin": "V252's Sigma machine, P-only"
+  },
+  "v178_anchor_dev": 1.8247625632739073e-12,
+  "v178_static_anchor_dev": 1.993294418412006e-12,
+  "roundtrip_defect": 1638.2525662481662,
+  "sigma_max_eig": 5345.50503597762,
+  "floquet_zone_ratio": 1635.8065506903506,
+  "sigma_machine_defect": 5.987216117878169e-17,
+  "backend": "cupy",
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 V178 ladder extension anchors: the V253 bare rows reproduce V178's A_bare at b = 1, 2, 4 to 1.82e-12 and the static-insertion control rows reproduce V178's A_gauged to 1.99e-12 (V178 rows [0.997985, 0.997985, 0.997985], A_full 0.997985; ladder extended to b = 8, 16)",
+   "pass": true
+  },
+  {
+   "name": "T1 Sigma machine consistency: the device GEMM kernel matches an independent host recomputation (host eigh + einsum-form sandwich on the same shift stack) to 5.99e-17; i-log round trip 1.64e+03 recorded - max |Re Sigma| = 5.35e+03 puts the generator 1635.8x outside the first Floquet zone (recovery mod 2 pi; the ladder acts on the unitary)",
+   "pass": true
+  },
+  {
+   "name": "T2 ladder complete on all cuts (b = [1, 2, 4, 8, 16]): measured window subspaces n_low [70, 39, 18, 10, 6] - the pre-registered n_low = 4 has NO exact cut window at this node (the pair at |theta| = 0.073191 enters together; addendum recorded) - window margins ['7.3e-03', '7.1e-05', '2.7e-03', '3.4e-03', '3.2e-03']; auxiliary fixed n_low = 4 row: A_bare 0.9980, A_dressed 0.2978",
+   "pass": true
+  },
+  {
+   "name": "T3 exponents against the marginal band 0.01: p_v(bare) = 0.00000, p_v(dressed) = 0.00000, p_A(bare) = -0.00000, p_A(dressed, primary) = -0.00000, p_A(static control) = -0.03473",
+   "pass": true
+  }
+ ],
+ "status": "block-RG window on the dressed sector (617.1466813087463 s): V178's downfold ladder (A_bare reproduced to 1.8e-12) extended to b = 8, 16 with V251/V252's dynamical Sigma inserted in the step (Sigma machine cross-checked to 6.0e-17; generator wrap 1635.8x recorded); measured window ladders n_low [70, 39, 18, 10, 6] (the pre-reg n_low = 4 has no exact cut here - addendum). Branch NO-WINDOW:sector-floor: p_v = (0.0000 bare, 0.0000 dressed), p_A = (-0.0000 bare, -0.0000 dressed, -0.0347 static control) against the marginal band 0.01: the dressed sector does not flow - anisotropy is not relevant; full b-table recorded",
+ "pass": true
+}

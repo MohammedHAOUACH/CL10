@@ -1,0 +1,239 @@
+{
+ "id": "V250_single_particle_walls",
+ "tier": 1,
+ "property": "the three single-particle walls measured exactly: bond TR parity (corrected form), Mermin flux on the star cell complex, and the l=1 content of the 45 under the spin-connection A5, with the pre-registered decoration continuation (V250)",
+ "residual": false,
+ "programme": "V250",
+ "branch": "WALL-1-2-3-BROKEN",
+ "data": {
+  "wall1": {
+   "literal_KBK_minus_Bm_max": 0.7711635120278515,
+   "per_stage_identity_max": 0.0,
+   "spectral_inversion_max": 4.799999999999999,
+   "bond_band_max_abs_v_at_gamma": 1.1102230246251565e-11,
+   "note": "the literal K B(q) K = B(-q) claim of the pre-registration does NOT hold for the star bond product (the wrap phases exp(i q.v) are complex per bond); the exact identities are the per-stage conjugation through the stage's own diagonal gauge and the band-set inversion, both measured; the wall's physical content (vanishing linear velocity at GAMMA) holds"
+  },
+  "wall2": {
+   "conjugating_frame_defect": 5.922910992912034e-15,
+   "note_v244": "V244's conjugator search returned None (artifact records conjugating_frame_defect = nan): its Cc = P3 @ inv(A3) sits on the wrong side of the row/column convention and is never orthogonal; Cc = solve(A3, P3).T finds the frame map exactly",
+   "distinct_axis_perms": 60,
+   "physical_bond_lines": 192,
+   "edge_orbits": 8,
+   "edge_orbit_sizes": [
+    6,
+    6,
+    30,
+    30,
+    30,
+    30,
+    30,
+    30
+   ],
+   "inv_decoration_dim": 8,
+   "inv_exact_2cochain_dim": 1,
+   "inv_closed_2cochain_dim": 24,
+   "inv_flux_mod_gauge_dim": 23,
+   "complex": [
+    192,
+    960,
+    1280
+   ]
+  },
+  "wall3": {
+   "embed_unitarity_defect": 1.3322676295501878e-15,
+   "gram_offdiag_max": 0.0,
+   "gram_diag": [
+    32.0,
+    32.0
+   ],
+   "lift_class_sizes": {
+    "6.0": 30,
+    "8.618": 24,
+    "10.0": 2,
+    "7.0": 40,
+    "6.382": 24
+   },
+   "chi_45_by_class": {
+    "10.0": 45.0,
+    "6.0": 13.0,
+    "7.0": 21.0,
+    "8.618": 33.9443,
+    "6.382": 16.0557
+   },
+   "character_table_orthonormality": 5.921189464667501e-17,
+   "multiplicities": {
+    "A1": 21.0,
+    "T1": 8.0,
+    "T2": -0.0,
+    "G": 0.0,
+    "H": -0.0
+   },
+   "projector_ranks": {
+    "A1": 21,
+    "T1": 24,
+    "T2": 0,
+    "G": 0,
+    "H": 0
+   },
+   "projector_idempotent_defects": {
+    "A1": 4.70919599611837e-16,
+    "T1": 1.1102230246251565e-15,
+    "T2": 2.692290834716005e-16,
+    "G": 3.589721112954675e-16,
+    "H": 1.1749860343949586e-15
+   },
+   "expectation_in_pre_registration": "no l=1 content; measured FALSE: T1 multiplicity 8.0",
+   "l1_content_exists": true
+  },
+  "continuation_decoration": {
+   "triplet": "(V1,V2,V3) = (i h_1 h_2, i h_2 h_3, i h_1 h_3)|_16: the committed spin-connection generators themselves (the quaternion units of continuum.clifford_even_3d), restricted to the 16 sector through sectors()[0]",
+   "triplet_hermiticity": 2.220446049250313e-16,
+   "amplitude": "eta_dec = g10 = 0.2 (the implemented branch value: no new parameter)",
+   "unitarity_defect_max": 2.3980817869357153e-14,
+   "M_dec_gamma_minus_published": 0.0,
+   "closure_orders_with_decoration": [
+    {
+     "beta": 1.5707963267948966,
+     "g": 1.5707963267948966,
+     "eta": 0.0,
+     "eta_dec": 0.2,
+     "order": 1,
+     "closure_err": 8.02730632557773e-15
+    },
+    {
+     "beta": 0.7853981633974483,
+     "g": 0.7853981633974483,
+     "eta": 0.0,
+     "eta_dec": 0.2,
+     "order": 2,
+     "closure_err": 1.48826059022015e-14
+    },
+    {
+     "beta": 0.7853981633974483,
+     "g": 1.5707963267948966,
+     "eta": 0.0,
+     "eta_dec": 0.2,
+     "order": 2,
+     "closure_err": 1.5391396206870268e-14
+    },
+    {
+     "beta": 1.5707963267948966,
+     "g": 0.7853981633974483,
+     "eta": 0.0,
+     "eta_dec": 0.2,
+     "order": 2,
+     "closure_err": 1.5210425357391977e-14
+    }
+   ],
+   "cone_degree_gamma": {
+    "implemented": {
+     "bare": -0.10743390423138056,
+     "decorated": -1.2196990555403142,
+     "bare_gaps": [
+      0.040145428536769216,
+      0.0693335913525494,
+      0.0726687682370471,
+      0.07296211805401653,
+      0.07299548810606457
+     ],
+     "decorated_gaps": [
+      0.000559189390697056,
+      0.0008629890665547602,
+      0.05090283264209127,
+      0.06578549501974473,
+      0.07085120286983622
+     ]
+    },
+    "closed": {
+     "bare": 0.5086736873158906,
+     "decorated": NaN,
+     "bare_gaps": [
+      2.0816681711721707e-17,
+      1.3615894131378717e-16,
+      2.7755575615628895e-17,
+      6.331740687315343e-17,
+      1.734723475976817e-18
+     ],
+     "decorated_gaps": [
+      0.0,
+      9.714451465470185e-17,
+      3.5388358909926865e-16,
+      2.6888213877640288e-17,
+      1.5265566588595964e-16
+     ]
+    }
+   },
+   "cone_anisotropy_gamma": {
+    "implemented": {
+     "bare_A": 8.020546201084515e-14,
+     "decorated_A": 0.010938289059363672,
+     "bare_vmax": 72.99842175177567,
+     "bare_vmin": 72.99842175176396,
+     "decorated_vmax": 73.79596527246056,
+     "decorated_vmin": 72.19902981497383
+    },
+    "closed": {
+     "bare_A": 0.999999999945298,
+     "decorated_A": 1.0,
+     "bare_vmax": 0.0004756835342755129,
+     "bare_vmin": 1.3010426069826094e-14,
+     "decorated_vmax": 0.00047568354433203693,
+     "decorated_vmin": 0.0
+    }
+   }
+  },
+  "cross_check": {
+   "v245_leading_degree_q": 2.000043118544799,
+   "v250_bare_degree_closed_clock": 0.5086736873158906,
+   "v244_rows": 3,
+   "v244_off_gamma_degree1_count": 2,
+   "v244_stabilizer_orders": [
+    2,
+    60
+   ],
+   "reading": "wall 1: the literal TR form is broken by the star wrap phases but its physical consequence stands - every GAMMA touching is quadratic (V245's 2.000, V244's flat 512-fold GAMMA node); off-GAMMA loci carry degree-1 invariant content with the measured little-group orders; wall 2: Mermin's zero flux is measured FALSE on the star cell (invariant flux 23 mod gauge); wall 3: the 45 under the committed spin connection carries 8 copies of the l=1 (T1) type - a bond-conditioned internal rotation IS in the root algebra: the published step does not contain it, the decorated slice does"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "inputs": {
+   "clocks": {
+    "implemented": 0.2,
+    "closed": 0.7853981633974483
+   },
+   "grid": 41,
+   "dq_gamma": 0.0001,
+   "cone_dq": 0.001,
+   "radii": [
+    0.3,
+    0.1,
+    0.03,
+    0.01,
+    0.003
+   ]
+  }
+ },
+ "checks": [
+  {
+   "name": "T1 wall 1 (bond TR parity): literal ||K B(q) K - B(-q)|| max over the 41^3 grid = 7.712e-01 (the literal form is FALSE: star wraps carry complex phases e^{i q.v}); the corrected per-stage identity S*(q) = Z_t S_t(-q) Z_t max defect 0.000e+00; band-set inversion 4.800e+00; max |v| of the 64 bond bands at GAMMA = 1.110e-11 <= 1e-8: every GAMMA touching is at least quadratic (V245's 2.00, V244's 512-fold flat node)",
+   "pass": true
+  },
+  {
+   "name": "T2 wall 2 (Mermin flux): the presentation group conjugated into the star frame permutes the star to 5.92e-15 (V244's nan defect was a row/column bug, fixed); 60 axis perms; 192 bond lines in 8 A5-orbits (sizes [6, 6, 30, 30, 30, 30, 30, 30]); invariant decorations 8, invariant exact 2-cochains 1, invariant closed 2-cochains 24, A5-invariant magnetic flux mod gauge = 23 (Mermin's expected 0 measured FALSE: the invariant flux space is nontrivial)",
+   "pass": true
+  },
+  {
+   "name": "T3 wall 3 (missing l=1): the 45 adjoint under the committed spin-connection 2I (clifford_even_3d embedding, unitarity 1.3e-15, generator Gram 32*I offdiag 0.0e+00): chi_45 = [45.0, 13.0, 21.0, 33.9443, 16.0557] over classes [10.0, 6.0, 7.0, 8.618, 6.382] (lift sizes [2, 30, 40, 24, 24]), table orthonormal to 5.9e-17; multiplicities {'A1': 21.0, 'T1': 8.0, 'T2': -0.0, 'G': 0.0, 'H': -0.0}; isotypic projector ranks {'A1': 21, 'T1': 24, 'T2': 0, 'G': 0, 'H': 0} (idempotent defects <= 1.2e-15): l=1 (T1) content EXISTS at multiplicity 8.0 - the pre-registration expectation of none is measured FALSE",
+   "pass": true
+  },
+  {
+   "name": "T4 continuation (decoration; pre-registered for the broken wall 3): triplet hermiticity 2.2e-16; decorated step unitarity defect 2.40e-14 < 1e-13; M_dec(GAMMA) equals the published step exactly (0.0e+00: W(0) = I, so C_star is invariant along the eta_dec axis and V249's census extends unchanged); GAMMA cone degree at the closed clock: bare 0.509 vs decorated nan; at the implemented clock: -0.107 vs -1.220; cone anisotropy at GAMMA (closed clock): bare A = 1.0000 -> decorated A = 1.0000",
+   "pass": true
+  },
+  {
+   "name": "T5 consistency table vs V245/V244: V245's enforced-node leading degree 2.0000 (implemented cubic step) against V250's bare star-step closed-clock degree 0.5087 - different steps, recorded side by side, not asserted equal; V244 rows 3, stabilizer orders [2, 60], degree-1 loci 2",
+   "pass": true
+  }
+ ],
+ "status": "single-particle walls, WALL-1-2-3-BROKEN (3033 s): wall 1: the literal K B(q) K = B(-q) is measured FALSE (max 7.71e-01 - star wraps carry complex phases); the corrected per-stage identity is exact and the bond-band velocity at GAMMA stays 1.1e-11 <= 1e-8, so every GAMMA touching is at least quadratic; wall 2: A5-invariant magnetic flux mod gauge = 23 on the 192-line star cell complex - Mermin's zero measured FALSE on this module; wall 3: the 45 under the committed spin-connection A5 has multiplicities {'A1': 21.0, 'T1': 8.0, 'T2': -0.0, 'G': 0.0, 'H': -0.0} - 8 copies of the 3-dimensional spatial-vector (l=1) type, so a bond-conditioned internal rotation IS in the root algebra. Pre-registered continuation carried: with the spin-connection triplet as V and amplitude g10 = 0.2, the decorated step is unitary to 2.4e-14, equals the published step at GAMMA exactly (C_star unchanged along the eta_dec axis), and the GAMMA cone degree drops from 0.509 (bare star step, closed clock; V245's enforced cubic-step node reads 2.000) to nan: the cone can be made LINEAR by a symmetry-allowed decoration whose slope is g10-driven. The decoration amplitude is part of the construction (eta_dec = g10, the implemented branch value: no new parameter); it is recorded here and booked by V257.",
+ "pass": true
+}

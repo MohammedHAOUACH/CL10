@@ -1,0 +1,116 @@
+{
+ "id": "V257_interacting_ledger",
+ "tier": 6,
+ "property": "provenance ledger of the interacting programme, Table-6-class counts (V257)",
+ "residual": false,
+ "programme": "V257",
+ "branch": "INTERACTING-LEDGER",
+ "data": {
+  "ledger": [
+   {
+    "quantity": "the star-module closure set C_star",
+    "value": "4 labeled closures by order {'1': 1, '2': 3}, C_star 4 points",
+    "provenance": "algebraic",
+    "why": "V249's measured acceptance rule on the closed module family (fitted_inputs == []); the set is fixed by the module, not tuned",
+    "source": "V249"
+   },
+   {
+    "quantity": "the C_star clock",
+    "value": "never realized (STAR-CLOCK-QUANTIZED)",
+    "provenance": "never-realized",
+    "why": "pre-registered rule: a clock exists only at a closed point of C_star; V249 quantized the clock alternatives",
+    "source": "V249"
+   },
+   {
+    "quantity": "eta twist values",
+    "value": "never realized (no C_star clock to twist)",
+    "provenance": "never-realized",
+    "why": "twists are defined on the C_star clock (V249's footing); with the clock never realized they add no parameter (pre-reg)",
+    "source": "V249"
+   },
+   {
+    "quantity": "single-particle wall scales (wall classes, confinement ladder)",
+    "value": "WALL-1-2-3-BROKEN",
+    "provenance": "measured-input",
+    "why": "V250 measures wall tensions/splittings on the published step with fitted_inputs == []",
+    "source": "V250"
+   },
+   {
+    "quantity": "the gauged two-particle sector (H2, flux sector)",
+    "value": "constructed, 1440-dim H2",
+    "provenance": "algebraic",
+    "why": "V251's exact-sector test failed at the root: per the pre-registered roll-up clause the sector and its numbers are booked never-realized and add no fitted parameter; the constructed H2 is a measurement device, not a claim",
+    "source": "V251"
+   },
+   {
+    "quantity": "the sector coupling (g_10, V177/V141 gates)",
+    "value": "algebraic gate values on the constructed H2 (T0/T1 exact)",
+    "provenance": "algebraic",
+    "why": "the vertex gates are the zero-parameter V177/V141 committed machinery; they are verified exact (V251 T-checks) even though the exact sector itself is blocked",
+    "source": "V251"
+   },
+   {
+    "quantity": "the interaction loop factor F_int",
+    "value": "300 measured values (V252 N = 32 rows, sector-floor convention NO-LOOP-EITHER:sector-floor)",
+    "provenance": "measured-input",
+    "why": "F_int is computed from the closed step (sum over states), not fitted; the sector-floor convention is the pre-registered response to V251, not a dial",
+    "source": "V252"
+   },
+   {
+    "quantity": "dressed block-RG scales v(b), A(b), exponents p_v, p_A",
+    "value": "5 cuts b = 1..16, exponents {'p_v_bare': 0.0, 'p_v_dressed': 0.0, 'p_A_bare': -0.0, 'p_A_dressed': -0.0, 'p_A_static': -0.03473}",
+    "provenance": "measured-input",
+    "why": "V253's ladder (V178 machinery extended, V252 Sigma inserted, V178 static control) measured with fitted_inputs == []",
+    "source": "V253"
+   },
+   {
+    "quantity": "the dressed F9 velocity contact dvv at b = 16",
+    "value": "best 0.003281 vs bound 8.0e-15 (F9-STILL-FIRED)",
+    "provenance": "measured-input",
+    "why": "direct velocity spread of the downfolded dressed step at the named nodes; no extrapolation",
+    "source": "V254"
+   },
+   {
+    "quantity": "the dressed F2 contact (ladder x unification pairings)",
+    "value": "900 pairs, best ladder dev 1.28e+26 (F2-FIRED-X4)",
+    "provenance": "measured-input",
+    "why": "every pair is a functional reading of V252's F_int and the coupling module; the g set is pre-registered, not fitted",
+    "source": "V255"
+   },
+   {
+    "quantity": "the rung reconstruction at loop' = F_int^(1/10)",
+    "value": "best joint rung residual 114.1571 (LADDER-BROKEN)",
+    "provenance": "measured-input",
+    "why": "the tenth root is V197's own loop-exponent rule; the rung values are V197 artifact data",
+    "source": "V256"
+   }
+  ],
+  "counts": {
+   "algebraic": 3,
+   "never-realized": 2,
+   "measured-input": 6
+  },
+  "reclassification_flags_for_table6": [],
+  "never_realized": [
+   "the C_star clock",
+   "eta twist values"
+  ],
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 all eight programme artifacts present, passing, with the pre-registered branch vocabulary: V249:STAR-CLOCK-QUANTIZED V250:WALL-1-2-3-BROKEN V251:SECTOR-BLOCKED: Gauss V252:NO-LOOP-EITHER:sector-floor V253:NO-WINDOW:sector-floor V254:F9-STILL-FIRED V255:F2-FIRED-X4 V256:LADDER-BROKEN",
+   "pass": true
+  },
+  {
+   "name": "T1 no experiment of the programme used a fitted input: fitted_inputs lists all empty (0 non-empty)",
+   "pass": true
+  },
+  {
+   "name": "T2 the published Table 6 rows are loaded for comparison (16 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
+   "pass": true
+  }
+ ],
+ "status": "interacting ledger: 11 quantities booked - algebraic 3, measured-input 6, fitted 0, never-realized 2 (V52 Table 6 comparison loaded). Branch INTERACTING-LEDGER.",
+ "pass": true
+}

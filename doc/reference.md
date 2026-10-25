@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (178 of them under `experiments/<category>/`: the 166 of the publication programme, and the 12 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (188 of them under `experiments/<category>/`: the 176 of the publication programme, and the 12 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **178** experiments in name order,
+`run_validation.py` runs all **188** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced residuals**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -156,7 +156,7 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (166/166 publication, 178 PASS of 178).**  Every
+**The result (176/176 publication, 188 PASS of 188).**  Every
 experiment of the publication programme **passes**; the hard-tier verdict is
 positive. The 12 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V175–V183, V191–V201) run on the host numpy

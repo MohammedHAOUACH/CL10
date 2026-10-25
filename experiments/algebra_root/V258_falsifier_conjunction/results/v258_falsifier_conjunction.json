@@ -1,0 +1,80 @@
+{
+ "id": "V258_falsifier_conjunction",
+ "tier": 5,
+ "property": "the interacting programme's falsifier conjunction (F9 dressed and F8 ratio and F2 bands and O8 ladder) as one experiment (V258)",
+ "residual": true,
+ "programme": "V258",
+ "branch": "CONJUNCTION-DEAD",
+ "data": {
+  "table": [
+   {
+    "beta": 0.7853981633974483,
+    "g": 0.7853981633974483,
+    "c_star_point": "never-realized (V249)",
+    "F9_dressed": false,
+    "F8_ratio": false,
+    "F2_both_bands": false,
+    "O8_ladder": false,
+    "all_four": false
+   },
+   {
+    "beta": 0.7853981633974483,
+    "g": 1.5707963267948966,
+    "c_star_point": "never-realized (V249)",
+    "F9_dressed": false,
+    "F8_ratio": false,
+    "F2_both_bands": false,
+    "O8_ladder": false,
+    "all_four": false
+   },
+   {
+    "beta": 0.7853981633974483,
+    "g": 0.2,
+    "c_star_point": "never-realized (V249)",
+    "F9_dressed": false,
+    "F8_ratio": false,
+    "F2_both_bands": false,
+    "O8_ladder": false,
+    "all_four": false
+   }
+  ],
+  "f8": {
+   "c_gw": 0.4,
+   "c_dressed": 0.5554735272634748,
+   "ratio": 0.7201063243654278,
+   "band": 1e-15,
+   "generator_herm": 9.85971765407524e-15,
+   "generator_cliff": 1.404214328156794e-13,
+   "cone_dim_gen": 8,
+   "slope_gen": 1.0
+  },
+  "leg_sources": {
+   "F9": "V254",
+   "F2": "V255",
+   "O8": "V256",
+   "F8": "computed here from V208's generator + V254's dressed slope"
+  },
+  "ledger_branch": "INTERACTING-LEDGER",
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 V208's committed cone generator reproduced here: Hermitian to 9.9e-15, Clifford-regular to 1.4e-13, cone subspace dim 8 at slope 1.000000000000 (the 8-dim check and slope 1 are V208's landed numbers)",
+   "pass": true
+  },
+  {
+   "name": "T1 dressed F8 ratio (ratio, not absolute): c_gw = 2g = 0.400000 over the dressed matter cone c = 0.555474 (V254 b = 16 row at QSTAR) gives |c_gw/c - 1| = 0.2799 against the GW170817 band 1e-15",
+   "pass": true
+  },
+  {
+   "name": "T2 every leg is a landed verdict, not a new measurement: F9 F9-STILL-FIRED, F2 per-point from V255 rows, O8 LADDER-BROKEN - F8 is the only input computed here",
+   "pass": true
+  },
+  {
+   "name": "T3 the table covers exactly the pre-registered points: 3 theory points at beta = pi/4, C_star recorded never-realized",
+   "pass": true
+  }
+ ],
+ "status": "falsifier conjunction of the interacting programme (0 s): 3 theory points x 4 legs. Dressed F8: |c_gw/c - 1| = 0.2799 (c_gw = 0.4000, dressed cone c = 0.5555) vs 1e-15; F9 F9-STILL-FIRED; O8 LADDER-BROKEN. Branch CONJUNCTION-DEAD: no point passes all four - F2/F8/F9/O8 stand as theorems of the whole construction, single-particle and interacting.",
+ "pass": true
+}

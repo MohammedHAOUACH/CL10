@@ -14,8 +14,8 @@
       ],
       "branch": "implemented",
       "gapless_all": false,
-      "m_gap_min": 0.00020028952953056066,
-      "m_gap_max": 0.0002002895295339741
+      "m_gap_min": 0.00020028952953104998,
+      "m_gap_max": 0.00020028952953289595
     },
     "cubic_action_closed": true,
     "orbit_sizes": [

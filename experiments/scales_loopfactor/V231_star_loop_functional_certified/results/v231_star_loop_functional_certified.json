@@ -1594,21 +1594,21 @@
        "re_F": -4.966934592939909e-17,
        "im_F": 0.0,
        "certified": true,
-       "precision_delta": 1.7001880321251584e-61
+       "precision_delta": 1.700188032125158e-61
       },
       "11": {
        "abs_F": 5.0256975060860217e-17,
        "re_F": 0.0,
        "im_F": -5.0256975060860217e-17,
        "certified": true,
-       "precision_delta": 2.988170172289723e-76
+       "precision_delta": 2.9018084867387784e-76
       },
       "12": {
        "abs_F": 7.466307765967161e-17,
        "re_F": -7.466307765967161e-17,
        "im_F": 0.0,
        "certified": true,
-       "precision_delta": 9.402940608260588e-62
+       "precision_delta": 9.40294060826059e-62
       }
      },
      "12.566370614359172": {
@@ -1631,28 +1631,28 @@
        "re_F": -2.028898724605633e-17,
        "im_F": 0.0,
        "certified": true,
-       "precision_delta": 1.6171129616354629e-62
+       "precision_delta": 1.6171129616354633e-62
       },
       "3": {
        "abs_F": 7.46630776596716e-17,
        "re_F": 0.0,
        "im_F": 7.46630776596716e-17,
        "certified": true,
-       "precision_delta": 3.6730157511607325e-77
+       "precision_delta": 5.400249462179621e-77
       },
       "4": {
        "abs_F": 1.997614627040166e-17,
        "re_F": -1.997614627040166e-17,
        "im_F": 0.0,
        "certified": true,
-       "precision_delta": 3.0336998427013157e-62
+       "precision_delta": 3.033699842701315e-62
       },
       "5": {
        "abs_F": 4.202286323526837e-17,
        "re_F": 0.0,
        "im_F": 4.202286323526837e-17,
        "certified": true,
-       "precision_delta": 3.958305668970468e-77
+       "precision_delta": 3.094688813461024e-77
       },
       "6": {
        "abs_F": 1.946146193526396e-17,
@@ -1680,7 +1680,7 @@
        "re_F": 0.0,
        "im_F": 1.8191777720946535e-17,
        "certified": true,
-       "precision_delta": 7.456514205638098e-77
+       "precision_delta": 7.67241841951546e-77
       },
       "10": {
        "abs_F": 1.7869587661087632e-17,
@@ -1694,7 +1694,7 @@
        "re_F": 0.0,
        "im_F": 1.2055473315139357e-17,
        "certified": true,
-       "precision_delta": 1.763559557586874e-76
+       "precision_delta": 1.7851499789746103e-76
       },
       "12": {
        "abs_F": 1.682241217159596e-17,
@@ -1717,7 +1717,7 @@
        "re_F": 0.0,
        "im_F": -1.9976146270401663e-17,
        "certified": true,
-       "precision_delta": 5.8606983580639274e-77
+       "precision_delta": 6.29250678581865e-77
       },
       "2": {
        "abs_F": 1.8754803314234697e-17,
@@ -1745,7 +1745,7 @@
        "re_F": 0.0,
        "im_F": -1.1431991396483992e-17,
        "certified": true,
-       "precision_delta": 1.5140356433317544e-77
+       "precision_delta": 1.2981314294543933e-77
       },
       "6": {
        "abs_F": 8.352040350909957e-18,
@@ -1759,7 +1759,7 @@
        "re_F": 0.0,
        "im_F": 5.28536568784952e-18,
        "certified": true,
-       "precision_delta": 1.7203786420687934e-76
+       "precision_delta": 1.7311738527626614e-76
       },
       "8": {
        "abs_F": 2.424499598256211e-18,
@@ -1824,7 +1824,7 @@
        "re_F": 0.0,
        "im_F": -4.2259462567465566e-18,
        "certified": true,
-       "precision_delta": 8.195391479870886e-77
+       "precision_delta": 8.141415426401546e-77
       },
       "4": {
        "abs_F": 2.2855202201874554e-18,
@@ -1873,7 +1873,7 @@
        "re_F": 1.4403352867506479e-18,
        "im_F": 0.0,
        "certified": true,
-       "precision_delta": 7.606565851520865e-64
+       "precision_delta": 7.606565851520867e-64
       },
       "11": {
        "abs_F": 3.920055625527968e-19,
@@ -5742,6 +5742,6 @@
    "pass": true
   }
  ],
- "status": "STAR-MODULE LOOP FUNCTIONAL, CERTIFIED-CROSSING (zero fitted parameters, 1309 s). (T0) the exact box-mean machinery verified against the module itself: axes rebuilt in Q(sqrt 5) high precision agree with star_axes() to 0e+00 relative; tr M(q)^n = prod_i 2cos(n omega_i) * tr_16 U^(6n) holds to 2.9e-14; the committed internal map has Weyl phases {pi/4 x10, -3pi/4 x6}, so tr_16 U^6n = 16(-i)^n - certified by the exact-integer chain to 0e+00 (float64 committed map: 6e-13); the old identity tr_16 U^m = Re tr_32 G^m was a factor-2 error that zeroed every odd class and is retired. (T1) certification holds at every measured length: the exact box mean F_n(B) agrees between dps 60 and dps 100 to < 1e-40 for all n <= 12, both triples, four boxes, four clocks; the crossing of 1/(16 pi) ONLY at clock(s) ['1/5'] and ONLY at lengths [6]: the box mean |F_n| sits below 1/(16 pi) at every box, deficit ratios 1.4e-03 to 0.84 x loop; the neighbouring certified lengths stay above the loop scale (nearest certified value above: 1.62 x loop), and on the closed clocks pi/4 and 3pi/4 EVERY certified value with n >= 2 stays above the loop scale (closest approach 7.75 x loop at clock pi/4, n = 12); the pi/2 clock is structurally degenerate (46 certified values below 1e-12, pure swap stage). (T2) the float64 grid ladder reproduces V218 exactly (control OK) and extended to n = 208 the resolution floor never falls below 2e-01 relative: the grid mean of the almost-periodic integrand resolves nothing beyond the closed form. (T3) exact integer structure: the signed star's relation lattice is six weight-2 opposite pairs (no odd-weight relation exists; the 'closing triangle' claim of the draft is retracted), each measured triple has empty kernel, and the star's odd class is NOT closed-word zero (d_0 = (2c^2)^3 closed terms): odd F_n are genuine values, min 8.7e-02 - the cubic odd-class zero is a sublattice-grading property, not module combinatorics. VERDICT: the star module certifies its box mean to 1e-40 through n = 12 but supplies NO certified loop factor: on the closed clocks the certified |F_n| stays above 1/(16 pi) at every certified length, at the open clock 1/5 the n = 6 (4k+2) box mean dips below the loop scale at every box with no sustained crossing, and the grid ladder to n = 208 keeps a resolution floor of 0.24 relative at best - the icosahedral module does not reproduce the loop factor without a limiting procedure, and the certified O8 number remains the open-branch F_10(1/5) = 0.019186 of V209/V85.",
+ "status": "STAR-MODULE LOOP FUNCTIONAL, CERTIFIED-CROSSING (zero fitted parameters, 1288 s). (T0) the exact box-mean machinery verified against the module itself: axes rebuilt in Q(sqrt 5) high precision agree with star_axes() to 0e+00 relative; tr M(q)^n = prod_i 2cos(n omega_i) * tr_16 U^(6n) holds to 2.9e-14; the committed internal map has Weyl phases {pi/4 x10, -3pi/4 x6}, so tr_16 U^6n = 16(-i)^n - certified by the exact-integer chain to 0e+00 (float64 committed map: 6e-13); the old identity tr_16 U^m = Re tr_32 G^m was a factor-2 error that zeroed every odd class and is retired. (T1) certification holds at every measured length: the exact box mean F_n(B) agrees between dps 60 and dps 100 to < 1e-40 for all n <= 12, both triples, four boxes, four clocks; the crossing of 1/(16 pi) ONLY at clock(s) ['1/5'] and ONLY at lengths [6]: the box mean |F_n| sits below 1/(16 pi) at every box, deficit ratios 1.4e-03 to 0.84 x loop; the neighbouring certified lengths stay above the loop scale (nearest certified value above: 1.62 x loop), and on the closed clocks pi/4 and 3pi/4 EVERY certified value with n >= 2 stays above the loop scale (closest approach 7.75 x loop at clock pi/4, n = 12); the pi/2 clock is structurally degenerate (46 certified values below 1e-12, pure swap stage). (T2) the float64 grid ladder reproduces V218 exactly (control OK) and extended to n = 208 the resolution floor never falls below 2e-01 relative: the grid mean of the almost-periodic integrand resolves nothing beyond the closed form. (T3) exact integer structure: the signed star's relation lattice is six weight-2 opposite pairs (no odd-weight relation exists; the 'closing triangle' claim of the draft is retracted), each measured triple has empty kernel, and the star's odd class is NOT closed-word zero (d_0 = (2c^2)^3 closed terms): odd F_n are genuine values, min 8.7e-02 - the cubic odd-class zero is a sublattice-grading property, not module combinatorics. VERDICT: the star module certifies its box mean to 1e-40 through n = 12 but supplies NO certified loop factor: on the closed clocks the certified |F_n| stays above 1/(16 pi) at every certified length, at the open clock 1/5 the n = 6 (4k+2) box mean dips below the loop scale at every box with no sustained crossing, and the grid ladder to n = 208 keeps a resolution floor of 0.24 relative at best - the icosahedral module does not reproduce the loop factor without a limiting procedure, and the certified O8 number remains the open-branch F_10(1/5) = 0.019186 of V209/V85.",
  "pass": true
 }

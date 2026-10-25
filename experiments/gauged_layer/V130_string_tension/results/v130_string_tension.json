@@ -4,7 +4,7 @@
   "link": {
    "C2": 64.0,
    "spread": 0.0,
-   "pairing_residual": 1.7763568394002505e-15,
+   "pairing_residual": 3.1086244689504383e-15,
    "n_singlets": 1,
    "killing_trace": 2880.0,
    "link_commutator_max": 4.0,
@@ -14,7 +14,7 @@
    "dim": 4050,
    "ker": 2,
    "m45": 2,
-   "gap": 63.99999999999967,
+   "gap": 63.99999999999849,
    "C2_45": 64.0
   },
   "scale": {
@@ -35,7 +35,7 @@
  "pass": true,
  "checks": [
   {
-   "name": "T1 the link space is an irreducible adjoint: C2 = sum_A L_A^2 has a single eigenvalue 64.000000 (spread 0.00e+00 over the 45 states); the Killing form K_ab = f_acd f_bcd is annihilated by the singlet operator of 45 (x) 45 to 1.78e-15 and the singlet space has dimension 1, so adjacent links pair into it uniquely; the link operators do not commute (max [L_a,L_b] = 4.000) - the layer carries a non-Abelian field strength and the trivial flux channel is unavailable on a link",
+   "name": "T1 the link space is an irreducible adjoint: C2 = sum_A L_A^2 has a single eigenvalue 64.000000 (spread 0.00e+00 over the 45 states); the Killing form K_ab = f_acd f_bcd is annihilated by the singlet operator of 45 (x) 45 to 3.11e-15 and the singlet space has dimension 1, so adjacent links pair into it uniquely; the link operators do not commute (max [L_a,L_b] = 4.000) - the layer carries a non-Abelian field strength and the trivial flux channel is unavailable on a link",
    "pass": true
   },
   {

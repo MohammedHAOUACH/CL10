@@ -1,0 +1,176 @@
+{
+ "id": "V251_gauged_two_particle_sector",
+ "tier": 2,
+ "property": "the minimal interacting block: spinor Bloch block plus the exact 32 x 45 adjoint-flux tower with the V177 vertex coupling, Gauss-tested on 40 states over the 6^3 grid (V251)",
+ "residual": false,
+ "programme": "V251",
+ "branch": "SECTOR-BLOCKED: Gauss",
+ "data": {
+  "tower": {
+   "eigenvalues": [
+    -32,
+    -12,
+    4
+   ],
+   "multiplicities": {
+    "-32": 32,
+    "-12": 288,
+    "4": 1120
+   },
+   "integrality_defect": 9.237055564881302e-14,
+   "tl_gauss_comm": 0.0,
+   "c2_32": 45.0,
+   "c2_45": 64.0,
+   "c2_tot_per_sector": {
+    "-32.0": 45.0,
+    "-12.0": 85.0,
+    "4.0": 117.0
+   }
+  },
+  "gauss": {
+   "max_over_a_states_grid": 0.4918003846855246,
+   "min_per_charge_over_grid": {
+    "0": 0.4839747898299794,
+    "1": 0.43124883720442236,
+    "2": 0.466580613755562,
+    "3": 0.4752058025831404,
+    "4": 0.46384986798570627,
+    "5": 0.4585537350089733,
+    "6": 0.45797731606577535,
+    "7": 0.38866068667674997,
+    "8": 0.4210122213261192,
+    "9": 0.4620256295329401,
+    "10": 0.4431623023696057,
+    "11": 0.4552601541475079,
+    "12": 0.45374971068219716,
+    "13": 0.44959997212681735,
+    "14": 0.47357588764395236,
+    "15": 0.46758701514171697,
+    "16": 0.38548615783977525,
+    "17": 0.4813334277262706,
+    "18": 0.39632658331386345,
+    "19": 0.4568075594749379,
+    "20": 0.4742530524349148,
+    "21": 0.4558870080486192,
+    "22": 0.46207105486923183,
+    "23": 0.4455679513476877,
+    "24": 0.4679613139336596,
+    "25": 0.3793237708306834,
+    "26": 0.438131316668972,
+    "27": 0.4901519264090096,
+    "28": 0.44650295414002383,
+    "29": 0.4720953069164561,
+    "30": 0.43841471297227586,
+    "31": 0.3782395161022398,
+    "32": 0.44101239792484603,
+    "33": 0.46007527166288603,
+    "34": 0.4711734862888472,
+    "35": 0.4707025362083169,
+    "36": 0.4064134615932884,
+    "37": 0.4429544166662814,
+    "38": 0.4826416113048411,
+    "39": 0.4657033795428948,
+    "40": 0.4649932588506208,
+    "41": 0.46736708189228454,
+    "42": 0.44093165547463375,
+    "43": 0.4332414274805526,
+    "44": 0.4768328481005278
+   },
+   "coupling_only_defect": 4.85722573273506e-17,
+   "h1_leak_min": 1.2681449285537276,
+   "h1_leak_max": 1.9786250633492688,
+   "attribution": {
+    "pp_block_ident_defect": 1.1102230246251565e-16,
+    "non_pp_blocks_max": 4.85722573273506e-17,
+    "linear_defect_at_Q0": 1.3711087792518135
+   },
+   "states": 40,
+   "seed": "0x51",
+   "note": "the vertex coupling part is exactly invariant; the defect is the committed step's own leak of all 45 charges (measured here on i log bloch, min defect 1.268): consistent with V67 (the lattice term is gauge-EXPLICIT) and V140 T2 (the bare gate leaks the vertex charge)"
+  },
+  "sensitivity": {
+   "omega_rows": {
+    "0": 0.0,
+    "plus": 8.418126296640912,
+    "minus": -8.418126296640912
+   },
+   "gap_provenance": "V101 measured gap at rest 42.090631 x eta 0.200",
+   "p_pole_shifts": {
+    "0": {
+     "max": 0.06073378924129802,
+     "mean": 0.0020964745697998615
+    },
+    "plus": {
+     "max": 0.08432524143438602,
+     "mean": 0.0024281962116062296
+    },
+    "minus": {
+     "max": 0.04724177893449788,
+     "mean": 0.0018573037447880793
+    }
+   }
+  },
+  "vertex_correction": {
+   "v141_gate": "dressed hop = bare translation on the dressed sector (T2), electric term scalar 45 per link, front speed 1.0000000003618226",
+   "applied_as": "P->P vertex correction: measured trivial (zero parameter), booked; no new number"
+  },
+  "constraints": {
+   "v98_one_body": "adjoint flux carries even center charge and cannot screen a spinor (V98): no one-particle physical state; ker(32x45) = 0",
+   "v98_m45_pair": 2,
+   "v98_glued_two_site_dim": 4,
+   "pgq_rule": "the P+Q coupled space carries total Gauss; intermediate Q states need not be singlets",
+   "smatrix_note": "smatrix.two_particle is the 't Hooft on-site 1024^2 tensor product (used by uvrunning); grep shows no two-particle Bloch spectrum in cl10/, which justifies the new construction here"
+  },
+  "spectrum": {
+   "n_spectra": 648,
+   "dim": 1568,
+   "min": -40.46622028983169,
+   "max": 12.418126296640981,
+   "unitarity_max": 7.061018441116187e-14,
+   "p_block_defect": 0.0,
+   "wall_time_s": 1674.1596891880035
+  },
+  "grid": {
+   "axes": 6,
+   "points": 216,
+   "chunk": 216
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "inputs": {
+   "clocks": {
+    "g10": 0.2
+   },
+   "vertex": "Gamma^A = I_8 x T^A_16 (V177), strength g10",
+   "flux": "T.L tower, omega rows from V101"
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 the V126 tower regression: T.L on 32 x 45 has exactly the eigenvalues {-32, -12, 4} with multiplicities {'-32': 32, '-12': 288, '4': 1120} (integrality defect 9.2e-14); [T.L, Q_G^a] = 0 exactly",
+   "pass": true
+  },
+  {
+   "name": "T1 the committed vertex coupling is exactly Gauss invariant: max_a ||[g10 (C + C^dag), Q_G^a]|| = 4.86e-17 < 1e-12; vertex convention T16 = B^dag T32 B exact True (max 0.0e+00), B agreement with V177 source 0.0e+00",
+   "pass": true
+  },
+  {
+   "name": "T2 (a) boundedness and (d) unitarity: all 648 spectra finite, global min/max [-40.4662, 12.4181]; max ||exp(iH2) exp(iH2)^dag - I|| = 7.06e-14 < 1e-13",
+   "pass": true
+  },
+  {
+   "name": "T3 (c) block structure: the P-block of H2(Q) equals H1(Q) to exactly 0.0e+00 (= 0.0) on all 216 grid points",
+   "pass": true
+  },
+  {
+   "name": "T4 (b) Gauss measured on 40 shared random states over 3 omega rows x 216 Q points: max_a,i,Q ||[exp(iH2), Q_G^a] psi_i|| = 4.918e-01; attribution (one-shot at Q0): the coupling-only commutator is exact (4.9e-17), [T.L, Q^a] = 0.0e+00, the P-P block of [H2, Q^a] equals [H1, Q_P^a] to 1.1e-16 and the remaining blocks of [H2, Q^a] are at most 4.9e-17: the exp(iH2) defect is carried entirely by the committed step (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979])",
+   "pass": true
+  },
+  {
+   "name": "T5 provenance rows: V101 gap 42.090631 (artifact) -> sensitivity omegas {0, +-8.4181}; V98 glued singlet sector C2 1.1e-27, intertwiners 2, V99 vertex Gauss residual 3.7e-15",
+   "pass": true
+  }
+ ],
+ "status": "gauged two-particle sector on 1568 = 128 (spinor Bloch) + 1440 (32 x 45 adjoint link), 6^3 grid x 3 omega rows, 2105 s: the construction is consistent - the V126 Casimir tower is exact [(-32, 32), (-12, 288), (4, 1120)] (integrality 9.2e-14), the V177 vertex coupling is exactly Gauss invariant to 4.9e-17, the P-block is H1 to 0.0e+00, unitarity 7.1e-14, bounded [-40.47, 12.42]. Branch SECTOR-BLOCKED: Gauss. The Gauss check fails (max 4.918e-01): the vertex coupling, the T.L tower, the block structure and unitarity are exact, but the committed step H1 = i log bloch leaks every one of the 45 total charges (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979]) - the step is gauge-EXPLICIT (V67) and the leak is inherited from V140 T2's bare-gate vertex-charge leak. No exact gauged two-particle sector exists on the published step at the root; per the pre-registered rule V252-V256 record the floor (they still measure their own quantities on this constructed H2).",
+ "pass": true
+}

@@ -41,6 +41,11 @@ import numpy as np
 
 from cl10 import config as _config
 
+
+def _host(m):
+    """Host-side complex view of a backend array (cupy or numpy)."""
+    return np.asarray(m.get() if hasattr(m, "get") else m, dtype=complex)
+
 _TOL = _config.CFG.tolerances
 _CONT = _config.CFG.continuum
 
@@ -261,7 +266,7 @@ def root_link_group():
     the 10 Clifford generators (each an involution).  Returns the order and the
     element-order spectrum -- a 2-group, so no element of order 5."""
     from cl10 import clifford as C
-    gens = [np.asarray(m, dtype=complex) for m in C.generators()]
+    gens = [_host(m) for m in C.generators()]
     g = closure(gens, cap=4096)
     orders = sorted({_order_of(m, max_order=16) or 0 for m in g})
     return {"generators": len(gens), "order": len(g),
@@ -321,7 +326,7 @@ def clifford_even_3d():
     the quaternion units, so the even subalgebra on those three directions IS
     the algebra of quaternions, and the binary polyhedral units live in it."""
     from cl10 import clifford as C
-    g = [np.asarray(m, dtype=complex) for m in C.generators()]
+    g = [_host(m) for m in C.generators()]
     E = [g[0] @ g[1], g[1] @ g[2], g[0] @ g[2]]
     I = np.eye(g[0].shape[0], dtype=complex)
     sq = max(float(np.max(np.abs(e @ e + I))) for e in E)

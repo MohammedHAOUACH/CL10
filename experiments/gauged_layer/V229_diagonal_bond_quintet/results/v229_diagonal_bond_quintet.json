@@ -578,55 +578,55 @@
     "branch_speeds_min_nonzero": [
      0.6498
     ],
-    "closest_abs_v_minus_1": 0.3501606081041493
+    "closest_abs_v_minus_1": 0.35016060807577376
    },
    "3pi/4": {
     "branch_speeds_min_nonzero": [
      314159.2653
     ],
-    "closest_abs_v_minus_1": 314158.2653445042
+    "closest_abs_v_minus_1": 314158.26534450427
    }
   },
   "mass_shift": {
    "star_bond_bubble_eigenvalues": [
-    -21.414212600884234,
-    -20.645011868445177,
-    -5.791886392995528,
-    -9.313568778522607e-15,
-    -3.523384943705493e-15
+    -24.159631463850566,
+    -22.893075010063768,
+    -6.441320613550688,
+    -3.086299630537676e-16,
+    1.9760766059125226e-16
    ],
    "star_bond_shifts_at_lambda_g10": [
-    -6.604681466610945,
-    -6.367440624917142,
-    -1.7863633573411948,
-    -2.872538731448599e-15,
-    -1.086700485847741e-15
+    -7.4514376570098895,
+    -7.060799808556068,
+    -1.9866651961352335,
+    -9.51892388019847e-17,
+    6.094716989563735e-17
    ],
-   "star_bond_max_abs_shift": 6.604681466610945,
+   "star_bond_max_abs_shift": 7.4514376570098895,
    "axis_bond_bubble_eigenvalues": [
-    -54.238966410365975,
-    -53.398252766988634,
+    -60.53189780555675,
+    -58.608381442917526,
     0.0,
     0.0,
     0.0
    ],
    "axis_bond_shifts_at_lambda_g10": [
-    -16.728660674821434,
-    -16.469363453736033,
+    -18.669558905875444,
+    -18.076298107179458,
     0.0,
     0.0,
     0.0
    ],
-   "axis_bond_max_abs_shift": 16.728660674821434,
+   "axis_bond_max_abs_shift": 18.669558905875444,
    "v141_control": {
     "Pi_Eg_eigenvalues": [
-     -54.238966410365975,
-     -53.398252766988634
+     -60.53189780555675,
+     -58.608381442917526
     ],
     "Pi_T2g_max": 0.0,
     "mass_shift_at_lambda_g10": [
-     -16.728660674821434,
-     -16.469363453736033
+     -18.669558905875444,
+     -18.076298107179458
     ]
    },
    "zero_modes_excluded": 0
@@ -646,10 +646,10 @@
    "pass": true
   },
   {
-   "name": "T4 the quintet mass shift under the diagonal bonds (lambda = g10 = pi/4): the V141 axis-bond vertex gaps only the Eg half (max |shift| 16.7287 on the two Eg directions, T2g bubble 0 to the V141 record 0e+00); on the six diagonal star bonds the bubble is nonzero on the FULL quintet: 3 of 5 shift eigenvalues nonzero, max |shift| = 6.6047 (0 zero modes of -i log M excluded from the resolvent) - closing the T2g coupling gap does not protect gaplessness, it gaps every quintet component at order lambda^2",
+   "name": "T4 the quintet mass shift under the diagonal bonds (lambda = g10 = pi/4): the V141 axis-bond vertex gaps only the Eg half (max |shift| 18.6696 on the two Eg directions, T2g bubble 0 to the V141 record 0e+00); on the six diagonal star bonds the bubble is nonzero on the FULL quintet: 3 of 5 shift eigenvalues nonzero, max |shift| = 7.4514 (0 zero modes of -i log M excluded from the resolvent) - closing the T2g coupling gap does not protect gaplessness, it gaps every quintet component at order lambda^2",
    "pass": true
   }
  ],
- "status": "F8 STAYS FIRED, measured through the named diagonal-bond gap (zero fitted parameters, 818 s). (T1) the T2g half of the quintet, whose axis-bond stress vertex vanishes identically (V141 control 0.0e+00), acquires a nonzero vertex on every diagonal star axis (6/15 entries, 0.6325-0.6325): the star bond set is exactly the coupling the named gap asked for. (T2) the quintet step on the star bonds is exactly isotropic to leading order by a measured exact identity (tight frame, sum_a (n.d_a)J_dhat = 2|d| (n.J) to 9e-16), massless and linear with six gapless bands at GAMMA (gap 0.0e+00), but its speeds are {0, 2 g10 |d|, 4 g10 |d|} = [0.0, 2.9878, 5.9757] at pi/4 (unit bonds: {0, 2 g10, 4 g10} = [0.0, 1.5708, 3.1416]) - the diagonal bond set DOUBLES the axis-bond ladder {0, g10, 2 g10}; the closest propagating branch to c = 1 over all closed clocks is pi/4 bond=unit v=1.570796, |v - 1| = 0.5708 >> 1e-12. (T3) the star automaton's own branches stay away from v = 1 too (closest |v - 1| = 0.3502). (T4) the diagonal bonds couple the full quintet: 3 of 5 mass shifts nonzero at lambda = g10 = pi/4 (max 6.6047 against the axis-bond Eg-only 16.7287): the gap is closed and the price is that EVERY quintet component is gapped at order lambda^2. VERDICT: no root-supplied bond network gives a massless spin-2 branch at c = 1 - axis bonds give {0, g10, 2 g10}, diagonal star bonds give {0, 2 g10, 4 g10} x |d| - and the clock that would force one branch to c = 1 (2 g10 |d| = 1 -> g10 = 0.262866, or 2 g10 = 1 -> g10 = 1/2) lies outside the closed class (0.262866 and 1/2 are not pi/4, pi/2, 3pi/4): F8 stays fired with the measured set.",
+ "status": "F8 STAYS FIRED, measured through the named diagonal-bond gap (zero fitted parameters, 1415 s). (T1) the T2g half of the quintet, whose axis-bond stress vertex vanishes identically (V141 control 0.0e+00), acquires a nonzero vertex on every diagonal star axis (6/15 entries, 0.6325-0.6325): the star bond set is exactly the coupling the named gap asked for. (T2) the quintet step on the star bonds is exactly isotropic to leading order by a measured exact identity (tight frame, sum_a (n.d_a)J_dhat = 2|d| (n.J) to 9e-16), massless and linear with six gapless bands at GAMMA (gap 0.0e+00), but its speeds are {0, 2 g10 |d|, 4 g10 |d|} = [0.0, 2.9878, 5.9757] at pi/4 (unit bonds: {0, 2 g10, 4 g10} = [0.0, 1.5708, 3.1416]) - the diagonal bond set DOUBLES the axis-bond ladder {0, g10, 2 g10}; the closest propagating branch to c = 1 over all closed clocks is pi/4 bond=unit v=1.570796, |v - 1| = 0.5708 >> 1e-12. (T3) the star automaton's own branches stay away from v = 1 too (closest |v - 1| = 0.3502). (T4) the diagonal bonds couple the full quintet: 3 of 5 mass shifts nonzero at lambda = g10 = pi/4 (max 7.4514 against the axis-bond Eg-only 18.6696): the gap is closed and the price is that EVERY quintet component is gapped at order lambda^2. VERDICT: no root-supplied bond network gives a massless spin-2 branch at c = 1 - axis bonds give {0, g10, 2 g10}, diagonal star bonds give {0, 2 g10, 4 g10} x |d| - and the clock that would force one branch to c = 1 (2 g10 |d| = 1 -> g10 = 0.262866, or 2 g10 = 1 -> g10 = 1/2) lies outside the closed class (0.262866 and 1/2 are not pi/4, pi/2, 3pi/4): F8 stays fired with the measured set.",
  "pass": true
 }

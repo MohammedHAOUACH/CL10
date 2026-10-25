@@ -14,7 +14,7 @@ and archived on [Zenodo](https://zenodo.org/records/23321228)
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 56 pp., 25 figures, 12 tables, 61 references, REVTeX 4.2
+Current artifact: 71 pp., 25 figures, 18 table divs, 69 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
