@@ -1,0 +1,51 @@
+{
+ "id": "V261_composite_f9_contact",
+ "tier": 5,
+ "property": "the SME velocity-anisotropy contact measured on the composite gapless loci (V261)",
+ "residual": true,
+ "programme": "V261",
+ "branch": "F9-COMPOSITE-NO-LOCUS",
+ "data": {
+  "conventions": {
+   "bound_source": "config bounds.sme_electron_velocity_aniso",
+   "dvv": "V235 normalization (v_max - v_min)/v_max, 12 rays AC.sphere_dirs(6), dq = 1e-3 (V254's loop), applied to the composite band one-sided gradients at the V260 loci",
+   "grid_axes": 6,
+   "omega_rows": {
+    "0": 0.0,
+    "plus": 8.418126296640912,
+    "minus": -8.418126296640912
+   },
+   "kernel_tolerance": 1e-09
+  },
+  "loci_from_V260": [],
+  "dvv": [],
+  "best": null,
+  "bound": 8e-15,
+  "ratio_best": null,
+  "cascade": {
+   "rule": "V260 loci empty or V259 KERNEL-EMPTY -> F9-COMPOSITE-NO-LOCUS (pre-registered)",
+   "fired": true,
+   "v259_branch": "KERNEL-EMPTY",
+   "v260_branch": "NEVER-REALIZED"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "wall_time": 12.009896516799927
+ },
+ "checks": [
+  {
+   "name": "T0 cascade bookkeeping: V259 branch KERNEL-EMPTY with recorded total_singlet_count 0, V260 branch NEVER-REALIZED with 0 gapless loci, kernel recomputed here dim 0 (agreement True)",
+   "pass": true
+  },
+  {
+   "name": "T1 bound provenance: sme_electron_velocity_aniso read from _config.CFG.bounds at run time = 8.000e-15 (never retyped); 12-ray loop AC.sphere_dirs(6), dq = 1e-3, V235 normalization (V254's convention)",
+   "pass": true
+  },
+  {
+   "name": "T2 contact state: cascade True -> best dvv None, ratio None, dvv rows 0 (== V260 loci count 0); branch F9-COMPOSITE-NO-LOCUS matches the guard",
+   "pass": true
+  }
+ ],
+ "status": "composite F9 contact (grid 6^3, 12 s): the V259 recipe recomputed here gives kernel dim 0, V259 branch KERNEL-EMPTY, V260 branch NEVER-REALIZED with 0 gapless loci, the SME bound reads 8.000e-15 from config. Branch F9-COMPOSITE-NO-LOCUS. There is no composite gapless locus - the 1568-dim fiber kernel is empty (smallest C2 eigenvalue 45.000000 per V259) - so the F9 velocity-anisotropy contact has nothing to measure on the physical sector: NO-LOCUS by the pre-registered rule; the 12-ray dvv path ran not a line.",
+ "pass": true
+}

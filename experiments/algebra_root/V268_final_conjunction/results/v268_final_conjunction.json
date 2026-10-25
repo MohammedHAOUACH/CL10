@@ -1,0 +1,167 @@
+{
+ "id": "V268_final_conjunction",
+ "tier": 5,
+ "property": "the four-leg conjunction of the composite contacts over the three physical-sector theory points (V268)",
+ "residual": true,
+ "programme": "V268",
+ "branch": "CONJUNCTION-DEAD",
+ "data": {
+  "legs": {
+   "composite_F9": {
+    "branch": "F9-COMPOSITE-NO-LOCUS",
+    "realized": false,
+    "deviation": null,
+    "deviation_note": "best dvv / SME bound (V260 branch: NEVER-REALIZED)"
+   },
+   "composite_F8": {
+    "branch": "NEVER-REALIZED",
+    "realized": false,
+    "deviation": null,
+    "deviation_note": "|c_gw - 1| vs band 1e-15"
+   },
+   "composite_F2": {
+    "branch": "NO-CONTENT",
+    "realized": false,
+    "deviation": null,
+    "deviation_note": "(1,2)-shift demand / log-spacing (V237 inequality)"
+   },
+   "composite_loop_scale": {
+    "branch": "NEVER-REALIZED",
+    "realized": false,
+    "deviation": null,
+    "deviation_note": "closest |F_phys - 1/(16 pi)|; band [0.015, 0.03]"
+   }
+  },
+  "theory_points": {
+   "clock-composite point (V260 loci, N = 6, omega = 0)": {
+    "status": "never-realized (NEVER-REALIZED: kernel empty)"
+   },
+   "N = 8 grid point (V266)": {
+    "status": "never-realized (NEVER-REALIZED: kernel dim 0 at N = 4/6/8)"
+   },
+   "coupling V251 omega (rows {'0': 0.0, 'plus': 8.4181, 'minus': -8.4181})": {
+    "status": "never-realized (kernel omega-independent: dim 0 for every row)"
+   }
+  },
+  "table": [
+   {
+    "point": "clock-composite point (V260 loci, N = 6, omega = 0)",
+    "leg": "composite_F9",
+    "branch": "F9-COMPOSITE-NO-LOCUS",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "best dvv / SME bound (V260 branch: NEVER-REALIZED)"
+   },
+   {
+    "point": "clock-composite point (V260 loci, N = 6, omega = 0)",
+    "leg": "composite_F8",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "|c_gw - 1| vs band 1e-15"
+   },
+   {
+    "point": "clock-composite point (V260 loci, N = 6, omega = 0)",
+    "leg": "composite_F2",
+    "branch": "NO-CONTENT",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "(1,2)-shift demand / log-spacing (V237 inequality)"
+   },
+   {
+    "point": "clock-composite point (V260 loci, N = 6, omega = 0)",
+    "leg": "composite_loop_scale",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "closest |F_phys - 1/(16 pi)|; band [0.015, 0.03]"
+   },
+   {
+    "point": "N = 8 grid point (V266)",
+    "leg": "composite_F9",
+    "branch": "F9-COMPOSITE-NO-LOCUS",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "best dvv / SME bound (V260 branch: NEVER-REALIZED)"
+   },
+   {
+    "point": "N = 8 grid point (V266)",
+    "leg": "composite_F8",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "|c_gw - 1| vs band 1e-15"
+   },
+   {
+    "point": "N = 8 grid point (V266)",
+    "leg": "composite_F2",
+    "branch": "NO-CONTENT",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "(1,2)-shift demand / log-spacing (V237 inequality)"
+   },
+   {
+    "point": "N = 8 grid point (V266)",
+    "leg": "composite_loop_scale",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "closest |F_phys - 1/(16 pi)|; band [0.015, 0.03]"
+   },
+   {
+    "point": "coupling V251 omega (rows {'0': 0.0, 'plus': 8.4181, 'minus': -8.4181})",
+    "leg": "composite_F9",
+    "branch": "F9-COMPOSITE-NO-LOCUS",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "best dvv / SME bound (V260 branch: NEVER-REALIZED)"
+   },
+   {
+    "point": "coupling V251 omega (rows {'0': 0.0, 'plus': 8.4181, 'minus': -8.4181})",
+    "leg": "composite_F8",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "|c_gw - 1| vs band 1e-15"
+   },
+   {
+    "point": "coupling V251 omega (rows {'0': 0.0, 'plus': 8.4181, 'minus': -8.4181})",
+    "leg": "composite_F2",
+    "branch": "NO-CONTENT",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "(1,2)-shift demand / log-spacing (V237 inequality)"
+   },
+   {
+    "point": "coupling V251 omega (rows {'0': 0.0, 'plus': 8.4181, 'minus': -8.4181})",
+    "leg": "composite_loop_scale",
+    "branch": "NEVER-REALIZED",
+    "passes": false,
+    "deviation": null,
+    "deviation_note": "closest |F_phys - 1/(16 pi)|; band [0.015, 0.03]"
+   }
+  ],
+  "fitted_inputs": [],
+  "wall_time": 0.002236604690551758
+ },
+ "checks": [
+  {
+   "name": "T0 all ten program artifacts present and passing with the pre-registered vocabulary: V251:SECTOR-BLOCKED: Gauss V259:KERNEL-EMPTY V260:NEVER-REALIZED V261:F9-COMPOSITE-NO-LOCUS V262:NO-LOCUS V263:NEVER-REALIZED V264:NO-CONTENT V265:NEVER-REALIZED V266:NEVER-REALIZED V267:PHYSICAL-LEDGER",
+   "pass": true
+  },
+  {
+   "name": "T1 conjunction table complete: 4 legs x 3 points = 12 entries, each carrying the leg branch, the pass verdict and the deviation",
+   "pass": true
+  },
+  {
+   "name": "T2 verdict consistency: V259 KERNEL-EMPTY -> no leg realized, so no point can pass four legs: branch CONJUNCTION-DEAD (pre-registered: KERNEL-EMPTY fires CONJUNCTION-DEAD)",
+   "pass": true
+  },
+  {
+   "name": "T3 the ledger books fitted 0 and never-realized 7 quantities (V267 cross-check)",
+   "pass": true
+  }
+ ],
+ "status": "final conjunction of the physical sector (0 s): three theory points (implemented-clock composite / N = 8 grid / V251 omega coupling) x four legs (composite F9/F8/F2/loop-scale). V259 landed KERNEL-EMPTY; kernel omega- and grid-independent. Branch CONJUNCTION-DEAD: no leg is realized at any point - F2/F8/F9/O8 on the gauge-singlet composites are theorems of the construction (the physical sector the Gauss law allows is empty), and the falsifiers stand on both sides of the construction.",
+ "pass": true
+}

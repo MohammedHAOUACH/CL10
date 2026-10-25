@@ -1,0 +1,54 @@
+{
+ "id": "V264_composite_desert_content",
+ "tier": 3,
+ "property": "the composite singlet content fed to V237's desert threshold rule (V264)",
+ "residual": true,
+ "programme": "V264",
+ "branch": "NO-CONTENT",
+ "data": {
+  "conventions": {
+   "rule_source": "experiments/couplings_unification/V237_desert_threshold_matching/V237_desert_threshold_matching.py l. 142-225 copied verbatim",
+   "content": "composite multiplicity table: joint Cartan weights of the singlet kernel (V262 Cartan convention); kernel states are Spin(10) singlets (annihilated by all 45 charges) -> db = (0, 0, 0), no (1,2) branching",
+   "inequality": "realizable iff |dz12| <= spacing12 (V237's own)",
+   "kernel_tolerance": 1e-09
+  },
+  "composite_multiplicity_table": [],
+  "n_12_carrying": 0,
+  "shift_demand_dz12": null,
+  "ratio": null,
+  "fidelity_control": {
+   "deviation": 0.0,
+   "recomputed": {
+    "dz12": 13.097478575754906,
+    "dz10": -5.13670056342124,
+    "spac12": 11.723996435050168,
+    "shift_over_spacing_12": 1.1171513611688386
+   }
+  },
+  "cascade": {
+   "rule": "V259 KERNEL-EMPTY (empty multiplicity table) -> NO-CONTENT (pre-registered cascade branch)",
+   "fired": true,
+   "v259_branch": "KERNEL-EMPTY",
+   "v260_branch": "NEVER-REALIZED"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "wall_time": 12.489623546600342
+ },
+ "checks": [
+  {
+   "name": "T0 cascade bookkeeping: V259 branch KERNEL-EMPTY with recorded total_singlet_count 0, V260 branch NEVER-REALIZED, kernel recomputed here dim 0 -> composite multiplicity table has 0 rows",
+   "pass": true
+  },
+  {
+   "name": "T1 V237 rule fidelity: the copied threshold-matching code (l. 142-225 conventions: V64 closed content, UN.M_Z/A_Z/B_SM, alpha_X = pi/64, M_X pinned at the committed desert.m_x_closed_gev = 1.2350e+17) reproduces V237's own artifact (dz12, dz10, spacing12, shift/spacing, zB) to max deviation 0.00e+00 < 1e-9; the flux Cartan rank is 5",
+   "pass": true
+  },
+  {
+   "name": "T2 content state: cascade True -> multiplets 0, (1,2)-carrying multiplets 0, shift demand None, ratio None, branch NO-CONTENT matches the guard (F2 inequality: |dz12| <= spacing12 = 11.724 e-folds, V237's own)",
+   "pass": true
+  }
+ ],
+ "status": "composite desert content vs V237's threshold rule (12 s): the copied rule reproduces V237's own artifact to 0.0e+00; the V259 kernel recomputed here has dim 0, so the composite multiplicity table has 0 rows and the (1,2)-carrying count is 0. Branch NO-CONTENT. The singlet kernel is empty: the composite sector supplies no desert content at all (kernel states, had they existed, are internal Spin(10) singlets with db = (0, 0, 0) and no SM (1,2) branching), so there is no threshold the (1,2)-shift demand could act on: NO-CONTENT by the pre-registered cascade; V237's original verdict (NOT REALIZABLE BY ITS OWN CONTENT) stands unchanged and the copied rule was proven faithful to it.",
+ "pass": true
+}

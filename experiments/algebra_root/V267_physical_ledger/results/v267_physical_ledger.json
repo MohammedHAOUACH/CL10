@@ -1,0 +1,147 @@
+{
+ "id": "V267_physical_ledger",
+ "tier": 6,
+ "property": "provenance ledger of the gauge-invariant physical sector programme, Table-6-class counts (V267)",
+ "residual": false,
+ "programme": "V267",
+ "branch": "PHYSICAL-LEDGER",
+ "data": {
+  "ledger": [
+   {
+    "quantity": "the coupled two-particle fiber (1568 = 128 + 1440, H2, the 45 total charges)",
+    "value": "constructed; V251 tower regression reproduced to 9.2e-14 in V259 T0, max [C2, flux block] defect 0.0e+00 in T1",
+    "provenance": "algebraic",
+    "why": "the fiber, charges and vertex are V251's committed zero-parameter construction (g_10, V177 vertex, V126 tower); V259 re-verifies them before any census",
+    "source": "V251/V259"
+   },
+   {
+    "quantity": "the singlet kernel ker(C2) of the fiber",
+    "value": "dim 0 at all 216 q-points, all omega rows and the grids N = 4/6/8; first nonzero C2 eigenvalue 45.000000",
+    "provenance": "measured-input",
+    "why": "V259's census (eigh of C2 = sum Q^a Q^a, tolerance 1e-9); V260/V262/V263/V264/V265/V266 independently recompute the same kernel and agree",
+    "source": "V259"
+   },
+   {
+    "quantity": "the composite band E0(q), min gap, gapless loci, dvv tensor",
+    "value": "never realized (NEVER-REALIZED)",
+    "provenance": "never-realized",
+    "why": "no kernel state exists to disperse; the ladder path is the pre-registered non-cascade branch and ran not a line",
+    "source": "V260"
+   },
+   {
+    "quantity": "the composite F9 contact (best dvv vs the SME ceiling)",
+    "value": "never realized (F9-COMPOSITE-NO-LOCUS)",
+    "provenance": "never-realized",
+    "why": "no composite gapless locus; the ceiling itself is committed",
+    "source": "V261"
+   },
+   {
+    "quantity": "the SME ceiling used by the F9 contact",
+    "value": "8.000e-15 (config bounds.sme_electron_velocity_aniso)",
+    "provenance": "algebraic",
+    "why": "config-committed comparison constant, read at run time, never retyped",
+    "source": "V261"
+   },
+   {
+    "quantity": "the internal Spin(10) Cartan machinery (flux Cartan rank, P-block plane-Cartan spectra, V67 convention)",
+    "value": "rank 5 and spectra [-1.0, 1.0] verified live",
+    "provenance": "algebraic",
+    "why": "structure constants of the committed V79 generators (central-izer construction, seed 0x62); a verified structure, not a measurement dial",
+    "source": "V262"
+   },
+   {
+    "quantity": "the composite statistics/parity table and per-locus little-group census",
+    "value": "never realized (NO-LOCUS)",
+    "provenance": "never-realized",
+    "why": "no kernel state and no gapless locus: the chirality question has no instances; V98's centre obstruction never gets reached",
+    "source": "V262"
+   },
+   {
+    "quantity": "the scale denominators for the loop-factor test (V101 ground-state E0, V129 two-site gap)",
+    "value": "V101 E0 = -5802.398188, V129 gap = 64.000000; V101 gap x g_10 reproduces V251's omega row to 0.0e+00",
+    "provenance": "measured-input",
+    "why": "both read from their committed artifacts; the cross-artifact identity (V101 gap x g_10 = V251 omega_plus) verified in V263 T1",
+    "source": "V101/V129 via V263"
+   },
+   {
+    "quantity": "the composite loop-scale candidates F_phys",
+    "value": "never realized (NEVER-REALIZED; band [0.015, 0.03] pre-registered, target 1/(16 pi) computed)",
+    "provenance": "never-realized",
+    "why": "the composite gap (numerator) does not exist",
+    "source": "V263"
+   },
+   {
+    "quantity": "the composite desert content table and the (1,2)-shift demand",
+    "value": "never realized (NO-CONTENT)",
+    "provenance": "never-realized",
+    "why": "empty kernel -> empty multiplicity table; kernel states would be Spin(10) singlets with db = (0, 0, 0) anyway",
+    "source": "V264"
+   },
+   {
+    "quantity": "V237's threshold rule fidelity (control for the copied rule)",
+    "value": "max deviation 0.0e+00 vs V237's own artifact",
+    "provenance": "measured-input",
+    "why": "the copied rule rerun on V237's own content reproduces its committed numbers - the cascade verdict is rule-faithful",
+    "source": "V264"
+   },
+   {
+    "quantity": "the composite F8 spin-2 channel and c_gw",
+    "value": "never realized (NEVER-REALIZED); band 1e-15 per V258",
+    "provenance": "never-realized",
+    "why": "no composite ground/first-excited kernel state to carry a spin-2 channel",
+    "source": "V265"
+   },
+   {
+    "quantity": "the V229 quintet machinery controls (Emat gram, q5, J so(3))",
+    "value": "gram 2.2e-16, q5 2.2e-16, J algebra 2.2e-16",
+    "provenance": "algebraic",
+    "why": "committed V229 vertex machinery verified exact on import",
+    "source": "V265"
+   },
+   {
+    "quantity": "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent",
+    "value": "never realized (NEVER-REALIZED); kernel dim measured 0 at every grid",
+    "provenance": "never-realized",
+    "why": "emptiness is grid-independent by construction (the charges never depend on q), measured per grid in V266 T0",
+    "source": "V266"
+   }
+  ],
+  "counts": {
+   "algebraic": 4,
+   "measured-input": 3,
+   "never-realized": 7
+  },
+  "reclassification_flags_for_table6": [],
+  "never_realized": [
+   "the composite band E0(q), min gap, gapless loci, dvv tensor",
+   "the composite F9 contact (best dvv vs the SME ceiling)",
+   "the composite statistics/parity table and per-locus little-group census",
+   "the composite loop-scale candidates F_phys",
+   "the composite desert content table and the (1,2)-shift demand",
+   "the composite F8 spin-2 channel and c_gw",
+   "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent"
+  ],
+  "fitted_inputs": [],
+  "wall_time": 0.0032532215118408203
+ },
+ "checks": [
+  {
+   "name": "T0 all nine programme artifacts present, passing, with the pre-registered branch vocabulary: V251:SECTOR-BLOCKED: Gauss V259:KERNEL-EMPTY V260:NEVER-REALIZED V261:F9-COMPOSITE-NO-LOCUS V262:NO-LOCUS V263:NEVER-REALIZED V264:NO-CONTENT V265:NEVER-REALIZED V266:NEVER-REALIZED",
+   "pass": true
+  },
+  {
+   "name": "T1 no experiment of the programme used a fitted input: fitted_inputs lists all empty (0 non-empty)",
+   "pass": true
+  },
+  {
+   "name": "T2 cascade consistency: V259 KERNEL-EMPTY, every downstream experiment books its pre-registered cascade branch ({'V260': 'NEVER-REALIZED', 'V261': 'F9-COMPOSITE-NO-LOCUS', 'V262': 'NO-LOCUS', 'V263': 'NEVER-REALIZED', 'V264': 'NO-CONTENT', 'V265': 'NEVER-REALIZED', 'V266': 'NEVER-REALIZED'}); never-realized ledger rows: 7",
+   "pass": true
+  },
+  {
+   "name": "T3 the published Table 6 rows are loaded for comparison (16 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
+   "pass": true
+  }
+ ],
+ "status": "physical-sector ledger: 14 quantities booked - algebraic 4, measured-input 3, fitted 0, never-realized 7 (V52 Table 6 comparison loaded; V259 KERNEL-EMPTY). Branch PHYSICAL-LEDGER.",
+ "pass": true
+}

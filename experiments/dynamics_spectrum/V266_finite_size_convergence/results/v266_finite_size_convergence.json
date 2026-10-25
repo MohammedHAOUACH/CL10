@@ -1,0 +1,61 @@
+{
+ "id": "V266_finite_size_convergence",
+ "tier": 2,
+ "property": "the N = 4/6/8 finite-size behaviour of the composite gap verdict (V266)",
+ "residual": false,
+ "programme": "V266",
+ "branch": "NEVER-REALIZED",
+ "data": {
+  "conventions": {
+   "grid": "N = 4, 6, 8 torus grids, 2 pi i/N convention; E0 = lowest eigenvalue of H_k = W^dag H2 W minus the q-independent free-tower floor (-32 + omega), omega = 0 row (V260 conventions)",
+   "exponent": "least-squares slope of log E_min vs 1/N",
+   "kernel_tolerance": 1e-09
+  },
+  "grids": [
+   {
+    "N": 4,
+    "points": 64,
+    "kernel_dim": 0,
+    "min_E0": null
+   },
+   {
+    "N": 6,
+    "points": 216,
+    "kernel_dim": 0,
+    "min_E0": null
+   },
+   {
+    "N": 8,
+    "points": 512,
+    "kernel_dim": 0,
+    "min_E0": null
+   }
+  ],
+  "trend_exponent": null,
+  "cascade": {
+   "rule": "pre-registered roll-up: V259 KERNEL-EMPTY -> the gap ladder is undefined at every grid -> NEVER-REALIZED; kernel emptiness measured grid-independently",
+   "fired": true,
+   "v259_branch": "KERNEL-EMPTY",
+   "v260_branch": "NEVER-REALIZED"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "wall_time": 9.516063451766968
+ },
+ "checks": [
+  {
+   "name": "T0 cascade bookkeeping: V259 branch KERNEL-EMPTY with recorded total_singlet_count 0, V260 branch NEVER-REALIZED, kernel recomputed here dim 0 and grid-independently 0 at every N (kernel dims [0, 0, 0] - the 45 charges never depend on q, so emptiness cannot be a finite-size effect)",
+   "pass": true
+  },
+  {
+   "name": "T1 grid convention: N = [4, 6, 8] torus grids (2 pi i/N convention of V251/V260), point counts [64, 216, 512], same fiber and tolerance 1e-9 at every grid",
+   "pass": true
+  },
+  {
+   "name": "T2 convergence state: cascade True -> min gaps [None, None, None], trend exponent None; branch NEVER-REALIZED matches the pre-registered acceptance strings (GAP-CONFIRMED requires agreement to 1e-6 and all > 1e-9; GAPLESS-EMERGES requires a cross below 1e-9 at N = 8 with negative exponent)",
+   "pass": true
+  }
+ ],
+ "status": "finite-size convergence of the composite gap verdict (grids N = [4, 6, 8], 10 s): the V259 kernel recomputed here has dim 0 and is 0 at every grid (the charges are q-independent, so emptiness is not a finite-size effect); min gaps [None, None, None]; trend exponent None. Branch NEVER-REALIZED. V259 landed KERNEL-EMPTY: there is no composite band at N = 4, 6 or 8, so the V260 verdict is not a finite-size artefact - it is the empty kernel at every grid; the convergence ladder is NEVER-REALIZED by the pre-registered cascade.",
+ "pass": true
+}

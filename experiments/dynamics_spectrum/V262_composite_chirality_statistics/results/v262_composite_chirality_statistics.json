@@ -1,0 +1,68 @@
+{
+ "id": "V262_composite_chirality_statistics",
+ "tier": 3,
+ "property": "the little-group Molien census and the matter-parity (statistics) census of the composite singlet kernel (V262)",
+ "residual": false,
+ "programme": "V262",
+ "branch": "NO-LOCUS",
+ "data": {
+  "conventions": {
+   "cartan_source": "P block: V65/V67 convention, experiments/spacetime_matter/V67_breaking_chain.py l. 63-70 (clifford.generators, planes (0,2,4,6,8), conjugated by SC.sectors()[0]); Q block: centralizer of a generic element in the committed V79 structure constants (rank 5); seed 0x62",
+   "cartan_rank": 5,
+   "parity": "odd (half-integer/fermionic) iff the kernel state carries P-block (single-matter-quantum, spinorial centre) support ||w_P|| > 0; even otherwise",
+   "little_group": "V244 convention: polyhedral_group().elements, molien_counts dmax = 6"
+  },
+  "cartan_controls": {
+   "rank": 5,
+   "cartanQ_comm": 2.7478019859472624e-15,
+   "cartanQ_hermiticity": 0.0,
+   "Dk_comm": 9.992007221626409e-16,
+   "Dk_spectrum": [
+    -1.0,
+    1.0
+   ]
+  },
+  "loci_census": [],
+  "parity_rows": [],
+  "little_group_control": {
+   "stab_order": 60,
+   "molien_counts_d1_d6": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    2
+   ]
+  },
+  "cascade": {
+   "rule": "V259 KERNEL-EMPTY / no gapless loci -> NO-LOCUS (pre-registered acceptance third branch + roll-up)",
+   "fired": true,
+   "v259_branch": "KERNEL-EMPTY",
+   "v260_branch": "NEVER-REALIZED"
+  },
+  "backend": "cupy",
+  "fitted_inputs": [],
+  "wall_time": 24.167900323867798
+ },
+ "checks": [
+  {
+   "name": "T0 cascade bookkeeping: V259 branch KERNEL-EMPTY with recorded total_singlet_count 0, V260 branch NEVER-REALIZED with 0 gapless loci, kernel recomputed here dim 0",
+   "pass": true
+  },
+  {
+   "name": "T1 Cartan machinery (runs on the cascade): the five flux-block Cartan combinations from the V79 structure-constant centralizer have rank 5, pairwise commutators 2.7e-15 < 1e-9, hermiticity 0.0e+00; the V67-convention P-block Cartan Dk commute to 1.0e-15 with spectra [-1.0, 1.0] (plane generators: eigenvalues +-1)",
+   "pass": true
+  },
+  {
+   "name": "T2 little-group machinery control at Gamma: stab order 60 (group order 60), molien d1-d6 [0, 1, 0, 1, 0, 2] (icosahedral invariants [0, 1, 0, 1, 0, 2])",
+   "pass": true
+  },
+  {
+   "name": "T3 statistics census state: cascade True -> parity table has 0 rows, loci census 0 entries, branch NO-LOCUS matches the guard",
+   "pass": true
+  }
+ ],
+ "status": "composite chirality/statistics census (24 s): Cartan machinery verified live (flux Cartan rank 5, commutators 2.7e-15; V67-convention P-Cartan spectra [-1.0, 1.0]), little-group control at Gamma exact, V259 kernel dim recomputed 0, V260 gapless loci 0. Branch NO-LOCUS. There are no composite gapless loci and no kernel states at all, so the parity table is empty: the question whether the composites carry the electron (half-integer matter parity) has no instances on this construction - V98's centre obstruction is not even reached, because the singlet sector itself does not exist. NO-LOCUS by the pre-registered rule; the drafted per-locus Molien + Cartan-parity census ran not a line.",
+ "pass": true
+}
