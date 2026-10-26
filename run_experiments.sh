@@ -29,7 +29,18 @@ mapfile -t GPUS < <(nvidia-smi --query-gpu=index,memory.used,memory.total,utiliz
                     --format=csv,noheader,nounits)
 echo "== GPU =="
 printf '%s\n' "${GPUS[@]}"
-free0=$(awk -F', ' 'NR==1{print $3-$2}' <<<"${GPUS[0]}")
+# with CUDA_VISIBLE_DEVICES pinned (run_all_gpus.sh pins one card per runner),
+# gate on THAT card's row, not always the physical GPU0
+IDX0=0
+if [ -n "${CUDA_VISIBLE_DEVICES:-}" ]; then
+    WANT="${CUDA_VISIBLE_DEVICES%%,*}"
+    IDX0=$(printf '%s\n' "${GPUS[@]}" \
+            | awk -F', ' -v c="$WANT" \
+              '{if ($1+0==c+0) {print NR-1; found=1; exit}} \
+               END{if (!found) print 0}')
+fi
+ROW="${GPUS[$IDX0]}"
+free0=$(awk -F', ' '{print $3-$2}' <<<"$ROW")
 need=$(( GATE * JOBS ))              # the engine gate: this much free per worker
 nexp=$(find experiments -mindepth 3 -maxdepth 3 -name '*.py' | xargs -n1 dirname | sort -u | wc -l)
 echo "experiments: ${nexp}"
@@ -37,7 +48,7 @@ echo "experiments: ${nexp}"
 if [ "${free0}" -lt "${need}" ] && [ "${FORCE}" != 1 ]; then
     fit=$(( free0 / GATE ))
     echo
-    echo "ABORT: ${free0} MiB free on GPU0 - cannot host ${JOBS} cupy workers"
+    echo "ABORT: ${free0} MiB free on GPU${IDX0} - cannot host ${JOBS} cupy workers"
     echo "(the engine gate needs ${GATE} MiB each; ${need} MiB required). The engine"
     echo "would silently fall back to numpy."
     if [ "${fit}" -ge 1 ]; then
@@ -55,7 +66,7 @@ if [ "${free0}" -ge "${need}" ]; then
     export CL10_BACKEND=cupy
 else
     export CL10_BACKEND=numpy
-    echo "NOTE: ${free0} MiB free on GPU0 < ${need} MiB needed - running on the CPU core (CL10_BACKEND=numpy)."
+    echo "NOTE: ${free0} MiB free on GPU${IDX0} < ${need} MiB needed - running on the CPU core (CL10_BACKEND=numpy)."
 fi
 
 log="results/experiments_run_$(date +%Y%m%d_%H%M%S).log"

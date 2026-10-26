@@ -39,7 +39,7 @@
   "seed": "0x6C",
   "fitted_inputs": [],
   "backend": "cupy",
-  "wall_time": 181.85811614990234
+  "wall_time": 241.7403473854065
  },
  "checks": [
   {
@@ -55,6 +55,6 @@
    "pass": true
   }
  ],
- "status": "dynamical-link atom: pair (32x32) x link (1(+)45(+)210) dynamical module, neutral sector = ker sum_a (T_pair + L)^2 on 262144, Lanczos 500 steps seed 0x6C, 182 s: kernel dim 6 (fusion prediction 6), residual 2.1e-15, sector split {'0.0000': 2, '64.0000': 2, '96.0000': 2} under the link Casimir, entropies [-0.0, -0.0, 3.806662, 3.806662, 5.347108, 5.347108] (ln 45 committed control, 2.1e-15). Branch COMPOSITE-ALIVE.",
+ "status": "dynamical-link atom: pair (32x32) x link (1(+)45(+)210) dynamical module, neutral sector = ker sum_a (T_pair + L)^2 on 262144, Lanczos 500 steps seed 0x6C, 242 s: kernel dim 6 (fusion prediction 6), residual 2.1e-15, sector split {'0.0000': 2, '64.0000': 2, '96.0000': 2} under the link Casimir, entropies [-0.0, -0.0, 3.806662, 3.806662, 5.347108, 5.347108] (ln 45 committed control, 2.1e-15). Branch COMPOSITE-ALIVE.",
  "pass": true
 }

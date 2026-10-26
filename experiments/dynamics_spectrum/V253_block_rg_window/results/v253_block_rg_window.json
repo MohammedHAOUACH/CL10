@@ -151,6 +151,6 @@
    "pass": true
   }
  ],
- "status": "block-RG window on the dressed sector (617.1466813087463 s): V178's downfold ladder (A_bare reproduced to 1.8e-12) extended to b = 8, 16 with V251/V252's dynamical Sigma inserted in the step (Sigma machine cross-checked to 6.0e-17; generator wrap 1635.8x recorded); measured window ladders n_low [70, 39, 18, 10, 6] (the pre-reg n_low = 4 has no exact cut here - addendum). Branch NO-WINDOW:sector-floor: p_v = (0.0000 bare, 0.0000 dressed), p_A = (-0.0000 bare, -0.0000 dressed, -0.0347 static control) against the marginal band 0.01: the dressed sector does not flow - anisotropy is not relevant; full b-table recorded",
+ "status": "block-RG window on the dressed sector (374.6038250923157 s): V178's downfold ladder (A_bare reproduced to 1.8e-12) extended to b = 8, 16 with V251/V252's dynamical Sigma inserted in the step (Sigma machine cross-checked to 6.0e-17; generator wrap 1635.8x recorded); measured window ladders n_low [70, 39, 18, 10, 6] (the pre-reg n_low = 4 has no exact cut here - addendum). Branch NO-WINDOW:sector-floor: p_v = (0.0000 bare, 0.0000 dressed), p_A = (-0.0000 bare, -0.0000 dressed, -0.0347 static control) against the marginal band 0.01: the dressed sector does not flow - anisotropy is not relevant; full b-table recorded",
  "pass": true
 }

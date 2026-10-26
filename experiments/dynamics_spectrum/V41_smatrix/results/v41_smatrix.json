@@ -7,21 +7,21 @@
   "status": "the_qca_step_is_the_0_parameter_S_matrix_the_first_processes_of_the_theory",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "g10": 0.7853981633974483,
     "n_planes": 45,
     "n_internal": 32,
-    "s1_unitary_err": 1.4432899320127035e-15,
-    "s1_colsum_err": 1.4432899320127035e-15,
+    "s1_unitary_err": 1.3322676295501878e-15,
+    "s1_colsum_err": 1.3322676295501878e-15,
     "s1_colsum_err_col": 1.4432899320127035e-15,
-    "s1_raw_colsum_dev": 1.0000000000000018,
+    "s1_raw_colsum_dev": 1.0000000000000013,
     "s1_max_offdiag": 0.7071067811865474,
     "s2_shape": 1024,
-    "s2_unitary_err": 2.886579864025407e-15,
-    "s2_colsum_err": 2.886579864025407e-15,
+    "s2_unitary_err": 2.4424906541753444e-15,
+    "s2_colsum_err": 2.4424906541753444e-15,
     "s2_max_abs": 0.4999999999999998,
     "s2_max_offdiag": 0.4999999999999998,
     "residual": "the matching of these 0-parameter amplitudes to measured cross-sections (the QCA lattice RG vs the perturbative QFT) — the open part of the 't Hooft program (O9)"
   },
-  "wall_time": 2.497
+  "wall_time": 0.183
 }

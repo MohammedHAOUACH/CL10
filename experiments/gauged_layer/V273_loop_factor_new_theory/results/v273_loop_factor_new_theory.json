@@ -1,0 +1,133 @@
+{
+ "id": "V273_loop_factor_new_theory",
+ "tier": 2,
+ "property": "does the dynamical link birth the new theory's loop factor (tier 2, O8-new)",
+ "residual": true,
+ "programme": "V273",
+ "branch": "LOOP-NEW-UNBORN",
+ "data": {
+  "F1_rho": -1.1556591631774871e-13,
+  "F2_Delta_over_E0": NaN,
+  "E0_atom": -1.9810542095655137e-15,
+  "Delta_atom": 28.800000000000033,
+  "E_g_chain_ground": -2.7075291682680772e-14,
+  "atom_branch": "COMPOSITE-FROZEN",
+  "chain_branch": "CHAIN-ALIVE",
+  "chain_ground_schmidt": [
+   0.9998857454235851,
+   0.01511608741453417,
+   1.4193355024380562e-16,
+   1.179279205479717e-16,
+   8.375418109723324e-17,
+   6.624947589256518e-17
+  ],
+  "atom_kernel_dim": 6,
+  "atom_kernel_C2l": [
+   7.401616895449813e-29,
+   4.68158215370807e-29,
+   63.99999999999999,
+   64.00000000000001,
+   96.0,
+   96.00000000000011
+  ],
+  "kernel_H_spectrum": [
+   3.2005498442807553e-29,
+   1.436504060318264e-15,
+   19.19999999999998,
+   19.200000000000014,
+   28.800000000000004,
+   28.800000000000058
+  ],
+  "ground_contracted_seed_norm": 3.98731418272201e-14,
+  "exchange_generators": 540,
+  "exchange_algebra_rank": 360,
+  "exchange_invariance_residual": 0.9964976705094689,
+  "block_growth": [
+   4,
+   0
+  ],
+  "block_steps": 1,
+  "block_dim": 4,
+  "block_closed": true,
+  "invariant_residual_final": 0.0,
+  "min_resolvent_denominator": 25.60000000000003,
+  "J2": [
+   4.430471226512976e-34,
+   -2.3299826360228685e-50
+  ],
+  "J2_imag_part": -2.3299826360228685e-50,
+  "F3_exchange": 2.2152356132564876e-33,
+  "F3_gate": "valid: exact on the 4-dim invariant space (closure residual 0.0e+00)",
+  "mpmath_probes": [
+   0
+  ],
+  "mpmath_probes_60": [
+   -0.039062499999999944
+  ],
+  "mpmath_probes_100": [
+   -0.039062499999999944
+  ],
+  "mpmath_control_residual": 0.0,
+  "branch_basis": {
+   "target": 0.019894367886486918,
+   "band": [
+    0.015,
+    0.03
+   ],
+   "closest": {
+    "candidate": "F1",
+    "abs_value": 1.1556591631774871e-13,
+    "distance": 0.01989436788637135
+   }
+  },
+  "status": "LOOP-NEW-UNBORN"
+ },
+ "checks": [
+  {
+   "name": "T0 booked candidates: F1 = rho = -0.000000; F2 = Delta/E0 = undefined (E0 = 0) (E0 = -1.981e-15, Delta = 28.800000: structurally undefined at E0 = 0)",
+   "pass": true
+  },
+  {
+   "name": "T0 chain ground h-slice (6,1024) loaded from the V272 artifact: total norm 1.000000 (unit 1), Schmidt weights [0.999886, 0.015116]",
+   "pass": true
+  },
+  {
+   "name": "T1 atom kernel dim 6, C2l spectrum [0.0, 0.0, 64.0, 64.0, 96.0, 96.0] (seed 0x6C)",
+   "pass": true
+  },
+  {
+   "name": "T1 atom-kernel H spectrum [0.0, 0.0, 19.2, 19.2, 28.8, 28.8] reproduces the booked V271 kernel_H_channel_spectrum (max diff 2.5e-14)",
+   "pass": true
+  },
+  {
+   "name": "T1 exchange vectors: A_a = (J_a pair)(L_a link) and C_a = -L_a Hermitian on the kernel (6x6 Gram defect over 45 vertices) 2.8e-16",
+   "pass": true
+  },
+  {
+   "name": "T2 partner pairings: rho_h Hermitian defect 1.8e-18, G^b and K^{ba} = <J_b h_j|J_a h_i> built",
+   "pass": true
+  },
+  {
+   "name": "T2 chain-ground contracted seed (the pre-registered Krylov seed): norm 3.987e-14 - the first-order response of the chain ground to H_ex vanishes; the object is evaluated on the measured exchange algebra below",
+   "pass": true
+  },
+  {
+   "name": "T2 exchange space: 540 generators (rank 360); H-invariance residual 1.0e+00 - does NOT close: the resolvent needs the full space, so the pre-registered Krylov carries the object and its truncation control books the honest error ",
+   "pass": true
+  },
+  {
+   "name": "T2 block Krylov on the exchange sector: closed after 1 steps: True, invariant dim 4, per-step growth [4, 0]",
+   "pass": true
+  },
+  {
+   "name": "T2 invariant-space closure residual 0.0e+00 (the resolvent form is exact below)",
+   "pass": true
+  },
+  {
+   "name": "T3 J2 = 4.430471e-34-2.329983e-50j (imag -2.3e-50): F3 = 2.215236e-33 (valid: exact on the 4-dim invariant space (closure residual 0.0e+00)); 60 vs 100-digit control over 1 interior resolvent probes: residual 0.0e+00",
+   "pass": true
+  }
+ ],
+ "status": "LOOP-NEW-UNBORN",
+ "pass": true
+}

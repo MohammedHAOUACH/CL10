@@ -12342,7 +12342,7 @@
   "seed": "0x6C",
   "fitted_inputs": [],
   "backend": "cupy",
-  "wall_time": 2050.2309906482697
+  "wall_time": 2512.5134720802307
  },
  "checks": [
   {

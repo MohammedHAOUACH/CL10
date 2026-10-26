@@ -1,6 +1,6 @@
 {
  "experiment": "V136_majorana_word",
- "backend": "numpy",
+ "backend": "cupy",
  "tol": 1e-09,
  "data": {
   "weights": {
@@ -107,5 +107,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "THE DELTA L = 2 OPERATOR IS NOT A GAUGE-LINK COMPOSITE (O2). The operator exists inside the root: the weight 2 lambda_nu (norm^2 20.0) has a 1-dimensional algebra weight space sitting in Clifford grade 5 - the 126-type channel - with no field outside the root. But Clifford multiplication changes grade by +-2, so products of the 45 adjoint link factors are always EVEN-grade (exact on the whole table) and the span S_k (dims [45, 126, 208, 291, 352, 407]) never contains it: k* = None for every k, and the vector-10 Higgs weight (grades [1, 3, 5, 7, 9], all odd) is likewise unreachable (k = None). The ladder exponent n_2step = 3 is therefore NOT the length of an adjoint word: the seesaw operator belongs to the odd (matter) half of the Clifford module, and O2 stays open",
- "wall_s": 72.9414610862732
+ "wall_s": 33.828176736831665
 }

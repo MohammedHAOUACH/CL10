@@ -1,0 +1,270 @@
+{
+ "id": "V274_new_theory_ledger_conjunction",
+ "tier": 5,
+ "property": "the dynamical-link refonte ledger (tier 6) and the new theory's four-leg three-point conjunction (tier 5) (V274)",
+ "residual": true,
+ "programme": "V274",
+ "branch": "NEW-CONJUNCTION-DEAD",
+ "data": {
+  "artifact_pass": {
+   "V269": true,
+   "V270": true,
+   "V271": true,
+   "V272": true,
+   "V273": true
+  },
+  "kernel_dim": 6,
+  "kernel_channels": [
+   0.0,
+   0.0,
+   64.0,
+   64.0,
+   96.0,
+   96.0
+  ],
+  "chain_kernel_dim": 12,
+  "chain_gap_above": 35.9999999999999,
+  "conjunction": {
+   "g10 = 0.2 (implemented clock, 1/5 branch)": {
+    "g": 0.2,
+    "tag": "g10 = 0.2 (implemented clock, 1/5 branch)",
+    "kernel_H_spectrum": [
+     -1.779354796000913e-15,
+     3.200549844280608e-29,
+     19.199999999999886,
+     19.1999999999999,
+     28.799999999999546,
+     28.79999999999977
+    ],
+    "ladder_defect": 4.511946372076636e-13,
+    "E0_full_space": -1.065869224198679e-13,
+    "chain_H_spectrum": [
+     -1.9381214586264383e-15,
+     -2.763909917272892e-16,
+     2.7765810318256814e-15,
+     7.346425159504035e-15,
+     19.199999999999893,
+     19.199999999999896,
+     19.199999999999907,
+     19.199999999999918,
+     28.799999999999564,
+     28.79999999999958,
+     28.799999999999763,
+     28.799999999999777
+    ],
+    "E_chain_ground": -1.9381214586264383e-15,
+    "E_int": 2.1123572338110937e-13,
+    "rho": 1.0561786169055468e-12,
+    "chain_gauss_defect": 1.5986859783816472e-15,
+    "ground_seed_norm": 2.124244011024658e-14,
+    "exchange_rank": 360,
+    "exchange_invariance_residual": 0.9964976705094691,
+    "block_growth": [
+     4,
+     0
+    ],
+    "block_dim": 4,
+    "block_closed": true,
+    "invariant_residual_final": 0.0,
+    "min_resolvent_denominator": 25.60000000000001,
+    "F3_gate": "valid: exact on 4-dim invariant space (closure residual 0.0e+00)",
+    "J2": [
+     9.604949310549939e-34,
+     -8.552847072295021e-51
+    ],
+    "F3_exchange": 4.802474655274969e-33,
+    "mpmath_control_residual": 0.0,
+    "F2_Delta_over_E0": NaN,
+    "candidates": {
+     "F1": 1.0561786169055468e-12,
+     "F2": NaN,
+     "F3": 4.802474655274969e-33
+    },
+    "legs": {
+     "COMPOSITE-ALIVE": true,
+     "DYNAMICS-ALIVE": true,
+     "CHAIN-ALIVE": true,
+     "LOOP-BORN": false
+    },
+    "all_four": false
+   },
+   "g = pi/4 (closed clock)": {
+    "g": 0.7853981633974483,
+    "tag": "g = pi/4 (closed clock)",
+    "kernel_H_spectrum": [
+     -27.398223686155276,
+     -27.398223686154957,
+     -18.26548245743721,
+     -18.26548245743719,
+     2.0187445965272344e-29,
+     4.458364273928838e-15
+    ],
+    "ladder_defect": 5.186961971048731e-13,
+    "E0_full_space": -27.39822368615508,
+    "chain_H_spectrum": [
+     -27.398223686155294,
+     -27.398223686155276,
+     -27.398223686154935,
+     -27.398223686154928,
+     -18.265482457437216,
+     -18.26548245743721,
+     -18.265482457437205,
+     -18.265482457437194,
+     -1.3815305948748243e-14,
+     -8.835283954205287e-15,
+     2.3729824084561248e-15,
+     1.0097775357694793e-14
+    ],
+    "E_chain_ground": -27.398223686155294,
+    "E_int": 27.398223686154868,
+    "rho": 34.88450185271198,
+    "chain_gauss_defect": 1.460593486680443,
+    "ground_seed_norm": 92.5603580568539,
+    "exchange_rank": 360,
+    "exchange_invariance_residual": 0.9998836740352944,
+    "block_growth": [
+     4,
+     0
+    ],
+    "block_dim": 4,
+    "block_closed": true,
+    "invariant_residual_final": 1.3154956150671561e-08,
+    "min_resolvent_denominator": 25.132741228718604,
+    "F3_gate": "not booked: block Krylov did not close under H(g) (dim 4 at cap)",
+    "J2": [
+     3.8952035917103703e-31,
+     3.536452161984115e-47
+    ],
+    "F3_exchange": NaN,
+    "mpmath_control_residual": 0.0,
+    "F2_Delta_over_E0": -1.0000000000000073,
+    "candidates": {
+     "F1": 34.88450185271198,
+     "F2": -1.0000000000000073,
+     "F3": NaN
+    },
+    "legs": {
+     "COMPOSITE-ALIVE": true,
+     "DYNAMICS-ALIVE": true,
+     "CHAIN-ALIVE": false,
+     "LOOP-BORN": false
+    },
+    "all_four": false
+   },
+   "g = 1/5 (rung clock)": {
+    "g": 0.2,
+    "tag": "g = 1/5 (rung clock)",
+    "note": "the implemented clock is exactly the rung clock: the implemented branch is the 1/5 branch, G10 = 0.2; this point shares the implemented point's measurements verbatim (arithmetic identity 0.2 = 1/5)",
+    "legs": {
+     "COMPOSITE-ALIVE": true,
+     "DYNAMICS-ALIVE": true,
+     "CHAIN-ALIVE": true,
+     "LOOP-BORN": false
+    },
+    "all_four": false
+   }
+  },
+  "ledger": [
+   {
+    "quantity": "rotor unit (32-dim spinor)",
+    "class": "convention",
+    "source": "V269 (declared before any run)"
+   },
+   {
+    "quantity": "link truncation {1, 45, 210} of 45 (x) 45",
+    "class": "convention",
+    "source": "V269 (declared)"
+   },
+   {
+    "quantity": "module closure: swap parity identifies 45, lambda_210 = 96, pair multiplicities (2,2,2)",
+    "class": "algebraic",
+    "source": "V269 exact projector"
+   },
+   {
+    "quantity": "channel Casimir values {0, 64, 96} (C2l on the kernel: singlet / adjoint-45 / 210)",
+    "class": "algebraic",
+    "source": "V269/V270 T1 here"
+   },
+   {
+    "quantity": "kernel dim 6 and split {0x2, 64x2, 96x2}, entropies 0/ln45/ln210",
+    "class": "measured",
+    "source": "V270; recomputed T1 here"
+   },
+   {
+    "quantity": "atom H Gauss law (transport J_a k = -L_a k)",
+    "class": "measured",
+    "source": "V271 7.7e-14; here 2.1e-16"
+   },
+   {
+    "quantity": "H|ker = (1/2 - g) C2l: channel ladder",
+    "class": "measured",
+    "source": "V271 (0.300000); per point here"
+   },
+   {
+    "quantity": "atom full-space ground E0",
+    "class": "measured",
+    "source": "V271 (0.0); per point here"
+   },
+   {
+    "quantity": "chain kernel dim 12, gap 36, Gauss 1.8e-15",
+    "class": "measured",
+    "source": "V272; recomputed T1 here"
+   },
+   {
+    "quantity": "tree exchange E_int = rho = 0",
+    "class": "measured",
+    "source": "V272; per point here"
+   },
+   {
+    "quantity": "F2 = Delta/E0 candidate",
+    "class": "never-realized",
+    "source": "V273: E0 = 0 makes it undefined at the implemented point; finite elsewhere only where E0(g) != 0"
+   },
+   {
+    "quantity": "F1 = rho, F3 = second-order exchange (loop candidates)",
+    "class": "measured",
+    "source": "V273; per point here"
+   },
+   {
+    "quantity": "conjunction legs and table",
+    "class": "measured",
+    "source": "this experiment T2"
+   }
+  ],
+  "ledger_counts": {
+   "convention": 2,
+   "algebraic": 2,
+   "measured": 8,
+   "never-realized": 1
+  },
+  "status": "NEW-CONJUNCTION-DEAD"
+ },
+ "checks": [
+  {
+   "name": "T0 artifacts V269-V273 present, passing: {'V269': True, 'V270': True, 'V271': True, 'V272': True, 'V273': True}",
+   "pass": true
+  },
+  {
+   "name": "T1 atom kernel of S = C2tot (g-independent): dim 6, channels [0.0, 0.0, 64.0, 64.0, 96.0, 96.0] (V270 booked 6 / {0x2, 64x2, 96x2})",
+   "pass": true
+  },
+  {
+   "name": "T1 Gauss transport identity <k|J_a k> = -<k|L_a k>: defect 2.1e-16 (makes the chain M_a exact; g-free)",
+   "pass": true
+  },
+  {
+   "name": "T1 chain kernel of the 90 charges (g-free slice): dim 12 (booked 12), gap 3.600e+01",
+   "pass": true
+  },
+  {
+   "name": "T3 NEW-THEORY-LEDGER: counts by class {'convention': 2, 'algebraic': 2, 'measured': 8, 'never-realized': 1} (fitted 0; conventions 2 named and declared before any run)",
+   "pass": true
+  },
+  {
+   "name": "conjunction table (legs in order COMPOSITE/DYNAMICS/CHAIN/LOOP): g10 = 0.2 (implemented clock, 1/5 branch): Y/Y/Y/N; g = pi/4 (closed clock): Y/Y/N/N; g = 1/5 (rung clock): Y/Y/Y/N -> NEW-CONJUNCTION-DEAD",
+   "pass": true
+  }
+ ],
+ "status": "new-theory ledger {'convention': 2, 'algebraic': 2, 'measured': 8, 'never-realized': 1} and conjunction over g10 = 0.2 / pi/4 / 1/5: g10 = 0.2 (implemented clock, 1/5 branch): Y/Y/Y/N; g = pi/4 (closed clock): Y/Y/N/N; g = 1/5 (rung clock): Y/Y/Y/N -> branch NEW-CONJUNCTION-DEAD",
+ "pass": true
+}

@@ -1,7 +1,7 @@
 {
   "experiment": "V70_family_index",
   "pass": true,
-  "status": "O3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the node set is ONE cubic orbit of 12 (stabilizer 4) and every node is exactly gapless; at the root clock the 12 node channels form 4 isospectral classes (sizes [9, 1, 1, 1]): the Floquet-pinned levels are identical everywhere, the intermediate levels permute between classes (the V128 index-3 point-group defect); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number. O3 stays a hypothesis, now with a named index.",
+  "status": "O3 AUDIT: the 12 doubler nodes split into 3 families of 4 labeled by the zero axis (x, y, z); the node set is ONE cubic orbit of 12 (stabilizer 4) and every node is exactly gapless; at the root clock the 12 node channels form 3 isospectral classes (sizes [8, 2, 2]): the Floquet-pinned levels are identical everywhere, the intermediate levels permute between classes (the V128 index-3 point-group defect); the Wilson phase is equal at all nodes, so the n_nodes = 3 unification solutions of V65/V68 are realizable by ONE node per axis family at a single w. The index 3 EXISTS (3 axis families = 3 directions = bond period t mod 3) and labels the 3 copies of desert matter; it does NOT force the copy number. O3 stays a hypothesis, now with a named index.",
   "data": {
     "families": {
       "z": [
@@ -72,24 +72,23 @@
       ]
     },
     "spectral_classes": [
-      9,
-      1,
-      1,
-      1
+      8,
+      2,
+      2
     ],
     "spectral_spread_vs_first_class": {
       "[1.5708, 1.5708, 0.0]": 0.0,
-      "[1.5708, 0.0, 1.5708]": 1.047197551196577,
+      "[1.5708, 0.0, 1.5708]": 1.7763568394002505e-15,
       "[0.0, 1.5708, 1.5708]": 2.6645352591003757e-15,
-      "[1.5708, -1.5708, 0.0]": 2.220446049250313e-15,
-      "[1.5708, 0.0, -1.5708]": 1.0471975511965788,
-      "[0.0, 1.5708, -1.5708]": 1.7763568394002505e-15,
-      "[-1.5708, 1.5708, 0.0]": 1.7763568394002505e-15,
+      "[1.5708, -1.5708, 0.0]": 2.6645352591003757e-15,
+      "[1.5708, 0.0, -1.5708]": 2.220446049250313e-15,
+      "[0.0, 1.5708, -1.5708]": 1.0471975511965779,
+      "[-1.5708, 1.5708, 0.0]": 2.220446049250313e-15,
       "[-1.5708, 0.0, 1.5708]": 2.6645352591003757e-15,
-      "[0.0, -1.5708, 1.5708]": 1.7763568394002505e-15,
-      "[-1.5708, -1.5708, 0.0]": 2.220446049250313e-15,
-      "[-1.5708, 0.0, -1.5708]": 1.0471975511965779,
-      "[0.0, -1.5708, -1.5708]": 2.220446049250313e-15
+      "[0.0, -1.5708, 1.5708]": 1.047197551196577,
+      "[-1.5708, -1.5708, 0.0]": 1.0471975511965774,
+      "[-1.5708, 0.0, -1.5708]": 2.220446049250313e-15,
+      "[0.0, -1.5708, -1.5708]": 1.0471975511965783
     },
     "wilson_phase_equal_all_nodes": true,
     "counts": {

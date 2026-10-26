@@ -116,5 +116,5 @@
  "verdict": "PASS",
  "pass": true,
  "status": "DIRECT DETECTION CLOSES THE BOND-PORTAL OPTION (O7/F6). With V88's formula (regression to 1e-09), every bond number of the layer read as the Higgs-portal strength predicts sigma_SI = [2.5e-45, 6.3e-41, 1.4e-43, 4.9e-51, 6.7e-46] cm^2 - 14 of 15 exceed the LZ-class bound 1.5e-47 cm^2. The portal strength the relic itself needs (kappa = 0.3297) predicts 4.27e-45 cm^2, ABOVE the bound. The only portal that survives both the relic and direct detection is the V75 pair portal with its FITTED lambda_* = 3.53e-04 (sigma_SI = 4.9e-51 cm^2, unreachable); the exact-Z2 alternative is excluded. O7's portal strength remains a named input, and F6 stands as the falsifier: a next-generation null at sigma_SI < 1e-51 does not test it, and any positive signal above 1.5e-47 kills the named scalar with bond-strength portal.",
- "wall_s": 9.144822835922241
+ "wall_s": 7.075926780700684
 }

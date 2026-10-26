@@ -36,5 +36,5 @@
     "data_check_selects_n": false,
     "residual": "the 1-loop matching (O4) and the exact GUT coupling — the g_10 = 1/5 reading sits in the right order (within a factor 2 of the 1-loop GUT coupling)"
   },
-  "wall_time": 0.006
+  "wall_time": 0.004
 }

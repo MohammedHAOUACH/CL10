@@ -37,7 +37,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 9.584649801254272
+  "wall_time": 11.061496019363403
  },
  "checks": [
   {
@@ -53,6 +53,6 @@
    "pass": true
   }
  ],
- "status": "composite loop-scale test (10 s): V101 ground-state scale |E0| = 5802.398188 and V129 gap = 64.000000 read from their artifacts (V101 gap x g10 reproduces V251's omega row to 0.0e+00), target 1/(16 pi) = 1.9894e-02, acceptance band [0.015, 0.03] pre-registered; V259 kernel dim recomputed 0 and V260 branch NEVER-REALIZED. Branch NEVER-REALIZED. The composite gap does not exist (kernel empty: smallest C2 eigenvalue 45.000000), so no composite sector scale can play the role of the loop factor: the O8 loop-scale contact on the physical sector is NEVER-REALIZED by the pre-registered cascade.",
+ "status": "composite loop-scale test (11 s): V101 ground-state scale |E0| = 5802.398188 and V129 gap = 64.000000 read from their artifacts (V101 gap x g10 reproduces V251's omega row to 0.0e+00), target 1/(16 pi) = 1.9894e-02, acceptance band [0.015, 0.03] pre-registered; V259 kernel dim recomputed 0 and V260 branch NEVER-REALIZED. Branch NEVER-REALIZED. The composite gap does not exist (kernel empty: smallest C2 eigenvalue 45.000000), so no composite sector scale can play the role of the loop factor: the O8 loop-scale contact on the physical sector is NEVER-REALIZED by the pre-registered cascade.",
  "pass": true
 }

@@ -14449,6 +14449,6 @@
    "pass": true
   }
  ],
- "status": "dressed F2 contact (12 s): V252's interaction loop factor inserted into the ladder rule 3(16 pi F)^10 against the observed 2.0765641 at the unification point - 900 pairs (300 F x 3 g; the C_star leg never-realized (V249 STAR-CLOCK-QUANTIZED)). Branch F2-FIRED-X4: best ladder coefficient 1.279e+26 (dev 1.28e+26), best alpha_10 = 0.040000 (g = 0.2000, dev 6.94e-18) against bands 1.0e-03 / 4.0e-14: no (F_int, g) pair lands inside both bands - F2 stays fired under the interaction functional.",
+ "status": "dressed F2 contact (6 s): V252's interaction loop factor inserted into the ladder rule 3(16 pi F)^10 against the observed 2.0765641 at the unification point - 900 pairs (300 F x 3 g; the C_star leg never-realized (V249 STAR-CLOCK-QUANTIZED)). Branch F2-FIRED-X4: best ladder coefficient 1.279e+26 (dev 1.28e+26), best alpha_10 = 0.040000 (g = 0.2000, dev 6.94e-18) against bands 1.0e-03 / 4.0e-14: no (F_int, g) pair lands inside both bands - F2 stays fired under the interaction functional.",
  "pass": true
 }
