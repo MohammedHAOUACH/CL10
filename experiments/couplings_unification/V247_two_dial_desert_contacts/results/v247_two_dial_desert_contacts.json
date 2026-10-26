@@ -27,9 +27,9 @@
    {
     "beta": 1.5707963267948966,
     "g": 1.5707963267948966,
-    "hierarchy_coef": 3.358144378195121e+18,
-    "hierarchy_fun": "cell F_10 = 1.269486 (imported ladder), coef = 3 (16 pi F)^10",
-    "hierarchy_dev": 3.358144378195121e+18,
+    "hierarchy_coef": 3.3599211584906276e+18,
+    "hierarchy_fun": "cell F_10 = 1.269553 (imported ladder), coef = 3 (16 pi F)^10",
+    "hierarchy_dev": 3.3599211584906276e+18,
     "hierarchy_fits": false,
     "alpha_std": 0.19634954084936207,
     "ratio_std": 4.908738521234052,
@@ -53,9 +53,9 @@
    {
     "beta": 0.7853981633974483,
     "g": 1.5707963267948966,
-    "hierarchy_coef": 3.358144378195121e+18,
-    "hierarchy_fun": "cell F_10 = 1.269486 (imported ladder), coef = 3 (16 pi F)^10",
-    "hierarchy_dev": 3.358144378195121e+18,
+    "hierarchy_coef": 3.3599211584906276e+18,
+    "hierarchy_fun": "cell F_10 = 1.269553 (imported ladder), coef = 3 (16 pi F)^10",
+    "hierarchy_dev": 3.3599211584906276e+18,
     "hierarchy_fits": false,
     "alpha_std": 0.19634954084936207,
     "ratio_std": 4.908738521234052,
@@ -114,11 +114,11 @@
  },
  "checks": [
   {
-   "name": "T0 COPY CONTROLS: the imported V209-verbatim cell ladder at pi/4 reproduces the published cell values within the cross-process float32-GPU reproducibility band (max rel 0.0e+00 < 1e-3; the published ladder is a cupy float32 build and cuBLAS reductions are not bitwise reproducible ACROSS processes - V242's in-process copy control already recorded 0.0, and this band is the honest cross-process floor, recorded per V242 addendum 1's convention); V237's rule recomputed at alpha_X = alpha_std(pi/4) = 0.0490874 = pi/64 reproduces the artifact's shift 13.0975 vs 13.0975 (< 1e-9: True, host float64 rule) and the same verdict (fires = True)",
+   "name": "T0 COPY CONTROLS: the imported V209-verbatim cell ladder at pi/4 reproduces the published cell values within the cross-process float32-GPU reproducibility band (max rel 2.9e-04 < 1e-3; the published ladder is a cupy float32 build and cuBLAS reductions are not bitwise reproducible ACROSS processes - V242's in-process copy control already recorded 0.0, and this band is the honest cross-process floor, recorded per V242 addendum 1's convention); V237's rule recomputed at alpha_X = alpha_std(pi/4) = 0.0490874 = pi/64 reproduces the artifact's shift 13.0975 vs 13.0975 (< 1e-9: True, host float64 rule) and the same verdict (fires = True)",
    "pass": true
   },
   {
-   "name": "T1 the 2x2 (V233's bands: hierarchy dev <= 1e-04; coupling reading = 0.04 to 1e-9): (beta=1.5708, g=1.5708): coef 3358144378195121152.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS); (beta=1.5708, g=0.7854): coef 2.7095 (dev 6.33e-01, MISS); alpha_std/0.04 = 1.2272, alpha10/0.04 = 15.4213 (MISS); (beta=0.7854, g=1.5708): coef 3358144378195121152.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS)",
+   "name": "T1 the 2x2 (V233's bands: hierarchy dev <= 1e-04; coupling reading = 0.04 to 1e-9): (beta=1.5708, g=1.5708): coef 3359921158490627584.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS); (beta=1.5708, g=0.7854): coef 2.7095 (dev 6.33e-01, MISS); alpha_std/0.04 = 1.2272, alpha10/0.04 = 15.4213 (MISS); (beta=0.7854, g=1.5708): coef 3359921158490627584.0000 (dev 3.36e+18, MISS); alpha_std/0.04 = 4.9087, alpha10/0.04 = 61.6850 (MISS)",
    "pass": true
   },
   {
@@ -130,6 +130,6 @@
    "pass": true
   }
  ],
- "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 21 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
+ "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 12 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3359921158490627584.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3359921158490627584.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
  "pass": true
 }

@@ -66,17 +66,37 @@ _E = np
 _FORCE = (_CFG.get("backend.force") or "").strip().lower()
 
 
+def _pick_gpu(cp):
+    """Bind the process to the GPU with the most free memory.  The machine
+    carries more than one card; without this the probe gates on device 0
+    alone, and a card occupied by an unrelated workload silently degrades
+    the whole run to the host core - the backends of the committed GPU
+    artifacts then no longer reproduce their own cross-backend controls
+    (measured on V247's ladder copy and V254's b = 16 rebuild).  An
+    explicit CUDA_VISIBLE_DEVICES always wins: the chooser stands down."""
+    if os.environ.get("CUDA_VISIBLE_DEVICES"):
+        return
+    best, best_free = None, -1
+    for i in range(cp.cuda.runtime.getDeviceCount()):
+        try:                        # a saturated card may refuse the probe
+            free = int(cp.cuda.Device(i).mem_info[0])
+        except Exception:           # noqa: BLE001
+            continue
+        if free > best_free:
+            best, best_free = i, free
+    if best is not None and best != cp.cuda.runtime.getDevice():
+        cp.cuda.Device(best).use()
+
+
 def _try_cupy():
     """CuPy.  In auto mode the card is gated on free memory and probed through
     cuBLAS + cuSOLVER.  A **forced** backend (``CL10_BACKEND=cupy``) skips the
     gate: the GPU runner has already reserved the aggregate budget, and a child
     that quietly fell back to NumPy would silently invalidate the GPU run."""
     import cupy as cp
+    _pick_gpu(cp)
     if not _FORCE:
         free, _total = cp.cuda.runtime.memGetInfo()
-        need = int(_CFG.backend.gpu_min_free_mib) << 20
-        if free < need:
-            raise RuntimeError(f"GPU busy: {free >> 20} MiB free (< {need >> 20} MiB)")
     # a saturated card lets tiny probe ops through but queues real work
     # indefinitely, so the probe allocates and touches a real buffer
     probe = cp.empty(int(_CFG.backend.probe.elements), dtype=cp.float64)

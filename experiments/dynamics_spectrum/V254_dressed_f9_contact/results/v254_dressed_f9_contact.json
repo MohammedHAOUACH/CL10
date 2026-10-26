@@ -354,6 +354,6 @@
    "pass": true
   }
  ],
- "status": "dressed F9 contact at the deepest cut (390 s): the b = 16 downfold of the dressed step, measured at 12 M nodes + 13 star loci x 12 rays (rebuild reproduces V253's A(b = 16) to 0.0e+00). Branch F9-STILL-FIRED: best dvv = 0.0033 (node [1.5707963267948966, 0.0, -1.5707963267948966]) vs the SME bound 8.0e-15 - ratio 4.102e+11: the dressed step does not linearize the cone - F9 stays fired at the deepest measured cut.",
+ "status": "dressed F9 contact at the deepest cut (377 s): the b = 16 downfold of the dressed step, measured at 12 M nodes + 13 star loci x 12 rays (rebuild reproduces V253's A(b = 16) to 0.0e+00). Branch F9-STILL-FIRED: best dvv = 0.0033 (node [1.5707963267948966, 0.0, -1.5707963267948966]) vs the SME bound 8.0e-15 - ratio 4.102e+11: the dressed step does not linearize the cone - F9 stays fired at the deepest measured cut.",
  "pass": true
 }
