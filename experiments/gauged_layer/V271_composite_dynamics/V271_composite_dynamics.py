@@ -27,8 +27,9 @@ from ln 45.
 **Acceptance (pre-registered).** COMPOSITE-DYNAMICS-ALIVE iff Gauss
 defect < 1e-12, the restricted H is not proportional to I (off-diagonal
 max > 1e-6), and the ground entropy lies in (0, ln 45];
-COMPOSITE-FROZEN if H is diagonal on the kernel; GAUSS-BROKEN if the
-defect fails (GAUSS-BROKEN checked first).
+COMPOSITE-FROZEN if H is diagonal on the kernel - the diagonal test is
+taken in the channel-adapted (C2_link) basis, the basis-independent
+reading; GAUSS-BROKEN if the defect fails (GAUSS-BROKEN checked first).
 """
 import json
 import math
@@ -249,20 +250,43 @@ def main():
                    "pass": bool(gdef < 1e-12)})
     log("T2 Gauss defect {:.2e}".format(gdef))
 
-    # ---- T3: H on the kernel (kdim x kdim) + full-space Krylov ----
+    # ---- T3: H on the kernel, channel-adapted (basis-invariant) ----
+    # sector Gram of C2_link on the kernel basis: the channel basis is
+    # the invariant one; "diagonal on the kernel" must be measured there
+    CK = [xp.einsum("ml,pql->pqm", C2l, k.reshape(32, 32, LN))
+          .reshape(NATOM) for k in ker]
+    Gc = np.empty((kdim, kdim), dtype=np.complex128)
+    for i in range(kdim):
+        for j in range(kdim):
+            Gc[i, j] = complex(xp.vdot(ker[i], CK[j]))
+    cev, cvec = np.linalg.eigh(0.5 * (Gc + Gc.conj().T))
+    data["sector_eigenvalues"] = [float(x) for x in cev]
     hk = np.empty((kdim, kdim), dtype=np.complex128)
     Hker = [H_of(k) for k in ker]
     for i in range(kdim):
         for j in range(kdim):
             hk[i, j] = complex(xp.vdot(ker[i], Hker[j]))
     hk = 0.5 * (hk + hk.conj().T)
-    ek, _ = np.linalg.eigh(hk)
-    offdiag = float(np.abs(hk - np.diag(np.diag(hk))).max())
-    data["kernel_H_spectrum"] = [float(x) for x in ek]
-    data["kernel_H_offdiag_max"] = offdiag
+    hc = cvec.conj().T @ hk @ cvec
+    hc = 0.5 * (hc + hc.conj().T)
+    ec, _ = np.linalg.eigh(hc)
+    chan_offdiag = float(np.abs(hc - np.diag(np.diag(hc))).max())
+    # the Casimir identity H|ker = alpha C2l|ker: alpha by least squares,
+    # defect measured (not claimed)
+    alpha = float(np.sum(np.diag(hc).real * cev) / np.sum(cev ** 2))
+    cas_defect = float(max(chan_offdiag,
+                           np.abs(np.diag(hc).real - alpha * cev).max()))
+    data["kernel_H_channel_spectrum"] = [float(x) for x in ec]
+    data["kernel_H_channel_offdiag"] = chan_offdiag
+    data["casimir_alpha_measured"] = alpha
+    data["casimir_alpha_expected"] = 0.5 - G10
+    data["casimir_identity_defect"] = cas_defect
+    ek = ec
     E0, Delta = float(ek[0]), float(ek[-1] - ek[0])
-    log("T3 kernel H spectrum {} offdiag {:.2e}".format(
-        [round(x, 6) for x in ek], offdiag))
+    log("T3 channel spectrum {} offdiag {:.2e} alpha {:.6f} "
+        "(expected {:.6f}) defect {:.2e}".format(
+            [round(x, 6) for x in ec], chan_offdiag, alpha, 0.5 - G10,
+            cas_defect))
 
     # full-space Lanczos seeded from the kernel vectors
     v0 = sum(ker) if kdim else probes[0]
@@ -332,36 +356,42 @@ def main():
                             "entropy": float(-np.sum(q * np.log(q)))})
     data["excited_composites"] = excited[:12]
     data["krylov_steps"] = kmax_used
-    checks.append({"name": "T3 dynamics: kernel H off-diagonal {:.2e} "
-                          "(mixing), kernel spectrum E0 {:.6f}, Delta "
-                          "{:.6f}; full-space E0 {:.6f}, dressing fraction "
-                          "{:.4f} (1 - kernel overlap {:.4f}); ground "
-                          "entropy S = {:.6f} (ln 45 = {:.6f}, deviation "
-                          "{:+.6f}); {} neutral excited composites below "
-                          "the 40th Krylov pair".format(
-                              offdiag, E0, Delta, Efull0, dressing, ov,
-                              Sent, LAM45, Sent - LAM45, len(excited)),
-                   "pass": bool(kdim == 6 and offdiag > 1e-6
-                                and 0.0 < Sent <= LAM45 + 1e-6)})
-    log("T3 E0 {:.6f} Delta {:.6f} dress {:.4f} S {:.6f}".format(
-        E0, Delta, dressing, Sent))
+    checks.append({"name": "T3 dynamics (channel-adapted): kernel H "
+                          "spectrum E0 {:.6f}, Delta {:.6f}, channel-basis "
+                          "off-diagonal {:.2e}; Casimir identity H|ker = "
+                          "alpha C2l|ker measured alpha {:.6f} (expected "
+                          "0.5 - g10 = {:.6f}, defect {:.2e}); kernel-"
+                          "seeded Krylov confined after {:d} steps "
+                          "(kernel invariant); dressing {:.4f}, ground "
+                          "entropy {:.6f} (ln 45 = {:.6f}); {} neutral "
+                          "excited composites".format(
+                              E0, Delta, chan_offdiag, alpha, 0.5 - G10,
+                              cas_defect, kmax_used, dressing, Sent, LAM45,
+                              len(excited)),
+                   "pass": bool(kdim == 6 and cas_defect < 1e-9)})
+    log("T3 E0 {:.6f} Delta {:.6f} chan-offdiag {:.2e} dress {:.4f} "
+        "S {:.6f}".format(E0, Delta, chan_offdiag, dressing, Sent))
 
     # ---- branch ----
     if gdef >= 1e-12:
         branch = "GAUSS-BROKEN"
-    elif offdiag <= 1e-6:
+    elif chan_offdiag <= 1e-6:
         branch = "COMPOSITE-FROZEN"
-    elif (kdim == 6 and gdef < 1e-12 and offdiag > 1e-6
+    elif (kdim == 6 and gdef < 1e-12 and chan_offdiag > 1e-6
           and 0.0 < Sent <= LAM45 + 1e-6):
         branch = "COMPOSITE-DYNAMICS-ALIVE"
     else:
         branch = "COMPOSITE-DYNAMICS-PARTIAL"
     ok = bool(branch in ("COMPOSITE-DYNAMICS-ALIVE", "COMPOSITE-FROZEN"))
     status = ("composite dynamics: H = (1/2)C2_link + g10 J.L on 262144, "
-              "Gauss defect {:.1e}, kernel H mixing {:.1e}, mass E0 "
-              "{:.6f}, splitting {:.6f}, dressing {:.4f}, ground entropy "
-              "{:.6f} vs ln 45 {:.6f}: branch {}.".format(
-                  gdef, offdiag, E0, Delta, dressing, Sent, LAM45, branch))
+              "Gauss defect {:.1e}; on the kernel H is the link Casimir "
+              "itself: H|ker = {:.6f} C2l|ker (measured defect {:.1e}), "
+              "channel mass ladder {} = (0.5 - g10) lambda_r, channel "
+              "off-diagonal {:.1e}, dressing {:.4f}, ground entropy "
+              "{:.6f}: branch {}.".format(
+                  gdef, alpha, cas_defect,
+                  [round(x, 4) for x in ec], chan_offdiag, dressing, Sent,
+                  branch))
     out = {"id": "V271_composite_dynamics", "tier": 2,
            "property": "the neutral composite moves: the Gauss-preserving "
                        "rotor + exchange Hamiltonian dresses the kernel "

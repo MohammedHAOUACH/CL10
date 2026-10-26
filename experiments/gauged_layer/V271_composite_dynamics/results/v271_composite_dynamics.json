@@ -1,0 +1,70 @@
+{
+ "id": "V271_composite_dynamics",
+ "tier": 2,
+ "property": "the neutral composite moves: the Gauss-preserving rotor + exchange Hamiltonian dresses the kernel sector (V271)",
+ "residual": false,
+ "programme": "V271",
+ "branch": "COMPOSITE-FROZEN",
+ "data": {
+  "gauss_defect": 7.698474841966662e-14,
+  "sector_eigenvalues": [
+   -6.85250389660881e-15,
+   9.805003252721338e-15,
+   64.00000000000001,
+   64.00000000000006,
+   96.0,
+   96.0000000000001
+  ],
+  "kernel_H_channel_spectrum": [
+   -1.62741518540497e-15,
+   3.583980488344855e-15,
+   19.199999999999996,
+   19.20000000000002,
+   28.80000000000003,
+   28.800000000000033
+  ],
+  "kernel_H_channel_offdiag": 7.198712170824134e-15,
+  "casimir_alpha_measured": 0.3000000000000001,
+  "casimir_alpha_expected": 0.3,
+  "casimir_identity_defect": 1.7763568394002505e-14,
+  "full_space_E0": -1.9810542095655137e-15,
+  "dressing_fraction": -4.440892098500626e-16,
+  "ground_overlap_with_kernel": 1.0000000000000004,
+  "ground_entropy": -0.0,
+  "excited_composites": [
+   {
+    "E": 19.200000000000003,
+    "delta_E": 19.200000000000006,
+    "entropy": 3.80666248977032
+   },
+   {
+    "E": 28.8,
+    "delta_E": 28.800000000000004,
+    "entropy": 5.347107530717469
+   }
+  ],
+  "krylov_steps": 3,
+  "lambda_210": 96.0,
+  "g10": 0.2,
+  "seed": "0x6C",
+  "fitted_inputs": [],
+  "backend": "cupy",
+  "wall_time": 202.67523336410522
+ },
+ "checks": [
+  {
+   "name": "T1 kernel recomputed with the V270 seed path: dim 6 (V270 dim 6), residual 2.1e-15 - cross-checked against the committed artifact",
+   "pass": true
+  },
+  {
+   "name": "T2 Gauss law [H, Q^a_tot] on the atom: max defect 7.70e-14 over 45 charges x 3 fixed probe states",
+   "pass": true
+  },
+  {
+   "name": "T3 dynamics (channel-adapted): kernel H spectrum E0 -0.000000, Delta 28.800000, channel-basis off-diagonal 7.20e-15; Casimir identity H|ker = alpha C2l|ker measured alpha 0.300000 (expected 0.5 - g10 = 0.300000, defect 1.78e-14); kernel-seeded Krylov confined after 3 steps (kernel invariant); dressing -0.0000, ground entropy -0.000000 (ln 45 = 3.806662); 2 neutral excited composites",
+   "pass": true
+  }
+ ],
+ "status": "composite dynamics: H = (1/2)C2_link + g10 J.L on 262144, Gauss defect 7.7e-14; on the kernel H is the link Casimir itself: H|ker = 0.300000 C2l|ker (measured defect 1.8e-14), channel mass ladder [np.float64(-0.0), np.float64(0.0), np.float64(19.2), np.float64(19.2), np.float64(28.8), np.float64(28.8)] = (0.5 - g10) lambda_r, channel off-diagonal 7.2e-15, dressing -0.0000, ground entropy -0.000000: branch COMPOSITE-FROZEN.",
+ "pass": true
+}
