@@ -1563,3 +1563,172 @@ deviations recorded.
 - No tag, no merge: `founding-repair` is pushed for the reader's
   decision.
 
+
+---
+
+# The dynamical-link refonte: pre-registrations V269–V274
+(fixed 2026-10-26, before any run; the refonte question is the reader's own:
+replace the frozen bond gate by a quantum link with its own dynamics)
+
+**The theory under test (the object of the refonte).** One vertex: the
+minimal neutral matter system of the root - a spinor pair (32 x 32, 1024
+states, committed charges T^a_pair = T^a (x) I + I (x) T^a from V79's
+plane_generators) - coupled to ONE DYNAMICAL Spin(10) link: a QLM-truncated
+link module L = 1 (+) 45 (+) 210, the fusion truncation of 45 (x) 45 (a
+declared truncation - a convention, not a fit), its generators built by
+Casimir projector from the committed adjoint operators (V79), never typed.
+The Gauss algebra is the committed C = T_pair + L (V79/V126 conventions).
+The dynamics (zero fitted parameters): rotor H_rot = (1/2) C2_link (rotor
+unit I = 1/2: a declared unit convention, lattice units - the only scale
+choice) plus the committed-clock exchange H_ex = g10 sum_a J^a (x) L^a,
+g10 = 0.2 the implemented clock. The physical composite sector = the
+kernel of C2_tot = sum_a (T^a_pair + L^a)^2 on 1024 x 256 = 262144,
+computed matrix-free (Lanczos on S = sum (Q^a)^2, tolerance 1e-9, fixed
+seed). Predicted kernel dim from the committed fusion arithmetic
+(V98/V99 controls, re-measured live in V269): m_1 = m_45 = m_210 = 2 in
+the pair, N_r = 1 in L, so dim ker = 2 + 2 + 2 = 6. This is the first
+theory version in which the neutral composite can be DYNAMICAL.
+
+## V269_dynamical_link_module (tier 1, hard, construction)
+
+**The question (pre-registered).** Does the truncated dynamical-link
+module 1 (+) 45 (+) 210 exist inside the root's own so(10): the Casimir
+projector of 45 (x) 45 isolating exactly dims [1, 45, 210] with three
+distinct Casimir eigenvalues, and do the 210-block generators close the
+committed algebra?
+
+**The object (closed input set).** Ls (45) adjoint link operators from
+V79; C2_2025 = sum (L^a (x) I + I (x) L^a)^2 on 45 (x) 45 by dense eigh;
+projectors P_r = eigenvector spans binned by eigenvalue; 210-algebra check
+P([L^a, L^b])P = i f^{abc} P L^c P on the block, band 1e-9; Jacobi/
+antisymmetry of f re-verified live (V79 control); pair multiplicities
+measured live: C2_pair spectrum on 1024, the degeneracy of the eigenvalues
+0 / 64 / lambda_210 must be m_1 = m_45 = m_210 = 2 (V98/V99 committed -
+recomputed, not read).
+
+**Measured (pre-registered).** The distinct Casimir eigenvalues of the
+2025-module (expect three at least in {1,45,210} sectors; lambda_210
+recorded as a measured number); the block dims; the 210-algebra defect;
+the pair multiplicities.
+
+**Acceptance (pre-registered).** LINK-MODULE-OK iff dims exactly
+[1, 45, 210] (Gram defect < 1e-9), three distinct eigenvalues, 210-algebra
+defect < 1e-9, multiplicities (2, 2, 2); LINK-MODULE-DEFECT otherwise.
+
+## V270_neutral_composite_sector (tier 1, hard, the refonte's first verdict)
+
+**The question (pre-registered).** Does the dynamical-link atom carry
+gauge-neutral composites - is ker C2_tot non-empty - and is its sector
+structure the predicted [2, 2, 2] under the link Casimir?
+
+**The object (closed input set).** V269's module; Q^a_tot = T^a_pair + L^a
+on 262144; S = sum_a (Q^a_tot)^2 matrix-free (kron-reshape matvec on
+(1024, 256)); Lanczos (fixed seed 0x6C, 600 steps max, restarts on
+stalling) counting eigenvalues < 1e-9; sector labels from the Gram of
+C2_link restricted to the kernel basis; entanglement S(pair|link) per
+kernel vector (reshape-SVD).
+
+**Measured (pre-registered).** Kernel dim (predicted 6); sector split
+(predicted {0: 2, 64: 2, lambda_210: 2}); the entropies: the r = 45 kernel
+vectors must sit at the committed intertwiner value ln 45 = 3.80666...
+(V98 control, band 1e-6); the r = 1 vectors at 0.
+
+**Acceptance (pre-registered).** COMPOSITE-ALIVE iff dim = 6 with the
+predicted split and the ln-45 control inside 1e-6; KERNEL-STILL-EMPTY iff
+dim = 0; UNEXPECTED-KERNEL otherwise, recorded (dim, split, entropies).
+
+## V271_composite_dynamics (tier 2, hard)
+
+**The question (pre-registered).** Once the composite exists, does it
+move: is the Gauss-preserving rotor + exchange Hamiltonian non-diagonal on
+the kernel (dressing), and what are the composite's mass, excitation
+splittings and ground entanglement?
+
+**The object (closed input set).** H = (1/2) C2_link (x) I_pair + g10
+sum J^a (x) L^a on the atom (262144, matrix-free); kernel basis from V270
+recomputed; H restricted to the kernel (6x6) eigh; the full-space first
+eigenpairs by Lanczos seeded from the kernel vectors (Krylov 800); the
+excited composite states = kernel-projected excited eigenvectors whose
+C2_tot expectation < 1e-9.
+
+**Measured (pre-registered).** [H, Q^a_tot] defect (must be < 1e-12 - the
+new theory's Gauss law, measured not claimed); the kernel spectrum
+(E0 mass, Delta splitting); the dressing fraction (1 - overlap of the H
+ground state with the pure rotor sector); the ground entropy S(pair|link);
+the entropy deviation from ln 45.
+
+**Acceptance (pre-registered).** COMPOSITE-DYNAMICS-ALIVE iff Gauss defect
+< 1e-12, the restricted H is not proportional to I (mixing > 1e-6), and
+the ground entropy lies in (0, ln 45]; COMPOSITE-FROZEN if H is diagonal
+on the kernel; GAUSS-BROKEN if the defect fails.
+
+## V272_dynamical_chain_block_rg (tier 2, hard)
+
+**The question (pre-registered).** Two dynamical-link composites sharing
+one link: is the chain neutral (predicted dim 12), and what effective
+coupling does the shared link generate between the two atoms (the
+candidate scale of the new theory)?
+
+**The object (closed input set).** Chain P1 (x) l (x) P2 with Gauss
+T1 + L = 0, T2 - L = 0: chain kernel constructed by singlet contraction
+of two V270 atom-kernel bases over the shared link (Gram to 1e-9;
+predicted dim sum_r m_r^2 = 12); chain H = (1/2) C2_l + g10 (J1.L + J2.(-L))
+in the contracted basis (matvec on 1024 x 256 and 1024 x 1024 x 256 blocks);
+interaction energy E_int = E_chain(ground) - 2 E_atom(ground); effective
+coupling rho = E_int / g10.
+
+**Measured (pre-registered).** Chain kernel dim (predicted 12, Gram
+defect); the atom-vs-chain ground energies; E_int; rho; the chain Gauss
+defect (both vertices, < 1e-12).
+
+**Acceptance (pre-registered).** CHAIN-ALIVE iff dim = 12 and Gauss defect
+< 1e-12 (else CHAIN-EMPTY / GAUSS-BROKEN); rho recorded either way.
+
+## V273_loop_factor_new_theory (tier 2, hard, O8-new)
+
+**The question (pre-registered).** Does the dynamical link BIRTH the
+missing loop factor: does any dimensionless composite-sector ratio land
+in the ladder band 1/(16 pi)?
+
+**The object (closed input set).** Candidates (fixed here): F1 = rho
+(V272 link-mediated coupling); F2 = Delta / E0 (V271 splitting over mass);
+F3 = the second-order link-mediated exchange between chain composites,
+J2/g10 with J2 = -<g| H_ex Q (E_g - H_atom)^{-1} Q H_ex |g> computed by
+Krylov (Lanczos-Stieltjes) on the atom resolvent seeded from the chain
+ground contraction, Krylov 800, seed 0x6C. Target 1/(16 pi) = 1.9894e-2,
+band [0.015, 0.03] (as V263's, same ladder convention).
+
+**Measured (pre-registered).** The three candidates; the closest
+|16 pi F - 1|; the Krylov convergence residual (60 vs 100-digit control
+on the resolvent quadratic form - mpmath, 5 fixed interior probes).
+
+**Acceptance (pre-registered).** LOOP-NEW-BORN iff any candidate inside
+the band; LOOP-NEW-UNBORN otherwise with the closest miss recorded.
+
+## V274_new_theory_ledger_conjunction (tier 6 / tier 5)
+
+**The question (pre-registered).** The ledger of the refonte (provenance
+of every booked number) and the new theory's own conjunction: three theory
+points (g10 = 0.2 implemented; g = pi/4 closed clock; g = 1/5 rung clock)
+x four legs (COMPOSITE-ALIVE, DYNAMICS-ALIVE, CHAIN-ALIVE, LOOP-BORN).
+
+**Acceptance (pre-registered).** Ledger NEW-THEORY-LEDGER with counts by
+class (the rotor unit and the truncation {1,45,210} book as CONVENTIONS -
+declared, named, not fitted); the conjunction branch NEW-CONJUNCTION-ALIVE
+iff one point passes all four legs, else NEW-CONJUNCTION-DEAD, per-leg
+table recorded.
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- The suite recount (198 -> 204) propagates to README.md, doc/reference.md,
+  experiments/README.md whether any route succeeds.
+- V270 decides the refonte: KERNEL-STILL-EMPTY would falsify the dynamical
+  link on the same ground as V259 (the centre obstruction would then be a
+  theorem of the LINK too, not only of the frozen gate); COMPOSITE-ALIVE
+  opens V271-V273 as the new physics; UNEXPECTED is recorded, not curated.
+- The truncation {1,45,210} and the rotor unit book as conventions
+  (declared before the run); nothing in this programme may be refitted to
+  land in the loop band; any dial touched reclassifies to fitted and
+  O8-new stays fired.
+- Only the six new experiments run (the reader's instruction); the
+  committed 198-experiment suite is NOT rerun by this programme.
