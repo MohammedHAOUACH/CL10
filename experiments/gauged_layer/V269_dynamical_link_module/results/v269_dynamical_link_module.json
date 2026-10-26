@@ -1,0 +1,79 @@
+{
+ "id": "V269_dynamical_link_module",
+ "tier": 1,
+ "property": "the truncated dynamical-link module 1(+)45(+)210 exists as an exact so(10) module inside the root (V269)",
+ "residual": false,
+ "programme": "V269",
+ "branch": "LINK-MODULE-OK",
+ "data": {
+  "c2_adjoint": 64.0,
+  "c2_spectrum": [
+   {
+    "value": 3.9968028886505635e-15,
+    "dim": 1,
+    "swap_parity": 0.9999999999999988
+   },
+   {
+    "value": 64.0,
+    "dim": 45,
+    "swap_parity": -1.0
+   },
+   {
+    "value": 80.00000000000001,
+    "dim": 54,
+    "swap_parity": 0.9999999999999998
+   },
+   {
+    "value": 96.0,
+    "dim": 210,
+    "swap_parity": 1.0
+   },
+   {
+    "value": 127.99999999999997,
+    "dim": 945,
+    "swap_parity": -1.0
+   },
+   {
+    "value": 144.0,
+    "dim": 770,
+    "swap_parity": 1.0
+   }
+  ],
+  "lambda_210": 96.0,
+  "adjoint_45_value": 64.0,
+  "sector_gram_defect": 1.7763568394002505e-15,
+  "c2_210_scalar_defect": 1.8474111129762605e-13,
+  "pair_multiplicities": {
+   "1": 2,
+   "45": 2,
+   "210": 2
+  },
+  "link_truncation": [
+   1,
+   45,
+   210
+  ],
+  "fitted_inputs": [],
+  "wall_time": 110.36639404296875
+ },
+ "checks": [
+  {
+   "name": "T0 V79 control live: f antisymmetry 0.0e+00, adjoint Hermiticity 0.0e+00, adjoint algebra defect 0.0e+00, C2(45) scalar dev 0.0e+00 (value 64.000000)",
+   "pass": true
+  },
+  {
+   "name": "T1 projector sectors isolated: dims [1, 45, 210] at eigenvalues {'1': 0.0, '45': 64.0, '210': 96.0} (singlet 4.0e-15, adjoint 64.000000 antisymmetric parity -1.000, 210 96.000000); Gram defect 1.8e-15; full 45(x)45 spectrum [(0.0, 1, 1.0), (64.0, 45, -1.0), (80.0, 54, 1.0), (96.0, 210, 1.0), (128.0, 945, -1.0), (144.0, 770, 1.0)]",
+   "pass": true
+  },
+  {
+   "name": "T2 210-block algebra: closure 1.0e-14, Hermiticity 6.7e-16, C2(210) = 96.000000 scalar dev 1.8e-13 (matches projector eigenvalue)",
+   "pass": true
+  },
+  {
+   "name": "T3 pair (32x32) isotypic counts at the measured Casimir values: singlet 2 (2 expected), adjoint 90 (90), 210 420 (420): multiplicities (2, 2, 2) vs V98/V99 (2, 2, 2)",
+   "pass": true
+  }
+ ],
+ "status": "dynamical-link module 1(+)45(+)210 built from the committed V79 generators by Casimir projector on 45(x)45 (110 s): C2 eigenvalues 0 / 64.000000 / 96.000000, dims [1, 45, 210], 210 algebra closes to 1.0e-14, pair multiplicities (2, 2, 2) re-measured. Branch LINK-MODULE-OK.",
+ "pass": true
+}

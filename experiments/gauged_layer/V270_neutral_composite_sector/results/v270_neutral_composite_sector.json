@@ -1,0 +1,60 @@
+{
+ "id": "V270_neutral_composite_sector",
+ "tier": 1,
+ "property": "the dynamical-link atom carries gauge-neutral composites and the sector structure is the predicted [2, 2, 2] (V270)",
+ "residual": false,
+ "programme": "V270",
+ "branch": "COMPOSITE-ALIVE",
+ "data": {
+  "lambda_210": 96.0,
+  "lanczos_steps": 500,
+  "kernel_below_tol": 6,
+  "next_eigenvalue_above_kernel": 35.99999999999992,
+  "kernel_dim": 6,
+  "kernel_residual_max": 2.103934600771746e-15,
+  "sector_eigenvalues": [
+   -6.85250389660881e-15,
+   9.805003252721338e-15,
+   64.00000000000001,
+   64.00000000000006,
+   96.0,
+   96.0000000000001
+  ],
+  "sector_leakage": 1.9841345370600763e-13,
+  "sector_split": {
+   "0.0000": 2,
+   "64.0000": 2,
+   "96.0000": 2
+  },
+  "entropies_by_sector": [
+   -0.0,
+   -0.0,
+   3.80666248977032,
+   3.8066624897703196,
+   5.3471075307174685,
+   5.3471075307174685
+  ],
+  "lam45_value": 64.0,
+  "lam210_value": 96.0,
+  "seed": "0x6C",
+  "fitted_inputs": [],
+  "backend": "cupy",
+  "wall_time": 181.85811614990234
+ },
+ "checks": [
+  {
+   "name": "T0 rebuild equals the committed V269 artifact: C2(45) 64.000000 vs 64.000000, lambda_210 96.000000 vs 96.000000 (band 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T1 Lanczos kernel of S on the 262144 atom: dim 6 (fusion prediction 6), residual max_a||Q psi| = 2.10e-15 < 1e-9, next eigenvalue 36.0000 above the kernel",
+   "pass": true
+  },
+  {
+   "name": "T2 sector split under C2_link: {'0.0000': 2, '64.0000': 2, '96.0000': 2} (predicted {0:2, 64:2, 96:2}); entropies [-0.0, -0.0, 3.806662, 3.806662, 5.347108, 5.347108] (ln 45 = 3.806662 control at 1e-6, ln 210 = 5.347108)",
+   "pass": true
+  }
+ ],
+ "status": "dynamical-link atom: pair (32x32) x link (1(+)45(+)210) dynamical module, neutral sector = ker sum_a (T_pair + L)^2 on 262144, Lanczos 500 steps seed 0x6C, 182 s: kernel dim 6 (fusion prediction 6), residual 2.1e-15, sector split {'0.0000': 2, '64.0000': 2, '96.0000': 2} under the link Casimir, entropies [-0.0, -0.0, 3.806662, 3.806662, 5.347108, 5.347108] (ln 45 committed control, 2.1e-15). Branch COMPOSITE-ALIVE.",
+ "pass": true
+}
