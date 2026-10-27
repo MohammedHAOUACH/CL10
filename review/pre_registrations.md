@@ -1732,3 +1732,95 @@ table recorded.
   O8-new stays fired.
 - Only the six new experiments run (the reader's instruction); the
   committed 198-experiment suite is NOT rerun by this programme.
+
+---
+
+# Off-kernel resolvent and certified ladder: pre-registrations V275–V276
+
+## V275_offkernel_exchange_resolvent (tier 2, hard, O8-new)
+
+**The question (pre-registered).** Does the second-order link-mediated
+exchange become nonzero when the resolvent is grown from the FULL
+off-kernel exchange span (the 540 individual vectors A_a k_i, C_a k_i,
+rank 360, recorded H-non-invariant by V273) instead of the 6 channel
+sums whose Krylov closed inside ker H?
+
+**The object (closed input set).** V273's atom verbatim (NATOM =
+1024 x 256 = 262144, channel-adapted kernel ker dim 6 via S_of Lanczos
+500 seed 0x6C, H_atom_of, AKv[a][i], CKv[a][i], Q_of). Seeds: the 540
+exchange vectors individually, kernel-projected, orthonormalized (rank
+recorded, expected 360). Block Krylov under H_atom_of, every step
+projected off ker and off the running basis (V273 machinery), cap
+MAXV = 1200, STEP_CAP = 40. If closed: F5 = J2/g10 by V273's T3
+four-term assembly with the 60/100-digit mpmath spectral control
+verbatim; min |E_g - spec(HU)| recorded. Target 1/(16 pi) = 1.9894e-2,
+band [0.015, 0.03] (same as V273/V263).
+
+**Measured (pre-registered).** rank of the 540-span (kernel-projected,
+SVD tol 1e-9; the check books the measured rank - V273 measured 360
+for the unprojected set and the note was an observation, not a gate);
+growth table, closure flag, invariant residual; F5 (exact if closed;
+truncated Rayleigh-Ritz sandwich if capped, labelled not-bookable);
+|16 pi F5 - 1|; mpmath 60-vs-100 control.
+
+**Acceptance (pre-registered).** OFFKERNEL-LOOP-BORN iff closed and F5
+inside the band; OFFKERNEL-UNBORN iff closed and outside (closest miss
+recorded); OFFKERNEL-GROWS iff still growing at MAXV (growth table is
+the evidence, no bookable number). The experiment passes in every
+branch except a crash or an atom-kernel block: the physics verdict is
+the branch, not the suite gate (the V273 convention).
+
+## V276_certified_ladder_208 (tier 4, O8)
+
+**The question (pre-registered).** Does the certified closed branch
+(V200-V204 machinery) support the published hierarchy coefficient
+without the n = 10 read, and is the certified crossing n* = 208
+arithmetically derived?
+
+**The object (closed input set).** V203's hop_machinery(G_CLOSED) +
+loop_ratios(G, cartan, Ma, ev, G10_REF, 260) imported verbatim (same
+import path V204 uses); artifacts V204 (machinery, rungs, coefficient),
+V108 (coefficient_predicted_3_F10_10, coefficient_observed, F_10_root),
+V197 (ladder_rows). All float64 machinery + mpmath (60 dp) arithmetic
+continuations only.
+
+**Measured (pre-registered).** T0 reproduction: rho, crossing_n, odd-n
+max vs the V204 artifact. T1 ladder read: coef_pred = 3*(16 pi F)^10
+evaluated at F := F_10_open_branch (0.019186391026184392), F :=
+F_cross (0.01968515418112789), and F := geometric continuation
+F_10_geom from (rho, F_cross) per the measured F_n direction (the
+continuation direction is read from the loop_ratios construction and
+booked explicitly); each against coefficient_observed = 2.076564111173832.
+T2 208-arithmetic: mpmath PSLQ over Q on {1, rho, ..., rho^4} (degree
+<= 4, height cap 1e4, 60 dp); geometric crossing n*_geom from
+(F_10_open_branch, rho) along the booked direction - record
+|n*_geom - 208| with the float64 uncertainty band of rho propagated;
+factor census 208 = 2^4 * 13, divisibility by the closed-clock orders
+(8 | 208) and by the V197 rungs.
+
+**Acceptance (pre-registered).** T0 fail (any of |rho - rho_art| >
+1e-9, crossing_n != 208, odd max > 1e-12) -> MACHINERY-DRIFT: halt the
+programme, report, do not interpret anything downstream. Ladder leg:
+LADDER-CERTIFIED iff the F_cross read is within 2 % of
+coefficient_observed; else LADDER-N10-CONVENTION (both readings
+recorded). 208 leg: CROSSING-ALGEBRAIC iff PSLQ finds an exact
+relation AND |n*_geom - 208| < 1e-6; else CROSSING-MEASURED.
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- The suite recount (204 -> 206) propagates to README.md,
+  experiments/README.md, doc/final_publication.md Appendix B,
+  manuscript section 24, whether any route succeeds.
+- The reclassification clause: iff V275 in {OFFKERNEL-UNBORN,
+  OFFKERNEL-GROWS} and the V276 208-leg is CROSSING-MEASURED, the
+  ladder base 1/(16 pi) is reclassified from derived to a declared
+  named input of the scale sector (status CONVENTION in the ledger,
+  alongside the O9 measurement input), and no further O8-mechanism GPU
+  experiments are booked.
+- Nothing in this programme may be refitted to land in the loop band;
+  any dial touched reclassifies to fitted.
+- Only the two new experiments (V275, V276) interpret the result; the
+  committed 204-experiment suite is rerun once by the roll-up to
+  re-gate the whole (206 expected).
+- V276 T0 is ground truth for the published V204 audit: any drift
+  halts interpretation of everything downstream.
