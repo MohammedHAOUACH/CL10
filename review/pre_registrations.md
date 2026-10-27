@@ -1824,3 +1824,41 @@ relation AND |n*_geom - 208| < 1e-6; else CROSSING-MEASURED.
   re-gate the whole (206 expected).
 - V276 T0 is ground truth for the published V204 audit: any drift
   halts interpretation of everything downstream.
+
+---
+
+## Retirement note (2026-10-27, after the V276 roll-up; reader instruction)
+
+The reader ordered the removal of experiments whose routes later work
+showed to lead nowhere. The following O8 dead-end mechanism
+experiments were retired, scripts and booked artifacts alike (git
+history keeps the measurements and their dates verbatim):
+
+- V231_star_loop_functional_certified (star-module loop census: no
+  certified loop factor);
+- V232_insertion_amplitude_search (no closed-form insertion amplitude
+  anywhere on the closed lattice);
+- V242_bz_loop_factor_census and V243_bz_hierarchy_contact
+  (Brillouin-zone route: NO-LOOP-FACTOR / HIERARCHY-UNREAD);
+- V263_composite_loop_scale (the composite loop numerator does not
+  exist);
+- V273_loop_factor_new_theory (LOOP-NEW-UNBORN; superseded by V275's
+  larger closed off-kernel resolvent).
+
+Consumers were rewired to surviving inputs, and every rewired script
+was re-run with its branch unchanged: V247 and V255 inline the
+V209-verbatim cell-ladder functional (V209's own artifact keeps the
+published pi/4 cell values as the copy-control target); V248 dropped
+the BZ ledger row (counts rebooked); V267 re-reads the scale
+denominators from V101/V129/V251 directly and re-verifies the
+V101-gap-times-g10 = omega identity itself; V268 dropped the
+never-realized loop-scale leg (three legs, CONJUNCTION-DEAD unchanged);
+V274 re-declared the V273 block-Krylov machine verbatim (it already
+carried it) and its T0 artifact set is now V269-V272 plus V275.
+
+Suite: 200 experiments. The full 206-experiment re-gate pre-registered
+for the V275/V276 roll-up was cancelled by the same instruction and
+NOT executed; the committed artifacts of the remaining 200 are
+untouched by this retirement, and no published claim survives that
+cited a retired artifact except with an explicit retired-with-date
+annotation.

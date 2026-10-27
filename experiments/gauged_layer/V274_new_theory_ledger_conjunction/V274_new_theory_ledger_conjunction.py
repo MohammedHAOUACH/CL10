@@ -9,8 +9,8 @@ conjunction: three theory points (g10 = 0.2 implemented; g = pi/4 closed
 clock; g = 1/5 rung clock) x four legs (COMPOSITE-ALIVE, DYNAMICS-ALIVE,
 CHAIN-ALIVE, LOOP-BORN).
 
-**The object (closed input set).** Artifacts V269-V273 plus live
-re-computation per point.  The atom kernel of S = C2tot is
+**The object (closed input set).** Artifacts V269-V272 and V275 plus
+live
 g-independent by construction (S is the total Casimir: no coupling in
 it), so it is recomputed once and booked at every point; the chain
 kernel of the 90 charges is built on the same slice and is likewise
@@ -18,7 +18,10 @@ g-independent.  What is re-measured at each point: the ladder test of
 H(g) on the kernel ((1/2 - g) lambda_r), the full-space ground E0(g)
 (Lanczos 500, seed 0x6C), the ground of the chain Hc(g) with its
 materialized Gauss defect over all 90 charges, rho(g) = E_int/g, and
-Q H(g) Q measured by the V273 declared machine - block Krylov from the
+Q H(g) Q measured by the block-Krylov machine declared here (the machine
+V273 pre-registered, re-declared verbatim; V273 was retired 2026-10-27
+with the O8 dead-end family and its off-kernel-span extension is V275) -
+from the
 channel exchange sums, booked only on an exact closure (closure residual
 < 1e-8) with the mpmath 60/100-digit spectral control on the closed
 space; partner pairings from the ground of Hc(g)).
@@ -93,11 +96,11 @@ def main():
     v270 = art("V270_neutral_composite_sector")
     v271 = art("V271_composite_dynamics")
     v272 = art("V272_dynamical_chain")
-    v273 = art("V273_loop_factor_new_theory")
+    v275 = art("V275_offkernel_exchange_resolvent")
     apass = {n: bool(a["pass"]) for n, a in
              (("V269", v269), ("V270", v270), ("V271", v271),
-              ("V272", v272), ("V273", v273))}
-    checks.append({"name": "T0 artifacts V269-V273 present, passing: {}".
+              ("V272", v272), ("V275", v275))}
+    checks.append({"name": "T0 artifacts V269-V272 and V275 present, passing: {}".
                    format(apass), "pass": all(apass.values())})
     data["artifact_pass"] = apass
 
@@ -283,7 +286,7 @@ def main():
     Hsv = E.asnumpy(HV)                               # (12, 6, 1024)
     K3d = xp.asarray(K3)  # (6, 1024, LN) device view for PHI
 
-    # the 540 exchange vectors (g-independent operators, V273 machine)
+    # the 540 exchange vectors (g-independent operators, declared machine)
     K3c = K.reshape(6, 32, 32, LN)
     AKv = np.empty((NP, 6, 32, 32, LN), dtype=np.complex128)
     CKv = np.empty((NP, 6, 32, 32, LN), dtype=np.complex128)
@@ -374,7 +377,7 @@ def main():
             gdef = max(gdef, d1, d2)
         D["chain_gauss_defect"] = gdef
         del PHI, hgvx
-        # F3(g): the V273 exchange at this g
+        # F3(g): the declared-machine exchange at this g
         rhoh = (hgv @ hgv.conj().T).conj()
         Jhgv = np.einsum("alb,ib->ail", Jh, hgv)
         Gh = np.einsum("jl,ail->aji", hgv.conj(), Jhgv)
@@ -610,11 +613,13 @@ def main():
          "source": "V272; per point here"},
         {"quantity": "F2 = Delta/E0 candidate",
          "class": "never-realized",
-         "source": "V273: E0 = 0 makes it undefined at the implemented "
-                    "point; finite elsewhere only where E0(g) != 0"},
+         "source": "V271's booked E0 = 0, re-measured per point in T1; "
+                    "undefined at the implemented point, finite elsewhere "
+                    "only where E0(g) != 0"},
         {"quantity": "F1 = rho, F3 = second-order exchange (loop "
                     "candidates)", "class": "measured",
-         "source": "V273; per point here"},
+         "source": "V274's own machine, per point (V273 retired; V275's "
+                   "off-kernel F5 booked alongside)"},
         {"quantity": "conjunction legs and table", "class": "measured",
          "source": "this experiment T2"},
     ]

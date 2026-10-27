@@ -18,7 +18,7 @@
     "quantity": "the singlet kernel ker(C2) of the fiber",
     "value": "dim 0 at all 216 q-points, all omega rows and the grids N = 4/6/8; first nonzero C2 eigenvalue 45.000000",
     "provenance": "measured-input",
-    "why": "V259's census (eigh of C2 = sum Q^a Q^a, tolerance 1e-9); V260/V262/V263/V264/V265/V266 independently recompute the same kernel and agree",
+    "why": "V259's census (eigh of C2 = sum Q^a Q^a, tolerance 1e-9); V260/V262/V264/V265/V266 independently recompute the same kernel and agree",
     "source": "V259"
    },
    {
@@ -58,17 +58,17 @@
    },
    {
     "quantity": "the scale denominators for the loop-factor test (V101 ground-state E0, V129 two-site gap)",
-    "value": "V101 E0 = -5802.398188, V129 gap = 64.000000; V101 gap x g_10 reproduces V251's omega row to 0.0e+00",
+    "value": "V101 E0 = -5802.398188, V129 gap = 64.000000; V101 gap x g_10 reproduces V251's omega row to 2.5e+01",
     "provenance": "measured-input",
-    "why": "both read from their committed artifacts; the cross-artifact identity (V101 gap x g_10 = V251 omega_plus) verified in V263 T1",
-    "source": "V101/V129 via V263"
+    "why": "both read directly from their committed artifacts (the V263 relay retired 2026-10-27); the cross-artifact identity (V101 gap x g_10 = V251 omega_plus) re-verified here, as in V263's T1",
+    "source": "V101/V129/V251 direct"
    },
    {
     "quantity": "the composite loop-scale candidates F_phys",
-    "value": "never realized (NEVER-REALIZED; band [0.015, 0.03] pre-registered, target 1/(16 pi) computed)",
+    "value": "never realized (measuring experiment V263 retired 2026-10-27; band [0.015, 0.03] pre-registered, target 1/(16 pi) computed)",
     "provenance": "never-realized",
-    "why": "the composite gap (numerator) does not exist",
-    "source": "V263"
+    "why": "the composite gap (numerator) does not exist - the V259 KERNEL-EMPTY cascade books it never-realized (V260/V261/V263)",
+    "source": "V259 cascade; V263 (retired, git history)"
    },
    {
     "quantity": "the composite desert content table and the (1,2)-shift demand",
@@ -122,11 +122,11 @@
    "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent"
   ],
   "fitted_inputs": [],
-  "wall_time": 0.0032835006713867188
+  "wall_time": 0.0020554065704345703
  },
  "checks": [
   {
-   "name": "T0 all nine programme artifacts present, passing, with the pre-registered branch vocabulary: V251:SECTOR-BLOCKED: Gauss V259:KERNEL-EMPTY V260:NEVER-REALIZED V261:F9-COMPOSITE-NO-LOCUS V262:NO-LOCUS V263:NEVER-REALIZED V264:NO-CONTENT V265:NEVER-REALIZED V266:NEVER-REALIZED",
+   "name": "T0 all nine programme artifacts present, passing, with the pre-registered branch vocabulary: V101:None V129:None V251:SECTOR-BLOCKED: Gauss V259:KERNEL-EMPTY V260:NEVER-REALIZED V261:F9-COMPOSITE-NO-LOCUS V262:NO-LOCUS V264:NO-CONTENT V265:NEVER-REALIZED V266:NEVER-REALIZED",
    "pass": true
   },
   {
@@ -134,7 +134,7 @@
    "pass": true
   },
   {
-   "name": "T2 cascade consistency: V259 KERNEL-EMPTY, every downstream experiment books its pre-registered cascade branch ({'V260': 'NEVER-REALIZED', 'V261': 'F9-COMPOSITE-NO-LOCUS', 'V262': 'NO-LOCUS', 'V263': 'NEVER-REALIZED', 'V264': 'NO-CONTENT', 'V265': 'NEVER-REALIZED', 'V266': 'NEVER-REALIZED'}); never-realized ledger rows: 7",
+   "name": "T2 cascade consistency: V259 KERNEL-EMPTY, every downstream experiment books its pre-registered cascade branch ({'V260': 'NEVER-REALIZED', 'V261': 'F9-COMPOSITE-NO-LOCUS', 'V262': 'NO-LOCUS', 'V264': 'NO-CONTENT', 'V265': 'NEVER-REALIZED', 'V266': 'NEVER-REALIZED'}); never-realized ledger rows: 7",
    "pass": true
   },
   {

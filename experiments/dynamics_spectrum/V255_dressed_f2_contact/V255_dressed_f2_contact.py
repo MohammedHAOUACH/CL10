@@ -16,8 +16,8 @@ signs - 96 candidates); theory points g in {pi/4, pi/2, 0.2} at
 beta = pi/4, plus the C_star clock only if V249 landed
 STAR-CLOCK-EXISTS (it landed STAR-CLOCK-QUANTIZED, so that leg is
 recorded never-realized); the observed hierarchy coefficient from
-cl10/config.yaml; V242's imported cell ladder for the T0 functional
-control; the bands 1e-3 (ladder) and V233's coupling band (1e-12 *
+cl10/config.yaml; the cell F_n ladder (V209-verbatim, inlined verbatim
+from the retired V242) for the T0 functional
 alpha_target).  T3 verifies beta-independence the V247 way: build
 two-dial steps, require the coupling readings bit-identical.
 
@@ -29,7 +29,6 @@ deviation, alpha_std/alpha10 deviation from 0.04.
 alternative quadrilemma with the interaction functional substituted);
 F2 stays fired.
 """
-import importlib.util
 import json
 import math
 import os
@@ -58,13 +57,57 @@ def art(name):
         return json.load(fh)
 
 
-def load_v242():
-    p = os.path.join(exp("V242_bz_loop_factor_census"),
-                     "V242_bz_loop_factor_census.py")
-    spec = importlib.util.spec_from_file_location("v242mod", p)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
+# --------------------------------------------------------------------------
+# the cell-ladder functional: V209 T2's float64 ladder, inlined verbatim
+# from the retired V242_bz_loop_factor_census (retired 2026-10-27 with the
+# O8 dead-end family).
+import numpy as np                                             # noqa: E402
+sys.path.insert(0, exp("V79_gauged_bond_layer"))
+from V79_gauged_bond_layer import (adjoint_link_operators,    # noqa: E402
+                                   root_generators,
+                                   structure_constants)
+from cl10 import clifford                                     # noqa: E402
+from cl10 import engine as E                                  # noqa: E402
+from cl10 import sm_qca                                       # noqa: E402
+
+D_L = 45
+D_S = int(_config.CFG.physics.n_internal)      # 32
+EIGS = (-32, -12, 4)
+HNP = [E.asnumpy(m) for m in clifford.generators()]
+CARNP = [1j * (HNP[a] @ HNP[a + 1]) for a in (0, 2, 4, 6, 8)]
+
+
+def cnorm32(K):
+    """V209's cnorm_np verbatim (32-dim, five Cartan planes)."""
+    return float(sum(abs(np.trace(C @ K)) for C in CARNP))
+
+
+def v209_cell_ladder(g, nmax=10):
+    """V209 T2's float64 ladder: G = internal map, Ma the link-traced
+    Casimir dressing, X = M G; F_n = cnorm(X^n)/cnorm(G^n)."""
+    G = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(),
+                                      g)).astype(np.complex128)
+    Ts = [E.asnumpy(t) for t in root_generators()]
+    f, _, _ = structure_constants(Ts)
+    Ls = [E.asnumpy(L) for L in adjoint_link_operators(f)]
+    TLf = sum(np.kron(T, L) for T, L in zip(Ts, Ls))
+    w, V = np.linalg.eigh(TLf)
+    P = []
+    for e in EIGS:
+        idx = np.argsort(np.abs(w - e))[:int({-32: 32, -12: 288, 4: 1120}[e])]
+        P.append(V[:, idx] @ V[:, idx].conj().T)
+    Gi = np.kron(G, np.eye(D_L, dtype=np.complex128))
+    Ma = [np.einsum("ajbj->ab", (Pa @ Gi).reshape(D_S, D_L, D_S, D_L)) / D_L
+          for Pa in P]
+    M = sum(p * m for p, m in
+            zip([np.exp(1j * (g / 2) * e) for e in EIGS], Ma))
+    X = M @ G
+    out, Bn, Gn = {}, np.eye(32, dtype=complex), np.eye(32, dtype=complex)
+    for n in range(1, nmax + 1):
+        Bn = Bn @ X
+        Gn = Gn @ G
+        out[n] = cnorm32(Bn) / cnorm32(Gn)
+    return out
 
 
 def _beta_invariant(gs):
@@ -89,9 +132,8 @@ def main():
     alpha_target = 0.04
     alpha_band = 1e-12 * alpha_target          # V233's fits band width
 
-    # T0 control: the V242 cell ladder at pi/2 reproduces V247's pi/2 row
-    v242mod = load_v242()
-    F10_cell = v242mod.v209_cell_ladder(math.pi / 2)[10]
+    # T0 control: the inlined cell ladder at pi/2 reproduces V247's pi/2 row
+    F10_cell = v209_cell_ladder(math.pi / 2)[10]
     _cell_coef = 3.0 * (16.0 * math.pi * F10_cell) ** 10
     _pi2_row = next(r for r in v247["data"]["two_by_two"]
                     if abs(r["g"] - math.pi / 2) < 1e-12)
@@ -136,7 +178,7 @@ def main():
 
     # ---------------- checks ---------------------------------------------
     checks.append({
-        "name": "T0 the ladder functional control: the imported V242 "
+        "name": "T0 the ladder functional control: the inlined V209-verbatim "
                 "cell ladder at pi/2 gives 3(16 pi F_10)^10 = {:.6g}, "
                 "reproducing V247's pi/2 row coefficient to {:.2e} "
                 "(V108 rule verbatim)".format(_cell_coef, _cell_dev),

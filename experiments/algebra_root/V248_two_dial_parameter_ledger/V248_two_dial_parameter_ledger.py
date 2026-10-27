@@ -10,8 +10,11 @@ fitted_inputs == []) or fitted? The Table-6-class counts per quantity,
 compared against the published Table 6 rows (V52's provenance_table, the
 artifact Table 6 is generated from).
 
-Closed inputs: only the programme's verdict artifacts (V239-V247 via
-cl10.paths.exp) and the V52 published rows. No new number is measured.
+Closed inputs: only the programme's verdict artifacts (V239-V241,
+V244-V247 via cl10.paths.exp; the V242/V243 artifacts were retired
+2026-10-27 with the O8 dead-end family, so their ledger row is dropped
+and the count drops with it) and the V52 published rows. No new number
+is measured.
 
 Branch `TWO-DIAL-LEDGER` (informational); `residual: true` iff a dial
 landed fitted. V240 landed MANIFOLD-EMPTY, so the would-be dials are
@@ -29,7 +32,6 @@ from cl10.paths import exp                                     # noqa: E402
 
 IDS = ["V239_two_dial_step_family", "V240_two_dial_velocity_manifold",
        "V241_two_dial_algebra_replication",
-       "V242_bz_loop_factor_census", "V243_bz_hierarchy_contact",
        "V244_icosahedral_node_census", "V245_enforced_isotropy_contact",
        "V246_lorentz_tuning_relevance", "V247_two_dial_desert_contacts"]
 
@@ -75,16 +77,6 @@ def main():
                "pre-registration these dials add no fitted parameter",
         "source": "V240"})
     ledger.append({
-        "quantity": "the BZ loop factor F_infinity",
-        "value": "0.142066.../0.144813... (n=256, N=32, implemented pair)",
-        "provenance": "measured-input",
-        "why": "a measured value of the functional at published clocks, "
-               "not an input to any claimed coefficient: V243 HIERARCHY-"
-               "UNREAD shows it misses the ladder reading by ~7.4x per "
-               "loop; V242 NO-LOOP-FACTOR. Table 6's hierarchy row is "
-               "UNCHANGED",
-        "source": "V242/V243"})
-    ledger.append({
         "quantity": "the tuning dial beta_t (degree-4 cancellation)",
         "value": "never realized (conditional skip)",
         "provenance": "never-realized",
@@ -125,9 +117,10 @@ def main():
             "NEW ROW (algebraic): two-dial closure set C (V239/V241)",
             "UNCHANGED (fitted): clock g_10 / g_obs - V247 extends F2's "
             "firing to the whole closed two-dial content",
-            "UNCHANGED (named residual): the ladder coefficient - V242/"
-            "V243 measure the BZ functional's miss (7.4x per loop), "
-            "closing nothing",
+            "UNCHANGED (named residual): the ladder coefficient - the "
+            "BZ-functional miss was measured by V242/V243 (retired "
+            "2026-10-27, in git history); the coefficient stays the named "
+            "O8 residual and declared named input, closing nothing",
             "NO NEW FITTED PARAMETERS: both would-be dials (vbar=1 "
             "manifold, beta_t) never realized (V240, V246)"],
         "fitted_inputs": []}
@@ -145,8 +138,8 @@ def main():
         f"gains NO new fitted parameter: the closure set C is algebraic "
         f"(V239/V241), the vbar = 1 dials (V240 MANIFOLD-EMPTY) and the "
         f"tuning dial beta_t (V246 conditional skip) are never-realized, "
-        f"the BZ loop factor is a measured value that closes nothing "
-        f"(V242/V243: 7.4x per loop off the ladder reading), the clock "
+        f"the BZ loop-factor row was measured by V242/V243 and retired "
+        f"with the O8 dead-end family (2026-10-27), closing nothing, the clock "
         f"row stays fitted exactly as published (V247 F2-FIRED-EXTENDED: "
         f"no closed point restores the 2x2), and the enforced node is an "
         f"algebraic structural fact that does not close F9 (V244/V245). "

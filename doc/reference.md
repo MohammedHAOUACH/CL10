@@ -138,7 +138,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **198** experiments in name order,
+`run_validation.py` runs all **200** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced residuals**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -156,9 +156,15 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (186/186 publication, 198 PASS of 198).**  Every
-experiment of the publication programme **passes**; the hard-tier verdict is
-positive. The 12 exploration experiments all pass, each recording its own
+**The result (188/188 publication; the artifacts on record are all PASS).**
+Every experiment of the publication programme on record **passes**; the
+hard-tier verdict is positive. Six O8 dead-end mechanism experiments
+(V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
+instruction and the pre-registered full-suite re-gate was cancelled with
+them (git history keeps the retired scripts, artifacts and their runs);
+the six downstream consumers rewired off those artifacts (V247, V248,
+V255, V267, V268, V274) each re-ran green afterwards, branch unchanged.
+The 12 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V175–V183, V191–V201) run on the host numpy
 core, so their verdicts do not depend on what else holds the GPU.
 Two cautions, stated in the paper (Appendix B): most of these checks are

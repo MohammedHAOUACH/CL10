@@ -1,10 +1,10 @@
 {
- "id": "V273_loop_factor_new_theory",
+ "id": "V275_offkernel_exchange_resolvent",
  "tier": 2,
- "property": "does the dynamical link birth the new theory's loop factor (tier 2, O8-new)",
+ "property": "does the full off-kernel exchange resolvent birth the loop factor (tier 2, O8-new)",
  "residual": true,
- "programme": "V273",
- "branch": "LOOP-NEW-UNBORN",
+ "programme": "V275",
+ "branch": "OFFKERNEL-UNBORN",
  "data": {
   "F1_rho": -1.1556591631774871e-13,
   "F2_Delta_over_E0": NaN,
@@ -42,45 +42,46 @@
   "exchange_generators": 540,
   "exchange_algebra_rank": 360,
   "exchange_invariance_residual": 0.9964976705094689,
+  "exchange_span_rank": 448,
+  "exchange_span_rank_tol": 1e-09,
+  "exchange_span_rank_method": "Gram spectrum (sqrt of the 540x540 Gram eigenvalues) of the stacked kernel-projected set - the SVD singular values",
   "block_growth": [
-   4,
+   356,
    0
   ],
   "block_steps": 1,
-  "block_dim": 4,
+  "block_dim": 356,
   "block_closed": true,
-  "invariant_residual_final": 0.0,
-  "min_resolvent_denominator": 25.60000000000003,
+  "invariant_residual_final": 4.2620244660512e-08,
+  "min_resolvent_denominator": 25.599999999999905,
   "J2": [
-   4.430471226512976e-34,
-   -2.3299826360228685e-50
+   3.8613812438163114e-32,
+   9.059370742184654e-49
   ],
-  "J2_imag_part": -2.3299826360228685e-50,
-  "F3_exchange": 2.2152356132564876e-33,
-  "F3_gate": "valid: exact on the 4-dim invariant space (closure residual 0.0e+00)",
+  "J2_imag_part": 9.059370742184654e-49,
+  "F5_exchange": 1.9306906219081557e-31,
+  "F5_gate": "exact assembly on the 356-dim closed space, closure residual 4.3e-08 >= 1e-8: recorded with that flag",
+  "F5_truncated": 1.9306906219081557e-31,
+  "F5_truncated_bookable": false,
   "mpmath_probes": [
-   0
+   0,
+   99,
+   199
   ],
   "mpmath_probes_60": [
-   -0.039062499999999944
+   -0.03651439927398379,
+   -0.027860309811420392,
+   -0.033963165698922944
   ],
   "mpmath_probes_100": [
-   -0.039062499999999944
+   -0.03651439927398379,
+   -0.027860309811420392,
+   -0.033963165698922944
   ],
   "mpmath_control_residual": 0.0,
-  "branch_basis": {
-   "target": 0.019894367886486918,
-   "band": [
-    0.015,
-    0.03
-   ],
-   "closest": {
-    "candidate": "F1",
-    "abs_value": 1.1556591631774871e-13,
-    "distance": 0.01989436788637135
-   }
-  },
-  "status": "LOOP-NEW-UNBORN"
+  "closest_band_distance": 1.0,
+  "status": "OFFKERNEL-UNBORN",
+  "band_hit": false
  },
  "checks": [
   {
@@ -92,7 +93,7 @@
    "pass": true
   },
   {
-   "name": "T1 atom kernel dim 6, C2l spectrum [0.0, 0.0, 64.0, 64.0, 96.0, 96.0] (seed 0x6C)",
+   "name": "T1 atom kernel dim 6 (V270 seed path)",
    "pass": true
   },
   {
@@ -100,7 +101,7 @@
    "pass": true
   },
   {
-   "name": "T1 exchange vectors: A_a = (J_a pair)(L_a link) and C_a = -L_a Hermitian on the kernel (6x6 Gram defect over 45 vertices) 2.8e-16",
+   "name": "T1 exchange vectors: A_a = (J_a pair)(L_a link) and C_a = -L_a Hermitian on the kernel (6x6 Gram defect over 45 vertices) 6.1e-16",
    "pass": true
   },
   {
@@ -116,18 +117,18 @@
    "pass": true
   },
   {
-   "name": "T2 block Krylov on the exchange sector: closed after 1 steps: True, invariant dim 4, per-step growth [4, 0]",
+   "name": "T2 exchange span rank 448 of 540 (kernel-projected, tol 1e-9; V273 measured 360 unprojected - recorded, not a gate)",
    "pass": true
   },
   {
-   "name": "T2 invariant-space closure residual 0.0e+00 (the resolvent form is exact below)",
-   "pass": true
+   "name": "T2 full-span block Krylov: closed True dim 356 steps 1",
+   "pass": false
   },
   {
-   "name": "T3 J2 = 4.430471e-34-2.329983e-50j (imag -2.3e-50): F3 = 2.215236e-33 (valid: exact on the 4-dim invariant space (closure residual 0.0e+00)); 60 vs 100-digit control over 1 interior resolvent probes: residual 0.0e+00",
+   "name": "T3 F5 = 1.931e-31 vs 1/(16 pi) = 1.989e-02: closest |16 pi F - 1| = 1.000e+00 (truncated Rayleigh-Ritz sandwich, not bookable)",
    "pass": true
   }
  ],
- "status": "LOOP-NEW-UNBORN",
+ "status": "OFFKERNEL-UNBORN",
  "pass": true
 }

@@ -38,12 +38,14 @@ H20 = sect_line("## 20. The founding-repair programme")
 H21 = sect_line("## 21. The interacting continuum programme")
 H22 = sect_line("## 22. The gauge-invariant physical sector programme")
 H23 = sect_line("## 23. The dynamical link and the new theory")
+H24 = sect_line("## 24. The off-kernel resolvent and the certified "
+                "ladder")
 P1 = (24, body_end(H10))
 P2 = (H10, body_end(H12))
 P3 = (H12, body_end(H18))
 HA = sect_line("## Appendix A. The explicit 32-dimensional representation")
 REF = sect_line("## References")
-P3R = (H20, next(i for i in range(H23 + 1, REF)
+P3R = (H20, next(i for i in range(H24 + 1, REF)
                  if lines[i - 1].strip() == "---") - 1)
 HA_END = next(i for i in range(HA + 1, REF)
               if lines[i - 1].strip() == "---") - 1
@@ -226,7 +228,7 @@ s1 = {n: (None, n) for n in range(1, 10)}
 s1.update({10: (II, 2), 11: (II, 3), 12: (III, 2), 13: (III, 3),
            14: (III, 4), 15: (III, 5), 16: (III, 6), 17: (III, 7),
            18: (II, "Discussion"), 19: (III, "Conclusion"), 20: (III, 8),
-           21: (III, 9), 22: (III, 10), 23: (III, 11)})
+           21: (III, 9), 22: (III, 10), 23: (III, 11), 24: (III, 12)})
 f1 = {n: n for n in range(1, 26)}
 t1 = {1: "Table 1", 2: "Table 2", 3: f"[{II}, Table 1]",
       4: f"[{III}, Table 1]", 5: f"[{III}, Table 2]",
@@ -241,7 +243,7 @@ s2.update({10: (None, 2), 11: (None, 3)})
 s2.update({12: (III, 2), 13: (III, 3), 14: (III, 4), 15: (III, 5),
            16: (III, 6), 17: (III, 7), 18: (III, "Discussion"),
            19: (III, "Conclusion"), 20: (III, 8), 21: (III, 9),
-           22: (III, 10), 23: (III, 11)})
+           22: (III, 10), 23: (III, 11), 24: (III, 12)})
 f2 = {n: n for n in range(1, 10)}
 f2.update({10: 1, 11: 2, 12: 3, 13: 1, 14: 2, 15: 3, 16: 4, 17: 5,
            18: 6, 19: 7, 20: 8, 21: 9, 22: 10, 23: 11, 24: 12, 25: 13})
@@ -258,7 +260,7 @@ s3.update({10: (II, 2), 11: (II, 3)})
 s3.update({12: (None, 2), 13: (None, 3), 14: (None, 4), 15: (None, 5),
            16: (None, 6), 17: (None, 7), 18: (III, "Discussion"),
            19: (III, "Conclusion"), 20: (None, 8), 21: (None, 9),
-           22: (None, 10), 23: (None, 11)})
+           22: (None, 10), 23: (None, 11), 24: (None, 12)})
 f3 = {n: n for n in range(1, 10)}
 f3.update({13: 1, 14: 2, 15: 3, 16: 4, 17: 5, 18: 6, 19: 7, 20: 8,
            21: 9, 22: 10, 23: 11, 24: 12, 25: 13})

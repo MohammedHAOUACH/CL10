@@ -15,8 +15,11 @@ denominators read from committed artifacts (measured-input).  The
 Table-6-class counts per quantity, against the published Table 6 rows
 (V52's provenance_table).
 
-Closed inputs: only the artifacts V251 and V259-V266 (cl10.paths.exp)
-and the V52 published rows.  No new number is measured.
+Closed inputs: the artifacts V101, V129, V251 and V259-V266
+(cl10.paths.exp; the V263 composite-loop relay was retired 2026-10-27
+with the O8 dead-end family, so its booked scales are re-read from
+their own committed artifacts here) and the V52 published rows.  No new
+number is measured.
 
 Branch `PHYSICAL-LEDGER` (informational); `residual: true` iff a
 quantity landed fitted (the pre-registration demands fitted_inputs ==
@@ -35,12 +38,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 
 from cl10.paths import exp                                     # noqa: E402
+from cl10 import coupling as _cpl                              # noqa: E402
 
-IDS = ["V251_gauged_two_particle_sector",
+
+IDS = ["V101_bond_current_ground_state", "V129_gauged_layer_gap",
+       "V251_gauged_two_particle_sector",
        "V259_singlet_kernel_census", "V260_composite_gap_ladder",
        "V261_composite_f9_contact",
        "V262_composite_chirality_statistics",
-       "V263_composite_loop_scale",
        "V264_composite_desert_content",
        "V265_composite_f8_contact",
        "V266_finite_size_convergence"]
@@ -85,7 +90,7 @@ def main():
         "4/6/8; first nonzero C2 eigenvalue {:.6f}".format(kdim, c2min),
         "measured-input",
         "V259's census (eigh of C2 = sum Q^a Q^a, tolerance 1e-9); "
-        "V260/V262/V263/V264/V265/V266 independently recompute the "
+        "V260/V262/V264/V265/V266 independently recompute the "
         "same kernel and agree",
         "V259")
     row("the composite band E0(q), min gap, gapless loci, dvv tensor",
@@ -127,23 +132,24 @@ def main():
         "-state E0, V129 two-site gap)",
         "V101 E0 = {:.6f}, V129 gap = {:.6f}; V101 gap x g_10 "
         "reproduces V251's omega row to {:.1e}".format(
-            arts["V263"]["data"]["scales"]["V101_E0"],
-            arts["V263"]["data"]["scales"]["V129_gap"],
-            arts["V263"]["data"]["scales"]
-            ["omega_consistency_defect"]),
+            arts["V101"]["data"]["E0"],
+            arts["V129"]["data"]["two_site"]["gap"],
+            abs(arts["V101"]["data"]["gap"] * _cpl.G10
+                - arts["V251"]["data"]["sensitivity"]["omega_rows"]
+                ["plus"])),
         "measured-input",
-        "both read from their committed artifacts; the cross-artifact "
-        "identity (V101 gap x g_10 = V251 omega_plus) verified in V263 "
+        "both read directly from their committed artifacts (the V263 "
+        "relay retired 2026-10-27); the cross-artifact identity (V101 "
+        "gap x g_10 = V251 omega_plus) re-verified here, as in V263's "
         "T1",
-        "V101/V129 via V263")
+        "V101/V129/V251 direct")
     row("the composite loop-scale candidates F_phys",
-        "never realized ({}; band [{}, {}] pre-registered, target "
-        "1/(16 pi) computed)".format(
-            br["V263"], arts["V263"]["data"]["band"][0],
-            arts["V263"]["data"]["band"][1]),
+        "never realized (measuring experiment V263 retired 2026-10-27; "
+        "band [0.015, 0.03] pre-registered, target 1/(16 pi) computed)",
         "never-realized",
-        "the composite gap (numerator) does not exist",
-        "V263")
+        "the composite gap (numerator) does not exist - the V259 "
+        "KERNEL-EMPTY cascade books it never-realized (V260/V261/V263)",
+        "V259 cascade; V263 (retired, git history)")
     row("the composite desert content table and the (1,2)-shift demand",
         "never realized ({})".format(br["V264"]),
         "never-realized",
@@ -211,14 +217,14 @@ def main():
     cascade_ok = empty and all(
         br[k] in ("NEVER-REALIZED", "NO-LOCUS", "F9-COMPOSITE-NO-LOCUS",
                   "NO-CONTENT")
-        for k in ("V260", "V261", "V262", "V263", "V264", "V265",
+        for k in ("V260", "V261", "V262", "V264", "V265",
                   "V266"))
     checks.append({
         "name": "T2 cascade consistency: V259 {}, every downstream "
                 "experiment books its pre-registered cascade branch "
                 "({}); never-realized ledger rows: {}".format(
                     br["V259"],
-                    {k: br[k] for k in ("V260", "V261", "V262", "V263",
+                    {k: br[k] for k in ("V260", "V261", "V262",
                                         "V264", "V265", "V266")},
                     sum(1 for r in ledger
                         if r["provenance"] == "never-realized")),

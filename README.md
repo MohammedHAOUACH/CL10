@@ -164,7 +164,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 198 experiments in 15 categories (186 publication + 12 alt_* exploration)
+├── experiments/              # the verification program: 200 experiments in 15 categories (188 publication + 12 alt_* exploration; six O8 dead-end mechanism experiments retired 2026-10-27, git history)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228)

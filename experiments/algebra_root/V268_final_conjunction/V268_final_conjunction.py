@@ -14,8 +14,10 @@ Three theory points: the implemented clock composite point (the V260
 loci at the published N = 6 grid, omega = 0 row), the N = 8 grid point
 (V266), and the coupling V251's omega (V251's sensitivity rows +- the
 V101-measured gap times g_10; V260 records the omega-row minima).
-Four legs: composite F8 (V265), composite F9 (V261), composite F2
-(V264), composite loop scale (V263).  A leg passes at a point iff the
+Three legs: composite F8 (V265), composite F9 (V261), composite F2
+(V264) - the fourth leg, composite loop scale (V263), was retired
+2026-10-27 with the O8 dead-end family; it was booked never-realized,
+so its removal changes no verdict.  A leg passes at a point iff the
 leg's artifact realizes it at that point AND the leg's own committed
 acceptance is met; never-realized legs never pass (pre-registered).
 
@@ -23,7 +25,7 @@ acceptance is met; never-realized legs never pass (pre-registered).
 theory point) with the per-leg deviations read from the artifacts.
 
 **Acceptance (pre-registered).**  COMPOSITE-CONJUNCTION-ALIVE iff any
-point passes all four legs; else CONJUNCTION-DEAD with the per-leg
+point passes all three legs; else CONJUNCTION-DEAD with the per-leg
 deviations recorded.
 """
 import json
@@ -60,7 +62,6 @@ def main():
            "V259_singlet_kernel_census", "V260_composite_gap_ladder",
            "V261_composite_f9_contact",
            "V262_composite_chirality_statistics",
-           "V263_composite_loop_scale",
            "V264_composite_desert_content",
            "V265_composite_f8_contact",
            "V266_finite_size_convergence",
@@ -98,15 +99,6 @@ def main():
         "deviation": v264["data"]["ratio"],
         "deviation_note": "(1,2)-shift demand / log-spacing (V237 "
                           "inequality)"}
-    v263 = arts["V263"]
-    legs["composite_loop_scale"] = {
-        "branch": v263["branch"],
-        "realized": v263["branch"] == "SCALE-LOOP-CANDIDATE",
-        "deviation": (None if v263["data"]["closest"] is None
-                      else v263["data"]["closest"]["dev_from_target"]),
-        "deviation_note": "closest |F_phys - 1/(16 pi)|; band {}".format(
-            v263["data"]["band"])}
-
     # ------------------------------------------------------ theory points
     v260 = arts["V260"]
     v266 = arts["V266"]
@@ -150,7 +142,7 @@ def main():
 
     # ------------------------------------------------------ checks
     checks.append({
-        "name": "T0 all ten program artifacts present and passing with "
+        "name": "T0 all nine program artifacts present and passing with "
                 "the pre-registered vocabulary: {}".format(
                     " ".join("{}:{}".format(k, v) for k, v in
                              sorted(br.items()))),
@@ -160,14 +152,14 @@ def main():
                 "{} entries, each carrying the leg branch, the pass "
                 "verdict and the deviation".format(
                     len(legs), len(points), len(table)),
-        "pass": bool(len(table) == 4 * 3 and all(
+        "pass": bool(len(table) == 3 * 3 and all(
             set(r) >= {"point", "leg", "branch", "passes", "deviation"}
             for r in table))})
     dead_cascade = kernel_empty and not any(L["realized"]
                                             for L in legs.values())
     checks.append({
         "name": "T2 verdict consistency: V259 {} -> no leg realized, so "
-                "no point can pass four legs: branch {} (pre-registered: "
+                "no point can pass three legs: branch {} (pre-registered: "
                 "KERNEL-EMPTY fires CONJUNCTION-DEAD)".format(
                     br["V259"], branch),
         "pass": bool((dead_cascade and branch == "CONJUNCTION-DEAD")
@@ -190,8 +182,9 @@ def main():
     status = (
         "final conjunction of the physical sector ({:.0f} s): three "
         "theory points (implemented-clock composite / N = 8 grid / "
-        "V251 omega coupling) x four legs (composite F9/F8/F2/loop-"
-        "scale). V259 landed {}; kernel omega- and grid-independent. "
+        "V251 omega coupling) x three legs (composite F9/F8/F2; the "
+        "loop-scale leg was retired with V263, never-realized). V259 "
+        "landed {}; kernel omega- and grid-independent. "
         "Branch {}: {}.").format(
             time.time() - t0, br["V259"], branch,
             "no leg is realized at any point - F2/F8/F9/O8 on the "
@@ -199,12 +192,12 @@ def main():
             "(the physical sector the Gauss law allows is empty), and "
             "the falsifiers stand on both sides of the construction"
             if branch == "CONJUNCTION-DEAD" else
-            "a named point passes all four legs; the contacts reopen "
+            "a named point passes all three legs; the contacts reopen "
             "on the physical sector and the theory must be rewritten "
             "there")
     out = {"id": "V268_final_conjunction",
            "tier": 5,
-           "property": "the four-leg conjunction of the composite "
+           "property": "the three-leg conjunction of the composite "
                        "contacts over the three physical-sector theory "
                        "points (V268)",
            "residual": True,

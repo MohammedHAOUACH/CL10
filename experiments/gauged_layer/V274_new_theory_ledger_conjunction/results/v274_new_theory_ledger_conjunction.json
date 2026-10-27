@@ -11,7 +11,7 @@
    "V270": true,
    "V271": true,
    "V272": true,
-   "V273": true
+   "V275": true
   },
   "kernel_dim": 6,
   "kernel_channels": [
@@ -218,12 +218,12 @@
    {
     "quantity": "F2 = Delta/E0 candidate",
     "class": "never-realized",
-    "source": "V273: E0 = 0 makes it undefined at the implemented point; finite elsewhere only where E0(g) != 0"
+    "source": "V271's booked E0 = 0, re-measured per point in T1; undefined at the implemented point, finite elsewhere only where E0(g) != 0"
    },
    {
     "quantity": "F1 = rho, F3 = second-order exchange (loop candidates)",
     "class": "measured",
-    "source": "V273; per point here"
+    "source": "V274's own machine, per point (V273 retired; V275's off-kernel F5 booked alongside)"
    },
    {
     "quantity": "conjunction legs and table",
@@ -241,7 +241,7 @@
  },
  "checks": [
   {
-   "name": "T0 artifacts V269-V273 present, passing: {'V269': True, 'V270': True, 'V271': True, 'V272': True, 'V273': True}",
+   "name": "T0 artifacts V269-V272 and V275 present, passing: {'V269': True, 'V270': True, 'V271': True, 'V272': True, 'V275': True}",
    "pass": true
   },
   {

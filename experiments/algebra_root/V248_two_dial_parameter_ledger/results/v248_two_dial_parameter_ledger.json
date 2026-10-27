@@ -22,13 +22,6 @@
     "source": "V240"
    },
    {
-    "quantity": "the BZ loop factor F_infinity",
-    "value": "0.142066.../0.144813... (n=256, N=32, implemented pair)",
-    "provenance": "measured-input",
-    "why": "a measured value of the functional at published clocks, not an input to any claimed coefficient: V243 HIERARCHY-UNREAD shows it misses the ladder reading by ~7.4x per loop; V242 NO-LOOP-FACTOR. Table 6's hierarchy row is UNCHANGED",
-    "source": "V242/V243"
-   },
-   {
     "quantity": "the tuning dial beta_t (degree-4 cancellation)",
     "value": "never realized (conditional skip)",
     "provenance": "never-realized",
@@ -54,12 +47,12 @@
    "algebraic": 2,
    "fitted_new": 0,
    "never_realized": 2,
-   "measured_input": 1
+   "measured_input": 0
   },
   "reclassification_flags_for_table6": [
    "NEW ROW (algebraic): two-dial closure set C (V239/V241)",
    "UNCHANGED (fitted): clock g_10 / g_obs - V247 extends F2's firing to the whole closed two-dial content",
-   "UNCHANGED (named residual): the ladder coefficient - V242/V243 measure the BZ functional's miss (7.4x per loop), closing nothing",
+   "UNCHANGED (named residual): the ladder coefficient - the BZ-functional miss was measured by V242/V243 (retired 2026-10-27, in git history); the coefficient stays the named O8 residual and declared named input, closing nothing",
    "NO NEW FITTED PARAMETERS: both would-be dials (vbar=1 manifold, beta_t) never realized (V240, V246)"
   ],
   "fitted_inputs": []
@@ -70,10 +63,10 @@
    "pass": true
   },
   {
-   "name": "T1 ledger counts: algebraic 2, new fitted 0, never-realized 2, measured-input 1; MANIFOLD-EMPTY clause honored: True",
+   "name": "T1 ledger counts: algebraic 2, new fitted 0, never-realized 2, measured-input 0; MANIFOLD-EMPTY clause honored: True",
    "pass": true
   }
  ],
- "status": "TWO-DIAL-LEDGER (zero fitted parameters, 0 s): the repaired theory gains NO new fitted parameter: the closure set C is algebraic (V239/V241), the vbar = 1 dials (V240 MANIFOLD-EMPTY) and the tuning dial beta_t (V246 conditional skip) are never-realized, the BZ loop factor is a measured value that closes nothing (V242/V243: 7.4x per loop off the ladder reading), the clock row stays fitted exactly as published (V247 F2-FIRED-EXTENDED: no closed point restores the 2x2), and the enforced node is an algebraic structural fact that does not close F9 (V244/V245). Table 6 flags: 1 new algebraic row, 2 unchanged rows, 0 new fitted rows.",
+ "status": "TWO-DIAL-LEDGER (zero fitted parameters, 0 s): the repaired theory gains NO new fitted parameter: the closure set C is algebraic (V239/V241), the vbar = 1 dials (V240 MANIFOLD-EMPTY) and the tuning dial beta_t (V246 conditional skip) are never-realized, the BZ loop-factor row was measured by V242/V243 and retired with the O8 dead-end family (2026-10-27), closing nothing, the clock row stays fitted exactly as published (V247 F2-FIRED-EXTENDED: no closed point restores the 2x2), and the enforced node is an algebraic structural fact that does not close F9 (V244/V245). Table 6 flags: 1 new algebraic row, 2 unchanged rows, 0 new fitted rows.",
  "pass": true
 }

@@ -13,16 +13,17 @@ rule read verbatim from V237's artifact)? beta enters the running
 nowhere - cl10/unification.py reads coupling.angle() only - stated AND
 verified numerically once through g10_from_root / pairwise_meeting_scales.
 
-Closed inputs: C from V241's/V239's artifacts; the V242 cell functional
-(imported ladder, per pre-registration "the cell F_n values of V242's
-record" - the functional used is recorded in data); the V233/V237/V209/
+Closed inputs: C from V241's/V239's artifacts; the cell F_n ladder
+(V209-verbatim, inlined here verbatim from the retired V242, per
+pre-registration "the cell F_n values of V242's record" - V242 was retired
+2026-10-27 with the O8 dead-end family, the functional used is recorded in
+data); the V233/V237/V209/
 V133 artifacts and bands; cl10/unification; config desert/sm/angle.
 
 Branch `F2-REPAIRED` iff some point passes both V233 bands AND V237's
 rule with fitted_inputs == []; else `F2-FIRED-EXTENDED` - the 2x2 and
 desert tables are the artifact.
 """
-import importlib.util
 import json
 import math
 import os
@@ -54,15 +55,59 @@ def art(name):
         return json.load(fh)
 
 
-def load_v242():
-    """the V242 module, for its V209-verbatim cell ladder functional (the
-    pre-registered fallback functional)."""
-    p = exp("V242_bz_loop_factor_census",
-            "V242_bz_loop_factor_census.py")
-    spec = importlib.util.spec_from_file_location("v242mod", p)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
+# --------------------------------------------------------------------------
+# the cell-ladder functional: V209 T2's float64 ladder, inlined verbatim
+# from the retired V242_bz_loop_factor_census (retired 2026-10-27 with the
+# O8 dead-end family).  The published pi/4 cell values it is copy-controlled
+# against remain booked in V209's artifact, so the T0 control below keeps
+# its targets; the import-site wording below is updated accordingly.
+sys.path.insert(0, exp("V79_gauged_bond_layer"))
+from V79_gauged_bond_layer import (adjoint_link_operators,    # noqa: E402
+                                   root_generators,
+                                   structure_constants)
+from cl10 import clifford                                     # noqa: E402
+from cl10 import engine as E                                  # noqa: E402
+from cl10 import sm_qca                                       # noqa: E402
+
+D_L = 45
+D_S = int(_config.CFG.physics.n_internal)      # 32
+EIGS = (-32, -12, 4)
+HNP = [E.asnumpy(m) for m in clifford.generators()]
+CARNP = [1j * (HNP[a] @ HNP[a + 1]) for a in (0, 2, 4, 6, 8)]
+
+
+def cnorm32(K):
+    """V209's cnorm_np verbatim (32-dim, five Cartan planes)."""
+    return float(sum(abs(np.trace(C @ K)) for C in CARNP))
+
+
+def v209_cell_ladder(g, nmax=10):
+    """V209 T2's float64 ladder: G = internal map, Ma the link-traced
+    Casimir dressing, X = M G; F_n = cnorm(X^n)/cnorm(G^n)."""
+    G = E.asnumpy(sm_qca.gut_qca_step(sm_qca.plane_generators(),
+                                      g)).astype(np.complex128)
+    Ts = [E.asnumpy(t) for t in root_generators()]
+    f, _, _ = structure_constants(Ts)
+    Ls = [E.asnumpy(L) for L in adjoint_link_operators(f)]
+    TLf = sum(np.kron(T, L) for T, L in zip(Ts, Ls))
+    w, V = np.linalg.eigh(TLf)
+    P = []
+    for e in EIGS:
+        idx = np.argsort(np.abs(w - e))[:int({-32: 32, -12: 288, 4: 1120}[e])]
+        P.append(V[:, idx] @ V[:, idx].conj().T)
+    Gi = np.kron(G, np.eye(D_L, dtype=np.complex128))
+    Ma = [np.einsum("ajbj->ab", (Pa @ Gi).reshape(D_S, D_L, D_S, D_L)) / D_L
+          for Pa in P]
+    M = sum(p * m for p, m in
+            zip([np.exp(1j * (g / 2) * e) for e in EIGS], Ma))
+    X = M @ G
+    out, Bn, Gn = {}, np.eye(32, dtype=complex), np.eye(32, dtype=complex)
+    for n in range(1, nmax + 1):
+        Bn = Bn @ X
+        Gn = Gn @ G
+        out[n] = cnorm32(Bn) / cnorm32(Gn)
+    return out
+
 
 
 def meet_solve(AX):
@@ -121,7 +166,6 @@ def main():
     v240 = art("V240_two_dial_velocity_manifold")
     v233 = art("V233_clock_arbitration")
     v237 = art("V237_desert_threshold_matching")
-    v242mod = load_v242()
 
     obs = float(CFG.physics.hierarchy_coefficient_observed)
     alpha_x = float(CFG.desert.alpha_x)
@@ -139,12 +183,13 @@ def main():
                     "MANIFOLD-EMPTY)" if v240["branch"] == "MANIFOLD-EMPTY"
                     else "C intersect M_v")
     data["dial_points"] = [{"beta": b, "g": g} for b, g in dials]
-    data["functional"] = ("cell F_n ladder (V209-verbatim, imported from "
-                          "V242) at the point's g; BZ F_infinity recorded "
-                          "as measured/not-measurable per V242")
+    data["functional"] = ("cell F_n ladder (V209-verbatim, inlined from "
+                          "the retired V242) at the point's g; the BZ "
+                          "F_infinity measurement (NO-LOOP-FACTOR) was "
+                          "retired with V242, recorded as history")
 
     # ---- T0 copy controls -------------------------------------------------
-    lad4 = v242mod.v209_cell_ladder(math.pi / 4)
+    lad4 = v209_cell_ladder(math.pi / 4)
     rel = [abs(lad4[2] - 65.7375639245203) / 65.7375639245203,
            abs(lad4[10] - 55.03411396157217) / 55.03411396157217]
     maxrel = max(rel)
@@ -153,14 +198,14 @@ def main():
     v237m = v237["data"]["matching"]
     desert_repro = abs(t0row["dz12_efolds"] - v237m["dz12_efolds"]) < 1e-9
     checks.append({
-        "name": f"T0 COPY CONTROLS: the imported V209-verbatim cell ladder "
+        "name": f"T0 COPY CONTROLS: the inlined V209-verbatim cell ladder "
                 f"at pi/4 reproduces the published cell values within the "
                 f"cross-process float32-GPU reproducibility band (max rel "
                 f"{maxrel:.1e} < 1e-3; the published ladder is a cupy "
                 f"float32 build and cuBLAS reductions are not bitwise "
-                f"reproducible ACROSS processes - V242's in-process copy "
-                f"control already recorded 0.0, and this band is the "
-                f"honest cross-process floor, recorded per V242 addendum "
+                f"reproducible ACROSS processes - the retired V242's "
+                f"in-process copy control recorded 0.0, and this band is "
+                f"the honest cross-process floor, per its addendum "
                 f"1's convention); V237's rule recomputed at alpha_X = "
                 f"alpha_std(pi/4) = {_cpl.alpha_std(math.pi / 4):.7f} = "
                 f"pi/64 reproduces the artifact's shift "
@@ -175,10 +220,10 @@ def main():
         if abs(g - math.pi / 4) < 1e-12:
             coef, cfun = pi4_cert, "V209 certified reading (via V233)"
         else:
-            lad = v242mod.v209_cell_ladder(g)
+            lad = v209_cell_ladder(g)
             F10 = lad[10]
             coef = 3.0 * (16.0 * math.pi * F10) ** 10
-            cfun = f"cell F_10 = {F10:.6f} (imported ladder), coef = 3 " \
+            cfun = f"cell F_10 = {F10:.6f} (inlined ladder), coef = 3 " \
                    f"(16 pi F)^10"
         a_std = _cpl.alpha_std(g)
         a10 = _cpl.alpha10(g)

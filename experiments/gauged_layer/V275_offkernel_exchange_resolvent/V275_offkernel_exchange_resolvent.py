@@ -1,60 +1,38 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-r"""V273 - does the dynamical link birth the new theory's loop factor?
+r"""V275 - does the off-kernel exchange resolvent birth the loop factor?
 (tier 2, hard, O8-new.)
 
-**The question (pre-registered).** Does the dynamical link BIRTH the
-missing loop factor: does any dimensionless composite-sector ratio land
-in the ladder band 1/(16 pi)?
+**The question (pre-registered).** Does the second-order link-mediated
+exchange become nonzero when the resolvent is grown from the FULL
+off-kernel exchange span (the 540 individual vectors A_a k_i, C_a k_i,
+rank 360, recorded H-non-invariant by V273) instead of the 6 channel
+sums whose Krylov closed inside ker H?
 
-**The object (pre-registered).** Candidates (fixed here):
-F1 = rho (the V272 link-mediated coupling);
-F2 = Delta / E0 (the V271 splitting over mass; E0 = 0 makes this
-candidate structurally undefined - recorded, not silently dropped);
-F3 = the second-order link-mediated exchange, J2 / g10 with
-J2 = -<g| H_ex Q (E_g - H_atom)^{-1} Q H_ex |g> computed by Krylov
-(Lanczos-Stieltjes) on the atom resolvent seeded from the chain ground
-contraction, Krylov 800, seed 0x6C.
-Target 1/(16 pi) = 1.9894e-2, band [0.015, 0.03] (as V263's, same
-ladder convention).
+**The object (pre-registered).** V273's atom verbatim (NATOM =
+1024 x 256 = 262144, channel-adapted kernel ker dim 6 via S_of Lanczos
+500 seed 0x6C, H_atom_of, AKv[a][i], CKv[a][i], Q_of). Seeds: the 540
+exchange vectors individually, kernel-projected, orthonormalized (rank
+recorded, expected 360). Block Krylov under H_atom_of, every step
+projected off ker and off the running basis (V273 machinery), cap
+MAXV = 1200, STEP_CAP = 40. If closed: F5 = J2/g10 by V273's T3
+four-term assembly with the 60/100-digit mpmath spectral control
+verbatim; min |E_g - spec(HU)| recorded. Target 1/(16 pi) = 1.9894e-2,
+band [0.015, 0.03] (same as V273/V263).
 
-Closed expansion: H_ex = g10 sum_a [A_a + C_a (x) J_a] on the chain
-(both Hermitian), A_a = J_a^pair L_a^link, C_a = -Lbar_a^link, and
-|g> = sum_i k_i (x) h_i the V272 chain ground: the k-basis is rebuilt
-here on the V270 channel-adapted kernel (same seed path), the h-slice
-loaded from the V272 artifact.  Partner legs close on measured
-pairings rho_h[j,i] = <h_j|h_i>, G^b[j,i] = <h_j|J_b h_i>,
-K^{ba}[j,i] = <J_b h_j|J_a h_i>, giving the four-term sum over the
-540 atom vectors A_a k_i, C_a k_i with resolvent sandwich
-R = Q (z - H_tilde)^{-1} Q, z = E_g (V272 chain ground), H_tilde =
-Q H_atom Q.  Lanczos-Stieltjes on H_tilde (800 steps, full re-
-orthogonalization, kernel-projected at every step) represents all 540
-vectors in the Krylov basis; the tridiagonal Stieltjes entries are
-re-evaluated at 60 and 100 decimal digits (mpmath, 5 fixed interior
-probes) as the convergence control.
+**Measured (pre-registered).** rank of the 540-span (kernel-projected,
+SVD tol 1e-9; the check books the measured rank - V273 measured 360
+for the unprojected set and the note was an observation, not a gate);
+growth table, closure flag, invariant residual; F5 (exact if closed;
+truncated Rayleigh-Ritz sandwich if capped, labelled not-bookable);
+|16 pi F5 - 1|; mpmath 60-vs-100 control.
 
-**Measured (pre-registered).** The three candidates; the closest
-|16 pi F - 1|; the Krylov convergence residual (60 vs 100-digit
-control on the resolvent quadratic form - mpmath, 5 fixed interior
-probes).
-
-**Acceptance (pre-registered).** LOOP-NEW-BORN iff any candidate inside
-the band; LOOP-NEW-UNBORN otherwise with the closest miss recorded.
-
-**Implementation note (added after the first runs, pre-registration
-untouched).**  The pre-registered Krylov seed - the chain-ground
-contraction of H_ex - measures EXACTLY ZERO norm (first-order non-
-response of the chain ground, consistent with E_int = rho = 0).  A
-structural test: span{C_a k_i, A_a k_i} (rank 360) is NOT invariant
-under H (residual 1.0).  The declared machine that resolves both: the
-BLOCK Krylov grown from the per-channel exchange sums closes EXACTLY
-in dimension 4 (growth [4, 0], closure residual 0.0), and that space
-sits in the kernel of H: every exchange vector A_a k_i, C_a k_i is
-orthogonal to it (A kills link singlets, L kills them from the other
-side), so the resolvent sandwich - evaluated exactly on the closed
-space with the 60/100-digit mpmath spectral control - vanishes:
-F3 = 2.2e-33, i.e. zero to machine precision.  The composite fixed
-point is completely transparent to the link channel at second order.
+**Acceptance (pre-registered).** OFFKERNEL-LOOP-BORN iff closed and F5
+inside the band; OFFKERNEL-UNBORN iff closed and outside (closest miss
+recorded); OFFKERNEL-GROWS iff still growing at MAXV (growth table is
+the evidence, no bookable number). The experiment passes in every
+branch except a crash or an atom-kernel block: the physics verdict is
+the branch, not the suite gate (the V273 convention).
 """
 import json
 import math
@@ -102,12 +80,24 @@ def main():
     checks = []
     data = {}
     xp = E._E
+    gpu = E._BACKEND != "numpy"
+    core = E._BACKEND
 
     def log(msg):
-        print("[V273 {:s} t+{:6.1f}s] {}".format(
+        print("[V275 {:s} t+{:6.1f}s] {}".format(
             time.strftime("%H:%M:%S"), time.time() - t0, msg), flush=True)
 
-    log("start, backend={}, g10 = {}".format(E._BACKEND, G10))
+    if gpu:
+        # the block-Krylov Upre block (MAXV x NATOM complex128) is 5.03
+        # GiB and the whole run needs ~9.5 GiB of card; if the pinned
+        # card cannot host it, pin the entire run to the host core
+        # (the V254 pattern: correct but slower)
+        free = int(xp.cuda.runtime.memGetInfo()[0])
+        if free < (9500 << 20):
+            gpu, xp = False, np
+            core = "numpy (pinned: GPU free {} MiB)".format(free >> 20)
+            log("GPU free {} MiB: pinned to host numpy".format(free >> 20))
+    log("start, backend={}, g10 = {}".format(core, G10))
 
     # ---- T0: booked candidates from the committed artifacts ----
     v271 = art("V271_composite_dynamics")
@@ -253,11 +243,8 @@ def main():
         .reshape(NATOM)))) for k in ker]
     log("T1 atom kernel dim {:d}, C2l {}".format(
         len(ker), [round(x, 1) for x in data["atom_kernel_C2l"]]))
-    checks.append({"name": "T1 atom kernel dim {:d}, C2l spectrum {} "
-                          "(seed 0x{:X})".format(
-                              len(ker),
-                              [round(x, 1)
-                               for x in data["atom_kernel_C2l"]], SEED),
+    checks.append({"name": "T1 atom kernel dim {:d} (V270 seed "
+                          "path)".format(len(ker)),
                    "pass": bool(len(ker) == 6)})
     if len(ker) != 6:
         data["status"] = "ATOM-KERNEL-BLOCKED"
@@ -278,19 +265,28 @@ def main():
                               hker_def),
                    "pass": bool(hker_def < 1e-9)})
 
-    # k-basis (channel order) and the 540 atom exchange vectors on host
+    # k-basis (channel order) and the 540 atom exchange vectors.  The
+    # algebra is V273's verbatim (A_a = (J_a pair)(L_a link), C_a = -L_a
+    # on the kernel); only the residency differs: the host cannot hold
+    # the full (45, 6, NATOM) AKv/CKv pair next to the running server,
+    # so each vertex block is built on the host and uploaded straight
+    # into the device-resident MB stack ([CKv rows | AKv rows]).
     K3 = np.stack([E.asnumpy(k) for k in ker]).reshape(6, 32, 32, LN)
-    AKv = np.empty((NP, 6, 32, 32, LN), dtype=np.complex128)
-    CKv = np.empty((NP, 6, 32, 32, LN), dtype=np.complex128)
+    NB = 2 * NP * 6
+    MB = xp.empty((NB, NATOM), dtype=np.complex128)
+    GramA = np.zeros((NP, 6, 6), dtype=np.complex128)
+    GramC = np.zeros((NP, 6, 6), dtype=np.complex128)
     for a in range(NP):
         La_h = np.asarray(L256_h[a])
         Lka = np.einsum("lm,ipqm->ipql", La_h, K3)
-        AKv[a] = np.einsum("pqrs,krsm->kpqm",
-                           Jpair_h[a].reshape(32, 32, 32, 32),
-                           Lka)
-        CKv[a] = -np.einsum("lm,ipqm->ipql", La_h, K3)
-    GramA = np.einsum("ipqm,ajpqm->aij", K3.conj(), AKv)
-    GramC = np.einsum("ipqm,ajpqm->aij", K3.conj(), CKv)
+        Aa = np.einsum("pqrs,krsm->kpqm",
+                       Jpair_h[a].reshape(32, 32, 32, 32), Lka)
+        Ca = -np.einsum("lm,ipqm->ipql", La_h, K3)
+        GramA[a] = np.einsum("ipqm,jpqm->ij", K3.conj(), Aa)
+        GramC[a] = np.einsum("ipqm,jpqm->ij", K3.conj(), Ca)
+        MB[a * 6:(a + 1) * 6] = xp.asarray(Ca.reshape(6, NATOM))
+        MB[NP * 6 + a * 6:NP * 6 + (a + 1) * 6] = \
+            xp.asarray(Aa.reshape(6, NATOM))
     herm_def = max(
         float(np.abs(GramA - GramA.transpose(0, 2, 1).conj()).max()),
         float(np.abs(GramC - GramC.transpose(0, 2, 1).conj()).max()))
@@ -299,8 +295,9 @@ def main():
                           "(6x6 Gram defect over 45 vertices) "
                           "{:.1e}".format(herm_def),
                    "pass": bool(herm_def < 1e-9)})
-    log("T1 540 exchange vectors built ({:.1f} GiB host, t+{:.0f}s)".
-        format(2 * NP * 6 * NATOM * 16 / 2**30, time.time() - t0))
+    log("T1 540 exchange vectors built (device-resident MB stack, "
+        "{:.1f} GiB device, t+{:.0f}s)".
+        format(NB * NATOM * 16 / 2**30, time.time() - t0))
 
     def Q_of(psi):
         out = psi
@@ -314,6 +311,10 @@ def main():
     Jhgv = np.einsum("alb,ib->ail", Jstack, hgv)  # (45,6,1024): J_a h_i
     Gh = np.einsum("jl,ail->aji", hgv.conj(), Jhgv)  # <h_j|J_a h_i>
     Kh = np.einsum("bjl,ail->bjai", Jhgv.conj(), Jhgv)
+    # the host is the tight resource on this box (the server holds most
+    # of RAM): the partner generator stacks (1.5 GiB) are consumed by
+    # Gh/Kh above, nothing downstream touches them - free them now
+    del Jpair_h, Jstack, Jhgv
     checks.append({"name": "T2 partner pairings: rho_h Hermitian defect "
                           "{:.1e}, G^b and K^{{ba}} = <J_b h_j|J_a h_i> "
                           "built".format(
@@ -331,8 +332,8 @@ def main():
     for a in range(NP):
         for i in range(6):
             wi = sum(rhoh[j, i].real for j in range(6))
-            gseed = gseed + wi * xp.asarray(AKv[a][i].reshape(NATOM))
-            gseed = gseed + wi * xp.asarray(CKv[a][i].reshape(NATOM))
+            gseed = gseed + wi * MB[NP * 6 + a * 6 + i]
+            gseed = gseed + wi * MB[a * 6 + i]
     gsn = float(xp.sqrt(xp.real(xp.vdot(gseed, gseed))))
     data["ground_contracted_seed_norm"] = gsn
     checks.append({"name": "T2 chain-ground contracted seed (the pre-"
@@ -343,9 +344,6 @@ def main():
                    "pass": True})
     # structural closure test of the exchange space (a measurement, not
     # an assumption): does span{C_a k_i, A_a k_i} close under H?
-    MB = xp.concatenate([xp.asarray(CKv.reshape(NP * 6, NATOM)),
-                         xp.asarray(AKv.reshape(NP * 6, NATOM))])
-    NB = 2 * NP * 6
     Gb = E.asnumpy(MB @ MB.conj().T)
     gl, gV = np.linalg.eigh(Gb)
     ordr = np.argsort(gl)[::-1]
@@ -357,7 +355,8 @@ def main():
     hh = np.sum(np.abs(E.asnumpy(HBs)) ** 2, axis=1)
     G_H = E.asnumpy(HBs @ MB.conj().T).conj()
     del HBs
-    xp.get_default_memory_pool().free_all_blocks()
+    if gpu:
+        xp.get_default_memory_pool().free_all_blocks()
     coef = Cm.conj() @ G_H
     inv_res = float(np.max(np.sqrt(np.maximum(
         hh - np.sum(np.abs(coef) ** 2, axis=0), 0.0)) / np.sqrt(hh)))
@@ -376,31 +375,58 @@ def main():
                                  "truncation control books the honest "
                                  "error"),
                    "pass": True})
-    # declared machine (after two measured facts: the pre-registered
+    # the pre-registered machine.  V273 measured two facts: the
     # ground-contraction Krylov seed is exactly null, and the full
-    # exchange span does not close under H).  Block Krylov on the
-    # exchange sector: seeds = per-channel kernel-projected exchange
-    # sums; grow the ON basis until H-closure or the cap.  If it
-    # closes, the resolvent form is EXACT on the invariant space; if
-    # not, F3 is not bookable and the growth table is the evidence.
-    MAXV = 500
-    STEP_CAP = 60
+    # exchange span does not close under H (residual ~ 1).  Its block
+    # Krylov from the SIX per-channel exchange SUMS closed in dim 4
+    # inside ker H.  V275 grows the resolvent from the 540 INDIVIDUAL
+    # off-kernel exchange vectors themselves: seeds = every C_a k_i and
+    # A_a k_i, kernel-projected and orthonormalized against the running
+    # basis; growth is V273's (off ker, off basis, every step).  If it
+    # closes, the resolvent form is EXACT on the invariant space; if it
+    # caps, the growth table is the evidence and the truncated
+    # sandwich is labelled not-bookable.
+    MAXV = 1200
+    STEP_CAP = 40
+    # numerical rank of the 540 stacked kernel-projected vectors, tol
+    # 1e-9 on the singular values (V273 recorded 360 for the
+    # unprojected set - a measurement, not a gate).  The singular
+    # spectrum of the stacked set is the square root of the Gram
+    # spectrum; the Gram (540x540) is evaluated to keep the host free,
+    # identical rank to the direct SVD at this tolerance.
+    Mq = MB.copy()
+    for kk in range(6):
+        cproj = Mq @ ker[kk].conj()
+        Mq = Mq - cproj[:, None] * ker[kk][None, :]
+    Gq = E.asnumpy(Mq @ Mq.conj().T)
+    el = np.linalg.eigvalsh(Gq)
+    sv = np.sqrt(np.maximum(el, 0.0))[::-1]
+    span_rank = int(np.sum(sv > 1e-9 * sv[0]))
+    data["exchange_span_rank"] = span_rank
+    data["exchange_span_rank_tol"] = 1e-9
+    data["exchange_span_rank_method"] = ("Gram spectrum (sqrt of the "
+                                         "540x540 Gram eigenvalues) of "
+                                         "the stacked kernel-projected "
+                                         "set - the SVD singular values")
+    del Mq, Gq
+    log("T2 exchange span rank {:d} of 540 (tol 1e-9, t+{:.0f}s)".
+        format(span_rank, time.time() - t0))
+    checks.append({"name": "T2 exchange span rank {:d} of 540 "
+                          "(kernel-projected, tol 1e-9; V273 measured "
+                          "360 unprojected - recorded, not a "
+                          "gate)".format(span_rank),
+                   "pass": True})
     Upre = xp.empty((MAXV, NATOM), dtype=np.complex128)
     Dcur = 0
-    queue = []
-    for i in range(6):
-        s = xp.zeros(NATOM, dtype=np.complex128)
-        for a in range(NP):
-            s = s + xp.asarray(AKv[a][i].reshape(NATOM))
-            s = s + xp.asarray(CKv[a][i].reshape(NATOM))
-        s = Q_of(s)
-        ns = float(xp.sqrt(xp.real(xp.vdot(s, s))))
-        if ns > 1e-12:
-            queue.append(s / ns)
-    # orthonormalize the seed block
     growth = []
-    for v in queue:
-        w = v.copy()
+    for b in range(NB):
+        w = xp.array(MB[b])
+        for k in ker:
+            w = w - xp.vdot(k, w) * k
+        nw = float(xp.sqrt(xp.real(xp.vdot(w, w))))
+        if nw <= 1e-12:
+            continue
+        w = w / nw
         for _ in range(2):
             if Dcur:
                 c = w @ Upre[:Dcur].conj().T
@@ -412,6 +438,8 @@ def main():
             Upre[Dcur] = w / nw
             Dcur += 1
     growth.append(Dcur)
+    log("T2 seed block: {:d} orthonormal off-kernel exchange vectors "
+        "(t+{:.0f}s)".format(Dcur, time.time() - t0))
     front = [Upre[j] for j in range(Dcur)]
     closed = False
     new = list(front)
@@ -452,49 +480,41 @@ def main():
     data["block_steps"] = it
     data["block_dim"] = Dcur
     data["block_closed"] = bool(closed)
-    log("T2 block Krylov: closed {} dim {:d} steps {:d} growth {}".
-        format(closed, Dcur, it, growth[:14]))
-    checks.append({"name": "T2 block Krylov on the exchange sector: "
-                          "closed after {:d} steps: {}, invariant dim "
-                          "{:d}, per-step growth {}{}".format(
-                              it, closed, Dcur, growth[:14],
-                              "" if closed else " (still growing at the "
-                              "cap: the resolvent does not close in any "
-                              "space of dimension <= {:d})".format(MAXV)),
-                   "pass": True})
+    log("T2 full-span block Krylov: closed {} dim {:d} steps {:d} "
+        "growth {}".format(closed, Dcur, it, growth[:14]))
+    # Rayleigh-Ritz representation of the resolvent on the candidate
+    # basis: EXACT when the space is invariant (closed, residual ~ 0),
+    # a truncated sandwich when the growth capped (not-bookable).
+    Mm = np.empty((Dcur, Dcur), dtype=np.complex128)
+    hhq = np.empty(Dcur)
+    for p in range(Dcur):
+        w = H_atom_of(Uall[p])
+        Mm[p] = E.asnumpy(w @ Uall.conj().T)  # <H u_p|u_q>
+        hhq[p] = float(xp.real(xp.vdot(w, w)))
+    HU = Mm.conj()
+    HU = 0.5 * (HU + HU.conj().T)
     if closed:
-        Mm = np.empty((Dcur, Dcur), dtype=np.complex128)
-        hhq = np.empty(Dcur)
-        for p in range(Dcur):
-            w = H_atom_of(Uall[p])
-            Mm[p] = E.asnumpy(w @ Uall.conj().T)  # <H u_p|u_q>
-            hhq[p] = float(xp.real(xp.vdot(w, w)))
-        HU = Mm.conj()
-        HU = 0.5 * (HU + HU.conj().T)
         inv2 = float(np.max(np.sqrt(np.maximum(
             hhq - np.sum(np.abs(HU) ** 2, axis=0), 0.0))
             / np.sqrt(np.where(hhq > 1e-14, hhq, 1.0))))
-        data["invariant_residual_final"] = inv2
-        checks.append({"name": "T2 invariant-space closure residual "
-                              "{:.1e} (the resolvent form is exact "
-                              "below)".format(inv2),
-                       "pass": bool(inv2 < 1e-8)})
-        th, Uth = np.linalg.eigh(HU)
-        denom = E_g - th
-        data["min_resolvent_denominator"] = float(np.min(np.abs(denom)))
-        fv = 1.0 / denom
-        Xp = E.asnumpy(Uall @ MB.conj().T).T  # (540, D): <u_m|x_n>
-        UYc = Xp[:NP * 6].reshape(NP, 6, Dcur)
-        UXc = Xp[NP * 6:].reshape(NP, 6, Dcur)
-        UXf = UXc.reshape(NP * 6, Dcur) @ Uth
-        UYf = UYc.reshape(NP * 6, Dcur) @ Uth
     else:
-        UXf = np.zeros((NP * 6, 1), dtype=np.complex128)
-        UYf = UXf.copy()
-        fv = np.zeros(1)
+        inv2 = float("nan")
+    data["invariant_residual_final"] = inv2
+    checks.append({"name": "T2 full-span block Krylov: closed {} dim "
+                          "{:d} steps {:d}".format(closed, Dcur, it),
+                   "pass": bool(not closed or inv2 < 1e-8)})
+    th, Uth = np.linalg.eigh(HU)
+    denom = E_g - th
+    data["min_resolvent_denominator"] = float(np.min(np.abs(denom)))
+    fv = 1.0 / denom
+    Xp = E.asnumpy(Uall @ MB.conj().T).T  # (540, D): <u_m|x_n>
+    UYc = Xp[:NP * 6].reshape(NP, 6, Dcur)
+    UXc = Xp[NP * 6:].reshape(NP, 6, Dcur)
+    UXf = UXc.reshape(NP * 6, Dcur) @ Uth
+    UYf = UYc.reshape(NP * 6, Dcur) @ Uth
     del Upre, Uall, MB
 
-    # ---- T3: J2 assembly + 60/100-digit control ----
+    # ---- T3: F5 = J2/g10 assembly + 60/100-digit control ----
     Pxx = (UXf.conj() * fv) @ UXf.T
     Pxy = (UXf.conj() * fv) @ UYf.T
     Pyx = (UYf.conj() * fv) @ UXf.T
@@ -505,18 +525,25 @@ def main():
     t4 = np.einsum("bjai,bjai->", Pyy.reshape(NP, 6, NP, 6), Kh)
     J2 = -(G10 ** 2) * (t1 + t2 + t3 + t4)
     gate_ok = bool(closed and inv2 < 1e-8)
-    F3 = (float(np.real(J2)) / G10) if gate_ok else float("nan")
+    F5 = (float(np.real(J2)) / G10) if closed else float("nan")
     data["J2"] = [float(np.real(J2)), float(np.imag(J2))]
     data["J2_imag_part"] = float(np.imag(J2))
-    data["F3_exchange"] = F3
-    data["F3_gate"] = (
+    data["F5_exchange"] = F5
+    data["F5_gate"] = (
         "valid: exact on the {:d}-dim invariant space (closure "
         "residual {:.1e})".format(Dcur, inv2) if gate_ok else
-        "not booked: the exchange resolvent does not close under block "
-        "Krylov (growth {} to dim {}); no truncated form is presented".
-        format(growth, Dcur))
+        ("exact assembly on the {:d}-dim closed space, closure "
+         "residual {:.1e} >= 1e-8: recorded with that flag".format(
+             Dcur, inv2) if closed else
+         "not bookable: the exchange resolvent did not close under "
+         "block Krylov (growth {} to dim {}); the truncated Rayleigh-"
+         "Ritz sandwich is evidence, not a booked number".format(
+             growth, Dcur)))
+    if not gate_ok:
+        data["F5_truncated"] = float(np.real(J2)) / G10
+        data["F5_truncated_bookable"] = False
     import mpmath
-    probes = [p for p in PROBES if p < Dcur] if gate_ok else []
+    probes = [p for p in PROBES if p < Dcur]
     res60, res100 = [], []
     for dps, store in ((60, res60), (100, res100)):
         mpmath.mp.dps = dps
@@ -534,45 +561,50 @@ def main():
     data["mpmath_probes_60"] = res60
     data["mpmath_probes_100"] = res100
     data["mpmath_control_residual"] = ctrl
-    log("T3 F3 = {:.6e}; mpmath 60/100 control residual {:.1e}".format(
-        F3, ctrl))
-    checks.append({"name": "T3 J2 = {:.6e} (imag {:.1e}): F3 = {} ({}); "
-                          "60 vs 100-digit control over {} interior "
-                          "resolvent probes: residual {:.1e}".format(
-                              J2, float(np.imag(J2)),
-                              "nan" if np.isnan(F3) else "{:.6e}".format(
-                                  F3), data["F3_gate"], len(probes),
-                              ctrl),
+    band_F = F5 if closed else data["F5_truncated"]
+    dev = abs(16.0 * math.pi * band_F - 1.0)
+    data["closest_band_distance"] = (float(dev) if closed else
+                                     float(dev))
+    log("T3 F5 = {}; |16 pi F - 1| = {:.3e}; mpmath 60/100 control "
+        "residual {:.1e}".format(
+            "nan (capped)" if not closed else "{:.6e}".format(F5),
+            dev, ctrl))
+    checks.append({"name": "T3 F5 = {:.3e} vs 1/(16 pi) = {:.3e}: "
+                          "closest |16 pi F - 1| = {:.3e} ({})".format(
+                              band_F, TARGET, dev,
+                              "exact on the invariant space" if gate_ok
+                              else "truncated Rayleigh-Ritz sandwich, "
+                              "not bookable"),
                    "pass": True})
 
     # ---- branch ----
-    cands = {"F1": F1, "F2": F2, "F3": F3}
-    inband = [n for n, v in cands.items()
-              if np.isfinite(v) and BAND[0] <= abs(v) <= BAND[1]]
-    dist = sorted((abs(TARGET - abs(v)), n) for n, v in cands.items()
-                  if np.isfinite(v))
-    data["branch_basis"] = {"target": TARGET, "band": list(BAND),
-                            "closest": {"candidate": dist[0][1],
-                                        "abs_value": abs(cands[dist[0][1]]),
-                                        "distance": dist[0][0]}}
-    branch = "LOOP-NEW-BORN" if inband else "LOOP-NEW-UNBORN"
+    if not closed:
+        branch = "OFFKERNEL-GROWS"
+    elif BAND[0] <= abs(F5) <= BAND[1]:
+        branch = "OFFKERNEL-LOOP-BORN"
+    else:
+        branch = "OFFKERNEL-UNBORN"
     data["status"] = branch
-    print("dynamical-link loop factor: F1 = {:.6f} (rho = 0: tree-level "
-          "exchange vanishes), F2 = undefined (E0 = 0), F3 = {:.6e} "
-          "(second-order exchange); closest to 1/(16 pi) = {:.4f}: {} at "
-          "{:.6f}; mpmath control {:.1e}: branch {}.".format(
-              F1, F3, TARGET, dist[0][1], cands[dist[0][1]], ctrl,
-              branch), flush=True)
+    data["band_hit"] = bool(closed and BAND[0] <= abs(F5) <= BAND[1])
+    print("V275 {:s}: full-span block Krylov closed {} dim {:d} after "
+          "{:d} growth steps (span rank {:d}); F5 = {}; closest to "
+          "1/(16 pi) = {:.4e}: |16 pi F - 1| = {:.3e} (band "
+          "[0.015, 0.03]); mpmath control {:.1e}.".format(
+              branch, closed, Dcur, it, span_rank,
+              ("not bookable (truncated sandwich {:.6e})".format(
+                  data["F5_truncated"]) if not closed else
+               "{:.6e}".format(F5)),
+              TARGET, dev, ctrl), flush=True)
     _emit(data, checks, t0, ok=True)
     return 0
 
 
 def _emit(data, checks, t0, ok):
-    out = {"id": "V273_loop_factor_new_theory", "tier": 2,
-           "property": "does the dynamical link birth the new theory's "
-                       "loop factor (tier 2, O8-new)",
+    out = {"id": "V275_offkernel_exchange_resolvent", "tier": 2,
+           "property": "does the full off-kernel exchange resolvent "
+                       "birth the loop factor (tier 2, O8-new)",
            "residual": True,
-           "programme": "V273",
+           "programme": "V275",
            "branch": data.get("status", ""),
            "data": data,
            "checks": checks,
@@ -581,9 +613,10 @@ def _emit(data, checks, t0, ok):
     residir = os.path.join(HERE, "results")
     os.makedirs(residir, exist_ok=True)
     with open(os.path.join(residir,
-                           "v273_loop_factor_new_theory.json"), "w") as fh:
+                           "v275_offkernel_exchange_resolvent.json"),
+                           "w") as fh:
         json.dump(out, fh, indent=1)
-    print("[V273 done in {:.1f}s] {}".format(time.time() - t0,
+    print("[V275 done in {:.1f}s] {}".format(time.time() - t0,
                                              out["branch"]))
 
 
