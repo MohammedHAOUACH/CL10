@@ -1,0 +1,73 @@
+{
+ "id": "V296_flux_baryogenesis_ledger",
+ "tier": 3,
+ "property": "a booked flux-sector CP asymmetry of order eta_B = 6.1e-10",
+ "residual": true,
+ "programme": "V296",
+ "branch": "LEDGER-INSUFFICIENT",
+ "data": {
+  "ledger": {
+   "V55_eta_cp": {
+    "n_hits": 4,
+    "hits": [
+     [
+      "/eta_CP_0param",
+      0.000395785873602882
+     ],
+     [
+      "/eta_CP_observed",
+      0.001
+     ],
+     [
+      "/eta_CP_over_observed",
+      0.395785873602882
+     ],
+     [
+      "/structure/eps_CP",
+      4.857023409786845e-06
+     ]
+    ]
+   },
+   "V106_washout_audit": {
+    "n_hits": 0,
+    "hits": []
+   },
+   "V125_cp_flux_washout": {
+    "n_hits": 1,
+    "hits": [
+     [
+      "/asymmetry",
+      "{\"M_N_GeV\": 96131777036496.42, \"K_strong_washout_min\": 3.9344699790803364, \"cases\": {\"atmospheric y\": {\"y\": 0.39861, \"K\": 46.81, \"kappa_f\": 0.00546, \"z_B\": 7.831, \"strong_washout_domain\": true, \"J_req"
+     ]
+    ]
+   }
+  },
+  "derived_product_row": {
+   "delta_B_0param": 6.813361404286049e-10,
+   "ratio_to_observed": 1.1132943471055636,
+   "washed_x0p12": 8.176033685143259e-11,
+   "ratio_washed": 0.13359532165266763,
+   "ingredients": "g0 = 1/8 (guess), D = (1/16pi)^2 (guess), 28/79 (SM input)"
+  },
+  "max_abs": {
+   "path": "V55_eta_cp/eta_CP_over_observed",
+   "value": 0.395785873602882
+  },
+  "closest_to_eta_B": {
+   "path": "V55_eta_cp/structure/eps_CP",
+   "value": 4.857023409786845e-06,
+   "log10_ratio": 3.9010403616714
+  },
+  "status": "LEDGER-INSUFFICIENT",
+  "wall_time": 0.0015614032745361328,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T1 ledger of booked asymmetries: 4 numeric entries; closest to eta_B within x10? False",
+   "pass": true
+  }
+ ],
+ "status": "LEDGER-INSUFFICIENT",
+ "pass": true
+}

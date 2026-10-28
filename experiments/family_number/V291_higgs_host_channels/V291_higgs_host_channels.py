@@ -73,6 +73,7 @@ def art(name):
 
 def main():
     t0 = time.time()
+    xp = E._E
     checks, data = [], {}
 
     def log(msg):
@@ -131,38 +132,39 @@ def main():
               + np.kron(np.eye(32, dtype=np.complex128), T))
         Jpair_h.append(Jp)
     C2pair_h = sum(Jp @ Jp for Jp in Jpair_h)
-    Ta = np.stack(Ts_h)
-    La = np.stack(L256_h)
-    C2l = C2l_h
+    Ta = xp.asarray(np.stack(Ts_h))
+    La = xp.asarray(np.stack(L256_h))
+    C2l = xp.asarray(C2l_h)
+    C2pair = xp.asarray(C2pair_h)
 
     def S_of(psi):
-        p = psi.reshape(32, 32, LN)
-        v = np.tensordot(C2pair_h, p.reshape(1024, LN), axes=(1, 0))
+        p = xp.asarray(psi).reshape(32, 32, LN)
+        v = xp.tensordot(C2pair, p.reshape(1024, LN), axes=(1, 0))
         v = v.reshape(32, 32, LN)
-        v = v + np.einsum("ml,pql->pqm", C2l, p)
-        X = np.einsum("aip,pql->aiql", Ta, p)
-        v = v + 2.0 * np.einsum("aml,aiql->iqm", La, X)
-        Y = np.einsum("aiq,pql->apil", Ta, p)
-        v = v + 2.0 * np.einsum("aml,apil->pim", La, Y)
+        v = v + xp.einsum("ml,pql->pqm", C2l, p)
+        X = xp.einsum("aip,pql->aiql", Ta, p)
+        v = v + 2.0 * xp.einsum("aml,aiql->iqm", La, X)
+        Y = xp.einsum("aiq,pql->apil", Ta, p)
+        v = v + 2.0 * xp.einsum("aml,apil->pim", La, Y)
         return v.reshape(NATOM)
 
     rng = np.random.default_rng(SEED)
     v0 = rng.standard_normal(NATOM) + 1j * rng.standard_normal(NATOM)
     v0 = v0 / np.linalg.norm(v0)
-    V = [v0]
+    V = [xp.asarray(v0)]
     alphas, betas = [], []
     k_used = KMAX
     for k in range(KMAX):
         w = S_of(V[-1])
-        a = float(np.real(np.vdot(V[-1], w)))
+        a = float(np.real(xp.vdot(V[-1], w).get()))
         alphas.append(a)
         w = w - a * V[-1]
         if len(V) > 1:
             w = w - betas[-1] * V[-2]
         for _ in range(2):
             for u in V:
-                w = w - np.vdot(u, w) * u
-        b = float(np.sqrt(np.real(np.vdot(w, w))))
+                w = w - xp.vdot(u, w) * u
+        b = float(np.sqrt(np.real(xp.vdot(w, w).get())))
         if b < 1e-10:
             k_used = k + 1
             break
@@ -173,12 +175,14 @@ def main():
         Tm[i, i + 1] = betas[i]
         Tm[i + 1, i] = betas[i]
     tev, tvec = np.linalg.eigh(Tm)
-    Vm = np.stack(V[:k_used]).T
+    Vm = np.stack([E.asnumpy(v) for v in V[:k_used]]).T
     cands = [Vm @ tvec[:, j] for j in range(k_used) if tev[j] < KTOL]
     del V, Vm
-    CK = [np.einsum("ml,pql->pqm", C2l, k.reshape(32, 32, LN)).reshape(NATOM)
+    CK = [xp.einsum("ml,pql->pqm", C2l,
+                    xp.asarray(k).reshape(32, 32, LN)).reshape(NATOM)
           for k in cands]
-    Gm = np.array([[np.vdot(cands[i], CK[j]) for j in range(len(cands))]
+    Gm = np.array([[np.vdot(cands[i], E.asnumpy(CK[j]))
+                    for j in range(len(cands))]
                    for i in range(len(cands))])
     cev, cvec = np.linalg.eigh(0.5 * (Gm + Gm.conj().T))
     del CK
@@ -214,17 +218,27 @@ def main():
         Xall[a] = np.einsum("XAm,YAm->XY", K3.conj(), Lbar_k)
     gram_ok = float(np.abs(np.einsum("XA,YA->XY", K.conj(), K)
                            - np.eye(6)).max())
-    I1024 = np.eye(1024, dtype=np.complex128)
-    I6h = np.eye(6, dtype=np.complex128)
-    Nmat = np.zeros((NH, NH), dtype=np.complex128)
+    I1024 = xp.asarray(np.eye(1024, dtype=np.complex128))
+    I6h = xp.asarray(np.eye(6, dtype=np.complex128))
+    Jpx = xp.asarray(Jh)
+    Xax = xp.asarray(Xall)
+    Nmat = xp.zeros((NH, NH), dtype=xp.complex128)
     for a in range(NP):
-        Ma = np.kron(I6h, Jh[a]) - np.kron(Xall[a], I1024)
+        A = xp.einsum('ij,km->ikjm', I6h, Jpx[a]).reshape(NH, NH)
+        B = xp.einsum('xy,km->xkym', Xax[a], I1024).reshape(NH, NH)
+        Ma = A - B
+        del A, B
         Nmat = Nmat + Ma.conj().T @ Ma
         del Ma
     log("T0c N assembled, eigh of 6144 starting")
-    nev, nevec = np.linalg.eigh(Nmat)
-    ns = int((np.real(nev) < NULLTOL).sum())
-    hker = np.asarray(E.asnumpy(nevec)[:, np.asarray(np.real(E.asnumpy(nev))) < NULLTOL])
+    nev, nevec = E.eigh(Nmat)
+    nval = np.real(E.asnumpy(nev))
+    ns = int((nval < NULLTOL).sum())
+    idx = [y for y in range(NH) if nval[y] < NULLTOL]
+    # 12 columns only, kept at float64 so the p0 weights are exact to
+    # the solver's own precision (the .npy artifact is stored float32)
+    hsel = E.asnumpy(nevec[:, idx])
+    del nevec, Nmat
     v272 = art("V272_dynamical_chain")
     t0c = (gram_ok < 1e-9 and ns == v272["data"]["chain_kernel_dim"] == 12)
     data["chain"] = {"gram_defect": gram_ok, "kernel_dim": ns}
@@ -243,7 +257,7 @@ def main():
     # ---- T1: module-channel content of the chain kernel -----------------
     # channel of each atom-kernel slice index Y: chans[Y]; chain-kernel
     # vector s (columns of hker): weight on channel-0 slice states
-    hs = np.abs(hker) ** 2                    # (6*1024, ns)
+    hs = np.abs(hsel) ** 2                    # (6*1024, ns)
     hs6 = hs.reshape(6, 1024, ns).sum(axis=1)  # (6, ns): slice weights
     zero_idx = [y for y in range(6) if abs(chans[y]) < 1e-9]
     p0 = hs6[zero_idx].sum(axis=0)
@@ -264,9 +278,9 @@ def main():
                                                                    bool))
                                          or (isinstance(hd.get(k), list)
                                              and len(str(hd.get(k))) < 200)}}
-    np.save(os.path.join(exp("V291_higgs_host_channels", "results"),
-                         "kernel_basis.npy"),
-            hker.astype(np.complex64))
+    os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
+    np.save(os.path.join(HERE, "results", "kernel_basis.npy"),
+            hsel.astype(np.complex64))
     status = "HIGGS-HOST-PRESENT" if n0 >= 1 else "HIGGS-HOST-ABSENT"
     data["status"] = status
     print("V291 {}: n0 = {} of {} chain-kernel states are module-singlet "

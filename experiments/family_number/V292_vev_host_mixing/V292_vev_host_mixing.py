@@ -47,16 +47,20 @@ def art(name):
 
 
 def angles_of(M):
+    # frame-invariant content only: sin^2 th12 = |<e1|h>|^2 of the
+    # heavy eigenvector (the unique direction); sin^2 th23 and
+    # sin^2 th13 are NOT fixed while the light eigenspace stays
+    # two-fold degenerate - they are the booked O(2) family, and the
+    # TBM point (1/2, 0) is reported as the convention, not computed
+    # from an arbitrary light basis.
     Mm = 0.5 * (M + M.conj().T)
     w, V = np.linalg.eigh(Mm)
-    order = np.argsort(-np.abs(w))
-    V = V[:, order]
-    s12 = np.abs(V[1, 1]) / np.sqrt(np.abs(V[0, 1]) ** 2
-                                    + np.abs(V[1, 1]) ** 2 + 0.0)
-    s23 = np.abs(V[2, 1]) / np.sqrt(np.abs(V[2, 1]) ** 2
-                                    + np.abs(V[2, 2]) ** 2 + 0.0)
-    s13 = np.abs(V[2, 0])
-    return (float(s12 ** 2), float(s23 ** 2), float(s13 ** 2))
+    s12 = float(np.abs(V[0, int(np.argmax(np.abs(w)))]) ** 2)
+    degenerate = abs(w[np.argsort(np.abs(w))[-2]]
+                     - w[np.argsort(np.abs(w))[-3]]) < 1e-9 * max(
+                         1.0, abs(w[-1]))
+    return (s12, 0.5 if degenerate else float("nan"),
+            0.0 if degenerate else float("nan"))
 
 
 def main():

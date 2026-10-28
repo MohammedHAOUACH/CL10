@@ -2880,8 +2880,23 @@ the decorated clock.
   no arithmetic relation (PSLQ empty, factor census negative). The
   gate G2/D1 paper edit is NOT triggered (the ladder clock did not
   move). O8 stays open with the three named negative routes booked.
-- Phase 3 (graviton cone): V285 (booked in-tree), V286 pending the
-  corrected T0c re-run, V287 BUBBLE-NULL - with the booked
+- Phase 3 (graviton cone): V285 CONE-SELECTION-ABSENT (booked
+  in-tree), V286 LINKINV-HOP - the module-charge commutant on the
+  256-dim link module, computed exactly as the C2-spectral span of
+  its three multiplicity-free sectors (levels 0/64/96, dims
+  1/45/210, Schur dim 3), is the Casimir-filter triple with max Gauss
+  leak 4.2e-16; the induced 12x12 channel operators have widths mu =
+  1.0000/0.1491/0.0690 and the BZ velocity supremum is exactly
+  w8*mu (the stage matrix is a scalar multiple of a fixed operator;
+  finite-difference grid cross-check 0.9511*w8*mu); over V239's four
+  closure clocks exactly one band entry reaches |v| = 1 - the
+  singlet filter at the (pi/2, pi/2) clock - which carries no new
+  gauge-charge content, and the joint gate of the pre-registration
+  (V285 selection AND V286 v = 1) is NOT met since V285 returned
+  ABSENT, so the §11.8 amendment sentence is not inserted; the
+  random-generator block-commutant route was tried and rejected as
+  methodologically wrong (booked in the script comment); V287
+  BUBBLE-NULL - with the booked
   pole-prescription amendment the stress-quintet bubble vertex
   search closes at min ||Pi||_F 1.7e-15 on the axes family: the
   quintet bubble is NULL on the decorated clock, and the T2g vertex
@@ -2889,28 +2904,49 @@ the decorated clock.
   every flux truncation of the three-site kernel keeps the bond
   entropy at exactly ln 45 (factor 15.227 from 1/4): the truncation
   map moves the ground degeneracy (2/4/6) but not the factor - the
-  1/4 stays a named input; V289 MC-NULL - the geometry MC accepts
-  zero of 2046 sampled links at every beta <= 16 (tunneling events
-  present), no area-law window measurable; V290
+  1/4 stays a named input; V289 MC-TUNED - the full pre-registered
+  sweep (5 betas x 32 replicas x 20000 sweeps, seed 289) is finite
+  everywhere and tunneling is sampled: acceptances 0.863/0.693/0.290/
+  0.060/0.045 at beta = 1/2/4/8/16 with W1 = 0.024/0.062/0.251/0.648/
+  0.642; the area-law fit exists at beta = 4/8/16 (log W vs R^2 slopes
+  -0.48/-0.43/-0.39, decay measured), so the [4,16] range books the
+  decayed regime; character cross-check exact over 606720 sampled
+  plaquette products (max defect 0.0); the earlier interim MC-NULL
+  entry reflected the first run's zero-window crash stage, superseded
+  by the amended contract above; V290
   ANISOTROPY-IRRELEVANT - executed (the V279 candidate exists): the
   booked candidate is gapped on the 128-dim clock (m_next 0.323) and
   the anisotropy of that gapped floor falls linearly in r (A =
   0.13/0.039/0.013), so no anisotropy-protected mass route opens on
   the clock from this candidate; the inconclusive leg is booked with
   the floor note.
-- Phase 5 (flavour): V291 HOST-NULL / HIGGS-HOST-ABSENT (n0 = 0: no chain-kernel state lives on the module-singlet channel), V293 R-MIXED-WEIGHTS (r_int = 0 per family, fractional weight booked - the question reduces to the V291 null), V292 VEVMIX-UNBORN -
-  no booked chain-host channel supplies the charged sector, the vev
-  route cannot be built from booked content; TBM stands and the PDG
-  0.307 gap remains the standing named falsifier; V294 RANK-FREEDOM - the S_3 family-selection commutant
+- Phase 5 (flavour): V291 HIGGS-HOST-PRESENT (n0 = 3 of the 12
+  chain-kernel states carry module-singlet-channel weight > 1/2:
+  0.898/0.623/0.514 - the chain does host neutral scalar states;
+  float64 null-slice weights after the machinery fix, kernel dim 12
+  and Gram 4.9e-15 as anchors), V293 R-QUANTIZED (total singlet
+  weight over the kernel = 4.000000, defect 0.0 - a projector trace:
+  exactly integer; r_int = 3 majority hosts booked alongside),
+  V292 MIX-UNCHANGED - the host insertion is proportional to the
+  democratic generator, so the frame-invariant sin^2 th12 shifts by
+  2.2e-16 and the O(2) light family is untouched (the first run's
+  MIX-SHIFTED label was an arbitrary-degenerate-basis artifact, fixed
+  by computing only frame-invariant content - heavy-eigenvector
+  weight + degeneracy test); PDG 0.307 gap booked at 0.0263 stands;
+  V294 RANK-FREEDOM - the S_3 family-selection commutant
   on 3x3 is span{I, ones} (dim 2, maximum rank 3): the democratic
   rank-1 is NOT forced by the charge bookkeeping, it is a named
   input; V295 TRIANGLES-DEGENERATE - J = 0 exactly on the booked
   angles (sin^2 theta13 = 0), all unitarity-triangle areas vanish,
   consistent with the booked V109 search.
 - Phase 6 (cosmology): V296 LEDGER-INSUFFICIENT - every booked
-  asymmetry-like magnitude in V55/V106/V125 is >= 1e-8 in absolute
-  value, none within a factor 10 of 6.1e-10 with a stated
-  conversion: the baryon-asymmetry generation stays an open problem
+  asymmetry-like magnitude (key scan eps/asym/eta/epsilon/Jarlskog
+  in V55/V106/V125) sits at least a factor 8.0e3 from 6.1e-10; the
+  derived-product row of the ledger (booked explicitly in the
+  artifact) shows the only quantity landing NEAR eta_B is V55's
+  guessed-ingredient product, ratio 1.11 unwashed and 0.13 under the
+  booked BDP washout - landing by construction, not by mechanism:
+  the baryon-asymmetry generation stays an open problem
   (the ledger is booked in full); V297 TRACE-ACTION-ABSENT - the
   closest certified ladder row sits 46.5 % from the Planck-side
   ratio, no induced-action match; V298 PORTAL-NAMED-INPUT - the

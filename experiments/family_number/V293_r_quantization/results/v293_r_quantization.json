@@ -1,0 +1,32 @@
+{
+ "id": "V293_r_quantization",
+ "tier": 3,
+ "property": "integer quantization of the hosted family multiplicity on the chain",
+ "residual": true,
+ "programme": "V293",
+ "branch": "R-QUANTIZED",
+ "data": {
+  "hosting": {
+   "r_int": 3,
+   "r_weighted": 4.0,
+   "weighted_defect": 0.0,
+   "families_booked": 3,
+   "r_per_family_int": 3
+  },
+  "status": "R-QUANTIZED",
+  "wall_time": 0.0007882118225097656,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 V70 family anchor re-derived: 12 nodes on the +-pi/2 phase lattice, families 3 x 4",
+   "pass": true
+  },
+  {
+   "name": "T1 hosted multiplicity: r_int 3 per family, weighted 4.0 defect 0.000e+00",
+   "pass": true
+  }
+ ],
+ "status": "R-QUANTIZED",
+ "pass": true
+}

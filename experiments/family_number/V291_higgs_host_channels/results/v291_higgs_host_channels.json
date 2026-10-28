@@ -1,0 +1,90 @@
+{
+ "id": "V291_higgs_host_channels",
+ "tier": 3,
+ "property": "does the dynamical chain host neutral scalar (module-singlet-channel) kernel states that can carry the booked 10-Higgs Dirac term",
+ "residual": true,
+ "programme": "V291",
+ "branch": "HIGGS-HOST-PRESENT",
+ "data": {
+  "atom_kernel": {
+   "dim": 6,
+   "channels": [
+    0.0,
+    0.0,
+    64.0,
+    64.0,
+    96.0,
+    96.0
+   ]
+  },
+  "chain": {
+   "gram_defect": 4.884981308350689e-15,
+   "kernel_dim": 12
+  },
+  "host": {
+   "n0": 3,
+   "p0": [
+    0.06800712118348176,
+    0.21819983285784306,
+    0.395758256581777,
+    0.3145029198693264,
+    0.19624082408863375,
+    0.20662687728410864,
+    0.8978411177625885,
+    0.5141503189361065,
+    0.2008281493053308,
+    0.6229266052580874,
+    0.36135885817674973,
+    0.003559118695966282
+   ],
+   "channel_zero_slice_indices": [
+    0,
+    1
+   ],
+   "chain_H_spectrum_artefact": [
+    -2.7075291682680772e-14,
+    3.409245623609544e-16,
+    3.77452243990509e-15,
+    9.637168384229216e-15,
+    32.0,
+    32.000000000000014,
+    32.00000000000006,
+    32.00000000000007,
+    47.999999999999545,
+    47.999999999999595,
+    94.8114285714283,
+    94.81142857142832
+   ],
+   "higgs_dirac_keys": {
+    "n16": 16,
+    "rank": 16,
+    "off_diagonal": 3.9999999999999996,
+    "diag_16": 8.881784197001252e-16,
+    "dirac": true
+   }
+  },
+  "status": "HIGGS-HOST-PRESENT",
+  "wall_time": 349.0168442726135,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0a V269 census re-derived: c2 64.000000000 vs 64.000000000, 6 bins match booked",
+   "pass": true
+  },
+  {
+   "name": "T0b atom kernel: dim 6 channels [0.0, 0.0, 64.0, 64.0, 96.0, 96.0] (V270 kernel_dim 6)",
+   "pass": true
+  },
+  {
+   "name": "T0c chain kernel dim 12 (V272 booked 12), Gram 4.9e-15",
+   "pass": true
+  },
+  {
+   "name": "T1 host census: n0 = 3, p0 booked; chain-H anchor 12 entries read",
+   "pass": true
+  }
+ ],
+ "status": "HIGGS-HOST-PRESENT",
+ "pass": true
+}

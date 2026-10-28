@@ -67,8 +67,8 @@ def main():
     checks, data = [], {}
     led = {}
     nums = []
-    for name in ("V55_flux_cp_invariants", "V106_leptogenesis_window",
-                 "V125_node_current_cp_asym"):
+    for name in ("V55_eta_cp", "V106_washout_audit",
+                 "V125_cp_flux_washout"):
         try:
             j = art(name)
         except FileNotFoundError:
@@ -93,6 +93,22 @@ def main():
             if isinstance(v, float):
                 nums.append((name + p, v))
     data["ledger"] = led
+    # the derived-product row of the ledger: V55's unwashed booked
+    # product Delta B_0param and its washed descendant, read from the
+    # same artifacts (they land NEAR eta_B but rest on guessed
+    # ingredients g0 = 1/8 and D = (16 pi)^-2, and the booked BDP
+    # washout pulls them under - booked here so the scan's key list
+    # does not silently omit them)
+    v55 = art("V55_eta_cp")["data"]
+    ratio_unw = float(v55["delta_B_ratio"])
+    washed = float(v55["delta_B_0param"]) * 0.12
+    data["derived_product_row"] = {
+        "delta_B_0param": float(v55["delta_B_0param"]),
+        "ratio_to_observed": ratio_unw,
+        "washed_x0p12": washed,
+        "ratio_washed": washed / float(v55["delta_B_observed"]),
+        "ingredients": "g0 = 1/8 (guess), D = (1/16pi)^2 (guess), "
+                       "28/79 (SM input)"}
     if nums:
         big = max(nums, key=lambda t: abs(t[1]) if abs(t[1]) > 0 else 0)
         cand = min(nums, key=lambda t: abs(abs(t[1]) - ETA_B))

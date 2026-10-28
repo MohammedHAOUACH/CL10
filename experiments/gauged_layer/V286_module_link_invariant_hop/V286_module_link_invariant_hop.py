@@ -130,8 +130,10 @@ def main():
             bins.append((float(np.mean(ev[i0:i])), i0, i))
             i0 = i
     dims = sorted(j - k for (_, k, j) in bins)
-    gap_min = min(ev[bins[i + 1][1]] - ev[bins[i][2] - 1]
-                  for i in range(len(bins) - 1))
+    # distinctness of the six levels: smallest gap between adjacent bin
+    # REPRESENTATIVES (the V269 booked levels), not bin-mean differences
+    vals = sorted(b[0] for b in bins)
+    gap_min = min(vals[i + 1] - vals[i] for i in range(len(vals) - 1))
     s45 = [b for b in bins if b[2] - b[1] == 45][0]
     s210 = [b for b in bins if b[2] - b[1] == 210][0]
     lam45, lam210 = s45[0], s210[0]
@@ -143,7 +145,7 @@ def main():
                  and all(abs(b[0] - float(e["value"])) < 1e-9
                          and b[2] - b[1] == int(e["dim"])
                          for b, e in zip(bins, a_spec)))
-    dims_ok = sorted(dims) == [1, 45, 210, 54, 770, 945]
+    dims_ok = sorted(dims) == [1, 45, 54, 210, 770, 945]
     P210 = U[:, s210[1]:s210[2]]
     L256_h = []
     for a in range(NP):
@@ -269,12 +271,15 @@ def main():
     gram_ok = float(np.abs(np.einsum("XA,YA->XY", K.conj(), K)
                            - np.eye(6)).max())
     I1024 = xp.asarray(np.eye(1024, dtype=np.complex128))
-    I6h = np.eye(6, dtype=np.complex128)
+    I6h = xp.asarray(np.eye(6, dtype=np.complex128))
     Jp = xp.asarray(Jpair_h)
+    Xax = xp.asarray(Xall)
     Nmat = xp.zeros((NH, NH), dtype=xp.complex128)
     for a in range(NP):
-        Ma = xp.kron(xp.asarray(I6h), Jp[a]) \
-            - xp.kron(xp.asarray(Xall[a]), I1024)
+        A = xp.einsum('ij,km->ikjm', I6h, Jp[a]).reshape(NH, NH)
+        B = xp.einsum('xy,km->xkym', Xax[a], I1024).reshape(NH, NH)
+        Ma = A - B
+        del A, B
         Nmat = Nmat + Ma.conj().T @ Ma
         del Ma
     log("T0c N assembled, eigh of 6144 starting")
@@ -308,42 +313,38 @@ def main():
         return 1
 
     # ---- T1: the commutant of the module charge --------------------------
-    rngc = np.random.default_rng(286)
-    Lam = sum(float(r) * Mm for r, Mm in
-              zip(rngc.normal(size=NP), L256_h))
-    wL, VL = np.linalg.eigh(Lam)
-    blocks = []
+    # The module is 1 + 45 + 210 (V269 census; T0a re-derives it bin by
+    # bin) with each irrep at multiplicity one, and the restricted C2
+    # (sum_a M_a^2) has three distinct eigenvalues 0/64/96. The C2
+    # spectral projectors lie in the commutant, and by complete
+    # reducibility + Schur the commutant dimension is sum m_r^2 = 3, so
+    # the three projectors SPAN it exactly. (A random-generator block
+    # analysis was tried and is wrong: block candidates of one Lam are
+    # not global commutants; the leak filter kills them but their
+    # sector-wise sums, which do commute, are never generated. The
+    # C2-spectral route constructs the true commutant directly.)
+    C2e, C2v = np.linalg.eigh((C2l_h + C2l_h.conj().T) / 2)
+    cbins = []
     i0 = 0
     for i in range(1, LN + 1):
-        if i == LN or wL[i] - wL[i0] > 1e-7:
-            blocks.append((i0, i))
+        if i == LN or C2e[i] - C2e[i0] > 1e-6:
+            cbins.append((i0, i, float(np.mean(C2e[i0:i]))))
             i0 = i
+    cvals = [b[2] for b in cbins]
+    cdims = [b[1] - b[0] for b in cbins]
+    c2_bins_ok = (len(cbins) == 3 and sorted(cdims) == [1, 45, 210]
+                  and all(abs(v - r) < 1e-6 for v, r in
+                          zip(sorted(cvals), [0.0, 64.0, 96.0])))
     basis = []
+    for (lo, hi, val) in cbins:
+        P = C2v[:, lo:hi] @ C2v[:, lo:hi].conj().T
+        P = (P + P.conj().T) / 2.0
+        basis.append(P / np.linalg.norm(P))
     max_leak = 0.0
-    for (lo, hi) in blocks:
-        Vb = VL[:, lo:hi]
-        m = hi - lo
-        act = [Vb.conj().T @ Mm @ Vb for Mm in L256_h]
-        # commutant of the block action: nullspace of the stacked
-        # commutator map on m x m matrices
-        Kc = np.zeros((NP * m * m, m * m), dtype=np.complex128)
-        for a, Aa in enumerate(act):
-            C = np.kron(np.eye(m), Aa) - np.kron(Aa.T, np.eye(m))
-            Kc[a * m * m:(a + 1) * m * m, :] = C
-        _, svb, Vtb = np.linalg.svd(Kc)
-        tol = 1e-9 * max(1.0, svb[0])
-        for v in Vtb[svb < tol]:
-            S = v.reshape(m, m)
-            X = Vb @ S @ Vb.conj().T
-            X = (X + X.conj().T) / 2.0 if np.allclose(X, X.conj().T,
-                                                      atol=1e-10) else X
-            leak = max(float(np.abs(Mm @ X - X @ Mm).max())
-                       for Mm in L256_h)
-            nrm = np.linalg.norm(X)
-            if nrm < 1e-12:
-                continue
-            max_leak = max(max_leak, leak / nrm)
-            basis.append(X / nrm)
+    for X in basis:
+        leak = max(float(np.abs(Mm @ X - X @ Mm).max())
+                   for Mm in L256_h)
+        max_leak = max(max_leak, leak / float(np.linalg.norm(X)))
     cdim = len(basis)
     I256 = np.eye(LN, dtype=np.complex128)
     known_res = []
@@ -354,23 +355,28 @@ def main():
         known_res.append(float(r))
     obstructed = cdim >= 1 and all(r < 1e-8 for r in known_res)
     data["commutant"] = {"dim": cdim,
-                         "block_dims": [hi - lo for (lo, hi) in blocks],
+                         "c2_levels": [round(v, 6) for v in cvals],
+                         "c2_dims": cdims,
                          "leak_max": float(max_leak),
                          "residuals_vs_known_map": known_res,
                          "cesaro_note": ("the V220 Cesaro pattern is the "
                                          "obstruction functional; here the "
-                                         "commutant is computed exactly by "
-                                         "block analysis and the leak leg "
-                                         "is the same commutator norm")}
-    log("T1 commutant dim {} leaks {:.1e} residuals {}"
-        .format(cdim, max_leak,
-                ["{:.2e}".format(r) for r in known_res]))
-    checks.append({"name": "T1 module commutant: dim {:d}, max Gauss leak "
-                          "{:.1e} (leg <= 1e-10: {}), residual against the "
+                                         "commutant is computed exactly as "
+                                         "the C2 spectral span of the "
+                                         "multiplicity-free module and the "
+                                         "leak leg is the same commutator "
+                                         "norm")}
+    log("T1 commutant dim {} C2 bins {} leaks {:.1e}"
+        .format(cdim, cdims, max_leak))
+    checks.append({"name": "T1 module commutant: dim {:d} (Schur 3, C2 "
+                          "bins {} dims {}: {}), max Gauss leak {:.1e} "
+                          "(leg <= 1e-10: {}), residual against the "
                           "known descending map {}"
-                   .format(cdim, max_leak, max_leak <= 1e-10,
+                   .format(cdim, cvals, cdims, c2_bins_ok, max_leak,
+                           max_leak <= 1e-10,
                            ["{:.2e}".format(r) for r in known_res]),
-                   "pass": bool(max_leak <= 1e-10)})
+                   "pass": bool(max_leak <= 1e-10 and c2_bins_ok
+                                and cdim == 3)})
 
     # ---- T2: bands of the hop at the closed clocks ----------------------
     hops = [X for X, r in zip(basis, known_res) if r >= 1e-8]
@@ -387,13 +393,21 @@ def main():
         Mh = np.zeros((12, 12), dtype=np.complex128)
         for p in range(12):
             for q in range(12):
-                Gpq = hker3[:, :, p].conj() @ hker3[:, :, q]  # 6x6
+                Gpq = hker3[:, :, p].conj() @ hker3[:, :, q].T  # 6x6
                 Mh[p, q] = np.einsum("ij,ij->", Gpq, KX)
         Mh = (Mh + Mh.conj().T) / 2.0
+        mu = np.linalg.eigvalsh(Mh)
+        mumax = float(np.max(np.abs(mu)))
         for (beta, g) in clocks:
             w8 = math.sin(beta) * math.sin(g)
-            vmax, qmax = 0.0, None
+            # the stage matrix is w8 * (sum_a cos q_a) * Mh at every q:
+            # the band is E_p(q) = w8 (sum cos) mu_p, so the BZ supremum
+            # of the group velocity |dE/dq_a| is w8 * max|mu| exactly
+            # (attained at q_a = pi/2); the finite-difference grid below
+            # is a cross-check only (its 2 pi i / 5 nodes miss pi / 2)
+            vmax = w8 * mumax
             hstep = 1e-4
+            vgrid = 0.0
             for (qx, qy, qz) in qgrid:
                 T0q = w8 * np.sum([np.cos(q) for q in (qx, qy, qz)]
                                   ) * Mh
@@ -404,12 +418,11 @@ def main():
                     Tp = w8 * np.sum([np.cos(t) for t in qq]) * Mh
                     wpm = np.linalg.eigvalsh(Tp)
                     sl = float(np.max(np.abs((wpm - w0) / hstep)))
-                    if sl > vmax:
-                        vmax, qmax = sl, tuple(qq)
+                    if sl > vgrid:
+                        vgrid = sl
             band_rows.append({"hop": xi, "beta": beta, "g": g,
-                              "max_eig_MX": float(np.max(np.abs(
-                                  np.linalg.eigvalsh(Mh)))),
-                              "max_v": vmax, "argmax_q": list(qmax),
+                              "max_eig_MX": mumax,
+                              "max_v": vmax, "grid_check_v": vgrid,
                               "v_eq_1": bool(abs(vmax - 1.0) <= 1e-9)})
         data.setdefault("hops", []).append(
             {"index": xi, "leak": float(max(

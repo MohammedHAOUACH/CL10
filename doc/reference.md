@@ -92,7 +92,11 @@ signatures are in `doc/api.md`):
 | the honest parameter audit (§15; V52) | `cl10.parameter_audit` | the **audit of the four limits of the theory**: (i) the **2-route root** — the **symbolic, exact** $\mathrm{Cl}(10,0)$ of the `kingdon` library ($e_a^2=1$, $\{e_a,e_b\}=0$, $w^2=-1$) **vs** the **numeric** $32\times32$ symplectic-Pauli (the same identities, GPU); (ii) the **16/16-bar spectral mirror** — the **spectral form of CPT**: $[U,w]=0$ (the chiral split is preserved) and the **antimatter** spectrum is the **phase-conjugate** of the **matter** one, $\omega_{16\bar}=-\omega_{16}$, $\mathrm{spec}(U|_{16\bar})=\mathrm{spec}((U|_{16})^{\dagger})$ — **holds for every** 't Hooft angle (a property of the algebra, not of $g_{10}$) — + the smallest spectral level ($0.0115$); (iii) the **CP-odd theorem** (the baryogenesis wall O5: every CP-odd invariant vanishes — the QCA satisfies none of the 3 Sakharov conditions, the exact value is the named $\eta_{CP}$); (iv) **$g_{10}$ is not fixed** by the 2-loop Landau-pole condition (the pole is below $M_P$ for every $g_{10}$ in the perturbative range) — the **one** 't Hooft angle of the dynamics, and the *selected* value $1/5$ is a **convention** (the data-optimal candidate of V56 is $n=7$, not $n=5$); (v) the **hierarchy exponent** $-17$ and the **sub-Planck** DM scale are **not** in the **single-step** 32-level QCA spectrum (O8/O7).  `provenance_table()` classifies 17 headline numbers as 8 algebraic / 0 free angle / 2 conventions / 2 coincidences / 5 named residuals (the free-angle class is empty: the closure axiom fixes the 't Hooft angle) |
 | the hierarchy exponent (§12.1, O8; V53) | `cl10.hier_exponent` | $v/E_P = 2.02\times10^{-17}$ **is** the **10-loop** factor $(1/16\pi)^{10}\times 2.08$; the **10** $= 2\times5$ (the 16/16-bar **chiral split** $\times$ the **5 qubits** of the 32-D module) is a **representation**, not a loop calculation; the **same** factor also gives the DM mass (V54) — **one factor, two statements of one scale**; the exponent is **selected** so that the 2-digit coefficient lands on the data (the $0.18\%$ match fixes the coefficient, not the exponent); the coefficient $2.08$ is **fitted** |
 | the sub-Planck DM scale (§12.2, O7; V54) | `cl10.dm_wimp` | the **10-loop suppression** of the Planck scale: $m_{\rm DM} = 1.18\,M_P (1/16\pi)^{10} = 118$ GeV (the WIMP/weak scale; the **same** 10-loop factor as V53, the $1.18$ **fitted**); the earlier **Planck-mass soliton** reading is under-abundant (the $10^{-52}$ gap, quantified); the abundance $\Omega h^2$ is **not computed** — the code normalises it to the observed $0.120$ at $100$ GeV, so there is **no WIMP-miracle prediction**, only a mass scale |
-| the baryon asymmetry (§13.3, O5; V55) | `cl10.eta_cp` | a **product of factors of three provenances**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ — an **input of the SM sector**, the LH d.o.f. count; the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/8 = 1/2^3$, a dimensional guess; and the **2-loop dilution** $D = (1/16\pi)^2$, itself a **guess**: the BDP washout at the same Yukawa is $14\times$ lower, V106); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.11** to the observed $6.12\times10^{-10}$) is the **unwashed** product — the physical washout $\kappa_f = 0.12$ brings it to $2.1\times10^{-10}$ (**ratio 0.35**); the **CP phase** and the 2-digit ratio are the named residual |
+| the baryon asymmetry (§13.3, O5; V55) | `cl10.eta_cp` | a **product of factors of three provenances**: $\Delta B = (28/79)\,\varepsilon_{CP}\,D$ (the SM sphaleron $28/79$ — an **input of the SM sector**, the LH d.o.f. count; the **1-loop CP-odd** $\varepsilon_{CP} = g_0^4/16\pi$ with $g_0 = 1/8 = 1/2^3$, a dimensional guess; and the **2-loop dilution** $D = (1/16\pi)^2$, itself a **guess**: the BDP washout at the same Yukawa is $14\times$ lower, V106); $\Delta B = 6.8\times10^{-10}$ (**ratio 1.11** to the observed
+   $6.12\times10^{-10}$) is the **unwashed** product — multiplying it
+   by the physical washout $\kappa_f = 0.12$ gives
+   $8.2\times10^{-11}$ (**ratio 0.13**, product of the two booked
+   numbers); the **CP phase** and the 2-digit ratio are the named residual |
 | the $g_{10}$ 1-loop data check (§13.1, §15; V56) | `cl10.g10_selection` | $g_{10} = 1/5$ (the 32-D module, 5 qubits) gives $\alpha_{10} = 1/25 = 0.04$, **within a factor 1.73** of the **1-loop** GUT coupling (the mean of the three running to $M_P$, $0.0231$, from the PDG inputs $\alpha_1(M_Z) = 0.0169$, $\alpha_2 = 0.0338$, $\alpha_3 = 0.118$); the 1-loop matching is the O4 named residual; **honest scan**: the data-optimal candidate is $n=7$ ($\alpha = 1/49 = 0.020$, relative deviation $0.12$), **not** the root $n=5$ (deviation $0.73$) — the data check confirms the **order only** and does **not** select $n$ |
 | the 2-step seesaw on the 10-loop ladder (§12.3, O2; V57) | `cl10.neutrino` | the 2-step seesaw on the **loop ladder**: the **Dirac** $m_D = M_P(1/16\pi)^{10}$ (the WIMP/hierarchy scale, the *same* 10-loop as V53/V54) and the **2-step (Majorana)** $M_N = M_P(1/16\pi)^{3} = 9.6\times10^{13}$ GeV (**replacing the earlier hard-coded $10^{14}$**) $\Rightarrow$ $m_\nu = M_P(1/16\pi)^{2\times10-3} = M_P(1/16\pi)^{17} \approx 0.146$ eV — **2.9×** the atmospheric $0.050$ eV and **in tension** with $\sum m_\nu < 0.12$ eV; $n_{2\text{step}}=3$ and the 2-digit coefficient are **fitted**; the **2-step** $U^2$ is a **unitary** of the GUT QCA; **V136** shows the exponent is not a link-word length: the $\Delta L=2$ operator is a grade-5 (126-type) element of the root's own $1024$-D algebra with a 1-dimensional weight space, while products of the grade-2 adjoint link factors are always even-grade (the multiplication table shifts grade by $\pm2$ exactly), so no word in the 45 reaches it |
 | the UV-finite *discrete RG* (§13.1, O4) | `cl10.uvrunning` | the **O4 open part** (the lattice RG) made **explicit**: the **coarse-graining tower** $U^{2^p}$ ($p=1\ldots8$) of the GUT QCA is **unitary** (bounded) at **every** step (the GPU) — so the **discrete RG is UV-finite** (no Landau pole), **in contrast to** the *continuous* perturbative RG (2-loop $U(1)$ pole $\sim10^{12}$ GeV, **below** the cutoff; and run *down* from $\alpha_{10}=1/25$ the $\mathrm{SU}(3)$ coupling hits its pole at $2.2\times10^9$ GeV, §11.1); the 1-loop non-unification (the $U(1)$ pole, the spread $\sim0.47$) is a **failure of the coupling values**, not a feature to be dismissed; the **2-step** ($U^2$, $p=1$) is the **same** object as V57 (one object, two uses); the 1-loop spread is the named residual |
@@ -123,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (190 of them under `experiments/<category>/`: the 187 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (212 of them under `experiments/<category>/`: the 209 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -138,7 +142,7 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **190** experiments in name order,
+`run_validation.py` runs all **212** experiments in name order,
 reads the JSONs, and writes `results/validation_summary.json` with the
 per-experiment verdicts, the **reduced residuals**, the **named residuals**, and
 the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
@@ -156,7 +160,7 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (188/188 publication; the artifacts on record are all PASS).**
+**The result (212/212 publication; the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
 hard-tier verdict is positive. Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
@@ -164,6 +168,11 @@ instruction and the pre-registered full-suite re-gate was cancelled with
 them (git history keeps the retired scripts, artifacts and their runs);
 the six downstream consumers rewired off those artifacts (V247, V248,
 V255, V267, V268, V274) each re-ran green afterwards, branch unchanged.
+The V277–V299 programme (twenty-two experiments: the light node and its
+cone, the loop-origin audit, the graviton cone and content, the
+flavour-cosmology completion) books its verdicts in
+`review/pre_registrations.md` (roll-up section) and carries the physics
+nulls in branch names with the gates as machinery checks.
 The 3 exploration experiments all pass, each recording its own
 verdict; the cone programmes (V191, V192, V201) run on the host numpy
 core, so their verdicts do not depend on what else holds the GPU.
@@ -199,11 +208,15 @@ fixes the angle; V131):
   $|\lambda_B| \sim 4.06\times10^{-14}$ stays a named input — the nearest
   certified-rung combination sits at $10^{+11.2}$ of it (V298
   **PORTAL-NAMED-INPUT**) — and no booked flux-sector asymmetry reaches
-  the observed $\eta_B$: every booked asymmetry-like magnitude is
-  $\geq 10^{-8}$ in absolute value, none within a factor of ten of
-  $6.1\times10^{-10}$ with a stated conversion (V296
-  **LEDGER-INSUFFICIENT**; the generation of the baryon asymmetry
-  remains open); no certified ladder factor converts into the booked
+  the observed $\eta_B$: the ledger of booked asymmetry-like magnitudes
+  (V55, V106, V125) has every raw magnitude at least a factor
+  $8.0\times10^{3}$ from $\eta_B$ (largest: $\varepsilon_{CP} =
+  4.86\times10^{-6}$), and the only booked quantity that lands near
+  $\eta_B$ is a derived product of guessed ingredients — the V55
+  unwashed $\Delta B = (28/79)\,\varepsilon_{CP}\,(1/16\pi)^2 =
+  6.81\times10^{-10}$, ratio $1.11$, falling to ratio $0.13$ under
+  the booked BDP washout (V296 **LEDGER-INSUFFICIENT**; the
+  generation of the baryon asymmetry remains open); no certified ladder factor converts into the booked
   Planck-side induced-action normalization either (closest certified
   row $46.5\%$ off, V297 **TRACE-ACTION-ABSENT**);
 - **computed but unmatched to data**: the UV-finite 2→2 cross-section
@@ -216,6 +229,13 @@ fixes the angle; V131):
   $[0, 2/3]$ under the $O(2)$ freedom of the 2-fold light subspace, and the
   tribimaximal values $(1/2, 0)$ are the $(23)$-adapted **choice** within
   that family (V45); the computed CKM is the **identity** (V49); the
+  dynamical chain hosts neutral scalar states — $3$ of the $12$ chain-kernel
+  states carry module-singlet-channel weight $>1/2$ (V291
+  **HIGGS-HOST-PRESENT**) with total singlet weight exactly $4.000000$
+  (defect $0.0$, V293 **R-QUANTIZED**) — but a host insertion is proportional
+  to the democratic generator and moves the frame-invariant mixing by
+  $2.2\times10^{-16}$ (V292 **MIX-UNCHANGED**), so hosting does not repair
+  the mixing; the
   democratic rank-1 mass texture is **not forced** by the family-charge
   bookkeeping — the $S_3$-commutant of the family action is
   $\mathrm{span}\{I, \text{ones}\}$ with maximum rank $3$ (V294
@@ -479,6 +499,25 @@ with the minimizer $1.3\times10^{-4}$ from the committed point — a
 nudge, not a selection — the hop projection at the minimum is
 $0.00290$, below the $0.0092$ selection gate, and $49$ of $50$ starts
 diverge (**CONE-SELECTION-ABSENT**, V285).
+And the invariant-hop census on the dynamical link module is exact:
+the commutant of the module charge on the $256$-dim link module is
+computed as the C2-spectral span of its three multiplicity-free
+sectors (the restricted Casimir has levels $0, 64, 96$ with dims
+$1, 45, 210$; Schur gives dim $= 3$), max Gauss leak $4.2\times10^{-16}$
+— the gauge-invariant insertions are exactly the singlet, $45$ and
+$210$ Casimir filters. A random-generator block-commutant route was
+tried and rejected (booked in the script): block candidates of one
+generator are not global commutants. The induced $12\times12$ channel
+operators have spectral widths $\mu = 1.0000, 0.1491, 0.0690$; the
+stage matrix is a scalar multiple of a fixed operator at every $q$, so
+the Brillouin-zone velocity supremum is exactly $w_8 \mu$ (finite-
+difference grid check $0.9511 w_8 \mu$, the $2\pi i/5$ nodes miss
+$\pi/2$): over V239's four closure clocks the band table reads
+$|v| \le \{0.5, 1, 0.7071, 0.7071\} \times \mu$ with exactly one
+$|v| = 1$ entry — the singlet filter at the $(\pi/2, \pi/2)$ clock
+(**LINKINV-HOP**, V286; the lightlike channel is a filter onto the
+charge-singlet channel, carries no new gauge-charge content, and the
+V285 selection leg is absent).
 And the anisotropy-relevance test on the V279 candidate runs the
 booked V115 metric over the coarse-graining ladder: the candidate is
 gapped on the $128$-dim clock ($m_{\rm next} = 0.323$), and the
@@ -487,6 +526,18 @@ anisotropy of that gapped floor falls linearly in the offset
 relevance bound at every finer grid (**ANISOTROPY-IRRELEVANT**,
 V290 — the clock keeps the line gapped, so the cone test itself is
 inconclusive there, booked with the floor note).
+A measure on the root's own geometry group now exists as a proof of
+principle: Metropolis on the Wilson plaquette action in the adjoint
+**45** over the order-$1024$ even Clifford monomial group, on a $4^3$
+periodic lattice ($20{,}000$ sweeps, $32$ replicas, seed $289$) — the
+adjoint character matches the class table exactly on all $606{,}720$
+sampled plaquette products, and the Wilson estimator is finite at
+every $\beta \in \{1,2,4,8,16\}$ with a measured area-law decay at
+$\beta \ge 4$ (fits $\log\langle W\rangle$ vs $R^2$ of slope $-0.48$,
+$-0.43$, $-0.39$; acceptance $0.86 \to 0.045$ across the sweep):
+**MC-TUNED** (V289) — the $\beta$ range $[4,16]$ books the decayed
+regime, and a geometry measure is available; whether it selects the
+light cone is not measured by this run.
 
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the

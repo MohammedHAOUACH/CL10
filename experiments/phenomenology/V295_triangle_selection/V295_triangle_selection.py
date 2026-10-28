@@ -63,14 +63,14 @@ def main():
     t0 = time.time()
     checks, data = [], {}
     v45 = art("V45_yukawa_matrix")
-    v109 = art("V109_cp_phase_scan")
-    th12 = float(v45["data"]["angles"]["theta_12"])
-    s2_13 = float(v45["data"]["angles"]["sin2_theta_13"])
-    th23 = float(v45["data"]["angles"]["theta_23"])
-    t0ok = (abs(th12 - np.pi / 4) < 1e-12 and s2_13 == 0.0
-            and th23 == 0.0)
-    checks.append({"name": "T0 V45 mixing anchor: th12 = pi/4, "
-                          "sin^2 th13 = 0, th23 = 0",
+    v109 = art("V109_cp_phase_search")
+    s2_12 = float(v45["data"]["mixing"]["sin2_12"])
+    s2_13 = float(v45["data"]["mixing"]["sin2_13"])
+    s2_23 = float(v45["data"]["mixing"]["sin2_23"])
+    t0ok = (abs(s2_12 - 1.0 / 3.0) < 1e-12 and s2_13 == 0.0
+            and s2_23 == 0.5)
+    checks.append({"name": "T0 V45 mixing anchor: sin^2 th12 = 1/3, "
+                          "sin^2 th13 = 0, sin^2 th23 = 1/2",
                    "pass": bool(t0ok)})
     if not t0ok:
         data["status"] = "MACHINERY-DRIFT"
@@ -79,10 +79,9 @@ def main():
         return 1
 
     # ---- T1 Jarlskog over the phase circle ------------------------------
-    c12, s12 = np.cos(th12), np.sin(th12)
-    s13 = np.sqrt(s2_13)
-    c13 = np.sqrt(1 - s2_13)
-    c23, s23 = np.cos(th23), np.sin(th23)
+    s12, s13, s23 = np.sqrt(s2_12), np.sqrt(s2_13), np.sqrt(s2_23)
+    c12, c13, c23 = np.sqrt(1 - s2_12), np.sqrt(1 - s2_13), \
+        np.sqrt(1 - s2_23)
     dl = np.linspace(0, 2 * np.pi, 7201)
     Jv = c12 * c23 * c13 * s12 * s23 * s13 * np.sin(dl)
     J_max = float(np.max(np.abs(Jv)))

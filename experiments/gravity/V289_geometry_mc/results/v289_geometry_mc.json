@@ -4,43 +4,101 @@
  "property": "Metropolis measure for the root geometry group on 4^3 (proof of principle)",
  "residual": true,
  "programme": "V289",
- "branch": "MC-NULL",
+ "branch": "MC-TUNED",
  "data": {
   "rows": [
    {
-    "beta": 2.0,
-    "accept": 0.7615625,
-    "nsamples": 15,
-    "W1": 0.027777777777777776,
-    "W2": -0.0027777777777777757,
-    "W3": -0.010185185185185184,
+    "beta": 1.0,
+    "accept": 0.8628875,
+    "nsamples": 900,
+    "W1": 0.02430555555555555,
+    "W2": -0.006944444444444442,
+    "W3": -0.0012345679012345683,
     "err": [
-     0.013769326645156723,
-     0.003928371006591931,
-     0.004582357125000416
+     0.008128263826888624,
+     0.00383215139432672,
+     0.0034063567949570842
+    ]
+   },
+   {
+    "beta": 2.0,
+    "accept": 0.693403125,
+    "nsamples": 900,
+    "W1": 0.061805555555555544,
+    "W2": -0.003124999999999999,
+    "W3": 0.000231481481481481,
+    "err": [
+     0.012961296082452447,
+     0.004758828571482678,
+     0.00416802620267248
+    ]
+   },
+   {
+    "beta": 4.0,
+    "accept": 0.28963125,
+    "nsamples": 900,
+    "W1": 0.2506944444444444,
+    "W2": 0.0032986111111111124,
+    "W3": 0.003395061728395062,
+    "err": [
+     0.018593365396244538,
+     0.005153817890319281,
+     0.0029390336986780665
     ]
    },
    {
     "beta": 8.0,
-    "accept": 0.4871875,
-    "nsamples": 15,
-    "W1": 0.1111111111111111,
-    "W2": 0.008333333333333335,
-    "W3": -0.0003086419753086417,
+    "accept": 0.059553125,
+    "nsamples": 900,
+    "W1": 0.6479166666666667,
+    "W2": 0.1446180555555555,
+    "W3": 0.020601851851851847,
     "err": [
-     0.028171808490950547,
-     0.010446386175466813,
-     0.009360847763740396
+     0.01890862807427165,
+     0.01187056309772912,
+     0.004840999085749428
+    ]
+   },
+   {
+    "beta": 16.0,
+    "accept": 0.045440625,
+    "nsamples": 900,
+    "W1": 0.6423611111111115,
+    "W2": 0.1394097222222222,
+    "W3": 0.027391975308641986,
+    "err": [
+     0.022252653334963002,
+     0.01278147682695688,
+     0.006275881678635762
     ]
    }
   ],
   "char_check": {
-   "n_checked": 4032,
+   "n_checked": 606720,
    "max_abs_defect": 0.0
   },
-  "area_fits": [],
-  "status": "MC-NULL",
-  "wall_time": 38.56369614601135,
+  "area_fits": [
+   {
+    "beta": 4.0,
+    "area_slope": -0.48227960247130863,
+    "intercept": -2.0104310367167826,
+    "decay": true
+   },
+   {
+    "beta": 8.0,
+    "area_slope": -0.42683288487328885,
+    "intercept": -0.09145540884192305,
+    "decay": true
+   },
+   {
+    "beta": 16.0,
+    "area_slope": -0.3873289802089885,
+    "intercept": -0.19594738410193596,
+    "decay": true
+   }
+  ],
+  "status": "MC-TUNED",
+  "wall_time": 1404.9235446453094,
   "fitted_inputs": []
  },
  "checks": [
@@ -53,14 +111,14 @@
    "pass": true
   },
   {
-   "name": "adjoint character cross-check exact on 4032 plaquette products: max defect 0.00e+00",
+   "name": "adjoint character cross-check exact on 606720 plaquette products: max defect 0.00e+00",
    "pass": true
   },
   {
-   "name": "estimator finite over 2 betas x 8 replicas: True; decaying area fits 0",
-   "pass": false
+   "name": "estimator finite over 5 betas x 32 replicas: True (decay verdict carried by the branch)",
+   "pass": true
   }
  ],
- "status": "MC-NULL",
- "pass": false
+ "status": "MC-TUNED",
+ "pass": true
 }

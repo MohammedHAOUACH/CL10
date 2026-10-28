@@ -75,6 +75,8 @@ DERIVED = {
     r"8.4\times10^{-38}": r"4 pi / M_P^2 at M_P = 1.220890e19 GeV (cl10/config.yaml physics.m_planck_gev): 8.430e-38 GeV^-2, the UV bound of cl10.lattice_rg",
     r"5.3\times10^{-39}": r"P_2 / M_P^2 with P_2 = 0.789 (the 2-particle S-matrix S^(2) = U (x) U) at M_P = 1.220890e19 GeV: 5.293e-39 GeV^-2",
     r"2.1\times10^{-66}": r"5.293e-39 GeV^-2 x 3.89379338e-28 cm^2/GeV^2 (cl10/config.yaml units.gev2_to_cm2): 2.061e-66 cm^2",
+    r"8.2\times10^{-11}": r"the unwashed delta_B_0param = 6.8134e-10 (V55) times the booked washout kappa_f = 0.12: 8.18e-11",
+    r"8.0\times10^{3}": r"the V296 ledger gap: eps_CP = 4.857e-6 (V55 eta_cp/structure/eps_CP) over eta_B = 6.1e-10: 7.96e3",
 }
 
 # a number whose own sentence cites a source is backed by that source: the

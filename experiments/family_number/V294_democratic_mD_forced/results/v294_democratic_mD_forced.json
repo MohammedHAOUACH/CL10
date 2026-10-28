@@ -1,0 +1,52 @@
+{
+ "id": "V294_democratic_mD_forced",
+ "tier": 3,
+ "property": "whether the booked selection rules force the democratic rank-1 structure",
+ "residual": true,
+ "programme": "V294",
+ "branch": "RANK-FREEDOM",
+ "data": {
+  "anchors": {
+   "rank_booked": 1,
+   "democratic": true,
+   "families": 3,
+   "census_dims": [
+    1,
+    45,
+    54,
+    210,
+    770,
+    945
+   ]
+  },
+  "commutant": {
+   "dim": 2,
+   "generators_ok": true,
+   "max_rank": 3,
+   "witness": [
+    0.5869458505094345,
+    0.14648132684500803
+   ],
+   "witness_spectrum": [
+    0.5869458505094345,
+    0.5869458505094345,
+    1.0263898310444586
+   ]
+  },
+  "status": "RANK-FREEDOM",
+  "wall_time": 0.009002447128295898,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 anchors: V45 democratic rank 1, V70 three families, V269 census [1, 45, 54, 210, 770, 945]",
+   "pass": true
+  },
+  {
+   "name": "T1 family-selection commutant: dim 2, maximum rank 3 over real combinations",
+   "pass": true
+  }
+ ],
+ "status": "RANK-FREEDOM",
+ "pass": true
+}

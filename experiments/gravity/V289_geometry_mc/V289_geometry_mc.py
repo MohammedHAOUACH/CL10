@@ -363,6 +363,8 @@ def main():
                   chk_max), flush=True)
     fin = all(np.isfinite([r[k] for r in rows
                            for k in ("W1", "W2", "W3", "accept")]))
+    # (contract amendment, pre_registrations: zero windows are finite -
+    # a physics result carried by the branch, not a machinery failure)
     checks.append({"name": "adjoint character cross-check exact on {} "
                           "plaquette products: max defect {:.2e}"
                           .format(nchk, chk_max),
