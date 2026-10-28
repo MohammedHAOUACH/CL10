@@ -1862,3 +1862,27 @@ NOT executed; the committed artifacts of the remaining 200 are
 untouched by this retirement, and no published claim survives that
 cited a retired artifact except with an explicit retired-with-date
 annotation.
+
+The re-gate was subsequently EXECUTED (reader instruction to finish the
+open items, after the O8 ledger cutover put the ladder base in the
+parameter audit): the 200-experiment run started 2026-10-27 18:12 on
+GPU1 (the run log prints experiments: 200 - the retired six are gone
+from auto-discovery; cupy pinned, JOBS=3) and booked its last verdict
+2026-10-28. The pool fold was 197/200 PASS with the hard tier True and
+three FAILED: V274_new_theory_ledger_conjunction CRASHED (cupy
+OutOfMemoryError on a 4.29 GB allocation while three workers contended
+for the card), and V257_interacting_ledger + V258_falsifier_conjunction
+booked FAIL on their artifact-reading checks - they run (algebra_root)
+before the dynamics_spectrum pair V247/V255 is rewritten, against the
+ec86d53-era standalone-commit state, in which the committed V247 pi/2
+row carried a 1.78e+15 copy-control deviation (V255 T0 False); this
+gate re-ran V247 bit-for-bit at the 2026-10-26 gate value (deviation
+0.0e+00, V255 re-booked True). Per the run_experiments.sh crash
+contingency the three were re-run standalone on the idle card: V274
+completed in 9945 s and re-booked the roll-up verdict NEW-CONJUNCTION-
+DEAD at all three points (Y/Y/Y N, Y/Y/N N, Y/Y/Y N), V257 and V258
+re-booked PASS against the fresh artifacts. The summary was then
+rebuilt from on-disk verdicts with run_validation.py --report-only:
+200/200 PASS, backend-wide pass True, hard tier (0-3) True, n=200.
+The 206-experiment gate above stays as the historical record of what
+was booked when.

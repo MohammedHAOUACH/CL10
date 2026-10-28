@@ -122,7 +122,7 @@
    "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent"
   ],
   "fitted_inputs": [],
-  "wall_time": 0.0020554065704345703
+  "wall_time": 0.0026140213012695312
  },
  "checks": [
   {
@@ -138,7 +138,7 @@
    "pass": true
   },
   {
-   "name": "T3 the published Table 6 rows are loaded for comparison (16 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
+   "name": "T3 the published Table 6 rows are loaded for comparison (17 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
    "pass": true
   }
  ],

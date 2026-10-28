@@ -4,7 +4,7 @@
   "property": "P5,P6",
   "residual": true,
   "pass": true,
-  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 8+0+1+2+5 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); the clock is fixed by closure (order-8 root), the 1/5 reading is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
+  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 8+0+2+2+5 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); the clock is fixed by closure (order-8 root), the 1/5 reading is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
   "tol": 1e-12,
   "data": {
     "backend": "cupy",
@@ -184,12 +184,18 @@
           "value": "0.05 eV (named)",
           "provenance": "named_residual",
           "note": "the exact light-neutrino mass (O2)"
+        },
+        {
+          "quantity": "the ladder base 1/(16 pi)",
+          "value": "0.019894 (declared)",
+          "provenance": "convention",
+          "note": "V276: the certified closed branch crosses 1/(16 pi) at the measured n* = 208 with NO arithmetic derivation (PSLQ over Q on 1,rho,...,rho^4: no relation), and the observed hierarchy coefficient is the n = 10 clock read; V275: no dynamical-link route births the factor (OFFKERNEL-UNBORN).  A declared named input of the scale sector (final_publication Section 24); the O8 origin question stays open"
         }
       ],
       "counts_by_provenance": {
         "algebraic_0param": 8,
         "free_1param": 0,
-        "convention": 1,
+        "convention": 2,
         "coincidence": 2,
         "named_residual": 5
       }
@@ -197,5 +203,5 @@
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 10.615
+  "wall_time": 10.487
 }

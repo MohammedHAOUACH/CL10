@@ -990,7 +990,7 @@
     "chain_ratio_absz_over_minabsE": 1.0
    }
   },
-  "loop_wall_time_s": 965.8724057674408,
+  "loop_wall_time_s": 1072.496615409851,
   "backend": "cupy",
   "fitted_inputs": [],
   "inputs": {
@@ -1029,6 +1029,6 @@
    "pass": true
   }
  ],
- "status": "dynamical self-energy loop on the P-only dressed system (sector floor: V251 SECTOR-BLOCKED: Gauss), NO-LOOP-EITHER:sector-floor (966 s loop, backend cupy): 600 F_int values over 2 clocks x (12 M nodes + 13 star loci) x 3 deltas x 2 signs x 2 grids x the contact row. Branch NO-LOOP-EITHER:sector-floor: closest contact |16 pi F_int - 1| = 3.646e+02 over the primary rows (N=32) - neither the free combinatorics (V242) nor the dynamical loop of the P-only dressed system produces 1/(16 pi): O8's residual is measured from both sides. Grid convergence worst |F(16)-F(32)| = 7.29e+02 (finite-size floor recorded as the measurement); certification dps60-vs-dps100 9.6e-72 (< 1e-40 met), float64 floor 2.3e+00 recorded per V242's precedent; the flux-dispersing upgrade never ran: the tower weights (V101 window +-8.418) are recorded, not realized.",
+ "status": "dynamical self-energy loop on the P-only dressed system (sector floor: V251 SECTOR-BLOCKED: Gauss), NO-LOOP-EITHER:sector-floor (1072 s loop, backend cupy): 600 F_int values over 2 clocks x (12 M nodes + 13 star loci) x 3 deltas x 2 signs x 2 grids x the contact row. Branch NO-LOOP-EITHER:sector-floor: closest contact |16 pi F_int - 1| = 3.646e+02 over the primary rows (N=32) - neither the free combinatorics (V242) nor the dynamical loop of the P-only dressed system produces 1/(16 pi): O8's residual is measured from both sides. Grid convergence worst |F(16)-F(32)| = 7.29e+02 (finite-size floor recorded as the measurement); certification dps60-vs-dps100 9.6e-72 (< 1e-40 met), float64 floor 2.3e+00 recorded per V242's precedent; the flux-dispersing upgrade never ran: the tower weights (V101 window +-8.418) are recorded, not realized.",
  "pass": true
 }

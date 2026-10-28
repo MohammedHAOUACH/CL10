@@ -13,7 +13,7 @@ of the ``kingdon`` Clifford-algebra library):
 
 **Point 1 — "0-parameter is partly conventional".**
 Every "0-parameter" number is **reclassified** into its true provenance
-(``provenance_table``), the audit's **$8+0+1+2+5$** split: **algebraic
+(``provenance_table``), the audit's **$8+0+2+2+5$** split: **algebraic
 0-param** (a property of the ``Cl(10)`` root: the 16/16-bar, the 45, the
 5/3, the anomalies, the 32-level spectrum, ``det U = 1``, the **16/16-bar
 spectral mirror**, the **closed clock angle** — the closure axiom (V131)
@@ -109,7 +109,7 @@ def main():
         "residual": True,
         "pass": ok,
         "status": ("the_honest_parameter_audit: the '0-parameter' label is reclassified "
-                  "(the 8+0+1+2+5 split: algebraic 0-param / free 1-param / convention / "
+                  "(the 8+0+2+2+5 split: algebraic 0-param / free 1-param / convention / "
                   "coincidence / named residual); the 0-parameter CP-odd invariants all "
                   "vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT "
                   "generate the baryon asymmetry - a theorem); the 16/16-bar spectra are "

@@ -7,27 +7,27 @@
  "branch": "LADDER-N10-CONVENTION / CROSSING-MEASURED",
  "data": {
   "machinery": {
-   "rho": 0.9780302704295725,
+   "rho": 0.9780302704295731,
    "rho_artifact": 0.9780302704295731,
-   "rho_abs_diff": 6.661338147750939e-16,
+   "rho_abs_diff": 0.0,
    "crossing_n": 208,
    "crossing_n_artifact": 208,
-   "odd_max_n11": 3.377469014174313e-15,
-   "F_cross": 0.019684263006753522,
+   "odd_max_n11": 3.2969618106700556e-15,
+   "F_cross": 0.01968515418112789,
    "F_cross_artifact": 0.01968515418112789,
-   "F_cross_abs_diff": 8.91174374368503e-07
+   "F_cross_abs_diff": 0.0
   },
-  "continuation_direction": "F_n decays with n: loop_ratios builds F_n = cartan_norm((MG)^n)/cartan_norm(G^n) with rho(MG) = 0.9780302704295725 < 1 and unitary G, so the geometric continuation from (rho, F_cross) at n* = 208 back to n = 10 multiplies F_cross by rho**(-198) = 81.3290",
+  "continuation_direction": "F_n decays with n: loop_ratios builds F_n = cartan_norm((MG)^n)/cartan_norm(G^n) with rho(MG) = 0.9780302704295731 < 1 and unitary G, so the geometric continuation from (rho, F_cross) at n* = 208 back to n = 10 multiplies F_cross by rho**(-198) = 81.3290",
   "F_10_open_branch": 0.019186391026184392,
   "F_10_v85_full_precision": 0.01918639,
-  "F_10_geom": 1.6009733291888546,
+  "F_10_geom": 1.6009733291886388,
   "coef_pred_v108_reread": 2.088105749082429,
   "coef_pred_v108_artifact": 2.088105749082429,
   "v108_reread_defect": 0.0,
   "ladder_reads": {
    "F_10_open_branch": 2.088106865906408,
    "F_208_certified_crossing": 2.6990318848857737,
-   "F_10_geometric_continuation": 3.4171243121956786e+19
+   "F_10_geometric_continuation": 3.4171243121910723e+19
   },
   "coefficient_observed": 2.076564111173832,
   "pslq_order": [
@@ -46,12 +46,12 @@
    354,
    315
   ],
-  "pslq_candidate_residual": 6.614364111573805e-13,
+  "pslq_candidate_residual": 4.769131671343586e-13,
   "pslq_noise_floor": 5.2513549064769904e-14,
   "pslq_relation": null,
-  "n_star_geom": 8.368849802334156,
-  "n_star_geom_minus_208": -199.63115019766585,
-  "n_star_rho_band": 7.507615523410152e-08,
+  "n_star_geom": 8.36884980233411,
+  "n_star_geom_minus_208": -199.6311501976659,
+  "n_star_rho_band": 7.507615523410564e-08,
   "census_208": {
    "factorization": "208 = 2**4 * 13",
    "closed_clock_order_8_divides": true,
@@ -79,7 +79,7 @@
  },
  "checks": [
   {
-   "name": "T0 machinery reproduction (rho, crossing 208, odd-n zero): rho 0.9780302704295725 (|d| 6.7e-16), crossing n* = 208, odd max 3.4e-15",
+   "name": "T0 machinery reproduction (rho, crossing 208, odd-n zero): rho 0.9780302704295731 (|d| 0.0e+00), crossing n* = 208, odd max 3.3e-15",
    "pass": true
   },
   {
@@ -99,7 +99,7 @@
    "pass": true
   },
   {
-   "name": "T2 PSLQ degree-4 relation of rho: None (over Q on {1, rho, rho^2, rho^3, rho^4}, height cap 1e4, 60 dp; raw candidate [-473, -2, -151, 354, 315], residual 6.614364111573805e-13)",
+   "name": "T2 PSLQ degree-4 relation of rho: None (over Q on {1, rho, rho^2, rho^3, rho^4}, height cap 1e4, 60 dp; raw candidate [-473, -2, -151, 354, 315], residual 4.769131671343586e-13)",
    "pass": true
   },
   {

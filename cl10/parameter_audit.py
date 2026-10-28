@@ -659,6 +659,13 @@ def provenance_table():
          "of the sector (O7)"),
         ("the exact m_nu", "0.05 eV (named)", "named_residual",
          "the exact light-neutrino mass (O2)"),
+        ("the ladder base 1/(16 pi)", "0.019894 (declared)", "convention",
+         "V276: the certified closed branch crosses 1/(16 pi) at the measured "
+         "n* = 208 with NO arithmetic derivation (PSLQ over Q on 1,rho,...,rho^4: "
+         "no relation), and the observed hierarchy coefficient is the n = 10 "
+         "clock read; V275: no dynamical-link route births the factor "
+         "(OFFKERNEL-UNBORN).  A declared named input of the scale sector "
+         "(final_publication Section 24); the O8 origin question stays open"),
     ]
     counts = {k: 0 for k in ("algebraic_0param", "free_1param", "convention",
                              "coincidence", "named_residual")}

@@ -43,7 +43,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 21.43515419960022
+  "wall_time": 17.3271164894104
  },
  "checks": [
   {
@@ -63,6 +63,6 @@
    "pass": true
   }
  ],
- "status": "composite chirality/statistics census (21 s): Cartan machinery verified live (flux Cartan rank 5, commutators 2.7e-15; V67-convention P-Cartan spectra [-1.0, 1.0]), little-group control at Gamma exact, V259 kernel dim recomputed 0, V260 gapless loci 0. Branch NO-LOCUS. There are no composite gapless loci and no kernel states at all, so the parity table is empty: the question whether the composites carry the electron (half-integer matter parity) has no instances on this construction - V98's centre obstruction is not even reached, because the singlet sector itself does not exist. NO-LOCUS by the pre-registered rule; the drafted per-locus Molien + Cartan-parity census ran not a line.",
+ "status": "composite chirality/statistics census (17 s): Cartan machinery verified live (flux Cartan rank 5, commutators 2.7e-15; V67-convention P-Cartan spectra [-1.0, 1.0]), little-group control at Gamma exact, V259 kernel dim recomputed 0, V260 gapless loci 0. Branch NO-LOCUS. There are no composite gapless loci and no kernel states at all, so the parity table is empty: the question whether the composites carry the electron (half-integer matter parity) has no instances on this construction - V98's centre obstruction is not even reached, because the singlet sector itself does not exist. NO-LOCUS by the pre-registered rule; the drafted per-locus Molien + Cartan-parity census ran not a line.",
  "pass": true
 }

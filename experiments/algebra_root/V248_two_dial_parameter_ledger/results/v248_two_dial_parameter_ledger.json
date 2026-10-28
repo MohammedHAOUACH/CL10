@@ -59,7 +59,7 @@
  },
  "checks": [
   {
-   "name": "T0 all nine verdict artifacts of the programme loaded and parsed: True; published Table 6 has 16 rows to compare against (V52 provenance_table)",
+   "name": "T0 all nine verdict artifacts of the programme loaded and parsed: True; published Table 6 has 17 rows to compare against (V52 provenance_table)",
    "pass": true
   },
   {
