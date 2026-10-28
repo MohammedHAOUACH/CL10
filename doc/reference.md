@@ -123,7 +123,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (198 of them under `experiments/<category>/`: the 186 of the publication programme, and the 12 of the `alt_*` exploration programmes):
+**The protocol.**  Each experiment (200 of them under `experiments/<category>/`: the 188 of the publication programme, and the 12 of the `alt_*` exploration programmes):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -172,7 +172,7 @@ Two cautions, stated in the paper (Appendix B): most of these checks are
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —
 which residuals are reduced and which are named — see `doc/final_publication.md` Sections 17–18.)
 
-**The provenance of the headline numbers** (the paper's Table 5;
+**The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification
 over 17 rows as 8 algebraic / 0 free angle / 2 conventions / 2 coincidences
 / 5 named residuals (the free-angle class is empty — the closure axiom
@@ -288,7 +288,7 @@ availability statement and in `make_figures/README.md`.  Two figures are
  proton-decay limits from **Super-Kamiokande**, the neutrino scales from
  **NuFIT / KATRIN**, and the direct-detection ceiling from **LZ**.  These
  are **reference data**: the coefficients the framework reads from the data
- ($2.08$, $1.18$, $n_{2\text{step}} = 3$) are **named** in Table 5 of the
+($2.08$, $1.18$, $n_{2\text{step}} = 3$) are **named** in Table 6 of the
  publication, not hidden in a fit.
 
  It uses the same backend selection as Section 3 (CuPy/GPU, degrading to
