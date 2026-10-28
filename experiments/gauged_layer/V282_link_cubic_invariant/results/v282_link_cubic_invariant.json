@@ -1,0 +1,148 @@
+{
+ "id": "V282_link_cubic_invariant",
+ "tier": 2,
+ "property": "does a symmetric cubic invariant exist on the 256-dim dynamical link module (would unfreeze the V271/V274 kernel ladder) - tier 2, O8-new",
+ "residual": true,
+ "programme": "V282",
+ "branch": "CUBIC-PRESENT-FROZEN",
+ "data": {
+  "v271_anchors": {
+   "gauss_defect": 7.698474841966662e-14,
+   "kernel_ladder": [
+    -1.62741518540497e-15,
+    3.583980488344855e-15,
+    19.199999999999996,
+    19.20000000000002,
+    28.80000000000003,
+    28.800000000000033
+   ],
+   "frozen_dispersion": 2.4868995751603507e-14,
+   "casimir_identity_defect": 1.7763568394002505e-14,
+   "krylov_steps": 3
+  },
+  "module": {
+   "sectors": {
+    "1": [
+     0.0,
+     1,
+     1.0
+    ],
+    "45": [
+     64.0,
+     45,
+     -1.0
+    ],
+    "210": [
+     96.0,
+     210,
+     1.0
+    ]
+   },
+   "closure_defect": 1.021405182655144e-14,
+   "c2_adjoint_artefact": 64.0,
+   "module_dim": 256,
+   "herm_defect": 6.661338147750939e-16
+  },
+  "cartan": {
+   "cartan_dim": 5,
+   "cartan_commute": 6.966649479522857e-15,
+   "joint_offdiag_defect_module": 1.4330327939421525e-15,
+   "joint_offdiag_defect_ad": 7.788920003934546e-17,
+   "n_roots": 40,
+   "n_positive": 20,
+   "zero_weight_mult_module": 16
+  },
+  "weyl": {
+   "order": 1920,
+   "kappa_terms": 272753
+  },
+  "sym3": {
+   "module_256": {
+    "mean": [
+     6.0,
+     0.0
+    ],
+    "batch_spread": 0.0,
+    "dim_rounded": 6,
+    "exact": true,
+    "I1": 36480,
+    "I2": 5760,
+    "I3": 7680,
+    "weyl_order": 1920
+   },
+   "module_255_no_singlet": {
+    "mean": [
+     3.0,
+     0.0
+    ],
+    "batch_spread": 0.0,
+    "dim_rounded": 3,
+    "exact": true,
+    "I1": 23040,
+    "I2": 0,
+    "I3": 5760,
+    "weyl_order": 1920
+   },
+   "adjoint_45": {
+    "mean": [
+     0.0,
+     0.0
+    ],
+    "batch_spread": 0.0,
+    "dim_rounded": 0,
+    "exact": true,
+    "I1": 1920,
+    "I2": -1920,
+    "I3": 1920,
+    "weyl_order": 1920
+   },
+   "method": "exact Weyl-denominator combinatorics on the measured weights/roots (addendum: replaces the pre-reg MC, which failed its 0.02 stability tol); integrand chi_Sym3 = (chi^3 + 3 chi chi(t^2) + 2 chi(t^3))/6"
+  },
+  "t1": {
+   "sym3_45_dim": 16215,
+   "smallest_c2_eigenvalues": [
+    63.99999999999994,
+    64.00000000000003,
+    63.9999999999999,
+    63.999999999999886,
+    63.99999999999996,
+    64.00000000000006
+   ],
+   "realized_tensors": 0,
+   "note": "no tensor realized in the adjoint sector: the C3 below is the (antisym- metric) f-contraction stand-in; the invariant lives in the mixed 45 (+) 210 sector only",
+   "C3_norm": 3072.000000000016,
+   "C3_antiherm": 6144.000000000032,
+   "C3_intertwiner_defect": 5.638867150992155e-11,
+   "eta": 0.1,
+   "standin": true,
+   "ladder_eta": [
+    0.0,
+    0.0,
+    19.2,
+    19.2,
+    28.799999999999997,
+    28.799999999999997
+   ],
+   "dispersion": 0.0
+  },
+  "status": "CUBIC-PRESENT-FROZEN",
+  "wall_time": 880.8213138580322,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0a V271 anchors: gauss defect 7.698e-14, kernel ladder [-0.0, 0.0, 19.2, 19.2, 28.8, 28.8] dispersion 2.487e-14 (frozen), kernel dim 6, krylov_steps 3 (frozen test)",
+   "pass": true
+  },
+  {
+   "name": "T0b V269 module re-derived: sectors {'1': 1, '45': 45, '210': 210} (256 total), root closure on the module defect 1.0e-14, C2(45) artefact 64.000000",
+   "pass": true
+  },
+  {
+   "name": "T0.5 dim Sym^3 via exact Weyl-denominator combinatorics: dim(256) = 6 spread 0.00000; dim(45 (+) 210) = 3 spread 0.00000; dim(45) = 0 spread 0.00000; roots 20/40, zero weights on module 16",
+   "pass": true
+  }
+ ],
+ "status": "CUBIC-PRESENT-FROZEN",
+ "pass": true
+}

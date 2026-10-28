@@ -1,0 +1,82 @@
+{
+ "id": "V286_module_link_invariant_hop",
+ "tier": 2,
+ "property": "gauge-invariant hopping insertions on the module link and their band velocity (tier 2, F8)",
+ "residual": true,
+ "programme": "V286",
+ "branch": "MACHINERY-DRIFT",
+ "data": {
+  "module": {
+   "c2_live": 64.0,
+   "c2_art": 64.0,
+   "bins": [
+    [
+     3.9968028886505635e-15,
+     1
+    ],
+    [
+     64.0,
+     45
+    ],
+    [
+     80.00000000000001,
+     54
+    ],
+    [
+     96.0,
+     210
+    ],
+    [
+     127.99999999999997,
+     945
+    ],
+    [
+     144.0,
+     770
+    ]
+   ],
+   "gap_min": 15.999999999998181,
+   "lam45": 64.0,
+   "lam210": 96.0
+  },
+  "atom_kernel": {
+   "dim": 6,
+   "channel_census": {
+    "0.0": 2,
+    "64.0": 2,
+    "96.0": 2
+   },
+   "channel_values": [
+    0.0,
+    0.0,
+    64.0,
+    64.0,
+    96.0,
+    96.0
+   ]
+  },
+  "chain": {
+   "gram_defect": 1.509903313490213e-14,
+   "gauss_transport_defect": 3.009478627410111,
+   "kernel_dim": 12,
+   "e0_gap": 35.99999999999992
+  },
+  "status": "MACHINERY-DRIFT"
+ },
+ "checks": [
+  {
+   "name": "T0a V269 module: c2 adjoint 64.000000000 vs artefact 64.000000000, bins [1, 45, 54, 210, 770, 945] gap 1.6e+01",
+   "pass": false
+  },
+  {
+   "name": "T0b seed-path atom kernels: dim 6 channels {'0.0': 2, '64.0': 2, '96.0': 2} (V270 kernel_dim 6)",
+   "pass": true
+  },
+  {
+   "name": "T0c chain: Gram 1.5e-14 Gauss transport 3.0e+00 kernel dim 12 (V272 dim 12, branch CHAIN-ALIVE)",
+   "pass": false
+  }
+ ],
+ "status": "MACHINERY-DRIFT",
+ "pass": false
+}

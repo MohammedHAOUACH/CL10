@@ -1966,3 +1966,871 @@ experiment was pre-registered by this step.
   instead of V94. Suite counts 200 -> 190 (paper Appendix B and the
   availability note, README, experiments/README, reference.md); the full
   190-experiment gate re-runs on the current tree.
+
+# The light node: pre-registrations V277-V280
+
+Category `dynamics_spectrum` for V277-V279; V280 is the F9 contact of
+whatever candidate survives. The programme runs on the CPU core
+(V185-V187 convention: `CL10_BACKEND=numpy` pinned before any `cl10`
+import; the Nelder-Mead search over 128x128 Bloch matrices measures
+~40x faster on CPU workers than on the card).
+
+Reader's note on a pre-existing text-artifact gap (measured before any
+V277 code was written, so no run can be blamed for it): the
+publication's V250 decoration row prints "cone degree 0.281 -> 0.540"
+(Sections 8.4, 11.6, Table 9). The live V250 artefact carries no such
+pair: its `cone_degree_gamma` reads implemented-clock bare
+-0.10743390423138056 and decorated -1.2196990555403142, closed-clock
+bare 0.5086736873158906 and decorated NaN (a gap-floor artefact: at
+the closed clock the star step's minimum eigenphase is pinned to the
+1e-17 noise floor at every radius, so that fit measures noise). No
+live artefact in the suite carries 0.281 or 0.540 under any cone or
+degree key. The anchors below therefore bind to the live artefact
+values, not to the printed pair; the printed pair is booked as a
+text-only residue of the pre-retirement run.
+
+## V277_bond_decoration_cone_scan (tier 2, hard, O10)
+
+**The question (pre-registered).** Does the enlarged bond-decoration
+circuit class - the six-stage step with a per-stage spin-connection
+quaternion twist on the internal factor - carry a protected conical
+node at GAMMA: gapless, linear (cone degree ~1), subluminal
+(slope <= 1 in block units) and non-Abelian (rho_comm > 0.5)? V250
+booked the single common-amplitude decoration on the star module;
+this programme generalizes the amplitude per staged bond and reruns
+the cone question on the 16-sector supercell step, the engine's own
+circuit.
+
+**The object (closed input set).** `cl10.supercell` published
+machinery: the six-stage step M(q) = prod_t kron(S_t(q; beta), U16)
+at the closed clock (beta, g) = (pi/4, pi/4) (V239 closure set, the
+order-2 point); the 16-sector internal U16 and basis B16 from
+`supercell.sectors(pi/4)`; the quaternion triplet
+(V1,V2,V3) = (i h_1 h_2, i h_2 h_3, i h_1 h_3)|_16 from
+`cl10.clifford.generators` conjugated by B16 (the V250 construction,
+Hermiticity < 1e-12 measured in-script). Decoration: per stage
+s = 1..6 the internal factor becomes U16 W_s(q),
+W_s(q) = exp(i q.(alpha_s V1 + beta_s V2 + gamma_s V3)). 18
+parameters in the box [0, 2 g10] per component with g10 = 0.2 the
+implemented config value (`cl10.config`, angle.branches.implemented).
+Unitarity is exact (Hermitian generators exponentials, tensor blocks
+of unitary stage matrices); causal radius 1 holds (the twist is a
+q-local unitary on the internal factor, the bond support is
+unchanged). W_s(GAMMA) = I for every parameter set, so the decorated
+family shares M(GAMMA) with the published step exactly - the node
+question is purely about the dispersion of its gapless multiplet.
+Optimizer: `scipy.optimize.minimize` Nelder-Mead (the V186 tune
+polish), maxfev 300, candidates projected back into the box at every
+objective call; 120 starts (seed 277: start 1 = the published
+uniform triplet (alpha,beta,gamma) = (0.2,0.2,0.2) on all six
+stages, 119 = uniform draws from the box); workers via
+`cl10.parpool`. Objective: the coarse cone degree
+polyfit(log r, log w(r)) with w(r) = min over the 13 cubic classes
+{(100) x3, (110) x6, (111) x4} of the top of the gapless multiplet
+(the 64th sorted |eigenphase|, m0 measured at T0) at radii
+(0.1, 0.03, 0.01); maximize.
+
+**Measured (pre-registered).** T0 machinery gate against the live
+V250 artefact (the V250 star-cell construction re-derived in-script:
+`starcell.bloch_star` on the 1024-dim module cell with the published
+star axes and `module_stages(order="phase-major")`, and its single-
+twist decorated step `U16 W(q)` with amplitude g10 = 0.2, using the
+V250 degree convention: radii (0.3, 0.1, 0.03, 0.01, 0.003), the
+star's 6 axes plus the 3 Cartesian axes): implemented-clock bare
+degree -0.1074339042 and decorated -1.2196990555 (tol 1e-3);
+implemented decorated cone_anisotropy A = 0.0109382891 (tol 1e-5);
+closed-clock bare cone_anisotropy A = 0.999999999945298 and
+decorated A = 1.0 with (vmax, vmin) reproducing the artefact to
+1e-9 relative; closed-clock degrees booked as measured (bare
+~0.509 tol 1e-2; decorated must reproduce the artefact's NaN).
+Then, on the 128-dim supercell step at the closed clock: the GAMMA
+eigenphase census (zero-count and pi-count, expected 64 + 64 from
+the V192/V132 pinned spectrum, measured not assumed), m0 = the
+measured zero-phase multiplicity; the bare top-m0 degree (expected
+~1.9986, the quadratic touching V245-type - booked with tol 2e-3 as
+the starting value); the published uniform-triplet start degree
+(booked, no external anchor); the search's best point with its fine
+measurements: degree over radii (0.3, 0.1, 0.03, 0.01, 0.003) and
+the 13 cubic directions; the GAMMA gap; the tangent maps
+S_j = i P^dM (d_j M) P on the m0-gap subspace by the V186
+`tangent` convention (h = 1e-5, central differences),
+rho_comm = max ||[S_a,S_b]|| / (1/3 sum_j ||S_j||^2) over cyclic
+pairs, and the tangent speeds over the 179-direction Fibonacci
+sphere (the V235 `fib_dirs` pattern): v_max (the slope leg, block
+units) and A_top = (v_max - v_min)/(v_max + v_min) over nonzero
+speeds. All booked for the best-degree point and the best
+(degree, rho_comm, v_max) triples.
+
+**Acceptance (pre-registered).** T0 fail (any anchor beyond its
+tolerance) -> MACHINERY-DRIFT, exit nonzero, nothing downstream
+interpreted. DECORATION-CONE-FOUND iff some searched point has:
+GAMMA gap < 1e-10 (automatic in this family since W(0) = I - booked
+as such, not counted as earned), fine degree >= 0.99, v_max <= 1,
+and rho_comm > 0.5. Else DECORATION-BEST with the best triple
+(degree, rho_comm, v_max) booked and the binding leg named (which
+criterion the best point misses).
+
+## V278_range2_parity_cone (tier 2, hard, O10)
+
+**The question (pre-registered).** Does the circuit class enlarged by
+range-2 second-neighbour swap rotations reach the parity-mixed
+A1g (+) T1u conical node of V191 inside the engine's own six-stage
+product - the node Proposition 6 puts outside every single-parity
+cubic-covariant class and V192/V201 searched without finding?
+
+**The object (closed input set).** The V277 family extended on the
+bond factor. Two new orbits, both summed over the full O_h orbit so
+each factor is a singlet set: the axial orbit generator
+A(q) = sum_j sum_{e: bit_j(e)=0} [e^{+i q_j} |e (+) (1<<j)><e| + h.c.]
+(the (plus/minus 2,0,0)-type second-neighbour swaps: the same pair
+set as the engine's inter-block stages, entered with an independent
+amplitude per stage), and the diagonal orbit generator
+D = (1/2) sum_{i<j} sum_e [|e (+) (1<<i) (+) (1<<j)><e| + h.c.]
+(the (plus/minus 1, plus/minus 1, 0)-type intra-block double flips,
+12 pairs, q-independent). One amplitude each per stage, box [0, 2 g10]
+like the decoration: 30 parameters total. The stage factor is
+kron(S_t(pi/4) exp(i a_t A(q)) exp(i d_t D), U16 W_t(q)); causal
+radius 2 (the axial factor carries e^{+/- i q_j} exactly like the
+engine's own inter-stage swaps: reach +2 per stage, the published
+Lieb-Robinson radius per stage is 2 in module units - measured in
+T0-style check), unitarity exact per factor. O_h content of the
+GAMMA gapless subspace is read by the V191 machinery reused
+verbatim (`class_of`, `CHAR`, `projector`): multiplicities from
+characters over the 48 W48 (x) I16 on the gap subspace, and the
+A1g, T1u projector ranks on it (the equivariance-free content
+statement; V192's measured exact Gamma equivariance of the published
+product is re-measured in-script and booked for the extended family
+too - if the new factors break it, the content reading is still a
+rank measurement, stated as such). Optimizer as V277 (Nelder-Mead,
+150 starts, seed 278, maxfev 300 each, box projection) with
+objective = the GAMMA gap (minimize, top-multiplet quality booked
+not searched).
+
+**Measured (pre-registered).** the gapless-subspace dimension m at
+the best point; its O_h content multiplicities and A1g/T1u projector
+ranks; the GAMMA gap; the V186 tangent maps on the gap subspace:
+rho_comm and the Fibonacci-179 speeds (v_max, A_top); degree of the
+gap multiplet as in V277; Gamma equivariance defect of the extended
+product over the 48 elements; the best point's 30 parameters.
+
+**Acceptance (pre-registered).** CONE-RANGE2-FOUND iff at the best
+point: GAMMA gap < 1e-10, the gap-subspace content contains an
+A1g (x) T1u parity-mixed pair (A1g rank >= 1 and T1u rank >= 3 with
+total gap dimension 4), A_top < 0.1, rho_comm > 0.5, v_max <= 1.
+Else CONE-RANGE2-ABSENT, booking the best point's (gap, A_top,
+rho_comm) triple and which leg binds.
+
+## V279_candidate_protection (tier 2, hard, O10)
+
+**The question (pre-registered).** Is the best node produced by
+V277/V278 protected: do on-site perturbations that respect the
+commutant leave the node gapless? If neither V277 nor V278 produced
+a candidate (the pre-registered default expectation), the same test
+runs as a CONTROL on the star-module two-fold line (V219/V220/V227
+machinery) and its verdict is booked as control-only.
+
+**The object (closed input set).** The candidate step (best point of
+V277 or V278, carried by value); the V220 `commutant` Cesaro average
+over 240 powers of the step at Gamma to find the invariant on-site
+operator algebra, `cluster_frame` and `circle_holonomy` as booked by
+V220; the V227 invariant-mass opening test verbatim (`refine`,
+`exponent_away`): V = projector of a random Hermitian (seed 279)
+onto the invariant commutant, perturbation exp(-i theta V), gap
+versus theta slope at theta = 1e-2.
+
+**Measured (pre-registered).** the commutant dimension; the induced
+gap at theta = 1e-2 minus the node gap (opening); the gap-vs-theta
+slope and the obstruction norm (invariant projector norm); the
+holonomy charge of the node (V220 `circle_holonomy`) as booked data.
+
+**Acceptance (pre-registered).** CANDIDATE-PROTECTED iff the induced
+gap at theta = 1e-2 < node gap + 1e-6; else CANDIDATE-MASSIVE with
+the opening slope booked. Control runs carry the same verdict string
+with a "control:" prefix and never gate anything.
+
+**Gate G1 (fixed before any run).** If V277 and V278 are both
+negative (DECORATION-BEST / CONE-RANGE2-ABSENT) OR V279 says
+CANDIDATE-MASSIVE on a real candidate: the enlarged (decorated,
+range-2) circuit class is booked in the ledger as yielding no
+protected conical node, O10 stays open with that measured extension,
+V280 still runs if a candidate exists for the F9 contact read, and
+V290 (Phase 4) is SKIPPED.
+
+## V280_candidate_sme_contact (tier 4, F9) - runs only if a candidate exists
+
+**The question (pre-registered).** What SME electron velocity
+anisotropy would the surviving candidate carry at the Planck-lattice
+scale: what is its delta v / v against the booked experimental
+ceiling?
+
+**The object (closed input set).** The candidate node's dressed step
+(by value from V277/V278/V279); the V235 `node_velocity_contact`
+machinery (`fib_dirs`, `step_batch_at`, `velocities`, `tensor_fit`,
+`dvv`); the ceiling `sme_electron_velocity_aniso = 8.0e-15` from
+`cl10/config.yaml` bounds. No new inputs.
+
+**Measured (pre-registered).** the candidate's velocity tensor fit,
+delta v / v (the V235 `dvv` convention), the ratio to the ceiling,
+the 179-direction spread.
+
+**Acceptance (pre-registered).** pass = the contact is measured (the
+V235 convention: contact experiments pass by measuring); status
+F9-CANDIDATE-CONTACT with the ratio booked.
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- Every phase appends its own dated reference.md paragraph with the
+  measured numbers and verdict strings, negatives included, and
+  re-gates `review/tools/number_audit.py` to PASS.
+- Gate G1 above decides Phase 4 (V290); no post-hoc re-run of the
+  search on a different objective is allowed after a negative.
+- The suite recount propagates (README.md, experiments/README.md,
+  paper Appendix B, section 24) whether or not any route succeeds.
+- No acceptance threshold moves after a run; the published step's
+  Gamma gapless multiplet (64+64) is booked as measured at T0 and
+  the "gapless" leg of the acceptance is reported as inherited, not
+  earned.
+- Nothing in this programme is refitted to land in a cone band; any
+  dial touched reclassifies to fitted in the ledger.
+
+# Loop origin or booked decision: pre-registrations V281-V284
+
+Categories: V281 `scales_loopfactor`, V282 `gauged_layer`, V283
+`gauged_layer`, V284 `scales_loopfactor`. The programme attacks O8-new
+(can the loop base 1/(16 pi) be produced by a traced sector of the
+root?) with three independent traced constructions and one final
+arithmetic word. Expected outcome per the V252/V274/V275/V276
+booked record is negative; every branch is booked.
+
+## V281_flux_kernel_trace_loop (tier 2, hard, O8-new)
+
+**The question (pre-registered).** Does the traced-word Cartan-ratio
+functional (V209/V203 machinery) produce the loop band
+1/(16 pi) = 1.9894e-2 when the traced link is not the qubit link but
+the flux kernel of the three-site gauged chain, and the traced link
+state is the bond-current ground state instead of the uniform link
+average?
+
+**The object (closed input set).** V101's cached kernel (Is, Ts from
+results/kernel.npz, rebuilt with --force if absent) + V79
+`root_generators`/`structure_constants`/`adjoint_link_operators` +
+V101's exact (H, N) generalized eigenproblem on the 24 kernel states
+(anchors below); the link-pair space is the two-link pair (45 x 45 =
+2025) of the V99 three-site chain with the two-link Casimir C2ll
+(V101 construction region) and channels grouped by the V129
+`channels` convention (values expected {0, 64, 96} with the 210
+channel at 96 as booked by V101's extraction). The traced state is
+the link-pair reduction rho_lp of the degeneracy-6 ground-state
+mixture Cw = c c^dag / 6, built by explicit tensor contraction of the
+glued kernel basis with V101's own Gram einsum algebra; the
+contraction is gated: Tr rho_lp = 1 (1e-9), positivity (min eigenvalue
+> -1e-14), and V101's booked middle-cut entropy S = 3.80666248977
+reproduced from rho_B reconstructed by the same contraction (1e-9).
+The functional is V209's: the sector phases e^{i(g/2)e} over the
+qubit-link Casimir sectors {-32, -12, +4} are REPLACED by the
+channel-phase operators M = sum_c sqrt(w_c) exp(i theta_c) Pi_c over
+the C2ll channels of the link pair (Pi_c the exact Lagrange
+projectors of the integer C2ll, w_c = Tr(rho_lp Pi_c) the ground-state
+channel weights), with the spinor-block machinery G, N, planes, cart
+imported from V209 (`skeleton`, `tr_AB`, `cint`) unchanged; the
+Cartan ratio F_n = cnorm((M G)^n)/cnorm(G^n) on the 32-dim spinor
+block. Grid: the channel phases (theta_0, theta_45, theta_210) on a
+13^3 = 2197-point product grid (linspace 0..2pi), float64 F_n for
+even n <= 40; stability control: the same grid at 14 points (F_40
+shift < 1e-8 required, else the point is unstable and not booked);
+certified continuation: V209 `mp_ladder`-style 50-digit mpmath
+re-run at the closest grid point (exact skeleton, `mp.mpf` chain)
+along the measured geometric class.
+
+**Measured (pre-registered).** T0: kernel 24 states; E0 =
+-5802.398188196636 eta, degeneracy 6, gap 42.09063148320456 eta, S_ground
+= 3.8066624897703183 (V101 artifact `data.*`; tol 1e-9 relative);
+link-pair channels [value, multiplicity] by V129.channels; the
+ground channel weights w_c; the F-grid: min over stable grid points
+of |16 pi F_4k - 1| and the F-band census; the 50-digit certified
+closest approach and the geometric ratio of the measured class;
+closest approach |16 pi F - 1| booked at every leg.
+
+**Acceptance (pre-registered).** T0 fail -> MACHINERY-DRIFT, exit
+nonzero. FLUXLOOP-FOUND iff some stabilized grid point has
+|16 pi F - 1| < 0.5 AND the F value lies in the pre-registered band
+[1.5e-2, 3.0e-2]; else FLUXLOOP-NEGATIVE with the floor (closest
+|16 pi F - 1| and its F) booked. No dial of the grid is refit after
+the run.
+
+## V282_link_cubic_invariant (tier 2, hard, O8-new)
+
+**The question (pre-registered).** Is the frozen-link verdict of
+V271/V274 (kernel ladder dispersion exactly zero) an artifact of the
+quadratic-only link Hamiltonian? Add the cubic link invariant C3 (if
+one exists on the 256-dim link module) and re-measure: dispersion
+first, then - only if the link moves - the V274/V275 exchange
+re-run.
+
+**The object (closed input set).** V269's dynamical link module
+construction region (the 256-dim module, the 45 generators restricted
+to it, the composite kernel), the V270/V271 artifacts (anchor below),
+V271's kernel ladder (channel spectrum + `krylov_steps` frozen
+test) and V274's second-order exchange construction region (the
+block-Krylov resolvent) with V275's off-kernel growth machinery.
+
+**Measured (pre-registered).** T0: re-derive from the live V271
+artifact - gauss defect 7.698474841966662e-14, kernel channel ladder
+and its dispersion (the booked frozen ladder: 0 / 19.2 / 28.8 with
+defect 1.8e-14 - exact keys read from the artifact at run time),
+link-module kernel dim 6, and the V269 link-closure fact (module
+1 (+) 45 (+) 210 closes inside the root - re-measured by V269's own
+test region). T0.5: dim(Sym^3(link module)^G) by Monte-Carlo Haar
+averaging over the connected group generated by the 45 generators
+restricted to the 256-dim module: random group elements
+exp(i sum c_A L_A) with c Gaussian, 300 draws (the V99 Haar
+pattern, parpool), projector-average trace on the symmetric cube
+(tol: the averaged character stabilizes: run-to-run spread across
+three 100-draw batches < 0.02; dim = round of the mean). If dim = 0:
+status CUBIC-ABSENT, T1/T2 skipped - the "add a cubic term" escape
+is closed with a computed number. T1 (dim > 0): H_link -> H_link +
+eta C3 (C3 the projected cubic Casimir on the module: the symmetrized
+Tr of three generators in the module representation), V271's kernel
+ladder re-measured: dispersion (max - min splitting over the kernel
+channel spectrum). T2 (dispersion > 1e-8): the V274 second-order
+exchange re-run verbatim with the modified link dynamics, and V275's
+off-kernel resolvent reading F5 with the same mpmath control.
+
+**Acceptance (pre-registered).** T0 fail -> MACHINERY-DRIFT.
+CUBIC-ABSENT (dim Sym^3 invariants = 0, booked with the Monte-Carlo
+spread); CUBIC-PRESENT-FROZEN (dim > 0, dispersion <= 1e-8: the link
+stays frozen under the cubic term); LINK-DISPERSIVE + the resolvent
+F reading and |16 pi F - 1| as measured (the V273/V275 band
+[0.015, 0.03] booked against, never searched).
+
+## V283_metric_trace_loop (tier 2, hard, O8-new)
+
+**The question (pre-registered).** Does the metric sector - the
+directional quintet modes - traced in its ground state produce the
+one-loop Cartan ratio near 1/(16 pi) in the closed two-hop traced
+functional?
+
+**The object (closed input set).** V252's two-particle F_int
+machinery (the construction region: the dressed two-hop and its
+Cartan ratio; anchor: V252's booked floor for |16 pi F_int - 1| read
+from its artifact at run time, tol 1e-6 relative), the V140
+directional-link quintet machinery (`build_group` line ~98,
+`structure_constants` line ~107, the M_dir/bands pattern lines
+~287-293) and the V229 spin-2 insertion (`spin2_generators` line
+~154, the 110-dim sym2 basis), coupling lambda = g10 at the
+implemented branch value from config. Construction: the quintet
+modes enter the traced two-hop as an extra traced degree of freedom:
+the closed loop functional of V209's Cartan-ratio type evaluated on
+the two-hop dressed by the quintet's ground-state insertion at
+lambda = g10; n <= 30, float64 ladder, stability by step-doubling
+control (grid convergence row), closest |16 pi F - 1|.
+
+**Measured (pre-registered).** T0: V252's booked F_int floor
+re-derived by V252's own machinery (imported), the quintet spectrum
+of V140's M_dir at the committed clock (band multiplicities booked),
+the spin-2 insertion norm; the F_n ladder n <= 30 with the insertion
+at lambda = g10 and the step-doubling stability rows; the closest
+approach |16 pi F - 1| and its (n, direction) label.
+
+**Acceptance (pre-registered).** T0 fail -> MACHINERY-DRIFT.
+METRICLOOP-FOUND iff some stable n <= 30 has |16 pi F - 1| < 0.5;
+else METRICLOOP-NEGATIVE with the floor booked.
+
+## V284_crossing_arithmetic_final (tier 4, O8)
+
+**The question (pre-registered).** Is the certified crossing n* = 208
+and the geometric ratio rho = 0.9780302704295731... arithmetically
+related to 16 pi at high precision, closing or finally booking the
+crossing arithmetic?
+
+**The object (closed input set).** V209's exact `skeleton` +
+`mp_ladder` at 100 and 200 digits on the certified closed branch
+(the 4k class at the root clock, defined by continuity as V209
+books); the V203/V204 float64 machinery (as V276 used it); the V204
+artifact (rho, crossing_n 208, F_cross) and V276 artifact
+(rho_abs_diff record). mpmath PSLQ over bases
+{1, rho, rho^2, ..., rho^8, ln rho, ln(16 pi)} with integer
+coefficients, degree <= 8, height cap 1e6, tolerance 1e-14; the
+rationality of ln(16 pi)/ln(1/rho) to 1e-10 by continued-fraction
+denominator growth; |n*_geom - 208| with the 200-digit rho band.
+
+**Measured (pre-registered).** T0: rho reproduced to 6.7e-16 and
+crossing_n = 208 from the live float64 machinery (V276's own test);
+the 100-vs-200-digit 4k ladder ratios (stability row); the PSLQ
+output (shortest relation and its residual); the continued-fraction
+read of ln(16 pi)/ln(1/rho); n*_geom from the certified ladder and
+its distance to 208.
+
+**Acceptance (pre-registered).** CROSSING-ALGEBRAIC iff an integer
+relation in the booked basis verifies to residual < 1e-10 at 200
+digits - then the relation is reported; else CROSSING-MEASURED-FINAL
+(O8's crossing arithmetic booked as measured, final).
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- Gate G2 / decision D1 (pre-decided, no consultation): if V281,
+  V282-T2 and V283 are all negative, the loop base stays a declared
+  input and the paper books the two-sector clock structure with the
+  three exact edits specified in the programme plan (Section 9.2
+  append; Table 6 convention row names V281-V284; Section 18
+  loop-factor part adds "(V281-V284)"). F2 stays FIRED in Table 8.
+  The same wording is booked in the ledger. If any leg is positive
+  the paper edits are NOT made and the positive construction is
+  booked instead, with its own ledger paragraph.
+- The suite recount propagates regardless.
+- No threshold moves after a run; every negative is booked with its
+  measured floor.
+
+# The graviton cone and content: pre-registrations V285-V289
+
+Categories: V285 `gravity`, V286 `gauged_layer`, V287 `gauged_layer`,
+V288 `gauged_layer`, V289 `gravity`. Attacks F8 (no c = 1 branch in
+the closure class) and F4 (quintet bubble) from the construction
+side, plus the Bekenstein-map bookkeeping and the geometry measure
+proof of principle.
+
+## V285_most_local_lightlike_generator (tier 2, hard, F8/O9)
+
+**The question (pre-registered).** Within the 53-dimensional family
+of exact-lightcone generators (V208: the Clifford-regularity
+Jacobian at the committed generator has rank 107 in the 160-dim
+covariant velocity space, family dimension 53), is the committed
+generator selected by locality - or is it a boundary accident of the
+family?
+
+**The object (closed input set).** V208's construction region
+imported by path (the covariant 160-space basis, the committed
+generator, the Clifford-regularity Jacobian as V208 builds it -
+lines ~428-466); the nullspace basis of the Jacobian restricted to
+the covariant space (family dim re-measured, expected 53); V208's
+kernel measurement as the objective: tail functional T(A) =
+sum_{r >= 2} |kernel_r(A)|^2 on the hopping-kernel profile
+(committed values, V208 artifact `cone.kernel_profile`:
+0.9108612370986987 at r = 0, 0.10705424159710794 at r = 1, then
+0.034138977783196765, 0.005435677538772973, 0.0007878570698366837,
+7.157945101618305e-05, ...). Minimize T over the 53 family
+coordinates by Nelder-Mead, 50 starts (seed 285, maxfev 200 each,
+quadratic family parameterization through the exponential/log map of
+the generator space so exact-cone membership is maintained by
+construction - the tangent coordinates are the nullspace
+coefficients).
+
+**Measured (pre-registered).** T0: the committed generator's kernel
+profile and tail, the hop projection 0.0028977782769928693 and
+dressing projection 0.0092074659831694 (V208 artifact
+`implemented.*`; tol 1e-9 relative); Jacobian rank 107 and family
+dim 53 re-derived. Then: the minimizer's tail T*, its hop projection
+and dressing fraction, distance of the minimizer from the committed
+generator (relative), and whether the minimum lies in the interior
+(gradients < 1e-6 at the minimizer, 50/50 starts converge into one
+component) or on the family boundary.
+
+**Acceptance (pre-registered).** T0 fail -> MACHINERY-DRIFT.
+CONE-LOCALLY-SELECTED iff an interior strict minimum with T* <
+T_committed and hop projection > 0.0092 (the selected member is
+booked as a selection FACT, not yet a physics principle); else
+CONE-SELECTION-ABSENT with the boundary data booked.
+
+## V286_module_link_invariant_hop (tier 2, hard, F8)
+
+**The question (pre-registered).** On the 256-dim dynamical link
+module (V269), does the commutant of the combined vertex charge over
+(head, matter, tail) admit an invariant hopping beyond the known
+regular-link descending-to-identity map, and if a hop is built, does
+any branch of its band spectrum reach |v| = 1 at a closed clock?
+
+**The object (closed input set).** V269's link module (module 1 (+)
+45 (+) 210, 256-dim, the 45 generators restricted to it), V272's
+exchange construction region (the head/tail maps), the V220
+`commutant` Cesaro pattern (240 powers) applied to the combined
+vertex charge on the tensor product; Gauss-invariance test of any
+candidate insertion (leak = max norm of the vertex-charge
+commutator, required <= 1e-10); band spectrum by cupy `eigvalsh`
+batches on the 128-dim Bloch stage matrices (the V252 `_hs_chunk`
+pattern for batched Hermitian slices).
+
+**Measured (pre-registered).** the commutant dimension and Cesaro
+obstruction; the basis matrices (gauge-classified against the known
+descending map: relative distance of each basis element to its
+projection on the known map); if a hop exists: its Gauss leak, the
+band maxima |v| over the closed-clock set (beta, g) from V239's C,
+and whether max |v| = 1 (tol 1e-9) for any branch.
+
+**Acceptance (pre-registered).** LINKINV-OBSTRUCTED(dim) if the
+commutant is spanned by the known map (projection residual < 1e-8 on
+every basis element); LINKINV-HOP with the band table and the c = 1
+verdict otherwise. Both book the spectrum.
+
+## V287_quintet_bubble_null (tier 2, hard, F4)
+
+**The question (pre-registered).** Does any O_h-covariant stress-
+vertex family null the quintet polarization bubble at lambda = g10 -
+closing F4's "the bubble is nonzero on the full quintet" at the
+level of the coupling family?
+
+**The object (closed input set).** V229's machinery imported
+(`sym2_basis` 110, polarization tensors Emat, `spin2_generators`
+line 154, the `bubble(Tb)` construction lines ~393-410), V141's
+directional step for the star-bond set; coupling family:
+T_ij = sum_d w_s f_s(i, j, d) J_d over direction sets - axes, star
+axes, and general range-2 O_h-symmetric direction sets, at most 8
+weights (parameters) per family point; Nelder-Mead 80 starts (seed
+287, maxfev 200) minimizing the Frobenius norm of the bubble
+operator Pi on the quintet at lambda = g10.
+
+**Measured (pre-registered).** T0: the booked axis-bond bubble
+eigenvalues (-54.24, -53.40 to booked precision from the V229
+artifact `star_bond_bubble_eigenvalues` / `axis_bond_bubble_
+eigenvalues`, tol 1e-6 relative) re-derived; the minimizing weights,
+min ||Pi||, and the F4 mass shift at the minimizer (V229 convention).
+
+**Acceptance (pre-registered).** BUBBLE-NULL iff min ||Pi|| < 1e-8;
+else BUBBLE-FLOOR with the measured value.
+
+## V288_bekenstein_truncation (tier 2, hard, unification-with-gravity bookkeeping)
+
+**The question (pre-registered).** Which flux truncation of the link
+module carries the Bekenstein factor toward 1/4, or none - the
+V99/V100 ln 45 vs 1/4 gap named as a number: what does the
+truncation map of the three-site kernel do to it?
+
+**The object (closed input set).** V101 kernel builder + ground
+state; the V99 Haar vertex-invariant region; V129/V130 entropy
+machinery (`entropy_from_rho`-style eigenvalue entropy, `channels`);
+truncations: rebuild the three-site kernel with the link flux space
+restricted to channel subsets {1}, {1,45}, {1,45,210}, {45}, {210}
+(each subset re-runs the zero-mode/Gauss construction on the reduced
+channel space); per truncation: ground-state middle-cut entropy per
+bond (V101 pattern) and the vertex-corrected coefficient.
+
+**Measured (pre-registered).** T0: ln 45 = 3.8066624897703183 and
+the V101 ground entropy reproduced (1e-9); the booked capacity
+S_cap = 4.4998 and factor 6.6 read live from the V100/V129 artifacts
+at run time; per truncation row: (dim kernel, E0, degeneracy, gap,
+S_bond, factor to 1/4).
+
+**Acceptance (pre-registered).** BEKENSTEIN-MAP booked (the map
+rows); BEKENSTEIN-CLOSED only if some truncation lands within 2 %
+of 1/4 (the factor in [0.98, 1.02] x 1/4 x the booked units). No
+truncation is chosen in advance; every row is booked.
+
+## V289_geometry_mc (tier 3, hard-lite)
+
+**The question (pre-registered).** Does the root's finite geometry
+group (the order-1024 even Clifford monomial group, V140
+`build_group`) support a measure: Metropolis on the Wilson plaquette
+action in the adjoint 45 representation on a 4^3 periodic lattice,
+with the Wilson loop estimator finite and its decay measured? This
+is a measure-existence proof of principle, not a physics claim.
+
+**The object (closed input set).** A cl10-free lattice (numpy/cupy
+only) of 4^3 periodic cells; bond variables u_b in Gamma from
+V140 `build_group` (mul/invof lines ~75/90); action = sum over
+plaquettes of (1 - Re chi_45(U_p)/45) with chi_45 the adjoint
+character from V140 `structure_constants` exponentiated to 45x45
+group elements; beta sweep 5 fixed beta values; 32 replica batches
+on cupy, 20000 sweeps, seed 289; Wilson loops W(R), R = 1..3.
+
+**Measured (pre-registered).** acceptance rate per beta; <W(R)> and
+its error (jackknife over replicas); the fitted area-law exponent
+from log <W(R)> vs R^2; the adjoint character check: chi_45 of a
+group element vs the class table (exact match on all sampled
+plaquettes). Pass = the estimator is finite and the decay measured;
+MC-GEOMETRY-OK when the area fit exists; MC-TUNED books the beta
+range that keeps the estimator in the tunneled-free regime.
+
+## Roll-up consequences of this programme (fixed before any run)
+
+- F8/F4 wording is NOT changed in the paper by this phase; the
+  statuses feed the ledger. The single exception: if V285 and V286
+  JOINTLY produce a c = 1 branch (CONE-LOCALLY-SELECTED with hop
+  projection > 0.0092 AND LINKINV-HOP with a band at |v| = 1),
+  Section 11.6 and the Table 8 F8 row gain the pre-written wording:
+  "the selected member of the V285 family with the V286 invariant
+  hopping carries a branch at v = 1 within the closure class (V285,
+  V286); F8 stands as the standing falsifier".
+- The suite recount propagates regardless.
+
+### V281 construction addendum (fixed before any run; supersedes the
+object wording in the block above where they differ)
+
+The contraction design was fully digested after the block above was
+written and before any code ran; the addendum fixes the closed object
+honestly:
+
+- The bond-current ground state enters through its END-PAIR
+  (middle-cut) reduction rho_B, which V101 explicitly builds (Tr = 1,
+  S = 3.80666248977 booked). The link-Pair reduction of the earlier
+  wording is not a state V101's algebra closes on (the shared-site
+  web contraction is not positive in general); the state used is
+  rho_B, gated exactly as booked: Tr 1 (1e-9), min eigenvalue >
+  -1e-14, entropy S reproducing ln 45 to 1e-9.
+- The traced sector is the END-PAIR space (1024 = 32 x 32) of the
+  chain with the two-ended closed internal map G_pair = G (x) G
+  (G from V209's planes at the certified closed angle pi/4). The
+  channel projectors Pi_e are the exact Lagrange projectors of the
+  INTEGER end-pair Casimir C2pair = sum_A (kron(T_A,I32)+
+  kron(I32,T_A))^2 (V101's operator; channel values measured by the
+  V129.channels convention - expected {0, 64, 96}, the 210 channel
+  of the earlier wording lives on the link pair and is booked in the
+  channels row separately, not used in the ladder).
+- The ladder: F_n = cnorm((M G_pair)^n) / cnorm(G_pair^n), M =
+  sum_e sqrt(w_e) exp(i theta_e) Pi_e, w_e = Tr(rho_B Pi_e) the
+  ground-state channel weights; the content is rho-weighted:
+  cnorm(Y) = sum over the 10 Cartan planes (the five V209 Cartan
+  planes carried on each tensor factor) of |Tr(H (Y rho_B))| -
+  with rho_B = I/1024 uniform this reduces to the V209/V203
+  structure, so the replacement of the traced state is the only new
+  input.
+- The 13^3 phase grid, the n <= 40 even ladder, the 14-point
+  stability control and the acceptance thresholds are unchanged from
+  the block above. The certification leg: the mpmath 50-digit
+  matrix ladder at 1024 dimensions is not reachable in the
+  interpreter; the booked certification is the double-precision
+  stability ladder (float64 vs longdouble agreement, step-doubling
+  grid control) plus the 50-digit mpmath SCALAR continuation of the
+  measured geometric class (F_{4k} -> rho_chain fit, 50-digit PSLQ
+  check of the class), and the limitation is booked in the verdict
+  text.
+
+### V282 T0.5 measurement addendum (fixed before any booked run)
+
+The first execution attempt of the V282 T0.5 Monte-Carlo as literally
+worded above (300 draws of exp(i sum c_A L_A), c Gaussian) was run as
+a dry diagnostic and its batch spread measured 652 against the 0.02
+tolerance: the per-sample variance of chi(g)^3 under that pushforward
+is ~1e6, so 300 draws cannot concentrate for ANY group - the wording
+is numerically unsound, not the question. The measurement is
+therefore executed as the exact Haar average reduced to the maximal
+torus by the Weyl integration formula: the Cartan weights of the
+module (and the root system) are measured from the 256-dim module
+generators themselves (no typed group data), the class-function
+integrand chi_sym3(t) = (chi(t)^3 + 3 chi(t) chi(t^2) + chi(t^3))/6
+is smooth on the 5-torus, 3 x 10^4 flat samples with the Weyl
+density measured from the roots; the three-batch spread tolerance
+0.02 is kept verbatim. The genuine-hopping cubic is additionally
+tested EXACTLY (not by MC) on the adjoint sector: the nullspace of
+the 45 intertwining constraints on Sym^3(45) (dim 15180), the sector
+any link hopping term lives in; the singlet-mixed invariants of the
+full module are booked separately and are not hopping terms. No
+verdict was booked from the dry diagnostic; the thresholds (dim = 0
+branch, dispersion 1e-8) are unchanged.
+
+### V277 T0 closed-clock contract amendment (fixed after the machinery
+probe, before any result is booked)
+
+The first fixed-clock execution of V277 T0 re-derived the booked
+implemented-clock pair exactly (-0.1074339042 / -1.2196990555,
+1e-12 agreement) and then flagged the single pre-registered "closed
+decorated must reproduce the artefact's NaN" contract. Measured cause
+(both runs' gap arrays, booked): at the closed clock EVERY star gap
+in the bare and the decorated degree fits sits at the float64
+rounding floor (1e-18 to 4e-16 in V250's booked artefact gaps;
+similarly here) - the clock pins the whole multiplet, and whether
+polyfit's log hits log(0.0) or log(1e-17) is a single-bit rounding
+coin. The NaN landed on the decorated row there and on the bare row
+here; the physics statement (closed-clock pinning of both to the
+rounding floor) is identical. The contract is therefore amended to
+the rounding-robust form: the re-derived closed-clock bare AND
+decorated gap arrays must each be <= 1e-15 at every radius (the
+V250 artefact rows satisfy this: max 3.5e-16), with the NaN/finite
+placement booked as measured rounding noise, not drift. The
+implemented-clock degrees, the anisotropy anchors, and every
+threshold downstream are unchanged.
+---
+
+# The flavour-cosmology completion: pre-registrations V290-V299
+(tier mix as noted; programme phases 4-7; every number below is read
+from a booked artifact or re-measured from the closed input set; no
+dial may be touched - any refit reclassifies to fitted and voids the
+verdict.)
+
+## V290_anisotropy_relevance (tier 2, runs ONLY if a G1 candidate exists)
+**Pre-gate (fixed before any run).** V279 booked the candidate census
+for the decorated cone family; V280 was already skipped by the same
+pregate when the census came in at zero. If the V279 artifact carries
+zero candidates, V290 does not execute and the roll-up books
+V290-SKIPPED-BY-PREGATE citing the V279 artifact verdict verbatim.
+The anisotropy-relevance question (does the candidate cone's
+anisotropy run irrelevant under the booked coarse-graining) stays
+open and is stated as such in the ledger.
+
+## V291_higgs_host_channels (tier 3, flavour bookkeeping)
+**The question.** Does the dynamical chain host charge-neutral scalar
+channels - chain-kernel states on the module-singlet atom channel -
+that could carry the booked 10-Higgs Dirac term (V45 higgs_dirac),
+or does the flavour construction remain purely closed-branch?
+**The object.** The V286 machinery re-derived live (module selection
+inside the booked V269 c2_spectrum census, the V270 seed-path atom
+kernel, the exact chain kernel of Nmat), the V270 channel anchors
+(kernel dim 6, channels {0, 64, 96} = the booked c2_spectrum values),
+the V272 chain_kernel_dim 12 and chain_H_spectrum anchors, and the
+V45 higgs_dirac anchor (rank, determinant).
+**Measured.** per chain-kernel basis vector: <C2l> on the module
+factor (channel attribution by nearest booked value), the count n0
+of module-singlet-channel kernel states, their chain-H eigenvalues
+against the booked spectrum; kernel dim and atom-kernel anchors
+as T0 gates (MACHINERY-DRIFT on any mismatch).
+**Branch.** HIGGS-HOST-PRESENT (n0 >= 1: the chain supplies neutral
+scalar hosts - number and energies booked) / HIGGS-HOST-ABSENT
+(n0 = 0: booked null; the flavour sector stays closed-branch).
+
+## V292_vev_host_mixing (tier 3)
+**The question.** With the booked democratic mass matrix (V45
+mass_matrix: all-ones, rank 1, eigenvalues {3, 0, 0}, TBM mixing
+sin^2 theta12 = 1/3 booked) and the chain-host insertion from V291
+(booked channel energies; no free dial), does the mixing move at
+all, and by how much against the PDG sin^2 theta12 = 0.307?
+**The object.** the V45 mass_matrix and mixing anchors re-derived
+via cl10.yukawa_3x3, the V291 artifact (n0 and energies), nothing
+else.
+**Measured.** T0: V45 mixing re-derived (TBM to 1e-9). T1: the host
+insertion delta-M built ONLY from booked V291 energies on host
+channels (if n0 = 0: delta-M = 0 exactly); re-diagonalized angles
+theta12/23/13 booked; deviation from PDG booked.
+**Branch.** MIX-UNCHANGED (||delta-M|| < 1e-9: TBM stands, the PDG
+gap is the standing named falsifier) / MIX-SHIFTED (angles booked,
+fitted-flag false, no dial touched).
+
+## V293_r_quantization (tier 3)
+**The question.** Is hosted family multiplicity quantized: does the
+chain-kernel hosting from V291, counted through the booked V70
+family phases (families 3, per_family 4, nodes 12), give an integer
+per family?
+**The object.** the V291 artifact (kernel basis channel census),
+the V70 artifact families/counts anchor (re-derived: phase set
+match to 1e-9), the V91 v70_regression anchor.
+**Measured.** per booked family: hosted-channel count r_f (integer
+trace over the kernel projectors); defect |r_f - round(r_f)| booked.
+**Branch.** R-QUANTIZED (defect < 1e-9, r_f booked against V70's
+3) / R-NONINTEGER (defect booked honestly).
+
+## V294_democratic_mD_forced (tier 3)
+**The question.** Do the booked integer charge selection rules
+(atom channels {0, 64, 96} from the V269 census; the V197 rung
+factor arithmetic 208 = 2^4 * 13) FORCE the democratic rank: what
+is the maximum rank a 3x3 family mass matrix can have while
+commuting with the channel-degree selection?
+**The object.** the V269 c2_spectrum anchor (integers), the V197
+ladder_rows anchor, the V45 mass_matrix anchor, the V70 family
+operator set.
+**Measured.** the general 3x3 pattern allowed on the family space
+by the selection rules (commutant computation from the booked
+family phases); its maximum rank and spectrum booked against the
+democratic {3, 0, 0}.
+**Branch.** RANK-FORCED-1 (commutant rank-1: democratic exact by
+charge bookkeeping) / RANK-FREEDOM (maximum rank booked; the
+rank-1 fact becomes an input, stated as such).
+
+## V295_triangle_selection (tier 4)
+**The question.** The unitarity triangles of the booked mixing: are
+they degenerate (theta13 = 0 in TBM) and how does the booked
+Jarlskog J sit against the V109 measured J_available_max?
+**The object.** the V45 mixing anchor, the V292 verdict artifact,
+the V109 artifact (asymmetry/J_available_max keys).
+**Measured.** J = Im(u11 u22 u12* u21*) from booked mixing; triangle
+areas; the V109 J_available_max read verbatim.
+**Branch.** TRIANGLES-DEGENERATE (J < 1e-12 booked; the nonzero-PDG
+triangle is the standing named falsifier) / NONDEGENERATE (J and
+angles booked).
+
+## V296_flux_baryogenesis_ledger (tier 3, baryogenesis bookkeeping)
+**The question.** Combining booked artifacts only (V55 eta_cp, V106
+washout audit, V125 cp-flux washout: asymmetry, flux_scan,
+J_available_max): does ANY booked flux branch leave a final
+asymmetry at or above the baryon-asymmetry floor 6 x 10^-10, or is
+every booked branch washed out?
+**The object.** the three artifacts verbatim; no new dynamics.
+**Measured.** per booked branch: production x booked washout
+factor -> final fraction; the maximum over branches booked.
+**Branch.** FLUX-BG-OPEN (a branch >= 6e-10 with its chain of
+booked factors listed) / FLUX-BG-WASHED (max fraction booked).
+
+## V297_trace_action_ledger (tier 4)
+**The question.** Over the booked V283 stable set (METRICLOOP-
+NEGATIVE rows, n <= 30, step-doubling stable), does ANY pair,
+converted through the certified V276 ladder (F_208 certified read,
+coefficient_observed), put the induced action coefficient within
+2 % of the booked Planck relation - the action-level reopening of
+the loop-level null?
+**The object.** the V283 artifact rows, the V276 artifact ladder
+reads, the V108 coefficient anchor; arithmetic only.
+**Measured.** min over booked pairs of |action coefficient / booked
+relation - 1|; the winning pair booked.
+**Branch.** ACTION-COUPLING-FOUND (dev < 2 %) / ACTION-NULL (min
+dev booked; the ladder stays the only certified route).
+
+## V298_rung_portal_lambda_B (tier 4)
+**The question.** Is the booked singlet-Higgs portal lambda_B =
+4.06 x 10^-14 (the freeze-in value reproducing Omega h^2 = 0.120)
+connected to the certified rung arithmetic (V197: the 208
+factorization, ladder_rows), or is it a named input independent of
+the rungs?
+**The object.** the V197 artifact rows, the V108/V276 coefficient
+anchors, the booked lambda_B as carried in the publication text
+(paper3 S DM section - the decimal is the published input, not a
+restyped artifact number; its source is booked as named input).
+**Measured.** the rung-side candidate: products of booked rung
+overlaps and the certified hierarchy coefficient; its deviation
+from lambda_B.
+**Branch.** PORTAL-RUNG-FIXED (dev < 1 %: lambda_B inherits
+certification) / PORTAL-NAMED-INPUT (dev booked: the portal remains
+a named input, honest label kept).
+
+## V299_multicell_antiunitary (tier 3)
+**The question.** Does the materialized chain carry an antiunitary
+symmetry: is there a unitary C on the 12-dim chain-kernel slice
+with C H_bar C^dag = H (H the booked chain-H data materialized on
+the kernel basis, V272 chain_ground_h_re/im anchor), and does
+C^2 = +-1?
+**The object.** the V291 kernel basis artifact, the V272 booked
+chain H data, the cl10.cpt library conventions (read, not assumed).
+**Measured.** existence of C via the linear commutation system on
+the slice; min residual; C^2 eigenvalues booked.
+**Branch.** CPT-EXACT-ON-CHAIN (residual < 1e-10, C^2 = +-1 booked)
+/ CPT-ABSENT-ON-CHAIN (min residual booked).
+
+## Roll-up consequences of this programme (fixed before any run)
+- V290 executes only behind its pregate; otherwise the roll-up books
+the skip verbatim from V279.
+- No paper wording changes are pre-authorized by this phase; all
+branches feed the ledger and Table 9 rows only.
+- The suite recount (206 -> 206 + executed count) propagates at the
+final consolidation exactly as before.
+
+### V287 T0 pole-split contract amendment (fixed after the machinery
+probe, before any result is booked)
+
+The machinery probe established that at GAMMA the operator
+Hgen = herm(i log M(0)) carries 64 modes at the H = 0 level (the
+logarithm of a defective unitary step; scipy's own approximate error
+0.42 booked). V229's T4 classification occ = om < 0, unocc = om > 0
+therefore splits pure float noise, and the booked bubble eigenvalues
+are ONE draw of that split noise: re-derivations on the current
+machine give 69/59 and 68/60 splits and bubble eigenvalues ranging
+from about (-5.3, -4.1, -1.3) to (-24.2, -22.9, -6.4) on the star
+family - orders of magnitude beyond the pre-registered 1e-6 relative
+tolerance. The 1e-6 re-derivation contract is not satisfiable by ANY
+implementation; it chases a noise draw, not a deterministic fact.
+
+The question (does an O_h-covariant vertex family null the quintet
+bubble?) is unaffected and is executed as follows. (i) T0 now books
+the split-noise envelope: the bubble eigenvalues over 8 seeded sign
+assignments of the exactly-zero modes (seed 287) plus the natural
+split, per eigenvalue; T0 passes exactly when the booked V229
+eigenvalues lie inside the booked envelope - machinery re-derivation
+agrees with the booking up to the named noise manifold. (ii) T1 and
+the family search run on a FIXED deterministic pole prescription,
+booked in the artifact: zero-mode signs by continuity at q = 1e-3
+along the 12 directions (+-e1, +-e2, +-e3, and the six signed
+(1,1,0) diagonals), matched by eigenvector overlap, majority vote,
+ties to unoccupied; the level at H = 0 is exactly degenerate, so
+pairs with |den| < 1e-9 (intra-level) are EXCLUDED from the
+polarization sum (principal value - no first-order mixing inside an
+exactly degenerate level), the excluded-pair count booked. The
+prescription is then noise-safe by construction: every surviving
+denominator is O(10^-3) or larger. (iii) The 1e-8 nullity gate, the
+80-start
+Nelder-Mead budget, and every downstream threshold are unchanged.
+No verdict was booked from the probe; the envelope and prescription
+are machinery bookkeeping, not tuning.

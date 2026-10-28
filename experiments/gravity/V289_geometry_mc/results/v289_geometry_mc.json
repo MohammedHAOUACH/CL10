@@ -1,0 +1,66 @@
+{
+ "id": "V289_geometry_mc",
+ "tier": 3,
+ "property": "Metropolis measure for the root geometry group on 4^3 (proof of principle)",
+ "residual": true,
+ "programme": "V289",
+ "branch": "MC-NULL",
+ "data": {
+  "rows": [
+   {
+    "beta": 2.0,
+    "accept": 0.7615625,
+    "nsamples": 15,
+    "W1": 0.027777777777777776,
+    "W2": -0.0027777777777777757,
+    "W3": -0.010185185185185184,
+    "err": [
+     0.013769326645156723,
+     0.003928371006591931,
+     0.004582357125000416
+    ]
+   },
+   {
+    "beta": 8.0,
+    "accept": 0.4871875,
+    "nsamples": 15,
+    "W1": 0.1111111111111111,
+    "W2": 0.008333333333333335,
+    "W3": -0.0003086419753086417,
+    "err": [
+     0.028171808490950547,
+     0.010446386175466813,
+     0.009360847763740396
+    ]
+   }
+  ],
+  "char_check": {
+   "n_checked": 4032,
+   "max_abs_defect": 0.0
+  },
+  "area_fits": [],
+  "status": "MC-NULL",
+  "wall_time": 38.56369614601135,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 group order re-measured: 1024 == 1024",
+   "pass": true
+  },
+  {
+   "name": "adjoint rep: chi(1) = 45.0, closure of the 45-span under conjugation max defect 0.00e+00, homomorphism defect on 64 sampled products 0.00e+00",
+   "pass": true
+  },
+  {
+   "name": "adjoint character cross-check exact on 4032 plaquette products: max defect 0.00e+00",
+   "pass": true
+  },
+  {
+   "name": "estimator finite over 2 betas x 8 replicas: True; decaying area fits 0",
+   "pass": false
+  }
+ ],
+ "status": "MC-NULL",
+ "pass": false
+}

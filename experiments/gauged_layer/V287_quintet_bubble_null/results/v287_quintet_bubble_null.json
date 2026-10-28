@@ -1,0 +1,45 @@
+{
+ "id": "V287_quintet_bubble_null",
+ "tier": 2,
+ "property": "O_h-covariant stress-vertex family nulling the quintet bubble (tier 2, F4)",
+ "residual": true,
+ "programme": "V287",
+ "branch": "MACHINERY-DRIFT",
+ "data": {
+  "t0": {
+   "axis_defect": 0.11602233249762098,
+   "star_defect": 1.056084607202593,
+   "ev_axis": [
+    -60.53189780555675,
+    -58.608381442917526,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ev_star": [
+    -24.159631463850566,
+    -22.893075010063768,
+    -6.441320613550688,
+    -3.086299630537676e-16,
+    1.9760766059125226e-16
+   ],
+   "insertion_norms": [
+    6.843025495552584,
+    3.1270321213568977,
+    8.607980953136968,
+    5.320024803550163,
+    8.60798095313697
+   ],
+   "zero_modes_excluded": 0
+  },
+  "status": "MACHINERY-DRIFT"
+ },
+ "checks": [
+  {
+   "name": "T0 booked bubbles re-derived: axis defect 1.2e-01, star defect 1.1e+00; insertion norms ['6.843', '3.127', '8.608', '5.320', '8.608']",
+   "pass": false
+  }
+ ],
+ "status": "MACHINERY-DRIFT",
+ "pass": false
+}
