@@ -30,7 +30,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 7.367002248764038
+  "wall_time": 7.645408391952515
  },
  "checks": [
   {
@@ -46,6 +46,6 @@
    "pass": true
   }
  ],
- "status": "composite F9 contact (grid 6^3, 7 s): the V259 recipe recomputed here gives kernel dim 0, V259 branch KERNEL-EMPTY, V260 branch NEVER-REALIZED with 0 gapless loci, the SME bound reads 8.000e-15 from config. Branch F9-COMPOSITE-NO-LOCUS. There is no composite gapless locus - the 1568-dim fiber kernel is empty (smallest C2 eigenvalue 45.000000 per V259) - so the F9 velocity-anisotropy contact has nothing to measure on the physical sector: NO-LOCUS by the pre-registered rule; the 12-ray dvv path ran not a line.",
+ "status": "composite F9 contact (grid 6^3, 8 s): the V259 recipe recomputed here gives kernel dim 0, V259 branch KERNEL-EMPTY, V260 branch NEVER-REALIZED with 0 gapless loci, the SME bound reads 8.000e-15 from config. Branch F9-COMPOSITE-NO-LOCUS. There is no composite gapless locus - the 1568-dim fiber kernel is empty (smallest C2 eigenvalue 45.000000 per V259) - so the F9 velocity-anisotropy contact has nothing to measure on the physical sector: NO-LOCUS by the pre-registered rule; the 12-ray dvv path ran not a line.",
  "pass": true
 }

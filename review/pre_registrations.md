@@ -1922,3 +1922,47 @@ final-state integration of the publication.
   into 10.5 from memory, was corrected to the booked V274 value
   4.8 x 10^-33).
 - PDF rebuilt: doc/final_publication.pdf, 86 pages.
+
+## Retirement note: the bond-current alternative chains and the superseded composition audit (2026-10-28)
+
+Ten experiments are retired to git history: the `alt_gauged` chain
+(V175-V179), the `alt_nonpert` chain (V180-V183), and V94. No new
+experiment was pre-registered by this step.
+
+- V175-V179 and V180-V183 booked the same route twice: the gauged
+  bond-current interaction as the one internal mechanism that could
+  isotropize the twelve M-node cones. The chain ended in two gates with
+  zero candidates (V179: minimum anisotropy 0.9322 at one loop and under
+  coarse-graining; V183: exact dressing shifts the anisotropy by
+  4.4e-12 and the flux sector is massive at every volume probed, gap
+  42.09 -> 12787.60 -> 2.75e8 eta). The publication's isotropy verdicts
+  are carried by the surviving cone programmes (V115, V118-V121, V142,
+  V185-V187, V192, V201, V213, V219, V227, V235-V236, V244-V245) and the
+  dynamical-link continuum programme (V251-V254), which re-measured the
+  same one-loop and block-RG questions on the constructed sector: V253
+  re-derives the downfold ladder independently (its bare rows reproduce
+  V178's booked ladder to 1.8e-12, booked in V253's own artifact), and
+  V254 carries the F9 contact to b = 16. The S-matrix and vertex facts
+  the chain added are not cited in the paper text.
+- V94 measured the composition law (multiplicativity across legs, not
+  along a chain) before the clock arbitration; the paper books that
+  verdict from V210, which measured it with the step and the traced-link
+  phase closed together at the open clock (Sections 16, 18, Table 9).
+  V94 is the same law's older version.
+- Dependency re-audit: two live consumers did read retired artifacts -
+  V241's K4 anchor (the published V176 Casimir defect) and V253's T0
+  anchor (V178's booked A_bare/A_gauged rows and A_full). Both were
+  pure cross-checks, not computations: the scripts now carry the exact
+  booked values as literals labeled as coming from the retired
+  artifacts in git history, and both re-ran green (anchor deviations
+  unchanged). No other surviving script reads a retired artifact (the
+  remaining cross-readers sat inside the retired set); the
+  cl10/altcell.py library stays - it has 29 live consumers. The two
+  exploration notes (doc/alt_gauged_exploration.md,
+  doc/alt_nonperturbative_exploration.md) are retired with their
+  programmes.
+- Table 9 rows rewired: the gauged-bond-layer row now names
+  V79, V97-V101, V129, V130, V137; the closed-loop row names V210
+  instead of V94. Suite counts 200 -> 190 (paper Appendix B and the
+  availability note, README, experiments/README, reference.md); the full
+  190-experiment gate re-runs on the current tree.

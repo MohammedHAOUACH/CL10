@@ -204,6 +204,6 @@
    "pass": true
   }
  ],
- "status": "TWO-DIAL STEP FAMILY, FAMILY-OK (zero fitted parameters, 46 s): the step with the hop decoupled from the couplings, M(q; beta, g) = kron(P(q; beta), U16(g)^6), is exactly unitary for ANY angle pair (max defect 3.4e-14); the published step is the diagonal slice beta = g = g10 and that sentence is literal - the slice reproduces the published matrices bit-for-bit (0.0). The closure axiom M(GAMMA; beta, g)^k = I is no longer a single clock: it is the measured set C with 4 closed points (orders [2, 4]), and it contains the published closed clock (pi/4, pi/4) at order 2.",
+ "status": "TWO-DIAL STEP FAMILY, FAMILY-OK (zero fitted parameters, 43 s): the step with the hop decoupled from the couplings, M(q; beta, g) = kron(P(q; beta), U16(g)^6), is exactly unitary for ANY angle pair (max defect 3.4e-14); the published step is the diagonal slice beta = g = g10 and that sentence is literal - the slice reproduces the published matrices bit-for-bit (0.0). The closure axiom M(GAMMA; beta, g)^k = I is no longer a single clock: it is the measured set C with 4 closed points (orders [2, 4]), and it contains the published closed clock (pi/4, pi/4) at order 2.",
  "pass": true
 }

@@ -128,7 +128,7 @@
    "max": 12.418126296640981,
    "unitarity_max": 7.061018441116187e-14,
    "p_block_defect": 0.0,
-   "wall_time_s": 916.5064680576324
+   "wall_time_s": 892.5679955482483
   },
   "grid": {
    "axes": 6,
@@ -171,6 +171,6 @@
    "pass": true
   }
  ],
- "status": "gauged two-particle sector on 1568 = 128 (spinor Bloch) + 1440 (32 x 45 adjoint link), 6^3 grid x 3 omega rows, 1171 s: the construction is consistent - the V126 Casimir tower is exact [(-32, 32), (-12, 288), (4, 1120)] (integrality 9.2e-14), the V177 vertex coupling is exactly Gauss invariant to 4.9e-17, the P-block is H1 to 0.0e+00, unitarity 7.1e-14, bounded [-40.47, 12.42]. Branch SECTOR-BLOCKED: Gauss. The Gauss check fails (max 4.918e-01): the vertex coupling, the T.L tower, the block structure and unitarity are exact, but the committed step H1 = i log bloch leaks every one of the 45 total charges (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979]) - the step is gauge-EXPLICIT (V67) and the leak is inherited from V140 T2's bare-gate vertex-charge leak. No exact gauged two-particle sector exists on the published step at the root; per the pre-registered rule V252-V256 record the floor (they still measure their own quantities on this constructed H2).",
+ "status": "gauged two-particle sector on 1568 = 128 (spinor Bloch) + 1440 (32 x 45 adjoint link), 6^3 grid x 3 omega rows, 1128 s: the construction is consistent - the V126 Casimir tower is exact [(-32, 32), (-12, 288), (4, 1120)] (integrality 9.2e-14), the V177 vertex coupling is exactly Gauss invariant to 4.9e-17, the P-block is H1 to 0.0e+00, unitarity 7.1e-14, bounded [-40.47, 12.42]. Branch SECTOR-BLOCKED: Gauss. The Gauss check fails (max 4.918e-01): the vertex coupling, the T.L tower, the block structure and unitarity are exact, but the committed step H1 = i log bloch leaks every one of the 45 total charges (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979]) - the step is gauge-EXPLICIT (V67) and the leak is inherited from V140 T2's bare-gate vertex-charge leak. No exact gauged two-particle sector exists on the published step at the root; per the pre-registered rule V252-V256 record the floor (they still measure their own quantities on this constructed H2).",
  "pass": true
 }

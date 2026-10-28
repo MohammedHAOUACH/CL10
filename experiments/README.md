@@ -1,8 +1,10 @@
 # The verification program
 
-200 experiments (the 188 of the publication programme plus the 12 exploration
-experiments of the `alt_*` programmes: 5 `alt_gauged`, 4 `alt_nonpert`,
-3 `alt_step`), grouped by
+190 experiments (the 187 of the publication programme plus the 3 exploration
+experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
+(V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
+superseded composition audit V94 stand retired 2026-10-28 in the git
+history), grouped by
 the part of `doc/final_publication.md` they validate.  Each experiment
 recomputes a published number from the construction, states the provenance of
 every input it uses, and writes a JSON verdict to `<experiment>/results/`:
@@ -61,8 +63,7 @@ The same self-containment rule holds for the clock. The closure discovery
 (V203-V206) made the CLOSED branch the config default, and the census and
 gate programmes are stated at the closed root. An experiment whose own
 anchors are 1/5-reference-branch numbers - the word-census family
-(V126/V200/V202), the relic DM chain (V123/V147), the gauged cone-flow and
-block-RG chain (V175-V179), the cone-flux dressing chain (V180-V183) - pins
+(V126/V200/V202), the relic DM chain (V123/V147) - pins
 `CL10_ANGLE = 0.2` at the top of the script, before `cl10` latches the
 configuration; closed-branch experiments take their angles explicitly
 (`pi/4`, `pi/2`). The pin direction is one-way: a 1/5 anchor never silently
@@ -79,7 +80,7 @@ the claim asserts, not when a script merely mentions the word.
 | Theorem 1 - the charges of the `16` are exactly one SM generation | `V2_matter`, `V23_full_sm_qca`, `V26_family`, `V70_family_index`, `V107_mixing_from_kappas` | the charge table of the six fields, the family index |
 | Theorem 1 - the `5/3` hypercharge normalisation | `V32_qca_qft`, `V52_parameter_audit` | the normalization of the diagonal generator |
 | Theorem 2 - all eight gauge and mixed anomalies cancel | `V11_anomaly`, `V120_entangling_bond`, `V121_three_axis_bond`, `V52_parameter_audit`, `V78_lambda_protection` | the eight cubic and mixed coefficients of one `16` |
-| Theorem 3 - the `45` adjoint and its twelve gauge bosons | `V131_algebraic_closure`, `V79_gauged_bond_layer`, `V129_gauged_layer_gap`, `V130_string_tension`, `V175_gauged_smatrix`, `V176_gauged_vertex_content` | the adjoint content of the bond layer and its vertex |
+| Theorem 3 - the `45` adjoint and its twelve gauge bosons | `V131_algebraic_closure`, `V79_gauged_bond_layer`, `V129_gauged_layer_gap`, `V130_string_tension` | the adjoint content of the bond layer |
 | Theorem 6 - the closure axiom quantizes `g`, step order 8 | `V131_algebraic_closure`, `V134_pi2_branch`, `V135_coupling_selection_closed`, `V133_desert_pi64`, `V132_gapless_census_pi4` | the order of the on-site update, the finite internal spectrum, the branch census |
 | Proposition 1 - the (1+3) Minkowski subalgebra | `V1_spacetime`, `V93_cartan_junction`, `V137_broken_flux` | the signature of the ten-generator frame, the Cartan junction |
 | Proposition 2 - lattice chirality and the doubler census | `V63_bz_chirality`, `V132_gapless_census_pi4`, `V139_nodal_plane_crossing` | the `16`-sector closure, the gap at Gamma, the 12 M nodes and their charges |
@@ -200,7 +201,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V250_single_particle_walls` | **WALL-1-2-3-BROKEN** (structural, zero fitted parameters): the three single-particle walls measured exactly — wall 1 literal $KB(q)K = B(-q)$ FALSE (0.77; star wrap phases $e^{iq\cdot v}$ complex per bond), its corrected per-stage identity exact (0.0) and its consequence standing: max bond-band group velocity at $\Gamma$ $1.7\times10^{-11}$, every touching quadratic; wall 2: the $A_5$-invariant magnetic flux space mod gauge on the 192-line star cell has dimension **23** (Mermin's zero measured FALSE; closed 24, exact 1); wall 3: the 45 under the committed spin-connection $2I$ carries multiplicities $A_1$ 21, $T_1$ **8** — bond-conditioned internal rotations exist. Pre-registered continuation carried: the quaternion-triplet decoration at amplitude $g_{10}$ is unitary to $2.4\times10^{-14}$, equals the published step at $\Gamma$ exactly, and drops the $\Gamma$ cone degree $0.281 \to 0.540$ — linearity is symmetry-allowed but the published step does not contain it |
 | `V251_gauged_two_particle_sector` | **SECTOR-BLOCKED: Gauss** (zero fitted parameters): the gauged two-particle sector built as pre-registered — tower $\{-32,-12,4\}$ with multiplicities 32/288/1120 exact ($9.2\times10^{-14}$), vertex coupling Gauss-invariant to $4.9\times10^{-17}$, 648 coupled spectra finite, $\exp(iH_2)$ unitary to $7.1\times10^{-14}$, P-block $= H_1$ to 0.0 — but the coupled step fails Gauss on 40 shared random states (leak 0.49) and the one-shot attribution localizes it exactly to the **one-particle block's own commutator**: $H_1$ is not gauge-invariant inside P (V98's center obstruction, seen dynamically). V252–V256 run on the constructed $H_2$ and record the floor |
 | `V252_dynamical_self_energy_loop` | **NO-LOOP-EITHER: sector floor** (tier 4, 1553 s loop, cupy): the dynamical self-energy loop on the P-only dressed system under V251's SECTOR-BLOCKED floor: $600\,F_{\rm int}$ values over 2 clocks $\times$ (12 M nodes + 13 star loci) $\times 3\delta \times$ 2 signs $\times$ 2 grids - closest contact $\lvert 16\pi F_{\rm int} - 1\rvert = 3.6\times10^{2}$: neither the free combinatorics (the BZ pair V242/V243, retired 2026-10-27) nor the dynamical loop produces $1/(16\pi)$, O8's residual measured from both sides; grid floor $\lvert F(16) - F(32)\rvert = 7.3\times10^{2}$ booked as the measurement, dps60-vs-dps100 certification $9.6\times10^{-72}$ |
-| `V253_block_rg_window` | **NO-WINDOW:sector-floor** (tier 2, zero fitted parameters): V178's downfold ladder extended to $b = 8, 16$ with V251/V252's dynamical $\Sigma$ inserted in the step (bare rows reproduce V178 to $1.8\times10^{-12}$); the $\Sigma$ machine is cross-checked by an INDEPENDENT host recomputation (host eigh + einsum-form sandwich on the same 4096-shift stack) to $6.0\times10^{-17}$ relative; exponents $p_A = (-0.0000$ bare, $-0.0000$ dressed, $-0.0347$ static control) against the marginal band $0.01$: the dressed sector does not flow, anisotropy not relevant; recorded floor fact: $\max\lvert\mathrm{Re}\,\Sigma\rvert = 5.35\times10^{3}$ at the contact $d_A = 1$ puts the generator $1636\times$ outside the first Floquet zone (i-log recovery is mod $2\pi$; the ladder acts on the unitary) |
+| `V253_block_rg_window` | **NO-WINDOW:sector-floor** (tier 2, zero fitted parameters): the downfold ladder of V178 (retired 2026-10-28, git history) extended to $b = 8, 16$ with V251/V252's dynamical $\Sigma$ inserted in the step (bare rows reproduce V178's booked ladder to $1.8\times10^{-12}$); the $\Sigma$ machine is cross-checked by an INDEPENDENT host recomputation (host eigh + einsum-form sandwich on the same 4096-shift stack) to $6.0\times10^{-17}$ relative; exponents $p_A = (-0.0000$ bare, $-0.0000$ dressed, $-0.0347$ static control) against the marginal band $0.01$: the dressed sector does not flow, anisotropy not relevant; recorded floor fact: $\max\lvert\mathrm{Re}\,\Sigma\rvert = 5.35\times10^{3}$ at the contact $d_A = 1$ puts the generator $1636\times$ outside the first Floquet zone (i-log recovery is mod $2\pi$; the ladder acts on the unitary) |
 | `V254_dressed_f9_contact` | **F9-STILL-FIRED** (zero fitted parameters): the $b = 16$ downfold of the dressed step measured at 12 M nodes + 13 star loci $\times$ 12 rays ($\Sigma$-rebuild reproduces V253's $b = 16$ row exactly, $0.0$); best $\delta vv/v = 0.0033$ against the SME electron bound $8.0\times10^{-15}$ — ratio $4.1\times10^{11}$: the dressed step does not linearize the cone at the deepest measured cut |
 | `V255_dressed_f2_contact` | **F2-FIRED-X4** (tier 3, zero fitted parameters): V252's 300 interaction loop factors $\times$ 3 theory $g$ (the $C_\star$ leg never realized per V249) inserted in the ladder rule $3(16\pi F)^{10}$ against the observed $2.0765641$: best ladder coefficient $1.279\times10^{26}$, best $\alpha_{10} = 0.040000$ at $g = 0.2$ (dev $6.9\times10^{-18}$ — the coupling leg hits exactly); no $(F_{\rm int}, g)$ pair lands inside both bands |
 | `V256_ladder_rung_reconstruction` | **LADDER-BROKEN** (zero fitted parameters): loop$' = F_{\rm int}^{1/10}$ against the V197 rung scales 3/10/17 (published ruler control $1.8\times10^{-15}$): the measured $F_{\rm int} \sim 9.5\times10^{2}$ already gives loop$' = 1.98 > 1$; best joint rung residual $114.2$ vs band $10^{-9}$ — integer rungs are lost; the published ladder is an artefact of the formal functional |
@@ -254,7 +255,6 @@ the claim asserts, not when a script merely mentions the word.
 | `V83_link_rg_levels` | the traced-link division does not compound to the loop law |
 | `V85_closed_loop_factor` | the closed-loop factor $F_{10} = 0.0192$ |
 | `V89_loop_selection` | the selection rule measured to length $30$: the crossing is at $n = 10$ |
-| `V94_composition_law` | the composition law: multiplicativity across legs, not along a chain |
 | `V108_hierarchy_multiplicity` | the hierarchy coefficient as a product of measured root numbers |
 | `V113_axis_factorization` | the axis-family factorization audit of that coefficient |
 | `V126_loop_enumeration` | which loops supply the ladder factor |
@@ -349,23 +349,6 @@ the claim asserts, not when a script merely mentions the word.
 | id | verdict |
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
-
-### `alt_gauged` (exploration programme — the two-fermion S-matrix of the gauged bond layer)
-| id | verdict |
-|---|---|
-| `V175_gauged_smatrix` | THE TWO-FERMION S-MATRIX OF THE GAUGED LAYER EXISTS: S = exp(-i g_10 L^-1 H L^-dagger) on the 24-state three-site kernel, unitary to 2.2e-13, spectrum = V101 exactly (0.0e+00), fusion channels preserved (mixing up to 6.1e-29), eta->0 gives S = I |
-| `V176_gauged_vertex_content` | the gauged current vertex is NOT a scalar: Eg + T2g weight 5/6 at |k| = 0.4 (vs contact A1g = 1.0000), anisotropic part scale-independent (alpha = 0 - MARGINAL, vs contact alpha = 2); on-node current F(0) = 5.000000 |
-| `V177_gauged_self_energy_flow` | one-loop Fock flow with the gauged vertex: Sigma nonzero (0.204), anisotropic part ~ |k|^1.00 = MARGINAL (propagator sets the power, not the vertex); dressed A not grid-convergent (drift 1.2e-2, flat-axis IR — the contact baseline of the same run has the same non-convergence) |
-| `V178_gauged_block_rg` | block RG b = 1, 2, 4 with the gauged insertion: A(b) = 0.997985 EXACTLY unchanged (bare = gauged at every scale) - anisotropy stays marginal (2-route 1.3e-12) |
-| `V179_gauged_isotropy_gate` | 12 census rows, 0 candidates (2 unconverged V177 rows excluded, min A 0.9322): the gauged bond-current interaction does not isotropize the cone at one loop / under coarse-graining - the flux sector is massive (gap 64 eta, V129) and decouples from the IR cone |
-
-### `alt_nonpert` (exploration programme — exact cone flux dressing, ring kernels, IR decoupling, non-perturbative isotropy gate)
-| id | verdict |
-|---|---|
-| `V180_cone_flux_dressing` | exact cone dressing by the 24 gauged flux operators: A_np - A_free = +4.43e-12 (2-route eps dev 1.7e-16, eta->0 dev 0.0) - the flux dressing does NOT move the cone anisotropy at one dressing order |
-| `V181_ring_kernel_smatrix` | the 4-site gauged kernels exist: chain 144 (full rank, E0 -1664197.02, gap 12787.60 eta) and ring 1296 (Gram rank 976, E0 -6.08e8, gap 2.75e8 eta); S unitary to 2.7e-15/4.2e-15, 2-route phase dev within the whitening-noise bound; chain channels preserved (mixing 3e-11), ring channels mixed (~8) |
-| `V182_ir_decoupling` | INCONCLUSIVE under the pre-registered clauses: gap grows 42.09 -> 12787.60 (chain) -> 2.75e8 (ring) eta, drift >> 1 - the LIGHT branch is decisively false; V101 eta-units are not extensive (Gram shrinks ~30x/link), gap/\|E0\| ~ 0.0073-0.0077 at every volume |
-| `V183_nonpert_isotropy_gate` | 9 census rows, 0 candidates: no non-perturbative gauged-sector mechanism isotropizes the cone - the flux sector is massive at every volume probed; the cone anisotropy (O9) stays open |
 
 ### `alt_step` (exploration programme)
 | id | verdict |

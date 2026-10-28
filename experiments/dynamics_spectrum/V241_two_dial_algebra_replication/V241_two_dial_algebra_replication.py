@@ -191,7 +191,10 @@ def main():
             clo = max(clo, float(np.abs(comm - rhs).max()))
     cas = sum(T @ T for T in T16)
     cas_err = float(np.abs(cas - 45.0 * np.eye(16)).max())
-    v176 = art("V176_gauged_vertex_content")["data"]
+    # the Casimir error published by V176 (retired 2026-10-28; the
+    # value below is exactly that of v176_gauged_vertex_content.json
+    # in the release's git history)
+    v176_casimir_err = 7.105427357601002e-15
     checks.append({
         "name": f"K4 the 45 generators (internal-only, altcell."
                 f"weyl_generators - no angle enters, beta-blind by "
@@ -199,14 +202,14 @@ def main():
                 f"the 16-D Weyl sector (structure-constant defect "
                 f"{clo:.2e}) and the Casimir anchor sum T^A T^A = 45 I_16 "
                 f"holds to {cas_err:.2e}; the published V176 anchor "
-                f"(kron(I8, .) on 128) gave {v176['casimir_err']:.2e} - "
-                f"reproduced to {abs(cas_err - v176['casimir_err']):.1e}",
+                f"(kron(I8, .) on 128) gave {v176_casimir_err:.2e} - "
+                f"reproduced to {abs(cas_err - v176_casimir_err):.1e}",
         "pass": bool(clo < 1e-8 and cas_err < 1e-9
-                     and abs(cas_err - v176["casimir_err"]) < 1e-12)})
+                     and abs(cas_err - v176_casimir_err) < 1e-12)})
     data["generators"] = {"n": len(T16), "internal_only": True,
                           "closure_defect": clo, "casimir_err_16":
                           cas_err, "v176_published_casimir_err":
-                          v176["casimir_err"]}
+                          v176_casimir_err}
 
     # ---- K5 V45_yukawa_matrix mass matrices (internal control) ---------
     v45 = art("V45_yukawa_matrix")["data"]

@@ -11,8 +11,9 @@ change it.  Does the dressed sector flow?
 (altcell.lowdin_downfold, QSTAR = (pi/2, pi/2, 0), DQ = 1e-3, the 12
 sphere_dirs(6) rays) applied to the V251 Sigma-corrected effective step,
 cuts b = 1, 2, 4, 8, 16, i.e. cut = pi/(2b) - the energy-window ladder
-the V178 artifact rows establish (its rows and A_full are the ladder
-being extended).  H_dressed(q) = H1(q) + Re Sigma(q, z), Sigma being
+booked by V178 (retired 2026-10-28; its rows and A_full are the ladder
+being extended and are re-booked here as literal anchors from the
+artifact in git history).  H_dressed(q) = H1(q) + Re Sigma(q, z), Sigma being
 V252's dynamical self-energy in its CONTACT limit on the P-only
 dressed system (the roll-up clause fired: V251 landed SECTOR-BLOCKED,
 the flux sector was never realized, so d_A = 1; N = 16 shift grid,
@@ -277,15 +278,17 @@ def main():
     log("ladder rows + static control done (dressed rows: {})"
         .format(len(rows)))
 
-    # V178 ladder extension anchor: reproduce V178's bare rows b<=4
-    v178 = art("V178_gauged_block_rg")
-    v178_rows = v178["data"]["rows"]
-    anchor = max(abs(r["A_bare"] - next(
-        x for x in v178_rows if x["b"] == r["b"])["A_bare"])
-        for r in rows[:3])
-    anchor_g = max(abs(r["A_static"] - next(
-        x for x in v178_rows if x["b"] == r["b"])["A_gauged"])
-        for r in srows[:3])
+    # V178 ladder extension anchor: reproduce the ladder booked by
+    # V178 (retired 2026-10-28; the values below are exactly those of
+    # v178_gauged_block_rg.json, kept in the release's git history)
+    v178_bare = {1: 0.9979846405782878, 2: 0.9979846405781756,
+                 4: 0.9979846405783854}
+    v178_gauged = {1: 0.9979846405773893, 2: 0.9979846405777241,
+                   4: 0.9979846405781364}
+    v178_A_full = 0.997984640580528
+    anchor = max(abs(r["A_bare"] - v178_bare[r["b"]]) for r in rows[:3])
+    anchor_g = max(abs(r["A_static"] - v178_gauged[r["b"]])
+                   for r in srows[:3])
 
     # log-log exponents over b = 1..16
     def slope(xs, ys):
@@ -315,14 +318,16 @@ def main():
 
     # ---------------- checks ---------------------------------------------
     checks.append({
-        "name": "T0 V178 ladder extension anchors: the V253 bare rows "
-                "reproduce V178's A_bare at b = 1, 2, 4 to {:.2e} and "
+        "name": "T0 ladder-extension anchors against the values booked "
+                "by V178 (retired 2026-10-28, git history): the V253 "
+                "bare rows reproduce V178's A_bare at b = 1, 2, 4 to "
+                "{:.2e} and "
                 "the static-insertion control rows reproduce V178's "
                 "A_gauged to {:.2e} (V178 rows {}, A_full {}; ladder "
                 "extended to b = 8, 16)".format(
                     anchor, anchor_g,
                     [round(r["A_bare"], 6) for r in rows[:3]],
-                    round(v178["data"]["A_full"], 6)),
+                    round(v178_A_full, 6)),
         "pass": bool(anchor < 1e-6 and anchor_g < 1e-6)})
     checks.append({
         "name": "T1 Sigma machine consistency: the device GEMM kernel "

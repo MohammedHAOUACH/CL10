@@ -40,7 +40,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 7.821614742279053
+  "wall_time": 7.328048229217529
  },
  "checks": [
   {
@@ -56,6 +56,6 @@
    "pass": true
   }
  ],
- "status": "finite-size convergence of the composite gap verdict (grids N = [4, 6, 8], 8 s): the V259 kernel recomputed here has dim 0 and is 0 at every grid (the charges are q-independent, so emptiness is not a finite-size effect); min gaps [None, None, None]; trend exponent None. Branch NEVER-REALIZED. V259 landed KERNEL-EMPTY: there is no composite band at N = 4, 6 or 8, so the V260 verdict is not a finite-size artefact - it is the empty kernel at every grid; the convergence ladder is NEVER-REALIZED by the pre-registered cascade.",
+ "status": "finite-size convergence of the composite gap verdict (grids N = [4, 6, 8], 7 s): the V259 kernel recomputed here has dim 0 and is 0 at every grid (the charges are q-independent, so emptiness is not a finite-size effect); min gaps [None, None, None]; trend exponent None. Branch NEVER-REALIZED. V259 landed KERNEL-EMPTY: there is no composite band at N = 4, 6 or 8, so the V260 verdict is not a finite-size artefact - it is the empty kernel at every grid; the convergence ladder is NEVER-REALIZED by the pre-registered cascade.",
  "pass": true
 }

@@ -105,6 +105,7 @@ def main():
     data["artifact_pass"] = apass
 
     # ---- T1: the g-independent algebraic layer + kernel + chain ----
+    log("T1 host algebraic layer: generators, 1024^2 Casimir eigh")
     Ts_h = root_generators()
     f, _k, _as = structure_constants(Ts_h)
     Ls45_h = adjoint_link_operators(f)
@@ -260,6 +261,8 @@ def main():
     NH = 6 * 1024
     I6h = np.eye(6, dtype=np.complex128)
     I1024 = xp.asarray(np.eye(1024, dtype=np.complex128))
+    log("T1 chain kernel: building N on 6144^2 (GPU, 10 kron "
+        "products, t+{:.0f}s)".format(time.time() - t0))
     Nmat = xp.zeros((NH, NH), dtype=xp.complex128)
     for a in range(NP):
         Ma = xp.kron(xp.asarray(I6h), Jp[a]) \
@@ -272,6 +275,8 @@ def main():
     null = [j for j in range(NH) if nev_h[j] < NULLTOL]
     cdim = len(null)
     gap_above = float(nev_h[cdim]) if cdim < NH else float("nan")
+    log("T1 kernel dim {:d}/{:d}, gap {:.3e} (t+{:.0f}s)".format(
+        cdim, NH, gap_above, time.time() - t0))
     data["chain_kernel_dim"] = cdim
     data["chain_gap_above"] = gap_above
     HV = nevec[:, null].T.reshape(cdim, 6, 1024).copy() if cdim \
@@ -305,6 +310,8 @@ def main():
 
     def run_point(g, tag):
         D = {"g": g, "tag": tag}
+        log("point {}: start, Lanczos KMAX={:d} (t+{:.0f}s)".format(
+            tag[:20], KMAX, time.time() - t0))
         # DYNAMICS leg: ladder on the kernel + full-space ground
         Hk6 = 0.5 * Cc + g * np.sum(Uall, axis=0)
         Hk6 = 0.5 * (Hk6 + Hk6.conj().T)
@@ -340,6 +347,9 @@ def main():
             Tl[i, i + 1] = Tl[i + 1, i] = be[i]
         E0 = float(np.min(np.linalg.eigvalsh(Tl)))
         D["E0_full_space"] = E0
+        log("point {}: Lanczos done, E0 {:.6f} in {:d} steps "
+            "(t+{:.0f}s)".format(tag[:20], E0, len(al),
+                                 time.time() - t0))
         # chain Hc(g), ground, rho, Gauss on the materialized ground
         Hloc = 0.5 * Cc + g * np.sum(Uall, axis=0)
         Hc = np.einsum("siB,tjB,ij->st", Hsv.conj(), Hsv, Hloc,
@@ -441,6 +451,9 @@ def main():
         new = [Upre[j] for j in range(Dcur)]
         closed = False
         it = 0
+        log("point {}: Krylov start, seed dim {:d} (STEP_CAP {:d}, "
+            "MAXV {:d}, t+{:.0f}s)".format(tag[:20], Dcur, STEP_CAP,
+                                           MAXV, time.time() - t0))
         while new and it < STEP_CAP and Dcur < MAXV:
             nxt = []
             for v in new:
@@ -470,6 +483,11 @@ def main():
             new = [Upre[Dcur - added + j] for j in range(added)] \
                 if added else []
             it += 1
+            if it % 5 == 0 or closed:
+                log("point {}: Krylov step {:d}, dim {:d} "
+                    "(+{:d}, t+{:.0f}s)".format(tag[:20], it, Dcur,
+                                                added,
+                                                time.time() - t0))
             if added == 0:
                 closed = True
         Ubl = Upre[:Dcur]
@@ -530,6 +548,10 @@ def main():
         E_g = Ecg
         probes = ([p for p in PROBES if p < D["block_dim"]]
                   if gate_ok else [])
+        log("point {}: mpmath control, dps 60/100 over {:d} poles x "
+            "{:d} probes (t+{:.0f}s)".format(tag[:20], D["block_dim"],
+                                             len(probes),
+                                             time.time() - t0))
         import mpmath
         res60, res100 = [], []
         for dps, store in ((60, res60), (100, res100)):

@@ -41,7 +41,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 7.362025499343872
+  "wall_time": 7.192817687988281
  },
  "checks": [
   {

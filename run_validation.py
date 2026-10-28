@@ -181,7 +181,7 @@ def run_one(exp_dir, live=None):
     time_ = time.time() - t0
     verdict = read_verdict(exp_dir)
     # A non-zero exit is not by itself a crash. An experiment that records its
-    # own FAIL - V182's pre-registered INCONCLUSIVE branch exits 1 - writes a
+    # own FAIL - a pre-registered INCONCLUSIVE branch exits 1 - writes a
     # verdict JSON and returns non-zero: that verdict is the result, and the
     # returncode field keeps the exit code visible. What counts as a crash is a
     # non-zero exit that left NO verdict from this run: then the JSON on disk
