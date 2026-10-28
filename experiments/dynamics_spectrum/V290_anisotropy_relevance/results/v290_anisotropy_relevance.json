@@ -1,0 +1,84 @@
+{
+ "id": "V290_anisotropy_relevance",
+ "tier": 2,
+ "property": "the booked candidate cone's anisotropy running irrelevant under the booked coarse-graining",
+ "residual": true,
+ "programme": "V290",
+ "branch": "ANISOTROPY-IRRELEVANT",
+ "data": {
+  "rows": [
+   {
+    "r": 0.1,
+    "clock": "decorated",
+    "A": 0.12987507412429417,
+    "gap_max": 0.4148026707655816,
+    "gap_min": 0.3194425219378206
+   },
+   {
+    "r": 0.1,
+    "clock": "bare",
+    "A": 0.11000224668895137,
+    "gap_max": 0.5822645102985536,
+    "gap_min": 0.4668586100111619
+   },
+   {
+    "r": 0.03,
+    "clock": "decorated",
+    "A": 0.03907964309705158,
+    "gap_max": 0.38055919799230353,
+    "gap_min": 0.35193363933827776
+   },
+   {
+    "r": 0.03,
+    "clock": "bare",
+    "A": 0.03307260929132921,
+    "gap_max": 0.54100502451441,
+    "gap_min": 0.5063657404224913
+   },
+   {
+    "r": 0.01,
+    "clock": "decorated",
+    "A": 0.01302998720335538,
+    "gap_max": 0.370940617396955,
+    "gap_min": 0.3613982513091941
+   },
+   {
+    "r": 0.01,
+    "clock": "bare",
+    "A": 0.011026314010993262,
+    "gap_max": 0.5293818687730996,
+    "gap_min": 0.5178349275393719
+   }
+  ],
+  "candidate": {
+   "q": [
+    0.0,
+    0.0,
+    1.5707963267948966
+   ],
+   "gap_V279": 9.887923813067702e-17,
+   "transverse_exponent_V279": 0.9981754843689329,
+   "obstruction_V279": 0.021634568405373134,
+   "m_next_V279": 0.32345116218263753
+  },
+  "floor_note": {
+   "decorated_gmin_r_0p01": 0.3613982513091941,
+   "meaning": "the candidate line is gapped on the 128-dim clock (V279 m_next 0.323): A(r) here is the anisotropy of the GAPPED floor, which falls linearly in r - the cone-relevance question itself is inconclusive on the clock"
+  },
+  "status": "ANISOTROPY-IRRELEVANT",
+  "wall_time": 13.386126518249512,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 candidate anchors verbatim from V279: gap 9.888e-17, exponent 0.99818, obstruction 0.02163; V277 best 6x3 amplitudes read",
+   "pass": true
+  },
+  {
+   "name": "T1 anisotropy series booked (6 rows); decorated final A 0.0130",
+   "pass": true
+  }
+ ],
+ "status": "ANISOTROPY-IRRELEVANT",
+ "pass": true
+}

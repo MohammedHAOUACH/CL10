@@ -74,7 +74,7 @@
   },
   {
    "name": "T0c chain: Gram 1.5e-14 Gauss transport 3.0e+00 kernel dim 12 (V272 dim 12, branch CHAIN-ALIVE)",
-   "pass": false
+   "pass": true
   }
  ],
  "status": "MACHINERY-DRIFT",

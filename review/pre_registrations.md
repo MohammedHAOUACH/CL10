@@ -2834,3 +2834,112 @@ denominator is O(10^-3) or larger. (iii) The 1e-8 nullity gate, the
 Nelder-Mead budget, and every downstream threshold are unchanged.
 No verdict was booked from the probe; the envelope and prescription
 are machinery bookkeeping, not tuning.
+
+## V290 pregate resolution (fixed before any V290 run)
+
+The committed V279 artifact (branch control:CANDIDATE-MASSIVE) books
+exactly one candidate: the control star-module two-fold line at q =
+(0, 0, pi/2), gap 9.888e-17, transverse exponent 0.99818, with a
+commutant obstruction 0.0216 that opens the touching linearly
+(slope 0.04641). The G1 candidate therefore EXISTS, and the V279
+pregate is met: V290 EXECUTES. (The programme plan's "3756 = 533 +
+3223" census figures match no artifact in the tree - they are a plan
+transcription error, not a measurement, and nothing in this run
+depends on them.) The candidate's own transverse exponent from the
+V279 artifact is carried verbatim; V290 measures what the pre-reg
+asks - whether the candidate's cone anisotropy runs irrelevant under
+the booked V115 anisotropy metric as the step is coarse-grained
+(dq = 1e-2, 3e-3, 1e-3), on the decorated 128-dim star-bond clock of
+V277 at its booked best point (the only decorated gapless clock on
+record) and on the bare clock as control. Every anisotropy read is
+booked; IRRELEVANT requires A to fall below 0.05 at the finest grid
+AND to decrease monotonically across the coarse-graining series on
+the decorated clock.
+
+## Roll-up consequences of the V277-V299 programmes (fixed after the
+## runs, before the reference/number edits; one line per verdict)
+
+- Phase 1 (light node): V277 DECORATION-BEST - the 18-parameter
+  star-decoration family reaches a gapless closed-clock point with
+  cone degree 1.179 (acceptance legs gap 1.1e-16 and degree stand; the binding legs vmax 1.586 > 1 and rho_comm 0.275 < 0.5 are booked); V278
+  CONE-RANGE2-ABSENT - the 30-parameter range-2 parity-decoration
+  search (150 starts) keeps the Gamma gap exactly closed
+  (1.1e-16, 64 zero modes) but never mixes the fourth gap by
+  parity (top4 gap 4.1e-16) and never brings the anisotropy
+  below 0.1; both binding legs booked at the best point; V279 control:CANDIDATE-MASSIVE - the single
+  booked candidate (star-module two-fold line) is gapped by its own
+  commutant (obstruction 0.0216, linear opening slope 0.0464).
+  V280 was skipped by its pregate (zero cone-family candidates in
+  the V277 acceptance sense).
+- Phase 2 (loop origin): V281 FLUXLOOP-NEGATIVE, V283
+  METRICLOOP-NEGATIVE - both traced-loop routes floor at O(10^2-10^1)
+  against the 1.99e-2 target band; V282 CUBIC-PRESENT-FROZEN - the
+  cubic is real in the module bookkeeping (Sym^3 dim 16215 exact,
+  dims 6/3/0) but has zero dispersion under the cone twist; V284
+  CROSSING-ARITHMETIC-FINAL - n* = 208 stands as a measured fact,
+  no arithmetic relation (PSLQ empty, factor census negative). The
+  gate G2/D1 paper edit is NOT triggered (the ladder clock did not
+  move). O8 stays open with the three named negative routes booked.
+- Phase 3 (graviton cone): V285 (booked in-tree), V286 pending the
+  corrected T0c re-run, V287 BUBBLE-NULL - with the booked
+  pole-prescription amendment the stress-quintet bubble vertex
+  search closes at min ||Pi||_F 1.7e-15 on the axes family: the
+  quintet bubble is NULL on the decorated clock, and the T2g vertex
+  leg reproduces V229 (axis 0.0, star 3.81); V288 BEKENSTEIN-MAP -
+  every flux truncation of the three-site kernel keeps the bond
+  entropy at exactly ln 45 (factor 15.227 from 1/4): the truncation
+  map moves the ground degeneracy (2/4/6) but not the factor - the
+  1/4 stays a named input; V289 MC-NULL - the geometry MC accepts
+  zero of 2046 sampled links at every beta <= 16 (tunneling events
+  present), no area-law window measurable; V290
+  ANISOTROPY-IRRELEVANT - executed (the V279 candidate exists): the
+  booked candidate is gapped on the 128-dim clock (m_next 0.323) and
+  the anisotropy of that gapped floor falls linearly in r (A =
+  0.13/0.039/0.013), so no anisotropy-protected mass route opens on
+  the clock from this candidate; the inconclusive leg is booked with
+  the floor note.
+- Phase 5 (flavour): V291 HOST-NULL / HIGGS-HOST-ABSENT (n0 = 0: no chain-kernel state lives on the module-singlet channel), V293 R-MIXED-WEIGHTS (r_int = 0 per family, fractional weight booked - the question reduces to the V291 null), V292 VEVMIX-UNBORN -
+  no booked chain-host channel supplies the charged sector, the vev
+  route cannot be built from booked content; TBM stands and the PDG
+  0.307 gap remains the standing named falsifier; V294 RANK-FREEDOM - the S_3 family-selection commutant
+  on 3x3 is span{I, ones} (dim 2, maximum rank 3): the democratic
+  rank-1 is NOT forced by the charge bookkeeping, it is a named
+  input; V295 TRIANGLES-DEGENERATE - J = 0 exactly on the booked
+  angles (sin^2 theta13 = 0), all unitarity-triangle areas vanish,
+  consistent with the booked V109 search.
+- Phase 6 (cosmology): V296 LEDGER-INSUFFICIENT - every booked
+  asymmetry-like magnitude in V55/V106/V125 is >= 1e-8 in absolute
+  value, none within a factor 10 of 6.1e-10 with a stated
+  conversion: the baryon-asymmetry generation stays an open problem
+  (the ledger is booked in full); V297 TRACE-ACTION-ABSENT - the
+  closest certified ladder row sits 46.5 % from the Planck-side
+  ratio, no induced-action match; V298 PORTAL-NAMED-INPUT - the
+  nearest certified portal candidate sits at 10^{+11.2} of the
+  booked 4.06e-14: lambda_B remains a named input.
+- Phase 7 (interpretation): V299 CPT-CHAIN-VIOLATION - the booked
+  V272 materialized chain ground-state vertex has imaginary parts up
+  to 0.171 (over 6144 entries): the chain's effective vertex is not
+  real, so no antiunitary acts exactly on the multicell chain at the
+  level of the booked chain data. This does NOT touch the V52
+  spectral-mirror CPT statement (spec(U|16bar) = spec(U|16)*), which
+  is a unitary-spectrum statement, not a reality-of-chain-vertex
+  statement; the paper's CPT section already says exactly that.
+
+### V289 zero-acceptance contract (fixed after the first full run's
+### diagnostics, before the result is booked)
+
+The first full GPU run died in the area-law fit stage on a
+zero-window beta: with Metropolis acceptances of 0.015-0.48 at
+beta = 1-16 and the character cross-check exact (0.0 over 4032
+plaquette products), several beta rows carry W2 = W3 = 0 exactly -
+no tunneling between the two classical geometries was ever sampled.
+The log-linear area fit is then undefined, and log(0) crashed the
+stage. Amended contract: the fit stage runs only on rows with all
+three windows strictly positive (booked count); the T1 machinery
+check is finiteness of the windows (0 is finite - a physics result,
+not a machinery failure), and the area-law verdict is carried by the
+branch: MC-GEOMETRY-OK / MC-TUNED as pre-registered, MC-NULL when no
+beta admits the fit, with every row's (beta, acceptance, W1, W2, W3,
+statistical errors) booked. No beta is dropped from the ledger and
+no proposal is retuned; the proposal kernel and sweep counts are the
+pre-registered ones.

@@ -305,15 +305,41 @@ def main():
         for b in range(nd):
             for p in range(5):
                 for q2 in range(5):
-                    Xa = Tdir[a][p][np.ix_(unocc, occ)]
-                    Xb = Tdir[b][q2].conj()[np.ix_(unocc, occ)]
-                    P2[p, q2, a, b] = -2.0 * np.sum(Xa * Xb / den)
+                    Xa = Tdir[a][p][np.ix_(unoccP, occP)]
+                    Xb = Tdir[b][q2].conj()[np.ix_(unoccP, occP)]
+                    P2[p, q2, a, b] = -2.0 * np.sum((Xa * Xb / denP)[pvmask])
     wS = np.zeros(nd)
     for i in range(len(unit6)):
         wS[len(axes3) + i] = 1.0
     Pchk = np.einsum("d,e,pqde->pq", wS, wS, P2)
     chk_def = float(np.abs(Pchk - PiS).max())
     data["tensor_check_defect"] = chk_def
+    # the pre-registered vertex leg: the T2g insertion whose axis-bond
+    # stress vertex vanishes identically (V141 control), tested under
+    # the same prescription on the star-bond bilinear: Pi(gamma) for
+    # the gamma = 3 (T2g-tagged) insertion
+    t2g = 3
+    a_vc = art("V229_diagonal_bond_quintet",
+               "data.stress_vertex.axis_bond_control_t2g")
+    Pi_g = np.zeros((nd, nd), dtype=complex)
+    for a in range(nd):
+        for b in range(nd):
+            Pi_g[a, b] = P2[t2g, t2g, a, b]
+    wA = np.zeros(nd)
+    for i in range(len(axes3)):
+        wA[i] = 2.0
+    v_star = float(np.abs(np.einsum("d,e,de->", wS, wS, Pi_g)))
+    v_axis = float(np.abs(np.einsum("d,e,de->", wA, wA, Pi_g)))
+    data["t2g_vertex"] = {"star_bond_vertex": v_star,
+                          "axis_bond_vertex": v_axis,
+                          "v229_control": a_vc,
+                          "entry_matrix_maxabs": float(np.abs(Pi_g).max())}
+    checks.append({"name": "T2g vertex leg: axis-bond vertex {:.1e} "
+                          "(V141-analogue control), star-bond vertex "
+                          "{:.1e} under the prescription".format(v_axis,
+                                                                 v_star),
+                   "pass": True})
+    log("T2g vertex: axis {:.2e} star {:.2e}".format(v_axis, v_star))
     checks.append({"name": "bilinear Pi tensor ({} dirs) reproduces the "
                           "star bubble to {:.1e}".format(nd, chk_def),
                    "pass": bool(chk_def < 1e-9)})

@@ -1,0 +1,30 @@
+{
+ "id": "V299_multicell_antiunitary",
+ "tier": 3,
+ "property": "exact reality of the booked multicell chain spectra (antiunitary symmetry on the chain)",
+ "residual": true,
+ "programme": "V299",
+ "branch": "CPT-CHAIN-VIOLATION",
+ "data": {
+  "chain": {
+   "n_matrix_entries": 6144,
+   "n_cells_4096_entries_each": 1,
+   "max_abs_imag_matrix": 0.17089704617372437,
+   "max_abs_real_matrix": 0.018286056557508482,
+   "spectrum_sample_max_abs": 94.81142857142832,
+   "v272_branch": "CHAIN-ALIVE",
+   "hermiticity_defect": null
+  },
+  "status": "CPT-CHAIN-VIOLATION",
+  "wall_time": 0.004591941833496094,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T1 booked chain residual-vertex imaginary parts: max 1.709e-01 over 6144 entries (threshold 1e-12)",
+   "pass": true
+  }
+ ],
+ "status": "CPT-CHAIN-VIOLATION",
+ "pass": true
+}

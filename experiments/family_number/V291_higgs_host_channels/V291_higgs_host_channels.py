@@ -43,9 +43,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
 sys.path.insert(0, ROOT)
 os.environ.setdefault("CL10_ANGLE", "0.2")
+from cl10 import engine as E                               # noqa: E402
 from cl10.paths import exp                                # noqa: E402
 
-sys.path.insert(0, exp("V79_gauged_bond_layer"))
+_v79 = exp("V79_gauged_bond_layer")
+if not os.path.isdir(_v79):
+    import glob as _g
+    _v79 = _g.glob(os.path.join(ROOT, "experiments", "*",
+                                "V79_gauged_bond_layer"))[0]
+sys.path.insert(0, _v79)
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
                                    root_generators,
                                    structure_constants)
@@ -218,7 +224,7 @@ def main():
     log("T0c N assembled, eigh of 6144 starting")
     nev, nevec = np.linalg.eigh(Nmat)
     ns = int((np.real(nev) < NULLTOL).sum())
-    hker = nevec[:, np.real(nev) < NULLTOL]
+    hker = np.asarray(E.asnumpy(nevec)[:, np.asarray(np.real(E.asnumpy(nev))) < NULLTOL])
     v272 = art("V272_dynamical_chain")
     t0c = (gram_ok < 1e-9 and ns == v272["data"]["chain_kernel_dim"] == 12)
     data["chain"] = {"gram_defect": gram_ok, "kernel_dim": ns}

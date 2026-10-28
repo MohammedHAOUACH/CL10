@@ -1,0 +1,44 @@
+{
+ "id": "V298_rung_portal_ledger",
+ "tier": 3,
+ "property": "a certified-rung portal coupling of order the booked 4.06e-14",
+ "residual": true,
+ "programme": "V298",
+ "branch": "PORTAL-NAMED-INPUT",
+ "data": {
+  "ledger": {
+   "lam_1_coef_G2_over_16pi": {
+    "value": 0.02548327561082785,
+    "log10_ratio_to_target": 11.797729217726406
+   },
+   "lam_2_coef3_G2_over_16pi": {
+    "value": 0.005879739507621836,
+    "log10_ratio_to_target": 11.160832052208399
+   },
+   "lam_3_F208_over_F10": {
+    "value": 1.2925736364140417,
+    "log10_ratio_to_target": 13.502929260144175
+   }
+  },
+  "best": {
+   "name": "lam_2_coef3_G2_over_16pi",
+   "value": 0.005879739507621836,
+   "log10_ratio_to_target": 11.160832052208399
+  },
+  "status": "PORTAL-NAMED-INPUT",
+  "wall_time": 0.0010609626770019531,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 anchors: F_208 = 2.699, F_10 = 2.088, coef_obs = 2.077, G_CLOSED = pi/4",
+   "pass": true
+  },
+  {
+   "name": "T1 portal ledger: closest certified candidate at 10^+11.16 of the booked portal strength",
+   "pass": true
+  }
+ ],
+ "status": "PORTAL-NAMED-INPUT",
+ "pass": true
+}

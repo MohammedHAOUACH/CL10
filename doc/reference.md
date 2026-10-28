@@ -188,14 +188,24 @@ fixes the angle; V131):
 - **conventions** (mapping or scale identification): $M_{\rm GUT} = M_P =
   1.22\times10^{19}$ GeV, $\alpha_{10} \equiv g_{10}^2 = 1/25$,
   $g_0 = 1/2^{n_{\rm space}} = 1/8$ (the 3-space, V38), the EH coefficient
-  $1/16\pi$ ($G = 1$) and the lattice CFL $dt^2 = 1/4$ (V37), and the ladder base $1/(16\pi)$ of the hierarchy — a declared named input of the scale sector: no route births the factor (V275 **OFFKERNEL-UNBORN**) and the certified crossing $n^* = 208$ carries no arithmetic relation to the clock (V276); the origin is the open problem O8 (final_publication Sections 10.5, 12.1);
+  $1/16\pi$ ($G = 1$) and the lattice CFL $dt^2 = 1/4$ (V37), and the ladder base $1/(16\pi)$ of the hierarchy — a declared named input of the scale sector: no route births the factor (V275 **OFFKERNEL-UNBORN**; the flux-kernel traced loops **FLUXLOOP-NEGATIVE** V281, the metric-trace loop **METRICLOOP-NEGATIVE** V283 — both floor rows $\gg$ the loop band — and the certified crossing $n^* = 208$ carries no arithmetic relation to the clock (V276, V284 **CROSSING-ARITHMETIC-FINAL**); the link cubic invariant exists in the module bookkeeping ($\mathrm{Sym}^3$ dims 6, 3, 0) but is **CUBIC-PRESENT-FROZEN** (V282: zero dispersion under the cone twist, the ladder clock unmoved); the origin is the open problem O8 (final_publication Sections 10.5, 12.1);
 - **fitted coefficients** (read from the data): $2.08$ (the hierarchy
   $v/M_P = 2.02\times10^{-17}$), $1.18$ (the DM mass),
   $n_{2\text{step}} = 3$ (the seesaw), with the $246$ GeV electroweak scale
   as the measured anchor;
 - **inputs of other sectors**: the SM sphaleron factor $28/79$ (an
   **input of the SM sector**, not a root number: see §11.3 and Table 4 of
-  `doc/final_publication.md`);
+  `doc/final_publication.md`); the baryogenesis portal strength
+  $|\lambda_B| \sim 4.06\times10^{-14}$ stays a named input — the nearest
+  certified-rung combination sits at $10^{+11.2}$ of it (V298
+  **PORTAL-NAMED-INPUT**) — and no booked flux-sector asymmetry reaches
+  the observed $\eta_B$: every booked asymmetry-like magnitude is
+  $\geq 10^{-8}$ in absolute value, none within a factor of ten of
+  $6.1\times10^{-10}$ with a stated conversion (V296
+  **LEDGER-INSUFFICIENT**; the generation of the baryon asymmetry
+  remains open); no certified ladder factor converts into the booked
+  Planck-side induced-action normalization either (closest certified
+  row $46.5\%$ off, V297 **TRACE-ACTION-ABSENT**);
 - **computed but unmatched to data**: the UV-finite 2→2 cross-section
   $\sigma_0 = P_2 / M_P^2$, the dispersion (the 32-level spectrum,
   UV-bounded), the unitarity bookkeeping behind the "optical theorem" (the
@@ -205,7 +215,14 @@ fixes the angle; V131):
   heavy eigenvector); $\sin^2\theta_{23}$ and $\sin^2\theta_{13}$ sweep
   $[0, 2/3]$ under the $O(2)$ freedom of the 2-fold light subspace, and the
   tribimaximal values $(1/2, 0)$ are the $(23)$-adapted **choice** within
-  that family (V45); the computed CKM is the **identity** (V49);
+  that family (V45); the computed CKM is the **identity** (V49); the
+  democratic rank-1 mass texture is **not forced** by the family-charge
+  bookkeeping — the $S_3$-commutant of the family action is
+  $\mathrm{span}\{I, \text{ones}\}$ with maximum rank $3$ (V294
+  **RANK-FREEDOM**), so rank-1 is a named input of the Yukawa sector —
+  and on the booked angles every unitarity triangle is degenerate,
+  $J = 0$ exactly (V295 **TRIANGLES-DEGENERATE**, consistent with the
+  V109 search);
 - **the gravity sector, implemented and cross-checked**: the **general**
   Riemann computed from an *arbitrary* metric (the 2-route analytic/computed
   agreement $6.5\times10^{-7}$), the **black hole** recovered by computation
@@ -436,6 +453,41 @@ $2.3\times10^{-1}$).  The cell buys a linear node with an isotropic velocity and
 a genuine spinor piece; it pays with the inversion, with the CPT operator, and
 with a loop factor that has to be recomputed from scratch.
 
+*The light node and its cone, run (V277–V290).*  The same question put
+to the root's own star-cell decoration: decorating the six rotor stages
+by $\exp(iq\cdot(a\,V_1 + b\,V_2 + c\,V_3))$ with the V250 quaternion
+triplet, on the $128$-dimensional closed-clock step ($64$ zeros and
+$64$ $\pi$'s at $\Gamma$, V192/V132 pinned), the $18$-amplitude search
+($120$ starts) lands at a gapless point ($1.1\times10^{-16}$) whose
+cone degree is $1.179$ — linear, but the binding legs fail ($v_{\max}
+= 1.586 > 1$, commutant ratio $0.275 < 0.5$): **DECORATION-BEST**, a
+partially light cone on the decorated clock (V277).  The range-2
+parity extension of the same decoration (a $30$-parameter search,
+$150$ starts) keeps the touching exactly closed with $64$ zero modes
+but never mixes the fourth gap by parity and never leaves the
+anisotropy ceiling $A < 0.1$ (**CONE-RANGE2-ABSENT**, V278).  The
+protection test on the booked candidate — the control star-module
+two-fold line, gap $9.9\times10^{-17}$ — computes its commutant:
+obstruction $0.0216$, and the unitary the commutant supplies opens
+the touching linearly (slope $0.0464$); the holonomy frame condition
+fails at $1173$: **CANDIDATE-MASSIVE**, not protected (V279).  The
+locality question on the exact-lightcone family (V208: Clifford-
+regularity Jacobian rank $107$, family dim $53$, re-measured) closes
+too: minimizing the hopping-kernel tail functional over the family
+improves on the committed generator by $4\times10^{-4}$ relative,
+with the minimizer $1.3\times10^{-4}$ from the committed point — a
+nudge, not a selection — the hop projection at the minimum is
+$0.00290$, below the $0.0092$ selection gate, and $49$ of $50$ starts
+diverge (**CONE-SELECTION-ABSENT**, V285).
+And the anisotropy-relevance test on the V279 candidate runs the
+booked V115 metric over the coarse-graining ladder: the candidate is
+gapped on the $128$-dim clock ($m_{\rm next} = 0.323$), and the
+anisotropy of that gapped floor falls linearly in the offset
+($A = 0.130, 0.039, 0.013$ at $r = 0.1, 0.03, 0.01$), below the
+relevance bound at every finer grid (**ANISOTROPY-IRRELEVANT**,
+V290 — the clock keeps the line gapped, so the cone test itself is
+inconclusive there, booked with the floor note).
+
 **The CPT status.**  The grading identity is exact (V24): the **45** GUT
 generators are **even** in the $\mathbb{Z}_2$ grading (they **commute** with the
 pseudoscalar), while the **time** direction is **odd** (it **anticommutes**).
@@ -449,4 +501,11 @@ holds for **every** 't Hooft angle (a property of the algebra, not of the
 chosen $g_{10}$).  This is a **spectral-mirror** statement.  It is **not** the
 CPT theorem of local QFT, which ties spin to statistics through locality, the
 spectrum condition and the vacuum's cyclicity; none of that is derived here,
-and the paper does not claim it.
+and the paper does not claim it.  `V299` books the scope honestly at the
+multicell level: the materialized chain ground-state *vertex* of `V272`
+(carried verbatim from its artifact) has imaginary parts up to $0.171$ over
+its $6144$ booked entries (**CPT-CHAIN-VIOLATION** as an exact-reality
+statement) — no antiunitary acts exactly on the multicell chain *at the
+level of the chain vertex*.  This does not touch the V52 statement above,
+which is about the unitary spectrum, not about the reality of the effective
+chain vertex.
