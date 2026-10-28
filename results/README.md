@@ -15,7 +15,6 @@ the [CL10 README](../README.md).
 
 | pattern | produced by |
 |---|---|
-| `experiments_run_<date>.log` | `./run_experiments.sh` — the full suite, one line per experiment (the tqdm bar is stderr: it stays on the terminal, out of the log) |
 | `figures_run_<date>.log` | `./run_figures.sh` — the 25 figures |
 | `legacy/` | run logs kept from before the logging convention |
 | `experiments/**/results/kernel.npz` | the Gauss-Laplacian kernel caches the gauged-layer experiments rebuild on demand |
@@ -25,8 +24,7 @@ the [CL10 README](../README.md).
 ```bash
 python3 run_validation.py --report-only   # re-roll the verdicts already on disk, run nothing
 python3 run_validation.py --jobs 8        # the whole suite
-./run_experiments.sh                          # the whole suite pinned to cupy (aborts if the card cannot host the workers)
-./run_experiments.sh V43_qca_spectrum         # one experiment by exact directory name
+python3 run_validation.py V43_qca_spectrum    # one experiment by exact directory name
 ```
 
 A verdict is a claim about a run: it records the backend that computed it where

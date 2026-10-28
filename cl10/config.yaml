@@ -15,7 +15,8 @@ backend:
   priority: [cupy, jax, numpy]
   # null = auto.  "numpy"/"cpu" forces the CPU core, "cupy"/"jax" pins a GPU core.
   # A pinned GPU core skips the gate below and never falls back: the run fails
-  # loudly if the card cannot host it (run_experiments.sh pins cupy after checking the card).
+  # loudly if the card cannot host it; auto mode (force: null) consults the
+  # gate first.
   force: null
   # auto mode only: a card with less than this free is not committed to; a
   # saturated card lets tiny probe ops through but queues real work indefinitely
@@ -49,8 +50,8 @@ routing:
 
 pool:
   # the worker count of everything that fans out: the experiment runner
-  # (run_validation.py --jobs), the process pool inside the experiments
-  # (cl10/parpool.py) and the shell entry point (run_experiments.sh JOBS).
+  # (run_validation.py --jobs) and the process pool inside the experiments
+  # (cl10/parpool.py).
   # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides.
   njobs: 8
   njobs_cap: 8

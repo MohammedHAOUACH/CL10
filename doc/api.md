@@ -723,8 +723,7 @@ experiments that need these inputs read the library names for them
 `u10pred.ALPHA_EM_INV`, `dm_wimp.OMEGA_OBS`, `dm_wimp.LZ_BOUND`,
 `neutrino.M_ATM_EV`, `neutrino.SUM_MNU_MAX_EV`, `eta_cp.DELTA_B_OBS`,
 `eta_cp.SPHALERON`, `coupling.G10`),
-as do the entry points (the runner's `--jobs`, the `JOBS` and card gate of
-`run_experiments.sh`, the gate of `run_figures.sh` and of `make_figures`) and
+as do the entry points (the runner's `--jobs`, the gate of `run_figures.sh` and of `make_figures`) and
 the figure modules (`make_figures` reads `CFG` directly, never a copy).
 Measured constants are written ONCE, at the best published precision: the
 file's value is the PDG/CODATA/Planck value, so no experiment carries a second
@@ -747,7 +746,7 @@ fallback default: a key the code requires must be in the panel.
 | env `CL10_BACKEND` | `backend.force` | `numpy` / `cpu` forces the CPU core; `cupy` / `jax` pins a GPU core — a pinned GPU core skips the gate and never falls back, so a run that cannot get the card fails loudly |
 | env `CL10_GPU_MIN_FREE_MIB` | `backend.gpu_min_free_mib` | the free-memory gate for the GPU in auto mode (default 2048) |
 | env `CL10_ANGLE` | `angle.branch` | `closed` (default) / `implemented` / `half` (aliases `pi/4`, `pi/2`, `1/5`) |
-| env `CL10_NJOBS` | `pool.njobs` | the worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh` |
+| env `CL10_NJOBS` | `pool.njobs` | the worker count: `parpool`, the runner's `--jobs` |
 | env `CL10_SMOKE` | `smoke` | `1` shrinks the grids, pools and bond counts (`cl10.config.smoke()`) |
 
 ## The runner contract

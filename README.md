@@ -122,7 +122,7 @@ CL10/
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
 │   └── algebra/scales/couplings/dynamics/residuals/style .py
-├── cl10/                     # the library: 40 modules on one core (GPU-first, CPU-fallback)
+├── cl10/                     # the library: 44 modules on one core (GPU-first, CPU-fallback)
 │   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator) and the GPU/host routing policy
 │   ├── config.py             # the configuration loader: reads config.yaml, applies the environment, exposes CFG
 │   ├── config.yaml           # ONE file for the numbers: backend policy, routing thresholds, pool, physics + SM inputs, angle branches, desert thresholds, tolerance bands
@@ -185,7 +185,6 @@ CL10/
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
 ├── run_validation.py         # the runner: runs all 190, writes the hard-tier verdict
-├── run_experiments.sh        # the same suite with the card pinned to cupy (one log per run; ABORTS if the card cannot host the workers)
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     ├── README.md               # what is tracked (the verdicts) and what is regenerable (the logs)
@@ -212,8 +211,7 @@ the shared tolerance bands. Edit a value there and the engine, every library
 module, the experiments that use those inputs (they read the library constants:
 `u10pred.M_X_DESERT`, `dm_wimp.OMEGA_OBS`, `eta_cp.DELTA_B_OBS`, `u10pred.LOOP`,
 `u10pred.V_EW`, `coupling.G10`) and the entry points (the runner's `--jobs`,
-`run_experiments.sh` JOBS and card gate, `run_figures.sh` gate, the figure
-generator's own gate) follow — no file-by-file change. Every measured constant
+`run_figures.sh` gate, the figure generator's own gate) follow — no file-by-file change. Every measured constant
 is written ONCE, at its best published precision (PDG 2024, CODATA 2022, Planck
 2018): no experiment carries a second rounding of the same quantity. Precedence:
 environment, then the YAML, then the built-in defaults. The one deliberate exception: **which
@@ -242,7 +240,7 @@ the default `closed` $g_{10} = \pi/4$ is the order-8 root clock the closure axio
 forces, `implemented` $g_{10} = 1/5$ is the Wilson-family reference spectrum
 (convention $1/n_{\rm qubits}$), `half` $g_{10} = \pi/2$ the degenerate second
 root; the values live in `cl10/config.yaml`), `CL10_NJOBS` (the
-worker count: `parpool`, the runner's `--jobs`, `run_experiments.sh`), and
+worker count: `parpool`, the runner's `--jobs`), and
 `CL10_SMOKE=1` (the shrunken experiment grids).
 
 ```python
@@ -261,11 +259,9 @@ cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
 python3 run_validation.py        # runs all 190 in parallel (--jobs N), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
-./run_experiments.sh             # the full suite with the card pinned to cupy (8 jobs; JOBS=N to change); ABORTS
-                                 # if the card cannot host jobs x 2 GiB. The bar stays on the terminal, the
-                                 # per-experiment verdict lines go to results/experiments_run_<date>.log
-./run_experiments.sh V142_frame_averaging V141_regular_link_quintet_coupling
-                                 # single experiments by exact directory name
+python3 run_validation.py V142_frame_averaging V141_regular_link_quintet_coupling
+                                 # single experiments by exact directory name (the summary still folds every
+                                 # on-disk verdict: a subset run leaves a complete summary)
 ./run_figures.sh                 # the 25 figures on the pinned GPU card, with a figure progress bar; ABORTS if
                                  # the card has < 2 GiB free (FORCE=1 to run anyway, NEED=MiB to move the gate)
 python3 run_validation.py V185_separation_lemma V186_cone_inverse V187_rigidity_frontier
