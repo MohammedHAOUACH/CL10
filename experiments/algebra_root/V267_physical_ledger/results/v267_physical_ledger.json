@@ -122,7 +122,7 @@
    "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent"
   ],
   "fitted_inputs": [],
-  "wall_time": 0.0026140213012695312
+  "wall_time": 0.0045375823974609375
  },
  "checks": [
   {

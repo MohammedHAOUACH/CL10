@@ -188,7 +188,7 @@ fixes the angle; V131):
 - **conventions** (mapping or scale identification): $M_{\rm GUT} = M_P =
   1.22\times10^{19}$ GeV, $\alpha_{10} \equiv g_{10}^2 = 1/25$,
   $g_0 = 1/2^{n_{\rm space}} = 1/8$ (the 3-space, V38), the EH coefficient
-  $1/16\pi$ ($G = 1$) and the lattice CFL $dt^2 = 1/4$ (V37), and the ladder base $1/(16\pi)$ of the hierarchy, reclassified by V275/V276 as a declared input of the scale sector (final_publication Section 24);
+  $1/16\pi$ ($G = 1$) and the lattice CFL $dt^2 = 1/4$ (V37), and the ladder base $1/(16\pi)$ of the hierarchy — a declared named input of the scale sector: no route births the factor (V275 **OFFKERNEL-UNBORN**) and the certified crossing $n^* = 208$ carries no arithmetic relation to the clock (V276); the origin is the open problem O8 (final_publication Sections 10.5, 12.1);
 - **fitted coefficients** (read from the data): $2.08$ (the hierarchy
   $v/M_P = 2.02\times10^{-17}$), $1.18$ (the DM mass),
   $n_{2\text{step}} = 3$ (the seesaw), with the $246$ GeV electroweak scale

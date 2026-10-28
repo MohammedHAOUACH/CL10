@@ -191,7 +191,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.053,
+      "wall_time": 0.095,
       "backend": null,
       "verdict": {
         "id": "V0_root",
@@ -208,7 +208,7 @@
           "n_16bar": 16,
           "err": 0.0
         },
-        "wall_time": 0.053
+        "wall_time": 0.095
       }
     },
     {
@@ -48401,7 +48401,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the pi/2 branch is a pure lattice translation: bond matrix diagonal to 1.2e-16 with identity permutation and the eight corner shifts {+-1}^3, M(0) = I on all 128 internal states, bands linear with slope +-1, gapless line network of 513 grid points (7.0x the pi/4 census) - no mixing, no mass generation",
-        "wall_s": 1.4623839855194092
+        "wall_s": 2.256917715072632
       }
     },
     {
@@ -48509,7 +48509,7 @@
         "verdict": "PASS",
         "pass": true,
         "status": "the closed coupling pi/64 = 0.0491 has relative gap 1.128 to the one-loop mean 0.023068 where 1/25 had 0.734 (1.54x worse), is not of the 1/n^2 form (n = 4.51), and pi/4 is 1.57x the nearest 1/n and 5.50x the data-preferred 1/7",
-        "wall_s": 0.000152587890625
+        "wall_s": 0.00014328956604003906
       }
     },
     {
@@ -50980,7 +50980,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 30.305,
+      "wall_time": 39.296,
       "backend": null,
       "verdict": {
         "id": "V175_gauged_smatrix",
@@ -51074,7 +51074,7 @@
           "gram_rank": 24,
           "eta": 0.2
         },
-        "wall_time": 30.305
+        "wall_time": 39.296
       }
     },
     {
@@ -51089,7 +51089,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 5.356,
+      "wall_time": 7.687,
       "backend": null,
       "verdict": {
         "id": "V176_gauged_vertex_content",
@@ -51188,7 +51188,7 @@
           "spin2_weight_k04": 0.8333266265966814,
           "contact_spin2_k04": 0.8333333333333333
         },
-        "wall_time": 5.356
+        "wall_time": 7.687
       }
     },
     {
@@ -51307,7 +51307,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 136.243,
+      "wall_time": 161.235,
       "backend": null,
       "verdict": {
         "id": "V178_gauged_block_rg",
@@ -51358,7 +51358,7 @@
           "route_dev": 2.240208019088641e-12,
           "candidates": []
         },
-        "wall_time": 136.243
+        "wall_time": 161.235
       }
     },
     {
@@ -51373,7 +51373,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.0,
+      "wall_time": 0.001,
       "backend": null,
       "verdict": {
         "id": "V179_gauged_isotropy_gate",
@@ -51390,7 +51390,7 @@
           "candidates": [],
           "gates": []
         },
-        "wall_time": 0.0
+        "wall_time": 0.001
       }
     },
     {
@@ -51401,11 +51401,11 @@
       "residual": true,
       "pass": true,
       "inconclusive": false,
-      "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 2.2e-16.",
+      "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 1.9e-16.",
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 77.874,
+      "wall_time": 90.2,
       "backend": null,
       "verdict": {
         "id": "V180_cone_flux_dressing",
@@ -51413,7 +51413,7 @@
         "property": "exact (all-orders-in-eta, no loop expansion, full adjoint C^45 link) dressing of the 16-fold node multiplet by the gauged bond current, with the gauge-safe multiplet-averaged source: semi-Dirac exponents, eps cubic weights, kappa-exponents, dressed vs free anisotropy",
         "residual": "eps anisotropy is sublinear in k: the flux dressing contributes at O(eta) to the node dispersion (recorded exponent in data)",
         "pass": true,
-        "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 2.2e-16.",
+        "status": "EXACT DRESSING OF THE NODE MULTIPLET (3 dq rows). ROOT-CLOCK SOURCE: every band through M is an exactly 16-fold dispersion multiplet (32 at the node: particle+hole); the source is the multiplet-averaged current, projector-selected and window-stable to 0.0e+00. NODE GEOMETRY: gap ~ k^0.41 in-plane (v = 1.8610) and k^-0.01 along the flat axis (coefficient 2.00e+00): semi-Dirac. DRESSING: eps(q*) = -4.800000; |mean eps(q*+k)| ~ k^-0.00 (SUBLINEAR: O(eta) back-reaction on the node dispersion); anisotropy ~ k^-0.00, cubic weights A1g/Eg/T2g = 0.07/0.10/0.34 at k = 0.4. At dq = 1e-3: A_free = 0.997985 (V115/V102 reference cone 0.998, dev 1.5e-05), A_np = 0.997985, dA = +4.431e-12. 1/5-era structural facts (single-mode -4*eta stage sums) do NOT survive: err 6.7e-16, recorded. Anchors: Casimir 64 I_45 err 2.3e-14; sum rule ratio 6.000000 (expect 6); eta->0 dev 0.0e+00; 2-route eps 1.9e-16.",
         "data": {
           "rows": [
             {
@@ -51523,12 +51523,12 @@
           "casimir_err": 2.2565282975506307e-14,
           "eta0_dev": 0.0,
           "v115_dev": 1.5359419471949742e-05,
-          "eps_route_dev": 2.220446049250313e-16,
+          "eps_route_dev": 1.942890293094024e-16,
           "projector_window_dev": 0.0,
           "stage_sum_err": 6.661338147750939e-16,
           "n_bonds": 24
         },
-        "wall_time": 77.874
+        "wall_time": 90.2
       }
     },
     {
@@ -51543,7 +51543,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 82.545,
+      "wall_time": 88.737,
       "backend": null,
       "verdict": {
         "id": "V181_ring_kernel_smatrix",
@@ -54213,7 +54213,7 @@
           },
           "gpu": false
         },
-        "wall_time": 82.545
+        "wall_time": 88.737
       }
     },
     {
@@ -54228,7 +54228,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.002,
+      "wall_time": 0.001,
       "backend": null,
       "verdict": {
         "id": "V182_ir_decoupling",
@@ -54277,7 +54277,7 @@
           "light": false,
           "massive": true
         },
-        "wall_time": 0.002
+        "wall_time": 0.001
       }
     },
     {
@@ -86917,7 +86917,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 7.204527139663696,
+      "wall_time": 7.516255140304565,
       "backend": null,
       "verdict": {
         "id": "V191_parity_dirac_cone",
@@ -87115,7 +87115,7 @@
             }
           }
         },
-        "wall_time": 7.204527139663696
+        "wall_time": 7.516255140304565
       }
     },
     {
@@ -89378,7 +89378,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.635,
+      "wall_time": 0.766,
       "backend": null,
       "verdict": {
         "experiment": "V196_cell_definition",
@@ -89477,7 +89477,7 @@
         "tier": 2,
         "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
         "programme": "V196",
-        "wall_time": 0.635
+        "wall_time": 0.766
       }
     },
     {
@@ -140709,7 +140709,7 @@
             "the finite-size gap ladder (N = 4, 6, 8) and the trend exponent"
           ],
           "fitted_inputs": [],
-          "wall_time": 0.0026140213012695312
+          "wall_time": 0.0045375823974609375
         },
         "checks": [
           {
@@ -140861,7 +140861,7 @@
             }
           ],
           "fitted_inputs": [],
-          "wall_time": 0.002023935317993164
+          "wall_time": 0.002706766128540039
         },
         "checks": [
           {
@@ -154995,7 +154995,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 10.487,
+      "wall_time": 13.768,
       "backend": "cupy",
       "verdict": {
         "id": "V52_parameter_audit",
@@ -155202,7 +155202,7 @@
           "invariants_ok": true,
           "limits_ok": true
         },
-        "wall_time": 10.487
+        "wall_time": 13.768
       }
     },
     {
@@ -155470,7 +155470,7 @@
       "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.034,
+      "wall_time": 0.032,
       "backend": "cupy",
       "verdict": {
         "id": "V59_four_limits",
@@ -155555,7 +155555,7 @@
           "total_named_residuals": 3,
           "verdict": "0 FREE PARAMETERS IN THE ALGEBRA (the 7 invariants hold for every g_10).  The dynamics is the one-parameter family U(g_10); the value g_10 = 1/5 is a MAPPING CONVENTION (1/n_qubits: a root number, not a selection rule — the 1-loop data prefer n = 7, V56).  The 4 limits reduce to 3 NAMED quantities: 2 two-digit coefficients (2.08, 1.18 — the ORDER is fixed, the exact values are read from the data) and 1 irreducible CP phase (the 2-step; the baryon magnitude is the right order via V55; the QCA alone gives zero by the CP-odd theorem).  The mapping conventions (the readings of g_10, g_0 and alpha_10 = g_10^2) are the honest caveat; the identification M_GUT = M_P is NOT in force (V64: the desert solution meets at M_X = 1.8e16).  L1: the 7 algebraic invariants are g_10-invariant (proven); L2+L4: one loop count n=10 satisfies the two statements of one scale (unique within one decade of both; the strict factor-2 test is empty); L3: baryogenesis needs exactly one CP phase.  The delta<->g_10 hypothesis is FALSE (the QCA U(g_10) is real / CP-even, so the CP phase is independent of g_10)."
         },
-        "wall_time": 0.034
+        "wall_time": 0.032
       }
     },
     {

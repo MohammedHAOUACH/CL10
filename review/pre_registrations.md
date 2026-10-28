@@ -1886,3 +1886,39 @@ rebuilt from on-disk verdicts with run_validation.py --report-only:
 200/200 PASS, backend-wide pass True, hard tier (0-3) True, n=200.
 The 206-experiment gate above stays as the historical record of what
 was booked when.
+
+## Final-state document integration note (2026-10-28, executed)
+
+No experiment was pre-registered or run by this step; it records the
+final-state integration of the publication.
+
+- final_publication.md: Sections 20-24 (founding-repair, interacting
+  continuum, physical sector, dynamical link, off-kernel resolvent and
+  certified ladder) were removed as programme histories; their final-state
+  verdicts were redistributed into the structure: 8.2 (dressed F9 contact,
+  V253/V254), 8.4 (the three walls, V250), 8.5 (enforced isotropy and the
+  star clock, V244/V245/V249), 9 (two-dial closure set, V247), 10.1
+  (physical-sector emptiness, V259-V268), 10.5 (new subsection: dynamical
+  link, V269-V276), 11.6 (cone breach and decoration, V251), 12.1
+  (certified ladder and the PSLQ crossing census, V276), 13.1 (two-dial
+  and dressed-run census, V246/V255/V264), and the abstract, Tables 1/6/
+  7/8/9 and the conclusion to final-state phrasing. The physics text cites
+  only live artifacts; the single retirement fact stands in the
+  Appendix B availability note.
+- reference.md: the conventions bullet re-points to Sections 10.5/12.1
+  (the dead Section 24 reference removed); the V52 row and the
+  classification sentence already carried the 17-row 8/0/2/2/5 ledger.
+- Ledger cutover verification: V52 standalone re-run PASS, provenance
+  table 17 rows, counts 8 algebraic / 0 free / 2 convention / 2
+  coincidence / 5 named residual, status string reads the 8+0+2+2+5
+  split (the old 8+0+1+2+5 string is gone).
+- Suite: the re-gate booked in the note above remains valid (no
+  experiment code changed in this step); results/validation_summary.json
+  was re-synced to the on-disk artifacts with run_validation.py
+  --report-only: 200/200 PASS, backend-wide pass True, hard tier True,
+  n = 200, the V52 summary entry carrying the new split.
+- review/tools/number_audit.py: PASS (799 of 823 decimal tokens
+  artefact-backed; the one unexplained number, a 2.2e-33 residual typed
+  into 10.5 from memory, was corrected to the booked V274 value
+  4.8 x 10^-33).
+- PDF rebuilt: doc/final_publication.pdf, 86 pages.
