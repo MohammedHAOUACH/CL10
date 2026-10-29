@@ -3520,3 +3520,80 @@ the true formula and the roll-up reclassifies the paper) /
 `LEDGER-BEST-DEFICIT-DECLARED` (book the closest row's worst residual
 with the full table; this bounds the current programme's best compound
 theory).
+
+### Post-run booking note (2026-10-30, after V308-V314 ran)
+
+- V308 fired the pre-registered COEF-GAP-PERSISTS. T0 reproduced V206's
+  coef_at_fifth 2.088106865906787 to <1e-9. The certified-continuation
+  variant is DEGENERATE at g = 1/5 (the crossing at that clock is
+  n* = 10, so the V276 continuation is the identity); the icosahedral
+  return-amplitude ladder reads 2.5e26 (the box mean of tr M(q)^10 does
+  not decay to the loop scale, V218's T4 as measured). Five smallest
+  residuals booked; plain read closest at |d| 1.15e-2.
+- V309 fired CLOCK-NO-RELATION-DECLARED exactly as the verification
+  predicted: findpoly empty at every degree 1..6 (height cap 20), zero
+  rationals a/b with b <= 5000 inside 1e-6 of g_obs (closest 1/5 at
+  2.012e-6), gap g_cross_rung10 - g_obs = 1.3517894290510091e-4
+  booked as V310's target.
+- V310 fired COEF-EXPRESSION-SUPPLIED at the clock-gap target only:
+  ((alpha_10*g_impl)*alpha1_mz) = 1.352e-4 vs the booked 1.35178943e-4,
+  residual 2.106e-8 inside the 1e-6 band. Class discipline deviation
+  booked before the word was accepted: the depth-3 op list was scored
+  in two layers - CLASS-PRE (the pre-registered {+,-,x,/ both orders}
+  plus the pow^+-1 reading p^-1 = 1/p) decides the word; CLASS-POW
+  (arbitrary booked exponents) is scored and booked as annotation only
+  (44 in-band power coincidences, V306's lesson kept). The tautology
+  exclusion (a candidate may not use its target's defining constants)
+  is booked in the artifact. Qualifier: alpha_1(M_Z) = 0.0169 is a
+  three-digit measured input - the match's 1.6e-5 relative rate is
+  inside the published uncertainty of that input, so the expression
+  cannot be finer than its coarsest ingredient.
+- V311 fired STEP-UNITARY on p = 0 (Cl(0,10)) only (unitarity residual
+  1.443290e-15 at the closed clock; closure clocks pi*1/2 k = 2,
+  pi*1/4 and pi*3*4 k = 4, deviations 4.9e-16 to 2.6e-15); p = 8, 7,
+  4, 3 fail unitarity (residuals 2.0, 2.0, 4.0, 2.0 - the mixed-sign
+  planes make the rotation factors singular at pi/4). T0 FS = -1
+  re-derived at every booked root. The verdict is class-bounded to the
+  booked embedding (Gamma_j -> i Gamma_j for the last 10-p), exactly
+  as pre-registered.
+- V312 ran (the SKIPPED-STEP-HYPERBOLIC contingency was NOT needed
+  because V311 fired a unitary signature). SIGNATURE-LADDER-NEGATIVE:
+  the exact odd-n selection rule survives the Cl(0,10) embedding
+  (odd_max < 1e-12 at all three closure clocks), no closure clock
+  reads the coefficient in band; closest pi*1/2 at 2.2995015
+  (|d| 2.23e-01).
+- V313 fired LIGHTCONE-CLOCK-CONFLICT. Machinery note: the first run
+  misread the ladder leg - on the exact-rule clocks a vanishing odd
+  length is not a crossing (it took n = 3 with deficit 5.5e-14 at
+  pi/4). Fixed to the V276/V204 scan convention (skip vanishing odds
+  where the rule holds) with a pi/4 deficit anchor to the booked V206
+  value 0.989526873, on the BACKEND-AWARE band of the V247 precedent
+  (the float64 root-clock deficit is a floor artefact, V209: 1e-3 on
+  cupy, 3e-2 labelled on the numpy fallback). Re-run: backend cupy,
+  anchor |d| 8.79e-05 inside the 1e-3 hard band; intact set {1/5, pi/4,
+  pi/2}; 1/2 collapses at 1.44e-3 and 1/8 at 0.4836. The branch word is
+  unchanged between the two runs; the first-run artifact was superseded,
+  not booked.
+- V314 fired LEDGER-BEST-DEFICIT-DECLARED: 11 compound rows; contacts
+  1-2 exact (V197 re-derivation gates 1e-14), the neutrino contact
+  S17/3 vs m_atm at -2.70% gives every row normalized 0.539; the
+  fitted g_obs row passes all four contacts (coefficient contact
+  normalized 1.94e-09 - the inversion is the definition) but carries
+  fitted provenance; the best ZERO-FITTED row - the V310 corrected
+  clock - reads 2.0764436008045477 vs 2.076564111173832: |d|
+  1.205e-4 vs band 1e-4, worst normalized 1.2051. The programme's
+  bound on its best compound theory, booked with the full table.
+- Contingencies used: V312 skip NOT used; MACHINERY-DRIFT stops NOT
+  triggered (the V313 first-run defect was corrected machinery, the
+  T0 gates themselves passed); no band widened; the pillar_surgery
+  config section was never edited after the pre-registration commit.
+- Paper-editing note: the plan's conditional text assumed all seven
+  words negative. Two fired locally positive (V310 gap-supplied, V311
+  p = 0 unitary) while the arbiter V314 declared the ledger deficit,
+  so the Table-9 row and the Section 17 sentence were kept as
+  bounded no-gos with the two surviving facts named inside them, and
+  the O8/O10 rows carry the no-go words with the ledger deficit
+  1.205e-4 as the tightest booked residual. No published claim was
+  re-provenanced algebraic: the ledger rejected every zero-fitted
+  compound theory, so no claim met the plan's success condition
+  (LEDGER-CONSISTENT-THEORY-CANDIDATE with zero fitted inputs).

@@ -1,6 +1,6 @@
 # The verification program
 
-220 experiments (the 217 of the publication programme plus the 3 exploration
+227 experiments (the 224 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git
@@ -11,7 +11,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**85 of the 217 publication experiments still write the older
+**85 of the 224 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -49,6 +49,7 @@ whenever it is re-run.
 | `baryogenesis` | the absence of every Sakharov condition, the asymmetry product, the washout, the real-form obstruction | §13.3 |
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §16 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
+| `pillar_surgery` | bounded surgery of the four pillars: the variant readings of the loop machinery at the fifth clock, the algebraicity of the data clock, the coefficient expression census, the quaternionic root step and its loop ladder, the lightcone dictionary conjunction, and the four-scale ledger arbiter (V308-V314) | §12.1, §11.6, §17 (O8, O10) |
 | `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the cone-isotropy gate (tier 4) | §8.4, §16 (O9) |
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector cone probes - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §8.4, §16 (O9) |
 | `alt_step` | the exploration programme: the parity no-go for a conical node and its reruns inside the engine's own six-stage circuit class and with the root's sector-swap involutions - the cone is outside the class, searches included (tier 4) | §8.4, §16 (O9) |
@@ -380,6 +381,17 @@ the claim asserts, not when a script merely mentions the word.
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
 | `V295_triangle_selection` | TRIANGLES-DEGENERATE |
+
+### `pillar_surgery`
+| id | verdict |
+|---|---|
+| `V308_coefficient_variants_fifth_clock` | **COEF-GAP-PERSISTS**: no variant reading of the loop machinery at g = 1/5 closes the -0.55% gap - the certified continuation is degenerate at that clock (n* = 10, identity), the icosahedral return-amplitude ladder reads 2.5e26 (the box mean does not decay), the plain 2.088106866 stays the closest |
+| `V309_clock_algebraicity` | **CLOCK-NO-RELATION-DECLARED**: `findpoly` empty at every degree 1..6 (height cap 20) on g_obs; zero rationals a/b with b <= 5000 inside 1e-6 (closest: 1/5 at 2.012e-6); the named clock gap g_cross_rung10 - g_obs = 1.35178943e-4 booked for the census |
+| `V310_coefficient_expression_census` | **COEF-EXPRESSION-SUPPLIED** at the clock-gap target only: ((alpha_10*g_impl)*alpha1_mz) = 1.352e-4 vs 1.35178943e-4 (res 2.11e-8, band 1e-6) - alpha_10*(1/5)*alpha_1(M_Z), three-digit measured input qualifying the match; ratio/direct coefficient targets unsupplied on the pre-registered class (best 5.29e-5 vs 4.79e-5; 1.44e-4 vs 1e-4); 44 power-superset in-band annotations booked as coincidences (V306 lesson), 911,314 CLASS-PRE candidates over 24 booked bases, no candidate restates its target |
+| `V311_quaternionic_root_step` | **STEP-UNITARY** on p = 0 (Cl(0,10)) only - unitarity 1.44e-15, closure clocks pi/2 (k = 2), pi/4 and 3pi/4 (k = 4); p = 8, 7, 4, 3 fail at the closed clock (mixed-sign planes singular, residuals 2-4); the antiunitary CP mirror fails the ordered step at every signature (1.414, the V117 T3 pattern); FS = -1 re-derived for all five roots |
+| `V312_quaternionic_loop_ladder` | **SIGNATURE-LADDER-NEGATIVE** (skip contingency not needed): the exact odd-n selection rule survives the Cl(0,10) embedding at all three closure clocks, but the crossings read 2.2995 (pi/2), 2.7041 (pi/4), 2.7160 (3pi/4) against 2.0765641 - closest |d| 0.223 vs band 1e-4 |
+| `V313_lightcone_dictionary_conjunction` | **LIGHTCONE-CLOCK-CONFLICT**: the V285 machinery re-derived (Jacobian 107/53 at pi/4, T0 anchors to 1e-9), the 53-parameter family exists at every scan clock (clock-blind by construction), ladder-intact set {1/5, pi/4, pi/2} (pi/4 deficit anchored to the booked V206 value within the backend-aware floor-artefact band; 1/2 collapses at 1.44e-3 - the Section 11.6 conflict confirmed); the locality selector never unique: T* 1.195211e-3 vs T_committed 1.195642e-3 at a boundary kink (gradient 5e7); G = 1/(4 ln 45) reported as a weight only |
+| `V314_four_scale_ledger` | **LEDGER-BEST-DEFICIT-DECLARED**: 11 compound rows, four contacts each; the fitted g_obs row passes all four (worst-normalized 0.539 - the neutrino -2.70% floor) but carries fitted provenance; the best zero-fitted row - the V310 corrected clock - reads 2.0764436 vs 2.0765641: |d| 1.205e-4 vs band 1e-4 (worst-normalized 1.205); the ledger deficit is the tightest named residual of the programme |
 
 ### `alt_step` (exploration programme)
 | id | verdict |

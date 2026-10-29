@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (220 of them under `experiments/<category>/`: the 217 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (227 of them under `experiments/<category>/`: the 224 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -167,7 +167,7 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (217/217 publication;** the artifacts on record are all PASS).**
+**The result (224/224 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
 hard-tier verdict is positive. Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
@@ -567,6 +567,117 @@ statement) — no antiunitary acts exactly on the multicell chain *at the
 level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
+
+## The pillar-surgery programme (2026-10-30): V308-V314
+
+Reader instruction: the ten measured falsifications are defects of
+the pillars, not of the details — put the four pillar choices (the
+clock/closure, the root signature, the lightcone dictionary, the
+scale-formula ledger) under bounded surgery, with the zero-fitted
+four-scale ledger as the arbiter. Bands live in the `pillar_surgery:`
+config section; nothing was refitted. The fingerprint gate re-ran the
+whole suite: the new config section changes the library fingerprint,
+so every on-disk verdict was re-measured against the pillar-surgery
+library, not just the seven new experiments.
+
+**V308 - variant readings of the loop machinery at the fifth clock.**
+`experiments/pillar_surgery/V308_coefficient_variants_fifth_clock`
+re-runs the V203 machinery at g = 1/5 and asks whether any variant
+reading closes the -0.55% gap to the observed 2.0765641. T0 reproduces
+V206's booked 2.088106866 to <1e-9. The certified-continuation recipe
+(V276 T1, (rho, F_cross) re-derived at the clock) is DEGENERATE there:
+the crossing at 1/5 is n* = 10 itself, the continuation is the
+identity. The icosahedral return-amplitude ladder (V218's function,
+both booked triples) reads 2.5e26 - the box mean of tr M(q)^10 does not
+decay to the loop scale. **COEF-GAP-PERSISTS**, the five smallest
+residuals booked with provenance.
+
+**V309 - the algebraicity of the data clock.**
+`.../V309_clock_algebraicity` searches `mpmath.findpoly` at every
+degree 1..6 with height cap 20 on g_obs = 0.19999798835751165: no
+relation at any degree. The rational census b <= 5000 finds nothing
+inside 1e-6 - the fifth clock itself sits 2.012e-6 outside. The booked
+difference g_cross_rung10 - g_obs = 1.3517894290510091e-4 is named as
+the gap for the census. **CLOCK-NO-RELATION-DECLARED**: no root rule of
+the searched class generates the clock the data reads.
+
+**V310 - the coefficient expression census.**
+`.../V310_coefficient_expression_census` runs the V306 generator at
+depth 3 over 24 booked bases (target-defining constants removed per
+target, so no candidate restates its target): 911,314 CLASS-PRE
+candidates against three targets. The clock-gap target is SUPPLIED at
+band 1e-6: ((alpha_10*g_impl)*alpha1_mz) = alpha_10 * (1/5) *
+alpha_1(M_Z) = 1.352e-4 against the booked 1.35178943e-4, residual
+2.106e-8. The coefficient targets are not supplied on CLASS-PRE
+(ratio best 5.29e-5 vs band 4.79e-5; direct best 1.44e-4 vs 1e-4).
+The power-exponent superset (booked annotation, not branch-deciding)
+adds 287,786 candidates and 44 in-band power coincidences - booked as
+coincidences, V306's lesson kept. **COEF-EXPRESSION-SUPPLIED**, with
+the qualifier that alpha_1(M_Z) is a three-digit measured input: the
+match cannot be finer than the coarsest input.
+
+**V311 - the quaternionic root step.**
+`.../V311_quaternionic_root_step` swaps the real form inside the fixed
+complex rep (Gamma'_j = i Gamma_j for the last 10-p generators) at the
+five booked FS = -1 roots and rebuilds the 45-plane step. T0: all five
+read quaternionic, J^2 = -1. At p = 8, 7, 4, 3 the mixed-sign planes
+make the rotation factors singular at pi/4 and the step fails
+unitarity (residuals 2-4). p = 0 - Cl(0,10), every generator flipped,
+the planes exactly -T - keeps the step exactly unitary (1.44e-15) with
+closure clocks pi/2 (k = 2), pi/4 and 3pi/4 (k = 4); the antiunitary
+intertwiner still fails the ordered product (deviation 1.414, the V117
+T3 pattern at every signature). **STEP-UNITARY** on p = 0 only,
+class-bounded to this embedding.
+
+**V312 - the quaternionic loop ladder.**
+`.../V312_quaternionic_loop_ladder` (the skip contingency not needed:
+p = 0 fired) rebuilds V203's hop machinery over the Cl(0,10) root -
+structure constants and adjoint links recomputed on the new planes -
+and reads the ladder at V311's closure clocks. The exact odd-n
+selection rule SURVIVES (odd ratios < 1e-12 at all three closure
+clocks), but the crossings read 2.2995 (pi/2), 2.7041 (pi/4),
+2.7160 (3pi/4) against 2.0765641. **SIGNATURE-LADDER-NEGATIVE**: the
+signature surgery preserves the selection structure and misses the
+value.
+
+**V313 - the lightcone dictionary conjunction.**
+`.../V313_lightcone_dictionary_conjunction` re-derives V285's
+machinery (T0: Jacobian 107/53 at pi/4, profile/hop/dressing anchors
+to 1e-9) and re-measures the family at every scan clock: the
+construction is clock-blind by its own variables - the family is 53
+at g = 1/8, 1/5, 1/2, pi/4, pi/2. The ladder leg anchors pi/4's
+deficit to the booked V206 0.989526873 and marks the intact set
+{1/5, pi/4, pi/2} (band 0.30); 1/8 reads deficit 0.4836 and the
+repair clock 1/2 collapses at 1.44e-3, the Section 11.6 conflict
+confirmed at the deficit level. The 50-start locality search lands at
+T* = 1.195211e-3 against T_committed = 1.195642e-3 - a boundary kink
+(53-gradient 5e7), one start at the value, no interior unique minimum;
+the bond-entropy weight G = 1/(4 ln 45) is reported as a weight only.
+**LIGHTCONE-CLOCK-CONFLICT**: a 53-parameter dictionary exists at
+every ladder-intact clock and nothing selects a member of it.
+
+**V314 - the four-scale ledger.**
+`.../V314_four_scale_ledger` scores 11 compound rows (clock rule x
+coefficient variant, all from the artifacts) on the four contacts:
+the seesaw and DM rows re-derive exactly (V197 anchors <5%), S17/3
+against m_atm books the common -2.70% floor (normalized 0.539 for
+every row), and the coefficient contact decides. The fitted g_obs row
+passes all four contacts (worst normalized 0.539 - the neutrino gap
+is what keeps it off perfect) but carries fitted provenance. The best
+zero-fitted row is the V310 arithmetic: the corrected clock
+g_cross_rung10 - alpha_10*(1/5)*alpha_1(M_Z) reads the rung-10
+coefficient 2.0764436 against 2.0765641 - |d| 1.205e-4 against the
+1e-4 band, worst-normalized 1.205: the programme's closest compound
+theory misses by 20% of the band. **LEDGER-BEST-DEFICIT-DECLARED**:
+the pillar-surgery class is bounded; the clock residual, the CP input,
+the dictionary non-selection and the -0.55% fifth-clock coefficient
+gap stand as named declared residuals, now with the ledger deficit as
+the tightest of them.
+
+No band was widened mid-run; no number was refitted. The programme's
+positive residues - the clock-gap arithmetic and the exactly unitary
+Cl(0,10) step with its intact odd-n rule - are booked as measured
+facts, and the ledger shows why neither is a repair.
 
 ## The neutrino truth programme (2026-10-29): V303, V304, V305, V306, V307
 

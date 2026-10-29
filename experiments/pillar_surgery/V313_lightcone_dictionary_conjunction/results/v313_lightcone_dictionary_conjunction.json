@@ -1,0 +1,281 @@
+{
+ "id": "V313_lightcone_dictionary_conjunction",
+ "tier": 3,
+ "property": "does any member of the exact-lightcone family live at a ladder-intact clock and get uniquely selected by locality (tier 3, F8/O10)",
+ "residual": true,
+ "programme": "pillar-surgery V313",
+ "branch": "LIGHTCONE-CLOCK-CONFLICT",
+ "data": {
+  "t0": {
+   "rank": 107,
+   "family_dim": 53,
+   "profile_defect": 6.110064667990494e-14,
+   "fB": 0.0028977782769928693,
+   "fK": 0.0092074659831694,
+   "fB_art": 0.0028977782769928693,
+   "fK_art": 0.0092074659831694,
+   "branches": [
+    4,
+    4
+   ],
+   "branches_art": [
+    4,
+    4
+   ],
+   "T_committed": 0.0011956422840809166,
+   "T_committed_artifact": 0.0011956422840809166
+  },
+  "family_per_clock": {
+   "0.125": {
+    "rank": 107,
+    "family_dim": 53
+   },
+   "0.2": {
+    "rank": 107,
+    "family_dim": 53
+   },
+   "0.5": {
+    "rank": 107,
+    "family_dim": 53
+   },
+   "0.7853981633974483": {
+    "rank": 107,
+    "family_dim": 53
+   },
+   "1.5707963267948966": {
+    "rank": 107,
+    "family_dim": 53
+   }
+  },
+  "ladder_per_clock": {
+   "0.125": {
+    "clock": 0.125,
+    "n_star": 15,
+    "deficit": 0.48355574383712707,
+    "rho": 0.8914114488691736,
+    "odd_rule_exact": false,
+    "odd_max": 1.8131170546667617,
+    "intact": false,
+    "rel_deficit_vs_pi4": -0.5113263145263574
+   },
+   "0.2": {
+    "clock": 0.2,
+    "n_star": 10,
+    "deficit": 0.9644132015481985,
+    "rho": 0.7756607915704706,
+    "odd_rule_exact": false,
+    "odd_max": 4.738819838873965,
+    "intact": true,
+    "rel_deficit_vs_pi4": -0.02537947377017946
+   },
+   "0.5": {
+    "clock": 0.5,
+    "n_star": 3,
+    "deficit": 0.0014399672301257066,
+    "rho": 0.6427300260231933,
+    "odd_rule_exact": false,
+    "odd_max": 0.010108060342436016,
+    "intact": false,
+    "rel_deficit_vs_pi4": -0.998544792193506
+   },
+   "0.7853981633974483": {
+    "clock": 0.7853981633974483,
+    "n_star": 208,
+    "deficit": 0.9894389768535391,
+    "rho": 0.9780302704295725,
+    "odd_rule_exact": true,
+    "odd_max": 3.377469014174313e-15,
+    "intact": true,
+    "rel_deficit_vs_pi4": -8.882629848860901e-05
+   },
+   "1.5707963267948966": {
+    "clock": 1.5707963267948966,
+    "n_star": 102,
+    "deficit": 0.9737584624806225,
+    "rho": 0.9555555555555573,
+    "odd_rule_exact": false,
+    "odd_max": 1.9815852775375548e+33,
+    "intact": true,
+    "rel_deficit_vs_pi4": -0.015935302834845455
+   }
+  },
+  "deficit_pi4_artifact": 0.9895268728629105,
+  "intact_band": 0.3,
+  "deficit_pi4_rederived": 0.9894389768535391,
+  "deficit_pi4_anchor_band": 0.001,
+  "deficit_pi4_anchor_backend": "cupy",
+  "search": {
+   "best_T": 0.0011952105648511614,
+   "T_committed": 0.0011956422840809166,
+   "hop_star": 0.002896316062554643,
+   "dressing_star": 0.009213002829943188,
+   "distance_rel": 0.00013817258232534725,
+   "grad_norm": 0.0010283337789084898,
+   "box_face_coords": 0,
+   "interior": false,
+   "n_starts_at_best": 1,
+   "unique_minimum": false,
+   "top5": [
+    0.0011952105648511614,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0
+   ],
+   "retract_defect": 5.916349895248778e-10,
+   "x_best": [
+    5.501696914980253e-05,
+    -0.00013081523838037745,
+    -6.251711245609404e-06,
+    -2.5495226791015772e-05,
+    2.4971172069406455e-05,
+    6.920644501423617e-05,
+    5.157742985797571e-05,
+    6.75839453655475e-05,
+    -1.7732852495840968e-06,
+    6.144289253813671e-06,
+    1.8361191693327074e-05,
+    3.181101369306979e-05,
+    -1.5410390819241678e-05,
+    -2.2016008940395503e-05,
+    4.973698191038997e-05,
+    -2.5101660967398316e-05,
+    9.050827038755444e-05,
+    2.1632940852212964e-05,
+    -0.0001949830340037888,
+    1.5165695728821899e-05,
+    -4.472295429568674e-06,
+    1.205686686893042e-05,
+    -2.437429870276377e-05,
+    1.845180668591829e-06,
+    -0.00013631468655426736,
+    5.817071952276241e-05,
+    7.209833355840069e-07,
+    -8.736443291541951e-05,
+    -2.5528768229666632e-05,
+    -7.443098462110572e-06,
+    -9.406116924739013e-06,
+    6.489327615236603e-05,
+    -2.0430654754060715e-05,
+    6.028634747426377e-05,
+    0.0001412356225070977,
+    -8.202931501058829e-06,
+    5.846686528277809e-05,
+    -2.0220751670118123e-05,
+    0.0005173121186793815,
+    -8.922389430878865e-05,
+    -9.324212445897981e-05,
+    6.65119087402534e-06,
+    2.5346526327261394e-05,
+    -9.658339717474065e-05,
+    7.342825253021191e-05,
+    -0.00011160255972614657,
+    -2.3337936519531423e-05,
+    6.650510212181425e-05,
+    3.5296006580221904e-05,
+    2.8366724006241806e-05,
+    -0.00011920113704462257,
+    -0.00010276454490339146,
+    -4.1028443528331135e-06
+   ],
+   "all_T": [
+    0.0011952105648511614,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0
+   ]
+  },
+  "bond_entropy_weight": {
+   "G": 0.06567432775346577,
+   "form": "G = 1/(4 ln 45), reported as a weight only (never refit)",
+   "G_times_T_star": 7.849465037044013e-05,
+   "G_times_T_committed": 7.852300324063254e-05
+  },
+  "status": "LIGHTCONE-CLOCK-CONFLICT",
+  "intact_clocks": [
+   0.2,
+   0.7853981633974483,
+   1.5707963267948966
+  ],
+  "conjunction": {
+   "family_present_at_intact_clocks": true,
+   "selector_unique": false
+  },
+  "wall_time": 1300.3951933383942,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 pi/4 gate: Jacobian rank 107 / nullity 53 must be 107/53; V208 anchors profile 6.1e-14, hop 0.0028977783/0.0028977783, dressing 0.0092074660/0.0092074660, T_committed 1.195642e-03 (artifact 1.195642e-03)",
+   "pass": true
+  },
+  {
+   "name": "family dimension at the scan clocks [0.125, 0.2, 0.5, 0.7853981633974483, 1.5707963267948966]: {'0.125': 53, '0.2': 53, '0.5': 53, '0.7853981633974483': 53, '1.5707963267948966': 53} (the construction is clock-blind - booked in the pre-reg)",
+   "pass": true
+  },
+  {
+   "name": "T1 the pi/4 deficit re-derives to the booked V206 value 0.989526873 (got 0.9894389768535391, |d| 8.8e-05 < 1e-03 backend-aware band, backend cupy, the float64 root-clock deficit is a floor artefact V209/V247)",
+   "pass": true
+  },
+  {
+   "name": "ladder intactness (band 0.30 on the relative deficit vs the pi/4 booked 0.9895268728629105): {'0.125': 'collapsed', '0.2': 'intact', '0.5': 'collapsed', '0.7853981633974483': 'intact', '1.5707963267948966': 'intact'}",
+   "pass": true
+  },
+  {
+   "name": "selector test: T* 1.195211e-03 vs T_committed 1.195642e-03, interior False (grad 1.03e-03, box 0), starts at T*: 1, unique: False; hop 0.002896316062554643 dressing 0.009213002829943188 at distance 0.0001",
+   "pass": true
+  },
+  {
+   "name": "bond-entropy weight G = 0.065674 (1/(4 ln 45)) as a weight only: G*T* 7.849465e-05, G*T_committed 7.852300e-05",
+   "pass": true
+  }
+ ],
+ "status": "LIGHTCONE-CLOCK-CONFLICT",
+ "pass": true
+}

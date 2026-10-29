@@ -1,17 +1,17 @@
 {
-  "n": 220,
-  "n_pass": 220,
+  "n": 227,
+  "n_pass": 225,
   "n_inconclusive": 0,
-  "n_failed": 0,
-  "pass": true,
-  "backend_parent": "cupy",
+  "n_failed": 2,
+  "pass": false,
+  "backend_parent": "numpy",
   "backend_requested": "auto",
   "n_backend_reported": 51,
   "n_backend_gpu": 38,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 80,
-  "n_untiered": 83,
+  "hard_tier_n": 85,
+  "n_untiered": 85,
   "untiered": [
     "V100_vertex_correction",
     "V101_bond_current_ground_state",
@@ -62,6 +62,8 @@
     "V187_rigidity_frontier",
     "V207_corner_pair_zero",
     "V208_metric_bilinear_cone",
+    "V313_lightcone_dictionary_conjunction",
+    "V314_four_scale_ledger",
     "V64_desert",
     "V65_wilson",
     "V66_dm_identity",
@@ -98,7 +100,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 103,
+  "n_named_residuals": 108,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -185,6 +187,11 @@
     "V305_onset_neutrino_contacts",
     "V306_coefficient_census_atm_gap",
     "V307_onset_runaway_structure",
+    "V308_coefficient_variants_fifth_clock",
+    "V309_clock_algebraicity",
+    "V310_coefficient_expression_census",
+    "V311_quaternionic_root_step",
+    "V312_quaternionic_loop_ladder",
     "V32_qca_qft",
     "V38_couplings_root",
     "V41_smatrix",
@@ -117339,10 +117346,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 18 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 19.246,
+      "wall_time": null,
       "backend": "numpy",
       "verdict": {
         "id": "V247_two_dial_desert_contacts",
@@ -157122,6 +157129,1166 @@
         "status": "ONSET-RUNAWAY-EXACT",
         "pass": true
       }
+    },
+    {
+      "id": "V308_coefficient_variants_fifth_clock",
+      "dir": "V308_coefficient_variants_fifth_clock",
+      "tier": 3,
+      "property": "does a variant reading of the loop machinery at the rung-10 clock close the -0.55% coefficient gap (tier 3, O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "COEF-GAP-PERSISTS",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V308_coefficient_variants_fifth_clock",
+        "tier": 3,
+        "property": "does a variant reading of the loop machinery at the rung-10 clock close the -0.55% coefficient gap (tier 3, O8)",
+        "residual": true,
+        "programme": "pillar-surgery V308",
+        "branch": "COEF-GAP-PERSISTS",
+        "data": {
+          "t0": {
+            "g": 0.2,
+            "F_10": 0.019186391026184392,
+            "rho": 0.7756607915704712,
+            "coef_plain_read": 2.088106865906407,
+            "coef_at_fifth_artifact": 2.088106865906787,
+            "abs_diff": 3.801403636316536e-13
+          },
+          "continuation": {
+            "crossing_n": 10,
+            "F_cross": 0.019186391026184392,
+            "rho": 0.7756607915704712,
+            "F_10_geom": 0.019186391026184392,
+            "degenerate_at_this_clock": true,
+            "direction": "F_n decays with n (rho = 0.7756607915704712 < 1): the V276 continuation from (rho, F_cross) at n* = 10 back to n = 10 multiplies F_cross by rho**(-(10-10)) = 1.000000",
+            "star_ladder_(0, 1, 2)": {
+              "F_by_grid": {
+                "12": [
+                  0.0,
+                  7.188496694399587e-15,
+                  -77.65050006175106,
+                  -8.061923690235781e-15,
+                  11.837808358860913,
+                  1.1792696368671754e-15,
+                  0.10297188650511684,
+                  -5.104146754173231e-15,
+                  -4.398570361685067,
+                  1.464043870543147e-15,
+                  9.73657098767323
+                ],
+                "16": [
+                  0.0,
+                  6.353743003394987e-15,
+                  -77.7461953494502,
+                  -5.504471348061093e-15,
+                  12.352782552958912,
+                  -1.0309159650484468e-15,
+                  0.00042610433087579905,
+                  -1.3577029701650504e-15,
+                  -2.436466754451422,
+                  4.241305725139095e-15,
+                  0.31788204862316904
+                ],
+                "24": [
+                  0.0,
+                  6.814742526058365e-15,
+                  -77.73141700981182,
+                  -7.402430696117588e-15,
+                  12.284726244770324,
+                  7.638009173866603e-16,
+                  -0.002207111764360307,
+                  1.8517098001641216e-15,
+                  -4.314701026087891,
+                  -4.998194414473891e-15,
+                  8.201387947184443
+                ],
+                "32": [
+                  0.0,
+                  6.692405585380795e-15,
+                  -77.72939314851294,
+                  -6.95273580862007e-15,
+                  12.270428115655344,
+                  1.623083517750898e-15,
+                  -0.0013808556253814262,
+                  -2.5895529677726117e-15,
+                  -4.144926902228946,
+                  -8.175269879793378e-16,
+                  7.790656579790937
+                ]
+              }
+            },
+            "star_ladder_(0, 2, 4)": {
+              "F_by_grid": {
+                "12": [
+                  0.0,
+                  7.873393606563171e-15,
+                  -77.71985923846182,
+                  -1.1253072885171311e-14,
+                  12.134066799723849,
+                  5.249748580647181e-15,
+                  0.44534862954387155,
+                  7.388084887313375e-16,
+                  -4.514683164228419,
+                  -6.919505758946846e-15,
+                  7.5167167753726405
+                ],
+                "16": [
+                  0.0,
+                  5.979698630561469e-15,
+                  -77.72183924000016,
+                  -5.553698613319578e-15,
+                  12.209454266640536,
+                  2.0778742576618573e-15,
+                  0.08171196905062142,
+                  -6.424940251897329e-16,
+                  -4.2117560379994305,
+                  -4.7078867302331935e-15,
+                  8.013559473478313
+                ],
+                "24": [
+                  0.0,
+                  6.7128099165002055e-15,
+                  -77.7220436899914,
+                  -7.0905971283013855e-15,
+                  12.216857705996132,
+                  2.770532381745352e-15,
+                  0.04896540473477662,
+                  -3.0441564462474163e-15,
+                  -4.148391565958331,
+                  -3.962186283418993e-15,
+                  7.890835204177315
+                ],
+                "32": [
+                  0.0,
+                  6.8842071527208945e-15,
+                  -77.72208448660228,
+                  -7.248887948140201e-15,
+                  12.21852420288878,
+                  7.771374610060741e-16,
+                  0.04009947168330504,
+                  -7.725718806284795e-16,
+                  -4.134588883441777,
+                  -2.8455938720016823e-15,
+                  7.893092650488618
+                ]
+              }
+            }
+          },
+          "variants": {
+            "a_plain_rung10": {
+              "coef": 2.088106865906407,
+              "provenance": "V203 traced-link F_10 at g=1/5, read 3(F/LOOP)^10 (the booked V206 fifth-clock read)",
+              "residual_abs": 0.0115427547325746,
+              "residual_rel": 0.005558583368779235
+            },
+            "b_certified_continuation": {
+              "coef": 2.088106865906407,
+              "provenance": "V276 T1 geometric continuation F_10_geom = F_cross * rho**(-(n*-10)), (rho, F_cross) re-derived at g=1/5 inside this experiment - DEGENERATE: n* = 10 at this clock, the continuation is the identity",
+              "residual_abs": 0.0115427547325746,
+              "residual_rel": 0.005558583368779235
+            },
+            "c_icosahedral_(0, 1, 2)": {
+              "coef": 2.5442536980006087e+26,
+              "provenance": "V218 return-amplitude F_10 box mean on triple (0, 1, 2) at g=1/5, grid 32, resolution 9.67e-01 (UNRESOLVED - see booking)",
+              "residual_abs": 2.5442536980006087e+26,
+              "residual_rel": 1.2252228016029819e+26
+            },
+            "c_icosahedral_(0, 2, 4)": {
+              "coef": 2.899291049448265e+26,
+              "provenance": "V218 return-amplitude F_10 box mean on triple (0, 2, 4) at g=1/5, grid 32, resolution 6.20e-02 (UNRESOLVED - see booking)",
+              "residual_abs": 2.899291049448265e+26,
+              "residual_rel": 1.3961962618189355e+26
+            }
+          },
+          "five_smallest_residuals": [
+            {
+              "name": "a_plain_rung10",
+              "residual_abs": 0.0115427547325746,
+              "provenance": "V203 traced-link F_10 at g=1/5, read 3(F/LOOP)^10 (the booked V206 fifth-clock read)"
+            },
+            {
+              "name": "b_certified_continuation",
+              "residual_abs": 0.0115427547325746,
+              "provenance": "V276 T1 geometric continuation F_10_geom = F_cross * rho**(-(n*-10)), (rho, F_cross) re-derived at g=1/5 inside this experiment - DEGENERATE: n* = 10 at this clock, the continuation is the identity"
+            },
+            {
+              "name": "c_icosahedral_(0, 1, 2)",
+              "residual_abs": 2.5442536980006087e+26,
+              "provenance": "V218 return-amplitude F_10 box mean on triple (0, 1, 2) at g=1/5, grid 32, resolution 9.67e-01 (UNRESOLVED - see booking)"
+            },
+            {
+              "name": "c_icosahedral_(0, 2, 4)",
+              "residual_abs": 2.899291049448265e+26,
+              "provenance": "V218 return-amplitude F_10 box mean on triple (0, 2, 4) at g=1/5, grid 32, resolution 6.20e-02 (UNRESOLVED - see booking)"
+            }
+          ],
+          "coefficient_observed": 2.076564111173832,
+          "band_abs": 0.0001,
+          "status": "COEF-GAP-PERSISTS",
+          "supplied_variant": null
+        },
+        "checks": [
+          {
+            "name": "T0 plain rung-10 read at g = 1/5 reproduces V206's booked coef_at_fifth 2.088106865906787 (|d| 3.8e-13 < 1e-9)",
+            "pass": true
+          },
+          {
+            "name": "variant a_plain_rung10: coefficient 2.0881069 vs observed 2.0765641 (|d| 1.15e-02)",
+            "pass": true
+          },
+          {
+            "name": "variant b_certified_continuation: coefficient 2.0881069 vs observed 2.0765641 (|d| 1.15e-02)",
+            "pass": true
+          },
+          {
+            "name": "variant c_icosahedral_(0, 1, 2): coefficient 254425369800060870271696896.0000000 vs observed 2.0765641 (|d| 2.54e+26)",
+            "pass": true
+          },
+          {
+            "name": "variant c_icosahedral_(0, 2, 4): coefficient 289929104944826509544128512.0000000 vs observed 2.0765641 (|d| 2.90e+26)",
+            "pass": true
+          }
+        ],
+        "status": "COEF-GAP-PERSISTS",
+        "pass": true
+      }
+    },
+    {
+      "id": "V309_clock_algebraicity",
+      "dir": "V309_clock_algebraicity",
+      "tier": 3,
+      "property": "is the data clock g_obs an algebraic number of small height - could a root rule generate it (tier 3, O8/O4)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CLOCK-NO-RELATION-DECLARED",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V309_clock_algebraicity",
+        "tier": 3,
+        "property": "is the data clock g_obs an algebraic number of small height - could a root rule generate it (tier 3, O8/O4)",
+        "residual": true,
+        "programme": "pillar-surgery V309",
+        "branch": "CLOCK-NO-RELATION-DECLARED",
+        "data": {
+          "t0": {
+            "g_obs": 0.19999798835751165,
+            "g_cross_rung10": 0.20013316730041675,
+            "g_obs_minus_fifth_booked": -2.0116424883642736e-06,
+            "fifth_plus_booked_diff_minus_g_obs": 0.0
+          },
+          "findpoly": {
+            "degrees": "1..6",
+            "height_cap": 20,
+            "substitution_noise_floor": 1e-14,
+            "per_degree": {
+              "1": null,
+              "2": null,
+              "3": null,
+              "4": null,
+              "5": null,
+              "6": null
+            }
+          },
+          "rational_census": {
+            "den_max": 5000,
+            "band_abs": 1e-06,
+            "count_inside": 0,
+            "inside": [],
+            "closest_five": [
+              {
+                "a": 1,
+                "b": 5,
+                "residual_abs": 2.0116424883642736e-06,
+                "inside_band": false
+              },
+              {
+                "a": 2,
+                "b": 10,
+                "residual_abs": 2.0116424883642736e-06,
+                "inside_band": false
+              },
+              {
+                "a": 3,
+                "b": 15,
+                "residual_abs": 2.0116424883642736e-06,
+                "inside_band": false
+              },
+              {
+                "a": 4,
+                "b": 20,
+                "residual_abs": 2.0116424883642736e-06,
+                "inside_band": false
+              },
+              {
+                "a": 5,
+                "b": 25,
+                "residual_abs": 2.0116424883642736e-06,
+                "inside_band": false
+              }
+            ]
+          },
+          "clock_gap": {
+            "g_cross_rung10": 0.20013316730041675,
+            "g_obs": 0.19999798835751165,
+            "gap_abs": 0.0001351789429051009,
+            "named": "the rung-10 crossing minus the data-clock read = 1.351789e-04"
+          },
+          "status": "CLOCK-NO-RELATION-DECLARED",
+          "relation": null,
+          "relation_verified": null
+        },
+        "checks": [
+          {
+            "name": "T0 booked clock arithmetic: 1/5 + booked g_obs_minus_fifth reproduces g_obs (|d| 0.0e+00 < 1e-15)",
+            "pass": true
+          },
+          {
+            "name": "findpoly degrees 1..6, height cap 20: no relation",
+            "pass": true
+          },
+          {
+            "name": "rational census b <= 5000: 0 rationals inside 1e-06 of g_obs; closest is 1/5 at 2.012e-06 (the fifth clock 1/5 sits at 2.012e-06 outside the band)",
+            "pass": true
+          },
+          {
+            "name": "booked clock gap g_cross_rung10 - g_obs = 0.00013517894290510091 (named 1.35e-4 for the V310 census)",
+            "pass": true
+          }
+        ],
+        "status": "CLOCK-NO-RELATION-DECLARED",
+        "pass": true
+      }
+    },
+    {
+      "id": "V310_coefficient_expression_census",
+      "dir": "V310_coefficient_expression_census",
+      "tier": 2,
+      "property": "does a bounded depth-3 expression over booked constants supply the -0.55% coefficient correction or the 1.35e-4 clock gap (tier 2, hard, O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "COEF-EXPRESSION-SUPPLIED",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V310_coefficient_expression_census",
+        "tier": 2,
+        "property": "does a bounded depth-3 expression over booked constants supply the -0.55% coefficient correction or the 1.35e-4 clock gap (tier 2, hard, O8)",
+        "residual": true,
+        "programme": "pillar-surgery V310",
+        "branch": "COEF-EXPRESSION-SUPPLIED",
+        "data": {
+          "targets": {
+            "coef_ratio(=coef_obs/coef_fifth)": {
+              "value": 0.9944721436812373,
+              "band_abs": 4.7890269235130234e-05,
+              "bases_exclude": [
+                "coef_fifth",
+                "coef_obs"
+              ]
+            },
+            "coef_direct(=coef_obs)": {
+              "value": 2.076564111173832,
+              "band_abs": 0.0001,
+              "bases_exclude": [
+                "coef_obs"
+              ]
+            },
+            "clock_gap(=g_cross10-g_obs)": {
+              "value": 0.0001351789429051009,
+              "band_abs": 1e-06,
+              "bases_exclude": [
+                "g_cross10",
+                "g_obs"
+              ]
+            }
+          },
+          "class": {
+            "base_constants": [
+              "LOOP",
+              "alpha_10",
+              "g_impl",
+              "g_closed",
+              "g_half",
+              "M_P",
+              "v_EW",
+              "coef_obs",
+              "m_Z",
+              "alpha1_mz",
+              "alpha2_mz",
+              "alpha3_mz",
+              "M_unif_obs",
+              "delta_b",
+              "m_atm",
+              "m_sol",
+              "sum_mnu_max",
+              "omega_dm_h2",
+              "g_obs",
+              "g_cross10",
+              "coef_fifth",
+              "coef_pi4",
+              "rho_V276",
+              "F_cross_V276"
+            ],
+            "n_base": 24,
+            "n_candidates_per_target_depth2": {
+              "coef_ratio(=coef_obs/coef_fifth)": 1870,
+              "coef_direct(=coef_obs)": 2047,
+              "clock_gap(=g_cross10-g_obs)": 1870
+            },
+            "n_scored_class_pre": 911314,
+            "n_depth3_pre": 905527,
+            "n_depth3_pow_superset_extra": 287786,
+            "depth_max": 3,
+            "class_pre_ops": "+,-,x,/ both orders + 1/p (the pow^+-1 reading)",
+            "class_pow_extra": "p**c, p**(-c), c**p (guarded) - annotation only, NOT branch-deciding",
+            "tautology_rule": "the target-defining constants are removed from that target's bases (V306's self-pair exclusion lifted to the class)"
+          },
+          "closest_per_target": {
+            "coef_ratio(=coef_obs/coef_fifth)": [
+              {
+                "abs_residual": 5.292627640152148e-05,
+                "expression": "((g_half-m_sol)/g_half)",
+                "value": 0.9945250699576388,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 8.27379187141597e-05,
+                "expression": "(g_half/(g_half+m_sol))",
+                "value": 0.9945548815999514,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 8.27379187141597e-05,
+                "expression": "(g_half/(m_sol+g_half))",
+                "value": 0.9945548815999514,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 8.683831859568336e-05,
+                "expression": "((alpha1_mz*rho_V276)+rho_V276)",
+                "value": 0.994558981999833,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 8.683831859568336e-05,
+                "expression": "((rho_V276*alpha1_mz)+rho_V276)",
+                "value": 0.994558981999833,
+                "band_abs": 4.7890269235130234e-05
+              }
+            ],
+            "coef_direct(=coef_obs)": [
+              {
+                "abs_residual": 0.00014356203127130485,
+                "expression": "((alpha_10*m_Z)-g_half)",
+                "value": 2.0767076732051035,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.00014356203127130485,
+                "expression": "((m_Z*alpha_10)-g_half)",
+                "value": 2.0767076732051035,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0002483868464677741,
+                "expression": "(coef_fifth-(LOOP-m_sol))",
+                "value": 2.0768124980203,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0002483868464677741,
+                "expression": "(m_sol-(LOOP-coef_fifth))",
+                "value": 2.0768124980203,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0002483868464677741,
+                "expression": "((m_sol-LOOP)+coef_fifth)",
+                "value": 2.0768124980203,
+                "band_abs": 0.0001
+              }
+            ],
+            "clock_gap(=g_cross10-g_obs)": [
+              {
+                "abs_residual": 2.1057094899072214e-08,
+                "expression": "((alpha_10*g_impl)*alpha1_mz)",
+                "value": 0.00013519999999999998,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 2.1057094899072214e-08,
+                "expression": "((g_impl*alpha_10)*alpha1_mz)",
+                "value": 0.00013519999999999998,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 2.105709489909932e-08,
+                "expression": "((alpha_10*alpha1_mz)*g_impl)",
+                "value": 0.0001352,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 2.105709489909932e-08,
+                "expression": "((g_impl*alpha1_mz)*alpha_10)",
+                "value": 0.0001352,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 2.105709489909932e-08,
+                "expression": "((alpha1_mz*alpha_10)*g_impl)",
+                "value": 0.0001352,
+                "band_abs": 1e-06
+              }
+            ]
+          },
+          "supplied": [
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha_10*g_impl)*alpha1_mz)",
+              "value": 0.00013519999999999998,
+              "abs_residual": 2.1057094899072214e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((g_impl*alpha_10)*alpha1_mz)",
+              "value": 0.00013519999999999998,
+              "abs_residual": 2.1057094899072214e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha_10*alpha1_mz)*g_impl)",
+              "value": 0.0001352,
+              "abs_residual": 2.105709489909932e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((g_impl*alpha1_mz)*alpha_10)",
+              "value": 0.0001352,
+              "abs_residual": 2.105709489909932e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha1_mz*alpha_10)*g_impl)",
+              "value": 0.0001352,
+              "abs_residual": 2.105709489909932e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha1_mz*g_impl)*alpha_10)",
+              "value": 0.0001352,
+              "abs_residual": 2.105709489909932e-08,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((m_atm-alpha1_mz)/v_EW)",
+              "value": 0.00013483876208269027,
+              "abs_residual": 3.401808224106338e-07,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha2_mz*alpha3_mz)*alpha2_mz)",
+              "value": 0.00013480791999999998,
+              "abs_residual": 3.7102290510092556e-07,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "((alpha3_mz*alpha2_mz)*alpha2_mz)",
+              "value": 0.00013480791999999998,
+              "abs_residual": 3.7102290510092556e-07,
+              "band_abs": 1e-06
+            },
+            {
+              "target": "clock_gap(=g_cross10-g_obs)",
+              "expression": "(alpha2_mz/(v_EW+coef_pi4))",
+              "value": 0.00013578648475899978,
+              "abs_residual": 6.075418538988703e-07,
+              "band_abs": 1e-06
+            }
+          ],
+          "closest_pow_superset_per_target": {
+            "coef_ratio(=coef_obs/coef_fifth)": [
+              {
+                "abs_residual": 1.4430110502061666e-06,
+                "expression": "((g_cross10+rho_V276))^-alpha2_mz",
+                "value": 0.9944735866922875,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 1.4430110502061666e-06,
+                "expression": "((rho_V276+g_cross10))^-alpha2_mz",
+                "value": 0.9944735866922875,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 3.021863367647093e-06,
+                "expression": "(alpha_10)^((m_sol*g_cross10))",
+                "value": 0.9944751655446049,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 3.021863367647093e-06,
+                "expression": "(alpha_10)^((g_cross10*m_sol))",
+                "value": 0.9944751655446049,
+                "band_abs": 4.7890269235130234e-05
+              },
+              {
+                "abs_residual": 5.100614102970802e-06,
+                "expression": "((m_atm+rho_V276))^-g_obs",
+                "value": 0.9944670430671343,
+                "band_abs": 4.7890269235130234e-05
+              }
+            ],
+            "coef_direct(=coef_obs)": [
+              {
+                "abs_residual": 0.0006682771917572161,
+                "expression": "(coef_pi4)^((g_closed-m_atm))",
+                "value": 2.075895833982075,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0008194327678348046,
+                "expression": "(M_unif_obs)^((LOOP*rho_V276))",
+                "value": 2.0757446784059974,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0008194327678348046,
+                "expression": "(M_unif_obs)^((rho_V276*LOOP))",
+                "value": 2.0757446784059974,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0008811874385687979,
+                "expression": "((M_P/coef_fifth))^alpha1_mz",
+                "value": 2.0756829237352634,
+                "band_abs": 0.0001
+              },
+              {
+                "abs_residual": 0.0008811874385687979,
+                "expression": "((coef_fifth/M_P))^-alpha1_mz",
+                "value": 2.0756829237352634,
+                "band_abs": 0.0001
+              }
+            ],
+            "clock_gap(=g_cross10-g_obs)": [
+              {
+                "abs_residual": 1.1151098390145033e-06,
+                "expression": "((LOOP+alpha1_mz))^coef_pi4",
+                "value": 0.0001340638330660864,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 1.1151098390145033e-06,
+                "expression": "((alpha1_mz+LOOP))^coef_pi4",
+                "value": 0.0001340638330660864,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 1.1832361259011995e-06,
+                "expression": "(alpha3_mz)^((coef_obs+coef_fifth))",
+                "value": 0.0001363621790310021,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 1.1832361259011995e-06,
+                "expression": "(alpha3_mz)^((coef_fifth+coef_obs))",
+                "value": 0.0001363621790310021,
+                "band_abs": 1e-06
+              },
+              {
+                "abs_residual": 1.22666482963891e-06,
+                "expression": "(LOOP)^((g_impl+coef_obs))",
+                "value": 0.000133952278075462,
+                "band_abs": 1e-06
+              }
+            ]
+          },
+          "supplied_pow_superset": [
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((g_cross10+rho_V276))^-alpha2_mz",
+              "value": 0.9944735866922875,
+              "abs_residual": 1.4430110502061666e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((rho_V276+g_cross10))^-alpha2_mz",
+              "value": 0.9944735866922875,
+              "abs_residual": 1.4430110502061666e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "(alpha_10)^((m_sol*g_cross10))",
+              "value": 0.9944751655446049,
+              "abs_residual": 3.021863367647093e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "(alpha_10)^((g_cross10*m_sol))",
+              "value": 0.9944751655446049,
+              "abs_residual": 3.021863367647093e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((m_atm+rho_V276))^-g_obs",
+              "value": 0.9944670430671343,
+              "abs_residual": 5.100614102970802e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((rho_V276+m_atm))^-g_obs",
+              "value": 0.9944670430671343,
+              "abs_residual": 5.100614102970802e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((m_atm+rho_V276))^-g_impl",
+              "value": 0.9944669875691652,
+              "abs_residual": 5.156112072079999e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((rho_V276+m_atm))^-g_impl",
+              "value": 0.9944669875691652,
+              "abs_residual": 5.156112072079999e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((g_impl+rho_V276))^-alpha2_mz",
+              "value": 0.9944773862004564,
+              "abs_residual": 5.242519219184061e-06,
+              "band_abs": 4.7890269235130234e-05
+            },
+            {
+              "target": "coef_ratio(=coef_obs/coef_fifth)",
+              "expression": "((rho_V276+g_impl))^-alpha2_mz",
+              "value": 0.9944773862004564,
+              "abs_residual": 5.242519219184061e-06,
+              "band_abs": 4.7890269235130234e-05
+            }
+          ],
+          "status": "COEF-EXPRESSION-SUPPLIED",
+          "wall_time": 1.5207810401916504,
+          "fitted_inputs": []
+        },
+        "checks": [
+          {
+            "name": "T0 targets re-derived from booked sources: ratio 0.994472144, direct 2.0765641, gap 1.351789429e-04; class: 24 base constants, 911314 scored (depth 3, 905527 CLASS-PRE depth-3 terms, +287786 CLASS-POW annotation terms), no target restated",
+            "pass": true
+          },
+          {
+            "name": "T1 minimum residual per target (CLASS-PRE): coef_ratio(=coef_obs/coef_fifth) -> closest ((g_half-m_sol)/g_half) at 5.293e-05; coef_direct(=coef_obs) -> ((alpha_10*m_Z)-g_half) at 1.436e-04; clock_gap(=g_cross10-g_obs) -> ((alpha_10*g_impl)*alpha1_mz) at 2.106e-08",
+            "pass": true
+          },
+          {
+            "name": "branch COEF-EXPRESSION-SUPPLIED: 33 CLASS-PRE expression(s) inside their booked bands; CLASS-POW superset adds 44 annotated hits (power coincidences, not branch-deciding)",
+            "pass": true
+          }
+        ],
+        "status": "COEF-EXPRESSION-SUPPLIED",
+        "pass": true
+      }
+    },
+    {
+      "id": "V311_quaternionic_root_step",
+      "dir": "V311_quaternionic_root_step",
+      "tier": 3,
+      "property": "does the automaton step survive a swap to the quaternionic real forms of Cl_10(C) (tier 3, O5/O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "STEP-UNITARY",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V311_quaternionic_root_step",
+        "tier": 3,
+        "property": "does the automaton step survive a swap to the quaternionic real forms of Cl_10(C) (tier 3, O5/O8)",
+        "residual": true,
+        "programme": "pillar-surgery V311",
+        "branch": "STEP-UNITARY",
+        "data": {
+          "t0_fs": {
+            "8": {
+              "type": "quaternionic",
+              "J2": -1.0
+            },
+            "7": {
+              "type": "quaternionic",
+              "J2": -1.0
+            },
+            "4": {
+              "type": "quaternionic",
+              "J2": -1.0
+            },
+            "3": {
+              "type": "quaternionic",
+              "J2": -1.0
+            },
+            "0": {
+              "type": "quaternionic",
+              "J2": -0.9999999999999999
+            }
+          },
+          "signatures": {
+            "8": {
+              "module": "Cl(8,2)",
+              "square_signs": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                -1.0,
+                -1.0
+              ],
+              "plane_T_sq_counts": {
+                "1.0": 29,
+                "-1.0": 16
+              },
+              "cp_antiunitary_dev": "singular-step",
+              "unitarity_err_at_closed_clock": 1.9999999999999984,
+              "unitarity_worst_over_closure_grid": 1.9999999999999984,
+              "closure_clocks": {
+                "pi*1/2": {
+                  "k": 2,
+                  "dev": 4.292810117113036e-16
+                }
+              },
+              "n_closure_clocks_tested": 79,
+              "verdict": "STEP-HYPERBOLIC-DECLARED"
+            },
+            "7": {
+              "module": "Cl(7,3)",
+              "square_signs": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "plane_T_sq_counts": {
+                "1.0": 24,
+                "-1.0": 21
+              },
+              "cp_antiunitary_dev": "singular-step",
+              "unitarity_err_at_closed_clock": 1.999999999999998,
+              "unitarity_worst_over_closure_grid": 1.9999999999999984,
+              "closure_clocks": {
+                "pi*1/2": {
+                  "k": 2,
+                  "dev": 5.071544317185123e-16
+                }
+              },
+              "n_closure_clocks_tested": 79,
+              "verdict": "STEP-HYPERBOLIC-DECLARED"
+            },
+            "4": {
+              "module": "Cl(4,6)",
+              "square_signs": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "plane_T_sq_counts": {
+                "1.0": 21,
+                "-1.0": 24
+              },
+              "cp_antiunitary_dev": "singular-step",
+              "unitarity_err_at_closed_clock": 3.999999999999996,
+              "unitarity_worst_over_closure_grid": 3.999999999999996,
+              "closure_clocks": {
+                "pi*1/2": {
+                  "k": 2,
+                  "dev": 4.2928101171130363e-16
+                }
+              },
+              "n_closure_clocks_tested": 79,
+              "verdict": "STEP-HYPERBOLIC-DECLARED"
+            },
+            "3": {
+              "module": "Cl(3,7)",
+              "square_signs": [
+                1.0,
+                1.0,
+                1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "plane_T_sq_counts": {
+                "1.0": 24,
+                "-1.0": 21
+              },
+              "cp_antiunitary_dev": "singular-step",
+              "unitarity_err_at_closed_clock": 1.9999999999999982,
+              "unitarity_worst_over_closure_grid": 1.9999999999999982,
+              "closure_clocks": {
+                "pi*1/2": {
+                  "k": 2,
+                  "dev": 5.071544317185124e-16
+                }
+              },
+              "n_closure_clocks_tested": 79,
+              "verdict": "STEP-HYPERBOLIC-DECLARED"
+            },
+            "0": {
+              "module": "Cl(0,10)",
+              "square_signs": [
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0,
+                -1.0
+              ],
+              "plane_T_sq_counts": {
+                "1.0": 45
+              },
+              "cp_antiunitary_dev": 1.4142135623730958,
+              "unitarity_err_at_closed_clock": 1.4432899320127035e-15,
+              "unitarity_worst_over_closure_grid": 6.661338830526017e-15,
+              "closure_clocks": {
+                "pi*1/2": {
+                  "k": 2,
+                  "dev": 4.898587196589413e-16
+                },
+                "pi*1/4": {
+                  "k": 4,
+                  "dev": 2.3350318320316246e-15
+                },
+                "pi*3/4": {
+                  "k": 4,
+                  "dev": 2.5655005975577086e-15
+                }
+              },
+              "n_closure_clocks_tested": 79,
+              "verdict": "STEP-UNITARY"
+            }
+          },
+          "status": "STEP-UNITARY",
+          "unitary_p": [
+            0
+          ]
+        },
+        "checks": [
+          {
+            "name": "T0 FS indicator of every booked quaternionic root p in [8, 7, 4, 3, 0]: all quaternionic, J^2 = -1",
+            "pass": true
+          },
+          {
+            "name": "p = 8 (Cl(8,2)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999984-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.292810117113036e-16}}",
+            "pass": true
+          },
+          {
+            "name": "p = 7 (Cl(7,3)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999984-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 5.071544317185123e-16}}",
+            "pass": true
+          },
+          {
+            "name": "p = 4 (Cl(4,6)): unitarity residual at the closed clock 4.000e+00, worst over the 3.999999999999996-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.2928101171130363e-16}}",
+            "pass": true
+          },
+          {
+            "name": "p = 3 (Cl(3,7)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999982-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 5.071544317185124e-16}}",
+            "pass": true
+          },
+          {
+            "name": "p = 0 (Cl(0,10)): unitarity residual at the closed clock 1.443e-15, worst over the 6.661338830526017e-15-clock rational grid 7.900e+01; CP antiunitary deviation 1.4142135623730958; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.898587196589413e-16}, 'pi*1/4': {'k': 4, 'dev': 2.3350318320316246e-15}, 'pi*3/4': {'k': 4, 'dev': 2.5655005975577086e-15}}",
+            "pass": true
+          },
+          {
+            "name": "branch STEP-UNITARY over the quaternionic class p in [8, 7, 4, 3, 0] (unitarity band 1e-12 = tolerances.strict)",
+            "pass": true
+          }
+        ],
+        "status": "STEP-UNITARY",
+        "pass": true
+      }
+    },
+    {
+      "id": "V312_quaternionic_loop_ladder",
+      "dir": "V312_quaternionic_loop_ladder",
+      "tier": 3,
+      "property": "does any quaternionic-root closure clock read the hierarchy coefficient inside the booked band (tier 3, O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "SIGNATURE-LADDER-NEGATIVE",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V312_quaternionic_loop_ladder",
+        "tier": 3,
+        "property": "does any quaternionic-root closure clock read the hierarchy coefficient inside the booked band (tier 3, O8)",
+        "residual": true,
+        "programme": "pillar-surgery V312",
+        "branch": "SIGNATURE-LADDER-NEGATIVE",
+        "data": {
+          "v311_branch": "STEP-UNITARY",
+          "unitary_p": [
+            0
+          ],
+          "ladder_runs": {
+            "0": {
+              "pi*1/2": {
+                "clock": 1.5707963267948966,
+                "odd_max": 4.035902540298602e+33,
+                "odd_rule_exact": false,
+                "n_star": 102,
+                "rho": 0.955555555555557,
+                "F_cross": 0.01937230908516937,
+                "deficit": 0.9737584624806223,
+                "coef": 2.299501537013818,
+                "residual_abs": 0.22293742583998588
+              },
+              "pi*1/4": {
+                "clock": 0.7853981633974483,
+                "odd_max": 3.5195712377537607e-15,
+                "odd_rule_exact": true,
+                "n_star": 208,
+                "rho": 0.9780302704295729,
+                "F_cross": 0.01968886778681312,
+                "deficit": 0.9896704383448452,
+                "coef": 2.7041279350560337,
+                "residual_abs": 0.6275638238822014
+              },
+              "pi*3/4": {
+                "clock": 2.356194490192345,
+                "odd_max": 3.0432428921307894e-15,
+                "odd_rule_exact": true,
+                "n_star": 208,
+                "rho": 0.9780302704295729,
+                "F_cross": 0.01969748512532167,
+                "deficit": 0.9901035930224765,
+                "coef": 2.715986582612512,
+                "residual_abs": 0.6394224714386798
+              }
+            }
+          },
+          "coefficient_observed": 2.076564111173832,
+          "band_abs": 0.0001,
+          "closest_read": {
+            "p": 0,
+            "clock": "pi*1/2",
+            "coef": 2.299501537013818,
+            "residual_abs": 0.22293742583998588
+          },
+          "odd_rule_somewhere": true,
+          "status": "SIGNATURE-LADDER-NEGATIVE"
+        },
+        "checks": [
+          {
+            "name": "T0 p = 0: rebuilt unitarity residual 1.443e-15 (V311 booked 1.443e-15, band 1e-12); closure clocks ['pi*1/2', 'pi*1/4', 'pi*3/4'] (booked ['pi*1/2', 'pi*1/4', 'pi*3/4'])",
+            "pass": true
+          },
+          {
+            "name": "p = 0 at pi*1/2: odd-rule max 4.04e+33 (not exact), crossing n* = 102, deficit 0.973758462, coefficient 2.2995015 vs observed 2.0765641",
+            "pass": true
+          },
+          {
+            "name": "p = 0 at pi*1/4: odd-rule max 3.52e-15 (exact), crossing n* = 208, deficit 0.989670438, coefficient 2.7041279 vs observed 2.0765641",
+            "pass": true
+          },
+          {
+            "name": "p = 0 at pi*3/4: odd-rule max 3.04e-15 (exact), crossing n* = 208, deficit 0.990103593, coefficient 2.7159866 vs observed 2.0765641",
+            "pass": true
+          }
+        ],
+        "status": "SIGNATURE-LADDER-NEGATIVE",
+        "pass": true
+      }
+    },
+    {
+      "id": "V313_lightcone_dictionary_conjunction",
+      "dir": "V313_lightcone_dictionary_conjunction",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": false,
+      "inconclusive": false,
+      "status": "no_verdict",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": null
+    },
+    {
+      "id": "V314_four_scale_ledger",
+      "dir": "V314_four_scale_ledger",
+      "tier": null,
+      "property": null,
+      "residual": false,
+      "pass": false,
+      "inconclusive": false,
+      "status": "no_verdict",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": null
     },
     {
       "id": "V32_qca_qft",
