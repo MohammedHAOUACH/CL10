@@ -1,0 +1,214 @@
+{
+ "id": "V308_coefficient_variants_fifth_clock",
+ "tier": 3,
+ "property": "does a variant reading of the loop machinery at the rung-10 clock close the -0.55% coefficient gap (tier 3, O8)",
+ "residual": true,
+ "programme": "pillar-surgery V308",
+ "branch": "COEF-GAP-PERSISTS",
+ "data": {
+  "t0": {
+   "g": 0.2,
+   "F_10": 0.019186391026184392,
+   "rho": 0.7756607915704712,
+   "coef_plain_read": 2.088106865906407,
+   "coef_at_fifth_artifact": 2.088106865906787,
+   "abs_diff": 3.801403636316536e-13
+  },
+  "continuation": {
+   "crossing_n": 10,
+   "F_cross": 0.019186391026184392,
+   "rho": 0.7756607915704712,
+   "F_10_geom": 0.019186391026184392,
+   "degenerate_at_this_clock": true,
+   "direction": "F_n decays with n (rho = 0.7756607915704712 < 1): the V276 continuation from (rho, F_cross) at n* = 10 back to n = 10 multiplies F_cross by rho**(-(10-10)) = 1.000000",
+   "star_ladder_(0, 1, 2)": {
+    "F_by_grid": {
+     "12": [
+      0.0,
+      7.188496694399587e-15,
+      -77.65050006175106,
+      -8.061923690235781e-15,
+      11.837808358860913,
+      1.1792696368671754e-15,
+      0.10297188650511684,
+      -5.104146754173231e-15,
+      -4.398570361685067,
+      1.464043870543147e-15,
+      9.73657098767323
+     ],
+     "16": [
+      0.0,
+      6.353743003394987e-15,
+      -77.7461953494502,
+      -5.504471348061093e-15,
+      12.352782552958912,
+      -1.0309159650484468e-15,
+      0.00042610433087579905,
+      -1.3577029701650504e-15,
+      -2.436466754451422,
+      4.241305725139095e-15,
+      0.31788204862316904
+     ],
+     "24": [
+      0.0,
+      6.814742526058365e-15,
+      -77.73141700981182,
+      -7.402430696117588e-15,
+      12.284726244770324,
+      7.638009173866603e-16,
+      -0.002207111764360307,
+      1.8517098001641216e-15,
+      -4.314701026087891,
+      -4.998194414473891e-15,
+      8.201387947184443
+     ],
+     "32": [
+      0.0,
+      6.692405585380795e-15,
+      -77.72939314851294,
+      -6.95273580862007e-15,
+      12.270428115655344,
+      1.623083517750898e-15,
+      -0.0013808556253814262,
+      -2.5895529677726117e-15,
+      -4.144926902228946,
+      -8.175269879793378e-16,
+      7.790656579790937
+     ]
+    }
+   },
+   "star_ladder_(0, 2, 4)": {
+    "F_by_grid": {
+     "12": [
+      0.0,
+      7.873393606563171e-15,
+      -77.71985923846182,
+      -1.1253072885171311e-14,
+      12.134066799723849,
+      5.249748580647181e-15,
+      0.44534862954387155,
+      7.388084887313375e-16,
+      -4.514683164228419,
+      -6.919505758946846e-15,
+      7.5167167753726405
+     ],
+     "16": [
+      0.0,
+      5.979698630561469e-15,
+      -77.72183924000016,
+      -5.553698613319578e-15,
+      12.209454266640536,
+      2.0778742576618573e-15,
+      0.08171196905062142,
+      -6.424940251897329e-16,
+      -4.2117560379994305,
+      -4.7078867302331935e-15,
+      8.013559473478313
+     ],
+     "24": [
+      0.0,
+      6.7128099165002055e-15,
+      -77.7220436899914,
+      -7.0905971283013855e-15,
+      12.216857705996132,
+      2.770532381745352e-15,
+      0.04896540473477662,
+      -3.0441564462474163e-15,
+      -4.148391565958331,
+      -3.962186283418993e-15,
+      7.890835204177315
+     ],
+     "32": [
+      0.0,
+      6.8842071527208945e-15,
+      -77.72208448660228,
+      -7.248887948140201e-15,
+      12.21852420288878,
+      7.771374610060741e-16,
+      0.04009947168330504,
+      -7.725718806284795e-16,
+      -4.134588883441777,
+      -2.8455938720016823e-15,
+      7.893092650488618
+     ]
+    }
+   }
+  },
+  "variants": {
+   "a_plain_rung10": {
+    "coef": 2.088106865906407,
+    "provenance": "V203 traced-link F_10 at g=1/5, read 3(F/LOOP)^10 (the booked V206 fifth-clock read)",
+    "residual_abs": 0.0115427547325746,
+    "residual_rel": 0.005558583368779235
+   },
+   "b_certified_continuation": {
+    "coef": 2.088106865906407,
+    "provenance": "V276 T1 geometric continuation F_10_geom = F_cross * rho**(-(n*-10)), (rho, F_cross) re-derived at g=1/5 inside this experiment - DEGENERATE: n* = 10 at this clock, the continuation is the identity",
+    "residual_abs": 0.0115427547325746,
+    "residual_rel": 0.005558583368779235
+   },
+   "c_icosahedral_(0, 1, 2)": {
+    "coef": 2.5442536980006087e+26,
+    "provenance": "V218 return-amplitude F_10 box mean on triple (0, 1, 2) at g=1/5, grid 32, resolution 9.67e-01 (UNRESOLVED - see booking)",
+    "residual_abs": 2.5442536980006087e+26,
+    "residual_rel": 1.2252228016029819e+26
+   },
+   "c_icosahedral_(0, 2, 4)": {
+    "coef": 2.899291049448265e+26,
+    "provenance": "V218 return-amplitude F_10 box mean on triple (0, 2, 4) at g=1/5, grid 32, resolution 6.20e-02 (UNRESOLVED - see booking)",
+    "residual_abs": 2.899291049448265e+26,
+    "residual_rel": 1.3961962618189355e+26
+   }
+  },
+  "five_smallest_residuals": [
+   {
+    "name": "a_plain_rung10",
+    "residual_abs": 0.0115427547325746,
+    "provenance": "V203 traced-link F_10 at g=1/5, read 3(F/LOOP)^10 (the booked V206 fifth-clock read)"
+   },
+   {
+    "name": "b_certified_continuation",
+    "residual_abs": 0.0115427547325746,
+    "provenance": "V276 T1 geometric continuation F_10_geom = F_cross * rho**(-(n*-10)), (rho, F_cross) re-derived at g=1/5 inside this experiment - DEGENERATE: n* = 10 at this clock, the continuation is the identity"
+   },
+   {
+    "name": "c_icosahedral_(0, 1, 2)",
+    "residual_abs": 2.5442536980006087e+26,
+    "provenance": "V218 return-amplitude F_10 box mean on triple (0, 1, 2) at g=1/5, grid 32, resolution 9.67e-01 (UNRESOLVED - see booking)"
+   },
+   {
+    "name": "c_icosahedral_(0, 2, 4)",
+    "residual_abs": 2.899291049448265e+26,
+    "provenance": "V218 return-amplitude F_10 box mean on triple (0, 2, 4) at g=1/5, grid 32, resolution 6.20e-02 (UNRESOLVED - see booking)"
+   }
+  ],
+  "coefficient_observed": 2.076564111173832,
+  "band_abs": 0.0001,
+  "status": "COEF-GAP-PERSISTS",
+  "supplied_variant": null
+ },
+ "checks": [
+  {
+   "name": "T0 plain rung-10 read at g = 1/5 reproduces V206's booked coef_at_fifth 2.088106865906787 (|d| 3.8e-13 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "variant a_plain_rung10: coefficient 2.0881069 vs observed 2.0765641 (|d| 1.15e-02)",
+   "pass": true
+  },
+  {
+   "name": "variant b_certified_continuation: coefficient 2.0881069 vs observed 2.0765641 (|d| 1.15e-02)",
+   "pass": true
+  },
+  {
+   "name": "variant c_icosahedral_(0, 1, 2): coefficient 254425369800060870271696896.0000000 vs observed 2.0765641 (|d| 2.54e+26)",
+   "pass": true
+  },
+  {
+   "name": "variant c_icosahedral_(0, 2, 4): coefficient 289929104944826509544128512.0000000 vs observed 2.0765641 (|d| 2.90e+26)",
+   "pass": true
+  }
+ ],
+ "status": "COEF-GAP-PERSISTS",
+ "pass": true
+}
