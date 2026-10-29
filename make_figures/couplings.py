@@ -374,8 +374,9 @@ def fig22_composite():
                   f"     {d['meeting']['n_solutions']} physical solutions "
                   "over the full scan", fontsize=11.5)
     fig.suptitle("The gauged layer's composite content "
-                 "($16 \\otimes 45 = 720$ states) does not deliver "
-                 "the meeting", fontsize=13)
+                 "($16 \\otimes 45 = 720$ formal tensor-product states; the "
+                 "gauge-invariant kernel is empty, V261/V264) does not deliver "
+                 "the meeting", fontsize=12.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig22_composite_content.png")
 
