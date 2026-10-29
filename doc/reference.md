@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (212 of them under `experiments/<category>/`: the 209 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (215 of them under `experiments/<category>/`: the 212 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -142,12 +142,19 @@ algebraic verification only (the heavy numerics stay on the CuPy engine).
    never inherits the verdict of a previous run), and the **full** traceback is
    kept in `results/crashes/<id>.log`.
 
-`run_validation.py` runs all **212** experiments in name order,
-reads the JSONs, and writes `results/validation_summary.json` with the
-per-experiment verdicts, the **reduced residuals**, the **named residuals**, and
-the runner's hard-tier verdict.  `--report-only` skips the runs and rolls up
+`run_validation.py` gates the suite by fingerprint (the default): it records the
+SHA-256 of every experiment's scripts and of the `cl10` library plus
+`cl10/config.yaml` in `results/validation_fingerprints.json`, re-runs exactly the
+experiments that are new, changed, missing, failed or crash-stale, and folds the
+rest from their verdict JSONs on disk — a library change re-runs everything, a
+one-script change re-runs that one experiment. `--full` re-executes the whole
+suite (a fresh clone, with no fingerprint ledger, runs this way);
+`--report-only` skips the runs and rolls up
 the verdict JSONs already on disk: a partial rerun never forces the whole
-suite to be re-executed just to rewrite the summary.  The driver exports the
+suite to be re-executed just to rewrite the summary.  In every mode the runner
+writes `results/validation_summary.json` with the per-experiment verdicts, the
+**reduced residuals**, the **named residuals**, and the runner's hard-tier
+verdict.  The driver exports the
 backend the card can host; an experiment that does its linear algebra on the
 host pins it (`CL10_BACKEND=numpy` before `cl10` is imported) and the runner
 lists it **OFF-CORE** - the whole `alt_*` suite and the cone programme's
@@ -160,7 +167,7 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (212/212 publication; the artifacts on record are all PASS).**
+**The result (215/215 publication; the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
 hard-tier verdict is positive. Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
@@ -560,3 +567,73 @@ statement) — no antiunitary acts exactly on the multicell chain *at the
 level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
+
+## The geometry measure and the flavour host (2026-10-29): V302
+
+`experiments/family_number/V302_mD_host_forcing` asks whether the
+democratic rank-1 $m_D$ — measured symmetry-free by V294 (the
+$S_3$-commutant of the family action contains rank-3 elements) — is
+selected instead by the energetics of the booked dynamical chain. The
+three singlet-channel hosts of V291 (chain-kernel columns 6, 7, 9,
+$p_0 = 0.898, 0.514, 0.623$, the saved $6144\times 12$ kernel basis
+re-verified: Gram defect $7\times10^{-6}$, $p_0$ re-derived to
+$<5\times10^{-7}$) carry chain-H energies $32.0, 32.0, 48.0$ from the
+V272 booked spectrum: the host sector is **not degenerate**
+($\Delta E = 16.0$). The democratic uniform ones-coupling (the V292
+host insertion, $c = 112$ re-derived to the booked value) costs $+48$
+over the energy-minimal host occupation $\{6,7\}$; if that pair
+covered two families its induced mixing would sit at
+$\sin^2\theta_{12} = 0.5$ against the measured $0.307$ — booked as a
+gap, not refitted (and the host-to-family coverage that would rescue
+it is not booked). **MD-HOST-ASYMMETRIC**: the rank-1 democratic
+$m_D$ is a declared input of the Yukawa sector on two independent
+grounds — the symmetry does not force it (V294) and the host
+energetics select a different pattern. The O2/O6 ledger wording stands
+unchanged; the declared-input classification of rank-1 (Table 6) is
+strengthened, not moved.
+
+## V301 - the geometry gap against the ladder band (2026-10-29)
+
+`experiments/gravity/V301_geometry_gap_ladder` asks whether the only
+scale the geometry statistical sector demonstrably generates - the
+non-perturbative screening mass of the V289 measure - can sit at the
+ladder loop base. The V289 protocol replays exactly (seed-289 beta = 1
+row reproduced to below 1e-6 — exactly, defect 0.0; character
+cross-check exact (0.0) on 393,216 plaquette products), and the
+ensemble is measured on the
+L = 6 lattice (648 bonds) at beta in {4, 8, 16, 32}, 16 replicas,
+20000 sweeps. The line correlators C_mu(d = 1,2,3) are
+sign-indefinite at every beta (the adjoint character of the finite
+group changes sign along the straight lines), so no positive log-linear
+screening mass exists at this volume - the V289 contract's lesson
+repeats as physics, carried by the branch. The independent
+Wilson-loop read m_W = -ln<W(2)>/4 is defined and decays with beta:
+1.024, 0.909, 0.828, 0.788 against the ladder band
+[0.015, 0.03] - the gap floor over the explored beta range sits at
+26 times the top of the band and stops descending (acceptance
+plateaus at 0.11). **GEOMGAP-OFF-BAND**: within the measured range the
+geometry ensemble does not generate a loop-scale mass; the O8 loop
+base stays a declared input, and even a hit would have booked only a
+scale coincidence.
+
+## V300 - the cone concentration of the geometry measure (2026-10-29)
+
+`experiments/gravity/V300_cone_measure_selection` puts the paper's
+statement "the finite measure on the geometry group (V289) does not
+measurably select" the light cone to measurement. The V289 protocol
+replays exactly (seed-289 beta = 1, 2 rows reproduced with defect
+0.0; character cross-check exact on 514,560 plaquette products), and
+straight-line adjoint correlators C_mu(d = 1,2,3) are measured on the
+L = 6 ensemble at beta in {2, 4, 8, 16} (16 replicas, 20000 sweeps).
+The correlators are sign-indefinite in both directions at every beta
+- the finite-group adjoint character oscillates along the lines - and
+no direction pair admits the positive log-linear pair of screening
+masses the pre-registered anisotropy read needs: the direction-1 fit
+exists only at beta = 2 (m = 1.547) with the direction-0 fit absent,
+so **v_cone(beta) is undefined at all four betas**:
+**CONE-MEASURE-NO-MASS**, the correlator table booked. The measure
+therefore supplies no measurable cone selection at the probed volume
+and protocol: the F8 selection leg that V285 + V286 withhold stays
+withheld on this route as well, and the paper's Section 11.6 wording
+(the finite measure does not measurably select the cone; the
+implemented generator moves it at 1.570796) stands as written.

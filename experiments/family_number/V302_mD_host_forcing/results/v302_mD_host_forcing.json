@@ -1,0 +1,139 @@
+{
+ "id": "V302_mD_host_forcing",
+ "tier": 2,
+ "property": "does the host chain-H energetics force the democratic rank-1 m_D (V294: symmetry does not)",
+ "residual": true,
+ "programme": "V302",
+ "branch": "MD-HOST-ASYMMETRIC",
+ "data": {
+  "basis": {
+   "shape": [
+    6144,
+    12
+   ],
+   "gram_defect": 2.384191350241706e-07,
+   "p0_abs_diff": 1.2175679509063286e-07,
+   "n0": 3,
+   "host_columns": [
+    6,
+    7,
+    9
+   ]
+  },
+  "t1": {
+   "host_energies": {
+    "6": 32.00000000000006,
+    "7": 32.00000000000007,
+    "9": 47.999999999999595
+   },
+   "deltaE": 15.999999999999538,
+   "degenerate": false,
+   "democratic_ones_shift": 111.99999999999972,
+   "c_anchor_dev_vs_V292": 0.0,
+   "democratic_energy_mean": 37.333333333333236,
+   "rescale_anchor_dev_vs_V292": 0.0,
+   "occupations": {
+    "1": [
+     {
+      "hosts": [
+       6
+      ],
+      "ones_shift": 32.00000000000006,
+      "energy_mean": 10.666666666666686
+     },
+     {
+      "hosts": [
+       7
+      ],
+      "ones_shift": 32.00000000000007,
+      "energy_mean": 10.666666666666691
+     },
+     {
+      "hosts": [
+       9
+      ],
+      "ones_shift": 47.999999999999595,
+      "energy_mean": 15.999999999999865
+     }
+    ],
+    "2": [
+     {
+      "hosts": [
+       6,
+       7
+      ],
+      "ones_shift": 64.00000000000013,
+      "energy_mean": 21.333333333333375
+     },
+     {
+      "hosts": [
+       6,
+       9
+      ],
+      "ones_shift": 79.99999999999966,
+      "energy_mean": 26.666666666666554
+     },
+     {
+      "hosts": [
+       7,
+       9
+      ],
+      "ones_shift": 79.99999999999966,
+      "energy_mean": 26.666666666666554
+     }
+    ],
+    "3": [
+     {
+      "hosts": [
+       6,
+       7,
+       9
+      ],
+      "ones_shift": 111.99999999999972,
+      "energy_mean": 37.333333333333236
+     }
+    ]
+   },
+   "ground_occupation": {
+    "hosts": [
+     6,
+     7
+    ],
+    "ones_shift": 64.00000000000013,
+    "energy_mean": 21.333333333333375
+   },
+   "democratic_penalty": 47.99999999999959,
+   "pair_conditional_sin2_12": 0.4999999999999999,
+   "measured_sin2_12": 0.307,
+   "pair_conditional_gap": 0.1929999999999999,
+   "family_coverage_note": "the host-to-family map is NOT booked: the pair occupation's angle is stated conditionally on two-family coverage"
+  },
+  "status": "MD-HOST-ASYMMETRIC",
+  "wall_time": 0.006345510482788086,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0a democratic anchor: eigs {3,0,0} re-derived, booked rank 1",
+   "pass": true
+  },
+  {
+   "name": "T0b saved chain-kernel basis: Gram defect 2.38e-07, p0 re-derived vs booked max dev 1.22e-07, n0 = 3 hosts [6, 7, 9]",
+   "pass": true
+  },
+  {
+   "name": "T0c V272/V291 chain-H spectra: 12 entries, max dev 0.00e+00",
+   "pass": true
+  },
+  {
+   "name": "T0d V294 commutant anchors: dim 2, max rank 3",
+   "pass": true
+  },
+  {
+   "name": "T1 host energetics: deltaE 16.000, democratic penalty 48.0, ground hosts [6, 7] booked",
+   "pass": true
+  }
+ ],
+ "status": "MD-HOST-ASYMMETRIC",
+ "pass": true
+}

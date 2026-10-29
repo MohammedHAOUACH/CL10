@@ -104,7 +104,7 @@
  "branch": "B",
  "checks": [
   {
-   "name": "T0 the Clifford grading group: 2 of 1024 commute with the internal step (V124 regression, stored 2); the 2-particle step is Kronecker-factorized (V41: shape 1024, unitary 2.9e-15) so particle number is a superselection of the bare step and an exact grading is the only stability structure",
+   "name": "T0 the Clifford grading group: 2 of 1024 commute with the internal step (V124 regression, stored 2); the 2-particle step is Kronecker-factorized (V41: shape 1024, unitary 2.4e-15) so particle number is a superselection of the bare step and an exact grading is the only stability structure",
    "pass": true
   },
   {
@@ -128,5 +128,5 @@
  "tier": 5,
  "property": "is the dark-matter carrier a state of the automaton's own cell: grading x gauge x mass census over the built cell, and the quantitative certificate any redefinition of the cell content must satisfy (O7)",
  "programme": "V194",
- "wall_time": 1.8429787158966064
+ "wall_time": 3.8189499378204346
 }

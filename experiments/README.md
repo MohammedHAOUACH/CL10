@@ -1,6 +1,6 @@
 # The verification program
 
-212 experiments (the 209 of the publication programme plus the 3 exploration
+215 experiments (the 212 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git

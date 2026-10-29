@@ -2979,3 +2979,132 @@ beta admits the fit, with every row's (beta, acceptance, W1, W2, W3,
 statistical errors) booked. No beta is dropped from the ledger and
 no proposal is retuned; the proposal kernel and sweep counts are the
 pre-registered ones.
+
+# The geometry measure and the flavour host: pre-registrations V300-V302
+## V300_cone_measure_selection (tier 2, hard, F8/O9)
+**The question (pre-registered).** The paper states the finite measure
+on the geometry group (V289, MC-TUNED) "does not measurably select"
+the light cone. Does that measure in fact concentrate a light cone:
+on the sampled ensemble, is the screening mass of adjoint line
+correlators isotropic in lattice units - an effective cone speed
+v_cone = xi_1/xi_0 within [0.95, 1.05] - or does the measure prefer no
+cone at all (v_cone far from 1 at every beta with acceptance > 2 %)?
+**The object (closed input set).** V289's machinery re-derived live
+(V141 build_group order 1024, the 45-dim adjoint rep built
+multiplicatively along the generation tree, the full
+multiplication/inverse/proposal tables, the adjoint-character Wilson
+action S = beta sum_p (1 - chi_45(U_p)/45), single-bond biflection
+Metropolis): the L = 4 protocol is replayed for the first two beta
+(1, 2) of the original seed-289 draw sequence and their booked
+(accept, W1) rows reproduced to 1e-6 (T0; the character
+cross-check's exactness re-measured); then a new ensemble at L = 6
+(216 sites, 648 bonds, 648 based plaquettes), beta in {2, 4, 8, 16},
+NREP = 16, SWEEPS = 20000 (EQUIL 2000, SAMPLE_EVERY 20),
+BASEPOINTS = 32, seed 300.
+**Measured (pre-registered).** T0 row replay; the line correlators
+C_mu(d) = mean_s0 Re chi_45(u_s u_{s+mu} ...)/45 along straight
+forward lines of length d = 1, 2, 3 in direction mu = 0 (the step
+direction) and mu = 1, averaged over samples, jackknifed over the
+(replica, base-point) product; m_mu from the 3-point log-linear fit
+(defined iff all three C > 0 - the V289 fit-stage contract applies);
+v_cone(beta) = m_0/m_1 with its jackknife error.
+**Acceptance (pre-registered).** CONE-MEASURE-SELECTED iff
+|v_cone - 1| < 0.05 at some beta with accept > 2 % and both masses
+defined; CONE-MEASURE-ANISOTROPIC if masses are defined but no beta
+lands in the band (the whole v_cone(beta) curve booked, with the
+implemented generator speed 1.570796 read from the V285 artifact as
+the comparison number); CONE-MEASURE-NO-MASS if no beta admits
+defined masses (the correlator table booked). Pass = the measurement
+is complete in every branch.
+## V301_geometry_gap_ladder (tier 2, hard, O8-new)
+**The question (pre-registered).** Can the non-perturbative screening
+mass of the geometry statistical ensemble - the only scale the
+geometry sector demonstrably generates - sit at the ladder loop base:
+is m_gap (lattice/Planck units, ell_P = 1 by Axiom 1) inside the
+ladder band [1.5e-2, 3.0e-2] around 1/(16 pi) at any beta?
+**The object (closed input set).** V300's machinery at L = 6 with
+beta in {4, 8, 16, 32}, seed 301 (the extra weak-coupling point
+chases the smallest mass); T0 = the V289 beta = 1 protocol-row replay
+plus the booked area-law slopes read from the V289 artifact.
+**Measured (pre-registered).** m_gap(beta) = the direction-1
+line-correlator mass (log-linear on d = 1..3, defined iff all C > 0)
+with jackknife error; the Wilson-loop mass m_W(beta) = -ln<W(2)>/4 as
+the independent cross-read; direction 0 booked too; the band crossing
+(beta*) if any; the minimum m_gap over the booked beta range.
+**Acceptance (pre-registered).** GEOMGAP-IN-BAND iff some beta has
+m_gap in [1.5e-2, 3.0e-2] (beta*, m_gap +/- jackknife, m_W cross-read
+booked); GEOMGAP-OFF-BAND otherwise, the curve and the distance to
+the band booked. A GEOMGAP-IN-BAND hit books a scale coincidence
+only: the identification of the screening mass with the ladder base
+remains the declared step O8 already states, and no reinterpretation
+is added by this run.
+## V302_mD_host_forcing (tier 2, hard, O2)
+**The question (pre-registered).** V294 measured rank-1 of the
+democratic m_D to be symmetry-free (the S3 commutant contains
+rank-3). Is rank-1 forced dynamically instead? The chain hosts
+(V291, HIGGS-HOST-PRESENT: n0 = 3, p0 > 0.5 at chain-kernel columns
+6, 7, 9) carry booked chain-H energies; if the three host energies
+were degenerate the democratic (uniform) host coupling would be the
+energy ground pattern - rank-1 consistent with host energetics - and
+if they are not, the ground pattern of the host sector is not the
+three-family democratic ones.
+**The object (closed input set).** The booked V291 artifact (p0,
+zero_idx, chain_H_spectrum_artefact) and the on-disk
+kernel_basis.npy (6144 x 12, complex64), the V272 chain-kernel
+anchors (kernel dim 12, the 12-entry chain_H_spectrum), V292's
+host-shift construction (c_host_energy_sum 112, mass_rescale 37.333)
+and V45 democratic anchor, and the V294 commutant anchors. The saved
+basis is re-verified (Gram = I to storage precision), not re-derived:
+no Nmat reassembly.
+**Measured (pre-registered).** T0: p0 recomputed from the saved basis
+(reshape (6, 1024, 12), slice weights summed over the 1024 factor,
+channel-zero slices per the V270 channel anchor) vs the booked p0
+(tol 5e-6, storage precision); n0 = 3, hosts [6, 7, 9]; the hosts'
+chain-H energies vs V272's booked spectrum. T1: the host degeneracy
+deltaE = max E - min E; the democratic uniform-combination energy
+(mean, anchored to V292's 37.333); the energy-minimal rank-1
+occupation over host subsets, with the two-host pair's mixing angle
+(sin^2 theta_12 = 1/2 vs the booked measured 0.307 - booked as a
+gap, never refitted) against the three-host democratic; the energy
+penalty of the full democratic pattern booked.
+**Acceptance (pre-registered).** MD-HOST-DEGENERATE iff deltaE <=
+1e-6 (the uniform ones coupling costs nothing; rank-1 consistent
+with the host energetics - still not forced, consistency booked);
+MD-HOST-ASYMMETRIC otherwise, with deltaE and the ground occupation
+pattern booked: rank-1 democratic m_D then stands declared for a
+second, independent reason (neither symmetry - V294 - nor host
+energetics select it). Pass = both legs measured.
+## Roll-up consequences of this programme (fixed before any run)
+- Only V300, V301 and V302 interpret their own runs; no acceptance
+moves after a run; any dial touched reclassifies to fitted (none is).
+- CONE-MEASURE-SELECTED is the selection leg the paper says V285 and
+V286 do not supply. It changes the Section 11.6 / Table 8 F8 wording
+("candidate under selection") ONLY jointly with a v = 1 branch
+carrying the implemented hop - V286 already booked its selection leg
+as the one V285 does not supply; alone, V300-SELECTED books "the
+geometry measure selects a light cone speed; the implemented hop
+still does not realize it" and F8 stays fired.
+- GEOMGAP-IN-BAND books a scale coincidence, never a mechanism; the
+O8 declared-input wording survives.
+- MD-HOST-ASYMMETRIC strengthens the O2/O6 honest ledger (rank-1
+declared on two independent grounds).
+- One dated reference.md paragraph per experiment; number_audit
+PASSes before each commit; the suite re-runs once at the roll-up
+(215 experiments expected).
+
+## Re-gating convention change (2026-10-29, ordered by the reader)
+
+The full-suite re-gate at every roll-up is replaced by the fingerprint
+gate, effective immediately and for this programme's roll-up (the
+V300-V302 roll-up consequence "the suite re-runs once (215 expected)"
+is met by that gate, not by a full re-execution). Mechanism, booked in
+the reference.md protocol section: run_validation.py records the
+SHA-256 of each experiment's scripts and of the cl10 library plus
+cl10/config.yaml in results/validation_fingerprints.json; a changed
+or missing script, a missing/failed/crash-stale verdict re-runs that
+experiment alone; a library change re-runs the whole suite; --full
+re-executes everything (a fresh clone does this by construction). The
+honesty invariant is preserved: every verdict folded from disk is one
+the current tree's own code produced - the fingerprints are what make
+"on disk" mean "by this code" - and the hard-tier verdict, the
+number_audit gate and the dated reference paragraphs are unchanged.

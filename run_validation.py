@@ -8,9 +8,23 @@ JSON verdict, and writes a single summary to ``results/validation_summary.json``
 
 Usage::
 
-    python3 run_validation.py              # run all experiments, in parallel
+    python3 run_validation.py              # incremental gate (the default): re-run
+                                           # only experiments that are new or whose
+                                           # scripts changed since the last gate; the
+                                           # rest fold from their on-disk verdicts
+    python3 run_validation.py --full       # re-run everything (a fresh clone, with no
+                                           # fingerprint file, runs this way)
+    python3 run_validation.py --seed-fingerprints
+                                           # baseline the fingerprints from the verdicts
+                                           # already on disk, running nothing
+    python3 run_validation.py --report-only
+                                           # roll up the on-disk verdicts, run nothing
     python3 run_validation.py V0 V1        # run a subset
     python3 run_validation.py --jobs 4     # cap the worker pool (default: pool.njobs in cl10/config.yaml)
+The fingerprint gate (results/validation_fingerprints.json) records the SHA-256 of
+every experiment's scripts and of the cl10 library plus cl10/config.yaml: a library
+change re-runs the whole suite, a script change re-runs that experiment alone, and a
+verdict that is missing, failed, or older than a crash log is re-run regardless.
 Each experiment is a **0-parameter** check: it confirms a prediction of the
 publication (Section 10) or reports an honest residual.  The verdict JSON has
 ``pass``, ``status``, the 0-parameter number, and ``wall_time``.  A check that
@@ -21,6 +35,7 @@ said neither" is not "the check broke".
 
 import argparse
 import glob
+import hashlib
 import json
 import os
 import subprocess
@@ -91,6 +106,59 @@ def stale_verdict(exp_dir):
         return os.path.getmtime(cl) > os.path.getmtime(jf)
     except OSError:
         return False
+
+
+FPFILE = os.path.join(ROOT, "results", "validation_fingerprints.json")
+
+
+def _sha(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 16), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def library_fingerprint():
+    """cl10 + cl10/config.yaml: when these change, on-disk verdicts stop
+    being trustworthy and the fingerprint gate re-runs everything."""
+    h = hashlib.sha256()
+    root = os.path.join(ROOT, "cl10")
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = sorted(d for d in dirnames if d != "__pycache__")
+        for fn in sorted(filenames):
+            if fn.endswith((".py", ".yaml")):
+                p = os.path.join(dirpath, fn)
+                h.update(os.path.relpath(p, ROOT).encode())
+                h.update(_sha(p).encode())
+    return h.hexdigest()
+
+
+def experiment_fingerprint(exp_dir):
+    """Every .py an experiment ships (its script and any sibling machinery
+    it imports from its own dir); the results dir is the verdict itself and
+    never feeds its own fingerprint."""
+    h = hashlib.sha256()
+    for dirpath, dirnames, filenames in os.walk(exp_dir):
+        dirnames[:] = sorted(d for d in dirnames
+                             if d not in ("results", "__pycache__"))
+        for fn in sorted(filenames):
+            if fn.endswith(".py"):
+                p = os.path.join(dirpath, fn)
+                h.update(os.path.relpath(p, exp_dir).encode())
+                h.update(_sha(p).encode())
+    return h.hexdigest()
+
+
+def load_fingerprints():
+    try:
+        with open(FPFILE) as fh:
+            j = json.load(fh)
+        if isinstance(j.get("experiments"), dict):
+            return j
+    except Exception:  # noqa: BLE001
+        pass
+    return {"library": None, "experiments": {}}
 
 
 def reported_backend(verdict):
@@ -241,16 +309,52 @@ def main():
     ap.add_argument("only", nargs="*", help="experiment dir names to run")
     ap.add_argument("--report-only", action="store_true",
                     help="roll up the verdict JSONs already on disk; run nothing")
+    ap.add_argument("--full", action="store_true",
+                    help="re-run every experiment (the default is the "
+                         "fingerprint gate: only new or changed scripts run)")
+    ap.add_argument("--seed-fingerprints", action="store_true",
+                    help="baseline results/validation_fingerprints.json from the "
+                         "verdicts already on disk; run nothing")
     ap.add_argument("--no-bar", action="store_true",
                     help="plain one-line-per-experiment output, no progress bar")
     args = ap.parse_args()
     only = set(args.only)
     exps = [d for d in find_experiments() if not only or os.path.basename(d) in only]
+    if args.report_only:
+        gate = "report-only"
+    elif args.seed_fingerprints:
+        gate = "seed"
+    else:
+        gate = "full" if args.full else "changed"
+    fps = load_fingerprints()
+    lib = library_fingerprint()
+    if gate == "changed" and not fps["experiments"]:
+        gate = "full"          # fresh tree: nothing has ever been gated
+    fold_names = set()
+    if gate in ("changed", "seed"):
+        for d in exps:
+            name = os.path.basename(d)
+            if gate == "seed":
+                fold_names.add(name)
+                continue
+            if only and name in only:
+                continue       # an explicitly named experiment always runs
+            v = read_verdict(d)
+            if (fps.get("library") != lib
+                    or fps["experiments"].get(name) != experiment_fingerprint(d)
+                    or v is None or stale_verdict(d)
+                    or not (v.get("pass") or v.get("inconclusive"))):
+                continue       # new, changed, missing, failed or stale: re-run
+            fold_names.add(name)
     print("=" * 68)
     print("CL10  —  the verification program  (the GPU engine)")
     print("=" * 68)
     import cl10.engine as E
     print(f"  backend: {E._BACKEND}   jobs: {args.jobs}")
+    if gate in ("changed", "seed"):
+        print(f"  gate: {gate}  ({len(exps) - len(fold_names)} re-run, "
+              f"{len(fold_names)} folded from on-disk verdicts; "
+              f"library {'unchanged' if fps.get('library') == lib else 'CHANGED'})")
     # experiments are independent subprocesses writing to their own
     # results/ dir: run them concurrently, REPORT EACH AS IT FINISHES so a
     # slow experiment is visible live; everything is also logged to
@@ -281,7 +385,9 @@ def main():
             slot = {"t0": time.time(), "progress": ""}
             running[name] = slot
             try:
-                return report_one(d) if args.report_only else run_one(d, slot)
+                if args.report_only or name in fold_names:
+                    return report_one(d)
+                return run_one(d, slot)
             finally:
                 running.pop(name, None)
         def postfix():
@@ -388,6 +494,25 @@ def main():
     os.makedirs(outdir, exist_ok=True)
     with open(os.path.join(outdir, "validation_summary.json"), "w") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
+    if gate in ("changed", "seed"):
+        # an experiment that ran clean enters the fingerprint ledger; one that
+        # failed or is stale leaves no entry, so the next gate re-runs it; a
+        # library hash is recorded only on a fully green pass over the suite.
+        dirm = {os.path.basename(d): d for d in exps}
+        fps = load_fingerprints()
+        for r in results:
+            d = dirm.get(r["id"])
+            if d is None:
+                continue
+            ok = (r["pass"] or r.get("inconclusive")) and not r.get("stale")
+            if not ok:
+                fps["experiments"].pop(r["id"], None)
+            elif gate == "seed" or r["returncode"] is not None:
+                fps["experiments"][r["id"]] = experiment_fingerprint(d)
+        if n_failed == 0:
+            fps["library"] = lib
+        with open(FPFILE, "w") as f:
+            json.dump(fps, f, indent=1)
     print("=" * 68)
     print(f"  ->  {n_pass} PASS + {n_inconclusive} INCONCLUSIVE + "
           f"{n_failed} FAILED of {n}  ->  results/validation_summary.json")
