@@ -1,0 +1,435 @@
+{
+ "id": "V310_coefficient_expression_census",
+ "tier": 2,
+ "property": "does a bounded depth-3 expression over booked constants supply the -0.55% coefficient correction or the 1.35e-4 clock gap (tier 2, hard, O8)",
+ "residual": true,
+ "programme": "pillar-surgery V310",
+ "branch": "COEF-EXPRESSION-SUPPLIED",
+ "data": {
+  "targets": {
+   "coef_ratio(=coef_obs/coef_fifth)": {
+    "value": 0.9944721436812373,
+    "band_abs": 4.7890269235130234e-05,
+    "bases_exclude": [
+     "coef_fifth",
+     "coef_obs"
+    ]
+   },
+   "coef_direct(=coef_obs)": {
+    "value": 2.076564111173832,
+    "band_abs": 0.0001,
+    "bases_exclude": [
+     "coef_obs"
+    ]
+   },
+   "clock_gap(=g_cross10-g_obs)": {
+    "value": 0.0001351789429051009,
+    "band_abs": 1e-06,
+    "bases_exclude": [
+     "g_cross10",
+     "g_obs"
+    ]
+   }
+  },
+  "class": {
+   "base_constants": [
+    "LOOP",
+    "alpha_10",
+    "g_impl",
+    "g_closed",
+    "g_half",
+    "M_P",
+    "v_EW",
+    "coef_obs",
+    "m_Z",
+    "alpha1_mz",
+    "alpha2_mz",
+    "alpha3_mz",
+    "M_unif_obs",
+    "delta_b",
+    "m_atm",
+    "m_sol",
+    "sum_mnu_max",
+    "omega_dm_h2",
+    "g_obs",
+    "g_cross10",
+    "coef_fifth",
+    "coef_pi4",
+    "rho_V276",
+    "F_cross_V276"
+   ],
+   "n_base": 24,
+   "n_candidates_per_target_depth2": {
+    "coef_ratio(=coef_obs/coef_fifth)": 1870,
+    "coef_direct(=coef_obs)": 2047,
+    "clock_gap(=g_cross10-g_obs)": 1870
+   },
+   "n_scored_class_pre": 911314,
+   "n_depth3_pre": 905527,
+   "n_depth3_pow_superset_extra": 287786,
+   "depth_max": 3,
+   "class_pre_ops": "+,-,x,/ both orders + 1/p (the pow^+-1 reading)",
+   "class_pow_extra": "p**c, p**(-c), c**p (guarded) - annotation only, NOT branch-deciding",
+   "tautology_rule": "the target-defining constants are removed from that target's bases (V306's self-pair exclusion lifted to the class)"
+  },
+  "closest_per_target": {
+   "coef_ratio(=coef_obs/coef_fifth)": [
+    {
+     "abs_residual": 5.292627640152148e-05,
+     "expression": "((g_half-m_sol)/g_half)",
+     "value": 0.9945250699576388,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 8.27379187141597e-05,
+     "expression": "(g_half/(g_half+m_sol))",
+     "value": 0.9945548815999514,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 8.27379187141597e-05,
+     "expression": "(g_half/(m_sol+g_half))",
+     "value": 0.9945548815999514,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 8.683831859568336e-05,
+     "expression": "((alpha1_mz*rho_V276)+rho_V276)",
+     "value": 0.994558981999833,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 8.683831859568336e-05,
+     "expression": "((rho_V276*alpha1_mz)+rho_V276)",
+     "value": 0.994558981999833,
+     "band_abs": 4.7890269235130234e-05
+    }
+   ],
+   "coef_direct(=coef_obs)": [
+    {
+     "abs_residual": 0.00014356203127130485,
+     "expression": "((alpha_10*m_Z)-g_half)",
+     "value": 2.0767076732051035,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.00014356203127130485,
+     "expression": "((m_Z*alpha_10)-g_half)",
+     "value": 2.0767076732051035,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0002483868464677741,
+     "expression": "(coef_fifth-(LOOP-m_sol))",
+     "value": 2.0768124980203,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0002483868464677741,
+     "expression": "(m_sol-(LOOP-coef_fifth))",
+     "value": 2.0768124980203,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0002483868464677741,
+     "expression": "((m_sol-LOOP)+coef_fifth)",
+     "value": 2.0768124980203,
+     "band_abs": 0.0001
+    }
+   ],
+   "clock_gap(=g_cross10-g_obs)": [
+    {
+     "abs_residual": 2.1057094899072214e-08,
+     "expression": "((alpha_10*g_impl)*alpha1_mz)",
+     "value": 0.00013519999999999998,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 2.1057094899072214e-08,
+     "expression": "((g_impl*alpha_10)*alpha1_mz)",
+     "value": 0.00013519999999999998,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 2.105709489909932e-08,
+     "expression": "((alpha_10*alpha1_mz)*g_impl)",
+     "value": 0.0001352,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 2.105709489909932e-08,
+     "expression": "((g_impl*alpha1_mz)*alpha_10)",
+     "value": 0.0001352,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 2.105709489909932e-08,
+     "expression": "((alpha1_mz*alpha_10)*g_impl)",
+     "value": 0.0001352,
+     "band_abs": 1e-06
+    }
+   ]
+  },
+  "supplied": [
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha_10*g_impl)*alpha1_mz)",
+    "value": 0.00013519999999999998,
+    "abs_residual": 2.1057094899072214e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((g_impl*alpha_10)*alpha1_mz)",
+    "value": 0.00013519999999999998,
+    "abs_residual": 2.1057094899072214e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha_10*alpha1_mz)*g_impl)",
+    "value": 0.0001352,
+    "abs_residual": 2.105709489909932e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((g_impl*alpha1_mz)*alpha_10)",
+    "value": 0.0001352,
+    "abs_residual": 2.105709489909932e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha1_mz*alpha_10)*g_impl)",
+    "value": 0.0001352,
+    "abs_residual": 2.105709489909932e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha1_mz*g_impl)*alpha_10)",
+    "value": 0.0001352,
+    "abs_residual": 2.105709489909932e-08,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((m_atm-alpha1_mz)/v_EW)",
+    "value": 0.00013483876208269027,
+    "abs_residual": 3.401808224106338e-07,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha2_mz*alpha3_mz)*alpha2_mz)",
+    "value": 0.00013480791999999998,
+    "abs_residual": 3.7102290510092556e-07,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "((alpha3_mz*alpha2_mz)*alpha2_mz)",
+    "value": 0.00013480791999999998,
+    "abs_residual": 3.7102290510092556e-07,
+    "band_abs": 1e-06
+   },
+   {
+    "target": "clock_gap(=g_cross10-g_obs)",
+    "expression": "(alpha2_mz/(v_EW+coef_pi4))",
+    "value": 0.00013578648475899978,
+    "abs_residual": 6.075418538988703e-07,
+    "band_abs": 1e-06
+   }
+  ],
+  "closest_pow_superset_per_target": {
+   "coef_ratio(=coef_obs/coef_fifth)": [
+    {
+     "abs_residual": 1.4430110502061666e-06,
+     "expression": "((g_cross10+rho_V276))^-alpha2_mz",
+     "value": 0.9944735866922875,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 1.4430110502061666e-06,
+     "expression": "((rho_V276+g_cross10))^-alpha2_mz",
+     "value": 0.9944735866922875,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 3.021863367647093e-06,
+     "expression": "(alpha_10)^((m_sol*g_cross10))",
+     "value": 0.9944751655446049,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 3.021863367647093e-06,
+     "expression": "(alpha_10)^((g_cross10*m_sol))",
+     "value": 0.9944751655446049,
+     "band_abs": 4.7890269235130234e-05
+    },
+    {
+     "abs_residual": 5.100614102970802e-06,
+     "expression": "((m_atm+rho_V276))^-g_obs",
+     "value": 0.9944670430671343,
+     "band_abs": 4.7890269235130234e-05
+    }
+   ],
+   "coef_direct(=coef_obs)": [
+    {
+     "abs_residual": 0.0006682771917572161,
+     "expression": "(coef_pi4)^((g_closed-m_atm))",
+     "value": 2.075895833982075,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0008194327678348046,
+     "expression": "(M_unif_obs)^((LOOP*rho_V276))",
+     "value": 2.0757446784059974,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0008194327678348046,
+     "expression": "(M_unif_obs)^((rho_V276*LOOP))",
+     "value": 2.0757446784059974,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0008811874385687979,
+     "expression": "((M_P/coef_fifth))^alpha1_mz",
+     "value": 2.0756829237352634,
+     "band_abs": 0.0001
+    },
+    {
+     "abs_residual": 0.0008811874385687979,
+     "expression": "((coef_fifth/M_P))^-alpha1_mz",
+     "value": 2.0756829237352634,
+     "band_abs": 0.0001
+    }
+   ],
+   "clock_gap(=g_cross10-g_obs)": [
+    {
+     "abs_residual": 1.1151098390145033e-06,
+     "expression": "((LOOP+alpha1_mz))^coef_pi4",
+     "value": 0.0001340638330660864,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 1.1151098390145033e-06,
+     "expression": "((alpha1_mz+LOOP))^coef_pi4",
+     "value": 0.0001340638330660864,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 1.1832361259011995e-06,
+     "expression": "(alpha3_mz)^((coef_obs+coef_fifth))",
+     "value": 0.0001363621790310021,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 1.1832361259011995e-06,
+     "expression": "(alpha3_mz)^((coef_fifth+coef_obs))",
+     "value": 0.0001363621790310021,
+     "band_abs": 1e-06
+    },
+    {
+     "abs_residual": 1.22666482963891e-06,
+     "expression": "(LOOP)^((g_impl+coef_obs))",
+     "value": 0.000133952278075462,
+     "band_abs": 1e-06
+    }
+   ]
+  },
+  "supplied_pow_superset": [
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((g_cross10+rho_V276))^-alpha2_mz",
+    "value": 0.9944735866922875,
+    "abs_residual": 1.4430110502061666e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((rho_V276+g_cross10))^-alpha2_mz",
+    "value": 0.9944735866922875,
+    "abs_residual": 1.4430110502061666e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "(alpha_10)^((m_sol*g_cross10))",
+    "value": 0.9944751655446049,
+    "abs_residual": 3.021863367647093e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "(alpha_10)^((g_cross10*m_sol))",
+    "value": 0.9944751655446049,
+    "abs_residual": 3.021863367647093e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((m_atm+rho_V276))^-g_obs",
+    "value": 0.9944670430671343,
+    "abs_residual": 5.100614102970802e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((rho_V276+m_atm))^-g_obs",
+    "value": 0.9944670430671343,
+    "abs_residual": 5.100614102970802e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((m_atm+rho_V276))^-g_impl",
+    "value": 0.9944669875691652,
+    "abs_residual": 5.156112072079999e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((rho_V276+m_atm))^-g_impl",
+    "value": 0.9944669875691652,
+    "abs_residual": 5.156112072079999e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((g_impl+rho_V276))^-alpha2_mz",
+    "value": 0.9944773862004564,
+    "abs_residual": 5.242519219184061e-06,
+    "band_abs": 4.7890269235130234e-05
+   },
+   {
+    "target": "coef_ratio(=coef_obs/coef_fifth)",
+    "expression": "((rho_V276+g_impl))^-alpha2_mz",
+    "value": 0.9944773862004564,
+    "abs_residual": 5.242519219184061e-06,
+    "band_abs": 4.7890269235130234e-05
+   }
+  ],
+  "status": "COEF-EXPRESSION-SUPPLIED",
+  "wall_time": 1.5207810401916504,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 targets re-derived from booked sources: ratio 0.994472144, direct 2.0765641, gap 1.351789429e-04; class: 24 base constants, 911314 scored (depth 3, 905527 CLASS-PRE depth-3 terms, +287786 CLASS-POW annotation terms), no target restated",
+   "pass": true
+  },
+  {
+   "name": "T1 minimum residual per target (CLASS-PRE): coef_ratio(=coef_obs/coef_fifth) -> closest ((g_half-m_sol)/g_half) at 5.293e-05; coef_direct(=coef_obs) -> ((alpha_10*m_Z)-g_half) at 1.436e-04; clock_gap(=g_cross10-g_obs) -> ((alpha_10*g_impl)*alpha1_mz) at 2.106e-08",
+   "pass": true
+  },
+  {
+   "name": "branch COEF-EXPRESSION-SUPPLIED: 33 CLASS-PRE expression(s) inside their booked bands; CLASS-POW superset adds 44 annotated hits (power coincidences, not branch-deciding)",
+   "pass": true
+  }
+ ],
+ "status": "COEF-EXPRESSION-SUPPLIED",
+ "pass": true
+}
