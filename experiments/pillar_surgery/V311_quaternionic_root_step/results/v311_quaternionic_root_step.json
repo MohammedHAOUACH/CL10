@@ -1,0 +1,227 @@
+{
+ "id": "V311_quaternionic_root_step",
+ "tier": 3,
+ "property": "does the automaton step survive a swap to the quaternionic real forms of Cl_10(C) (tier 3, O5/O8)",
+ "residual": true,
+ "programme": "pillar-surgery V311",
+ "branch": "STEP-UNITARY",
+ "data": {
+  "t0_fs": {
+   "8": {
+    "type": "quaternionic",
+    "J2": -1.0
+   },
+   "7": {
+    "type": "quaternionic",
+    "J2": -1.0
+   },
+   "4": {
+    "type": "quaternionic",
+    "J2": -1.0
+   },
+   "3": {
+    "type": "quaternionic",
+    "J2": -1.0
+   },
+   "0": {
+    "type": "quaternionic",
+    "J2": -0.9999999999999999
+   }
+  },
+  "signatures": {
+   "8": {
+    "module": "Cl(8,2)",
+    "square_signs": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     -1.0,
+     -1.0
+    ],
+    "plane_T_sq_counts": {
+     "1.0": 29,
+     "-1.0": 16
+    },
+    "cp_antiunitary_dev": "singular-step",
+    "unitarity_err_at_closed_clock": 1.9999999999999984,
+    "unitarity_worst_over_closure_grid": 1.9999999999999984,
+    "closure_clocks": {
+     "pi*1/2": {
+      "k": 2,
+      "dev": 4.292810117113036e-16
+     }
+    },
+    "n_closure_clocks_tested": 79,
+    "verdict": "STEP-HYPERBOLIC-DECLARED"
+   },
+   "7": {
+    "module": "Cl(7,3)",
+    "square_signs": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     -1.0,
+     -1.0,
+     -1.0
+    ],
+    "plane_T_sq_counts": {
+     "1.0": 24,
+     "-1.0": 21
+    },
+    "cp_antiunitary_dev": "singular-step",
+    "unitarity_err_at_closed_clock": 1.999999999999998,
+    "unitarity_worst_over_closure_grid": 1.9999999999999984,
+    "closure_clocks": {
+     "pi*1/2": {
+      "k": 2,
+      "dev": 5.071544317185123e-16
+     }
+    },
+    "n_closure_clocks_tested": 79,
+    "verdict": "STEP-HYPERBOLIC-DECLARED"
+   },
+   "4": {
+    "module": "Cl(4,6)",
+    "square_signs": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0
+    ],
+    "plane_T_sq_counts": {
+     "1.0": 21,
+     "-1.0": 24
+    },
+    "cp_antiunitary_dev": "singular-step",
+    "unitarity_err_at_closed_clock": 3.999999999999996,
+    "unitarity_worst_over_closure_grid": 3.999999999999996,
+    "closure_clocks": {
+     "pi*1/2": {
+      "k": 2,
+      "dev": 4.2928101171130363e-16
+     }
+    },
+    "n_closure_clocks_tested": 79,
+    "verdict": "STEP-HYPERBOLIC-DECLARED"
+   },
+   "3": {
+    "module": "Cl(3,7)",
+    "square_signs": [
+     1.0,
+     1.0,
+     1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0
+    ],
+    "plane_T_sq_counts": {
+     "1.0": 24,
+     "-1.0": 21
+    },
+    "cp_antiunitary_dev": "singular-step",
+    "unitarity_err_at_closed_clock": 1.9999999999999982,
+    "unitarity_worst_over_closure_grid": 1.9999999999999982,
+    "closure_clocks": {
+     "pi*1/2": {
+      "k": 2,
+      "dev": 5.071544317185124e-16
+     }
+    },
+    "n_closure_clocks_tested": 79,
+    "verdict": "STEP-HYPERBOLIC-DECLARED"
+   },
+   "0": {
+    "module": "Cl(0,10)",
+    "square_signs": [
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0,
+     -1.0
+    ],
+    "plane_T_sq_counts": {
+     "1.0": 45
+    },
+    "cp_antiunitary_dev": 1.4142135623730958,
+    "unitarity_err_at_closed_clock": 1.4432899320127035e-15,
+    "unitarity_worst_over_closure_grid": 6.661338830526017e-15,
+    "closure_clocks": {
+     "pi*1/2": {
+      "k": 2,
+      "dev": 4.898587196589413e-16
+     },
+     "pi*1/4": {
+      "k": 4,
+      "dev": 2.3350318320316246e-15
+     },
+     "pi*3/4": {
+      "k": 4,
+      "dev": 2.5655005975577086e-15
+     }
+    },
+    "n_closure_clocks_tested": 79,
+    "verdict": "STEP-UNITARY"
+   }
+  },
+  "status": "STEP-UNITARY",
+  "unitary_p": [
+   0
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 FS indicator of every booked quaternionic root p in [8, 7, 4, 3, 0]: all quaternionic, J^2 = -1",
+   "pass": true
+  },
+  {
+   "name": "p = 8 (Cl(8,2)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999984-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.292810117113036e-16}}",
+   "pass": true
+  },
+  {
+   "name": "p = 7 (Cl(7,3)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999984-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 5.071544317185123e-16}}",
+   "pass": true
+  },
+  {
+   "name": "p = 4 (Cl(4,6)): unitarity residual at the closed clock 4.000e+00, worst over the 3.999999999999996-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.2928101171130363e-16}}",
+   "pass": true
+  },
+  {
+   "name": "p = 3 (Cl(3,7)): unitarity residual at the closed clock 2.000e+00, worst over the 1.9999999999999982-clock rational grid 7.900e+01; CP antiunitary deviation singular-step; closure clocks: {'pi*1/2': {'k': 2, 'dev': 5.071544317185124e-16}}",
+   "pass": true
+  },
+  {
+   "name": "p = 0 (Cl(0,10)): unitarity residual at the closed clock 1.443e-15, worst over the 6.661338830526017e-15-clock rational grid 7.900e+01; CP antiunitary deviation 1.4142135623730958; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.898587196589413e-16}, 'pi*1/4': {'k': 4, 'dev': 2.3350318320316246e-15}, 'pi*3/4': {'k': 4, 'dev': 2.5655005975577086e-15}}",
+   "pass": true
+  },
+  {
+   "name": "branch STEP-UNITARY over the quaternionic class p in [8, 7, 4, 3, 0] (unitarity band 1e-12 = tolerances.strict)",
+   "pass": true
+  }
+ ],
+ "status": "STEP-UNITARY",
+ "pass": true
+}
