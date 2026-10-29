@@ -1,0 +1,81 @@
+{
+ "id": "V312_quaternionic_loop_ladder",
+ "tier": 3,
+ "property": "does any quaternionic-root closure clock read the hierarchy coefficient inside the booked band (tier 3, O8)",
+ "residual": true,
+ "programme": "pillar-surgery V312",
+ "branch": "SIGNATURE-LADDER-NEGATIVE",
+ "data": {
+  "v311_branch": "STEP-UNITARY",
+  "unitary_p": [
+   0
+  ],
+  "ladder_runs": {
+   "0": {
+    "pi*1/2": {
+     "clock": 1.5707963267948966,
+     "odd_max": 4.035902540298602e+33,
+     "odd_rule_exact": false,
+     "n_star": 102,
+     "rho": 0.955555555555557,
+     "F_cross": 0.01937230908516937,
+     "deficit": 0.9737584624806223,
+     "coef": 2.299501537013818,
+     "residual_abs": 0.22293742583998588
+    },
+    "pi*1/4": {
+     "clock": 0.7853981633974483,
+     "odd_max": 3.5195712377537607e-15,
+     "odd_rule_exact": true,
+     "n_star": 208,
+     "rho": 0.9780302704295729,
+     "F_cross": 0.01968886778681312,
+     "deficit": 0.9896704383448452,
+     "coef": 2.7041279350560337,
+     "residual_abs": 0.6275638238822014
+    },
+    "pi*3/4": {
+     "clock": 2.356194490192345,
+     "odd_max": 3.0432428921307894e-15,
+     "odd_rule_exact": true,
+     "n_star": 208,
+     "rho": 0.9780302704295729,
+     "F_cross": 0.01969748512532167,
+     "deficit": 0.9901035930224765,
+     "coef": 2.715986582612512,
+     "residual_abs": 0.6394224714386798
+    }
+   }
+  },
+  "coefficient_observed": 2.076564111173832,
+  "band_abs": 0.0001,
+  "closest_read": {
+   "p": 0,
+   "clock": "pi*1/2",
+   "coef": 2.299501537013818,
+   "residual_abs": 0.22293742583998588
+  },
+  "odd_rule_somewhere": true,
+  "status": "SIGNATURE-LADDER-NEGATIVE"
+ },
+ "checks": [
+  {
+   "name": "T0 p = 0: rebuilt unitarity residual 1.443e-15 (V311 booked 1.443e-15, band 1e-12); closure clocks ['pi*1/2', 'pi*1/4', 'pi*3/4'] (booked ['pi*1/2', 'pi*1/4', 'pi*3/4'])",
+   "pass": true
+  },
+  {
+   "name": "p = 0 at pi*1/2: odd-rule max 4.04e+33 (not exact), crossing n* = 102, deficit 0.973758462, coefficient 2.2995015 vs observed 2.0765641",
+   "pass": true
+  },
+  {
+   "name": "p = 0 at pi*1/4: odd-rule max 3.52e-15 (exact), crossing n* = 208, deficit 0.989670438, coefficient 2.7041279 vs observed 2.0765641",
+   "pass": true
+  },
+  {
+   "name": "p = 0 at pi*3/4: odd-rule max 3.04e-15 (exact), crossing n* = 208, deficit 0.990103593, coefficient 2.7159866 vs observed 2.0765641",
+   "pass": true
+  }
+ ],
+ "status": "SIGNATURE-LADDER-NEGATIVE",
+ "pass": true
+}
