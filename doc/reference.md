@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (218 of them under `experiments/<category>/`: the 215 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (220 of them under `experiments/<category>/`: the 217 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -167,7 +167,7 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (215/215 publication; the artifacts on record are all PASS).**
+**The result (217/217 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
 hard-tier verdict is positive. Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The neutrino truth programme (2026-10-29): V303, V304, V305
+## The neutrino truth programme (2026-10-29): V303, V304, V305, V306, V307
 
 Reader instruction: "the physics must be true as well" — applied to the one
 sector carrying a value inside the measured data (the 1/3 candidate).
@@ -644,6 +644,50 @@ SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED.** Paper Section 12.3 rewritten
 accordingly (the reach sentence corrected); the candidate remains a
 candidate: structure protected, value inside the ceiling, attractor
 supplied, the 2.7 % atmospheric residual and the declared $m_D$ standing.
+
+**V306 + V307 - correcting the attractor: what the gap is, and what
+holds nothing up.** The reader asked whether the correction that could
+supply the $-2.70\%$ atmospheric gap exists. Two experiments, both
+pre-run-classed:
+`experiments/neutrino/V306_coefficient_census_atm_gap` runs the bounded
+census of every booked coefficient against both gap forms — 19 constants
+(13 bookable scalars, `coupling.ALPHA_10`, $g_{\rm obs}$, $v$/$M_P$,
+$\rho_{V276}$, `LOOP`), 1387 two-constant expressions, $r_{\rm atm}$
+re-derived from the V305 artifact. The pre-registered word
+R-COEFFICIENT-SUPPLIED fires at the 1e-3 tolerance — but only through
+two-number coincidences with no derivation anywhere in the branch: the
+best, $(\text{LOOP} - F_{10}^{\rm open})/(F_{\rm cross}/F_{10}^{\rm open} - 1)$,
+hits $4.7\times10^{-4}$; $2\alpha_{10} = 0.08$ against
+$\Delta r = 0.080885$ hits $8.8\times10^{-4}$, leaving 1.1 % of the gap
+unfixed; $(1-\rho) + 1/208$, $9.3\times10^{-4}$. Nothing closer than 1e-3
+exists in the reserved class — the no-go is the booked content, and the
+gap stands as a named declared residual. **R-COEFFICIENT-SUPPLIED**
+(coincidences reserved; no mechanism).
+`experiments/neutrino/V307_onset_runaway_structure` then asks whether the
+selection itself is an attractor. It is not, in the energetic sense: the
+tree level is exactly $r$-flat on the FULL 12-set (deviation $0.0$, not
+just on the triangle), so all of the selection is one-loop, and the
+one-loop energy is unbounded below at the tree-level zero — 6 modes go
+critical at $r = 2$ exactly (two K3 democratic modes, the 6-cycle
+$\mu = -1$ pair), divergence coefficient exactly $12 = 2\times6$ in the
+log-squared convention, singularity located at $r = 2$ to $0.0$ float64.
+The atmospheric point is displaced: falling from $r_{\rm atm} = 1.919115$
+to the onset releases 133.2 log units and the minimised curve pulls
+toward 2 at 146.9 per unit $r$; the stabilizer that holds it down is NOT
+booked. And the vacuum the energy DOES select at the onset is the full
+12-junction (V303's VACUUM-NEVER-TRIANGLE, sharpened): its seesaw inverse
+$J_{12}M_{12}^+J_{12} = 2.0$ vs the closing triangle's $0.5$ — factor
+exactly 4.0, the all-ones vector exactly orthogonal (0.0) to all six
+zero modes — so on the energy-selected vacuum the candidate would read
+$4 \times 0.0487 = 0.195$ eV, excluded. **ONSET-RUNAWAY-EXACT.** The
+paper's Section 12.3, abstract, O2 row and Section 17 wording are
+corrected from "boundary energy attractor" to "runaway instability edge
+with an unbooked stabilizer"; the V303 verdict word stands in its own
+artifact as measured then. O2 now carries three booked reservations:
+the gap is not supplied (V306), the anchor's stabilizer is not booked
+(V307), and the candidate lives in the vacuum the junction energy does
+not select (V303, V307). No refit was performed; the candidate's numbers
+are unchanged.
 
 ## The geometry measure and the flavour host (2026-10-29): V302
 

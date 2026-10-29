@@ -1,6 +1,6 @@
 # The verification program
 
-218 experiments (the 215 of the publication programme plus the 3 exploration
+220 experiments (the 217 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git
@@ -11,7 +11,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**85 of the 215 publication experiments still write the older
+**85 of the 217 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -329,6 +329,8 @@ the claim asserts, not when a script merely mentions the word.
 | `V136_majorana_word` | the $\Delta L = 2$ operator is not a gauge-link composite |
 | `V303_junction_energy_r` | R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE |
 | `V305_onset_neutrino_contacts` | ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED |
+| `V306_coefficient_census_atm_gap` | R-COEFFICIENT-SUPPLIED at the 1e-3 word — but every satisfying expression is an underived two-number coincidence (best 4.7e-4; $2\alpha_{10}$ leaves 1.1% of the gap): the bounded census books the gap as declared residual |
+| `V307_onset_runaway_structure` | ONSET-RUNAWAY-EXACT: 6 critical modes at $r = 2$, singularity and tree-flatness exact to 0, pull 147/unit-$r$ at $r_{\rm atm}$; the minimising vacuum is the full 12-junction, seesaw inverse exactly 4x the triangle's |
 
 ### `cosmology_darkmatter`
 | id | verdict |

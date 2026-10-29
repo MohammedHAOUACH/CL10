@@ -1,0 +1,105 @@
+{
+ "id": "V307_onset_runaway_structure",
+ "tier": 3,
+ "property": "runaway vs marginal character of the r* = 2 selection, and the candidate-vacuum inverse factor",
+ "residual": true,
+ "programme": "V307",
+ "branch": "ONSET-RUNAWAY-EXACT",
+ "data": {
+  "t0": {
+   "components": [
+    3,
+    3,
+    6
+   ],
+   "muK3": [
+    -1.0,
+    -1.0,
+    2.0
+   ],
+   "muC6": [
+    -2.0,
+    -1.0,
+    -1.0,
+    1.0,
+    1.0,
+    2.0
+   ],
+   "mu12": [
+    -2.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    -1.0,
+    1.0,
+    1.0,
+    2.0,
+    2.0,
+    2.0
+   ]
+  },
+  "t1": {
+   "critical_counts": {
+    "0.0001": 6,
+    "1e-06": 6
+   },
+   "dE_at_2_minus_1e-4": -109.47808819081492,
+   "dE_at_2_minus_1e-5": -137.1086592926249,
+   "divergence_coefficient": 11.999804561351532
+  },
+  "t2": {
+   "r_atm": 1.9191154379808832,
+   "min_set_at_r_atm": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    11
+   ],
+   "min_E_at_r_atm": -31.51855605004637,
+   "E_full12_at_2_minus_1e-6": -164.73963541347175,
+   "pull_log_units": -133.22107936342536,
+   "slope_of_minimised_curve_at_r_atm": -146.89376928387077
+  },
+  "t3": {
+   "r_singularity": 1.9999999999999791,
+   "abs(r_sing - 2)": 2.0872192862952943e-14,
+   "tree_flatness_dev_full12": 0.0,
+   "J12_overlap_zero_modes_max": 1.1102230246251565e-16,
+   "n_zero_modes": 6,
+   "J12_M12_pinv_J12": 1.9999999999999987,
+   "J3_M3_pinv_J3": 0.49999999999999956,
+   "candidate_vacuum_factor": 4.000000000000001
+  },
+  "status": "ONSET-RUNAWAY-EXACT",
+  "wall_time": 0.06958365440368652,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 components [3,3,6] with spectra K3 (-1,-1,2) and C6 (-2,-2,-1,-1,1,1): exact",
+   "pass": true
+  },
+  {
+   "name": "T1 critical modes at r = 2 - eps: {'0.0001': 6, '1e-06': 6} (eps = 1e-4 / 1e-6), Delta E -> -inf with coefficient -dDeltaE/dlog(2-r) = 11.9998 (= 2 x 6 modes, log-squared convention)",
+   "pass": true
+  },
+  {
+   "name": "T2 at r_atm = 1.9191154 the minimiser is the 10-set with Delta E = -31.519; falling to the onset (2 - 1e-6) releases -133.2 log units (runaway, slope at r_atm -146.89 per unit r)",
+   "pass": true
+  },
+  {
+   "name": "T3 onset singularity at 1.999999999999979 (|r_sing-2| = 2.1e-14, one-loop exact); tree flat on the full 12-set to 0.0e+00 before crossings; J12 orthogonal to the 6 zero modes (max overlap 1.1e-16); the full-junction seesaw inverse is 2.0000 vs the triangle 0.5000: factor 4.0000",
+   "pass": true
+  }
+ ],
+ "status": "ONSET-RUNAWAY-EXACT",
+ "pass": true
+}

@@ -1,0 +1,123 @@
+{
+ "id": "V306_coefficient_census_atm_gap",
+ "tier": 2,
+ "property": "booked-coefficient census of the -2.70 % atmospheric gap at the energy-selected point",
+ "residual": true,
+ "programme": "V306",
+ "branch": "R-COEFFICIENT-SUPPLIED",
+ "data": {
+  "targets": {
+   "S17_eV": 0.14624768344284225,
+   "M_ATM_EV": 0.0501,
+   "r_atm": 1.9191154379808832,
+   "Delta_r": 0.08088456201911676,
+   "rho_req": 0.027708586295259074
+  },
+  "class": {
+   "base_constants": [
+    "LOOP",
+    "LOOP^2",
+    "LOOP^3",
+    "LOOP^4",
+    "alpha_10",
+    "pi/64",
+    "g_obs-1/5",
+    "1-rho_V276",
+    "F_cross/F_10_open-1",
+    "F_10_open/LOOP-1",
+    "1-F_cross/LOOP",
+    "LOOP-F_10_open",
+    "1/208",
+    "208",
+    "1/2",
+    "1/3",
+    "1/4",
+    "1/5",
+    "1/8"
+   ],
+   "n_base": 19,
+   "n_candidates": 1387,
+   "n_scored": 2774,
+   "tolerance": 0.001
+  },
+  "closest": [
+   {
+    "abs_residual": 0.0004741750429014327,
+    "target": "rho_req",
+    "expression": "LOOP-F_10_open/F_cross/F_10_open-1",
+    "value": 0.027234411252357642
+   },
+   {
+    "abs_residual": 0.0005909306533454228,
+    "target": "rho_req",
+    "expression": "pi/64-1-rho_V276",
+    "value": 0.02711765564191365
+   },
+   {
+    "abs_residual": 0.0008845620191167552,
+    "target": "Delta_r",
+    "expression": "alpha_10/1/2",
+    "value": 0.08
+   },
+   {
+    "abs_residual": 0.0009311644171399007,
+    "target": "rho_req",
+    "expression": "1-rho_V276+1/208",
+    "value": 0.026777421878119174
+   },
+   {
+    "abs_residual": 0.0009311644171399007,
+    "target": "rho_req",
+    "expression": "1/208+1-rho_V276",
+    "value": 0.026777421878119174
+   }
+  ],
+  "supplied": [
+   {
+    "target": "rho_req",
+    "expression": "LOOP-F_10_open/F_cross/F_10_open-1",
+    "value": 0.027234411252357642,
+    "abs_residual": 0.0004741750429014327
+   },
+   {
+    "target": "rho_req",
+    "expression": "pi/64-1-rho_V276",
+    "value": 0.02711765564191365,
+    "abs_residual": 0.0005909306533454228
+   },
+   {
+    "target": "Delta_r",
+    "expression": "alpha_10/1/2",
+    "value": 0.08,
+    "abs_residual": 0.0008845620191167552
+   },
+   {
+    "target": "rho_req",
+    "expression": "1-rho_V276+1/208",
+    "value": 0.026777421878119174,
+    "abs_residual": 0.0009311644171399007
+   },
+   {
+    "target": "rho_req",
+    "expression": "1/208+1-rho_V276",
+    "value": 0.026777421878119174,
+    "abs_residual": 0.0009311644171399007
+   }
+  ],
+  "status": "R-COEFFICIENT-SUPPLIED",
+  "wall_time": 0.00153350830078125,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 targets re-derived from booked sources: r_atm = 1.9191154, Delta_r = 0.0808846, rho_req = 0.027709; class: 19 base constants, 1387 expressions, 2774 scored",
+   "pass": true
+  },
+  {
+   "name": "T1 min residual 4.74e-04 (LOOP-F_10_open/F_cross/F_10_open-1 for rho_req): R-COEFFICIENT-SUPPLIED",
+   "pass": true
+  }
+ ],
+ "status": "R-COEFFICIENT-SUPPLIED",
+ "pass": true
+}

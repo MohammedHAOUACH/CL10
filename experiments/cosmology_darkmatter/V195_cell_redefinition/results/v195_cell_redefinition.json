@@ -28,7 +28,7 @@
    "pass": true
   },
   {
-   "name": "T1 the redefined cell: U_ext unitary to 1.3e-15; the extended parity B-alone-odd is an exact Z2 (G^2 = I to 0.0e+00) commuting with the step to 0.0e+00 and with all 45 gauge generators (extended by 0 on the singlets) to 0.0e+00: the carrier B is stable by the exact parity, and its mass is DERIVED (the n=10 ladder rung 118.57 GeV), not named",
+   "name": "T1 the redefined cell: U_ext unitary to 1.4e-15; the extended parity B-alone-odd is an exact Z2 (G^2 = I to 0.0e+00) commuting with the step to 0.0e+00 and with all 45 gauge generators (extended by 0 on the singlets) to 0.0e+00: the carrier B is stable by the exact parity, and its mass is DERIVED (the n=10 ladder rung 118.57 GeV), not named",
    "pass": true
   },
   {
@@ -45,5 +45,5 @@
   }
  ],
  "status": "THE CARRIER IS A STATE OF THE AUTOMATON (O7, certificate realized). The cell content is 32 spinor levels plus the two neutral Clifford-singlet sectors, four levels, 36 in all. A is even and sits at M_A = m_B^2/m_nu = 9.6132e+13 GeV, inside the desert: the F3 neutrino ladder keeps its built value 0.146248 eV with the mass generated quadratically through A. B is odd under the exact extended parity (commutes with the step to 0.0e+00 and the 45 gauge generators to 0.0e+00), neutral, and at the DERIVED mass m_B = the n=10 ladder rung = 118.5709 GeV: the automaton's own ladder carries a state at 118 GeV, and it cannot decay. The hard gates hold verbatim: Tr Y = Tr Y^3 = 0 on the extended content, the 5/3 ratio exactly unchanged, the Clifford block byte-identical. Production: V193's computed kernel applies verbatim - the unique 0.120 solution inside the direct-detection ceiling is freeze-in at lambda = 4.06e-14 (sigma_SI = 6.5e-71 cm^2, DD-blind); the thermal solution is excluded; lambda > 0 is forced (V66-convention overclosure x2.7e+63 at lambda = 0, never equilibrates gravitationally, and the gravitational yield needs the missing inflation history). ONE named number: the portal strength of B is required nonzero and is NOT root-supplied (every bond number undercloses, largest 3.1e-04, and the smallest is DD-excluded at 2.5e-45 cm^2). The carrier is a state of the cell: stable, neutral, at the derived ladder mass. VERDICT: PASS",
- "wall_time": 0.0025565624237060547
+ "wall_time": 0.0019876956939697266
 }

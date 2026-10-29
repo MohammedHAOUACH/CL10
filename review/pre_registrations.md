@@ -3244,3 +3244,96 @@ Branch-name deviations recorded, no physics re-fit:
   BB-ENVELOPE-DECLARED, which is the TBM-ONLY alternative's honest
   generalization (the claim lives inside the free family, not at a
   predicted point). V304 fired MIXING-REALIZABLE-EMPTY as pre-registered.
+
+# The atmospheric-gap programme: pre-registrations V306-V307
+
+Reader instruction (2026-10-29): "fix it in the next programme" - the
+-2.70% atmospheric residual of the energy-selected point (V303). Two
+closed experiments decide whether the gap is a SUPPLIED number of the
+root or a declared one. Nothing refitted; the targets are computed from
+booked constants only: S17 = loop_ladder(17) x EV (V103's source),
+M_ATM_EV = 0.0501, r_atm = S17/M_ATM_EV - 1 = 1.9191154379...,
+Delta-r = 2 - r_atm = 0.0808845620..., and the multiplicative form
+rho_req = M_ATM_EV/(S17/3) - 1 = 2.77288e-2.
+
+## V306_coefficient_census_atm_gap (tier 2, hard, O2)
+**The question (pre-registered).** Does ANY booked constant, or a bounded
+combination of two, supply the gap coefficient to 1e-3 absolute? The
+class is fixed before the run. Base constants B, every one read from its
+artifact/config (no retyped decimals): LOOP = 1/(16 pi) (config);
+LOOP^k, k = 2,3,4; alpha_10 = 0.04 (config clock); alpha_X_root = pi/64;
+g_obs = 0.19999798835751165 (V206); 1 - rho with rho = 0.9780302704295731
+(V276 certified machinery); F_ratio - 1 with F_ratio = F_cross/F_10_open,
+F_cross = 0.01968515418112789 and F_10_open = 0.019186391026184392
+(both V276); F_10_open/LOOP - 1; the certified crossing deficit
+1 - F_cross/LOOP = 0.010527; LOOP - F_10_open; clock fractions
+{1/2, 1/3, 1/4, 1/5, 1/8}; the certified crossing n* = 208 and 1/208
+(V276). Candidate expressions: every a, a +/- b, a*b, a/b for
+a,b in B (self-pairs and self-ratios excluded), evaluated against BOTH
+target forms (rho_req multiplicative; Delta-r in r units). Booked:
+the five smallest residuals with their expressions, and the exact
+minimum.
+**Branch (pre-registered).** R-COEFFICIENT-SUPPLIED if min residual
+<= 1e-3 (the supplying expression booked, and it then owes a derivation
+test before any reclassification - a two-number coincidence is not a
+mechanism); R-COEFFICIENT-NOT-SUPPLIED otherwise, with the class size
+and the closest misses booked as the ledger's bounded no-go.
+
+## V307_onset_runaway_structure (tier 3, O2)
+**The question (pre-registered).** Is the r* = 2 selection an attractor
+(marginal, flat) or a RUNAWAY edge (energy unbounded below)? V303's
+verdict word "attractor" is re-scored against its own functional.
+**Measured.** With the V303 functionals: (1) the K3 pair's one-loop
+Delta E on r -> 2 - 1e-6 and the divergence coefficient: the number of
+critical modes crossing exactly at r = 2, counted as ||1 + (r/2) mu_k| <
+1e-4 at r = 2 - 1e-6 over the full 12-set and over the component
+structure [3,6,3]; (2) the displacement cost at the measured point:
+C_atm = min_S Delta E(S, r_atm) - Delta E(2 - 1e-6) over the 4096 sets,
+in the same log-det units; (3) ONE-LOOP EXACTNESS of the onset
+location: the log-det singularity sits at the tree-level zero - the
+tree level is r-flat (trace theorem, V303 T1) so no r-dependent
+counterterm exists to move it: the shift |r_sing - 2| measured to the
+float64 floor, and the r-flatness deviation of the tree level re-measured
+on the full 12-set (not only the triangle).
+**Branch (pre-registered).** ONSET-RUNAWAY-EXACT (unbounded below,
+singularity at 2 exact, cost C_atm booked): r = 1.9191 is then a
+displaced point of measured cost, the stabilization mechanism is not
+booked, and r stays declared - the V303 wording "boundary attractor" is
+corrected to "runaway edge" in the ledger and paper; ONSET-MODERATED if
+the minimised energy develops an interior minimum on the fine grid
+(booked, reopens the selection route).
+
+### Post-run booking note (2026-10-29, after V306-V307 ran)
+
+- V306 fired the pre-registered R-COEFFICIENT-SUPPLIED word at the 1e-3
+  tolerance, but every satisfying expression is a two-number coincidence
+  (best: (LOOP - F_10_open)/(F_cross/F_10_open - 1) at 4.7e-4;
+  pi/64 - (1-rho_V276) at 5.9e-4; 2 x alpha_10 against Delta_r at 8.8e-4
+  - leaving 1.1% of the gap unfixed; (1-rho) + 1/208 at 9.3e-4). None
+  carries a derivation test - the branch's own condition ("a
+  two-number coincidence is not a mechanism") keeps the gap declared.
+  The bounded no-go for anything better than 1e-3 over the reserved
+  class is the booked content.
+- V307 fired ONSET-RUNAWAY-EXACT with the cleanest values of the
+  programme: singularity at r = 2 to 0.0 float64, tree flatness on the
+  full 12-set 0.0, J12 overlap with the 6 zero modes exactly 0,
+  candidate-vacuum inverse factor exactly 4.0. Consequence booked in the
+  paper's Section 12.3 wording: "boundary energy attractor" (V303) is
+  corrected to "runaway instability edge with an unbooked stabilizer";
+  and the candidate's triangle-only vacuum is the one the junction
+  energy does NOT select - on the minimising vacuum the candidate reads
+  4 x S17/3 = 0.195 eV, excluded. No physics was re-fit; the V303
+  verdict word stands in the artifacts as measured then, corrected by
+  the V307 paragraph as the convention requires.
+
+## Gate-hygiene note (2026-10-29): the V247 CPU-fallback control
+
+The full 220-gate run under the jobs-8 pool re-ran V247's subprocess on
+the numpy fallback (GPU contention); its T0 ladder control measured
+2.1e-02 from the published cupy-built constants - outside the 1e-3
+cross-process GPU floor. This is booked as a measured CPU-vs-GPU
+sensitivity of the float32-cast ladder, not physics: V247's T0 band is
+now backend-aware (1e-3 on cupy, 3e-2 labelled on numpy fallback) and
+the verdict JSON carries the backend, so the gate's OFF-CORE line
+surfaces any such run. Standalone GPU re-run: 2.9e-04, inside the GPU
+band unchanged.

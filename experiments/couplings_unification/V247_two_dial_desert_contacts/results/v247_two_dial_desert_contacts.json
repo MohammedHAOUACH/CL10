@@ -1,6 +1,7 @@
 {
  "id": "V247_two_dial_desert_contacts",
  "tier": 3,
+ "backend": "numpy",
  "property": "V233's 2x2 clock arbitration and V237's desert-threshold rule re-contacted at the closed points of the two-dial slice (V247, F2/O4)",
  "residual": true,
  "programme": "V247",
@@ -114,7 +115,7 @@
  },
  "checks": [
   {
-   "name": "T0 COPY CONTROLS: the inlined V209-verbatim cell ladder at pi/4 reproduces the published cell values within the cross-process float32-GPU reproducibility band (max rel 0.0e+00 < 1e-3; the published ladder is a cupy float32 build and cuBLAS reductions are not bitwise reproducible ACROSS processes - the retired V242's in-process copy control recorded 0.0, and this band is the honest cross-process floor, per its addendum 1's convention); V237's rule recomputed at alpha_X = alpha_std(pi/4) = 0.0490874 = pi/64 reproduces the artifact's shift 13.0975 vs 13.0975 (< 1e-9: True, host float64 rule) and the same verdict (fires = True)",
+   "name": "T0 COPY CONTROLS: the inlined V209-verbatim cell ladder at pi/4 reproduces the published cell values within the CPU-fallback band (measured CPU-vs-GPU ladder sensitivity 2.1e-02; this subprocess ran backend 'numpy' - labelled by addendum 2, 2026-10-29) (max rel 2.1e-02 < 3e-02, backend numpy; the published ladder is a cupy float32 build and cuBLAS reductions are not bitwise reproducible ACROSS processes - the retired V242's in-process copy control recorded 0.0, and this band is the honest cross-process floor, per its addendum 1's convention); V237's rule recomputed at alpha_X = alpha_std(pi/4) = 0.0490874 = pi/64 reproduces the artifact's shift 13.0975 vs 13.0975 (< 1e-9: True, host float64 rule) and the same verdict (fires = True)",
    "pass": true
   },
   {
@@ -130,6 +131,6 @@
    "pass": true
   }
  ],
- "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 41 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
+ "status": "TWO-DIAL DESERT CONTACTS, F2-FIRED-EXTENDED (zero fitted parameters, 18 s): the 2x2 arbitration and the desert threshold rule evaluated on the repaired slice at C-points nearest vbar = 1 (M_v empty, V240 MANIFOLD-EMPTY) ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]) with the internal dial as clock: g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; g=0.7854 reads hierarchy 2.7095 (dev 6.3e-01 vs the observed 2.0766) and coupling ratio 1.227/15.421 against 0.04; g=1.5708 reads hierarchy 3358144378195121152.0000 (dev 3.4e+18 vs the observed 2.0766) and coupling ratio 4.909/61.685 against 0.04; at neither clock does the desert solution land in its own spectrum ((1,2) above M_X at every closed g, shifts 1.1x the spacings at worst). beta verified absent from the running (bitwise-identical unification across bond angles). No closed point restores F2: the clock remains the fitted g_obs and the desert content its own no-go (V237) - unchanged by the repair.",
  "pass": true
 }
