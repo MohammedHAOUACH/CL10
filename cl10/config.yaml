@@ -53,7 +53,7 @@ pool:
   # (run_validation.py --jobs) and the process pool inside the experiments
   # (cl10/parpool.py).
   # null = min(njobs_cap, cpu_count // 2); CL10_NJOBS overrides.
-  njobs: 8
+  njobs: 1
   njobs_cap: 8
 
 physics:
@@ -269,3 +269,19 @@ continuum:
   # |p| below this reads as marginal; p > 0 irrelevant, p < 0 relevant
   relevance_marginal_band: 1.0e-2
 
+
+
+pillar_surgery:
+  # the pillar-surgery programme V308-V314 (clock, signature, dictionary, ledger)
+  clock_band_abs: 1.0e-6        # a root-derived clock must land on g_obs (V206 books it to 1e-7)
+  coef_band_abs: 1.0e-4         # the V233 band on the observed hierarchy coefficient
+  pslq_max_degree: 6            # V309 integer-relation search
+  pslq_max_coeff: 20
+  expr_depth_max: 3             # V310/V314 operator trees over booked constants
+  quaternionic_p: [8, 7, 4, 3, 0]   # FS=-1 roots of Cl_10(C) at p+q=10 (V117 table)
+  closure_den_max: 16           # V311 closure scan g = pi*a/b, 0<a<b<=this
+  closure_k_max: 16             # order test U(g)^k = +/- I
+  scan_clocks: [0.125, 0.2, 0.5, 0.7853981633974483, 1.5707963267948966]  # V313: the ladder clock g=1/2 is the known repair clock
+  ladder_intact_band: 0.30      # V313: |deficit(g)/deficit(pi4) - 1| allowed
+  nelder_starts: 50             # V313 locality minimization (V285 convention)
+  ledger_scale_rel_tol: 0.05    # V314 re-derivation gate on the algebraic scales

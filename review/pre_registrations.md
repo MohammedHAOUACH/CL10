@@ -3337,3 +3337,186 @@ now backend-aware (1e-3 on cupy, 3e-2 labelled on numpy fallback) and
 the verdict JSON carries the backend, so the gate's OFF-CORE line
 surfaces any such run. Standalone GPU re-run: 2.9e-04, inside the GPU
 band unchanged.
+
+# The pillar-surgery programme: pre-registrations V308-V314
+
+Reader instruction (2026-10-30): the defects are in the pillars themselves,
+not in the details. Four pillar choices go under bounded surgery: the
+clock/closure (V308-V310), the root signature (V311-V312), the lightcone
+dictionary (V313), the scale-formula ledger (V314). Success = a
+zero-fitted-parameter formula inside the booked bands (provenance
+*algebraic*); honest bounded no-gos are equally bookable outcomes.
+
+**Programme rules (fixed before any run).**
+(i) Nothing may be refitted to land in a band.
+(ii) Every constant is booked (a `cl10/config.yaml` path or a booked
+artifact via the `art()` pattern) - a new dial reclassifies the result to
+fitted.
+(iii) The gate re-runs incrementally only (fingerprint gate; never
+`--full`). The bands live in the `pillar_surgery:` config section;
+changing a band mid-run is a reclassification to fitted and must be said
+in the booking.
+
+## V308_coefficient_variants_fifth_clock (tier 3, O8)
+**The question (pre-registered).** the rung-10 clock 1/5 reads the
+coefficient at 2.088106865906787 (V206 `coef_at_fifth`) vs the observed
+2.0765641 - a gap of -0.55%. Does any *variant reading of the loop
+machinery at that clock* close it?
+**Object.** import from
+`experiments/scales_loopfactor/V203_closed_branch_coefficient/V203_closed_branch_coefficient.py`:
+`hop_machinery`, `loop_ratios` (both clock-parameterized:
+`hop_machinery(g10)`). Gate T0: reproduce V206's `data_clock` values to
+1e-9 by artifact read (no literals). Variants, each scored against
+`hierarchy_coefficient_observed` (loader-derived, read from config tree)
+with band `coef_band_abs`:
+- (a) plain rung-10 read at g = 0.2 (must reproduce coef_at_fifth);
+- (b) certified-continuation read at g = 0.2: geometric continuation
+  F_n = (rho, F_cross) recipe exactly as V276 T1 (import recipe by
+  reading `V276_certified_ladder_208.py` lines 124-240 and copying the
+  continuation construction), measured (rho, F_cross) re-derived at 0.2
+  inside the experiment;
+- (c) icosahedral-module closed-word ladder at g = 0.2 (copy the V218
+  construction: read
+  `experiments/scales_loopfactor/V218_closed_word_census_module/V218_closed_word_census_module.py`
+  and reuse its ladder function; rung-10 coefficient from its F_10).
+**Branch (pre-registered).** `COEF-VARIANT-CLOSED` (some variant within
+`coef_band_abs`) / `COEF-GAP-PERSISTS` (book the five smallest variant
+residuals with their provenance).
+
+## V309_clock_algebraicity (tier 3, O8/O4)
+**The question (pre-registered).** is g_obs = 0.19999798835751165
+(artifact read V206) an algebraic number of small height, i.e. could a
+root rule generate it?
+**Measured.** `mpmath.findpoly(g_obs, d)` for every d <=
+`pslq_max_degree` (mpmath pattern as V276); plus the rational census:
+every a/b, b <= 5000 inside `clock_band_abs` of g_obs (count + closest
+listed); plus the booked difference g_cross_rung10 - g_obs (both from
+V206 artifact: 0.20013316730041675 - 0.19999798835751165) reported to
+full precision as a named gap 1.35e-4 for V310's census.
+**Branch (pre-registered).** `CLOCK-ALGEBRAIC` (relation found,
+polynomial booked - then the V314 ledger must use it) /
+`CLOCK-NO-RELATION-DECLARED`.
+
+## V310_coefficient_expression_census (tier 2, hard, O8)
+**The question (pre-registered).** does a bounded expression over BOOKED
+constants supply the -0.55% coefficient correction (multiplicative
+target: expr = 2.0765641/2.0881069 ratio form AND the direct form
+= 2.0765641 +- 1e-4) or the clock gap 1.35e-4?
+**Object.** the expression generator pattern from
+`experiments/neutrino/V306_coefficient_census_atm_gap/V306_coefficient_census_atm_gap.py`
+(`itertools.permutations` over a booked dict, pairs; read its lines
+100-130), extended to depth 3 (`expr_depth_max`): pairs, then one more
+booked constant with ops {+, -, x, /, pow^+-1}. Base constants (each
+read via config path or `art()`, no literals): LOOP
+(u10pred.LOOP), `angle.alpha_10`, the three `angle.branches` values,
+`physics.m_planck_gev`, `physics.v_electroweak_gev`, loader-derived
+`hierarchy_coefficient_observed`, `sm.m_z_gev`, sm.alpha1_mz/alpha2_mz/
+alpha3_mz, `sm.m_unification_obs_gev`, `sm.delta_b_obs`,
+neutrino.m_atm_ev/m_sol_ev/sum_mnu_max_ev, `cosmology.omega_dm_h2`,
+V206 artifact `g_obs/g_cross_rung10/coef_at_fifth`, V276 artifact
+`rho/F_cross`, V206 closure-class `coef(pi/4) = 2.7002077805447326` via
+art. Report the five smallest residuals per target with their expression
+strings; supplied word only at the booked bands.
+**Branch (pre-registered).** `COEF-EXPRESSION-SUPPLIED` /
+`COEF-CENSUS-NEGATIVE` (bounded no-go booked).
+
+## V311_quaternionic_root_step (tier 3, O5/O8)
+**The question (pre-registered).** the real form Cl(10,0) carries no
+CP-odd invariant (V117). The quaternionic real forms of the SAME complex
+algebra Cl_10(C) - p in `quaternionic_p` - do. Does the automaton's step
+survive a signature swap?
+**Object.** generators by exact construction: from
+`cl10.clifford.generators()` the 10 kron matrices Gamma_j; set
+Gamma'_j = Gamma_j for j <= p, Gamma'_j = i Gamma_j for j > p
+(anticommutation preserved, squares flip). Plane generators and step:
+copy the 4-line pattern of `cl10/sm_qca.py:48-73` (T'_ab = i
+Gamma'_a Gamma'_b, `plane_rotation`, `gut_qca_step`) into the experiment
+as `signature_step(p, g)`. Measured per p: FS indicator of the module
+via import `fs_indicator` from
+`experiments/baryogenesis/V117_real_form/V117_real_form.py` (line 83) -
+expect -1 (T0 gate); the CP-odd invariant test of V117 T3 pattern (the
+J U J^-1 vs U^-1 deviation, computed in-experiment on the step at the
+closed clock `angle.branches.closed`); unitarity residual
+||U'U'^dagger - I||_max (V208 `unitary_err` pattern, computed
+in-experiment); the closure census: for every g = pi a/b with 0 < a < b
+<= `closure_den_max`, smallest k <= `closure_k_max` with
+||U'(g)^k -/+ I||_max < 1e-12 - book the found closure clocks per
+signature. The quaternionic Gamma construction (Gamma_j -> i Gamma_j for
+j > p) is a choice of real-form embedding inside the fixed complex rep;
+the step's unitarity verdict is with respect to this embedding - stated
+here so the no-go, if it fires, is class-bounded and honest.
+**Branch (pre-registered).** `STEP-UNITARY` per signature (some p keeps
+exact unitarity - record its closure clocks) /
+`STEP-HYPERBOLIC-DECLARED` (all quaternionic steps fail unitarity - the
+signature surgery dies at the step level; this is a theorem-grade
+booking).
+
+## V312_quaternionic_loop_ladder (tier 3, O8; conditional)
+**Contingency (pre-decided).** If V311 books `STEP-HYPERBOLIC-DECLARED`
+for ALL p, DO NOT run the ladder; the experiment file still exists, its
+main() reads V311's artifact, books the skip explicitly
+(`branch: "SKIPPED-STEP-HYPERBOLIC"`), passes its single T0 check, and
+exits 0. If at least one signature is `STEP-UNITARY`, run for those only:
+**Object.** rebuild the V203 machinery over the new root in-experiment:
+Ts = the 45 plane generators T'_ab; structure constants by calling
+cl10's `structure_constants` (import site per V203's imports) on the new
+Ts; adjoint links via the V79 `adjoint_link_operators` (import as V203
+does); then the ladder F_n, crossing n*, deficit and coefficient at
+V311's closure clocks for that signature.
+**The question (pre-registered).** does any quaternionic-root closure
+clock read the coefficient inside `coef_band_abs` of the observed, or
+reproduce the odd-n exact selection rule with a crossing whose deficit
+matches the observed coefficient?
+**Branch (pre-registered).** `SIGNATURE-LADDER-MATCH` /
+`SIGNATURE-LADDER-NEGATIVE` (closest reading booked).
+
+## V313_lightcone_dictionary_conjunction (tier 3, F8/O10)
+**The question (pre-registered).** the exactly lightlike graviton cone
+exists but only in a 53-parameter family nothing selects, whose known
+repair clock g = 1/2 collapses the loop ladder (paper Section 11.6,
+V208/V285/V229). Re-parameterize the family and test the conjunction
+member-wise.
+**Object.** reuse V285's machinery wholesale - read
+`experiments/gravity/V285_most_local_lightlike_generator/V285_most_local_lightlike_generator.py`
+(module header lines 1-90: `build_Oh`, `module_reps`, `velocity_ops`,
+covariant 160-space basis, Clifford-regularity Jacobian rank 107 /
+nullity 53, tangent coordinates delta in R^53, Nelder-Mead locality
+functional T with `nelder_starts` starts). Re-measure the
+Jacobian/nullity at every clock in `scan_clocks` (0.125, 0.2, 0.5,
+pi/4, pi/2): report the family dimension at each. For the clocks with
+nonzero family: minimize T; for the minimizer member evaluate (i) ladder
+intactness: the V206 closure-deficit at that clock from the V203 ladder
+(deficit band `ladder_intact_band` vs the pi/4 value 0.98953), (ii) the
+selector tests: locality-minimum uniqueness (V285's T* vs
+T_committed), bond-entropy weight G = 1/(4 ln 45) as a weight only
+(report, never refit). T0 gate: the Jacobian rank/nullity at pi/4 must
+reproduce V285's booked 107/53 before any scan result is trusted; if it
+does not, STOP and report the drift as `MACHINERY-DRIFT`.
+**Branch (pre-registered).** `LIGHTCONE-SELECTED` (a member at a
+ladder-intact clock at which a booked selector functional is uniquely
+minimized) / `LIGHTCONE-CLOCK-CONFLICT` (families empty at every
+ladder-intact clock, or selectors never unique - bounded no-go with the
+per-clock family dimensions booked).
+
+## V314_four_scale_ledger (tier 2, hard, O8/O10)
+**The question (pre-registered).** assemble every candidate supplied by
+V308-V313 into compound scale-theories and score them against the four
+measured scale contacts. The four contacts and their current standing
+(all re-derived in-experiment from config/artifacts, gate
+`ledger_scale_rel_tol`): seesaw M_P LOOP^3 = 9.6e13 GeV (algebraic, no
+band issue), DM M_P LOOP^10 = 118 GeV vs the observed window
+`physics.wimp_window_gev`, neutrino ladder M_P LOOP^17 and the candidate
+S17/3 vs `neutrino.m_atm_ev` (the -2.7% booked gap), and the hard one:
+rung-10 coefficient vs `hierarchy_coefficient_observed` at the best
+clock. A compound theory = (clock rule from V309/V311/V313 or the fitted
+1/5, coefficient variant from V308 or census hit from V310); enumerate
+all combinations (bounded: the variant/candidate lists from the
+artifacts, cross product < 50 rows), score every row on all four
+contacts, print the full ledger table sorted by worst-contact residual.
+**Branch (pre-registered).** `LEDGER-CONSISTENT-THEORY-CANDIDATE` (some
+row: all four contacts inside their booked bands AND every input
+provenance algebraic/conventional/measured - zero fitted - then this is
+the true formula and the roll-up reclassifies the paper) /
+`LEDGER-BEST-DEFICIT-DECLARED` (book the closest row's worst residual
+with the full table; this bounds the current programme's best compound
+theory).
