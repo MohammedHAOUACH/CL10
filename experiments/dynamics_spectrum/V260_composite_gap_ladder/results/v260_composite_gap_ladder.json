@@ -46,7 +46,7 @@
   "min_E0": null,
   "gapless_loci": [],
   "dvv": [],
-  "v129_gap": 63.9999999999999,
+  "v129_gap": 63.999999999999865,
   "gap_to_v129_ratio": null,
   "cascade": {
    "rule": "pre-registered roll-up: V259 KERNEL-EMPTY (no q-point carries a singlet) -> V260-V266 recorded NEVER-REALIZED",
@@ -55,7 +55,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 41.62623190879822
+  "wall_time": 43.43898868560791
  },
  "checks": [
   {
@@ -71,6 +71,6 @@
    "pass": true
   }
  ],
- "status": "composite gap ladder on the V259 singlet kernel (grid 6^3, omega rows from V251, tolerance 1e-9, 42 s): the kernel recomputed here has dim 0, the q = 0 cross-check kernel == tower-sector singlet sum (0) holds (max sector leakage 1.2e-11), the V129 committed gap is 64.000000. Branch NEVER-REALIZED. V259 landed KERNEL-EMPTY: the 1568-dim coupled fiber carries no gauge singlet (smallest C2 eigenvalue 45.000000 from V259), so no composite (matter + flux) band exists to disperse - the gap ladder, its gapless loci and the dvv velocity tensor are NEVER-REALIZED on this construction; the drafted ladder path above is the pre-registered non-cascade branch and ran not a line.",
+ "status": "composite gap ladder on the V259 singlet kernel (grid 6^3, omega rows from V251, tolerance 1e-9, 43 s): the kernel recomputed here has dim 0, the q = 0 cross-check kernel == tower-sector singlet sum (0) holds (max sector leakage 1.2e-11), the V129 committed gap is 64.000000. Branch NEVER-REALIZED. V259 landed KERNEL-EMPTY: the 1568-dim coupled fiber carries no gauge singlet (smallest C2 eigenvalue 45.000000 from V259), so no composite (matter + flux) band exists to disperse - the gap ladder, its gapless loci and the dvv velocity tensor are NEVER-REALIZED on this construction; the drafted ladder path above is the pre-registered non-cascade branch and ran not a line.",
  "pass": true
 }

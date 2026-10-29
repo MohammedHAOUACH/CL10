@@ -58,7 +58,7 @@
    },
    {
     "quantity": "dressed block-RG scales v(b), A(b), exponents p_v, p_A",
-    "value": "5 cuts b = 1..16, exponents {'p_v_bare': 0.0, 'p_v_dressed': 0.0, 'p_A_bare': -0.0, 'p_A_dressed': -0.0, 'p_A_static': -0.03473}",
+    "value": "5 cuts b = 1..16, exponents {'p_v_bare': 0.0, 'p_v_dressed': 0.0, 'p_A_bare': 0.0, 'p_A_dressed': 0.0, 'p_A_static': -0.01968}",
     "provenance": "measured-input",
     "why": "V253's ladder (V178 machinery extended, V252 Sigma inserted, V178 static control) measured with fitted_inputs == []",
     "source": "V253"

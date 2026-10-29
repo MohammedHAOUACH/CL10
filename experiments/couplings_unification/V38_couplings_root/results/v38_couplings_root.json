@@ -48,5 +48,5 @@
     "m_z_ref_GeV": 91.1876,
     "residual": "the 1-loop SM matching to the measured M_Z values (O4, now quantified by the down-running); the QCA lattice RG is the open part"
   },
-  "wall_time": 0.004
+  "wall_time": 0.007
 }

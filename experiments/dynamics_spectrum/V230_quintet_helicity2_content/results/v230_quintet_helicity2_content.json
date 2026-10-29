@@ -178,19 +178,19 @@
   },
   "shifts": {
    "axis_bond_Eg_shifts": [
-    -16.728660674821434,
-    -16.469363453736033
+    -18.669558905875444,
+    -18.076298107179458
    ],
    "axis_bond_T2g_bubble": 0.0,
-   "axis_bond_max_abs_shift": 16.728660674821434,
+   "axis_bond_max_abs_shift": 18.669558905875444,
    "star_bond_quintet_shifts": [
-    -6.604681466610945,
-    -6.367440624917142,
-    -1.7863633573411948,
-    -2.872538731448599e-15,
-    -1.086700485847741e-15
+    -7.4514376570098895,
+    -7.060799808556068,
+    -1.9866651961352335,
+    -9.51892388019847e-17,
+    6.094716989563735e-17
    ],
-   "star_bond_max_abs_shift": 6.604681466610945,
+   "star_bond_max_abs_shift": 7.4514376570098895,
    "acceptance_vanishing_shift": 1e-16
   }
  },
@@ -204,10 +204,10 @@
    "pass": true
   },
   {
-   "name": "T3 survival: at the closed clock the axis-bond channel shifts only the Eg half (bubble [-54.238966410365975, -53.398252766988634], shifts [-16.7287, -16.4694], T2g bubble 0e+00), the diagonal star-bond channel shifts the whole quintet (shifts [-6.6047, -6.3674, -1.7864, -0.0, -0.0], max 6.6047); NO massless branch carries the full spin-2 content with a vanishing shift (acceptance 1e-16): axis bonds gap the Eg half by 16.7287, star bonds gap every component by up to 6.6047",
+   "name": "T3 survival: at the closed clock the axis-bond channel shifts only the Eg half (bubble [-60.53189780555675, -58.608381442917526], shifts [-18.6696, -18.0763], T2g bubble 0e+00), the diagonal star-bond channel shifts the whole quintet (shifts [-7.4514, -7.0608, -1.9867, -0.0, 0.0], max 7.4514); NO massless branch carries the full spin-2 content with a vanishing shift (acceptance 1e-16): axis bonds gap the Eg half by 18.6696, star bonds gap every component by up to 7.4514",
    "pass": true
   }
  ],
- "status": "F4 STAYS FIRED, content test with constructed characters (zero fitted parameters, 0 s). (T1) the quintet carrier: under the cubic group sym^2 = A1g (+) Eg (+) T2g (V208 control), and the qubit bond factor carries T2g but never Eg; under the icosahedral group of order 60 (built from the presentation) the SAME space is A (+) W with W irreducible of dimension 5 - the Eg/T2g split is a cubic-subgroup artifact, the quintet is one representation of the star's symmetry (character inner products exact in Q(sqrt 5), commutant ranks 2/1/1). (T2) the massless linear quintet branches exist only on the directional layer: axis bonds [0.0, 0.0, 0.7854, 0.7854, 1.5708, 1.5708], diagonal star bonds [0.0, 1.5708, 3.1416] at pi/4; the qubit-link bands are flat and the star spinor node is spinor content. (T3) neither channel carries the full content with vanishing shift: axis bonds gap the Eg half by 16.7287 (T2g bubble exactly 0), the diagonal bonds gap the whole quintet by up to 6.6047. VERDICT: the implemented spectrum carries T2g content but the branch is gapped by 6.6047 (diagonal-bond channel) / 16.7287 (axis-bond channel, Eg half) - the lattice spin-2 content is complete only before the matter coupling, and the coupling that closes the T2g gap gaps everything.",
+ "status": "F4 STAYS FIRED, content test with constructed characters (zero fitted parameters, 0 s). (T1) the quintet carrier: under the cubic group sym^2 = A1g (+) Eg (+) T2g (V208 control), and the qubit bond factor carries T2g but never Eg; under the icosahedral group of order 60 (built from the presentation) the SAME space is A (+) W with W irreducible of dimension 5 - the Eg/T2g split is a cubic-subgroup artifact, the quintet is one representation of the star's symmetry (character inner products exact in Q(sqrt 5), commutant ranks 2/1/1). (T2) the massless linear quintet branches exist only on the directional layer: axis bonds [0.0, 0.0, 0.7854, 0.7854, 1.5708, 1.5708], diagonal star bonds [0.0, 1.5708, 3.1416] at pi/4; the qubit-link bands are flat and the star spinor node is spinor content. (T3) neither channel carries the full content with vanishing shift: axis bonds gap the Eg half by 18.6696 (T2g bubble exactly 0), the diagonal bonds gap the whole quintet by up to 7.4514. VERDICT: the implemented spectrum carries T2g content but the branch is gapped by 7.4514 (diagonal-bond channel) / 18.6696 (axis-bond channel, Eg half) - the lattice spin-2 content is complete only before the matter coupling, and the coupling that closes the T2g gap gaps everything.",
  "pass": true
 }

@@ -7,9 +7,9 @@
  "branch": "CROSSING-MEASURED-FINAL",
  "data": {
   "t0": {
-   "rho": 0.9780302704295729,
+   "rho": 0.9780302704295731,
    "rho_artefact": 0.9780302704295731,
-   "rho_abs_diff": 2.220446049250313e-16,
+   "rho_abs_diff": 0.0,
    "crossing_n": 208,
    "v276_rho_abs_diff": 0.0
   },
@@ -19,7 +19,7 @@
    "rho_200dp_eps1e-8": "0.978030266785272",
    "stability_100_vs_200": 3.679620861680502e-102,
    "stability_eps": 3.6443009605643548e-09,
-   "rho_float64_dev": 2.1228709360698536e-16
+   "rho_float64_dev": 4.3433169853201667e-16
   },
   "n_certified_mp": 208,
   "pslq": {
@@ -55,20 +55,20 @@
    "value": "176.33936098885047570850375289",
    "nearest_within_1e-10": false
   },
-  "n_star_geom": 8.368849802334122,
-  "n_star_geom_minus_208": -199.63115019766587,
+  "n_star_geom": 8.368849802334108,
+  "n_star_geom_minus_208": -199.6311501976659,
   "n_certified_mp_minus_208": 0,
   "status": "CROSSING-MEASURED-FINAL",
-  "wall_time": 341.1604211330414,
+  "wall_time": 739.6711502075195,
   "fitted_inputs": []
  },
  "checks": [
   {
-   "name": "T0 float64 certified machinery: rho 0.9780302704295729 reproduced to 2.2e-16, crossing n = 208",
+   "name": "T0 float64 certified machinery: rho 0.9780302704295731 reproduced to 0.0e+00, crossing n = 208",
    "pass": true
   },
   {
-   "name": "T1 mp ladder stability: |rho_100 - rho_200| = 3.679620861680502e-102, |eps 1e-16 vs 1e-8| = 3.6443009605643548e-09, float64 dev 2.1228709360698536e-16; certified mp crossing n = 208",
+   "name": "T1 mp ladder stability: |rho_100 - rho_200| = 3.679620861680502e-102, |eps 1e-16 vs 1e-8| = 3.6443009605643548e-09, float64 dev 4.3433169853201667e-16; certified mp crossing n = 208",
    "pass": true
   },
   {

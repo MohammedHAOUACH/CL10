@@ -13,7 +13,7 @@
     0.0
    ],
    "gap_measured": 0.0,
-   "gap_V219_artifact": 9.887923813067728e-17
+   "gap_V219_artifact": 6.938893903907243e-17
   },
   "refined_q": [
    0.825816499798531,
@@ -184,11 +184,11 @@
   },
   "transverse_exponent": 0.9981754843689329,
   "status": "control:CANDIDATE-MASSIVE",
-  "wall_time": 429.7482931613922
+  "wall_time": 534.6548466682434
  },
  "checks": [
   {
-   "name": "T0 control node: V219 line point q0 = [0.825816499798531, 0.0, 0.0] re-derived gap 0.00e+00 vs booked 9.89e-17 (tol 1e-9)",
+   "name": "T0 control node: V219 line point q0 = [0.825816499798531, 0.0, 0.0] re-derived gap 0.00e+00 vs booked 6.94e-17 (tol 1e-9)",
    "pass": true
   },
   {

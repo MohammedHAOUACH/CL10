@@ -22,10 +22,10 @@
    "gate_phase": 3.926991
   },
   "star": {
-   "dvv": 0.999877593477445,
+   "dvv": 0.9998775934774988,
    "leading": 2,
-   "v_min": 0.00014733365353662798,
-   "v_max": 1.2036421790394214
+   "v_min": 0.0001473336534718628,
+   "v_max": 1.2036421790389347
   },
   "bare_control": [
    {
@@ -62,10 +62,10 @@
    "pass": true
   },
   {
-   "name": "T3 the star module: the equivariant census makes the star's invariants start at degree 2 (V219 measured leading azimuthal degree 2 on the two-fold line, odd-harmonic fraction 1.2e-12); the measured nodal-line cone is still delta_v/v = 0.9999 (v from 1.473e-04 to 1.204): pushing the first anisotropic harmonic up does not isotropize the node",
+   "name": "T3 the star module: the equivariant census makes the star's invariants start at degree 2 (V219 measured leading azimuthal degree 2 on the two-fold line, odd-harmonic fraction 1.1e-12); the measured nodal-line cone is still delta_v/v = 0.9999 (v from 1.473e-04 to 1.204): pushing the first anisotropic harmonic up does not isotropize the node",
    "pass": true
   }
  ],
- "status": "dressed-hop isotropy attempt: ANISOTROPY (zero fitted parameters, 2 s): at the closed clock pi/4 the V141 dressing is degenerate as a mechanism - A(h) = rho(h^2) = -I per bond, the step's six bond factors make the six insertions multiply to +I (dressed and bare spectra identical to 0e+00), and the electric gate is a scalar (5 pi/4, err 3e-14) - so it CANNOT move the cone: the dressed network's gapless points carry delta_v/v = 1.0000 (flat directions survive; the v = 1 statement is the front-speed maximum, measured 1.000000000 to 1.000000000); the star module, whose equivariant census starts at degree 2 with the odd harmonics dead (1e-12), gives delta_v/v = 0.9999 at its nodal line. Bare control: 1/5 0.294, pi/4 1.000. BEST delta_v/v over the attempt: 0.294 >= 1e-6. The bounded attempt fails; per the pre-registration this programme stops here - no third attempt.",
+ "status": "dressed-hop isotropy attempt: ANISOTROPY (zero fitted parameters, 4 s): at the closed clock pi/4 the V141 dressing is degenerate as a mechanism - A(h) = rho(h^2) = -I per bond, the step's six bond factors make the six insertions multiply to +I (dressed and bare spectra identical to 0e+00), and the electric gate is a scalar (5 pi/4, err 3e-14) - so it CANNOT move the cone: the dressed network's gapless points carry delta_v/v = 1.0000 (flat directions survive; the v = 1 statement is the front-speed maximum, measured 1.000000000 to 1.000000000); the star module, whose equivariant census starts at degree 2 with the odd harmonics dead (1e-12), gives delta_v/v = 0.9999 at its nodal line. Bare control: 1/5 0.294, pi/4 1.000. BEST delta_v/v over the attempt: 0.294 >= 1e-6. The bounded attempt fails; per the pre-registration this programme stops here - no third attempt.",
  "pass": true
 }

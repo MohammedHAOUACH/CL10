@@ -10,8 +10,8 @@
   "closed_clock_nan_placement": {
    "rederived_bare_nan": false,
    "rederived_decorated_nan": true,
-   "artefact_bare_nan": false,
-   "artefact_decorated_nan": true,
+   "artefact_bare_nan": true,
+   "artefact_decorated_nan": false,
    "note": "single-bit rounding placement of polyfit's log(0) at the pinned closed clock; pinning itself is the gate"
   },
   "t0_star_cell": {
@@ -73,58 +73,58 @@
    },
    "artifact_degrees": {
     "implemented": {
-     "bare": -0.10743390423138056,
-     "decorated": -1.2196990555403142,
+     "bare": -0.10743390423137811,
+     "decorated": -1.2196990555408147,
      "bare_gaps": [
-      0.040145428536769216,
-      0.0693335913525494,
-      0.0726687682370471,
-      0.07296211805401653,
-      0.07299548810606457
+      0.04014542853677072,
+      0.06933359135254784,
+      0.0726687682370454,
+      0.0729621180540172,
+      0.07299548810606503
      ],
      "decorated_gaps": [
-      0.000559189390697056,
-      0.0008629890665547602,
-      0.05090283264209127,
-      0.06578549501974473,
-      0.07085120286983622
+      0.0005591893906954016,
+      0.0008629890665549364,
+      0.05090283264209499,
+      0.06578549501974043,
+      0.07085120286984226
      ]
     },
     "closed": {
-     "bare": 0.5086736873158906,
-     "decorated": NaN,
+     "bare": NaN,
+     "decorated": 0.11415551767153224,
      "bare_gaps": [
-      2.0816681711721707e-17,
-      1.3615894131378717e-16,
-      2.7755575615628895e-17,
-      6.331740687315343e-17,
-      1.734723475976817e-18
+      7.600257229123321e-17,
+      2.0816681711721855e-17,
+      4.9005938196344726e-17,
+      0.0,
+      0.0
      ],
      "decorated_gaps": [
-      0.0,
-      9.714451465470185e-17,
-      3.5388358909926865e-16,
-      2.6888213877640288e-17,
-      1.5265566588595964e-16
+      2.0122792321330703e-16,
+      3.816391647149001e-17,
+      1.0625181290357946e-16,
+      9.714451465470188e-17,
+      6.42931888283909e-17
      ]
     }
    },
    "artifact_aniso": {
     "implemented": {
-     "bare_A": 8.020546201084515e-14,
-     "decorated_A": 0.010938289059363672,
-     "bare_vmax": 72.99842175177567,
-     "bare_vmin": 72.99842175176396,
-     "decorated_vmax": 73.79596527246056,
-     "decorated_vmin": 72.19902981497383
+     "bare_A": 8.760305316718463e-14,
+     "decorated_A": 0.010938289059351005,
+     "bare_vmax": 72.9984217517767,
+     "bare_vmin": 72.99842175176391,
+     "decorated_vmax": 73.79596527245776,
+     "decorated_vmin": 72.19902981497292
     },
     "closed": {
-     "bare_A": 0.999999999945298,
-     "decorated_A": 1.0,
-     "bare_vmax": 0.0004756835342755129,
-     "bare_vmin": 1.3010426069826094e-14,
-     "decorated_vmax": 0.00047568354433203693,
-     "decorated_vmin": 0.0
+     "bare_A": 1.0,
+     "decorated_A": 0.9999999999197704,
+     "bare_vmax": 0.0004756835342012218,
+     "bare_vmin": 5.5220263365470984e-27,
+     "decorated_vmax": 0.00047568354252793427,
+     "decorated_vmin": 1.9081958235745052e-14
     }
    },
    "drift_items": [],
@@ -584,11 +584,11 @@
    "vmax_le_1",
    "rho_gt_0_5"
   ],
-  "wall_time": 3104.5408096313477
+  "wall_time": 4008.8791995048523
  },
  "checks": [
   {
-   "name": "T0a V250 star-cell decoration re-derived against the live artefact (implemented degrees -0.1074/-1.2197 vs booked -0.1074/-1.2197; closed bare 0.5087 vs 0.5087; closed decorated NaN contract True; implemented decorated A 1.094e-02 vs 1.094e-02; closed aniso velocities to 1e-9 rel); triplet hermiticity 2.2e-16",
+   "name": "T0a V250 star-cell decoration re-derived against the live artefact (implemented degrees -0.1074/-1.2197 vs booked -0.1074/-1.2197; closed bare 0.5087 vs nan; closed decorated NaN contract True; implemented decorated A 1.094e-02 vs 1.094e-02; closed aniso velocities to 1e-9 rel); triplet hermiticity 2.2e-16",
    "pass": true
   },
   {
