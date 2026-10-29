@@ -1,6 +1,6 @@
 # The verification program
 
-215 experiments (the 212 of the publication programme plus the 3 exploration
+218 experiments (the 215 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git
@@ -11,11 +11,12 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**84 of the 188 publication experiments still write the older
+**85 of the 215 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
-run_validation.py` runs all of them and rolls the verdicts up into
+run_validation.py` gates them by fingerprint (only new or changed experiments
+re-run; `--full` re-executes all) and rolls the verdicts up into
 `results/validation_summary.json`.
 
 The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
@@ -212,6 +213,10 @@ the claim asserts, not when a script merely mentions the word.
 | `V264_composite_desert_content` | **NO-CONTENT** (tier 3, hard, F2): V237's threshold rule copied verbatim and proven faithful — rerun on V237's own content it reproduces its committed artifact to $0.0$; the composite multiplicity table is empty, and kernel states are in any case annihilated by all 45 charges (Spin(10) singlets, $\Delta b = (0,0,0)$, no SM $(1,2)$ branching): there is no desert content the (1,2)-shift demand could act on; V237's NOT-REALIZABLE verdict stands |
 | `V265_composite_f8_contact` | **NEVER-REALIZED** (tier 5, F8): no composite ground/first-excited kernel state to carry a $T_{2g}$ spin-2 channel at $c = 1$ (band $\lvert c_{\rm gw} - 1\rvert < 10^{-15}$, V258's); V229's quintet machinery verified live on import (Emat gram $2.2\times10^{-16}$, $q_5$ $2.2\times10^{-16}$, $J$-algebra $2.2\times10^{-16}$; six star axes = 12 directed rays — the plan's "15 star axes" has no committed referent) |
 | `V266_finite_size_convergence` | **NEVER-REALIZED** (tier 2, hard): the gap ladder is undefined at every grid — kernel dim measured 0 at N = 4, 6, 8 (the 45 charges never depend on q, so emptiness is not a finite-size effect); min gaps and the trend exponent recorded as undefined |
+| `V277_bond_decoration_cone_scan` | DECORATION-BEST |
+| `V278_range2_parity_cone` | CONE-RANGE2-ABSENT |
+| `V279_candidate_protection` | control:CANDIDATE-MASSIVE |
+| `V290_anisotropy_relevance` | ANISOTROPY-RELEVANT |
 
 ### `gauged_layer`
 | id | verdict |
@@ -233,6 +238,11 @@ the claim asserts, not when a script merely mentions the word.
 | `V272_dynamical_chain` | **CHAIN-ALIVE** (tier 2, hard, zero fitted): two composites sharing one link, $P_1 \otimes l \otimes P_2$: the repulsion operator $\sum_a Q_1^{a\dagger} Q_1^a + Q_2^{a\dagger} Q_2^a$ on the $6144$-dim atom-kernel-slice $h$-space has an **exact kernel of dim 12** (predicted $\sum_r m_r^2 = 12$; gap $3.6 \times 10^{1}$), Gram orthonormal to $10^{-12}$; the chain ground (spectrum $\{0 \times 4, 32 \times \ldots\}$) obeys all 90 Gauss charges to $1.8 \times 10^{-15}$, and the tree-level link-mediated exchange vanishes: $E_{\rm int} = \rho = -1.2 \times 10^{-13}$ (the ground channels are singlets on both atoms) |
 | `V274_new_theory_ledger_conjunction` | **NEW-CONJUNCTION-DEAD** (tier 5/6, zero fitted): the refonte ledger - 13 booked quantities: conventions 2 (rotor unit, truncation {1,45,210}), algebraic 2, measured 8, never-realized 1, fitted **0** - and the new theory's own conjunction at three points (0.2 implemented / pi/4 closed / 1/5 rung - the last verified identical to the first, $0.2 = 1/5$ exactly) x four legs: at the implemented clock **Y/Y/Y/N** (kernel 6 recomputed, ladder $(1/2-g)C_{2\ell}$ to $4.5\times10^{-13}$, Gauss transport $2.1\times10^{-16}$, chain kernel 12 with ground Gauss to $1.6\times10^{-15}$, $\rho = 1.1\times10^{-12}$ - only the LOOP leg fails); at $\pi/4$ **Y/Y/N/N**: the ladder still holds to $5.2\times10^{-13}$ and $E_0 = (1/2-\pi/4)\cdot 96 = -27.398224$, but the chain ground polarizes onto a single atom and breaks the shared-link Gauss law (defect 1.5) - the frozen point is chain-consistent only at clocks $g < 1/4$; $F_2(\pi/4) = -1$ exactly, $F_3$ booked only on exact closure ($4.8\times10^{-33}$ at 0.2; not booked at $\pi/4$: closure residual $1.3\times10^{-8}$) — no loop candidate in band — **NEW-CONJUNCTION-DEAD** at every point |
 | `V275_offkernel_exchange_resolvent` | **OFFKERNEL-UNBORN** (tier 2, hard, O8-new, zero fits): the resolvent grown from the 540 INDIVIDUAL off-kernel exchange vectors, not the six channel sums whose Krylov closed in dim 4 (the retired V273 had recorded the unprojected exchange span as H-non-invariant; V275 measures the projected span itself): projected span rank 448 recorded (tol 1e-9); the seed sweep orthonormalizes 356 directions and ONE H step adds nothing - growth [356, 0], the projected full span closes under the compressed atom Hamiltonian (closure residual 4.3e-08, above the 1e-8 exactness gate and booked flagged: the leak is 4e-8 relative on the 1e-32 scale of $J_2$, the band verdict cannot move); on the closed 356-dim space $F5 = J2/g_{10} = 1.931\times10^{-31}$ ($J2 = 3.861\times10^{-32}$, imag $9.1\times10^{-49}$), min resolvent denominator $\lvert E_g - \mathrm{spec}\rvert = 25.6$, mpmath 60/100 control $0.0$; $\lvert 16\pi F5 - 1\rvert = 1.000$ - the composite is transparent to its link from ALL off-kernel intermediates |
+| `V282_link_cubic_invariant` | CUBIC-PRESENT-FROZEN |
+| `V286_module_link_invariant_hop` | LINKINV-HOP |
+| `V287_quintet_bubble_null` | BUBBLE-NULL |
+| `V288_bekenstein_truncation` | BEKENSTEIN-MAP |
+| `V299_multicell_antiunitary` | CPT-CHAIN-VIOLATION |
 
 ### `gravity`
 | id | verdict |
@@ -242,6 +252,10 @@ the claim asserts, not when a script merely mentions the word.
 | `V51_numrel` | $3{+}1$ BSSN/Z4 evolution: the constraint rows agree to $O(h^2)$ |
 | `V208_metric_bilinear_cone` | the metric is a bilinear of the bond layer: bond(6 oriented) $= A_{1g}\oplus E_g\oplus T_{1u}$ lacks the quintet's $T_{2g}$ and $\mathrm{Sym}^2 = A_{1g}\oplus E_g\oplus T_{2g}$ lacks the $T_{1u}$, so one bond amplitude cannot be the metric (exact characters); the commutant of the $36$-state bilinear has dimension $34$ — $34$ allowed self-couplings, none chosen; parity wall: the hop velocity is polar and its block inside the even (metric) sector vanishes ($2.7\times10^{-16}$), the axial dressing survives with spectrum $g\{0,\pm1,\pm2\}$ in every direction; the committed triple `cone_generator.json` is Clifford-regular (defect $1.4\times10^{-13}$) with an exactly direction-independent $36$-branch spectrum ($5.2\times10^{-15}$ over $44$ directions), a cone subspace of dim $8$ at slope $1$ with content $E\oplus T_1\oplus T_2$ (quintet weight $5.0000$), $4$ branches at slope $0$, $\mathrm{M}(0) = I$ exactly — no mass term writable in the class — and an exponentially local kernel; the covariant velocity space is $160$-dimensional and the exact-cone family through the generator $53$-dimensional (Jacobian rank $107$), and neither implemented triple lies in it (hop $0.0029$, dressing $0.0092$): the layer gives $c_{\rm gw}/c = 1.5708 = 2\pi/4$, excluded by GW170817 (**F8**), and the clock $g = 1/2$ that would fix it is in V206's dead zone ($n^* = 3$, deficit $1.4\times10^{-3}$); $G = 1/(4\ln 45) = 6.567\times10^{-2}$, cell $2\sqrt{\ln 45} = 3.902\,\ell_{\rm P}$, Bekenstein gap $4\ln 45 = 15.227$ |
 | `V211_frame_stabiliser_gravity_gauge` | **what the root forces in the gravity/gauge sector, measured on the committed generators**: the $45$ bivectors close on $\mathfrak{so}(10)$ (defect $1.8\times10^{-15}$, Killing $64\,\mathbb 1$) with one trace form $\mathrm{Tr}(T_aT_b) = -32\delta_{ab}$; the background metric is the Clifford pairing of the causal span, $\mathrm{diag}(1,-1,-1,-1)$ exactly; the stabiliser of that plane is $\mathrm{spin}(4)\oplus\mathrm{spin}(6)$ ($21 = 6+15$) and the other $24$ generators form a $\mathbb Z_2$-graded coset ($10^{-15}$ both ways); $\mathfrak{su}(2)_L\oplus\mathfrak{su}(2)_R$ closes with residual exactly $0$; $\mathfrak{u}(3) = \mathfrak{su}(3)\oplus\mathfrak u(1)$ sits inside $\mathrm{spin}(6)$; the $B-L$ spectrum of the $\mathbf{16}$ is $(+\tfrac13)^6(-1)^2(-\tfrac13)^6(+1)^2$ and $\mathrm{Tr}\,Y^2/\mathrm{Tr}\,T_{3L}^2 = 5/3$ as a trace ratio. The boundary is recorded at V208's committed values (hop $0.29\%$, dressing $0.92\%$, a $53$-dimensional exact-cone family, $c_{\rm gw} = 1.570796$): content and couplings forced, the selected cone not |
+| `V285_most_local_lightlike_generator` | CONE-SELECTION-ABSENT |
+| `V289_geometry_mc` | MC-TUNED |
+| `V300_cone_measure_selection` | CONE-MEASURE-NO-MASS |
+| `V301_geometry_gap_ladder` | GEOMGAP-OFF-BAND |
 
 ### `scales_loopfactor`
 | id | verdict |
@@ -271,6 +285,10 @@ the claim asserts, not when a script merely mentions the word.
 | `V233_clock_arbitration` | **the clock decision, F2 clock side FIRED** (zero fitted inputs): the 2x2 score over the clocks $\{\pi/4, 1/5\}$ against (i) the observed hierarchy coefficient $2.076564 \pm 10^{-4}$ and (ii) the fitted desert coupling $0.04$: $\pi/4$ reads 2.7095 certified (+30.5%, 6330x the uncertainty - the V209 number), $1/5$ reads 2.0881 (+0.55%, 115x) - NEITHER fits, and the claimed $1/5$ agreement is a FIT at $g_{\rm obs} = 0.1999980$ ($2.0\times10^{-6}$ off the fifth); $\pi/4$'s standard coupling reading $\pi/64 = 0.049087$ is $1.227\times$ the fitted value and $1/5$'s $0.0400$ matches only by the fit; the clock moves from the algebraic to the fitted class, and no closed clock passes either empirical contact |
 | `V234_rung_phase_spectrum` | **the rungs are declared, not solved** (zero fitted inputs): on the 36-level cell step only $\mathrm{loop}^3$ is numerically realized (matched to 1e-16); $\mathrm{loop}^{10} = 9.71\times10^{-18}$ sits below the float64 phase resolution and is certified only by the exact ladder construction; no other integer $0..30$ matches any level phase; the DM window pins $\mathrm{rung}_B = 10$ uniquely, and rung 10 admits NO rung_A whose identity $m_B^2/m_A$ lands inside the measured neutrino contacts (rung_A 3 gives 0.146 eV - the published EXCLUDED ladder; rung_A 2 gives 0.0029 eV, and 2.7265 demanded by the atmospheric scale is not realizable by integer rungs); the pair $(3, 10)$ is a config declaration; F3 recorded FIRED |
 | `V276_certified_ladder_208` | **LADDER-N10-CONVENTION / CROSSING-MEASURED** (tier 4, O8): the certified closed branch reproduced verbatim before interpretation ($\rho = 0.9780302704295731$, $\lvert d\rvert$ 6.7e-16 vs V204; crossing $n^* = 208$; odd-$n$ $3.4\times10^{-15}$ - no MACHINERY-DRIFT); three ladder reads $3(16\pi F)^{10}$ vs observed $2.076564111173832$: open-clock $F_{10} = 0.019186391026184392$ gives $2.088105749082429$ (+0.56 %, the V108 convention re-read from V85 full precision to 1e-9), the certified crossing $F_{208} = 0.01968515418112789$ gives $2.6990318848857733$ (+29.98 %, OUTSIDE the 2 % gate), and the geometric continuation back to $n = 10$ (the ratios DECAY with $n$; divide by $\rho^{198}$, factor 81.3290) gives $F_{10}^{\rm geom} = 1.6010$ and a runaway $3.4\times10^{19}$; PSLQ over Q on $(1,\rho,\rho^2,\rho^3,\rho^4)$, degree $\le 4$, height cap 1e4: NO relation (raw candidate $(-473,-2,-151,354,315)$, residual $6.6\times10^{-13}$ - noise fit at the float64 floor, rejected); geometric crossing anchored at ($F_{10}$, $\rho$): $n = 8.368849802334156$ ($\pm7.5\times10^{-8}$), 199.631 short of 208; census $208 = 2^4\cdot13$, clock order $8 \mid 208$, rungs 3/10/17 divide nothing; the pre-registered clause fires: the ladder base $1/(16\pi)$ reclassified as a declared named input of the scale sector, no further O8-mechanism GPU experiments booked |
+| `V281_flux_kernel_trace_loop` | FLUXLOOP-NEGATIVE |
+| `V283_metric_trace_loop` | METRICLOOP-NEGATIVE |
+| `V284_crossing_arithmetic_final` | CROSSING-MEASURED-FINAL |
+| `V297_trace_action_ledger` | TRACE-ACTION-ABSENT |
 
 ### `couplings_unification`
 | id | verdict |
@@ -309,6 +327,8 @@ the claim asserts, not when a script merely mentions the word.
 | `V103_democratic_point` | with the implemented democratic Dirac matrix the two massless states are protected |
 | `V114_junction_r` | the junction stabilizer: $r$ is a convention, not a tuning |
 | `V136_majorana_word` | the $\Delta L = 2$ operator is not a gauge-link composite |
+| `V303_junction_energy_r` | R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE |
+| `V305_onset_neutrino_contacts` | ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED |
 
 ### `cosmology_darkmatter`
 | id | verdict |
@@ -335,6 +355,8 @@ the claim asserts, not when a script merely mentions the word.
 | `V109_cp_phase_search` | mirror-preserving extensions supply no CP phase; class-dependent dressings break the mirror |
 | `V117_real_form` | the module is of real (Majorana) type: that is what forbids the phase |
 | `V125_cp_flux_washout` | the CP flux spent on the asymmetry |
+| `V296_flux_baryogenesis_ledger` | LEDGER-INSUFFICIENT |
+| `V298_rung_portal_ledger` | PORTAL-NAMED-INPUT |
 
 ### `family_number`
 | id | verdict |
@@ -344,11 +366,18 @@ the claim asserts, not when a script merely mentions the word.
 | `V91_count3_forcing` | the count $3$ is a symmetry-breaking input, not a forced number |
 | `V116_triangle_orbit8` | the cubic orbits of node triangles; the 3-node set breaks the cubic symmetry |
 | `V127_triangle_energies` | the energies of the eight triangle vacua: the degeneracy is not the junction's |
+| `V291_higgs_host_channels` | HIGGS-HOST-PRESENT |
+| `V292_vev_host_mixing` | MIX-UNCHANGED |
+| `V293_r_quantization` | R-QUANTIZED |
+| `V294_democratic_mD_forced` | RANK-FREEDOM |
+| `V302_mD_host_forcing` | MD-HOST-ASYMMETRIC |
+| `V304_realizable_mixing_census` | MIXING-REALIZABLE-EMPTY |
 
 ### `phenomenology`
 | id | verdict |
 |---|---|
 | `V62_hydrogen_production` | the $296^3$ hydrogen run: resonant absorption, the $1s \to 2p$ deformation (Fig. 2) |
+| `V295_triangle_selection` | TRIANGLES-DEGENERATE |
 
 ### `alt_step` (exploration programme)
 | id | verdict |

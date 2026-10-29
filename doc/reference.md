@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (215 of them under `experiments/<category>/`: the 212 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (218 of them under `experiments/<category>/`: the 215 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -567,6 +567,83 @@ statement) — no antiunitary acts exactly on the multicell chain *at the
 level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
+
+## The neutrino truth programme (2026-10-29): V303, V304, V305
+
+Reader instruction: "the physics must be true as well" — applied to the one
+sector carrying a value inside the measured data (the 1/3 candidate).
+
+**V303 - the junction energy selects the democratic onset of r.**
+`experiments/neutrino/V303_junction_energy_r` sweeps the V127 junction
+vacuum energy over its stable branch $r < 2$ — a branch V127 never entered
+(its points $0.5, 1.0, 3.0$ are all at or past the crossings) - with the
+convention booked before the run: both functionals in the canonical
+$r = \kappa/w_0$ (levels $1 + (r/2)\mu_k$); V127's quadratic functional
+`e_quad` carries a doubled convention while its one-loop and crossings use
+the canonical one. T0 anchors re-derived exact. The tree-level zero-point
+sum is $r$-FLAT (trace theorem, deviation $8.9\times10^{-16}$), so the
+whole $r$-dependence is one-loop: $\Delta E$ strictly monotone, slopes
+$-4.65 \to -31.9$, interior minima $0$, closed form verified to
+$8.9\times10^{-14}$ (grid capped at $1.98$: eigenvalue noise is log-
+amplified approaching the onset). NEW structure booked: the support graph
+splits into components $[3,6,3]$ — two triangles and a 6-cycle, matching
+V127's "closed triangles: 2" — with massless crossings at
+$[1.0, 1.154701, 1.236068, 1.414214, 2.0]$: the triangles are the LAST
+modes to go, exactly at the democratic point. Over the 4096 split sets:
+832 cross below the window edge 1.278, 1600 below 1.9191 (and the same
+1600 below 2), 287 never go massless; the energy minimiser takes sizes
+$[9,10,11,12]$ as the fragment crossings consume it, the full 12-set
+minimises at 20/39 grid points (below its own 6-cycle crossing), maximum
+ties 12 — and the closing triangle attains the minimum at zero grid
+points: the junction energy never selects the triangle (O3 stands as
+input; V295 unchanged). Contact: the attractor $r \to r^* = 2$ gives
+$m_3 = S_{17}/3 = 0.048749$ eV against the booked atmospheric 0.0501 eV —
+relative residual $-2.70\%$, named; the window edge re-derived at
+$r = 1.278001$. **R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE.** Branch-
+name deviation booked honestly: the pre-registration predicted
+VACUUM-SELECTS-ALL-12 as the alternative to TRIANGLE-SELECTED; the
+measurement gives neither (the 12-set minimises only below $r = 1$) and
+the rename records what was measured. The candidate value $S_{17}/3$ is
+now supplied twice - ladder × mixing eigenvalue, and seesaw at the
+energy-selected onset ($1/3 = 1/(1+r)$ at $r = 2$) — a boundary, marginal
+attractor with a named 2.7 % atmospheric residual, not a landing.
+
+**V304 - the realizable mixing census: empty.**
+`experiments/family_number/V304_realizable_mixing_census` closes V104's
+generic scan from the other side: over the ENTIRE booked realizable
+scalar sector - all 7 non-empty combinations of the V291 neutral host
+channels $\{6,7,9\}$, chain-H energies $32, 32, 48$, total $c = 112$
+re-derived to the V292 booked value — every correction is $c\times$ones
+(eigenvalues $(3+c,0,0)$, heavy eigenvector $(1,1,1)/\sqrt3$) and NO
+mixing angle moves: maximal shift $1.1\times10^{-16}$. The locked point
+$(1/3, 1/2, 0)$ against the NuFIT dictionary imported from V104's own
+module: $\sigma_{12} = +1.95$, $\sigma_{23} = +1.20$, $\sigma_{13} =
+-41.9$; joint fraction exactly 0. **MIXING-REALIZABLE-EMPTY**: the
+$1/3 \to 0.307$ fixup and the whole $\theta_{13}$ deficit require a
+declared direction; no realizable vev supplies one. O6/O2 mixing stays a
+named input, now on the exhaustiveness of the realizable set rather than
+a sample.
+
+**V305 - the neutrino contacts of the selected spectrum.**
+`experiments/neutrino/V305_onset_neutrino_contacts`: at the attractor
+$r = 2$ the spectrum $(0, 0.0086, 0.0487)$ eV sums to $0.057349$ eV,
+$10.7\%$ under the booked ceiling $0.0642$ eV (the atmospheric point
+$r = 1.9191$ gives $0.0587$); the bare ladder (sum $0.146$ eV) stays
+excluded. Laboratory contacts and the re-score of a published claim:
+V45 books $\sin^2\theta_{23}, \sin^2\theta_{13}$ as an O(2) family with
+$\sin^2\theta_{13}$ free on $[0, 2/3]$; over that booked family the
+neutrinoless amplitude has envelope $[5.8\times10^{-5}, 0.033455]$ eV and
+the published "$m_{\beta\beta} \simeq 0.02$ eV, in reach" sits INSIDE the
+free family - it is a sector choice, not a prediction (flagged
+BB-ENVELOPE-DECLARED). Under the measured oscillation fractions
+(V292's booked obs_pmns) $m_{\beta\beta}$ is $[0.001510, 0.003655]$ eV
+and $m_\beta = 0.008631$ eV: out of reach of current and next-generation
+neutrinoless-decay and beta-decay searches. The falsifiable contact of
+this sector is the cosmological sum. **ONSET-SPEC /
+SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED.** Paper Section 12.3 rewritten
+accordingly (the reach sentence corrected); the candidate remains a
+candidate: structure protected, value inside the ceiling, attractor
+supplied, the 2.7 % atmospheric residual and the declared $m_D$ standing.
 
 ## The geometry measure and the flavour host (2026-10-29): V302
 

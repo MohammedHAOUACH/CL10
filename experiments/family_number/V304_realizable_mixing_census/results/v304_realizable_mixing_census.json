@@ -1,0 +1,195 @@
+{
+ "id": "V304_realizable_mixing_census",
+ "tier": 3,
+ "property": "mixing corrections of the entire realizable scalar sector (V291 hosts, V294 commutant, V104 NuFIT)",
+ "residual": true,
+ "programme": "V304",
+ "branch": "MIXING-REALIZABLE-EMPTY",
+ "data": {
+  "t0": {
+   "democratic_eigs": [
+    0.0,
+    9.064933036736789e-17,
+    3.0
+   ],
+   "family_3fold": true,
+   "commutant_dim": 2,
+   "commutant_generators_ok": true,
+   "c_artifact": 111.99999999999972,
+   "shift_artifact": 2.220446049250313e-16
+  },
+  "t1": {
+   "hosts": [
+    6,
+    7,
+    9
+   ],
+   "p0": [
+    0.06800712118348176,
+    0.21819983285784306,
+    0.395758256581777,
+    0.3145029198693264,
+    0.19624082408863375,
+    0.20662687728410864,
+    0.8978411177625885,
+    0.5141503189361065,
+    0.2008281493053308,
+    0.6229266052580874,
+    0.36135885817674973,
+    0.003559118695966282
+   ],
+   "per_host_E": {
+    "6": 32.00000000000006,
+    "7": 32.00000000000007,
+    "9": 47.999999999999595
+   },
+   "combos": [
+    {
+     "W": [
+      6
+     ],
+     "c": 32.00000000000006,
+     "eigs": [
+      -1.617760944230692e-14,
+      1.96675472710491e-15,
+      105.00000000000016
+     ],
+     "s12_heavy": 0.3333333333333334,
+     "angle_shift": 1.1102230246251565e-16
+    },
+    {
+     "W": [
+      7
+     ],
+     "c": 32.00000000000007,
+     "eigs": [
+      -1.3258907954028408e-14,
+      -9.519467611735969e-16,
+      105.0000000000002
+     ],
+     "s12_heavy": 0.3333333333333334,
+     "angle_shift": 1.1102230246251565e-16
+    },
+    {
+     "W": [
+      9
+     ],
+     "c": 47.999999999999595,
+     "eigs": [
+      -1.0658141036401506e-14,
+      3.5527136788005005e-15,
+      152.9999999999988
+     ],
+     "s12_heavy": 0.3333333333333333,
+     "angle_shift": 0.0
+    },
+    {
+     "W": [
+      6,
+      7
+     ],
+     "c": 64.00000000000013,
+     "eigs": [
+      -7.65503407641877e-15,
+      5.496067188177688e-16,
+      201.00000000000034
+     ],
+     "s12_heavy": 0.3333333333333334,
+     "angle_shift": 1.1102230246251565e-16
+    },
+    {
+     "W": [
+      6,
+      9
+     ],
+     "c": 79.99999999999966,
+     "eigs": [
+      -1.4500990628598252e-14,
+      2.9013591339624417e-16,
+      248.99999999999898
+     ],
+     "s12_heavy": 0.3333333333333333,
+     "angle_shift": 0.0
+    },
+    {
+     "W": [
+      7,
+      9
+     ],
+     "c": 79.99999999999966,
+     "eigs": [
+      -1.4500990628598252e-14,
+      2.9013591339624417e-16,
+      248.99999999999898
+     ],
+     "s12_heavy": 0.3333333333333333,
+     "angle_shift": 0.0
+    },
+    {
+     "W": [
+      6,
+      7,
+      9
+     ],
+     "c": 111.99999999999972,
+     "eigs": [
+      -4.891182024790208e-14,
+      6.279256102296056e-15,
+      344.9999999999991
+     ],
+     "s12_heavy": 0.3333333333333333,
+     "angle_shift": 0.0
+    }
+   ],
+   "c_all": 111.99999999999972,
+   "c_artifact_check": true,
+   "max_angle_shift": 1.1102230246251565e-16
+  },
+  "t2": {
+   "locked_point": [
+    0.3333333333333333,
+    0.0,
+    0.5
+   ],
+   "nufit_imported": {
+    "s12": [
+     0.308,
+     0.013
+    ],
+    "s13": [
+     0.02221,
+     0.00053
+    ],
+    "s23": [
+     0.47,
+     0.025
+    ]
+   },
+   "sigma": {
+    "s12": 1.9487179487179478,
+    "s13": -41.905660377358494,
+    "s23": 1.200000000000001
+   },
+   "joint_frac_census": 0.0
+  },
+  "status": "MIXING-REALIZABLE-EMPTY",
+  "wall_time": 0.0014629364013671875,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 V45 democratic (0,0,3) rank 1 with the booked 3-fold family symmetry; V294 commutant span(I,J) dim 2; V292 shift 2.2e-16: OK",
+   "pass": true
+  },
+  {
+   "name": "T1 census of the 7 non-empty host combinations: every correction is c x ones (eigs (3+c,0,0)), maximal angle shift 1.1e-16 over the entire realizable sector; c(all) = 112.0 reproduces V292's booked 112.0",
+   "pass": true
+  },
+  {
+   "name": "T2 the locked democratic point (1/3, 0, 1/2): sigma_12 = +1.95, sigma_13 = -41.91, sigma_23 = +1.20 (NuFIT imported from V104); joint fraction over the realizable census = 0.0",
+   "pass": true
+  }
+ ],
+ "status": "MIXING-REALIZABLE-EMPTY",
+ "pass": true
+}

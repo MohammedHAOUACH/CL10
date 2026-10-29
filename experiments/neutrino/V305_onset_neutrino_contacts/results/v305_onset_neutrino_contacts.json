@@ -1,0 +1,79 @@
+{
+ "id": "V305_onset_neutrino_contacts",
+ "tier": 3,
+ "property": "laboratory and cosmology contacts of the energy-selected neutrino spectrum",
+ "residual": true,
+ "programme": "V305",
+ "branch": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+ "data": {
+  "spectra": {
+   "selected": {
+    "r": 2.0,
+    "m_eV": [
+     0.0,
+     0.0086,
+     0.04874922781428075
+    ],
+    "sum_eV": 0.05734922781428076,
+    "margin_vs_ceiling_pct": 10.670984712958308
+   },
+   "atm_point": {
+    "r": 1.9191154379808832,
+    "m_eV": [
+     0.0,
+     0.0086,
+     0.0501
+    ],
+    "sum_eV": 0.0587,
+    "margin_vs_ceiling_pct": 8.5669781931464
+   }
+  },
+  "bare_ladder": {
+   "S17_eV": 0.14624768344284225,
+   "sum_eV": 0.14624768344284225,
+   "excluded_by_ceiling": true
+  },
+  "lab_contacts": {
+   "oscillation_measured": {
+    "m_beta_eV": 0.00863069596468038,
+    "m_bbeta_interval_eV": [
+     0.0015096325880858236,
+     0.0036545986119141767
+    ]
+   },
+   "model_locked_s13_0": {
+    "m_beta_eV": 0.004965212315030782,
+    "m_bbeta_interval_eV": [
+     0.0028666666666666667,
+     0.0028666666666666667
+    ]
+   },
+   "model_O2_envelope": {
+    "m_beta_max_eV": 0.03990667345324013,
+    "m_bbeta_envelope_eV": [
+     5.8234020587020693e-05,
+     0.033455040765076056
+    ],
+    "sin2_13_booked_range": [
+     0.0,
+     0.6666666666666666
+    ]
+   }
+  },
+  "status": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+  "wall_time": 0.001169443130493164,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0 spectra: selected r=2.0000 sum 0.0573 eV and atmospheric-point sum 0.0587 eV against the booked ceiling 0.0642 eV; bare ladder sum 0.146 eV excluded",
+   "pass": true
+  },
+  {
+   "name": "T1 mixing reads: m_beta = 0.00863 eV measured fractions, model O(2) envelope up to 0.03991 eV; m_bbeta [0.00151, 0.00365] eV measured fractions vs the model O(2) envelope [0.00006, 0.03346] eV: the published ~0.02 eV is a sector choice inside the O(2) family (BB-ENVELOPE-DECLARED)",
+   "pass": true
+  }
+ ],
+ "status": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+ "pass": true
+}

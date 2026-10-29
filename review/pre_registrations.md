@@ -3108,3 +3108,139 @@ honesty invariant is preserved: every verdict folded from disk is one
 the current tree's own code produced - the fingerprints are what make
 "on disk" mean "by this code" - and the hard-tier verdict, the
 number_audit gate and the dated reference paragraphs are unchanged.
+
+# The neutrino truth programme: pre-registrations V303-V305
+
+Reader instruction (2026-10-29): "I want the physics to be true as well."
+The one sector where the theory already carries a value inside the measured
+data (the 1/3 candidate, Section 12.3) receives its last three experiments.
+Nothing here may be refitted to land in band; any dial touched reclassifies
+to fitted. The candidate's standing numbers are re-read from booked
+artifacts only: S17 = loop_ladder(17) (V103's source), the NuFIT scales and
+the 0.0642 eV ceiling (cl10/config neutrino constants via V103), the
+democratic matrix and mixing (V45), the commutant span{I, J} (V294), the
+host channels and weights (V291), the family-symmetric insertion point
+c = 112 and angle shift 2.2e-16 (V292).
+
+## V303_junction_energy_r (tier 2, hard, O2)
+**The question (pre-registered).** The junction ratio r = kappa/w0 is not
+derived by the shape (V114: the stabilizer-symmetric closed family is
+2-dimensional) and not quantized (V293 books the family multiplicity, a
+different r). Is it selected by ENERGY: on the stable branch 0 < r < r* of
+the V127 quadratic junction theory, does the measured vacuum energy have an
+interior minimum - and does the minimum, or the energy's flow, land on the
+democratic onset r* = 2 (the candidate's anchor) inside the cosmological
+window r > 1.278?
+**The object (closed input set).** V127's machinery verbatim (NODES =
+cl10.supercell.M_POINTS, the support set, the closing triangle SEL, the
+adjacency, the one-loop functional delta_E(S, r) = sum_k log|1 + (r/2)
+mu_k(A_S)|^2, the 4096 split sets). Convention fixed before any run and
+booked: both functionals run in the canonical junction ratio r = kappa/w0
+(levels 1 + (r/2) mu_k); V127's quadratic functional e_quad uses a doubled
+convention (1 + r mu) while its crossing search and one-loop use the
+canonical one - V127's sweep points (0.5, 1.0, 3.0) are canonical r values
+in its one-loop and selection tables, and none of them enters the stable
+branch r < 2: the stable branch has never been swept, and that is what
+this experiment measures. No dial, no optimisation: grids only.
+**Measured (pre-registered).** T0 reproduction: the V127 artifact anchors
+(8-member cubic orbit, K3 degrees [2,2,2], 12 edges, 0 exiting, junction
+group order 12, trace theorem < 1e-9, first crossings {2.0}); drift halts.
+T1 the closing-triangle functionals on r in (0, 2): the tree-level zero-
+point sum is r-FLAT (trace theorem: measure the deviation), the one-loop
+delta_E is strictly monotone (sign-count the derivative; interior minimum
+count booked), and its exact closed form 2 log(1+r) + 4 log|1 - r/2| is
+verified to 1e-12. T2 the full 4096-set sweep on the stable branch: per-set
+first massless crossing r_S = -2/mu_min (buckets below 1.278, below 1.9191,
+below 2, none), and at every r of a 0.05 grid the energy minimiser among
+finite sets (its size, its multiplicity, and whether the closing triangle
+or its junction orbit ever attains it). T3 the contact: the attractor r ->
+r* = 2 gives m_3 = S17/3 (re-read S17) against the booked atmospheric
+scale M_ATM_EV - the relative residual booked as a named number; the
+window r > S17/SUM_MNU_MAX_EV - 1 re-derived.
+**Branch (pre-registered).** R-ONSET-DEMOCRATIC (no interior minimum, the
+energy flows to the massless onset r* = 2) vs R-WINDOW-MIN (an interior
+minimum is found and booked) vs MACHINERY-DRIFT; crossed with
+VACUUM-SELECTS-ALL-12 (the 12-node split set minimises at every window r)
+vs TRIANGLE-SELECTED (the closing triangle attains the minimum for some
+booked r range, range booked); the atmospheric residual is booked in the
+verdict in either case. The r mechanism, if found, is an energy attractor
+at a boundary point (a marginal selection), and this is said in the
+verdict text: a boundary attractor with a 2.7 %-class residual against
+the atmospheric scale is NOT a landing on the measured value.
+
+## V304_realizable_mixing_census (tier 3, O2)
+**The question (pre-registered).** V104 scanned GENERIC vev directions and
+found joint NuFIT fraction 0.0; V292 measured the ONE realizable insertion
+and found the angles unmoved (shift 2.2e-16). Is the mixing correction of
+the ENTIRE realizable sector exactly {0}: every neutral chain-kernel host
+channel of V291 (indices {6,7,9}, weights p0), all 7 non-empty combinations,
+with the family-symmetric insertion justified by the re-derived booked
+facts (V45 family_symmetry equivalent_3fold, V294 commutant span{I, J})
+rather than asserted?
+**Measured.** T0: V45 democratic spectrum re-read (rank 1, eigs {0, 0, 3}),
+V292's point re-run (angle shift < 1e-12, c = 112 from the booked
+spectrum). T1: the census - correction c(W) = sum_{i in W} p0_i x (booked
+chain-H energy) over the 7 subsets, M(c) = (3 + c) x ones: eigenvalues
+{3+c, 0, 0}, the heavy eigenvector stays (1,1,1)/sqrt(3): the maximal
+angle shift over the census booked (expected < 1e-12: the whole realizable
+correction lives in span{J} by the re-derived commutant). T2: the contact
+of the locked point (sin2 12 = 1/3, sin2 23 = 1/2, sin2 13 = 0) against the
+V104-borne NuFIT dictionary (imported from V104's module, not retyped):
+sigma per angle booked; joint fraction over the census is 0 exactly if any
+angle sits beyond its band.
+**Branch.** MIXING-REALIZABLE-EMPTY (max shift < 1e-12 and joint fraction
+0.0: no realizable scalar moves any angle; the 1/3 -> 0.307 fixup requires
+a declared direction) / MIXING-REALIZED-N. The theta13 sigma is booked
+either way: the democratic point carries sin2 13 = 0.
+
+## V305_onset_neutrino_contacts (tier 3, O2)
+**The question (pre-registered).** Under V303's branch, what are the exact
+laboratory and cosmology contacts of the energy-selected (or window-
+minimum) spectrum - and which of the published reach claims survives with
+the theory's OWN mixing versus measured mixing?
+**Measured.** r_sel from V303's booked branch (onset r = 2 or the booked
+minimum; the window-atmospheric point 1.9191 re-derived for contrast);
+spectrum (0, M_SOL_EV, S17/(1+r_sel)); Sigma m_nu against the booked
+ceiling (margin booked); the beta-decay effective mass m_beta under the
+measured-mixing read (V292's booked obs_pmns fractions) and under the
+model-native TBM sector (|Ue2|^2 = 2/3, |Ue3|^2 = 1/3); the neutrinoless
+interval m_bbeta under both (TBM: [2/3 m2 - 1/3 m3, 2/3 m2 + 1/3 m3];
+hybrid: measured fractions) - the published claim "m_bbeta ~ 0.02 eV, in
+reach" is re-scored: it is a TBM-sector value only, and whether the hybrid
+interval lies below the same reach is booked; F3 is re-booked in full
+(bare ladder sum excluded, candidate status per the sums).
+**Branch.** ONSET-SPEC / SUM-UNDER-BY-m% (or SUM-OVER) / BB-TBM-ONLY (if
+the hybrid interval falls below the TBM interval where the reach claim
+lives) - all numbers booked from the re-reads.
+
+## Roll-up consequences (fixed before any run)
+- The paper's Section 12.3 sentence chain gains the V303/V305 verdicts: if
+  R-ONSET-DEMOCRATIC, the r = 2 anchor is reclassified from "convention"
+  to "energy-attractor with a named atmospheric residual" and the
+  candidate's mechanism sentence changes accordingly - the candidate
+  remains a candidate if the residual stands. The m_bbeta reach sentence is
+  corrected to the V305 branch if BB-TBM-ONLY fires.
+- O2 stays open iff the sums are inside the ceiling; the mixing stays
+  declared if V304 books EMPTY; every named input keeps its name.
+- The suite is re-gated once by the fingerprint gate (3 new experiments,
+  218 expected); number_audit re-runs; PDFs rebuild if the paper changes.
+
+### Post-run booking note (2026-10-29, after V303-V305 ran)
+
+Branch-name deviations recorded, no physics re-fit:
+- V303 measured R-ONSET-DEMOCRATIC (the pre-registered branch fired as
+  worded) but the crossed alternative came out as neither pre-registered
+  option: the 12-node split set minimises only below its own 6-cycle
+  crossing at r = 1 (20/39 grid points), and inside the window the
+  minimiser fragments (sizes 9-11). The verdict word
+  "VACUUM-SELECTS-ALL-12" would have been false; the emitted word is
+  VACUUM-NEVER-TRIANGLE, the honest generalization - the pre-registered
+  physics question (does the energy select the closing triangle?) is
+  answered NO as planned. The convention fix (canonical r in both
+  functionals, grid capped at 1.98 for the closed-form check) was booked
+  in the object text before the run.
+- V305's published-claim re-score used the V45-booked O(2) family rather
+  than the TBM label the pre-registration sketched: the artifact books
+  BB-ENVELOPE-DECLARED, which is the TBM-ONLY alternative's honest
+  generalization (the claim lives inside the free family, not at a
+  predicted point). V304 fired MIXING-REALIZABLE-EMPTY as pre-registered.

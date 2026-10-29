@@ -164,7 +164,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 215 experiments in 14 categories (212 publication + 3 alt_step exploration; the six O8 dead-end mechanism experiments retired 2026-10-27 and the alt_gauged/alt_nonpert bond-current chains with the superseded V94 retired 2026-10-28, git history)
+├── experiments/              # the verification program: 218 experiments in 14 categories (215 publication + 3 alt_step exploration; the six O8 dead-end mechanism experiments retired 2026-10-27 and the alt_gauged/alt_nonpert bond-current chains with the superseded V94 retired 2026-10-28, git history)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228)
@@ -184,7 +184,7 @@ CL10/
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
 │   ├── hydrogen/             # the 3-D hydrogen atom + the CL10 photon (Fig. 2): the levels are the real Rydberg eigenstates (an INPUT), the photon is the CL10 free massless field; the video/stills are `python -m simulation.hydrogen`, the Fig. 2 panels are the V62 product
 │   └── blackhole/            # the black-hole visualization (`python -m simulation.blackhole`)
-├── run_validation.py         # the runner: fingerprint-gated (only new/changed re-run; --full re-runs all 215), writes the hard-tier verdict
+├── run_validation.py         # the runner: fingerprint-gated (only new/changed re-run; --full re-runs all 218), writes the hard-tier verdict
 ├── run_figures.sh            # the 25 figures on the pinned GPU card (aborts if the card is too full for cupy)
 └── results/
     ├── README.md               # what is tracked (the verdicts) and what is regenerable (the logs)
@@ -257,7 +257,7 @@ h = cl10.clifford.generators() # the 10 Cl(10) generators (10 x 32x32)
 ```bash
 cd CL10
 source .venv/bin/activate        # GPU (cupy) if installed, else CPU
-python3 run_validation.py        # incremental gate: re-runs only new or changed experiments (--full re-runs all 215), prints the verdict; live progress bar
+python3 run_validation.py        # incremental gate: re-runs only new or changed experiments (--full re-runs all 218), prints the verdict; live progress bar
                                  # on a terminal (--no-bar for plain output)
 python3 run_validation.py V142_frame_averaging V141_regular_link_quintet_coupling
                                  # single experiments by exact directory name (the summary still folds every
@@ -285,8 +285,8 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 
 The master states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
-**ten falsifiers** (F1–F10). `run_validation.py` gates the **215** experiments
-of `experiments/` (14 categories — the 212 of the publication programme and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
+**ten falsifiers** (F1–F10). `run_validation.py` gates the **218** experiments
+of `experiments/` (14 categories — the 215 of the publication programme and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the

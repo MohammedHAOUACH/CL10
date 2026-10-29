@@ -1,6 +1,6 @@
 {
-  "n": 215,
-  "n_pass": 215,
+  "n": 218,
+  "n_pass": 218,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
@@ -10,7 +10,7 @@
   "n_backend_gpu": 50,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 75,
+  "hard_tier_n": 78,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 98,
+  "n_named_residuals": 101,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -180,6 +180,9 @@
     "V300_cone_measure_selection",
     "V301_geometry_gap_ladder",
     "V302_mD_host_forcing",
+    "V303_junction_energy_r",
+    "V304_realizable_mixing_census",
+    "V305_onset_neutrino_contacts",
     "V32_qca_qft",
     "V38_couplings_root",
     "V41_smatrix",
@@ -155715,10 +155718,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "MD-HOST-ASYMMETRIC",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 1.393,
+      "wall_time": null,
       "backend": null,
       "verdict": {
         "id": "V302_mD_host_forcing",
@@ -155857,6 +155860,1005 @@
           }
         ],
         "status": "MD-HOST-ASYMMETRIC",
+        "pass": true
+      }
+    },
+    {
+      "id": "V303_junction_energy_r",
+      "dir": "V303_junction_energy_r",
+      "tier": 2,
+      "property": "energy selection of the junction ratio r on the stable branch (V127 theory, canonical convention)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 5.988,
+      "backend": null,
+      "verdict": {
+        "id": "V303_junction_energy_r",
+        "tier": 2,
+        "property": "energy selection of the junction ratio r on the stable branch (V127 theory, canonical convention)",
+        "residual": true,
+        "programme": "V303",
+        "branch": "R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE",
+        "data": {
+          "machinery": {
+            "orbit": 8,
+            "junction_group": 12,
+            "junction_orbit": 2,
+            "degrees": [
+              2,
+              2,
+              2
+            ],
+            "edges": 12,
+            "exiting": 0,
+            "components": [
+              3,
+              6,
+              3
+            ],
+            "component_crossings": [
+              1.0,
+              2.0
+            ]
+          },
+          "triangle": {
+            "flat_dev": 8.881784197001252e-16,
+            "monotone": true,
+            "interior_minima": 0,
+            "slope_1p25_to_1p30": -4.645385470939445,
+            "slope_1p85_to_1p90": -31.89744997388516,
+            "argmin_r": 1.98,
+            "closed_form_dev": 8.881784197001252e-14,
+            "dE_at_2_minus": -16.236834142917825
+          },
+          "sweep": {
+            "sets": 4095,
+            "buckets_below_1p278": 832,
+            "buckets_below_1p9191": 1600,
+            "buckets_below_2": 1600,
+            "never_massless": 287,
+            "distinct_crossings": [
+              1.0,
+              1.154701,
+              1.236068,
+              1.414214,
+              2.0
+            ],
+            "grid": [
+              0.05,
+              0.1,
+              0.15,
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4,
+              0.45,
+              0.5,
+              0.55,
+              0.6,
+              0.65,
+              0.7,
+              0.75,
+              0.8,
+              0.85,
+              0.9,
+              0.95,
+              1.0,
+              1.05,
+              1.1,
+              1.15,
+              1.2,
+              1.25,
+              1.3,
+              1.35,
+              1.4,
+              1.45,
+              1.5,
+              1.55,
+              1.6,
+              1.65,
+              1.7,
+              1.75,
+              1.8,
+              1.85,
+              1.9,
+              1.95
+            ],
+            "minimiser_sizes": [
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              12,
+              11,
+              12,
+              11,
+              11,
+              10,
+              10,
+              10,
+              9,
+              9,
+              9,
+              9,
+              10,
+              10,
+              10,
+              10,
+              10,
+              10,
+              10,
+              10,
+              10
+            ],
+            "minimiser_sets": [
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4,
+                6,
+                7,
+                9,
+                10,
+                11
+              ]
+            ],
+            "all12_min_count": 20,
+            "triangle_min_r": [],
+            "max_ties": 12
+          },
+          "contact": {
+            "S17_eV": 0.14624768344284225,
+            "m3_onset_eV": 0.04874922781428075,
+            "M_ATM_EV": 0.0501,
+            "rel_residual_vs_atm": -0.026961520673038808,
+            "window_r_min": 1.2780012997327455,
+            "onset_in_window": true
+          },
+          "status": "R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE",
+          "wall_time": 4.289669036865234,
+          "fitted_inputs": []
+        },
+        "checks": [
+          {
+            "name": "T0 V127 anchors re-derived (orbit 8, K3, 12 edges / 0 exiting, junction group 12 with a 2-orbit, triangle crossing {2.0}): exact; NEW structure booked: the support graph splits into components [3, 6, 3] with crossings [1.0, 2.0] - the 6-cycle component goes massless at r = 1, BELOW the window",
+            "pass": true
+          },
+          {
+            "name": "T1 tree-level r-flat to 8.9e-16 (trace theorem), one-loop strictly monotone True, interior minima 0, slopes -4.65 -> -31.90 (more negative at the window edge), argmin r = 1.9800 at the onset, closed form to 8.9e-14",
+            "pass": true
+          },
+          {
+            "name": "T2 crossing levels [1.0, 1.154701, 1.236068, 1.414214, 2.0] (buckets 832 / 1600 / 1600, 287 sets never massless); minimiser sizes across the window grid [9, 10, 11, 12]: the full 12-set minimises for 20/39 points (below its own r = 1 crossing), the closing triangle attains the minimum 0 times",
+            "pass": true
+          },
+          {
+            "name": "T3 attractor r* = 2 (inside the window r > 1.278): m_3 = S17/3 = 0.0487 eV vs the booked atmospheric 0.0501 eV: relative residual -2.70% (named, booked)",
+            "pass": true
+          }
+        ],
+        "status": "R-ONSET-DEMOCRATIC / VACUUM-NEVER-TRIANGLE",
+        "pass": true
+      }
+    },
+    {
+      "id": "V304_realizable_mixing_census",
+      "dir": "V304_realizable_mixing_census",
+      "tier": 3,
+      "property": "mixing corrections of the entire realizable scalar sector (V291 hosts, V294 commutant, V104 NuFIT)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "MIXING-REALIZABLE-EMPTY",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 1.638,
+      "backend": null,
+      "verdict": {
+        "id": "V304_realizable_mixing_census",
+        "tier": 3,
+        "property": "mixing corrections of the entire realizable scalar sector (V291 hosts, V294 commutant, V104 NuFIT)",
+        "residual": true,
+        "programme": "V304",
+        "branch": "MIXING-REALIZABLE-EMPTY",
+        "data": {
+          "t0": {
+            "democratic_eigs": [
+              0.0,
+              9.064933036736789e-17,
+              3.0
+            ],
+            "family_3fold": true,
+            "commutant_dim": 2,
+            "commutant_generators_ok": true,
+            "c_artifact": 111.99999999999972,
+            "shift_artifact": 2.220446049250313e-16
+          },
+          "t1": {
+            "hosts": [
+              6,
+              7,
+              9
+            ],
+            "p0": [
+              0.06800712118348176,
+              0.21819983285784306,
+              0.395758256581777,
+              0.3145029198693264,
+              0.19624082408863375,
+              0.20662687728410864,
+              0.8978411177625885,
+              0.5141503189361065,
+              0.2008281493053308,
+              0.6229266052580874,
+              0.36135885817674973,
+              0.003559118695966282
+            ],
+            "per_host_E": {
+              "6": 32.00000000000006,
+              "7": 32.00000000000007,
+              "9": 47.999999999999595
+            },
+            "combos": [
+              {
+                "W": [
+                  6
+                ],
+                "c": 32.00000000000006,
+                "eigs": [
+                  -1.617760944230692e-14,
+                  1.96675472710491e-15,
+                  105.00000000000016
+                ],
+                "s12_heavy": 0.3333333333333334,
+                "angle_shift": 1.1102230246251565e-16
+              },
+              {
+                "W": [
+                  7
+                ],
+                "c": 32.00000000000007,
+                "eigs": [
+                  -1.3258907954028408e-14,
+                  -9.519467611735969e-16,
+                  105.0000000000002
+                ],
+                "s12_heavy": 0.3333333333333334,
+                "angle_shift": 1.1102230246251565e-16
+              },
+              {
+                "W": [
+                  9
+                ],
+                "c": 47.999999999999595,
+                "eigs": [
+                  -1.0658141036401506e-14,
+                  3.5527136788005005e-15,
+                  152.9999999999988
+                ],
+                "s12_heavy": 0.3333333333333333,
+                "angle_shift": 0.0
+              },
+              {
+                "W": [
+                  6,
+                  7
+                ],
+                "c": 64.00000000000013,
+                "eigs": [
+                  -7.65503407641877e-15,
+                  5.496067188177688e-16,
+                  201.00000000000034
+                ],
+                "s12_heavy": 0.3333333333333334,
+                "angle_shift": 1.1102230246251565e-16
+              },
+              {
+                "W": [
+                  6,
+                  9
+                ],
+                "c": 79.99999999999966,
+                "eigs": [
+                  -1.4500990628598252e-14,
+                  2.9013591339624417e-16,
+                  248.99999999999898
+                ],
+                "s12_heavy": 0.3333333333333333,
+                "angle_shift": 0.0
+              },
+              {
+                "W": [
+                  7,
+                  9
+                ],
+                "c": 79.99999999999966,
+                "eigs": [
+                  -1.4500990628598252e-14,
+                  2.9013591339624417e-16,
+                  248.99999999999898
+                ],
+                "s12_heavy": 0.3333333333333333,
+                "angle_shift": 0.0
+              },
+              {
+                "W": [
+                  6,
+                  7,
+                  9
+                ],
+                "c": 111.99999999999972,
+                "eigs": [
+                  -4.891182024790208e-14,
+                  6.279256102296056e-15,
+                  344.9999999999991
+                ],
+                "s12_heavy": 0.3333333333333333,
+                "angle_shift": 0.0
+              }
+            ],
+            "c_all": 111.99999999999972,
+            "c_artifact_check": true,
+            "max_angle_shift": 1.1102230246251565e-16
+          },
+          "t2": {
+            "locked_point": [
+              0.3333333333333333,
+              0.0,
+              0.5
+            ],
+            "nufit_imported": {
+              "s12": [
+                0.308,
+                0.013
+              ],
+              "s13": [
+                0.02221,
+                0.00053
+              ],
+              "s23": [
+                0.47,
+                0.025
+              ]
+            },
+            "sigma": {
+              "s12": 1.9487179487179478,
+              "s13": -41.905660377358494,
+              "s23": 1.200000000000001
+            },
+            "joint_frac_census": 0.0
+          },
+          "status": "MIXING-REALIZABLE-EMPTY",
+          "wall_time": 0.0014629364013671875,
+          "fitted_inputs": []
+        },
+        "checks": [
+          {
+            "name": "T0 V45 democratic (0,0,3) rank 1 with the booked 3-fold family symmetry; V294 commutant span(I,J) dim 2; V292 shift 2.2e-16: OK",
+            "pass": true
+          },
+          {
+            "name": "T1 census of the 7 non-empty host combinations: every correction is c x ones (eigs (3+c,0,0)), maximal angle shift 1.1e-16 over the entire realizable sector; c(all) = 112.0 reproduces V292's booked 112.0",
+            "pass": true
+          },
+          {
+            "name": "T2 the locked democratic point (1/3, 0, 1/2): sigma_12 = +1.95, sigma_13 = -41.91, sigma_23 = +1.20 (NuFIT imported from V104); joint fraction over the realizable census = 0.0",
+            "pass": true
+          }
+        ],
+        "status": "MIXING-REALIZABLE-EMPTY",
+        "pass": true
+      }
+    },
+    {
+      "id": "V305_onset_neutrino_contacts",
+      "dir": "V305_onset_neutrino_contacts",
+      "tier": 3,
+      "property": "laboratory and cosmology contacts of the energy-selected neutrino spectrum",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 1.692,
+      "backend": null,
+      "verdict": {
+        "id": "V305_onset_neutrino_contacts",
+        "tier": 3,
+        "property": "laboratory and cosmology contacts of the energy-selected neutrino spectrum",
+        "residual": true,
+        "programme": "V305",
+        "branch": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+        "data": {
+          "spectra": {
+            "selected": {
+              "r": 2.0,
+              "m_eV": [
+                0.0,
+                0.0086,
+                0.04874922781428075
+              ],
+              "sum_eV": 0.05734922781428076,
+              "margin_vs_ceiling_pct": 10.670984712958308
+            },
+            "atm_point": {
+              "r": 1.9191154379808832,
+              "m_eV": [
+                0.0,
+                0.0086,
+                0.0501
+              ],
+              "sum_eV": 0.0587,
+              "margin_vs_ceiling_pct": 8.5669781931464
+            }
+          },
+          "bare_ladder": {
+            "S17_eV": 0.14624768344284225,
+            "sum_eV": 0.14624768344284225,
+            "excluded_by_ceiling": true
+          },
+          "lab_contacts": {
+            "oscillation_measured": {
+              "m_beta_eV": 0.00863069596468038,
+              "m_bbeta_interval_eV": [
+                0.0015096325880858236,
+                0.0036545986119141767
+              ]
+            },
+            "model_locked_s13_0": {
+              "m_beta_eV": 0.004965212315030782,
+              "m_bbeta_interval_eV": [
+                0.0028666666666666667,
+                0.0028666666666666667
+              ]
+            },
+            "model_O2_envelope": {
+              "m_beta_max_eV": 0.03990667345324013,
+              "m_bbeta_envelope_eV": [
+                5.8234020587020693e-05,
+                0.033455040765076056
+              ],
+              "sin2_13_booked_range": [
+                0.0,
+                0.6666666666666666
+              ]
+            }
+          },
+          "status": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
+          "wall_time": 0.001169443130493164,
+          "fitted_inputs": []
+        },
+        "checks": [
+          {
+            "name": "T0 spectra: selected r=2.0000 sum 0.0573 eV and atmospheric-point sum 0.0587 eV against the booked ceiling 0.0642 eV; bare ladder sum 0.146 eV excluded",
+            "pass": true
+          },
+          {
+            "name": "T1 mixing reads: m_beta = 0.00863 eV measured fractions, model O(2) envelope up to 0.03991 eV; m_bbeta [0.00151, 0.00365] eV measured fractions vs the model O(2) envelope [0.00006, 0.03346] eV: the published ~0.02 eV is a sector choice inside the O(2) family (BB-ENVELOPE-DECLARED)",
+            "pass": true
+          }
+        ],
+        "status": "ONSET-SPEC / SUM-UNDER-BY-10.7% / BB-ENVELOPE-DECLARED",
         "pass": true
       }
     },
