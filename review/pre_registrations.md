@@ -4694,3 +4694,45 @@ as a theorem of the dictionary shape, and the programme's answer to
 "fix the structural defect" is the consolidation of the axiom
 inventory: the clock joins the declared named inputs, exactly as
 1/(16*pi) already did per V276). No middle branch: bridge or theorem.
+
+### V326 booking (run after the pre-registration; verdict as booked)
+
+DICTIONARY-NO-BRIDGE, all seven T0/census checks green, wall 1952 s.
+Gate hygiene, booked: (1) the rung-10 scan hoists the clock-independent
+half of V203's hop_machinery (the 9-second projector decomposition)
+and recomputes the g-dependent parts verbatim; gate T0h asserts
+bit-identity with the direct call at 1/5 (cartan/ev/Ma all 0.0e+00);
+scan cost 14.5 s -> 1.3 s per leg. (2) T0b first run expected k = 8
+at pi/4 - a wrong anchor imported from the internal-sector prose;
+the step-product object closes at k = 2 exactly as V315's booked
+t0a_identity_closure leaf says (dev diff 8.2e-16); the anchor was
+replaced by the booked leaf before the re-run. No class change, no
+branch change, no target shift.
+
+Booked physics, in order of depth:
+1. THE READING SET IS A RAZOR FIBRATION: R has 12 components in
+(0.15, 0.33), widths 2.4e-9 .. 1.5e-7 (the 10th power makes F_10(x)
+re-cross the band 12 times as it rises from ~0.05 at 0.168 to 3 at
+0.20013 and beyond). g_obs = 0.1999980 lies inside the fourth
+component. The band-reading angle is not unique - but none of the 12
+windows contains any pi-grid angle: minimum grid-window separation
+4.61e-4 (pi*1/11 = 0.2855994 vs the window at 0.285138 - a miss of
+3.2e4 window-widths).
+2. THE STEP-PRODUCT CLOSURE IS NOT THE CLOCK QUANTIZER: 43 of the 79
+grid angles close at k <= 16 (the lattice blocks absorb pi*a/q at
+order 2q and its divisors). The order-8 quantization {pi/2, pi/4} is
+the INTERNAL U16-sector closure fact (V206/V309), reinforced by the
+gaplessness and odd-rule requirements - not a property of the full
+six-stage product. Booked so the paper wording is never blurred.
+3. THE BRIDGE IS DICTIONARY-INVARIANT (lemma + numeric spot): for any
+uniform rescaling c, dictionary closure at g <=> c*g in Cl, and the
+read at g = the committed read at c*g. The 2*pi fifth-root dictionary
+DOES close at g = 1/5 (pi*2/5 closes at k = 10, census row and direct
+spot agree) - the closure half of the structural idea works - but
+2*pi/5 is not in R and its rung-10 read is >= 5652 band-units off
+(all 43 closure angles are: closest rung-10 5652.1 bands, certified
+pi/4 crossing read 6329.6 bands). Closure and reading separate in
+EVERY dictionary of the family. The structural defect is closed as a
+theorem, not repaired: within the booked class the defect admits no
+bridge, and the consolidation is the axiom inventory - the clock
+joins the declared named inputs beside 1/(16 pi) (V276) and v.
