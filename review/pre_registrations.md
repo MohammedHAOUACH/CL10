@@ -4266,3 +4266,77 @@ Success tier (RESUM-CROSSING-TIED) would have re-provenanced the
 coefficient algebraic; it did not fire: no paper provenance change.
 One tied rung-contact would not have closed the ledger (rung-17
 floor, V276 residue) - booked before the run, moot now.
+
+# The O_h cone-decoration programme: pre-registration V322 (2026-10-30)
+
+## V322_oh_bond_decoration_cone (tier 2, hard; O10/O4; closes V191's open piece)
+
+**Context (booked, no new inputs).** V191 (alt_step): the 8-site module
+of the 2x2x2 cell is A1g + T2g + A2u + T1u; NO irrep admits a linear
+term (parity no-go, dim Hom = 0 for all ten); a conical node EXISTS
+exactly and isotropically for the parity-mixed pair A1g/T1u realized
+by an O_h-invariant bond Hamiltonian (two hopping orbits, -24/+8,
+TT' = 16I to 4e-16, equivariance 1.2e-14) - BUT that bond layer is
+NOT the engine's step: the six-stage product's measured O_h defect is
+1.07e-1 (vs 1.1e-15 for the stage SUM), and equal stage weights pin
+the sum spectrum {+6,+2,-2,-6} so the A1g/T1u degeneracy is
+unreachable inside the present stage structure. V191: "the remaining
+work is a stage factorisation of that bond layer, not another
+search." V277 (DECORATION-BEST): the internal quaternion twist class
+does not buy the cone at the closed clock (binding leg: degree
+~1.9986, quadratic touching).
+
+**Question (pre-registered).** Does the O_h-equivariant SITE-side
+decoration class - exact orbit sums of the V191 range-1 hopping-orbit
+census, the published six-stage step as base - carry a conical
+GAMMA node (gap < 1e-10, fine degree >= 0.99, v_max <= 1, rho_comm >
+0.5, V277's acceptance convention), and does any member reduce the
+full step's O_h defect toward the stage-sum value?
+
+**Class (closed, fixed NOW before any run).** The range-1 term
+census {(i,j,v): i,j in 8 sites, v in {-1,0,1}^3} (1728 terms)
+quotiented by O_h (48 site-permutation reps): 10 orbits (sizes
+27,64,108,125,135,144,225,240,300,360 - counted pre-registration,
+booked here). Members: D(q) = exp(i THETA sum_o w_o A_o(q)) with
+A_o(q) = orbit Bloch sum (Hermitian, V191 bloch() construction verbatim:
+M + M^dag over orbit elements), w_o in {0,+-1}, AT MOST TWO nonzero
+orbits, THETA = pillar-independent config angle.alpha_10 (two sign
+choices of THETA coincide with +-w - one amplitude only). Enumeration:
+identity + 10x2 single + C(10,2)x4 double = 201 members. Decoration
+enters each stage's SITE block: M -> kron(D(q) @ S_t(q), U16) @ M
+(left multiplication, per stage; U16 and clocks untouched: g = beta =
+angle.branches.closed). Provenance: combinatorial (orbits) +
+config-declared (THETA); zero-fitted.
+
+**Measurement per member (closed clock).** (1) GAMMA gap (min phase
+mod 2pi over the 128-dim step spectrum); (2) fine cone degree +
+v_max + tangent speeds: V277's machinery copied (179-Fibonacci
+tangent directions at the booked radius, degree on the 64-dim gap
+subspace, V192/V132 pinned 64+64 spectrum at the closed clock);
+(3) rho_comm (V186 tangent route, V277's convention); (4) O_h
+defect: max over all 48 elements of || U_dec(W q) - (P_W kron I16)
+U_dec(q) (P_W kron I16)^T ||_max at q = GAMMA + 8 Fibonacci
+directions |dq| = 0.1 (pre-fixed), V191's defect convention.
+
+**T0 (machinery gates).** Identity member (all w = 0): GAMMA gap
+< 1e-10 reproducing the closed-clock 64-fold gaplessness (V192/V132
+booked spectrum), and the bare top-64 fine degree reproduces V277's
+artifact leaf (implementer names the key in the check string) to
+< 1e-6. Base engine step: O_h defect re-measured in V322 machinery
+against V191's artifact leaf 1.07e-1 to < 1e-3 relative. Any drift:
+MACHINERY-DRIFT, exit nonzero.
+
+**Branch (pre-registered words).** CONE-OH-FOUND iff some member
+satisfies ALL four acceptance legs (gap, degree, v_max, rho_comm);
+CONE-OH-NEGATIVE otherwise - both cases book: the top-10 members by
+fine degree (gap/v_max/rho_comm/defect), the minimum-defect member
+(the stage-factorisation-equivariance leg V191 left open - a booked
+measurement, never a gate), and the count of members keeping gap
+< 1e-10 (the SELECTIVITY table: which orbit sums gap the node and
+which do not - the gap-selective content of the class).
+
+**Bridge note (honest booking).** The pre-truncation design note tied
+V322 to the rung-17 gap (S17, -2.78%): the cone-to-ladder bridge was
+NOT recovered from the workspace and is NOT invented here. V322 is
+the cone/equivariance census; the rung-17 target leg is V323's
+object. No rung contact enters V322's decision, now or by amendment.
