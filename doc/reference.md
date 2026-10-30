@@ -650,9 +650,12 @@ deficit to the booked V206 0.989526873 and marks the intact set
 {1/5, pi/4, pi/2} (band 0.30); 1/8 reads deficit 0.4836 and the
 repair clock 1/2 collapses at 1.44e-3, the Section 11.6 conflict
 confirmed at the deficit level. The 50-start locality search lands at
-T* = 1.195211e-3 against T_committed = 1.195642e-3 - a boundary kink
-(53-gradient 5e7), one start at the value, no interior unique minimum;
-the bond-entropy weight G = 1/(4 ln 45) is reported as a weight only.
+T* = 1.195142e-3 against T_committed = 1.195642e-3 - a boundary kink
+(53-gradient 5e7), one start at the value, no interior unique minimum
+(T* is boundary-sensitive at the fifth significant figure across
+passes - 1.195211e-3 in the pre-gate rerun - the selector verdict
+invariant); the bond-entropy weight G = 1/(4 ln 45) is reported as a
+weight only.
 **LIGHTCONE-CLOCK-CONFLICT**: a 53-parameter dictionary exists at
 every ladder-intact clock and nothing selects a member of it.
 

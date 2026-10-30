@@ -3627,3 +3627,10 @@ a physics regression.
   GPU after its repair - and the default gate then reports
   "0 re-run, 227 folded, library unchanged": 227/227 PASS, hard tier MET
   over 87, 51/51 GPU-backend reports, no numpy-fallback label anywhere.
+
+V313 ledger-state note: the gate re-run supersedes the bg_13 rerun as
+the booked artifact. Deficits move inside the documented bands (1/2 at
+0.0014400, pi/4 anchor |d| 4.3e-05 cupy); the intact set {1/5, pi/4,
+pi/2} and both selector verdicts (interior False, unique False) are
+invariant; T* moves 1.195211e-3 -> 1.195142e-3 - boundary-kink
+sensitivity at the fifth significant figure, booked, no verdict effect.
