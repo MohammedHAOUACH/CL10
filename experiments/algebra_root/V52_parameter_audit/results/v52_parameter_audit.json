@@ -4,10 +4,10 @@
   "property": "P5,P6",
   "residual": true,
   "pass": true,
-  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 8+0+2+2+5 split: algebraic 0-param / free 1-param / convention / coincidence / named residual); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); the clock is fixed by closure (order-8 root), the 1/5 reading is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
+  "status": "the_honest_parameter_audit: the '0-parameter' label is reclassified (the 8+0+3+1+5+6+1 split over 24 rows: algebraic 0-param / free 1-param / convention / coincidence / named residual / fitted coefficient / conditional; the loop clock g_obs = 0.1999980 is booked fitted - no closed clock passes either empirical contact (V233) and its non-derivability from the root is a theorem of the reserved classes (V309, V326)); the 0-parameter CP-odd invariants all vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT generate the baryon asymmetry - a theorem); the 16/16-bar spectra are exact CPT mirrors (antimatter = time-reversed matter; holds for ALL g_10); the clock is fixed by closure (order-8 root) on the internal sector, but the loop-hierarchy reading clock is a FIT (V233); the 1/5 reading is a convention and M_GUT=M_P is abandoned by V64; the hierarchy exponent and the DM scale are NOT in the 0-parameter single-step spectrum (quantified residuals O8/O7)",
   "tol": 1e-12,
   "data": {
-    "backend": "cupy",
+    "backend": "numpy",
     "two_route_root": {
       "kingdon_available": true,
       "kingdon_sq_minus_1": 0.0,
@@ -21,9 +21,9 @@
     "spectral_mirror": {
       "g10": 0.7853981633974483,
       "w_pure_imaginary": 0.0,
-      "commute_Uw": 3.3465051065045716e-16,
+      "commute_Uw": 3.3847663151590415e-16,
       "preserves_chiral_split": true,
-      "mirror_resid": 5.551115123125783e-16,
+      "mirror_resid": 4.440892098500626e-16,
       "mirror_ok": true,
       "mirror_resid_all_g10": 1.7763568394002505e-15,
       "mirror_holds_for_all_g10": true,
@@ -37,11 +37,11 @@
         0.5
       ],
       "zp_16": -6.283185307179586,
-      "zp_16bar": 6.283185307179587,
-      "det_U_minus_1": 1.8984944158298135e-14,
+      "zp_16bar": 6.283185307179586,
+      "det_U_minus_1": 1.8985157431135782e-14,
       "sl32": true,
-      "omega_min": 0.785398163397446,
-      "omega_min_mass_GeV": 9.588847637103077e+18
+      "omega_min": 0.7853981633974467,
+      "omega_min_mass_GeV": 9.588847637103088e+18
     },
     "cp_odd_theorem": {
       "max_cpodd_2rot": 2.0293072715139053e-17,
@@ -70,15 +70,15 @@
       "v_over_EP_claimed_0param": 2.02e-17,
       "match_rel_err": 0.001623669888717421,
       "match_is_2digit_coincidence": true,
-      "omega_min": 0.785398163397446,
-      "omega_min_mass_GeV": 9.588847637103077e+18,
+      "omega_min": 0.7853981633974467,
+      "omega_min_mass_GeV": 9.588847637103088e+18,
       "spectrum_exponent_matches_observed": false,
       "hierarchy_exists_0param": true
     },
     "dm_status": {
       "soliton_mass_GeV": 1.6278499148542476e+19,
       "abundance_gap_0param_over_obs": 5.4950340811842285e-52,
-      "omega_min_mass_GeV": 9.588847637103077e+18,
+      "omega_min_mass_GeV": 9.588847637103088e+18,
       "dm_observed_range_GeV": [
         100.0,
         1000.0
@@ -87,7 +87,7 @@
       "observed_DM_not_0param": true
     },
     "provenance_table": {
-      "backend": "cupy",
+      "backend": "numpy",
       "rows": [
         {
           "quantity": "16 Weyl / 16-bar split",
@@ -146,14 +146,56 @@
         {
           "quantity": "the desert thresholds (V64)",
           "value": "1.2e7, 1.0e12 GeV",
-          "provenance": "coincidence",
-          "note": "the two vectorlike thresholds that make the measured couplings meet at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, M_X = 1.8e16 GeV); inferred from the couplings, not derived; the convention M_GUT = M_P is abandoned by this solution (O4, V64)"
+          "provenance": "fitted_coefficient",
+          "note": "the two vectorlike thresholds that make the measured couplings meet at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, M_X = 1.8e16 GeV); read from the couplings - fitted coefficients of Table 6, not derived; the convention M_GUT = M_P is abandoned by this solution (O4, V64; the root-coupling variant is not realizable by its own content, V237)"
         },
         {
           "quantity": "v/E_P = 2.02e-17 (0.18% match)",
           "value": "2.02e-17",
           "provenance": "coincidence",
           "note": "the **2-digit coefficient** (the 0.18% match) is a coincidence; the **exponent** -17 has a 0-parameter 10-loop representation, 2.08 x (1/16pi)^10 (10 = 2 x 5: chiral x qubits; V53); the **same** factor also gives the DM mass 118 GeV (V54) — one factor, two statements of one scale"
+        },
+        {
+          "quantity": "alpha_10 = g^2 (the coupling reading)",
+          "value": "0.04 (1/25)",
+          "provenance": "convention",
+          "note": "the factor-4pi reading of the step angle used as the desert meeting anchor; the standard normalisation alpha = g^2/4pi is the running quantity (final_publication Section 13.1, Table 6)"
+        },
+        {
+          "quantity": "g_obs = 0.1999980 (the loop-hierarchy clock)",
+          "value": "0.1999980",
+          "provenance": "fitted_coefficient",
+          "note": "the rung-10 reading of the hierarchy coefficient inverts to this clock (V206, 2.0e-6 off the rational 1/5); the V233 2x2 arbitration leaves NO closed clock passing either empirical contact, so the clock sits in the fitted class; its non-derivability from the root is a theorem of the reserved classes - no algebraic generating rule (V309) and no phase dictionary with a closing clock that reads the coefficient in band (V326: the closest closed-clock read is 5652.1 band-units off)"
+        },
+        {
+          "quantity": "the six kappa_s (flavour-dependent bond layer)",
+          "value": "solution family",
+          "provenance": "fitted_coefficient",
+          "note": "the per-class junction strengths that close the three coupling meetings for all node counts n = 3..12 (three linear conditions, six unknowns); not supplied by any on-site algebra element, class invariant, broken flux, or second-order bond number (V122, V145, V146) - inputs of an extended bond layer (O4)"
+        },
+        {
+          "quantity": "n_2step = 3 (the seesaw exponent)",
+          "value": "3",
+          "provenance": "fitted_coefficient",
+          "note": "the two-step ladder exponent of the seesaw is read from the data; structurally it is NOT a link-word length (the Delta L = 2 operator lives in grade 5 of the root, Section 12.3)"
+        },
+        {
+          "quantity": "1.18 (the DM-mass coefficient)",
+          "value": "1.18",
+          "provenance": "fitted_coefficient",
+          "note": "the ladder mass 118.57 GeV over the canonical 100 GeV weakly-interacting scale (V54; falsifiable, F7)"
+        },
+        {
+          "quantity": "lambda_* = 3.5e-4 (the pair portal)",
+          "value": "3.5e-4",
+          "provenance": "fitted_coefficient",
+          "note": "the mirror-BREAKING spinor pair portal fixed by Omega h^2 = 0.120; its cost is the exact mirror Z2 (Section 12.2); the cell-carrier portal lambda_B = 4.06e-14 is the named input of O7"
+        },
+        {
+          "quantity": "2.710 = 3(16 pi F_208)^10 (the hierarchy coefficient)",
+          "value": "2.710",
+          "provenance": "conditional",
+          "note": "F_208 = 0.0196928 certified by continuity at the closed-loop crossing n* = 208; the factor 3 is the one-split-node-per-family choice - the entry inherits the node-set conditionality (O9); against 2.0766 observed: +30% (Table 6)"
         },
         {
           "quantity": "eta_CP (the CP-violating factor)",
@@ -189,19 +231,21 @@
           "quantity": "the ladder base 1/(16 pi)",
           "value": "0.019894 (declared)",
           "provenance": "convention",
-          "note": "V276: the certified closed branch crosses 1/(16 pi) at the measured n* = 208 with NO arithmetic derivation (PSLQ over Q on 1,rho,...,rho^4: no relation), and the observed hierarchy coefficient is the n = 10 clock read; V275: no dynamical-link route births the factor (OFFKERNEL-UNBORN).  A declared named input of the scale sector (final_publication Section 24); the O8 origin question stays open"
+          "note": "V276: the certified closed branch crosses 1/(16 pi) at the measured n* = 208 with NO arithmetic derivation (PSLQ over Q on 1,rho,...,rho^4: no relation), and the observed hierarchy coefficient is the n = 10 clock read; V275: no dynamical-link route births the factor (OFFKERNEL-UNBORN).  A declared named input of the scale sector (final_publication Section 12.1, Table 6); the O8 origin question stays open"
         }
       ],
       "counts_by_provenance": {
         "algebraic_0param": 8,
         "free_1param": 0,
-        "convention": 2,
-        "coincidence": 2,
-        "named_residual": 5
+        "convention": 3,
+        "coincidence": 1,
+        "named_residual": 5,
+        "fitted_coefficient": 6,
+        "conditional": 1
       }
     },
     "invariants_ok": true,
     "limits_ok": true
   },
-  "wall_time": 11.63
+  "wall_time": 9.787
 }

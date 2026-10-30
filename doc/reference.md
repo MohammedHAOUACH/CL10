@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (227 of them under `experiments/<category>/`: the 224 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (239 of them under `experiments/<category>/`: the 236 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -167,9 +167,19 @@ $$\mathrm{hard} = \bigwedge_{V:\ \mathrm{tier}(V)\in\{0,1,2,3\}} \mathrm{PASS}(V
 and the runner prints that denominator next to the verdict, because an
 experiment that writes no tier is not folded into it.
 
-**The result (224/224 publication;** the artifacts on record are all PASS).**
+**The result (236/236 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
-hard-tier verdict is positive. Six O8 dead-end mechanism experiments
+hard-tier verdict is positive. The suite stands at 239 experiments:
+the pillar-surgery programme (V308-V314) and the theory-hunt programme
+(V315-V326) booked their verdicts inside the pre-registered classes;
+**239/239 PASS, hard tier MET, number_audit green** as booked at the
+2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
+(provenance table refreshed to the final twelve-fitted-coefficient audit,
+version 1.2.0) re-ran the changed experiments green — V52 and its
+artifact consumers V248, V257, V267, V268 among the first thirteen, all
+PASS on the new table — and the full-suite re-certification of the 1.2.0
+fingerprint (all 239, one long run) is scheduled before the v1.2 release.
+Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
 instruction and the pre-registered full-suite re-gate was cancelled with
 them (git history keeps the retired scripts, artifacts and their runs);
@@ -190,9 +200,13 @@ which residuals are reduced and which are named — see `doc/final_publication.m
 
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification
-over 17 rows as 8 algebraic / 0 free angle / 2 conventions / 2 coincidences
-/ 5 named residuals (the free-angle class is empty — the closure axiom
-fixes the angle; V131):
+over 24 rows as 8 algebraic / 0 free angle / 3 conventions / 1 coincidence
+/ 5 named residuals / 6 fitted rows (the twelve fitted coefficients of the
+paper's Table 6 — the loop clock $0.1999980$ among them, its
+non-derivability from the root a theorem of the reserved classes, V309 and
+V326) / 1 conditional (the free-angle class is empty: the closure axiom
+fixes the internal-sector angle, V131 — the reading clock sits in the
+fitted class since the V233 arbitration):
 
 - **algebraic** (fixed by the root): the $5/3$ and the $5/24$
   $\mathcal{T}$ normalisation, the $16/16\bar$ split and the singlet
@@ -205,10 +219,18 @@ fixes the angle; V131):
   1.22\times10^{19}$ GeV, $\alpha_{10} \equiv g_{10}^2 = 1/25$,
   $g_0 = 1/2^{n_{\rm space}} = 1/8$ (the 3-space, V38), the EH coefficient
   $1/16\pi$ ($G = 1$) and the lattice CFL $dt^2 = 1/4$ (V37), and the ladder base $1/(16\pi)$ of the hierarchy — a declared named input of the scale sector: no route births the factor (V275 **OFFKERNEL-UNBORN**; the flux-kernel traced loops **FLUXLOOP-NEGATIVE** V281, the metric-trace loop **METRICLOOP-NEGATIVE** V283 — both floor rows $\gg$ the loop band — and the certified crossing $n^* = 208$ carries no arithmetic relation to the clock (V276, V284 **CROSSING-ARITHMETIC-FINAL**); the link cubic invariant exists in the module bookkeeping ($\mathrm{Sym}^3$ dims 6, 3, 0) but is **CUBIC-PRESENT-FROZEN** (V282: zero dispersion under the cone twist, the ladder clock unmoved); the origin is the open problem O8 (final_publication Sections 10.5, 12.1);
-- **fitted coefficients** (read from the data): $2.08$ (the hierarchy
-  $v/M_P = 2.02\times10^{-17}$), $1.18$ (the DM mass),
-  $n_{2\text{step}} = 3$ (the seesaw), with the $246$ GeV electroweak scale
-  as the measured anchor;
+- **fitted coefficients** (read from the data; the twelve of the paper's
+  Table 6): $1.18$ (the DM-mass coefficient),
+  $n_{2\text{step}} = 3$ (the seesaw), the desert thresholds
+  $M_{10} = 1.2\times10^7$ GeV and $M_{(1,2)} = 1.0\times10^{12}$ GeV,
+  $\lambda_* = 3.5\times10^{-4}$ (the mirror-breaking pair portal, fixed by
+  $\Omega h^2 = 0.120$), the six $\kappa_s$ of the flavour-dependent bond
+  layer (a solution family: three meeting conditions, six unknowns), and
+  the loop clock $g_{\rm obs} = 0.1999980$ — the rung-10 reading of the
+  hierarchy coefficient, booked fitted since the V233 arbitration and
+  theorem-backed non-derivable from the root (V309, V326); the conditional
+  class carries the hierarchy coefficient $2.710 = 3(16\pi F_{208})^{10}$;
+  the $246$ GeV electroweak scale stands as the measured anchor;
 - **inputs of other sectors**: the SM sphaleron factor $28/79$ (an
   **input of the SM sector**, not a root number: see §11.3 and Table 4 of
   `doc/final_publication.md`); the baryogenesis portal strength

@@ -107,7 +107,7 @@
    "pass": true
   },
   {
-   "name": "T2 the published Table 6 rows are loaded for comparison (17 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
+   "name": "T2 the published Table 6 rows are loaded for comparison (24 rows from V52's provenance_table); the ledger reclassifies 0 quantities",
    "pass": true
   }
  ],

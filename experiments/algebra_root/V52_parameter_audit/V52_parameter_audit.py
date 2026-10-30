@@ -13,20 +13,27 @@ of the ``kingdon`` Clifford-algebra library):
 
 **Point 1 — "0-parameter is partly conventional".**
 Every "0-parameter" number is **reclassified** into its true provenance
-(``provenance_table``), the audit's **$8+0+2+2+5$** split: **algebraic
+(``provenance_table``), the audit's **$8+0+3+1+5+6+1$** split over 24 rows: **algebraic
 0-param** (a property of the ``Cl(10)`` root: the 16/16-bar, the 45, the
 5/3, the anomalies, the 32-level spectrum, ``det U = 1``, the **16/16-bar
 spectral mirror**, the **closed clock angle** — the closure axiom (V131)
 forces the order-8 root ``g_10 = pi/4``), **free 1-param** (empty:
 ``g10_status`` shows the UV-finiteness / 2-loop Landau-pole condition fixes
 **nothing** — the pole lies below ``M_P`` for **every** ``g_10``; the
-selection is algebraic), **convention** (``g_0 = 1/8`` and the
-``g_10 = 1/n_qubits = 1/5`` reading —
+selection is algebraic), **convention** (``g_0 = 1/8``, the
+``g_10 = 1/n_qubits = 1/5`` reading with its ``alpha_10 = g^2`` coupling
+anchor, and the ladder base ``1/(16 pi)`` —
 mapping / scale-identification choices, not predictions), **coincidence**
-(the ``v/E_P = 2.02e-17`` 0.18% match), and **named residual** (``eta_CP``,
+(the ``v/E_P = 2.02e-17`` 0.18% match), **named residual** (``eta_CP``,
 ``Lambda_obs``, the sub-Planck DM scale (the rung-10 ladder value, carried
 by the cell singlet B), the DM portal strength ``lambda_B``, the exact
-``m_nu``).
+``m_nu``), **fitted coefficient** (the twelve numbers of the Table 6 fitted
+class: the loop clock ``g_obs = 0.1999980`` — booked fitted since the V233
+arbitration, its non-derivability from the root a theorem of the reserved
+classes (V309, V326) — the desert thresholds, the six ``kappa_s``,
+``n_2step = 3``, the DM-mass coefficient ``1.18``, the pair portal
+``lambda_*``), and **conditional** (the hierarchy coefficient
+``2.710 = 3(16 pi F_208)^10``, conditional on the node-set choice).
 
 **Point 2 — "the hierarchy is fixed, not explained".**
 The **smallest** level of the 32-level QCA spectrum at the root clock is
@@ -109,12 +116,18 @@ def main():
         "residual": True,
         "pass": ok,
         "status": ("the_honest_parameter_audit: the '0-parameter' label is reclassified "
-                  "(the 8+0+2+2+5 split: algebraic 0-param / free 1-param / convention / "
-                  "coincidence / named residual); the 0-parameter CP-odd invariants all "
+                  "(the 8+0+3+1+5+6+1 split over 24 rows: algebraic 0-param / free 1-param / "
+                  "convention / coincidence / named residual / fitted coefficient / "
+                  "conditional; the loop clock g_obs = 0.1999980 is booked fitted - no "
+                  "closed clock passes either empirical contact (V233) and its "
+                  "non-derivability from the root is a theorem of the reserved classes "
+                  "(V309, V326)); the 0-parameter CP-odd invariants all "
                   "vanish (the QCA satisfies none of the 3 Sakharov conditions and CANNOT "
                   "generate the baryon asymmetry - a theorem); the 16/16-bar spectra are "
                   "exact CPT mirrors (antimatter = time-reversed matter; holds for ALL "
-                  "g_10); the clock is fixed by closure (order-8 root), the 1/5 reading is a "
+                  "g_10); the clock is fixed by closure (order-8 root) on the internal "
+                  "sector, but the loop-hierarchy reading clock is a FIT (V233); the 1/5 "
+                  "reading is a "
                   "convention and M_GUT=M_P is abandoned by V64; the hierarchy "
                   "exponent and the DM scale are NOT in the 0-parameter "
                   "single-step spectrum (quantified residuals O8/O7)"),

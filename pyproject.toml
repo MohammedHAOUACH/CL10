@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cl10"
-version = "0.1.0"
+version = "1.2.0"
 description = "The Standard Model as a Single Clifford Root — Cl(10): 0-parameter matter, gauge, and gravity on a Planck-lattice QCA (0-parameter, GPU-first)."
 authors = [{ name = "Mohammed Haouach", email = "haouach.mohammed@gmail.com" }]
 readme = "README.md"

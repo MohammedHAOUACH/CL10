@@ -15,4 +15,4 @@ rule (the *reading* is the audit's mapping convention).
 from . import engine, clifford, spacetime, matter, gauge, qca, u10pred  # noqa: F401
 
 __all__ = ["engine", "clifford", "spacetime", "matter", "gauge", "qca", "u10pred"]
-__version__ = "0.1.0"
+__version__ = "1.2.0"

@@ -307,10 +307,13 @@ and each carries the residual named in the paper.
 **7 algebraic** invariants; **free parameters 1 → 0** (the closure axiom
 quantizes the 't Hooft angle to $g \in \{\pi/2, \pi/4\}$ — the physical root
 $\theta = 1.731$ is one of two discrete roots fixed by the closure of the
-coupling); **2 conventions** ($\alpha_{10} \equiv g_{10}^2$, $g_0 = 1/8$);
-**11 fitted coefficients** ($1.18$, $n_{\rm 2step} = 3$, the two desert
-thresholds, the DM portal $\lambda_*$, the six flavour-dependent bond-layer
-couplings $\kappa_i$, …); **1 conditional** (the hierarchy coefficient built
+coupling); **3 conventions** ($\alpha_{10} \equiv g_{10}^2$, $g_0 = 1/8$,
+the ladder base $1/(16\pi)$ — a declared named input of the scale sector,
+V275/V276); **12 fitted coefficients** ($1.18$, $n_{\rm 2step} = 3$, the two
+desert thresholds, the DM portal $\lambda_*$, the six flavour-dependent
+bond-layer couplings $\kappa_s$, and the loop clock $g_{\rm obs} =
+0.1999980$ — its non-derivability from the root a theorem of the reserved
+classes, V309/V326); **1 conditional** (the hierarchy coefficient built
 from measured inputs); **10 open residuals** (O1–O10).
 
 **Where the framework fails, stated plainly.**

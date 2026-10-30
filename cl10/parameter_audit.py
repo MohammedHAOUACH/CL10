@@ -599,9 +599,16 @@ def provenance_table():
     * ``free_1param`` — empty on the branch: the 't Hooft angle is fixed by
       the closure axiom (the ``1/n_{\rm qubits}`` reading is the convention);
     * ``convention`` — a **mapping / scale-identification** choice, not a
-      prediction (``g_0 = 1/8``, ``M_GUT = M_P``);
+      prediction (``g_0 = 1/8``, ``M_GUT = M_P``, the ``alpha_10 = g^2``
+      reading, the ladder base ``1/(16 pi)``);
     * ``coincidence`` — a 2-digit numerical match, not a prediction;
-    * ``named_residual`` — an exact value the theory does not fix.
+    * ``named_residual`` — an exact value the theory does not fix;
+    * ``fitted_coefficient`` — a number **read from the data** (the twelve
+      fitted coefficients of the publication's Table 6; the loop clock
+      ``g_obs = 0.1999980`` is booked fitted since the V233 arbitration —
+      its non-derivability from the root is a theorem of the reserved
+      classes, V309 and V326);
+    * ``conditional`` — built from measured numbers on a named input.
 
     This is the direct answer to "0-parameter is partly conventional": the
     label is **split** into its honest components.
@@ -628,16 +635,56 @@ def provenance_table():
          "kept for the alpha_10 = 1/25 anchor"),
         ("g_0 = 1/8 (the Dirac coupling)", "0.125", "convention",
          "1/2^n_space; the mapping the theory calls 'derived' (a convention)"),
-        ("the desert thresholds (V64)", "1.2e7, 1.0e12 GeV", "coincidence",
+        ("the desert thresholds (V64)", "1.2e7, 1.0e12 GeV", "fitted_coefficient",
          "the two vectorlike thresholds that make the measured couplings meet "
          "at alpha_X = 1/25 (three 10+10bar pairs + one (1,2) pair, "
-         "M_X = 1.8e16 GeV); inferred from the couplings, not derived; the "
-         "convention M_GUT = M_P is abandoned by this solution (O4, V64)"),
+         "M_X = 1.8e16 GeV); read from the couplings - fitted coefficients of "
+         "Table 6, not derived; the convention M_GUT = M_P is abandoned by "
+         "this solution (O4, V64; the root-coupling variant is not realizable "
+         "by its own content, V237)"),
         ("v/E_P = 2.02e-17 (0.18% match)", "2.02e-17", "coincidence",
          "the **2-digit coefficient** (the 0.18% match) is a coincidence; the "
          "**exponent** -17 has a 0-parameter 10-loop representation, "
          "2.08 x (1/16pi)^10 (10 = 2 x 5: chiral x qubits; V53); the **same** "
          "factor also gives the DM mass 118 GeV (V54) — one factor, two statements of one scale"),
+        ("alpha_10 = g^2 (the coupling reading)", "0.04 (1/25)", "convention",
+         "the factor-4pi reading of the step angle used as the desert meeting "
+         "anchor; the standard normalisation alpha = g^2/4pi is the running "
+         "quantity (final_publication Section 13.1, Table 6)"),
+        ("g_obs = 0.1999980 (the loop-hierarchy clock)", "0.1999980",
+         "fitted_coefficient",
+         "the rung-10 reading of the hierarchy coefficient inverts to this "
+         "clock (V206, 2.0e-6 off the rational 1/5); the V233 2x2 arbitration "
+         "leaves NO closed clock passing either empirical contact, so the "
+         "clock sits in the fitted class; its non-derivability from the root "
+         "is a theorem of the reserved classes - no algebraic generating rule "
+         "(V309) and no phase dictionary with a closing clock that reads the "
+         "coefficient in band (V326: the closest closed-clock read is 5652.1 "
+         "band-units off)"),
+        ("the six kappa_s (flavour-dependent bond layer)", "solution family",
+         "fitted_coefficient",
+         "the per-class junction strengths that close the three coupling "
+         "meetings for all node counts n = 3..12 (three linear conditions, six "
+         "unknowns); not supplied by any on-site algebra element, class "
+         "invariant, broken flux, or second-order bond number (V122, V145, "
+         "V146) - inputs of an extended bond layer (O4)"),
+        ("n_2step = 3 (the seesaw exponent)", "3", "fitted_coefficient",
+         "the two-step ladder exponent of the seesaw is read from the data; "
+         "structurally it is NOT a link-word length (the Delta L = 2 operator "
+         "lives in grade 5 of the root, Section 12.3)"),
+        ("1.18 (the DM-mass coefficient)", "1.18", "fitted_coefficient",
+         "the ladder mass 118.57 GeV over the canonical 100 GeV "
+         "weakly-interacting scale (V54; falsifiable, F7)"),
+        ("lambda_* = 3.5e-4 (the pair portal)", "3.5e-4", "fitted_coefficient",
+         "the mirror-BREAKING spinor pair portal fixed by Omega h^2 = 0.120; "
+         "its cost is the exact mirror Z2 (Section 12.2); the cell-carrier "
+         "portal lambda_B = 4.06e-14 is the named input of O7"),
+        ("2.710 = 3(16 pi F_208)^10 (the hierarchy coefficient)", "2.710",
+         "conditional",
+         "F_208 = 0.0196928 certified by continuity at the closed-loop "
+         "crossing n* = 208; the factor 3 is the one-split-node-per-family "
+         "choice - the entry inherits the node-set conditionality (O9); "
+         "against 2.0766 observed: +30% (Table 6)"),
         ("eta_CP (the CP-violating factor)", "1e-3 (named)", "named_residual",
          "the baryon asymmetry is a **product of 0-parameter factors**: "
          "(28/79) x (g_0^4/16pi) x (1/16pi)^2 = 6.8e-10 (ratio 1.11; V55); the 0-parameter "
@@ -665,10 +712,11 @@ def provenance_table():
          "no relation), and the observed hierarchy coefficient is the n = 10 "
          "clock read; V275: no dynamical-link route births the factor "
          "(OFFKERNEL-UNBORN).  A declared named input of the scale sector "
-         "(final_publication Section 24); the O8 origin question stays open"),
+         "(final_publication Section 12.1, Table 6); the O8 origin question stays open"),
     ]
     counts = {k: 0 for k in ("algebraic_0param", "free_1param", "convention",
-                             "coincidence", "named_residual")}
+                             "coincidence", "named_residual",
+                             "fitted_coefficient", "conditional")}
     for r in rows:
         counts[r[2]] = counts.get(r[2], 0) + 1
     return {
@@ -717,7 +765,8 @@ def verify(tol=_TOL.standard):
         and dm["observed_DM_not_0param"]                 # point 4
         and all(k in tb["counts_by_provenance"]
                 for k in ("algebraic_0param", "free_1param", "convention",
-                          "coincidence", "named_residual"))
+                          "coincidence", "named_residual",
+                          "fitted_coefficient", "conditional"))
     )
     return {
         "backend": _backend(),

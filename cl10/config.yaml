@@ -272,7 +272,10 @@ continuum:
 
 
 pillar_surgery:
-  # the pillar-surgery programme V308-V314 (clock, signature, dictionary, ledger)
+  # the pillar-surgery and theory-hunt programmes V308-V326 (clock algebraicity,
+  # root signature, lightcone dictionary, scale ledger, and the reserved-class
+  # quantizer / weight / selection / ledger censuses): the V315-V326 experiments
+  # reuse these bands and caps unchanged (no new config since pillar-surgery)
   clock_band_abs: 1.0e-6        # a root-derived clock must land on g_obs (V206 books it to 1e-7)
   coef_band_abs: 1.0e-4         # the V233 band on the observed hierarchy coefficient
   pslq_max_degree: 6            # V309 integer-relation search

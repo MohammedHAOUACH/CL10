@@ -48,20 +48,20 @@
    "levels": "+-pi/4 (10), +-3pi/4 (6) - pure algebra, no continuous number"
   },
   "zone_centre_involution": {
-   "M0_squared_minus_I_16sector": 7.391586503204494e-15,
-   "M0_squared_minus_I_full256": 7.108187365746598e-15,
-   "sector_leak": 3.3405875063686287e-16,
+   "M0_squared_minus_I_16sector": 8.215650382226158e-15,
+   "M0_squared_minus_I_full256": 7.662109826310647e-15,
+   "sector_leak": 3.9487373731136153e-16,
    "at_1_5_contrast": {
     "M0_squared_minus_I": 1.1090237803692355,
-    "Gamma_gap_0_0365": 0.036499394228824276
+    "Gamma_gap_0_0365": 0.03649939422882611
    }
   },
   "doublers_repaired": {
-   "M_node_min_gap_pi_4": 2.0816681711721765e-17,
+   "M_node_min_gap_pi_4": 5.898074189551519e-17,
    "exactly_gapless_nodes": 12,
-   "M_node_min_gap_1_5": 0.00020028952953056066,
+   "M_node_min_gap_1_5": 0.00020028952953104998,
    "defect_at_1_5": 0.0002003,
-   "Gamma_gap_pi_4": 1.1102230246251514e-16
+   "Gamma_gap_pi_4": 5.551115123125785e-17
   },
   "loop_machinery_pi_4": {
    "hop_phases": [
@@ -172,11 +172,11 @@
    "pass": true
   },
   {
-   "name": "T4 the full one-step Bloch matrix at the zone centre is an EXACT involution at pi/4: M(0)^2 = I to 7.4e-15 on the 16 sector and 7.1e-15 on the full 256-D module (leak 3.3e-16); at the implemented 1/5 the same product deviates 1.11 (Gamma gap 0.0365): the fundamental dynamics is a finite-state machine only at the quantized angle",
+   "name": "T4 the full one-step Bloch matrix at the zone centre is an EXACT involution at pi/4: M(0)^2 = I to 8.2e-15 on the 16 sector and 7.7e-15 on the full 256-D module (leak 3.9e-16); at the implemented 1/5 the same product deviates 1.11 (Gamma gap 0.0365): the fundamental dynamics is a finite-state machine only at the quantized angle",
    "pass": true
   },
   {
-   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 2.1e-17, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
+   "name": "T5 the doubling defect is REPAIRED by the quantization: at pi/4 all 12 M-node doublers are EXACTLY gapless (min gap 5.9e-17, 12/12) against the named 2.003e-4 near-miss of the implemented 1/5 (0/12): the node imperfection is the signature of the irrational clock, not a structure",
    "pass": true
   },
   {
