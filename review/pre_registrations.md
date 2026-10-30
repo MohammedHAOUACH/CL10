@@ -4340,3 +4340,65 @@ V322 to the rung-17 gap (S17, -2.78%): the cone-to-ladder bridge was
 NOT recovered from the workspace and is NOT invented here. V322 is
 the cone/equivariance census; the rung-17 target leg is V323's
 object. No rung contact enters V322's decision, now or by amendment.
+
+# The joint-stabiliser programme: pre-registration V323 (2026-10-30)
+
+## V323_joint_stabiliser_s17 (tier 2, hard; O8 + neutrino)
+
+**Context (booked, no new inputs).** The rung-17 neutrino contact of
+the five-contact ledger: S17/3 = 0.04874922781428075 eV (V303 leaf,
+re-derived by V319) vs neutrino.m_atm_ev = 0.0501 - a -2.6962%
+residual; V318 books it as the ledger's binding contact (C3 at
+0.539 of band on the best row); V319 closed the rung-weight class
+(supplied-by-density), V320 the sector-sum route, V321 the
+resummation route. The remaining booked algebraic structure that has
+never been tested against S17 is the JOINT MODULE of the gauged bond
+layer: V79/V140 measure 32 (x) 45 = 32 + 288 + 400 + 720 with the
+adjoint-link Casimir spectrum THREE levels {45, 85, 117} with
+multiplicities {32, 288, 1120} (400/720 degenerate at C2 = 117) -
+the bond hop factorises through the joint Casimir T.L, projectors
+verified to 1e-15 (paper Section 10). The stabiliser (commutant) of
+the joint action has a 3-dimensional centre labelled exactly by
+those three integers.
+
+**Question (pre-registered).** Does an element of the joint-module
+centre supply the rung-17 multiplier - i.e. does a Casimir monomial
+chi, built ONLY from the booked {45, 85, 117} and {32, 288, 1120},
+with NO reference to any target, give |S17/3 x chi - m_atm| / m_atm
+within the 5% ledger band - and is the hit a DERIVATION (exact
+algebraic match to the required chi) or supplied-by-density (V306/
+V319 rule)?
+
+**Class (closed, fixed NOW, target-free; the target-defining
+constants S17, m_atm NEVER appear inside any member).** With
+t = (45, 85, 117) (level Casimirs, V79 leaves) and m = (32, 288,
+1120) (multiplicities): 1 (identity); t_i (3); t_i/t_j, i != j (6);
+t_i/tbar with tbar = unweighted mean 247/3 (3); t_i/tbar_mw with
+tbar_mw = multiplicity-weighted mean Sum m_i t_i / Sum m_i = 109
+(3); monomials t_i t_j / t_k^2, distinct (3); cross-ratios
+(t_i - t_j)/(t_j - t_k) over orderings (3); m-weighted gaps
+(m_j t_j - m_i t_i)/(m_j t_j) (6). Total 25 members, enumeration
+fixed here. Provenance: algebraic (integers from booked artifacts).
+
+**Reading convention (inherited).** rung-17 leg' = S17/3 x chi
+(V316/V319 convention); band = pillar_surgery.ledger_scale_rel_tol.
+chi_req = m_atm/(S17/3) is computed for the DECISION ONLY.
+
+**T0.** S17/3 reproduces the V303 leaf to < 1e-9 (art pattern, via
+cl10.neutrino.loop_ladder(17) x EV_PER_GEV as V319 re-derived); the
+joint content {45, 85, 117} x {32, 288, 1120} reproduces the V79
+artifact leaves in-experiment via V79's own machinery (copy of the
+content_ok block); any drift: MACHINERY-DRIFT, halt.
+
+**Branch (pre-registered words).** S17-SEALED-EXACT iff some member
+matches chi_req to relative < 1e-9 - a derivation: the -2.6962% is
+an algebraic property of the joint module, and the ledger C3 contact
+re-provenances algebraic (this tier REQUIRES the exact tier; no
+band-luck); S17-SEALED-IN-BAND iff one or more members land the
+contact inside the 5% band but none exactly - booked with the
+V319-style chance-density count: expected hits = N x (band log
+width)/(class log range), supplier-grade iff < 0.5 (V306 rule);
+S17-STUBBORN otherwise. All three book the FULL 25-row table
+(chi, leg', normalized residual). Exact-match members: no class was
+designed to hit 1.0277; an EXACT hit would be the first neutrino-
+side derivation in the programme and gets the success tier.
