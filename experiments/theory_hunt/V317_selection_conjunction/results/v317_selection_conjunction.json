@@ -1,0 +1,283 @@
+{
+ "id": "V317_selection_conjunction",
+ "tier": 3,
+ "property": "does one booked selector functional uniquely select at >= 2 of the lightcone family, the kappa_s families, and the 3-of-12 channel triple (tier 3, F8/O9/O4)",
+ "residual": true,
+ "programme": "theory-hunt V317",
+ "branch": "SELECTION-DISPERSED",
+ "data": {
+  "t0_T_committed": {
+   "rederived": 0.0011956422840809166,
+   "artifact": 0.0011956422840809166,
+   "abs_diff": 0.0,
+   "rank": 107,
+   "nullity": 53
+  },
+  "t0_desert_row": {
+   "dz12_rederived": 13.097478575754906,
+   "dz12_artifact": 13.097478575754906,
+   "abs_diff": 0.0,
+   "fires": true,
+   "alpha_X_booked": 0.04908738521234052
+  },
+  "F1S1": {
+   "members": {
+    "T_star member (V313 data.search.x_best)": {
+     "T": 0.0011955856843812566,
+     "grad_norm": 0.0010321036527592216,
+     "box_face_coords": 0,
+     "interior": false,
+     "below_T_committed": true
+    },
+    "committed member (x = 0)": {
+     "T": 0.001195642284287066,
+     "grad_norm": 0.0010293883989596592,
+     "box_face_coords": 0,
+     "interior": false,
+     "below_T_committed": false
+    }
+   },
+   "top5_leaf": [
+    0.0011951416247641062,
+    1000.0,
+    1000.0,
+    1000.0,
+    1000.0
+   ],
+   "n_starts_at_best_leaf": 1,
+   "single_distinct_minimum": true,
+   "unique": false
+  },
+  "F3S2": {
+   "solved_z_folds": {
+    "zA": 6.651825620395761,
+    "zB": 36.21297889944446
+   },
+   "desert_xfix_efolds": 34.84209862805478,
+   "families": {
+    "V105_cartan_kappas": {
+     "flag_key": "data.models.*.<n>.desert_ok",
+     "own_flag": true,
+     "window": null,
+     "window_covered": null,
+     "closes": true
+    },
+    "V122_class_invariant_kappas": {
+     "flag_key": "data.embeddings.<e>.free_kappa.rows (closed, [z_min, z_max] in the desert e-fold window (0, 34.842))",
+     "own_flag": true,
+     "window": null,
+     "window_covered": false,
+     "closes": false
+    },
+    "V145_superexchange_kappas": {
+     "flag_key": "data.meeting[*].thresholds_in_desert + [min_threshold, max_threshold]",
+     "own_flag": true,
+     "window": null,
+     "window_covered": false,
+     "closes": false
+    },
+    "V146_two_number_kappas": {
+     "flag_key": "data.joint.per_n[*].in_desert / data.joint.n_desert",
+     "own_flag": false,
+     "window": null,
+     "window_covered": null,
+     "closes": false
+    }
+   },
+   "n_closed": 1,
+   "unique": true
+  },
+  "F3S3": {
+   "channel_energies": [
+    -2.7075291682680772e-14,
+    3.409245623609544e-16,
+    3.77452243990509e-15,
+    9.637168384229216e-15,
+    32.0,
+    32.000000000000014,
+    32.00000000000006,
+    32.00000000000007,
+    47.999999999999545,
+    47.999999999999595,
+    94.8114285714283,
+    94.81142857142832
+   ],
+   "best_triple": [
+    0,
+    1,
+    2
+   ],
+   "best_score": -2.2959844680414727e-14,
+   "runner_up_score": -1.70971987360906e-14,
+   "gap": 5.862645944324125e-15,
+   "unique": false
+  },
+  "F2S3": {
+   "G": 0.06567432775346577,
+   "weight_only_note": "a uniform positive weight cannot reorder the triples (booked pre-run): G*score has the same ordering and gap x G",
+   "best_triple": [
+    0,
+    1,
+    2
+   ],
+   "best_score_weighted": -1.5078723647102241e-15,
+   "gap_weighted": 3.850253312500694e-16,
+   "unique": false
+  },
+  "F4S3": {
+   "node_p_A": {
+    "0": {
+     "p_A": 0.6983019267834425,
+     "usable_radii": 7
+    },
+    "1": {
+     "p_A": 0.6983019268051637,
+     "usable_radii": 7
+    },
+    "2": {
+     "p_A": 0.6972974139843126,
+     "usable_radii": 7
+    },
+    "3": {
+     "p_A": 0.7048423785647943,
+     "usable_radii": 7
+    },
+    "4": {
+     "p_A": 0.7048423785729548,
+     "usable_radii": 7
+    },
+    "5": {
+     "p_A": 0.7013377834450752,
+     "usable_radii": 7
+    },
+    "6": {
+     "p_A": 0.6983019268478956,
+     "usable_radii": 7
+    },
+    "7": {
+     "p_A": 0.6983019268569656,
+     "usable_radii": 7
+    },
+    "8": {
+     "p_A": 0.7013377834522623,
+     "usable_radii": 7
+    },
+    "9": {
+     "p_A": 0.7048423785703802,
+     "usable_radii": 7
+    },
+    "10": {
+     "p_A": 0.704842378603428,
+     "usable_radii": 7
+    },
+    "11": {
+     "p_A": 0.701337783395214,
+     "usable_radii": 7
+    }
+   },
+   "best_triple": [
+    0,
+    1,
+    2
+   ],
+   "best_p_A": 0.697967089190973,
+   "runner_up_p_A": 0.6979670892052169,
+   "gap": 1.4243939361335833e-11,
+   "unique": false,
+   "radii": [
+    0.01,
+    0.00316,
+    0.001,
+    0.000316,
+    0.0001,
+    3.16e-05,
+    1e-05
+   ],
+   "direction_grid": 6,
+   "n_dirs": 179
+  },
+  "table": {
+   "F1": {
+    "S1": [
+     "evaluated",
+     false
+    ],
+    "S2": [
+     "N/A (pre-run: T not applicable to a coupling family)",
+     false
+    ],
+    "S3": [
+     "N/A (pre-run: T has no channel argument)",
+     false
+    ]
+   },
+   "F2": {
+    "S1": [
+     "weight-only (V313's booked wording; never a selector)",
+     false
+    ],
+    "S2": [
+     "N/A (pre-run)",
+     false
+    ],
+    "S3": [
+     "evaluated",
+     false
+    ]
+   },
+   "F3": {
+    "S1": [
+     "N/A (pre-run: host energetics has no lightcone family argument)",
+     false
+    ],
+    "S2": [
+     "evaluated",
+     true
+    ],
+    "S3": [
+     "evaluated",
+     false
+    ]
+   },
+   "F4": {
+    "S1": [
+     "N/A (pre-run: p_A measures anisotropy at a fixed member, not members)",
+     false
+    ],
+    "S2": [
+     "N/A (pre-run)",
+     false
+    ],
+    "S3": [
+     "evaluated",
+     false
+    ]
+   }
+  },
+  "sites_selected_per_functional": {
+   "F1": 0,
+   "F2": 0,
+   "F3": 1,
+   "F4": 0
+  },
+  "status": "SELECTION-DISPERSED",
+  "wall_time": 354.9468240737915,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0a the V285 machinery rebuilt: Jacobian rank 107 / nullity 53 must be 107/53; T_committed 1.195642e-03 reproduces the booked 1.195642e-03 (|d| 0.0e+00 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0b V247's booked (1,2)-shift row: v237_rule at alpha_std(pi/4) reproduces dz12 13.0974785757549 (|d| 0.0e+00 < 1e-9, host float64 rule; fires = True)",
+   "pass": true
+  },
+  {
+   "name": "branch SELECTION-DISPERSED: 12-cell table (unique flags: {'F1': [False, False, False], 'F2': [False, False, False], 'F3': [False, True, False], 'F4': [False, False, False]}); sites per functional {'F1': 0, 'F2': 0, 'F3': 1, 'F4': 0}; F1 S1 not / F3 S2 unique families closed / F2+F3 S3 best triple [0, 1, 2] gap 5.86e-15 / F4 S3 best triple [0, 1, 2] p_A gap 1.42e-11",
+   "pass": true
+  }
+ ],
+ "status": "SELECTION-DISPERSED",
+ "pass": true
+}
