@@ -4222,3 +4222,47 @@ Provenance if fired: algebraic (the subtraction data are detuned points
 of the same algebra; the targets touched only the decision). Closest is
 not true still applies: one tied rung-contact does not close the ledger
 (rung-17 floor, V276 residue) - the booking must say exactly that.
+
+### Post-run booking note V321 (2026-10-30) - RESUM-NO-TIE
+
+Fired word **RESUM-NO-TIE** (tier 2, hard, O8): no member of the
+4k+2 class admits a canonical finite part inside the pre-fixed
+guards, so the partie-finie route to the hierarchy coefficient is
+CLOSED on the booked class. Exact numbers (artifact
+v321_crossing_resummation.json): guard status by n = 2: NON-
+POLYDIVERGENT (m_3pt 11.579 / 11.000); 6: NON-CANONICAL (10.722 /
+11.002, c-spread 0.856); 10: NON-CANONICAL (10.655 / 11.006,
+c-spread 0.985); 14: NON-CANONICAL (10.898 / 11.011, 0.937);
+18/22: NON-POLYDIVERGENT (10.102/11.018, 10.424/11.026); tail
+250/254/258: NON-POLYDIVERGENT (13.206/11.283, 12.430/11.278,
+12.782/11.279; c-spreads 7.5e5 / 5.4e4 / 5.0e4). Booked structural
+fact: the ASYMPTOTIC exponent (1e-3 -> 1e-5 pair) is 11.00 +- 0.03
+for every n <= 22 and 11.28 at the tail - the divergence is delta
+^-11 to leading order with subleading/logarithmic structure
+(coarse-pair slopes drift 10.1-13.2); no single (c, m) subtraction
+is canonical at any n. F_10 values over the grid booked:
+3.6634e6 / 3.7885e15 / 7.4871e27 / 7.6831e38 / 7.6874e49.
+Anchor: certified F_208 at pi/4+1e-8 reproduced EXACTLY (0.0);
+F_req(rung-10) = 0.019175759 quoted. T0 machinery identity exact
+(0.0/0.0/0.0 at 1e-1/1e-3/1e-5).
+
+Machinery amendments booked (neither touches the decision gate):
+(1) the detuned grid is computed with V209's own exact-arithmetic
+mp_ladder (90 dps, nmax 260), NOT float64 loop_ratios as the
+pre-registration named: float64 destroys the divergence by
+catastrophic cancellation (run 1: F_2 at 1e-3 read 7.09e14 against
+the certified 1.15e30). Object class unchanged.
+(2) T0 was amended at run 2 from "leaf agreement 1e-9" to
+"machinery identity 1e-12" after the diagnosis that V209's booked
+1e-5 leaf is itself a 55-dps value: the true 90-dps value differs
+from the leaf by 5.1e-8 relative (8 significant digits at 1e52) -
+a 1e-9 leaf gate is unsatisfiable; the identity replay (nmax 12,
+55 dps, V209's exact calls) reproduces all three legs EXACTLY.
+(3) the subtraction constant c_n was fixed at the finest grid
+point (pre-registration wording allowed per-point constants, which
+would make fp identically zero - the fixed-constant reading is the
+only non-vacuous one).
+Success tier (RESUM-CROSSING-TIED) would have re-provenanced the
+coefficient algebraic; it did not fire: no paper provenance change.
+One tied rung-contact would not have closed the ledger (rung-17
+floor, V276 residue) - booked before the run, moot now.
