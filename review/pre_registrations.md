@@ -3968,3 +3968,71 @@ does not promote any claim to algebraic. Gate hygiene: the plan's expected
 (4 re-run, 227 folded, library unchanged); no config edit was made, so the
 library fingerprint is unchanged and the incremental gate re-ran only the
 four new experiments.
+
+# The rung-weight programme: pre-registration V319 (2026-10-30)
+
+**Context (from booked artifacts, no new inputs).** V318 named the closest
+zero-fitted row at worst-normalized 1.205103693702192; inside that row the
+ONLY failing contact is C4 (coefficient 2.076443600804462 at the V310
+corrected clock vs COEF_OBS 2.076564111173832, band 1e-4); C3 passes at
+0.539230 (the neutrino -2.6962% floor), C5 at 1.35e-04. The required rung-10
+multiplier window is exact: W(10)^10 in
+[(COEF_OBS - coef_band_abs)/C_CORR, (COEF_OBS + coef_band_abs)/C_CORR].
+
+**Question (pre-registered).** Does a rung-dependent weight built ONLY of
+named constants (LOOP from u10pred - the booked ladder base, V276;
+angle.alpha_10 - config conventional per the V52 audit), no dial tuned to
+any target, move the rung-10 contact into its band AT THE ZERO-FITTED
+CORRECTED CLOCK while leaving C3 inside its 5% band - and is the census
+then distinguishable from density?
+
+**Class (closed, fixed now, BEFORE the run; V306 rule: the target-defining
+constants COEF_OBS, C_15, C_CORR, S17, m_atm, g_cand NEVER appear inside
+any W):**
+- A loop-order shifts: W(n) = 1 +/- LOOP^k, k = 1..6. 12 members.
+- B rung-linear drift: W(n) = exp(+/- LOOP^k * n/17), k = 1..6 (anchor rung
+  17 = the ledger's rung B, config cell.rung_B; no free parameter). 12.
+- C coupling-mixed shifts: W(n) = 1 +/- alpha_10^a * LOOP^b, a in {1,2},
+  b in {1,2}. 8.
+- D fitted reference (EXCLUDED from the success tier, ranking only):
+  W(n) = exp(lambda*(n-10)) with lambda solved to land rung-10 exactly at
+  COEF_OBS; provenance fitted.
+32 parameter-free members total.
+
+**Reading conventions (booked, inherited).** coef' = 3(|F_10| W(10)/LOOP)^10
+= C * W(10)^10; rung-17 leg' = S17 * W(17) (odd rungs have F = 0 exactly by
+the certified odd rule, so the ledger leg carries ratio 1 and the weight
+multiplies the leg directly - V316's rung-17 convention); C1 stays
+algebraic-normalized (rung-A identity, no measured target; booked); C2 =
+DM rung-10 mass times W(10) vs physics.wimp_window_gev; C5 = V247
+v237_rule at alpha_std(row clock), weight-free.
+
+**T0 (pre-registered).** C_15 = plain read at g = 1/5 reproduces V206
+data.data_clock.coef_at_fifth = 2.088106865906787 to < 1e-9; C_CORR = plain
+read at g_cand = g_cross_rung10 - V310-hit reproduces the V318 closest-row
+coef leaf 2.076443600804462 to < 1e-9; S17 reproduces the V303 contact leaf
+rel < ledger_scale_rel_tol.
+
+**Coincidence discipline (V306's lesson, quantitative, fixed now).** For
+each family the artifact books raw hits/total AND the log-uniform expected
+random hits = n_candidates x window-log-width / family-log-range. A member
+is SUPPLIER-GRADE only if its family's expected random hits < 0.5;
+otherwise every in-band hit is booked as a COINCIDENCE (the V306 lesson:
+a rich enough in-band class supplies its target by density) and does not
+fire the success tier. Consistency leg booked (not branch-deciding): for
+every in-band hit and the D reference, also record the certified-branch
+crossing residual |F_208 W(208)/(1/16pi) - 1| against the plain booked
+1.013% deficit (V209/V276) - a real supplier should not widen it silently.
+
+**Branch (pre-registered words).**
+- LEDGER-CONSISTENT-THEORY-CANDIDATE iff >= 1 parameter-free member is
+  supplier-grade (density gate above) AND its corrected-clock row passes
+  all five contacts zero-fitted; the full five-contact row booked.
+- RUNG-WEIGHT-NO-SUPPLIER otherwise: all 32 members ranked by
+  max(norm_rung10, norm_rung17), every in-band hit booked with its family
+  density and the exact required window; the candidate formulas are booked
+  explicitly, with the density verdict stated in the same breath.
+Closest is not true: a census hit that lands in a 1e-4-wide band from a
+family with O(1) expected random hits is booked as supplied-by-density,
+never as derived. No paper claim re-provenances algebraic unless the
+density gate fires.
