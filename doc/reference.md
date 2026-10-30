@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V325
+## The theory-hunt programme (2026-10-30): V315-V326
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -798,6 +798,52 @@ band-units off; 0 of 220 inside; density expected 0.0102, razor.
 **CH-F208-STUBBORN**: the channel side bounds the gap at both clocks
 - identically zero at pi/4, exactly degenerate at 1/5 (V316). No S3
 selection instance; the V317 word stands.
+
+**V326 - the phase-dictionary bridge (the structural repair, closed as
+a theorem).** `experiments/theory_hunt/V326_phase_dictionary_bridge`
+asks whether any uniform rescaling c of the phase dictionary (9-member
+class {1, 2, 4, 1/2, 1/4, pi, 2*pi, 1/pi, 1/(2*pi)}) closes a clock
+that also reads the observed coefficient inside coef_band_abs. The
+reparameterization lemma makes the bridge c-INDEPENDENT: dictionary
+closure at g <=> c*g in the committed closure set Cl, and the read at
+g is the committed read at c*g. Measured: the reading set R of the
+rung-10 coefficient is TWELVE razor windows on (0.15, 0.33), widths
+2.4e-9..1.5e-7 (the 10th power makes F_10(x) re-cross the band twelve
+times); g_obs = 0.1999980 lies inside the fourth. The step-product
+closure set is large - 43 of the 79 grid angles close at k <= 16 (the
+lattice blocks absorb pi*a/q): the order-8 quantization {pi/2, pi/4}
+is the INTERNAL U16-sector fact (V206/V309), not a property of the
+six-stage product. No closure angle lies in R: the nearest grid angle
+(pi*1/11 = 0.2856) misses the nearest window by 4.6e-4 - 4.0e3
+window-widths - the closest closed-clock rung-10 read is 5652.1
+band-units off and the certified pi/4 crossing 6329.6. The 2*pi
+fifth-root dictionary DOES close at g = 1/5 (pi*2/5 closes at k = 10)
+- the closure half of the structural idea works - but it reads far
+outside the band. **DICTIONARY-NO-BRIDGE**: the closure/reading
+separation is dictionary-invariant, so the structural defect admits no
+repair in the booked class. (Gate hygiene booked in the note: the
+scan hoists the clock-independent half of hop_machinery - T0h gate
+bit-identical; T0b's k = 8 anchor was a wrong expectation imported
+from the internal-sector prose and was replaced by V315's booked
+k = 2 leaf before the re-run.)
+
+**The consolidated axiom inventory (the programme's repair, as a
+booked statement, not a refit).** With V309 (no algebraic rule for the
+data clock) and V326 (no dictionary bridge) both closed, the reading
+clock g_obs = 0.1999980 joins the declared named inputs of the scale
+sector beside the ladder base 1/(16 pi) (V276) and v: the internal-
+sector closure quantization g in {pi/2, pi/4} stands untouched as a
+theorem (Theorem 6, V206/V309); the reading clock enters the ladder
+arithmetic as data, booked fitted in the Table 6 audit with its
+non-derivability now theorem-backed. What the consolidated theory
+claims, end to end: the exact algebraic cell (root, dictionary form,
+selection rule, certified F_208); the ladder at the declared clock,
+reading 2.0881 with the -0.55% and -2.6962% residuals bounded from
+every reserved supply class and from the channel side; the closest
+zero-fitted compound at ledger distance 0.243 under the booked density
+disqualification (V324); and three named residuals - clock,
+coefficient, neutrino - each now closed as a theorem of the reserved
+classes rather than open as a search.
 
 
 ## The pillar-surgery programme (2026-10-30): V308-V314

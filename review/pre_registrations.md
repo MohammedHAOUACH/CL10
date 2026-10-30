@@ -4717,7 +4717,7 @@ re-cross the band 12 times as it rises from ~0.05 at 0.168 to 3 at
 component. The band-reading angle is not unique - but none of the 12
 windows contains any pi-grid angle: minimum grid-window separation
 4.61e-4 (pi*1/11 = 0.2855994 vs the window at 0.285138 - a miss of
-3.2e4 window-widths).
+4.0e3 window-widths).
 2. THE STEP-PRODUCT CLOSURE IS NOT THE CLOCK QUANTIZER: 43 of the 79
 grid angles close at k <= 16 (the lattice blocks absorb pi*a/q at
 order 2q and its divisors). The order-8 quantization {pi/2, pi/4} is
