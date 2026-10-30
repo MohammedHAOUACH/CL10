@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V321
+## The theory-hunt programme (2026-10-30): V315-V323
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -711,6 +711,32 @@ in the note; the anchor leg reproduces the certified F₂₀₈ EXACTLY.
 is closed on the booked class - V319 (weights), V320 (sectors) and
 V321 (resummation) now bound the coefficient residual from three
 independent directions.
+
+**V322 - the O_h bond-decoration cone census.**
+`.../V322_oh_bond_decoration_cone` attacks the one constructive
+open piece V191 left: its no-go says a conical node is possible
+only for a parity-mixed A1g/T1u pair and the engine's six-stage
+factorisation obstructs exactly that (defect 9.9e-2 against the
+stage sum's 1.1e-15). The class: site-side decorations
+D(q) = exp(i·alpha_10·Σ w_o A_o(q)) built from the 56 O_h hopping
+orbits of the range-1 census on the 8-site cell (sizes 8×6, 24×30,
+48×20), identity + all 112 single-orbit members + 60 double-orbit
+members over the six size-8 orbits = 173, all zero-fitted. No
+member bends the node: the largest fine degree over all 173 is
+1.9987 - every decoration that keeps the closed-clock touching
+keeps it QUADRATIC (the 31 gapless survivors all hold the full
+pinned multiplicity m* = 64 at degree ∈ [1.993, 1.999]); 141 of
+the 172 decorations gap the node outright - the SELECTIVITY table
+booked. The factorisation leg (measured, not gated) improves by a
+factor 2.5 at best (9.93e-2 → 4.01e-2), nowhere near the stage-sum
+value. **CONE-OH-NEGATIVE**, with V191's verdict sharpened: the
+obstruction is the stage factorisation itself - confirmed now on
+two independent decoration classes (V277's internal quaternion
+twists: DECORATION-BEST; the O_h site side: NEGATIVE). The class
+census itself went through a machinery correction booked before
+any real run (the first O_h action was applied to bit coordinates,
+not the ±1 cell coordinates - a non-permutation map; the corrected
+action reproduces V191's defect leaves exactly).
 
 **V323 - the joint-module stabiliser against the rung-17 contact.**
 `.../V323_joint_stabiliser_s17` asks the last algebraic supply
