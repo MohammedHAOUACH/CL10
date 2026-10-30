@@ -1,0 +1,622 @@
+{
+ "id": "V324_closest_theory_ledger_v2",
+ "tier": 1,
+ "property": "five-contact closest-theory ledger re-scored with the joint-centre rung-17 multipliers and the V319 rung-10 weights, density qualifiers pre-fixed (tier 1, hard, O8/O10)",
+ "residual": true,
+ "programme": "theory-hunt V324",
+ "branch": "LEDGER2-CONSISTENT-CANDIDATE",
+ "data": {
+  "n_rows": 576,
+  "status": "LEDGER2-CONSISTENT-CANDIDATE",
+  "closest_row": {
+   "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+   "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+   "selection": "none",
+   "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+   "W10": 1.000004631722358,
+   "W17": 1.000007873940773,
+   "chi": "255/247 (3 t2/sum t)",
+   "coef": 2.0765397779115617,
+   "leg17_eV": 0.0503285464535117,
+   "normalized": [
+    0.0,
+    0.0,
+    0.09123610918630878,
+    0.24333262270470613,
+    0.00013500311979441904
+   ],
+   "worst_normalized": 0.24333262270470613,
+   "zero_fitted": true,
+   "provenance": [
+    "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+    "combinatorial (node set)",
+    "trivial",
+    "algebraic (W slot, V319)",
+    "algebraic (chi slot, V323)"
+   ],
+   "all_inside": true
+  },
+  "n_candidates": 32,
+  "n_candidates_identity_W": 0,
+  "qualifier": "candidates are consistent with density-DISQUALIFIED coefficient supply (W slot, V319 rule): a bound, not a discovery; no paper re-provenance",
+  "top20": [
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.0765397779115617,
+    "leg17_eV": 0.0503285464535117,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610918630878,
+     0.24333262270470613,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.24333262270470613,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.0503285464535117,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610918630878,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.2433326227135879,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "algebraic machinery",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.0503285464535117,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610918630878,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.2433326227135879,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.0503285464535117,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610918630878,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.2433326227135879,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.05032854645195157,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610856350081,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.429927195240154,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "algebraic machinery",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.05032854645195157,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610856350081,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.429927195240154,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.05032854645195157,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610856350081,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.429927195240154,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "255/247 (3 t2/sum t)",
+    "coef": 2.076607103893357,
+    "leg17_eV": 0.05032854645195157,
+    "normalized": [
+     0.0,
+     0.0,
+     0.09123610856350081,
+     0.4299271952490358,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.4299271952490358,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "identity",
+    "coef": 2.0765397779115617,
+    "leg17_eV": 0.04874961166281329,
+    "normalized": [
+     0.0,
+     0.0,
+     0.5390771805136567,
+     0.24333262270470613,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.5390771805136567,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "identity",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04874961166281329,
+    "normalized": [
+     0.0,
+     0.0,
+     0.5390771805136567,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.5390771805136567,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "algebraic machinery",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "identity",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04874961166281329,
+    "normalized": [
+     0.0,
+     0.0,
+     0.5390771805136567,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.5390771805136567,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "identity",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04874961166281329,
+    "normalized": [
+     0.0,
+     0.0,
+     0.5390771805136567,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.5390771805136567,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "identity",
+    "coef": 2.076607103893357,
+    "leg17_eV": 0.0487496116613021,
+    "normalized": [
+     0.0,
+     0.0,
+     0.539077181116925,
+     0.4299271952490358,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.539077181116925,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "identity",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.0487496116613021,
+    "normalized": [
+     0.0,
+     0.0,
+     0.539077181116925,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.539077181116925,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "algebraic machinery",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "identity",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.0487496116613021,
+    "normalized": [
+     0.0,
+     0.0,
+     0.539077181116925,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.539077181116925,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "1+LOOP^3 (V319 family A, density-disqualified)",
+    "W10": 1.0000078739097737,
+    "W17": 1.0000078739097737,
+    "chi": "identity",
+    "coef": 2.0766071038933562,
+    "leg17_eV": 0.0487496116613021,
+    "normalized": [
+     0.0,
+     0.0,
+     0.539077181116925,
+     0.429927195240154,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.539077181116925,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "90/91 (m-weighted gap)",
+    "coef": 2.0765397779115617,
+    "leg17_eV": 0.04821390164454062,
+    "normalized": [
+     0.0,
+     0.0,
+     0.7529334752332854,
+     0.24333262270470613,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.7529334752332854,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "90/91 (m-weighted gap)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04821390164454062,
+    "normalized": [
+     0.0,
+     0.0,
+     0.7529334752332854,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.7529334752332854,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "algebraic machinery",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "90/91 (m-weighted gap)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04821390164454062,
+    "normalized": [
+     0.0,
+     0.0,
+     0.7529334752332854,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.7529334752332854,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "W": "exp(+LOOP^3 n/17) (V319 family B, density-disqualified)",
+    "W10": 1.000004631722358,
+    "W17": 1.000007873940773,
+    "chi": "90/91 (m-weighted gap)",
+    "coef": 2.076539777911561,
+    "leg17_eV": 0.04821390164454062,
+    "normalized": [
+     0.0,
+     0.0,
+     0.7529334752332854,
+     0.2433326227135879,
+     0.00013500311979441904
+    ],
+    "worst_normalized": 0.7529334752332854,
+    "zero_fitted": true,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial",
+     "algebraic (W slot, V319)",
+     "algebraic (chi slot, V323)"
+    ],
+    "all_inside": true
+   }
+  ],
+  "wall_time": 0.001950979232788086
+ },
+ "checks": [
+  {
+   "name": "T0a identity re-score of the V318 best zero-fitted row reproduces the booked normalized quintuple to 0.0e+00 < 1e-9",
+   "pass": true
+  },
+  {
+   "name": "T0b family-A W10 1.0000078739098 vs V319 leaf 1.0000078739098 (rel 0.0e+00) and C4 norm 0.429927195 vs leaf 0.429927195 (rel 2.1e-11 < 1e-6)",
+   "pass": true
+  },
+  {
+   "name": "branch LEDGER2-CONSISTENT-CANDIDATE: 32 zero-fitted all-pass rows (0 without W); closest row worst_normalized 0.2433326 (clock g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)), W exp(+LOOP^3 n/17) (V319 family B, densit, chi 255/247 (3 t2/sum t), norms ['0.0000', '0.0000', '0.0912', '0.2433', '0.0001']); qualifier: candidates are consistent with density-DISQUALIFIED coefficient supply (W slot, V319 rule): a bound, not a discovery; no paper re-provenance",
+   "pass": true
+  }
+ ],
+ "status": "LEDGER2-CONSISTENT-CANDIDATE",
+ "pass": true
+}

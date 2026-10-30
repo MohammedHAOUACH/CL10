@@ -4598,3 +4598,22 @@ mu rows with the nearest to mu_req and the full normalized
 residuals; the gap is then bounded from the channel side too, and
 V205's channel-blindness acquires its quantitative triple-class
 completion).
+
+### V324 booking (run after the pre-registration; verdict as booked)
+
+LEDGER2-CONSISTENT-CANDIDATE fired exactly as predicted: 576 re-scored
+rows, 32 all-pass zero-fitted. Closest distance 1.205 -> 0.2433326:
+the V310-corrected best clock x W = exp(+LOOP^3 n/17) (V319 family B,
+W10 = 1.000004631722358) x chi = 255/247 (V323 best band multiplier,
+supplied-grade, no V319 disqualification). Norms [C1 0, C2 0, C3
+0.09124, C4 0.24333, C5 0.00014]: the compound passes all five contacts
+zero-fitted; C4 passes only with the W slot, whose class carries the
+V319 density disqualification - the booked qualifier applies verbatim,
+so this is a bound on the closest theory, NOT a discovery and NOT
+paper re-provenance (the 30.4% distance sentence in Table 4 and the O8
+cell keeps its supply verdicts; the §17 hunt sentence gains the 0.243
+update clause and the V320/V321/V323 supply-closure clauses). The V318
+1.205 sentence stands unchanged as the V318-class fact (no re-scores of
+reserved slots in V318 itself). T0a 0.0e+00, T0b rel 1.8e-00 gate
+after one implementation fix (T0b initially compared the identity row
+against the family-A leaf). First fired branch in the programme.
