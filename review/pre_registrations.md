@@ -4080,3 +4080,56 @@ candidates being the certified n* = 208 deficit (fails), the -2.6962%
 neutrino floor (untouched by any rung weight at rung 10's decade), and
 the rung-3 seesaw row (weight-free by convention - a derived weight would
 have to say what it does there).
+
+# The rung-sector programme: pre-registration V320 (2026-10-30)
+
+**Question (pre-registered).** The V319 census found the required rung
+weight (1+LOOP^3-scale) but booked it supplied-by-density. Is that weight
+a REAL contribution when the booked twisted sectors of V315 are SUMMED -
+treated as internal degrees of freedom, uniform measure, no tunable
+parameter? Predict W_eff(10) = (sector-mean rung factor)/(plain rung
+factor) and compare to the V319 booked window.
+
+**Object (closed class, fixed now).** The 64 D-family decorations of V315
+(amps[t] in {(0,0,0), (G10,G10,G10)} per stage, G10 = angle.alpha_10)
+over the engine step dec_step(q, g, amps, SC.STAGES) (V315's copied
+machinery). Rung leg per sector via the Floquet phase sum on the BOOKED
+12-point M mesh (SC.M_POINTS, the same mesh V205/V318-W3 use):
+rho_n^{(a)}(g) = (1/12) sum_q (1/128) tr M_a(q;g)^n, exact via eigen-
+values. W_eff(n) = mean_a rho_n^{(a)} / rho_n^{(0)}; secondary measure
+booked: average over the CLOSING sectors only (closure_row(M_a(0,
+pi/4)) closes within CLOSE_EPS - V315's row). No new q-mesh, no weights,
+no amplitudes: everything booked.
+
+**Guard (fixed now, not an after-run escape).** The ratio is meaningful
+only when the plain denominator is not phase-cancelled: a branch requires
+|rho_n^{(0)}| > 1e-9 for the n compared; if the guard fails at some n the
+row is booked GUARD-FAILED at that n and cannot contribute at it.
+
+**Targets (artifact-read, no literals).** The V319 window leaves: at the
+corrected clock lnW(10) in [9.877594588304732e-07, 1.0619053724142347e-05];
+at 1/5 lnW(10) in [-5.591e-4, -5.495e-4] (V319 artifact re-read). The
+drift target gamma = 2.290e-4/rung (V319-era inversion, booked in the
+session note). Certified leg: the certified F_208 leaf at pi/4 times the
+n = 208 sector ratio - does the correction REDUCE the booked 1.013%
+certified deficit (closing needs ratio ~1.010, five orders above the
+rung-10 window's 1.000006-1.000106: one uniform factor CANNOT do both,
+and the n-dependence is the object of measurement, not an afterthought).
+
+**T0 (pre-registered).** 64 sectors enumerated; the identity sector closes
+at pi/4 with V315's booked k = 2 row (closure_row |dev| < 1e-12); the
+plain-sector Floquet legs finite with the guard satisfied or booked.
+
+**Branch (pre-registered words).**
+- RUNG-SECTOR-SUPPLIED: W_eff(10) lands in a booked window (uniform OR
+  closing-sector measure, either clock), guard satisfied at 10/17/208,
+  AND the certified-deficit leg does not INCREASE the deficit. Then the
+  sector sum DERIVES a rung weight at the required scale - the tie-break
+  V319 could not deliver - and the booked formula gains a derivation
+  test, one layer below coincidence.
+- RUNG-SECTOR-NO-CONTRIB: otherwise; the full sector table (W_eff(10),
+  W_eff(17), W_eff(208), per-measure, guard status) booked, and the
+  sector route to the weight closed on the booked class.
+Honesty rule unchanged: a sector sum that lands is a DERIVATION test, the
+first one the candidate formulas face; it still does not touch the
+neutrino floor or the origin of 1/(16pi) unless the n-dependence says so.
