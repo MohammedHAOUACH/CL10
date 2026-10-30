@@ -1,0 +1,276 @@
+{
+ "id": "V323_joint_stabiliser_s17",
+ "tier": 2,
+ "property": "joint-module centre monomials as rung-17 multipliers against the atmospheric contact; exact-derivation vs chance-density tiers (tier 2, hard, O8 + neutrino)",
+ "residual": true,
+ "programme": "theory-hunt V323",
+ "branch": "S17-SEALED-IN-BAND",
+ "data": {
+  "t0_S17_rel": 0.0,
+  "chi_req": 1.0277085862952593,
+  "S17_over_3_eV": 0.04874922781428075,
+  "m_atm_eV": 0.0501,
+  "band": 0.05,
+  "table": [
+   {
+    "tag": "identity",
+    "chi": "1",
+    "chi_f": 1.0,
+    "leg_rel": 0.026961520673038836,
+    "normalized": 0.5392304134607767,
+    "status": "BAND-HIT"
+   },
+   {
+    "tag": "t1",
+    "chi": "45",
+    "chi_f": 45.0,
+    "leg_rel": 42.786731569713254,
+    "normalized": 855.7346313942651,
+    "status": "open"
+   },
+   {
+    "tag": "t2",
+    "chi": "85",
+    "chi_f": 85.0,
+    "leg_rel": 81.70827074279171,
+    "normalized": 1634.1654148558341,
+    "status": "open"
+   },
+   {
+    "tag": "t3",
+    "chi": "117",
+    "chi_f": 117.0,
+    "leg_rel": 112.84550208125447,
+    "normalized": 2256.910041625089,
+    "status": "open"
+   },
+   {
+    "tag": "t1/t2",
+    "chi": "9/17",
+    "chi_f": 0.5294117647058824,
+    "leg_rel": 0.48486198153278526,
+    "normalized": 9.697239630655705,
+    "status": "open"
+   },
+   {
+    "tag": "t1/t3",
+    "chi": "5/13",
+    "chi_f": 0.38461538461538464,
+    "leg_rel": 0.6257544310280918,
+    "normalized": 12.515088620561835,
+    "status": "open"
+   },
+   {
+    "tag": "t2/t1",
+    "chi": "17/9",
+    "chi_f": 1.8888888888888888,
+    "leg_rel": 0.8379615720620377,
+    "normalized": 16.759231441240754,
+    "status": "open"
+   },
+   {
+    "tag": "t2/t3",
+    "chi": "85/117",
+    "chi_f": 0.7264957264957265,
+    "leg_rel": 0.2930917030530624,
+    "normalized": 5.8618340610612485,
+    "status": "open"
+   },
+   {
+    "tag": "t3/t1",
+    "chi": "13/5",
+    "chi_f": 2.6,
+    "leg_rel": 1.5299000462500991,
+    "normalized": 30.59800092500198,
+    "status": "open"
+   },
+   {
+    "tag": "t3/t2",
+    "chi": "117/85",
+    "chi_f": 1.3764705882352941,
+    "leg_rel": 0.33935884801475824,
+    "normalized": 6.787176960295165,
+    "status": "open"
+   },
+   {
+    "tag": "t1/(247/3)",
+    "chi": "135/247",
+    "chi_f": 0.5465587044534413,
+    "leg_rel": 0.4681773493557094,
+    "normalized": 9.363546987114187,
+    "status": "open"
+   },
+   {
+    "tag": "t2/(247/3)",
+    "chi": "255/247",
+    "chi_f": 1.0323886639676114,
+    "leg_rel": 0.004553895661437769,
+    "normalized": 0.09107791322875537,
+    "status": "BAND-HIT"
+   },
+   {
+    "tag": "t3/(247/3)",
+    "chi": "27/19",
+    "chi_f": 1.4210526315789473,
+    "leg_rel": 0.38273889167515535,
+    "normalized": 7.654777833503107,
+    "status": "open"
+   },
+   {
+    "tag": "t1/109",
+    "chi": "45/109",
+    "chi_f": 0.41284403669724773,
+    "leg_rel": 0.598286866332906,
+    "normalized": 11.965737326658118,
+    "status": "open"
+   },
+   {
+    "tag": "t2/109",
+    "chi": "85/109",
+    "chi_f": 0.7798165137614679,
+    "leg_rel": 0.24120852529548906,
+    "normalized": 4.824170505909781,
+    "status": "open"
+   },
+   {
+    "tag": "t3/109",
+    "chi": "117/109",
+    "chi_f": 1.073394495412844,
+    "leg_rel": 0.04445414753444457,
+    "normalized": 0.8890829506888914,
+    "status": "BAND-HIT"
+   },
+   {
+    "tag": "t1*t2/t3^2",
+    "chi": "425/1521",
+    "chi_f": 0.2794214332675871,
+    "leg_rel": 0.7281121934819471,
+    "normalized": 14.562243869638941,
+    "status": "open"
+   },
+   {
+    "tag": "t1*t3/t2^2",
+    "chi": "1053/1445",
+    "chi_f": 0.728719723183391,
+    "leg_rel": 0.29092766869806924,
+    "normalized": 5.818553373961384,
+    "status": "open"
+   },
+   {
+    "tag": "t2*t3/t1^2",
+    "chi": "221/45",
+    "chi_f": 4.911111111111111,
+    "leg_rel": 3.778700087361299,
+    "normalized": 75.57400174722598,
+    "status": "open"
+   },
+   {
+    "tag": "dt32/dt21",
+    "chi": "4/5",
+    "chi_f": 0.8,
+    "leg_rel": 0.22156921653843106,
+    "normalized": 4.431384330768621,
+    "status": "open"
+   },
+   {
+    "tag": "dt21/dt32",
+    "chi": "5/4",
+    "chi_f": 1.25,
+    "leg_rel": 0.2162980991587015,
+    "normalized": 4.32596198317403,
+    "status": "open"
+   },
+   {
+    "tag": "(dt21+dt32)/dt32",
+    "chi": "9/4",
+    "chi_f": 2.25,
+    "leg_rel": 1.1893365784856627,
+    "normalized": 23.78673156971325,
+    "status": "open"
+   },
+   {
+    "tag": "(m2 t2 - m1 t1)/(m2 t2)",
+    "chi": "16/17",
+    "chi_f": 0.9411764705882353,
+    "leg_rel": 0.08419907828050717,
+    "normalized": 1.6839815656101433,
+    "status": "open"
+   },
+   {
+    "tag": "(m3 t3 - m1 t1)/(m3 t3)",
+    "chi": "90/91",
+    "chi_f": 0.989010989010989,
+    "leg_rel": 0.03765425121509335,
+    "normalized": 0.753085024301867,
+    "status": "BAND-HIT"
+   },
+   {
+    "tag": "(m1 t1 - m2 t2)/(m1 t1)",
+    "chi": "-16",
+    "status": "NEGATIVE-CHI (booked, not acceptable)"
+   },
+   {
+    "tag": "(m3 t3 - m2 t2)/(m3 t3)",
+    "chi": "74/91",
+    "chi_f": 0.8131868131868132,
+    "leg_rel": 0.2087379398879656,
+    "normalized": 4.174758797759312,
+    "status": "open"
+   },
+   {
+    "tag": "(m1 t1 - m3 t3)/(m1 t1)",
+    "chi": "-90",
+    "status": "NEGATIVE-CHI (booked, not acceptable)"
+   },
+   {
+    "tag": "(m2 t2 - m3 t3)/(m2 t2)",
+    "chi": "-74/17",
+    "status": "NEGATIVE-CHI (booked, not acceptable)"
+   }
+  ],
+  "density": {
+   "N": 28,
+   "log_range": 6.037208058132632,
+   "band_log_width": 0.10008345855698263,
+   "expected_hits": 0.4641776153168231,
+   "supplier_grade": true
+  },
+  "status": "S17-SEALED-IN-BAND",
+  "exact_hits": [],
+  "band_hits": [
+   [
+    "identity",
+    "1"
+   ],
+   [
+    "t2/(247/3)",
+    "255/247"
+   ],
+   [
+    "t3/109",
+    "117/109"
+   ],
+   [
+    "(m3 t3 - m1 t1)/(m3 t3)",
+    "90/91"
+   ]
+  ],
+  "wall_time": 95.81347107887268
+ },
+ "checks": [
+  {
+   "name": "T0a S17 re-derived 1.4624768e-01 eV vs the V303 leaf 1.4624768e-01 (rel 0.0e+00 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0b joint content re-derived: levels [45.0, 85.0, 117.0] mults [32, 288, 1120] vs V79 leaves [45.0, 85.0, 117.0] / [32, 288, 1120] - exact",
+   "pass": true
+  },
+  {
+   "name": "branch S17-SEALED-IN-BAND: chi_req 1.0277086; exact 0 band-hits 4 ['identity', 't2/(247/3)', 't3/109', '(m3 t3 - m1 t1)/(m3 t3)']; density N=28 expected 0.46 supplier-grade True",
+   "pass": true
+  }
+ ],
+ "status": "S17-SEALED-IN-BAND",
+ "pass": true
+}

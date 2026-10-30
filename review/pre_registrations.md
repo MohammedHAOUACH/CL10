@@ -4438,3 +4438,30 @@ enumerates 1 + 3 + 6 + 3 + 3 + 3 + 3 + 6 = 28 members; the "25"
 transcribed twice was an addition error, not a missing slot. The
 closed class is 28 members, slots unchanged. Density estimate at
 decision time uses N = 28.
+
+### Post-run booking note V323 (2026-10-30) - S17-SEALED-IN-BAND
+
+Fired word **S17-SEALED-IN-BAND** (tier 2, hard): the joint-module
+centre supplies rung-17 multipliers that land the atmospheric contact
+inside the 5% band, but NONE is an exact derivation - the -2.6962%
+residual survives as a named gap. Exact numbers (artifact
+v323_joint_stabiliser_s17.json): chi_req = 1.02770859; band hits:
+identity 1 (leg 0.0270, norm 0.539 - the booked C3 floor itself),
+255/247 = 3 t2 / sum(t) (chi 1.0323886, leg 0.0046, norm 0.091 -
+best), 117/109 = t3/tbar_mw (leg 0.0445, norm 0.889), 90/91 =
+(m3 t3 - m1 t1)/(m3 t3) (leg 0.0377, norm 0.753); exact hits: zero
+(closest gap: 255/247 at 4.55e-3 RELATIVE to chi_req - four orders
+off the 1e-9 derivation bar). Chance-density at the pre-fixed rule:
+N = 28, class log range 6.037, band log width 0.1001, expected hits
+0.464 < 0.5 - supplier-grade by the V306 rule AS PRE-REGISTERED,
+booked with the caveat that three observed hits in one narrow band
+far exceed what 0.46 expected implies (Poisson P(>=3) ~ 7e-3): the
+density gate as pre-fixed grades the CLASS, not the concentration,
+and no re-grade is applied post-run. Three negative-chi m-gap
+members booked non-acceptable. T0: S17 rel 0.0 vs the V303 leaf;
+joint content {45,85,117}x{32,288,1120} re-derived exactly with
+V79's machinery. NO paper provenance change: S17-SEALED-EXACT did
+not fire. Booking for a future ledger extension: 255/247 is
+algebraic, zero-fitted and would carry C3 to 0.091 of band if a row
+adopted it - adoption is a future pre-registered question, not part
+of V323.
