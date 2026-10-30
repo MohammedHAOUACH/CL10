@@ -4036,3 +4036,47 @@ Closest is not true: a census hit that lands in a 1e-4-wide band from a
 family with O(1) expected random hits is booked as supplied-by-density,
 never as derived. No paper claim re-provenances algebraic unless the
 density gate fires.
+
+### Post-run booking note (2026-10-30): the rung-weight census V319
+
+Fired word: `RUNG-WEIGHT-NO-SUPPLIER`. T0 exact: V206 coef_at_fifth
+reproduced |d| 2.4e-13, the V318 closest-row coef leaf |d| 1.0e-14, the
+scale legs 0.0. The required window (corrected clock) is lnW(10) in
+[9.878e-07, 1.062e-05]; two parameter-free members land in both bands:
+
+| member | W(10) | coef | C4 norm | C3 norm | certified F_208 deficit at pi/4 |
+|---|---|---|---|---|---|
+| A `1+LOOP^3` | 1.000007874 | 2.0766071 | 0.430 | 0.539 | 1.055e-2 (plain 1.056e-2) |
+| B `exp(+LOOP^3*n/17)` | 1.000004632 | 2.0765398 | 0.243 | 0.539 | 1.047e-2 |
+
+Both would pass the full five-contact ledger at the corrected clock
+(zero-fitted provenance, C2 in window, C5 unchanged, distance = C3 =
+0.539 - the neutrino floor binds, not the coefficient). They do NOT fire
+the success tier: the pre-registered chance-density rule (supplier-grade
+iff family expected log-uniform random hits < 0.5) gives E = 1.45 (A),
+1.46 (B), 2.66 (C) - the LOOP^3 scale sits inside the decade the window
+samples, so the hits are indistinguishable from density and are booked
+SUPPLIED-BY-DENSITY, exactly the V306 lesson one level down. The fitted
+reference reaches worst-normalized 0.539038: the ceiling of the whole
+five-contact ledger is the neutrino -2.6962% contact, not the coefficient.
+
+Booked corrections and facts (not class widenings): (i) the pre-registered
+D anchor form exp(lam*(n-10)) is degenerate at rung 10 (W(10) = 1
+identically); corrected to exp(lam*n) with lam = ln(COEF_OBS/C_CORR)/100 =
+5.803522543772898e-07 - tier-irrelevant, D is excluded by rule. (ii) The
+certified F_208 leg is evaluated at the certified ROOT clock (pi/4,
+V209/V276); at g_cand the 208-rung ratio underflows float64
+(1.4e-23) - booked as fact. (iii) Neither in-band weight closes the
+certified crossing deficit (1.056e-2 -> 1.047e-2 at best): the
+LOOP^3-scale weight and the certified n* = 208 deficit are separate
+residues; no class member touches both.
+
+Meaning for the hunt: a zero-fitted five-contact PASSING theory EXISTS in
+the booked formula space - the corrected clock with a LOOP^3-scale rung
+weight, distance 0.539 - but the census cannot separate it from
+coincidence at band 1e-4. What would break the tie, booked: an
+independent consistency the formula must pass by derivation, the named
+candidates being the certified n* = 208 deficit (fails), the -2.6962%
+neutrino floor (untouched by any rung weight at rung 10's decade), and
+the rung-3 seesaw row (weight-free by convention - a derived weight would
+have to say what it does there).
