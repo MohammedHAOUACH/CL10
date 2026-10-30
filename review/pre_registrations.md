@@ -3634,3 +3634,247 @@ the booked artifact. Deficits move inside the documented bands (1/2 at
 pi/2} and both selector verdicts (interior False, unique False) are
 invariant; T* moves 1.195211e-3 -> 1.195142e-3 - boundary-kink
 sensitivity at the fifth significant figure, booked, no verdict effect.
+
+# The theory-hunt programme: pre-registrations V315-V318 (branch theory-hunt, 2026-10-30)
+
+Programme rules (fixed for all four experiments): (i) nothing is refitted to
+land in a band; (ii) every input carries a provenance tag - algebraic /
+config-declared / measured / combinatorial / fitted; a dial tuned to a target
+is `fitted` and disqualifies only the zero-fitted success tier, never the
+ranking; (iii) the classes below are closed sets fixed before the run - any
+class widening mid-run is a reclassification and must be said in the booking;
+(iv) the config is untouched this programme, so the gate re-runs
+incrementally only (library fingerprint unchanged). No config.yaml edit; all
+bands come from existing keys: pillar_surgery.{coef_band_abs, clock_band_abs,
+ledger_scale_rel_tol, closure_den_max, closure_k_max, scan_clocks,
+nelder_starts}, tolerances.strict, angle.branches.closed, neutrino.m_atm_ev,
+physics.wimp_window_gev, angle.alpha_10, desert.{alpha_x, m_x_closed_gev},
+continuum.{radii}.
+
+Implementer-pinned artifact keys (the plan's "read the artifact first and
+pick the key, both named"): V315 closure anchor
+`V311_quaternionic_root_step data.signatures."0".closure_clocks` (the p=0
+real-form row: pi/2 k=2, pi/4 k=4, 3pi/4 k=4, 32-dim signature step). The
+V206_clock_tension artifact carries NO step-closure-table key (its
+`data.closure_class` is the coefficient-crossing class, and
+`data.data_clock` the inversion data) - so the V311 row is the booked clock
+anchor and the 128-dim six-stage step's pi/4 closure is booked against
+V203_closed_branch_coefficient T2's fact M(0)^2 = I at pi/4 (k = 2, dev
+< CLOSE_EPS). NOTE booked before the run: the plan's token "{pi/4: k = 8}"
+matches no booked artifact (V311 books k=4 on the 32-dim signature step,
+V203 M(0)^2 = I on the 128-dim step); the booking uses the artifacts.
+V316 W1 eta*: `V202_loop_angle_selection data.selection.nearest_crossing`
+(the crossing selected against g_10 = 1/5 under the booked ANGLE-OUTSIDE
+verdict). V316 rung-17 anchor: `V314_four_scale_ledger
+data.rederived.S17_over_3_eV`. V318 T0: `V314_four_scale_ledger
+data.best_zero_fitted_row.worst_normalized` (the current gated leaf
+1.2051036935645243 - the plan's literal 1.2051036928450998 is the superseded
+pre-gate rerun artifact per the booked gate-hygiene note; the artifact wins).
+V318 C5: `V237_desert_threshold_matching data.matching.shift_over_spacing_12`
+(booked 1.1171513611688386), `data.matching.dz12_efolds` (booked
+13.097478575754906) and `data.matching.alpha_X`; the pass criterion is
+V247_two_dial_desert_contacts' booked T0 desert-reproduction rule
+|dz12_efolds(g) - booked| < 1e-9 (host float64 rule, zero matrix noise).
+
+## V315_closure_quantizer_census (tier 2, hard; O4/O8; target A)
+
+**Question.** Is there a booked-class deformation of the six-stage step whose
+closure class contains a RATIONAL clock pi*a/b whose order-k closure coexists
+with the exact odd-n selection rule and whose rung-10 read lands on the
+observed hierarchy coefficient inside pillar_surgery.coef_band_abs? 1/5 =
+pi*(1/(5 pi)) is not rational in pi - the search is for the closest rational
+closure AND the coefficient contact at it, not for 1/5; the distance
+|b - 10| is booked as the clock-order distance.
+
+**Class (closed, fixed pre-run).** Two families over the committed 6-stage
+product, machinery from cl10/supercell.py (STAGES, stage_matrix(even, j, q,
+g10, bond_g10)):
+- D-family (decorations): per-stage internal twist on/off at the booked
+  amplitude (alpha_10, alpha_10, alpha_10), alpha_10 = angle.alpha_10 - 2^6 =
+  64 assignments. dec_step(q, g, amps) is V277_bond_decoration_cone_scan's
+  bloch_dec copied with the fixed GCLOSED replaced by the scan clock g in
+  both stage_matrix slots; twist(q, amp) copied from V277 lines 94-98
+  (exact 16x16 eigh route). BOOKED BEFORE THE RUN: V277 books W(0) = I
+  (inherited), so every D-variant has the identity step at q = 0 - the
+  closure census of the D-family is degenerate with the identity variant by
+  construction, and the rung-10 ladder leg (V308's traced_ladder body at the
+  clock) carries no stage-wise U16 link at all: its link layer is the 32-dim
+  GUT hop and the adjoint link operators, so the plan's U16 -> U16 x twist
+  substitution is inapplicable to it and the ladder leg IS the plain traced
+  ladder at the variant clock. This is the class, stated pre-run, not a
+  post-run reclassification.
+- P-family (stage orderings): all 720 permutations of SC.STAGES fed to the
+  same copy with zero decorations (the product is non-commutative;
+  SC.bond_product's own stages= parameter is the engine's blessing of this
+  class).
+Total: 64 + 720 = 784 variants.
+
+**Measurement per variant.** Closure census exactly in V311's pattern
+(closure_census): scan g = pi*a/b, 0 < a < b <= pillar_surgery.closure_den_max
+(79 distinct), smallest k <= pillar_surgery.closure_k_max with
+||U(0)^k -/+ I||_max < CLOSE_EPS (CLOSE_EPS = 1e-12, V311's own definition
+line copied verbatim) on U = dec_step(q = 0, g, amps). For every variant with
+>= 1 closure clock: ladder leg at that clock, traced_ladder_dec(g, amps,
+nmax=12) = V308's traced_ladder body at g (see the booked D-family note);
+odd-rule check odd_max = max |F_n|, n odd <= 11, against
+tolerances.strict (V312's test); rung-10 coefficient via V308's imported
+read_coef(F10, LOOP) = 3.0*(F10/LOOP)**10; contact against V308's COEF_OBS
+formula read (u10pred.V_EW/u10pred.M_PLANCK)/LOOP**10.
+**T0 gates.** (1) identity decoration + default order: the closure clock SET
+{pi/2, pi/4, 3pi/4} closes with dev < CLOSE_EPS (anchor: V311 p=0 artifact
+row keys verbatim; the booked 128-dim fact M(0)^2 = I at pi/4 from V203 T2
+sets the expected k = 2 there - the k difference vs V311's 32-dim k=4 is
+booked, not hidden); (2) V308's coef_at_fifth reproduced to < 1e-9 (V308's
+own T0 pattern, via art). On failure: MACHINERY-DRIFT, nothing interpreted.
+**Branch (pre-registered words).** QUANTIZER-CLOSURE-FOUND (a variant +
+closure clock with odd-n exact AND |coef - COEF_OBS| <= coef_band_abs) /
+QUANTIZER-NEGATIVE (book the full table: every variant with any closure
+clock, its clocks, order k, odd_max, rung-10 coef, |coef - COEF_OBS|;
+closest row named; variants with no closure clock counted per family).
+Contingency pre-registered: if NO variant had any rational closure, the
+search widens only by the engine's second dial bond_g10 != g10 over the
+booked closed set {pi/4, pi/2} - same 64+720 census, booked as an ADDITION.
+(The identity variant is a class member with a booked pi/4 closure, so this
+contingency is unreachable unless T0 itself drifts.)
+
+## V316_weight_double_contact (tier 2, hard; O8 + neutrino; target B)
+
+**Question.** Does a booked-class reweighting of the traced-word sum move
+BOTH rung contacts simultaneously inside their bands - rung-10:
+|coef(g=1/5) - COEF_OBS| <= coef_band_abs; rung-17: |S17(variant)/3 -
+neutrino.m_atm_ev|/m_atm <= ledger_scale_rel_tol - WITHOUT touching the
+mechanism or the clock (g = 0.2 fixed)?
+
+**Object (closed class, mechanism and clock g = angle.branches.implemented
+fixed).** Three weight families:
+- W1 eta-law: V200's F10_of(eta) (its line 157 body lifted verbatim,
+  NMAX = 10 as V200 books) at the booked eta set {angle.branches.closed
+  members = {pi/4}, V202's selected eta* =
+  data.selection.nearest_crossing} - 2 values.
+- W2 phase-class renormalization: the traced words reweighted by V202's
+  phase_classes(B0, cartan, half_ev, n) class index k (the even sum of
+  half-eigenvalues); booked multiplier class {1, cos(eta_class),
+  cos(2 eta_class)} with eta_class = k * g at the clock g = 1/5 - three
+  variants. F_n^m = sum_j |sum_k m_k e^{i k g} C_k^{(n)}[j]| / Gnorm_n with
+  the class vectors C_k^{(n)} built by V202's prefix construction per length
+  n (n = 1..20; the rung-10 leg reads n = 10). Consistency gate booked with
+  the class: the m = 1 member reproduces loop_ratios' F_n at the clock to
+  < 1e-9 for all n (V202's "the phase classes ARE the census" equality).
+- W3 node-set channel factors: the 12 M-channel node-set factors at g = 0.2,
+  computed by V205's machinery pattern - its block-3 k=0 propagator-trace
+  filter lifted verbatim (w = SC.phases(SC.bloch(q, U16(g), g10 = g)) at
+  each q in SC.M_POINTS, g = 1/5; f_s = |sum_j exp(i Re w_j)|/128); all
+  C(12,3) = 220 triples. The coefficient is read with the triple's combined
+  factor per V205's own composition (V203/V204/V205's booked
+  required-sum-factor relation): coef(T) = (sum_{s in T} f_s/f_bar) x
+  (F_10(1/5)/LOOP)**10, f_bar = the 12-factor mean at the clock - the unique
+  normalization that reproduces the booked sum-factor-3 plain reading when
+  the factors are equal, stated pre-run (the plan's contingency anticipated
+  the alternative multiplicative form; the sum-factor form is the one
+  V205's main() books and is used verbatim). Node-set choice is
+  combinatorial provenance, never fitted.
+Rung-17 leg per variant: S17^var = nv.loop_ladder(17) * nv.EV_PER_GEV x
+(|F_17^var| / |F_17^plain|) - V314's re-derivation block recompute with the
+variant's F-ratios at rung 17 (the plain member has ratio exactly 1 and
+reproduces the booked leaf; the ladder runs nmax = 20 - F_n for n <= 12 is
+bit-identical, loop_ratios is incremental). W3 does not touch the F
+machinery: its ratio is 1.
+**T0.** The plain read reproduces V206 coef_at_fifth (leaf 2.088106865906787,
+via art, < 1e-9) AND V314's booked S17/3 (leaf 0.048749228..., via art,
+< 1e-9). The W3 leg runs exactly 220 triples (count booked in the artifact).
+**Branch.** WEIGHT-DOUBLE-CONTACT (a variant passes both bands; its full
+reweight rule booked) / WEIGHT-NO-DOUBLE (book the full table ranked by the
+max of the two normalized residuals, top 20 rows + per-family best).
+
+## V317_selection_conjunction (tier 3; F8/O9/O4; target C)
+
+**Question.** Does ONE booked selector functional uniquely select at >= 2 of
+the three unselected sites - S1: a member of the 53-parameter lightcone
+family at the clock 1/5; S2: the six desert couplings kappa_s (V105/V122/
+V145/V146 - cross-site consistency, not re-supply); S3: the 3-of-12 channel
+triple (the 12 chain-kernel channel indices in V272's booked
+chain_H_spectrum order; the triples are the object).
+
+**Measurement.** Functional x site grid, 4 x 3 = 12 cells; uniqueness per
+cell fixed pre-run; cells not listed below are booked `N/A` pre-run, never
+invented later:
+- F1 locality T (V285 machinery via V313's rebuilt block; T_committed =
+  sum(profile(H)^2, r = 2..7) as V313 books): S1 EVALUATED at V313's
+  artifact members - data.search.x_best (the T* minimizer) and the
+  committed member x = 0; V313's top5 = [0.0011951..., 1000 x 4] books only
+  ONE non-penalty member - booked here so the member count is not invented
+  later. Unique iff T(member) < T_committed strictly, interior by V313's own
+  rule (53-grad norm < 1e-6 x max(1, T_committed) and no box-face
+  coordinate), and one distinct minimum. S2: N/A. S3: N/A.
+- F2 bond-entropy weight G = 1/(4 ln 45) (V313's weight block): S1
+  weight-only, never a selector (V313's own wording booked); S2 N/A; S3
+  EVALUATED: G-weighted triple score G x sum_{s in T} E_s over all 220
+  triples (E = V272 chain_H_spectrum), unique iff the gap to the runner-up
+  triple > 1e-6 (note booked: a uniform positive weight cannot reorder the
+  triples - the F2/F3 S3 cells share their uniqueness gap by construction).
+- F3 host energetics: S1 N/A; S2 EVALUATED via V247's v237_rule(AX) +
+  meet_solve(AX) (its lines 113-127) over the candidate kappa_s families
+  {V105_cartan_kappas, V122_class_invariant_kappas, V145_superexchange_kappas,
+  V146_two_number_kappas}: family F CLOSES the meeting iff the (1,2)-shift
+  solution from meet_solve at the V237-booked alpha_X
+  (data.matching.alpha_X) is consistent with the family's own booked
+  desert-closure flag: V105 models.*.<n>.desert_ok any true;
+  V122 embeddings.<e>.free_kappa.rows any closed==true with its booked
+  [z_min, z_max] inside the desert e-fold window (0 < z < ln(desert.
+  m_x_closed_gev / M_Z)); V145 meeting rows thresholds_in_desert any true;
+  V146 joint-row desert flag (key named in the check string after reading
+  the artifact - the flag exists in data.joint). Unique iff exactly one
+  family closes. S3 EVALUATED: V302_mD_host_forcing's energetics lifted
+  verbatim (ones_shift = sum of the chosen channels' chain_H_spectrum
+  entries, V302 T1 convention); unique iff gap to runner-up > 1e-6.
+- F4 relevance exponent (V213's p_A pattern): S1 N/A (V213 measures
+  anisotropy at a fixed member, not members); S2 N/A; S3 EVALUATED: p_A of
+  the triple's splitting = mean over the triple's nodes of V213's
+  power_ladder slope of A_transverse over continuum.radii (V213's
+  tangent_field/lowest machinery verbatim, its M-node convention generalized
+  to the triple's M nodes) at clock 1/5; unique iff gap to runner-up > 1e-6.
+**T0.** V313's T_committed = 0.0011956422840809166 reproduced < 1e-9 from
+the same machinery; V247's booked (1,2)-shift row reproduced < 1e-9 from
+v237_rule at alpha_std(pi/4) (dz12 leaf 13.097478575754906).
+**Branch.** SELECTION-UNIFIED (one functional unique-selects at >= 3 sites)
+/ SELECTION-PARTIAL (exactly 2) / SELECTION-DISPERSED (every functional at
+<= 1); the full 12-cell table booked in all cases with the selecting
+member/triple/family values when a cell is unique.
+
+## V318_closest_theory_ledger (tier 1, hard; the arbiter and the deliverable)
+
+**Question.** Among ALL compound theories = (clock from the booked set) x
+(weight variant) x (selection), ranked on FIVE contacts, which comes closest
+to the measured values, and does any zero-fitted row pass them all?
+
+**Rows.** Clocks: 1/5 (fitted-inverted reference), the V309+V310 corrected
+clock g_cross_rung10 - alpha_10*(1/5)*alpha1_mz (V314's row-(d) construction
+copied verbatim from the V310 supplied-hit value), every V315 closure clock
+(with its odd-rule status), V311 p=0 clocks pi/2, pi/4, 3pi/4 (deduplicated
+against the V315 set). Weights: plain, V316 double-CONTACT winners if any
+else top-3 by the double ranking, W1 eta values. Selection: none, V317 S3
+unique triple if a cell fires, V317 S1 member if a cell fires. Cross product
+cap 200: if over, keep top-3 per dimension and book the pruning rule. Every
+weight functional is read at the ROW's clock (V314's per-row clock
+convention, copied unchanged); rung-17 legs use the variant F-ratio at the
+row clock as in V316.
+**Contacts** (V314's scoring block copied verbatim; normalized-residual
+convention unchanged): C1 seesaw M_P*LOOP^3 (algebraic, normalized 0);
+C2 DM window (physics.wimp_window_gev, band ledger_scale_rel_tol); C3
+rung-17 neutrino (same band); C4 rung-10 coefficient (coef_band_abs); C5 NEW
+desert-coupling contact: V247's booked criterion - residual
+|dz12_efolds(alpha_std(clock)) - V237-booked| , band 1e-9 (V247's T0 desert
+reproduction rule), the row's shift_over_spacing_12 booked against the
+booked 1.1171513611688386.
+**Provenance per input:** clock/weight/selection tagged {algebraic, config,
+measured, combinatorial, fitted}; zero-fitted = no fitted input anywhere in
+the row.
+**T0.** V314's best_zero_fitted_row.worst_normalized reproduced < 1e-9 by
+re-running V314's 11 rows inside V318 (then extended; the artifact leaf wins
+over the plan's superseded literal, per the pinned-key note above).
+**Branch.** LEDGER-CONSISTENT-THEORY-CANDIDATE (a zero-fitted row passes all
+five contacts) / LEDGER-CLOSEST-THEORY-DECLARED (no such row: book the FULL
+ranked table and name THE closest row explicitly - its five normalized
+residuals, its provenance, and its distance = worst normalized; this row is
+the programme's closest-theory deliverable regardless of provenance; closest
+is not true and the booking language will not blur that).
