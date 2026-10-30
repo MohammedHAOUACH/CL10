@@ -78,7 +78,7 @@ The organising discipline of the paper is therefore a **provenance discipline**:
 **Table 1.** The seven criteria and the verdict of this paper.
 
 | criterion | requirement | verdict |
-|--------------------|---------------------------|-----------------------------------------------------|
+|--------------------|------------------------|--------------------------------------------------------|
 | **one object** | a single algebraic object, no added fields or structure | met for the internal space; the gravitational sector adds a symmetric tensor field $g_{\mu\nu}(x)$ and the value $G = 1$ (Section 11) |
 | **kinematics** | spacetime, matter content, gauge group and statistics follow by representation theory | met (Sections 3–6) |
 | **dynamics** | the object yields a unitary, causal evolution | met (Section 7: exactly unitary, $\det U = 1$, measured front speed $= 1$) |
@@ -1143,7 +1143,7 @@ Every theorem, proposition, table entry and falsifier in this paper is produced 
 **Table 9.** Claims and their verifying artifacts in the companion release.
 
 | claim (sections) | artifact |
-|----------------------------------------------------------------------|------------------------------|
+|------------------------------------------------------------------------|----------------------------|
 | cell module: $\pm$-pairing, $\det = 1$, quasi-energy sum, B-parity, rung phases, protected-pole factorisation (2, 4, 7.1, 12.4, 15, 16, App. A) | V196 |
 | grading theorem: exact $\mathbb{Z}_2$ gradings of the step (4, 12.2, 16) | V194 |
 | the step as a quantum walk: unitarity of $U$, boundedness of every $n$-step amplitude, the UV-finite $3$- and $4$-particle sectors (2, 7.4, 16) | V7, V48 |

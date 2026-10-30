@@ -715,7 +715,7 @@
   "band_coef": 0.0001,
   "certified_pi4_crossing_bands": 6329.617389049464,
   "closest_closure_rung10_bands": 5652.051819589294,
-  "wall_time": 1952.4065687656403,
+  "wall_time": 1952.8817873001099,
   "fitted_inputs": []
  },
  "checks": [

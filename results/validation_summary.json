@@ -1,6 +1,6 @@
 {
-  "n": 238,
-  "n_pass": 238,
+  "n": 239,
+  "n_pass": 239,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
@@ -10,7 +10,7 @@
   "n_backend_gpu": 51,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 98,
+  "hard_tier_n": 99,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 121,
+  "n_named_residuals": 122,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -203,6 +203,7 @@
     "V323_joint_stabiliser_s17",
     "V324_closest_theory_ledger_v2",
     "V325_channel_triple_f208",
+    "V326_phase_dictionary_bridge",
     "V32_qca_qft",
     "V38_couplings_root",
     "V41_smatrix",
@@ -344134,10 +344135,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "LEDGER2-CONSISTENT-CANDIDATE",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 0.973,
+      "wall_time": null,
       "backend": null,
       "verdict": {
         "id": "V324_closest_theory_ledger_v2",
@@ -344771,10 +344772,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "CH-F208-STUBBORN",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 107.548,
+      "wall_time": null,
       "backend": null,
       "verdict": {
         "id": "V325_channel_triple_f208",
@@ -345142,6 +345143,774 @@
           }
         ],
         "status": "CH-F208-STUBBORN",
+        "pass": true
+      }
+    },
+    {
+      "id": "V326_phase_dictionary_bridge",
+      "dir": "V326_phase_dictionary_bridge",
+      "tier": 1,
+      "property": "phase-dictionary bridge between the closure set and the coefficient reading window (tier 1, hard, O4/O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "DICTIONARY-NO-BRIDGE",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 1953.883,
+      "backend": null,
+      "verdict": {
+        "id": "V326_phase_dictionary_bridge",
+        "tier": 1,
+        "property": "phase-dictionary bridge between the closure set and the coefficient reading window (tier 1, hard, O4/O8)",
+        "residual": true,
+        "programme": "theory-hunt V326",
+        "branch": "DICTIONARY-NO-BRIDGE",
+        "data": {
+          "window_R": {
+            "components": [
+              {
+                "x_lo": 0.1682224380825646,
+                "x_hi": 0.1682224544431083,
+                "width": 1.636054369758e-08
+              },
+              {
+                "x_lo": 0.1721378605705686,
+                "x_hi": 0.17213788403151561,
+                "width": 2.3460947018438816e-08
+              },
+              {
+                "x_lo": 0.1866639204588719,
+                "x_hi": 0.18666396175650876,
+                "width": 4.129763686577803e-08
+              },
+              {
+                "x_lo": 0.19999797088420018,
+                "x_hi": 0.19999800583021712,
+                "width": 3.494601694131738e-08
+              },
+              {
+                "x_lo": 0.23090439642174174,
+                "x_hi": 0.23090442462684588,
+                "width": 2.8205104141143522e-08
+              },
+              {
+                "x_lo": 0.23264968376932674,
+                "x_hi": 0.23264971684245397,
+                "width": 3.307312723688227e-08
+              },
+              {
+                "x_lo": 0.26407996755419294,
+                "x_hi": 0.26407998408889405,
+                "width": 1.6534701108295025e-08
+              },
+              {
+                "x_lo": 0.2841797061101534,
+                "x_hi": 0.284179850876797,
+                "width": 1.447666435616668e-07
+              },
+              {
+                "x_lo": 0.2851380229187198,
+                "x_hi": 0.28513813865883275,
+                "width": 1.1574011293813413e-07
+              },
+              {
+                "x_lo": 0.2879221583488397,
+                "x_hi": 0.28792216418078176,
+                "width": 5.831942040401827e-09
+              },
+              {
+                "x_lo": 0.32687034260341896,
+                "x_hi": 0.32687034596363085,
+                "width": 3.36021188651614e-09
+              },
+              {
+                "x_lo": 0.3274551115338691,
+                "x_hi": 0.32745511394226917,
+                "width": 2.408400090470053e-09
+              }
+            ],
+            "g_obs": 0.19999798835751165,
+            "g_obs_in_R": true
+          },
+          "closure_set_Cl": {
+            "grid_points": 79,
+            "closing": {
+              "pi*1/2": {
+                "g": 1.5707963267948966,
+                "k": 2,
+                "dev": 7.606445072191264e-15
+              },
+              "pi*1/3": {
+                "g": 1.0471975511965976,
+                "k": 6,
+                "dev": 2.437185281861863e-14
+              },
+              "pi*2/3": {
+                "g": 2.0943951023931953,
+                "k": 6,
+                "dev": 2.477479875185939e-14
+              },
+              "pi*1/4": {
+                "g": 0.7853981633974483,
+                "k": 2,
+                "dev": 7.391586503204494e-15
+              },
+              "pi*3/4": {
+                "g": 2.356194490192345,
+                "k": 2,
+                "dev": 7.501659989830069e-15
+              },
+              "pi*1/5": {
+                "g": 0.6283185307179586,
+                "k": 10,
+                "dev": 3.6675186312327694e-14
+              },
+              "pi*2/5": {
+                "g": 1.2566370614359172,
+                "k": 10,
+                "dev": 3.922695684170001e-14
+              },
+              "pi*3/5": {
+                "g": 1.8849555921538759,
+                "k": 10,
+                "dev": 3.248459068881592e-14
+              },
+              "pi*4/5": {
+                "g": 2.5132741228718345,
+                "k": 10,
+                "dev": 3.806306209947571e-14
+              },
+              "pi*1/6": {
+                "g": 0.5235987755982988,
+                "k": 6,
+                "dev": 2.213101414456777e-14
+              },
+              "pi*5/6": {
+                "g": 2.6179938779914944,
+                "k": 6,
+                "dev": 2.213101414456777e-14
+              },
+              "pi*1/7": {
+                "g": 0.4487989505128276,
+                "k": 14,
+                "dev": 5.756685886910909e-14
+              },
+              "pi*2/7": {
+                "g": 0.8975979010256552,
+                "k": 14,
+                "dev": 4.817326134755697e-14
+              },
+              "pi*3/7": {
+                "g": 1.3463968515384828,
+                "k": 14,
+                "dev": 4.856711500660658e-14
+              },
+              "pi*4/7": {
+                "g": 1.7951958020513104,
+                "k": 14,
+                "dev": 5.112633097142325e-14
+              },
+              "pi*5/7": {
+                "g": 2.243994752564138,
+                "k": 14,
+                "dev": 4.991807908686038e-14
+              },
+              "pi*6/7": {
+                "g": 2.6927937030769655,
+                "k": 14,
+                "dev": 5.4240788799044836e-14
+              },
+              "pi*1/8": {
+                "g": 0.39269908169872414,
+                "k": 4,
+                "dev": 1.7460679286182038e-14
+              },
+              "pi*3/8": {
+                "g": 1.1780972450961724,
+                "k": 4,
+                "dev": 1.668631109082858e-14
+              },
+              "pi*5/8": {
+                "g": 1.9634954084936207,
+                "k": 4,
+                "dev": 1.7858291620019703e-14
+              },
+              "pi*7/8": {
+                "g": 2.748893571891069,
+                "k": 4,
+                "dev": 1.6251739027573468e-14
+              },
+              "pi*1/10": {
+                "g": 0.3141592653589793,
+                "k": 10,
+                "dev": 4.1375264043849783e-14
+              },
+              "pi*3/10": {
+                "g": 0.9424777960769379,
+                "k": 10,
+                "dev": 3.6106667583693984e-14
+              },
+              "pi*7/10": {
+                "g": 2.199114857512855,
+                "k": 10,
+                "dev": 3.9824235847884484e-14
+              },
+              "pi*9/10": {
+                "g": 2.827433388230814,
+                "k": 10,
+                "dev": 3.919563690263586e-14
+              },
+              "pi*1/12": {
+                "g": 0.2617993877991494,
+                "k": 6,
+                "dev": 2.242344079448672e-14
+              },
+              "pi*5/12": {
+                "g": 1.3089969389957472,
+                "k": 6,
+                "dev": 2.224283060435461e-14
+              },
+              "pi*7/12": {
+                "g": 1.832595714594046,
+                "k": 6,
+                "dev": 2.3331523187392564e-14
+              },
+              "pi*11/12": {
+                "g": 2.8797932657906435,
+                "k": 6,
+                "dev": 2.530060854515618e-14
+              },
+              "pi*1/14": {
+                "g": 0.2243994752564138,
+                "k": 14,
+                "dev": 5.035486415201284e-14
+              },
+              "pi*3/14": {
+                "g": 0.6731984257692414,
+                "k": 14,
+                "dev": 5.486140466985483e-14
+              },
+              "pi*5/14": {
+                "g": 1.121997376282069,
+                "k": 14,
+                "dev": 5.396496112578415e-14
+              },
+              "pi*9/14": {
+                "g": 2.019595277307724,
+                "k": 14,
+                "dev": 5.979774130734438e-14
+              },
+              "pi*11/14": {
+                "g": 2.4683942278205513,
+                "k": 14,
+                "dev": 5.3414304719589216e-14
+              },
+              "pi*13/14": {
+                "g": 2.9171931783333798,
+                "k": 14,
+                "dev": 5.717194759894745e-14
+              },
+              "pi*1/16": {
+                "g": 0.19634954084936207,
+                "k": 8,
+                "dev": 3.3680417589370776e-14
+              },
+              "pi*3/16": {
+                "g": 0.5890486225480862,
+                "k": 8,
+                "dev": 3.164878514412201e-14
+              },
+              "pi*5/16": {
+                "g": 0.9817477042468103,
+                "k": 8,
+                "dev": 2.988367718883644e-14
+              },
+              "pi*7/16": {
+                "g": 1.3744467859455345,
+                "k": 8,
+                "dev": 3.302500071148644e-14
+              },
+              "pi*9/16": {
+                "g": 1.7671458676442586,
+                "k": 8,
+                "dev": 3.3875546259449754e-14
+              },
+              "pi*11/16": {
+                "g": 2.1598449493429825,
+                "k": 8,
+                "dev": 2.912064285752799e-14
+              },
+              "pi*13/16": {
+                "g": 2.552544031041707,
+                "k": 8,
+                "dev": 2.886564168009734e-14
+              },
+              "pi*15/16": {
+                "g": 2.945243112740431,
+                "k": 8,
+                "dev": 2.9146091542849127e-14
+              }
+            }
+          },
+          "bridge_census": [
+            {
+              "clock": "pi*1/10",
+              "g": 0.3141592653589793,
+              "k": 10,
+              "coef_rung10": 5814944611775.213,
+              "residual_rung10_bands": 5.814944611773137e+16,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/12",
+              "g": 0.2617993877991494,
+              "k": 6,
+              "coef_rung10": 48912.33320165231,
+              "residual_rung10_bands": 489102566.3754114,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/14",
+              "g": 0.2243994752564138,
+              "k": 14,
+              "coef_rung10": 516961.8377126638,
+              "residual_rung10_bands": 5169597611.485526,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/16",
+              "g": 0.19634954084936207,
+              "k": 8,
+              "coef_rung10": 0.1661013313973127,
+              "residual_rung10_bands": 19104.627797765195,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/2",
+              "g": 1.5707963267948966,
+              "k": 2,
+              "coef_rung10": 3.358584906848465e+18,
+              "residual_rung10_bands": 3.3585849068484647e+22,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/3",
+              "g": 1.0471975511965976,
+              "k": 6,
+              "coef_rung10": 2.0962701085851445e+34,
+              "residual_rung10_bands": 2.0962701085851444e+38,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/4",
+              "g": 0.7853981633974483,
+              "k": 2,
+              "coef_rung10": 7.867207079039827e+34,
+              "residual_rung10_bands": 7.867207079039827e+38,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/5",
+              "g": 0.6283185307179586,
+              "k": 10,
+              "coef_rung10": 3.3449979771468286e+63,
+              "residual_rung10_bands": 3.3449979771468285e+67,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/6",
+              "g": 0.5235987755982988,
+              "k": 6,
+              "coef_rung10": 4.441326810108472e+31,
+              "residual_rung10_bands": 4.441326810108472e+35,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/7",
+              "g": 0.4487989505128276,
+              "k": 14,
+              "coef_rung10": 2.6838267376870367e+24,
+              "residual_rung10_bands": 2.6838267376870368e+28,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*1/8",
+              "g": 0.39269908169872414,
+              "k": 4,
+              "coef_rung10": 3227949114192.03,
+              "residual_rung10_bands": 3.227949114189953e+16,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*11/12",
+              "g": 2.8797932657906435,
+              "k": 6,
+              "coef_rung10": 135153128667.93622,
+              "residual_rung10_bands": 1351531286658596.5,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*11/14",
+              "g": 2.4683942278205513,
+              "k": 14,
+              "coef_rung10": 819980576484751.5,
+              "residual_rung10_bands": 8.199805764847493e+18,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*11/16",
+              "g": 2.1598449493429825,
+              "k": 8,
+              "coef_rung10": 6.255198889327974e+20,
+              "residual_rung10_bands": 6.255198889327974e+24,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*13/14",
+              "g": 2.9171931783333798,
+              "k": 14,
+              "coef_rung10": 0.00019478058255889904,
+              "residual_rung10_bands": 20763.69330591273,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*13/16",
+              "g": 2.552544031041707,
+              "k": 8,
+              "coef_rung10": 2.8754147736010683e+20,
+              "residual_rung10_bands": 2.875414773601068e+24,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*15/16",
+              "g": 2.945243112740431,
+              "k": 8,
+              "coef_rung10": 1.5113589292149028,
+              "residual_rung10_bands": 5652.051819589294,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*2/3",
+              "g": 2.0943951023931953,
+              "k": 6,
+              "coef_rung10": 1811555762.1127558,
+              "residual_rung10_bands": 18115557600361.918,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*2/5",
+              "g": 1.2566370614359172,
+              "k": 10,
+              "coef_rung10": 45570275083.68117,
+              "residual_rung10_bands": 455702750816046.06,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*2/7",
+              "g": 0.8975979010256552,
+              "k": 14,
+              "coef_rung10": 1.330040698013729e+72,
+              "residual_rung10_bands": 1.330040698013729e+76,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/10",
+              "g": 0.9424777960769379,
+              "k": 10,
+              "coef_rung10": 2.387665148431649e+62,
+              "residual_rung10_bands": 2.3876651484316488e+66,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/14",
+              "g": 0.6731984257692414,
+              "k": 14,
+              "coef_rung10": 1.415974518580658e+74,
+              "residual_rung10_bands": 1.4159745185806579e+78,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/16",
+              "g": 0.5890486225480862,
+              "k": 8,
+              "coef_rung10": 8.999578785725429e+65,
+              "residual_rung10_bands": 8.999578785725428e+69,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/4",
+              "g": 2.356194490192345,
+              "k": 2,
+              "coef_rung10": 1.9468500714789867e+37,
+              "residual_rung10_bands": 1.9468500714789865e+41,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/5",
+              "g": 1.8849555921538759,
+              "k": 10,
+              "coef_rung10": 24.397563498903246,
+              "residual_rung10_bands": 223209.99387729415,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/7",
+              "g": 1.3463968515384828,
+              "k": 14,
+              "coef_rung10": 57167968.23238468,
+              "residual_rung10_bands": 571679661558.2057,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*3/8",
+              "g": 1.1780972450961724,
+              "k": 4,
+              "coef_rung10": 14055359799.022572,
+              "residual_rung10_bands": 140553597969460.06,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*4/5",
+              "g": 2.5132741228718345,
+              "k": 10,
+              "coef_rung10": 515.0417012583889,
+              "residual_rung10_bands": 5129651.37147215,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*4/7",
+              "g": 1.7951958020513104,
+              "k": 14,
+              "coef_rung10": 0.02153971404409314,
+              "residual_rung10_bands": 20550.24397129739,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/12",
+              "g": 1.3089969389957472,
+              "k": 6,
+              "coef_rung10": 235468.23141810694,
+              "residual_rung10_bands": 2354661548.5399575,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/14",
+              "g": 1.121997376282069,
+              "k": 14,
+              "coef_rung10": 3.7948975427257775e+25,
+              "residual_rung10_bands": 3.794897542725777e+29,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/16",
+              "g": 0.9817477042468103,
+              "k": 8,
+              "coef_rung10": 1.9577751229307647e+66,
+              "residual_rung10_bands": 1.9577751229307645e+70,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/6",
+              "g": 2.6179938779914944,
+              "k": 6,
+              "coef_rung10": 3838108.0478127147,
+              "residual_rung10_bands": 38381059712.48603,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/7",
+              "g": 2.243994752564138,
+              "k": 14,
+              "coef_rung10": 7702169336913.249,
+              "residual_rung10_bands": 7.702169336911173e+16,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*5/8",
+              "g": 1.9634954084936207,
+              "k": 4,
+              "coef_rung10": 1.4280932618021194e-11,
+              "residual_rung10_bands": 20765.641111595512,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*6/7",
+              "g": 2.6927937030769655,
+              "k": 14,
+              "coef_rung10": 5.419152044450992e-16,
+              "residual_rung10_bands": 20765.641111738318,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*7/10",
+              "g": 2.199114857512855,
+              "k": 10,
+              "coef_rung10": 36.76376282027022,
+              "residual_rung10_bands": 346871.9870909639,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*7/12",
+              "g": 1.832595714594046,
+              "k": 6,
+              "coef_rung10": 650638930817.6239,
+              "residual_rung10_bands": 6506389308155473.0,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*7/16",
+              "g": 1.3744467859455345,
+              "k": 8,
+              "coef_rung10": 39.862953675854634,
+              "residual_rung10_bands": 377863.895646808,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*7/8",
+              "g": 2.748893571891069,
+              "k": 4,
+              "coef_rung10": 3.2797540904845266e-09,
+              "residual_rung10_bands": 20765.64107894078,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*9/10",
+              "g": 2.827433388230814,
+              "k": 10,
+              "coef_rung10": 3113.2241389377396,
+              "residual_rung10_bands": 31111475.748265654,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*9/14",
+              "g": 2.019595277307724,
+              "k": 14,
+              "coef_rung10": 7.662613419968002e-15,
+              "residual_rung10_bands": 20765.641111738245,
+              "crossing_read": null,
+              "in_R": false
+            },
+            {
+              "clock": "pi*9/16",
+              "g": 1.7671458676442586,
+              "k": 8,
+              "coef_rung10": 362.7137150315012,
+              "residual_rung10_bands": 3606371.5092032733,
+              "crossing_read": null,
+              "in_R": false
+            }
+          ],
+          "grid_window_separation": {
+            "min_abs_gap": 0.0004611934856939004,
+            "nearest_grid_angle": "pi*1/11"
+          },
+          "dictionary_class": {
+            "members": [
+              "c = 1.0",
+              "c = 2.0",
+              "c = 4.0",
+              "c = 0.5",
+              "c = 0.25",
+              "c = 3.141592653589793",
+              "c = 6.283185307179586",
+              "c = 0.3183098861837907",
+              "c = 0.15915494309189535"
+            ],
+            "bridge_invariant_in_c": true,
+            "lemma_spot_2pi": {
+              "closure_at_2pi*1_5": {
+                "k": 10,
+                "dev": 3.922695684170001e-14
+              },
+              "grid_row_pi2_5": {
+                "k": 10,
+                "dev": 3.922695684170001e-14
+              },
+              "equal": true
+            }
+          },
+          "status": "DICTIONARY-NO-BRIDGE",
+          "coefficient_observed": 2.076564111173832,
+          "band_coef": 0.0001,
+          "certified_pi4_crossing_bands": 6329.617389049464,
+          "closest_closure_rung10_bands": 5652.051819589294,
+          "wall_time": 1952.8817873001099,
+          "fitted_inputs": []
+        },
+        "checks": [
+          {
+            "name": "T0h the hoisted clock-independent machinery is identical to V203's verbatim hop_machinery(1/5): cartan 0.0e+00, ev 0.0e+00, Ma 0.0e+00 (< 1e-15)",
+            "pass": true
+          },
+          {
+            "name": "T0a rung-10 read at 1/5 reproduces V206's coef_at_fifth 2.088106865906787 (|d| 3.8e-13 < 1e-9)",
+            "pass": true
+          },
+          {
+            "name": "T0b the identity step at pi/4 closes at k = 2 (V315 booked leaf k = 2), dev difference 8.2e-16 < 1e-12",
+            "pass": true
+          },
+          {
+            "name": "T0c 12 reading window component(s) (widths 1.636e-08 ... 2.408e-09); the V206 g_obs = 0.1999980 leaf lies inside one (inversion fact reproduced)",
+            "pass": true
+          },
+          {
+            "name": "grid census ran exactly 79 reduced pi*a/b points (b <= 16); 43 close at k <= 16",
+            "pass": true
+          },
+          {
+            "name": "lemma spot c = 2*pi: the dictionary closes at g = 1/5 exactly when the grid angle pi*2/5 closes (10 vs 10)",
+            "pass": true
+          },
+          {
+            "name": "bridge census: 0 of 43 closure angles lie inside R; closest rung-10 read 5652.1 band-units off; the certified pi/4 crossing read 6329.6 band-units off; every grid angle >= 4.61e-04 away from the window",
+            "pass": true
+          }
+        ],
+        "status": "DICTIONARY-NO-BRIDGE",
         "pass": true
       }
     },
