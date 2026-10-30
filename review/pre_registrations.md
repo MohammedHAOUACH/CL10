@@ -4498,3 +4498,103 @@ O_h-equivariant site decoration - the stage FACTORISATION itself is
 the obstruction, confirmed on a second independent class (V277's
 internal twist class: DECORATION-BEST; this site-side class:
 CONE-OH-NEGATIVE).
+
+# The closest-theory close-out: pre-registrations V324-V325 (2026-10-30)
+
+## V324_closest_theory_ledger_v2 (tier 1, hard; the arbiter extended)
+
+**Question (pre-registered).** With the two supplier-graded slots the
+programme has since produced - the joint-centre rung-17 multipliers
+(V323 band hits, density supplier-grade 0.464) and the V319
+zero-fitted rung-10 weights (density-disqualified 1.45/1.46, booked
+as such) - does ANY zero-fitted row of the V318 five-contact ledger
+space now pass all five contacts, and what is the new closest-row
+distance?
+
+**Rows.** The V318 ledger re-scored (its stored coef and S17/3 per
+row, all 48 rows) x chi-slot {1, 255/247, 117/109, 90/91} x W-slot
+{1, 1+LOOP^3, exp(+LOOP^3 n/17) at n = 10}: 576 rows.
+
+**Conventions (fixed now).** coef' = coef_row x W^10; rung-17 leg' =
+(S17row/3) x W(17) x chi with W(17) = 1+LOOP^3 (family A,
+n-independent) or exp(+LOOP^3) (family B); C2 = DM rung-10 mass x
+W(10) vs physics.wimp_window_gev (membership); C1, C5 untouched from
+the V318 row. Bands and the normalized-residual convention exactly
+V318's (coef_band_abs, ledger_scale_rel_tol). Provenance per row
+inherited from V318 plus slots: chi slot algebraic (joint-module
+integers), W slot algebraic (LOOP from u10pred, config per V52
+audit); zero-fitted = no fitted input anywhere in the row.
+
+**Density qualifiers (pre-fixed, the crux).** The chi slot is
+supplier-grade as PRE-REGISTERED and booked by V323 (expected 0.464
+< 0.5). The W slot is density-DISQUALIFIED as booked by V319
+(expected 1.45/1.46 >= 0.5). Therefore: the formal branch word
+LEDGER2-CONSISTENT-CANDIDATE fires iff some zero-fitted row has all
+five norms <= 1; but its SUCCESS TIER (the only outcome that can
+re-provenance anything in the paper) additionally requires every
+band-passing contact whose pass is SUPPLIED (not inherent) to carry
+a supplier-grade slot. A candidate whose C4 pass rests on W != 1 is
+booked "consistent with density-disqualified coefficient supply" -
+a bound, not a discovery, and NO paper claim changes.
+
+**T0.** The identity re-score (chi = 1, W = 1) reproduces V318's
+best_zero_fitted normalized quintuple (1.2051036936044923 binding)
+to < 1e-9, and the W = 1+LOOP^3 C4 norm on the best row reproduces
+the V319 booked leaf (0.43 - the exact artifact leaf value read at
+implementation, key named in the check string) to < 1e-6 relative.
+
+**Branch.** LEDGER2-CONSISTENT-CANDIDATE (a zero-fitted row passes
+all five) / LEDGER2-CLOSEST-DECLARED (none: name the closest row,
+its five norms, its slots, its provenance, its distance). Both
+book: the full 576-row table, the closest row named explicitly, and
+the qualifier bookkeeping above spelled in the note.
+
+## V325_channel_triple_f208 (tier 2, hard; O8 + the C-site triple)
+
+**Question (pre-registered).** The certified root-clock crossing
+(F_208, certified-continuity leaf 0.019692794505156912 at
+pi/4 + 1e-8, V321 anchor) reads the coefficient 2.710 - the observed
+2.0766 needs F to drop to F_req = LOOP(COEF_OBS/3)^0.1 =
+0.019175759 (V321 leaf recomputed in-script): a multiplier mu_req =
+0.9737447 on F. Does any booked 3-of-12 channel triple (V205/V316
+W3 machinery AT THE ROOT CLOCK) supply exactly that multiplier -
+the first use of the C-site triple object as a coefficient supply
+AND a selection hit at site S3 in one question?
+
+**Object (closed class, fixed now).** f_s = |sum_j exp(i Re w_j)| /
+128 at each of the 12 SC.M_POINTS nodes at g = pi/4
+(angle.branches.closed), w = SC.phases(SC.bloch(q, U16, g10 =
+pi/4)) - V316's W3 block verbatim with the clock replaced;
+mu(triple) = (f_a + f_b + f_c) / (3 fbar), fbar = the 12-factor mean
+(V316's booked composition that coincides with the plain reading
+when factors are equal). All C(12,3) = 220 triples; combinatorial
+provenance, nothing fitted, no target inside any member.
+
+**Decision (targets enter here only).** CLOSE iff any triple has
+|3(mu F_cert/LOOP)^10 - COEF_OBS| <= coef_band_abs, F_cert the
+certified leaf above, LOOP from u10pred. Uniqueness leg (the S3
+selection content): gap of the closing mu to the runner-up triple,
+booked; if CLOSE with a unique triple, S3 gains its first
+non-arbitrary selection instance - booked, and V317's word stands
+per its own rules (it measured different functionals).
+
+**Density (V306 rule, razor by construction).** Band log width
+2 ln(1 + coef_band_abs/coef_cert) ~ 7.4e-5; class log range computed
+from the 220 mu values; expected hits booked: any hit is
+supplier-grade iff expected < 0.5 (it will be ~1e-2 given the
+width - so a hit here is statistically isolated, unlike V319's).
+
+**T0.** The 12 factors at g = 1/5 reproduce V316's booked f_nodes
+leaves (data.w3_node_factors.factors, key named in the check) to <
+1e-9; the plain rung-10 read at 1/5 reproduces V206 coef_at_fifth
+< 1e-9; the certified F_208 anchor re-derives to the V321 leaf
+< 1e-12 (mp_ladder at pi/4 + 1e-8, nmax 212 minimum, as V321 ran).
+
+**Branch.** CH-F208-CLOSED (a triple lands the certified crossing on
+COEF_OBS inside coef_band_abs - the root-clock coefficient reads the
+observed value through a channel-filtered crossing, first algebraic
+tie of the 2.710-vs-2.0766 gap) / CH-F208-STUBBORN (book all 220
+mu rows with the nearest to mu_req and the full normalized
+residuals; the gap is then bounded from the channel side too, and
+V205's channel-blindness acquires its quantitative triple-class
+completion).
