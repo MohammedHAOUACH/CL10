@@ -4162,3 +4162,63 @@ negative space is now sharply drawn: rung weight (V316/V319/V320: three
 closed classes), clock rule (V309/V315), selection (V317), channel
 degeneracy (V316) - all bounded no-gos; what remains open is a new
 mathematical object, not a wider census.
+
+# The crossing-resummation programme: pre-registration V321 (2026-10-30)
+
+**Fact exploited (booked, V209).** At the root clock the certified 4k+2
+class diverges (certified F_210 at 1e-8 = 3.8854320241456516e48) while
+the detuned class blows up as a POWER in the detuning: the booked grid
+gives F_2(pi/4 + 1e-1) = 7.9503e6, F_2(pi/4 + 1e-3) = 1.1460e30,
+F_2(pi/4 + 1e-5) = 1.1478e52 - slope ~11 per decade. A power divergence
+has a CANONICAL finite part (Hadamard): subtract c*delta^{-m} with
+(c, m) MEASURED at the detuned points - the targets NEVER enter the
+computation, only the decision.
+
+**Object (closed, fixed now).** F_n(delta) = loop_ratios at
+g = pi/4 + delta, V203 machinery, nmax >= 260, over the FIXED grid
+delta in {1e-1, 1e-2, 1e-3, 1e-4, 1e-5}. For each n in the divergent
+class {2, 6, 10, 14, 18, 22} plus tail probes {250, 254, 258}: measure
+m_n (3-point log-log slopes, agreement required < 5% between the two
+slopes - else booked NON-POLYDIVERGENT, no finite part), then
+c_n = F_n(delta_i) * delta_i^{m_n} at each grid point (spread < 1%
+required - else booked NON-CANONICAL), and the finite part
+fp_n = F_n(delta) - c_n * delta^{-m_n} at each point (spread < 1%
+required - else booked NON-CANONICAL). No Padé/Cesaro/Euler: those
+prescriptions cannot touch a power divergence, and V209's grid shows it
+is one - booking the object class honestly instead of trying prescriptions
+that cannot work.
+ANCHOR leg (the construction must not move the convergent class): the
+4k sequence at delta = 0 is left untouched; the float64 F_208(pi/4) is
+reproduced and booked against the certified leaf 0.019692794505156912
+(the ~4e-6 float64/certified gap booked as fact, V209's own finding).
+
+**Decision target (artifact-read).** Does the finite part at n = 10 tie
+the hierarchy at the ROOT clock: |3(fp_10/LOOP)^10 - COEF_OBS| <=
+pillar_surgery.coef_band_abs? (The 4k class reads 2.7095 at the root
+clock, +30% off; the required F at rung 10 is LOOP*(COEF_OBS/3)^0.1 =
+0.01917541... - read in-experiment.) Also book the reads for every
+computed n; rung-17 odd = 0 by the exact odd rule (leg integer, no leg
+test).
+
+**T0 (pre-registered).** The detuned grid reproduces V209's booked
+F_2 values at delta = 1e-1, 1e-3, 1e-5 to relative 1e-9 (same
+machinery, same grid); the certified F_210 leaf quoted as fact; the
+4k float64 leg at delta = 0 reproduces F_208 = 0.01968660022354374
+(V209 float64_floors) to 1e-12.
+
+**Branch (pre-registered words).**
+- RESUM-CROSSING-TIED: n = 10 canonical (m, c, fp spreads inside the
+  booked 5%/1%/1% guards) AND its finite part lands the coefficient
+  inside coef_band_abs AND the 4k anchor holds. This would be the FIRST
+  zero-fitted algebraic supply of the hierarchy coefficient - the canon-
+  ically tamed divergent class, not the convergent one, is what nature
+  reads. Paper re-provenance then follows the pillar-surgery conditional:
+  the O8 row and 12.1 paragraph state old -> new with the finite-part
+  formula, and the V209 certified divergence gains its physical meaning.
+- RESUM-NO-TIE: otherwise; the full table (per-n m_n, c_n spread,
+  fp_n, coef-read) booked; the "resum the divergent class" route closed
+  on the power-divergence object class.
+Provenance if fired: algebraic (the subtraction data are detuned points
+of the same algebra; the targets touched only the decision). Closest is
+not true still applies: one tied rung-contact does not close the ledger
+(rung-17 floor, V276 residue) - the booking must say exactly that.
