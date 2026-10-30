@@ -4465,3 +4465,36 @@ not fire. Booking for a future ledger extension: 255/247 is
 algebraic, zero-fitted and would carry C3 to 0.091 of band if a row
 adopted it - adoption is a future pre-registered question, not part
 of V323.
+
+### Post-run booking note V322 (2026-10-30) - CONE-OH-NEGATIVE
+
+Fired word **CONE-OH-NEGATIVE** (tier 2, hard, O10/O4): no member of
+the 173-member O_h-equivariant site-decoration class carries a
+conical GAMMA node. Exact numbers (artifact
+v322_oh_bond_decoration_cone.json): 173 members measured; gapless
+(< 1e-10) 31/172 decorated + identity - and every gapless member
+preserves the FULL pinned multiplicity m* = 64 with degree_ms in
+[1.993, 1.999] (quadratic touching intact); max finite degree over
+ALL members 1.9987 - no member comes close to the 0.99 linearity
+leg, so no acceptance combination fires. SELECTIVITY (pre-registered
+table): 141 of the 172 single/double orbit-sum decorations GAP the
+closed-clock node (D(GAMMA) != I generically); the 31 survivors keep
+it exactly gapless at multiplicity 64 - the orbit-sum structure that
+keeps the touching never bends it linear. STAGE-FACTORISATION LEG
+(booked, never gated - V191's open piece): bare 128-step O_h defect
+on the GAMMA-neighbourhood q-set 9.93e-2; best member (single size-
+scale orbit, w = +1) 4.01e-2 - a factor 2.5 improvement, four
+orders away from the stage-sum value 1.1e-15 (V191): the
+equivariance obstruction is NOT closed by decoration of this class.
+T0a exact on every leg (0.0 / 0.0 / 0.0 vs the V191 leaves); T0b
+identity reproduces the bare degree (diff 7.7e-6) and the gap
+1.4e-16. Run history booked honestly: run 1 halted at the orbit
+gate (action bug), run 2 failed T0a (same bug), run 3 completed but
+with a mangled m*-leg (arccos floor: gapless read as m* = 0 - the
+census under it is NOT booked), run 4 crashed on the identity-row
+'w' key, run 5 (final) clean with m* on the eigvals/angle route.
+V191's verdict stands, sharpened: the conical node needs more than
+O_h-equivariant site decoration - the stage FACTORISATION itself is
+the obstruction, confirmed on a second independent class (V277's
+internal twist class: DECORATION-BEST; this site-side class:
+CONE-OH-NEGATIVE).
