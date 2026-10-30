@@ -4432,3 +4432,9 @@ identity step is byte-identical to V277's bare bloch_dec - maxdiff
 is 2e-3), and the GAMMA gap leg moved to V277's eigvals/angle route
 (the arccos route floors at ~2.6e-8 near gapless - machinery, not
 physics). Cone acceptance legs unchanged.
+
+**Class arithmetic correction (BEFORE any run).** The slot list above
+enumerates 1 + 3 + 6 + 3 + 3 + 3 + 3 + 6 = 28 members; the "25"
+transcribed twice was an addition error, not a missing slot. The
+closed class is 28 members, slots unchanged. Density estimate at
+decision time uses N = 28.
