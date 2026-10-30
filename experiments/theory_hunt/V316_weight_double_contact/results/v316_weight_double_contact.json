@@ -1,0 +1,4113 @@
+{
+ "id": "V316_weight_double_contact",
+ "tier": 2,
+ "property": "booked reweightings of the traced-word sum against BOTH rung contacts (rung-10 coefficient and rung-17 neutrino) at the fixed clock and mechanism (tier 2, hard, O8+neutrino)",
+ "residual": true,
+ "programme": "theory-hunt V316",
+ "branch": "WEIGHT-NO-DOUBLE",
+ "data": {
+  "t0a_coef": {
+   "read": 2.088106865906407,
+   "artifact": 2.088106865906787,
+   "abs_diff": 3.801403636316536e-13
+  },
+  "t0b_S17": {
+   "read_eV": 0.04874922781428075,
+   "artifact": 0.04874922781428075,
+   "abs_diff": 0.0
+  },
+  "w2_census_gate": {
+   "max_rel_recon_err_vs_loop_ratios": 2.5644037172340493e-14,
+   "n_range": [
+    1,
+    20
+   ]
+  },
+  "w3_node_factors": {
+   "clock": 0.2,
+   "f_bar": 0.0838951247703754,
+   "factors": {
+    "0": {
+     "q": [
+      1.5707963267948966,
+      1.5707963267948966,
+      0.0
+     ],
+     "factor": 0.08389512477037542
+    },
+    "1": {
+     "q": [
+      1.5707963267948966,
+      0.0,
+      1.5707963267948966
+     ],
+     "factor": 0.08389512477037545
+    },
+    "2": {
+     "q": [
+      0.0,
+      1.5707963267948966,
+      1.5707963267948966
+     ],
+     "factor": 0.08389512477037529
+    },
+    "3": {
+     "q": [
+      1.5707963267948966,
+      -1.5707963267948966,
+      0.0
+     ],
+     "factor": 0.08389512477037551
+    },
+    "4": {
+     "q": [
+      1.5707963267948966,
+      0.0,
+      -1.5707963267948966
+     ],
+     "factor": 0.08389512477037545
+    },
+    "5": {
+     "q": [
+      0.0,
+      1.5707963267948966,
+      -1.5707963267948966
+     ],
+     "factor": 0.08389512477037546
+    },
+    "6": {
+     "q": [
+      -1.5707963267948966,
+      1.5707963267948966,
+      0.0
+     ],
+     "factor": 0.08389512477037543
+    },
+    "7": {
+     "q": [
+      -1.5707963267948966,
+      0.0,
+      1.5707963267948966
+     ],
+     "factor": 0.08389512477037539
+    },
+    "8": {
+     "q": [
+      0.0,
+      -1.5707963267948966,
+      1.5707963267948966
+     ],
+     "factor": 0.08389512477037536
+    },
+    "9": {
+     "q": [
+      -1.5707963267948966,
+      -1.5707963267948966,
+      0.0
+     ],
+     "factor": 0.08389512477037535
+    },
+    "10": {
+     "q": [
+      -1.5707963267948966,
+      0.0,
+      -1.5707963267948966
+     ],
+     "factor": 0.08389512477037535
+    },
+    "11": {
+     "q": [
+      0.0,
+      -1.5707963267948966,
+      -1.5707963267948966
+     ],
+     "factor": 0.08389512477037533
+    }
+   },
+   "spread_max_over_fbar": 1.3233462941546188e-15
+  },
+  "coefficient_observed": 2.076564111173832,
+  "band_coef": 0.0001,
+  "band_scale_rel": 0.05,
+  "m_atm_eV": 0.0501,
+  "variants": [
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     9,
+     10
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     9,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     10,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     8
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [9, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     9,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     7
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     8
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     9,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     10,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     8
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     9
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     8
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     9
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     9
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     8
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     9
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     8,
+     9
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     8,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     8,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     9,
+     10
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     9,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [7, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     7,
+     10,
+     11
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 2] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     2
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     4
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     5
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     6
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     7,
+     8
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     7,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     7,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     8,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     6
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     7
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     8,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     8
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     6
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     7
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     7
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     8
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     7
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     8,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     8,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     7,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     7,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     8,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999999,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064064,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732574156,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732574156
+   },
+   {
+    "family": "plain",
+    "rule": "plain rung-10 read 3(F_10/LOOP)^10 at g = 1/5",
+    "prov": "algebraic machinery, config clock",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     6,
+     8
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     6,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     6,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     6,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     4
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     5
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     6,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     7,
+     8
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     7,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     7,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     7
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     4,
+     5
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 5, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     5,
+     6
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     8,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     9,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     9,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     10,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     6,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     7,
+     8
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     7,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     7,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     7,
+     8
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     7,
+     9
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     7,
+     10
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     7,
+     11
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [6, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     6,
+     7,
+     8
+    ],
+    "sum_factor": 3.0,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 3] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     3
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     6,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 2, 3] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     2,
+     3
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     6,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     6,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     6,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     6,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     4
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     5
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 3, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     3,
+     6
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     6,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     7,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     7,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     7,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     7,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     8,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     8,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     6,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     6,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     6,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     6,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     6,
+     7
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     6,
+     8
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     6,
+     9
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     6,
+     10
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [5, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     5,
+     6,
+     11
+    ],
+    "sum_factor": 3.0000000000000004,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064073,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575044,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575044
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     4
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     5
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     6
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     7
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     8
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     5
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 4, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     4,
+     6
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 5, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     5,
+     6
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     8
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     9
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     10
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     11
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     6
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     7
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     8
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     9
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     10
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     11
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     9
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     10
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     11
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 6, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     6,
+     8
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 6, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     6,
+     9
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 6, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     6,
+     10
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     7
+    ],
+    "sum_factor": 3.0000000000000013,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064077,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575489,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575489
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 1, 3] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     1,
+     3
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     4
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     5
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 3, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     3,
+     6
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     6
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     7
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     4,
+     5
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 5, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     5,
+     6
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     6
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     7
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     7
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     8
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 6, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     6,
+     7
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [4, 5, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     4,
+     5,
+     6
+    ],
+    "sum_factor": 3.0000000000000018,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906408,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732575932,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732575932
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     4
+    ],
+    "sum_factor": 3.0000000000000027,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064086,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732576377,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732576377
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [1, 3, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     1,
+     3,
+     5
+    ],
+    "sum_factor": 3.0000000000000027,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064086,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732576377,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732576377
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     4,
+     5
+    ],
+    "sum_factor": 3.0000000000000027,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064086,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732576377,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732576377
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [3, 5, 6] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     3,
+     5,
+     6
+    ],
+    "sum_factor": 3.0000000000000027,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064086,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732576377,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732576377
+   },
+   {
+    "family": "W1-eta",
+    "rule": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)]",
+    "eta": 0.1981004295290223,
+    "prov": "measured (V202 crossing)",
+    "F10": 0.019894367886486575,
+    "coef": 2.9999999999994804,
+    "S17_over_3_eV": 0.05184661314212125,
+    "norm_rung10": 9234.358888256482,
+    "norm_rung17": 0.6972507553378257,
+    "worst_normalized": 9234.358888256482
+   },
+   {
+    "family": "W2-phaseclass",
+    "rule": "class-k multiplier cos(2*k*g) on the traced words at clock g = 1/5",
+    "prov": "combinatorial (V202 phase classes)",
+    "F10": 0.010060344643130123,
+    "coef": 0.0032805631087997776,
+    "S17_over_3_eV": 0.04734130375668728,
+    "norm_rung10": 20732.835480650323,
+    "norm_rung17": 1.1012759454342202,
+    "worst_normalized": 20732.835480650323
+   },
+   {
+    "family": "W2-phaseclass",
+    "rule": "class-k multiplier cos(k*g) on the traced words at clock g = 1/5",
+    "prov": "combinatorial (V202 phase classes)",
+    "F10": 0.12165994295105474,
+    "coef": 219429944.36125863,
+    "S17_over_3_eV": 1.8304345003087554,
+    "norm_rung10": 2194299422846.945,
+    "norm_rung17": 710.7123753727566,
+    "worst_normalized": 2194299422846.945
+   },
+   {
+    "family": "W1-eta",
+    "rule": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)]",
+    "eta": 0.7853981633974483,
+    "prov": "config-declared (closed branch angle)",
+    "F10": 0.1948937294114371,
+    "coef": 24422969663.129696,
+    "S17_over_3_eV": 2.5092013824949215,
+    "norm_rung10": 244229696610531.3,
+    "norm_rung17": 981.6771986007672,
+    "worst_normalized": 244229696610531.3
+   }
+  ],
+  "n_variants": 225,
+  "per_family_best": {
+   "W3-triples": {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   "plain": {
+    "family": "plain",
+    "rule": "plain rung-10 read 3(F_10/LOOP)^10 at g = 1/5",
+    "prov": "algebraic machinery, config clock",
+    "coef": 2.088106865906407,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.427547325746,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.427547325746
+   },
+   "W1-eta": {
+    "family": "W1-eta",
+    "rule": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)]",
+    "eta": 0.1981004295290223,
+    "prov": "measured (V202 crossing)",
+    "F10": 0.019894367886486575,
+    "coef": 2.9999999999994804,
+    "S17_over_3_eV": 0.05184661314212125,
+    "norm_rung10": 9234.358888256482,
+    "norm_rung17": 0.6972507553378257,
+    "worst_normalized": 9234.358888256482
+   },
+   "W2-phaseclass": {
+    "family": "W2-phaseclass",
+    "rule": "class-k multiplier cos(2*k*g) on the traced words at clock g = 1/5",
+    "prov": "combinatorial (V202 phase classes)",
+    "F10": 0.010060344643130123,
+    "coef": 0.0032805631087997776,
+    "S17_over_3_eV": 0.04734130375668728,
+    "norm_rung10": 20732.835480650323,
+    "norm_rung17": 1.1012759454342202,
+    "worst_normalized": 20732.835480650323
+   }
+  },
+  "top20": [
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     9,
+     10
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     9,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     10,
+     11
+    ],
+    "sum_factor": 2.9999999999999973,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906405,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732572824,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732572824
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 6, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     6,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     8
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 7, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     7,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 9] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     9
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [2, 8, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     2,
+     8,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     9,
+     10
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     9,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [8, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     8,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [9, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     9,
+     10,
+     11
+    ],
+    "sum_factor": 2.999999999999998,
+    "prov": "combinatorial (node set)",
+    "coef": 2.0881068659064055,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573268,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573268
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 7] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     7
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   },
+   {
+    "family": "W3-triples",
+    "rule": "node triple [0, 2, 8] (M_POINTS order), combined sum factor 3.000000",
+    "triple": [
+     0,
+     2,
+     8
+    ],
+    "sum_factor": 2.9999999999999987,
+    "prov": "combinatorial (node set)",
+    "coef": 2.088106865906406,
+    "S17_over_3_eV": 0.04874922781428075,
+    "norm_rung10": 115.42754732573712,
+    "norm_rung17": 0.5392304134607767,
+    "worst_normalized": 115.42754732573712
+   }
+  ],
+  "status": "WEIGHT-NO-DOUBLE",
+  "wall_time": 4.903886079788208,
+  "fitted_inputs": []
+ },
+ "checks": [
+  {
+   "name": "T0a plain rung-10 read at g = 1/5 reproduces V206's booked coef_at_fifth 2.088106865906787 (|d| 3.8e-13 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0b plain rung-17 leg reproduces V314's booked S17/3 0.048749228 eV (|d| 0.0e+00 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0c (W2 class gate) the m = 1 phase-class polynomial reproduces loop_ratios' F_n at the clock for every n = 1..20 to 2.6e-14 < 1e-9 (V202's phase-classes-are-the-census equality carried at the matrix level)",
+   "pass": true
+  },
+  {
+   "name": "W3 node-set census runs exactly 220 triples over the 12 M nodes at g = 1/5; node factor spread about the mean max 1.323e-15 (if all factors are equal the 220 readings coincide with the plain sum-factor-3 reading - the booked required-sum-factor composition)",
+   "pass": true
+  },
+  {
+   "name": "branch WEIGHT-NO-DOUBLE: 225 variants; double band (|d| <= 1e-04 on coef and rel <= 5e-02 on S17/3) hit by 0; best row [W3-triples] worst-normalized 115.4275 (coef 2.0881069, S17/3 0.048749228 eV); per-family bests: {'W3-triples': '115.4275', 'plain': '115.4275', 'W1-eta': '9234.3589', 'W2-phaseclass': '20732.8355'}",
+   "pass": true
+  }
+ ],
+ "status": "WEIGHT-NO-DOUBLE",
+ "pass": true
+}
