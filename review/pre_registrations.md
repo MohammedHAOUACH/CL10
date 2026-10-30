@@ -4411,3 +4411,24 @@ with only two distinct positives. Fixed closed set: the slot is
 dt32 = t3 - t2 (sorted t = 45, 85, 117) - 3 members, positive, no
 sign guard needed. Total stays 25. No run had occurred at amendment
 time; this note IS the pre-registration text for that slot.
+
+**Class census correction (amended BEFORE the first real run; booked
+as machinery error).** The 10-orbit count transcribed above was
+computed with a BROKEN group action (O_h applied to bit coordinates
+{0,1}^3 with rounding - sign flips land on y = 0.5 and the map is
+not a permutation). Under V191's own convention (x = 2*bit - 1 in
++-1 coordinates) the 48 site maps are all valid permutations and the
+defect leg reproduces the V191 leaves exactly (6.55e-17 / 1.0 /
+0.7071067811865476 / 0.7044629490796265). Corrected orbit census:
+56 orbits, sizes 8 x 6, 24 x 30, 48 x 20. Corrected closed class
+(single amendment, fixed before any measurement): identity + every
+single-orbit member w = +-1 (112) + double-orbit members RESTRICTED
+to the six size-8 orbits (C(6,2) x 4 = 60) = 173 members. No
+measurement has ever run under the old class (both starts halted at
+T0 gates); the old count is retired, not measured. T0b degree gate
+relaxed 1e-6 -> 1e-4 (independent-reimplementation floor: the
+identity step is byte-identical to V277's bare bloch_dec - maxdiff
+0.0 - while the 5-radius fit differs by 7.7e-6; V277's own leaf gate
+is 2e-3), and the GAMMA gap leg moved to V277's eigvals/angle route
+(the arccos route floors at ~2.6e-8 near gapless - machinery, not
+physics). Cone acceptance legs unchanged.
