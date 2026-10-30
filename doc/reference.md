@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V319
+## The theory-hunt programme (2026-10-30): V315-V320
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -668,6 +668,23 @@ leg: neither weight closes the certified F₂₀₈ crossing deficit
 crossing residue are separate. The fitted reference reaches 0.539038:
 the ledger's ceiling is the neutrino contact.
 **RUNG-WEIGHT-NO-SUPPLIER**.
+
+**V320 - the rung-sector sum.** `.../V320_rung_sector_sum` gives the
+V319 candidate its derivation test: the 64 twisted sectors of V315 are
+SUMMED as internal degrees of freedom (uniform measure and the
+closing-only measure - which coincides, all 64 close at Γ by W(0) = I -
+V277's booked fact), rung legs via the Floquet phase sum on the booked
+12-point M mesh, exact eigenvalue legs, guard pre-fixed. The answer is
+unambiguous: summed, the sectors CORRECT the rung sum by a factor 33
+DOWN at n = 10 (lnW = −3.50 against the booked window
+lnW ∈ [9.88e-7, 1.06e-5]) and increase the certified F₂₀₈ deficit
+1.013e-2 → 3.51e-1. The twisted sectors are destructive to the crossing
+interference, not a small weight; no measure saves it without suppressing
+almost all sectors by hand - a fitted choice. The guard caught the exact
+odd rule at the certified clock (ρ⁰(17) = 5.5e-16: guard-failed, never
+divided). **RUNG-SECTOR-NO-CONTRIB**: the derivation route to the
+LOOP³-scale weight is closed on the booked sector class; the candidate
+stands neither density-distinguished nor sector-derived.
 
 
 ## The pillar-surgery programme (2026-10-30): V308-V314
