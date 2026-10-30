@@ -23,18 +23,18 @@
   "F1S1": {
    "members": {
     "T_star member (V313 data.search.x_best)": {
-     "T": 0.0011955856843812566,
-     "grad_norm": 0.0010321036527592216,
+     "T": 0.0011951416247641062,
+     "grad_norm": 49999940.24276474,
      "box_face_coords": 0,
      "interior": false,
      "below_T_committed": true
     },
     "committed member (x = 0)": {
-     "T": 0.001195642284287066,
-     "grad_norm": 0.0010293883989596592,
+     "T": 0.0011956422839564144,
+     "grad_norm": 0.0010293222659249698,
      "box_face_coords": 0,
      "interior": false,
-     "below_T_committed": false
+     "below_T_committed": true
     }
    },
    "top5_leaf": [
@@ -127,62 +127,62 @@
   "F4S3": {
    "node_p_A": {
     "0": {
-     "p_A": 0.6983019267834425,
+     "p_A": 0.698301926808055,
      "usable_radii": 7
     },
     "1": {
-     "p_A": 0.6983019268051637,
+     "p_A": 0.6983019268199715,
      "usable_radii": 7
     },
     "2": {
-     "p_A": 0.6972974139843126,
+     "p_A": 0.6972974139805213,
      "usable_radii": 7
     },
     "3": {
-     "p_A": 0.7048423785647943,
+     "p_A": 0.704842378547342,
      "usable_radii": 7
     },
     "4": {
-     "p_A": 0.7048423785729548,
+     "p_A": 0.7048423785472391,
      "usable_radii": 7
     },
     "5": {
-     "p_A": 0.7013377834450752,
+     "p_A": 0.7013377834442807,
      "usable_radii": 7
     },
     "6": {
-     "p_A": 0.6983019268478956,
+     "p_A": 0.6983019268217953,
      "usable_radii": 7
     },
     "7": {
-     "p_A": 0.6983019268569656,
+     "p_A": 0.698301926765123,
      "usable_radii": 7
     },
     "8": {
-     "p_A": 0.7013377834522623,
+     "p_A": 0.7013377834457524,
      "usable_radii": 7
     },
     "9": {
-     "p_A": 0.7048423785703802,
+     "p_A": 0.7048423785580065,
      "usable_radii": 7
     },
     "10": {
-     "p_A": 0.704842378603428,
+     "p_A": 0.7048423785648957,
      "usable_radii": 7
     },
     "11": {
-     "p_A": 0.701337783395214,
+     "p_A": 0.7013377834740526,
      "usable_radii": 7
     }
    },
    "best_triple": [
     0,
-    1,
-    2
+    2,
+    7
    ],
-   "best_p_A": 0.697967089190973,
-   "runner_up_p_A": 0.6979670892052169,
-   "gap": 1.4243939361335833e-11,
+   "best_p_A": 0.6979670891845665,
+   "runner_up_p_A": 0.6979670891885386,
+   "gap": 3.9720449152014226e-12,
    "unique": false,
    "radii": [
     0.01,
@@ -261,7 +261,7 @@
    "F4": 0
   },
   "status": "SELECTION-DISPERSED",
-  "wall_time": 354.9468240737915,
+  "wall_time": 258.0691294670105,
   "fitted_inputs": []
  },
  "checks": [
@@ -274,7 +274,7 @@
    "pass": true
   },
   {
-   "name": "branch SELECTION-DISPERSED: 12-cell table (unique flags: {'F1': [False, False, False], 'F2': [False, False, False], 'F3': [False, True, False], 'F4': [False, False, False]}); sites per functional {'F1': 0, 'F2': 0, 'F3': 1, 'F4': 0}; F1 S1 not / F3 S2 unique families closed / F2+F3 S3 best triple [0, 1, 2] gap 5.86e-15 / F4 S3 best triple [0, 1, 2] p_A gap 1.42e-11",
+   "name": "branch SELECTION-DISPERSED: 12-cell table (unique flags: {'F1': [False, False, False], 'F2': [False, False, False], 'F3': [False, True, False], 'F4': [False, False, False]}); sites per functional {'F1': 0, 'F2': 0, 'F3': 1, 'F4': 0}; F1 S1 not / F3 S2 unique families closed / F2+F3 S3 best triple [0, 1, 2] gap 5.86e-15 / F4 S3 best triple [0, 2, 7] p_A gap 3.97e-12",
    "pass": true
   }
  ],
