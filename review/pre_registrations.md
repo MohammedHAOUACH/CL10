@@ -3878,3 +3878,93 @@ ranked table and name THE closest row explicitly - its five normalized
 residuals, its provenance, and its distance = worst normalized; this row is
 the programme's closest-theory deliverable regardless of provenance; closest
 is not true and the booking language will not blur that).
+
+### Post-run booking note (2026-10-30): the theory-hunt programme V315-V318
+
+Fired words (all pre-registered verbatim): V315 `QUANTIZER-NEGATIVE`,
+V316 `WEIGHT-NO-DOUBLE`, V317 `SELECTION-DISPERSED`, V318
+`LEDGER-CLOSEST-THEORY-DECLARED`. No zero-fitted candidate passed the five
+contacts, so no paper claim was re-provenanced algebraic; the programme's
+deliverable is the named closest row with its distance booked below.
+
+V315: all 784 booked-class variants (64 D-decorations - identity-degenerate
+at q = 0 by V277's booked W(0) = I - and 720 P stage-orderings) have rational
+closures: 43 of the 79 pi*a/b clocks (b <= 16) close the 128-dim six-stage
+step at Gamma within CLOSE_EPS (max dev 5.1e-14); the identity row closes
+pi/2 (k = 2), pi/4 (k = 2 - V203's M(0)^2 = I, dev 7.5e-15) and 3pi/4
+(k = 2), and the P-family adds no new closure clock. The odd-n rule is exact
+only at the order-8 clocks (pi/4, 3pi/4), where the rung-10 read at nmax = 12
+is the V203-booked 55.03 -> 3(F/LOOP)^10 = 7.86e+34 against COEF_OBS 2.0766
+(band 1e-4): the closest odd-exact closure misses by 35 orders, clock-order
+distance |b - 10| = 6. The second-dial contingency (bond_g10) did not fire.
+Contingency used as pinned: V206 carries no step-closure-table key, so the
+V311 p=0 row anchored the clock SET and V203 booked k = 2 at pi/4; the plan's
+token "{pi/4: k = 8}" matches no booked artifact and was not used.
+
+V316: 225 variants, zero double-band hits. W3: the 12 M-node V205
+propagator-trace factors at the clock are EXACTLY equal (f_bar = 0.0838951,
+max spread 1.3e-15) - all C(12,3) = 220 triples reproduce the booked
+sum-factor-3 reading 2.0881 (channel-blindness, combinatorial restatement);
+the contingency anticipated a multiplicative alternative - the sum-factor
+form is what V205 books, applied verbatim with the f_bar normalization that
+fixes the plain member. W1: eta* = 0.1981004295 (V202
+data.selection.nearest_crossing) reads the rung-10 coefficient exactly 3.000
+(+0.92 off, 9234x band) but moves the rung-17 leg to S17/3 = 0.051847 eV
+(+3.49%, INSIDE the 5% ledger band) - the only single-rung pass booked in
+the programme; eta = pi/4 reads 2.44e10. W2 multipliers cos(k g)/cos(2 k g)
+read 2.19e8 / 0.003281 (rung-17 rel 710.7x / 1.101x - both out). Machinery
+note (booked, not a class change): the first run reported MACHINERY-DRIFT
+because the class index int() truncated the noisy half-eigenvalues; V202's
+own even-eigenvalue guard with int(round()) fixed it - the class-polynomial
+route then reproduces loop_ratios to 2.6e-14 (n = 1..20).
+
+V317: SELECTION-DISPERSED - sites per functional {F1: 0, F2: 0, F3: 1,
+F4: 0}; the 12-cell table booked with the 7 pre-registered N/A cells. T0s
+bit-exact (T_committed |d| = 0.0; dz12 |d| = 0.0). F1 x S1 not unique: the
+T* member (V313 x_best) reads T = 0.00119559 strictly below T_committed but
+the 53-gradient is 1.03 (V313's boundary-kink pattern), interior False.
+F3 x S2 UNIQUE: exactly one kappa_s family closes the (1,2)-meeting
+cross-site - V105_cartan_kappas, model B_general_cartan (rows n = 3..10
+book desert_ok True, meeting residual ~1e-14, z0 22.0-32.7 inside the
+desert e-fold window (0, 34.842), six kappa_s supplied) - while V122's
+free-kappa windows (z_max 32.92) and V145's threshold windows miss the
+meet_solve solved positions at the V237-booked alpha_X (zA 6.652, zB 36.213
+e-folds - zB above M_X) and V146 books n_desert = 0. S3 never unique under
+any functional: the chain-H triple-energy gap 5.86e-15 and the V213 p_A
+triple gap 1.42e-11 - the 12 channels sit in three isospectral p_A classes
+(0.69830 / 0.70134 / 0.70484), so no 3-of-12 triple separates at 1e-6.
+
+V318: 48 compound rows; the raw cross product 45 closure clocks x 6 weights
+x 1 selection = 270 exceeded the 200 cap, so the pre-registered pruning
+fired as booked: mandatory clocks {1/5, corrected, pi/2, pi/4, 3pi/4} +
+top-3 V315 closure clocks by plain contact (pi*15/16, pi*1/16, pi*4/7);
+weight dimension kept its booked composition; the selection dimension is
+{none} (no V317 selection-eligible cell fired). T0b: V314's 11 rows re-run
+inside reproduce the gated leaf 1.2051036935645243 to |d| 1.4e-10; the
+plan's literal 1.2051036928450998 is the superseded pre-gate rerun artifact
+(pinned in the pre-reg; the artifact wins). 42 of 48 rows are zero-fitted.
+C5 passes 48/48: V237's dz12 = 13.0974785757549 is reproduced at every
+row clock to <= 1.35e-13 under alpha_std(g) - the desert (1,2)-shift does
+not discriminate clocks, booked rather than hidden.
+
+THE closest row (named explicitly, distance booked):
+
+| input | value | provenance |
+|---|---|---|
+| clock | g_cross_rung10 - ((alpha_10 g_impl) alpha1_mz) = 0.199997967300417 | algebraic/conventional/measured (V310 census hit) |
+| weight | W3 node triple [2, 10, 11], combined sum factor 3.000000 | combinatorial (node set) - degenerate with the plain read to 1e-14 (the equal node factors) |
+| selection | none | trivial |
+| C1 seesaw | normalized 0.000e+00 | algebraic |
+| C2 DM window | normalized 0.000e+00 (118.5709 GeV in window) | config |
+| C3 rung-17 | 0.048749228 eV vs 0.0501 eV, normalized 0.539230 | algebraic |
+| C4 rung-10 coef | 2.0764436 vs 2.0765641, normalized 1.205104 (BINDING) | algebraic machinery, corrected clock |
+| C5 desert shift | |d| 1.35e-13 vs booked 13.0974785757549, normalized 1.35e-04 | measured (V237 booking) |
+
+Distance = worst normalized = 1.205103693702192; zero-fitted: yes. Closest
+is not true: the row inherits its clock from the V310 census hit on the
+V206-inverted data clock (measured/conventional inputs), and the ranking
+does not promote any claim to algebraic. Gate hygiene: the plan's expected
+"223 folded" is a miscount - the runner reports the actual fold count
+(4 re-run, 227 folded, library unchanged); no config edit was made, so the
+library fingerprint is unchanged and the incremental gate re-ran only the
+four new experiments.
