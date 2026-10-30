@@ -1,9 +1,9 @@
 {
   "experiment": "V66_dm_identity",
   "pass": true,
-  "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.9e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
+  "status": "SPINOR-MODULE CANDIDATE SCAN COMPLETE, NO VIABLE LEVEL IN THE SPINOR MODULE: the mirror Z2 is exact (leak 4.5e-16), the 16-bar weights are the exact conjugates and the mirror doubler masses equal the desert thresholds; the only exact-stability candidate is the mirror sector, whose lightest state is a COLORED Q-bar at 1.3e+08 GeV (excluded) while the neutral N-bar sits at 2.0e+10 GeV, 8 orders above the 118 GeV ladder scale, with naive thermal overclosure x2e+30. No level of the spinor module carries 118 GeV; the carrier is the cell singlet B at this rung (cl10/cell.py, V195/V196).",
   "data": {
-    "mirror_Z2_leak": 4.85065327006456e-16,
+    "mirror_Z2_leak": 4.506383499325787e-16,
     "weights_conjugate": true,
     "mirror_masses_equal": true,
     "candidates": [

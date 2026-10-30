@@ -243,6 +243,6 @@
    "pass": true
   }
  ],
- "status": "star module closure, STAR-CLOCK-QUANTIZED (28 s): no closed star clock reaches either pin: the clock exclusion is a property of the module class, not of one lattice. C_star: 4 closed point(s) on the 61x61 grid at the eta ladder, orders [1, 2]; nearest closed point to g = 0.2 at distance 5.854e-01, to g = 0.5 at distance 2.854e-01; the factorization kron identity holds to 7.9e-16 and the published step reproduces V214 exactly at the closed clock.",
+ "status": "star module closure, STAR-CLOCK-QUANTIZED (11 s): no closed star clock reaches either pin: the clock exclusion is a property of the module class, not of one lattice. C_star: 4 closed point(s) on the 61x61 grid at the eta ladder, orders [1, 2]; nearest closed point to g = 0.2 at distance 5.854e-01, to g = 0.5 at distance 2.854e-01; the factorization kron identity holds to 7.9e-16 and the published step reproduces V214 exactly at the closed clock.",
  "pass": true
 }

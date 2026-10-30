@@ -33,7 +33,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 21.02071237564087
+  "wall_time": 46.598520278930664
  },
  "checks": [
   {
@@ -49,6 +49,6 @@
    "pass": true
   }
  ],
- "status": "composite desert content vs V237's threshold rule (21 s): the copied rule reproduces V237's own artifact to 0.0e+00; the V259 kernel recomputed here has dim 0, so the composite multiplicity table has 0 rows and the (1,2)-carrying count is 0. Branch NO-CONTENT. The singlet kernel is empty: the composite sector supplies no desert content at all (kernel states, had they existed, are internal Spin(10) singlets with db = (0, 0, 0) and no SM (1,2) branching), so there is no threshold the (1,2)-shift demand could act on: NO-CONTENT by the pre-registered cascade; V237's original verdict (NOT REALIZABLE BY ITS OWN CONTENT) stands unchanged and the copied rule was proven faithful to it.",
+ "status": "composite desert content vs V237's threshold rule (47 s): the copied rule reproduces V237's own artifact to 0.0e+00; the V259 kernel recomputed here has dim 0, so the composite multiplicity table has 0 rows and the (1,2)-carrying count is 0. Branch NO-CONTENT. The singlet kernel is empty: the composite sector supplies no desert content at all (kernel states, had they existed, are internal Spin(10) singlets with db = (0, 0, 0) and no SM (1,2) branching), so there is no threshold the (1,2)-shift demand could act on: NO-CONTENT by the pre-registered cascade; V237's original verdict (NOT REALIZABLE BY ITS OWN CONTENT) stands unchanged and the copied rule was proven faithful to it.",
  "pass": true
 }

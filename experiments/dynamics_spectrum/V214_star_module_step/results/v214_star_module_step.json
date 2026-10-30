@@ -522,7 +522,7 @@
         "calls": 2,
         "rejected": 0
       },
-      "pool_njobs": 8
+      "pool_njobs": 1
     },
     "mirror": {
       "relation": "reverse-reflect-transpose",
@@ -631,5 +631,5 @@
       }
     ]
   },
-  "wall_time": 17.319
+  "wall_time": 7.707
 }

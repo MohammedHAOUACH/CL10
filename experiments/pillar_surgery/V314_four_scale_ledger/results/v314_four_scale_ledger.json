@@ -33,18 +33,18 @@
     "clock_g": 0.19999798835751165,
     "clock_prov": "fitted (inverted from the coefficient)",
     "coef_expr": "plain rung-10 read at g_obs",
-    "coef": 2.0765641111736386,
+    "coef": 2.076564111173605,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.0765641 vs observed 2.0765641 (|d| 1.94e-13, band 1e-04)"
+     "coef 2.0765641 vs observed 2.0765641 (|d| 2.27e-13, band 1e-04)"
     ],
     "normalized": [
      0.0,
      0.0,
      0.5392304134607767,
-     1.936228954946273e-09
+     2.2737367544323206e-09
     ],
     "worst_normalized": 0.5392304134607767,
     "zero_fitted": false
@@ -54,7 +54,7 @@
     "clock_g": 0.19999796730041675,
     "clock_prov": "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
     "coef_expr": "plain rung-10 read at the corrected clock",
-    "coef": 2.0764436008045477,
+    "coef": 2.0764436008044758,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
@@ -65,9 +65,9 @@
      0.0,
      0.0,
      0.5392304134607767,
-     1.2051036928450998
+     1.2051036935645243
     ],
-    "worst_normalized": 1.2051036928450998,
+    "worst_normalized": 1.2051036935645243,
     "zero_fitted": true
    },
    {
@@ -113,6 +113,27 @@
     "zero_fitted": true
    },
    {
+    "clock": "scan clock g = 1.57079633 (V313 dictionary scan)",
+    "clock_g": 1.5707963267948966,
+    "clock_prov": "conventional (scan set)",
+    "coef_expr": "standard-ladder crossing read at the clock",
+    "coef": 2.2994437592074446,
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
+     "coef 2.2994438 vs observed 2.0765641 (|d| 2.23e-01, band 1e-04)"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     2228.7964803361238
+    ],
+    "worst_normalized": 2228.7964803361238,
+    "zero_fitted": true
+   },
+   {
     "clock": "Cl(0,10)-family p=0 closure pi*1/2 (k=2)",
     "clock_g": 1.5707963267948966,
     "clock_prov": "algebraic (V311 closure census)",
@@ -134,45 +155,24 @@
     "zero_fitted": true
    },
    {
-    "clock": "scan clock g = 1.57079633 (V313 dictionary scan)",
-    "clock_g": 1.5707963267948966,
-    "clock_prov": "conventional (scan set)",
-    "coef_expr": "standard-ladder crossing read at the clock",
-    "coef": 2.299501537013823,
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.2995015 vs observed 2.0765641 (|d| 2.23e-01, band 1e-04)"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     2229.3742583999074
-    ],
-    "worst_normalized": 2229.3742583999074,
-    "zero_fitted": true
-   },
-   {
     "clock": "scan clock g = 0.785398163 (V313 dictionary scan)",
     "clock_g": 0.7853981633974483,
     "clock_prov": "conventional (scan set)",
     "coef_expr": "standard-ladder crossing read at the clock",
-    "coef": 2.7018024115833414,
+    "coef": 2.6990318848857733,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.7018024 vs observed 2.0765641 (|d| 6.25e-01, band 1e-04)"
+     "coef 2.6990319 vs observed 2.0765641 (|d| 6.22e-01, band 1e-04)"
     ],
     "normalized": [
      0.0,
      0.0,
      0.5392304134607767,
-     6252.383004095092
+     6224.67773711941
     ],
-    "worst_normalized": 6252.383004095092,
+    "worst_normalized": 6224.67773711941,
     "zero_fitted": true
    },
    {
@@ -222,7 +222,7 @@
     "clock_g": 0.125,
     "clock_prov": "conventional (scan set)",
     "coef_expr": "standard-ladder crossing read at the clock",
-    "coef": 4.284847904634491e-05,
+    "coef": 4.284847904635717e-05,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
@@ -243,7 +243,7 @@
     "clock_g": 0.5,
     "clock_prov": "conventional (scan set)",
     "coef_expr": "standard-ladder crossing read at the clock",
-    "coef": 3.3576007010816834e-12,
+    "coef": 3.3576007010816176e-12,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
@@ -263,8 +263,8 @@
   "status": "LEDGER-BEST-DEFICIT-DECLARED",
   "best_zero_fitted_row": {
    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)), the V310 clock-gap hit",
-   "coef": 2.0764436008045477,
-   "worst_normalized": 1.2051036928450998,
+   "coef": 2.0764436008044758,
+   "worst_normalized": 1.2051036935645243,
    "binding_contact": 3,
    "contacts": [
     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
@@ -275,10 +275,10 @@
   },
   "best_any_row": {
    "clock": "g_obs (V206 data-clock inversion)",
-   "coef": 2.0765641111736386,
+   "coef": 2.076564111173605,
    "worst_normalized": 0.5392304134607767
   },
-  "wall_time": 549.3582935333252,
+  "wall_time": 41.784802198410034,
   "fitted_inputs": []
  },
  "checks": [

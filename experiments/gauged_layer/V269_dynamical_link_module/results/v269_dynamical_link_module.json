@@ -54,7 +54,7 @@
    210
   ],
   "fitted_inputs": [],
-  "wall_time": 96.54510760307312
+  "wall_time": 80.08003258705139
  },
  "checks": [
   {
@@ -74,6 +74,6 @@
    "pass": true
   }
  ],
- "status": "dynamical-link module 1(+)45(+)210 built from the committed V79 generators by Casimir projector on 45(x)45 (96 s): C2 eigenvalues 0 / 64.000000 / 96.000000, dims [1, 45, 210], 210 algebra closes to 1.0e-14, pair multiplicities (2, 2, 2) re-measured. Branch LINK-MODULE-OK.",
+ "status": "dynamical-link module 1(+)45(+)210 built from the committed V79 generators by Casimir projector on 45(x)45 (80 s): C2 eigenvalues 0 / 64.000000 / 96.000000, dims [1, 45, 210], 210 algebra closes to 1.0e-14, pair multiplicities (2, 2, 2) re-measured. Branch LINK-MODULE-OK.",
  "pass": true
 }

@@ -56,6 +56,7 @@ sys.path.insert(0, exp("V117_real_form"))
 
 from V117_real_form import fs_indicator  # noqa: E402
 from cl10 import clifford  # noqa: E402
+from cl10.engine import asnumpy  # noqa: E402
 from cl10 import config as _config  # noqa: E402
 
 CFG = _config.CFG
@@ -71,7 +72,7 @@ def swapped_generators(p):
     """Gamma'_j = Gamma_j for the first p generators (0-indexed j < p),
     i Gamma_j for the rest: the real form Cl(p, 10-p), the V117
     quaternionic table."""
-    h = [np.asarray(m, dtype=complex) for m in clifford.generators()]
+    h = [np.asarray(asnumpy(m), dtype=complex) for m in clifford.generators()]
     return [A if j < p else 1j * A for j, A in enumerate(h)]
 
 

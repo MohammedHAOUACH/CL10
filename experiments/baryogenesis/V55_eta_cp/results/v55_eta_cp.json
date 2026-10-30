@@ -7,7 +7,7 @@
   "status": "the_baryon_asymmetry_Delta_B=(28/79)x_eps_CP_x_D_is_a_product_of_FACTORS_of_three_provenances_(28/79_the_SM_sphaleron_an_input_of_the_SM_sector_not_a_root_number_conditional_on_V23; eps_CP=g0^4/16pi_the_1-loop_CP-odd_rate_with_g0=1/2^3_a_mapping_convention; D=(1/16pi)^2_the_2-loop_dilution): Delta_B=6.8e-10_ratio_1.11_to_the_observed_6.12e-10; the_0-param_QCA_alone_gives_eps_CP=0_(the_CP-odd_theorem); the_named_residuals_are_the_CP_phase_O(1)_and_the_2-digit_ratio_1.11",
   "tol": 1e-12,
   "data": {
-    "backend": "numpy",
+    "backend": "cupy",
     "loop_factor": 0.019894367886486918,
     "eta_CP_0param": 0.000395785873602882,
     "eta_CP_observed": 0.001,

@@ -679,6 +679,16 @@ positive residues - the clock-gap arithmetic and the exactly unitary
 Cl(0,10) step with its intact odd-n rule - are booked as measured
 facts, and the ledger shows why neither is a repair.
 
+The full re-run the config change forced (library fingerprint) surfaced
+three machinery repairs, booked in `review/pre_registrations.md`: V311
+and V312 crashed on the cupy core (illegal implicit cupy-to-numpy
+transfer - fixed with `cl10.engine.asnumpy`; the re-run artifacts are
+byte-identical, so the original bookings' physics stand, now honestly
+labelled); V272 and V274 OOM-crashed under concurrency and passed solo;
+V278's one drift report was the same pass comparing against a V277
+artifact it had not yet re-measured, and it passes against the settled
+pair. Final state: 227/227 PASS, hard tier MET, `number_audit` green.
+
 ## The neutrino truth programme (2026-10-29): V303, V304, V305, V306, V307
 
 Reader instruction: "the physics must be true as well" — applied to the one

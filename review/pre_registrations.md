@@ -3597,3 +3597,33 @@ theory).
   re-provenanced algebraic: the ledger rejected every zero-fitted
   compound theory, so no claim met the plan's success condition
   (LEDGER-CONSISTENT-THEORY-CANDIDATE with zero fitted inputs).
+
+## Gate-hygiene note (2026-10-30): the pillar-surgery full re-run and five repairs
+
+The new pillar_surgery config section changes the library fingerprint, so
+the gate re-ran all 227 (GPU 1, --jobs 3, cupy): 222 PASS, 5 FAILED, none
+a physics regression.
+
+- V311/V312 crashed on the cupy core: swapped_generators did
+  np.asarray(engine array) - implicit cupy-to-numpy conversion is illegal
+  on the routed engine. Fixed with the documented host transfer
+  cl10.engine.asnumpy. The re-run on cupy is BYTE-IDENTICAL to the booked
+  artifacts (p=0 unitarity 1.443290e-15; crossings 2.2995015/2.7040813/
+  2.7159955): the original standalone bookings had silently run on the
+  numpy fallback. Physics unchanged on both cores; the fix is the honest
+  backend label.
+- V272/V274 crashed cupy OOM (4.3 GB allocation) under the jobs-3
+  concurrency. Solo reruns on a quiet GPU: V272 CHAIN-ALIVE (kernel dim
+  12, gap 3.600e+01), V274 NEW-CONJUNCTION-DEAD - values as booked.
+- V278 reported MACHINERY-DRIFT as an ORDERING artefact of the single
+  pass: it ran at t+6824 s comparing its host recomputation (1.998504)
+  against the still-master-era V277 artifact (1.998493); V277's own
+  rerun - later in the same pass - reads 1.9985044777. The 1.1e-5 shift
+  on the top-64 degree fit is environment-level (both cores move
+  together). Solo rerun against the settled V277: T0 inside 1e-6, full
+  scan PASS, CONE-RANGE2-ABSENT (gap 5.55e-17).
+- The fingerprint ledger was seeded (--seed-fingerprints) from the fresh
+  green verdicts of this session - every one of the five was re-run on
+  GPU after its repair - and the default gate then reports
+  "0 re-run, 227 folded, library unchanged": 227/227 PASS, hard tier MET
+  over 87, 51/51 GPU-backend reports, no numpy-fallback label anywhere.

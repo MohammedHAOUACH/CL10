@@ -49,7 +49,7 @@
   "seed": "0x6C",
   "fitted_inputs": [],
   "backend": "cupy",
-  "wall_time": 639.602299451828
+  "wall_time": 216.55287837982178
  },
  "checks": [
   {

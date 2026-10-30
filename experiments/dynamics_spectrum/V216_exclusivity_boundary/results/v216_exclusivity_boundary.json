@@ -9940,7 +9940,7 @@
         "calls": 34,
         "rejected": 0
       },
-      "pool_njobs": 8
+      "pool_njobs": 1
     },
     "checks": [
       {
@@ -9980,5 +9980,5 @@
       }
     ]
   },
-  "wall_time": 189.996
+  "wall_time": 100.887
 }

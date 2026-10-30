@@ -292,6 +292,6 @@
    "pass": true
   }
  ],
- "status": "TWO-DIAL ALGEBRA REPLICATION, REPLICATION-OK (zero fitted parameters, 2 s): at the three closure points whose nodes come closest to c = 1 ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]), the tier-0-3 algebraic kernels of the published theory survive the hop decoupling: matter content (36 levels, Tr Y = Tr Y^3 = 0), the exact-zero anomalies (V11), CPT (sector leakage <= 6.3e-16, spectral mirror <= 2.6e-15), the 45 internal generators and the Yukawa content are beta-blind by construction and numerically unchanged; the only kinematic kernel, the V63 node chirality, inherits V132's closed-clock convention-inapplicability. Decoupling the hop breaks no algebraic win.",
+ "status": "TWO-DIAL ALGEBRA REPLICATION, REPLICATION-OK (zero fitted parameters, 1 s): at the three closure points whose nodes come closest to c = 1 ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]), the tier-0-3 algebraic kernels of the published theory survive the hop decoupling: matter content (36 levels, Tr Y = Tr Y^3 = 0), the exact-zero anomalies (V11), CPT (sector leakage <= 6.3e-16, spectral mirror <= 2.6e-15), the 45 internal generators and the Yukawa content are beta-blind by construction and numerically unchanged; the only kinematic kernel, the V63 node chirality, inherits V132's closed-clock convention-inapplicability. Decoupling the hop breaks no algebraic win.",
  "pass": true
 }

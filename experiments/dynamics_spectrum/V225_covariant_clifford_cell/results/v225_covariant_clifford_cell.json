@@ -1245,7 +1245,7 @@
         "calls": 21,
         "rejected": 7
       },
-      "pool_njobs": 8
+      "pool_njobs": 1
     },
     "checks": [
       {
@@ -1300,5 +1300,5 @@
       }
     ]
   },
-  "wall_time": 127.178
+  "wall_time": 44.034
 }
