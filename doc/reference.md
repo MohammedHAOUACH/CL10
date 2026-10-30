@@ -712,6 +712,30 @@ is closed on the booked class - V319 (weights), V320 (sectors) and
 V321 (resummation) now bound the coefficient residual from three
 independent directions.
 
+**V323 - the joint-module stabiliser against the rung-17 contact.**
+`.../V323_joint_stabiliser_s17` asks the last algebraic supply
+question for the neutrino floor: the gauged bond layer's joint module
+32 ⊗ 45 has Casimir levels {45, 85, 117} with multiplicities
+{32, 288, 1120} (V79, re-derived exactly here), so the stabiliser's
+centre is three-dimensional and its monomials are exact rationals.
+Closed 28-member class (identity; t_i; ratios; t_i over the
+unweighted mean 247/3 and the multiplicity-weighted mean 109; degree
+monomials; sorted-gap ratios; m-weighted gaps) - no target inside
+any member. Four members sit the atmospheric contact inside the 5%
+band: the identity (the booked −2.6962% itself, 0.539 of band),
+255/247 = 3t₂/Σt (0.091 of band - the best number ever obtained for
+C3), 117/109 (0.889), 90/91 (0.753). None is a derivation: the
+closest misses the required χ = 1.02770859 by 4.55e-3 RELATIVE -
+four orders off the 1e-9 exact tier. The pre-fixed chance-density
+rule grades the class supplier-grade (expected 0.464 < 0.5) and the
+note books the caveat: three hits inside one narrow band against
+0.46 expected is Poisson ~7e-3 - the rule as pre-fixed measures
+class size, not concentration, and no re-grade is applied post-run.
+**S17-SEALED-IN-BAND**: multipliers exist, the −2.6962% is not an
+algebraic property of the joint centre, and the named residual
+stands. 255/247 is booked, zero-fitted and algebraic, for a future
+pre-registered ledger question.
+
 
 ## The pillar-surgery programme (2026-10-30): V308-V314
 
