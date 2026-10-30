@@ -4402,3 +4402,12 @@ S17-STUBBORN otherwise. All three book the FULL 25-row table
 (chi, leg', normalized residual). Exact-match members: no class was
 designed to hit 1.0277; an EXACT hit would be the first neutrino-
 side derivation in the programme and gets the success tier.
+
+**Class correction (amended at writing time, BEFORE any run).** The
+cross-ratio slot as first drafted ("over orderings (3)") is not a
+well-defined 3-element set: the 6 ordered triples give signed values
+with only two distinct positives. Fixed closed set: the slot is
+{dt32/dt21, dt21/dt32, (dt21+dt32)/dt32} with dt21 = t2 - t1,
+dt32 = t3 - t2 (sorted t = 45, 85, 117) - 3 members, positive, no
+sign guard needed. Total stays 25. No run had occurred at amendment
+time; this note IS the pre-registration text for that slot.
