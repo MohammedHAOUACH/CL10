@@ -1,6 +1,6 @@
 # The verification program
 
-227 experiments (the 224 of the publication programme plus the 3 exploration
+231 experiments (the 228 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git
@@ -11,7 +11,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**85 of the 224 publication experiments still write the older
+**85 of the 228 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -50,6 +50,7 @@ whenever it is re-run.
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §16 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
 | `pillar_surgery` | bounded surgery of the four pillars: the variant readings of the loop machinery at the fifth clock, the algebraicity of the data clock, the coefficient expression census, the quaternionic root step and its loop ladder, the lightcone dictionary conjunction, and the four-scale ledger arbiter (V308-V314) | §12.1, §11.6, §17 (O8, O10) |
+| `theory_hunt` | the hunt for the closest theory after the surgery: the closure-quantizer census over all booked step-variant classes, the weight-function double-contact scan, the selection-conjunction grid, and the five-contact closest-theory ledger (V315-V318) | §12.1, §13.4, §17 (O8, O10) |
 | `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the cone-isotropy gate (tier 4) | §8.4, §16 (O9) |
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector cone probes - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §8.4, §16 (O9) |
 | `alt_step` | the exploration programme: the parity no-go for a conical node and its reruns inside the engine's own six-stage circuit class and with the root's sector-swap involutions - the cone is outside the class, searches included (tier 4) | §8.4, §16 (O9) |
@@ -392,6 +393,14 @@ the claim asserts, not when a script merely mentions the word.
 | `V312_quaternionic_loop_ladder` | **SIGNATURE-LADDER-NEGATIVE** (skip contingency not needed): the exact odd-n selection rule survives the Cl(0,10) embedding at all three closure clocks, but the crossings read 2.2995 (pi/2), 2.7041 (pi/4), 2.7160 (3pi/4) against 2.0765641 - closest |d| 0.223 vs band 1e-4 |
 | `V313_lightcone_dictionary_conjunction` | **LIGHTCONE-CLOCK-CONFLICT**: the V285 machinery re-derived (Jacobian 107/53 at pi/4, T0 anchors to 1e-9), the 53-parameter family exists at every scan clock (clock-blind by construction), ladder-intact set {1/5, pi/4, pi/2} (pi/4 deficit anchored to the booked V206 value within the backend-aware floor-artefact band; 1/2 collapses at 1.44e-3 - the Section 11.6 conflict confirmed); the locality selector never unique: T* 1.195142e-3 vs T_committed 1.195642e-3 at a boundary kink (gradient 5e7; T* is boundary-sensitive at the fifth significant figure across passes - 1.195211e-3 in the pre-gate rerun; the selector verdict is invariant); G = 1/(4 ln 45) reported as a weight only |
 | `V314_four_scale_ledger` | **LEDGER-BEST-DEFICIT-DECLARED**: 11 compound rows, four contacts each; the fitted g_obs row passes all four (worst-normalized 0.539 - the neutrino -2.70% floor) but carries fitted provenance; the best zero-fitted row - the V310 corrected clock - reads 2.0764436 vs 2.0765641: |d| 1.205e-4 vs band 1e-4 (worst-normalized 1.205); the ledger deficit is the tightest named residual of the programme |
+
+### `theory_hunt`
+| id | verdict |
+|---|---|
+| `V315_closure_quantizer_census` | **QUANTIZER-NEGATIVE**: all 784 booked-class step variants (64 V277 twist decorations - identity-degenerate at q = 0, W(0) = I - x 720 engine stage orderings) have rational closures: 43 of 79 pi*a/b clocks (b <= 16) close within 1e-12; the identity row closes pi/2, pi/4 (k = 2, dev 7.5e-15, V203's M(0)^2 = I), 3pi/4 and the orderings add none; the odd-n rule is exact only at the order-8 clocks, where the rung-10 read is 7.86e+34 vs the observed 2.0766 (band 1e-4), clock-order distance to rung 10 \|b - 10\| = 6 |
+| `V316_weight_double_contact` | **WEIGHT-NO-DOUBLE**: 225 weight variants, zero double-band hits; W3 - the 12 M-node V205 propagator-trace factors at the clock are exactly equal (f_bar = 0.0838951, spread 1.3e-15), all C(12,3) = 220 triples restate the sum-factor-3 reading 2.0881; W1 eta* = 0.1981004295 reads coefficient 3.000 (+0.92 off) but S17/3 = 0.051847 eV (+3.49%, inside the 5% band) - the only single-rung pass; W2 cos(kg)/cos(2kg) read 2.19e8 / 0.003281; class-polynomial machinery reproduces loop_ratios to 2.6e-14 after V202's int(round()) guard |
+| `V317_selection_conjunction` | **SELECTION-DISPERSED**: 4-functionals x 3-sites grid, 7 N/A cells pre-fixed; T0s bit-exact; T* below T_committed (0.00119559) but non-interior (gradient 1.03); the (1,2)-shift x kappa_s cell is UNIQUE - V105's B_general_cartan model alone closes the (1,2)-meeting cross-site with desert thresholds (z0 22.0-32.7 in (0, 34.842), residual ~1e-14), V122/V145 miss zB = 36.213 e-folds, V146 n_desert = 0; the 12 channels sit in three isospectral classes (p_A 0.69830/0.70134/0.70484) so no channel triple is unique under any functional (best triple gap 5.9e-15 / 1.4e-11) |
+| `V318_closest_theory_ledger` | **LEDGER-CLOSEST-THEORY-DECLARED**: 48 compound rows (270 pruned by the booked rule), T0 reproduces V314's gated leaf to 1.4e-10; C5 (desert (1,2)-shift 13.0974785757549) passes 48/48 to <= 1.35e-13 - clock-blind; the closest theory named: corrected clock 0.199997967 x node-triple weight (degenerate with plain) x no selection, normalized [0, 0, 0.539230, 1.205104, 1.35e-04], distance 1.205103693702192 binding at C4; no zero-fitted row passes all five contacts; closest is not true |
 
 ### `alt_step` (exploration programme)
 | id | verdict |

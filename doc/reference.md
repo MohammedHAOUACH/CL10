@@ -568,6 +568,88 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
+## The theory-hunt programme (2026-10-30): V315-V318
+
+Reader instruction: pillar surgery localized the CL10 defect to exactly
+three objects - the closure quantizer of the step, the rung-dependent loop
+weight functional, and the missing selection principle. This programme
+attacks all three with bounded censuses inside booked classes (no config
+change; bands reused from `pillar_surgery:` keys), then scores every
+survivor and the booked base candidates in one five-contact ledger that
+RANKS the compound theories by worst normalized contact. Nothing was
+refitted; every input carries a provenance tag.
+
+**V315 - the closure-quantizer census.**
+`experiments/theory_hunt/V315_closure_quantizer_census` censuses all 784
+booked-class deformations of the six-stage step - 64 per-stage spin-connection
+twist decorations at `angle.alpha_10` (V277's `bloch_dec` with the scan clock
+in both `stage_matrix` slots; identity-degenerate at q = 0 by V277's booked
+W(0) = I) and 720 stage orderings (the engine's own `stages=` dial). T0
+closes the anchored set: identity gives pi/2 k = 2, pi/4 k = 2 (dev 7.5e-15 -
+V203's M(0)^2 = I; V311's 32-dim k = 4 difference booked), 3pi/4 k = 2, and
+reproduces `coef_at_fifth` to 2.4e-13. The closure census is generous - 43
+of 79 rational pi*a/b clocks (b <= 16) close within 1e-12, and no variant
+lacks a closure - but the odd-n selection rule stays exact only at the
+order-8 clocks, where the rung-10 read is V203's 55.03 and 3(F/LOOP)^10
+lands at 7.86e+34 against the observed 2.0766 (band 1e-4).
+**QUANTIZER-NEGATIVE**: no rational closure of the booked class coexists
+with the odd rule and lands the coefficient; the full per-variant closure
+table and the |b - 10| clock-order distances are booked.
+
+**V316 - the weight double-contact.**
+`.../V316_weight_double_contact` asks whether a reweighting of the
+traced-word sum moves BOTH rung contacts at once, mechanism and clock
+fixed. W1 eta-law (V200 lifted): at the V202-booked eta* = 0.1981004295 the
+rung-10 coefficient reads exactly 3.000 (+0.92 off) while the rung-17 leg
+lands at S17/3 = 0.051847 eV, +3.49% - INSIDE the 5% band, the programme's
+only single-rung pass. W2 V202 phase-class multipliers cos(k g), cos(2 k g)
+(the class polynomial reproduces `loop_ratios` to 2.6e-14 after V202's own
+int(round()) half-eigenvalue guard) read 2.19e8 / 0.003281 - the multipliers
+destroy the crossing interference. W3 the 12 M-node V205 propagator-trace
+factors at the clock are EXACTLY equal (f_bar = 0.0838951, spread 1.3e-15),
+so all C(12,3) = 220 node triples reproduce the booked sum-factor-3 reading
+2.0881 - channel-blindness restated combinatorially. **WEIGHT-NO-DOUBLE**:
+zero double-band hits among 225 variants; the full table, top 20 and the
+per-family bests booked.
+
+**V317 - the selection conjunction.**
+`.../V317_selection_conjunction` evaluates the 4-functionals x 3-sites grid
+(7 N/A cells fixed pre-run). T0s bit-exact (T_committed and the V237 dz12
+row both |d| = 0). Locality T on the V313 artifact members: the T* member
+sits strictly below T_committed (0.00119559 < 0.00119564) but is not
+interior (53-gradient 1.03, the V313 boundary-kink pattern) - not unique.
+The bond-entropy weight G cannot reorder anything (uniform positive
+multiplier - booked pre-run), and the 12 chain-kernel channels sit in three
+isospectral classes: the best triple [0,1,2] ties its runner-up at 5.9e-15
+(chain-H energetics) and 1.4e-11 (V213 p_A at clock 1/5, node p_A classes
+0.69830/0.70134/0.70484) - no channel triple is unique under any functional.
+One cell fires: the (1,2)-shift criterion meets exactly one kappa_s family
+cross-site - V105's B_general_cartan model books desert_ok rows n = 3..10
+(meeting residual ~1e-14, thresholds z0 22.0-32.7 inside the desert e-fold
+window (0, 34.842)) - while V122/V145 windows miss the solved zB = 36.213
+e-folds (above M_X) and V146 books n_desert = 0.
+**SELECTION-DISPERSED**: no functional selects at two sites; the 12-cell
+table booked.
+
+**V318 - the five-contact closest-theory ledger.**
+`.../V318_closest_theory_ledger` extends V314's scoring block with the
+desert-coupling contact C5 and runs 48 compound rows (the 270-member cross
+product pruned by the pre-registered rule: mandatory clocks {1/5, corrected,
+pi/2, pi/4, 3pi/4} + top-3 V315 closure clocks pi*15/16, pi*1/16, pi*4/7).
+T0: V314's 11 rows re-run inside reproduce the gated leaf to |d| 1.4e-10.
+C5 passes 48/48 - V237's dz12 is reproduced at every clock to <= 1.35e-13
+under alpha_std(g): the desert shift does not discriminate clocks. The
+closest theory, named: clock g_cross_rung10 - (alpha_10*(1/5)*alpha1_mz) =
+0.199997967 (zero-fitted, V310 census hit), node-triple weight degenerate
+with the plain read, no selection; normalized residuals [0, 0, 0.539230,
+1.205104, 1.35e-04], distance = worst normalized = **1.205103693702192**,
+binding contact C4 (2.0764436 vs 2.0765641 at band 1e-4).
+**LEDGER-CLOSEST-THEORY-DECLARED**: no zero-fitted row passes all five
+contacts; the distance is booked, and closest is not true - the row's
+clock inherits the V206-inverted data clock, and no published provenance
+changes.
+
+
 ## The pillar-surgery programme (2026-10-30): V308-V314
 
 Reader instruction: the ten measured falsifications are defects of
