@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V323
+## The theory-hunt programme (2026-10-30): V315-V325
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -761,6 +761,43 @@ class size, not concentration, and no re-grade is applied post-run.
 algebraic property of the joint centre, and the named residual
 stands. 255/247 is booked, zero-fitted and algebraic, for a future
 pre-registered ledger question.
+
+**V324 - the closest-theory ledger, version 2.**
+`experiments/theory_hunt/V324_closest_theory_ledger_v2` re-scores the
+whole V318 48-row space (48 clocks x 3 W slots x 4 chi slots = 576
+rows) with the two supplier-graded slots the programme produced after
+the arbiter ran: the V323 joint-centre rung-17 multipliers
+(supplier-grade) and the V319 rung-10 weights (density-disqualified,
+carried as a slot for exactly this bookkeeping decision). T0 gates
+reproduce V318's booked quintuple exactly (0.0) and the V319 family-A
+leaves. 32 rows pass all five contacts zero-fitted. The closest: the
+V310-corrected clock x W = exp(+LOOP^3 n/17) x chi = 255/247,
+norms C3 0.09124, C4 0.24333, C5 0.00014 - the distance of the
+closest zero-fitted compound moves 1.205 -> 0.2433326. The
+pre-registered qualifier fires: C4 passes only with the W slot, whose
+class carries the V319 density disqualification, so
+**LEDGER2-CONSISTENT-CANDIDATE** is booked as a bound on the closest
+theory, not a discovery, and no paper re-provenance - the §17 hunt
+sentence carries the update clause and Table 4's supply verdicts
+stand. This is the one branch in the programme that a reserved slot
+did close at the pass level.
+
+**V325 - the channel triple against the certified crossing.**
+`experiments/theory_hunt/V325_channel_triple_f208` asks whether a
+booked 3-of-12 channel triple (the V205/V316 W3 machinery) multiplies
+the certified F_208 = 0.019692794505156912 (anchor replayed exactly,
+T0c 0.0) onto the observed coefficient at the root clock: mu_req =
+0.9737449. The deeper booked fact comes free: at g = pi/4 the W3
+object VANISHES IDENTICALLY - all 12 node factors sit at the 1e-16
+noise level (fbar = 1.0686e-16, relative spread 0.896), the
+128-phase sum over the quarter-root sector phases cancels at the
+closed clock. The 220-triple mu class [0.33398, 1.65355] is
+therefore ratios of floating-point noise: mu_req lies inside the
+span, but the nearest reading [0,5,10] (mu 0.96939) sits 909.28
+band-units off; 0 of 220 inside; density expected 0.0102, razor.
+**CH-F208-STUBBORN**: the channel side bounds the gap at both clocks
+- identically zero at pi/4, exactly degenerate at 1/5 (V316). No S3
+selection instance; the V317 word stands.
 
 
 ## The pillar-surgery programme (2026-10-30): V308-V314
