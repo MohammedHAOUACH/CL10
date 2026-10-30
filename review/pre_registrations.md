@@ -4133,3 +4133,32 @@ plain-sector Floquet legs finite with the guard satisfied or booked.
 Honesty rule unchanged: a sector sum that lands is a DERIVATION test, the
 first one the candidate formulas face; it still does not touch the
 neutrino floor or the origin of 1/(16pi) unless the n-dependence says so.
+
+### Post-run booking note (2026-10-30): the rung-sector sum V320
+
+Fired word: `RUNG-SECTOR-NO-CONTRIB`. T0 exact (identity sector closes at
+pi/4, k = 2, dev 7.50e-15; 64 sectors; closing-only measure = uniform
+measure since all 64 sectors close at Gamma - W(0) = I booked).
+
+The sector answer is unambiguous and physics-bearing: summed uniformly,
+the twisted sectors do NOT perturb the rung weight at the 1e-5 scale -
+they DESTROY the rung sum (W_eff(10) = 3.010e-2, lnW = -3.503, against
+the booked window lnW in [9.878e-7, 1.062e-5]) and increase the certified
+F_208 deficit 1.013e-2 -> 3.507e-1. The twist sectors are destructive to
+the crossing interference that makes the ladder tick; any measure that
+saved the weight would have to suppress almost all sectors by hand - a
+fitted choice, not a derivation. The guard worked as pre-fixed: at the
+certified clock the odd rung rho0(17) = 5.5e-16 (the exact odd rule
+visible in the Floquet leg) - guard-failed, never divided.
+
+Consequence booked: the derivation test V319 set for the LOOP^3-scale
+candidate FAILS on the booked sector class - the candidate is neither
+density-distinguished nor sector-derived. Remaining viable routes to an
+elect, as booked: a sector class NOT yet in the construction (the
+n = 4k+2 no-limit class near the certified crossing, V209 - a
+resummation object, not a sector sum), or the junction mechanism at the
+democratic boundary (V303/V307) for the neutrino floor. The hunt's
+negative space is now sharply drawn: rung weight (V316/V319/V320: three
+closed classes), clock rule (V309/V315), selection (V317), channel
+degeneracy (V316) - all bounded no-gos; what remains open is a new
+mathematical object, not a wider census.
