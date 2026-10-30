@@ -1,6 +1,6 @@
 # The verification program
 
-233 experiments (the 230 of the publication programme plus the 3 exploration
+234 experiments (the 231 of the publication programme plus the 3 exploration
 experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
 (V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
 superseded composition audit V94 stand retired 2026-10-28 in the git
@@ -11,7 +11,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**85 of the 230 publication experiments still write the older
+**85 of the 231 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -50,7 +50,7 @@ whenever it is re-run.
 | `family_number` | why the count $3$ is an input and what its symmetric alternative costs | §4, §16 (O3) |
 | `phenomenology` | the lattice photon driven through hydrogen (Fig. 2) | §6 |
 | `pillar_surgery` | bounded surgery of the four pillars: the variant readings of the loop machinery at the fifth clock, the algebraicity of the data clock, the coefficient expression census, the quaternionic root step and its loop ladder, the lightcone dictionary conjunction, and the four-scale ledger arbiter (V308-V314) | §12.1, §11.6, §17 (O8, O10) |
-| `theory_hunt` | the hunt for the closest theory after the surgery: the closure-quantizer census over all booked step-variant classes, the weight-function double-contact scan, the selection-conjunction grid, the five-contact closest-theory ledger, the closed-class rung-weight census with its chance-density discipline, and the twisted-sector derivation test (V315-V320) | §12.1, §13.4, §17 (O8, O10) |
+| `theory_hunt` | the hunt for the closest theory after the surgery: the closure-quantizer census over all booked step-variant classes, the weight-function double-contact scan, the selection-conjunction grid, the five-contact closest-theory ledger, the closed-class rung-weight census with its chance-density discipline, the twisted-sector derivation test, and the crossing-resummation finite-part test (V315-V321) | §12.1, §13.4, §17 (O8, O10) |
 | `alt_gauged` | the exploration programme: the two-fermion S-matrix of the gauged bond layer (V79-V101) built and measured - scattering phases, vertex O_h content, one-loop flow, block RG - against the cone-isotropy gate (tier 4) | §8.4, §16 (O9) |
 | `alt_nonpert` | the exploration programme: non-perturbative gauged-sector cone probes - exact cone dressing by the flux operators, 4-site chain/ring kernels and S-matrices, IR decoupling across volumes (tier 4) | §8.4, §16 (O9) |
 | `alt_step` | the exploration programme: the parity no-go for a conical node and its reruns inside the engine's own six-stage circuit class and with the root's sector-swap involutions - the cone is outside the class, searches included (tier 4) | §8.4, §16 (O9) |
@@ -403,6 +403,7 @@ the claim asserts, not when a script merely mentions the word.
 | `V318_closest_theory_ledger` | **LEDGER-CLOSEST-THEORY-DECLARED**: 48 compound rows (270 pruned by the booked rule), T0 reproduces V314's gated leaf to 1.4e-10; C5 (desert (1,2)-shift 13.0974785757549) passes 48/48 to <= 1.35e-13 - clock-blind; the closest theory named: corrected clock 0.199997967 x node-triple weight (degenerate with plain) x no selection, normalized [0, 0, 0.539230, 1.205104, 1.35e-04], distance 1.205103693702192 binding at C4; no zero-fitted row passes all five contacts; closest is not true |
 | `V319_rung_weight_double_target` | **RUNG-WEIGHT-NO-SUPPLIER**: closed 32-member parameter-free rung-weight class scored against the exact window lnW(10) in [9.88e-7, 1.06e-5] + the rung-17 5% band at the corrected clock; two zero-fitted hits - 1+LOOP^3 (C4 at 0.43 of band) and exp(+LOOP^3*n/17) (0.24) - both would PASS the full ledger at distance 0.539 where the neutrino floor binds; the pre-registered chance-density rule books them supplied-by-density (expected random hits 1.45/1.46); the fitted reference reaches 0.539038 - the ledger's ceiling is the neutrino -2.6962% contact, not the coefficient |
 | `V320_rung_sector_sum` | **RUNG-SECTOR-NO-CONTRIB**: the V319 candidate's derivation test - the 64 twisted sectors of V315 summed (uniform; closing-only coincides, all close at Gamma by W(0) = I), Floquet legs on the booked 12-point M mesh: the sector sum corrects the rung factor 33 DOWN at n = 10 (lnW -3.503 vs the window [9.88e-7, 1.06e-5]) and increases the certified F_208 deficit 1.013e-2 -> 3.51e-1 - the sectors are destructive to the crossing interference; the guard caught the exact odd rule at pi/4 (rho0(17) = 5.5e-16, guard-failed not divided); T0 identity k = 2 closure dev 7.5e-15; the LOOP^3 weight stands neither density-distinguished nor sector-derived |
+| `V321_crossing_resummation` | **RESUM-NO-TIE**: the partie-finie supply route for the hierarchy coefficient - canonical finite part of the 4k+2 power divergence at the root clock, V209's exact-arithmetic ladder at pi/4 + delta over {1e-1..1e-5}, guards pre-fixed (slope pair < 5%, c-spread < 1% with c FIXED at the finest point, fp-spread < 1%); no n canonical: the asymptotic exponent (1e-3 -> 1e-5 pair) is 11.00 +- 0.03 for every n <= 22 (divergence delta^-11 leading) but coarse-pair slopes drift 10.1-13.2 and tail c-spreads reach e4-e5 - subleading structure defeats every single (c,m) subtraction; anchor F_208@pi/4+1e-8 reproduced exactly, T0 machinery identity exact; machinery amendments booked (mp_ladder replaces float64 - cancellation reads 7e14 where the certified value is 1.15e30; T0 leaf-agreement -> machinery identity after the 55-dps leaf diagnosis) |
 
 ### `alt_step` (exploration programme)
 | id | verdict |

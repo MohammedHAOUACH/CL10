@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V320
+## The theory-hunt programme (2026-10-30): V315-V321
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -685,6 +685,32 @@ odd rule at the certified clock (ρ⁰(17) = 5.5e-16: guard-failed, never
 divided). **RUNG-SECTOR-NO-CONTRIB**: the derivation route to the
 LOOP³-scale weight is closed on the booked sector class; the candidate
 stands neither density-distinguished nor sector-derived.
+
+**V321 - the crossing resummation.** `.../V321_crossing_resummation`
+tests the last supply route opened by V209's branch structure: the
+certified 4k+2 class diverges at the root clock (F₂₁₀ certified =
+3.885e48) while the DETUNED class blows up as a power in the detuning,
+and a power divergence has a canonical finite part - subtract c·δ⁻ᵐ
+with (c, m) MEASURED at the detuned points, targets entering only the
+decision. Object: V209's exact-arithmetic ladder (mp_ladder, 90 dps,
+nmax 260) at g = π/4 + δ over {1e-1 … 1e-5}, n ∈ {2,6,10,14,18,22}
+plus tail probes {250,254,258}; guards pre-fixed (slope pair agreement
+< 5%, c-spread < 1% at c FIXED at the finest point, fp-spread < 1%).
+The answer is a clean structural fact: no n admits a canonical finite
+part. The asymptotic exponent (1e-3 → 1e-5 pair) is 11.00 ± 0.03 for
+every n ≤ 22 - the divergence is δ⁻¹¹ to leading order - but the
+coarse-pair slopes drift 10.1–13.2 and the tail c-spreads reach e4–e5:
+the power carries subleading/logarithmic structure, and no single
+(c, m) subtraction is canonical anywhere. F₁₀ over the grid: 3.66e6 →
+7.69e49. The machinery amendments (mp_ladder replacing float64 -
+catastrophic cancellation reads 7e14 where the certified value is
+1.15e30; T0 re-defined as machinery identity after the diagnosis that
+V209's own 1e-5 leaf is a 55-dps value, 8 digits at 1e52) are booked
+in the note; the anchor leg reproduces the certified F₂₀₈ EXACTLY.
+**RESUM-NO-TIE**: the partie-finie route to the hierarchy coefficient
+is closed on the booked class - V319 (weights), V320 (sectors) and
+V321 (resummation) now bound the coefficient residual from three
+independent directions.
 
 
 ## The pillar-surgery programme (2026-10-30): V308-V314
