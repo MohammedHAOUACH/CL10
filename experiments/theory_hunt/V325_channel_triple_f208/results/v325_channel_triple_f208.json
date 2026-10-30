@@ -1,0 +1,368 @@
+{
+ "id": "V325_channel_triple_f208",
+ "tier": 2,
+ "property": "channel-triple multiplier class against the certified root-clock crossing (tier 2, hard, O8)",
+ "residual": true,
+ "programme": "theory-hunt V325",
+ "branch": "CH-F208-STUBBORN",
+ "data": {
+  "t0a_node_factors": {
+   "abs_diff_max": 2.498001805406602e-16
+  },
+  "t0b_coef_fifth": {
+   "artifact": 2.088106865906787,
+   "abs_diff": 3.801403636316536e-13
+  },
+  "t0c_anchor": {
+   "leaf": 0.019692794505156912,
+   "rederived": 0.019692794505156912,
+   "abs_diff": 0.0
+  },
+  "root_node_factors": {
+   "clock": "pi/4 (angle.branches.closed)",
+   "f_bar": 1.0685586529500767e-16,
+   "factors": {
+    "0": 1.3180676774316944e-16,
+    "1": 8.849191984601074e-17,
+    "2": 1.5281358534024624e-16,
+    "3": 5.677233283754107e-17,
+    "4": 2.0259921024114146e-16,
+    "5": 3.15294488620319e-17,
+    "6": 7.258166766556649e-17,
+    "7": 1.7466081130262226e-16,
+    "8": 6.776866451521451e-17,
+    "9": 1.8762086367575785e-17,
+    "10": 1.4742030739663228e-16,
+    "11": 1.3706358142233978e-16
+   },
+   "spread_max_over_fbar": 0.8960045822642078
+  },
+  "certified": {
+   "F_cert": 0.019692794505156912,
+   "coef_cert": 2.7095258500787787,
+   "F_req": 0.019175758589457376,
+   "mu_req": 0.9737449189568225,
+   "coef_observed": 2.076564111173832,
+   "band": 0.0001
+  },
+  "class": {
+   "n_rows": 220,
+   "n_inside": 0,
+   "mu_min": 0.33398219109316657,
+   "mu_max": 1.6535470636718064,
+   "best": {
+    "triple": [
+     0,
+     5,
+     10
+    ],
+    "mu": 0.9693946861469172,
+    "coef": 1.9856360375550266,
+    "residual": 0.09092807361880562,
+    "normalized": 909.2807361880562,
+    "inside": false,
+    "mu_gap_to_req": 0.004350232809905319
+   },
+   "top20": [
+    {
+     "triple": [
+      0,
+      5,
+      10
+     ],
+     "mu": 0.9693946861469172,
+     "coef": 1.9856360375550266,
+     "residual": 0.09092807361880562,
+     "normalized": 909.2807361880562,
+     "inside": false,
+     "mu_gap_to_req": 0.004350232809905319
+    },
+    {
+     "triple": [
+      1,
+      2,
+      6
+     ],
+     "mu": 0.9791606415652954,
+     "coef": 2.19499118680356,
+     "residual": 0.11842707562972787,
+     "normalized": 1184.2707562972787,
+     "inside": false,
+     "mu_gap_to_req": 0.005415722608472895
+    },
+    {
+     "triple": [
+      1,
+      4,
+      9
+     ],
+     "mu": 0.9665768481660951,
+     "coef": 1.9286667087093075,
+     "residual": 0.14789740246452476,
+     "normalized": 1478.9740246452475,
+     "inside": false,
+     "mu_gap_to_req": 0.007168070790727343
+    },
+    {
+     "triple": [
+      1,
+      2,
+      8
+     ],
+     "mu": 0.9641466376168795,
+     "coef": 1.8807202858188068,
+     "residual": 0.19584382535502542,
+     "normalized": 1958.438253550254,
+     "inside": false,
+     "mu_gap_to_req": 0.009598281339943004
+    },
+    {
+     "triple": [
+      6,
+      7,
+      8
+     ],
+     "mu": 0.9826668307310368,
+     "coef": 2.2748683502034,
+     "residual": 0.19830423902956795,
+     "normalized": 1983.0423902956795,
+     "inside": false,
+     "mu_gap_to_req": 0.008921911774214308
+    },
+    {
+     "triple": [
+      2,
+      9,
+      11
+     ],
+     "mu": 0.9627899297746255,
+     "coef": 1.8544225097950497,
+     "residual": 0.22214160137878247,
+     "normalized": 2221.416013787825,
+     "inside": false,
+     "mu_gap_to_req": 0.01095498918219695
+    },
+    {
+     "triple": [
+      1,
+      6,
+      10
+     ],
+     "mu": 0.9623364896146774,
+     "coef": 1.8457073190788056,
+     "residual": 0.23085679209502663,
+     "normalized": 2308.5679209502664,
+     "inside": false,
+     "mu_gap_to_req": 0.011408429342145032
+    },
+    {
+     "triple": [
+      5,
+      10,
+      11
+     ],
+     "mu": 0.9857931423435184,
+     "coef": 2.3482872785091122,
+     "residual": 0.27172316733528,
+     "normalized": 2717.2316733528,
+     "inside": false,
+     "mu_gap_to_req": 0.012048223386695978
+    },
+    {
+     "triple": [
+      0,
+      2,
+      5
+     ],
+     "mu": 0.9862188380975353,
+     "coef": 2.3584476325315187,
+     "residual": 0.28188352135768646,
+     "normalized": 2818.8352135768646,
+     "inside": false,
+     "mu_gap_to_req": 0.01247391914071283
+    },
+    {
+     "triple": [
+      4,
+      5,
+      6
+     ],
+     "mu": 0.9567727078651664,
+     "coef": 1.741731007669697,
+     "residual": 0.3348331035041352,
+     "normalized": 3348.3310350413517,
+     "inside": false,
+     "mu_gap_to_req": 0.01697221109165603
+    },
+    {
+     "triple": [
+      3,
+      6,
+      7
+     ],
+     "mu": 0.9483641381980789,
+     "coef": 1.5945734515140573,
+     "residual": 0.48199065965977494,
+     "normalized": 4819.906596597749,
+     "inside": false,
+     "mu_gap_to_req": 0.025380780758743615
+    },
+    {
+     "triple": [
+      1,
+      8,
+      10
+     ],
+     "mu": 0.9473224856662613,
+     "coef": 1.5771454858298275,
+     "residual": 0.4994186253440047,
+     "normalized": 4994.186253440047,
+     "inside": false,
+     "mu_gap_to_req": 0.026422433290561154
+    },
+    {
+     "triple": [
+      2,
+      9,
+      10
+     ],
+     "mu": 0.9950973934959654,
+     "coef": 2.57958109502358,
+     "residual": 0.5030169838497476,
+     "normalized": 5030.169838497475,
+     "inside": false,
+     "mu_gap_to_req": 0.021352474539142907
+    },
+    {
+     "triple": [
+      0,
+      2,
+      9
+     ],
+     "mu": 0.9463914735780242,
+     "coef": 1.5617139432321459,
+     "residual": 0.5148501679416864,
+     "normalized": 5148.501679416863,
+     "inside": false,
+     "mu_gap_to_req": 0.027353445378798247
+    },
+    {
+     "triple": [
+      9,
+      10,
+      11
+     ],
+     "mu": 0.9459657778240074,
+     "coef": 1.5547034095794148,
+     "residual": 0.5218607015944174,
+     "normalized": 5218.607015944174,
+     "inside": false,
+     "mu_gap_to_req": 0.0277791411328151
+    },
+    {
+     "triple": [
+      1,
+      3,
+      7
+     ],
+     "mu": 0.9979956430185184,
+     "coef": 2.6557045124489713,
+     "residual": 0.5791404012751391,
+     "normalized": 5791.404012751391,
+     "inside": false,
+     "mu_gap_to_req": 0.024250724061695927
+    },
+    {
+     "triple": [
+      4,
+      5,
+      8
+     ],
+     "mu": 0.9417587039167503,
+     "coef": 1.486927268599176,
+     "residual": 0.5896368425746563,
+     "normalized": 5896.368425746563,
+     "inside": false,
+     "mu_gap_to_req": 0.03198621504007215
+    },
+    {
+     "triple": [
+      0,
+      5,
+      11
+     ],
+     "mu": 0.9370872224255773,
+     "coef": 1.4147948167576652,
+     "residual": 0.661769294416167,
+     "normalized": 6617.69294416167,
+     "inside": false,
+     "mu_gap_to_req": 0.036657696531245176
+    },
+    {
+     "triple": [
+      2,
+      5,
+      11
+     ],
+     "mu": 1.0026172942941365,
+     "coef": 2.781283211164477,
+     "residual": 0.704719099990645,
+     "normalized": 7047.190999906449,
+     "inside": false,
+     "mu_gap_to_req": 0.028872375337314016
+    },
+    {
+     "triple": [
+      3,
+      7,
+      8
+     ],
+     "mu": 0.9333501342496627,
+     "coef": 1.3593748838365947,
+     "residual": 0.7171892273372376,
+     "normalized": 7171.892273372375,
+     "inside": false,
+     "mu_gap_to_req": 0.04039478470715974
+    }
+   ]
+  },
+  "density": {
+   "band_log_width": 7.381229059024551e-05,
+   "class_log_range": 1.5995903236032554,
+   "expected_hits": 0.010151789298946572,
+   "supplier_grade_rule": "expected < 0.5"
+  },
+  "selection_leg": {
+   "n_inside": 0,
+   "nearest_triple": [
+    0,
+    5,
+    10
+   ],
+   "nearest_mu": 0.9693946861469172,
+   "nearest_normalized": 909.2807361880562
+  },
+  "status": "CH-F208-STUBBORN",
+  "wall_time": 104.77998208999634
+ },
+ "checks": [
+  {
+   "name": "T0a the 12 node factors at g = 1/5 reproduce V316's booked f_nodes leaves (max |d| 2.5e-16 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0b plain rung-10 read at g = 1/5 reproduces V206's booked coef_at_fifth 2.088106865906787 (|d| 3.8e-13 < 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T0c certified F_208 anchor at pi/4 + 1e-8 re-derived to the V321 leaf (|d| 0.0e+00 < 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "class census: exactly 220 triples at the root clock (220 ran); 0 inside band; nearest normalized residual 909.2807",
+   "pass": true
+  }
+ ],
+ "status": "CH-F208-STUBBORN",
+ "pass": true
+}

@@ -4617,3 +4617,23 @@ update clause and the V320/V321/V323 supply-closure clauses). The V318
 reserved slots in V318 itself). T0a 0.0e+00, T0b rel 1.8e-00 gate
 after one implementation fix (T0b initially compared the identity row
 against the family-A leaf). First fired branch in the programme.
+
+### V325 booking (run after the pre-registration; verdict as booked)
+
+CH-F208-STUBBORN. The deeper booked fact: at the root clock the W3
+object VANISHES IDENTICALLY - all 12 node factors are 1e-16-level
+(fbar = 1.0685586529500767e-16, relative spread 0.896): the 128-phase
+sum SC.phases(SC.bloch(q, U16, g10 = pi/4)) cancels at the closed
+clock (the quarter-root sector phases sum to zero - the same exact
+cancellation structure V205 measured non-trivially only at 1/5). The
+triple-sum class mu in [0.33398, 1.65355] is therefore ratios of
+floating-point noise: deterministic but physically void. mu_req =
+0.97374 sits INSIDE the span; nearest triple [0,5,10] mu = 0.96939
+reads coef 1.9856360 - 909.28 normalized residuals outside the band;
+0 of 220 inside; density expected 0.0102 (razor, would have been
+supplier-grade). Selection leg: no S3 instance; the V317 word stands.
+The 30.4 % gap is now bounded from the channel side at the root clock
+too: the channel-filter object supplies no multiplier there because
+it is identically zero, and at 1/5 it is exactly degenerate (V316) -
+closed clock zero, open clock blind. T0a 2.5e-16, T0b 3.8e-13, T0c
+0.0 exact anchor replay.
