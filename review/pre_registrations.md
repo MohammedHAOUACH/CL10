@@ -4637,3 +4637,60 @@ too: the channel-filter object supplies no multiplier there because
 it is identically zero, and at 1/5 it is exactly degenerate (V316) -
 closed clock zero, open clock blind. T0a 2.5e-16, T0b 3.8e-13, T0c
 0.0 exact anchor replay.
+
+# The dictionary bridge: pre-registration V326 (2026-10-30)
+
+## V326_phase_dictionary_bridge (tier 1, hard; O4/O8; the structural defect closed as a theorem)
+
+**Question (pre-registered).** The committed phase dictionary maps the
+clock to eigenphases (root-of-unity phases + g x integer Cartan weights):
+closure clocks are then exactly of the form pi x rational, while the
+data clock 1/5 is rational - the two sets are disjoint, and this is the
+structural cause of the 30.4 % hierarchy gap (the certified pi/4 reads
+2.7104; the reading window sits at 0.19999...). Is there a phase
+dictionary in the booked reparameterization family that BRIDGES the
+two: a clock g that both closes (k <= closure_k_max) and reads the
+observed hierarchy coefficient inside coef_band_abs?
+
+**Class (closed, fixed now).** Uniform rescalings of the dictionary:
+dictionary c evaluates the committed step AND the committed ladder at
+the angle c*g, c in the 9-member set {1, 2, 4, 1/2, 1/4, pi, 2*pi,
+1/pi, 1/(2*pi)} - all built from named constants, nothing fitted, no
+target inside any member. Reparameterization lemma (booked, checkable):
+closure of dictionary c at g <=> c*g in Cl (the committed closure set),
+and the rung-10 read of dictionary c at g = the committed read at
+c*g. Hence bridge existence is c-INDEPENDENT: a bridge exists iff
+Cl intersect R is nonempty, R = {x : |3(F_10(x)/LOOP)^10 - COEF_OBS|
+<= coef_band_abs}. The class absorbs the 2*pi "fifth-root" idea that
+would close g = 1/5 at order 5: dictionary 2*pi bridges iff
+2*pi/5 = pi*2/5 in Cl - and that angle IS on the V315 grid (a=2, b=5),
+so the census decides it directly.
+
+**Objects (measured, no target enters).** (1) R by bracketing +
+bisection on the float64 traced ladder to 1e-12 (the reading window,
+width booked). (2) Cl by the V315/V311 grid census: g = pi*a/b,
+0 < a < b <= closure_den_max (79 points), smallest k <= closure_k_max
+with ||U(0)^k -/+ I||_max < 1e-12. (3) For every closure angle: the
+rung-10 read and the certified-continuation crossing read (V315
+clock_leg pattern), against the band. (4) The 784-variant V315 union:
+every closure clock of the quantizer census and every V247 two-dial
+closed clock lies on the same pi-grid, so the grid-window distance
+books those classes too: nearest grid angle pi/16 at distance 3.65e-3
+from the window.
+
+**T0.** coef_10(1/5) reproduces V206's coef_at_fifth 2.088106865906787
+to < 1e-9; the identity step at pi/4 closes at k = 8 to 1e-12; the
+V206 g_obs leaf lies inside R (the inversion fact reproduced);
+dictionary 2*pi at g = 1/5 closes iff the grid angle pi*2/5 closes
+(the lemma verified numerically, both routes in-script).
+
+**Branch (pre-registered words).** DICTIONARY-BRIDGE-FOUND (a member
+and a clock g close AND read COEF_OBS inside coef_band_abs: the
+structural defect is repairable inside the booked class, and the
+theory is re-provenanced to that dictionary) / DICTIONARY-NO-BRIDGE
+(Cl intersect R = empty over the census; the distance of every
+closure angle to the band booked in band-units; the defect is closed
+as a theorem of the dictionary shape, and the programme's answer to
+"fix the structural defect" is the consolidation of the axiom
+inventory: the clock joins the declared named inputs, exactly as
+1/(16*pi) already did per V276). No middle branch: bridge or theorem.
