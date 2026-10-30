@@ -1,0 +1,151 @@
+{
+ "id": "V320_rung_sector_sum",
+ "tier": 2,
+ "property": "sum over the 64 booked twisted sectors as a rung-weight derivation test against the V319 windows (tier 2, hard, O8)",
+ "residual": true,
+ "programme": "theory-hunt V320",
+ "branch": "RUNG-SECTOR-NO-CONTRIB",
+ "data": {
+  "identity_closure_pi4": {
+   "k": 2,
+   "dev": 7.498116225863147e-15
+  },
+  "status": "RUNG-SECTOR-NO-CONTRIB",
+  "windows": {
+   "corrected": [
+    9.877594583641841e-07,
+    1.0619053723676105e-05
+   ],
+   "1/5": [
+    -0.0005591349087087302,
+    -0.0005495036144434159
+   ]
+  },
+  "clocks_g": {
+   "corrected": 0.19999796730041675,
+   "1/5": 0.2,
+   "pi/4 (certified)": 0.7853981633974483
+  },
+  "sector_table": {
+   "corrected": {
+    "10": {
+     "rho0": "(0.5879387047868794+5.490399801466594e-16j)",
+     "rho_sector_mean": "(0.017697473564936256+6.834539444805499e-17j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.03010088198114355,
+     "W_eff_ln": -3.503200805957472,
+     "W_eff_phase_rad": 2.928034140726099e-15,
+     "in_window": {
+      "corrected": false,
+      "1/5": false
+     }
+    },
+    "17": {
+     "rho0": "(-3.670747155311756e-16-0.005517710830708894j)",
+     "rho_sector_mean": "(-1.1325395193421495e-17-0.00033710671857773024j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.06109539425327588,
+     "W_eff_ln": -2.7953187961159545,
+     "W_eff_phase_rad": 3.2862601528904634e-14,
+     "in_window": null
+    },
+    "208": {
+     "rho0": "(0.012806685947957763-1.3197993045666045e-15j)",
+     "rho_sector_mean": "(0.008400302806033032-2.1118492256322593e-15j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.6559310379101315,
+     "W_eff_ln": -0.42169962070107714,
+     "W_eff_phase_rad": -1.4834606879407253e-13,
+     "in_window": null
+    },
+    "closing_sector_count": 64
+   },
+   "1/5": {
+    "10": {
+     "rho0": "(0.5879222197341791+1.5386997231914279e-15j)",
+     "rho_sector_mean": "(0.017696977350310474-8.559267932004736e-18j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.030100881981143555,
+     "W_eff_ln": -3.503200805957472,
+     "W_eff_phase_rad": -3.100839517277533e-15,
+     "in_window": {
+      "corrected": false,
+      "1/5": false
+     }
+    },
+    "17": {
+     "rho0": "(3.3682547491883003e-16-0.005524175702150783j)",
+     "rho_sector_mean": "(-1.0181590135880864e-16-0.00033750169244735464j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.06109539425329135,
+     "W_eff_ln": -2.7953187961157013,
+     "W_eff_phase_rad": -3.6259883984257613e-13,
+     "in_window": null
+    },
+    "208": {
+     "rho0": "(0.012629188785709762+1.1293700349912505e-14j)",
+     "rho_sector_mean": "(0.008283876908183857+6.544636771721399e-16j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.6559310379109439,
+     "W_eff_ln": -0.4216996206998387,
+     "W_eff_phase_rad": -8.152493077883951e-13,
+     "in_window": null
+    },
+    "closing_sector_count": 64
+   },
+   "pi/4 (certified)": {
+    "10": {
+     "rho0": "(0.24999999999999145-1.0123094708830488e-16j)",
+     "rho_sector_mean": "(0.007525220495284883-5.231343255954956e-17j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.030100881981140564,
+     "W_eff_ln": -3.5032008059575714,
+     "W_eff_phase_rad": -6.546823684339143e-15,
+     "in_window": {
+      "corrected": false,
+      "1/5": false
+     }
+    },
+    "17": {
+     "rho0": "(1.8456734982944903e-16+5.180274765393983e-16j)",
+     "rho_sector_mean": "(-1.344676097538832e-16-8.435410232987949e-17j)",
+     "guard_ok": false,
+     "W_eff_abs": null,
+     "W_eff_ln": null,
+     "W_eff_phase_rad": null,
+     "in_window": null
+    },
+    "208": {
+     "rho0": "(0.24999999999982336-3.13034557049397e-15j)",
+     "rho_sector_mean": "(0.16398275947726212+5.807387657111039e-15j)",
+     "guard_ok": true,
+     "W_eff_abs": 0.6559310379095119,
+     "W_eff_ln": -0.42169962070202177,
+     "W_eff_phase_rad": 4.7936005597408884e-14,
+     "in_window": null
+    },
+    "closing_sector_count": 64
+   }
+  },
+  "certified": {
+   "F_208_cert": 0.019692794505156912,
+   "deficit_plain": 0.01013218326312959,
+   "deficit_sector_included": 0.3507149755745621,
+   "does_not_increase": false
+  },
+  "hits": [],
+  "wall_time": 30.824487447738647
+ },
+ "checks": [
+  {
+   "name": "T0 64 sectors enumerated; the identity sector closes at pi/4 with V315's k = 2 row: {'k': 2, 'dev': 7.498116225863147e-15}",
+   "pass": true
+  },
+  {
+   "name": "branch RUNG-SECTOR-NO-CONTRIB: sector-window hits [] at guards some-guard-failed; certified deficit 1.013218e-02 -> 3.507150e-01 (not increased: False)",
+   "pass": true
+  }
+ ],
+ "status": "RUNG-SECTOR-NO-CONTRIB",
+ "pass": true
+}
