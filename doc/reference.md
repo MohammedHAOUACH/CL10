@@ -568,7 +568,7 @@ level of the chain vertex*.  This does not touch the V52 statement above,
 which is about the unitary spectrum, not about the reality of the effective
 chain vertex.
 
-## The theory-hunt programme (2026-10-30): V315-V318
+## The theory-hunt programme (2026-10-30): V315-V319
 
 Reader instruction: pillar surgery localized the CL10 defect to exactly
 three objects - the closure quantizer of the step, the rung-dependent loop
@@ -648,6 +648,26 @@ binding contact C4 (2.0764436 vs 2.0765641 at band 1e-4).
 contacts; the distance is booked, and closest is not true - the row's
 clock inherits the V206-inverted data clock, and no published provenance
 changes.
+
+**V319 - the rung-weight census, closed class double-target.**
+`.../V319_rung_weight_double_target` attacks the single binding contact
+(C4) with a closed class of 32 parameter-free rung weights built only of
+named constants (1±LOOP^k, k ≤ 6; rung-linear drifts exp(±LOOP^k·n/17);
+1±α₁₀^a LOOP^b), scored against the exact required window lnW(10) ∈
+[9.88e-7, 1.06e-5] at the corrected clock plus the rung-17 5% band. Two
+members land in both bands - `1+LOOP³` (C4 at 0.43 of the band) and
+`exp(+LOOP³·n/17)` (0.24), both zero-fitted provenance - and both would
+pass the full five-contact ledger at distance 0.539, where the NEUTRINO
+floor binds, not the coefficient. The pre-registered chance-density rule
+(V306's lesson, quantitative: supplier-grade iff the family's expected
+log-uniform random hits < 0.5) books them SUPPLIED-BY-DENSITY: expected
+hits 1.45/1.46 - the LOOP³ scale lies in the decade the window samples,
+so the census cannot separate formula from coincidence. The consistency
+leg: neither weight closes the certified F₂₀₈ crossing deficit
+(1.056e-2 → 1.047e-2 at best) - the weight residue and the certified-
+crossing residue are separate. The fitted reference reaches 0.539038:
+the ledger's ceiling is the neutrino contact.
+**RUNG-WEIGHT-NO-SUPPLIER**.
 
 
 ## The pillar-surgery programme (2026-10-30): V308-V314
