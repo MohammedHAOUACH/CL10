@@ -5125,3 +5125,30 @@ correction, booked with the first-run diagnostic verbatim, before any
 verdict artifact is emitted; no target change, no branch-word change.
 Class (i) (integer polynomials, height <= 20) and class (iii)
 (dictionary x LOOP^k at the 5% band) are unchanged by this amendment.
+
+### Amendment booking 2 (2026-11-01): the FOUND-booking residual threshold
+### for the rational class - wording completed, the class unchanged
+
+The verdict run of V327 under amendment 1 lands 13 bounded rational
+contacts on lambda_B/LOOP^k, all at k = 8, the closest p/q = 3215/1942
+at relative error 7.215e-08 - EXACTLY a generic continued-fraction floor
+contact: 0.27/q*^2 at q* = 1942, the approximation every real number
+possesses at its largest convergent below the height bound. A 1e-6-band
+contact of that kind is not a supplied rule: it is the Diophantine
+floor, and no lambda-independent structure distinguishes it. The
+pre-registration's "survives 50-dp re-verification" left the FOUND
+threshold unnumbered; the programme's shared verification line fixes it
+verbatim ("verify residual < 1e-12 before booking FOUND"). Booked
+definitions, completing the wording:
+- CONTACT (census content, booked in data in every branch): relative
+  error of p/q against the ratio below the 1e-6 band.
+- FOUND from class (ii) requires the re-verified residual RELATIVE to
+  the leaf below 1e-12 (a supplied rule reproduces the leaf, it does
+  not sit on 1/q^2); the 1/q^2-floor contacts stay booked as closest
+  contacts.
+- Classes (i) and (iii) unchanged: (i) substitution residual < 1e-14
+  at 50 dp (V309's noise convention); (iii) the 5% band IS the contact
+  test (the V318 scale-contact ledger convention).
+No target change, no branch-word change, no class narrowing: the
+census still books the same 13 contacts; only the FOUND gate gains the
+number the programme's verification rule already carried.
