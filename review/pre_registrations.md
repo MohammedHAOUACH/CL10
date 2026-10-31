@@ -5361,3 +5361,109 @@ deformation at 0.002/0.191), not a bigger census. The transcendence of
 never printed as a theorem. Paper: O8 Table 7 gap cell + abstract +
 conclusion carry it; suite 246, fold 246/246 PASS, hard tier MET
 (106 tiered), number_audit PASS (908 tokens, 0 unexplained).
+
+# The clock-closure rigidity theorem: pre-registration V334 (branch theory-hunt, 2026-11-01)
+
+The constructive turn on the constructive turn: V333 closed the clock
+question as a bounded CENSUS and booked its conjecture form "never printed
+as a theorem". This pre-registration books the analytic proof that makes
+the theorem real, and the machine experiment that certifies its two
+ingredients on the class. V333's booking stays as written (census =
+evidence); V334 is an independent transcendence proof, booked here before
+any run.
+
+## V334_clock_closure_rigidity (tier 2, hard; O4/O8; the clock tension as transcendence)
+
+THE THEOREM (booked, to print if the machine gates pass; the two-line
+proof is Hermite-Lindemann):
+
+  (Clock-closure rigidity.) Let M(g) be any finite product of the V333
+  stage factors at q = 0 (Gamma), any number of stages, any stage
+  ordering, any INTEGER clock multipliers c_j: M(g) = prod_j
+  kron(stage_matrix(even_j, j, 0, c_j g, c_j g), U16C). At q = 0 each
+  bond stage is cos(v) I + sin(v) K with K entries in Z[i], and U16C is
+  the internal factor frozen at the root clock pi/4 with entries in
+  Q(i, sqrt(2)); hence every entry of M(g) and of M(g)^k is a Laurent
+  polynomial in z = e^{ig} with algebraic coefficients. If for some
+  NONZERO ALGEBRAIC clock g0 and some k >= 1, M(g0)^k = +/- I, then
+  M(g)^k = +/- I IDENTICALLY in g: every closure at a nonzero algebraic
+  clock is a clock-identity closure - the clock value carries no closure
+  content, and no member of the class can have its closure SOLVED by an
+  algebraic clock.
+  Proof: g0 algebraic nonzero => z0 = e^{i g0} transcendental over the
+  algebraic numbers (Hermite-Lindemann). Off-diagonal entries of M^k
+  vanish at z0, so their Laurent polynomials over Qbar vanish
+  identically; diagonal differences P_mm(z0) - P_m'm'(z0) = 0 likewise,
+  so M^k is a constant matrix at every g. QED.
+
+COROLLARY (booked with it): within the class, a closure that SELECTS a
+clock requires e^{ig} algebraic - a root of unity: pi-rational clocks.
+The root's closure axiom is not a choice; it is the forced form of
+clock-selecting closure in this algebra. The empirical clock, nonzero
+algebraic (1/5 to 2.0116424883642736e-06, V206), supports closures only
+of the clock-blind identity kind. The selection theorem, if it exists,
+CANNOT be a closure axiom of this exponential form: the clock must enter
+the COEFFICIENTS (rational/Cayley parametrization - which the
+crystallographic restriction books ahead as dead for finite-order
+closures over Q: orders {1,2,3,4,6} only) or the coefficients must turn
+transcendental (the crossing equation 16 pi F_10(g) = 1 read at 0.20013
+is already of that transcendental-coefficient kind - booked as the
+design criterion of the escape, not as a result).
+
+SCOPE CAVEATS (booked, printed with the theorem): (i) q = 0 (Gamma): at
+q != 0 the hop entries carry g-independent constants e^{+-i q_j},
+transcendental for nonzero algebraic q_j, outside Hermite-Lindemann's
+reach; the clock closures of the paper all live at Gamma. (ii) The
+theorem is fully general in stage count, ordering and integer
+multipliers; the machine certifies a finite slice (the booked 4096 x
+k <= 16 ray class). (iii) The cell step's singlet ladder phases
+e^{+-i loop^n} are g-independent constant tensor factors: cell-level
+closure forces internal-block closure, to which the theorem applies
+unchanged.
+
+THE EXPERIMENT certifies two ingredients:
+A. ENTRY-FORM GATE (exact): sampled stages satisfy
+(stage(v) - cos(v) I)/sin(v) independent of v to 1e-13 with all entries
+within 1e-13 of Gaussian integers; U16C entries within 1e-13 of
+2^-a (sqrt2)^e times a Gaussian integer (a <= 6, e <= 2).
+B. IDENTITY-CLOSURE CENSUS: the 4096 booked members, M evaluated at the
+25 equispaced angles g = 2 pi m/25: entry Laurent degree in z is <= 12,
+so the 25-point DFT is alias-free; a member is an IDENTITY STEP iff all
+non-constant Fourier coefficients are <= 1e-11. Expect: exactly the 64
+mirror members (c_{j+3} = -c_j) are identity steps; their constant value
+M0 = kron(P0, A) tested for M0^k = +/- I, k <= 16 (A = U16C^6 order
+measured and booked).
+C. CENSUS CONSISTENCY: the closure set (CLOSE_EPS 1e-12, k <= 16,
+V311/V333 convention) recomputed by the direct path at the rational
+clocks {1/5, 1/3, 2/7} must be the same 64 members, all identity steps
+(the theorem's forced inclusion, machine-confirmed), matching V333's
+rational_ledger leaves closed == scalar_degenerate == 64, found == 0 at
+each; and at 12 TRANSCENDENTAL test clocks {m LOOP/2 : m odd 1..23}
+(products of nonzero algebraics with the transcendental LOOP are
+transcendental): the closure set must CONTAIN the identity set (the
+theorem imposes no upper bound at transcendental clocks - accidental
+transcendental zeros of Laurent polynomials are allowed and would be
+booked as a ledger if found).
+T0 anchors: (a) V315 identity rows re-derived on the direct path
+(pi*1/2: k 2, dev 7.606445072191264e-15; pi*1/4: k 2, dev
+7.498116225863147e-15; booked |diff| <= 1e-13); (b) the V333
+rational_ledger leaves at 1/5, 1/3, 2/7 quoted verbatim and compared to
+the recomputed counts; (c) unitarity of 16 seeded members at 3 sampled
+clocks < 1e-12.
+Branches (one fires; the experiment PASSes either way):
+  CLOSURE-RIGID-CENSUS-MATCHED - identity set = 64 mirrors = the
+  rational-clock closure sets, entry-form exact, transcendental-clocks
+  census adds no extra closures; theorem booked and printed.
+  CLOSURE-RIGID-CENSUS-MISMATCH - a 1/5 closer is not an identity step
+  or the sets differ (would refute the entry-form premise; the
+  transcendental ledger booked in full).
+  MACHINERY-DRIFT - T0 fail.
+Backend: numpy direct path (scale ~100k member builds, minutes); no
+GPU queue. Cost booked <= 15 min.
+PAPER EDITS booked with the branch: the theorem statement and two-line
+proof enter Section 12.1 at the clock-tension paragraph; the O8 Table 7
+gap cell, the abstract verdict paragraph and the conclusion swap the
+"booked conjecture on census evidence" wording for the rigidity theorem
+(the census demoted to evidence of the machine ingredients); experiments
+README, README, reference.md counts to 247. The V333 booking note is
+dated history and stays untouched.
