@@ -5502,3 +5502,105 @@ upgraded from conjecture to theorem; suite 247, fold 247/247 PASS,
 hard tier MET (107 tiered, 83 untiered), number_audit PASS (908 tokens,
 0 unexplained - the theorem paragraph adds no new decimal token),
 PDFs rebuilt: consolidated 90 pp, journal 75 pp.
+
+# The named-clock-root hunt: pre-registration V335 (branch theory-hunt, 2026-11-01)
+
+The constructive census the rigidity theorem leaves open. V334 closed the
+exponential-closure route by proof and booked the dichotomy for any
+selection theorem of the clock: the clock in the coefficients, or the
+coefficients in transcendentals. The second branch is already live in
+the construction - the crossing equation 16 pi F_n(g) = 1 is a
+transcendental-coefficient condition whose root g_10 = 0.20013316730041
+675 sits 1.33e-04 from the fifth - and the inversion equation
+coef10(g) = COEF_OBS has its root at g_obs = 0.19999798835751165.
+V335 asks, as a bounded census: does any equation of a booked named
+family have a root that is simultaneously (a) a closed form in a booked
+dictionary, (b) inside the coefficient contact band, and (c) inside the
+rung-17 ladder contact band? That is the elected-theorem candidate test,
+designed to return FOUND, not to exclude.
+
+## V335_named_clock_roots (tier 2, hard; O4/O8; the selection-theorem candidate hunt)
+
+EQUATION CLASS (booked, zero fitted constants - every coefficient is a
+named input: the loop factor LOOP = 1/(16 pi) and the measured
+COEF_OBS = (V_EW/M_PLANCK)/LOOP^10 = 2.076564111173832 from the
+u10pred leaf):
+  E1: |F_n(g)| = LOOP for n in {3,...,24} union {170, 208} (the rung-n
+      crossing family; n = 10 anchors the known g_cross leaf);
+  E2: |F_a(g)| = LOOP^k |F_b(g)| for (a,b) in {(10,3),(17,10),(17,3)}
+      x k in {1,2,3} (the rung-arithmetic self-consistency family -
+      where the ladder's own exponents would be exact at clock g);
+  roots located in g in [0.05, 1.55] by sign-change scan on a 0.01
+      grid then bisection (60 halvings), the certified V206 Fn_of
+      ladder functional (the same machinery that produced g_obs and
+      g_cross - the float64 certified ladder, V210 open-clock
+      stability).
+  Plus the two known roots g_obs and g_cross enter the dictionary
+      census directly.
+DICTIONARY CLASS (a root x is NAMED if any test hits at |.| <= 1e-12):
+  (i) rationals p/q, q <= 1e6, via continued-fraction convergents;
+  (ii) LOOP-forms: x*LOOP^k or x/LOOP^k rational with q <= 1e4,
+       k = 1..12;
+  (iii) the V326 dictionary members times LOOP^k, k = 1..90 (the same
+       class V327 used, art path data.dictionary_class.members);
+  (iv) integer polynomials degree <= 6 height <= 20 (V309's booked
+      PSLQ box) applied to each root.
+CONTACT BANDS (booked from the five-contact ranking conventions):
+  K1 coefficient: |coef10(x) - COEF_OBS| / COEF_OBS <= 1e-4 (the
+      rung-10 read of the SAME functional; coef10 undefined when
+      F_10/LOOP >= 1 - those roots fail K1);
+  K3 rung-17 ladder: |F_17(x) - LOOP^17| / LOOP^17 <= 0.05
+      (ledger_scale_rel_tol - the declared ladder's 17-rung factor).
+Branches (one fires; the experiment PASSes either way):
+  CLOCK-NAMED-ROOT-FOUND - a root NAMED in the dictionary passes K1
+  AND K3: book the equation, the closed form, the residuals at 1e-12
+  scale, and the distance to every contact; this is the elected-theorem
+  CANDIDATE (identity at float64 certified-ladder precision - NOT
+  promoted to a proof: an identity between ladder values and named
+  constants needs transcendence technology beyond what exists, booked
+  as a candidate with its scope stated);
+  CLOCK-NO-NAMED-ROOT-DECLARED - no root passes all three: book the
+  full root ledger {equation -> root, nearest dictionary form and its
+  miss, K1/K3 residuals} - the named-clock search over the booked
+  family closed as decided-never-supplied, booked as census evidence
+  inside the V334 dichotomy (not a proof of impossibility);
+  MACHINERY-DRIFT - a T0 fails.
+T0 anchors (all re-derived in-experiment):
+  (a) g_obs by the verbatim V206 bisection (bracket [0.1985, 0.2], 60
+      halvings) vs the V206 leaf 0.19999798835751165, |diff| <= 1e-13;
+  (b) g_cross by the verbatim bracket [0.2, 0.21] vs the V206 leaf
+      0.20013316730041675, |diff| <= 1e-13;
+  (c) the pi/4 closed reading: n* = 208 and the crossing deficit vs
+      the V205 closed_crossing leaf, |diff| < 1e-4 (V206's own T1
+      convention);
+  (d) COEF_OBS recomputed from the u10pred V_EW/M_PLANCK leafs,
+      diff 0.0;
+  (e) T0h the hybrid-backend identity (below): max |F_n_hybrid - F_n
+      verbatim-numpy| <= 1e-12 over n <= 60 at the seed clocks
+      {0.2, 1/3, 0.35}.
+MACHINERY (user-requested GPU 1 where faster; booked with the
+measurement): the ladder is 32-level float64; microbenchmark on GPU 1:
+the sector_hops einsum is kernel-launch bound (11.43 ms numpy vs 0.17
+ms cupy) while the 32^3 ladder matmuls favour the host (6.8 us numpy vs
+26.2 us cupy) - so the scan runs a HYBRID path: projectors/hop einsums
+staged on GPU 1 (P and the D_L identity pre-staged cupy), the 3x3 hop
+matrices returned to the host, the ladder product on the host; the
+verbatim numpy Fn_of stays the reference and the T0 host; T0h gates the
+identity at 1e-12 and every verdict is backend-invariant by that gate.
+Root finding and dictionary arithmetic are exact host arithmetic
+(Fraction continued fractions; mpmath findpoly PSLQ at 50 dp).
+Cost booked <= 30 min (the grid scan shares one Fn_of(g, 208) per g
+across all n and families; ~2500 ladder evaluations total).
+Booked expectations (NOT gates): NO-NAMED-ROOT. g_obs's best q <= 1e6
+convergent is 99999/500000 at miss 1.16e-8 (ten thousand times the
+gate); g_cross fails K1 by the published +0.55% coefficient gap; the
+E1/E2 roots wander in [0.05, 1.55] away from the K1 window
+g_obs +/- 2.4e-6. But the branch words are symmetric by design and a
+FOUND would be the first elected-theorem candidate in the programme -
+it is booked to be taken seriously if it fires: full contact ledger +
+candidate wording in the paper, never an identity proof.
+PAPER EDITS booked with the branch: the O8 Table 7 gap cell and
+reference.md carry the root ledger (or the candidate); experiments
+README, README, reference.md counts to 248; the V334 theorem note gets
+the census as its companion (the dichotomy's second branch now has its
+bounded search booked and run).
