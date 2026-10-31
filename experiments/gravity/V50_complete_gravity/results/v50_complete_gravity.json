@@ -29,5 +29,5 @@
     "kink_neutral_stable_non_dispersive": true,
     "residual": "the **3+1 BSSN/Z4 numerical relativity** is **complete** (V51, `cl10.numrel`: the 2-route 0-row + the Z4 constraint-damping + the non-linearity + the UV-finite property) -- the remaining **open** part of O9 / the quantum-gravity wall is the **quantum** completion (the UV of the quantum gravity), not the classical gravity (V50) nor the classical 3+1 NR (V51)"
   },
-  "wall_time": 16.984
+  "wall_time": 17.299
 }

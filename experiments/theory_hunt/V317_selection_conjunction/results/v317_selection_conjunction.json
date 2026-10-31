@@ -127,62 +127,62 @@
   "F4S3": {
    "node_p_A": {
     "0": {
-     "p_A": 0.698301926808055,
+     "p_A": 0.6983019268151475,
      "usable_radii": 7
     },
     "1": {
-     "p_A": 0.6983019268199715,
+     "p_A": 0.6983019268029489,
      "usable_radii": 7
     },
     "2": {
-     "p_A": 0.6972974139805213,
+     "p_A": 0.6972974140026723,
      "usable_radii": 7
     },
     "3": {
-     "p_A": 0.704842378547342,
+     "p_A": 0.7048423785578107,
      "usable_radii": 7
     },
     "4": {
-     "p_A": 0.7048423785472391,
+     "p_A": 0.7048423785843764,
      "usable_radii": 7
     },
     "5": {
-     "p_A": 0.7013377834442807,
+     "p_A": 0.7013377834356826,
      "usable_radii": 7
     },
     "6": {
-     "p_A": 0.6983019268217953,
+     "p_A": 0.6983019268248603,
      "usable_radii": 7
     },
     "7": {
-     "p_A": 0.698301926765123,
+     "p_A": 0.6983019268277982,
      "usable_radii": 7
     },
     "8": {
-     "p_A": 0.7013377834457524,
+     "p_A": 0.7013377834441358,
      "usable_radii": 7
     },
     "9": {
-     "p_A": 0.7048423785580065,
+     "p_A": 0.7048423785580206,
      "usable_radii": 7
     },
     "10": {
-     "p_A": 0.7048423785648957,
+     "p_A": 0.7048423786106006,
      "usable_radii": 7
     },
     "11": {
-     "p_A": 0.7013377834740526,
+     "p_A": 0.7013377834095603,
      "usable_radii": 7
     }
    },
    "best_triple": [
     0,
-    2,
-    7
+    1,
+    2
    ],
-   "best_p_A": 0.6979670891845665,
-   "runner_up_p_A": 0.6979670891885386,
-   "gap": 3.9720449152014226e-12,
+   "best_p_A": 0.697967089206923,
+   "runner_up_p_A": 0.6979670892101605,
+   "gap": 3.237521362109419e-12,
    "unique": false,
    "radii": [
     0.01,
@@ -261,7 +261,7 @@
    "F4": 0
   },
   "status": "SELECTION-DISPERSED",
-  "wall_time": 258.0691294670105,
+  "wall_time": 278.96725153923035,
   "fitted_inputs": []
  },
  "checks": [
@@ -274,7 +274,7 @@
    "pass": true
   },
   {
-   "name": "branch SELECTION-DISPERSED: 12-cell table (unique flags: {'F1': [False, False, False], 'F2': [False, False, False], 'F3': [False, True, False], 'F4': [False, False, False]}); sites per functional {'F1': 0, 'F2': 0, 'F3': 1, 'F4': 0}; F1 S1 not / F3 S2 unique families closed / F2+F3 S3 best triple [0, 1, 2] gap 5.86e-15 / F4 S3 best triple [0, 2, 7] p_A gap 3.97e-12",
+   "name": "branch SELECTION-DISPERSED: 12-cell table (unique flags: {'F1': [False, False, False], 'F2': [False, False, False], 'F3': [False, True, False], 'F4': [False, False, False]}); sites per functional {'F1': 0, 'F2': 0, 'F3': 1, 'F4': 0}; F1 S1 not / F3 S2 unique families closed / F2+F3 S3 best triple [0, 1, 2] gap 5.86e-15 / F4 S3 best triple [0, 1, 2] p_A gap 3.24e-12",
    "pass": true
   }
  ],

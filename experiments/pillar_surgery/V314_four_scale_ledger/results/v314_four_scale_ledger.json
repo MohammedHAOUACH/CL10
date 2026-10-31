@@ -138,20 +138,20 @@
     "clock_g": 1.5707963267948966,
     "clock_prov": "algebraic (V311 closure census)",
     "coef_expr": "quaternionic-root ladder crossing read at pi*1/2 (V312)",
-    "coef": 2.299501537013818,
+    "coef": 2.299443759207458,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.2995015 vs observed 2.0765641 (|d| 2.23e-01, band 1e-04)"
+     "coef 2.2994438 vs observed 2.0765641 (|d| 2.23e-01, band 1e-04)"
     ],
     "normalized": [
      0.0,
      0.0,
      0.5392304134607767,
-     2229.3742583998587
+     2228.796480336257
     ],
-    "worst_normalized": 2229.3742583998587,
+    "worst_normalized": 2228.796480336257,
     "zero_fitted": true
    },
    {
@@ -176,45 +176,45 @@
     "zero_fitted": true
    },
    {
-    "clock": "Cl(0,10)-family p=0 closure pi*1/4 (k=4)",
-    "clock_g": 0.7853981633974483,
-    "clock_prov": "algebraic (V311 closure census)",
-    "coef_expr": "quaternionic-root ladder crossing read at pi*1/4 (V312)",
-    "coef": 2.7041279350560337,
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.7041279 vs observed 2.0765641 (|d| 6.28e-01, band 1e-04)"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     6275.6382388220145
-    ],
-    "worst_normalized": 6275.6382388220145,
-    "zero_fitted": true
-   },
-   {
     "clock": "Cl(0,10)-family p=0 closure pi*3/4 (k=4)",
     "clock_g": 2.356194490192345,
     "clock_prov": "algebraic (V311 closure census)",
     "coef_expr": "quaternionic-root ladder crossing read at pi*3/4 (V312)",
-    "coef": 2.715986582612512,
+    "coef": 2.7057223997342876,
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
-     "coef 2.7159866 vs observed 2.0765641 (|d| 6.39e-01, band 1e-04)"
+     "coef 2.7057224 vs observed 2.0765641 (|d| 6.29e-01, band 1e-04)"
     ],
     "normalized": [
      0.0,
      0.0,
      0.5392304134607767,
-     6394.224714386798
+     6291.582885604554
     ],
-    "worst_normalized": 6394.224714386798,
+    "worst_normalized": 6291.582885604554,
+    "zero_fitted": true
+   },
+   {
+    "clock": "Cl(0,10)-family p=0 closure pi*1/4 (k=4)",
+    "clock_g": 0.7853981633974483,
+    "clock_prov": "algebraic (V311 closure census)",
+    "coef_expr": "quaternionic-root ladder crossing read at pi*1/4 (V312)",
+    "coef": 2.708107818899047,
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (the booked V303 gap); bare ladder M_P*LOOP^17 = 1.462477e-01 eV rel +191.91%",
+     "coef 2.7081078 vs observed 2.0765641 (|d| 6.32e-01, band 1e-04)"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     6315.437077252146
+    ],
+    "worst_normalized": 6315.437077252146,
     "zero_fitted": true
    },
    {
@@ -278,7 +278,7 @@
    "coef": 2.076564111173605,
    "worst_normalized": 0.5392304134607767
   },
-  "wall_time": 41.784802198410034,
+  "wall_time": 42.31036353111267,
   "fitted_inputs": []
  },
  "checks": [

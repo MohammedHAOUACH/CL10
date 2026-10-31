@@ -4736,3 +4736,36 @@ EVERY dictionary of the family. The structural defect is closed as a
 theorem, not repaired: within the booked class the defect admits no
 bridge, and the consolidation is the axiom inventory - the clock
 joins the declared named inputs beside 1/(16 pi) (V276) and v.
+
+### Gate-hygiene booking — the v1.2 library re-gate (2026-10-30/31)
+
+The 1.2.0 library alignment (provenance table, `cl10/__init__`,
+`pyproject`, config comments) changed the library fingerprint, so the
+default gate re-ran the full 239 (no fold possible: the ledger's
+`library` hash is written only on a fully green pass, and every interim
+state after the library change is non-green until the sweep completes).
+
+- Sweep: GPU 1, three workers (the last full re-gate's configuration),
+  wall 5.0 h: **237 green**, two CRASH rows — V272_dynamical_chain and
+  V274_new_theory_ledger_conjunction OOM-crashed under the concurrency
+  (cupy requesting 4.3 GB with 14-16 GB already resident on the card):
+  the exact `8c1608b` concurrency precedent, not physics.
+- Solo re-runs, sequential, GPU 1: V272 **CHAIN-ALIVE** (kernel dim 12,
+  E_int -0.0, Gauss defect 1.8e-15 over the 90 chain charges); V274
+  **NEW-CONJUNCTION-DEAD** (ledger {convention 2, algebraic 2, measured
+  8, never-realized 1}; conjunction Y/Y/Y/N, Y/Y/N/N, Y/Y/Y/N). Both
+  verdicts verbatim the `8c1608b` bookings: no physics regression.
+- Ledger: `--seed-fingerprints` over the green on-disk artifacts —
+  **239 PASS + 0 INCONCLUSIVE + 0 FAILED, hard tier MET (99 tiered)**,
+  library hash 52150537eb... recorded. The 237 sweep artifacts were not
+  re-run.
+- Fifth-significant-figure sensitivity booked: V312's quaternionic
+  crossings are near-degenerate (the pi/4 and 3pi/4 reads within 1.2e-2
+  of each other); the 1.2.0 cupy sweep reads 2.2994 (pi/2), 2.7081
+  (pi/4), 2.7057 (3pi/4) where the pre-alignment run read
+  2.2995/2.7041/2.7160 — the two reads swap across backends. The
+  verdict (SIGNATURE-LADDER-NEGATIVE), the closest |d| 0.223 and every
+  downstream ledger number (V318 1.205, V324 0.2433, V313 T*) are
+  invariant. Quotes updated to the on-disk leaves in the paper (O8
+  cell), doc/reference.md and experiments/README.md; number_audit PASS
+  (892 tokens, 0 unexplained).

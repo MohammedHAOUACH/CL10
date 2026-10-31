@@ -306,5 +306,5 @@
     "R_gap_spread_over_the_star": 1.887379141862766e-15,
     "residual": "the half-zone nodes are not removed (no Wilson/overlap/domain-wall term in the theory); the gap at q=0 is not protected in g_10"
   },
-  "wall_time": 2.463
+  "wall_time": 2.451
 }

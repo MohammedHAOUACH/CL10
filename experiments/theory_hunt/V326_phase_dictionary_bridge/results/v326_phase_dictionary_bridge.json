@@ -715,7 +715,7 @@
   "band_coef": 0.0001,
   "certified_pi4_crossing_bands": 6329.617389049464,
   "closest_closure_rung10_bands": 5652.051819589294,
-  "wall_time": 1952.8817873001099,
+  "wall_time": 1885.0361955165863,
   "fitted_inputs": []
  },
  "checks": [
@@ -728,7 +728,7 @@
    "pass": true
   },
   {
-   "name": "T0b the identity step at pi/4 closes at k = 2 (V315 booked leaf k = 2), dev difference 8.2e-16 < 1e-12",
+   "name": "T0b the identity step at pi/4 closes at k = 2 (V315 booked leaf k = 2), dev difference 0.0e+00 < 1e-12",
    "pass": true
   },
   {

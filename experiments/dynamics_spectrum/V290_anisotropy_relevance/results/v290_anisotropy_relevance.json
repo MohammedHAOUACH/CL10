@@ -4,15 +4,15 @@
  "property": "the booked candidate cone's anisotropy running irrelevant under the booked coarse-graining",
  "residual": true,
  "programme": "V290",
- "branch": "ANISOTROPY-IRRELEVANT",
+ "branch": "ANISOTROPY-RELEVANT",
  "data": {
   "rows": [
    {
     "r": 0.1,
     "clock": "decorated",
-    "A": 0.12987507412429417,
-    "gap_max": 0.4148026707655816,
-    "gap_min": 0.3194425219378206
+    "A": 0.9499197983046513,
+    "gap_max": 0.43152240157435146,
+    "gap_min": 0.011082880909099
    },
    {
     "r": 0.1,
@@ -24,9 +24,9 @@
    {
     "r": 0.03,
     "clock": "decorated",
-    "A": 0.03907964309705158,
-    "gap_max": 0.38055919799230353,
-    "gap_min": 0.35193363933827776
+    "A": 0.28389153118627297,
+    "gap_max": 0.285253504030737,
+    "gap_min": 0.15910413382543342
    },
    {
     "r": 0.03,
@@ -38,9 +38,9 @@
    {
     "r": 0.01,
     "clock": "decorated",
-    "A": 0.01302998720335538,
-    "gap_max": 0.370940617396955,
-    "gap_min": 0.3613982513091941
+    "A": 0.09459888708969555,
+    "gap_max": 0.24328095487605952,
+    "gap_min": 0.20123065160454193
    },
    {
     "r": 0.01,
@@ -56,29 +56,29 @@
     0.0,
     1.5707963267948966
    ],
-   "gap_V279": 9.887923813067702e-17,
-   "transverse_exponent_V279": 0.9981754843689329,
-   "obstruction_V279": 0.021634568405373134,
-   "m_next_V279": 0.32345116218263753
+   "gap_V279": 1.1796119636642342e-16,
+   "transverse_exponent_V279": 0.9981754309866103,
+   "obstruction_V279": 0.02163456840537124,
+   "m_next_V279": 0.3234511621826391
   },
   "floor_note": {
-   "decorated_gmin_r_0p01": 0.3613982513091941,
+   "decorated_gmin_r_0p01": 0.20123065160454193,
    "meaning": "the candidate line is gapped on the 128-dim clock (V279 m_next 0.323): A(r) here is the anisotropy of the GAPPED floor, which falls linearly in r - the cone-relevance question itself is inconclusive on the clock"
   },
-  "status": "ANISOTROPY-IRRELEVANT",
-  "wall_time": 3.5628418922424316,
+  "status": "ANISOTROPY-RELEVANT",
+  "wall_time": 3.594585657119751,
   "fitted_inputs": []
  },
  "checks": [
   {
-   "name": "T0 candidate anchors verbatim from V279: gap 9.888e-17, exponent 0.99818, obstruction 0.02163; V277 best 6x3 amplitudes read",
+   "name": "T0 candidate anchors verbatim from V279: gap 1.180e-16, exponent 0.99818, obstruction 0.02163; V277 best 6x3 amplitudes read",
    "pass": true
   },
   {
-   "name": "T1 anisotropy series booked (6 rows); decorated final A 0.0130",
+   "name": "T1 anisotropy series booked (6 rows); decorated final A 0.0946",
    "pass": true
   }
  ],
- "status": "ANISOTROPY-IRRELEVANT",
+ "status": "ANISOTROPY-RELEVANT",
  "pass": true
 }

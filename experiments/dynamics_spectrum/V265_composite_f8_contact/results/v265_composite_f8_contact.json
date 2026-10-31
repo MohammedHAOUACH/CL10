@@ -41,7 +41,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 31.76342463493347
+  "wall_time": 8.499825716018677
  },
  "checks": [
   {
@@ -57,6 +57,6 @@
    "pass": true
   }
  ],
- "status": "composite F8 contact (32 s): V229's quintet machinery verified live on import (Emat gram 2.2e-16, q5 2.2e-16, J so(3) algebra 2.2e-16, T2g rows [2, 3, 4], 6 star axes = 12 directed rays), V259 kernel dim recomputed 0, V260 branch NEVER-REALIZED. Branch NEVER-REALIZED. The singlet kernel is empty: there is no composite ground or first-excited state to carry a spin-2 channel, so the F8 c = 1 contact on the physical sector is NEVER-REALIZED (the band is |c_gw - 1| < 1e-15, V258's); the drafted vertex-sandwich path ran not a line.",
+ "status": "composite F8 contact (8 s): V229's quintet machinery verified live on import (Emat gram 2.2e-16, q5 2.2e-16, J so(3) algebra 2.2e-16, T2g rows [2, 3, 4], 6 star axes = 12 directed rays), V259 kernel dim recomputed 0, V260 branch NEVER-REALIZED. Branch NEVER-REALIZED. The singlet kernel is empty: there is no composite ground or first-excited state to carry a spin-2 channel, so the F8 c = 1 contact on the physical sector is NEVER-REALIZED (the band is |c_gw - 1| < 1e-15, V258's); the drafted vertex-sandwich path ran not a line.",
  "pass": true
 }

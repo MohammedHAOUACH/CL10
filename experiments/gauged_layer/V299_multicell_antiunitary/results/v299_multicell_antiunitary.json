@@ -16,7 +16,7 @@
    "hermiticity_defect": null
   },
   "status": "CPT-CHAIN-VIOLATION",
-  "wall_time": 0.005014896392822266,
+  "wall_time": 0.0043408870697021484,
   "fitted_inputs": []
  },
  "checks": [

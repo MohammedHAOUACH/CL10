@@ -13,11 +13,11 @@
    },
    "7": {
     "type": "quaternionic",
-    "J2": -1.0
+    "J2": -0.9999999999999999
    },
    "4": {
     "type": "quaternionic",
-    "J2": -1.0
+    "J2": -0.9999999999999999
    },
    "3": {
     "type": "quaternionic",
@@ -25,7 +25,7 @@
    },
    "0": {
     "type": "quaternionic",
-    "J2": -0.9999999999999999
+    "J2": -1.0
    }
   },
   "signatures": {
@@ -166,7 +166,7 @@
     "plane_T_sq_counts": {
      "1.0": 45
     },
-    "cp_antiunitary_dev": 1.4142135623730958,
+    "cp_antiunitary_dev": 1.4142135623730956,
     "unitarity_err_at_closed_clock": 1.4432899320127035e-15,
     "unitarity_worst_over_closure_grid": 6.661338830526017e-15,
     "closure_clocks": {
@@ -214,7 +214,7 @@
    "pass": true
   },
   {
-   "name": "p = 0 (Cl(0,10)): unitarity residual at the closed clock 1.443e-15, worst over the 6.661338830526017e-15-clock rational grid 7.900e+01; CP antiunitary deviation 1.4142135623730958; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.898587196589413e-16}, 'pi*1/4': {'k': 4, 'dev': 2.3350318320316246e-15}, 'pi*3/4': {'k': 4, 'dev': 2.5655005975577086e-15}}",
+   "name": "p = 0 (Cl(0,10)): unitarity residual at the closed clock 1.443e-15, worst over the 6.661338830526017e-15-clock rational grid 7.900e+01; CP antiunitary deviation 1.4142135623730956; closure clocks: {'pi*1/2': {'k': 2, 'dev': 4.898587196589413e-16}, 'pi*1/4': {'k': 4, 'dev': 2.3350318320316246e-15}, 'pi*3/4': {'k': 4, 'dev': 2.5655005975577086e-15}}",
    "pass": true
   },
   {

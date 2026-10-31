@@ -14,18 +14,18 @@
   },
   "t0b_v314_rows": {
    "n_rows": 11,
-   "best_zf_worst_rederived": 1.205103693613374,
+   "best_zf_worst_rederived": 1.2051036935645243,
    "artifact_leaf": 1.2051036935645243,
-   "abs_diff": 4.884981308350689e-11
+   "abs_diff": 0.0
   },
   "n_rows": 48,
   "ledger": [
    {
     "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
     "clock_g": 0.19999796730041675,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 2.0764436008044718,
+    "coef": 2.076443600804477,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
@@ -37,7 +37,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     1.2051036936044923,
+     1.2051036935512016,
      0.00013500311979441904
     ],
     "contacts": [
@@ -47,7 +47,69 @@
      "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 1.2051036936044923,
+    "worst_normalized": 1.2051036935512016,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "clock_g": 0.19999796730041675,
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 2.076443600804476,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688502,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     1.2051036935600834,
+     0.00013500311979441904
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
+     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
+    ],
+    "worst_normalized": 1.2051036935600834,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
+    "clock_g": 0.19999796730041675,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 2.076443600804476,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688502,
+    "provenance": [
+     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     1.2051036935600834,
+     0.00013500311979441904
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
+     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
+    ],
+    "worst_normalized": 1.2051036935600834,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -56,7 +118,7 @@
     "clock_g": 0.19999796730041675,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 2.076443600804471,
+    "coef": 2.0764436008044758,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
@@ -68,7 +130,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     1.205103693613374,
+     1.2051036935645243,
      0.00013500311979441904
     ],
     "contacts": [
@@ -78,78 +140,16 @@
      "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 1.205103693613374,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
-    "clock_g": 0.19999796730041675,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 2.076443600804471,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688502,
-    "provenance": [
-     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     1.205103693613374,
-     0.00013500311979441904
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
-     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
-    ],
-    "worst_normalized": 1.205103693613374,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
-    "clock_g": 0.19999796730041675,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 2.076443600804471,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688502,
-    "provenance": [
-     "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     1.205103693613374,
-     0.00013500311979441904
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
-     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
-    ],
-    "worst_normalized": 1.205103693613374,
+    "worst_normalized": 1.2051036935645243,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "1/5 (angle.branches.implemented)",
     "clock_g": 0.2,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 2.0881068659064947,
+    "coef": 2.088106865906405,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
@@ -161,7 +161,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     115.4275473266253,
+     115.42754732572824,
      0.00020605739337042905
     ],
     "contacts": [
@@ -171,16 +171,16 @@
      "coef 2.0881069 vs observed 2.0765641 (|d| 1.15e-02, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 115.4275473266253,
+    "worst_normalized": 115.42754732572824,
     "zero_fitted": false,
     "all_inside": false
    },
    {
     "clock": "1/5 (angle.branches.implemented)",
     "clock_g": 0.2,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 2.088106865906495,
+    "coef": 2.088106865906405,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
@@ -192,7 +192,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     115.42754732662974,
+     115.42754732572824,
      0.00020605739337042905
     ],
     "contacts": [
@@ -202,16 +202,16 @@
      "coef 2.0881069 vs observed 2.0765641 (|d| 1.15e-02, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 115.42754732662974,
+    "worst_normalized": 115.42754732572824,
     "zero_fitted": false,
     "all_inside": false
    },
    {
     "clock": "1/5 (angle.branches.implemented)",
     "clock_g": 0.2,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 2.088106865906495,
+    "coef": 2.088106865906405,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
@@ -223,7 +223,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     115.42754732662974,
+     115.42754732572824,
      0.00020605739337042905
     ],
     "contacts": [
@@ -233,7 +233,7 @@
      "coef 2.0881069 vs observed 2.0765641 (|d| 1.15e-02, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 115.42754732662974,
+    "worst_normalized": 115.42754732572824,
     "zero_fitted": false,
     "all_inside": false
    },
@@ -242,7 +242,7 @@
     "clock_g": 0.2,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 2.0881068659064983,
+    "coef": 2.088106865906407,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
@@ -254,7 +254,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     115.42754732666083,
+     115.427547325746,
      0.00020605739337042905
     ],
     "contacts": [
@@ -264,101 +264,8 @@
      "coef 2.0881069 vs observed 2.0765641 (|d| 1.15e-02, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 115.42754732666083,
+    "worst_normalized": 115.427547325746,
     "zero_fitted": false,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*15/16 (odd-rule broken)",
-    "clock_g": 2.945243112740431,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 1.511358929214872,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     5652.051819589603,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 5652.051819589603,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*15/16 (odd-rule broken)",
-    "clock_g": 2.945243112740431,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 1.5113589292148704,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     5652.051819589618,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 5652.051819589618,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*15/16 (odd-rule broken)",
-    "clock_g": 2.945243112740431,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 1.5113589292148701,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     5652.05181958962,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 5652.05181958962,
-    "zero_fitted": true,
     "all_inside": false
    },
    {
@@ -366,7 +273,7 @@
     "clock_g": 2.945243112740431,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 1.5113589292148686,
+    "coef": 1.5113589292149028,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
@@ -378,7 +285,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     5652.051819589636,
+     5652.051819589294,
      1.4210854715202002e-05
     ],
     "contacts": [
@@ -388,7 +295,100 @@
      "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 5652.051819589636,
+    "worst_normalized": 5652.051819589294,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*15/16 (odd-rule broken)",
+    "clock_g": 2.945243112740431,
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.5113589292149026,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     5652.051819589296,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 5652.051819589296,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*15/16 (odd-rule broken)",
+    "clock_g": 2.945243112740431,
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.5113589292149021,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     5652.051819589301,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 5652.051819589301,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*15/16 (odd-rule broken)",
+    "clock_g": 2.945243112740431,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.5113589292149008,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     5652.051819589314,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 1.5113589 vs observed 2.0765641 (|d| 5.65e-01, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 5652.051819589314,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -397,8 +397,8 @@
     "clock_g": 0.19999796730041675,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 2.9820878009376264,
-    "S17_over_3_eV": 0.05184319871883566,
+    "coef": 2.9820878009376064,
+    "S17_over_3_eV": 0.05184319871883569,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
      "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
@@ -408,8 +408,8 @@
     "normalized": [
      0.0,
      0.0,
-     0.6958877121100435,
-     9055.23689763794,
+     0.6958877121100573,
+     9055.236897637742,
      0.00013500311979441904
     ],
     "contacts": [
@@ -419,7 +419,7 @@
      "coef 2.9820878 vs observed 2.0765641 (|d| 9.06e-01, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 9055.23689763794,
+    "worst_normalized": 9055.236897637742,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -428,8 +428,8 @@
     "clock_g": 0.2,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 2.9999999999993374,
-    "S17_over_3_eV": 0.05184661314212131,
+    "coef": 2.9999999999994804,
+    "S17_over_3_eV": 0.05184661314212125,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
      "fitted (1/n_qubits reference spectrum)",
@@ -439,8 +439,8 @@
     "normalized": [
      0.0,
      0.0,
-     0.6972507553378477,
-     9234.358888255052,
+     0.6972507553378257,
+     9234.358888256482,
      0.00020605739337042905
     ],
     "contacts": [
@@ -450,7 +450,7 @@
      "coef 3.0000000 vs observed 2.0765641 (|d| 9.23e-01, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 9234.358888255052,
+    "worst_normalized": 9234.358888256482,
     "zero_fitted": false,
     "all_inside": false
    },
@@ -459,8 +459,8 @@
     "clock_g": 2.945243112740431,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 1.081648652277256,
-    "S17_over_3_eV": 0.046054269965024826,
+    "coef": 1.0816486522772693,
+    "S17_over_3_eV": 0.04605426996502495,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -470,8 +470,8 @@
     "normalized": [
      0.0,
      0.0,
-     1.6150618902096499,
-     9949.154588965763,
+     1.6150618902096,
+     9949.15458896563,
      1.4210854715202002e-05
     ],
     "contacts": [
@@ -481,69 +481,7 @@
      "coef 1.0816487 vs observed 2.0765641 (|d| 9.95e-01, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 9949.154588965763,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*1/16 (odd-rule broken)",
-    "clock_g": 0.19634954084936207,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 0.166101331397319,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688502,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     19104.62779776513,
-     0.00013500311979441904
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
-     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
-    ],
-    "worst_normalized": 19104.62779776513,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*1/16 (odd-rule broken)",
-    "clock_g": 0.19634954084936207,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 0.166101331397319,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688502,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     19104.62779776513,
-     0.00013500311979441904
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
-     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
-    ],
-    "worst_normalized": 19104.62779776513,
+    "worst_normalized": 9949.15458896563,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -552,7 +490,7 @@
     "clock_g": 0.19634954084936207,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 0.16610133139731886,
+    "coef": 0.1661013313973127,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
@@ -564,7 +502,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     19104.627797765133,
+     19104.627797765195,
      0.00013500311979441904
     ],
     "contacts": [
@@ -574,16 +512,16 @@
      "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 19104.627797765133,
+    "worst_normalized": 19104.627797765195,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/16 (odd-rule broken)",
     "clock_g": 0.19634954084936207,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 0.16610133139731884,
+    "coef": 0.16610133139731273,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
@@ -595,7 +533,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     19104.627797765133,
+     19104.627797765195,
      0.00013500311979441904
     ],
     "contacts": [
@@ -605,7 +543,69 @@
      "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 19104.627797765133,
+    "worst_normalized": 19104.627797765195,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*1/16 (odd-rule broken)",
+    "clock_g": 0.19634954084936207,
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 0.1661013313973127,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688502,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     19104.627797765195,
+     0.00013500311979441904
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
+     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
+    ],
+    "worst_normalized": 19104.627797765195,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*1/16 (odd-rule broken)",
+    "clock_g": 0.19634954084936207,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 0.1661013313973127,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688502,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     19104.627797765195,
+     0.00013500311979441904
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 0.1661013 vs observed 2.0765641 (|d| 1.91e+00, band 1e-04)",
+     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
+    ],
+    "worst_normalized": 19104.627797765195,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -614,8 +614,8 @@
     "clock_g": 0.19634954084936207,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 0.11887532324351881,
-    "S17_over_3_eV": 0.046054269965024236,
+    "coef": 0.11887532324351807,
+    "S17_over_3_eV": 0.0460542699650242,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -625,8 +625,8 @@
     "normalized": [
      0.0,
      0.0,
-     1.6150618902098852,
-     19576.887879303133,
+     1.6150618902098992,
+     19576.88787930314,
      0.00013500311979441904
     ],
     "contacts": [
@@ -636,7 +636,7 @@
      "coef 0.1188753 vs observed 2.0765641 (|d| 1.96e+00, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 19576.887879303133,
+    "worst_normalized": 19576.88787930314,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -645,8 +645,8 @@
     "clock_g": 1.7951958020513104,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 0.026989189765670434,
-    "S17_over_3_eV": 0.0506546391820597,
+    "coef": 0.026989189765670527,
+    "S17_over_3_eV": 0.05065463918205967,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -656,8 +656,8 @@
     "normalized": [
      0.0,
      0.0,
-     0.22141284712962206,
-     20495.749214081618,
+     0.22141284712960818,
+     20495.749214081614,
      1.4210854715202002e-05
     ],
     "contacts": [
@@ -667,16 +667,16 @@
      "coef 0.0269892 vs observed 2.0765641 (|d| 2.05e+00, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 20495.749214081618,
+    "worst_normalized": 20495.749214081614,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*4/7 (odd-rule broken)",
     "clock_g": 1.7951958020513104,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 0.02153971404410569,
+    "coef": 0.021539714044097283,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
@@ -688,7 +688,7 @@
      0.0,
      0.0,
      0.5392304134607767,
-     20550.243971297263,
+     20550.243971297346,
      1.4210854715202002e-05
     ],
     "contacts": [
@@ -698,52 +698,21 @@
      "coef 0.0215397 vs observed 2.0765641 (|d| 2.06e+00, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 20550.243971297263,
+    "worst_normalized": 20550.243971297346,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*4/7 (odd-rule broken)",
     "clock_g": 1.7951958020513104,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 0.021539714044099476,
+    "coef": 0.021539714044093737,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
      "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     20550.243971297325,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 0.0215397 vs observed 2.0765641 (|d| 2.06e+00, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 20550.243971297325,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*4/7 (odd-rule broken)",
-    "clock_g": 1.7951958020513104,
-    "weight": "plain rung-10 read at the row clock (V314 convention)",
-    "selection": "none",
-    "coef": 0.021539714044093727,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "algebraic machinery",
      "trivial"
     ],
     "normalized": [
@@ -767,9 +736,40 @@
    {
     "clock": "V315 closure pi*4/7 (odd-rule broken)",
     "clock_g": 1.7951958020513104,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 0.021539714044090993,
+    "coef": 0.02153971404409314,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "algebraic machinery",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     20550.24397129739,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 0.0215397 vs observed 2.0765641 (|d| 2.06e+00, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 20550.24397129739,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*4/7 (odd-rule broken)",
+    "clock_g": 1.7951958020513104,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 0.021539714044090975,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
@@ -800,8 +800,8 @@
     "clock_g": 1.7951958020513104,
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 219718720.95983446,
-    "S17_over_3_eV": 2.4515138591019086,
+    "coef": 219718720.95983386,
+    "S17_over_3_eV": 2.451513859101908,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -811,18 +811,18 @@
     "normalized": [
      0.0,
      0.0,
-     958.6482471464703,
-     2197187188832.7034,
+     958.6482471464702,
+     2197187188832.6975,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 2.451513859 eV vs m_atm 0.0501 eV: +4793.2412% (rung-17 F-ratio 50.2883)",
-     "coef 219718720.9598345 vs observed 2.0765641 (|d| 2.20e+08, band 1e-04)",
+     "coef 219718720.9598339 vs observed 2.0765641 (|d| 2.20e+08, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 2197187188832.7034,
+    "worst_normalized": 2197187188832.6975,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -831,8 +831,8 @@
     "clock_g": 0.19634954084936207,
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 967762804.4237258,
-    "S17_over_3_eV": 2.2288714896238804,
+    "coef": 967762804.423802,
+    "S17_over_3_eV": 2.228871489623882,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -842,18 +842,18 @@
     "normalized": [
      0.0,
      0.0,
-     869.769057734084,
-     9677628023471.617,
+     869.7690577340848,
+     9677628023472.379,
      0.00013500311979441904
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 2.228871490 eV vs m_atm 0.0501 eV: +4348.8453% (rung-17 F-ratio 45.7212)",
-     "coef 967762804.4237258 vs observed 2.0765641 (|d| 9.68e+08, band 1e-04)",
+     "coef 967762804.4238020 vs observed 2.0765641 (|d| 9.68e+08, band 1e-04)",
      "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 9677628023471.617,
+    "worst_normalized": 9677628023472.379,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -893,8 +893,8 @@
     "clock_g": 2.945243112740431,
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 8805690740.245216,
-    "S17_over_3_eV": 2.2288714896239123,
+    "coef": 8805690740.245447,
+    "S17_over_3_eV": 2.2288714896239177,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -904,18 +904,18 @@
     "normalized": [
      0.0,
      0.0,
-     869.7690577340967,
-     88056907381686.52,
+     869.7690577340987,
+     88056907381688.81,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 2.228871490 eV vs m_atm 0.0501 eV: +4348.8453% (rung-17 F-ratio 45.7212)",
-     "coef 8805690740.2452164 vs observed 2.0765641 (|d| 8.81e+09, band 1e-04)",
+     "coef 8805690740.2454472 vs observed 2.0765641 (|d| 8.81e+09, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 88056907381686.52,
+    "worst_normalized": 88056907381688.81,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -925,7 +925,7 @@
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
     "coef": 24277146631.700558,
-    "S17_over_3_eV": 2.509036135912536,
+    "S17_over_3_eV": 2.5090361359125395,
     "shift_over_spacing_12": 1.1171513611688502,
     "provenance": [
      "algebraic/conventional/measured (V310 CLASS-PRE census hit)",
@@ -935,7 +935,7 @@
     "normalized": [
      0.0,
      0.0,
-     981.611231901212,
+     981.6112319012134,
      242771466296239.9,
      0.00013500311979441904
     ],
@@ -955,8 +955,8 @@
     "clock_g": 0.2,
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 24422969663.130096,
-    "S17_over_3_eV": 2.509201382494918,
+    "coef": 24422969663.129696,
+    "S17_over_3_eV": 2.5092013824949215,
     "shift_over_spacing_12": 1.1171513611688209,
     "provenance": [
      "fitted (1/n_qubits reference spectrum)",
@@ -966,27 +966,27 @@
     "normalized": [
      0.0,
      0.0,
-     981.6771986007657,
-     244229696610535.3,
+     981.6771986007672,
+     244229696610531.3,
      0.00020605739337042905
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 2.509201382 eV vs m_atm 0.0501 eV: +4908.3860% (rung-17 F-ratio 51.4716)",
-     "coef 24422969663.1300964 vs observed 2.0765641 (|d| 2.44e+10, band 1e-04)",
+     "coef 24422969663.1296959 vs observed 2.0765641 (|d| 2.44e+10, band 1e-04)",
      "desert (1,2)-shift 13.0974785757547 e-folds vs booked 13.0974785757549 (|d| 2.06e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
     ],
-    "worst_normalized": 244229696610535.3,
+    "worst_normalized": 244229696610531.3,
     "zero_fitted": false,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/2 (odd-rule broken)",
     "clock_g": 1.5707963267948966,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 1.042837974464307e+18,
+    "coef": 2.130060951589568e+18,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.117151361168841,
     "provenance": [
@@ -998,26 +998,26 @@
      0.0,
      0.0,
      0.5392304134607767,
-     1.0428379744643068e+22,
+     2.130060951589568e+22,
      2.8421709430404004e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 1042837974464306944.0000000 vs observed 2.0765641 (|d| 1.04e+18, band 1e-04)",
+     "coef 2130060951589568000.0000000 vs observed 2.0765641 (|d| 2.13e+18, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 2.84e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 1.0428379744643068e+22,
+    "worst_normalized": 2.130060951589568e+22,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/2 (odd-rule broken)",
     "clock_g": 1.5707963267948966,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 1.515225375253859e+18,
+    "coef": 2.6724827604524974e+18,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.117151361168841,
     "provenance": [
@@ -1029,17 +1029,17 @@
      0.0,
      0.0,
      0.5392304134607767,
-     1.515225375253859e+22,
+     2.672482760452497e+22,
      2.8421709430404004e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 1515225375253859072.0000000 vs observed 2.0765641 (|d| 1.52e+18, band 1e-04)",
+     "coef 2672482760452497408.0000000 vs observed 2.0765641 (|d| 2.67e+18, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 2.84e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 1.515225375253859e+22,
+    "worst_normalized": 2.672482760452497e+22,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1077,9 +1077,9 @@
    {
     "clock": "V315 closure pi*1/2 (odd-rule broken)",
     "clock_g": 1.5707963267948966,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 4.062199511013615e+18,
+    "coef": 3.7492827198781737e+18,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.117151361168841,
     "provenance": [
@@ -1091,17 +1091,17 @@
      0.0,
      0.0,
      0.5392304134607767,
-     4.062199511013615e+22,
+     3.7492827198781735e+22,
      2.8421709430404004e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 4062199511013615104.0000000 vs observed 2.0765641 (|d| 4.06e+18, band 1e-04)",
+     "coef 3749282719878173696.0000000 vs observed 2.0765641 (|d| 3.75e+18, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 2.84e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 4.062199511013615e+22,
+    "worst_normalized": 3.7492827198781735e+22,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1141,8 +1141,8 @@
     "clock_g": 0.7853981633974483,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 8.004005052017817e+24,
-    "S17_over_3_eV": 0.0010165941476732367,
+    "coef": 9.87019530845083e+24,
+    "S17_over_3_eV": 0.0010012673930762308,
     "shift_over_spacing_12": 1.1171513611688386,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -1152,18 +1152,18 @@
     "normalized": [
      0.0,
      0.0,
-     19.594173992944814,
-     8.004005052017817e+28,
+     19.6002924578538,
+     9.87019530845083e+28,
      0.0
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.001016594 eV vs m_atm 0.0501 eV: -97.9709% (rung-17 F-ratio 0.0208535)",
-     "coef 8004005052017816601886720.0000000 vs observed 2.0765641 (|d| 8.00e+24, band 1e-04)",
+     "S17/3 = 0.001001267 eV vs m_atm 0.0501 eV: -98.0015% (rung-17 F-ratio 0.0205391)",
+     "coef 9870195308450829886816256.0000000 vs observed 2.0765641 (|d| 9.87e+24, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 8.004005052017817e+28,
+    "worst_normalized": 9.87019530845083e+28,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1172,8 +1172,8 @@
     "clock_g": 2.356194490192345,
     "weight": "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "selection": "none",
-    "coef": 7.547938405671161e+26,
-    "S17_over_3_eV": 0.0009638222577118653,
+    "coef": 2.3673128952802222e+27,
+    "S17_over_3_eV": 0.0009763432720709289,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -1183,27 +1183,27 @@
     "normalized": [
      0.0,
      0.0,
-     19.615240615683884,
-     7.54793840567116e+30,
+     19.610242206758112,
+     2.367312895280222e+31,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.000963822 eV vs m_atm 0.0501 eV: -98.0762% (rung-17 F-ratio 0.019771)",
-     "coef 754793840567116071434190848.0000000 vs observed 2.0765641 (|d| 7.55e+26, band 1e-04)",
+     "S17/3 = 0.000976343 eV vs m_atm 0.0501 eV: -98.0512% (rung-17 F-ratio 0.0200279)",
+     "coef 2367312895280222215673479168.0000000 vs observed 2.0765641 (|d| 2.37e+27, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 7.54793840567116e+30,
+    "worst_normalized": 2.367312895280222e+31,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/4 (odd-rule exact)",
     "clock_g": 0.7853981633974483,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 4.2027223197463e+34,
+    "coef": 7.574467751151191e+34,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688386,
     "provenance": [
@@ -1215,26 +1215,26 @@
      0.0,
      0.0,
      0.5392304134607767,
-     4.2027223197463e+38,
+     7.57446775115119e+38,
      0.0
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 42027223197462997508744002620358656.0000000 vs observed 2.0765641 (|d| 4.20e+34, band 1e-04)",
+     "coef 75744677511511905747866712184717312.0000000 vs observed 2.0765641 (|d| 7.57e+34, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 4.2027223197463e+38,
+    "worst_normalized": 7.57446775115119e+38,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/4 (odd-rule exact)",
     "clock_g": 0.7853981633974483,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 4.589346669660702e+34,
+    "coef": 7.828637258445538e+34,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688386,
     "provenance": [
@@ -1246,48 +1246,17 @@
      0.0,
      0.0,
      0.5392304134607767,
-     4.589346669660702e+38,
+     7.828637258445538e+38,
      0.0
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 45893466696607022132790860273680384.0000000 vs observed 2.0765641 (|d| 4.59e+34, band 1e-04)",
+     "coef 78286372584455382356388988718153728.0000000 vs observed 2.0765641 (|d| 7.83e+34, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 4.589346669660702e+38,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*1/4 (odd-rule exact)",
-    "clock_g": 0.7853981633974483,
-    "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
-    "selection": "none",
-    "coef": 6.376938768304041e+34,
-    "S17_over_3_eV": 0.04874922781428076,
-    "shift_over_spacing_12": 1.1171513611688386,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "config-declared (closed branch angle)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607739,
-     6.376938768304041e+38,
-     0.0
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 63769387683040409483650835230490624.0000000 vs observed 2.0765641 (|d| 6.38e+34, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 6.376938768304041e+38,
+    "worst_normalized": 7.828637258445538e+38,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1296,7 +1265,7 @@
     "clock_g": 0.7853981633974483,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 6.376938768304073e+34,
+    "coef": 7.867207079039827e+34,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688386,
     "provenance": [
@@ -1308,26 +1277,57 @@
      0.0,
      0.0,
      0.5392304134607767,
-     6.376938768304073e+38,
+     7.867207079039827e+38,
      0.0
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 63769387683040732301672125147643904.0000000 vs observed 2.0765641 (|d| 6.38e+34, band 1e-04)",
+     "coef 78672070790398269741442122970562560.0000000 vs observed 2.0765641 (|d| 7.87e+34, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 6.376938768304073e+38,
+    "worst_normalized": 7.867207079039827e+38,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*1/4 (odd-rule exact)",
     "clock_g": 0.7853981633974483,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 6.428686654691722e+34,
+    "coef": 7.867207079039839e+34,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688386,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "config-declared (closed branch angle)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     7.867207079039838e+38,
+     0.0
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 78672070790398389645278602082648064.0000000 vs observed 2.0765641 (|d| 7.87e+34, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 7.867207079039838e+38,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*1/4 (odd-rule exact)",
+    "clock_g": 0.7853981633974483,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.0731932448922763e+35,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688386,
     "provenance": [
@@ -1339,26 +1339,26 @@
      0.0,
      0.0,
      0.5392304134607767,
-     6.4286866546917215e+38,
+     1.0731932448922762e+39,
      0.0
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 64286866546917221304945239318855680.0000000 vs observed 2.0765641 (|d| 6.43e+34, band 1e-04)",
+     "coef 107319324489227634664612504189009920.0000000 vs observed 2.0765641 (|d| 1.07e+35, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 0.00e+00, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 6.4286866546917215e+38,
+    "worst_normalized": 1.0731932448922762e+39,
     "zero_fitted": true,
     "all_inside": false
    },
    {
     "clock": "V315 closure pi*3/4 (odd-rule exact)",
     "clock_g": 2.356194490192345,
-    "weight": "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
     "selection": "none",
-    "coef": 5.41550015064988e+36,
+    "coef": 1.5531983918892228e+37,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
@@ -1370,17 +1370,79 @@
      0.0,
      0.0,
      0.5392304134607767,
-     5.415500150649879e+40,
+     1.5531983918892227e+41,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 5415500150649879591360433866198220800.0000000 vs observed 2.0765641 (|d| 5.42e+36, band 1e-04)",
+     "coef 15531983918892228430663363350566535168.0000000 vs observed 2.0765641 (|d| 1.55e+37, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 5.415500150649879e+40,
+    "worst_normalized": 1.5531983918892227e+41,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*3/4 (odd-rule exact)",
+    "clock_g": 2.356194490192345,
+    "weight": "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.591082148553236e+37,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     1.591082148553236e+41,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 15910821485532359937084678904196628480.0000000 vs observed 2.0765641 (|d| 1.59e+37, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 1.591082148553236e+41,
+    "zero_fitted": true,
+    "all_inside": false
+   },
+   {
+    "clock": "V315 closure pi*3/4 (odd-rule exact)",
+    "clock_g": 2.356194490192345,
+    "weight": "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "selection": "none",
+    "coef": 1.7223941133419812e+37,
+    "S17_over_3_eV": 0.04874922781428075,
+    "shift_over_spacing_12": 1.1171513611688373,
+    "provenance": [
+     "algebraic/combinatorial (V315 closure census)",
+     "combinatorial (node set)",
+     "trivial"
+    ],
+    "normalized": [
+     0.0,
+     0.0,
+     0.5392304134607767,
+     1.7223941133419812e+41,
+     1.4210854715202002e-05
+    ],
+    "contacts": [
+     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
+     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
+     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
+     "coef 17223941133419812452323079156758740992.0000000 vs observed 2.0765641 (|d| 1.72e+37, band 1e-04)",
+     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
+    ],
+    "worst_normalized": 1.7223941133419812e+41,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1389,7 +1451,7 @@
     "clock_g": 2.356194490192345,
     "weight": "plain rung-10 read at the row clock (V314 convention)",
     "selection": "none",
-    "coef": 6.206997478290567e+36,
+    "coef": 1.9468500714789867e+37,
     "S17_over_3_eV": 0.04874922781428075,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
@@ -1401,17 +1463,17 @@
      0.0,
      0.0,
      0.5392304134607767,
-     6.206997478290566e+40,
+     1.9468500714789865e+41,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
      "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 6206997478290566939038424555486969856.0000000 vs observed 2.0765641 (|d| 6.21e+36, band 1e-04)",
+     "coef 19468500714789867160948885514707009536.0000000 vs observed 2.0765641 (|d| 1.95e+37, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 6.206997478290566e+40,
+    "worst_normalized": 1.9468500714789865e+41,
     "zero_fitted": true,
     "all_inside": false
    },
@@ -1420,8 +1482,8 @@
     "clock_g": 2.356194490192345,
     "weight": "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)",
     "selection": "none",
-    "coef": 6.212731588839952e+36,
-    "S17_over_3_eV": 0.04911201037468726,
+    "coef": 1.9486640741899784e+37,
+    "S17_over_3_eV": 0.049178826843295415,
     "shift_over_spacing_12": 1.1171513611688373,
     "provenance": [
      "algebraic/combinatorial (V315 closure census)",
@@ -1431,80 +1493,18 @@
     "normalized": [
      0.0,
      0.0,
-     0.3944070360529903,
-     6.212731588839953e+40,
+     0.3677337950916504,
+     1.9486640741899785e+41,
      1.4210854715202002e-05
     ],
     "contacts": [
      "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
      "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.049112010 eV vs m_atm 0.0501 eV: -1.9720% (rung-17 F-ratio 1.00744)",
-     "coef 6212731588839952468126983155485769728.0000000 vs observed 2.0765641 (|d| 6.21e+36, band 1e-04)",
+     "S17/3 = 0.049178827 eV vs m_atm 0.0501 eV: -1.8387% (rung-17 F-ratio 1.00881)",
+     "coef 19486640741899784273718808873952870400.0000000 vs observed 2.0765641 (|d| 1.95e+37, band 1e-04)",
      "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
     ],
-    "worst_normalized": 6.212731588839953e+40,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*3/4 (odd-rule exact)",
-    "clock_g": 2.356194490192345,
-    "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 7.462130916256909e+36,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     7.462130916256908e+40,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 7462130916256908691207800284227043328.0000000 vs observed 2.0765641 (|d| 7.46e+36, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 7.462130916256908e+40,
-    "zero_fitted": true,
-    "all_inside": false
-   },
-   {
-    "clock": "V315 closure pi*3/4 (odd-rule exact)",
-    "clock_g": 2.356194490192345,
-    "weight": "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
-    "selection": "none",
-    "coef": 8.179709631850343e+36,
-    "S17_over_3_eV": 0.04874922781428075,
-    "shift_over_spacing_12": 1.1171513611688373,
-    "provenance": [
-     "algebraic/combinatorial (V315 closure census)",
-     "combinatorial (node set)",
-     "trivial"
-    ],
-    "normalized": [
-     0.0,
-     0.0,
-     0.5392304134607767,
-     8.179709631850343e+40,
-     1.4210854715202002e-05
-    ],
-    "contacts": [
-     "seesaw M_P*LOOP^3 = 9.613178e+13 GeV (algebraic, rung A = 3)",
-     "DM M_P*LOOP^10 = 118.5709 GeV vs window [100, 1000]: IN WINDOW",
-     "S17/3 = 0.048749228 eV vs m_atm 0.0501 eV: -2.6962% (rung-17 F-ratio 1)",
-     "coef 8179709631850342967993232462882799616.0000000 vs observed 2.0765641 (|d| 8.18e+36, band 1e-04)",
-     "desert (1,2)-shift 13.0974785757549 e-folds vs booked 13.0974785757549 (|d| 1.42e-14, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: True"
-    ],
-    "worst_normalized": 8.179709631850343e+40,
+    "worst_normalized": 1.9486640741899785e+41,
     "zero_fitted": true,
     "all_inside": false
    }
@@ -1523,9 +1523,9 @@
    ],
    "weights": [
     "plain rung-10 read at the row clock (V314 convention)",
-    "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
-    "node triple [1, 2, 5] (M_POINTS order), combined sum factor 3.000000",
-    "node triple [1, 3, 4] (M_POINTS order), combined sum factor 3.000000",
+    "node triple [2, 9, 10] (M_POINTS order), combined sum factor 3.000000",
+    "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
+    "node triple [2, 10, 11] (M_POINTS order), combined sum factor 3.000000",
     "V200 eta-law F_of(eta) at eta = 0.198100430 [V202 eta* (data.selection.nearest_crossing)] (W1 eta set)",
     "V200 eta-law F_of(eta) at eta = 0.785398163 [pi/4 (angle.branches.closed)] (W1 eta set)"
    ],
@@ -1537,9 +1537,9 @@
   "closest_row": {
    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
    "clock_g": 0.19999796730041675,
-   "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+   "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
    "selection": "none",
-   "coef": 2.0764436008044718,
+   "coef": 2.076443600804477,
    "S17_over_3_eV": 0.04874922781428075,
    "shift_over_spacing_12": 1.1171513611688502,
    "provenance": [
@@ -1551,7 +1551,7 @@
     0.0,
     0.0,
     0.5392304134607767,
-    1.2051036936044923,
+    1.2051036935512016,
     0.00013500311979441904
    ],
    "contacts": [
@@ -1561,16 +1561,16 @@
     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
    ],
-   "worst_normalized": 1.2051036936044923,
+   "worst_normalized": 1.2051036935512016,
    "zero_fitted": true,
    "all_inside": false
   },
   "best_zero_fitted_row": {
    "clock": "g_cross_rung10 - (((alpha_10*g_impl)*alpha1_mz)) the V310 clock-gap hit",
    "clock_g": 0.19999796730041675,
-   "weight": "node triple [1, 4, 5] (M_POINTS order), combined sum factor 3.000000",
+   "weight": "node triple [2, 9, 11] (M_POINTS order), combined sum factor 3.000000",
    "selection": "none",
-   "coef": 2.0764436008044718,
+   "coef": 2.076443600804477,
    "S17_over_3_eV": 0.04874922781428075,
    "shift_over_spacing_12": 1.1171513611688502,
    "provenance": [
@@ -1582,7 +1582,7 @@
     0.0,
     0.0,
     0.5392304134607767,
-    1.2051036936044923,
+    1.2051036935512016,
     0.00013500311979441904
    ],
    "contacts": [
@@ -1592,11 +1592,11 @@
     "coef 2.0764436 vs observed 2.0765641 (|d| 1.21e-04, band 1e-04)",
     "desert (1,2)-shift 13.097478575755 e-folds vs booked 13.0974785757549 (|d| 1.35e-13, band 1e-09); shift/spacing 1.117151361 vs booked 1.117151361; rule fires: False"
    ],
-   "worst_normalized": 1.2051036936044923,
+   "worst_normalized": 1.2051036935512016,
    "zero_fitted": true,
    "all_inside": false
   },
-  "wall_time": 264.12034845352173,
+  "wall_time": 306.48847937583923,
   "fitted_inputs": []
  },
  "checks": [
@@ -1605,7 +1605,7 @@
    "pass": true
   },
   {
-   "name": "T0b V314's 11 rows re-run inside V318 reproduce the booked best-zero-fitted worst-normalized 1.2051036935645243 (|d| 4.9e-11 < 1e-9)",
+   "name": "T0b V314's 11 rows re-run inside V318 reproduce the booked best-zero-fitted worst-normalized 1.2051036935645243 (|d| 0.0e+00 < 1e-9)",
    "pass": true
   },
   {

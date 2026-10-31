@@ -7,7 +7,7 @@
  "branch": "CH-F208-STUBBORN",
  "data": {
   "t0a_node_factors": {
-   "abs_diff_max": 2.498001805406602e-16
+   "abs_diff_max": 0.0
   },
   "t0b_coef_fifth": {
    "artifact": 2.088106865906787,
@@ -343,11 +343,11 @@
    "nearest_normalized": 909.2807361880562
   },
   "status": "CH-F208-STUBBORN",
-  "wall_time": 106.56872391700745
+  "wall_time": 106.31209373474121
  },
  "checks": [
   {
-   "name": "T0a the 12 node factors at g = 1/5 reproduce V316's booked f_nodes leaves (max |d| 2.5e-16 < 1e-9)",
+   "name": "T0a the 12 node factors at g = 1/5 reproduce V316's booked f_nodes leaves (max |d| 0.0e+00 < 1e-9)",
    "pass": true
   },
   {

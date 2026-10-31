@@ -76,88 +76,88 @@
   "prescription": {
    "n_occupied": 60,
    "n_unoccupied": 68,
-   "n_ties_to_unoccupied": 9,
+   "n_ties_to_unoccupied": 8,
    "excluded_intra_level_pairs": 999,
    "votes_nonzero_tiny": [
     8,
     8,
     4,
-    -6,
+    -4,
     6,
     -12,
     6,
-    4,
+    6,
     8,
     8,
     -2,
-    2
+    0
    ]
   },
-  "tensor_check_defect": 1.7764797140014674e-15,
+  "tensor_check_defect": 1.776360596401476e-15,
   "t2g_vertex": {
-   "star_bond_vertex": 3.8050446694409756,
+   "star_bond_vertex": 3.6750286341812406,
    "axis_bond_vertex": 0.0,
    "v229_control": 0.0,
-   "entry_matrix_maxabs": 3.4646698569102474
+   "entry_matrix_maxabs": 3.3705113213389906
   },
   "search": {
    "axes": {
-    "best_norm": 1.7097595547793732e-15,
+    "best_norm": 3.381497734447235e-15,
     "best_weights": [
-     9.789833866118335e-09,
-     5.46248480765247e-09,
-     -1.576853870705885e-08
+     -1.54845701716903e-08,
+     2.6233516400404974e-09,
+     2.232677441528019e-08
     ],
-    "second_norm": 3.8720310468346764e-15
+    "second_norm": 3.7402729073319216e-15
    },
    "star": {
-    "best_norm": 0.009909912455920978,
+    "best_norm": 0.0066645032431829326,
     "best_weights": [
-     0.02597020368435633,
-     -0.026112816013631357,
-     -0.00739424787495382,
-     -0.02581915684692697,
-     0.006407036996587994,
-     0.020976849930764953
+     -0.014840599650901436,
+     0.0028874049132857973,
+     0.008400742267813649,
+     0.0075643764393977485,
+     0.008716311230441604,
+     -0.029799224228264143
     ],
-    "second_norm": 0.012309830640869922
+    "second_norm": 0.007649645744601384
    },
    "general": {
-    "best_norm": 7.541397310412197e-13,
+    "best_norm": 7.332632202670902e-13,
     "best_weights": [
      -0.13930037231347064,
      -2.909788503474993e-08,
      2.290281768925928,
      0.017412516695129797
     ],
-    "second_norm": 2.2859610516023715e-12
+    "second_norm": 2.2210984791131284e-12
    }
   },
   "minimizer": {
    "fam": "axes",
    "weights": [
-    9.789833866118335e-09,
-    5.46248480765247e-09,
-    -1.576853870705885e-08
+    -1.54845701716903e-08,
+    2.6233516400404974e-09,
+    2.232677441528019e-08
    ],
-   "pi_frobenius": 1.7097595547793732e-15,
+   "pi_frobenius": 3.381497734447235e-15,
    "pi_eigs": [
-    -1.6298404043450074e-15,
-    -5.166217102715129e-16,
+    -3.2637913859793762e-15,
+    -8.844165969036349e-16,
     0.0,
     0.0,
     0.0
    ],
    "mass_shifts_V229_convention": [
-    -5.026837508686482e-16,
-    -1.5933912204356358e-16,
+    -1.006635307103112e-15,
+    -2.7277631053739334e-16,
     0.0,
     0.0,
     0.0
    ]
   },
   "status": "BUBBLE-NULL",
-  "wall_time": 5.470460891723633,
+  "wall_time": 5.439074277877808,
   "fitted_inputs": []
  },
  "checks": [
@@ -166,7 +166,7 @@
    "pass": true
   },
   {
-   "name": "T2g vertex leg: axis-bond vertex 0.0e+00 (V141-analogue control), star-bond vertex 3.8e+00 under the prescription",
+   "name": "T2g vertex leg: axis-bond vertex 0.0e+00 (V141-analogue control), star-bond vertex 3.7e+00 under the prescription",
    "pass": true
   },
   {
@@ -174,7 +174,7 @@
    "pass": true
   },
   {
-   "name": "family search: best ||Pi||_F 1.710e-15 (axes) - gate 1e-8: True",
+   "name": "family search: best ||Pi||_F 3.381e-15 (axes) - gate 1e-8: True",
    "pass": true
   }
  ],

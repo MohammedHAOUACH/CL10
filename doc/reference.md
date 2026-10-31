@@ -175,11 +175,19 @@ the pillar-surgery programme (V308-V314) and the theory-hunt programme
 **239/239 PASS, hard tier MET, number_audit green** as booked at the
 2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
 (provenance table refreshed to the final twelve-fitted-coefficient audit,
-version 1.2.0) re-ran the changed experiments green — V52 and its
-artifact consumers V248, V257, V267, V268 among the first thirteen, all
-PASS on the new table — and the full-suite re-certification of the 1.2.0
-fingerprint (all 239, one long run) is scheduled before the v1.2 release.
-Six O8 dead-end mechanism experiments
+version 1.2.0) forced the full 239-experiment re-gate on the new
+fingerprint, run 2026-10-30/31 on GPU 1 with three workers: 237 green on
+the sweep, the two VRAM-heavy experiments (V272, V274) OOM-crashed under
+the concurrency and were re-run solo green with verdicts unchanged
+(CHAIN-ALIVE, NEW-CONJUNCTION-DEAD — the `8c1608b` concurrency precedent),
+the fingerprint ledger seeded from the green on-disk artifacts per the
+gate-hygiene playbook, and V312's two near-degenerate quaternionic
+crossings moved at the fifth significant figure (swap of the pi/4 and
+3pi/4 reads across backends; verdict and closest |d| 0.223 invariant —
+booked in the gate-hygiene note, quotes updated in the paper,
+doc/reference.md and experiments/README.md). The re-certified suite:
+**239/239 PASS, hard tier MET (99 tiered experiments), number_audit PASS
+(892 tokens)**. Six O8 dead-end mechanism experiments
 (V231, V232, V242, V243, V263, V273) were retired 2026-10-27 by reader
 instruction and the pre-registered full-suite re-gate was cancelled with
 them (git history keeps the retired scripts, artifacts and their runs);
@@ -935,8 +943,13 @@ p = 0 fired) rebuilds V203's hop machinery over the Cl(0,10) root -
 structure constants and adjoint links recomputed on the new planes -
 and reads the ladder at V311's closure clocks. The exact odd-n
 selection rule SURVIVES (odd ratios < 1e-12 at all three closure
-clocks), but the crossings read 2.2995 (pi/2), 2.7041 (pi/4),
-2.7160 (3pi/4) against 2.0765641. **SIGNATURE-LADDER-NEGATIVE**: the
+clocks), but the crossings read 2.2994 (pi/2), 2.7081 (pi/4),
+2.7057 (3pi/4) against 2.0765641 (post-1.2.0 sweep leaves; the
+pre-alignment run read 2.2995/2.7041/2.7160 - the two quaternionic
+crossings sit within 2e-3 of each other and swap under backend
+re-run, fifth-significant-figure sensitivity booked in the
+gate-hygiene note; the verdict and the closest |d| 0.223 are
+invariant). **SIGNATURE-LADDER-NEGATIVE**: the
 signature surgery preserves the selection structure and misses the
 value.
 

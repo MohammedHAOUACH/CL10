@@ -13,7 +13,7 @@
   "six_stage_phase_A": 4.7243458642382084e-05,
   "six_stage_phase_B": 5.827103028529494e-17,
   "commutators": {
-   "unitarity": 1.4432899320127035e-15,
+   "unitarity": 1.3322676295501878e-15,
    "G_squared": 0.0,
    "G_U": 0.0,
    "G_45_max": 0.0,
@@ -21,8 +21,8 @@
   },
   "full_cell_theorems": {
    "pairing": 8.881784197001252e-16,
-   "det_phase": 1.1423933359618749e-16,
-   "vacuum_sum": 4.440892098500626e-16
+   "det_phase": 7.037488538967629e-17,
+   "vacuum_sum": 1.3322676295501878e-15
   },
   "bloch_factorisation_err": {
    "M": 3.412665739753481e-16,
@@ -32,30 +32,30 @@
   "M_q_sweep": {
    "zone_centre": {
     "dim": 128,
-    "MM_dagger_minus_I": 8.979057966391103e-15,
-    "det_M_minus_1": 3.561063077236667e-13
+    "MM_dagger_minus_I": 8.648488908951589e-15,
+    "det_M_minus_1": 3.7063156162188407e-13
    },
    "generic": {
     "dim": 128,
-    "MM_dagger_minus_I": 9.721170981570175e-15,
-    "det_M_minus_1": 3.807214895423978e-13
+    "MM_dagger_minus_I": 9.077053483766241e-15,
+    "det_M_minus_1": 3.9648192261073484e-13
    },
    "M_point": {
     "dim": 128,
-    "MM_dagger_minus_I": 9.134210359117955e-15,
-    "det_M_minus_1": 3.618359242526718e-13
+    "MM_dagger_minus_I": 8.587716797953746e-15,
+    "det_M_minus_1": 3.8229978280221156e-13
    },
    "R_point": {
     "dim": 128,
-    "MM_dagger_minus_I": 9.241069878073932e-15,
-    "det_M_minus_1": 3.6382577683915386e-13
+    "MM_dagger_minus_I": 8.554111762217068e-15,
+    "det_M_minus_1": 3.7172853730040343e-13
    }
   },
   "singlet_band_shift_at_M": {
    "A": 4.724345864248747e-05,
    "B": 1.1102230246251565e-16
   },
-  "spinor_M_gap": 1.2143064331837724e-16,
+  "spinor_M_gap": 5.551115123125791e-17,
   "content": {
    "levels": 36,
    "trY": 0.0,
@@ -71,11 +71,11 @@
    "pass": true
   },
   {
-   "name": "T1 the exact B-parity: the 36-level step is unitary to 1.4e-15; G = diag(I32,+1,+1,-1,-1) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the full-cell theorems hold on all 36 levels: spectrum symmetric under phase -> -phase (8.9e-16), det U = 1 (phase 1.1e-16), quasi-energy sum zero (4.4e-16) - the tree-level vacuum energy vanishes exactly; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
+   "name": "T1 the exact B-parity: the 36-level step is unitary to 1.3e-15; G = diag(I32,+1,+1,-1,-1) squares to I to 0.0e+00, commutes with the step to 0.0e+00 and with all 45 plane generators extended by zero on the singlets to 0.0e+00; the full-cell theorems hold on all 36 levels: spectrum symmetric under phase -> -phase (8.9e-16), det U = 1 (phase 7.0e-17), quasi-energy sum zero (1.3e-15) - the tree-level vacuum energy vanishes exactly; the spinor block is byte-identical to the published internal unitary (diff 0.0e+00): B cannot decay, and the singlets move nothing",
    "pass": true
   },
   {
-   "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies the A pair by exp(+/-i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and the B pair by exp(+/-i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time, each level with its conjugate - and the six-stage product carries phase 4.724346e-05 for A+ (4.724346e-05, diff 1.4e-20), -4.724346e-05 for A- (diff 1.4e-20), 5.827103e-17 for B+ (5.827103e-17, diff 0.0e+00) and -5.827103e-17 for B- (diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 7.9e-31); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 3.4e-16/6.7e-16/2.8e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector M-point gap at the root clock is exactly zero (pinned Floquet pair, Proposition 2): 1.214306e-16",
+   "name": "T2 the rung is a phase: the engine applies the internal layer once per stage (six stages per step), so each stage multiplies the A pair by exp(+/-i*7.873910e-06) (loop^3 = m_A/M_P = 7.873910e-06) and the B pair by exp(+/-i*9.711838e-18) (loop^10 = m_B/M_P = 9.711838e-18) - the mass-phase relation at the elementary time, each level with its conjugate - and the six-stage product carries phase 4.724346e-05 for A+ (4.724346e-05, diff 1.4e-20), -4.724346e-05 for A- (diff 1.4e-20), 5.827103e-17 for B+ (5.827103e-17, diff 0.0e+00) and -5.827103e-17 for B- (diff 0.0e+00); the spinor block of the six-stage product is the published six-stage spinor (diff 4.1e-31); the one-step Bloch matrix of the cell factorises exactly as kron(P(q), U^6) at M/GAMMA/R with errors 3.4e-16/6.7e-16/2.8e-16 - the singlets ride the bond bands, shifted by their step phase (max shift A 4.724346e-05, B 1.110223e-16 at M) - and the spinor 16-sector M-point gap at the root clock is exactly zero (pinned Floquet pair, Proposition 2): 5.551115e-17",
    "pass": true
   },
   {
@@ -83,11 +83,11 @@
    "pass": true
   },
   {
-   "name": "T4 cl10/supercell.verify() passes with the cell invariants: ok = True, unitarity 1.4e-15, [G,U] 0.0e+00, [G,45] 0.0e+00",
+   "name": "T4 cl10/supercell.verify() passes with the cell invariants: ok = True, unitarity 1.3e-15, [G,U] 0.0e+00, [G,45] 0.0e+00",
    "pass": true
   },
   {
-   "name": "T5 the 128-level cell matrix M(q) is unitary with det 1 at the zone centre, a generic momentum and the two high-symmetry points: max ||MM+-I|| 9.7e-15, max |detM-1| 3.8e-13",
+   "name": "T5 the 128-level cell matrix M(q) is unitary with det 1 at the zone centre, a generic momentum and the two high-symmetry points: max ||MM+-I|| 9.1e-15, max |detM-1| 4.0e-13",
    "pass": true
   }
  ],
@@ -95,5 +95,5 @@
  "tier": 2,
  "property": "the automaton cell is the 32-D Cl(10,0) Dirac module plus the two neutral singlet sectors - conjugate pairs A (rung 3) and B (rung 10) - with an exact B-parity, the full cell +- paired with det = 1 and vanishing quasi-energy sum, and the ladder rung of a level is the phase the step applies to it (Axiom 1)",
  "programme": "V196",
- "wall_time": 0.522
+ "wall_time": 0.569
 }
