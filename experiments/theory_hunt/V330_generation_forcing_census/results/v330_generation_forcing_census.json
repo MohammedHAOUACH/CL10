@@ -1,0 +1,178 @@
+{
+ "id": "V330_generation_forcing_census",
+ "tier": 3,
+ "property": "does any booked group-action object carry an orbit of size exactly 3 in every row - is the family number 3 forced anywhere (tier 3, O3)",
+ "residual": true,
+ "programme": "theory-hunt V330",
+ "branch": "GEN3-NOT-FORCED-DECLARED",
+ "data": {
+  "census": {
+   "rows": {
+    "nodes12_x_G48": {
+     "orbit_sizes": [
+      12
+     ]
+    },
+    "nodes12_x_chiral24": {
+     "orbit_sizes": [
+      12
+     ]
+    },
+    "stabilizer6_x_conj_G48": {
+     "orbit_sizes": [
+      1,
+      6,
+      8
+     ]
+    },
+    "levels16_x_step_k=0.7853981633974483": {
+     "orbit_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ]
+    },
+    "levels16_x_step_k=1.5707963267948966": {
+     "orbit_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ]
+    }
+   },
+   "levels16_rows": [
+    {
+     "clock": 0.125,
+     "monomial": false,
+     "min_col_max": 0.8274043066798918,
+     "max_col_second": 0.29752067777906516
+    },
+    {
+     "clock": 0.2,
+     "monomial": false,
+     "min_col_max": 0.5793973907427736,
+     "max_col_second": 0.4602849897616517
+    },
+    {
+     "clock": 0.5,
+     "monomial": false,
+     "min_col_max": 0.4555279513526333,
+     "max_col_second": 0.47634401521647485
+    },
+    {
+     "clock": 0.7853981633974483,
+     "monomial": true,
+     "min_col_max": 0.9999999999999993,
+     "max_col_second": 6.923856548746338e-16,
+     "permutation_orbit_sizes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+     ]
+    },
+    {
+     "clock": 1.5707963267948966,
+     "monomial": true,
+     "min_col_max": 1.0,
+     "max_col_second": 1.731912112470987e-16,
+     "permutation_orbit_sizes": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ]
+    }
+   ],
+   "row_has_size3_orbit": [
+    false,
+    false,
+    false,
+    false,
+    false
+   ],
+   "closed_clock_pi_over_4": 0.7853981633974483,
+   "v239_grid_labels_by_order": {
+    "2": 1,
+    "4": 0,
+    "8": 0,
+    "16": 0
+   }
+  },
+  "orbit_size_histogram": {
+   "12": 2,
+   "1": 21,
+   "6": 1,
+   "8": 1,
+   "2": 6
+  },
+  "t0": {
+   "v91_orbit_sizes_artifact": [
+    12
+   ],
+   "nodes_orbit_sizes_rederived": [
+    12
+   ],
+   "v91_triangle_orbit_artifact": 8,
+   "triangle_orbit_rederived": 8,
+   "cubic_action_closed": true,
+   "triangle_is_node_set": true,
+   "v114_stabilizer_artifact": 12,
+   "v114_stabilizer_chiral_artifact": 6,
+   "stabilizer_rederived": 12,
+   "stabilizer_chiral_rederived": 6
+  },
+  "status": "GEN3-NOT-FORCED-DECLARED",
+  "wall_time": 0.0989525318145752
+ },
+ "checks": [
+  {
+   "name": "T0 V91 leaves [12] (triangle 8) reproduced by the verbatim construction ([12], 8) and V114 stabilizer 12/6 re-derived as 12/6; V239 closure labels {'2': 1, '4': 0, '8': 0, '16': 0}",
+   "pass": true
+  },
+  {
+   "name": "branch GEN3-NOT-FORCED-DECLARED: orbit-size histogram {'12': 2, '1': 21, '6': 1, '8': 1, '2': 6} over rows ['nodes12_x_G48', 'nodes12_x_chiral24', 'stabilizer6_x_conj_G48', 'levels16_x_step_k=0.7853981633974483', 'levels16_x_step_k=1.5707963267948966']; a size-3 orbit present per row: [False, False, False, False, False]",
+   "pass": true
+  }
+ ],
+ "status": "GEN3-NOT-FORCED-DECLARED",
+ "pass": true
+}
