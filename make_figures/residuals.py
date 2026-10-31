@@ -38,7 +38,7 @@ def fig10_gauged_layer():
     axA.set_yticks(ypos)
     axA.set_yticklabels([r[0] for r in rows], fontsize=10.5)
     axA.set_xlabel(r"absolute error (exact zeros floored at $2\times10^{-17}$)")
-    axA.set_title("(a)  the exactness ledger: every identity of the\n"
+    axA.set_title("(a)  the exactness accounting: every identity of the\n"
                   "     gauged bond layer closes at machine precision",
                   fontsize=12)
     axA.legend(fontsize=10, loc="upper right", framealpha=0.95)
@@ -72,6 +72,9 @@ def fig15_dm_portal():
     with open(exp("V88_mirror_scalar",
                            "results", "v88_mirror_scalar.json")) as f:
         d = json.load(f)["data"]
+    with open(exp("V195_cell_redefinition",
+                           "results", "v195_cell_redefinition.json")) as f:
+        prodB = json.load(f)["data"]["production"]
     lam2, sig2 = d["V2_lam_star"], d["V2_sigma_SI_cm2"]
     lam1, sig1 = d["V1_lam_for_Omega"], d["V1_sigma_SI_cm2"]
     lz = float(_config.CFG.bounds.sigma_si_lz_cm2)
@@ -81,7 +84,7 @@ def fig15_dm_portal():
     fig, (axA, axB) = plt.subplots(1, 2, figsize=(11.5, 4.7),
                                    gridspec_kw={"width_ratios": [1.25, 1.0]})
 
-    lam = np.logspace(-5, 0, 400)
+    lam = np.logspace(-16, 0, 600)
     f_N = float(_config.CFG.dm.f_n_nucleon)
     m_N = float(_config.CFG.physics.proton_mass_gev)
     M_H = float(_config.CFG.sm.higgs_mass_gev)
@@ -95,28 +98,40 @@ def fig15_dm_portal():
                      r"(\pi m_h^4)$")
     axA.axhline(lz, color=C_ZERO, ls="--", lw=1.8,
                 label=r"LZ bound (4.2 t yr): $2.2\times10^{-48}$ min "
-                      rf"(40 GeV), $\approx{lz:.1e}$ at {M_DM:.0f} GeV")
-    axA.fill_between([1e-5, 1], 1e-58, lz, color=C_ZERO, alpha=0.07)
+                      rf"(40 GeV), $\approx{lz:.1e}$ at {int(M_DM)} GeV")
+    axA.fill_between([1e-16, 1], 1e-72, lz, color=C_ZERO, alpha=0.07)
     axA.plot([lam2], [sig2], "o", ms=11, color=C_SU2, zorder=5)
     axA.annotate(f"pair portal (Z2 BROKEN)\n$\\lambda_* = {lam2:.1e}$: "
                  f"$\\Omega h^2 = {float(_config.CFG.physics.omega_dm_h2):.3f}$\n$\\sigma_{{\\rm SI}} = "
                  f"{sig2:.0e}$ - below reach",
-                 xy=(lam2, sig2), xytext=(3e-4, 8e-43), fontsize=11,
+                 xy=(lam2, sig2), xytext=(1e-7, 4e-46), fontsize=11,
                  color=C_SU2, va="top",
                  arrowprops=dict(arrowstyle="->", color=C_SU2, lw=1.2))
     axA.plot([lam1], [sig1], "X", ms=13, color=C_ZERO, zorder=5)
     axA.annotate(f"Higgs portal (Z2 EXACT)\n$\\lambda = {lam1:.2f}$: "
                  f"$\\Omega h^2 = {float(_config.CFG.physics.omega_dm_h2):.3f}$\n$\\sigma_{{\\rm SI}} = "
                  f"{sig1:.0e}$ - EXCLUDED",
-                 xy=(lam1, sig1), xytext=(0.1, 2e-53), fontsize=11,
+                 xy=(lam1, sig1), xytext=(0.98, 2e-55), fontsize=11,
+                 va="top", ha="right",
                  color=C_ZERO,
                  arrowprops=dict(arrowstyle="->", color=C_ZERO, lw=1.2))
+    lamB = float(prodB["lambda_fi"])
+    sigB = float(prodB["sigma_fi_cm2"])
+    axA.plot([lamB], [sigB], "*", ms=15, color=C_GUT, zorder=5)
+    axA.annotate(f"cell singlet $B$ (the surviving carrier)\n"
+                 f"$\\lambda_B = {lamB:.2e}$: "
+                 f"$\\Omega h^2 = {float(_config.CFG.physics.omega_dm_h2):.3f}$"
+                 " by freeze-in\n"
+                 f"$\\sigma_{{\\rm SI}} = {sigB:.1e}$ - far below reach",
+                 xy=(lamB, sigB), xytext=(2e-11, 4e-62), fontsize=11,
+                 color=C_GUT, va="top",
+                 arrowprops=dict(arrowstyle="->", color=C_GUT, lw=1.2))
     axA.set_xlabel(r"portal coupling $\lambda$")
     axA.set_ylabel(r"direct detection $\sigma_{\rm SI}$ [cm$^2$]")
     axA.set_title("(a)  both portals reproduce the abundance - one is "
                   "excluded,\n     the other breaks the exact mirror "
                   "$\\mathbb{Z}_2$", fontsize=12.5)
-    axA.set_ylim(1e-58, 1e-42)
+    axA.set_ylim(1e-72, 1e-42)
     axA.legend(loc="upper center", bbox_to_anchor=(0.5, -0.24),
                fontsize=9.5, framealpha=0.95)
 
@@ -174,7 +189,7 @@ def fig14_loop_selection():
                  label=r"$n = 4k$: measured (removable at the root clock)")
     axA.semilogy(fourk2, [Fn[n] for n in fourk2], "o", mfc="none", mew=1.4,
                  color="0.55", ms=6,
-                 label=r"$n = 4k+2$: $0/0$ at the root clock, no limit (V209)")
+                 label=r"$n = 4k+2$: $0/0$ at the root clock, no limit")
     axA.semilogy(odd, [1e-16] * len(odd), "x", color=C_ROOT, ms=7,
                  label=r"odd lengths: identically zero (selection rule)")
     axA.axhline(loop, color=C_ZERO, ls="--", lw=1.8,
@@ -199,7 +214,7 @@ def fig14_loop_selection():
     axB.plot([nstar], [Fev[nstar]], "*", ms=18, color=C_ZERO, zorder=6)
     axB.annotate(f"first crossing\n$n^* = {nstar}$: float64 $F = {Fev[nstar]:.6f}$\n"
                  f"certified $F = {cert['F_208']:.6f}$, deficit"
-                 f" $100(1-F/16\pi) = {(1.0 - cert['deficit']) * 100:.3f}\\%$ (V209)",
+                 f" $100(1-F/16\pi) = {(1.0 - cert['deficit']) * 100:.3f}\\%$",
                  xy=(nstar, Fev[nstar]), xytext=(40, 0.06), fontsize=10,
                  color=C_ZERO, ha="left",
                  bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.92),
@@ -225,7 +240,7 @@ def fig14_loop_selection():
              f"On $n = 4k+2$ both Cartan norms vanish identically at the root "
              f"clock (exact integer arithmetic) and the ratio has no limit "
              f"there: it diverges with poles\n"
-             f"accumulating at the closure angle (V209). The open markers are "
+             f"accumulating at the closure angle. The open markers are "
              f"floor ratios - the \u201c$33\\times$ branch separation\u201d "
              f"is the two classes' distance in a degenerate limit.",
              fontsize=10.5, color="0.25", va="bottom")
@@ -367,7 +382,7 @@ def fig24_family_forcing():
             for v in vals]
     axB.bar([str(n) for n in ns], vals, color=cols, width=0.6)
     axB.axhline(obs, color=C_ZERO, ls="--", lw=1.8,
-                label=r"data-preferred meeting scale $2\times10^{16}$ GeV (F5)")
+                label=r"data-preferred meeting scale $2\times10^{16}$ GeV (O4)")
     for n, v in zip(ns, vals):
         axB.text(str(n), v * 1.15, f"{v:.1e}", ha="center", fontsize=11)
     axB.set_yscale("log")

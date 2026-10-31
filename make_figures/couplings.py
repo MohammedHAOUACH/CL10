@@ -375,7 +375,7 @@ def fig22_composite():
                   "over the full scan", fontsize=11.5)
     fig.suptitle("The gauged layer's composite content "
                  "($16 \\otimes 45 = 720$ formal tensor-product states; the "
-                 "gauge-invariant kernel is empty, V261/V264) does not deliver "
+                 "gauge-invariant kernel is empty and does not deliver "
                  "the meeting", fontsize=12.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig22_composite_content.png")
@@ -410,7 +410,7 @@ def fig13_closed_loops():
     axA.legend(fontsize=9.5, loc="center right")
     axA.set_title("(a)  the clock filter splits the even lengths: the $4k$ class\n"
                   rf"     carries the ladder ($F_4 = {Fn[4]:.2f}$, $F_{{12}} ="
-                  rf" {Fn[12]:.2f}$); the $4k + 2$ points are floor ratios (V209)",
+                  rf" {Fn[12]:.2f}$); the $4k + 2$ points are floor ratios",
                   fontsize=11.5)
 
     labels = [r"$G$", r"$MG$" + "\n(root clock)",
