@@ -1,0 +1,163 @@
+{
+ "id": "V328_algebraicity_lambda_cc",
+ "tier": 3,
+ "property": "is the trace-phase breaking eps_crit a number of the booked algebraic/rational-loop/dictionary closed class - could a rule supply the 1.6e-120 (tier 3, O1)",
+ "residual": true,
+ "programme": "theory-hunt V328",
+ "branch": "LAMBDA-CC-NO-RELATION-DECLARED",
+ "data": {
+  "t0": {
+   "eps_crit": 1.5791367041742974e-120,
+   "bare_loop_exponent": 70.41891672576838,
+   "paper_contact_70_42_abs_diff": 0.0010832742316182475,
+   "paper_rounded_1p6e120_rel_diff": 0.01303955989106409
+  },
+  "findpoly": {
+   "rescaled_at": "eps_crit / LOOP^70",
+   "x": 0.19378029046345088,
+   "degrees": "1..6",
+   "height_cap": 20,
+   "substitution_noise_floor": 1e-14,
+   "per_degree": {
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null
+   }
+  },
+  "rational_census": {
+   "den_max": 5000,
+   "band_rel_on_ratio": 1e-06,
+   "symmetric_height_bound": 5000,
+   "found_gate_residual_rel": 1e-12,
+   "amendment_unbounded_p_hit_count_mechanism": 434725,
+   "ks": "1..200",
+   "n_hits": 5,
+   "hits_first5": [
+    {
+     "k": 70,
+     "p": 835,
+     "q": 4309,
+     "err_rel": 8.72327654206959e-07
+    },
+    {
+     "k": 70,
+     "p": 916,
+     "q": 4727,
+     "err_rel": 6.189733416093048e-07
+    },
+    {
+     "k": 71,
+     "p": 1276,
+     "q": 131,
+     "err_rel": 1.822932903582697e-07
+    },
+    {
+     "k": 71,
+     "p": 2552,
+     "q": 262,
+     "err_rel": 1.822932903582697e-07
+    },
+    {
+     "k": 71,
+     "p": 3828,
+     "q": 393,
+     "err_rel": 1.822932903582697e-07
+    }
+   ],
+   "per_k_closest": [
+    {
+     "k": 69,
+     "x_k": 0.0038551363876302563,
+     "count_inside": 0,
+     "closest_p": 18,
+     "closest_q": 4669,
+     "closest_rel_err": 2.0456315915219506e-05
+    },
+    {
+     "k": 70,
+     "x_k": 0.19378029046345885,
+     "count_inside": 2,
+     "closest_p": 916,
+     "closest_q": 4727,
+     "closest_rel_err": 6.189733416093048e-07
+    },
+    {
+     "k": 71,
+     "x_k": 9.740459790887641,
+     "count_inside": 3,
+     "closest_p": 1276,
+     "closest_q": 131,
+     "closest_rel_err": 1.822932903582697e-07
+    },
+    {
+     "k": 72,
+     "x_k": 489.6089107462411,
+     "count_inside": 0,
+     "closest_p": 2448,
+     "closest_q": 5,
+     "closest_rel_err": 1.8199722361094186e-05
+    }
+   ],
+   "verified_best_contact": {
+    "k": 71,
+    "p": 1276,
+    "q": 131,
+    "err_rel": 1.822932903582697e-07,
+    "residual_abs_50dp": 2.8786602220497815e-127,
+    "residual_rel": 1.822932881263742e-07,
+    "diophantine_floor_1_over_q2": 5.8271662490530857e-05,
+    "cfg_loop_rel_dev_vs_exact": 5.171762859966515e-17
+   },
+   "verified_rule": null
+  },
+  "dictionary_class": {
+   "members": [
+    1.0,
+    2.0,
+    4.0,
+    0.5,
+    0.25,
+    3.141592653589793,
+    6.283185307179586,
+    0.3183098861837907,
+    0.15915494309189535
+   ],
+   "ks": "1..200",
+   "band_rel": 0.05,
+   "contacts": [],
+   "closest": {
+    "c": 0.15915494309189535,
+    "k": 70,
+    "abs_log_distance": 0.19684678131710598,
+    "value": 1.2969709751497073e-120
+   },
+   "closest_rel_to_eps_crit": 0.21755747386101754,
+   "closest_band_multiples": 4.351149477220351
+  },
+  "status": "LAMBDA-CC-NO-RELATION-DECLARED",
+  "relation": null
+ },
+ "checks": [
+  {
+   "name": "T0 the booked trace-phase leaf 1.5791367041742974e-120: bare loop exponent 70.41892 reproduces the paper contact 70.42 (|d| 1.083e-03 < 0.01); |eps/1.6e-120 - 1| = 0.01304 < 0.02 (the paper rounds the leaf to two significant figures)",
+   "pass": true
+  },
+  {
+   "name": "class (i) findpoly of eps_crit/LOOP^70 = {:.9g}, degrees 1..6, height 20: no nontrivial relation",
+   "pass": true
+  },
+  {
+   "name": "class (ii, amended) rationals max(p,q) <= 5000 inside relative 1e-06 of eps_crit/LOOP^k over k = 1..200: 5 contacts at k with a representable bounded row (434725 unbounded-band hits are the booked mechanism); best verified contact {'k': 71, 'p': 1276, 'q': 131, 'err_rel': 1.822932903582697e-07, 'residual_abs_50dp': 2.8786602220497815e-127, 'residual_rel': 1.822932881263742e-07, 'diophantine_floor_1_over_q2': 5.8271662490530857e-05, 'cfg_loop_rel_dev_vs_exact': 5.171762859966515e-17} under the 1e-12 gate",
+   "pass": true
+  },
+  {
+   "name": "class (iii) 9 dictionary members x LOOP^k, k = 1..200, 5% band: 0 contacts; closest c = 0.15915494309189535 at k = 70: |dlog| = 0.1968 rel 2.176e-01 = 4.4 band-multiples",
+   "pass": true
+  }
+ ],
+ "status": "LAMBDA-CC-NO-RELATION-DECLARED",
+ "pass": true
+}
