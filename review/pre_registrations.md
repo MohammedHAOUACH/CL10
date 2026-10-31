@@ -5152,3 +5152,51 @@ definitions, completing the wording:
 No target change, no branch-word change, no class narrowing: the
 census still books the same 13 contacts; only the FOUND gate gains the
 number the programme's verification rule already carried.
+
+### V327-V332 run booking (runs after the pre-registrations; verdicts as booked)
+All six land inside the pre-registered classes, every T0 and gate check green.
+Fold after the six: **245/245 PASS, hard tier MET (105 tiered of 245)**,
+subset `--jobs 3` on GPU 1 (cupy), walls V327 1.26 s, V328 1.35 s, V329 5.25 s,
+V330 1.23 s, V331 0.51 s, V332 1.41 s.
+Branch words exactly as booked: LAMBDA-B-NO-RELATION-DECLARED,
+LAMBDA-CC-NO-RELATION-DECLARED, R-INTERIOR-EMPTY-DECLARED,
+GEN3-NOT-FORCED-DECLARED, ASYM-NO-CHANNEL-DECLARED, FLAVOUR-NO-CLASS-DECLARED.
+Gate hygiene, booked: (1) V331's 13-row V199 re-reproduction must run the
+original V147 bond strengths - the rounded artifact leaves alone miss the
+1e-6 relative gate by 2.4e-4 (the first pass used the leaves and fired
+MACHINERY-DRIFT; diagnosis: reproduction of the artifact leaves is exact,
+0.0, at the original strengths; the drift is the artifacts' own rounding);
+thresholds Kappa_split/Kappa_kill re-derive bit-for-bit (0.0 rel). (2) V332's
+first launch crashed on E._backend() - the engine exposes the string
+E._BACKEND (the _backend() helper lives in baryogenesis, not cl10.engine);
+fixed before any measurement, no class or target change. (3) V327's class-(ii)
+first run produced the booked 342,334-hit float-identity diagnostic and the
+two amendments (symmetric height bound; FOUND residual gate 1e-12) were
+pre-registered above before the verdict run; V328's rescaled findpoly runs at
+x = eps/LOOP^70 = 0.19378 (the k = 70 rung), closest rational 1276/131 at
+k = 71 with 50-dp-verified residual 1.823e-07 - no contact under the 1e-12
+gate, the 5 in-band hits are floor-level. (4) T0 bit-identity holds where
+booked: V327 lambda leaf equality 0.0, V329 singularity 1.9999999999999791
+and r_atm 1.9191154379808832 (diffs 0.0), V332 mixing (1/3, 1/2, 0) and
+rank 1 (diffs 0.0), V330 V91 [12]/8 + V114 12/6 + V239 labels, V328 70.42
+contact |d| 1.1e-3 and |eps/1.6e-120 - 1| = 0.01304.
+Physics as booked: closest contacts and band multiples as measured -
+V327 2*LOOP^8 = 4.90762254472327e-14 at 0.2081 rel (4.16 band), best rational
+3215/1942 residual 7.215e-08; V328 (1/2pi)*LOOP^70 = 1.2969709751497073e-120
+at 0.2176 rel (4.35 band), bare exponent 70.41891672576838 non-integer;
+V329 four functionals x 9991 points, 0 interior minima, one F1 maximum at
+r = 1.1861, 749 F2 closure events none - to +; V330 histogram {12: 2, 8: 1,
+6: 1, 2: 6, 1: 21}, monomial only at pi/4 (orbits 1x4 + 2x6) and pi/2
+(all singletons); V331 closest 1.5712167300584917e-08 at kappa 39.7189
+(lam_2_coef3_G2_over_16pi), 25.67x observed, 493 band multiples; V332 all 144
+members at (1/3, 1/2, 0), best residuals [0.02633, 0.079, 0.022 | 0.2833,
+0.449, 0.02].
+Meta-verdict: six of the ten open problems are now closed DECIDED-NEVER-
+SUPPLIED by their booked closed classes - none acquires a rule; the gaps stay
+named inputs, with the closest contact and its band multiple on record.
+Documentation: paper Table 7 gap cells carry the closure sentence and the
+closest contact for each O row (house style: no experiment IDs in the
+consolidated text; branch words parenthesized); counts updated to 245
+experiments / 242 publication in README.md, experiments/README.md and
+doc/reference.md (+ dated programme note); number_audit PASS (908 decimal
+tokens, 0 unexplained); PDFs rebuilt: consolidated 89 pp.

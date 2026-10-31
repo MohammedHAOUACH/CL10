@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (239 of them under `experiments/<category>/`: the 236 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (245 of them under `experiments/<category>/`: the 242 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -169,9 +169,9 @@ experiment that writes no tier is not folded into it.
 
 **The result (236/236 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
-hard-tier verdict is positive. The suite stands at 239 experiments:
+hard-tier verdict is positive. The suite stands at 245 experiments:
 the pillar-surgery programme (V308-V314) and the theory-hunt programme
-(V315-V326) booked their verdicts inside the pre-registered classes;
+(V315-V332) booked their verdicts inside the pre-registered classes;
 **239/239 PASS, hard tier MET, number_audit green** as booked at the
 2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
 (provenance table refreshed to the final twelve-fitted-coefficient audit,
@@ -205,6 +205,41 @@ Two cautions, stated in the paper (Appendix B): most of these checks are
 **internal consistency** (they would pass for any theory built on this root),
 and a pass is only as good as its criterion.  (For the *meaning* of each pass —
 which residuals are reduced and which are named — see `doc/final_publication.md` Sections 17–18.)
+
+**The open-problem closure programme V327–V332 (2026-11-01).** Six tier-3
+bounded censuses, pre-registered before any run (`review/pre_registrations.md`
+— question, closed class, bands, T0 anchors and branch words fixed), close the
+six still-open computationally-attackable problems of Table 7:
+**V327_algebraicity_lambda_B** — LAMBDA-B-NO-RELATION-DECLARED (O7: no
+degree-6/height-20 relation, best bounded rational contact 3215/1942 at
+k = 8 with 50-dp-verified residual 7.215e-08 = the continued-fraction floor,
+dictionary closest 2·LOOP⁸ = 4.90762254472327e-14 at 0.2081 relative,
+4.16 band-multiples; two amendment bookings — the symmetric height bound after
+a 342,334-hit float-identity tautology diagnostic, and the 1e-12 FOUND-residual
+gate);
+**V328_algebraicity_lambda_cc** — LAMBDA-CC-NO-RELATION-DECLARED (O1: no
+relation at the rescaled ε/LOOP⁷⁰ = 0.20931, closest dictionary product
+(2/π)·LOOP⁷⁰ at 0.2176 relative — the bare exponent 70.41892 is non-integer);
+**V329_junction_interior_minimality** — R-INTERIOR-EMPTY-DECLARED (O2: the
+four V317-shape functionals on the 9991-point r-grid select zero interior
+minima — the boundary r = 2 singularity is the only stationary structure);
+**V330_generation_forcing_census** — GEN3-NOT-FORCED-DECLARED (O3: no size-3
+orbit in any row of the node/stabilizer/16-level census, histogram
+{12: 2, 8: 1, 6: 1, 2: 6, 1: 21});
+**V331_channel_asymmetry_closure** — ASYM-NO-CHANNEL-DECLARED (O5: closest of
+843 (κ, channel) rows Y_B = 1.571e-08 at κ = 39.72 = 25.7× the observed
+6.12e-10, 493 band-multiples);
+**V332_flavour_class_closure** — FLAVOUR-NO-CLASS-DECLARED (O6: all 144
+closed-class members carry (1/3, 1/2, 0), best six residuals
+[0.026333, 0.079, 0.022 | 0.283333, 0.449, 0.02], all outside 1e-3).
+All six close as DECLARED (bounded no-gos with the closest contact and its
+band multiple booked), none as FOUND: the meta-verdict is that six of the
+open problems are now closed *decided-never-supplied* by their booked closed
+classes, and the gaps stay named inputs — none acquires a rule. Gate: 6/6
+green on the subset, fold **245/245 PASS, hard tier MET (105 tiered)**,
+T0 anchor diffs 0.0 where bit-for-bit was booked (V327 λ leaf equality, V329
+singularity and r_atm, V332 mixing); number_audit PASS after the Table 7
+gap-cell updates.
 
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification
