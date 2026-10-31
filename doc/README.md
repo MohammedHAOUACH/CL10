@@ -10,7 +10,7 @@ Back to the [CL10 README](../README.md).
 
 | file | what it is |
 |---|---|
-| `final_publication.md` | **the consolidated paper**: the whole theory in one manuscript (1222 lines, 87 pp compiled, 74 pp in the journal layout, 25 figures, 8 tables, 69 references). Every claim, number and provenance label lives here. |
+| `final_publication.md` | **the consolidated paper**: the whole theory in one manuscript (1221 lines, 87 pp compiled, 74 pp in the journal layout, 25 figures, 8 tables, 69 references). Every claim, number and provenance label lives here. |
 | `reference.md` | the technical reference: the exact constructions, the numerical protocol, the reproducibility statement, the reading map of the code. |
 | `api.md` | the API reference of the 44 `cl10` modules — signatures, returned keys, provenance vocabulary, the runner contract. Regenerated from the live modules, never from memory. |
 | `figures/` | the 25 PNGs, every one computed by [`make_figures`](../make_figures/README.md). |
@@ -44,7 +44,9 @@ than its figures is a stale artifact, not a preview.
 
 ## Citation
 
-The compiled PDF is attached to the
-[v1.2 release](https://github.com/MohammedHAOUACH/CL10/releases)
-and archived on [Zenodo](https://zenodo.org/records/23321228); cite
-[10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).
+The compiled PDFs are the assets of the
+[v1.2 GitHub release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.2).
+The archived [Zenodo snapshot](https://zenodo.org/records/23321228) is from
+the v1.0.2 era (four then-current paper PDFs + source archive); the concept DOI
+[10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106) always
+resolves to the latest archived version.

@@ -4,7 +4,7 @@
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0006--2907--0530-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0006-2907-0530)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23321106.svg)](https://doi.org/10.5281/zenodo.23321106) [![Release](https://img.shields.io/github/v/release/MohammedHAOUACH/CL10?label=release)](https://github.com/MohammedHAOUACH/CL10/releases) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 ## Publication & citation
 
@@ -12,8 +12,8 @@
 |---|---|
 | **Concept DOI** — always resolves to the latest Zenodo version | [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106) |
 | **Archive DOI** — the archived Zenodo snapshot (Preprint, CC BY 4.0) | [10.5281/zenodo.23321228](https://doi.org/10.5281/zenodo.23321228) |
-| **Zenodo record** — the four paper PDFs + the source archive | [zenodo.org/records/23321228](https://zenodo.org/records/23321228) |
-| **GitHub release** — the four PDFs as assets + source archives | [v1.0](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) |
+| **Zenodo record** — the archived v1.0.2 snapshot: four paper PDFs (consolidated + the three then-companion papers) + the source archive | [zenodo.org/records/23321228](https://zenodo.org/records/23321228) |
+| **GitHub release** — the consolidated PDF + the journal PDF as assets, + source archives | [v1.2](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.2) |
 
 ```bibtex
 @misc{haouach2026cl10,
@@ -41,7 +41,7 @@ $B$ at rung $10$ (the dark matter), with an exact $B$-parity — on eight sub-si
 $\mathrm{Spin}(10)$ plane rotations and swap-rotations, the singlet pairs carrying their
 rung masses as on-site phases.
 
-What the root gives **with no added field** (demonstrated, Papers I–II): the
+What the root gives **with no added field** (demonstrated, §§3–7 of the paper): the
 $(1{+}3)$ Minkowski subalgebra (time $=h_1$, space $=i\,h_{2,3,4}$ — the light
 cone is a GUT sub-algebra); the 16-component Weyl module = one SM generation
 with all eight anomalies cancelling; the **45** adjoint containing the twelve
@@ -64,7 +64,7 @@ Every headline number carries a provenance class — *algebraic*, *conventional*
 
 The work is published as **one consolidated paper**: [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) — the full construction, its measured consequences, the parameter audit and the open problems, in a single unified text — plus a REVTeX two-column journal build, [`publication/publication.pdf`](publication/publication.pdf).
 
-The compiled PDF (`review/tools/build_pdfs.sh`) is attached to the [GitHub release](https://github.com/MohammedHAOUACH/CL10/releases) and archived on [Zenodo](https://zenodo.org/records/23321228).
+The compiled PDF (`review/tools/build_pdfs.sh`) is an asset of the [v1.2 GitHub release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.2); the [Zenodo archive](https://zenodo.org/records/23321228) holds the v1.0.2-era snapshot.
 
 ## Selected results
 
@@ -76,8 +76,8 @@ placed in the paper and validated by the named experiment
 | | |
 |---|---|
 | <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
-| <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), master §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (Paper III). |
-| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (Paper III). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_cone_isotropy)) — reported as O9/F1, not hidden. |
+| <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (§12). |
+| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (§13.4). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_cone_isotropy)) — reported as O9/F1, not hidden. |
 
 ## The layout
 
@@ -93,16 +93,16 @@ CL10/
 │   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = hydrogen product)
 ├── review/                   # the manuscript pipeline + the provenance guard
 │   ├── README.md            # what each tool does
+│   ├── pre_registrations.md  # the booking record: every experiment's question, object class and branch words, written and committed BEFORE the run
 │   ├── tools/
 │       ├── fit_tables.py     # per-table column widths from content (sqrt(L) balance + longest-word floor)
 │       ├── fix_tables.py     # post-pandoc: atomic table cells (no mid-row page splits), repeated headers
 │       ├── build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
-│       ├── number_audit.py   # every decimal the manuscripts print, traced to an artefact
-│       └── headers/          # per-paper head/foot blocks (the title block, the citation and availability footers)
-├── publication/              # the REVTeX 4.2 journal build of the master (alt pipeline)
+│       └── number_audit.py   # every decimal the manuscripts print, traced to an artefact
+├── publication/              # the REVTeX 4.2 journal build of the consolidated paper (alt pipeline)
 │   ├── README.md             # the pipeline, the files, the prerequisites, the checks after a build
 │   ├── build.sh              # preprocess -> pandoc -> pdflatex x3 -> publication.pdf
-│   ├── preprocess.py / filter.lua / template.tex / fetch_dois.py
+│   ├── preprocess.py / filter.lua / template.tex / fetch_dois.py / doi.json
 │   └── publication.pdf
 ├── make_figures/             # the figure generators: `python -m make_figures` regenerates all 25 (see make_figures/README.md)
 │   ├── __init__.py           # the registry in paper order + GPU pinning + the V62 subprocess (fig 2)
@@ -122,6 +122,10 @@ CL10/
 │   ├── sm_qca.py             # the full SM QCA (the 45 plane rotations at g_10)
 │   ├── cell.py               # THE cell, one definition: the 32-D Cl(10,0) Dirac module S plus the singlet sectors A (rung 3, seesaw) and B (rung 10, dark matter), B-parity exact, rungs as on-site phases loop^n = m/M_P (Axiom 1; self-test + V196)
 │   ├── supercell.py          # the automaton: the cell is the 2x2x2 block (8 sub-sites x the 36-level cell module = C^288; the 32-level spinor block carries the geometry), the one time-independent six-stage step (internal layer + staggered bond stages), the exact Bloch matrix M(q) on the block zone, the causal radius (V36)
+│   ├── altcell.py            # the alt-cell library: the generalized signatures and cells the icosahedral shift-module censuses run, without touching clifford/sm_qca/supercell
+│   ├── starcell.py           # the star module: the committed step with the icosahedral star substituted for the cubic shift module (V214-V217)
+│   ├── spincell.py           # the icosahedral star cell with a Clifford bond layer: the non-factorizing step candidate (V225-V228)
+│   ├── continuum.py          # does the root have a rotation-invariant infrared? the three algebraic facts that decide it (V212, V213)
 │   ├── smatrix.py            # the S-matrix of the QCA (V41): the first processes
 │   ├── qca_spectrum.py       # the 32-level QCA spectrum: the one object + its invariants (V43)
 │   ├── unification.py        # the 5/3, the coupling readings from the root (V38, conventions), the running
@@ -149,7 +153,7 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 239 experiments in 16 categories (236 publication + 3 alt_step exploration; the six O8 dead-end mechanism experiments retired 2026-10-27 and the alt_gauged/alt_nonpert bond-current chains with the superseded V94 retired 2026-10-28, git history)
+├── experiments/              # the verification program: 239 experiments in 15 categories (236 publication + 3 alt_step exploration; the six O8 dead-end mechanism experiments retired 2026-10-27 and the alt_gauged/alt_nonpert bond-current chains with the superseded V94 retired 2026-10-28, git history)
 │   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
 │   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
 │   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228)
@@ -272,7 +276,7 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 The paper states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
 **ten falsifiers** (F1–F10). `run_validation.py` gates the **239** experiments
-of `experiments/` (16 categories — the 236 of the publication programme and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
+of `experiments/` (15 categories — the 236 of the publication programme and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
@@ -287,7 +291,7 @@ nature. The comparisons against data ($v/M_P$, $m_\nu$, $\Delta B$,
 $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$) are the phenomenological content,
 and each carries the residual named in the paper.
 
-**The parameter audit** (Paper III Section 5) classifies every headline number:
+**The parameter audit** (Section 15 of the paper) classifies every headline number:
 **7 algebraic** invariants; **free parameters 1 → 0** (the closure axiom
 quantizes the 't Hooft angle to $g \in \{\pi/2, \pi/4\}$ — the physical root
 $\theta = 1.731$ is one of two discrete roots fixed by the closure of the

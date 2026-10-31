@@ -1,8 +1,10 @@
 # review — the manuscript pipeline
 
 This directory holds the **tooling** that turns the manuscript into its PDFs,
-plus the provenance guard the paper claims. Nothing here edits the physics:
-the manuscript is `doc/final_publication.md`. Back to the
+plus the provenance guard the paper claims, plus the booking record:
+`pre_registrations.md` carries every experiment's question, object class and
+branch words, committed BEFORE the run that tests them. Nothing here edits the
+physics: the manuscript is `doc/final_publication.md`. Back to the
 [CL10 README](../README.md).
 
 ## tools/ — the manuscript pipeline
@@ -16,7 +18,7 @@ the manuscript is `doc/final_publication.md`. Back to the
 
 ```bash
 ./review/tools/build_pdfs.sh           # -> doc/final_publication.pdf
-bash publication/build.sh              # the REVTeX build of the master (see publication/README.md)
+bash publication/build.sh              # the REVTeX build of the paper (see publication/README.md)
 python3 review/tools/number_audit.py   # every printed decimal traced to an artefact
 ```
 

@@ -4,17 +4,18 @@ One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 **only** source of the paper; nothing in this directory edits it.
 
 The consolidated paper builds here; the standalone compiled PDF builds through
-`review/tools/build_pdfs.sh`. Both compiled PDFs are attached to the
-[v1.2 release](https://github.com/MohammedHAOUACH/CL10/releases)
-and archived on [Zenodo](https://zenodo.org/records/23321228)
-([10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106)). Back to the
+`review/tools/build_pdfs.sh`. Both compiled PDFs are the assets of the
+[v1.2 GitHub release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.2);
+the archived [Zenodo snapshot](https://zenodo.org/records/23321228) (v1.0.2
+era, cite [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106))
+carries that era's four paper PDFs + the source archive. Back to the
 [CL10 README](../README.md).
 
 ```bash
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 74 pp., 25 figures, 18 table divs, 69 references, REVTeX 4.2
+Current artifact: 74 pp., 25 figures, 17 table divs, 69 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.

@@ -11,7 +11,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**85 of the 233 publication experiments still write the older
+**85 of the 236 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
