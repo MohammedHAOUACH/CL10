@@ -5088,3 +5088,40 @@ member booked) / FLAVOUR-NO-CLASS-DECLARED (the best member and its six
 per-angle residuals booked; the CKM-side identity stays booked).
 Expectation only: the democratic content pins sin^2_12 = 1/3, 0.0263 off
 the PMNS read and 0.283 off the CKM read, so no member contacts.
+
+### Amendment booking (2026-11-01, new pre-registration): the V327/V328
+### rational-class height bound - booked after the V327 first-run
+### diagnostic and BEFORE any verdict run
+
+The V327 class-(ii) census as first implemented (band 1e-6 ABSOLUTE on
+the ratio, numerator p only implicitly bounded) returned 342,334 hits
+for lambda_B/LOOP^k over k = 1..90 and a "best" hit p = 38264593633491,
+q = 1433 at k = 14 with err_abs EXACTLY 0.0 - float(p/q) == float(x_k),
+an identity of the float with itself, not a relation. The mechanism: at
+x_k = lambda_B/LOOP^k >~ 1e10 the absolute band sits at or below
+ulp(x_k), so every q contributes p = round(x_k q) and the "rule"
+lambda_B = (p/q) LOOP^k restates the target float at the precision the
+target was already read at. A rational rule with a 10^13-scale numerator
+supplies nothing; it is the tautology the O7 gap cell must never print.
+
+Two corrections, booked here as the class actually to be run:
+1. Band relative, as this programme's own words already said ("band
+   clock_band_abs relative 1e-6 ON THE RATIO"): inside iff
+   |p/q divided by x_k - 1| < 1e-6.
+2. SYMMETRIC height bound: the rational p/q with max(|p|, q) <= 5000
+   (the booked DEN_MAX range extended from the denominator to the
+   numerator). V309's census never needed this because its x was
+   O(1/5) and the numerator was implicitly bounded at ~1000; scaling
+   the census to ratios x_k = lambda/LOOP^k over 90 loop powers removes
+   that implicit bound and the test degenerates. With the symmetric
+   bound the census probes only the loop powers where a small rational
+   can live at all: for V327 effectively k <= 10 (x_k <= 5000), for
+   V328 (kappa exponents to 200) effectively k in {69,...,72}. The
+   50-dp re-verification (mpmath LOOP = 1/(16 pi) exact, the target the
+   artifact leaf) and the booked residual (absolute and relative to the
+   leaf) are unchanged.
+This is a NEW pre-registration for a class narrowing plus a band-word
+correction, booked with the first-run diagnostic verbatim, before any
+verdict artifact is emitted; no target change, no branch-word change.
+Class (i) (integer polynomials, height <= 20) and class (iii)
+(dictionary x LOOP^k at the 5% band) are unchanged by this amendment.
