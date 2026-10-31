@@ -4805,3 +4805,286 @@ V186 3364 s, V218 1446 s, V220 776 s, V219 724 s) all produce paper-quoted numbe
 (the 880-point entangling-bond search, the rigidity wall 8.0e-3, the closed-word
 census, the nodal-line charges/anisotropy). Nothing in the suite computes an
 uncited number.
+
+---
+
+# The open-problem closure programme: pre-registrations V327-V332 (branch theory-hunt, 2026-11-01)
+
+Six bounded censuses closing the six still-open computationally-attackable
+problems of Table 7: O7 (lambda_B), O1 (trace phase), O2 (junction
+amplitude r), O3 (family number 3), O5 (eta_B), O6 (masses/mixing).
+House discipline as V309-V326: the question, the closed class, the bands,
+the T0 anchors and the branch words are booked here BEFORE any run; every
+experiment PASSES whatever branch lands (a census does not fail - the
+branch is the verdict); each closes its problem as FOUND (a supplied rule
+inside the class, with its verified residual booked) or as DECLARED (a
+bounded no-go: the closest contact and its band multiple booked). All six
+tier 3 (precedents: V309 tier 3, V317 tier 3 - cheap bounded censuses),
+so all six join the hard tier (tiers 0-3). Shared constants: LOOP =
+CFG.physics.loop = 1/(16 pi); PSLQ class = CFG.pillar_surgery.
+pslq_max_degree = 6, pslq_max_coeff = 20; rational census DEN_MAX = 5000
+(V309's booked range); dictionary-class band =
+CFG.pillar_surgery.ledger_scale_rel_tol = 0.05; asymmetry band = the same
+0.05; flavour band = 1e-3 absolute on each sin^2.
+
+## V327_algebraicity_lambda_B (tier 3; O7; the portal coupling)
+
+**Question.** Is the portal strength lambda_B = 4.0623088619285984e-14
+(the V195 booked production leaf, data.production.lambda_fi) an algebraic
+or dictionary number of the booked closed class - i.e. is there a supplied
+rule that generates it?
+
+**Closed class (fixed here, verbatim).**
+(i) integer polynomials: mpmath.findpoly over degrees 1..6, coefficient
+height <= 20, at x = lambda_B with mpmath at 50 decimal places (V309's
+PSLQ block convention); a candidate is booked FOUND only if its
+substitution residual at 50 dp is < 1e-14 AND the relation is nontrivial
+at x: candidates with c_0 = 0 are rejected (a polynomial divisible by x
+vanishes near x ~ 4e-14 by construction, not by rule - booked guard,
+V309 never needed it because its x was O(1/5)).
+(ii) rational census: p/q, q <= 5000, against the 90 ratios
+x_k = lambda_B / LOOP^k for integer k = 1..90, band 1e-6
+(CFG.pillar_surgery.clock_band_abs) on the ratio; a hit is booked FOUND
+only if the rule lambda_B = (p/q) LOOP^k survives re-verification at 50
+dp (mpmath LOOP = 1/(16 pi) exactly, lambda_B the artifact leaf read as
+given): residual_abs = |lambda_B - (p/q) LOOP^k| booked with its relative
+size against lambda_B.
+(iii) the V326 closed dictionary class: every member c of
+V326_phase_dictionary_bridge data.dictionary_class.members (nine members,
+parsed from the booked 'c = ...' strings) times LOOP^k, k = 1..90, tested
+against lambda_B at the 5% band (ledger_scale_rel_tol, relative on
+c*LOOP^k vs lambda_B).
+The full per-k closest tables are booked in data in every branch.
+
+**T0 anchors (booked artifact leaves).** V195_cell_redefinition
+data.production.lambda_fi = 4.0623088619285984e-14; V193_freeze_in
+data.variants[0].lambda_fi_solution = 4.0623088619285984e-14 (the two
+sibling leaves equal bit-for-bit: abs diff booked, gate == 0.0). No
+re-derivation of the freeze-in machinery is claimed here - the anchor is
+the sibling equality (the V193 artifact stores the variants as a list;
+the read names the booked path).
+
+**Branch.** LAMBDA-B-ALGEBRAIC-FOUND (any class hits: the poly/c/(p/q)
+plus k plus the verified residual booked) / LAMBDA-B-NO-RELATION-DECLARED
+(all three classes miss: the closest contact of each class and its
+band multiple booked). Expectation only, never a gate: LOOP^7 ~ 1.2e-12
+and LOOP^8 ~ 2.5e-14 bracket 4.06e-14 from outside the 5% band.
+
+## V328_algebraicity_lambda_cc (tier 3; O1; the trace phase)
+
+**Question.** Is the trace-phase breaking eps_crit = 1.5791367041742974e-120
+(the V78_lambda_protection booked leaf, data.eps_crit) an algebraic or
+dictionary number of the booked closed class?
+
+**Closed class (fixed here, verbatim).**
+(i) findpoly degrees 1..6, height <= 20, 50 dp, at x = eps_crit/LOOP^70
+(rescaled so x is O(0.1); float-safe at 1e-120, no subnormal issue);
+same substitution-noise rule as V309 (residual < 1e-14 at 50 dp; the
+c_0 = 0 guard of V327 applies verbatim).
+(ii) rational census p/q, q <= 5000, against eps_crit/LOOP^k for integer
+k = 1..200, band 1e-6 on the ratio; FOUND only after the same 50-dp
+re-verification (residual_abs booked with its relative size against
+eps_crit).
+(iii) the V326 dictionary class members c times LOOP^k, k = 1..200,
+against eps_crit at the 5% band.
+Full per-k closest tables booked in data in every branch.
+
+**T0 anchors (booked artifact leaves).** V78 data.eps_crit =
+1.5791367041742974e-120. (a) the bare loop exponent re-derived in-experiment:
+log(eps_crit)/log(LOOP) = 70.41892 (paper contact "bare loop exponent
+70.42"), booked abs diff vs 70.42 gate < 0.01; (b) the paper's rounded
+leaf: |eps_crit/1.6e-120 - 1| = 0.01304 booked with gate < 0.02 (the
+paper rounds the artifact leaf to two significant figures; the leaf is
+what the audit re-runs).
+
+**Branch.** LAMBDA-CC-ALGEBRAIC-FOUND (any class hits, rule and verified
+residual booked) / LAMBDA-CC-NO-RELATION-DECLARED (all miss: closest k
+and band multiple booked). Expectation only: the exponent 70.42 is not
+an integer, so no integer-k dictionary product can sit in the 5% band.
+
+## V329_junction_interior_minimality (tier 3; O2; the junction amplitude)
+
+**Question.** V303/V307 booked the junction amplitude r = kappa/w0 as
+driven by energy to the boundary r* = 2 (the tree-level r-flat trace
+theorem, one-loop monotone to the singularity). Is that booked edge the
+whole stationary structure: over the r-analogue of V317's functional
+census, does ANY booked selection functional have an interior minimum of
+the energy object on r in [1.0, 1.999], or is the only stationary
+structure the boundary r = 2 singularity?
+
+**Closed class (fixed here, verbatim).** The object is V303/V307's
+canonical junction data, their bodies verbatim: NODES = cl10.supercell.
+M_POINTS (12), the pi/2-support edge list, the adjacency A_S of every
+non-empty subset S of the 12 nodes (the 4095 split sets of V303's sweep),
+the canonical levels |1 + (r/2) mu_k(A_S)| and the one-loop dE(A, r) =
+sum_k log lv_k^2 with V307's massless convention (any lv < 1e-14 gives
+-inf). The four selection functionals of V317 take no r argument (their
+sites are fixed objects; booked honestly here - V317 is imported by path
+and its weight constant G = 1/(4 ln 45) used verbatim as F2's weight,
+but its functional bodies are evaluated at fixed sites, not on r), so the
+census re-instantiates the four functional SHAPES on the r-dependent
+junction object:
+- F1(r) = dE(A12, r): the one-loop energy of the full 12-set (V307's
+  functional; the T*/membership analogue).
+- F2(r) = G * (E2(r) - E1(r)), E1 <= E2 the two lowest of {dE(A_S, r)}
+  over the 4095 split sets (the weighted-gap analogue; grid points where
+  E1 or E2 is -inf excluded, count booked).
+- F3(r) = sum of the three smallest of the twelve levels(A12, r) (the
+  fold/channel-energy analogue; the minimizing triple is the three
+  lowest channels).
+- F4(r) = min over the 12 nodes i of the node-local junction gap
+  1/|(M(r)^{-1})_ii| with M(r) = 2 I + r A12 (V307's M12 convention at
+  r = 2; the node p_A analogue); M singular on the grid booked as gap 0.
+Grid: r = 1.0, 1.0001, ..., 1.9990 (step 1e-4, 9991 points). Interior
+minimum booked at grid index j iff the forward difference changes sign
+from < 0 to > 0 at j AND the curvature
+|F(r_{j+1}) - 2 F(r_j) + F(r_{j-1})| >= 1e-12 (zero-curvature linear and
+constant stretches excluded by that floor). Report per functional the
+selected-site count (0 = none) - the r-analogue of V317's
+sites_selected_per_functional. Do not widen the grid for narrow minima:
+the grid IS the booked class.
+
+**T0 anchors (booked artifact leaves).** V307_onset_runaway_structure
+data.t3.r_singularity = 1.9999999999999791, re-derived in-experiment by
+V307's own bisection of the log-det singularity of the full 12-set,
+booked abs diff gate <= 1e-3; V307 data.t2.r_atm = 1.9191154379808832,
+re-derived as loop_ladder(17)*EV_PER_GEV/M_ATM_EV - 1 (cl10.neutrino),
+booked abs diff gate <= 1e-9; V305_onset_neutrino_contacts
+data.spectra.selected.r = 2.0 exactly.
+
+**Branch.** R-INTERIOR-MIN-FOUND (some functional has an interior
+minimum: r*, the functional, and its distances to r_atm and to r = 2
+booked) / R-INTERIOR-EMPTY-DECLARED (all four counts zero: the only
+stationary structure is the booked boundary r = 2 singularity and the
+r = 1 endpoint degeneracy - r stays declared). Expectation only: the
+booked edge.
+
+## V330_generation_forcing_census (tier 3; O3; the family number)
+
+**Question.** V91 decided the family count 3 is a symmetry-breaking
+input on the 12 nodes. Does ANY booked group-action object carry an orbit
+of size exactly 3 - is the count 3 forced anywhere in the booked
+machinery?
+
+**Closed class (fixed here, verbatim).** Groups: the 48-element signed-
+permutation group as V114.group_elements(), and the 24-element chiral
+(rotation) subgroup as V114.chiral_elements() (both imported from
+V114_junction_r by path); the cubic action construction itself is V91's
+verbatim (its cub list of signed permutation matrices, its fold() and
+image() machinery). Objects and actions:
+(a) the 12 doubler nodes (cl10.supercell.M_POINTS - the 12 M nodes the
+V123 doubler census counts): orbits under the 48 group and under the
+chiral 24, by V91's fold/image node action;
+(b) the 6 chiral stabilizer elements of the V76 modulation (re-derived
+verbatim: the stabilizer of the V76 profile on (Z/4)^3 inside the 48
+group and its chiral part, V114's body): orbits under conjugation by the
+48 group (elements as 3x3 signed permutation matrices, conjugation the
+matrix product P_h -> P_g P_h P_g^{-1});
+(c) the 16-level single-generation basis: the 16 x 16 block B(g) of the
+step induced by cl10.cell.cell_step_np(g10 = g) on the Weyl-16 (the 32-D
+Weyl module split 16 + 16-bar, the 16-subspace from
+cl10.clifford.weyl_spinor; the step preserves the split - V66), at each
+of the five CFG.pillar_surgery.scan_clocks (0.125, 0.2, 0.5, pi/4, pi/2);
+the monomiality of B(g) (each basis vector mapped to a phase multiple of
+one basis vector) tested and booked at every clock - a permutation orbit
+row exists at a clock only if B(g) is monomial there, and its orbit sizes
+are those of the induced permutation semigroup. The closed-clock anchor
+booked alongside: angle.branches.closed = pi/4 and the V239
+data.closure.grid_labels_by_order = {'2': 1, '4': 0, '8': 0, '16': 0}
+(the published closure (pi/4, pi/4) at order 2).
+"Forced 3" (the FOUND reading, fixed pre-run): an orbit of size exactly 3
+in EVERY row of the census - the node set under both groups, the
+stabilizer-6 under conjugation, and the 16-level permutation at every
+clock where a permutation exists. The full orbit-size histogram booked
+in every branch.
+
+**T0 anchors (booked artifact leaves).** V91_count3_forcing
+data.orbit_sizes == [12] exactly (re-derived by V91's verbatim cubic
+construction and compared bit-for-bit to the artifact leaf) and
+data.triangle_orbit_size == 8; V114_junction_r data.stabilizer_size == 12
+and data.stabilizer_chiral == 6 (artifact leaves), with the stabilizer
+re-derived in-experiment by V114's verbatim profile-stabilizer body
+(gates: re-derived sizes equal the leaves).
+
+**Branch.** GEN3-ORBIT-FORCED (the orbit booked with its object, group
+and clock) / GEN3-NOT-FORCED-DECLARED (the histogram booked; no size-3
+orbit in every row - expectation {12, 8, 6, 4, 2, 1}-type sizes, never
+decided by the expectation).
+
+## V331_channel_asymmetry_closure (tier 3; O5; the baryon asymmetry)
+
+**Question.** V199 bounded the A->BB channel against washout; V298
+booked the rung-portal channel coefficients. Over the closed (kappa,
+channel) product, does ANY row put the baryon yield inside 5% of the
+observed delta_b_obs = CFG.sm.delta_b_obs = 6.12e-10?
+
+**Closed class (fixed here, verbatim).** kappa = the 13 booked bond
+strengths of V199 data.census (the kappa leaves as stored) UNION a
+400-point log grid geomspace(0.01, 100); rows with kappa < Kappa_split or
+kappa > Kappa_kill rejected (thresholds re-derived, see T0). Channels =
+the three key names of V298_rung_portal_ledger data.ledger (lam_1_coef_
+G2_over_16pi, lam_2_coef3_G2_over_16pi, lam_3_F208_over_F10) with their
+artifact values. Row formula (V199's body verbatim, imported by path):
+Gamma_B(k) = k^2 m_A sqrt(1 - 4 m_B^2/m_A^2)/(32 pi) with m_A, m_B from
+cl10.cell.masses(); r_B/H = Gamma_B/H_A, H_A = hubble(m_A) (V199's
+formula, hubble_coeff sqrt(g_*) T^2/M_P at T = m_A); the feed fraction
+Br_A_to_LH(k) = K/(K + r_B/H) with K = the V125 atmospheric-point
+equilibrium ratio (artifact leaf, re-read). The yield row value
+Y_B(k, channel) = Br_A_to_LH(k) x kappa_f(k) x coef_channel, where
+kappa_f = cl10.baryogenesis.bdp_washout_efficiency(k)[0] (the BDP
+efficiency at the row's own equilibrium ratio; weak-washout domain
+efficiency 1 per the booked library convention). Contact test:
+|Y_B/delta_b_obs - 1| <= 0.05 (ledger_scale_rel_tol).
+
+**T0 anchors (booked artifact leaves).** Reproduce all 13 booked rows of
+V199 data.census: Gamma_B_GeV and r_B_over_H each to 1e-6 relative.
+Re-derive the thresholds and compare to the V199 data.thresholds leaves
+{Br_min = 0.000400502838137906, Kappa_split = 0.08012035791089392,
+Kappa_kill = 39.826367185005} at 1e-6 relative, same keys.
+
+**Branch.** ASYM-CHANNEL-CONTACT (the (kappa*, channel) booked with its
+Y_B and residual) / ASYM-NO-CHANNEL-DECLARED (the closest (kappa,
+channel), its Y_B/6.12e-10 ratio and the band multiple booked).
+Expectation only, never a gate: every V199 row sits orders of magnitude
+off 6.12e-10 once scaled by a portal coefficient.
+
+## V332_flavour_class_closure (tier 3; O6; masses and mixing)
+
+**Question.** V45 booked the democratic rank-1 base, the TBM mixing and
+the identity CKM. Closing the class = the democratic rank-1 families
+joined by every signed permutation and the booked 3-fold family-symmetry
+label: does ANY member land within 1e-3 on ALL six measured sin^2
+angles?
+
+**Closed class (fixed here, verbatim).** Members (P, a), 48 x 3 = 144:
+P = the 48 signed permutations (V114 group_elements, as 3x3 signed
+permutation matrices D_P); the family-space member matrix
+M(P) = D_P J D_P^T with J the all-ones democratic base (V45
+cl10.yukawa_3x3.mass_matrix_3x3 construction); a in {2,3,4} = the three
+spatial family-symmetry generators S_a = i h_a of V45's
+data.family_symmetry path (cl10.spacetime.causal_generators, the
+n_families_C32 = 3 decoration - their equivalence (S_a^2 = -I,
+anticommutator 0, equal norms) re-derived and booked so the label's
+blindness is measured, not assumed). Mixing per member on V45's own
+formula path (cl10.yukawa_3x3.mixing_from_democratic convention):
+the unique heavy eigenvector h(P) = D_P (1,1,1)/sqrt(3);
+sin^2_12 = |U_e2|^2 = the squared e-component of h(P); sin^2_23 and
+sin^2_13 the TBM-adapted read of the O(2) light family exactly as V45's
+mixing block books them (the (23)-adapted member, 1/2 and 0), with the
+booked O(2) ranges carried along; CKM the identity from identical
+up/down democratic members (V45's ckm_is_identity path). Contact test:
+six residuals |sin^2 - obs| <= 1e-3 absolute, PMNS against
+CFG.neutrino.obs_sin2_theta12/23/13 = 0.307/0.579/0.022 and CKM against
+CFG.ckm.obs_sin2_theta12/23/13 = 0.05/0.949/0.02. A member CONTACTS iff
+all six hold.
+
+**T0 anchors (booked artifact leaves).** Reproduce V45_yukawa_matrix
+data.mixing sin2_12 = 0.3333333333333333 (gate |d| <= 1e-12), sin2_23 =
+0.5, sin2_13 = 0.0 from the same formula path, and
+data.mass_matrix.rank == 1 (the re-derived democratic member).
+
+**Branch.** FLAVOUR-CLASS-CONTACT (a member inside 1e-3 on all six, the
+member booked) / FLAVOUR-NO-CLASS-DECLARED (the best member and its six
+per-angle residuals booked; the CKM-side identity stays booked).
+Expectation only: the democratic content pins sin^2_12 = 1/3, 0.0263 off
+the PMNS read and 0.283 off the CKM read, so no member contacts.
