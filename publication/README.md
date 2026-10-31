@@ -15,7 +15,7 @@ carries that era's four paper PDFs + the source archive. Back to the
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 74 pp., 25 figures, 17 table divs, 69 references, REVTeX 4.2
+Current artifact: 73 pp., 25 figures, 17 table divs, 69 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
