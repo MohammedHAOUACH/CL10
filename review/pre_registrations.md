@@ -5291,3 +5291,37 @@ identity forces the mu = 0 commensurality class, which the root spectra
 never supply at rational g). The census tests exactly this on the booked
 box; the theorem form, if the census is empty, is booked as a CONJECTURE
 with the census as its evidence - never printed as a proof.
+
+### V333 amendment booking 1 (2026-11-01, before the verdict run): the
+### degeneracy clause widened to scalar members; the batched-cupy fast path
+
+First-run diagnostic (census launched under the booked gate, KILLED before
+any verdict artifact was booked; the run is cited as a diagnostic, not a
+verdict): on the rationals 1/5, 1/3, 0.71 and 1.237 exactly 64 members
+close, precisely the mirror-antisymmetric pattern c_(j+3) = -c_j
+(4^3 = 64), and each carries a SCALAR M = e^{i phi} I at every clock
+probed (dev 3.6e-15; at the fifth M = -i*I, min ||M -/+ I|| = 1.414 =
+|-i -/+ 1|). Their closure holds at every clock, so it carries no clock
+content: these are the backtracking members, zero net propagation, they
+supply no dynamics - degenerate in the booked intent - but the booked
+wording (M = +/- I at the clock) does not cover scalar closure at +/- i,
+and the internal half-integer spectrum makes that closure reachable.
+
+Amendment 1 (degeneracy): a closing member is DEGENERATE iff
+||M - e^{i phi} I||_max <= 1e-12 at the clock, with
+e^{i phi} = tr(M)/|tr(M)| whenever |tr(M)| > 64 (a |tr| below that bound
+cannot be scalar at the eps level and the member counts non-degenerate).
+FOUND gate (non-degenerate rational closure), class, grids, k range,
+CLOSE_EPS, T0 anchors, bands and branch words all unchanged. The ledger
+additionally books per rational clock: n_closed, n_scalar_degenerate,
+n_found; the 64-fold scalar family is booked as a structural fact of the
+class.
+
+Machinery note (no class change; the V326 hoisting playbook): under the
+cupy parent the census runs a batched fast path - all 4096 members of a
+clock built and powered in stacked kernels on GPU 1 - gated by a new T0e
+identity gate: on 4 seeded (member, clock) pairs the batched path must
+reproduce the direct per-member path's closure k and dev to |d| <= 1e-13.
+T0a-c always run on the direct path; the numpy direct path stays the
+fallback and the identity reference; backend recorded in the artifact.
+Verdict backend-invariant by that gate.
