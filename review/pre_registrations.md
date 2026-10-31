@@ -4769,3 +4769,39 @@ state after the library change is non-green until the sweep completes).
   invariant. Quotes updated to the on-disk leaves in the paper (O8
   cell), doc/reference.md and experiments/README.md; number_audit PASS
   (892 tokens, 0 unexplained).
+
+### Suite retirement audit (2026-10-31): no dead weight remains — booked so the question is settled
+
+Full-graph analysis of all 239 experiments before any retirement round was considered.
+Method: (i) every decimal the paper prints mapped to its backing set of experiment
+artefacts (the number_audit machinery, 864 backed tokens); (ii) the inter-experiment
+dependency graph — art()/exp() references, sys.path machinery imports, artefact reads
+across experiments, cl10, make_figures, simulation, tests (121 experiments are consumed
+as machinery or anchors by others); (iii) bare-V mentions in paper/reference/readme/api;
+(iv) for the 28 experiments none of the above touches, every distinctive number,
+integer count and verdict phrase of their artefacts searched against the paper prose
+(claims appear there as integers and sentences the decimal audit cannot see:
+"dimension 0", "0 of 2726", "r = 2", "the loophole of a conspiring bond gate is closed",
+"the division does not compound", "no link route births a loop factor").
+
+Verdict: 27 of the 28 are the producing artefact for a sentence the paper prints —
+the misleadingly named V76_mixing_pattern is the cubic zero-mean junction ingredient,
+V110 the level-repulsion sign forcing behind "level repulsion forces the sign of two
+of the six kappa_s", V69/V73/V83/V87/V93 the division-tower/bond-gate-loophole/
+RG-levels/general-and-Cartan-junction rows of the unification story, V230/236/241/254/
+257/258/261/262/265/266 the composite-and-dressed claims quoted in the abstract and
+conclusion, V287/V288 the bubble-null and Bekenstein-truncation rows, V114 the r=2
+junction boundary, V67 the breaking-chain/leptoquark row, and V0/V1/V3/V7/V23/V32 the
+tier-0/1 hard-tier backbone. The 28th, V246_lorentz_tuning_relevance, is the one
+conditional-skip verdict in the suite: its pre-registered trigger (V244 in {NO-
+ENFORCED-LOCUS, PARTIAL-LIMIT}) did not fire (V244 landed ENFORCED-LOCUS), so its
+measurement never ran at zero cost, and its skip is itself cited by the V248
+two-dial ledger that backs the paper's "the family adds no fitted dial" — kept as the
+booked conditional branch, not retired (a dangling citation for no saved second).
+
+Cost profile of a full re-gate (only forced on library changes; the default gate
+re-runs nothing else): 3.9 h total over 239. The five costliest (V187 4534 s,
+V186 3364 s, V218 1446 s, V220 776 s, V219 724 s) all produce paper-quoted numbers
+(the 880-point entangling-bond search, the rigidity wall 8.0e-3, the closed-word
+census, the nodal-line charges/anisotropy). Nothing in the suite computes an
+uncited number.
