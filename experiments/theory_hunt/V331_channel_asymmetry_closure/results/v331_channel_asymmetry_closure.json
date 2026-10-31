@@ -1,0 +1,237 @@
+{
+ "id": "V331_channel_asymmetry_closure",
+ "tier": 3,
+ "property": "does any booked (kappa, portal-channel) row land the baryon yield on delta_b_obs = 6.12e-10 within the 5% band (tier 3, O5)",
+ "residual": true,
+ "programme": "theory-hunt V331",
+ "branch": "ASYM-NO-CHANNEL-DECLARED",
+ "data": {
+  "kappa_original_vs_leaf": [
+   {
+    "booked_kappa_leaf": 0.2534,
+    "original_V147_strength": 0.253431
+   },
+   {
+    "booked_kappa_leaf": 1.9191,
+    "original_V147_strength": 1.919115
+   },
+   {
+    "booked_kappa_leaf": 2.1589,
+    "original_V147_strength": 2.1589
+   },
+   {
+    "booked_kappa_leaf": 2.6887,
+    "original_V147_strength": 2.6887
+   },
+   {
+    "booked_kappa_leaf": 3.1466,
+    "original_V147_strength": 3.1466
+   },
+   {
+    "booked_kappa_leaf": 3.265,
+    "original_V147_strength": 3.265
+   },
+   {
+    "booked_kappa_leaf": 4.0555,
+    "original_V147_strength": 4.0555
+   },
+   {
+    "booked_kappa_leaf": 4.2079,
+    "original_V147_strength": 4.2079
+   },
+   {
+    "booked_kappa_leaf": 4.3903,
+    "original_V147_strength": 4.3903
+   },
+   {
+    "booked_kappa_leaf": 4.8195,
+    "original_V147_strength": 4.8195
+   },
+   {
+    "booked_kappa_leaf": 5.6768,
+    "original_V147_strength": 5.6768
+   },
+   {
+    "booked_kappa_leaf": 9.1859,
+    "original_V147_strength": 9.1859
+   },
+   {
+    "booked_kappa_leaf": 40.0,
+    "original_V147_strength": 40.0
+   }
+  ],
+  "t0": {
+   "rows199": 13,
+   "worst_rel_row_reproduction": 0.0,
+   "thresholds_booked": {
+    "Br_min": 0.000400502838137906,
+    "Kappa_split": 0.08012035791089392,
+    "Kappa_kill": 39.826367185005,
+    "H_at_mA_GeV": 12982234044.163565
+   },
+   "thresholds_rederived": {
+    "Br_min": 0.000400502838137906,
+    "Kappa_split": 0.08012035791089392,
+    "Kappa_kill": 39.826367185005,
+    "H_at_mA_GeV": 12982234044.163565
+   },
+   "worst_rel_threshold_reproduction": 0.0,
+   "K_atmo": 46.81,
+   "m_A_GeV": 96131777036496.42,
+   "m_B_GeV": 118.57086360835625,
+   "kinematic": 1.0
+  },
+  "census": {
+   "n_kappa_rows": 413,
+   "kept": 281,
+   "rejected_outside_thresholds": 132,
+   "channels": {
+    "lam_1_coef_G2_over_16pi": 0.02548327561082785,
+    "lam_2_coef3_G2_over_16pi": 0.005879739507621836,
+    "lam_3_F208_over_F10": 1.2925736364140417
+   },
+   "band_rel": 0.05,
+   "n_rows": 843,
+   "n_contacts": 0,
+   "contacts": [],
+   "closest": {
+    "kappa": 39.71892573273302,
+    "channel": "lam_2_coef3_G2_over_16pi",
+    "Br_A_to_LH": 0.00040267165086287066,
+    "kappa_f": 0.006636314414053743,
+    "coef": 0.005879739507621836,
+    "Y_B": 1.5712167300584917e-08,
+    "Y_over_delta": 25.673475981347906,
+    "residual_over_band": 493.4695196269581,
+    "contact": false
+   },
+   "closest_band_multiples": 493.4695196269581,
+   "closest_10_rows": [
+    {
+     "kappa": 39.71892573273302,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.00040267165086287066,
+     "kappa_f": 0.006636314414053743,
+     "coef": 0.005879739507621836,
+     "Y_B": 1.5712167300584917e-08,
+     "Y_over_delta": 25.673475981347906,
+     "residual_over_band": 493.4695196269581,
+     "contact": false
+    },
+    {
+     "kappa": 38.81257270691536,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.0004216896266489142,
+     "kappa_f": 0.006822274670904126,
+     "coef": 0.005879739507621836,
+     "Y_B": 1.6915319452201634e-08,
+     "Y_over_delta": 27.639410869610515,
+     "residual_over_band": 532.7882173922103,
+     "contact": false
+    },
+    {
+     "kappa": 37.92690190732246,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.00044160541487477936,
+     "kappa_f": 0.00701366461050758,
+     "coef": 0.005879739507621836,
+     "Y_B": 1.8211154132461192e-08,
+     "Y_over_delta": 29.756787798139204,
+     "residual_over_band": 575.1357559627841,
+     "contact": false
+    },
+    {
+     "kappa": 37.06144138266228,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.000462461361663206,
+     "kappa_f": 0.007210652289912235,
+     "coef": 0.005879739507621836,
+     "Y_B": 1.9606862039251855e-08,
+     "Y_over_delta": 32.037356273287344,
+     "residual_over_band": 620.7471254657469,
+     "contact": false
+    },
+    {
+     "kappa": 36.21572995118075,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.0004843018067202729,
+     "kappa_f": 0.007413411418322076,
+     "coef": 0.005879739507621836,
+     "Y_B": 2.1110196584641223e-08,
+     "Y_over_delta": 34.49378526902161,
+     "residual_over_band": 669.8757053804321,
+     "contact": false
+    },
+    {
+     "kappa": 35.38931695490988,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.0005071731768312354,
+     "kappa_f": 0.007622121570473615,
+     "coef": 0.005879739507621836,
+     "Y_B": 2.272951839855233e-08,
+     "Y_over_delta": 37.13973594534695,
+     "residual_over_band": 722.7947189069389,
+     "contact": false
+    },
+    {
+     "kappa": 34.58176201952377,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.0005311240837064601,
+     "kappa_f": 0.007836968409379818,
+     "coef": 0.005879739507621836,
+     "Y_B": 2.4473843398784575e-08,
+     "Y_over_delta": 39.98994019409245,
+     "residual_over_band": 779.7988038818489,
+     "contact": false
+    },
+    {
+     "kappa": 33.79263481967431,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.000556205426376494,
+     "kappa_f": 0.00805814391893274,
+     "coef": 0.005879739507621836,
+     "Y_B": 2.63528947179828e-08,
+     "Y_over_delta": 43.0602854869,
+     "residual_over_band": 841.205709738,
+     "contact": false
+    },
+    {
+     "kappa": 33.02151484968176,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.000582470498344072,
+     "kappa_f": 0.008285846646887304,
+     "coef": 0.005879739507621836,
+     "Y_B": 2.8377158802351937e-08,
+     "Y_over_delta": 46.36790653979075,
+     "residual_over_band": 907.358130795815,
+     "contact": false
+    },
+    {
+     "kappa": 32.26799119945808,
+     "channel": "lam_2_coef3_G2_over_16pi",
+     "Br_A_to_LH": 0.0006099750997100066,
+     "kappa_f": 0.008520281958782006,
+     "coef": 0.005879739507621836,
+     "Y_B": 3.0557946023182965e-08,
+     "Y_over_delta": 49.93128435160616,
+     "residual_over_band": 978.6256870321231,
+     "contact": false
+    }
+   ]
+  },
+  "status": "ASYM-NO-CHANNEL-DECLARED",
+  "wall_time": 0.004413127899169922
+ },
+ "checks": [
+  {
+   "name": "T0 all 13 booked V199 rows re-run to 0.0e+00 relative (gate 1e-6) and the booked thresholds Br_min 0.000400503 / Kappa_split 0.0801204 / Kappa_kill 39.8264 re-derived to 0.0e+00 relative (same keys)",
+   "pass": true
+  },
+  {
+   "name": "branch ASYM-NO-CHANNEL-DECLARED: 843 rows over 281 kept kappa x 3 channels; 0 contacts at the 5% band; closest Y_B/delta_b_obs = 2.567e+01 (kappa 39.71892573273302, channel lam_2_coef3_G2_over_16pi) = 493 band-multiples",
+   "pass": true
+  }
+ ],
+ "status": "ASYM-NO-CHANNEL-DECLARED",
+ "pass": true
+}
