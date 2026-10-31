@@ -3,9 +3,9 @@
 One manuscript source, one command, one PDF. `doc/final_publication.md` is the
 **only** source of the paper; nothing in this directory edits it.
 
-The unified master builds here; the three companion papers build through
-`review/tools/build_pdfs.sh`. All four compiled PDFs are attached to the
-[v1.0 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0)
+The consolidated paper builds here; the standalone compiled PDF builds through
+`review/tools/build_pdfs.sh`. Both compiled PDFs are attached to the
+[v1.2 release](https://github.com/MohammedHAOUACH/CL10/releases)
 and archived on [Zenodo](https://zenodo.org/records/23321228)
 ([10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106)). Back to the
 [CL10 README](../README.md).
@@ -14,14 +14,11 @@ and archived on [Zenodo](https://zenodo.org/records/23321228)
 bash publication/build.sh        # -> publication/publication.pdf
 ```
 
-Current artifact: 71 pp., 25 figures, 18 table divs, 69 references, REVTeX 4.2
+Current artifact: 74 pp., 25 figures, 18 table divs, 69 references, REVTeX 4.2
 `aps,prd,twocolumn`. The build is clean: 0 errors, 0 undefined references, all
 floats placed in ascending order within two pages of their first textual
 reference; the remaining overfull hboxes are the dense display-math paragraphs.
-The three companion papers (`doc/paper1_core.md`, `paper2_gauge_gravity.md`,
-`paper3_phenomenology.md`) are built by the other pipeline,
-`review/tools/build_pdfs.sh` (pandoc + xelatex); this directory builds only
-the unified master.
+This directory builds only the consolidated paper.
 
 ## The pipeline
 

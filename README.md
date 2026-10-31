@@ -58,27 +58,19 @@ hierarchy, the DM mass and the neutrino ladder are organised by one loop-factor
 **ansatz** $(1/16\pi)^n$ with fitted coefficients; the Born rule, the
 spin–statistics identification and the split-node set are declared inputs.
 Every headline number carries a provenance class — *algebraic*, *conventional*,
-*fitted*, *conditional* or *open* (the audit, Paper III Section 5).
+*fitted*, *conditional* or *open* (the audit, Section 15 of the paper).
 
-## The papers
+## The paper
 
-The work is published as **three companion papers** split by what is proven,
-plus the unified master:
+The work is published as **one consolidated paper**: [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) — the full construction, its measured consequences, the parameter audit and the open problems, in a single unified text — plus a REVTeX two-column journal build, [`publication/publication.pdf`](publication/publication.pdf).
 
-| file | content |
-|---|---|
-| [`doc/paper1_core.md`](doc/paper1_core.md) · [PDF](doc/paper1_core.pdf) | **Paper I** — the root, the (1+3) subalgebra, the 16, the anomalies, the 45, the unitary causal step, the doubling and its Wilson gap, the provenance discipline |
-| [`doc/paper2_gauge_gravity.md`](doc/paper2_gauge_gravity.md) · [PDF](doc/paper2_gauge_gravity.pdf) | **Paper II** — the gauged bond layer (Gauss, area law, confinement), the gravitational sector (EH from the dynamics, 3+1 numerics), what each sector does *not* claim |
-| [`doc/paper3_phenomenology.md`](doc/paper3_phenomenology.md) · [PDF](doc/paper3_phenomenology.pdf) | **Paper III** — the loop ladder, the coupling unification, the neutrino/DM/baryogenesis audits, the parameter audit, the failures, the falsifiers |
-| [`doc/final_publication.md`](doc/final_publication.md) · [PDF](doc/final_publication.pdf) | the unified master (all of the above, one reference list) |
-
-`doc/*.pdf` are the compiled versions (`review/tools/build_pdfs.sh`); the same four PDFs are attached to the [GitHub release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) and archived on [Zenodo](https://zenodo.org/records/23321228).
+The compiled PDF (`review/tools/build_pdfs.sh`) is attached to the [GitHub release](https://github.com/MohammedHAOUACH/CL10/releases) and archived on [Zenodo](https://zenodo.org/records/23321228).
 
 ## Selected results
 
 All 25 figures are **computed from the construction** — `python3 -m make_figures`,
 no hand-entered data ([make_figures/README.md](make_figures/README.md)); each is
-placed in the papers and validated by the named experiment
+placed in the paper and validated by the named experiment
 ([experiments/README.md](experiments/README.md)).
 
 | | |
@@ -94,21 +86,14 @@ CL10/
 ├── pyproject.toml            # deps: kingdon, einops, jax[cuda13], cupy-cuda13x
 ├── doc/
 │   ├── README.md           # the paper tree: what each file is, the dependency direction, the build commands
-│   ├── paper1_core.md        # Paper I (the algebraic core)
-│   ├── paper2_gauge_gravity.md # Paper II (gauge + gravity sectors)
-│   ├── paper3_phenomenology.md # Paper III (phenomenology + audit)
-│   ├── final_publication.md  # the unified master
-│   ├── *.pdf                 # the four compiled papers
+│   ├── final_publication.md  # the consolidated paper
+│   ├── *.pdf                 # the compiled paper
 │   ├── reference.md          # the technical reference (exact constructions, numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
-│   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = V62 hydrogen product)
-├── review/                   # the audit trail of the current paper + the manuscript pipeline
-│   ├── README.md            # what each audit document is, and what each tool does
-│   ├── glmreview.md          # the referee report (14 major concerns, 13 minor, 7 questions)
-│   ├── glmreview_verification.md # point-by-point verification of every concern against body + code
-│   ├── response_letter.md    # the response to the referee
-│   └── tools/
-│       ├── build_series.py   # master -> the three companion papers (section split, per-paper reference lists)
+│   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = hydrogen product)
+├── review/                   # the manuscript pipeline + the provenance guard
+│   ├── README.md            # what each tool does
+│   ├── tools/
 │       ├── fit_tables.py     # per-table column widths from content (sqrt(L) balance + longest-word floor)
 │       ├── fix_tables.py     # post-pandoc: atomic table cells (no mid-row page splits), repeated headers
 │       ├── build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
@@ -272,20 +257,19 @@ python3 run_validation.py V185_separation_lemma V186_cone_inverse V187_rigidity_
                                  # V186/V187 pin CL10_BACKEND=numpy whatever the caller exports)
 python3 -m make_figures          # the same generator without the card check: --only N | --fast | --cpu
 python3 -m simulation.hydrogen   # regenerates the hydrogen video + stills (the Fig. 2 scene)
-python3 review/tools/build_series.py   # master -> the three companion papers (doc/paper*.md)
 ./review/tools/build_pdfs.sh     # fit_tables -> pandoc -> fix_tables -> xelatex x2 -> doc/*.pdf
                                  # needs pandoc >= 3 + texlive (xelatex, pandoc filters)
 python3 review/tools/number_audit.py # the provenance guard: every printed decimal is an artefact
                                  # number (leaf or status text), a citation, a section reference, or
                                  # declared arithmetic - exit 1 means a number nothing produced
-bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the master -> publication/publication.pdf
+bash publication/build.sh        # alt: the REVTeX 4.2 two-column build of the paper -> publication/publication.pdf
 python3 -m pytest tests/         # the engine invariants as an executable guard (unitarity, the causal
                                  # front, the 16-sector closure, the spectral mirror, the cubic equivariance)
 ```
 
 ## The verification program
 
-The master states the **seven criteria** a unification claim must meet (with the
+The paper states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
 **ten falsifiers** (F1–F10). `run_validation.py` gates the **239** experiments
 of `experiments/` (16 categories — the 236 of the publication programme and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
@@ -392,7 +376,7 @@ pre-registered physics branches did not fire — `inconclusive`) that
 `run_validation.py` aggregates into
 [`results/validation_summary.json`](results/validation_summary.json).
 
-**Reproducibility.** Every number the master quotes is produced by a script in
+**Reproducibility.** Every number the paper quotes is produced by a script in
 this repository, and the suite is deterministic: fixed seeds, fixed grids, and
 each verdict is recomputed from the construction rather than read from disk. The
 numbers were verified **internally** — spot-checks against the text, the second

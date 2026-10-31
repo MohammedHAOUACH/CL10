@@ -3,8 +3,8 @@
 Every figure in `doc/final_publication.md` is **computed from the construction**;
 none contains hand-entered data. This package is the single entry point.
 
-The figures are cited by number in [doc/final_publication.md](../doc/final_publication.md)
-and the three companion papers; after regenerating, rebuild the PDFs with
+The figures are cited by number in [doc/final_publication.md](../doc/final_publication.md);
+after regenerating, rebuild the PDFs with
 `review/tools/build_pdfs.sh` or the REVTeX build
 ([publication/README.md](../publication/README.md)). Back to the
 [CL10 README](../README.md).
@@ -58,6 +58,6 @@ python3 -m make_figures --cpu          # force the numpy backend
 
 ## After regenerating
 
-Rebuild the PDFs: `./review/tools/build_pdfs.sh` (the three companion papers +
-the master, `doc/*.pdf`), or `bash publication/build.sh` for the REVTeX build
+Rebuild the PDFs: `./review/tools/build_pdfs.sh` (`doc/final_publication.pdf`),
+or `bash publication/build.sh` for the REVTeX build
 of the master (it copies `doc/figures/` into `publication/build/`).

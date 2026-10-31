@@ -1,8 +1,0 @@
----
-
-## 4. Discussion: what is derived, what is assumed
-
-Derived, as operator identities of the construction: the Gauss algebra of the adjoint bond layer and its content theorem ($32 \oplus 288 \oplus 1120$; no invariant vector on the link, hence no flux-free link and an exactly linear electric area law); the centre obstruction and the structure of the minimal physical sector; the bounded per-bond entanglement $\ln 45$ and the vertex correction to the area-law coefficient; the exactness of the dressed directional gate and the spin-2 spectrum theorem of $\hat{\mathbf{q}}\cdot\mathbf{J}$; and the consistency of the discrete gravitational sector with general relativity to the stated $O(h^2)$ tolerances on de Sitter, Schwarzschild and $3{+}1$ evolutions.
-
-Assumed, and named as such: the choice of the link representation (adjoint, then regular, then directional — each a construction input with a measured cost); the symmetric tensor field $g_{\mu\nu}$ and the value $G = 1$; the transverse gauge fixing of the linearised theory; and the dressing angle of the directional gate, which sets the quintet speeds. Three open numbers remain: the Bekenstein deficit (factor $6.6$ per bond after the vertex correction, no element of the construction produces $1/4$), the string tension ($5.41\times10^{40}$ times QCD, with $\Lambda_{\rm QCD}$ off the ladder), and the velocity trilemma of the dressed hop (isotropy and $v = 1$ never supplied together on the $6$-bond module). The quantum theory of the gravitational sector — a sum over lattice geometries with a well-defined measure — has not been constructed. The phenomenology of both sectors is audited in Paper III.
-

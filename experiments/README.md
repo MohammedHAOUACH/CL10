@@ -19,10 +19,9 @@ run_validation.py` gates them by fingerprint (only new or changed experiments
 re-run; `--full` re-executes all) and rolls the verdicts up into
 `results/validation_summary.json`.
 
-The papers these experiments validate: [Paper I](../doc/paper1_core.md) ·
-[Paper II](../doc/paper2_gauge_gravity.md) · [Paper III](../doc/paper3_phenomenology.md) ·
-[the unified master](../doc/final_publication.md) — compiled PDFs in `../doc/`, on the
-[v1.0 release](https://github.com/MohammedHAOUACH/CL10/releases/tag/v1.0) and on
+The paper these experiments validate: [the consolidated paper](../doc/final_publication.md) —
+compiled PDF in `../doc/`, on the
+[v1.2 release](https://github.com/MohammedHAOUACH/CL10/releases) and on
 [Zenodo](https://zenodo.org/records/23321228); cite:
 [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).
 Back to the [CL10 README](../README.md).
