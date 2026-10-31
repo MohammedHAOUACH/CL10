@@ -1,16 +1,16 @@
 {
-  "n": 246,
-  "n_pass": 246,
+  "n": 247,
+  "n_pass": 247,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
   "backend_parent": "cupy",
   "backend_requested": "auto",
-  "n_backend_reported": 52,
-  "n_backend_gpu": 52,
+  "n_backend_reported": 53,
+  "n_backend_gpu": 53,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 106,
+  "hard_tier_n": 107,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 129,
+  "n_named_residuals": 130,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -212,6 +212,7 @@
     "V331_channel_asymmetry_closure",
     "V332_flavour_class_closure",
     "V333_clock_transcendence",
+    "V334_clock_closure_rigidity",
     "V38_couplings_root",
     "V41_smatrix",
     "V43_qca_spectrum",
@@ -351559,10 +351560,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "CLOCK-TRANSCENDENT-DECLARED",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 626.557,
+      "wall_time": null,
       "backend": "cupy",
       "verdict": {
         "id": "V333_clock_transcendence",
@@ -352301,6 +352302,230 @@
           }
         ],
         "status": "CLOCK-TRANSCENDENT-DECLARED",
+        "pass": true
+      }
+    },
+    {
+      "id": "V334_clock_closure_rigidity",
+      "dir": "V334_clock_closure_rigidity",
+      "tier": 2,
+      "property": "the clock-closure rigidity theorem certified on the class: entry form, identity census, rational/transcendental closure sets (tier 2, O4/O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CLOSURE-RIGID-CENSUS-MATCHED",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 739.874,
+      "backend": "numpy direct (V333 machinery by module import)",
+      "verdict": {
+        "id": "V334_clock_closure_rigidity",
+        "tier": 2,
+        "property": "the clock-closure rigidity theorem certified on the class: entry form, identity census, rational/transcendental closure sets (tier 2, O4/O8)",
+        "residual": true,
+        "programme": "theory-hunt V334",
+        "branch": "CLOSURE-RIGID-CENSUS-MATCHED",
+        "data": {
+          "class": "the V333 booked ray class: 4096 members, per-stage multipliers c_j in {-2,-1,1,2}, the six STAGES at Gamma, internal factor U16C frozen at pi/4",
+          "theorem": "clock-closure rigidity (Hermite-Lindemann): closure at a nonzero algebraic clock forces a clock-identity closure in this class",
+          "backend": "numpy direct (V333 machinery by module import)",
+          "entry_form": {
+            "worst_gaussian_dev": 1.1102230246251565e-16,
+            "worst_stage_v_independence": 1.1102230246251565e-16,
+            "worst_U16C_algebraic_dev": 8.005932084973442e-16
+          },
+          "t0": {
+            "t0a_identity_closures": {
+              "pi*1/2": {
+                "k": 2,
+                "dev": 7.606445072191264e-15,
+                "v315_k": 2,
+                "v315_dev": 7.606445072191264e-15,
+                "abs_diff_dev": 0.0
+              },
+              "pi*1/4": {
+                "k": 2,
+                "dev": 7.391586503204494e-15,
+                "v315_k": 2,
+                "v315_dev": 7.391586503204494e-15,
+                "abs_diff_dev": 0.0
+              },
+              "pi*3/4": {
+                "k": 2,
+                "dev": 7.501659989830069e-15,
+                "v315_k": 2,
+                "v315_dev": 7.501659989830069e-15,
+                "abs_diff_dev": 0.0
+              }
+            },
+            "unitarity_worst_16x3": 8.43769498715119e-15
+          },
+          "identity_census": {
+            "n_identity_steps": 64,
+            "identity_set_equals_mirrors": true,
+            "n_mirrors": 64,
+            "closure_order_histogram": {
+              "2": 64
+            },
+            "A6_U16C_pow6_order": 2,
+            "non_identity_fourier_floor": 0.4999999999999995,
+            "constant_gate": 1e-11
+          },
+          "rational_consistency": {
+            "1/5": {
+              "closed": 64,
+              "equals_identity_set": true,
+              "ledger_leaf_closed": 64,
+              "ledger_leaf_scalar": 64,
+              "ledger_leaf_found": 0,
+              "extra": [],
+              "missing": []
+            },
+            "1/3": {
+              "closed": 64,
+              "equals_identity_set": true,
+              "ledger_leaf_closed": 64,
+              "ledger_leaf_scalar": 64,
+              "ledger_leaf_found": 0,
+              "extra": [],
+              "missing": []
+            },
+            "2/7": {
+              "closed": 64,
+              "equals_identity_set": true,
+              "ledger_leaf_closed": 64,
+              "ledger_leaf_scalar": 64,
+              "ledger_leaf_found": 0,
+              "extra": [],
+              "missing": []
+            }
+          },
+          "transcendental_census": {
+            "LOOP*1/2": {
+              "g": 0.009947183943243459,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*3/2": {
+              "g": 0.029841551829730376,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*5/2": {
+              "g": 0.0497359197162173,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*7/2": {
+              "g": 0.06963028760270422,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*9/2": {
+              "g": 0.08952465548919113,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*11/2": {
+              "g": 0.10941902337567805,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*13/2": {
+              "g": 0.12931339126216496,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*15/2": {
+              "g": 0.1492077591486519,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*17/2": {
+              "g": 0.1691021270351388,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*19/2": {
+              "g": 0.18899649492162574,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*21/2": {
+              "g": 0.20889086280811264,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            },
+            "LOOP*23/2": {
+              "g": 0.22878523069459955,
+              "closed": 64,
+              "extra_n": 0,
+              "extra": [],
+              "missing_n": 0
+            }
+          },
+          "status": "CLOSURE-RIGID-CENSUS-MATCHED",
+          "transcendental_extras_total": 0,
+          "wall_time": 738.7525796890259
+        },
+        "checks": [
+          {
+            "name": "A stage entry form: K Gaussian (<= 1e-13) and v-independent across v = 0.7/1.3/1.9",
+            "pass": true
+          },
+          {
+            "name": "A U16C entries in Z[1/2, sqrt2, i] (<= 1e-13)",
+            "pass": true
+          },
+          {
+            "name": "T0a V315 identity closures re-derived (k match, dev |d| <= 1e-13)",
+            "pass": true
+          },
+          {
+            "name": "T0c unitarity of 16 seeded members x 3 clocks (< 1e-10)",
+            "pass": true
+          },
+          {
+            "name": "B identity steps == the 64 mirror members, all with closure order <= 16",
+            "pass": true
+          },
+          {
+            "name": "C closure sets at 1/5, 1/3, 2/7 == the identity set and match V333 ledger leaves (64/64/0)",
+            "pass": true
+          },
+          {
+            "name": "C transcendental clocks: identity set closes at all 12 (containment; extras allowed and booked)",
+            "pass": true
+          },
+          {
+            "name": "census complete (4096 members: 25-angle DFT + 3 rational + 12 transcendental clocks)",
+            "pass": true
+          }
+        ],
+        "status": "CLOSURE-RIGID-CENSUS-MATCHED",
         "pass": true
       }
     },

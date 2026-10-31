@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (246 of them under `experiments/<category>/`: the 243 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (247 of them under `experiments/<category>/`: the 244 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -169,9 +169,9 @@ experiment that writes no tier is not folded into it.
 
 **The result (236/236 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
-hard-tier verdict is positive. The suite stands at 246 experiments:
+hard-tier verdict is positive. The suite stands at 247 experiments:
 the pillar-surgery programme (V308-V314) and the theory-hunt programme
-(V315-V333) booked their verdicts inside the pre-registered classes;
+(V315-V334) booked their verdicts inside the pre-registered classes;
 **239/239 PASS, hard tier MET, number_audit green** as booked at the
 2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
 (provenance table refreshed to the final twelve-fitted-coefficient audit,
@@ -268,6 +268,37 @@ identity closures diff 0.0/1.07e-16, V206 g_obs leaf bit-for-bit); wall
 611 s against the ~50-min direct path; backend recorded in the artifact,
 verdict backend-invariant by the gate. The O8 Table 7 gap cell carries the
 result; suite 246, fold 246/246, number_audit green.
+
+**The clock-closure rigidity theorem V334 (2026-11-01).** The V333
+conjecture becomes a theorem. The theorem was booked in the
+pre-registration BEFORE any run, and the experiment certifies its
+ingredients: at $\Gamma$ every class stage is $\cos(v)I + \sin(v)K$
+with $K$ a Gaussian-integer matrix and the internal factor frozen at
+the root clock with algebraic entries, so the entries of $M(g)^k$ are
+Laurent polynomials in $e^{ig}$ with algebraic coefficients;
+Hermite–Lindemann then forces any closure $M(g_0)^k = \pm I$ at a
+nonzero ALGEBRAIC clock to be a clock identity, $M(g)^k = \pm I$ for
+every $g$ — no member's closure is solved by an algebraic clock, and a
+closure that selects a clock forces $e^{ig}$ to a root of unity
+($\pi$-rational clocks): the closure axiom is the forced form of
+clock-selecting closure in this algebra, the algebraic reading clock
+supports only clock-blind closures, and the escape route must put the
+clock in the coefficients (finite-order rational parametrizations
+crystallographically confined to orders $\{1,2,3,4,6\}$) or the
+coefficients in transcendentals (the measured crossing read is already
+of that kind). Scope caveats booked: $\Gamma$ only (nonzero momenta
+carry transcendental hop constants outside Lindemann's reach), the
+$\pm I$ target, and the certified slice $4096 \times 6$ stages at
+orders $\le 16$. Certification: entry-form deviations $\le 9.42\times
+10^{-16}$; the 25-angle alias-free Fourier identity census (Laurent
+degree $\le 12$) finds exactly the 64 mirror identity steps, closure
+order 2; the closure sets at $1/5$, $1/3$, $2/7$ equal the identity
+set and the V333 ledger leaves ($64/64/0$); the 12 transcendental
+$m\,\mathrm{LOOP}/2$ clocks admit ZERO closures beyond the identity
+set. Branch **CLOSURE-RIGID-CENSUS-MATCHED**, numpy direct path, wall
+592 s. The abstract, the Table 7 O8 gap cell and the conclusion carry
+the theorem where they carried the conjecture; suite 247, fold
+247/247, hard tier MET (107 tiered), number_audit green.
 
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification

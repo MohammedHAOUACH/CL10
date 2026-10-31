@@ -5467,3 +5467,38 @@ gap cell, the abstract verdict paragraph and the conclusion swap the
 (the census demoted to evidence of the machine ingredients); experiments
 README, README, reference.md counts to 247. The V333 booking note is
 dated history and stays untouched.
+
+### V334 booking (run after the pre-registration; verdict as booked)
+CLOSURE-RIGID-CENSUS-MATCHED, all eight checks green, wall 843 s on the
+numpy direct path as booked (the runner files it OFF-CORE under the cupy
+parent - pinned by construction, the cone-programme pattern; verdict
+backend-free by design).
+Run hygiene: the first complete pass crashed AFTER the identity census
+at the frozen-factor guard - A6 dimension 32 -> 16 (U16C is the 16-level
+internal step; the full cell module is kron(8x8 bond, 16x16) = 128);
+no artifact delivered, no branch, class unchanged; T0 leaf recording
+(data.t0) added on the same occasion and the run re-executed clean.
+Certification as run: entry-form deviations 1.11e-16 (Gaussian K, v-
+independence) and U16C algebraic membership 9.42e-16; the 25-angle
+alias-free DFT identity census finds exactly 64 identity steps - equal
+to the 64 mirror members, all with closure order 2; the frozen internal
+factor U16C^6 has order 2 (the mirror scalar closures inherit it); the
+closure sets at 1/5, 1/3, 2/7 equal the identity set and the V333
+rational_ledger leaves (closed 64 = scalar 64, found 0); the 12
+transcendental clocks m*LOOP/2 close the identity set at all twelve and
+add ZERO closures - the class's closure set is clock-independent across
+every clock probed, rational or transcendental; non-identity members
+sit at a Fourier floor of 5.00e-01 against the 1e-11 identity gate, ten
+orders of margin. T0a: V315 identity leaves re-derived, k = 2 match,
+dev diffs 8.31e-16 / 9.35e-16 / 8.25e-16; unitarity worst 9.33e-15.
+Meta (as booked): the V333 conjecture is now a THEOREM of the class -
+clock-closure rigidity by Hermite-Lindemann, scope caveats printed
+(Gamma, +/-I target, certified 4096 x order-<=16 slice); the closure
+axiom stands revealed as the forced form of clock-selecting closure in
+this algebra, and any selection theorem for the algebraic clock must
+put the clock in the coefficients or the coefficients in transcendentals.
+Paper: theorem paragraph in Section 12.1, abstract/O8/conclusion
+upgraded from conjecture to theorem; suite 247, fold 247/247 PASS,
+hard tier MET (107 tiered, 83 untiered), number_audit PASS (908 tokens,
+0 unexplained - the theorem paragraph adds no new decimal token),
+PDFs rebuilt: consolidated 90 pp, journal 75 pp.

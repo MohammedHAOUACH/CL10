@@ -12,33 +12,33 @@
   "entry_form": {
    "worst_gaussian_dev": 1.1102230246251565e-16,
    "worst_stage_v_independence": 1.1102230246251565e-16,
-   "worst_U16C_algebraic_dev": 9.42055475210265e-16
+   "worst_U16C_algebraic_dev": 8.005932084973442e-16
   },
   "t0": {
    "t0a_identity_closures": {
     "pi*1/2": {
      "k": 2,
-     "dev": 8.43779312361536e-15,
+     "dev": 7.606445072191264e-15,
      "v315_k": 2,
      "v315_dev": 7.606445072191264e-15,
-     "abs_diff_dev": 8.313480514240958e-16
+     "abs_diff_dev": 0.0
     },
     "pi*1/4": {
      "k": 2,
-     "dev": 8.326672684688674e-15,
+     "dev": 7.391586503204494e-15,
      "v315_k": 2,
      "v315_dev": 7.391586503204494e-15,
-     "abs_diff_dev": 9.350861814841801e-16
+     "abs_diff_dev": 0.0
     },
     "pi*3/4": {
      "k": 2,
-     "dev": 8.326672684688674e-15,
+     "dev": 7.501659989830069e-15,
      "v315_k": 2,
      "v315_dev": 7.501659989830069e-15,
-     "abs_diff_dev": 8.250126948586052e-16
+     "abs_diff_dev": 0.0
     }
    },
-   "unitarity_worst_16x3": 9.325873406851315e-15
+   "unitarity_worst_16x3": 8.43769498715119e-15
   },
   "identity_census": {
    "n_identity_steps": 64,
@@ -48,7 +48,7 @@
     "2": 64
    },
    "A6_U16C_pow6_order": 2,
-   "non_identity_fourier_floor": 0.49999999999999933,
+   "non_identity_fourier_floor": 0.4999999999999995,
    "constant_gate": 1e-11
   },
   "rational_consistency": {
@@ -168,7 +168,7 @@
   },
   "status": "CLOSURE-RIGID-CENSUS-MATCHED",
   "transcendental_extras_total": 0,
-  "wall_time": 842.6862103939056
+  "wall_time": 738.7525796890259
  },
  "checks": [
   {

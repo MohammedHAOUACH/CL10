@@ -10,7 +10,7 @@ Back to the [CL10 README](../README.md).
 
 | file | what it is |
 |---|---|
-| `final_publication.md` | **the consolidated paper**: the whole theory in one manuscript (1221 lines, 89 pp compiled, 73 pp in the journal layout, 25 figures, 8 tables, 69 references). Every claim, number and provenance label lives here. |
+| `final_publication.md` | **the consolidated paper**: the whole theory in one manuscript (1223 lines, 90 pp compiled, 75 pp in the journal layout, 25 figures, 8 tables, 69 references). Every claim, number and provenance label lives here. |
 | `reference.md` | the technical reference: the exact constructions, the numerical protocol, the reproducibility statement, the reading map of the code. |
 | `api.md` | the API reference of the 44 `cl10` modules — signatures, returned keys, provenance vocabulary, the runner contract. Regenerated from the live modules, never from memory. |
 | `figures/` | the 25 PNGs, every one computed by [`make_figures`](../make_figures/README.md). |
