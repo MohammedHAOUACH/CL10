@@ -5325,3 +5325,39 @@ reproduce the direct per-member path's closure k and dev to |d| <= 1e-13.
 T0a-c always run on the direct path; the numpy direct path stays the
 fallback and the identity reference; backend recorded in the artifact.
 Verdict backend-invariant by that gate.
+
+### V333 booking (run after the amendment; verdict as booked)
+CLOCK-TRANSCENDENT-DECLARED, all six T0/census checks green, wall 611 s
+(batched cupy, GPU 1; the numpy direct path projects ~50 min - the first
+diagnostic run was killed at ~8 min on this cost before any verdict).
+First-run diagnostic (killed pre-artifact, no verdict delivered): exactly
+64 members close at EVERY rational clock probed - the mirror-antisymmetric
+class c_{j+3} = -c_j, each with scalar M = e^{i phi} I (M = -i*I at the
+fifth, dev 3.6e-15); amendment 1 booked before the verdict (degeneracy =
+scalar member; |tr| > 64 guard), class/grid/k/CLOSE_EPS/branch words
+unchanged.
+Census as run: 626,688 closure tests = 4096 members x (74 rational clocks
+q <= 12 in [0.05, 1.6], 1/5 exactly included + 79 pi*a/b ledger clocks).
+Zero non-degenerate rational closures; 4736 = 64 x 74 scalar-degenerate
+rows (the mirror members close at every grid rational - their scalar phase
+is commensurable at every grid clock at k <= 16); the pi ledger: 79 closing
+clocks, all 4096 members close somewhere on it. Raw closest-rational ledger
+value 6.724e-15 at 1/11 (member 1386) - a mirror SCALAR row: the raw ledger
+is dominated by the scalars; the physical content is the zero on the
+non-degenerate side. Published step at 1/5: min_dev 0.058 from any closure.
+Gate hygiene: T0a identity closures vs V315 leaves, dev diffs 0.0/0.0/
+1.07e-16 (the pi*1/4 third digit is host-vs-GPU rounding, inside the booked
+1e-13); T0b g_obs leaf bit-for-bit (diff 0.0); T0c identity member NOT
+closed at 1/5 (0.058); T0d unitarity 16 seeded members, worst 8.2e-15;
+T0e batch<->direct identity (4 members x 2 clocks): k-mismatches 0, worst
+|dev diff| 2.22e-16. Batch path: per-clock stacked F(g) hoist + stacked
+k-sweep + scalar-dev from M^1; numpy direct path stays the fallback and
+the T0a-c host; backend cupy recorded in the artifact.
+Meta (as booked): the clock tension is STRUCTURAL for the root-generated
+class - within it, no selection reaches 1/5; the escape route is new
+algebra (a non-root closure axiom; V314's ledger already priced clock
+deformation at 0.002/0.191), not a bigger census. The transcendence of
+1/5 relative to the class is a booked CONJECTURE with census evidence,
+never printed as a theorem. Paper: O8 Table 7 gap cell + abstract +
+conclusion carry it; suite 246, fold 246/246 PASS, hard tier MET
+(106 tiered), number_audit PASS (908 tokens, 0 unexplained).

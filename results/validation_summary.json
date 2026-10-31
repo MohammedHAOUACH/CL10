@@ -1,16 +1,16 @@
 {
-  "n": 245,
-  "n_pass": 245,
+  "n": 246,
+  "n_pass": 246,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
   "backend_parent": "cupy",
   "backend_requested": "auto",
-  "n_backend_reported": 51,
-  "n_backend_gpu": 51,
+  "n_backend_reported": 52,
+  "n_backend_gpu": 52,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 105,
+  "hard_tier_n": 106,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 128,
+  "n_named_residuals": 129,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -211,6 +211,7 @@
     "V330_generation_forcing_census",
     "V331_channel_asymmetry_closure",
     "V332_flavour_class_closure",
+    "V333_clock_transcendence",
     "V38_couplings_root",
     "V41_smatrix",
     "V43_qca_spectrum",
@@ -351546,6 +351547,760 @@
           }
         ],
         "status": "FLAVOUR-NO-CLASS-DECLARED",
+        "pass": true
+      }
+    },
+    {
+      "id": "V333_clock_transcendence",
+      "dir": "V333_clock_transcendence",
+      "tier": 2,
+      "property": "does the root-generated six-stage step class close at any RATIONAL clock (rational-closure census over the 4096-member stage-multiplier ray class; the data clock 1/5) (tier 2, O4/O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CLOCK-TRANSCENDENT-DECLARED",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 626.557,
+      "backend": "cupy",
+      "verdict": {
+        "id": "V333_clock_transcendence",
+        "tier": 2,
+        "property": "does the root-generated six-stage step class close at any RATIONAL clock (rational-closure census over the 4096-member stage-multiplier ray class; the data clock 1/5) (tier 2, O4/O8)",
+        "residual": true,
+        "programme": "theory-hunt V333",
+        "branch": "CLOCK-TRANSCENDENT-DECLARED",
+        "data": {
+          "n_rational_clocks": 74,
+          "n_pi_clocks": 79,
+          "n_members": 4096,
+          "t0": {
+            "t0a_identity_closures": {
+              "pi*1/2": {
+                "k": 2,
+                "dev": 7.606445072191264e-15,
+                "v315_k": 2,
+                "v315_dev": 7.606445072191264e-15,
+                "abs_diff_dev": 0.0
+              },
+              "pi*1/4": {
+                "k": 2,
+                "dev": 7.391586503204494e-15,
+                "v315_k": 2,
+                "v315_dev": 7.391586503204494e-15,
+                "abs_diff_dev": 0.0
+              },
+              "pi*3/4": {
+                "k": 2,
+                "dev": 7.501659989830069e-15,
+                "v315_k": 2,
+                "v315_dev": 7.501659989830069e-15,
+                "abs_diff_dev": 0.0
+              }
+            },
+            "g_obs": 0.19999798835751165,
+            "g_obs_minus_fifth_absdiff": 0.0,
+            "fifth_closure": {
+              "closed": false,
+              "min_dev": 0.058175231162639354
+            },
+            "worst_unitarity_dev": 8.215650382226158e-15,
+            "t0e_batch_identity": {
+              "worst_abs_dev_diff": 1.1102230246251565e-16,
+              "k_mismatches": 0
+            }
+          },
+          "census_path": "batched-cupy",
+          "rational_ledger": {
+            "1/1": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/2": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/2": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/3": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "2/3": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "4/3": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/4": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/4": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/4": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "2/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "4/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "6/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "8/5": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/6": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/6": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/6": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "2/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "4/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "6/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "8/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "9/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "10/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "11/7": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "9/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "11/8": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "2/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "4/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "8/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "10/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "11/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "13/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "14/9": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "9/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "11/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "13/10": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "2/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "3/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "4/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "6/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "8/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "9/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "10/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "12/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "13/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "14/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "15/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "16/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "17/11": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "1/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "5/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "7/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "11/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "13/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "17/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            },
+            "19/12": {
+              "closed": 64,
+              "scalar_degenerate": 64,
+              "found": 0
+            }
+          },
+          "closure_tests": 626688,
+          "backend": "cupy",
+          "wall_time": 624.9730701446533,
+          "pi_closure_ledger": {
+            "pi*1/2": 4096,
+            "pi*1/3": 4096,
+            "pi*2/3": 4096,
+            "pi*1/4": 4096,
+            "pi*3/4": 4096,
+            "pi*1/5": 4096,
+            "pi*2/5": 4096,
+            "pi*3/5": 4096,
+            "pi*4/5": 4096,
+            "pi*1/6": 4096,
+            "pi*5/6": 4096,
+            "pi*1/7": 4096,
+            "pi*2/7": 4096,
+            "pi*3/7": 4096,
+            "pi*4/7": 4096,
+            "pi*5/7": 4096,
+            "pi*6/7": 4096,
+            "pi*1/8": 4096,
+            "pi*3/8": 4096,
+            "pi*5/8": 4096,
+            "pi*7/8": 4096,
+            "pi*1/9": 512,
+            "pi*2/9": 512,
+            "pi*4/9": 512,
+            "pi*5/9": 512,
+            "pi*7/9": 512,
+            "pi*8/9": 512,
+            "pi*1/10": 4096,
+            "pi*3/10": 4096,
+            "pi*7/10": 4096,
+            "pi*9/10": 4096,
+            "pi*1/11": 64,
+            "pi*2/11": 64,
+            "pi*3/11": 64,
+            "pi*4/11": 64,
+            "pi*5/11": 64,
+            "pi*6/11": 64,
+            "pi*7/11": 64,
+            "pi*8/11": 64,
+            "pi*9/11": 64,
+            "pi*10/11": 64,
+            "pi*1/12": 4096,
+            "pi*5/12": 4096,
+            "pi*7/12": 4096,
+            "pi*11/12": 4096,
+            "pi*1/13": 64,
+            "pi*2/13": 64,
+            "pi*3/13": 64,
+            "pi*4/13": 64,
+            "pi*5/13": 64,
+            "pi*6/13": 64,
+            "pi*7/13": 64,
+            "pi*8/13": 64,
+            "pi*9/13": 64,
+            "pi*10/13": 64,
+            "pi*11/13": 64,
+            "pi*12/13": 64,
+            "pi*1/14": 4096,
+            "pi*3/14": 4096,
+            "pi*5/14": 4096,
+            "pi*9/14": 4096,
+            "pi*11/14": 4096,
+            "pi*13/14": 4096,
+            "pi*1/15": 512,
+            "pi*2/15": 512,
+            "pi*4/15": 512,
+            "pi*7/15": 512,
+            "pi*8/15": 512,
+            "pi*11/15": 512,
+            "pi*13/15": 512,
+            "pi*14/15": 512,
+            "pi*1/16": 4096,
+            "pi*3/16": 4096,
+            "pi*5/16": 4096,
+            "pi*7/16": 4096,
+            "pi*9/16": 4096,
+            "pi*11/16": 4096,
+            "pi*13/16": 4096,
+            "pi*15/16": 4096
+          },
+          "members_with_pi_closure": 4096,
+          "best_rational_approach": {
+            "dev": 6.7241518083823e-15,
+            "p": 1,
+            "q": 11,
+            "g": 0.09090909090909091,
+            "approach_k": 2,
+            "k": 2,
+            "member": 1386,
+            "c": [
+              -1,
+              -1,
+              -1,
+              1,
+              1,
+              1
+            ]
+          },
+          "degenerate_closures": [
+            {
+              "c": [
+                -2,
+                -2,
+                -2,
+                2,
+                2,
+                2
+              ],
+              "member": 63,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.08317894153183e-15,
+              "dev_vs_pmI": 1.414213562373094,
+              "dev_scalar": 3.924376839785207e-15
+            },
+            {
+              "c": [
+                -2,
+                -2,
+                -1,
+                2,
+                2,
+                1
+              ],
+              "member": 126,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.068536273789488e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 4.0275241712018545e-15
+            },
+            {
+              "c": [
+                -2,
+                -2,
+                1,
+                2,
+                2,
+                -1
+              ],
+              "member": 189,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.068536273789488e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 4.0275241712018545e-15
+            },
+            {
+              "c": [
+                -2,
+                -2,
+                2,
+                2,
+                2,
+                -2
+              ],
+              "member": 252,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.08317894153183e-15,
+              "dev_vs_pmI": 1.414213562373094,
+              "dev_scalar": 3.924376839785207e-15
+            },
+            {
+              "c": [
+                -2,
+                -1,
+                -2,
+                2,
+                1,
+                2
+              ],
+              "member": 315,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.060021281287686e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 4.022575162651927e-15
+            },
+            {
+              "c": [
+                -2,
+                -1,
+                -1,
+                2,
+                1,
+                1
+              ],
+              "member": 378,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.087559442315005e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 3.923709934781232e-15
+            },
+            {
+              "c": [
+                -2,
+                -1,
+                1,
+                2,
+                1,
+                -1
+              ],
+              "member": 441,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.087559442315005e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 3.923709934781232e-15
+            },
+            {
+              "c": [
+                -2,
+                -1,
+                2,
+                2,
+                1,
+                -2
+              ],
+              "member": 504,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.060021281287686e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 4.022575162651927e-15
+            },
+            {
+              "c": [
+                -2,
+                1,
+                -2,
+                2,
+                -1,
+                2
+              ],
+              "member": 567,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.060021281287686e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 4.022575162651927e-15
+            },
+            {
+              "c": [
+                -2,
+                1,
+                -1,
+                2,
+                -1,
+                1
+              ],
+              "member": 630,
+              "p": 1,
+              "q": 1,
+              "g": 1.0,
+              "k": 2,
+              "dev": 8.087559442315005e-15,
+              "dev_vs_pmI": 1.4142135623730938,
+              "dev_scalar": 3.923709934781232e-15
+            }
+          ],
+          "rational_closures": [],
+          "n_scalar_degenerate_rows": 4736,
+          "n_rational_found": 0,
+          "flag": null,
+          "status": "CLOCK-TRANSCENDENT-DECLARED"
+        },
+        "checks": [
+          {
+            "name": "T0a identity closures re-derived (k match, dev |d| <= 1e-13 to V315 leaves)",
+            "pass": true
+          },
+          {
+            "name": "T0b g_obs leaf == 0.19999798835751165 and |g_obs-1/5| re-derived to 0.0 diff",
+            "pass": true
+          },
+          {
+            "name": "T0c identity member not closed at g = 1/5 (None over k <= 16, min_dev >= 1e-6)",
+            "pass": true
+          },
+          {
+            "name": "T0d unitarity of 16 seeded members (< 1e-10)",
+            "pass": true
+          },
+          {
+            "name": "T0e batched cupy path == direct path (4 seeded members x 2 clocks: same k, dev |d| <= 1e-13)",
+            "pass": true
+          },
+          {
+            "name": "census complete (626688 closure tests over 4096 members x (74 rational + 79 pi) clocks)",
+            "pass": true
+          }
+        ],
+        "status": "CLOCK-TRANSCENDENT-DECLARED",
         "pass": true
       }
     },

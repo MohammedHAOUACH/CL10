@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (245 of them under `experiments/<category>/`: the 242 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (246 of them under `experiments/<category>/`: the 243 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -169,9 +169,9 @@ experiment that writes no tier is not folded into it.
 
 **The result (236/236 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
-hard-tier verdict is positive. The suite stands at 245 experiments:
+hard-tier verdict is positive. The suite stands at 246 experiments:
 the pillar-surgery programme (V308-V314) and the theory-hunt programme
-(V315-V332) booked their verdicts inside the pre-registered classes;
+(V315-V333) booked their verdicts inside the pre-registered classes;
 **239/239 PASS, hard tier MET, number_audit green** as booked at the
 2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
 (provenance table refreshed to the final twelve-fitted-coefficient audit,
@@ -240,6 +240,34 @@ green on the subset, fold **245/245 PASS, hard tier MET (105 tiered)**,
 T0 anchor diffs 0.0 where bit-for-bit was booked (V327 λ leaf equality, V329
 singularity and r_atm, V332 mixing); number_audit PASS after the Table 7
 gap-cell updates.
+
+**The clock-transcendence test V333 (2026-11-01).** The first constructive
+attack on the clock tension itself: is the data clock, rational to
+2.0116424883642736e-06, in the closure set of the root-generated step class?
+Pre-registered before the run: the 4096-member stage-multiplier ray class
+(c_j ∈ {±2,±1} of the V315 construction on Γ), the 74-clock rational grid
+(q ≤ 12, 1/5 exactly included) and the 79-clock π·a/b ledger, closure
+‖M(g)^k − ±I‖ < 1e-12 for k ≤ 16, degeneracy M = ±I. First-run diagnostic
+(run killed before any artifact, amendment booked before the verdict):
+exactly the 64 mirror-antisymmetric members (c_{j+3} = −c_j) close at every
+rational clock probed, each with a scalar M = e^{iφ}I (M = −iI at the fifth,
+dev 3.6e-15) - no propagation content, so booked degenerate by the physical
+intent; the degeneracy clause widened to ‖M − e^{iφ}I‖ ≤ 1e-12 with
+e^{iφ} = tr(M)/(128|tr(M)/128|) (scalar only if |tr| > 64). Verdict:
+**CLOCK-TRANSCENDENT-DECLARED** - 626,688 closure tests, zero non-degenerate
+rational closures (4736 scalar-degenerate rows), every non-trivial closure
+π-commensurable with all 4096 members closing on the π grid; the published
+step sits 0.058 from any closure at the fifth. The transcendence of the data
+clock relative to the class is carried as a booked conjecture with census
+evidence, never printed as a proof; the escape route it points to is new
+algebra (a non-root closure axiom), not selection within the class.
+Machinery: batched-cupy fast path (user-requested GPU hold, GPU 1) under the
+V326 hoisting playbook, gated by the T0e batch-direct identity
+(worst dev diff 2.22e-16, k-mismatches 0), T0a-c on the direct path (V315
+identity closures diff 0.0/1.07e-16, V206 g_obs leaf bit-for-bit); wall
+611 s against the ~50-min direct path; backend recorded in the artifact,
+verdict backend-invariant by the gate. The O8 Table 7 gap cell carries the
+result; suite 246, fold 246/246, number_audit green.
 
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification
