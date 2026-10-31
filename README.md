@@ -167,7 +167,7 @@ CL10/
 │   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
 │   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
 │   ├── pillar_surgery/       # bounded surgery of the four pillars: the clock, the root signature, the lightcone dictionary, the four-scale ledger (V308-V314)
-│   ├── theory_hunt/          # the hunt for the closest theory: quantizer census, weight double-contact, selection conjunction, five-contact ledger (v1 + v2 with the supply slots), rung-weight census, sector-sum and resummation supply tests, cone decoration census, joint-centre rung-17 test, channel-triple test, dictionary bridge theorem (V315-V326)
+│   ├── theory_hunt/          # the hunt for the closest theory: quantizer census, weight double-contact, selection conjunction, five-contact ledger (v1 + v2 with the supply slots), rung-weight census, sector-sum and resummation supply tests, cone decoration census, joint-centre rung-17 test, channel-triple test, dictionary bridge theorem, and the six open-problem closure censuses (V315-V332)
 │   ├── alt_step/             # exploration: the root-swap cone searches at the root's own clock (V191, V192, V201)
 │   └── README.md             # every experiment, its verdict, and the paper section it validates
 ├── simulation/               # the 3-D visualizations on the CL10 engine
