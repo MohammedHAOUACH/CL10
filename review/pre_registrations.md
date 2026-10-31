@@ -5604,3 +5604,59 @@ reference.md carry the root ledger (or the candidate); experiments
 README, README, reference.md counts to 248; the V334 theorem note gets
 the census as its companion (the dichotomy's second branch now has its
 bounded search booked and run).
+
+### V335 run note (post-run; verdict as booked)
+CLOCK-NO-NAMED-ROOT-DECLARED, all seven T0/census checks green, wall 78 s,
+fold 248/248, hard tier MET (108 tiered).
+Gate hygiene, what the run actually did: (1) the booked microbenchmark
+reversed the booked backend. The V206 hop einsums at rho = I/D_L - the
+reference under which V206 booked its leaves - contract EXACTLY: with
+W_i[a,c] = sum_j P_r[a,j,c,j] (one "ajcj->ac" einsum per projector at
+setup), the sector hop is Ma_i = W_i @ G / 45, a 32x32 host matmul; the
+1440^3 GPU staging is never needed and the scan runs at ~3 ms/eval,
+~50x faster than the staged hybrid (0.17 s/eval kernel-launch-bound
+einsum chain). GPU 1 (free, user card) was engaged as the booked
+third-backend invariance gate instead: T0f, the staged cupy einsum path
+vs the contracted path at the seed clocks, n <= 60, worst 4.26e-14;
+T0e contracted vs verbatim V206 numpy Fn_of: 3.55e-14. Verdicts are
+path-invariant across all three backends. (2) Two dictionary traps were
+caught BEFORE the green run and booked here: (a) the booked LOOP^k-form
+test first returned 0.0e+00 misses for EVERY root - float64 evaluation
+of p/q rounds exactly equal to large floats (spacing ~6e-8 near 4e8), so
+the q <= 1e4 convergent of a y ~ 1e8 looked exact; the comparison moved
+to exact 50-digit mpmath (convergent still produced by
+Fraction(float(y)).limit_denominator, residual evaluated exactly). (b)
+The next run gave a 7.7e-22 "coincidence" at every number:
+limit_denominator returns 0/1 for the underflowed x*LOOP^k products at
+large k, and a vanishing product is vacuously close to zero - guarded by
+a nonzero numerator (a nonzero clock is named only by a nonzero
+rational). Neither fix touched the class, the gates, or the branch
+words. (3) A booked expectation (not a gate) was off: g_obs's best
+q <= 1e6 convergent is 19884/99421 at 4.95e-12, not 99999/500000 at
+1.16e-8; the expectation matched an off-family candidate.
+Booked physics, as run: 365 roots located (E1 n in 3..24,170,208 plus
+E2 k<=3 families, grid 0.05..1.55, 60-halving bisection); 22 named,
+ALL by continued-fraction coincidence at the booked 1e-12 gate (the
+booked O(1)-per-number density for q <= 1e6: closest 6.37e-14 at
+q = 556909); ZERO PSLQ hits (degree <= 6, height <= 20, V309's
+maxcoeff pattern with 60-dp substitution verification at 1e-30);
+ZERO candidates: K1 (SAME functional, 1e-4 band) is held among the 365
+by the reference row g_obs alone (4.96e-14 - the machinery identity
+itself re-confirming the V206 coefficient definition), and g_obs is
+unnamed; every E1/E2 root lands in [0.79, 1.55], outside the K1 window
+as booked, and K3 (rung-17 vs the V303 S17 contact, 5%) is off at every
+root by orders. The dichotomy's live branch now has its booked-class
+bounded search run: the measured clock is the only coefficient-reading
+clock in the crossing set of the ladder's own rung-arithmetic equations,
+and it has no name; the full 365-row root ledger is the artifact.
+PAPER FOLD as booked: the Table 7 O8 gap cell carries the root-ledger
+sentence (CLOCK-NO-NAMED-ROOT-DECLARED alongside the rigidity
+theorem); the V334 theorem note in reference.md got its census
+companion; abstract and conclusion untouched (not in the booked edit
+list); counts to 248 (245 publication + 3 alt_step).
+Backend note, for the record: the T0f staged-einsum identity reads
+4.26e-14 on the standalone run and 3.55e-14 on the fold re-run (both
+GPU 1, free card); the value printed in the docs is the artifact (fold)
+read. The gate is backend-run-stable at <= 1e-12 either way; a runner
+fold on the busy parent card OOMs the staged path, which the script now
+names honestly in the skip line (host T0e identity governs).

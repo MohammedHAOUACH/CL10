@@ -241,9 +241,11 @@ def main():
                                "(n<=60, 2 seed clocks, <= 1e-12): %.2e"
                        % worst_g, "pass": worst_g <= 1e-12})
     except Exception as exc:                          # pragma: no cover
-        data["t0"]["gpu_staged_identity_worst"] = "unavailable: %s" % exc
-        checks.append({"name": "T0f GPU-1 staged einsum path unavailable "
-                               "(numpy-only host)", "pass": True})
+        data["t0"]["gpu_staged_identity_worst"] = "skipped: %s" % exc
+        checks.append({"name": "T0f GPU staged einsum path skipped "
+                               "(cupy unavailable or GPU busy: %s); "
+                               "host T0e identity governs" % exc,
+                       "pass": True})
     if worst_g is not None and worst_g > 1e-12:
         data["status"] = "MACHINERY-DRIFT"
         _emit(data, checks, ok=False)

@@ -127,7 +127,7 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (247 of them under `experiments/<category>/`: the 244 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (248 of them under `experiments/<category>/`: the 245 of the publication programme, and the 3 of the `alt_step` exploration programme):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
@@ -169,9 +169,9 @@ experiment that writes no tier is not folded into it.
 
 **The result (236/236 publication;** the artifacts on record are all PASS).**
 Every experiment of the publication programme on record **passes**; the
-hard-tier verdict is positive. The suite stands at 247 experiments:
+hard-tier verdict is positive. The suite stands at 248 experiments:
 the pillar-surgery programme (V308-V314) and the theory-hunt programme
-(V315-V334) booked their verdicts inside the pre-registered classes;
+(V315-V335) booked their verdicts inside the pre-registered classes;
 **239/239 PASS, hard tier MET, number_audit green** as booked at the
 2026-10-29 gate (the V326 booking). The library alignment of 2026-10-30
 (provenance table refreshed to the final twelve-fitted-coefficient audit,
@@ -299,6 +299,42 @@ set. Branch **CLOSURE-RIGID-CENSUS-MATCHED**, numpy direct path, wall
 592 s. The abstract, the Table 7 O8 gap cell and the conclusion carry
 the theorem where they carried the conjecture; suite 247, fold
 247/247, hard tier MET (107 tiered), number_audit green.
+
+**The named-clock-root census V335 (2026-11-01).** The companion
+bounded search for the dichotomy's live branch — a clock carried in
+coefficients must at least be a root of the ladder's own rung
+arithmetic. All 365 crossing roots of $|F_n(g)| = \mathrm{LOOP}$
+($n \in \{3..24, 170, 208\}$) and of the rung self-consistency
+equations $|F_a(g)| = \mathrm{LOOP}^k |F_b(g)|$ ($k \le 3$, rungs
+3/10/17/170/208) on $[0.05, 1.55]$ are located by bisection (60
+halvings, 3 ms/eval) and scored against the booked dictionary class:
+continued fractions $q \le 10^6$, $\mathrm{LOOP}^{\pm k}$ rational
+forms $q \le 10^4$ at 50 digits, V326 phase-dictionary members times
+$\mathrm{LOOP}^k$, PSLQ degree $\le 6$ height $\le 20. 22$ roots name
+— booked-class Diophantine coincidences (closest $6.37\times10^{-14}$
+at $q = 556909$; the class's coincidence density is $O(1)$ per
+number); ZERO roots carry a degree-$\le6$ height-$\le20$ polynomial;
+and ZERO candidates: the $\pm10^{-4}$ coefficient band, scored with
+the SAME functional, is held among the 365 by $g_{\rm obs}$ alone
+($4.96\times10^{-14}$ — the machinery identity itself), and $g_{\rm
+obs}$ is itself unnamed (best convergent $19884/99421$ at
+$4.95\times10^{-12}$). The measured clock is the only
+coefficient-reading clock in its own crossing set, and it has no
+name; the live branch survives only with genuinely transcendental
+coefficients. Branch **CLOCK-NO-NAMED-ROOT-DECLARED**, full 365-row
+root ledger in the artifact. Machinery: at $\rho = I/D_L$ the V206
+hop einsums contract exactly to 32×32 projector constants (the scan
+runs on the host at ~50x the staged hybrid); GPU 1 carries the
+booked third-backend gate (T0f staged-einsum identity $3.55\times
+10^{-14}$, artifact read); T0a-e green ($g_{\rm obs}/g_{\rm cross}$ re-derived to
+$8.3/7.8\times10^{-16}$, $n^*(\pi/4) = 208$, COEF_OBS bit-identical).
+Dictionary hygiene, booked: two traps caught before the green run —
+float64 evaluation of $p/q$ aliases to large floats at $10^{-8}$
+spacing (spurious $0.0$ loop-form hits) and `limit_denominator`
+returns $0/1$ for underflowed $x\,\mathrm{LOOP}^k$ products
+(vacuous $7.7\times10^{-22}$ "hits") — fixed to the exact 50-digit
+comparison and a nonzero-numerator guard; class and gates unchanged.
+Wall 78 s; suite 248, fold 248/248, hard tier MET (108 tiered).
 
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification

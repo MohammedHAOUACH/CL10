@@ -10,13 +10,13 @@
   "backend": "host exact-contraction fast path (projector hop trace constants W_i; rho = I/D_L is the identity); verbatim V206 numpy Fn_of is the reference under the T0e gate; GPU unused (contraction beats the staged-einsum hybrid by ~50x)",
   "D_L": 45,
   "t0": {
-   "gpu_staged_identity_worst": 4.263256414560601e-14,
+   "gpu_staged_identity_worst": 3.552713678800501e-14,
    "g_obs": 0.19999798835751248,
    "g_obs_vs_leaf": 8.326672684688674e-16,
    "g_cross": 0.20013316730041752,
    "g_cross_vs_leaf": 7.771561172376096e-16,
    "pi4_nstar": 208,
-   "pi4_deficit_vs_leaf": 5.842184074600354e-05,
+   "pi4_deficit_vs_leaf": 1.8496315590255108e-13,
    "coef_obs_vs_leaf": 0.0
   },
   "roots": {
@@ -40,7 +40,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 2.555618176075821e+25,
+    "K3_rel": 2.5556181760758338e+25,
     "candidate": false
    },
    "E1:F_4=LOOP": {
@@ -63,7 +63,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 4.90025336250586e+23,
+    "K3_rel": 4.900253362505873e+23,
     "candidate": false
    },
    "E1:F_5=LOOP": {
@@ -85,8 +85,8 @@
     },
     "pslq": null,
     "named": false,
-    "K1_rel": 0.9459956239301667,
-    "K3_rel": 2.7504281982301137e+25,
+    "K1_rel": 0.9459956239301682,
+    "K3_rel": 2.7504281982301047e+25,
     "candidate": false
    },
    "E1:F_6=LOOP": {
@@ -109,7 +109,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 9.310065606799857e+28,
+    "K3_rel": 9.310065606799843e+28,
     "candidate": false
    },
    "E1:F_7=LOOP": {
@@ -132,7 +132,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 6.466294809762721e+27,
+    "K3_rel": 6.466294809762752e+27,
     "candidate": false
    },
    "E1:F_8=LOOP": {
@@ -155,7 +155,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 9.207670712588297e+27,
+    "K3_rel": 9.207670712588324e+27,
     "candidate": false
    },
    "E1:F_9=LOOP": {
@@ -178,7 +178,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 2.9973590386942232e+26,
+    "K3_rel": 2.9973590386942277e+26,
     "candidate": false
    },
    "E1:F_10=LOOP": {
@@ -200,8 +200,8 @@
     },
     "pslq": null,
     "named": true,
-    "K1_rel": 0.4446941386769794,
-    "K3_rel": 3.6622696898190184e+27,
+    "K1_rel": 0.44469413867699864,
+    "K3_rel": 3.6622696898190326e+27,
     "candidate": false
    },
    "E1:F_11=LOOP": {
@@ -224,7 +224,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 1.7616234092964672e+27,
+    "K3_rel": 1.7616234092964592e+27,
     "candidate": false
    },
    "E1:F_12=LOOP": {
@@ -247,7 +247,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 1.6638989492680763e+27,
+    "K3_rel": 1.6638989492680643e+27,
     "candidate": false
    },
    "E1:F_13=LOOP": {
@@ -270,7 +270,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 1.6352105170289075e+27,
+    "K3_rel": 1.6352105170289155e+27,
     "candidate": false
    },
    "E1:F_14=LOOP": {
@@ -293,7 +293,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 7.083911083353904e+26,
+    "K3_rel": 7.083911083353925e+26,
     "candidate": false
    },
    "E1:F_15=LOOP": {
@@ -316,7 +316,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 2.903761556613046e+27,
+    "K3_rel": 2.903761556613049e+27,
     "candidate": false
    },
    "E1:F_16=LOOP": {
@@ -339,7 +339,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 9.764156225275399e+27,
+    "K3_rel": 9.764156225275349e+27,
     "candidate": false
    },
    "E1:F_17=LOOP": {
@@ -362,7 +362,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 1.6608013362765868e+27,
+    "K3_rel": 1.6608013362765926e+27,
     "candidate": false
    },
    "E1:F_18=LOOP": {
@@ -385,7 +385,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 2.4043289344089525e+30,
+    "K3_rel": 2.4043289344089494e+30,
     "candidate": false
    },
    "E1:F_19=LOOP": {
@@ -408,7 +408,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 1.3851081140611924e+27,
+    "K3_rel": 1.3851081140611858e+27,
     "candidate": false
    },
    "E1:F_20=LOOP": {
@@ -431,7 +431,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 2.411464086295088e+29,
+    "K3_rel": 2.4114640862950945e+29,
     "candidate": false
    },
    "E1:F_21=LOOP": {
@@ -454,7 +454,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 8.33309731523833e+28,
+    "K3_rel": 8.333097315238354e+28,
     "candidate": false
    },
    "E1:F_22=LOOP": {
@@ -477,7 +477,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 5.928497310634598e+30,
+    "K3_rel": 5.928497310634621e+30,
     "candidate": false
    },
    "E1:F_23=LOOP": {
@@ -500,7 +500,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 7.912815606068538e+28,
+    "K3_rel": 7.912815606068565e+28,
     "candidate": false
    },
    "E1:F_24=LOOP": {
@@ -523,7 +523,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 3.641398593090279e+30,
+    "K3_rel": 3.6413985930902915e+30,
     "candidate": false
    },
    "E1:F_170=LOOP": {
@@ -546,7 +546,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 8.922561394080619e+21,
+    "K3_rel": 8.922561381767076e+21,
     "candidate": false
    },
    "E1:F_208=LOOP": {
@@ -569,7 +569,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 155402658817408.75,
+    "K3_rel": 188213728797875.62,
     "candidate": false
    },
    "E2:F_10=LOOP^1*F_3": {
@@ -592,7 +592,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 6.464849561511917e+27,
+    "K3_rel": 6.464849561511941e+27,
     "candidate": false
    },
    "E2:F_10=LOOP^2*F_3": {
@@ -615,7 +615,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 1.3463878635372212e+30,
+    "K3_rel": 1.34638786353722e+30,
     "candidate": false
    },
    "E2:F_10=LOOP^3*F_3": {
@@ -638,7 +638,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 2.6293970436122608e+32,
+    "K3_rel": 2.629397043612257e+32,
     "candidate": false
    },
    "E2:F_17=LOOP^1*F_10": {
@@ -661,7 +661,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 7.702872869663212e+25,
+    "K3_rel": 7.702872869663304e+25,
     "candidate": false
    },
    "E2:F_17=LOOP^2*F_10": {
@@ -684,7 +684,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 1.706300712149071e+24,
+    "K3_rel": 1.7063007121490854e+24,
     "candidate": false
    },
    "E2:F_17=LOOP^3*F_10": {
@@ -707,7 +707,7 @@
     "pslq": null,
     "named": false,
     "K1_rel": null,
-    "K3_rel": 5.087358711431218e+23,
+    "K3_rel": 5.087358711431266e+23,
     "candidate": false
    },
    "E2:F_17=LOOP^1*F_3": {
@@ -730,30 +730,30 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 6.238468506239849e+30,
+    "K3_rel": 6.238468506239857e+30,
     "candidate": false
    },
    "E2:F_17=LOOP^2*F_3": {
-    "g": 1.2276875633978186,
+    "g": 1.2276875633978195,
     "cf": {
      "p": 844789,
      "q": 688114,
-     "miss": 1.0680345496894006e-13
+     "miss": 1.0591527654923993e-13
     },
     "loop_form": {
      "form": "x*LOOP^1",
      "value": "229/9376",
-     "miss": 6.602453835595179e-09
+     "miss": 6.60245385350011e-09
     },
     "dict_member": {
      "member": 6.283185307179586,
      "k": 1,
-     "miss": 1.1026875633978186
+     "miss": 1.1026875633978195
     },
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 6.266843008035614e+23,
+    "K3_rel": 6.266843008035558e+23,
     "candidate": false
    },
    "REF:g_obs": {
@@ -775,8 +775,8 @@
     },
     "pslq": null,
     "named": false,
-    "K1_rel": 4.961498473888912e-14,
-    "K3_rel": 5.011913148275278e+26,
+    "K1_rel": 8.126592327921492e-15,
+    "K3_rel": 5.011913148275259e+26,
     "candidate": false
    },
    "REF:g_cross": {
@@ -799,7 +799,7 @@
     "pslq": null,
     "named": true,
     "K1_rel": null,
-    "K3_rel": 4.516480328404731e+26,
+    "K3_rel": 4.516480328404721e+26,
     "candidate": false
    }
   },
@@ -825,18 +825,18 @@
    "pslq": null,
    "named": true,
    "K1_rel": null,
-   "K3_rel": 1.7616234092964672e+27,
+   "K3_rel": 1.7616234092964592e+27,
    "candidate": false
   },
-  "wall_time": 72.72009897232056
+  "wall_time": 74.72133803367615
  },
  "checks": [
   {
-   "name": "T0e contracted == verbatim V206 Fn_of (n<=60, 3 seed clocks, <= 1e-12): worst 3.55e-14",
+   "name": "T0e contracted == verbatim V206 Fn_of (n<=60, 3 seed clocks, <= 1e-12): worst 4.97e-14",
    "pass": true
   },
   {
-   "name": "T0f GPU-1 staged einsum == contracted path (n<=60, 2 seed clocks, <= 1e-12): 4.26e-14",
+   "name": "T0f GPU-1 staged einsum == contracted path (n<=60, 2 seed clocks, <= 1e-12): 3.55e-14",
    "pass": true
   },
   {
@@ -848,7 +848,7 @@
    "pass": true
   },
   {
-   "name": "T0c pi/4 reading n* = 208, deficit vs V205 leaf < 1e-4: n* 208 d 5.84e-05",
+   "name": "T0c pi/4 reading n* = 208, deficit vs V205 leaf < 1e-4: n* 208 d 1.85e-13",
    "pass": true
   },
   {

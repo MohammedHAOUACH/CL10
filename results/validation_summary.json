@@ -1,16 +1,16 @@
 {
-  "n": 247,
-  "n_pass": 247,
+  "n": 248,
+  "n_pass": 248,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
   "backend_parent": "cupy",
   "backend_requested": "auto",
-  "n_backend_reported": 53,
-  "n_backend_gpu": 53,
+  "n_backend_reported": 54,
+  "n_backend_gpu": 54,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 107,
+  "hard_tier_n": 108,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 130,
+  "n_named_residuals": 131,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -213,6 +213,7 @@
     "V332_flavour_class_closure",
     "V333_clock_transcendence",
     "V334_clock_closure_rigidity",
+    "V335_named_clock_roots",
     "V38_couplings_root",
     "V41_smatrix",
     "V43_qca_spectrum",
@@ -352314,10 +352315,10 @@
       "pass": true,
       "inconclusive": false,
       "status": "CLOSURE-RIGID-CENSUS-MATCHED",
-      "returncode": 0,
+      "returncode": null,
       "crashed": false,
       "stale": false,
-      "wall_time": 739.874,
+      "wall_time": null,
       "backend": "numpy direct (V333 machinery by module import)",
       "verdict": {
         "id": "V334_clock_closure_rigidity",
@@ -352526,6 +352527,886 @@
           }
         ],
         "status": "CLOSURE-RIGID-CENSUS-MATCHED",
+        "pass": true
+      }
+    },
+    {
+      "id": "V335_named_clock_roots",
+      "dir": "V335_named_clock_roots",
+      "tier": 2,
+      "property": "the named-clock-root hunt: roots of booked named ladder equations scored against the dictionary class and the K1/K3 contact bands (tier 2, O4/O8)",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CLOCK-NO-NAMED-ROOT-DECLARED",
+      "returncode": 0,
+      "crashed": false,
+      "stale": false,
+      "wall_time": 80.699,
+      "backend": "host exact-contraction fast path (projector hop trace constants W_i; rho = I/D_L is the identity); verbatim V206 numpy Fn_of is the reference under the T0e gate; GPU unused (contraction beats the staged-einsum hybrid by ~50x)",
+      "verdict": {
+        "id": "V335_named_clock_roots",
+        "tier": 2,
+        "property": "the named-clock-root hunt: roots of booked named ladder equations scored against the dictionary class and the K1/K3 contact bands (tier 2, O4/O8)",
+        "residual": true,
+        "programme": "theory-hunt V335",
+        "branch": "CLOCK-NO-NAMED-ROOT-DECLARED",
+        "data": {
+          "class": "the booked V335 families on the certified V206 ladder functional; dictionary: CF q<=1e6, LOOP^k-forms q<=1e4 k<=12, V326 members x LOOP^k k<=90, PSLQ deg<=6 H<=20; contacts K1 1e-04, K3 0.05",
+          "backend": "host exact-contraction fast path (projector hop trace constants W_i; rho = I/D_L is the identity); verbatim V206 numpy Fn_of is the reference under the T0e gate; GPU unused (contraction beats the staged-einsum hybrid by ~50x)",
+          "D_L": 45,
+          "t0": {
+            "gpu_staged_identity_worst": 3.552713678800501e-14,
+            "g_obs": 0.19999798835751248,
+            "g_obs_vs_leaf": 8.326672684688674e-16,
+            "g_cross": 0.20013316730041752,
+            "g_cross_vs_leaf": 7.771561172376096e-16,
+            "pi4_nstar": 208,
+            "pi4_deficit_vs_leaf": 1.8496315590255108e-13,
+            "coef_obs_vs_leaf": 0.0
+          },
+          "roots": {
+            "E1:F_3=LOOP": {
+              "g": 1.2633666450771184,
+              "cf": {
+                "p": 770521,
+                "q": 609895,
+                "miss": 1.1328715743275097e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "471561737/2939",
+                "miss": 3.992701924915918e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1383666450771184
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 2.5556181760758338e+25,
+              "candidate": false
+            },
+            "E1:F_4=LOOP": {
+              "g": 1.1998175670288673,
+              "cf": {
+                "p": 1099634,
+                "q": 916501,
+                "miss": 5.193623309196482e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "227/9510",
+                "miss": 1.1392849701788512e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.0748175670288673
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 4.900253362505873e+23,
+              "candidate": false
+            },
+            "E1:F_5=LOOP": {
+              "g": 1.2848799236397865,
+              "cf": {
+                "p": 102297,
+                "q": 79616,
+                "miss": 6.346034808757395e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "32142623/9901",
+                "miss": 3.6848063889303302e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1598799236397865
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": 0.9459956239301682,
+              "K3_rel": 2.7504281982301047e+25,
+              "candidate": false
+            },
+            "E1:F_6=LOOP": {
+              "g": 1.4211121038270584,
+              "cf": {
+                "p": 1375871,
+                "q": 968165,
+                "miss": 1.780797731498751e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "20046367/5583",
+                "miss": 3.3864775907477985e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2961121038270584
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 9.310065606799843e+28,
+              "candidate": false
+            },
+            "E1:F_7=LOOP": {
+              "g": 1.3211156451760515,
+              "cf": {
+                "p": 598291,
+                "q": 452868,
+                "miss": 9.094947017729282e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "1613578200/9617",
+                "miss": 1.723586868137852e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1961156451760515
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 6.466294809762752e+27,
+              "candidate": false
+            },
+            "E1:F_8=LOOP": {
+              "g": 1.3989792865028154,
+              "cf": {
+                "p": 836882,
+                "q": 598209,
+                "miss": 7.309708394132031e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "186/6683",
+                "miss": 3.4691899007239154e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2739792865028154
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 9.207670712588324e+27,
+              "candidate": false
+            },
+            "E1:F_9=LOOP": {
+              "g": 1.3162687320472446,
+              "cf": {
+                "p": 1124029,
+                "q": 853951,
+                "miss": 5.579980921766037e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "26958199/8106",
+                "miss": 1.1661871702107055e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1912687320472446
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 2.9973590386942277e+26,
+              "candidate": false
+            },
+            "E1:F_10=LOOP": {
+              "g": 1.4019375087114696,
+              "cf": {
+                "p": 623579,
+                "q": 444798,
+                "miss": 3.5016434196677437e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^4",
+                "value": "84010756348/9387",
+                "miss": 3.7051785388082684e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2769375087114696
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": 0.44469413867699864,
+              "K3_rel": 3.6622696898190326e+27,
+              "candidate": false
+            },
+            "E1:F_11=LOOP": {
+              "g": 1.3366205250768717,
+              "cf": {
+                "p": 744376,
+                "q": 556909,
+                "miss": 6.372680161348399e-14
+              },
+              "loop_form": {
+                "form": "x/LOOP^1",
+                "value": "255911/3809",
+                "miss": 2.3878989846474775e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2116205250768717
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 1.7616234092964592e+27,
+              "candidate": false
+            },
+            "E1:F_12=LOOP": {
+              "g": 1.3684779400514366,
+              "cf": {
+                "p": 1001485,
+                "q": 731824,
+                "miss": 2.7688962234151404e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "223/8191",
+                "miss": 5.317946830146859e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2434779400514366
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 1.6638989492680643e+27,
+              "candidate": false
+            },
+            "E1:F_13=LOOP": {
+              "g": 1.3370226633924966,
+              "cf": {
+                "p": 1046981,
+                "q": 783069,
+                "miss": 1.2634338020234281e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^4",
+                "value": "63400120799/7428",
+                "miss": 4.2311900541481696e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2120226633924966
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 1.6352105170289155e+27,
+              "candidate": false
+            },
+            "E1:F_14=LOOP": {
+              "g": 1.3698204158939995,
+              "cf": {
+                "p": 851942,
+                "q": 621937,
+                "miss": 2.149391775674303e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^5",
+                "value": "3730061040393/8486",
+                "miss": 6.316766089380384e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2448204158939995
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 7.083911083353925e+26,
+              "candidate": false
+            },
+            "E1:F_15=LOOP": {
+              "g": 1.3625493602516445,
+              "cf": {
+                "p": 554499,
+                "q": 406957,
+                "miss": 1.7563728249569976e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^2",
+                "value": "3/5563",
+                "miss": 4.205478024809363e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2375493602516445
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 2.903761556613049e+27,
+              "candidate": false
+            },
+            "E1:F_16=LOOP": {
+              "g": 1.4241022885303734,
+              "cf": {
+                "p": 450529,
+                "q": 316360,
+                "miss": 1.6786572132332367e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^4",
+                "value": "89375462428/9831",
+                "miss": 4.040365681790484e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2991022885303734
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 9.764156225275349e+27,
+              "candidate": false
+            },
+            "E1:F_17=LOOP": {
+              "g": 1.3919080038420644,
+              "cf": {
+                "p": 1236308,
+                "q": 888211,
+                "miss": 6.348255254806645e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^5",
+                "value": "1752177572003/3923",
+                "miss": 4.194976944814526e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2669080038420644
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 1.6608013362765926e+27,
+              "candidate": false
+            },
+            "E1:F_18=LOOP": {
+              "g": 1.4516864865045034,
+              "cf": {
+                "p": 853416,
+                "q": 587879,
+                "miss": 3.7259084706420253e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "1558082687/8451",
+                "miss": 3.3042982746141683e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.3266864865045034
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 2.4043289344089494e+30,
+              "candidate": false
+            },
+            "E1:F_19=LOOP": {
+              "g": 1.3858681913159203,
+              "cf": {
+                "p": 657855,
+                "q": 474688,
+                "miss": 1.3238299345630367e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "1377259698/7825",
+                "miss": 4.430835645169933e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2608681913159203
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 1.3851081140611858e+27,
+              "candidate": false
+            },
+            "E1:F_20=LOOP": {
+              "g": 1.5218292601650063,
+              "cf": {
+                "p": 205555,
+                "q": 135071,
+                "miss": 1.8689494396539885e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "1530350795/7918",
+                "miss": 2.5499581264261866e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.3968292601650063
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 2.4114640862950945e+29,
+              "candidate": false
+            },
+            "E1:F_21=LOOP": {
+              "g": 1.4215972414344247,
+              "cf": {
+                "p": 961004,
+                "q": 676003,
+                "miss": 2.064126647383091e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "32021202/8915",
+                "miss": 1.004740237021516e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2965972414344247
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 8.333097315238354e+28,
+              "candidate": false
+            },
+            "E1:F_22=LOOP": {
+              "g": 1.4601970919726783,
+              "cf": {
+                "p": 1268371,
+                "q": 868630,
+                "miss": 2.6201263381153694e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^1",
+                "value": "324417/4420",
+                "miss": 1.264465635187694e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.3351970919726783
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 5.928497310634621e+30,
+              "candidate": false
+            },
+            "E1:F_23=LOOP": {
+              "g": 1.4217825498208194,
+              "cf": {
+                "p": 386395,
+                "q": 271768,
+                "miss": 1.0875744749228033e-12
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "65/2298",
+                "miss": 5.215574476490059e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2967825498208194
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 7.912815606068565e+28,
+              "candidate": false
+            },
+            "E1:F_24=LOOP": {
+              "g": 1.5048005801034434,
+              "cf": {
+                "p": 1500387,
+                "q": 997067,
+                "miss": 2.005950960892733e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^1",
+                "value": "569490/7529",
+                "miss": 5.114646246196868e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.3798005801034434
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 3.6413985930902915e+30,
+              "candidate": false
+            },
+            "E1:F_170=LOOP": {
+              "g": 0.8847536784858594,
+              "cf": {
+                "p": 285679,
+                "q": 322891,
+                "miss": 6.927791673660977e-14
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "21927384/9809",
+                "miss": 4.993470659083939e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 0.7597536784858594
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 8.922561381767076e+21,
+              "candidate": false
+            },
+            "E1:F_208=LOOP": {
+              "g": 0.7905570610698696,
+              "cf": {
+                "p": 686432,
+                "q": 868289,
+                "miss": 8.107958748837518e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^2",
+                "value": "1/3196",
+                "miss": 2.0315609978778743e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 0.6655570610698696
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 188213728797875.62,
+              "candidate": false
+            },
+            "E2:F_10=LOOP^1*F_3": {
+              "g": 1.3942756629753275,
+              "cf": {
+                "p": 965462,
+                "q": 692447,
+                "miss": 3.994582442601313e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^4",
+                "value": "55247141651/6207",
+                "miss": 1.4677521837480238e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.2692756629753275
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 6.464849561511941e+27,
+              "candidate": false
+            },
+            "E2:F_10=LOOP^2*F_3": {
+              "g": 1.5447980967102994,
+              "cf": {
+                "p": 240247,
+                "q": 155520,
+                "miss": 2.4804602816175247e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "27099333/6943",
+                "miss": 2.908638892063229e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.4197980967102994
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 1.34638786353722e+30,
+              "candidate": false
+            },
+            "E2:F_10=LOOP^3*F_3": {
+              "g": 1.4737094294604876,
+              "cf": {
+                "p": 1387101,
+                "q": 941231,
+                "miss": 5.568878691519785e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^3",
+                "value": "1096217302/5857",
+                "miss": 7.303986144838681e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.3487094294604876
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 2.629397043612257e+32,
+              "candidate": false
+            },
+            "E2:F_17=LOOP^1*F_10": {
+              "g": 1.3154155973038306,
+              "cf": {
+                "p": 839026,
+                "q": 637841,
+                "miss": 1.9961809982760315e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^2",
+                "value": "28572591/8597",
+                "miss": 3.471202784692294e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1904155973038306
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 7.702872869663304e+25,
+              "candidate": false
+            },
+            "E2:F_17=LOOP^2*F_10": {
+              "g": 1.2425201117456885,
+              "cf": {
+                "p": 990501,
+                "q": 797171,
+                "miss": 5.297984273511247e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^1",
+                "value": "290857/4657",
+                "miss": 4.289979838638945e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1175201117456885
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 1.7063007121490854e+24,
+              "candidate": false
+            },
+            "E2:F_17=LOOP^3*F_10": {
+              "g": 1.2222897346604427,
+              "cf": {
+                "p": 850919,
+                "q": 696168,
+                "miss": 1.305622276959184e-12
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "129/5305",
+                "miss": 7.299064861451558e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.0972897346604427
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": null,
+              "K3_rel": 5.087358711431266e+23,
+              "candidate": false
+            },
+            "E2:F_17=LOOP^1*F_3": {
+              "g": 1.5412424886401115,
+              "cf": {
+                "p": 740473,
+                "q": 480439,
+                "miss": 4.860556401808935e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^2",
+                "value": "3/4918",
+                "miss": 2.0618934715523005e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.4162424886401115
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 6.238468506239857e+30,
+              "candidate": false
+            },
+            "E2:F_17=LOOP^2*F_3": {
+              "g": 1.2276875633978195,
+              "cf": {
+                "p": 844789,
+                "q": 688114,
+                "miss": 1.0591527654923993e-13
+              },
+              "loop_form": {
+                "form": "x*LOOP^1",
+                "value": "229/9376",
+                "miss": 6.60245385350011e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 1.1026875633978195
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 6.266843008035558e+23,
+              "candidate": false
+            },
+            "REF:g_obs": {
+              "g": 0.19999798835751248,
+              "cf": {
+                "p": 19884,
+                "q": 99421,
+                "miss": 4.951150600618348e-12
+              },
+              "loop_form": {
+                "form": "x/LOOP^5",
+                "value": "259079859926/4037",
+                "miss": 1.0636783406258652e-09
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 0.07499798835751248
+              },
+              "pslq": null,
+              "named": false,
+              "K1_rel": 8.126592327921492e-15,
+              "K3_rel": 5.011913148275259e+26,
+              "candidate": false
+            },
+            "REF:g_cross": {
+              "g": 0.20013316730041752,
+              "cf": {
+                "p": 164414,
+                "q": 821523,
+                "miss": 1.7152945730458669e-13
+              },
+              "loop_form": {
+                "form": "x/LOOP^1",
+                "value": "28771/2860",
+                "miss": 3.001691060077929e-10
+              },
+              "dict_member": {
+                "member": 6.283185307179586,
+                "k": 1,
+                "miss": 0.07513316730041752
+              },
+              "pslq": null,
+              "named": true,
+              "K1_rel": null,
+              "K3_rel": 4.516480328404721e+26,
+              "candidate": false
+            }
+          },
+          "n_roots": 365,
+          "status": "CLOCK-NO-NAMED-ROOT-DECLARED",
+          "closest_named_miss": {
+            "g": 1.3366205250768717,
+            "cf": {
+              "p": 744376,
+              "q": 556909,
+              "miss": 6.372680161348399e-14
+            },
+            "loop_form": {
+              "form": "x/LOOP^1",
+              "value": "255911/3809",
+              "miss": 2.3878989846474775e-09
+            },
+            "dict_member": {
+              "member": 6.283185307179586,
+              "k": 1,
+              "miss": 1.2116205250768717
+            },
+            "pslq": null,
+            "named": true,
+            "K1_rel": null,
+            "K3_rel": 1.7616234092964592e+27,
+            "candidate": false
+          },
+          "wall_time": 74.72133803367615
+        },
+        "checks": [
+          {
+            "name": "T0e contracted == verbatim V206 Fn_of (n<=60, 3 seed clocks, <= 1e-12): worst 4.97e-14",
+            "pass": true
+          },
+          {
+            "name": "T0f GPU-1 staged einsum == contracted path (n<=60, 2 seed clocks, <= 1e-12): 3.55e-14",
+            "pass": true
+          },
+          {
+            "name": "T0a g_obs re-derived vs V206 leaf (<= 1e-13): 8.33e-16",
+            "pass": true
+          },
+          {
+            "name": "T0b g_cross re-derived vs V206 leaf (<= 1e-13): 7.77e-16",
+            "pass": true
+          },
+          {
+            "name": "T0c pi/4 reading n* = 208, deficit vs V205 leaf < 1e-4: n* 208 d 1.85e-13",
+            "pass": true
+          },
+          {
+            "name": "T0d COEF_OBS recomputed from u10pred (diff 0.0)",
+            "pass": true
+          },
+          {
+            "name": "census complete: 365 roots located and scored",
+            "pass": true
+          }
+        ],
+        "status": "CLOCK-NO-NAMED-ROOT-DECLARED",
         "pass": true
       }
     },
