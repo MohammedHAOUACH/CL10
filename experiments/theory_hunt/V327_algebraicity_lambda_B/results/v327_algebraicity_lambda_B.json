@@ -1,0 +1,167 @@
+{
+ "id": "V327_algebraicity_lambda_B",
+ "tier": 3,
+ "property": "is the portal coupling lambda_B a number of the booked algebraic/rational-loop/dictionary closed class - could a root rule generate it (tier 3, O7)",
+ "residual": true,
+ "programme": "theory-hunt V327",
+ "branch": "LAMBDA-B-NO-RELATION-DECLARED",
+ "data": {
+  "t0": {
+   "v195_lambda_fi": 4.0623088619285984e-14,
+   "v193_variant0_lambda_fi": 4.0623088619285984e-14,
+   "abs_diff": 0.0
+  },
+  "findpoly": {
+   "degrees": "1..6",
+   "height_cap": 20,
+   "substitution_noise_floor": 1e-14,
+   "per_degree": {
+    "1": null,
+    "2": null,
+    "3": null,
+    "4": null,
+    "5": null,
+    "6": null
+   }
+  },
+  "rational_census": {
+   "den_max": 5000,
+   "band_rel_on_ratio": 1e-06,
+   "symmetric_height_bound": 5000,
+   "found_gate_residual_rel": 1e-12,
+   "amendment_unbounded_p_hit_count_first_run_mechanism": 342334,
+   "ks": "1..90",
+   "n_hits": 13,
+   "hits_first5": [
+    {
+     "k": 8,
+     "p": 1187,
+     "q": 717,
+     "err_rel": 5.059642131110763e-07
+    },
+    {
+     "k": 8,
+     "p": 2028,
+     "q": 1225,
+     "err_rel": 1.8175787417732322e-07
+    },
+    {
+     "k": 8,
+     "p": 2374,
+     "q": 1434,
+     "err_rel": 5.059642131110763e-07
+    },
+    {
+     "k": 8,
+     "p": 2869,
+     "q": 1733,
+     "err_rel": 4.6629147865574415e-07
+    },
+    {
+     "k": 8,
+     "p": 3215,
+     "q": 1942,
+     "err_rel": 7.215393663102188e-08
+    }
+   ],
+   "per_k_closest": [
+    {
+     "k": 6,
+     "x_k": 0.0006552274332881889,
+     "count_inside": 0,
+     "closest_p": 3,
+     "closest_q": 4579,
+     "closest_rel_err": 9.546322810779528e-05
+    },
+    {
+     "k": 7,
+     "x_k": 0.032935323053578734,
+     "count_inside": 0,
+     "closest_p": 80,
+     "closest_q": 2429,
+     "closest_rel_err": 1.253787287568254e-06
+    },
+    {
+     "k": 8,
+     "x_k": 1.655509903179672,
+     "count_inside": 13,
+     "closest_p": 3215,
+     "closest_q": 1942,
+     "closest_rel_err": 7.215393663102188e-08
+    },
+    {
+     "k": 9,
+     "x_k": 83.21500399639051,
+     "count_inside": 0,
+     "closest_p": 4244,
+     "closest_q": 51,
+     "closest_rel_err": 8.198979589414356e-06
+    },
+    {
+     "k": 10,
+     "x_k": 4182.842323576091,
+     "count_inside": 0,
+     "closest_p": 4183,
+     "closest_q": 1,
+     "closest_rel_err": 3.7695999923353554e-05
+    }
+   ],
+   "verified_best_contact": {
+    "k": 8,
+    "p": 3215,
+    "q": 1942,
+    "err_rel": 7.215393663102188e-08,
+    "residual_abs_50dp": 2.931115781895689e-21,
+    "residual_rel": 7.215393712097335e-08,
+    "diophantine_floor_1_over_q2": 2.6515605494457706e-07,
+    "cfg_loop_rel_dev_vs_exact": 5.171762859966515e-17
+   },
+   "verified_rule": null
+  },
+  "dictionary_class": {
+   "members": [
+    1.0,
+    2.0,
+    4.0,
+    0.5,
+    0.25,
+    3.141592653589793,
+    6.283185307179586,
+    0.3183098861837907,
+    0.15915494309189535
+   ],
+   "ks": "1..90",
+   "band_rel": 0.05,
+   "contacts": [],
+   "closest": {
+    "c": 2.0,
+    "k": 8,
+    "value": 4.90762254472327e-14,
+    "rel_to_lambda_B": 0.20808700458914764,
+    "band_multiples": 4.161740091782953
+   }
+  },
+  "status": "LAMBDA-B-NO-RELATION-DECLARED",
+  "relation": null
+ },
+ "checks": [
+  {
+   "name": "T0 the booked portal value: V195 data.production.lambda_fi = 4.0623088619285984e-14 and V193 data.variants[0].lambda_fi_solution equal bit-for-bit (|d| 0.0e+00, gate == 0.0)",
+   "pass": true
+  },
+  {
+   "name": "class (i) findpoly degrees 1..6, height 20: no nontrivial relation",
+   "pass": true
+  },
+  {
+   "name": "class (ii, amended) rationals max(p,q) <= 5000 inside relative 1e-06 of lambda_B/LOOP^k over k = 1..90: 13 contacts (342334 unbounded-p hits are the booked amendment mechanism); best verified contact {'k': 8, 'p': 3215, 'q': 1942, 'err_rel': 7.215393663102188e-08, 'residual_abs_50dp': 2.931115781895689e-21, 'residual_rel': 7.215393712097335e-08, 'diophantine_floor_1_over_q2': 2.6515605494457706e-07, 'cfg_loop_rel_dev_vs_exact': 5.171762859966515e-17} -> FOUND only under the 1e-12 residual gate (residual 7.22e-08 sits at the 1/q^2 floor - contact, not rule) ",
+   "pass": true
+  },
+  {
+   "name": "class (iii) 9 dictionary members x LOOP^k, k = 1..90, 5% band: 0 contacts; closest c = 2.0 at k = 8: 2.0809e-01 rel = 4.2 band-multiples",
+   "pass": true
+  }
+ ],
+ "status": "LAMBDA-B-NO-RELATION-DECLARED",
+ "pass": true
+}
