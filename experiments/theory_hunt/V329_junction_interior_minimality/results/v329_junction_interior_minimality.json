@@ -1,0 +1,4635 @@
+{
+ "id": "V329_junction_interior_minimality",
+ "tier": 3,
+ "property": "does any booked selection functional have an interior minimum of the junction energy object on r in [1.0, 1.999] - or is the boundary r = 2 the only stationary structure (tier 3, O2)",
+ "residual": true,
+ "programme": "theory-hunt V329",
+ "branch": "R-INTERIOR-EMPTY-DECLARED",
+ "data": {
+  "t0": {
+   "r_singularity_rederived": 1.9999999999999791,
+   "r_singularity_artifact": 1.9999999999999791,
+   "abs_diff": 0.0,
+   "r_atm_rederived": 1.9191154379808832,
+   "r_atm_artifact": 1.9191154379808832,
+   "r_atm_abs_diff": 0.0,
+   "selected_r_artifact": 2.0
+  },
+  "functionals": {
+   "F1_full_set_one_loop_energy": {
+    "grid": "1.0..1.999 step 1e-4 (n = 9991)",
+    "n_excluded_nonfinite": 1,
+    "n_interior_minima": 0,
+    "minima": [],
+    "other_stationarity_events": [
+     {
+      "r": 1.1860999999999795,
+      "type": "interior maximum",
+      "curvature": 7.751260699961904e-07
+     }
+    ],
+    "decimated_grid_every_200": [
+     {
+      "r": 1.0,
+      "F": "-inf"
+     },
+     {
+      "r": 1.0199999999999978,
+      "F": -10.517220993600082
+     },
+     {
+      "r": 1.0399999999999956,
+      "F": -9.292841564129517
+     },
+     {
+      "r": 1.0599999999999934,
+      "F": -8.649785606430326
+     },
+     {
+      "r": 1.0799999999999912,
+      "F": -8.248465734623105
+     },
+     {
+      "r": 1.099999999999989,
+      "F": -7.982618748500592
+     },
+     {
+      "r": 1.1199999999999868,
+      "F": -7.805053880088933
+     },
+     {
+      "r": 1.1399999999999846,
+      "F": -7.6907291046366595
+     },
+     {
+      "r": 1.1599999999999824,
+      "F": -7.6248210216214005
+     },
+     {
+      "r": 1.1799999999999802,
+      "F": -7.597888961854728
+     },
+     {
+      "r": 1.199999999999978,
+      "F": -7.603605928189481
+     },
+     {
+      "r": 1.2199999999999758,
+      "F": -7.637578052270226
+     },
+     {
+      "r": 1.2399999999999736,
+      "F": -7.696681234241807
+     },
+     {
+      "r": 1.2599999999999714,
+      "F": -7.7786656370796425
+     },
+     {
+      "r": 1.2799999999999692,
+      "F": -7.881908696866859
+     },
+     {
+      "r": 1.299999999999967,
+      "F": -8.00525521337521
+     },
+     {
+      "r": 1.3199999999999648,
+      "F": -8.14791097929651
+     },
+     {
+      "r": 1.3399999999999626,
+      "F": -8.309370735070566
+     },
+     {
+      "r": 1.3599999999999604,
+      "F": -8.48936900543819
+     },
+     {
+      "r": 1.3799999999999581,
+      "F": -8.687846788718097
+     },
+     {
+      "r": 1.399999999999956,
+      "F": -8.904929687286968
+     },
+     {
+      "r": 1.4199999999999537,
+      "F": -9.140914684358446
+     },
+     {
+      "r": 1.4399999999999515,
+      "F": -9.396263814761564
+     },
+     {
+      "r": 1.4599999999999493,
+      "F": -9.671603685098045
+     },
+     {
+      "r": 1.4799999999999471,
+      "F": -9.967730311791815
+     },
+     {
+      "r": 1.499999999999945,
+      "F": -10.285619151571058
+     },
+     {
+      "r": 1.5199999999999427,
+      "F": -10.626440557153842
+     },
+     {
+      "r": 1.5399999999999405,
+      "F": -10.9915812470282
+     },
+     {
+      "r": 1.5599999999999383,
+      "F": -11.382672773897147
+     },
+     {
+      "r": 1.5799999999999361,
+      "F": -11.801628457046178
+     },
+     {
+      "r": 1.599999999999934,
+      "F": -12.250690866966568
+     },
+     {
+      "r": 1.6199999999999317,
+      "F": -12.732492795995148
+     },
+     {
+      "r": 1.6399999999999295,
+      "F": -13.25013583505391
+     },
+     {
+      "r": 1.6599999999999273,
+      "F": -13.80729238692878
+     },
+     {
+      "r": 1.679999999999925,
+      "F": -14.408339472981194
+     },
+     {
+      "r": 1.699999999999923,
+      "F": -15.058536512082815
+     },
+     {
+      "r": 1.7199999999999207,
+      "F": -15.764265177667287
+     },
+     {
+      "r": 1.7399999999999185,
+      "F": -16.533358882017385
+     },
+     {
+      "r": 1.7599999999999163,
+      "F": -17.375564940059164
+     },
+     {
+      "r": 1.779999999999914,
+      "F": -18.303208794368004
+     },
+     {
+      "r": 1.799999999999912,
+      "F": -19.33217617077567
+     },
+     {
+      "r": 1.8199999999999097,
+      "F": -20.48341490333037
+     },
+     {
+      "r": 1.8399999999999075,
+      "F": -21.78532544878478
+     },
+     {
+      "r": 1.8599999999999053,
+      "F": -23.27775646199719
+     },
+     {
+      "r": 1.879999999999903,
+      "F": -25.019101686942996
+     },
+     {
+      "r": 1.8999999999999009,
+      "F": -27.099926401695033
+     },
+     {
+      "r": 1.9199999999998987,
+      "F": -29.67199352563106
+     },
+     {
+      "r": 1.9399999999998965,
+      "F": -33.01985391615273
+     },
+     {
+      "r": 1.9599999999998943,
+      "F": -37.7823970653056
+     },
+     {
+      "r": 1.979999999999892,
+      "F": -45.99836928837866
+     }
+    ]
+   },
+   "F2_weighted_best_second_gap": {
+    "grid": "1.0..1.999 step 1e-4 (n = 9991)",
+    "n_excluded_nonfinite": 1,
+    "n_interior_minima": 0,
+    "minima": [],
+    "other_stationarity_events": [
+     {
+      "r": 1.064099999999993,
+      "type": "interior maximum",
+      "curvature": 7.832809918346256e-05
+     },
+     {
+      "r": 1.154899999999983,
+      "type": "interior maximum",
+      "curvature": 3.376170534581922e-13
+     },
+     {
+      "r": 1.155099999999983,
+      "type": "sign change below curvature floor",
+      "curvature": 6.789672602372768e-14
+     },
+     {
+      "r": 1.155199999999983,
+      "type": "interior maximum",
+      "curvature": 1.3532680788234382e-13
+     },
+     {
+      "r": 1.1554999999999829,
+      "type": "interior maximum",
+      "curvature": 8.492923805029854e-14
+     },
+     {
+      "r": 1.1555999999999829,
+      "type": "sign change below curvature floor",
+      "curvature": 7.629632099573522e-14
+     },
+     {
+      "r": 1.1556999999999829,
+      "type": "interior maximum",
+      "curvature": 3.68648890438109e-14
+     },
+     {
+      "r": 1.1558999999999828,
+      "type": "sign change below curvature floor",
+      "curvature": 5.6230621895939413e-14
+     },
+     {
+      "r": 1.1559999999999828,
+      "type": "interior maximum",
+      "curvature": 2.7532005741580296e-14
+     },
+     {
+      "r": 1.1561999999999828,
+      "type": "sign change below curvature floor",
+      "curvature": 4.526448401581845e-14
+     },
+     {
+      "r": 1.1562999999999828,
+      "type": "interior maximum",
+      "curvature": 2.2865564090464992e-14
+     },
+     {
+      "r": 1.1564999999999828,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-14
+     },
+     {
+      "r": 1.1565999999999828,
+      "type": "interior maximum",
+      "curvature": 1.843244452190545e-14
+     },
+     {
+      "r": 1.1567999999999827,
+      "type": "sign change below curvature floor",
+      "curvature": 3.1965125310139834e-14
+     },
+     {
+      "r": 1.1568999999999827,
+      "type": "interior maximum",
+      "curvature": 1.5865901613792033e-14
+     },
+     {
+      "r": 1.1570999999999827,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691826e-14
+     },
+     {
+      "r": 1.1571999999999827,
+      "type": "interior maximum",
+      "curvature": 1.3532680788234381e-14
+     },
+     {
+      "r": 1.1573999999999827,
+      "type": "sign change below curvature floor",
+      "curvature": 2.519878491602264e-14
+     },
+     {
+      "r": 1.1574999999999827,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567085e-14
+     },
+     {
+      "r": 1.1576999999999826,
+      "type": "sign change below curvature floor",
+      "curvature": 2.239891992535346e-14
+     },
+     {
+      "r": 1.1577999999999826,
+      "type": "interior maximum",
+      "curvature": 2.193227576024193e-14
+     },
+     {
+      "r": 1.1580999999999826,
+      "type": "interior maximum",
+      "curvature": 2.0065699099795806e-14
+     },
+     {
+      "r": 1.1583999999999826,
+      "type": "interior maximum",
+      "curvature": 1.8199122439349686e-14
+     },
+     {
+      "r": 1.1584999999999825,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7732478274238156e-14
+     },
+     {
+      "r": 1.1585999999999825,
+      "type": "interior maximum",
+      "curvature": 8.86623913711908e-15
+     },
+     {
+      "r": 1.1587999999999825,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5865901613792033e-14
+     },
+     {
+      "r": 1.1590999999999825,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5632579531236268e-14
+     },
+     {
+      "r": 1.1591999999999825,
+      "type": "interior maximum",
+      "curvature": 7.932950806896016e-15
+     },
+     {
+      "r": 1.1593999999999824,
+      "type": "sign change below curvature floor",
+      "curvature": 1.4465969118457443e-14
+     },
+     {
+      "r": 1.1594999999999824,
+      "type": "interior maximum",
+      "curvature": 7.232984559228721e-15
+     },
+     {
+      "r": 1.1596999999999824,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3299358705678616e-14
+     },
+     {
+      "r": 1.1599999999999824,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567086e-14
+     },
+     {
+      "r": 1.1602999999999823,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2366070375455555e-14
+     },
+     {
+      "r": 1.1603999999999823,
+      "type": "interior maximum",
+      "curvature": 6.29969622900566e-15
+     },
+     {
+      "r": 1.1605999999999823,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0966137880120965e-14
+     },
+     {
+      "r": 1.1606999999999823,
+      "type": "interior maximum",
+      "curvature": 1.07328157975652e-14
+     },
+     {
+      "r": 1.1608999999999823,
+      "type": "sign change below curvature floor",
+      "curvature": 5.599729981338365e-15
+     },
+     {
+      "r": 1.1609999999999823,
+      "type": "interior maximum",
+      "curvature": 1.07328157975652e-14
+     },
+     {
+      "r": 1.1612999999999822,
+      "type": "interior maximum",
+      "curvature": 1.026617163245367e-14
+     },
+     {
+      "r": 1.1613999999999822,
+      "type": "sign change below curvature floor",
+      "curvature": 1.026617163245367e-14
+     },
+     {
+      "r": 1.1614999999999822,
+      "type": "interior maximum",
+      "curvature": 5.366407898782601e-15
+     },
+     {
+      "r": 1.1616999999999822,
+      "type": "sign change below curvature floor",
+      "curvature": 9.566205384786373e-15
+     },
+     {
+      "r": 1.1619999999999822,
+      "type": "sign change below curvature floor",
+      "curvature": 8.866239137119076e-15
+     },
+     {
+      "r": 1.1620999999999821,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-15
+     },
+     {
+      "r": 1.1622999999999821,
+      "type": "sign change below curvature floor",
+      "curvature": 8.866239137119078e-15
+     },
+     {
+      "r": 1.1623999999999821,
+      "type": "interior maximum",
+      "curvature": 4.666441651115305e-15
+     },
+     {
+      "r": 1.162599999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451781e-15
+     },
+     {
+      "r": 1.162899999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451781e-15
+     },
+     {
+      "r": 1.163199999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 8.399594972007546e-15
+     },
+     {
+      "r": 1.163299999999982,
+      "type": "interior maximum",
+      "curvature": 4.666441651115303e-15
+     },
+     {
+      "r": 1.163499999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 7.466306641784486e-15
+     },
+     {
+      "r": 1.163599999999982,
+      "type": "interior maximum",
+      "curvature": 7.466306641784486e-15
+     },
+     {
+      "r": 1.163899999999982,
+      "type": "interior maximum",
+      "curvature": 6.9996624766729564e-15
+     },
+     {
+      "r": 1.163999999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.164199999999982,
+      "type": "interior maximum",
+      "curvature": 6.5330183115614264e-15
+     },
+     {
+      "r": 1.164299999999982,
+      "type": "sign change below curvature floor",
+      "curvature": 6.5330183115614264e-15
+     },
+     {
+      "r": 1.1645999999999819,
+      "type": "sign change below curvature floor",
+      "curvature": 6.9996624766729564e-15
+     },
+     {
+      "r": 1.1646999999999819,
+      "type": "interior maximum",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.1648999999999818,
+      "type": "sign change below curvature floor",
+      "curvature": 6.29969622900566e-15
+     },
+     {
+      "r": 1.1650999999999818,
+      "type": "interior maximum",
+      "curvature": 3.499831238336478e-15
+     },
+     {
+      "r": 1.1651999999999818,
+      "type": "sign change below curvature floor",
+      "curvature": 6.416357270283542e-15
+     },
+     {
+      "r": 1.1653999999999818,
+      "type": "interior maximum",
+      "curvature": 4.199797486003774e-15
+     },
+     {
+      "r": 1.1654999999999818,
+      "type": "sign change below curvature floor",
+      "curvature": 6.883001435395074e-15
+     },
+     {
+      "r": 1.1655999999999818,
+      "type": "interior maximum",
+      "curvature": 3.4998312383364782e-15
+     },
+     {
+      "r": 1.1657999999999817,
+      "type": "sign change below curvature floor",
+      "curvature": 6.066374146449895e-15
+     },
+     {
+      "r": 1.1658999999999817,
+      "type": "interior maximum",
+      "curvature": 3.2665091557807124e-15
+     },
+     {
+      "r": 1.1660999999999817,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-15
+     },
+     {
+      "r": 1.1661999999999817,
+      "type": "interior maximum",
+      "curvature": 3.14984811450283e-15
+     },
+     {
+      "r": 1.1663999999999817,
+      "type": "sign change below curvature floor",
+      "curvature": 5.716391022616247e-15
+     },
+     {
+      "r": 1.1664999999999817,
+      "type": "interior maximum",
+      "curvature": 5.483068940060482e-15
+     },
+     {
+      "r": 1.1666999999999816,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.1667999999999816,
+      "type": "interior maximum",
+      "curvature": 5.133085816226835e-15
+     },
+     {
+      "r": 1.1670999999999816,
+      "type": "interior maximum",
+      "curvature": 5.133085816226835e-15
+     },
+     {
+      "r": 1.1671999999999816,
+      "type": "sign change below curvature floor",
+      "curvature": 5.483068940060482e-15
+     },
+     {
+      "r": 1.1672999999999816,
+      "type": "interior maximum",
+      "curvature": 3.0331870732249474e-15
+     },
+     {
+      "r": 1.1674999999999816,
+      "type": "sign change below curvature floor",
+      "curvature": 5.133085816226835e-15
+     },
+     {
+      "r": 1.1676999999999815,
+      "type": "interior maximum",
+      "curvature": 2.799864990669183e-15
+     },
+     {
+      "r": 1.1677999999999815,
+      "type": "sign change below curvature floor",
+      "curvature": 5.133085816226835e-15
+     },
+     {
+      "r": 1.1680999999999815,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003774e-15
+     },
+     {
+      "r": 1.1682999999999815,
+      "type": "interior maximum",
+      "curvature": 3.266509155780713e-15
+     },
+     {
+      "r": 1.1683999999999815,
+      "type": "sign change below curvature floor",
+      "curvature": 5.249746857504717e-15
+     },
+     {
+      "r": 1.1684999999999814,
+      "type": "interior maximum",
+      "curvature": 2.566542908113417e-15
+     },
+     {
+      "r": 1.1686999999999814,
+      "type": "sign change below curvature floor",
+      "curvature": 4.666441651115304e-15
+     },
+     {
+      "r": 1.1689999999999814,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.1691999999999814,
+      "type": "interior maximum",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1692999999999814,
+      "type": "sign change below curvature floor",
+      "curvature": 4.433119568559538e-15
+     },
+     {
+      "r": 1.1693999999999813,
+      "type": "interior maximum",
+      "curvature": 4.199797486003774e-15
+     },
+     {
+      "r": 1.1695999999999813,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.1696999999999813,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-15
+     },
+     {
+      "r": 1.1699999999999813,
+      "type": "interior maximum",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.1700999999999813,
+      "type": "sign change below curvature floor",
+      "curvature": 4.433119568559538e-15
+     },
+     {
+      "r": 1.1703999999999812,
+      "type": "sign change below curvature floor",
+      "curvature": 4.433119568559538e-15
+     },
+     {
+      "r": 1.1704999999999812,
+      "type": "interior maximum",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1706999999999812,
+      "type": "sign change below curvature floor",
+      "curvature": 4.433119568559538e-15
+     },
+     {
+      "r": 1.1707999999999812,
+      "type": "interior maximum",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.1709999999999812,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.1711999999999811,
+      "type": "interior maximum",
+      "curvature": 2.3332208255576516e-15
+     },
+     {
+      "r": 1.1712999999999811,
+      "type": "sign change below curvature floor",
+      "curvature": 3.966475403448008e-15
+     },
+     {
+      "r": 1.1714999999999811,
+      "type": "interior maximum",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.171599999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 4.083136444725891e-15
+     },
+     {
+      "r": 1.171699999999981,
+      "type": "interior maximum",
+      "curvature": 2.21655978427977e-15
+     },
+     {
+      "r": 1.171899999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.172199999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.172299999999981,
+      "type": "interior maximum",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.172599999999981,
+      "type": "interior maximum",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.172699999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.172899999999981,
+      "type": "interior maximum",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.172999999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 3.849814362170126e-15
+     },
+     {
+      "r": 1.173299999999981,
+      "type": "sign change below curvature floor",
+      "curvature": 3.4998312383364782e-15
+     },
+     {
+      "r": 1.1735999999999809,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.1736999999999809,
+      "type": "interior maximum",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1738999999999808,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1740999999999808,
+      "type": "interior maximum",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1741999999999808,
+      "type": "sign change below curvature floor",
+      "curvature": 3.849814362170126e-15
+     },
+     {
+      "r": 1.1742999999999808,
+      "type": "interior maximum",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1744999999999808,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1747999999999807,
+      "type": "sign change below curvature floor",
+      "curvature": 3.4998312383364782e-15
+     },
+     {
+      "r": 1.1748999999999807,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1750999999999807,
+      "type": "sign change below curvature floor",
+      "curvature": 3.3831701970585957e-15
+     },
+     {
+      "r": 1.1751999999999807,
+      "type": "interior maximum",
+      "curvature": 3.3831701970585957e-15
+     },
+     {
+      "r": 1.1753999999999807,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1754999999999807,
+      "type": "interior maximum",
+      "curvature": 3.4998312383364782e-15
+     },
+     {
+      "r": 1.1755999999999807,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1757999999999806,
+      "type": "interior maximum",
+      "curvature": 3.0331870732249474e-15
+     },
+     {
+      "r": 1.1758999999999806,
+      "type": "sign change below curvature floor",
+      "curvature": 3.266509155780713e-15
+     },
+     {
+      "r": 1.1761999999999806,
+      "type": "sign change below curvature floor",
+      "curvature": 3.1498481145028303e-15
+     },
+     {
+      "r": 1.1762999999999806,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1764999999999806,
+      "type": "sign change below curvature floor",
+      "curvature": 3.0331870732249474e-15
+     },
+     {
+      "r": 1.1767999999999805,
+      "type": "sign change below curvature floor",
+      "curvature": 3.14984811450283e-15
+     },
+     {
+      "r": 1.1769999999999805,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1770999999999805,
+      "type": "sign change below curvature floor",
+      "curvature": 3.3831701970585957e-15
+     },
+     {
+      "r": 1.1771999999999805,
+      "type": "interior maximum",
+      "curvature": 2.099898743001887e-15
+     },
+     {
+      "r": 1.1773999999999805,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.1775999999999804,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1776999999999804,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.1779999999999804,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1780999999999804,
+      "type": "interior maximum",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1783999999999804,
+      "type": "interior maximum",
+      "curvature": 2.6832039493912995e-15
+     },
+     {
+      "r": 1.1784999999999803,
+      "type": "sign change below curvature floor",
+      "curvature": 2.4498818668355345e-15
+     },
+     {
+      "r": 1.1785999999999803,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1787999999999803,
+      "type": "sign change below curvature floor",
+      "curvature": 2.4498818668355345e-15
+     },
+     {
+      "r": 1.1790999999999803,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1791999999999803,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1793999999999802,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1795999999999802,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903562e-15
+     },
+     {
+      "r": 1.1796999999999802,
+      "type": "sign change below curvature floor",
+      "curvature": 2.916526031947065e-15
+     },
+     {
+      "r": 1.1798999999999802,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1799999999999802,
+      "type": "sign change below curvature floor",
+      "curvature": 3.0331870732249474e-15
+     },
+     {
+      "r": 1.1802999999999801,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.18059999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.2165597842797695e-15
+     },
+     {
+      "r": 1.18079999999998,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.18089999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.18099999999998,
+      "type": "interior maximum",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.18119999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.18129999999998,
+      "type": "interior maximum",
+      "curvature": 2.4498818668355345e-15
+     },
+     {
+      "r": 1.18139999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.18159999999998,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.18169999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.18189999999998,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.18199999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.18219999999998,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.18229999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.18259999999998,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1826999999999799,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903566e-15
+     },
+     {
+      "r": 1.1828999999999799,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1831999999999798,
+      "type": "sign change below curvature floor",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1832999999999798,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1834999999999798,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1836999999999798,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.1837999999999798,
+      "type": "sign change below curvature floor",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1838999999999797,
+      "type": "interior maximum",
+      "curvature": 2.2165597842797695e-15
+     },
+     {
+      "r": 1.1840999999999797,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1841999999999797,
+      "type": "interior maximum",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.1842999999999797,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.1843999999999797,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.1845999999999797,
+      "type": "sign change below curvature floor",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1846999999999797,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.1848999999999796,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1851999999999796,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1853999999999796,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.1854999999999796,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.1857999999999795,
+      "type": "sign change below curvature floor",
+      "curvature": 2.2165597842797695e-15
+     },
+     {
+      "r": 1.1860999999999795,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1863999999999795,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.1865999999999794,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.1866999999999794,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.1867999999999794,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1870999999999794,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1871999999999794,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1873999999999794,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1874999999999793,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1875999999999793,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1877999999999793,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1880999999999793,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.1883999999999793,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.1885999999999792,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.1886999999999792,
+      "type": "sign change below curvature floor",
+      "curvature": 2.449881866835535e-15
+     },
+     {
+      "r": 1.1887999999999792,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.1889999999999792,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1891999999999792,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1892999999999792,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1895999999999791,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.189699999999979,
+      "type": "interior maximum",
+      "curvature": 2.2165597842797695e-15
+     },
+     {
+      "r": 1.189999999999979,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.190099999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.190299999999979,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.190399999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.190499999999979,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.190699999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.190799999999979,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.190999999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.191199999999979,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.191299999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.191499999999979,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.191599999999979,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1917999999999789,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1918999999999789,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903562e-15
+     },
+     {
+      "r": 1.1920999999999788,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.1921999999999788,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1922999999999788,
+      "type": "interior maximum",
+      "curvature": 1.516593536612474e-15
+     },
+     {
+      "r": 1.1925999999999788,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903566e-15
+     },
+     {
+      "r": 1.1927999999999788,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1928999999999788,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1929999999999787,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1930999999999787,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1932999999999787,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.1934999999999787,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.1935999999999787,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.1936999999999787,
+      "type": "interior maximum",
+      "curvature": 1.399932495334591e-15
+     },
+     {
+      "r": 1.1938999999999786,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.1940999999999786,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.1941999999999786,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.1942999999999786,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.1944999999999786,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.1946999999999786,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.1947999999999785,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.1948999999999785,
+      "type": "interior maximum",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.1950999999999785,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1951999999999785,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1954999999999785,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.1957999999999784,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1958999999999784,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1960999999999784,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1961999999999784,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1962999999999784,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1964999999999784,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1965999999999783,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1967999999999783,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.1970999999999783,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1973999999999783,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.1974999999999782,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.1976999999999782,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.1977999999999782,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1979999999999782,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1980999999999782,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009435e-15
+     },
+     {
+      "r": 1.1982999999999782,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.1983999999999781,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.1986999999999781,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.198799999999978,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.198999999999978,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.199099999999978,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.199799999999978,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2019999999999778,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2068999999999772,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2071999999999772,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2072999999999772,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.208099999999977,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.208599999999977,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2099999999999769,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2107999999999768,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2108999999999768,
+      "type": "sign change below curvature floor",
+      "curvature": 3.499831238336478e-16
+     },
+     {
+      "r": 1.2109999999999768,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2123999999999766,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2127999999999766,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2130999999999765,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2147999999999763,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2167999999999761,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.217399999999976,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.218299999999976,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2205999999999757,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2211999999999756,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2212999999999756,
+      "type": "sign change below curvature floor",
+      "curvature": 3.499831238336478e-16
+     },
+     {
+      "r": 1.2220999999999755,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2225999999999755,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2229999999999754,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2236999999999754,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.2285999999999748,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2304999999999746,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2317999999999745,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2328999999999743,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.2344999999999742,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.236099999999974,
+      "type": "interior maximum",
+      "curvature": 2.2515580966631343e-12
+     },
+     {
+      "r": 1.236399999999974,
+      "type": "interior maximum",
+      "curvature": 1.3416019746956501e-13
+     },
+     {
+      "r": 1.236599999999974,
+      "type": "sign change below curvature floor",
+      "curvature": 1.4045989369857064e-13
+     },
+     {
+      "r": 1.236699999999974,
+      "type": "interior maximum",
+      "curvature": 6.533018311561426e-14
+     },
+     {
+      "r": 1.236899999999974,
+      "type": "sign change below curvature floor",
+      "curvature": 8.772910304096772e-14
+     },
+     {
+      "r": 1.236999999999974,
+      "type": "interior maximum",
+      "curvature": 4.269794110770503e-14
+     },
+     {
+      "r": 1.2373999999999739,
+      "type": "interior maximum",
+      "curvature": 2.846529407180335e-14
+     },
+     {
+      "r": 1.2375999999999738,
+      "type": "sign change below curvature floor",
+      "curvature": 4.7364382758820337e-14
+     },
+     {
+      "r": 1.2376999999999738,
+      "type": "interior maximum",
+      "curvature": 2.3565530338132284e-14
+     },
+     {
+      "r": 1.2378999999999738,
+      "type": "sign change below curvature floor",
+      "curvature": 3.943143195192432e-14
+     },
+     {
+      "r": 1.2379999999999738,
+      "type": "interior maximum",
+      "curvature": 1.9599054934684276e-14
+     },
+     {
+      "r": 1.2383999999999737,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903563e-14
+     },
+     {
+      "r": 1.2385999999999737,
+      "type": "sign change below curvature floor",
+      "curvature": 2.869861615435912e-14
+     },
+     {
+      "r": 1.2386999999999737,
+      "type": "interior maximum",
+      "curvature": 1.4465969118457443e-14
+     },
+     {
+      "r": 1.2388999999999737,
+      "type": "sign change below curvature floor",
+      "curvature": 2.519878491602264e-14
+     },
+     {
+      "r": 1.2389999999999737,
+      "type": "interior maximum",
+      "curvature": 1.2366070375455555e-14
+     },
+     {
+      "r": 1.2393999999999736,
+      "type": "interior maximum",
+      "curvature": 1.0966137880120965e-14
+     },
+     {
+      "r": 1.2395999999999736,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0765665347463104e-14
+     },
+     {
+      "r": 1.2396999999999736,
+      "type": "interior maximum",
+      "curvature": 1.0966137880120966e-14
+     },
+     {
+      "r": 1.2398999999999736,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-14
+     },
+     {
+      "r": 1.2403999999999735,
+      "type": "interior maximum",
+      "curvature": 8.866239137119076e-15
+     },
+     {
+      "r": 1.2405999999999735,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5399257448680503e-14
+     },
+     {
+      "r": 1.2406999999999735,
+      "type": "interior maximum",
+      "curvature": 8.166272889451781e-15
+     },
+     {
+      "r": 1.2408999999999735,
+      "type": "sign change below curvature floor",
+      "curvature": 1.4699291201013208e-14
+     },
+     {
+      "r": 1.2413999999999734,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-15
+     },
+     {
+      "r": 1.2415999999999734,
+      "type": "sign change below curvature floor",
+      "curvature": 1.259939245801132e-14
+     },
+     {
+      "r": 1.2416999999999734,
+      "type": "interior maximum",
+      "curvature": 6.533018311561426e-15
+     },
+     {
+      "r": 1.2418999999999734,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2366070375455555e-14
+     },
+     {
+      "r": 1.2425999999999733,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0966137880120965e-14
+     },
+     {
+      "r": 1.2426999999999733,
+      "type": "interior maximum",
+      "curvature": 5.599729981338365e-15
+     },
+     {
+      "r": 1.2428999999999732,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009435e-14
+     },
+     {
+      "r": 1.2429999999999732,
+      "type": "interior maximum",
+      "curvature": 5.599729981338365e-15
+     },
+     {
+      "r": 1.2431999999999732,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0032849549897905e-14
+     },
+     {
+      "r": 1.2434999999999732,
+      "type": "interior maximum",
+      "curvature": 5.366407898782601e-15
+     },
+     {
+      "r": 1.2435999999999732,
+      "type": "sign change below curvature floor",
+      "curvature": 9.566205384786375e-15
+     },
+     {
+      "r": 1.2437999999999731,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-15
+     },
+     {
+      "r": 1.2438999999999731,
+      "type": "sign change below curvature floor",
+      "curvature": 8.632917054563311e-15
+     },
+     {
+      "r": 1.244199999999973,
+      "type": "sign change below curvature floor",
+      "curvature": 8.632917054563311e-15
+     },
+     {
+      "r": 1.244899999999973,
+      "type": "sign change below curvature floor",
+      "curvature": 8.399594972007546e-15
+     },
+     {
+      "r": 1.245199999999973,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451781e-15
+     },
+     {
+      "r": 1.245899999999973,
+      "type": "sign change below curvature floor",
+      "curvature": 7.232984559228721e-15
+     },
+     {
+      "r": 1.2461999999999729,
+      "type": "sign change below curvature floor",
+      "curvature": 6.9996624766729564e-15
+     },
+     {
+      "r": 1.2468999999999728,
+      "type": "sign change below curvature floor",
+      "curvature": 6.7663403941171914e-15
+     },
+     {
+      "r": 1.2471999999999728,
+      "type": "sign change below curvature floor",
+      "curvature": 6.533018311561426e-15
+     },
+     {
+      "r": 1.2472999999999728,
+      "type": "interior maximum",
+      "curvature": 3.4998312383364782e-15
+     },
+     {
+      "r": 1.2478999999999727,
+      "type": "sign change below curvature floor",
+      "curvature": 6.066374146449895e-15
+     },
+     {
+      "r": 1.2481999999999727,
+      "type": "sign change below curvature floor",
+      "curvature": 5.949713105172012e-15
+     },
+     {
+      "r": 1.2488999999999726,
+      "type": "sign change below curvature floor",
+      "curvature": 5.483068940060482e-15
+     },
+     {
+      "r": 1.2491999999999726,
+      "type": "sign change below curvature floor",
+      "curvature": 5.599729981338365e-15
+     },
+     {
+      "r": 1.2492999999999725,
+      "type": "interior maximum",
+      "curvature": 2.916526031947065e-15
+     },
+     {
+      "r": 1.2497999999999725,
+      "type": "interior maximum",
+      "curvature": 2.916526031947065e-15
+     },
+     {
+      "r": 1.2498999999999725,
+      "type": "sign change below curvature floor",
+      "curvature": 5.483068940060482e-15
+     },
+     {
+      "r": 1.2499999999999725,
+      "type": "interior maximum",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.2501999999999724,
+      "type": "sign change below curvature floor",
+      "curvature": 5.133085816226835e-15
+     },
+     {
+      "r": 1.2505999999999724,
+      "type": "sign change below curvature floor",
+      "curvature": 2.566542908113417e-15
+     },
+     {
+      "r": 1.2507999999999724,
+      "type": "interior maximum",
+      "curvature": 2.566542908113418e-15
+     },
+     {
+      "r": 1.2508999999999724,
+      "type": "sign change below curvature floor",
+      "curvature": 4.89976373367107e-15
+     },
+     {
+      "r": 1.2509999999999724,
+      "type": "interior maximum",
+      "curvature": 2.6832039493913003e-15
+     },
+     {
+      "r": 1.2511999999999723,
+      "type": "sign change below curvature floor",
+      "curvature": 4.666441651115304e-15
+     },
+     {
+      "r": 1.2517999999999723,
+      "type": "interior maximum",
+      "curvature": 2.4498818668355345e-15
+     },
+     {
+      "r": 1.2518999999999723,
+      "type": "sign change below curvature floor",
+      "curvature": 4.5497806098374215e-15
+     },
+     {
+      "r": 1.2519999999999722,
+      "type": "interior maximum",
+      "curvature": 2.3332208255576524e-15
+     },
+     {
+      "r": 1.2521999999999722,
+      "type": "sign change below curvature floor",
+      "curvature": 4.433119568559538e-15
+     },
+     {
+      "r": 1.2522999999999722,
+      "type": "interior maximum",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.2524999999999722,
+      "type": "sign change below curvature floor",
+      "curvature": 4.316458527281656e-15
+     },
+     {
+      "r": 1.2525999999999722,
+      "type": "interior maximum",
+      "curvature": 2.4498818668355345e-15
+     },
+     {
+      "r": 1.2528999999999721,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.2531999999999721,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.253299999999972,
+      "type": "interior maximum",
+      "curvature": 2.3332208255576516e-15
+     },
+     {
+      "r": 1.253499999999972,
+      "type": "sign change below curvature floor",
+      "curvature": 3.966475403448008e-15
+     },
+     {
+      "r": 1.253899999999972,
+      "type": "sign change below curvature floor",
+      "curvature": 4.199797486003773e-15
+     },
+     {
+      "r": 1.254199999999972,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.254499999999972,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.254999999999972,
+      "type": "interior maximum",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.255199999999972,
+      "type": "sign change below curvature floor",
+      "curvature": 3.733153320892243e-15
+     },
+     {
+      "r": 1.2554999999999719,
+      "type": "sign change below curvature floor",
+      "curvature": 3.616492279614361e-15
+     },
+     {
+      "r": 1.2556999999999718,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2557999999999718,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2560999999999718,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2561999999999718,
+      "type": "sign change below curvature floor",
+      "curvature": 3.616492279614361e-15
+     },
+     {
+      "r": 1.2562999999999718,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2564999999999718,
+      "type": "sign change below curvature floor",
+      "curvature": 3.3831701970585957e-15
+     },
+     {
+      "r": 1.2569999999999717,
+      "type": "interior maximum",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.2571999999999717,
+      "type": "sign change below curvature floor",
+      "curvature": 3.0331870732249474e-15
+     },
+     {
+      "r": 1.2574999999999716,
+      "type": "sign change below curvature floor",
+      "curvature": 3.3831701970585957e-15
+     },
+     {
+      "r": 1.2576999999999716,
+      "type": "interior maximum",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2581999999999716,
+      "type": "sign change below curvature floor",
+      "curvature": 3.14984811450283e-15
+     },
+     {
+      "r": 1.2583999999999715,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2584999999999715,
+      "type": "sign change below curvature floor",
+      "curvature": 3.14984811450283e-15
+     },
+     {
+      "r": 1.2588999999999715,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903562e-15
+     },
+     {
+      "r": 1.2590999999999715,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2591999999999715,
+      "type": "sign change below curvature floor",
+      "curvature": 3.266509155780713e-15
+     },
+     {
+      "r": 1.2592999999999714,
+      "type": "interior maximum",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2594999999999714,
+      "type": "sign change below curvature floor",
+      "curvature": 2.916526031947065e-15
+     },
+     {
+      "r": 1.2600999999999714,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2601999999999713,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.2603999999999713,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903562e-15
+     },
+     {
+      "r": 1.2604999999999713,
+      "type": "sign change below curvature floor",
+      "curvature": 2.916526031947065e-15
+     },
+     {
+      "r": 1.2605999999999713,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2608999999999713,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2610999999999712,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2611999999999712,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.2613999999999712,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2614999999999712,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.2615999999999712,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2617999999999712,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.2621999999999711,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.2622999999999711,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345914e-15
+     },
+     {
+      "r": 1.262499999999971,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.262599999999971,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.262799999999971,
+      "type": "sign change below curvature floor",
+      "curvature": 2.6832039493913e-15
+     },
+     {
+      "r": 1.263199999999971,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.263499999999971,
+      "type": "sign change below curvature floor",
+      "curvature": 2.5665429081134174e-15
+     },
+     {
+      "r": 1.263599999999971,
+      "type": "interior maximum",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.263799999999971,
+      "type": "sign change below curvature floor",
+      "curvature": 2.3332208255576524e-15
+     },
+     {
+      "r": 1.2644999999999709,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2647999999999708,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2648999999999708,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2654999999999708,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.2656999999999707,
+      "type": "interior maximum",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2657999999999707,
+      "type": "sign change below curvature floor",
+      "curvature": 2.7998649906691824e-15
+     },
+     {
+      "r": 1.2658999999999707,
+      "type": "interior maximum",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.2664999999999706,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2667999999999706,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2674999999999705,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.2677999999999705,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2681999999999705,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2684999999999704,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2685999999999704,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2687999999999704,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2689999999999704,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2693999999999703,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2694999999999703,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-15
+     },
+     {
+      "r": 1.2695999999999703,
+      "type": "interior maximum",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2697999999999703,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.2700999999999703,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2704999999999702,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2705999999999702,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.2707999999999702,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.2709999999999702,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2710999999999701,
+      "type": "sign change below curvature floor",
+      "curvature": 2.216559784279769e-15
+     },
+     {
+      "r": 1.27149999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 2.0998987430018866e-15
+     },
+     {
+      "r": 1.27159999999997,
+      "type": "interior maximum",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.27179999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.27209999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.27239999999997,
+      "type": "interior maximum",
+      "curvature": 1.1666104127788258e-15
+     },
+     {
+      "r": 1.27249999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.27279999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 1.983237701724004e-15
+     },
+     {
+      "r": 1.27309999999997,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903562e-15
+     },
+     {
+      "r": 1.2734999999999699,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2737999999999698,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2740999999999698,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2743999999999698,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2746999999999697,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2747999999999697,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2750999999999697,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2752999999999697,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2757999999999696,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2760999999999696,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.2761999999999696,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2767999999999695,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2770999999999695,
+      "type": "sign change below curvature floor",
+      "curvature": 1.8665766604461216e-15
+     },
+     {
+      "r": 1.2775999999999694,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2777999999999694,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.2780999999999694,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2785999999999693,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2787999999999693,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2789999999999693,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2790999999999693,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.2795999999999692,
+      "type": "interior maximum",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2797999999999692,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2799999999999692,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2800999999999692,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.2802999999999691,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2803999999999691,
+      "type": "sign change below curvature floor",
+      "curvature": 1.6332545778903564e-15
+     },
+     {
+      "r": 1.280699999999969,
+      "type": "interior maximum",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.280799999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.280999999999969,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.281099999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.281299999999969,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.281399999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.7499156191682391e-15
+     },
+     {
+      "r": 1.281499999999969,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.281599999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.281699999999969,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.281799999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.282099999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.282299999999969,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.282399999999969,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2827999999999689,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2829999999999688,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009435e-15
+     },
+     {
+      "r": 1.2830999999999688,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2832999999999688,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2833999999999688,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2839999999999687,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2840999999999687,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2842999999999687,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2843999999999687,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2850999999999686,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2853999999999686,
+      "type": "sign change below curvature floor",
+      "curvature": 1.5165935366124737e-15
+     },
+     {
+      "r": 1.2854999999999686,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2856999999999685,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2860999999999685,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2862999999999685,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2863999999999685,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2865999999999684,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2866999999999684,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2869999999999684,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2870999999999684,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2873999999999683,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2877999999999683,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2880999999999683,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2883999999999682,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2890999999999682,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2893999999999681,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.289699999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.289799999999968,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.290099999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.290299999999968,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.290399999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.290699999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.291099999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.291199999999968,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.291399999999968,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.291499999999968,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2916999999999679,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2919999999999678,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2920999999999678,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2922999999999678,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2923999999999678,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2924999999999678,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2926999999999678,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2930999999999677,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2933999999999677,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2935999999999677,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2936999999999677,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2937999999999676,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2943999999999676,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2945999999999676,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.2946999999999675,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2948999999999675,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2952999999999675,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2953999999999675,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2954999999999675,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2956999999999674,
+      "type": "sign change below curvature floor",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2958999999999674,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.2959999999999674,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.2963999999999674,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2966999999999673,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.2973999999999672,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2975999999999672,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2976999999999672,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.2977999999999672,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.2979999999999672,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.2983999999999671,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.2985999999999671,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.298699999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.298999999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.299299999999967,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.299399999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.299499999999967,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.299699999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.299999999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.300099999999967,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.300399999999967,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.300599999999967,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3006999999999669,
+      "type": "sign change below curvature floor",
+      "curvature": 1.3999324953345912e-15
+     },
+     {
+      "r": 1.3007999999999669,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3009999999999668,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3010999999999668,
+      "type": "interior maximum",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3011999999999668,
+      "type": "sign change below curvature floor",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3012999999999668,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3013999999999668,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3015999999999668,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3016999999999668,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.3019999999999667,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.3021999999999667,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3023999999999667,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3025999999999667,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3026999999999667,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3027999999999667,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3029999999999666,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3031999999999666,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3034999999999666,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3036999999999666,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3038999999999665,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3039999999999665,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3041999999999665,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3046999999999664,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3048999999999664,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3049999999999664,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3053999999999664,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3056999999999663,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3057999999999663,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3059999999999663,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3060999999999663,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3063999999999663,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3065999999999662,
+      "type": "interior maximum",
+      "curvature": 6.999662476672955e-16
+     },
+     {
+      "r": 1.3066999999999662,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3068999999999662,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3069999999999662,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.3074999999999661,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3076999999999661,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.307899999999966,
+      "type": "interior maximum",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.307999999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 1.0499493715009433e-15
+     },
+     {
+      "r": 1.308299999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.308699999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.308999999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.309299999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.309699999999966,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3099999999999659,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3102999999999658,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3104999999999658,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3106999999999658,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3108999999999658,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3109999999999657,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3112999999999657,
+      "type": "sign change below curvature floor",
+      "curvature": 1.166610412778826e-15
+     },
+     {
+      "r": 1.3113999999999657,
+      "type": "interior maximum",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3116999999999657,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3119999999999656,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3122999999999656,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3126999999999656,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3129999999999655,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3132999999999655,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3139999999999654,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3142999999999654,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3143999999999654,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3149999999999653,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3152999999999653,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3156999999999652,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3157999999999652,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3159999999999652,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3162999999999652,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.316799999999965,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.316999999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 3.499831238336478e-16
+     },
+     {
+      "r": 1.317199999999965,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.317299999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.317599999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.317699999999965,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.317799999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.317899999999965,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.317999999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.318299999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.318599999999965,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3189999999999649,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3192999999999648,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3193999999999648,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3195999999999648,
+      "type": "sign change below curvature floor",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3199999999999648,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3201999999999647,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3202999999999647,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3205999999999647,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3209999999999646,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3210999999999646,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3212999999999646,
+      "type": "sign change below curvature floor",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3213999999999646,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3215999999999646,
+      "type": "sign change below curvature floor",
+      "curvature": 8.166272889451782e-16
+     },
+     {
+      "r": 1.3216999999999646,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3217999999999646,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3218999999999645,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3219999999999645,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3222999999999645,
+      "type": "sign change below curvature floor",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3224999999999645,
+      "type": "interior maximum",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3225999999999645,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3232999999999644,
+      "type": "sign change below curvature floor",
+      "curvature": 9.332883302230608e-16
+     },
+     {
+      "r": 1.3233999999999644,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3235999999999644,
+      "type": "sign change below curvature floor",
+      "curvature": 6.999662476672956e-16
+     },
+     {
+      "r": 1.3237999999999643,
+      "type": "interior maximum",
+      "curvature": 5.83305206389413e-16
+     },
+     {
+      "r": 1.3248999999999642,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.326599999999964,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.327199999999964,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3319999999999634,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.335399999999963,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.345499999999962,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3460999999999619,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3484999999999616,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3485999999999616,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3486999999999616,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3495999999999615,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3503999999999614,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3518999999999612,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.353399999999961,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3620999999999601,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.36289999999996,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.36359999999996,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3659999999999597,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3667999999999596,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3674999999999595,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3675999999999595,
+      "type": "sign change below curvature floor",
+      "curvature": 3.499831238336478e-16
+     },
+     {
+      "r": 1.3676999999999595,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.3681999999999594,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3684999999999594,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3689999999999594,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3700999999999592,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3738999999999588,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3776999999999584,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3799999999999581,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.380999999999958,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.381999999999958,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3833999999999578,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3870999999999574,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.390499999999957,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3936999999999566,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3942999999999566,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3984999999999561,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4014999999999558,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4021999999999557,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.4044999999999555,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.407599999999955,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.417399999999954,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.4209999999999536,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.4301999999999526,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4305999999999526,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4312999999999525,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4321999999999524,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4340999999999522,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.435899999999952,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.435999999999952,
+      "type": "sign change below curvature floor",
+      "curvature": 3.499831238336478e-16
+     },
+     {
+      "r": 1.436099999999952,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4383999999999517,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4386999999999517,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.4415999999999514,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4459999999999509,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4516999999999503,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4521999999999502,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4528999999999501,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.45299999999995,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.45309999999995,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4553999999999498,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4601999999999493,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4608999999999492,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4656999999999487,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4690999999999483,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4693999999999483,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4694999999999483,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4695999999999483,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.472299999999948,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.472999999999948,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4782999999999473,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4835999999999467,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4851999999999466,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4857999999999465,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4963999999999453,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.4981999999999451,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5011999999999448,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.5034999999999445,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.509399999999944,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5098999999999438,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5112999999999437,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5157999999999432,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.518399999999943,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5187999999999429,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.525899999999942,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.526199999999942,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.526599999999942,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.527499999999942,
+      "type": "interior maximum",
+      "curvature": 4.666441651115304e-16
+     },
+     {
+      "r": 1.5293999999999417,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5294999999999417,
+      "type": "sign change below curvature floor",
+      "curvature": 2.333220825557652e-16
+     },
+     {
+      "r": 1.5295999999999417,
+      "type": "interior maximum",
+      "curvature": 2.333220825557652e-16
+     }
+    ],
+    "decimated_grid_every_200": [
+     {
+      "r": 1.0,
+      "F": "-inf"
+     },
+     {
+      "r": 1.0199999999999978,
+      "F": 0.055476684421878954
+     },
+     {
+      "r": 1.0399999999999956,
+      "F": 0.05775790515496813
+     },
+     {
+      "r": 1.0599999999999934,
+      "F": 0.06010308743033463
+     },
+     {
+      "r": 1.0799999999999912,
+      "F": 0.00791563522042133
+     },
+     {
+      "r": 1.099999999999989,
+      "F": 0.0
+     },
+     {
+      "r": 1.1199999999999868,
+      "F": 0.0
+     },
+     {
+      "r": 1.1399999999999846,
+      "F": 0.0
+     },
+     {
+      "r": 1.1599999999999824,
+      "F": 0.0
+     },
+     {
+      "r": 1.1799999999999802,
+      "F": 0.0
+     },
+     {
+      "r": 1.199999999999978,
+      "F": 0.0
+     },
+     {
+      "r": 1.2199999999999758,
+      "F": 0.0
+     },
+     {
+      "r": 1.2399999999999736,
+      "F": 9.099561219674843e-15
+     },
+     {
+      "r": 1.2599999999999714,
+      "F": 1.2832714540567087e-15
+     },
+     {
+      "r": 1.2799999999999692,
+      "F": 9.332883302230608e-16
+     },
+     {
+      "r": 1.299999999999967,
+      "F": 0.0
+     },
+     {
+      "r": 1.3199999999999648,
+      "F": 2.333220825557652e-16
+     },
+     {
+      "r": 1.3399999999999626,
+      "F": 0.0
+     },
+     {
+      "r": 1.3599999999999604,
+      "F": 0.0
+     },
+     {
+      "r": 1.3799999999999581,
+      "F": 1.166610412778826e-16
+     },
+     {
+      "r": 1.399999999999956,
+      "F": 0.0
+     },
+     {
+      "r": 1.4199999999999537,
+      "F": 0.0
+     },
+     {
+      "r": 1.4399999999999515,
+      "F": 0.0
+     },
+     {
+      "r": 1.4599999999999493,
+      "F": 0.0
+     },
+     {
+      "r": 1.4799999999999471,
+      "F": 0.0
+     },
+     {
+      "r": 1.499999999999945,
+      "F": 0.0
+     },
+     {
+      "r": 1.5199999999999427,
+      "F": 0.0
+     },
+     {
+      "r": 1.5399999999999405,
+      "F": 0.0
+     },
+     {
+      "r": 1.5599999999999383,
+      "F": 0.0
+     },
+     {
+      "r": 1.5799999999999361,
+      "F": 0.0
+     },
+     {
+      "r": 1.599999999999934,
+      "F": 0.0
+     },
+     {
+      "r": 1.6199999999999317,
+      "F": 0.0
+     },
+     {
+      "r": 1.6399999999999295,
+      "F": 0.0
+     },
+     {
+      "r": 1.6599999999999273,
+      "F": 0.0
+     },
+     {
+      "r": 1.679999999999925,
+      "F": 0.0
+     },
+     {
+      "r": 1.699999999999923,
+      "F": 0.0
+     },
+     {
+      "r": 1.7199999999999207,
+      "F": 0.0
+     },
+     {
+      "r": 1.7399999999999185,
+      "F": 0.0
+     },
+     {
+      "r": 1.7599999999999163,
+      "F": 0.0
+     },
+     {
+      "r": 1.779999999999914,
+      "F": 0.0
+     },
+     {
+      "r": 1.799999999999912,
+      "F": 0.0
+     },
+     {
+      "r": 1.8199999999999097,
+      "F": 0.0
+     },
+     {
+      "r": 1.8399999999999075,
+      "F": 0.0
+     },
+     {
+      "r": 1.8599999999999053,
+      "F": 0.0
+     },
+     {
+      "r": 1.879999999999903,
+      "F": 0.0
+     },
+     {
+      "r": 1.8999999999999009,
+      "F": 0.0
+     },
+     {
+      "r": 1.9199999999998987,
+      "F": 0.0
+     },
+     {
+      "r": 1.9399999999998965,
+      "F": 0.0
+     },
+     {
+      "r": 1.9599999999998943,
+      "F": 0.0
+     },
+     {
+      "r": 1.979999999999892,
+      "F": 0.0
+     }
+    ]
+   },
+   "F3_three_channel_energy_fold": {
+    "grid": "1.0..1.999 step 1e-4 (n = 9991)",
+    "n_excluded_nonfinite": 0,
+    "n_interior_minima": 0,
+    "minima": [],
+    "other_stationarity_events": [],
+    "decimated_grid_every_200": [
+     {
+      "r": 1.0,
+      "F": 0.9999999999999998
+     },
+     {
+      "r": 1.0199999999999978,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.0399999999999956,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.0599999999999934,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.0799999999999912,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.099999999999989,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.1199999999999868,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.1399999999999846,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.1599999999999824,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.1799999999999802,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.199999999999978,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.2199999999999758,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.2399999999999736,
+      "F": 0.9999999999999993
+     },
+     {
+      "r": 1.2599999999999714,
+      "F": 0.9999999999999991
+     },
+     {
+      "r": 1.2799999999999692,
+      "F": 0.9999999999999991
+     },
+     {
+      "r": 1.299999999999967,
+      "F": 0.9999999999999991
+     },
+     {
+      "r": 1.3199999999999648,
+      "F": 0.9999999999999991
+     },
+     {
+      "r": 1.3399999999999626,
+      "F": 0.9900000000000554
+     },
+     {
+      "r": 1.3599999999999604,
+      "F": 0.9600000000000587
+     },
+     {
+      "r": 1.3799999999999581,
+      "F": 0.930000000000062
+     },
+     {
+      "r": 1.399999999999956,
+      "F": 0.9000000000000653
+     },
+     {
+      "r": 1.4199999999999537,
+      "F": 0.8700000000000686
+     },
+     {
+      "r": 1.4399999999999515,
+      "F": 0.8400000000000719
+     },
+     {
+      "r": 1.4599999999999493,
+      "F": 0.8100000000000752
+     },
+     {
+      "r": 1.4799999999999471,
+      "F": 0.7800000000000785
+     },
+     {
+      "r": 1.499999999999945,
+      "F": 0.7500000000000818
+     },
+     {
+      "r": 1.5199999999999427,
+      "F": 0.720000000000085
+     },
+     {
+      "r": 1.5399999999999405,
+      "F": 0.6900000000000883
+     },
+     {
+      "r": 1.5599999999999383,
+      "F": 0.6600000000000916
+     },
+     {
+      "r": 1.5799999999999361,
+      "F": 0.6300000000000949
+     },
+     {
+      "r": 1.599999999999934,
+      "F": 0.6000000000000982
+     },
+     {
+      "r": 1.6199999999999317,
+      "F": 0.5700000000001015
+     },
+     {
+      "r": 1.6399999999999295,
+      "F": 0.5400000000001048
+     },
+     {
+      "r": 1.6599999999999273,
+      "F": 0.5100000000001081
+     },
+     {
+      "r": 1.679999999999925,
+      "F": 0.48000000000011145
+     },
+     {
+      "r": 1.699999999999923,
+      "F": 0.45000000000011475
+     },
+     {
+      "r": 1.7199999999999207,
+      "F": 0.42000000000011806
+     },
+     {
+      "r": 1.7399999999999185,
+      "F": 0.39000000000012136
+     },
+     {
+      "r": 1.7599999999999163,
+      "F": 0.36000000000012444
+     },
+     {
+      "r": 1.779999999999914,
+      "F": 0.33000000000012775
+     },
+     {
+      "r": 1.799999999999912,
+      "F": 0.30000000000013105
+     },
+     {
+      "r": 1.8199999999999097,
+      "F": 0.27000000000013435
+     },
+     {
+      "r": 1.8399999999999075,
+      "F": 0.24000000000013766
+     },
+     {
+      "r": 1.8599999999999053,
+      "F": 0.21000000000014096
+     },
+     {
+      "r": 1.879999999999903,
+      "F": 0.18000000000014427
+     },
+     {
+      "r": 1.8999999999999009,
+      "F": 0.15000000000014757
+     },
+     {
+      "r": 1.9199999999998987,
+      "F": 0.12000000000015087
+     },
+     {
+      "r": 1.9399999999998965,
+      "F": 0.09000000000015418
+     },
+     {
+      "r": 1.9599999999998943,
+      "F": 0.06000000000015748
+     },
+     {
+      "r": 1.979999999999892,
+      "F": 0.030000000000160787
+     }
+    ]
+   },
+   "F4_node_local_junction_gap": {
+    "grid": "1.0..1.999 step 1e-4 (n = 9991)",
+    "n_excluded_nonfinite": 0,
+    "n_interior_minima": 0,
+    "minima": [],
+    "other_stationarity_events": [
+     {
+      "r": 1.064199999999993,
+      "type": "interior maximum",
+      "curvature": 0.00262886912843574
+     }
+    ],
+    "decimated_grid_every_200": [
+     {
+      "r": 1.0,
+      "F": 0.0
+     },
+     {
+      "r": 1.0199999999999978,
+      "F": 0.27211615839777725
+     },
+     {
+      "r": 1.0399999999999956,
+      "F": 0.6306711864405804
+     },
+     {
+      "r": 1.0599999999999934,
+      "F": 1.1300795931339314
+     },
+     {
+      "r": 1.0799999999999912,
+      "F": 1.2425974025974125
+     },
+     {
+      "r": 1.099999999999989,
+      "F": 1.2193548387096902
+     },
+     {
+      "r": 1.1199999999999868,
+      "F": 1.1958974358974512
+     },
+     {
+      "r": 1.1399999999999846,
+      "F": 1.1722292993630754
+     },
+     {
+      "r": 1.1599999999999824,
+      "F": 1.1483544303797677
+     },
+     {
+      "r": 1.1799999999999802,
+      "F": 1.1242767295597722
+     },
+     {
+      "r": 1.199999999999978,
+      "F": 1.1000000000000267
+     },
+     {
+      "r": 1.2199999999999758,
+      "F": 1.0755279503105886
+     },
+     {
+      "r": 1.2399999999999736,
+      "F": 1.0508641975308968
+     },
+     {
+      "r": 1.2599999999999714,
+      "F": 1.0260122699386856
+     },
+     {
+      "r": 1.2799999999999692,
+      "F": 1.0009756097561358
+     },
+     {
+      "r": 1.299999999999967,
+      "F": 0.9757575757576171
+     },
+     {
+      "r": 1.3199999999999648,
+      "F": 0.9503614457831769
+     },
+     {
+      "r": 1.3399999999999626,
+      "F": 0.9247904191617242
+     },
+     {
+      "r": 1.3599999999999604,
+      "F": 0.8990476190476698
+     },
+     {
+      "r": 1.3799999999999581,
+      "F": 0.8731360946746101
+     },
+     {
+      "r": 1.399999999999956,
+      "F": 0.8470588235294688
+     },
+     {
+      "r": 1.4199999999999537,
+      "F": 0.8208187134503528
+     },
+     {
+      "r": 1.4399999999999515,
+      "F": 0.7944186046512265
+     },
+     {
+      "r": 1.4599999999999493,
+      "F": 0.7678612716763675
+     },
+     {
+      "r": 1.4799999999999471,
+      "F": 0.7411494252874266
+     },
+     {
+      "r": 1.499999999999945,
+      "F": 0.7142857142857877
+     },
+     {
+      "r": 1.5199999999999427,
+      "F": 0.6872727272728043
+     },
+     {
+      "r": 1.5399999999999405,
+      "F": 0.6601129943503629
+     },
+     {
+      "r": 1.5599999999999383,
+      "F": 0.6328089887641287
+     },
+     {
+      "r": 1.5799999999999361,
+      "F": 0.6053631284917074
+     },
+     {
+      "r": 1.599999999999934,
+      "F": 0.5777777777778685
+     },
+     {
+      "r": 1.6199999999999317,
+      "F": 0.5500552486188788
+     },
+     {
+      "r": 1.6399999999999295,
+      "F": 0.5221978021979
+     },
+     {
+      "r": 1.6599999999999273,
+      "F": 0.4942076502733254
+     },
+     {
+      "r": 1.679999999999925,
+      "F": 0.4660869565218441
+     },
+     {
+      "r": 1.699999999999923,
+      "F": 0.43783783783794633
+     },
+     {
+      "r": 1.7199999999999207,
+      "F": 0.4094623655915099
+     },
+     {
+      "r": 1.7399999999999185,
+      "F": 0.3809625668450355
+     },
+     {
+      "r": 1.7599999999999163,
+      "F": 0.352340425532034
+     },
+     {
+      "r": 1.779999999999914,
+      "F": 0.3235978835980064
+     },
+     {
+      "r": 1.799999999999912,
+      "F": 0.29473684210538964
+     },
+     {
+      "r": 1.8199999999999097,
+      "F": 0.2657591623037951
+     },
+     {
+      "r": 1.8399999999999075,
+      "F": 0.23666666666680056
+     },
+     {
+      "r": 1.8599999999999053,
+      "F": 0.20746113989651066
+     },
+     {
+      "r": 1.879999999999903,
+      "F": 0.17814432989704862
+     },
+     {
+      "r": 1.8999999999999009,
+      "F": 0.14871794871809385
+     },
+     {
+      "r": 1.9199999999998987,
+      "F": 0.11918367346953666
+     },
+     {
+      "r": 1.9399999999998965,
+      "F": 0.08954314720827453
+     },
+     {
+      "r": 1.9599999999998943,
+      "F": 0.059797979798136315
+     },
+     {
+      "r": 1.979999999999892,
+      "F": 0.029949748743878932
+     }
+    ]
+   }
+  },
+  "sites_selected_per_functional": {
+   "F1_full_set_one_loop_energy": 0,
+   "F2_weighted_best_second_gap": 0,
+   "F3_three_channel_energy_fold": 0,
+   "F4_node_local_junction_gap": 0
+  },
+  "status": "R-INTERIOR-EMPTY-DECLARED",
+  "wall_time": 3.794585943222046
+ },
+ "checks": [
+  {
+   "name": "T0 the booked onset anchors: singularity re-derived 1.999999999999979 vs artifact 1.999999999999979 (|d| 0.0e+00 <= 1e-3); r_atm re-derived 1.919115437980883 vs 1.919115437980883 (|d| 0.0e+00 <= 1e-9); V305 selected r = 2.0000 == 2.0",
+   "pass": true
+  },
+  {
+   "name": "branch R-INTERIOR-EMPTY-DECLARED: interior minima per functional {'F1_full_set_one_loop_energy': 0, 'F2_weighted_best_second_gap': 0, 'F3_three_channel_energy_fold': 0, 'F4_node_local_junction_gap': 0} (grid 1.0..1.999 step 1e-4 (n = 9991)); the boundary singularity at r = 2 and the r = 1 endpoint degeneracy are the booked edge; total minima 0",
+   "pass": true
+  }
+ ],
+ "status": "R-INTERIOR-EMPTY-DECLARED",
+ "pass": true
+}
