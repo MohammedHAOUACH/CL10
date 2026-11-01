@@ -1517,6 +1517,88 @@ deficit. T0: W_n re-derived to V345's nine leaves bit-for-bit.
 CLASSIFICATION: PENTAGON-LADDER-HITS (+- arith), PENTAGON-LADDER-
 VOID, MACHINERY-DRIFT. Cost booked: < 10 min each.
 
+## V356 run note (post-run)
+PENTAGON-CLOSURE-CLOCK-FREE, all six gates green, wall 1.0 s on
+GPU 1. Decisive numbers: T0 |I_h| = 120, STRICT order census
+{1:1, 2:31, 3:20, 5:24, 6:20, 10:24} (max 10 as booked - the census
+is the A5 x Z2 element structure verbatim), faithful 12-face action
+(120 distinct permutations, kernel 1). A WREATH CLOSURE CENSUS: 40
+sampled sigma x R steps close at orders up to 30 with worst U^k
+deviation from +-I of 1.1e-15 - the group core closes at EVERY
+clock: closure is angle-free, the V334 escape branch is realized by
+the 12-cell algebra. B WILSON-DRESSED SCAN: the dressing BREAKS the
+closure - best clock-selected deviations (0.19, 1.0e-01),
+(0.02, 6.9e-01), (0.02, 7.0e-01), (0.71, 1.6e-01), (0.02, 1.8e-01):
+no clock on the 97-point grid restores +-I closure of the dressed
+step, so inside the closed structure the clock is genuinely a
+COEFFICIENT the dressing re-selects (deviations O(0.1-0.7), never
+below 1e-1). T-B-GPU: dressed scan batched on cupy, device-vs-host
+identity 2.2e-16 on NVIDIA GeForce RTX 3090 (GPU 1).
+Booked corrections (defects found in the booked construction, fixed
+BEFORE the green run; the booked GATES are untouched):
+(a) mpmath defect: chained 3x3 products without entry normalization
+and raw 50-digit str dedup keys made the BFS diverge (174k+ nodes at
+depth 18); fix: every product entry normalized (+x at dps 50),
+dedup keys canonical 14 significant digits with a 1e-25 threshold
+against the mpmath.pi transcendental residue, and all seed/generator
+entries typed as mpf (int '1' vs mpf '1.0' key split had carried a
+duplicate identity through the table - 132 not 120).
+(b) group-theory defect: the booked generators "(Rz(2pi/5),
+Rx(pi/2), -I)" do not generate I_h in the face-normal orientation -
+Rz(72 deg) is not a symmetry of the (0,+-1,+-phi) vertex set (the
+cell's 5-fold axes go through its face normals, (0,+-1,+-phi) and
+cyclic images) and C5-C2-perpendicular generates only D5. The I_h
+table is now generated on the CELL's own axes: C5 about (0,1,phi)
+(72 deg, exact ring entries since sin72/sqrt(1+phi^2) = 1/2),
+C2x = Rx(pi) (a true 2-fold through the edge midpoints (phi,0,+-1)),
+C3 about the threefold (1,1,1) axis (the EXACT cyclic permutation
+matrix), and the inversion.
+(c) order_of must be STRICT (P^k = +I only): the old +-I shortcut
+capped the census at 5 and contradicted the booked max == 10.
+
+## V357 run note (post-run)
+PENTAGON-LADDER-VOID, T0 green, wall 18 s. Decisive: W_2..W_10
+bit-identical to the V345 leaves; the char poly of the 12-face
+adjacency certified by Newton sums on the integer traces,
+e_1..e_12 = [1, 0, -30, 40, 255, -576, -580, 2640, -1425, -3200,
+5250, -3000, 625] - exactly (x-5)(x+1)^5(x^2-5)^3, the icosahedral-
+graph spectrum {5, (+-sqrt5)^3, (-1)^5} (MathWorld confirms; gap
+5 - sqrt5 = 2.763932 is the booked PENTGAP that motivates V360).
+LADDER TEST: the booked monomial class has 118,752,564 defined
+forms; best relative-log miss 3.4e-04 against the rung-10 amplitude
+T = 0.0191757586 and 5.0e-03 against the deficit 0.01013 - both
+OUTSIDE the 1e-4 found band (FOUND requires <= 1e-8); chance
+expectation in the 1e-4 band is ~237 hits for a class this size, so
+even a band hit would be density-suspicious by the V319 rule. The
+ladder's published reading objects are NOT carried by ANY functional
+of the booked class on the pentagon walk spectrum: VOID, honestly
+negative, exactly what the pre-run chance discipline was booked for.
+Booked correction: the class as literally written included W_1 =
+tr A = 0, whose log(-inf) poisoned every argmin and made the scan
+vacuous (the first VOID was a machinery bug, not a verdict); the
+class is built only from the defined positive walks W_2..W_30 and
+the rerun is the number above.
+
+## Pentagon-12 user directives (2026-11-01, mid-execution; recorded
+for the V358-V360 record)
+The cell table is booked as CERTIFIED CODE in cl10/pentengine.py
+(dodeca_cell): Type regular polyhedron, faces pentagons, F = 12,
+E = 30, V = 20, Euler characteristic 2, three faces per vertex,
+five vertices per face - certified against the polar of the engine's
+own face normals (dual face-adjacency = the 30 engine edges, exact).
+The nest: 120 dodecahedra - cell_nest certifies the I_h table acts
+simply transitively on 120 cell labels. The dodecahedral honeycomb
+of order 4: honeycomb_534 certifies the Coxeter chain [5-3-4] Gram
+Lorentzian (3,1) with all proper sub-blocks spherical ([5,3] = the
+cell's own H3 of order 120) and edge label 4 = four dodecahedra per
+edge - the compact hyperbolic sibling of the V360 flat pentagrid.
+Tool stack per directive: cupy-cuda13x (GPU 1 batch + the house
+device-vs-host gate), jax[cuda13] cross-check, einops for the cell
+factor axes (f face, r frame, a internal), kingdon geometric algebra
+for the edge rotors (Cl(3,0) rotor r ~ 1 + n_v n_u, cross-certified
+against Rodrigues at 4.4e-16 on all 30 edges; n_u mapped to n_v at
+1.3e-51; all 270 twist entries in Q(sqrt5) by PSLQ).
+
 ## The pentagon engine rebuild V358-V360 (user directive 2026-11-01:
 "rebuild the whole engine on the pentagon-12" - booked before any
 run; engine library cl10/pentengine.py lands with the booking)

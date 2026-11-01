@@ -1,0 +1,85 @@
+{
+ "id": "V357_pentagon_walk_ladder",
+ "tier": 1,
+ "property": "does the 12-face walk ladder carry the published reading objects (golden-section spectrum monomials)",
+ "status": "PENTAGON-LADDER-VOID",
+ "pass": true,
+ "data": {
+  "walks_n_1_30": {
+   "1": 0,
+   "2": 60,
+   "3": 120,
+   "4": 780,
+   "5": 3120,
+   "6": 16380,
+   "7": 78120,
+   "8": 394380,
+   "9": 1953120,
+   "10": 9784380,
+   "11": 48828120,
+   "12": 244234380,
+   "13": 1220703120,
+   "14": 6103984380,
+   "15": 30517578120,
+   "16": 152590234380,
+   "17": 762939453120,
+   "18": 3814708984380,
+   "19": 19073486328120,
+   "20": 95367490234380,
+   "21": 476837158203120,
+   "22": 2384186083984380,
+   "23": 11920928955078120,
+   "24": 59604646240234380,
+   "25": 298023223876953120,
+   "26": 1490116126708984380,
+   "27": 7450580596923828120,
+   "28": 37252903021240234380,
+   "29": 186264514923095703120,
+   "30": 931322574798583984380
+  },
+  "charpoly_elementary_symmetrics": [
+   1,
+   0,
+   -30,
+   40,
+   255,
+   -576,
+   -580,
+   2640,
+   -1425,
+   -3200,
+   5250,
+   -3000,
+   625
+  ],
+  "targets": {
+   "T_rung10_amplitude": 0.019175758589457376,
+   "deficit": 0.01013
+  },
+  "pentagon_class": {
+   "class_size": 118752564,
+   "expected_hits_in_1e-4_band": {
+    "1": 237.505128,
+    "2": 237.505128
+   },
+   "hits_T": [],
+   "hits_D": [],
+   "best_T": 0.000337910183807022,
+   "best_D": 0.004950615620640697
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 closed walks re-derived: W_2..W_10 = [60, 120, 780, 3120, 16380, 78120, 394380, 1953120, 9784380] vs the V345 leaves [60, 120, 780, 3120, 16380, 78120, 394380, 1953120, 9784380] (bit-identical)",
+   "pass": true
+  },
+  {
+   "name": "char poly certified via Newton sums on integer traces: e_1..e_12 all exact integers = [1, 0, -30, 40, 255, -576, -580, 2640, -1425, -3200, 5250, -3000, 625]",
+   "pass": true
+  },
+  {
+   "name": "pentagon monomial class 118752564 forms against T = 0.0191757586 and the deficit 0.01013: best relative-log miss 3.4e-04 (T) / 5.0e-03 (deficit); chance expectation in the 1e-4 band ~237.5 hits",
+   "pass": true
+  }
+ ]
+}
