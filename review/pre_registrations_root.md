@@ -436,3 +436,21 @@ BRANCH WORDS: WEB-EDGE-FOUND / WEB-CLOSED; PISOT-SHADOW-FOUND /
 PISOT-SHADOW-VOID. Definitionally-known edges (gap = g_cross - g_obs,
 coef_at_fifth vs C_15 agreement) excluded from the claim by name.
 Cost booked: ~2 minutes host.
+
+## V340 run note (post-run)
+WEB-CLOSED-PISOT-VOID, wall 47 s host. W1/W2/W3: ZERO edges among the
+17 published decimals at the guarded heights (even the pair tier finds
+nothing, and the booked run-note correction: a definitional TRIPLE like
+gap = g_cross - g_obs is invisible to two-number PSLQ by construction,
+so the triple tier PSLQ [1,x,y,z] H <= 1e3, residual <= 1e-18 (false-
+positive expectation 5e-6 over 680 triples) was run as the booked
+supplement: also ZERO exact triples - the desert web is CLOSED: the
+published numbers are pairwise AND triply algebraically unrelated over
+the guarded lattices. Pisot shadow: 5 targets x 8 booked Pisot units,
+170 windowed (lambda,n) scales x q<=100 convergents: ZERO shadows at
+1e-12: the 2 ppm of the desert is NOT the n-th shadow of any booked
+self-similar substitution. With V338 (naming) and V335 (rational
+density), every STATIC birth channel of the desert numbers is now
+bounded closed: naming, relations, webs, self-similarity. What remains
+open is only DYNAMICAL birth: a dressing series evaluated by the
+mechanism itself - booked as N2b/N3.

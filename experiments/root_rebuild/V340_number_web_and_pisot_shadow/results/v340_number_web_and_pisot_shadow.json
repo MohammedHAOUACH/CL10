@@ -1,0 +1,78 @@
+{
+ "id": "V340_number_web_and_pisot_shadow",
+ "tier": 2,
+ "property": "relational web of the published decimals + the Pisot-shadow birth of the desert's 2 ppm",
+ "status": "WEB-CLOSED-PISOT-VOID",
+ "pass": true,
+ "data": {
+  "targets": [
+   "g_obs",
+   "g_cross",
+   "gap",
+   "COEF",
+   "coef_fifth",
+   "C_CORR",
+   "LOOP",
+   "F208_root",
+   "F208_321",
+   "F4",
+   "F8",
+   "r_atm",
+   "Wln10",
+   "Wln17",
+   "Wln208",
+   "def_pi2",
+   "m_gapmin"
+  ],
+  "edges": [],
+  "unknown_edges": 0,
+  "pisot_lambdas": {
+   "golden": [
+    "1.61803398874989",
+    true
+   ],
+   "silver": [
+    "2.4142135623731",
+    true
+   ],
+   "plastic": [
+    "1.32471795724475",
+    true
+   ],
+   "supergolden": [
+    "1.46557123187677",
+    true
+   ],
+   "quartic-smallest": [
+    "1.22074408460576",
+    false
+   ],
+   "quintic": [
+    "1.16730397826142",
+    false
+   ],
+   "tribonacci": [
+    "1.83928675521416",
+    true
+   ],
+   "quartic-b": [
+    "1.38027756909761",
+    true
+   ]
+  },
+  "shadows": [],
+  "known_edges_excluded": [
+   "gap := g_cross - g_obs (V309 definition)"
+  ]
+ },
+ "checks": [
+  {
+   "name": "W1-W3 webs over 17 published decimals (136 pairs, guarded heights): 0 edges found, 0 of them NOT definitionally known: []",
+   "pass": true
+  },
+  {
+   "name": "P Pisot shadow search (5 targets x 8 booked Pisot units, |p|<=1e4, q<=100, n<=60, window and guard as booked): 0 shadows: []",
+   "pass": true
+  }
+ ]
+}
