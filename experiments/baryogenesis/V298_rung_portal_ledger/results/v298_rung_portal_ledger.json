@@ -26,7 +26,7 @@
    "log10_ratio_to_target": 11.160832052208399
   },
   "status": "PORTAL-NAMED-INPUT",
-  "wall_time": 0.0011870861053466797,
+  "wall_time": 0.0007517337799072266,
   "fitted_inputs": []
  },
  "checks": [
