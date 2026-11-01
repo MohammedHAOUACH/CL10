@@ -1,0 +1,96 @@
+{
+ "id": "V354_elect_read_root_degeneracy",
+ "tier": 1,
+ "property": "one dressing, two conditions: can the fifth be simultaneously read and born in the published arithmetic",
+ "status": "ELECT-SPLIT",
+ "pass": true,
+ "data": {
+  "tree_offset_g_obs_minus_fifth": -2.0116424883642736e-06,
+  "elect": {
+   "J1-identity": {
+    "alpha_read": [
+     -0.0030950442429002545
+    ],
+    "alpha_root": [
+     -1.28982931827195,
+     -0.7500000000465661,
+     -0.0030950442422181335,
+     1.6188916959334165
+    ],
+    "degeneracies": [
+     {
+      "alpha": -0.003095044242559194,
+      "gap": 6.821210263296962e-13
+     }
+    ],
+    "closest_gap": 6.821210263296962e-13
+   },
+   "J2-cartan2": {
+    "alpha_read": [
+     -0.0006190088486164305
+    ],
+    "alpha_root": [
+     -1.8115471093449742,
+     -1.708133108029142,
+     -1.5011628373991697,
+     -0.6143726993817833,
+     -0.42247433322481803,
+     -0.30000000004656596,
+     0.14374999995343402,
+     0.49999999995343386,
+     1.1149194973055274,
+     1.8999999999534343,
+     1.9697238124441356
+    ],
+    "degeneracies": [],
+    "closest_gap": 0.14436900880205045
+   },
+   "J3-step(1/5)": {
+    "alpha_read": [
+     -0.4628375053520813,
+     -0.00029956356097500205
+    ],
+    "alpha_root": [
+     -1.864326122635976,
+     -1.7832265627104789,
+     -1.438228661334142,
+     -1.233835890097544,
+     -1.1943478354718537,
+     -1.0101011036429552,
+     -0.9917333070654422,
+     -0.5981540368404239,
+     -0.36130663543008257,
+     -0.1411905591841786,
+     0.01994689223356547,
+     0.24999999995343408,
+     0.431091525172815,
+     0.5946470948401841,
+     0.8766880200710152,
+     1.2605243320111186,
+     1.573358408035711,
+     1.7598913893569261,
+     1.9595990479458123
+    ],
+    "degeneracies": [],
+    "closest_gap": 0.02024645579454047
+   }
+  },
+  "census": {
+   "J1-identity": {
+    "alpha": -0.003095044242559194,
+    "beta": -0.1555738920793496,
+    "hits": []
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 lands on the published g_obs to 3.1e-12 (<= 1e-8: the paper's own -2.012e-06 offset re-derived); reading at 1/5 = 2.088107 vs the V206 coef_at_fifth artifact 2.088107 (|d| 3.5e-13 <= 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "V354 per channel: READ amplitudes {'J1-identity': [np.float64(-0.00309504)], 'J2-cartan2': [np.float64(-0.00061901)], 'J3-step(1/5)': [np.float64(-0.46283751), np.float64(-0.00029956)]} / ROOT amplitudes {'J1-identity': [np.float64(-1.28982932), np.float64(-0.75), np.float64(-0.00309504), np.float64(1.6188917)], 'J2-cartan2': [np.float64(-1.81154711), np.float64(-1.70813311), np.float64(-1.50116284), np.float64(-0.6143727), np.float64(-0.42247433), np.float64(-0.3), np.float64(0.14375), np.float64(0.5), np.float64(1.1149195), np.float64(1.9), np.float64(1.96972381)], 'J3-step(1/5)': [np.float64(-1.86432612), np.float64(-1.78322656), np.float64(-1.43822866), np.float64(-1.23383589), np.float64(-1.19434784), np.float64(-1.0101011), np.float64(-0.99173331), np.float64(-0.59815404), np.float64(-0.36130664), np.float64(-0.14119056), np.float64(0.01994689), np.float64(0.25), np.float64(0.43109153), np.float64(0.59464709), np.float64(0.87668802), np.float64(1.26052433), np.float64(1.57335841), np.float64(1.75989139), np.float64(1.95959905)]} / closest gap {'J1-identity': np.float64(6.821210263296962e-13), 'J2-cartan2': np.float64(0.14436900880205045), 'J3-step(1/5)': np.float64(0.02024645579454047)} / degeneracies {'J1-identity': [{'alpha': np.float64(-0.003095044242559194), 'gap': np.float64(6.821210263296962e-13)}], 'J2-cartan2': [], 'J3-step(1/5)': []}",
+   "pass": true
+  }
+ ]
+}

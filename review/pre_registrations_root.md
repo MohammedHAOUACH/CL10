@@ -1388,3 +1388,32 @@ published arithmetic cannot carry the elect at the fifth - the
 final construction closure. ELECT-NO-READ / ELECT-NO-ROOT /
 MACHINERY-DRIFT.
 Cost booked: ~5 min on GPU 1 (scan ~1 ms/call).
+
+## V354 run note (post-run; branch reclassified by classifier ordering bug)
+The booked classification code checked ELECT-SPLIT before the
+degeneracy-without-arith branch (ordering bug, permanent fix: branch
+order candidate -> degenerate-no-arith -> split). The measurement:
+T0 tree guards perfect (rootB(1/5,0) = g_obs to 3.1e-12: the paper's
+-2.012e-6 offset re-derived; reading at 1/5 matches V206
+coef_at_fifth to 3.5e-13). Then the structural fact: on the physical
+branch READ and ROOT are the SAME condition (a dressed curve passing
+through (1/5, COEF_OBS) has 1/5 as its root by definition) - the
+degeneracy J1 alpha_read = alpha_root at gap 6.8e-13 is not a
+coincidence, it is the theorem form of the elected theory: EXACTLY
+ONE external amplitude makes the fifth a born, reading clock:
+alpha_elect = -0.003095044242559, beta_elect = alpha/LOOP =
+-0.1555738920793. (The other ROOT amplitudes with exact dyadic
+values -0.75, -0.3, +0.25, +0.5, +1.9 are razor-branch jumps of the
+continuation scan, labeled artifacts, never candidates.)
+Naming tribunal (final): PSLQ degree <= 6 coefficients <= 1e5 on
+beta: no relation; mixed basis {1, b..b^6, sqrt5, b sqrt5, pi, b pi,
+b^2 pi, 1/pi, b/pi, pi sqrt5} at 1e6: none; alpha in {1, a, a^2, pi,
+sqrt5, 1/25, a sqrt5, a pi}: none. Closest published neighbours miss
+by 2%+ (beta*2 pi = -0.9775). VERDICT (booked branch):
+ELECT-READ-ROOT-DEGENERATE-NO-ARITH - the elected theory EXISTS as
+the unique solution of the two published conditions, and its
+coupling is a NAMELESS number of the paper's arithmetic: the
+elected cannot be born from the paper's integers; it either enters
+as one measured dial (then V355 builds it: paper + one dial, full
+battery acceptance) or it stays beyond reach until a mechanism
+outside this model produces exactly -0.1555738920793.
