@@ -1,0 +1,51 @@
+{
+ "id": "V346_sphere_cell_kinetic",
+ "tier": 1,
+ "property": "the user's 12-face closed sphere as an engine cell: exact kinetics and the isolated-linear-doublers tribunal (the published fermion signature) under U(1) bond flux",
+ "status": "SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-VOID",
+ "pass": true,
+ "data": {
+  "charpoly": "1.0*x**12 - 30.0*x**10 - 40.0*x**9 + 255.0*x**8 + 576.0*x**7 - 580.0*x**6 - 2640.0*x**5 - 1425.0*x**4 + 3200.0*x**3 + 5250.0*x**2 + 3000.0*x + 625.0",
+  "levels": [
+   {
+    "value": -2.236067977,
+    "mult": 3
+   },
+   {
+    "value": -1.0,
+    "mult": 5
+   },
+   {
+    "value": 2.236067977,
+    "mult": 3
+   },
+   {
+    "value": 5.0,
+    "mult": 1
+   }
+  ],
+  "equivariant_gap_at_unit_weight": 1.2360679774997898,
+  "col4_flux_min_gap_nontrivial": 1.2360679774997847,
+  "stage_flux_min_gap_nontrivial": 0.0016434496631405615,
+  "random_flux_min_gap_1e5": 0.008138245279908585,
+  "random_flux_closings_1e9": 0
+ },
+ "checks": [
+  {
+   "name": "T0 graph: 12 faces, 30 bonds (booked 30), 5 stage matchings True (booked true)",
+   "pass": true
+  },
+  {
+   "name": "T0 charpoly of A(0) over Z: 1.0*x**12 - 30.0*x**10 - 40.0*x**9 + 255.0*x**8 + 576.0*x**7 - 580.0*x**6 - 2640.0*x**5 - 1425.0*x**4 + 3200.0*x**3 + 5250.0*x**2 + 3000.0*x + 625.0 == booked (x-5)(x+1)^5(x^2-5)^3 EXACT; tr A^3 = 120 (booked 120, V345 leaf)",
+   "pass": true
+  },
+  {
+   "name": "M1 exact spectrum {5, sqrt5, -1, -sqrt5} with multiplicities [1, 3, 3, 5] (booked {1,3,3,5}): the two 3-fold levels are the cell-alone candidate for the published family number 3 (REPORTED, not claimed); gap 5-sqrt5 = 2.763932 to the signal level",
+   "pass": true
+  },
+  {
+   "name": "M2 flux tribunal: equivariant family gap 2.764 at w=1 (pure gauge as booked); coset face-flux min gap 1.24e+00 over 2001 pts; stage-flux min gap 1.64e-03; random 19-dim torus 1e5 draws: min 8.14e-03, closings <= 1e-9: 0 -> DOUBLERS-VOID",
+   "pass": true
+  }
+ ]
+}
