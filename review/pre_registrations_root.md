@@ -399,3 +399,40 @@ published engine's massless nodes were linear BECAUSE of the internal
 module's Wilson-like structure; if N2b restores linearity AND keeps the
 single GAMMA node, the desert's 1.006e-5 deviation becomes the sole
 missing datum of the reconstruction.
+
+## V340_number_web_and_pisot_shadow (tier 2, hard; root-rebuild; the last
+birth channel no census has closed: RELATIONS and SELF-SIMILARITY)
+
+V338 named single numbers and failed; a theory can still be RELATIONAL
+(numbers born as edges of an exact web) or SELF-SIMILAR (the desert's
+2 ppm is a Pisot-power shadow of a substitution counting - the only
+known mechanism giving EXACT rational backbone + exponentially small
+irrational correction, which is precisely the shape of the desert data:
+g_obs = 1/5 - 2.0116424883642736e-06).
+
+TARGETS (published decimals, harvested from the artifacts, 15 of them):
+g_obs, g_cross_rung10, gap = g_cross - g_obs, COEF 2.07656411117383,
+coef_at_fifth 2.088106865906787, C_CORR 2.07644360080448,
+LOOP 0.019894367886486918, F208_root 0.0196851541811279,
+F_208(321) 0.0196927945051569, F_4 1.82994979751295, F_8 1.67435813070784,
+r_atm 1.91911543798088, W_eff_ln rung10/17/208 (-3.50320080595748,
+-2.79531879611527, -0.421699620700671), deficit(pi/2) 0.973756015764892,
+m_gap_min 2.00289529530561e-4.
+W1 pair web: PSLQ [1,x,y] H <= 2e4, residual <= 1e-13 (guard: 136 pairs
+x 4e4 lattice points x 1e-13 ~ 5e-5 expected false positives).
+W2 log web: PSLQ [1,ln|x|,ln|y|], accepted only with |integer| <= 2 and
+residual <= 1e-13 (multiplicative web x^a y^b = e^c with c in {-2..2}).
+W3 product web: PSLQ [1,x,y,x*y] H <= 200, residual <= 1e-16.
+P Pisot shadow: targets T in {g_obs-1/5 gap, gap, COEF-2, coef_at_fifth
+- COEF, m_gap_min}: search T = (p/q) * lambda^(-n) EXACTLY: lambda the
+8 booked Pisot units (golden ratio, silver 1+sqrt2, plastic x^3=x+1,
+supergolden x^3=x^2+1, smallest quartic Pisot x^4=x+1, 2cos(2pi/7)'s
+Pisot conjugate? booked as x^3-x^2-2x+1, tribonacci x^3=x^2+x+1,
+root x^3-2x^2+1? booked list fixed before the run), |p| <= 10^4,
+1 <= q <= 100, 1 <= n <= 60, accepted at 1e-12 absolute after scaling
+(guard booked: candidate count ~ 8 x 60 x 10^6/... restricted to the
+window |T| lambda^n in [1e-2, 1e2]; expected false positives < 1e-3).
+BRANCH WORDS: WEB-EDGE-FOUND / WEB-CLOSED; PISOT-SHADOW-FOUND /
+PISOT-SHADOW-VOID. Definitionally-known edges (gap = g_cross - g_obs,
+coef_at_fifth vs C_15 agreement) excluded from the claim by name.
+Cost booked: ~2 minutes host.
