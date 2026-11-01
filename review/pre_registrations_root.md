@@ -979,3 +979,50 @@ cell, and V335's verdict - the denominator 5 NAMES, it does not
 BORN - stands, now strengthened by the transplant itself. The
 legacy was not lost; it is the battery that judged the candidate,
 and it will judge the next one the same way.
+
+## V349_icosahedral_walk (the user's "new geometry" in its strongest concrete form; booked then run)
+Directive taken literally: BUILD the new geometry FOR the cell instead
+of testing the cell against the old one. The one dynamical organ the
+battery found missing (V348: no doublers, no clock) is matter with a
+velocity; the minimal new geometry that can carry it while keeping
+EXACTLY the 12 cells is a quantum walk: each face is a site with a
+5-way internal coin (its five pentagon edges), the A5 rotation group
+IS the symmetry geometry (the 12 faces are A5/A4-cosets, V339 T2;
+the 12 published M-points and the 12 faces have the same orbit size
+- the coincidence the user is pointing at). Construction (all
+exact, no fitting): states = the 60 directed face-adjacencies;
+shift S = traverse the bond; coin C(alpha) = direct sum over faces
+of exp(i alpha (P_f + P_f^dagger)), P_f = the pentagon's OWN cyclic
+edge order at face f (boundary cycle of V345's rotation-system walk:
+proper rotations transport it, so the coin family is A5-covariant
+BY CONSTRUCTION). U(alpha) = S C(alpha), 60x60 unitary.
+T0 GATES (before any reading): T0a unitarity <= 1e-12 at sample
+alphas AND spectrum on the unit circle (|lambda|-1 <= 1e-12); T0b
+A5-equivariance CERTIFICATE: the generators p5, p2 of V339 T2 act
+as permutations of the directed-edge basis (cyclic orders
+transported), and [U(alpha), P_g] = 0 for every sampled alpha, worst
+<= 1e-12; T0c the walk graph IS the face graph: 12 faces, 30 bonds,
+pentagon boundary cycles closed (V345 counts).
+M1 GAPLESS LOCUS: scan alpha in (0, 2pi) grid 1e-3: quasi-energy
+zero set (min |phase| <= 1e-9, polished to 1e-12); multiplicity per
+closing; compare to the published doubler count 12.
+M2 PROTECTION TRIBUNAL (the question that decides "new geometry
+matter"): at each gapless alpha*, break A5 with 1e3 random
+perturbations (random bond phases AND +-5% coin-angle jitter at 10
+levels of amplitude): a protected closing keeps |quasi-energy|
+<= 1e-6 at every level (topological), a kinematic one opens a gap;
+report the protection fraction.
+M3 CLOCK BATTERY (unchanged house rule): every gapless alpha*
+compared against the published anchors g_obs, g_cross_rung10 (V206
+artifact, art()) and the fifth, BOTH as alpha* = g and alpha* =
+2 pi g, guard 1e-9.
+BRANCH WORDS: QW-GAPLESS-PROTECTED-CLOCK-CONTACT (an A5-protected
+gapless multiplet AT a published anchor: elected-theory CANDIDATE,
+booked consequence: the paper IS rewritten around the cell - never
+an identity proof) / QW-GAPLESS-PROTECTED-CLOCK-VOID (protected
+matter EXISTS on the cell but not at the desert: the new geometry
+is real physics, still not THE elected theory) / QW-GAPLESS-
+UNPROTECTED / QW-MASSIVE (no gapless locus at all: the cell cannot
+carry massless matter even with an internal coin - the structural
+wall stands, now at its most generous).
+Cost booked: seconds (60x60).
