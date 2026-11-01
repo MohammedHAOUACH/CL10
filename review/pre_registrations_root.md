@@ -474,3 +474,20 @@ phase, internal phase) touches at a given q; linearity is decided by
 the cell's phase surface crossing the internal phase plane at nonzero
 gradient - a cubic-vs-icosahedral structural fact, not a tuning.
 Cost booked: ~30 s.
+
+## V341 run note + V342 node census (booked then run)
+V341 measured N2B-GAPPED at grid-refine precision 2.7e-9 with five-ray
+z = 1.00 +- 0.008 at 2pi/5 and 4pi/5, and an EXACT quadratic touching
+(z = 2.000, gap 0.0 at GAMMA) at pi/4: the refinement precision floor
+was too coarse to decide existence. Correction booked for V342: polish
+the contacts to 1e-16 (Nelder-Mead): the 2pi/5 contact IS an exact zero
+(gap 0.0 at q* = (-2.61758, 0.26195, -2.35595)) - V341's 2.7e-9 was a
+refine-floor artifact, verdict amended to N2B-GAPLESS-LINEAR.
+V342_icosahedral_node_census: count the dressed Dirac nodes (grid
+cluster + polish + dedupe mod reciprocal/reflection) at 2pi/5 and
+4pi/5, and measure the cone anisotropy (velocity along 7 rays per
+node). Booked comparisons: the published engine's fermion content is
+the 12 DOUBLER CHANNELS at M at the closed cubic clock; the census
+word N2B-NODE-ORBIT-<n> reports n and whether the nodes are a single
+reflection orbit; isotropy word CONE-ISOTROPIC (spread < 5 %) /
+CONE-ANISOTROPIC. Cost: ~60 s.

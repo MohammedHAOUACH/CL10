@@ -1,0 +1,89 @@
+{
+ "id": "V341_icosahedral_internal_dressing",
+ "tier": 2,
+ "property": "N2b: icosahedral cell x the theory's own internal Spin(10) layer, one application per stage: is the GAMMA touching lifted to a linear chiral node?",
+ "status": "N2B-GAPPED",
+ "pass": true,
+ "data": {
+  "results": {
+   "2pi/5": {
+    "cell_only_gap_at_GAMMA": 2.317731240525263e-16,
+    "dressed_grid_min": 3.3602695270751326e-06,
+    "dressed_at": [
+     -2.618,
+     0.2619,
+     -2.3562
+    ],
+    "dressed_refined": 2.7414306380535436e-09,
+    "grid_zeros": 0,
+    "z_per_ray": {
+     "x": 1.008,
+     "y": 1.007,
+     "z": 0.999,
+     "golden": 1.002,
+     "body": 0.992
+    }
+   },
+   "4pi/5": {
+    "cell_only_gap_at_GAMMA": 1.3322676295501869e-15,
+    "dressed_grid_min": 2.004220704510118e-05,
+    "dressed_at": [
+     -2.3539,
+     1.5708,
+     -0.7854
+    ],
+    "dressed_refined": 1.951416805923145e-11,
+    "grid_zeros": 0,
+    "z_per_ray": {
+     "x": 1.014,
+     "y": 1.002,
+     "z": 1.001,
+     "golden": 1.0,
+     "body": 1.001
+    }
+   },
+   "pi/4": {
+    "cell_only_gap_at_GAMMA": 0.01015523593860662,
+    "dressed_grid_min": 0.0,
+    "dressed_at": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "dressed_refined": 0.0,
+    "grid_zeros": 1,
+    "z_per_ray": {
+     "x": 2.0,
+     "y": 2.0,
+     "z": 2.002,
+     "golden": 2.0,
+     "body": 2.0
+    }
+   }
+  },
+  "published_anchor": {
+   "kron_err": 3.376611507232129e-16,
+   "M_gap_published": 3.122502256758256e-17
+  },
+  "internal_exponent": 5,
+  "tribunal": "g_obs naming remains V338/V340-closed"
+ },
+ "checks": [
+  {
+   "name": "T0c icosahedral cell rebuilt (V339 machinery re-run inside): 30 edges, 1-factorization 5 matchings, 6 axis-parallel edges",
+   "pass": true
+  },
+  {
+   "name": "T0a published engine anchor: bloch == kron(P, U^6) to 3.4e-16; published M-point gaplessness 3.1e-17",
+   "pass": true
+  },
+  {
+   "name": "T1 dressed N2b at the five-clocks and pi/4: {\"2pi/5\": {\"cell_only_gap_at_GAMMA\": 2.317731240525263e-16, \"dressed_grid_min\": 3.3602695270751326e-06, \"dressed_at\": [-2.618, 0.2619, -2.3562], \"dressed_refined\": 2.7414306380535436e-09, \"grid_zeros\": 0, \"z_per_ray\": {\"x\": 1.008, \"y\": 1.007, \"z\": 0.999, \"golden\": 1.002, \"body\": 0.992}}, \"4pi/5\": {\"cell_only_gap_at_GAMMA\": 1.3322676295501869e-15, \"dressed_grid_min\": 2.004220704510118e-05, \"dressed_at\": [-2.3539, 1.5708, -0.7854], \"dressed_refined\": 1.951416805923145e-11, \"grid_zeros\": 0, \"z_per_ray\": {\"x\": 1.014, \"y\": 1.002, \"z\": 1.001, \"golden\": 1.0",
+   "pass": true
+  },
+  {
+   "name": "T2 cell-alone GAMMA anchor at 2pi/5 reproduced: 2.3e-16",
+   "pass": "True"
+  }
+ ]
+}
