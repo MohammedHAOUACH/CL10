@@ -776,3 +776,111 @@ phase-0) - seven orders of magnitude outside the booked 1e-9 guard.
 Decoration (uncited): a phase-0 contact sits at 0.4188790204787 =
 2pi/15 exactly (15 = 3x5 on the unit circle) - margin 0.219, units
 mismatch, pure decoration.
+
+# The full engine transplant: pre-registrations V346-V348 (2026-11-01)
+User directive, stated twice and reinforced: the 12 dodecahedron FACES
+become THE cells of the engine - the complete engine, GPU included -
+this cell is the elected theory, and the user accepts losing the
+whole legacy if the legacy loses: truth first, rebuild from the cell
+if needed. The house answers the only serious form of an election
+claim: AN ELECTED THEORY MUST REPRODUCE EVERY PUBLISHED ANCHOR. The
+structural opening V337 recorded is why this program exists at all:
+A5 has NO transitive action on the 8 sub-cells (60/8 not an integer),
+so the 2I transplant could only live INSIDE the engine; but A5 acts
+transitively on the 12 faces (60/12 = 5, stabilizer A4, certified in
+V339 T2) - the user's cell is the FIRST candidate that can carry the
+icosahedral group AS the cell. The transplant is built with the
+PUBLISHED machinery only: altcell's bond-stage representation (a cell
+= bond stages, stage cycles = perfect matchings), the published
+Cl(10,0) internal 45-plane product (clock layer untouched),
+cl10/engine GPU routing (GPU 1 per the standing directive).
+
+## V346_sphere_cell_kinetic (tier 1, hard; the cell's kinematics)
+The cell: 12 faces, 30 bonds (V345's exact construction: Q(sqrt5)
+edge test, rotation-system faces - no normals, no inherited
+coordinates), stages = the 5 perfect matchings (V345 T1). Kinetic
+operator: weighted adjacency A(theta) with U(1) fluxes on the 30
+bonds - the bond layer ported to the closed surface (no lattice
+momentum: there is NO Brillouin zone on a sphere, booked as the
+structural difference from the cubic engine, not as a choice).
+T0 (gate before any reading): charpoly of A(0) over Z by exact
+Bareiss elimination: booked (x-5)(x+1)^5(x^2-5)^3 - spectrum
+{5^1, sqrt5^3, -1^5, -sqrt5^3}; W_3 = tr A^3 = 120 (V345 leaf) must
+reproduce; if the polynomial is not EXACT everything downstream is
+DRIFT-VOID.
+M1 exact gap structure: triplet/singlet multiplicities {1,3,3,5}
+booked; the two 3-fold levels are the candidate for the published
+family number 3 (V91 count-3 forcing): the census reports whether 3
+arises from the cell ALONE - reported, never claimed.
+M2 flux-cone scan: does ANY bond-flux field close a gap and hold an
+ISOLATED LINEAR cone (the published doublers' signature)? Families:
+the A5-equivariant flux family (flux constant on the 30 bonds by
+edge-orbit - the icosahedral graph has ONE edge orbit under A5, so
+the equivariant family is 1-dimensional: A = A(0) with one flux -
+and it is pure gauge by symmetry: booked expectation: NO equivariant
+gap closing), then structured breakings: face 5-cocoloring flux
+(A5/A4 coset pattern, amplitude scan), and random 30-torus sampling
+at 1e5 draws (12x12 hermitian eig: host per the engine's measured
+routing - the device would be slower at this size, gate cited).
+For every closing <= 1e-9: local slope + anisotropy (V342 protocol):
+ISOLATED LINEAR cone vs nodal crossing (the V342 chiral tribunal
+applies verbatim).
+BRANCH WORDS: SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-ISOLATED-LINEAR /
+SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-NODAL / SPHERE-KIN-SPECTRUM-
+EXACT + DOUBLERS-VOID / SPHERE-KIN-DRIFT.
+Cost booked: seconds (exact) + minutes (sampling).
+
+## V347_sphere_engine_step (tier 1, hard; the engine transplant itself)
+The step: W(g) = S(g) . C, S(g) = the published 5-stage clock
+automaton on the face graph (V345: stage m = cos g I - i sin g P_m,
+P from the booked factorization), C = the published internal Cl(10,0)
+45-plane product at the implemented-branch angle (cl10.supercell /
+clifford UNTOUCHED - the transplant changes the CELL, not the clock
+layer), on C^12 (x) C^d with d the published per-subcell internal
+dimension - read from supercell at T0a, never assumed.
+T0a published-path anchor: inside this script, BEFORE the sphere is
+built, the cubic published path reproduces its own anchors (gapless
+M <= 1e-9, R 3-fold multiplets, mirror pairing <= 1e-12 - the V337
+T0a battery) - if that fails, DRIFT, no sphere number is read.
+T0b backend invariance (GPU 1, cl10.engine routing): every sphere
+observable on the cupy path vs the host path, worst <= 1e-11 (V337
+T0c gate verbatim); step unitarity max |W W^dag - I| <= 1e-11.
+M1 clock-contact battery (the election test): the sphere rung ladder
+F_n^sph(g) = product of the smallest singular values of
+(W(g)^n - I) - the finite-cell port of the published rung
+periodicity-defect functional (rung n: n in 3..24 + the published
+pattern rungs 170, 208): zero set polished to width 1e-12, gate
+1e-9, compared against the published anchors g_obs =
+0.19999798835751165 and g_cross_rung10 = 0.20013316730041675
+(V206 artifact read via art(), never retyped).
+M2 closure order at the published clock angles: least k <= 240 with
+W^k = +-I (tol 1e-8) - the V337 measurement ported to the cell.
+BRANCH WORDS: SPHERE-ENGINE-CLOCK-CONTACT (a rung zero within the
+1e-9 guard of a published anchor: an elected-theory CANDIDATE book,
+never an identity proof) / SPHERE-ENGINE-CLOCK-VOID / SPHERE-
+ENGINE-DRIFT.
+Cost booked: minutes (GPU 1; the ladder scan n<=24 x 600 grid points
+at 384 dims or d x 12).
+
+## V348_elected_anchor_battery (tier 1, hard; must the paper be rewritten?)
+Every published anchor, read from artifacts (never retyped), judged
+against the sphere engine: (a) g_obs, g_cross (V206); (b) the
+published LOOP rung-ratio (config ladder); (c) family number 3
+(V91/V346 census); (d) the 12 doublers / isolated linear M-channels
+(V187/V239) - V346 M2 verdict is the answer; (e) masses/mixings:
+the Yukawa machinery is defined on cubic sublattice sites - if no
+port exists, the honest verdict is UNDEFINED = NOT REPRODUCED,
+booked as a failure, never excused; (f) the closed-word/rigidity
+tier-2 theorems are cubic-cell theorems: they do not transfer -
+booked in advance as NOT-TRANSFERABLE.
+BRANCH WORDS: ELECTED-ALL (every anchor reproduced: the paper IS
+rewritten around the cell - booked consequence, not rhetoric) /
+ELECTED-PARTIAL-<R-F-U ledger> / ELECTED-NONE.
+Structural wall booked BEFORE the run: doublers REQUIRE momentum
+(isolated linear crossings in a Brillouin zone); a closed sphere has
+no BZ. If V346 M2 reports no isolated linear cone, the published
+fermion sector is unreproducible on the cell and ELECTED-ALL is
+arithmetically out of reach: the battery then measures how FAR the
+cell gets, not whether it wins. No branch word pre-judges the
+measurements; every number below is measured or read from an
+artifact.
