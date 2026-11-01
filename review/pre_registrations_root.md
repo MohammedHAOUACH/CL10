@@ -667,3 +667,112 @@ engine the same 12-state cell was tested by V343 (no contact near the
 desert). This experiment judges the proposal at its own level: closed
 combinatorial transport + periodic clocks + exact ratios.
 Cost booked: seconds (12x12, exact combinatorics).
+
+## V344 run note (post-run; verdict as booked)
+TURN-CLOCK-VOID, wall 480 s (nmax 10, 55 dps, 13 turn-clocks q in
+{3,4,5,6,8,10,12} reduced from the booked ~25 by the p<q, gcd=1 sieve
+plus the g = 1/5 radian control). T0 green to the bit: V209's detuned
+F_2 leaves replay EXACTLY through this lens (rel 0.0e+00 at 1e-1 and
+1e-5); pi/4 control slope ratio 1.444e+45.
+THE MEASUREMENT: diverging set = {2pi*1/8, 2pi*3/8} = {pi/4, 3pi/4} -
+the ODD-EIGHTHS family. Refinement booked as data: V209's closure
+class 8g in 2piZ is NOT itself the degeneracy set (2pi*1/4 = pi/2
+sits in the class, does NOT diverge: ratio 1.277); the true root
+clocks of the published ladder are the cyclotomic 8-family of
+Cl(10,0) in turn units. Every q in {5,10} clock is FINITE (72 deg:
+F_2 exact 2.514, ratio 1.538; 2pi/5: 1.117; 2pi/10 and 3pi/5 share
+the finite 7.178e+05 value), and the radian 1/5 control is finite
+(2.756): the Lindemann-Weierstrass framing behaved exactly as
+framed - it is not the algebraicity of 72 deg that fails, the ladder
+genuinely does not ring there.
+Corrections booked, in order: (1) first run died at the PRINT loop
+(KeyError: control row stores its values under the delta keys, not
+F2_1e-5); fixed, re-run, data identical. (2) first status logic
+implemented the VOID branch with the wrong proxy (required divergence
+AT 2pi*1/4) so the correct data fell through to TURN-CLOCK-
+UNEXPECTED; the branch logic was replaced by the booked wording
+(divergences only at denominators dividing 8, plus a live pi/4
+control) BEFORE the final artifact run. No data changed, no class
+change.
+N4 CORE CONCLUSION: the desert's denominator 5 is NOT a root clock
+of the published ladder in any unit (radians: forbidden by LW and
+confirmed finite; turns: q in {5,10} all finite on the exact
+ladder). The backbone birth channel is closed on both sides; the
+dressing channel stands candidateless, and the paper's clock stays
+the read 0.1999986, not a named root.
+
+## V345 run note (post-run; verdict as booked)
+DODECA-SPHERE-CERTIFIED-SIGNAL-LOOP-9-SPHERE-CLOCK-VOID, wall ~60 s.
+T0 CORRECTION booked in place of the booked construction: the booked
+face extraction (support planes with normals (0,+-1,+-phi)) FAILED
+the run-gate - the standard dodecahedron vertex set (0,+-1/phi,+-phi)
+cyclic + (+-1,+-1,+-1) is NOT dual-compatible with that naive normal
+convention (a "face" picked by max-dot mixed edge lengths 2 and
+2/phi; caught by the booked vertex-count/edge tests before any
+verdict). Replaced BEFORE the verdict by construction from the
+DODECAHEDRON'S OWN exact edge graph: edges = vertex pairs with
+d^2 = 4/phi^2 = 6-2 sqrt5 EXACT in Q(sqrt5) (an earlier form 8-4phi
+was the same number written wrong: 4phi = 2+2sqrt5), faces walked
+from the geometric rotation system at each vertex. All booked
+counts then certified EXACTLY: 20 vertices, 30 edges, vertex degree
+{3}, 12 pentagon faces walked, face adjacency 30, face degree {5},
+adjacency triangles 20 (= the 20 dodecahedron vertices - the dual
+closed), Euler 12-30+20 = 2: the user's CLOSED SPHERE is certified
+combinatorially, genus 0, no walls, no boundary, no torus trick.
+T1 the booked schedule exists and is the 1-factorization: at every
+one of the five stages each face cell talks to EXACTLY ONE neighbor,
+and over the five-stage cycle to its FIVE neighbors exactly once.
+T2 THE SIGNAL LOOP (pure permutation transport, no quantum): cycle
+structure [3,9], return order k = 9 stages - the signal closes its
+tour after NINE stages, not five; 3 faces are on 3-cycles, the other
+9 on one 9-cycle. New integer 9: uncited, stays out of the paper.
+T3 periodic clocks of the closed sphere U(g) = prod_m (cos g I - i
+sin g P_m): scan (0,pi), polish, gate 1e-8: NO closure at any k <=
+30: SPHERE-CLOCK-VOID. At the five-closed clock 2pi/5 the residual
+is 1.09 - the V339 T6 leaf (the five-stage product has INFINITE
+order there) re-forged on the sphere. T4 the sphere's exact ratios:
+edges/faces = 5/2, faces/rotation group = 12/60 = 1/5 (the desert
+backbone reborn in dodecahedral language), vertices/edges = 2/3,
+triangles/faces = 5/3; closed walks W_2..W_10 with W_3 = 120 =
+20 x 6.
+HONEST VERDICT OF THE PROPOSAL: combinatorially TRUE as stated (the
+face-adjacency graph of the dodecahedron is a closed sphere where
+every cell has exactly 5 direct neighbors - now certified from the
+dodecahedron itself, not inherited from V339) and dynamically EMPTY
+at its own level: no coupling constant closes all twelve cells, the
+transport loop has order 9 (not the desert's 5), and with no momenta
+no band fermions live there (V342 lesson). The user's cell is the
+cleanest picture of the V339 graph ever built; it is not a birth
+channel for the desert clock.
+
+## V343 permanent rebuild note (post-run; supersedes the scratch numbers)
+The N3 probe ran as a scratch script; its numbers had no artifact.
+Permanent script now exists: experiments/root_rebuild/
+V343_internal_icosahedral_contacts/. It reproduces V339's construction
+VERBATIM (same coordinate order, same deterministic 1-factorization
+backtracking -> same factorization) and the booked T0c anchor to the
+digit (U_icos(2pi/5) eigenphase 0 at 2.3e-16).
+CORRECTION: the scratch run mixed the two booked contact channels
+(phase-pair collisions and phase-hits-0) into one min-function, so
+its "exactly TWO contacts on (0,1)" was an artifact of the mixed
+metric. Measured SEPARATELY on U_icos(g)^6, grid 1e-3, golden polish
+to width 1e-12, contact gate 1e-9 (transverse zeros floor ~1e-13,
+tangential double roots floor ~1e-12 float-noise, true avoided
+crossings stay >= 1e-8 away: no ambiguity band - 0 rejections in
+(1e-9, 1e-8]): 115 exact contacts (collision channel 101, phase-0
+channel 14). Provenance of the two booked numbers, fully resolved:
+0.6539031701784 = a TANGENTIAL collision (depth floor 1.6e-12 at
+0.6539031702315, margin 0.454 - the scratch gate ~1e-8 counted it,
+an overly strict 1e-12 gate rejects it once; booked margin
+reproduced); 0.8008741945100 = a phase-0 contact whose polished zero
+sits at 0.8008741947207 (scratch polish stopped at residual 1e-10,
+margin 0.601 reproduced).
+VERDICT UNCHANGED AND STRENGTHENED: N3-NO-CONTACT-NEAR-THE-DESERT.
+The flow is dense with contacts (the count was never the physics);
+the point was desert proximity, and the strengthened census moves it:
+the SMALLEST distance from any of the 115 contacts to any desert
+datum {g_obs, g_cross, 1/5} is 0.00931 (contact 0.2094395102394,
+phase-0) - seven orders of magnitude outside the booked 1e-9 guard.
+Decoration (uncited): a phase-0 contact sits at 0.4188790204787 =
+2pi/15 exactly (15 = 3x5 on the unit circle) - margin 0.219, units
+mismatch, pure decoration.

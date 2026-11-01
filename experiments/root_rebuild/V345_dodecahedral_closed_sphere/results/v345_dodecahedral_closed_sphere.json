@@ -1,0 +1,60 @@
+{
+ "id": "V345_dodecahedral_closed_sphere",
+ "tier": 2,
+ "property": "user's cell: the dodecahedron's 12 faces as a closed spherical automaton with 5-neighbor scheduling - sphere certificate, signal loop, periodic clocks, exact ratios",
+ "status": "DODECA-SPHERE-CERTIFIED-SIGNAL-LOOP-9-SPHERE-CLOCK-VOID",
+ "pass": true,
+ "data": {
+  "n_faces": 12,
+  "n_edges": 30,
+  "triangles": 20,
+  "euler": 2,
+  "signal_cycle_type": [
+   3,
+   9
+  ],
+  "signal_order": 9,
+  "clocks": [],
+  "res_at_2pi5_k30": 1.0893249300725032,
+  "closed_walks": [
+   60,
+   120,
+   780,
+   3120,
+   16380,
+   78120,
+   394380,
+   1953120,
+   9784380
+  ],
+  "ratios": {
+   "edges/faces": "30/12 = 5/2",
+   "faces/rotation group": "12/60 = 1/5 (EXACT - the desert backbone in dodecahedral language)",
+   "vertices/edges": "20/30 = 2/3",
+   "triangles/faces": "20/12 = 5/3"
+  },
+  "note": "the face-adjacency graph IS the icosahedral graph (V339) rebuilt from the dodecahedron; closedness certified by Euler=2; with no momentum no band fermions live here (V342 lesson); as an internal module the same graph was V343 (no desert contact)"
+ },
+ "checks": [
+  {
+   "name": "T0 dodecahedron from its EXACT edge graph: 20 vertices, 30 edges (booked 30, edge^2 = 6-2 sqrt5 in Q(sqrt5)), vertex degree set [3] (booked {3}), faces walked = 12 pentagons, FACE adjacency 30 (booked 30), face degree set [5] (booked {5}), adjacency triangles 20 (booked 20 = the 20 dodecahedron vertices), Euler F-E+V = 12-30+20 = 2 (booked 2: CLOSED SPHERE, no walls)",
+   "pass": true
+  },
+  {
+   "name": "T1 schedule: 1-factorization into 5 matchings - every cell talks to exactly one neighbor per stage and to its FIVE neighbors exactly once per cycle: True",
+   "pass": true
+  },
+  {
+   "name": "T2 signal loop (pure permutation over the five stages): cycle structure [3, 9], return time (order) k = 9 steps: the signal closes its tour exactly then",
+   "pass": true
+  },
+  {
+   "name": "T3 periodic-clock scan (k <= 30, residual gate 1e-8): closures found: []; residual at the 2pi/5 five-closed clock (k=30): 1.09e+00 (V339 T6 leaf: the product has infinite order there)",
+   "pass": true
+  },
+  {
+   "name": "T4 closed walks W_n = tr A^n (n=2..10): [60, 120, 780, 3120, 16380, 78120, 394380, 1953120, 9784380] (W_3 = 120 = 20 vertices x 6 directed triangle tours); exact ratios the sphere forges: {'edges/faces': '30/12 = 5/2', 'faces/rotation group': '12/60 = 1/5 (EXACT - the desert backbone in dodecahedral language)', 'vertices/edges': '20/30 = 2/3', 'triangles/faces': '20/12 = 5/3'}",
+   "pass": true
+  }
+ ]
+}
