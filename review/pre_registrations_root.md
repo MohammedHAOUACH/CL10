@@ -291,3 +291,52 @@ a cell that is not cubic - the icosahedral candidate cell cannot be an
 the shape of candidate N2: an icosahedral COMBINATORICS on more
 sub-sites (A5 acts on 12 or 20 points: the dodecahedron/icosahedron
 vertices) with the clock born as a period of the counting.
+
+## V339_icosahedral_cell (tier 2, hard; root-rebuild; candidate N2a - THE CELL ITSELF)
+
+The N2 shape booked after N1: A5 has no 8-point action, but it acts
+transitively on the 12 vertices of the icosahedron. Build the 12-site cell
+and judge it. All arithmetic in Q(sqrt5) and its quadratic extension
+Q(sqrt5, t), t^2 = 10 + 2 sqrt5 (sin 72 = t/4) - exact, Fractions.
+
+BOOKED CHECKS:
+T1 icosahedral graph EXACT: the 12 vertices (0,+-1,+-phi) and cyclic with
+    |v|^2 = phi+2 (= the V218 star norm 1.902113^2); edge iff dot = +-phi
+    exactly in Q(sqrt5); booked counts: 30 edges, degree 5;
+T2 A5 EXACT as vertex permutations: Rodrigues rotations R5 (72 deg about
+    the vertex axis (0,1,phi)) and R3 (120 deg about a face normal) built
+    over K = Q(sqrt5,t), R applied to each vertex compared EXACTLY to a
+    vertex (a permutation), BFS closure of the two permutations: order
+    exactly 60, orbit of any vertex = 12 (transitive), generator orders 5
+    and 3, and the triangle product R5 R3 has booked order 2 (the
+    (2,3,5) presentation of A5);
+T3 clock-birth identities EXACT (integer combinatorics, zero fitted
+    constants): |V| / |A5| = 12/60 = 1/5 (the desert rational born as a
+    vertex-group ratio - booked as an identity to be certified, NOT as
+    the clock itself: the tribunal target g_obs = 0.19999798835751165 is
+    1/5 - 1.006e-5 and stays the open deviation); the 1-factorization of
+    the 30-edge graph into EXACTLY 5 perfect matchings (search +
+    certificate); stage S = cos g I - i sin g P with P^2 = I closes at
+    order 5 at g = 2 pi / 5 (S^k = cos kg - i sin kg P exact algebra,
+    float64 certificate 1e-12) - the closure clock of the new cell is
+    2 pi/10 = pi/5, the Coxeter number 10 of H3;
+T4 the automaton: on-site C^12 x internal 36 passed through unchanged is
+    NOT run at first (cost); first the 12-state cell alone: at momentum q,
+    each edge in direction e_i carries the phase exp(+- i q_i) on its
+    2x2 block (12 axis-parallel edges - exactly 4 per axis, booked),
+    oblique edges phase 1; stage_m(q) = cos g I - i sin g M_m(q) with
+    M_m Hermitian involutions: unitarity of every stage and of the
+    5-stage product U(q) = prod S_m(q) is EXACT (certified <= 1e-13 on a
+    q grid); the +- mirror is the q -> -q conjugation M(-q) = M(q)^*
+    (certified at grid points);
+T5 the fermion tribunal: gap(q) = min |eigenphase of U(q)| over a 32^3
+    grid in [-pi,pi]^3 at the closure clock g = 2 pi/5 (and the g family
+    pi/5, 2pi/5, 4pi/5, pi/4 for reference): GAPLESS-NODES-FOUND if the
+    grid min <= 1e-8 (count the node family) else the min-gap value is
+    reported per clock;
+T6 closure order of U(GAMMA) per clock (least k <= 120 with U^k = +-I).
+BRANCH WORDS: N2A-CELL-BUILT (T1-T4 all green) +
+GAPLESS-NODES-FOUND / NO-GAPLESS-NODES (T5), + CLOCK-BIRTH-PARTIAL booked
+regardless (12/60 = 1/5 exact but g_obs unnamed: the 1.006e-5 deviation
+is still not combinatorics - that deviation IS the open theory).
+Cost booked: seconds (12x12 eigens; 32^3 grid ~2 minutes).
