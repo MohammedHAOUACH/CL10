@@ -208,7 +208,7 @@ def fig6_wilson():
     axA = fig.add_subplot(gs[0], projection="3d")
     fam_col = {"x": C_SU3, "y": C_SU2, "z": C_GUT}
     # the selective reading rings three of the twelve nodes, one per axis
-    # family.  which three is an input (Section 8.1), so the ring marks one
+    # family.  which three is an input (Section 14, O3), so the ring marks one
     # signed representative per family -- an abs() membership test would match
     # all four members of every family and ring all 12
     split = {(np.pi / 2, np.pi / 2, 0.0), (np.pi / 2, 0.0, np.pi / 2),
@@ -368,7 +368,7 @@ def fig22_composite():
     axB.bar(vals, cnts, width=0.045, color=C_ROOT, alpha=0.85)
     axB.set_ylim(0, 28)
     axB.set_xlabel(r"flux mass pattern $|\alpha \cdot v|$ "
-                   rf"($\theta$ = {th_root:.3f}, the root angle)")
+                   rf"($\theta$ = {th_root:.3f}, the selective root)")
     axB.set_ylabel("count")
     axB.set_title("(b)  the forced pattern $m = w(c_0 + |\\alpha\\cdot v|)$:\n"
                   f"     {d['meeting']['n_solutions']} physical solutions "
@@ -376,7 +376,7 @@ def fig22_composite():
     fig.suptitle("The gauged layer's composite content "
                  "($16 \\otimes 45 = 720$ formal tensor-product states; the "
                  "gauge-invariant kernel is empty and does not deliver "
-                 "the meeting", fontsize=12.5)
+                 "the meeting)", fontsize=12.5)
     fig.tight_layout(rect=[0, 0, 1, 0.93])
     save(fig, "fig22_composite_content.png")
 

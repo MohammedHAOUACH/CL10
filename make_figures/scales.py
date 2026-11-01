@@ -58,7 +58,7 @@ def fig18_residual_reduction():
         1, 2, figsize=(11.5, 4.2), gridspec_kw={"width_ratios": [1.4, 1.0]})
     # (a) the two closures (deviation in decades vs n) — two statements of one scale
     axA.plot([p[0] for p in h_scan], [p[1] for p in h_scan], "o-",
-             color=C_SU3, lw=1.6, ms=4, label="hierarchy  $v/E_P$  (10-loop)")
+             color=C_SU3, lw=1.6, ms=4, label="hierarchy  $v/M_P$  (10-loop)")
     axA.plot([p[0] for p in d_scan], [p[1] for p in d_scan], "s-",
              color=C_SU2, lw=1.6, ms=4, label="dark matter  $m_{\\rm DM}$  (10-loop)")
     axA.axhline(0.0, color="k", lw=0.8, ls="--")

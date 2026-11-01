@@ -5696,3 +5696,27 @@ derived, 0 unexplained); all 25 figure references resolve to existing files; sec
 cross-refs re-mapped in README.md, experiments/README.md, doc/api.md, doc/README.md.
 PDFs rebuilt: consolidated 74 pp (was 90), REVTeX journal 61 pp (was 75). No
 experiment state, gate, or artifact touched.
+
+## Figure refresh for the consolidated paper (2026-11-01, documentation edit)
+All 25 figures regenerated from the current artifacts: figs 1 and 2 by their
+producing runs (the young QCA and the V62 production experiment re-executed on
+GPU 1 - V62 verdict PASS, its artifact diff GPU-id and wall-clock only, every
+physical number identical: 10.204 eV gap, peaks 0.998/0.998/0.998/1.000, control
+suppression 107.5x), figs 3-25 by `make_figures --fast` (deterministic: every
+unchanged figure rewrote byte-identical, so only the four corrected files show
+as modified). Content audit of the generator strings against the consolidated
+paper, five fixes: fig3 footer "CPT mirror residual" -> "± mirror residual" (the
+paper denies the CPT reading of the pairing); fig15 suptitle "dark-matter fix"
+-> "dark-matter variants"; fig18 legend v/E_P -> v/M_P (the paper's notation);
+fig22 suptitle unbalanced parenthesis closed; fig22 xlabel "the root angle" ->
+"the selective root" (the paper's term for theta* = 1.731); plus the V65-style
+invalid escape 16\pi -> 16\\pi in the fig14 annotation (rendering unchanged,
+future-proofing). Generator comments re-pointed: couplings.py Section 8.1 ->
+Section 14 O3, style.py provenance palette Section 14 -> 13. Verified visually:
+fig3 (±pi/4 10+10, ±3pi/4 6+6, 0-point 8.9e-16, det-1 1.9e-14, mirror 5.6e-16,
+w_min 0.7854), fig13 (n* = 208, odd rule exact), fig17 (Construction 1 - the
+label exists in the paper), fig18 (v/M_P, n = 10 nearest, 1.8 decades), fig22
+(three sums 0.55/0.92/0.58, spread 1.7, 0 solutions), fig15 (lambda_B =
+4.06e-14, 6.5e-71 far below reach, the F7 dilemma line), fig25 (six panels,
+caption numbers exact). PDFs rebuilt: 74 pp consolidated, 61 pp journal, page
+counts unchanged. number_audit untouched (no paper-text change).

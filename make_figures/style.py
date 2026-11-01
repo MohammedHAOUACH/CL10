@@ -40,7 +40,7 @@ C_SU3 = "#2ca02c"     # green
 C_ROOT = "#7f1c8b"    # purple (the one object / the root)
 C_ZERO = "#d62728"    # red (the 0-parameter points / the measured)
 
-# the provenance palette (Section 14)
+# the provenance palette (Section 13)
 C_ALG = "#1f4e79"     # algebraic (derived, 0-parameter)
 C_CONV = "#e67e22"    # conventional (mapping choices)
 C_FIT = "#c0392b"     # fitted coefficients

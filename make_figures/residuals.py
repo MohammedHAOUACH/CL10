@@ -160,7 +160,7 @@ def fig15_dm_portal():
              "no state of the spinor module carries the 118 GeV scale.",
              fontsize=10.5, color=C_ROOT, weight="bold", va="bottom")
 
-    fig.suptitle("The built dark-matter fix, audited against its own "
+    fig.suptitle("The built dark-matter variants, audited against their own "
                  "symmetry", fontsize=13.5)
     fig.subplots_adjust(left=0.075, right=0.985, top=0.86, bottom=0.34)
     save(fig, "fig15_dm_portal.png")
@@ -214,7 +214,7 @@ def fig14_loop_selection():
     axB.plot([nstar], [Fev[nstar]], "*", ms=18, color=C_ZERO, zorder=6)
     axB.annotate(f"first crossing\n$n^* = {nstar}$: float64 $F = {Fev[nstar]:.6f}$\n"
                  f"certified $F = {cert['F_208']:.6f}$, deficit"
-                 f" $100(1-F/16\pi) = {(1.0 - cert['deficit']) * 100:.3f}\\%$",
+                 f" $100(1-F/16\\pi) = {(1.0 - cert['deficit']) * 100:.3f}\\%$",
                  xy=(nstar, Fev[nstar]), xytext=(40, 0.06), fontsize=10,
                  color=C_ZERO, ha="left",
                  bbox=dict(boxstyle="round,pad=0.25", fc="white", ec="none", alpha=0.92),

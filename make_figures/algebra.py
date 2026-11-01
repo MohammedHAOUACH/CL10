@@ -33,7 +33,7 @@ def fig3_one_object():
              r"$\sum_k \omega_k = $" + f"{zp:.1e}" + r"  (0-point, O1)      "
              + r"$|\det U - 1| = $" + f"{sm['det_U_minus_1']:.1e}"
              + r"  (SL(32), O1)" + "\n"
-             + r"CPT mirror residual $= $" + f"{sm['mirror_resid']:.1e}"
+             + r"$\pm$ mirror residual $= $" + f"{sm['mirror_resid']:.1e}"
              + r"      smallest level  $\omega_{\min} = $" + f"{sm['omega_min']:.4f}",
              ha="center", va="bottom", fontsize=10.5,
              bbox=dict(boxstyle="round", fc="#f2f2f2", ec="#888", alpha=0.95))
