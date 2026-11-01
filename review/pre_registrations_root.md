@@ -2375,3 +2375,32 @@ machinery that produces it (V365). What the census DID surface is a
 certifiable geometric fact at the certified point (scalar x unitary
 rung operators, unit Cartan ratios) - a lead for the next cut,
 booked as a leaf here, not as a claim.
+
+## V365 note (post-run correction, the "norm-preserving lead"; 2026-11-01)
+
+The scalar x unitary rung structure surfaced by V365 is NOT a dial
+property and NOT a fifth-clock property - a viability probe run
+BEFORE booking any follow-up killed the "unitarity" programme
+(V366 was therefore never booked, no experiment was run, the suite
+stands at 278):
+(i) the CLOSED FORM Bt_n = (1 + (n-1) LOOP alpha) B_n holds to
+1.4e-17 at rung 5 for two far-apart amplitudes (alpha = the dial and
+alpha = 0.5) - the J1-identity dressing commutes with the B semigroup
+(B_k B_{n-k} = B_n), so dressing the identity channel is an EXACT
+multiplicative renormalization of every rung;
+(ii) MG itself has singular-value spread exactly 1.00 at every clock
+tested (0.15, 0.2, 0.25, 1/3, 0.3, pi/4) because each hoisted hop
+Ma_i satisfies Ma_i^dag Ma_i = c_i I to 1e-15 (the certified hoisting
+lifts scaled partial isometries) and the step G is exactly unitary
+(the published gate); the rung scale sigma(g) moves with g but the
+proportionality-to-unitary never does;
+(iii) correction to the V365 run note: its "lead" framing is
+withdrawn - the structure is universal machinery, not a dial trace.
+What this CORRECTION does is strengthen the three naming verdicts:
+in the birth channel J1 the dial enters the whole ladder ONLY as the
+rung-n prefactor (1 + (n-1) LOOP alpha), a global rescaling - an
+invariant of the machinery that names a pure rescaling cannot exist,
+so BETA-NO-INVARIANT-HIT was structurally guaranteed, and the dial's
+only content is the booked (READ and ROOT) condition pair of V354.
+The namelessness of beta is now EXPLAINED, not only measured, within
+the elected construction.
