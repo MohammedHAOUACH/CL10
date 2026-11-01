@@ -1643,3 +1643,29 @@ touching forming) / PENTAGRID-GAPPED (gap floor >= 0.1 x (5 -
 sqrt5)) / MACHINERY-DRIFT. This is the rebuild's masslessness gate:
 without it the pentagon engine cannot carry light fermions at all.
 Cost booked: V358 < 5 min, V359 < 15 min, V360 < 15 min, GPU 1.
+
+## V358 run note (post-run)
+PENTENGINE-BUILT, all ten gates green, wall 13 s on GPU 1 (cupy
+RTX 3090). Decisive numbers: T0a the engine's ih_table reproduces
+the V356 census {'1':1,'2':31,'3':20,'5':24,'6':20,'10':24}
+bit-for-bit; T0b |U32 B - B U16| = 4.5e-16, |det U32 - 1| =
+5.3e-15; T0c the CELL table certified as code - dodeca_cell {5,3}
+counts (V,E,F,chi) = (20,30,12,2), edge 0.472136, the dual
+face-adjacency exactly the 30 engine edges - cell_nest = 120
+regular dodecahedral actions (120 dodecahedra), honeycomb_534
+Gram det -0.077254 Lorentzian signature (3,1), edge label 4 (four
+cells per edge), rotor certs nv 1.3e-51 / pair 4.4e-16 / ring 270
+of 270; T1 U_hop unitary 2.0e-15 at four clocks, |det| 1.3e-14;
+T2 the full 1152-dim step unitary 1.2e-14; T3 A5-covariance over
+ALL 120 elements batched on GPU 1 in tens: worst 2.9e-15, mean
+1.8e-15, device-vs-host identity gate 3.9e-31; T4 tr K^2 = 180
+exactly in mpmath (tr K = 0 by construction); T5 PENTGAP: the
+twisted 36-cell hop gap min|lambda(K)| = 0.381966011250105 =
+(3-sqrt5)/2 = 1/phi^2 (mpmath dps 40 inverse-power bound; numpy
+and cupy agree at 2.2e-16) - smaller than the untwisted
+face-spectrum gap 5 - sqrt5 = 2.76393202250021, re-derived as a
+gate at 2.7e-15: BOTH numbers say the same thing - NO massless
+mode on the closed 12-cell, whatever the twist or the internal
+module. The pentagon engine exists, is exactly symmetric, closes
+structurally at every clock, and carries a gap. V360's necessity
+is now a measured leaf, not an argument.

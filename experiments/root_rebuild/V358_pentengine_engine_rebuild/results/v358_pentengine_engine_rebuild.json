@@ -1,0 +1,84 @@
+{
+ "id": "V358_pentengine_engine_rebuild",
+ "tier": 1,
+ "property": "the pentagon engine built and gated: I_h census reproduction, internal identities, cell/nest/honeycomb certs, unitarity, A5-covariance, exact moments, PENTGAP",
+ "status": "PENTENGINE-BUILT",
+ "pass": true,
+ "data": {
+  "ih_census_engine": {
+   "1": 1,
+   "5": 24,
+   "2": 31,
+   "3": 20,
+   "10": 24,
+   "6": 20
+  },
+  "ih_census_v356": {
+   "1": 1,
+   "2": 31,
+   "3": 20,
+   "5": 24,
+   "6": 20,
+   "10": 24
+  },
+  "step_shape": [
+   1152,
+   1152
+  ],
+  "a5_cov_devs": {
+   "worst": 2.893111048388383e-15,
+   "mean": 1.808925481149141e-15
+  },
+  "gpu_backend": {
+   "backend": "cupy",
+   "device": "cupy b'NVIDIA GeForce RTX 3090'"
+  },
+  "PENTGAP": {
+   "min_abs_lambda_mp40": "0.3819660112501051517954132",
+   "min_abs_lambda_np": 0.38196601125010493,
+   "min_abs_lambda_gpu": 0.3819660112501051
+  }
+ },
+ "checks": [
+  {
+   "name": "T0a engine ih_table reproduces the V356 artifact ih_order_census bit-for-bit: {'1': 1, '5': 24, '2': 31, '3': 20, '10': 24, '6': 20} == {'1': 1, '2': 31, '3': 20, '5': 24, '6': 20, '10': 24}",
+   "pass": true
+  },
+  {
+   "name": "T0a' the engine table closes: 120 elements, 120 distinct faithful face permutations, max strict order 10 (booked 10)",
+   "pass": true
+  },
+  {
+   "name": "T0b internal identities from supercell.sectors(0.2): |U32 B - B U16| = 4.5e-16 (<= 1e-12), |det U32 - 1| = 5.3e-15 (<= 1e-12)",
+   "pass": "True"
+  },
+  {
+   "name": "T0c cell table certified as code: dodeca_cell {5,3} counts (V,E,F,chi) = (20, 30, 12, 2), edge_len 0.472136; cell_nest 120 regular dodecahedral actions (120 dodecahedra); honeycomb_534 Gram det -0.077254 signature (3, 1) edge_order 4; rotor certs (nv 1.3e-51, pair 4.4e-16, ring entries 270/270)",
+   "pass": true
+  },
+  {
+   "name": "T1 U_hop(g) unitary at g in {0.02, 1/5, pi/4, 0.98}: max dev 2.0e-15 (<= 1e-12); |det| deviation max 1.3e-14 (<= 1e-12; det = exp(i g tr K) = 1 since tr K = 0)",
+   "pass": true
+  },
+  {
+   "name": "T2 full step(1/5, 0.2) on face(12) x frame(3) x internal(32) = 1152: unitarity dev 1.2e-14 (<= 1e-10)",
+   "pass": true
+  },
+  {
+   "name": "T3 A5-covariance: all 120 conjugations (kron(P_h x R_h, I32)) step (...)dagger: worst dev 2.9e-15 (<= 1e-10), mean 1.8e-15; batched on cupy b'NVIDIA GeForce RTX 3090', device-vs-host identity gate 3 probes 3.9e-31 (<= 1e-12)",
+   "pass": "True"
+  },
+  {
+   "name": "T4 exact moments of K in mpmath: tr K = 0 (diagonal zero by construction), tr K^2 = 180.0 (booked exactly 180: 30 edges x 2 blocks x tr R R^T = 3)",
+   "pass": true
+  },
+  {
+   "name": "T5 PENTGAP: closed-cell hop gap min|lambda(K)| = 0.38196601125 (mpmath dps 40, inverse power bound) vs numpy 0.3819660113 vs cupy b'NVIDIA GeForce RTX 3090' 0.3819660113 - cross-check 2.2e-16 (<= 1e-10); NO target booked: this number is what makes V360 necessary (no massless mode on the closed 12-cell)",
+   "pass": true
+  },
+  {
+   "name": "face spectrum re-derived (booked in the V358 registration): the 12-face adjacency eigenvalues are {5, (+-sqrt5)^3, (-1)^5} - (x-5)(x+1)^5(x^2-5)^3, the icosahedral graph spectrum (MathWorld) - max dev 2.7e-15 (<= 1e-12); gap 5 - sqrt5 = 2.76393202250021",
+   "pass": true
+  }
+ ]
+}
