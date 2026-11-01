@@ -1229,3 +1229,37 @@ booked follow-up with the other insertion orders, no paper claim
 until contact) / FP2-DRIFT / NO-FIXED-POINT / RIGID-CHANNEL (the
 insertion cannot move the clock at this order) / MACHINERY-DRIFT.
 Cost booked: ~16k rung evaluations, wall <= 20 min.
+
+## V352 run note (post-run; verdict as booked)
+FP2-DRIFT, wall 65 s. T0a/T0b: the imported V350 machinery re-derives
+g_cross (4.3e-14), g_obs (3.1e-12), F_10 at 1/5 vs V113 (1e-9) before
+any loop is inserted. T0c: the one-loop self-energy is REAL and
+perturbative at 1/5 - |F~_10 - F_10| = 3.3e-3 (J1 = a_ins x I, a_ins
+= 0.964413... read from the V205 artifact), 1.7e-2 (J2 = Cartan
+quadratic), 3.6e-2 (J3 = step dressing): so V350's rigidity does NOT
+extend to the module's one-loop polarization. The channel moves.
+Where does self-consistency land it? Nowhere near the desert:
+converged fixed points (continuation roots, damped iteration):
+J1|A g* = 0.1967551490 (delta -3.4e-3), J2|A g* = 0.1954459513
+(delta -4.7e-3), J3|A g* = 0.1942450714 (delta -5.9e-3, contraction
+0.011 - a genuine fixed point, not a constant map), J1|B g* =
+0.2819151001 (a far razor-band re-crossing, delta +8.2e-2). Nearest
+anchor distance 3.24e-3: three and four orders above the contact
+guard, two orders above even the near guard. J2|B and J3|B:
+BRACKET-MISS - with the loop dressing, the coefficient curve crosses
+COEF_OBS NOWHERE in (0.15,0.33): the one-loop correction destroys
+the hierarchy-coefficient reading of the clock entirely.
+Physics reading (booked branch FP2-DRIFT stands): the published
+clock is a TREE-level reading; dressing the ladder with its own
+published matter at one loop shifts the rung-10 crossing by a few
+thousandths and kills the coefficient reading - quantum
+backreaction within the published model BREAKS the clock rather
+than creating it. Combined with V350 (hop-spectrum channel rigid at
+I/45), the ledger is now closed from both sides:
+self-consistency inside the published model either cannot move the
+clock at all (V350) or moves it off the desert (V352). Any loop
+that could fix the clock needs couplings the published model does
+not contain - i.e. a genuinely external sector with new parameters,
+which is a different theory, not a repair of this one. The paper's
+clock-tension verdict stands, reinforced: the named residual is
+not a self-consistency artifact at any order internal to the model.

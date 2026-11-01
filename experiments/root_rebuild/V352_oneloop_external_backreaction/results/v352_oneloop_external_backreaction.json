@@ -1,0 +1,95 @@
+{
+ "id": "V352_oneloop_external_backreaction",
+ "tier": 1,
+ "property": "one-loop Weyl-module self-energy backreaction on the rung ladder: does self-consistency move or fix the clock",
+ "status": "FP2-DRIFT",
+ "pass": true,
+ "data": {
+  "a_ins_from_V205": 0.9644131499665388,
+  "correction_size_at_1_5": {
+   "J1-a_ins*I": 0.0033130582282878684,
+   "J2-cartan2": 0.017176550467000683,
+   "J3-G(1/5)": 0.03549309099247004
+  },
+  "fixed_points": {
+   "J1-a_ins*I|A-loop-crossing": {
+    "status": "CONVERGED",
+    "g_star": 0.1967551490105689,
+    "iters": 2,
+    "contraction": 0.0,
+    "distances": {
+     "g_obs": 0.0032428393469427497,
+     "g_cross_rung10": 0.0033780182898478506,
+     "1/5": 0.003244850989431114
+    },
+    "dmin": 0.0032428393469427497,
+    "delta_vs_published": -0.0033780182898478506
+   },
+   "J1-a_ins*I|B-coefficient-clock": {
+    "status": "CONVERGED",
+    "g_star": 0.28191510013863463,
+    "iters": 2,
+    "contraction": 0.0,
+    "distances": {
+     "g_obs": 0.08191711178112299,
+     "g_cross_rung10": 0.08178193283821789,
+     "1/5": 0.08191510013863462
+    },
+    "dmin": 0.08178193283821789,
+    "delta_vs_published": 0.08191711178112299
+   },
+   "J2-cartan2|A-loop-crossing": {
+    "status": "CONVERGED",
+    "g_star": 0.19544595130160455,
+    "iters": 2,
+    "contraction": 0.0,
+    "distances": {
+     "g_obs": 0.004552037055907093,
+     "g_cross_rung10": 0.004687215998812194,
+     "1/5": 0.0045540486983954576
+    },
+    "dmin": 0.004552037055907093,
+    "delta_vs_published": -0.004687215998812194
+   },
+   "J2-cartan2|B-coefficient-clock": {
+    "status": "BRACKET-MISS",
+    "g_star": null,
+    "iters": 0,
+    "contraction": null
+   },
+   "J3-G(g_prev)|A-loop-crossing": {
+    "status": "CONVERGED",
+    "g_star": 0.19424507142975925,
+    "iters": 6,
+    "contraction": 0.011019408732715341,
+    "distances": {
+     "g_obs": 0.0057529169277523995,
+     "g_cross_rung10": 0.0058880958706575,
+     "1/5": 0.005754928570240764
+    },
+    "dmin": 0.0057529169277523995,
+    "delta_vs_published": -0.0058880958706575
+   },
+   "J3-G(g_prev)|B-coefficient-clock": {
+    "status": "BRACKET-MISS",
+    "g_star": null,
+    "iters": 1,
+    "contraction": null
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "T0a uncorrected imported ladder re-derives g_cross to 4.3e-14 and g_obs to 3.1e-12 (<= 1e-5); T0b F_10 at 1/5 = 0.01918639 vs V113 0.01918639 (|d| 1.0e-09 <= 1e-6)",
+   "pass": true
+  },
+  {
+   "name": "T0c one-loop correction |F~_10 - F_10| at 1/5: {'J1-a_ins*I': '3.31e-03', 'J2-cartan2': '1.72e-02', 'J3-G(1/5)': '3.55e-02'} (perturbative band (1e-4, 0.5); sub-1e-4 tag => that channel is rigid at one loop)",
+   "pass": true
+  },
+  {
+   "name": "FIXED-POINT BATTERY: 6 map entries, 4 converged; correction shifts the clock: True; nearest anchor distance 0.0032428393469427497 (guards 1e-9 / 1e-4)",
+   "pass": true
+  }
+ ]
+}
