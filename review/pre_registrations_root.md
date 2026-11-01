@@ -1187,3 +1187,45 @@ user's cell and the published engine is no longer only group-level
 (2I/McKay, V336) - the golden 12 sits inside the E8 root fold as an
 exact sub-configuration, with 1/phi as the certified matching
 invariant.
+
+## V352_oneloop_external_backreaction (tier 1, hard; the only door V350 left open, booked exactly before the run)
+V350 certified: self-consistency through the ladder's OWN hop
+spectrum is rigid (rho == I/45 exactly). The only backreaction that
+could move the clock must come from a sector the published ladder
+never inserted: the quantum correction. The published rung ladder is
+tree-level traced links (V206); the one-loop self-energy of the
+published 32-dim Weyl module in the rung chain is the ONE correction
+the model omits and every gauge theory requires. No new constants:
+the insertion carries the published loop factor LOOP = 1/(16 pi)
+(config) and the published V205 insertion amplitude where identity-
+type; three insertion choices, all published objects, booked, zero
+fit:
+  J1 = I x a_ins, a_ins = the V205 artifact insertion amplitude
+       (data...read by art(), never retyped);
+  J2 = sum_a CARTAN_a^2 (the published Cartan quadratic of V206's
+       CARTAN list);
+  J3 = G(g) (vertex dressing by the step itself).
+CORRECTED LADDER: B~_n = B_n + LOOP * sum_{k=1}^{n-1} B_k J B_{n-k},
+F~_n = cartan_norm(B~_n)/cartan_norm(G_n) (one-loop rung insertion on
+the hoisted, T0h-identical hop machinery imported from V350).
+MAPS (same booked structure as V350, continuation roots, damped
+iteration mix {1.0,0.5,0.2}, tol 1e-10, <= 40 iters):
+  A: g' = root of |F~_10(g; insertion at g_prev)| = LOOP,
+     start g_cross;
+  B: g' = root of 3(F~_10/LOOP)^10 = COEF_OBS, start g_obs.
+T0 GATES: T0a uncorrected ladder re-derives g_obs and g_cross to
+<= 1e-5 (imported machinery); T0b F_10 at 1/5 matches V113 to 1e-6;
+T0c the corrected F~_10 at 1/5 differs from F_10 by a LOOP-sized
+amount (reported; 1e-4 < |d| < 0.5: the correction is real and
+perturbative - if it is below 1e-4 the channel is again rigid and
+that is reported as the branch).
+BATTERY (house rule): every converged g* vs g_obs, g_cross, 1/5,
+guards 1e-9 contact / 1e-4 near; contraction reported.
+BRANCH WORDS: FP2-CONTACT (one-loop self-consistency creates a clock
+ON a published anchor: booked consequence - the clock chapter of the
+paper is rewritten around V352 and the full battery re-run) /
+FP2-NEAR (converged, 1e-9 < d <= 1e-4: real mechanism candidate,
+booked follow-up with the other insertion orders, no paper claim
+until contact) / FP2-DRIFT / NO-FIXED-POINT / RIGID-CHANNEL (the
+insertion cannot move the clock at this order) / MACHINERY-DRIFT.
+Cost booked: ~16k rung evaluations, wall <= 20 min.
