@@ -1,0 +1,78 @@
+{
+ "id": "V353_inverse_external_sector",
+ "tier": 1,
+ "property": "the exact external dressing that closes the clock tension (meeting inversion), and whether the published arithmetic can carry it",
+ "status": "NEW-THEORY-REQUIRED",
+ "pass": true,
+ "data": {
+  "tenth_root_dressing_needed": 0.9994458344608501,
+  "v205_deficit": 0.9895268728629288,
+  "v205_amplitudes": {
+   "required": 0.9638787569864106,
+   "branch_1_5": 0.9644131499665388,
+   "difference": 0.000534392980128251
+  },
+  "T32_measured": 32.0,
+  "C_A_measured": 64.0,
+  "beta_zeros_count": 16,
+  "beta_zeros_headline": [
+   {
+    "n_gauge": 1,
+    "n_families16": 3,
+    "n_scalar_adj": 19
+   }
+  ],
+  "inverted": {
+   "J1-identity": {
+    "tree_selfconsistency_dev": 3.0968561048894117e-12,
+    "nonzero_selfconsistent": [
+     -7.450580596923818e-10
+    ],
+    "meetings": []
+   },
+   "J2-cartan2": {
+    "tree_selfconsistency_dev": 3.0968561048894117e-12,
+    "nonzero_selfconsistent": [],
+    "meetings": []
+   },
+   "J3-step(g_obs)": {
+    "tree_selfconsistency_dev": 3.0968561048894117e-12,
+    "nonzero_selfconsistent": [],
+    "meetings": []
+   }
+  },
+  "census": {
+   "J1-identity|self": {
+    "alpha": -7.450580596923818e-10,
+    "beta_alpha_over_loop": -3.7450702829239233e-08,
+    "hits": [
+     "alpha=0/1"
+    ],
+    "pslq_beta_deg6": null,
+    "pslq_alpha": null
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 published fingerprint objects re-derived: the dressing factor making the 1/5 coefficient exact is (COEF_OBS/coef_at_fifth)^(1/10) = %.12f (a %+.3e correction); the V205 amplitude pair is required %.9f vs branch-1/5 %.9f (gap %+.3e = the published 0.055%% fingerprint): reported as a measurement pair, no identity asserted (booking correction of the first-run gate)",
+   "pass": true
+  },
+  {
+   "name": "T1 indices DERIVED: Tr(T^A T^A) = 32.00000000 -> 32; sum f^2 = 64.00000000 -> 64 (certified in (1/2)Z)",
+   "pass": true
+  },
+  {
+   "name": "A one-loop beta zeros (extended: gauge copies 0..2, 16-families 0..16, adjoint scalars 0..20): 16 total, 15 nontrivial; exact condition n_f + n_s = 11 n_g; n_f = 3 headline examples: [{'n_gauge': 1, 'n_families16': 3, 'n_scalar_adj': 19}]",
+   "pass": true
+  },
+  {
+   "name": "B tree self-consistency guards (|h(0)|, physical branch resolved by the 1e-3 scan): {'J1-identity': np.float64(3.0968561048894117e-12), 'J2-cartan2': np.float64(3.0968561048894117e-12), 'J3-step(g_obs)': np.float64(3.0968561048894117e-12)}",
+   "pass": true
+  },
+  {
+   "name": "B/C solved dressings + census: {'J1-identity|self': (np.float64(-7.450580596923818e-10), ['alpha=0/1'])}",
+   "pass": true
+  }
+ ]
+}

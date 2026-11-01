@@ -11,45 +11,46 @@
    "J2-cartan2": 0.017176550467000683,
    "J3-G(1/5)": 0.03549309099247004
   },
+  "gpu_backend": true,
   "fixed_points": {
    "J1-a_ins*I|A-loop-crossing": {
     "status": "CONVERGED",
-    "g_star": 0.1967551490105689,
+    "g_star": 0.1995893930904568,
     "iters": 2,
     "contraction": 0.0,
     "distances": {
-     "g_obs": 0.0032428393469427497,
-     "g_cross_rung10": 0.0033780182898478506,
-     "1/5": 0.003244850989431114
+     "g_obs": 0.0004085952670548343,
+     "g_cross_rung10": 0.0005437742099599352,
+     "1/5": 0.00041060690954319856
     },
-    "dmin": 0.0032428393469427497,
-    "delta_vs_published": -0.0033780182898478506
+    "dmin": 0.0004085952670548343,
+    "delta_vs_published": -0.0005437742099599352
    },
    "J1-a_ins*I|B-coefficient-clock": {
     "status": "CONVERGED",
-    "g_star": 0.28191510013863463,
+    "g_star": 0.2819151001386346,
     "iters": 2,
     "contraction": 0.0,
     "distances": {
-     "g_obs": 0.08191711178112299,
-     "g_cross_rung10": 0.08178193283821789,
-     "1/5": 0.08191510013863462
+     "g_obs": 0.08191711178112293,
+     "g_cross_rung10": 0.08178193283821783,
+     "1/5": 0.08191510013863457
     },
-    "dmin": 0.08178193283821789,
-    "delta_vs_published": 0.08191711178112299
+    "dmin": 0.08178193283821783,
+    "delta_vs_published": 0.08191711178112293
    },
    "J2-cartan2|A-loop-crossing": {
     "status": "CONVERGED",
-    "g_star": 0.19544595130160455,
+    "g_star": 0.19544595130905507,
     "iters": 2,
     "contraction": 0.0,
     "distances": {
-     "g_obs": 0.004552037055907093,
-     "g_cross_rung10": 0.004687215998812194,
-     "1/5": 0.0045540486983954576
+     "g_obs": 0.004552037048456581,
+     "g_cross_rung10": 0.004687215991361682,
+     "1/5": 0.004554048690944945
     },
-    "dmin": 0.004552037055907093,
-    "delta_vs_published": -0.004687215998812194
+    "dmin": 0.004552037048456581,
+    "delta_vs_published": -0.004687215991361682
    },
    "J2-cartan2|B-coefficient-clock": {
     "status": "BRACKET-MISS",
@@ -59,16 +60,16 @@
    },
    "J3-G(g_prev)|A-loop-crossing": {
     "status": "CONVERGED",
-    "g_star": 0.19424507142975925,
+    "g_star": 0.19424507142975928,
     "iters": 6,
-    "contraction": 0.011019408732715341,
+    "contraction": 0.011023134016685532,
     "distances": {
-     "g_obs": 0.0057529169277523995,
-     "g_cross_rung10": 0.0058880958706575,
-     "1/5": 0.005754928570240764
+     "g_obs": 0.005752916927752372,
+     "g_cross_rung10": 0.005888095870657473,
+     "1/5": 0.005754928570240736
     },
-    "dmin": 0.0057529169277523995,
-    "delta_vs_published": -0.0058880958706575
+    "dmin": 0.005752916927752372,
+    "delta_vs_published": -0.005888095870657473
    },
    "J3-G(g_prev)|B-coefficient-clock": {
     "status": "BRACKET-MISS",
@@ -88,7 +89,15 @@
    "pass": true
   },
   {
-   "name": "FIXED-POINT BATTERY: 6 map entries, 4 converged; correction shifts the clock: True; nearest anchor distance 0.0032428393469427497 (guards 1e-9 / 1e-4)",
+   "name": "T0d uncorrected dressed-ladder roots (J=0) land on the published anchors: |rootA-g_cross| = 4.3e-14, |rootB-g_obs| = 3.1e-12 (<= 1e-6: the scan resolves the physical branch against the razor band)",
+   "pass": "True"
+  },
+  {
+   "name": "T0e GPU batched scan vs host ladder (5 probes): max dev 8.8e-16 (<= 1e-9); device in use: cupy",
+   "pass": true
+  },
+  {
+   "name": "FIXED-POINT BATTERY: 6 map entries, 4 converged; correction shifts the clock: True; nearest anchor distance 0.0004085952670548343 (guards 1e-9 / 1e-4)",
    "pass": true
   }
  ]

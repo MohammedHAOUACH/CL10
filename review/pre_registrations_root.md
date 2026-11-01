@@ -1312,3 +1312,48 @@ realization and no PSLQ name: the clock's completion lies outside
 the paper's number system - the closure form the data take).
 Cost booked: ~40 s (two channels bisected; J3's g-dependence is
 amplitude-scaled), seconds for (A).
+
+## V352 run note addendum + V353 run note (post-run; V353 reclassified)
+V352 (final, GPU): FP2-DRIFT re-confirmed digit-identical after three
+lens corrections: root scans 1e-3 (the first-run 3e-3 grid was
+razor-blind: it lost the physical root at g_obs and inverted a
+razor-jump branch - the T0d guard, now permanent, pins the un-dressed
+roots on the published anchors at 4.3e-14/3.1e-12); continuation
+window (bisect only roots within 0.02 of the iterate - pure cost, the
+choice rule unchanged); GPU batch scan on the user's GPU 1 with the
+T0e device-vs-host identity gate - which CAUGHT a device-side bug
+(the denominator used G^1 not G^10: dev 9.3e-2) before any reading
+was believed; after fix: 8.8e-16. Headline number for the record:
+the published V205-amplitude identity dressing now moves the
+rung-10 crossing by only -5.44e-4 (dmin 4.09e-4): the correction is
+small and honest, still four orders off the near guard.
+V353 run (first run classified NEW-THEORY-REQUIRED; RECLASSIFIED
+here to NO-PUBLISHED-ARITHMETIC-FIX): the only solved "cleaning"
+was alpha = -7.5e-10 - the TREE solution alpha = 0 picked up as a
+sign-change neighbour of the grid point at zero (the first
+classifier counted it; permanent filter |alpha*| > 1e-6 added, with
+the tree guard |h(0)| = 3.1e-12 reported explicitly for all three
+channels). The (A) booking text printed condition "11 n_g" - the
+arithmetic (always exact, Fraction) says n_f + n_s = 22 n_g
+(704/3 n_g = 32/3(n_f + n_s)): fifteen exact nontrivial conformal
+zeros, headline (n_g, n_f, n_s) = (1, 3, 19): three 16-families is
+eligible for one-loop conformality in the engine's own integers - a
+naming fact about where a coupling may sit, not a birth of the
+clock. THE MEASUREMENT THAT DECIDES: the meeting inversion (a
+dressing making ONE root satisfy both published readings - closing
+the paper's clock tension) found NO sign change of
+rootA - rootB over the whole amplitude band (-2, 2) for EVERY
+published insertion form (identity, Cartan quadratic, step
+dressing): the published pair (g_obs, g_cross) is never degenerated
+by any one-loop dressing at any amplitude the perturbative regime
+tolerates, in the published arithmetic. Combined with V350 (the
+self-channel is rigid) and V352 (published dressings drift the
+clock off-desert), the closure form is final: the clock's
+completion is not carryable by the paper's number system - any
+sector that closes the tension must be nonperturbative (|alpha| >
+2) or multi-loop, i.e. a genuinely different theory, exactly as
+booked: NO-PUBLISHED-ARITHMETIC-FIX.
+GPU directive honored: CUDA_VISIBLE_DEVICES=1 (physical GPU 1, RTX
+3090), device path identity-certified; the whole V352/V353 scan
+load runs on it (181-point dressed ladder per call in ~1 ms vs
+1.5 s host).

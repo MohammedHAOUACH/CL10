@@ -77,27 +77,123 @@ def Fn_corr(g, J, nmax=10):
     return Fn
 
 
-def rootA(g_prev, J):
-    """Continuation root of |F~_10| = LOOP on (0.15, 0.33)."""
-    f = lambda g: abs(Fn_corr(g, J)(10)) - LOOP
-    xs = np.arange(0.15, 0.3301, 3e-3)
-    roots = []
-    pv = f(xs[0])
-    for k in range(1, len(xs)):
-        cv = f(xs[k])
-        if pv == 0.0:
-            roots.append(float(xs[k - 1]))
-        elif pv * cv < 0.0:
-            lo, hi = xs[k - 1], xs[k]
-            for _ in range(27):
-                mid = 0.5 * (lo + hi)
-                if f(mid) * pv > 0.0:
-                    lo = mid
-                else:
-                    hi = mid
-            roots.append(0.5 * (lo + hi))
-        pv = cv
+def _bis(f, g_prev, lo, hi):
+    pv = f(lo)
+    for _ in range(27):
+        mid = 0.5 * (lo + hi)
+        if f(mid) * pv > 0.0:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
+
+
+def _continued(ints, exacts, g_prev, bisf):
+    """Continuation rule (booked): roots near g_prev (window 0.02) are
+    the branch attached to the iterate - bisecting only those keeps the
+    razor band from ballooning the cost (lens correction; the full scan
+    still detects every crossing, only the refinement is restricted,
+    and the nearest-root choice is unchanged when no root is near)."""
+    roots = [x for x in exacts]
+    win = [t for t in ints if abs(0.5 * (t[0] + t[1]) - g_prev) <= 0.02]
+    use = win if win else ints
+    for lo, hi in use:
+        roots.append(bisf(None, lo, hi))
     return min(roots, key=lambda r: abs(r - g_prev)) if roots else None
+
+
+_CP = None
+
+
+def _get_cp():
+    global _CP
+    if _CP is None:
+        try:
+            import cupy
+            cupy.cuda.Stream  # noqa: B018  (probe)
+            _CP = cupy
+        except Exception:      # noqa: BLE001
+            _CP = False
+    return _CP or None
+
+
+def _batch_F(J, xs):
+    """F~_10 on the whole grid in one shot on the GPU (booked user
+    directive: GPU 1 via CUDA_VISIBLE_DEVICES). The hop tensors A_lam
+    depend ONLY on the fixed density, so the scan is pure batched
+    32x32 linear algebra; T0e gates device-vs-host equality."""
+    cp = _get_cp()
+    if cp is None:
+        return None
+    c = _batch_F.__dict__
+    if "A" not in c:
+        rho_id = np.eye(D_L, dtype=np.complex128) / D_L
+        c["A"] = cp.stack([cp.einsum("ajbm,mj->ab", cp.asarray(P4m),
+                                     cp.asarray(rho_id))
+                           for P4m in V350.P4])
+        c["PL"] = cp.stack([cp.asarray(T) for T in V350.PLANES])
+        c["CA"] = cp.stack([cp.asarray(C) for C in V350.CARTAN])
+        c["I"] = cp.eye(32, dtype=cp.complex128)
+        c["EV"] = cp.asarray(np.asarray(V350.EV, dtype=float))
+    g = cp.asarray(np.asarray(xs, dtype=float))
+    N = g.shape[0]
+    Gb = cp.repeat(c["I"][None, :, :], N, axis=0)
+    cs, sn = cp.cos(g)[:, None, None], cp.sin(g)[:, None, None]
+    for T in c["PL"]:
+        Gb = Gb @ (cs * c["I"] - 1j * sn * T)
+    Mab = cp.matmul(c["A"][:, None, :, :], Gb[None, :, :, :])  # (l,n,a,b)
+    ph = cp.exp(1j * (g[:, None] / 2) * c["EV"])          # (N,3)
+    Mb = cp.einsum("nl,lnab->nab", ph, Mab)
+    MGb = Mb @ Gb
+    I5 = c["I"]
+    B = [cp.repeat(I5[None], N, axis=0)]
+    Jd = cp.asarray(np.asarray(J, dtype=np.complex128))
+    for n in range(1, 11):
+        Bn = B[n - 1] @ MGb
+        if n == 10:
+            Bt = Bn + LOOP * sum(B[k] @ Jd @ B[n - k]
+                                 for k in range(1, n))
+        B.append(Bn)
+    G10 = Gb
+    for _ in range(9):
+        G10 = G10 @ Gb
+    num = cp.zeros(N)
+    den = cp.zeros(N)
+    for Cd in c["CA"]:
+        num += cp.abs(cp.einsum("nij,ji->n", Bt, Cd)) / 32
+        den += cp.abs(cp.einsum("nij,ji->n", G10, Cd)) / 32
+    return cp.asnumpy(num / den)
+
+
+def _scanF10(J, xs):
+    b = _batch_F(J, xs)
+    if b is not None:
+        return np.abs(b)
+    return np.array([abs(Fn_corr(g, J)(10)) for g in xs])
+
+
+def rootA(g_prev, J):
+    """Continuation root of |F~_10| = LOOP on (0.15, 0.33).
+    Grid 1e-3 (V350's booked scan resolution): a coarse grid is razor-
+    blind - the band can re-cross between points and leave a grid
+    point in the undefined region, hiding the physical root (the first
+    run's 3e-3 grid lost the g_obs root and inverted a razor-jump
+    branch instead - booked correction)."""
+    f = lambda g: abs(Fn_corr(g, J)(10)) - LOOP
+    xs = np.arange(0.15, 0.3301, 1e-3)
+    vals = _scanF10(J, xs) - LOOP
+    ints = []
+    exacts = []
+    pv = vals[0]
+    for k in range(1, len(xs)):
+        cv = vals[k]
+        if pv == 0.0:
+            exacts.append(float(xs[k - 1]))
+        elif pv * cv < 0.0:
+            ints.append((xs[k - 1], xs[k]))
+        pv = cv
+    return _continued(ints, exacts, g_prev, lambda g, lo, hi: _bis(
+        lambda x: f(x), g, lo, hi))
 
 
 def rootB(g_prev, J):
@@ -106,26 +202,35 @@ def rootB(g_prev, J):
         F10 = abs(Fn_corr(g, J)(10))
         d = F10 / LOOP
         return 3.0 * d ** 10 if d < 1 else None
-    xs = np.arange(0.15, 0.3301, 3e-3)
-    roots = []
+    xs = np.arange(0.15, 0.3301, 1e-3)
+    F10s = _scanF10(J, xs)
+    ds = F10s / LOOP
+    cs = np.where(ds < 1.0, 3.0 * ds ** 10, np.nan)
+    ints = []
     prev = None
-    for x in xs:
-        c = c10(x)
-        v = None if c is None else c - COEF_OBS
-        if v is not None:
-            if prev is not None and prev[1] * v < 0.0:
-                lo, hi, plo = prev[0], x, prev[1]
-                for _ in range(27):
-                    mid = 0.5 * (lo + hi)
-                    cm = c10(mid)
-                    vm = None if cm is None else cm - COEF_OBS
-                    if vm is None or vm * plo > 0.0:
-                        lo = mid
-                    else:
-                        hi = mid
-                roots.append(0.5 * (lo + hi))
-            prev = (x, v)
-    return min(roots, key=lambda r: abs(r - g_prev)) if roots else None
+    for x, cc in zip(xs, cs):
+        if not np.isfinite(cc):
+            continue
+        v = cc - COEF_OBS
+        if prev is not None and prev[1] * v < 0.0:
+            ints.append((prev[0], x, prev[1]))
+        prev = (x, v)
+    if not ints:
+        return None
+    win = [(t) for t in ints if abs(0.5 * (t[0] + t[1]) - g_prev) <= 0.02]
+    use = win or ints
+    roots = []
+    for lo, hi, plo in use:
+        for _ in range(27):
+            mid = 0.5 * (lo + hi)
+            cm = c10(mid)
+            vm = None if cm is None else cm - COEF_OBS
+            if vm is None or vm * plo > 0.0:
+                lo = mid
+            else:
+                hi = mid
+        roots.append(0.5 * (lo + hi))
+    return min(roots, key=lambda r: abs(r - g_prev))
 
 
 def iterate(mapf, g0, J):
@@ -193,6 +298,36 @@ def main():
                    "(perturbative band (1e-4, 0.5); sub-1e-4 tag => that "
                    "channel is rigid at one loop)"
                    % {k: "%.2e" % v for k, v in t0c.items()}, True))
+
+    # ---- T0d: the uncorrected root paths must land ON the published
+    # anchors (permanent razor-blindness guard on the scan grids) -------
+    zeroJ = np.zeros((32, 32), dtype=np.complex128)
+    rA = rootA(g_pub["g_cross_rung10"], zeroJ)
+    rB = rootB(g_pub["g_obs"], zeroJ)
+    dA = abs(rA - g_pub["g_cross_rung10"]) if rA else 9.9
+    dB = abs(rB - g_pub["g_obs"]) if rB else 9.9
+    checks.append(("T0d uncorrected dressed-ladder roots (J=0) land on "
+                   "the published anchors: |rootA-g_cross| = %.1e, "
+                   "|rootB-g_obs| = %.1e (<= 1e-6: the scan resolves the "
+                   "physical branch against the razor band)" % (dA, dB),
+                   dA <= 1e-6 and dB <= 1e-6))
+
+    # ---- T0e: GPU batch scan == host per-point ladder (if a device
+    # is present): identity gate before any scan is believed -------
+    probe = np.array([0.16713, 0.19998, 0.20013, 0.2441, 0.302])
+    Jp = V350.step(REF_G)
+    dev = _get_cp() is not None
+    if dev:
+        bv = _batch_F(Jp, probe)
+        hv = np.array([abs(Fn_corr(gg, Jp)(10)) for gg in probe])
+        d_e = float(np.max(np.abs(bv - hv)))
+    else:
+        d_e = 0.0
+    data["gpu_backend"] = bool(dev)
+    checks.append(("T0e GPU batched scan vs host ladder (5 probes): "
+                   "max dev %.1e (<= 1e-9); device in use: %s"
+                   % (d_e, "cupy" if dev else "CPU fallback"),
+                   d_e <= 1e-9))
 
     if not all(c[1] for c in checks):
         data["status"] = "MACHINERY-DRIFT"
