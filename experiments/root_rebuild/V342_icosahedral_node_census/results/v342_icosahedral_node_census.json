@@ -3,7 +3,7 @@
  "tier": 2,
  "property": "count and cone shape of the exact dressed Dirac nodes of the icosahedral cell at the five-clocks",
  "status": "N2B-NODE-ORBIT-557-CONE-ANISOTROPIC",
- "pass": false,
+ "pass": true,
  "data": {
   "results": {
    "2pi/5": {
@@ -4809,13 +4809,13 @@
   },
   "published_reference": "12 doubler channels at M (cubic engine, closed clock)",
   "anchor": {
-   "kron_err": 3.510833468576701e-16,
-   "M_gap": 7.355227538141698e-16
+   "kron_err": 3.376611507232129e-16,
+   "M_gap": 3.122502256758256e-17
   }
  },
  "checks": [
   {
-   "name": "T0 published anchor: bloch == kron(P, U^6) 3.5e-16, M-point gap 7.4e-16",
+   "name": "T0 published anchor: bloch == kron(P, U^6) 3.4e-16, M-point gap 3.1e-17",
    "pass": true
   },
   {

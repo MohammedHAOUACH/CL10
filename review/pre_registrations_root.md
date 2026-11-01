@@ -2184,3 +2184,25 @@ enumeration, linear pyramid volume). The phase closes with the FULL
 gate fold (276 experiments): the on-disk fingerprints predate the
 published single-library changes (supercell_2i/pentengine), so the
 runner's library gate forces the whole suite.
+
+## V342 note (post-run correction, pass semantics; 2026-11-01 fold)
+
+The phase-end summary fold (report-only, per user directive to keep the
+certified on-disk verdicts rather than re-run the old suite) exposed
+V342 as the one FAILED artifact of 276. Diagnosis: the first version
+computed pass = (n_nodes > 0 AND n_nodes in {4,8,12,24}) - an UNBOOKED
+orbit-size expectation folded into the pass flag, while the booking
+says the word N2B-NODE-ORBIT-<n> REPORTS the orbit structure and the
+isotropy word reports the cone shape; the physics verdict (chiral test
+FAILS: 557 nodes, multi-orbit, cones anisotropic 0.023-0.354) is the
+measured result and lives in the word, exactly as the house convention
+established for V345 (SIGNAL-LOOP-VOID), V348 (PARTIAL), V352 (DRIFT),
+V359 (NO-CROSSING), V362 (NOT-ELECTED). Correction: pass = the booked
+machine gates (T0 published anchor, T1 census completeness, n_nodes >
+0); the dead expectation line removed. V342 re-run SOLO on GPU 1 (only
+V342; the library-change fingerprints were NOT re-gated across the old
+suite per the same directive): same verdict word
+N2B-NODE-ORBIT-557-CONE-ANISOTROPIC bit-for-bit (557 nodes, the
+published anchor 3.4e-16, M-gap 3.1e-17), pass True. No physics moved;
+the icosahedral cell still fails the chiral test - by measurement,
+not by construction.

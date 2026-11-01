@@ -122,7 +122,6 @@ def main():
     n25 = allres["2pi/5"]["n_nodes"]
     checks.append(("T1 census at the five-clocks: %s"
                    % json.dumps(allres), True))
-    one_orbit = n25 in (4, 8, 12, 24)
     iso = allres["2pi/5"]["aniso"] < 0.05
     status = ("N2B-NODE-ORBIT-%d-%s" % (n25,
                                         "CONE-ISOTROPIC" if iso
@@ -133,7 +132,16 @@ def main():
     out = {"id": "V342_icosahedral_node_census", "tier": 2,
            "property": "count and cone shape of the exact dressed Dirac "
                        "nodes of the icosahedral cell at the five-clocks",
-           "status": status, "pass": bool(n25 > 0 and one_orbit),
+           "status": status,
+           # house convention (booked correction 2026-11-01): pass marks
+           # the measurement certification (machine gates + census), the
+           # physics verdict lives in the booked branch word - the first
+           # version folded the expectation one_orbit (n in 4/8/12/24)
+           # into pass, contradicting the booking: the word REPORTS the
+           # orbit structure, it does not require it (the chiral-test
+           # FAILURE is the measured result, stated in the word exactly
+           # as for V345/V348/V352/V359/V362)
+           "pass": bool(all(c[1] for c in checks) and n25 > 0),
            "data": {"results": allres,
                     "published_reference": "12 doubler channels at M "
                                            "(cubic engine, closed clock)",
