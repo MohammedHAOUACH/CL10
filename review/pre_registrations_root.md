@@ -1263,3 +1263,52 @@ not contain - i.e. a genuinely external sector with new parameters,
 which is a different theory, not a repair of this one. The paper's
 clock-tension verdict stands, reinforced: the named residual is
 not a self-consistency artifact at any order internal to the model.
+
+## V353_inverse_external_sector (tier 1, hard; "find the new theory" as an exact inverse problem, booked before the run)
+V350+V352 closed every INTERNAL self-consistency channel (rigid or
+drifting). The only survivor is an EXTERNAL sector with couplings the
+paper does not contain. This experiment turns "find it" into two
+exact measurements plus a realizability census - no fit, no freedom:
+(A) ENGINE-NATIVE CONFORMAL CENSUS. The one exact rational statement
+an external sector can make is a vanishing one-loop beta:
+b = (11/3) n_g C_A - (2/3) n_f T_f - (1/6) n_s T_s. All constants are
+DERIVED from the engine, not quoted: k = Tr(T^A T^B)/delta from the
+45 published generators on the 32 module (T(32), and T(16) = T(32)/2
+for one Weyl family), C_A from Tr(f f) on the adjoint built from the
+published structure constants; each constant is certified to lie in
+(1/2)Z within 1e-9 before it is used (then EXACT Fraction
+arithmetic). Census n_g in 0..2 (gauge copies), n_f = N_16 families
+0..6 (16-spinor Weyl packs), n_s in 0..4 (real scalars): list every
+exact b = 0. Headline: any zero at n_f = 3 (the published generation
+number) is reported as an exact conformal candidate.
+(B) INVERTED FIXED-POINT COUPLING. For each booked V352 insertion
+channel J (J1 = I, J2 = Cartan quadratic, J3 = step dressing),
+solve for the amplitude alpha* making the PUBLISHED clock a fixed
+point of the dressed ladder: h_J(alpha) = rootB(g_obs, alpha J) -
+g_obs = 0, bisection 30 (contraction ~0.01 guarantees root-at-anchor
+is the fixed point to O(alpha^2) - booked; the fixed point itself is
+then verified by the V352 iteration at alpha*, guard 1e-9). T0
+sanity: h_J(0) = 0 reproduces the published anchor; the published
+fingerprint ratio (COEF_OBS / coef_at_fifth)^(1/10) is re-derived
+and matched to the V205 closed-crossing deficit (0.9895...) at
+1e-9 before any solve.
+(C) REALIZABILITY CENSUS. alpha* and alpha*/LOOP are run through
+mpmath pslq (degree <= 6, coefficients <= 1e4) and tested against
+the published integer arithmetic: exact membership of
+{m/2, m/3 : m <= 60} at 1e-8 and of the engine-derived integers
+{3, 12, 16, 32, 45, C_A, T(32)}. The needed SIGN is reported (which
+spin statistics produce it) and only sign-consistent content counts
+as a candidate.
+BRANCH WORDS: NEW-THEORY-CANDIDATE (alpha* is EXACTLY an admissible
+published integer at 1e-8, sign-consistent: booked consequence - the
+sector enters the paper as the external completion of the clock
+mechanism and the full anchor battery is re-run with it; no identity
+claim without that re-run) / NEW-THEORY-REQUIRED (the inverse
+problem is solved exactly but the required coupling is not in the
+published arithmetic: the exact required number is printed and named
+by PSLQ - "here is what the new theory must couple at", the theory
+itself still missing) / NO-PUBLISHED-ARITHMETIC-FIX (no exact
+realization and no PSLQ name: the clock's completion lies outside
+the paper's number system - the closure form the data take).
+Cost booked: ~40 s (two channels bisected; J3's g-dependence is
+amplitude-scaled), seconds for (A).
