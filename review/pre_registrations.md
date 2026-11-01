@@ -5677,3 +5677,22 @@ initialisation on a never-before-used card (each GPU experiment imports the
 engine in a fresh process; on the warm parent card the booked profile
 amortizes it). Cost lesson booked, not a verdict change: full re-gates
 should run on the warm card or with a warmed kernel cache.
+
+# Paper consolidation rebuild (2026-11-01, documentation edit — no experiment)
+Not an experiment pre-registration: a bookkeeping note for the paper rewrite.
+doc/final_publication.md rebuilt as one integrated theory paper in 3 parts on top of
+the committed 395,601-byte manuscript (git 267079a/a973e11 keep the old text): new
+size 317,653 bytes, 1120 lines. Structure: 17 sections + appendices A/B (old 19
+sections; old clock section folded into 5.2-5.3, old doublers into 6, bond layer 7,
+classical gravity 8, metric content/light cone 9, loop+ladder 10, phenomenology 11,
+cosmology 12, audit 13, open problems 14, falsifiers 15, discussion 16, conclusion 17).
+Removed per the declared edit list: the hunt chronology, implementation strata in the
+Table 6/7 cells, internal branch tokens (the bold *-DECLARED words), the two-dial/
+interacting/physical/dynamical re-test rows of Table 8 (their verdicts folded into one
+scope paragraph); the four contact rows kept at Table 7's tail. Every printed decimal
+kept verbatim with its citation adjacency; no new numbers introduced. Checks:
+number_audit PASS (765 decimal tokens: 742 artefact-backed, 15 bibliography, 12
+derived, 0 unexplained); all 25 figure references resolve to existing files; section
+cross-refs re-mapped in README.md, experiments/README.md, doc/api.md, doc/README.md.
+PDFs rebuilt: consolidated 74 pp (was 90), REVTeX journal 61 pp (was 75). No
+experiment state, gate, or artifact touched.

@@ -58,7 +58,7 @@ hierarchy, the DM mass and the neutrino ladder are organised by one loop-factor
 **ansatz** $(1/16\pi)^n$ with fitted coefficients; the Born rule, the
 spin–statistics identification and the split-node set are declared inputs.
 Every headline number carries a provenance class — *algebraic*, *conventional*,
-*fitted*, *conditional* or *open* (the audit, Section 15 of the paper).
+*fitted*, *conditional* or *open* (the audit, Section 13 of the paper).
 
 ## The paper
 
@@ -111,7 +111,7 @@ CL10/
 │   ├── engine.py             # the single computation core: the backend choice, the array type, the primitives (matmul/einsum/roll, the spectral operators, the integrator) and the GPU/host routing policy
 │   ├── config.py             # the configuration loader: reads config.yaml, applies the environment, exposes CFG
 │   ├── config.yaml           # ONE file for the numbers: backend policy, routing thresholds, pool, physics + SM inputs, angle branches, desert thresholds, tolerance bands
-│   ├── coupling.py           # the one parameter of the step: the root-clock angle (closed pi/4, the default; implemented 1/5 and half pi/2 are reference angles) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - the readings are conventions, Section 15
+│   ├── coupling.py           # the one parameter of the step: the root-clock angle (closed pi/4, the default; implemented 1/5 and half pi/2 are reference angles) and the two coupling readings (alpha_10 = g^2, g_0 = 1/8) - the readings are conventions, Section 13
 │   ├── parpool.py            # the forked process pool the experiments batch through (pool: in config.yaml, CL10_NJOBS)
 │   ├── clifford.py           # the Cl(10) root (the 10 generators, the 1024)
 │   ├── spacetime.py          # the (1,3) inside the GUT (time+space GUT dirs)
@@ -291,7 +291,7 @@ nature. The comparisons against data ($v/M_P$, $m_\nu$, $\Delta B$,
 $m_{\rm DM}$, $\Omega_{\rm DM}h^2$, $\tau_p$) are the phenomenological content,
 and each carries the residual named in the paper.
 
-**The parameter audit** (Section 15 of the paper) classifies every headline number:
+**The parameter audit** (Section 13 of the paper) classifies every headline number:
 **7 algebraic** invariants; **free parameters 1 → 0** (the closure axiom
 quantizes the 't Hooft angle to $g \in \{\pi/2, \pi/4\}$ — the physical root
 $\theta = 1.731$ is one of two discrete roots fixed by the closure of the

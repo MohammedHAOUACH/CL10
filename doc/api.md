@@ -11,7 +11,7 @@ exports are listed.
 
 ## The provenance vocabulary
 
-The publication (`doc/final_publication.md`, Section 15) classifies every
+The publication (`doc/final_publication.md`, Section 13) classifies every
 number. The same classes are used here:
 
 | class | meaning | example |
@@ -242,7 +242,7 @@ $\operatorname{kron}(P(q), U_{\rm cell}^6)$, $288\times288$ (V196).
 ## 14. `cl10.qca` — the metric field and the on-site factor
 
 The metric is a **field added to the algebra**, not a number of it: the sector
-assumes a symmetric rank-2 field and $G = 1$ (Section 11.1). The 3+1 evolution
+assumes a symmetric rank-2 field and $G = 1$ (Section 8.1). The 3+1 evolution
 lives in `cl10.einstein` / `cl10.gravity` / `cl10.numrel`.
 
 | symbol | signature | returns |
@@ -582,8 +582,8 @@ self-check.
 
 ## 42. `cl10.continuum` — the continuum criterion: point groups, the star module, and the shift group of a module
 
-The library side of Section 8.5: which symmetries a gapless locus carries, what
-the icosahedral route costs, and what algebra the loop ladder of Section 12.1
+The library side of Section 6.6: which symmetries a gapless locus carries, what
+the icosahedral route costs, and what algebra the loop ladder of Section 10.1
 lives on. Exact rational arithmetic for the star (`exact` coordinates as
 $(a,b)$ meaning $a + b\sqrt5$), float matrices for the group actions.
 
@@ -701,10 +701,10 @@ different Hilbert space.
 | `cl10.u10pred.ALPHA_EM_INV` | `127.9` | the electromagnetic coupling at $M_Z$ (PDG) |
 | `CFG.desert.theta_root_rad` | `1.7307836435290485` | the root direction of the Wilson term (V65, the $\mathrm{X}_1$ selective root), the angle the ladder is read at; written at the precision it was measured at, because the regression checks test it to $10^{-5}$ |
 | `CFG.physics.wimp_window_gev` | `[100, 1000]` GeV | the observed WIMP window the 0-parameter DM scale is compared against (`parameter_audit`, point 4) |
-| `CFG.physics.f_10_measured` | `0.019186` | the measured hierarchy input of Section 12.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) |
+| `CFG.physics.f_10_measured` | `0.019186` | the measured hierarchy input of Section 10.1: $F_{10}$ on the closed traced word census at the rung-10 clock $g = 1/5$ — the clock the data reads, to relative $10^{-5}$ (V85/V113, V206) |
 | `CFG.physics.v_over_mplanck_observed`, `hierarchy_coefficient_observed` | derived, never written | `2.0167255e-17` $=$ `physics.v_electroweak_gev / physics.m_planck_gev` and `2.0765641` $=$ that quotient in units of $loop^{10}$: the loader derives both from the two measured constants, so neither ratio has a second copy (V59/V108/V203 compute the same value; V113 reads it). The closed clock reads the coefficient as $2.710$ certified (float64 ladder $2.699$–$2.700$) — $+30\%$, the clock tension — read by `u10pred.hierarchy()` |
 | `CFG.units.ev_per_gev` | `1e9` | the eV↔GeV conversion (an exact decimal prefix): the one conversion every eV quote of the ladder uses |
-| `CFG.neutrino.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.307`, `0.579`, `0.022` | the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0, NO; the second octant — the octant is unresolved, Section 13.5) |
+| `CFG.neutrino.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.307`, `0.579`, `0.022` | the observed PMNS mixings the flavour comparisons run against (NuFIT 6.0, NO; the second octant — the octant is unresolved, Section 11.5) |
 | `CFG.ckm.obs_sin2_theta12`, `_theta23`, `_theta13` | `0.050`, `0.949`, `0.020` | the measured CKM-side numbers of the same mixing comparisons |
 | `cl10.u10pred` (atomic) | `13.605693` eV | the hydrogen Rydberg energy (CODATA), the input of `simulation/hydrogen` |
 | `cl10.coupling.G10` | the active branch angle | `closed` $\pi/4$ (default, the root clock), reference `implemented` $1/5$ (convention), `half` $\pi/2$ |
