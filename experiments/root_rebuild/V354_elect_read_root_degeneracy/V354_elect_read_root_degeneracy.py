@@ -165,8 +165,6 @@ def main():
         status, ok = "ELECT-READ-ROOT-DEGENERATE-NO-ARITH", True
     elif solved_both:
         status, ok = "ELECT-SPLIT", True
-    elif deg_any:
-        status, ok = "ELECT-READ-ROOT-DEGENERATE-NO-ARITH", True
     else:
         status, ok = "ELECT-NO-READ-OR-NO-ROOT", True
 
