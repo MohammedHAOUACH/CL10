@@ -189,3 +189,105 @@ Cost booked: 9 configurations x (4 momenta + M/R stars + closure scan
 to 240 at 256 dims) ~ minutes on GPU 1 (256-dim host path measured
 faster for single matmuls; the power scan and eigens go through the
 engine routing).
+
+## V336 run note (post-run; verdict as booked)
+ROOT-2I-E8-STRUCTURE-EXACT, all seven checks green, wall ~30 s host
+(exact Fraction/Bareiss + 50-dp mpmath: no GPU path exists in this
+experiment; GPU 1 is engaged by V337 per the user directive).
+Run hygiene booked: (1) the first run's generator pair (5-fold about z +
+3-fold about (1,1,1)) generates an INFINITE group - z is not a 5-fold axis
+of the (0,+-1,+-phi) icosahedron - the exact BFS never saturated and the
+run was cut at the 300 s cap with no artifact; corrected to the face/vertex
+pair (q_f = (1+i+j+k)/2, q_v = rotation 72 deg about the edge-adjacent
+vertex (0,1,phi)), float64 dedup closure with a 500-element infinite-group
+guard: count exactly 120, order multiset exact, unit drift 1.1e-16; the
+K-identity stays exact. (2) The hardcoded E8 simple system followed a
+wrong fork convention (it spans D8 + A8 - the first green-ish run showed
+n_roots 184 because all_roots enumerated e_i - e_j only (56) not +-e_i
++-e_j (112), and C^30 != I): both fixed by DERIVING the simple system
+from the 240 enumerated roots (generic positivity + indecomposability)
+- Cartan det 1, 240 roots norm^2 2, Coxeter order EXACTLY 30 (C^30 = I,
+C^k != I for all proper divisors), marks (3,4,6,5,4,3,2,2) -> dimension
+vector sorted [1,2,2,3,3,4,4,5,6], sum d^2 = 120 = |2I| EXACTLY, A_aff d
+= 0 and the McKay 2 d_i = N d recursion at every vertex: the 2I/E8
+correspondence certified, not quoted. (3) The booked T3 expectation "4
+radii" was wrong (a D8 guess): the E8 Coxeter plane holds 8 rings x 30,
+angle set closed under +2pi/30, and the smallest ring ratio is NAMED
+phi exactly (PSLQ x^2 - x - 1, rho 1.61803398875): the golden ratio is a
+radii ratio of the E8 Coxeter projection. (4) highest-root coordinates:
+( alpha_i, theta ) are Cartan-weight coordinates, not simple-basis marks;
+solved through the exact Cartan inverse (the booked marks are the simple-
+basis coefficients). No class change, no target change.
+
+## V337 run note (post-run; verdict as booked)
+ENGINE2I-STRUCTURE-BREAKS, all three T0 gates green (published anchor:
+M-gapless 0.0e+00, internal mirror 8.9e-16, unitarity 7.2e-15, GAMMA
+closure order 2; T0b: S-triple exact, U_2I^5 = -I at 1.7e-16, adjoint
+SO(3) with trace = phi at 0.0e+00 - the golden ratio enters the engine;
+T0c: cupy GPU 1 vs host numpy, eigenphases 1.33e-15, 39-step power scan
+1.44e-15 - verdicts path-invariant), wall ~10 s, grid 3 internal angles
+x 3 hop angles. Gate hygiene booked: (1) my R-point check demanded
+cluster sizes divisible by 3 - false for the coupled 256-dim Bloch
+spectrum (the paper's 3-fold statement is about the multiplet structure
+of the unfolded description; the coupled anchor clusters are [32, 48]):
+the grid now compares the CLUSTER-SIZE SIGNATURE to the anchor. (2) My
+q -> -q pairing at fixed generic q is not a theorem of the published
+step (residual 1.0 - the chirality pairing lives at the M stars, the
++- pairing at the on-site layer): demoted to data; the internal-layer
+mirror is the gated observable. (3) bloch returns host matrices (house
+convention at 128/256 dims; the GPU is engaged by the T0c eigens and the
+power scan). Physics, as measured: with 2I internal elements the step
+stays EXACTLY unitary (<= 1.4e-15), keeps the on-site +- pairing
+(1e-16), det = 1 exactly (0.0e+00 phase), 0-point at GAMMA (<= 1.4e-14),
+and CLOSURES RICHER than the published step: order 10 at cubic hops
+(published 2), order 5 at 5-fold hops - the 5 lives in the algebra
+without breaking unitarity anywhere. What breaks: the M-point exact
+gaplessness (the massless doublers, the chiral content) acquires masses
+0.105 to 6.28 rad at 7 of 9 grid points (the two gap-preserving points,
+(w, b) = (0.4 pi, 0.4 pi) and (0.8 pi, 0.2 pi), are accidental zeros,
+not a branch); the R cluster signature [32, 48] survives only with the
+cubic hop (beta = pi/4), [16, 48] with 5-fold hops. Verdict: the digit 5
+is compatible with the metric half of the automaton (unitarity, pairing,
+det, closure) and incompatible with its fermion half (massless nodes)
+INSIDE THE CUBIC CELL: the 8 and the 5 cannot share this cell; the root
+replacement must change the cell, not its angles. A5 has no transitive
+action on 8 points (60/8 not an integer) - the booked structural reason
+the cell cannot carry the icosahedral group.
+
+## V338 run note (post-run; verdict as booked)
+ROOT-NUMBERS-UNNAMED, wall 14 s host (mpmath scalars; no GPU path),
+V335 guards verbatim. D1 (pi-free structural monoid 2^a 3^b 5^c 7^d
+phi^f sqrt3^j, |exponents| bounded): best margins g_obs 1.006e-5 (this
+is the booked 1/5 relative 10^-5), g_cross 8.284e-5, COEF_OBS 1.449e-5,
+LOOP 1.125e-4 - all seven-plus orders above the 1e-12 naming gate; no
+D1 name. Continued fractions q <= 1e6 (exact evaluation): g_obs best
+19884/99421 at 4.950e-12 (reproducing V335's leaf exactly), g_cross
+164414/821523 at 1.707e-13 (below the gate - a coincidental convergent,
+booked O(1)-per-number density at q <= 1e6: naming g_cross by
+164414/821523 carries no selection content, and the K1 band logic of
+V335 still holds: the crossing number is not structural), COEF_OBS and
+LOOP at 1.4e-12 / 2.4e-12. PSLQ (degree <= 6, H <= 20, 60 dp with the
+1e-30 substitution check): ZERO hits on all four targets. Booked
+Coxeter probe: |30 g_obs - 6| = 6.035e-5 - the clock is NOT 6/30 to any
+structural precision. n* = 208 additive census over the structural
+integers: 1704 hits among the booked pattern space - a representation
+208 = 240 - 32 exists but proves nothing at that density (guard booked
+before the run). LOOP at D0: named trivially by (2^4 pi)^-1 = 1/(16 pi)
+- the booked non-discovery (geometric tier admits 4 pi and any multiple;
+the ladder base is the Einstein-Hilbert coefficient 1/(16 pi G) at G = 1,
+noted, not counted as a birth).
+
+## Root-rebuild first-candidate verdict (N1 = 2I/E8), all three tests run
+STRUCTURE: TRUE (V336 - the 8 and the 5 are one datum: McKay 2I = affine
+E8 certified by computed marks; |W(E8)| = 2^14 3^5 5^2 7; phi is a Coxeter-
+plane radii ratio). ENGINE INSIDE THE OLD CELL: NO (V337 - the 5 breaks
+the massless nodes of the cubic cell; closure/unity survive). NUMBERS:
+NO (V338 - none of g_obs, g_cross, COEF_OBS, LOOP is named by the root's
+structural arithmetic at 1e-12). N1 is adjudicated as a certified
+skeleton resonance, not the new theory. The open branch (V334's
+transcendental-coefficient exit) stays open and is untested: it requires
+a cell that is not cubic - the icosahedral candidate cell cannot be an
+8-point cell (A5 has no index-8 subgroup) - which the programme books as
+the shape of candidate N2: an icosahedral COMBINATORICS on more
+sub-sites (A5 acts on 12 or 20 points: the dodecahedron/icosahedron
+vertices) with the clock born as a period of the counting.

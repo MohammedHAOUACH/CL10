@@ -1,0 +1,101 @@
+{
+ "id": "V338_root_period_census",
+ "tier": 2,
+ "property": "does the 2I/E8 root forge the tribunal numbers (root-rebuild N1 census)",
+ "residual": true,
+ "programme": "root-rebuild V338",
+ "branch": "ROOT-NUMBERS-UNNAMED",
+ "data": {
+  "D0_best_g_obs": {
+   "margin_rel": "5.26281e-6",
+   "form": "pi^1 2^-1 3^-1 5^0 7^0 phi^-2"
+  },
+  "D0_best_g_cross": {
+   "margin_rel": "4.02944e-5",
+   "form": "pi^4 2^1 3^-2 5^-2 7^-1 phi^1"
+  },
+  "D0_best_COEF_OBS": {
+   "margin_rel": "8.30393e-7",
+   "form": "pi^1 2^1 3^0 5^-1 7^1 phi^-3"
+  },
+  "D0_best_LOOP": {
+   "margin_rel": "5.17176e-17",
+   "form": "pi^-1 2^-4 3^0 5^0 7^0 phi^0"
+  },
+  "D1_best_g_obs": {
+   "margin_rel": "1.00582e-5",
+   "form": "2^0 3^0 5^-1 7^0 phi^0 sqrt3^0"
+  },
+  "D1_best_g_cross": {
+   "margin_rel": "8.28381e-5",
+   "form": "2^-1 3^-3 5^3 7^-2 phi^3 sqrt3^0"
+  },
+  "D1_best_COEF_OBS": {
+   "margin_rel": "1.44906e-5",
+   "form": "2^2 3^1 5^-2 7^1 phi^-1 sqrt3^0"
+  },
+  "D1_best_LOOP": {
+   "margin_rel": "0.000112462",
+   "form": "2^-1 3^-4 5^4 7^-2 phi^-4 sqrt3^1"
+  },
+  "convergents_q1e6": {
+   "g_obs": [
+    "19884/99421",
+    "4.95032e-12"
+   ],
+   "g_cross": [
+    "164414/821523",
+    "1.70743e-13"
+   ],
+   "COEF_OBS": [
+    "432974/208505",
+    "1.43805e-12"
+   ],
+   "LOOP": [
+    "18634/936647",
+    "2.37623e-12"
+   ]
+  },
+  "pslq": {
+   "g_obs": [
+    null,
+    false
+   ],
+   "g_cross": [
+    null,
+    false
+   ],
+   "COEF_OBS": [
+    null,
+    false
+   ],
+   "LOOP": [
+    null,
+    false
+   ]
+  },
+  "coxeter_probe_abs_30gobs_minus_6": "6.03493e-5",
+  "nstar_208_additive_hits": 1704,
+  "nstar_208_example": [
+   -2,
+   240,
+   3,
+   240,
+   -1,
+   32
+  ],
+  "status": "ROOT-NUMBERS-UNNAMED"
+ },
+ "checks": [
+  {
+   "name": "D1 (pi-free structural tier): margins {'g_obs': '1.006e-5', 'g_cross': '8.284e-5', 'COEF_OBS': '1.449e-5', 'LOOP': '0.0001125'}; NAMED at 1e-12: none; convergents q<=1e6 residuals {'g_obs': ('19884/99421', '4.95032e-12'), 'g_cross': ('164414/821523', '1.70743e-13'), 'COEF_OBS': ('432974/208505', '1.43805e-12'), 'LOOP': ('18634/936647', '2.37623e-12')}; PSLQ hits {'g_obs': False, 'g_cross': False, 'COEF_OBS': False, 'LOOP': False}",
+   "pass": true
+  },
+  {
+   "name": "booked Coxeter probe: |30 g_obs - 6| = 6.03493e-5 (structural gate 1e-12: NO); n* = 208 additive census: 1704 hits (density guard - a hit among 1704+ proves nothing), example (-2, 240, 3, 240, -1, 32); LOOP named at D0 (16 pi geometry): True (booked non-discovery)",
+   "pass": true
+  }
+ ],
+ "status": "ROOT-NUMBERS-UNNAMED",
+ "pass": true
+}

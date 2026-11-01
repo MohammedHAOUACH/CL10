@@ -1,0 +1,220 @@
+{
+ "id": "V337_2i_engine",
+ "tier": 2,
+ "property": "the automaton engine with a binary-icosahedral internal element: does the skeleton survive (root-rebuild)",
+ "residual": false,
+ "programme": "root-rebuild V337",
+ "branch": "ENGINE2I-STRUCTURE-BREAKS",
+ "data": {
+  "backend": "cupy?",
+  "gpu": "1",
+  "T0b": {
+   "Sq_I4": 0.0,
+   "anticom": 0.0,
+   "unit": 1.3212558034834041e-17,
+   "U5_plus_I": 1.6653345369377348e-16,
+   "adjoint_trace_minus_phi": 0.0,
+   "adjoint_SO3": 1.3212558034834041e-17
+  },
+  "T0a": {
+   "pub_gap_M": 0.0,
+   "pub_R_cluster_sizes": [
+    32,
+    48
+   ],
+   "pub_internal_mirror": 8.881784197001252e-16,
+   "pub_zone_pair": 1.047197551196576,
+   "pub_unitarity": 7.216449660063518e-15,
+   "pub_closure_k": 2
+  },
+  "grid": [
+   {
+    "omega": 0.2,
+    "beta": 0.25,
+    "unitarity": 3.336138517081563e-16,
+    "gapM": 0.31415926535897776,
+    "R_signature": [
+     32,
+     48
+    ],
+    "R_matches_published": true,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 0.0,
+    "zero_point": 5.684341886080802e-14,
+    "det_phase": 0.0,
+    "closure_k": 10,
+    "closure_err": 1.9777942526733977e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.2,
+    "beta": 0.2,
+    "unitarity": 6.662061265551661e-16,
+    "gapM": 0.6283185307179561,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 1.2566370614359164,
+    "zero_point": 62.83185307179582,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 1.3322676295501878e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.2,
+    "beta": 0.4,
+    "unitarity": 1.4432899320127035e-15,
+    "gapM": 0.628318530717955,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 0.0,
+    "zero_point": 12.566370614359158,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 3.1086244689504383e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.4,
+    "beta": 0.25,
+    "unitarity": 4.440892098500626e-16,
+    "gapM": 0.10471975511965799,
+    "R_signature": [
+     32,
+     48
+    ],
+    "R_matches_published": true,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 0.0,
+    "zero_point": 5.684341886080802e-14,
+    "det_phase": 0.0,
+    "closure_k": 10,
+    "closure_err": 1.847891413943022e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.4,
+    "beta": 0.2,
+    "unitarity": 6.661646352439542e-16,
+    "gapM": 0.4578908953635864,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 1.5543122344752192e-15,
+    "zero_point": 0.0,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 1.1102230246251565e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.4,
+    "beta": 0.4,
+    "unitarity": 8.8823838042161e-16,
+    "gapM": 0.0,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 1.1102230246251565e-16,
+    "zone_pair": 0.0,
+    "zero_point": 1.4210854715202004e-14,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 1.7058177863933392e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.8,
+    "beta": 0.25,
+    "unitarity": 4.440946149219938e-16,
+    "gapM": 0.3141592653589776,
+    "R_signature": [
+     32,
+     48
+    ],
+    "R_matches_published": true,
+    "internal_mirror": 2.220446049250313e-16,
+    "zone_pair": 0.0,
+    "zero_point": 5.684341886080802e-14,
+    "det_phase": 0.0,
+    "closure_k": 10,
+    "closure_err": 2.3809712471128865e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.8,
+    "beta": 0.2,
+    "unitarity": 6.661414874198286e-16,
+    "gapM": 0.0,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 2.220446049250313e-16,
+    "zone_pair": 8.881784197001252e-16,
+    "zero_point": 0.0,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 1.9245745585677146e-15,
+    "holds": false
+   },
+   {
+    "omega": 0.8,
+    "beta": 0.4,
+    "unitarity": 4.441286837482875e-16,
+    "gapM": 0.437044077110652,
+    "R_signature": [
+     16,
+     48
+    ],
+    "R_matches_published": false,
+    "internal_mirror": 2.220446049250313e-16,
+    "zone_pair": 2.1094237467877974e-15,
+    "zero_point": 0.0,
+    "det_phase": 0.0,
+    "closure_k": 5,
+    "closure_err": 8.881784197001252e-16,
+    "holds": false
+   }
+  ],
+  "T0c": {
+   "eig_host_vs_gpu": 1.3322676295501878e-15,
+   "pow_host_vs_gpu": 1.4432899320127035e-15
+  },
+  "status": "ENGINE2I-STRUCTURE-BREAKS"
+ },
+ "checks": [
+  {
+   "name": "T0b Spin(3) triple: S_a^2 = I/4 (max 0.0e+00), pairwise anticommutators (0.0e+00); U_2I(2pi/5) unitary 1.3e-17, U^5 + I = 1.7e-16 (ORDER 10); spatial adjoint SO(3) 1.3e-17 with trace - phi = 0.0e+00 (GOLDEN RATIO IN THE ENGINE)",
+   "pass": true
+  },
+  {
+   "name": "T0a published-step anchor through the V337 machinery: M points gapless (min |phase| 0.0e+00), R cluster-size signature [32, 48] (the reference for the grid), internal +- mirror 8.9e-16, q->-q doubling 1.0e+00, unitarity 7.2e-15, GAMMA closure order 2",
+   "pass": true
+  },
+  {
+   "name": "T0c GPU-1 (cupy, CUDA_VISIBLE_DEVICES=1) vs host numpy: eigenphases at GAMMA max diff 1.33e-15, 39-step power scan 1.44e-15 - verdicts are path-invariant",
+   "pass": true
+  },
+  {
+   "name": "tribunal: 0 of 9 (internal angle x hop angle) grid points keep unitarity + gapless M + exact 3-fold R + mirror pairing",
+   "pass": true
+  }
+ ],
+ "status": "ENGINE2I-STRUCTURE-BREAKS",
+ "pass": true
+}

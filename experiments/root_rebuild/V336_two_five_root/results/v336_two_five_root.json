@@ -1,0 +1,156 @@
+{
+ "id": "V336_two_five_root",
+ "tier": 2,
+ "property": "certify the binary icosahedral/E8 root candidate N1 structure (root-rebuild)",
+ "residual": false,
+ "programme": "root-rebuild V336",
+ "branch": "ROOT-2I-E8-STRUCTURE-EXACT",
+ "data": {
+  "order_2I": 120,
+  "weyl_order": 696729600,
+  "highest_root_marks": [
+   "3",
+   "4",
+   "6",
+   "5",
+   "4",
+   "3",
+   "2",
+   "2"
+  ],
+  "dim_vector": [
+   1,
+   "2",
+   "2",
+   "3",
+   "3",
+   "4",
+   "4",
+   "5",
+   "6"
+  ],
+  "phi_ratio_hit": true,
+  "radii_clusters": [
+   [
+    "0.258408572365",
+    30
+   ],
+   [
+    "0.418113853071",
+    30
+   ],
+   [
+    "0.513985966335",
+    30
+   ],
+   [
+    "0.62143829274",
+    30
+   ],
+   [
+    "0.7639320225",
+    30
+   ],
+   [
+    "0.831646763271",
+    30
+   ],
+   [
+    "1.00550827956",
+    30
+   ],
+   [
+    "1.2360679775",
+    30
+   ]
+  ],
+  "radii_ratios": [
+   [
+    "1.61803398875",
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     -1
+    ]
+   ],
+   [
+    "1.98904379074",
+    null
+   ],
+   [
+    "2.40486717237",
+    null
+   ],
+   [
+    "2.95629520147",
+    [
+     1,
+     3,
+     0,
+     0,
+     0,
+     -3,
+     1
+    ]
+   ],
+   [
+    "3.21834045852",
+    null
+   ],
+   [
+    "3.89115682333",
+    null
+   ],
+   [
+    "4.78338611675",
+    [
+     1,
+     0,
+     -4,
+     1,
+     1,
+     -5,
+     1
+    ]
+   ]
+  ],
+  "vol_S3_over_2I": "0.65797362673929057459",
+  "status": "ROOT-2I-E8-STRUCTURE-EXACT"
+ },
+ "checks": [
+  {
+   "name": "T0a 2I closure of the face/vertex icosahedral pair: count 120, unit-norm drift 1.1e-16, order multiset == {1:1,2:1,3:20,4:30,5:24,6:20,10:24}: {1: 1, 2: 1, 3: 20, 4: 30, 5: 24, 6: 20, 10: 24}; exact K-identity cos^2(36)+sin^2(36) = 1 over Q(sqrt5,s): True",
+   "pass": true
+  },
+  {
+   "name": "T1 Cartan det == 1 (got 1); 240 roots, all norm^2 2 (True); n_roots 240",
+   "pass": true
+  },
+  {
+   "name": "T2 Coxeter C = R_1..R_8 exact: C^30 == I (True), C^k != I for k in {1,2,3,5,6,10,15} (True); |W| = prod(e+1) = 696729600 = {2: 14, 3: 5, 5: 2, 7: 1}",
+   "pass": true
+  },
+  {
+   "name": "T0b McKay from the computed E8: marks [Fraction(3, 1), Fraction(4, 1), Fraction(6, 1), Fraction(5, 1), Fraction(4, 1), Fraction(3, 1), Fraction(2, 1), Fraction(2, 1)] -> dim vector sorted [1, Fraction(2, 1), Fraction(2, 1), Fraction(3, 1), Fraction(3, 1), Fraction(4, 1), Fraction(4, 1), Fraction(5, 1), Fraction(6, 1)] (expect [1,2,2,3,3,4,4,5,6]), sum d^2 = 120 == |2I| 120 (True); A_aff d == 0 exactly (True); McKay 2 d_i == N d at every vertex (True); N symmetric (True)",
+   "pass": true
+  },
+  {
+   "name": "T3 Coxeter plane: null resid 1.1e-50; 8 radii with multiplicities [30, 30, 30, 30, 30, 30, 30, 30] (sum 240 == 240); angle set closed under +2pi/30 (True); ratios with PSLQ degree<=6: [('1.61803398875', [0, 0, 0, 0, 1, 1, -1]), ('1.98904379074', None), ('2.40486717237', None), ('2.95629520147', [1, 3, 0, 0, 0, -3, 1]), ('3.21834045852', None), ('3.89115682333', None), ('4.78338611675', [1, 0, -4, 1, 1, -5, 1])]",
+   "pass": true
+  },
+  {
+   "name": "T4 vol(S^3/2I) = pi^2/15 = 0.65797362673929057459 (5 in a volume denominator)",
+   "pass": true
+  },
+  {
+   "name": "T5 dimension identities: 45+15+60+64+64=248 (True); 16+16=32 the Weyl pair against Axiom 1's S (True); C(10,2)=45 (True) - content cited from standard branching tables, not derived",
+   "pass": true
+  }
+ ],
+ "status": "ROOT-2I-E8-STRUCTURE-EXACT",
+ "pass": true
+}
