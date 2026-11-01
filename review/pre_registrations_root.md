@@ -1357,3 +1357,34 @@ GPU directive honored: CUDA_VISIBLE_DEVICES=1 (physical GPU 1, RTX
 3090), device path identity-certified; the whole V352/V353 scan
 load runs on it (181-point dressed ladder per call in ~1 ms vs
 1.5 s host).
+
+## V354_elect_read_root_degeneracy (tier 1, hard; the decisive build
+test for an elected theory at the exact fifth; booked before the run)
+The user's directive: build the elected theory completely. The
+record's only rational candidate clock is g = 1/5 exactly (V309
+buried algebraic births of g_obs; the paper itself names the rung-10
+rational clock 1/5 as nature's, to relative 1e-5). An ELECTED theory
+must satisfy TWO readings with ONE sector:
+  READ: 3 (|F~_10(1/5; alpha J)| / LOOP)^10 = COEF_OBS  (the dressed
+        ladder at 1/5 reproduces the observed hierarchy coefficient
+        exactly - the same COEF_OBS the paper reads from config);
+  ROOT: rootB(1/5, alpha J) = 1/5  (1/5 is a self-consistent fixed
+        point of the dressed ladder: the clock is born, not set).
+alpha_read (bisection 40, single-point ladder evals) and alpha_root
+(scan 41 + bisection 30, GPU batched scans on GPU 1, continuation
+window) per booked channel J (identity, Cartan quadratic, step
+dressing). T0 gates: tree guards (rootB(1/5, 0) = g_obs to 1e-8 -
+the paper's own 2.012e-6 offset re-derived; reading at 1/5 matches
+the V206 coef_at_fifth artifact to 1e-9).
+CLASSIFICATION (booked): ELECT-READ-ROOT-DEGENERATE - |alpha_read -
+alpha_root| <= 1e-8 for some channel AND the common alpha is in the
+published arithmetic (m/q, q <= 60, or engine-integer multiples at
+1e-8): booked consequence - build the completion (V355): the content
+sector enters the clock mechanism and the FULL published battery
+coefficient/alpha_10/crossings is re-run as the elect's acceptance
+test; no paper claim without it. ELECT-SPLIT: both amplitudes exist
+but never coincide (the exact pair printed per channel): the
+published arithmetic cannot carry the elect at the fifth - the
+final construction closure. ELECT-NO-READ / ELECT-NO-ROOT /
+MACHINERY-DRIFT.
+Cost booked: ~5 min on GPU 1 (scan ~1 ms/call).
