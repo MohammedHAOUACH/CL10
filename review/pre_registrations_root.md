@@ -482,7 +482,7 @@ z = 1.00 +- 0.008 at 2pi/5 and 4pi/5, and an EXACT quadratic touching
 was too coarse to decide existence. Correction booked for V342: polish
 the contacts to 1e-16 (Nelder-Mead): the 2pi/5 contact IS an exact zero
 (gap 0.0 at q* = (-2.61758, 0.26195, -2.35595)) - V341's 2.7e-9 was a
-refine-floor artifact, verdict amended to N2B-GAPLESS-LINEAR.
+refine-floor artifact, verdict FIRST amended to N2B-GAPLESS-LINEAR, then SUPERSEDED by the V342 census: the zeros are 557 independent plane crossings with slopes 0.02-0.35 - NODAL SURFACES (a dressed metal), not chiral point nodes; V341 z=1 was a plane crossing its zero line, and V341 status word N2B-GAPPED-> see V342.
 V342_icosahedral_node_census: count the dressed Dirac nodes (grid
 cluster + polish + dedupe mod reciprocal/reflection) at 2pi/5 and
 4pi/5, and measure the cone anisotropy (velocity along 7 rays per
@@ -491,3 +491,27 @@ the 12 DOUBLER CHANNELS at M at the closed cubic clock; the census
 word N2B-NODE-ORBIT-<n> reports n and whether the nodes are a single
 reflection orbit; isotropy word CONE-ISOTROPIC (spread < 5 %) /
 CONE-ANISOTROPIC. Cost: ~60 s.
+
+## V342 run note (post-run)
+N2B-NODE-ORBIT-557-CONE-ANISOTROPIC (fired; the booked comparison loses
+badly): 557 distinct mod-reflection zeros at 2pi/5 (the un-deduped
+inline pass found 1104 - grid-seed splitting, same verdict), velocities
+0.023-0.354 along 7 rays at the first node: the dressed spectrum is 12
+cell phases + 16 flat internal planes; each pair (cell branch, internal
+phase) closes on a CODEIMENSION-1 SURFACE in q; the union is gapless on
+surfaces = a nodal-surface METAL. The published engine's massless
+content is 12 ISOLATED point doublers at M, protected by the cubic
+cell. VERDICT: the icosahedral cell FAILS the chiral test - not gapped
+and not Dirac, but worse: doubling catastrophe x192 surfaces. V341
+status amended to N2B-NODAL-SURFACES. The two cell facts now pin the
+obstruction exactly: cubic cell + cubic bond clock -> correct isolated
+linear doublers (published, certified pi/4); icosahedral cell -> clock
+5 born twice in combinatorics (V339: 12/60 = 1/5 EXACT as dimensionless
+number AND order-5 stage closure) but no protected point nodes. The
+elected assembly must put the CUBIC cell OUTSIDE (nodes come from the
+bond product P(q) exactly, and are immune to ANY internal unitary -
+supercell.bond_product: bloch = kron(P, U^k)) and the ICOSAHEDRON
+INSIDE (as the internal module replacing Spin(10)). No prior experiment
+tested that: V337 varied the bond angles (what the V342 lesson says to
+NEVER touch); the two-dial family V239 already decouples bond beta
+from internal g.
