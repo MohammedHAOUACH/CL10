@@ -2206,3 +2206,78 @@ N2B-NODE-ORBIT-557-CONE-ANISOTROPIC bit-for-bit (557 nodes, the
 published anchor 3.4e-16, M-gap 3.1e-17), pass True. No physics moved;
 the icosahedral cell still fails the chiral test - by measurement,
 not by construction.
+
+## V364 tension ledger - is the dial named by a pair of named things? (2026-11-01, booked BEFORE any run)
+
+Question (user choice after the V363 phase close, programme B): the
+elected theory costs exactly ONE dial, beta_elect = -0.1555738920793496
+(V355.data.beta_elect), and the polynomial tribunal already found it
+unnamed AS A NUMBER. This census asks the structural version: is beta
+the DIRECT value, or the sum/difference/product/quotient, of TWO
+quantities that are already machine-named in published artifacts? If
+yes, the dial joins a named chain (still one dial, but no longer
+nameless in isolation); if no, this is one more booked brick for O8.
+
+POOL (reserved, harvested mechanically from these artifacts - no
+hand-typed decimals anywhere): V206 (clock tension residuals), V247
+(two-dial desert contacts), V335 (the 365 crossing roots + anchors),
+V350 (backreaction fixed point), V352 (external backreaction: lifts,
+Cartan data, FP drifts), V353 (inverse external sector), V354
+(classifier dial reads), V355 (the elected build: star, reading,
+crossing guards), plus the 24 provenance_table rows (numeric values
+only) and the four cl10.parameter_audit module constants (E, G10,
+M_P, V_EW). Harvest rule: every finite numeric leaf of data/ with
+abs(value) < 1e6; key path = the NAME. TARGET: V355.data.beta_elect
+(read from the artifact at run time). Clone removal: any leaf equal to
+the target at relative 1e-14 is dropped from the pool (the dial
+appears in V354/V355 twice by construction).
+
+OPERATIONS (all five, exact-Decimal arithmetic at 40 digits, relative
+tolerance 1e-12 with absolute 1e-15 for |value| < 1e-6): direct x ~
+beta; and for ordered pairs x != y: x + y, x - y, y - x, x * y, x / y
+(y != 0). CHANCE DISCIPLINE booked: pool size N <= 2000 leaves => at
+most 4x10^6 ordered pairs x 5 ops + N direct = 2x10^7 tests; op-values
+spread over abs < 1e12 (products of bounded pairs), per-test chance
+of landing within 2e-12 of the target <= 2e-12/1e12 ~ 2e-24, total
+expected false hits <= 4x10^-17 - a hit at this tolerance is a fact,
+not a coincidence.
+
+VERDICT WORDS: BETA-NAMED-DIRECT-<path> (a pool leaf IS the dial;
+pass, tier 2 GREEN as a naming) / BETA-NAMED-PAIR-<op>:<xpath>:<ypath>
+(pass, tier 2 GREEN) / BETA-CONVENTION-CHAIN-<op>:<xpath>:<ypath>
+(booked pre-run addendum: if the only hits are pairs where BOTH
+leaves live inside the V355/V354 build itself - e.g. alpha_elect
+times an inverse-loop constant, a relation the build DEFINES by
+convention - that is the dial chasing its own tail, reported as the
+negative with the chain named, pass TRUE) / BETA-NO-NAMED-PAIR
+(honest negative exactly in
+the house convention: the census machinery certified, the naming
+FAILS by measurement, pass TRUE, the word carries the negative) /
+MACHINERY-DRIFT (pool harvest or anchor red). Tier 2, residual TRUE
+(it speaks to O8). Gates: T0 anchor - beta_elect read from V355, and
+the V354 dial read agrees with it (relative 1e-12, the V355 booking's
+own consistency); T1 pool census booked bounds N <= 2000 and file
+count = 8 artifacts + table + 4 constants; T2 the scan. Cost booked:
+seconds (exact rational arithmetic over ~2x10^7 Decimal ops - under a
+minute; no GPU needed, host numpy/Decimal, GPU 1 pinned per house
+rule anyway). Fold: incremental after the run only.
+
+## V364 run note (post-run)
+
+BETA-NO-NAMED-PAIR (honest negative, pass True, tier 2, O8-facing):
+anchor V354/V355 dial agreement exact bit-for-bit; pool N = 525
+machine-named leaves (well under the booked 2000) from the 8
+artifacts + 20 numeric provenance rows + 4 audit constants; 1 376 025
+exact-Decimal tests (4 ops over ordered pairs + direct), ZERO hits -
+not a direct name, not a pair-sum/difference/product/quotient, and
+not even a convention-chain hit (the loop-factor constant 1/(16 pi)
+exists in the artifacts as a NAME in keys, never as a numeric leaf,
+so the alpha_elect tail never appears as a value pair). The verdict
+for O8 sharpens: the dial is not only unnamed as a number (V355
+tribunal), it is unnamed as a RELATION between published named
+quantities. The door left open by this census, honestly stated:
+pairs involving quantities NOT among published machine leaves (the
+nameless-loop-constant value, the 132 residuals' own values, or
+objects of the dressing module itself) are outside this pool -
+programme A (beta as an invariant of the dressing machinery) is the
+precise next cut.

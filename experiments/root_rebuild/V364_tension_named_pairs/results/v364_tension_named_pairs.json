@@ -1,0 +1,28 @@
+{
+ "id": "V364_tension_named_pairs",
+ "tier": 2,
+ "residual": true,
+ "property": "is the one dial of the elected theory named by a pair of machine-named published quantities",
+ "status": "BETA-NO-NAMED-PAIR",
+ "pass": true,
+ "data": {
+  "pool_size": 525,
+  "n_tests_bound": 1376025,
+  "hits": [],
+  "target": "-0.1555738920793496"
+ },
+ "checks": [
+  {
+   "name": "T0 anchor: beta_elect (V355) == census J1 beta (V354) to 1e-15 rel: True",
+   "pass": true
+  },
+  {
+   "name": "T1 pool census: N = 525 leaves from 8 artifacts + table + constants (booked <= 2000): True",
+   "pass": true
+  },
+  {
+   "name": "T2 scan over 1376025 tests: 0 hits (0 external-named, 0 internal-chain, 0 direct): True",
+   "pass": true
+  }
+ ]
+}

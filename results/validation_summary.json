@@ -1,6 +1,6 @@
 {
-  "n": 276,
-  "n_pass": 276,
+  "n": 277,
+  "n_pass": 277,
   "n_inconclusive": 0,
   "n_failed": 0,
   "pass": true,
@@ -10,7 +10,7 @@
   "n_backend_gpu": 57,
   "hard_tier": true,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 136,
+  "hard_tier_n": 137,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 132,
+  "n_named_residuals": 133,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -215,6 +215,7 @@
     "V334_clock_closure_rigidity",
     "V335_named_clock_roots",
     "V338_root_period_census",
+    "V364_tension_named_pairs",
     "V38_couplings_root",
     "V41_smatrix",
     "V43_qca_spectrum",
@@ -365917,6 +365918,49 @@
           },
           {
             "name": "T4 the Escher apices ARE the gapless certified 12-cell: apex graph (rule dot = 4 on the (2,2,0)-type apices) 24 edges (booked 24, 4-regular); walk moments W_1..W_12 = [0, 48, 48, 384, 960, 4608, 16128, 67584, 261120, 1056768, 4190208, 16809984]; char poly by Newton sums in exact integers [1, 0, -24, -16, 192, 192, -640, -768, 768, 1024, 0, 0, 0] vs booked cuboctahedral [1,0,-24,-16,192,192,-640,-768,768,1024,0,0,0]: bit-identical True; exact Fraction nullity 3 (booked 3): RHOMBIGAP's 3 zero modes survive the stellation - the engine is V362's verbatim, its RHOMBIC-NOT-ELECTED battery verdict stands (booked NOT re-run)",
+            "pass": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "V364_tension_named_pairs",
+      "dir": "V364_tension_named_pairs",
+      "tier": 2,
+      "property": "is the one dial of the elected theory named by a pair of machine-named published quantities",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "BETA-NO-NAMED-PAIR",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V364_tension_named_pairs",
+        "tier": 2,
+        "residual": true,
+        "property": "is the one dial of the elected theory named by a pair of machine-named published quantities",
+        "status": "BETA-NO-NAMED-PAIR",
+        "pass": true,
+        "data": {
+          "pool_size": 525,
+          "n_tests_bound": 1376025,
+          "hits": [],
+          "target": "-0.1555738920793496"
+        },
+        "checks": [
+          {
+            "name": "T0 anchor: beta_elect (V355) == census J1 beta (V354) to 1e-15 rel: True",
+            "pass": true
+          },
+          {
+            "name": "T1 pool census: N = 525 leaves from 8 artifacts + table + constants (booked <= 2000): True",
+            "pass": true
+          },
+          {
+            "name": "T2 scan over 1376025 tests: 0 hits (0 external-named, 0 internal-chain, 0 direct): True",
             "pass": true
           }
         ]
