@@ -515,3 +515,27 @@ INSIDE (as the internal module replacing Spin(10)). No prior experiment
 tested that: V337 varied the bond angles (what the V342 lesson says to
 NEVER touch); the two-dial family V239 already decouples bond beta
 from internal g.
+
+## V343_internal_icosahedral_contacts (N3 spectral-flow probe; booked then run)
+The N3 assembly (booked by the V342 lesson): cubic bond product P(q)
+OUTSIDE - its isolated linear M doublers are exact for ANY internal
+unitary (kron factorization, V239 two-dial family already decouples
+bond beta from internal g) - and the ICOSAHEDRAL 12-site module inside
+at q_icos = GAMMA (the V339 cell operator, five stages, exponent 6 as
+in the published step). This probe tests ONLY the clock: the spectral
+flow of the internal module U_icos(g)^6, g in (0, 1): contacts = g*
+where two eigenphases collide (mod 2π) or a phase hits 0. T0 anchor:
+V339 single-zero leaf re-verified (U_icos(2pi/5) has eigenphase 0 at
+2.3e-16). Measurement: scan step 1e-3, polish every local minimum of
+the pairwise phase gap to 1e-12, report ALL contacts on (0,1) and
+their distances to the desert data {g_obs, g_cross, 1/5}. Expected
+structure: phases are piecewise linear-in-g with integer slopes at
+small g (product of e^{+-ig} channels), so collisions sit at rational
+multiples of 2pi/D - the question is whether one lands on 0.2. BRANCH
+WORDS: N3-CONTACT-ONE-FIFTH (a contact at |g* - 1/5| <= 1e-12) /
+N3-CONTACT-DESERT (a contact at |g* - g_obs| <= 1e-9 or
+|g* - g_cross| <= 1e-9) / N3-NO-CONTACT-NEAR-THE-DESERT (all contacts
+listed, distances reported). Cost: ~30 s. If NO-CONTACT-NEAR: the
+icosahedron-as-internal clock channel closes too, and the only channel
+left open by the whole hunt is a DRESSING SERIES around a bare contact
+(booked consequence, N4).
