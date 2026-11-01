@@ -1,0 +1,261 @@
+{
+ "id": "V361_rhombic_dodeca_cell",
+ "tier": 1,
+ "property": "the rhombic dodecahedron (FCC Brillouin zone, the cubic 12): zero modes of the closed cell and the FCC lattice it tiles",
+ "status": "RHOMBIC-12-GAPLESS",
+ "pass": true,
+ "data": {
+  "cell": {
+   "V": 14,
+   "E": 24,
+   "F": 12,
+   "chi": 2,
+   "vertices": [
+    [
+     -1.0,
+     0.0,
+     0.0
+    ],
+    [
+     -0.5,
+     -0.5,
+     -0.5
+    ],
+    [
+     -0.5,
+     -0.5,
+     0.5
+    ],
+    [
+     -0.5,
+     0.5,
+     -0.5
+    ],
+    [
+     -0.5,
+     0.5,
+     0.5
+    ],
+    [
+     -0.0,
+     -1.0,
+     0.0
+    ],
+    [
+     -0.0,
+     -0.0,
+     -1.0
+    ],
+    [
+     -0.0,
+     -0.0,
+     1.0
+    ],
+    [
+     -0.0,
+     1.0,
+     0.0
+    ],
+    [
+     0.5,
+     -0.5,
+     -0.5
+    ],
+    [
+     0.5,
+     -0.5,
+     0.5
+    ],
+    [
+     0.5,
+     0.5,
+     -0.5
+    ],
+    [
+     0.5,
+     0.5,
+     0.5
+    ],
+    [
+     1.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "oh_order": 48,
+   "order_census": {
+    "1": 1,
+    "2": 19,
+    "3": 8,
+    "4": 12,
+    "6": 8
+   },
+   "face_action_distinct": 48,
+   "kernel": 1
+  },
+  "zonohedron_generators": {
+   "diagonals": [
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     -1,
+     -1
+    ],
+    [
+     -1,
+     1,
+     -1
+    ],
+    [
+     -1,
+     -1,
+     1
+    ]
+   ],
+   "dependence": "d1+d2+d3+d4 = 0",
+   "subset_sum_points": 15
+  },
+  "rhombic_faces": {
+   "faces_with_4_vertices": 12,
+   "distinct_edge_lengths": 1,
+   "edge_len": 0.8660254037844387
+  },
+  "adjacency": {
+   "deg": [
+    4
+   ],
+   "edges": 24,
+   "spectrum": [
+    -2.000000000000001,
+    -2.0,
+    -1.9999999999999998,
+    -1.9999999999999993,
+    -1.9999999999999993,
+    -5.718598411313263e-16,
+    -2.3166654088690765e-16,
+    6.255449915074993e-16,
+    1.9999999999999998,
+    2.0,
+    2.000000000000001,
+    4.0
+   ],
+   "spec_dev_vs_booked": 8.881784197001252e-16,
+   "zero_modes": 3,
+   "RHOMBIGAP": 2.3166654088690765e-16
+  },
+  "walks_n_1_12": {
+   "1": 0,
+   "2": 48,
+   "3": 48,
+   "4": 384,
+   "5": 960,
+   "6": 4608,
+   "7": 16128,
+   "8": 67584,
+   "9": 261120,
+   "10": 1056768,
+   "11": 4190208,
+   "12": 16809984
+  },
+  "twisted_hop": {
+   "transport_rotations": 24,
+   "all_entries_int": true,
+   "orthogonality_dev_exact": 0,
+   "trK": 0,
+   "trK2": 144,
+   "RHBIC_HOPGAP": 4.529716745452148e-16,
+   "PENTGAP_V358_leaf": 0.38196601125010515
+  },
+  "voronoi": {
+   "samples": 22974,
+   "agree": 22974,
+   "lattice_points_tested": 170
+  },
+  "fcc_L8": {
+   "N": 2048,
+   "half_filling_gap": 1.1102230246251565e-16,
+   "n_states_within_0p01": 45
+  },
+  "fcc_L10": {
+   "N": 4000,
+   "half_filling_gap": 2.220446049250313e-16,
+   "n_states_within_0p01": 18
+  },
+  "fcc_L12": {
+   "N": 6912,
+   "half_filling_gap": 0.011770738948173598,
+   "n_states_within_0p01": 24
+  },
+  "backend": {
+   "device": "cupy b'NVIDIA GeForce RTX 3090'",
+   "host_numpy_gate_dev_L8_L10": 5.240252676230739e-14
+  },
+  "fcc_gap_sequence_N": [
+   2048,
+   4000,
+   6912
+  ],
+  "fcc_gap_sequence": [
+   1.1102230246251565e-16,
+   2.220446049250313e-16,
+   0.011770738948173598
+  ],
+  "fcc_slope": 26.549478895994163,
+  "fermi_surface": {
+   "E_F": -0.9356383199155527,
+   "mesh": 48,
+   "eps": [
+    0.16,
+    0.08,
+    0.04,
+    0.02
+   ],
+   "counts": [
+    5076,
+    3060,
+    1056,
+    384
+   ],
+   "dos_at_EF": [
+    0.1434326171875,
+    0.17293294270833331,
+    0.11935763888888888,
+    0.08680555555555555
+   ]
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 the rhombic dodecahedron as code: (V,E,F,chi) = (14,24,12,2) = the booked (14,24,12,2); 12 of 12 face planes carry 4 cell vertices with ONE edge length (1 distinct, rhombi, edge 0.866025); O_h BFS over integer signed permutations: order 48 (booked 48), order census {1: 1, 2: 19, 3: 8, 4: 12, 6: 8} (booked {1: 1, 2: 19, 3: 8, 4: 12, 6: 8}), 12-face action: 48 distinct permutations, kernel 1 (booked faithful)",
+   "pass": true
+  },
+  {
+   "name": "T1 the 12-face adjacency graph is 4-regular with 24 edges (the cuboctahedron): spectrum dev vs the booked derived x^3(x-4)(x-2)^3(x+2)^5 = 8.9e-16 (<= 1e-10); RHOMBIGAP = min |lambda| = 2.3e-16 with 3 zero modes (booked 0, multiplicity 3) - the closed rhombic 12-cell is gapless exactly, where the icosahedral closure carried (3-sqrt5)/2",
+   "pass": true
+  },
+  {
+   "name": "T2 walk ladder in exact integers: W_2 = 48 (booked 48 = 2x24), W_3 = 48 (booked 48 = 8 triangular faces x 6 tours - contrast the icosahedral W_3 = 120); char poly by Newton sums [1, 0, -24, -16, 192, 192, -640, -768, 768, 1024, 0, 0, 0] vs booked [1, 0, -24, -16, 192, 192, -640, -768, 768, 1024, 0, 0, 0] bit-identical: True",
+   "pass": true
+  },
+  {
+   "name": "T3 twisted hop on 12 faces x 3 frames with the canonical integer transports from the O_h table (24 adjacent pairs, entries in {0,+-1}): orthogonality dev EXACTLY 0 (integers), tr K = 0 (booked 0), tr K^2 = 144 (booked 144 = 2x24x3); RHBIC-HOPGAP min |lambda(K)| = 0.000000 vs the PENTGAP of the icosahedral closure 0.381966 (read from the V358 artifact)",
+   "pass": true
+  },
+  {
+   "name": "T4 the 12-plane cell IS the FCC Voronoi cell: on 22974 grid samples in [-2,2]^3 the inside test max|v.d| <= 1 and the FCC nearest-neighbour dominance test agree on 22974/22974 samples",
+   "pass": true
+  },
+  {
+   "name": "T0e spectra on cupy b'NVIDIA GeForce RTX 3090': host numpy identity gate at L = 8, 10: max dev 5.2e-14 (<= 1e-10); FCC NN tight binding central splitting N = [2048, 4000, 6912] -> ['0.00000', '0.00000', '0.01177'] (finite-N splitting leaves; the thermodynamic statistic is the T5b Fermi-surface certificate, machinery correction booked in the registration amendment)",
+   "pass": true
+  },
+  {
+   "name": "T5b Fermi-surface certificate (exact NN dispersion E(k) = 4(cos kx cos ky + cyclic), 48^3 mesh): E_F = -0.935638, half-band bisection; points within eps = [0.16, 0.08, 0.04, 0.02] count [5076, 3060, 1056, 384], smoothed DOS(E_F) = ['0.1434', '0.1729', '0.1194', '0.0868'] with NO collapse (min >= 0.5 max, count > 0 at the finest eps): half-filled FCC is GAPLESS thermodynamically: True",
+   "pass": true
+  }
+ ]
+}

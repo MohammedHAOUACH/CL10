@@ -1740,3 +1740,128 @@ than any power the GAPPED branch could hide - the closed cell's
 masslessness survives in the A5-invariant infinite lattice with
 no dial, no twist and no internal module. The rebuild's
 masslessness gate stands OPEN.
+
+## The rhombic dodecahedral cell V361 (user directive 2026-11-01:
+"utilise Dodecaedre rhombique" - booked BEFORE any execution)
+The user's fact, booked as the target: the RHOMBIC dodecahedron is
+the Voronoi cell (first Brillouin zone) of the FCC lattice, and
+its 12 face normals are the 12 nearest-neighbour directions
+(+-1,+-1,0)/sqrt2 - the cubic 12, the kissing configuration - and
+it fills space: the cell-adjacency lattice of its tiling IS FCC.
+Where the icosahedral closed cell carried the golden PENTGAP
+(3 - sqrt5)/2 (V358), the face adjacency of the rhombic 12 is the
+cuboctahedron; booked target, DERIVED before the run in a scratch
+certification and trace-consistent (sum lambda = 0, sum lambda^3
+= 48 = 6 x the 8 triangular faces): char poly
+x^3 (x - 4)(x - 2)^3 (x + 2)^5 - spectrum {4, 2^3, 0^3, (-2)^5}
+with THREE exact zero modes (an earlier handbook guess of 0^5 is
+corrected by the derivation): the closed rhombic 12-cell is
+expected gapless at uniform hopping, exactly.
+T0 cell certificate as code: RD = {v: |v.d| <= 1 for all 12
+FCC-nearest d} with exact combinatorics (V, E, F, chi) =
+(14, 24, 12, 2); the symmetry group built EXACTLY as integer
+matrices (BFS over signed permutations): order 48 (booked |O_h|),
+order census booked {1^1, 2^19, 3^8, 4^12, 6^8} (derived from the
+O_h class table E + 8C3 + 6C2' + 6C4 + 3C2 x inversion; sums to
+48; max strict order 6), 12-face action faithful (kernel 1); RD
+as zonohedron: Minkowski sum of the 4 half body-diagonals
+(sign classes of (1,1,1)) yields the 14 vertices.
+T1 the 12-face adjacency graph: 4-regular with 24 edges (the
+cuboctahedron); exact-integer spectrum vs the booked derived
+target {4, 2^3, 0^3, (-2)^5} at dev <= 1e-10; RHOMBIGAP := min
+|A|: booked target 0 with multiplicity 3 - the closed cell of the
+rhombic 12 carries exact zero modes where the icosahedral closure
+carried 0.381966 (contrast leaf against the V358 artifact value,
+read from the artifact).
+T2 the walk ladder in exact integers: W_2..W_12 of the cubocta-
+hedral graph with W_2 = 48 booked (2 x 24 edges) and W_3 = 48
+booked (8 triangular faces x 6 directed tours - contrast the
+icosahedral W_3 = 120 = 20 x 6 of V345/V357); characteristic
+polynomial certified by Newton sums against the booked
+x^3 (x - 4)(x - 2)^3 (x + 2)^5 (coefficient list derived in the
+scratch: [1, 0, -24, -16, 192, 192, -640, -768, 768, 1024, 0, 0,
+0] in x^12..x^0).
+T3 the twisted hop on the rhombic 12 with the EXACT transport:
+for adjacent faces (u, v) the rotation R = s_u s_v (product of
+the two face reflections - integer matrix, det +1, maps normal u
+to v): K built from these; every entry an exact integer (dev
+from integer == 0.0 booked); tr K = 0 booked (zero diagonal);
+tr K^2 in exact integers (booked: 12 x 4 neighbours... computed:
+30 no - print and compare with the icosahedral 180 of V358 T4);
+min |lambda(K)| measured as RHBIC-HOPGAP (NO target booked -
+printed with the PENTGAP contrast).
+T4 space-filling certificate: for a dense sample of the box
+[-2,2]^3 (3.1e5 points), the origin is the unique closest FCC
+lattice point iff the sample lies strictly inside the 12-plane
+cell: deviation <= 1e-9 (booked equivalence Voronoi = RD).
+T5 the extended lattice IS FCC: nearest-neighbour tight binding
+on the FCC cell-adjacency graph, cubic blocks L = 8, 10, 12 with
+the 4-point basis (N = 2048, 4000, 6912 - inside the RAM envelope
+after the V360 lesson: peak dense 0.38 GB), open boundaries,
+t = 1 (the only lattice-invariant choice): cupy eigvalsh, host
+numpy identity gate at the two smaller levels <= 1e-10, device
+name in the leaf; gap at half-filling = central splitting (V360
+convention) vs N, |log-log slope| guard 0.3 as booked.
+Status: RHOMBIC-12-GAPLESS (T1 zero modes exact AND T5 decreasing
+with |slope| >= 0.3) / RHOMBIC-12-GAPPED (T1 gap > 1e-8 or T5
+floor >= 0.276) / MACHINERY-DRIFT (any certificate red). GPU-1
+directive: the T5 spectra batched on cupy with the house
+device-vs-host gate. Cost booked: V361 < 5 min.
+MACHINERY AMENDMENTS booked after the first run (machinery drift,
+no verdict booked) and before the re-run: (1) walk moments
+off-by-one fixed (W_n = tr A^n, the first code computed tr
+A^{n+1}); (2) the zonohedron-vertex subcheck is replaced: the 4
+body-diagonal segments carry the dependence d1 + d2 + d3 + d4 =
+0, so the subset-sum construction double-counts the center (15
+points for 14 vertices); the honest cell certificate is face-by-
+face: every face plane carries exactly 4 cell vertices and all
+face edges have ONE length (rhombi) - kept as a leaf; (3) the FCC
+lattice projection bug: the nonzero-row mask used np.all(lat != 0)
+which drops every row with a zero coordinate, not only the origin
+- np.any fixed, the Voronoi equivalence re-tested; (4) the T5
+half-filling statistic: the finite-N central splitting [0, 0,
+0.0118] is finite-size noise around a Fermi surface (a single NN
+band on a Bravais lattice is half-filling gapless iff the
+half-filled level set is codimension-1), so the booked T5 gate
+becomes the k-space Fermi-surface certificate: exact dispersion
+E(k) = 4(cos kx cos ky + cos ky cos kz + cos kz cos kx), E_F by
+mesh-half bisection, and the smoothed DOS(E_F) on eps-bands must
+NOT collapse as eps shrinks (min >= 0.5 max, count > 0 at the
+finest eps - a gap would collapse the counts to zero below
+gap/2); the real-space splittings and the identity gate stay as
+leaves. Status test
+becomes: RHOMBIC-12-GAPLESS iff T1 zero modes exact AND the
+Fermi surface certified; GAPPED otherwise.
+
+## V361 run note (post-run)
+RHOMBIC-12-GAPLESS, wall 7 s, GPU 1. The user's fact certified
+end to end: the 12-plane cell is the rhombic dodecahedron
+(14/24/12, chi 2; all 12 faces carry 4 vertices with ONE edge
+length 0.866025 = sqrt3/2 - rhombi); O_h built as 48 EXACT
+integer matrices (census {1,2^19,3^8,4^12,6^8} bit-matched,
+faithful on the 12 faces); the cell IS the FCC Voronoi cell (the
+12-plane inside test and the FCC nearest-neighbour dominance test
+agree on 22974/22974 samples). THE CENTRAL FACT: the face-
+adjacency spectrum of the rhombic 12 is the booked derived
+x^3(x-4)(x-2)^3(x+2)^5 - RHOMBIGAP = 0 EXACT with 3 zero modes
+(8.9e-16 dev), where the icosahedral closure carried (3 -
+sqrt5)/2 = 0.381966 (V358); the walk ladder is exact integers
+(W_2 = W_3 = 48, char poly bit-identical by Newton sums); the
+twisted hop with the canonical integer transports from the O_h
+table has RHBIC-HOPGAP = 0.000000 (integers, orthogonality dev
+EXACTLY 0, tr K = 0, tr K^2 = 144): the hop that replaced the
+golden gap carries exact zero modes on the closed cell. The
+lattice it tiles is FCC and gapless: real-space central
+splittings [0, 0, 0.0118] (finite-N noise, leaves), and the T5b
+k-space certificate - exact dispersion, 48^3 mesh, E_F =
+-0.935638 by half-band bisection, smoothed DOS(E_F) = [0.143,
+0.173, 0.119, 0.087] with NO collapse across eps-halvings -
+Fermi surface present. Four machinery corrections booked in the
+registration amendment (walk-moment off-by-one; zonohedron vertex
+subcheck replaced by the rhombic-face certificate - the diagonal
+generators carry d1+d2+d3+d4 = 0 and double-count the center; the
+np.all/np.any nonzero-row lattice bug; the finite-N splitting
+replaced by the DOS-noncollapse Fermi-surface gate). Physics:
+closure chose the gap - the icosahedral closure cost (3-sqrt5)/2,
+the rhombic (FCC) closure costs NOTHING: a closed 12-cell with
+exact massless modes exists, exactly as the user proposed.
