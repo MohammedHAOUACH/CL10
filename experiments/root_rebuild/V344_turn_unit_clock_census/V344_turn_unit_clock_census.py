@@ -117,17 +117,26 @@ def main():
     data["wall_s"] = time.time() - t0
 
     five_family = bool(q5)
+
+    def qof(k):
+        return int(k.split("*")[1].split("/")[1])
+    # booked branch words: 5 fires if any q in {5,10} clock diverges;
+    # VOID iff divergences sit ONLY at clocks whose denominator divides
+    # 8 (the ladder's root-clock set stays denominator-8); the pi/4
+    # control (q = 8) must diverge for the lens to be live
+    only8 = bool(diverging) and all(8 % qof(k) == 0 for k in diverging)
     status = ("TURN-CLOCK-5" if five_family else
-              "TURN-CLOCK-VOID" if (rows["2pi*1/4"]["divergent"] and
-                                    not ctrl["divergent"]) else
+              "TURN-CLOCK-VOID" if (only8 and rows["2pi*1/8"]["divergent"]
+                                    and not ctrl["divergent"]) else
               "TURN-CLOCK-UNEXPECTED")
     print("\n".join("  %s %s" % ("ok " if c[1] else "FAIL", c[0])
                     for c in checks), flush=True)
     for k, v in rows.items():
+        f15 = v.get("F2_1e-5", v.get("1e-5"))
+        ex = v.get("F2_exact", "finite")
         print("   %-18s ratio %12.3e  F2(1e-5) %10.3e  exact %s  %s"
-              % (k, v["ratio"], v["F2_1e-5"],
-                 v["F2_exact"] if isinstance(v["F2_exact"], str)
-                 else "%.3e" % v["F2_exact"],
+              % (k, v["ratio"], f15,
+                 ex if isinstance(ex, str) else "%.3e" % ex,
                  "DIVERGES" if v["divergent"] else "-"), flush=True)
     print("[V344 done] %s  wall %.0f s" % (status, data["wall_s"]),
           flush=True)

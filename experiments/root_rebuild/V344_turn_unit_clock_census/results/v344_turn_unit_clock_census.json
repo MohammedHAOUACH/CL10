@@ -1,0 +1,123 @@
+{
+ "id": "V344_turn_unit_clock_census",
+ "tier": 2,
+ "property": "does the desert's denominator 5 occur as a root clock of the published ladder in TURN units (Lindemann-Weierstrass framing)",
+ "status": "TURN-CLOCK-VOID",
+ "pass": true,
+ "data": {
+  "t0_rel": {
+   "1e-1": 0.0,
+   "1e-5": 0.0
+  },
+  "rows": {
+   "2pi*1/3": {
+    "F2_1e-1": 1.556944290390878,
+    "F2_1e-5": 0.2826732075447616,
+    "F2_exact": 0.2826207723442971,
+    "ratio": 0.18155640461213626,
+    "divergent": false
+   },
+   "2pi*2/3": {
+    "F2_1e-1": 841.3862308347066,
+    "F2_1e-5": 390.97735836200553,
+    "F2_exact": 391.01746020151245,
+    "ratio": 0.4646823825178742,
+    "divergent": false
+   },
+   "2pi*1/4": {
+    "F2_1e-1": 1.430353982801935,
+    "F2_1e-5": 1.8261728018329801,
+    "F2_exact": 1.8261728395061727,
+    "ratio": 1.2767278756099742,
+    "divergent": false
+   },
+   "2pi*3/4": {
+    "F2_1e-1": 1.430353982801935,
+    "F2_1e-5": 1.8261728018329801,
+    "F2_exact": 1.8261728395061727,
+    "ratio": 1.2767278756099742,
+    "divergent": false
+   },
+   "2pi*1/5": {
+    "F2_1e-1": 1.6349210382619213,
+    "F2_1e-5": 2.513997129319257,
+    "F2_exact": 2.517502429416356,
+    "ratio": 1.5376871851816638,
+    "divergent": false
+   },
+   "2pi*2/5": {
+    "F2_1e-1": 0.2576490858611028,
+    "F2_1e-5": 1.1165969530947932,
+    "F2_exact": 1.1157343501053116,
+    "ratio": 4.33378969447128,
+    "divergent": false
+   },
+   "2pi*3/5": {
+    "F2_1e-1": 4412230040.754912,
+    "F2_1e-5": 717751.3085030325,
+    "F2_exact": 717760.853767216,
+    "ratio": 0.00016267313849760846,
+    "divergent": false
+   },
+   "2pi*1/6": {
+    "F2_1e-1": 841.3862308347066,
+    "F2_1e-5": 390.97735836200553,
+    "F2_exact": 391.01746020151245,
+    "ratio": 0.4646823825178742,
+    "divergent": false
+   },
+   "2pi*1/8": {
+    "F2_1e-1": 7950292.797604183,
+    "F2_1e-5": 1.1478432723583348e+52,
+    "F2_exact": "EXACT-0/0",
+    "ratio": 1.44377484148035e+45,
+    "divergent": true
+   },
+   "2pi*3/8": {
+    "F2_1e-1": 0.6856638115966462,
+    "F2_1e-5": 1913100397173.4053,
+    "F2_exact": 47.73224866217374,
+    "ratio": 2790143456336.908,
+    "divergent": true
+   },
+   "2pi*1/10": {
+    "F2_1e-1": 4412230040.754912,
+    "F2_1e-5": 717751.3085030325,
+    "F2_exact": 717760.853767216,
+    "ratio": 0.00016267313849760846,
+    "divergent": false
+   },
+   "2pi*3/10": {
+    "F2_1e-1": 0.5108393492883488,
+    "F2_1e-5": 1.5955056271296835,
+    "F2_exact": 1.5977540888965591,
+    "ratio": 3.1233021288441956,
+    "divergent": false
+   },
+   "2pi*1/12": {
+    "F2_1e-1": 805491.9746440174,
+    "F2_1e-5": 345.7527098618718,
+    "F2_exact": 345.71439263780445,
+    "ratio": 0.00042924413991172935,
+    "divergent": false
+   },
+   "RADIAN-CONTROL 0.2": {
+    "1e-1": 17.262855251961458,
+    "1e-5": 2.7559510046576645,
+    "ratio": 0.15964630209967873,
+    "divergent": false
+   }
+  },
+  "wall_s": 381.3841116428375
+ },
+ "checks": [
+  {
+   "name": "T0 V209 detuned F_2 leaves replayed EXACTLY through this lens (rel {'1e-1': '0.0e+00', '1e-5': '0.0e+00'}); pi/4 control ratio |F_2(1e-5)|/|F_2(1e-1)| = 1.444e+45",
+   "pass": true
+  },
+  {
+   "name": "census 14 turn-clocks + radian control: diverging set = ['2pi*1/8', '2pi*3/8']; q in {5,10} diverging: []; denominator-8 family all diverging: False; radian 0.2 control diverging: False",
+   "pass": true
+  }
+ ]
+}
