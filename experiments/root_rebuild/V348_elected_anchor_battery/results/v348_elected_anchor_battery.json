@@ -1,0 +1,80 @@
+{
+ "id": "V348_elected_anchor_battery",
+ "tier": 1,
+ "property": "the elected-theory battery: does the 12-face closed-sphere cell reproduce every published anchor",
+ "status": "ELECTED-PARTIAL-1R-3F-3U",
+ "pass": true,
+ "data": {
+  "ledger": [
+   {
+    "anchor": "clock g_obs + g_cross (V206)",
+    "verdict": "FAILS",
+    "evidence": {
+     "sphere_status": "SPHERE-ENGINE-CLOCK-VOID",
+     "contacts_within_1e-9": 0,
+     "rung_defect_at_g_obs": 0.004883417406518035,
+     "rung_defect_at_g_cross": 0.009210168724635297
+    }
+   },
+   {
+    "anchor": "LOOP^rung ladder contacts (V335 E1 port)",
+    "verdict": "FAILS",
+    "evidence": {
+     "loop_crossings_on_sphere": 3231,
+     "nearest_crossing_distance": 0.00016733269958330022,
+     "LOOP_port": 0.019894367886486918
+    }
+   },
+   {
+    "anchor": "family number 3 (V91 count-3 forcing)",
+    "verdict": "PARTIAL",
+    "evidence": {
+     "cell_kinetic_3fold_multiplets": 2,
+     "engine_forcing_ported": false,
+     "note": "the number 3 is forged by the cell's A5 representation (kinematic); the published count-3 FORCING theorem is a cubic-engine statement without a port"
+    }
+   },
+   {
+    "anchor": "isolated linear doublers (published fermion sector)",
+    "verdict": "FAILS",
+    "evidence": {
+     "sphere_verdict": "SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-VOID",
+     "random_flux_closings": 0
+    }
+   },
+   {
+    "anchor": "fermion masses / mixings (Yukawa machinery)",
+    "verdict": "UNDEFINED",
+    "evidence": {
+     "note": "defined on cubic sublattice sites; no port to the closed 12-cell surface exists; booked as a failure to reproduce, never excused"
+    }
+   },
+   {
+    "anchor": "tier-2 cubic-cell rigidity/closed-word theorems",
+    "verdict": "NOT-TRANSFERABLE",
+    "evidence": {
+     "note": "theorems of the cubic cell's machinery; they constrain the OLD cell and say nothing about the sphere automaton"
+    }
+   },
+   {
+    "anchor": "naming 1/5 (exact combinatorial clock-birth identity)",
+    "verdict": "REPRODUCED",
+    "evidence": {
+     "evidence": "V345: faces/rotation group = 12/60 = 1/5 EXACT on the closed sphere; V346: charpoly (x-5)(x+1)^5(x^2-5)^3 EXACT",
+     "status_345": "DODECA-SPHERE-CERTIFIED-SIGNAL-LOOP-9-SPHERE-CLOCK-VOID",
+     "status_346": "SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-VOID"
+    }
+   }
+  ],
+  "anchors": {
+   "g_obs": 0.19999798835751165,
+   "g_cross_rung10": 0.20013316730041675
+  }
+ },
+ "checks": [
+  {
+   "name": "anchor ledger over the published anchors vs the 12-face cell: 1 REPRODUCED, 3 FAILS, 3 UNDEFINED/PARTIAL/NOT-TRANSFERABLE",
+   "pass": true
+  }
+ ]
+}

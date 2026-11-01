@@ -1,0 +1,170 @@
+{
+ "id": "V347_sphere_engine_step",
+ "tier": 1,
+ "property": "the full published engine transplanted onto the 12-face closed sphere: five bond stages on the face graph x the published Cl(10,0) internal layer - clock election vs the V206 anchors",
+ "status": "SPHERE-ENGINE-CLOCK-VOID",
+ "pass": true,
+ "data": {
+  "R_signature_published": [
+   32,
+   48
+  ],
+  "anchors": {
+   "g_obs": 0.19999798835751165,
+   "g_cross_rung10": 0.20013316730041675,
+   "LOOP_port": 0.019894367886486918
+  },
+  "nearest_approach": [
+   {
+    "rung": 3,
+    "beta_near": 0.19980100000000003,
+    "F": 0.008256717900539595
+   },
+   {
+    "rung": 4,
+    "beta_near": 0.19980100000000003,
+    "F": 0.8286730237415654
+   },
+   {
+    "rung": 5,
+    "beta_near": 0.19980100000000003,
+    "F": 0.029727010458329466
+   },
+   {
+    "rung": 6,
+    "beta_near": 0.19980100000000003,
+    "F": 0.01651329507836619
+   },
+   {
+    "rung": 7,
+    "beta_near": 0.19980100000000003,
+    "F": 0.07553050526335246
+   },
+   {
+    "rung": 8,
+    "beta_near": 0.19980100000000003,
+    "F": 1.0300410113490504
+   },
+   {
+    "rung": 9,
+    "beta_near": 0.19980100000000003,
+    "F": 0.0032793427694854218
+   },
+   {
+    "rung": 10,
+    "beta_near": 0.19980100000000003,
+    "F": 0.05944745315014756
+   },
+   {
+    "rung": 11,
+    "beta_near": 0.19980100000000003,
+    "F": 0.17596847731149945
+   },
+   {
+    "rung": 12,
+    "beta_near": 0.19980100000000003,
+    "F": 0.03302546438941268
+   },
+   {
+    "rung": 13,
+    "beta_near": 0.19980100000000003,
+    "F": 0.0934539920721934
+   },
+   {
+    "rung": 14,
+    "beta_near": 0.19980100000000003,
+    "F": 0.15095324940321017
+   },
+   {
+    "rung": 15,
+    "beta_near": 0.19980100000000003,
+    "F": 0.04128077509880758
+   },
+   {
+    "rung": 16,
+    "beta_near": 0.19980100000000003,
+    "F": 0.33567658484393303
+   },
+   {
+    "rung": 17,
+    "beta_near": 0.19980100000000003,
+    "F": 0.0014230956385977043
+   },
+   {
+    "rung": 18,
+    "beta_near": 0.19980100000000003,
+    "F": 0.006558676722378917
+   },
+   {
+    "rung": 19,
+    "beta_near": 0.19980100000000003,
+    "F": 0.15313322838842827
+   },
+   {
+    "rung": 20,
+    "beta_near": 0.19980100000000003,
+    "F": 0.11884237287421953
+   },
+   {
+    "rung": 21,
+    "beta_near": 0.19980100000000003,
+    "F": 0.04996638514418503
+   },
+   {
+    "rung": 22,
+    "beta_near": 0.19980100000000003,
+    "F": 0.35057209627578456
+   },
+   {
+    "rung": 23,
+    "beta_near": 0.19980100000000003,
+    "F": 0.104054484188462
+   },
+   {
+    "rung": 24,
+    "beta_near": 0.19980100000000003,
+    "F": 0.06604192310079526
+   },
+   {
+    "rung": 170,
+    "beta_near": 0.19980100000000003,
+    "F": 0.014230837501486123
+   },
+   {
+    "rung": 208,
+    "beta_near": 0.19980100000000003,
+    "F": 0.4441896531938412
+   }
+  ],
+  "loop_crossings": 3231,
+  "nearest_LOOP_crossing_to_anchors": 0.00016733269958330022,
+  "contacts": [],
+  "defect_at_anchors": {
+   "g_obs": 0.004883417406518035,
+   "g_cross": 0.009210168724635297
+  },
+  "closure_order_at_G10": null
+ },
+ "checks": [
+  {
+   "name": "T0a published cubic path inside this script: M-point gap 0.0e+00 (booked gapless <= 1e-9), published R cluster-size signature [32, 48] re-derived at the 3 R points, internal mirror pairing 8.9e-16 (V337 verbatim gates); internal layer 32x32 read from supercell (never assumed)",
+   "pass": true
+  },
+  {
+   "name": "T0b sphere step 384x384: unitarity 1.3e-15 (<= 1e-11); GPU path (cl10.engine routing) eigenphase invariance -3.6e-15 (<= 1e-11)",
+   "pass": true
+  },
+  {
+   "name": "M1 election battery: 24 rung functionals (n in 3..24,170,208) x 1001 beta-points: rung zeros within 1e-6 of the published anchors: 0 (polished: []); smallest sphere rung defect AT the anchors: g_obs 0.005, g_cross 0.009 (a born clock would be ~0)",
+   "pass": true
+  },
+  {
+   "name": "T0c spectral lens certificate: schur diagonalized every sphere step; worst strict-triangular norm 0.0e+00 (<= 1e-11 means the diagonal IS the spectrum for these normal matrices; the general QR lens, which split the 10-fold cluster by up to 0.29, is quarantined for this experiment)",
+   "pass": true
+  },
+  {
+   "name": "M2 closure order of the sphere step at the published angle G10: NO-CLOSE-TO-240 (least |k| <= 240 with W^k = +-I, tol 1e-8)",
+   "pass": true
+  }
+ ]
+}

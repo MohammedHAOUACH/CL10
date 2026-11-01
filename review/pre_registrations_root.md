@@ -884,3 +884,98 @@ arithmetically out of reach: the battery then measures how FAR the
 cell gets, not whether it wins. No branch word pre-judges the
 measurements; every number below is measured or read from an
 artifact.
+
+## V346 run note (post-run; verdict as booked)
+SPHERE-KIN-SPECTRUM-EXACT + DOUBLERS-VOID, wall ~4 s. T0 EXACT:
+charpoly of A(0) over Z = (x-5)(x+1)^5(x^2-5)^3, tr A^3 = 120.
+M1: multiplicities {1,3,3,5} - the cell ALONE forges two 3-fold A5
+representation multiplets (the family number 3 appears on the sphere
+with zero fitting: REPORTED, not claimed) and an exact gap 5-sqrt5.
+Lensing corrections booked (three iterations, each caught by the
+script's own gate before any verdict was read): (1) the first scans
+counted the trivial family members q = 0, 2pi as flux closings;
+(2) the gap metric measured consecutive eigvalsh differences = the
+multiplets themselves (= M1) instead of the booked DISTINCT-LEVEL
+closures; (3) the booked "A5/A4 coset 5-coloring" does NOT exist as
+an equivariant pattern (face stabilizer is C5, C5 not a subgroup of
+A4, so no A5-equivariant map from the 12 faces to the five A4 cosets
+exists - a genuine structural fact the booking missed); the honest
+substitute (proper 4-coloring gradient flux) ran instead.
+THE MEASUREMENT: equivariant family gap 1.24 at w=1 (pure gauge as
+booked); col4 structured flux min gap 1.24 at nontrivial points;
+stage flux min 1.6e-3 (no closing); 1e5 random draws on the 19-dim
+gauge-fixed flux torus: min gap 8.14e-3, ZERO closings <= 1e-9.
+The structural wall booked BEFORE the run (a closed surface has no
+Brillouin zone, hence no isolated linear doublers) is now MEASURED,
+not asserted: the published fermion sector cannot live on the cell.
+
+## V347 run note (post-run; verdict as booked)
+SPHERE-ENGINE-CLOCK-VOID, wall 430 s. THE TRANSPLANT: five
+swap-rotation bond stages on the face graph (cos b I + i sin b
+X_pair, X the symmetric pair exchange; the first attempt used the
+antisymmetric K, K^2 = -I gives hyperbolic cosh/sinh - caught by the
+unitarity gate at 1.7 before any measurement was read) times the
+UNTOUCHED published Cl(10,0) internal layer (32x32 read from
+supercell), 384 dims, GPU path through cl10.engine routing.
+T0a green: published cubic anchors re-derived inside this script (M
+gap 0.0, R cluster-size signature [32,48], internal mirror 8.9e-16;
+metrics copied VERBATIM from the V337 gate including its booked
+gate-defect lesson: the +- mirror is the internal layer's pairing).
+T0b green: unitarity 1.3e-15; backend invariance (circular-Hausdorff
+multiset metric) -3.6e-15.
+T0c SPECTRAL-LENS FINDING, booked as a repo-level fact: the sphere
+step at the published angle G10 carries a TRUE 10-fold degenerate
+phase cluster at theta = 0.2896744895 - certified by Riesz-projection
+rank (whole plane 384.000, disk r=0.15 about the cluster 18.01,
+integers as contour-projector traces must be). The general QR
+eigensolver splits it into a cloud of radius ~0.3, and the ENGINE'S
+OWN trace-identity verification of device eigvals ACCEPTS the wrong
+answer (the two trace identities are blind to intra-cluster
+splitting) - booked engine finding for the next library change (no
+library change made now; a full re-gate costs 3.9 h and nothing
+published uses this path yet). Also booked: phase-comparison
+observables on spectra with masses of exactly-0.0/-0.0 phases MUST
+compare multisets on the circle (sorted pairwise comparison is a bad
+observable and faked failures up to 0.29). All physics here reads
+the SCHUR diagonal with certificate: worst strict-triangular norm
+over every diagonalized sphere step = 0.0e+00 exactly (normal
+matrices; the diagonal IS the spectrum); the QR lens is quarantined
+for this experiment.
+M1 THE ELECTION MEASUREMENT: 24 rung functionals (n in 3..24,170,208)
+x 1001 beta-points: rung zeros within the guard of g_obs or
+g_cross_rung10: ZERO; smallest rung defect AT the anchors 0.005
+(g_obs) and 0.009 (g_cross) - three orders away from a born clock;
+booked LOOP crossings: none at the anchors. M2: closure order at
+G10: NO-CLOSE-TO-240. The clock is not born on the cell, in the
+full engine, in the published machinery.
+
+## V348 run note (post-run; verdict as booked)
+ELECTED-PARTIAL-1R-3F-3U. The ledger, anchor by anchor, against the
+full transplant:
+REPRODUCED (1): the NAMING 1/5 - faces/rotation group = 12/60 = 1/5
+EXACT on the closed sphere (V345), charpoly EXACT (V346). The
+combinatorial skeleton of the paper survives on the user's cell.
+FAILS (3): the published clock pair g_obs/g_cross (V347 VOID: zero
+rung zeros at the anchors, defects 0.005/0.009); the LOOP^rung
+ladder contacts (no crossing within the guard); the isolated linear
+doublers (V346 VOID: zero flux closings in 1e5 draws - the cell
+carries no Brillouin zone, no Fermi velocities, no 12 M-channels).
+PARTIAL (1): family number 3 - real as A5 kinematic multiplets of
+the cell (two triplets), but the V91 count-3 FORCING is an engine
+theorem with no port.
+UNDEFINED = NOT REPRODUCED (1): masses and mixings - the Yukawa
+machinery is defined on cubic sublattice sites; no port exists;
+booked as a failure, never excused.
+NOT-TRANSFERABLE (1): the tier-2 cubic-cell theorems (closed words,
+rigidity wall, dictionary) speak about the old cell.
+READING OF THE LEDGER, stated once and without rhetoric: the
+12-face closed sphere reproduces the paper's COMBINATORICS (naming
+1/5, exact golden spectrum, family 3 kinematic) and fails every
+DYNAMICAL anchor (clock, ladder, doublers) and the entire matter
+sector. The election claim, when the whole engine is actually
+transplanted to the cell and judged by the published battery, is
+ELECTED-PARTIAL-1R-3F-3U: the paper is NOT rewritten around the
+cell, and V335's verdict - the denominator 5 NAMES, it does not
+BORN - stands, now strengthened by the transplant itself. The
+legacy was not lost; it is the battery that judged the candidate,
+and it will judge the next one the same way.
