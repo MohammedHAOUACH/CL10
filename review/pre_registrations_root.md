@@ -607,3 +607,63 @@ TURN-CLOCK-VOID (divergences only at q | 8: the ladder's clock set
 stays denominator-8, the desert backbone is NOT born in the ladder,
 and the dressing channel stands candidateless). Cost booked: under 15
 min (nmax 10-12, 55 dps, ~25 angles).
+
+## V345_dodecahedral_closed_sphere (user's cell proposal; booked then run)
+User proposal, verbatim intent: 12 dodecahedron FACES as cells, each
+face has exactly 5 neighbors, the surface is CLOSED (sphere: a signal
+goes around with no wall, no boundary, no torus trick). Honest
+placement before the run: the face-adjacency graph of the dodecahedron
+IS the icosahedral graph certified in V339 (faces of the dodecahedron
+= vertices of the icosahedron); what is NEW and never tested is the
+DYNAMICS WITH NO LATTICE MOMENTUM: the closed-sphere automaton = the
+V339 cell operator at q = GAMMA (all bond phases 1), read now as a
+finite closed surface, plus exact combinatorial transport (no quantum
+stages): the signal's return time as a permutation fact.
+BOOKED CHECKS (constructed from the DODECAHEDRON directly, not reusing
+V339 coordinates): face normals n_f = the 12 vectors (0,+-1,+-phi) and
+cyclic (dodecahedron faces have icosahedron vertices as normals); two
+faces adjacent iff they share an edge - booked criterion: the normals
+satisfy n_i . n_j = phi/(phi+2) EXACTLY (same dot as the dual edge),
+and independently the shared-edge test through dodecahedron vertices:
+the 20 vertices v = intersections: three faces meet at each vertex -
+booked triangle count of the adjacency graph = 20, and Euler
+V - E + F = 12 - 30 + 20 = 2: the surface is the SPHERE, closed, no
+walls: certified combinatorially (genus 0).
+T1 the 5-neighbor schedule: the booked 1-factorization (V339: 5
+perfect matchings of the 30 adjacencies) realizes the user's "each
+cell has exactly 5 direct neighbors" operationally: at every stage a
+cell talks to EXACTLY ONE neighbor, and over the five-stage cycle each
+cell talks to its five neighbors EXACTLY ONCE (certified by matching
+decomposition - each face appears in each matching once, and the five
+partners are distinct).
+T2 the signal loop (the user's "faire le tour complet sans etre
+bloque"): pure permutation transport P = P5 P4 P3 P2 P1 (stage
+matchings composed in booked order): exact order k and cycle
+structure on the 12 faces: the return time of the signal - booked as
+a MEASUREMENT (expectation open: k small means a closed tour).
+T3 periodic clocks of the sphere: U(g) = prod_m (cos g I - i sin g
+P_m) is the closed-sphere automaton (zero bond phases): scan g in
+(0, pi) step 1e-3 for residual min_k ||U(g)^k - -+ I||, k <= 30;
+polish minima to 1e-10; report every (g*, k) with residual <= 1e-8;
+compare with the cubic engine's published clock pi/4 (closure order
+2, V337 anchor) and with the five-clocks pi/5, 2pi/5 (V339 booked
+stage closure; T6 leaf says the 5-stage PRODUCT at 2pi/5 has infinite
+order - so the booked EXPECTATION is: no nontrivial finite closure at
+2pi/5; the scan tests whether any other g closes the full step).
+T4 closed-walk census on the sphere: W_n = tr A^n, n <= 10, plus
+triangle count (20 booked) and pentagon-face count (12): the numbers
+the sphere forges by counting: |E|/|V| = 30/12 = 5/2, faces/rotation
+group = 12/60 = 1/5 (the V339 backbone reborn in the DODECAHEDRAL
+language - faces over the dodecahedral rotation group), and
+vertices/edges = 20/30 = 2/3: all exact integer ratios, zero fitted
+constants.
+BRANCH WORDS: DODECA-SPHERE-CERTIFIED (Euler 2 + triangles 20 +
+schedule) + SIGNAL-LOOP-ORDER-<k> + SPHERE-CLOCK-<g*,k list or VOID>
+(the sphere closes the full step at a nontrivial g only if the polish
+says so). Honest limits booked: with NO momentum the surface carries
+no band structure - it cannot host the published engine's isolated
+linear doublers (V342 lesson); as an internal module on the cubic
+engine the same 12-state cell was tested by V343 (no contact near the
+desert). This experiment judges the proposal at its own level: closed
+combinatorial transport + periodic clocks + exact ratios.
+Cost booked: seconds (12x12, exact combinatorics).
