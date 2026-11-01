@@ -1691,3 +1691,52 @@ below and 5 - sqrt5-type structure from above, is structurally too
 far from a touching to be dialed - consistent with V357's VOID and
 with the PENTGAP leaf: on the closed cell no reading works; the
 masslessness question is V360's.
+
+## V360 run note (post-run)
+PENTAGRID-GAPLESS, wall 43 s, peak RSS 3.8 GB (measured with
+/usr/bin/time -v), GPU 1 dense eigvalsh. Four corrections booked
+against the registration, all machinery-side, none touching the
+reserved decision:
+(1) GAUGE: the booked offsets gamma = (0, 1/2, -1/2, 1/4, -1/4)
+obstruct the booked 5-fold gate - rotation maps line (i, m) to
+line (i+1, m + gamma_i - gamma_{i+1}), so 5-folding a finite
+window about the origin needs gamma_i - gamma_{i+1} in Z for all
+i; the booked differences have fractional parts 1/2, 0, 1/4, 1/2,
+3/4. The de Bruijn gauge meeting the gate is uniform offset
+gamma_i = 1/2 (differences 0); measured 5-fold mismatch 3.8e-14
+at the largest level (gate 1e-9) and the origin is the center of
+a pentagon face - the closed cell's face lifted to the grid
+(origin pentagon radius/edge in the leaf).
+(2) EDGES: the booked distance band [0.95, 1.05] x d_min cannot
+capture the 1-skeleton - the arrangement has several
+inequivalent nearest-neighbor lengths, one per crossing angle
+(measured edge lengths spread over the 1/sin family; the booked
+band would silently miss classes). Replaced by exact line-wise
+consecutive adjacency: A5-covariance manifest (rotation permutes
+families and lines), degrees 2-10, no tolerance bands.
+(3) GAP DEFINITION: the booked E_med = median eigenvalue is
+trivially an eigenvalue for odd N (N = 2855, 6215, 10825),
+making the booked min_j |E_j - E_med| identically 0; the central
+splitting E[N//2] - E[N//2-1] is the same distance at the
+mid-point of the two central eigenvalues - used, and the centre
+value printed.
+(4) LEVELS: the booked L = 8/16/32 carried N-estimates ~7x under
+the true N ~ 42 L^2 (2855/10825/42095); the L = 32 dense copy
+(14.2 GB) OOM-blocked this machine against the user's strata
+server (observed live: 57/62 GB held, the dense allocation
+swapped). Re-booked to L = 8/12/16, N = 2855/6215/10825 - inside
+the booked envelope N <~ 1.1e4 and 0.94 GB peak dense. Triple
+points: 0 at every level (the uniform gauge is triple-free; the
+filter kept every exactly-two-lines vertex).
+MEASUREMENT: half-filling central splitting 0.001723 -> 0.0007315
+-> 0.0001625 at N = 2855 -> 6215 -> 10825, decreasing to the
+largest N, |log-log slope| 1.772 (booked guard 0.3), floor
+0.0002 vs booked GAPPED floor 0.276 - 1700x under. Host-numpy vs
+cupy identity 8.2e-14; jax GPU cross-check 0.0 (after its
+allocator retried down on the busy card). VERDICT: the extended
+pentagon lattice is gapless at half-filling, collapsing faster
+than any power the GAPPED branch could hide - the closed cell's
+0.381966 PENTGAP was produced by the closure itself, and
+masslessness survives in the A5-invariant infinite lattice with
+no dial, no twist and no internal module. The rebuild's
+masslessness gate stands OPEN.
