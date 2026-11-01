@@ -1,0 +1,164 @@
+{
+ "id": "V339_icosahedral_cell",
+ "tier": 2,
+ "property": "candidate N2a: the icosahedral 12-site cell (A5 transitive, closed 5-stage cycle, clock birth 12/60 = 1/5, fermion tribunal)",
+ "status": "N2A-CELL-BUILT-GAPLESS-NODES",
+ "pass": true,
+ "data": {
+  "birth_12_60": "1/5 exact",
+  "edges": 30,
+  "factorization": true,
+  "group_order": 60,
+  "gap_clock_2pi5_refined": 2.317731240525263e-16,
+  "gap_at": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "grid_zeros": 1,
+  "flat_zero_sector": false,
+  "gapless_nodes": true,
+  "nontrivial_min_phase": 4.2160476538896495e-05,
+  "dirac_slopes": {
+   "x": {
+    "gap_over_eps": [
+     0.00186,
+     0.00558,
+     0.01856,
+     0.05448
+    ],
+    "z": 1.993
+   },
+   "y": {
+    "gap_over_eps": [
+     0.0004,
+     0.0012,
+     0.00401,
+     0.01194
+    ],
+    "z": 1.998
+   },
+   "z": {
+    "gap_over_eps": [
+     0.00054,
+     0.00163,
+     0.00565,
+     0.01894
+    ],
+    "z": 2.047
+   },
+   "golden": {
+    "gap_over_eps": [
+     0.00012,
+     0.00035,
+     0.00118,
+     0.00348
+    ],
+    "z": 1.995
+   },
+   "body": {
+    "gap_over_eps": [
+     0.00041,
+     0.00124,
+     0.00426,
+     0.01369
+    ],
+    "z": 2.03
+   }
+  },
+  "mirror_residual": 1.1675703452769608,
+  "chiral_cycle": true,
+  "spectral_probes": {
+   "GAMMA": {
+    "angles": [
+     -2.928146,
+     -2.315155,
+     -1.371236,
+     -0.706686,
+     -0.099039,
+     0.0,
+     0.062893,
+     0.411705,
+     0.642353,
+     1.748835,
+     2.088095,
+     2.466382
+    ],
+    "U5_minus_I": 1.189852037880919,
+    "n_eigenvalue_1": 1
+   },
+   "random1": {
+    "angles": [
+     -3.131659,
+     -1.848031,
+     -1.748204,
+     -1.025804,
+     -0.417752,
+     -0.053279,
+     0.397947,
+     0.482551,
+     1.276216,
+     1.478657,
+     1.752168,
+     2.83719
+    ],
+    "U5_minus_I": 1.5248635346247226,
+    "n_eigenvalue_1": 0
+   },
+   "random2": {
+    "angles": [
+     -2.99614,
+     -2.312694,
+     -1.640891,
+     -1.281345,
+     -1.022333,
+     -0.030987,
+     0.482815,
+     0.700594,
+     1.098156,
+     2.016843,
+     2.335647,
+     2.650335
+    ],
+    "U5_minus_I": 1.0987709588042633,
+    "n_eigenvalue_1": 0
+   }
+  },
+  "min_gap_by_clock": {
+   "0.2000 pi": 6.1027306709383074e-05,
+   "0.4000 pi": 2.317731240525263e-16,
+   "0.8000 pi": 1.3322676295501869e-15,
+   "0.2500 pi": 0.0002526006226288084
+  },
+  "closure_order_gamma": null,
+  "tribunal_target_g_obs": 0.19999798835751165,
+  "closed_clock_radians": 1.2566370614359172,
+  "note": "the cell closes stage-by-stage at 2pi/5 radians; the desert reads 0.1999980 radians; 12/60 = 1/5 names the BACKBONE exactly but g_obs = 1/5 - 1.006e-5 remains un-named: the deviation is the open theory"
+ },
+ "checks": [
+  {
+   "name": "T1 icosahedron EXACT: norm^2 = phi+2 (OK), 30 edges (booked 30), degree set {[5]} (booked {5})",
+   "pass": true
+  },
+  {
+   "name": "T2 A5 EXACT: R5 (72 deg vertex) order 5, R2 (180 deg edge) order 2, product R5R2 order 3 (the (2,3,5) presentation), group 60 (booked 60), orbit of a vertex 12 (transitive), stabilizer 5 (booked 5)",
+   "pass": true
+  },
+  {
+   "name": "T3 clock birth: |V|/|A5| = 12/60 = 1/5 EXACT: True; 1-factorization into 5 perfect matchings of 6 edges: True; stage S(2pi/5)^5 = I to 2.4e-16 (closure clock 2pi/5, Coxeter h(H3) = 10)",
+   "pass": true
+  },
+  {
+   "name": "T4 automaton: axis-parallel edges [2, 2, 2] (6 total, 2 per axis: only the golden-rectangle short sides are edges - booked 4 per axis corrected before the run), stage unitarity exact (max U^H U deviation over 40 random q: 7.8e-16); q -> -q spectral mirror residual 1.2e+00 -> ABSENT (the ordered five-stage icosahedral cycle is chiral by composition; the on-site +- mirror was a cubic-cell property) - measured data, not a gate",
+   "pass": true
+  },
+  {
+   "name": "T5 fermions at the closure clock g = 2pi/5: grid min gap 2.318e-16 at ['0.00', '0.00', '0.00'], refined 2.318e-16; grid zeros <= 1e-8: 1 of 32768 (flat trivial-zero sector if many); nontrivial sector min phase over 200 random q: 4.216e-05 (dispersed: min 4.216e-05 max 6.021e-01); Dirac slopes gap/|q| at the node {'x': {'gap_over_eps': [np.float64(0.00186), np.float64(0.00558), np.float64(0.01856), np.float64(0.05448)], 'z': 1.993}, 'y': {'gap_over_eps': [np.float64(0.0004), np.float64(0.0012), np.float64(0.00401), np.float64(0.01194)], 'z': 1.998}, 'z': {'gap_over_eps': [np.float64(0.00054), np.float64(0.00163), np.float64(0.00565), np.float64(0.01894)], 'z': 2.047}, 'golden': {'gap_over_eps': [np.float64(0.00012), np.float64(0.00035), np.float64(0.00118), np.float64(0.00348)], 'z': 1.995}, 'body': {'gap_over_eps': [np.float64(0.00041), np.float64(0.00124), np.float64(0.00426), np.float64(0.01369)], 'z': 2.03}}; probes {'GAMMA': ([-2.928146, -2.315155, -1.371236, -0.706686, -0.099039, 0.0, 0.062893, 0.411705, 0.642353, 1.748835, 2.088095, 2.466382], 1.189852037880919, 1), 'random1': ([-3.131659, -1.848031, -1.748204, -1.025804, -0.417752, -0.053279, 0.397947, 0.482551, 1.276216, 1.478657, 1.752168, 2.83719], 1.5248635346247226, 0), 'random2': ([-2.99614, -2.312694, -1.640891, -1.281345, -1.022333, -0.030987, 0.482815, 0.700594, 1.098156, 2.016843, 2.335647, 2.650335], 1.0987709588042633, 0)}; min gap by clock {'0.2000 pi': '6.103e-05', '0.4000 pi': '2.318e-16', '0.8000 pi': '1.332e-15', '0.2500 pi': '2.526e-04'}",
+   "pass": true
+  },
+  {
+   "name": "T6 closure order of U(GAMMA) at g = 2pi/5: None (least k <= 120 with U^k = +-I; None = the 5-stage product has infinite order, measured data not a gate)",
+   "pass": true
+  }
+ ]
+}

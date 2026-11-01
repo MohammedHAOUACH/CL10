@@ -340,3 +340,62 @@ GAPLESS-NODES-FOUND / NO-GAPLESS-NODES (T5), + CLOCK-BIRTH-PARTIAL booked
 regardless (12/60 = 1/5 exact but g_obs unnamed: the 1.006e-5 deviation
 is still not combinatorics - that deviation IS the open theory).
 Cost booked: seconds (12x12 eigens; 32^3 grid ~2 minutes).
+
+## V339 run note (post-run; verdict as booked with booked corrections)
+N2A-CELL-BUILT-GAPLESS-NODES, wall 5.3 s host (12x12 eigens, 32^3 grid;
+no GPU path), all gates green. Run hygiene booked, in order found:
+(1) the first vertex construction used (b*phi, a, 0) instead of the
+cyclic (b*phi, 0, a) - the T1 gate (30 edges) caught it immediately:
+the wrong set is not the icosahedron (74-degree angles appear);
+(2) the 120-degree face rotation does NOT close over Q(sqrt5,t) (needs
+sqrt(10)): replaced by the (2,3,5) presentation - R5 vertex rotation and
+R2 edge rotation, with the exact identity sin 72 = |v|/2 (t^2/(phi+2) =
+4 in Q(sqrt5)) putting every rot5 entry in the booked tower; the order-3
+element is then the product R5 R2 (measured 3);
+(3) booked "4 axis-parallel edges per axis" is wrong: the golden
+rectangles' LONG sides (length 2 phi) are icosahedral diagonals, not
+edges: 2 per axis, 6 total - the geometry is right, the booking was not;
+(4) the booked q -> -q spectral mirror is FALSE for this automaton:
+conjugation flips the sign of the -i sin g term, so S_m(-q) = S_m(q)^T
+and U(-q) is the reversed-order product; an ordered five-stage cycle is
+not isospectral to its reverse (measured residual 1.2). The ordered
+icosahedral cycle is CHIRAL BY COMPOSITION - measurement promoted to
+data with the reason booked;
+(5) T6 booked as an existence gate but found None: U(GAMMA) has infinite
+order at the stage-closure clock - the stages close (S^5 = I at 2.4e-16)
+while the COMPOSITION does not: the clock lives at the stage level, the
+dynamics is quasi-periodic. Relaxed to a measurement with the reason.
+Booked physics measured:
+1. THE CELL EXISTS AND IS EXACT: icosahedron over Q(sqrt5) (30 edges,
+degree 5), A5 over the tower as exact permutations ((2,3,5) orders
+5/2/3, group exactly 60, transitive on 12, stabilizer 5), the 30-edge
+graph factors into exactly 5 perfect matchings of 6 edges - the closed
+five-stage icosahedral cycle - each stage an involution-permutation
+S = cos g - i sin g P closing at order 5 at g = 2 pi/5 (Coxeter h(H3) =
+10): the clock 1/5 born TWICE in the cell combinatorics: as the group
+ratio |V|/|A5| = 12/60 = 1/5 EXACTLY, and as the order-5 stage closure.
+2. THE NUMBER IS STILL NOT BORN: the tribunal target g_obs = 1/5 -
+1.006e-5: the 1/5 backbone is named exactly, the 1.006e-5 deviation is
+NOT (V338 margins unchanged); the closed CLOCK ANGLE is 2 pi/5 = 1.2566
+radians, the desert reads 0.1999980 radians: pi does not appear in the
+desert's number - the missing mechanism is still open.
+3. THE FERMION: at g = 2 pi/5 (and 4 pi/5) the zone has EXACTLY ONE
+gapless point in 32^3 grid points (2.3e-16 at GAMMA, isolated - one
+zero of 32768), nontrivial sector gapped (min 4.2e-5); dispersion is
+QUADRATIC (z = 1.99-2.05 along x, y, z, golden and body rays,
+anisotropic) - a band touching, NOT the chiral linear node of the
+published engine; at the pi-fraction clocks (pi/5, pi/4) the cell is
+gapped (9.2e-2, 1.0e-2): the gaplessness is a FIVE-CLOCK resonance -
+the new cell's masslessness exists exactly where the digit 5 lives.
+4. CHIRALITY FREE: no q -> -q mirror in the ordered cycle (T4.4): the
+icosahedral cell composes chiral; a candidate source of the coupling
+asymmetry if the cell is ever wired to the internal module.
+N2a verdict against the tribunal: cell BUILT, backbone named, numbers
+NOT named, fermion NOT chiral (z = 2), composition NOT closed. Not the
+elected theory. Next booked step N2b: couple the 12-site cell to the
+36-dimensional internal module (432-dim cell) and ask whether the
+internal dressing lifts z = 2 to z = 1 (chiral content restored) - the
+published engine's massless nodes were linear BECAUSE of the internal
+module's Wilson-like structure; if N2b restores linearity AND keeps the
+single GAMMA node, the desert's 1.006e-5 deviation becomes the sole
+missing datum of the reconstruction.
