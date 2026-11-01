@@ -1,0 +1,112 @@
+{
+ "id": "V366_singlet_extension_census",
+ "tier": 2,
+ "residual": true,
+ "property": "does the certified Spin(10) gauge action admit gauge singlets in ANY extended matter content",
+ "status": "SINGLET-ADMIT-E1:1-E2:1-E3:0-E4:2-E5:9 (emptiness is a content theorem, not an action theorem; V367 cascade live: dispersion + F-legs at the singlet sectors)",
+ "pass": true,
+ "data": {
+  "fibers": {
+   "E1": {
+    "dim": 256,
+    "ker": 1,
+    "min_eigs": [
+     1.6144494503840941e-15,
+     63.99999999999999,
+     63.99999999999999,
+     64.0,
+     64.0,
+     64.0
+    ],
+    "ker_resid": 1.9769764810995584e-14,
+    "ker_nonunitarity": 3.3306690738754696e-16
+   },
+   "E2": {
+    "dim": 11520,
+    "ker": 1,
+    "min_eigs": [
+     -2.7162644883818235e-15,
+     63.99999999999986,
+     63.999999999999986,
+     64.0,
+     64.00000000000003,
+     64.00000000000003
+    ],
+    "ker_resid": 5.1769648449626975e-15,
+    "ker_nonunitarity": 9.992007221626409e-16
+   },
+   "E3": {
+    "dim": 11520,
+    "ker": 0,
+    "min_eigs": [
+     35.99999999999991,
+     35.999999999999915,
+     35.99999999999992,
+     35.99999999999997,
+     35.99999999999998,
+     35.99999999999999
+    ],
+    "ker_resid": 0.0,
+    "ker_nonunitarity": 0.0
+   },
+   "E4": {
+    "dim": 46080,
+    "ker": 2,
+    "min_eigs": [
+     1.1257006498207137e-14,
+     1.2214041645732842e-14,
+     35.999999999999766,
+     35.999999999999915,
+     35.99999999999992,
+     35.99999999999994
+    ],
+    "ker_resid": 5.20378761820398e-15,
+    "ker_nonunitarity": 0.03757520617459851
+   },
+   "E5": {
+    "dim": 25088,
+    "ker": 9,
+    "min_eigs": [
+     2.0522117117517492e-15,
+     3.5328540449518324e-15,
+     -4.247959203993132e-15,
+     6.924174041741214e-15,
+     -1.0003230878262962e-14,
+     -1.1507885684437003e-14
+    ],
+    "ker_resid": 1.383107983911941e-14,
+    "ker_nonunitarity": 0.2003470879354209
+   }
+  }
+ },
+ "checks": [
+  {
+   "name": "E0 anchor (published fiber, V259 verbatim): ker 0, min C2 45.000000 (booked 0 / 45.000000): True",
+   "pass": "True"
+  },
+  {
+   "name": "E1 kernel basis: dim 1, ||C2 W|| 2.0e-14, W^dag W defect 3.3e-16: True",
+   "pass": true
+  },
+  {
+   "name": "E2 kernel basis: dim 1, ||C2 W|| 5.2e-15, W^dag W defect 1.0e-15: True",
+   "pass": true
+  },
+  {
+   "name": "E3 kernel basis: dim 0, ||C2 W|| 0.0e+00, W^dag W defect 0.0e+00: True",
+   "pass": true
+  },
+  {
+   "name": "E4 kernel basis: dim 2, ||C2 W|| 5.2e-15, W^dag W defect 3.8e-02: False",
+   "pass": false
+  },
+  {
+   "name": "E5 kernel basis: dim 9, ||C2 W|| 1.4e-14, W^dag W defect 2.0e-01: False",
+   "pass": false
+  },
+  {
+   "name": "group-theory anchors ker = {'E1': 1, 'E2': 1, 'E3': 0, 'E4': 2, 'E5': 9} (booked {'E1': 1, 'E2': 1, 'E3': 0, 'E4': 2, 'E5': 9}): True",
+   "pass": true
+  }
+ ]
+}

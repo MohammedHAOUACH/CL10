@@ -2404,3 +2404,69 @@ so BETA-NO-INVARIANT-HIT was structurally guaranteed, and the dial's
 only content is the booked (READ and ROOT) condition pair of V354.
 The namelessness of beta is now EXPLAINED, not only measured, within
 the elected construction.
+
+## V366 singlet-extension census - can the certified gauge action EVER admit matter? (2026-11-01, booked BEFORE any run; reality-interface programme, first cut)
+
+Context: V98 (one-body non-existence) + V259 (KERNEL-EMPTY: ker C2 = 0
+throughout the 1568-dim published fiber = 8 x 16 (flavored Weyl) + 32 x 45
+(spinor x adjoint link), min nonzero C2 eigenvalue 45.000000) + V268
+(CONJUNCTION-DEAD, "the physical sector the Gauss law allows is empty").
+The theorems kill the PUBLISHED fiber; no experiment ever asked whether
+the certified Spin(10) action (T16 from AC.weyl_generators, root_generators
+on 32, adjoint_link_operators, generators VERBATIM from V79/V251/V259)
+admits gauge singlets in ANY extended content. V366 asks exactly that,
+in pure algebra (the kernel of C2 = sum_a Q^a Q^a with Q the diagonal
+total charge is the singlet space, grid- and omega-independent by V259's
+certified q-independence - no grid, no couplings).
+
+FIBERS (booked, all built from the certified generators only):
+E1 = 16 (x) 16-bar (conjugate via -T^T), dim 256;
+E2 = 16 (x) 16-bar (x) 45_diag-link, dim 11520 (the meson+flux fiber -
+    the E1 content V251 never carried);
+E3 = 16 (x) 16 (x) 45 (diquark+flux, no conjugate), dim 11520;
+E4 = 32 (x) 32 (x) 45 (published block doubled), dim 46080;
+E5 = 1568 (x) 16-bar (published fiber + one conjugate flavor), dim 25088.
+GROUP-THEORY PREDS (diagonal compact-group action, complete
+reducibility; booked as MACHINERY anchors, not as physics): E1 ker = 1
+(16 (x) 16-bar = 1 + 45 + 210); E2 ker = 1 (inv of 45 (x) 45); E3 ker = 0
+(45 not in 16 (x) 16); E4 ker = 2; E5 ker = 9 (8 flavors + 1 from
+(32 (x) 45) (x) 16-bar via 45 (x) 16 > 16). A machine deviation from
+these is EXT-GROUP-MISMATCH (red: the generator machinery broke, since
+the preds are standard character theory).
+
+MACHINE: sparse C2 per fiber (45 sparse charges, kron-built); kernel
+dimension by Lanczos (eigsh sigma = 0, count |w| < 1e-9, repo-wide
+exactness); kernel basis W with W^dag W = I to 1e-12 and ||C2 W|| < 1e-9
+(booked gates); anchor E0: reproduce V259's published-fiber result
+verbatim (ker = 0, min nonzero C2 = 45.000000 to 1e-9) BEFORE trusting
+the extensions.
+
+VERDICT WORDS: SINGLET-ADMIT-<ker dims per fiber> (extensions carry
+gauge-invariant matter - the emptiness is a CONTENT theorem, not an
+action theorem; the booked cascade V367 = dispersion of the singlet
+sectors on the torus + the F9/F2/F8 legs at those states is then live)
+/ EXT-EMPTY (every extension kernel zero: the obstruction is deeper than
+content - red for the program's second door, honest leaf for O-cards) /
+EXT-GROUP-MISMATCH / MACHINERY-DRIFT (anchor E0 fails). Tier 2. Cost
+booked: sparse Lanczos on fibers up to 46080: minutes. GPU 1 pinned per
+house rule; algebra is host scipy.
+
+### V366 post-run note (2026-11-01, same day) - booked discipline held
+VERDICT SINGLET-ADMIT-E1:1-E2:1-E3:0-E4:2-E5:9, exit 0, 18.7 s. Every
+booked element fired exactly: E0 anchor (V259 verbatim: ker 0, min
+nonzero C2 45.000000), and the five character-theory kernels (1, 1, 0,
+2, 9) with second C2 level 64.0000 = adjoint Casimir. One booked-gate
+correction is factual, not interpretive: Lanczos (which='SM') returns
+NON-ORTHOGONAL bases on degenerate kernels (caught live by the booked
+W^dag W gate at 3.8e-02 / 2.0e-01 while ||C2 W|| was already 5e-15);
+the basis is now Gram inverse-square-root re-orthonormalized (final
+defects <= 1e-15) and the Gram full-rank assert is booked into the
+script. Kernel dimensions are Lanczos-robust and corroborated by the
+exact character-theory match. Scope sentence to repeat wherever the
+2026 emptiness result is quoted: V259/V268's emptiness is a theorem of
+the PUBLISHED CONTENT (one-body + one-flux fiber), not of the certified
+gauge action - V366 measures the action admitting singlets (multiplicities
+2 and 9) the moment the content carries conjugate pairs, the conjugate
+being necessary (E3 ker 0). V367 (torus placement + dispersion of the
+E4/E5 singlet sectors, anomaly-ledger re-certification for any surviving
+content, V267-style legs) is live per booking.
