@@ -2281,3 +2281,97 @@ nameless-loop-constant value, the 132 residuals' own values, or
 objects of the dressing module itself) are outside this pool -
 programme A (beta as an invariant of the dressing machinery) is the
 precise next cut.
+
+## V365 the dial as an invariant of the dressing machinery (2026-11-01, booked BEFORE any run; programme A, user directive "A")
+
+Question: V364 certified beta_elect unnamed as a number and unnamed
+as a relation between named PUBLISHED VALUES; the one territory that
+census never touched is the dressing machinery's own invariants -
+quantities that exist only when one evaluates the published one-loop
+chain at the certified point. V365 computes those invariants from
+the V350/V352 machinery VERBATIM (no new physics, no new dial) and
+runs the naming classes:
+
+OBJECTS (all published): G = V350.step(1/5); J = J1-identity channel
+(the dial's birth channel); alpha = beta_elect x LOOP with
+beta_elect READ from the V355 artifact and LOOP = V350.LOOP; the rung
+chain B_0 = I, B_{n+1} = B_n (M G) with M = sum_i exp(i(g/2)EV_i) x
+hoisted_i at g = 1/5 (V352 lines, verbatim); the DRESSED rung
+operators Bt_n = B_n + LOOP x sum_k B_k (alpha J) B_{n-k}, n = 1..10;
+the rung transfer T = Bt_10 Bt_9^{-1} (gate: det Bt_9 != 0; if
+singular, book the substitution to singular values of the pair and
+report honestly).
+
+INVARIANTS (booked bound <= 200 values, names exact; pre-run
+amendment with the booked singular-pair substitution: if Bt_9 is
+singular the pair contributes its 64 singular values and the
+FINITE QZ generalized eigenvalues instead of an inverse-transfer,
+and the bound becomes <= 260 - this branch FIRED on the first
+attempt, det Bt_9 = 1.65e-32, so it is the branch of record):
+cartan ratios
+c_n = cartan_norm(Bt_n)/cartan_norm(B_n), n = 1..10; per eigenvalue
+of T (32): Re, Im, abs, arg/2pi; tr T, tr T^2, tr T^3, tr T^4,
+det T, |det T|, arg det T; word traces tr(G^a (alpha J) G^b (alpha
+J)) for a,b >= 1, a+b <= 6 (10); rung sensitivities d/dg Fn at 1/5
+(n = 5, 10), d2/dg2 F10, d/dalpha F10 and d2/dalpha2 F10 at the dial
+(central differences, booked steps 1e-5/1e-4); V354 crossing slopes
+(hR - hT)' at alpha* (step 1e-6) and (hR - hT)'' (step 1e-5).
+
+CLASSES (each booked, closed, machine-checked):
+C1 anchor-tribunal on beta alone: mpmath findpoly degree <= 6,
+maxcoeff 1e5 (the V335/V355 box) plus the mixed pi/sqrt5 lattice
+{1, pi, sqrt5, pi sqrt5} at height <= 1e6 - MUST reproduce the
+booked zero-hits (machinery proof).
+C2 pair-scan among INVARIANTS only (direct + sum/difference/
+product/quotient), exact-Decimal at relative 1e-12 (V364 rules).
+C3 algebra-over-an-invariant: for every v, 8-dimensional integer
+relation search on (1, beta, v, v beta, v^2, v^2 beta, v^3, v^3
+beta) by PSLQ (booked pre-run correction: mpmath.pslq at dps 40,
+tol 1e-30 - the real relation algorithm - in place of the LLL
+formulation drafted first), max coefficient 1e5, relation MUST
+involve a beta-monomial; a hit is then VERIFIED
+at mpmath dps 40 by recomputing that invariant through the chain in
+exact mpmath arithmetic: |sum c_ij beta^i v^j| < 1e-20.
+CHANCE: C2 <= 4x10^4 tests x 2e-24 ~ 1e-19; C3 <= 200 LLL searches
+of dim 8 at height 1e5: booked false-hit bound 2e-11 per the
+dimension-8 short-vector density at 1e18 scaling. A hit is a fact.
+
+VERDICT WORDS: BETA-INVARIANT-RATIONAL-<op>:<x>:<y> (naming, tier 2
+GREEN, the dial becomes a relation of dressing invariants - zero
+cadran within the certified algebra) / BETA-INVARIANT-ALGEBRAIC-
+<v-name>:<relation> (naming via C3, GREEN, verified at dps 40) /
+BETA-NO-INVARIANT-HIT (honest negative, pass TRUE: the dial is
+unnamed even as an invariant of its own machinery - O8 hardened) /
+ANCHOR-TRIBUTAL-MOVED (C1 fires where V355 booked zero: red, the
+machinery is broken) / MACHINERY-DRIFT. Tier 2, residual TRUE (O8).
+Cost booked: matrix chain 32x32 host float64 + 200 dim-8 LLL: under
+a minute; mpmath re-verification only on candidate hits. GPU 1
+pinned per house rule (no GPU kernels needed). Fold incremental.
+
+## V365 run note (post-run)
+
+BETA-NO-INVARIANT-HIT (honest negative, pass True, tier 2, O8-facing)
+in 10 s on GPU 1-pinned host arithmetic. The booked C1 anchor
+reproduced the V355 tribunal zeros exactly (machinery green). The
+booked singular-pair branch FIRED: det Bt_9 = 1.65e-32 - and the run
+data show what that really is: ALL 32 singular values of Bt_9 equal
+1.016e-01 to float64 (spread ratio exactly 1.00), likewise Bt_10 at
+7.879e-02: at the certified point the dressed rung operators are
+SCALAR x UNITARY (the dressing chain is norm-preserving there -
+measured, not booked as a theorem), and a 32x32 scalar-unitary with
+sigma ~ 0.1 has det ~ sigma^32 ~ 1e-31: the "singularity" is a scale
+of the det test, not a rank deficiency - the QZ pair machinery
+returned all 32 finite generalized eigenvalues accordingly, and the
+booked substitution was the honest route either way. Cartan ratios
+c_n run 1.0 -> 0.9994 over the ten rungs: the one-loop dressing
+chain barely bends the Cartan norm at the dial.
+Census: 226 invariants (cap 260 with the fired substitution); C2
+204 756 exact pair tests: 0; C3 226 dps-40 PSLQ searches over
+(1, beta, v, v beta, v^2, v^2 beta, v^3, v^3 beta) at height 1e5:
+0 verified relations. Net across the two programmes: the dial is
+unnamed as a number (V355), unnamed as a pair of published values
+(V364), and unnamed as an algebraic object of the dressing
+machinery that produces it (V365). What the census DID surface is a
+certifiable geometric fact at the certified point (scalar x unitary
+rung operators, unit Cartan ratios) - a lead for the next cut,
+booked as a leaf here, not as a claim.

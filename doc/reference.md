@@ -348,6 +348,8 @@ Wall 78 s; suite 248, fold 248/248, hard tier MET (108 tiered).
 
 **The tension ledger V364 (2026-11-01).** The single dial of the elected theory is now certified unnamed in a second, stronger sense: searched as a direct value and as any sum/difference/product/quotient of pairs drawn from 525 machine-named quantities harvested from published artifacts (1 376 025 exact tests at relative $10^{-12}$, booked chance of a false hit $\le 4\times10^{-17}$), it hits nothing - $\beta$ is not a relation between named published things. The remaining route to naming it runs through invariants of the dressing channel's own machinery.
 
+**The dressing-invariant census V365 (2026-11-01).** The naming of the dial was pushed to its last territory: as an algebraic object of the dressing machinery itself. The one-loop chain at the certified point yields 226 invariants (the rung pair enters through singular values and finite QZ generalized eigenvalues - and the census surfaces a geometric fact: at the dial the dressed rung operators are scalar times unitary, singular-value spread exactly 1.00, Cartan ratios within $6\times10^{-4}$ of one across all ten rungs); a degree-3 PSLQ search at coefficient height $10^{5}$ and exact pair scans at relative $10^{-12}$ find nothing involving $\beta$. Unnamed as a number, as a relation of published values, as an invariant of its own machinery - the O8 cell stands, hardened, and the norm-preserving structure it surfaced is booked as the next lead.
+
 **The provenance of the headline numbers** (the paper's Table 6;
 `cl10.parameter_audit.provenance_table()` gives the same classification
 over 24 rows as 8 algebraic / 0 free angle / 3 conventions / 1 coincidence
