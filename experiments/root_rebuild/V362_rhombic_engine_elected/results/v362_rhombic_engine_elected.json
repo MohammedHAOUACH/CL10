@@ -1,0 +1,103 @@
+{
+ "id": "V362_rhombic_engine_elected",
+ "tier": 1,
+ "property": "the complete engine on the rhombic dodecahedral cell against the elected theory's acceptance windows",
+ "status": "RHOMBIC-NOT-ELECTED",
+ "pass": true,
+ "data": {
+  "hop_equivariant": {
+   "trK2_exact": 144,
+   "transport_rule": "+-60 deg about (d_u x d_v)/sqrt3, Fractions d=6",
+   "equivariant_exact_Fractions": true,
+   "RHBIC_HOPGAP_equivariant": 0.27614237491539567,
+   "spectrum": [
+    -3.3333333333333313,
+    -2.5976996854212815,
+    -2.597699685421281,
+    -2.597699685421281,
+    -2.0000000000000018,
+    -2.0000000000000013,
+    -2.0,
+    -1.9999999999999976,
+    -1.6094757082487303,
+    -1.60947570824873,
+    -1.6094757082487292,
+    -1.4415184401122538,
+    -1.441518440112253,
+    -1.441518440112252,
+    -1.3333333333333337,
+    -1.3333333333333333,
+    -0.4305008740430613,
+    -0.4305008740430596,
+    0.27614237491539567,
+    0.276142374915397,
+    0.27614237491539706,
+    0.49407527898261533,
+    0.49407527898261533,
+    0.49407527898261655,
+    1.3333333333333324,
+    1.3333333333333326,
+    1.333333333333333,
+    2.6666666666666674,
+    2.770291073105332,
+    2.770291073105332,
+    2.7702910731053327,
+    2.7748517734455844,
+    2.7748517734455858,
+    2.774851773445587,
+    3.0971675407097257,
+    3.097167540709728
+   ]
+  },
+  "covariance": {
+   "device": "cupy b'NVIDIA GeForce RTX 3090'",
+   "worst_cov_dev": 2.490047963987896e-15,
+   "mean_cov_dev": 2.1297341165573692e-15,
+   "identity_gate": 3.944304526105059e-31
+  },
+  "crossings": {
+   "n_roots": 2,
+   "roots": [
+    0.18834218829046268,
+    0.1921709034991959
+   ],
+   "near_fifth": [],
+   "gcross_published": 0.20013522988494253,
+   "gcross_window": 2.0625845257860043e-06,
+   "best_root_vs_gcross": 0.007964326385746623
+  },
+  "reading": {
+   "F10_abs_at_fifth": 0.09304014629435453,
+   "C_R": 15014941.835659385,
+   "COEF_OBS": 2.076564111173832,
+   "rel_dev": 7230665.154184759,
+   "dial_window_read_dev": 5.457648321277802e-13
+  }
+ },
+ "checks": [
+  {
+   "name": "T0a O_h rebuilt exactly: order 48 (booked 48), census {1: 1, 2: 19, 3: 8, 4: 12, 6: 8} (booked {1:1,2:19,3:8,4:12,6:8}), 12-face action 48 distinct kernel 1",
+   "pass": true
+  },
+  {
+   "name": "T0b the canonical edge-axis transport in exact Fractions: maps every adjacent pair (d_u -> d_v), orthogonality exact, O_h-equivariance EXACT in Fractions for all 48 elements: True; tr K^2 = 144 (booked 144, exact); TWISTED hop gap (equivariant rule) min |lambda| = 0.276142 (no target booked - the probe booked it opens the gap the rule-artifact zero modes of V361-T3 had); untwisted hopping re-derived with 3 exact zero modes (V361 T1 spectrum leaf)",
+   "pass": true
+  },
+  {
+   "name": "T0c internal identities from supercell.sectors(0.2): |U32 B - B U16| = 4.5e-16, |det U32 - 1| = 5.3e-15 (both <= 1e-12)",
+   "pass": "True"
+  },
+  {
+   "name": "T1 engine gates: U_hop unitary at g in {0.02, 1/5, pi/4, 0.98}: dev 2.0e-15; |det U_hop(1/5)| - 1 = 5.4e-15; the full 1152-dim rhombic engine step at (1/5, 0.2) unitary dev 8.2e-15 (<= 1e-10); O_h covariance over ALL 48 conjugations, batched on cupy b'NVIDIA GeForce RTX 3090': worst 2.5e-15 (<= 1e-10), device-vs-host identity probes 3.9e-31 (<= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T2 crossings |F_10^Rh(g)| = LOOP on (0,1): 2 root(s); within +-1e-4 of the fifth: 0 named by CF q <= 10000; nearest root vs the published dressed crossing 0.200135230: 7.96e-03 (elected window 2.06e-06)",
+   "pass": true
+  },
+  {
+   "name": "T3 READING: C_R = 3(|F_10^Rh(1/5)|/LOOP)^10 = 1.50149e+07 vs COEF_OBS = 2.07656: rel dev 7.231e+06 (elected dial window read_dev leaf 5.458e-13: outside)",
+   "pass": true
+  }
+ ]
+}
