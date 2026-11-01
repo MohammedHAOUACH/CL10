@@ -1516,3 +1516,48 @@ the V319 rule, FOUND requires <= 1e-8 residual against T or the
 deficit. T0: W_n re-derived to V345's nine leaves bit-for-bit.
 CLASSIFICATION: PENTAGON-LADDER-HITS (+- arith), PENTAGON-LADDER-
 VOID, MACHINERY-DRIFT. Cost booked: < 10 min each.
+
+## The pentagon engine rebuild V358-V360 (user directive 2026-11-01:
+"rebuild the whole engine on the pentagon-12" - booked before any
+run; engine library cl10/pentengine.py lands with the booking)
+The V356 finding (expected): the dodecahedral group is finite, so
+a structural step over it closes at EVERY angle - the clock must
+live in the coefficients. The spectral fact (V357's spectrum): the
+closed 12-face cell has eigenvalues {5, (sqrt5)^3, (-sqrt5)^3,
+(-1)^5} - a spectral gap 5 - sqrt5 = 2.76393202250021 exactly: NO
+massless mode exists on the closed sphere, whatever the internal
+module. So the rebuild is three-layered and each layer is measured:
+V358_PENTENGINE: the engine itself - cell = 12 faces, on-site =
+12 x the published 32-level cell module (internal Spin(10) stages
+reused VERBATIM from the published engine machinery), six-stage
+product with the hop stage replaced by the icosahedral-graph hop
+dressed by A5-covariant Wilson link phases t_uv(g) = exp(i g w_uv),
+w = shared-edge winding 0..4. Gates: unitarity of every stage and
+of the full product <= 1e-12 (GPU cupy path with a T0 host-vs-device
+identity <= 1e-9 - the house pattern), det = 1 of the internal
+product, A5-covariance (conjugation = permutation similarity, all
+120 elements), clock-free structural closure re-verified inside the
+engine, and the exact hop spectrum re-derived {5,(sqrt5)^3,
+(-sqrt5)^3,(-1)^5} to 1e-12. Branch: PENTENGINE-BUILT (all green) /
+PENTENGINE-BROKEN / MACHINERY-DRIFT.
+V359_PENTENGINE_LADDER: the traced-word ladder OF THE PENTAGON
+ENGINE: closed walks on the face module with the link phases, F_n^P
+= (1/384) tr U_hop(g)^n summed over the booked word classes; the
+crossing |F_n^P| = LOOP_P against the engine's own loop object -
+and the published reading chain re-run on it: rung-10 coefficient
+3(F_10)^10 against COEF_OBS, and the ladder base question (does a
+pentagon loop factor replace 1/(16 pi)?). T0: F at g = 0 matches
+the pure spectrum moments W_n/384 exactly; chance-density
+discipline booked (class of g-grids 1e-3 x rungs, expected hits
+printed). Branch: PENTLADDER-CROSSING (+- named), PENTLADDER-NO-
+CROSSING, MACHINERY-DRIFT.
+V360_PENTAGRID_GAPLESS: the closed sphere is gapped (5 - sqrt5),
+so masslessness needs the EXTENDED pentagon lattice: the A5-
+quasiperiodic grid - Penrose P3 rhomb substitution graph grown to
+N <= 4096 faces, tight-binding hop spectrum at the Wilson clock -
+gap-to-nearest-zero vs N (N = 169, 676, 2704): PENTAGRID-GAPLESS
+(gap decreasing as N grows, slope >= 0.3 in log-log - a real
+touching forming) / PENTAGRID-GAPPED (gap floor >= 0.1 x (5 -
+sqrt5)) / MACHINERY-DRIFT. This is the rebuild's masslessness gate:
+without it the pentagon engine cannot carry light fermions at all.
+Cost booked: V358 < 5 min, V359 < 15 min, V360 < 15 min, GPU 1.
