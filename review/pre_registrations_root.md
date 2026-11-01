@@ -1026,3 +1026,99 @@ UNPROTECTED / QW-MASSIVE (no gapless locus at all: the cell cannot
 carry massless matter even with an internal coin - the structural
 wall stands, now at its most generous).
 Cost booked: seconds (60x60).
+
+## V349 run note (post-run; verdict as booked)
+QW-GAPLESS-UNPROTECTED, wall 12 s. The user's "build the whole new
+geometry FOR the cell" in its strongest concrete form: the 12-face
+cell WITH internal matter - A5-covariant quantum walk (60 directed
+face-bonds; coin = exp(i alpha (P+P^dag)) on each face's OWN pentagon
+cyclic order; U = S.C). Gates all green BEFORE reading: T0a unitary
+7.5e-15; T0b A5-EQUIVARIANCE CERTIFICATE (V339 T2 p5, p2 lifted to
+the directed basis commute with U at 6.8e-16 - covariance proved,
+not assumed); T0c V345 graph counts.
+M1: the walk DOES have a gapless locus - 9 exact points in
+alpha in (0,2pi), 3-5 zero modes each (the internal coin is what
+V346's bare adjacency walk lacked). But max modes = 5, not 12: the
+"12 faces = 12 doublers" coincidence fails even numerically.
+M2 PROTECTION TRIBUNAL (the decisive measurement): at amplitude
+1e-4 of random A5-breaking (bond phases + coin jitter), ALL 9
+gapless points open gaps (<= 160 draws, worst-gap chain booked per
+point): the cell's massless modes are KINEMATIC crossings, not
+topological. The published doublers' defining property - protected
+by the lattice translation + point-group symmetries (the Nielsen-
+Ninomiya parity the paper's V187/V244 theorems enforce) - is
+precisely what a 12-cell closed geometry cannot supply: it has no
+translation symmetry to protect anything, so gaplessness needs
+fine-tuning at every point. The tribunal measured the structural
+wall at its most generous level.
+M3: nearest gapless point 0.0211 from g_obs: no clock contact.
+Verdict line: even the new geometry BUILT FOR the cell, with an
+internal coin supplying the missing dynamical organ, produces mass-
+less matter that is fragile and off-desert. The concrete "new
+geometry" family - signal (V345), engine (V347), matter-walk
+(V349) - is now measured at every constructible level.
+
+## V350_backreaction_fixed_point (tier 1, hard; the 30 % class, booked exactly before the run)
+Question: is the clock an OUTPUT of a self-consistent matter<->geometry
+loop instead of an input angle? The one physical hypothesis the whole
+hunt never tested (V349's walk failed for lack of backreaction). All
+machinery is the PUBLISHED rung ladder (V206 verbatim: step(g) over the
+45 Spin(10) planes, sector_hops(G, rho) with the V85 projectors of TL,
+phases exp(i g e_lambda /2), F_n = cartan_norm ratio; sectors 0..2,
+nmax 10), and rho is a first-class input of the published hop
+mechanics already.
+BACKREACTION (booked exactly, no free knob): excitation weights
+n_lambda(g) = 2 - 2 cos(g e_lambda / 2) from the published hop
+exponents e_lambda; link densities sigma_lambda = Tr_int(P_lambda)/32
+unit-normalized; rho(g) = sum_lambda n_lambda(g) sigma_lambda / Z,
+Z = sum n_lambda Tr sigma (rho Hermitian PSD trace 1 by construction).
+MAPS (the loop is then a map g -> g'):
+A: g' = bisection root of |F_10(g; rho_prev)| = LOOP on (0.20, 0.21),
+   start g_cross published;
+B: g' = bisection root of 3 (F_10/LOOP)^10 = COEF_OBS on
+   (0.1985, 0.200), start g_obs published.
+Iteration: g_k = mix(g_{k-1}, g'_k), mix in {1.0, 0.5, 0.2} (0.5/0.2
+only if the previous mix fails to converge), bisection 27 steps
+(width 1e-10), at most 40 iterations per map, converged when
+|g_k - g_{k-1}| < 1e-10; last 50 iterates all distinct -> cycle ->
+NO-FIXED-POINT.
+T0 GATES before reading any fixed point: T0a rho = I/45 reproduces
+the V206 published anchors g_obs and g_cross inside THIS script's
+verbatim bisections to <= 1e-5 vs the V206 artifact (art()); T0b the
+reference branch F_10 at REF_G matches the V113 published line to
+<= 1e-6; T0c rho(g) Hermiticity/PSD/trace-1 <= 1e-12 at 5 sampled g.
+BATTERY (house rule unchanged): every converged g* against g_obs,
+g_cross_rung10, 1/5, guards 1e-9 (and contraction factor + distance
+reported regardless).
+BRANCH WORDS: FP-CONTACT (a fixed point ON a published anchor within
+1e-9: the clock is self-consistency - booked consequence: the clock
+chapter of the paper is rewritten around V350 and the whole battery
+re-run) / FP-NEAR (converged, 1e-9 < d <= 1e-4: a real mechanism
+candidate, booked: rerun with corrected rho, no paper claim until
+contact) / FP-DRIFT (converged self-consistent clocks exist but off
+desert) / NO-FIXED-POINT (cycles/divergence: self-consistency has no
+clock) / MACHINERY-DRIFT.
+Cost booked: 3-4k rung evaluations, wall <= 20 min.
+
+## V351_fold_icosahedral_star (tier 2, exact structural; booked)
+V336 certified the seam at GROUP level (2I/McKay/E8: Coxeter element of
+order 30 exact, the 240 roots project on the Coxeter plane to 4 radii,
+angle sets closed under +2pi/30 and +2pi/10 at 1e-25). V351 asks the
+CELL-level question V336 did not: is the 12 of the user's cell a
+PROJECTED ROOT CONFIGURATION? Recompute the V336 fold exactly (E8
+simple roots over Fraction, Cartan Gram det 1, 240 roots enumerated,
+Coxeter C^30 = I exact, adjugate null vector of C - lambda I at 50 dp,
+projections). BOOKED CHECKS: T0 the V336 T3 census re-derived (4 radii,
+multiplicities, angle closure <= 1e-25) and radii/multiplicity numbers
+equal the V336 artifact; M1 per-radius angle census: does ANY radius
+class carry a 12-point star whose angle multiset equals the icosahedron
+vertex set projected on its Coxeter plane (the 6-antipodal-pair dodecagon
+pattern {2pi k/12} up to rotation, OR the icosahedral 2-fold projection
+star with the booked golden angle differences in Z[phi]) - tested as
+exact angle algebra, not fitted.
+BRANCH: FOLD-ICOSA-STAR (the cell's 12 is a root configuration of the
+published engine: booked consequence: the naming claim of V335/V336
+upgraded from group level to cell configuration; NO clock claim is
+permitted by this script) / FOLD-NO-STAR (the fold is group-level only;
+the cell's 12 is not born from the 240) / FOLD-DRIFT.
+Cost booked: seconds.
