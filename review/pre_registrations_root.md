@@ -539,3 +539,40 @@ listed, distances reported). Cost: ~30 s. If NO-CONTACT-NEAR: the
 icosahedron-as-internal clock channel closes too, and the only channel
 left open by the whole hunt is a DRESSING SERIES around a bare contact
 (booked consequence, N4).
+
+## V343 run note (post-run; verdict as booked)
+N3-NO-CONTACT-NEAR-THE-DESERT. T0 anchor green (U_icos(2pi/5) eigen-
+phase 0 at 2.3e-16, V339 leaf re-verified). The internalized
+icosahedral module U_icos(g)^6 has exactly TWO phase contacts on
+(0,1): g* = 0.6539031701784 and g* = 0.8008741945100 - nearest desert
+margins 0.454 and 0.601 (the second contact sits 8.7e-4 from 4/5,
+six-plus orders outside any structural guard). N3's clock channel
+closes: putting the icosahedron inside the cubic engine moves the
+contacts AWAY from the desert, not toward it.
+
+## The elected theory, as a theorem-shaped portrait (booked consequence)
+The hunt now BOUNDS the elected theory from outside on five fronts,
+each a fired experiment, none a guess:
+(1) backbone: any elected theory NAMES 1/5 as exact combinatorics
+    (V339: 12/60 = 1/5 in the A5 cell; the naming is real and the
+    desert reads 1/5 to 5.03e-5 RELATIVE);
+(2) fermions: it must carry ISOLATED LINEAR doublers - the cubic bond
+    product is the only known carrier (published 12 M-channels; the
+    icosahedral alternative is a nodal-surface metal, V342);
+(3) it cannot share the cubic cell with any 5-fold bond geometry
+    (V337 kills the massless nodes there);
+(4) the 2 ppm deviation is NOT static: naming (V338), webs (V340),
+    triples, self-similarity/Pisot (V340) are all bounded closed -
+    the ONLY surviving birth channel is a DYNAMICAL dressing series
+    or an exponential factor;
+(5) SHAPE OF THAT FACTOR, from published data: V321's resummation
+    exponents m = 11.29, 11.58, 10.86, 10.83 (rung 2/6/10 3-pt fits):
+    -ln(delta) = 11.51703 lies INSIDE the published m-window
+    (10.6-11.6): the desert deviation has exactly the SHAPE of an
+    e^{-S} instanton factor of the ladder's own resummation action,
+    though no published m matches at the 1e-12 guard (nearest 24 %).
+N4 (next booked experiment): compute the ladder's exact resummation
+action S (not the 3-point fit m) at the desert rung and test
+delta = c e^{-S} at guard 1e-12. If it fires, the desert is born:
+g_obs = 1/5 (named, combinatorial) x (1 - c e^{-S(ladder)}) (dynamical)
+- backbone + instanton dressing - the only shape left standing.
