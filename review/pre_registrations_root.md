@@ -1456,3 +1456,20 @@ crossings/rungs/scales intact, cost one dial); ELECT-BATTERY-FAIL
 (any guard red: the exact failing numbers printed, the build stands
 condemned); MACHINERY-DRIFT.
 Cost booked: ~4 min (one GPU rootB + ~120 CPU dressed-ladder evals).
+
+## V355 run note (post-run)
+ELECT-BUILT, all seven guards green, wall 5.7 s on GPU 1. The
+elected theory as built: identity-form dressing of the published
+reading channel at the V354-pinned amplitude (alpha_elect =
+-0.003095044242559, beta_elect = -0.155573892079), clock born at the
+EXACT fifth. Numbers: B1 birth root 0.199999999996 (3.7e-12 from
+1/5 - the -2.012e-6 clock-tension offset of the published inverted
+clock is precisely what the dial absorbs); B2 reading 2.0765641112 =
+COEF_OBS to 5.5e-13; B3 dressed rung-10 crossing 0.200135230 (2.1e-6
+from published, 1.4e-4 from the fifth - the paper's "clock at the
+rung-10 crossing" survives dressing to 1e-4); B4 rung ten intact;
+B5 rung-17 scale bit-identical (0.0e+00); B6 one dial, V248 ledger
+contradicted by one, stated. Physics of the cost: the dial has a
+precise job - it is the tree-level offset of the published inverted
+clock, promoted to a constant of nature. The published reading claim
+(the hierarchy coefficient) is now EXACT at a rational clock.

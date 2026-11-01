@@ -1,0 +1,49 @@
+{
+ "id": "V355_elect_one_dial",
+ "tier": 1,
+ "property": "the elected theory built: born rational clock, exact reading, published battery intact, one dial",
+ "status": "ELECT-BUILT",
+ "pass": true,
+ "data": {
+  "alpha_elect": -0.003095044242559194,
+  "beta_elect": -0.1555738920793496,
+  "battery": {
+   "birth_dev": 3.72524233682725e-12,
+   "read_dev": 5.457648321277802e-13,
+   "gcross_dressed": 0.20013522988494253,
+   "gcross_dev": 2.0625845257860043e-06,
+   "rung_star": 10,
+   "s17_dev": 0.0
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 on the published g_obs to 3.1e-12 (<= 1e-8); reading at 1/5 vs the V206 coef_at_fifth artifact rel 1.7e-13 (<= 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "B1 BIRTH: the dressed ladder's self-consistent root at the dial is 0.199999999996 - distance to the rational fifth 3.7e-12 (<= 1e-9): the clock is born rational",
+   "pass": "True"
+  },
+  {
+   "name": "B2 EXACT READING: the dressed ladder at the born clock reads 2.0765641112 vs COEF_OBS 2.0765641112 - rel 5.5e-13 (<= 1e-8): the paper's reading claim UPGRADED from relative 1e-5 at the inverted g_obs to exact at the rational fifth",
+   "pass": true
+  },
+  {
+   "name": "B3 CROSSING PRESERVED: the dressed rung-10 crossing of 1/(16 pi) sits at g~cross = 0.200135230, distance to the published 0.200133167 is 2.1e-06 (<= 1e-3 house tolerance), to the born fifth 1.4e-04",
+   "pass": true
+  },
+  {
+   "name": "B4 RUNG TEN: first crossing of the dressed ladder at the born clock is rung 10 (must be 10: the rung-10 clock is not a dressing artifact)",
+   "pass": true
+  },
+  {
+   "name": "B5 LADDER UNTOUCHED: rung-17 scale re-derives the V303 contact at rel 0.0e+00 (< TOL_SCALE 5e-02: the dial lives in the reading channel only, the 13-rung machinery unchanged)",
+   "pass": true
+  },
+  {
+   "name": "B6 DIAL ACCOUNTING: exactly 1 new constant (beta_elect = -0.155573892079 (alpha/LOOP, from the V354 artifact)); the published V248 zero-dial ledger is CONTRADICTED BY ONE - stated verbatim per booking",
+   "pass": true
+  }
+ ]
+}
