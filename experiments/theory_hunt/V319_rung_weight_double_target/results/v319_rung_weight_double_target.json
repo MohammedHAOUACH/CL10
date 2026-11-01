@@ -532,7 +532,7 @@
    "worst_normalized": 0.5390384127881388
   },
   "status": "RUNG-WEIGHT-NO-SUPPLIER",
-  "wall_time": 23.863759994506836
+  "wall_time": 18.872853755950928
  },
  "checks": [
   {
@@ -540,7 +540,7 @@
    "pass": true
   },
   {
-   "name": "T0b plain reads reproduce V206 coef_at_fifth 2.08810686590679 (|d| 3.8e-13) and the V318 closest-row coef 2.07644360080447 (|d| 4.0e-15), both < 1e-9",
+   "name": "T0b plain reads reproduce V206 coef_at_fifth 2.08810686590679 (|d| 3.8e-13) and the V318 closest-row coef 2.07644360080448 (|d| 1.3e-15), both < 1e-9",
    "pass": true
   },
   {

@@ -5660,3 +5660,20 @@ GPU 1, free card); the value printed in the docs is the artifact (fold)
 read. The gate is backend-run-stable at <= 1e-12 either way; a runner
 fold on the busy parent card OOMs the staged path, which the script now
 names honestly in the skip line (host T0e identity governs).
+
+## Full fresh re-gate 2026-11-01 (user-requested, GPU 1)
+
+The full `--full` re-gate of all 248 was run fresh on the free card (GPU 1,
+cupy parent, sequential jobs: 1): **248/248 PASS, 0 INCONCLUSIVE, 0 FAILED,
+hard tier MET (108 tiered), backend report unchanged (54/54 GPU backends,
+V334/V335 honest OFF-CORE)**. Every artifact rewritten from a cold run:
+verdicts and all T0 leaves reproduce bit-stably (no branch moved anywhere in
+the suite). The booked cost profile CONFIRMS at fresh precision: sum of
+artifact wall_times 3.7 h against the booked 3.9 h over 239, and the five
+costliest re-measured V187 4386 s, V186 3220 s, V218 1316 s, V220 751 s,
+V219 719 s (all within 9 % of the booked numbers). Wall time was 10.7 h:
+the ~7 h beyond the booked experiment time is per-subprocess cold cupy
+initialisation on a never-before-used card (each GPU experiment imports the
+engine in a fresh process; on the warm parent card the booked profile
+amortizes it). Cost lesson booked, not a verdict change: full re-gates
+should run on the warm card or with a warmed kernel cache.

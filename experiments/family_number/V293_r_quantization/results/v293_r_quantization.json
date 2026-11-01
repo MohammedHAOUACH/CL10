@@ -14,7 +14,7 @@
    "r_per_family_int": 3
   },
   "status": "R-QUANTIZED",
-  "wall_time": 0.0006854534149169922,
+  "wall_time": 0.0008258819580078125,
   "fitted_inputs": []
  },
  "checks": [

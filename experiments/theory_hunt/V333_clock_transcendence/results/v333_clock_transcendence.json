@@ -420,7 +420,7 @@
   },
   "closure_tests": 626688,
   "backend": "cupy",
-  "wall_time": 624.9730701446533,
+  "wall_time": 612.5633780956268,
   "pi_closure_ledger": {
    "pi*1/2": 4096,
    "pi*1/3": 4096,
