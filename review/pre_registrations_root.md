@@ -2147,3 +2147,40 @@ failures 0 at both heights; T3 keying witnesses 12/12, first
 witness d = (1,1,0): q = (7/5, 7/5, 1/100) = alpha 7/5, beta
 1/100, e (0,0,1) - the search found a point deep in the flank,
 consistent with the interlock being volumetric, not tip-grazing.
+
+## Roll-up: the rebuild phase V356-V363 (2026-11-01, phase end)
+
+Three closed twelve-cells were built, gated, and put to the elected
+acceptance windows; none displaces the elected one-dial completion of
+Section 10.5, and the net reading of each was booked before its run:
+
+- pentagon (V356-V360): I_h closes clock-free (V356), the walk ladder
+  is void of the reading objects (V357), the built 1152-dim engine
+  carries the EXACT golden closure gap (3-sqrt5)/2 (V358 PENTGAP), no
+  ladder crossing (V359), and masslessness survives only on the
+  extended Penrose grid (V360 PENTAGRID-GAPLESS). Verdict: the pentagon
+  NAMES the fifth, it does not BIRTH it.
+- rhombic dodecahedron (V361-V362): the closed cell is gapless EXACTLY
+  (RHOMBIGAP 2.3e-16, 3 zero modes - the golden gap was the
+  icosahedral closure's choice, not closure's necessity), it IS the
+  FCC Wigner-Seitz cell, and its complete engine is exactly
+  O_h-equivariant in rationals - yet the battery rejects it: crossings
+  3900x outside window, fifth reading 19 orders outside (V362), and
+  the one-loop self-consistency machinery does not transfer.
+- Escher stellation (V363): the user's keyed picture is a THEOREM of
+  this geometry - notch = pyramid (set identity) at every height, a
+  perfect tiling certified to zero exceptions on the GPU batch, volume
+  conserved exactly, and the thick cell mechanically keyed along all
+  12 normals; the apices preserve the exact gapless twelve. It changes
+  the lattice's relief, not its physics: engine verdict carried
+  verbatim from V362.
+
+Machinery corrections booked along the way (no claim moved by any of
+them): mpmath normalization + canonical dedup and strict orders for the
+I_h census (V356/V357 run note), the transport-rule correction with
+the twisted-gap artifact 0.276142 (V361 note), and the four V363
+defects (apex-offset facet planes, K-scaled offsets, the even-sum FCC
+enumeration, linear pyramid volume). The phase closes with the FULL
+gate fold (276 experiments): the on-disk fingerprints predate the
+published single-library changes (supercell_2i/pentengine), so the
+runner's library gate forces the whole suite.
