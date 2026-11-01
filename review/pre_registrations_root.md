@@ -576,3 +576,34 @@ action S (not the 3-point fit m) at the desert rung and test
 delta = c e^{-S} at guard 1e-12. If it fires, the desert is born:
 g_obs = 1/5 (named, combinatorial) x (1 - c e^{-S(ladder)}) (dynamical)
 - backbone + instanton dressing - the only shape left standing.
+
+## V344_turn_unit_clock_census (N4 core; booked then run)
+CORRECTION booked first: the N4 booking leaned on V321's m-window
+(10.6-11.6) as "published action"; the artifact shows RESUM-NO-TIE with
+fp = None for EVERY n (c_spread ~ 0.99 at n=10: the power divergence
+is not pure-power canonical). The m values are slope estimates, NOT a
+canonical channel: portrait claim (5) WEAKENED to "shape suggestive,
+channel not canonical" and claim (-ln delta in the window) demoted to
+decoration. N4 core rebuilt around a HARD theorem-shaped fact:
+Lindemann-Weierstrass: for algebraic g != 0, sin g, cos g are
+transcendental: NO machinery polynomial in trig of g-in-radians can
+resonate exactly at g = 1/5; the only way a RATIONAL clock can be a
+root clock is if the machinery's phase is e^{2 pi i g} (turns). V209
+measured the ladder's root-clock set as {8g in 2 pi Z} - denominator
+8 in turns. The desert's denominator is 5. PROBE (published exact
+machinery mp_ladder, no new object): does ANY q=5 clock resonate:
+g = 2 pi p/q, q in {3,4,5,6,8,10,12} (the turn-unit rational clocks,
+where trig IS algebraic: 72-degree trig lives in Q(phi) - the 5-clock
+is NOT forbidden, only the RADIAN 1/5 is), plus the exact rational
+g = 1/5 rad as the transcendence control (must NOT resonate if the
+ladder is trig-polynomial). T0: V209 detuned leaves replayed exactly
+(nmax 12, 55 dps, rel < 1e-12) and pi/4 control slope ~ 11.3 recovered.
+Gates: per angle, |F_2| at delta in {1e-1, 1e-3, 1e-5}: divergence
+flag iff |F_2(1e-5)| / |F_2(1e-1)| > 1e8 (three decades of growth like
+the pi/4 control: 7.95e6 -> 1.15e52). BRANCH WORDS: TURN-CLOCK-5 (any
+q in {5,10} angle diverges: the desert's denominator 5 is a root clock
+of the published ladder in turn units - backbone birth OPENS) /
+TURN-CLOCK-VOID (divergences only at q | 8: the ladder's clock set
+stays denominator-8, the desert backbone is NOT born in the ladder,
+and the dressing channel stands candidateless). Cost booked: under 15
+min (nmax 10-12, 55 dps, ~25 angles).
