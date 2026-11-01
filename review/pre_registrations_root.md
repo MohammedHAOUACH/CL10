@@ -1417,3 +1417,42 @@ elected cannot be born from the paper's integers; it either enters
 as one measured dial (then V355 builds it: paper + one dial, full
 battery acceptance) or it stays beyond reach until a mechanism
 outside this model produces exactly -0.1555738920793.
+
+## V355_elect_one_dial (tier 1, hard; the elected theory BUILT, user
+directive 2026-11-01: accept beta_elect as the single measured dial;
+booked before the run)
+Construction: the published reading channel, dressed by the identity
+insertion at the V354-pinned amplitude alpha_elect (read from the
+V354 artifact - no decimal hardcoded here). The clock is BORN at the
+exact fifth: g = 1/5 rational, not the inverted g_obs.
+BATTERY (every published clock-consuming measurement re-run; house
+mechanisms reused verbatim - V206 first_crossing/reading/definitions,
+V352 Fn_corr chain, V318 ladder-scale TOL_SCALE 1e-5):
+ B1 BIRTH: |rootB(1/5, alpha_elect I) - 1/5| <= 1e-9 (the clock is a
+    fixed point of its own dressed ladder, re-measured in the build).
+ B2 EXACT READING: 3(|F~_10(1/5)|/LOOP)^10 = COEF_OBS to rel <= 1e-8
+    (the observed hierarchy coefficient read exactly at the rational
+    clock - the paper's central claim UPGRADED from "to relative
+    1e-5 at g_obs" to exact at 1/5).
+ B3 CROSSING PRESERVED: dressed rung-10 crossing (V206 bisection on
+    |F~_10(g)| = LOOP) within 1e-3 of published g_cross_rung10 =
+    0.200133167 (house tolerance), and the born clock stays AT the
+    rung-10 crossing region (|g~cross - 1/5| reported).
+ B4 RUNG TEN: first_crossing of the dressed ladder at the born clock
+    lands on rung 10 (the "rung-10 clock" is not a dress artifact).
+ B5 LADDER UNTOUCHED: the dressing channel carries no rung-scale
+    machinery - S17 = nv.loop_ladder(17) EV re-derivation vs the V303
+    contact artifact at TOL_SCALE 1e-5 (V318 gate verbatim).
+ B6 DIAL ACCOUNTING: exactly ONE new constant (beta_elect = -0.15557
+    x LOOP as read from the V354 artifact); the paper's zero-dial
+    ledger (V248) is CONTRADICTED BY ONE and the record says so
+    verbatim in the check text.
+T0 gates: tree guards of V354 re-derived (rootB(1/5,0) = g_obs at
+1e-8; coef_at_fifth at 1e-9); alpha_elect round-trip vs artifact at
+1e-15.
+CLASSIFICATION (booked): ELECT-BUILT (all battery guards green - the
+elected theory stands: born rational clock, exact reading, published
+crossings/rungs/scales intact, cost one dial); ELECT-BATTERY-FAIL
+(any guard red: the exact failing numbers printed, the build stands
+condemned); MACHINERY-DRIFT.
+Cost booked: ~4 min (one GPU rootB + ~120 CPU dressed-ladder evals).
