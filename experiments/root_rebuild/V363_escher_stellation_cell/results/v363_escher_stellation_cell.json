@@ -1,0 +1,281 @@
+{
+ "id": "V363_escher_stellation_cell",
+ "tier": 1,
+ "property": "the Escher stellation of the rhombic dodecahedron: perfect tiling with exact tip-to-notch insertion and 12-direction mechanical keying",
+ "status": "ESCHER-TILES",
+ "pass": true,
+ "data": {
+  "complementarity": {
+   "tip_contacts_at_centers_eta1": 12,
+   "clearance_sq_eta_half": "2",
+   "identity": "notch pyramid == intruding pyramid, set identity both heights"
+  },
+  "tiling": {
+   "device": "cupy b'NVIDIA GeForce RTX 3090'",
+   "grid_M": 64,
+   "K": 32,
+   "vol_H_surface": "16",
+   "per_height": {
+    "1": {
+     "vol_one_pyramid": "4/3",
+     "vol_pyramids_total_12": "16",
+     "expected_16eta": "16",
+     "n_single": 238440,
+     "n_multi": 0,
+     "n_none": 0,
+     "n_boundary": 23704,
+     "samples": 262144,
+     "cells": 256,
+     "identity_gate_failures": 0
+    },
+    "1/2": {
+     "vol_one_pyramid": "2/3",
+     "vol_pyramids_total_12": "8",
+     "expected_16eta": "8",
+     "n_single": 182208,
+     "n_multi": 0,
+     "n_none": 0,
+     "n_boundary": 79936,
+     "samples": 262144,
+     "cells": 256,
+     "identity_gate_failures": 0
+    }
+   },
+   "witness_half_eta1": {
+    "in_H": true,
+    "carved": true,
+    "in_S": false
+   }
+  },
+  "keying": {
+   "eta": "1/2",
+   "shift": "d/32 along each normal",
+   "witnesses": {
+    "(-1, -1, 0)": {
+     "e": [
+      0,
+      0,
+      1
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "-7/5",
+      "-7/5",
+      "1/100"
+     ]
+    },
+    "(-1, 0, -1)": {
+     "e": [
+      0,
+      1,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "-7/5",
+      "1/100",
+      "-7/5"
+     ]
+    },
+    "(-1, 0, 1)": {
+     "e": [
+      0,
+      1,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "-7/5",
+      "1/100",
+      "7/5"
+     ]
+    },
+    "(-1, 1, 0)": {
+     "e": [
+      0,
+      0,
+      1
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "-7/5",
+      "7/5",
+      "1/100"
+     ]
+    },
+    "(0, -1, -1)": {
+     "e": [
+      1,
+      0,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "1/100",
+      "-7/5",
+      "-7/5"
+     ]
+    },
+    "(0, -1, 1)": {
+     "e": [
+      1,
+      0,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "1/100",
+      "-7/5",
+      "7/5"
+     ]
+    },
+    "(0, 1, -1)": {
+     "e": [
+      1,
+      0,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "1/100",
+      "7/5",
+      "-7/5"
+     ]
+    },
+    "(0, 1, 1)": {
+     "e": [
+      1,
+      0,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "1/100",
+      "7/5",
+      "7/5"
+     ]
+    },
+    "(1, -1, 0)": {
+     "e": [
+      0,
+      0,
+      1
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "7/5",
+      "-7/5",
+      "1/100"
+     ]
+    },
+    "(1, 0, -1)": {
+     "e": [
+      0,
+      1,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "7/5",
+      "1/100",
+      "-7/5"
+     ]
+    },
+    "(1, 0, 1)": {
+     "e": [
+      0,
+      1,
+      0
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "7/5",
+      "1/100",
+      "7/5"
+     ]
+    },
+    "(1, 1, 0)": {
+     "e": [
+      0,
+      0,
+      1
+     ],
+     "alpha": "7/5",
+     "beta": "1/100",
+     "q": [
+      "7/5",
+      "7/5",
+      "1/100"
+     ]
+    }
+   },
+   "n_witnessed": 12
+  },
+  "apex_graph": {
+   "edges": 24,
+   "W1_W12": [
+    0,
+    48,
+    48,
+    384,
+    960,
+    4608,
+    16128,
+    67584,
+    261120,
+    1056768,
+    4190208,
+    16809984
+   ],
+   "char_poly_exact": [
+    1,
+    0,
+    -24,
+    -16,
+    192,
+    192,
+    -640,
+    -768,
+    768,
+    1024,
+    0,
+    0,
+    0
+   ],
+   "nullity_exact": 3
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 the Escher stellation as code: (V,E,F,chi) = (26,72,48,2) booked (26,72,48,2); 24 base rhombus edges (booked 24) all with squared length [3] (booked [3] = sqrt3, V361 unit sqrt3/2 doubled); the 12 apices exactly the (2,2,0)-type integer points; O_h (BFS order 48 booked 48) apex orbit 12 (booked 12), 48 distinct labeled actions (faithful)",
+   "pass": true
+  },
+  {
+   "name": "T1 exact complementarity ('s'ins\u00e8rent exactement dans les creux'): at BOTH heights the notch carved out of the neighbor is SET-IDENTICAL to the intruding apex pyramid (same base rhombus, mirrored apices about the face center): True; at h = rho the far pyramid meets 0's tip tip-to-tip AT the neighbor's center: 12/12 contacts; at h = rho/2 the clearance is exact, squared tip-to-notch-bottom gap = 2 (= rho/2)",
+   "pass": true
+  },
+  {
+   "name": "T2 the perfect pavage 3D (cupy b'NVIDIA GeForce RTX 3090'): 256 lattice cells on the denominator-64 grid (262144 samples, scale K = 32) batched on cupy b'NVIDIA GeForce RTX 3090', host-vs-device identity gate failures 0 (integers): vol(H) = 16 EXACTLY by the closed oriented surface; per height eta: vol(12 pyramids) = 16 eta EXACT, linear: the rhombus base never scales, booked correction of the eta^3 mislabel (eta=1: 16 - the notches ARE the 12 decomposition pyramids, the core is exactly consumed and the cell is the 12-spike star point-connected at the center; eta=1/2: 8 - the thick Escher relief); coverage exactly one at every strictly-interior sample for BOTH heights (single/multiple/uncovered: eta=1 [238440/0/0], eta=1/2 [182208/0/0], boundary leaves 23704/79936); booked witness (1/2,1/2,0) at eta=1: in H True, carved True, so S != H True",
+   "pass": true
+  },
+  {
+   "name": "T3 reliefs imbriqu\u00e9s - mechanical keying of the thick cell (eta = 1/2): shifting cell 0 by delta = d/32 toward each neighbor forces a solid overlap, witness by the booked deterministic rational search (q = alpha d + beta e, alpha 1.40..3.10 step .01, beta .01..0.40 step .01, strict Fraction membership in S(2d) and shifted S(0)): 12/12 normals keyed (booked 12); e.g. d=(1,1,0): q = ['7/5', '7/5', '1/100'] (alpha 7/5, beta 1/100, e (0, 0, 1)); at delta = 0 the interface is measure-zero (T2 coverage exactly one): the bipyramidal relief wall keys the thick cells along EVERY face normal - no translation separates them",
+   "pass": true
+  },
+  {
+   "name": "T4 the Escher apices ARE the gapless certified 12-cell: apex graph (rule dot = 4 on the (2,2,0)-type apices) 24 edges (booked 24, 4-regular); walk moments W_1..W_12 = [0, 48, 48, 384, 960, 4608, 16128, 67584, 261120, 1056768, 4190208, 16809984]; char poly by Newton sums in exact integers [1, 0, -24, -16, 192, 192, -640, -768, 768, 1024, 0, 0, 0] vs booked cuboctahedral [1,0,-24,-16,192,192,-640,-768,768,1024,0,0,0]: bit-identical True; exact Fraction nullity 3 (booked 3): RHOMBIGAP's 3 zero modes survive the stellation - the engine is V362's verbatim, its RHOMBIC-NOT-ELECTED battery verdict stands (booked NOT re-run)",
+   "pass": true
+  }
+ ]
+}
