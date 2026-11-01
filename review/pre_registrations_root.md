@@ -2525,3 +2525,54 @@ action fixes invariant tensors) - it feels only the bond layer and
 the flux phase. V368 booked: relative-momentum dispersion of the
 128 contact bands + multi-flux continuum overlap; NO paper sentence
 before V368.
+
+## V368 torus rigidity of the composite isolation window (booked BEFORE run; reality-interface third cut, follows V367 COMPOSITE-GAMMA-BOUND-1.007)
+
+Structural fact proven on the machine after V367 (probe, booked here as
+the hypothesis under test): each kernel column's contact block equals
+the pure bond layer kron(P(0),P(0)) to 4e-15, the two columns identical
+to 2.2e-16 - the certified clock's internal Spin(10) layer acts as the
+IDENTITY on the E4 singlet kernel at the contact locus. Since
+bloch(q,U) = kron(P(q), U^6) (V239 anchor, V367 C1) and U^6 is
+q-INDEPENDENT, the prediction is: the V367 isolation gap is INDEPENDENT
+of the relative momentum and the total momentum - the 1.007 rad window
+is rigid across the whole torus. V368 tests it, not assumes it:
+
+MACHINE: V259's 6^3 q-grid (216 points): single-particle spectra:
+beta(q) = phases of P(q) (8) at every q, and the internal phase set
+iota = phases(U32^6) (32, q-independent - measured constancy booked:
+spread of phases(U^6) over q is identically 0 since q-free, checked on
+3 q-points). Per total momentum K (216 of them on the torus): COMPOSITE
+set C_K = {beta_a(k1) + beta_b(k2) + omega: k1+k2 = K mod G over ALL
+216 relative pairs, a,b in 8} x the two physical omega rows; CONTINUUM
+set T_K = {beta_a(k1) + beta_b(k2) + iota_i + iota_j: same pairs, i,j
+subsampled to 24 booked random k-points per K (seed 0x51 booked)}.
+gap(K) = min circular distance(C_K, T_K); BOOKED ANCHOR: gap at K=0
+equals V367's 1.007e+00 to 1e-9 (identical machinery reproduction).
+omega=0 stays a booked control (merge), excluded from BOUND reading.
+Verdicts: RIGID-WINDOW-<minK gap> (isolation is a global property of
+the clock's internal phase spectrum, not of the locus - the composite
+band is separated from the single-flux two-quanta continuum EVERYWHERE
+on the torus) / RIGID-WINDOW-BROKEN-<K loci> (the composite disperses
+into the continuum somewhere - honest, loci listed) / ANCHOR-DRIFT.
+Multi-flux continua (n >= 2 flux quanta with their own energies) are
+NOT in the booked comparison at this cut - booked as the V369 open
+overlap question, no overreading. Tier 2, host numpy (eigvals 256^3 x
+216 ~ minutes), GPU pinned per house rule.
+
+### V368 post-run note (2026-11-01) - booked prediction REFUTED, honestly
+WINDOW-NOT-RIGID-2.0e-05: the contact window 1.006652 (anchor
+reproduced to 1e-9) collapses to 2.0e-05 minimum over the 216 total
+momenta - at fixed K the continuum is the union over all relative
+momenta, and free propagation + Gauss offers no threshold. Booked
+verdict WORDING corrected pre-artifact (RIGID-WINDOW-* let a
+50,000-fold collapse pass a broken <= 1e-6 key; the on-disk artifact
+carries WINDOW-NOT-RIGID from the start). PROGRAMME CLOSE (this cut):
+door n°2 survives both attacks - published content has no neutral
+states (V259/V268), extended content's neutral states are
+continuum-embedded (V366/V367/V368). A stable composite REQUIRES
+dynamics beyond the published clock step (an attractive channel
+producing an edge below the continuum) - the honest remaining shape
+of the interacting-sector problem. V369 (grid convergence of the min
+gap) booked as optional hygiene only; it cannot change the sign of
+the result (denser continuum can only shrink gaps).

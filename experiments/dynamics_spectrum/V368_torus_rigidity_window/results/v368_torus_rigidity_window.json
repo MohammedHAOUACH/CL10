@@ -1,0 +1,24 @@
+{
+ "id": "V368_torus_rigidity_window",
+ "tier": 2,
+ "residual": true,
+ "property": "is the V367 composite isolation window rigid across the whole torus or locus-bound",
+ "status": "WINDOW-NOT-RIGID-2.0e-05 (the V367 contact window collapses from 1.006652 at contact to 2.0e-05 at generic torus momenta - the composite disperses into the single-flux two-quanta continuum; no stable asymptotic candidate at this dynamics; grid convergence of the min gap not measured - booked as V369 question)",
+ "pass": true,
+ "data": {
+  "gaps_min": 2.0170827926158097e-05,
+  "gaps_max": 0.004069356439821092,
+  "gaps_mean": 0.000676288866892706,
+  "spread": 0.004049185611894934
+ },
+ "checks": [
+  {
+   "name": "anchor: contact gap ['1.006652', '1.006652'] vs V367 artifact ['1.006652', '1.006652'] to 1e-9: True",
+   "pass": true
+  },
+  {
+   "name": "control: omega=0 merges into continuum (gap 0.0e+00 < 1e-6): True",
+   "pass": true
+  }
+ ]
+}
