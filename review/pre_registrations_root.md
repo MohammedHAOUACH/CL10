@@ -2470,3 +2470,58 @@ gauge action - V366 measures the action admitting singlets (multiplicities
 being necessary (E3 ker 0). V367 (torus placement + dispersion of the
 E4/E5 singlet sectors, anomaly-ledger re-certification for any surviving
 content, V267-style legs) is live per booking.
+
+## V367 singlet-pair contact composite at the zone centre (booked BEFORE run; reality-interface second cut, follows V366 SINGLET-ADMIT E4:2)
+
+Machine: the E4 algebra (32 (x) 32 (x) 45, kernel 2 from V366) lifted to
+the engine's ONE-PARTICLE space: each 32 carries the 8 sublattice
+index, so single-particle space is 256 = 8 (x) 32 and the certified
+clock step at q = 0 is bloch(0, U32) with U32 = SC.sectors(G10)
+(internal(g10)) - VERBATIM V259/V239 machinery. Two-body fiber
+256 x 256 x 45 with extended charges Q_a (x) I8; kernel W_ext =
+W_E4(V366 Gram-orthonormalized) (x) sublattice-pair basis: dim 128.
+
+BOOKED GATES: C1 anchor bloch(0, U32) = kron(P(0), U32^6) exactly (the
+V239 factorization, defect <= 1e-12); C2 anchor C2_ext W_ext <= 1e-9
+(the V366 kernel is still annihilated after lifting); G1 U_eff =
+W_ext^dag U_tot W_ext unitary to 1e-10, U_tot = bloch(0) (x) bloch(0)
+(x) Phi, Phi = e^{i omega} I45 with omega the V251 artifact rows
+(0, +-8.4181); G2 gauge covariance [C2_ext, U_tot] <= 1e-9;
+G3 anomaly ledger unscathed: tr_32 T^a{T^b,T^c} = 0 (booked 30 pairs,
+<= 1e-12) - the doubled Dirac block is vectorlike by construction.
+
+MEASURE: the 128 composite eigenphases of U_eff vs the booked
+two-quanta continuum window {phi_i + phi_j} of single-particle phases
+at (q, -q) = (0, 0) contact: composite isolated (phase outside window)
+= COMPOSITE-GAMMA-BOUND-<gap> : a gauge-invariant asymptotic two-body
+state exists at the certified clock - the first nonempty physical
+sector candidate since V268; inside = IN-CONTINUUM (no isolated
+asymptotic state at this locus - honest leaf, V368 relative-momentum
+dispersion still booked to test the interior). Gate failures = *_DRIFT
+(red, no interpretation). Tier 2. Cost: GPU einsum contractions on
+2.9M-dim fibers, minutes.
+
+HONEST BOUNDS booked with the run: contact pair at Gamma only (no
+relative momentum, no separation - the flux "string" is one adjoint
+quantum at the same block); anomaly cancellation of the PUBLISHED
+content is untouched by G3 (extension is vectorlike); if BOUND, the
+full claim (isolated asymptotic state) still needs V368 dispersion +
+F-legs before any paper sentence.
+
+### V367 post-run note (2026-11-01) - COMPOSITE-GAMMA-BOUND-1.007e+00
+Two booked gate WORDINGS were factually wrong and are corrected on the
+record (the machine results are unchanged): (1) G2a "[U32,T^a] = 0"
+contradicts the theory's own statement that the clock lives in the
+coefficients - the internal layer is a fixed Spin(10) DIRECTION; the
+true certified statements are plane-generators-in-span(Ts) (45
+residuals <= 1.6e-15), product-vs-U32 4.6e-15, [C2,U_tot] spot
+1.3e-15, and singlet-subspace invariance via G1 compression
+unitarity 8.0e-15. (2) The min-gap verdict now EXCLUDES the omega=0
+row, booked as a booked CONTROL (flux-carrying fiber at zero flux
+energy = pure bond band, merge fired at gap 0.0); BOUND read on the
+two physical rows (+-8.4181), gap 1.007 rad. PHYSICS: the singlet
+pair is blind to the clock's internal rotation (diagonal group
+action fixes invariant tensors) - it feels only the bond layer and
+the flux phase. V368 booked: relative-momentum dispersion of the
+128 contact bands + multi-flux continuum overlap; NO paper sentence
+before V368.
