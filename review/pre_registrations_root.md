@@ -1122,3 +1122,68 @@ upgraded from group level to cell configuration; NO clock claim is
 permitted by this script) / FOLD-NO-STAR (the fold is group-level only;
 the cell's 12 is not born from the 240) / FOLD-DRIFT.
 Cost booked: seconds.
+
+## V350 run note (post-run; verdict as booked, corrections booked here)
+FP-DEGENERATE-RIGID-DENSITY, wall 38 s. First run printed
+FP-CONTACT at the published anchors (4.3e-14) with contraction 0.0 -
+the contraction gate itself exposed the degeneracy: the BOOKED
+self-consistent density is RIGID at I/45. Certified (T0d): each V85
+projector's internal partial trace sigma_lam equals I/45 to 1e-16
+(Schur-type internal uniformity of the published adjoint-coupling
+projectors - three projectors, hop exponents {-32,-12,4}), so any
+density built from the ladder's OWN excitation spectrum is
+proportional to I/45 exactly: rho(g) - I/45 = 7e-18 at all sampled
+g. A random non-self-consistent rho DOES move F_10 (~1e-3), so the
+ladder is rho-sensitive: the backreaction channel through link
+densities from the ladder's own spectrum is CLOSED by the published
+machinery itself, not by tuning. The fixed-point iteration then has
+constant maps and its "contact" is the old clock reproducing itself
+through a rigid channel: the branch word was corrected
+post-first-run (no class change, no target shift), the measurement
+stands, and the T0d gate is permanent in the script.
+Corrections booked (first-run, all caught by the script's own gates
+before any number was believed): (1) the map brackets must CONTINUE
+the crossing branch attached to the iterate (the razor band
+re-crosses ~12 times, V326); the first version took the first
+crossing and T0a failed at 3.2e-2 - fixed by continuation. (2) the
+hop hoist: my first delta-algebra collapsed the wrong index (the
+correct collapse is A_rho = einsum("ajbm,mj->ab", Pa4, rho), 32x32
+per channel) - caught by the T0h hoist identity gate against the
+V206 direct path (5.0e-16 / 1.8e-14 after fix). T0a re-derives
+g_obs to 3.1e-12 and g_cross to 4.3e-14 with the unbackreacted
+density; T0b F_10 matches V113 to 1e-9; T0c rho(g) is a true density
+matrix (Hermitian/PSD/trace-1, 2.2e-16).
+Physics reading: the 30 % class (clock = fixed point of a
+matter-geometry loop through the ladder's own channels) is CLOSED by
+a theorem-level property of the published machinery - self-dual
+rigidity. Any backreaction that could move the clock must use matter
+that is NOT the ladder's own spectrum (external sector), i.e. new
+physics beyond the published model, not a rearrangement of it.
+
+## V351 run note (post-run; verdict as booked)
+FOLD-ICOSA-STAR, wall 1.3 s, POSITIVE. The E8 Coxeter fold of V336
+re-derived inside (8 radii x 30, +2pi/30 closure at 1e-25, radii
+match the V336 artifact to 1e-10). The icosahedron's 12 in its
+3-fold (H3-Coxeter) reading: two 6-stars at 60 deg spacing on two
+radii, ratio = 0.61803398874989... = 1/phi exact (PSLQ: x^2 + x - 1),
+inter-star offset 0.0: embeds EXACTLY into the published fold -
+20 witnesses (class pair x residue x assignment), radius ratio to
+1e-18, offset to 1e-20, one global rotation, zero fit. The 5-fold
+(dodecagonal) reading does NOT embed: its two axis vertices project
+to the origin and the fold has no zero-radius class (min 0.2584) -
+honest negative for that reading.
+Lens corrections booked (first run): (1) class angles must stay at
+50 dp - a float64 cast made the 1e-25 closure gate unpassable (T0
+caught it); (2) the icosahedron projection needs an orthonormal
+basis of the plane: atan2(p_y, p_x) is not isometric on a tilted
+plane and destroyed the equilateral-ring structure (the
+star-formation test caught it). Both fixed before any verdict.
+Honest limits: the embedding is of the 12-point VERTEX
+CONFIGURATION (radii + angles), not of the cell's face-adjacency
+graph; and per the V335-era rule this is naming at configuration
+level, not birth - no clock, no dynamics claim, and none is
+permitted by this script. What IS upgraded: the seam between the
+user's cell and the published engine is no longer only group-level
+(2I/McKay, V336) - the golden 12 sits inside the E8 root fold as an
+exact sub-configuration, with 1/phi as the certified matching
+invariant.

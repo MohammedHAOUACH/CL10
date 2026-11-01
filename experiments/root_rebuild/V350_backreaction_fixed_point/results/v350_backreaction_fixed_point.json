@@ -1,0 +1,80 @@
+{
+ "id": "V350_backreaction_fixed_point",
+ "tier": 1,
+ "property": "is the data clock the fixed point of a booked matter<->geometry backreaction loop on the published rung ladder",
+ "status": "FP-DEGENERATE-RIGID-DENSITY",
+ "pass": true,
+ "data": {
+  "sigma_uniformity_dev": 1.0408349055718404e-17,
+  "rho_vs_identity_dev": 1.0408340999101474e-17,
+  "maps": {
+   "A-rung10-crossing": {
+    "trials": [
+     {
+      "mix": 1.0,
+      "status": "CONVERGED",
+      "g_star": 0.20013316730037334,
+      "iters": 1,
+      "contraction": 0.0
+     }
+    ],
+    "g_star": 0.20013316730037334,
+    "distances": {
+     "g_obs": 0.0001351789428616912,
+     "g_cross_rung10": 4.340972026284362e-14,
+     "1/5": 0.0001331673003733269
+    },
+    "dmin": 4.340972026284362e-14
+   },
+   "B-coefficient-clock": {
+    "trials": [
+     {
+      "mix": 1.0,
+      "status": "CONVERGED",
+      "g_star": 0.1999979883544148,
+      "iters": 1,
+      "contraction": 0.0
+     }
+    ],
+    "g_star": 0.1999979883544148,
+    "distances": {
+     "g_obs": 3.0968561048894117e-12,
+     "g_cross_rung10": 0.000135178946001957,
+     "1/5": 2.0116455852203785e-06
+    },
+    "dmin": 3.0968561048894117e-12
+   }
+  },
+  "published_anchors": {
+   "g_obs": 0.19999798835751165,
+   "g_cross_rung10": 0.20013316730041675,
+   "1/5": 0.2
+  }
+ },
+ "checks": [
+  {
+   "name": "T0h hop-machinery hoist identity (exact A_rho collapse of the published einsum, booked pattern): worst dev rho=I/45 5.0e-16, random rho 1.8e-14 (<= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T0a published anchors re-derived inside this script with the UNbackreacted density: |g_cross - art| = 4.3e-14, |g_obs - art| = 3.1e-12 (<= 1e-5)",
+   "pass": "True"
+  },
+  {
+   "name": "T0b reference-branch F_10 at 1/5 = 0.01918639 against the published V113 line 0.01918639 (|d| 1.0e-09 <= 1e-6)",
+   "pass": true
+  },
+  {
+   "name": "T0c booked density rho(g): Hermitian / trace 1 / PSD worst violation at 5 sampled g: 2.2e-16 (<= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T0d internal uniformity: max |sigma_lam - I/45| = 1.0e-17; booked rho(g) - I/45 max over sampled g = 1.0e-17 => the self-consistent density is RIGID at I/45 (Schur-type uniformity of the published V85 projectors): the matter backreaction channel through link densities built from the ladder's own spectrum is CLOSED by the published machinery; a random (non-self-consistent) rho does move F_10 (~1e-3), so the ladder IS rho-sensitive - only the self-consistent channel is rigid",
+   "pass": true
+  },
+  {
+   "name": "FIXED-POINT BATTERY: 2 map(s) converged; nearest anchor distance 4.340972026284362e-14 (guards 1e-9 contact / 1e-4 near)",
+   "pass": true
+  }
+ ]
+}

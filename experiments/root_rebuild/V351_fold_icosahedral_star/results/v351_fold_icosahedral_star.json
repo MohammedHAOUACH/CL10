@@ -1,0 +1,242 @@
+{
+ "id": "V351_fold_icosahedral_star",
+ "tier": 2,
+ "property": "is the icosahedron's 12 a projected root configuration of the published E8 Coxeter fold",
+ "status": "FOLD-ICOSA-STAR",
+ "pass": true,
+ "data": {
+  "A_multiplicities": [
+   2,
+   10
+  ],
+  "A_axis_points_at_origin": 2,
+  "A_min_E8_radius": "0.258408572365",
+  "A_matches": [],
+  "B_ring_multiplicities": [
+   6,
+   6
+  ],
+  "B_ratio": "0.61803398874989",
+  "B_ratio_poly": [
+   1,
+   -1,
+   -1,
+   0,
+   0,
+   0,
+   0
+  ],
+  "B_matches": [
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     4,
+     4
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 0,
+    "class_pair": 1,
+    "residues": [
+     4,
+     4
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 2,
+    "class_pair": 5,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 2,
+    "class_pair": 5,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 2,
+    "class_pair": 5,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 2,
+    "class_pair": 5,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 3,
+    "class_pair": 6,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 3,
+    "class_pair": 6,
+    "residues": [
+     1,
+     1
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 3,
+    "class_pair": 6,
+    "residues": [
+     3,
+     3
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 3,
+    "class_pair": 6,
+    "residues": [
+     3,
+     3
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     0,
+     0
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     2,
+     2
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     2,
+     2
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     3,
+     3
+    ],
+    "ratio_icosahedral": "0.61803398874989",
+    "ratio_E8": "0.61803398874989"
+   },
+   {
+    "class_star": 4,
+    "class_pair": 7,
+    "residues": [
+     3,
+     3
+    ],
+    "ratio_icosahedral": "1.6180339887499",
+    "ratio_E8": "1.6180339887499"
+   }
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 V336 fold re-derived: 240 points, 8 radii x multiplicities [30, 30, 30, 30, 30, 30, 30, 30] (sum 240), +2pi/30 closure per class True, null resid 1.1e-50; radii match V336 artifact to 1e-10: True",
+   "pass": true
+  },
+  {
+   "name": "M1 icosahedral-star embedding test: A reading structurally certified (rings [2, 10], 2 axis points project to the origin; the E8 fold has NO zero-radius class: min radius 0.258408572365) -> 0 matches; B reading rings [6, 6], 6-stars on 2 radii with ratio 0.61803398874989 and offset 0.0 tested against all 8x8 class pairs, residues and both assignments -> 20 matches",
+   "pass": true
+  }
+ ]
+}
