@@ -454,3 +454,23 @@ density), every STATIC birth channel of the desert numbers is now
 bounded closed: naming, relations, webs, self-similarity. What remains
 open is only DYNAMICAL birth: a dressing series evaluated by the
 mechanism itself - booked as N2b/N3.
+
+## V341_icosahedral_internal_dressing (N2b; booked then run; tier 2 hard)
+The V339 cell carries a QUADRATIC touching at GAMMA; the published
+engine's nodes are linear thanks to the internal layer, and
+supercell.bond_product states the exact factorization
+bloch = kron(P(q; beta), U(g)**n_stages). N2b: the icosahedral cell
+dressed by the theory's OWN internal Spin(10) unitary (16-sector, one
+application per stage: exponent 5), at clocks 2pi/5, 4pi/5, pi/4.
+Gates: T0c cell rebuilt (30 edges, 5 matchings, 6 axis edges); T0a
+published anchor: bloch == kron(P, U^6) to 1e-10 AND published M-point
+gapless to 1e-9; T2 cell-only GAMMA anchor at 2pi/5 reproduced to 1e-9.
+Measurement: dressed gap on 24^3 grid (min + zeros), refined node, z
+exponent along 5 rays (1e-3 vs 3e-2). BRANCH WORDS: N2B-LINEAR-CHIRAL-
+NODES (isolated zeros, refined <= 1e-9, some z in [0.8,1.2]) /
+N2B-QUADRATIC-TOUCHINGS (zeros, all z > 1.5) / N2B-GAPPED / N2B-MIXED.
+Booked physics guard: the dressing can only shift WHICH pair (cell
+phase, internal phase) touches at a given q; linearity is decided by
+the cell's phase surface crossing the internal phase plane at nonzero
+gradient - a cubic-vs-icosahedral structural fact, not a tuning.
+Cost booked: ~30 s.
