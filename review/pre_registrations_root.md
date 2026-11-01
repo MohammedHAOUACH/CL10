@@ -1473,3 +1473,46 @@ contradicted by one, stated. Physics of the cost: the dial has a
 precise job - it is the tree-level offset of the published inverted
 clock, promoted to a constant of nature. The published reading claim
 (the hierarchy coefficient) is now EXACT at a rational clock.
+
+## V356_pentagon_closure_free_clock + V357_pentagon_walk_ladder
+(user directive 2026-11-01: the 12-cell is not a patch on the cubic
+engine - rebuild on it; booked before the runs)
+
+V356 - the architectural fact the rebuild needs: the cubic class's
+closures CONSUME the clock (V334 theorem: closure at an algebraic
+clock is a clock identity); the escape branch was "clock in the
+coefficients". The dodecahedral symmetry group I_h is FINITE (120).
+Build I_h exactly (3x3 rotation/reflection matrices over Q(sqrt5)),
+its 12-face permutation action, and the wreath step class
+(sigma on faces, R in I_h on the frame). Census: element orders of
+I_h (all of them), and closure orders of sampled wreath products
+(exhaustive over A5 x Z2 x S-sample), AND the decisive measurement:
+evaluate a booked sample of wreath-step closure products AT TEN
+DIFFERENT REAL CLOCK VALUES g in (0.05, 0.6) - if the closure
+identity deviates from +-I by <= 1e-12 at every g, closure is
+ANGLE-FREE: the pentagon closes without consuming a clock, and the
+clock is a coefficient - the V334 escape branch is REALIZED by the
+12-cell algebra. T0: multiplication table closure (Cayley census
+exact), matrix entries in Q(sqrt5) certified by minimal polynomials
+to 1e-14, 12-action faithful (kernel trivial).
+CLASSIFICATION: PENTAGON-CLOSURE-CLOCK-FREE (all samples close
+angle-free, the V334 branch exists in the 12-algebra) /
+PENTAGON-CLOSURE-STILL-CLOCKBOUND / MACHINERY-DRIFT.
+
+V357 - the ladder on the pentagon: V345 certified the closed walks
+of the 12-face adjacency W_n = [60, 120, 780, 3120, 16380, 78120,
+394380, 1953120, 9784380]. Extend exactly to n = 30, diagonalize
+the face-adjacency exactly (spectrum over Q(sqrt5) - the golden
+section is in the 12-cell's own spectrum), and test whether ANY
+functional of the booked class reproduces the ladder's published
+reading objects: target T = (COEF_OBS/3)^(1/10) x LOOP
+(the rung-10 amplitude the elect reads at 1/5 - artifact leaf) and
+the certified closed-branch deficit 1.013%; class = monomials
+5^a (sqrt5)^b W_m^c W_n^d / 5^e with |a|,b,|e| <= 20, 0 <= m,n <= 30,
+c,d in {1,-1}, plus 3-digit rational prefactors - the chance-density
+discipline booked BEFORE the run: expected hits computed from the
+class size and the 1e-4 band, a single hit is density-suspicious by
+the V319 rule, FOUND requires <= 1e-8 residual against T or the
+deficit. T0: W_n re-derived to V345's nine leaves bit-for-bit.
+CLASSIFICATION: PENTAGON-LADDER-HITS (+- arith), PENTAGON-LADDER-
+VOID, MACHINERY-DRIFT. Cost booked: < 10 min each.
