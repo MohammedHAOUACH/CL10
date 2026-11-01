@@ -1669,3 +1669,25 @@ mode on the closed 12-cell, whatever the twist or the internal
 module. The pentagon engine exists, is exactly symmetric, closes
 structurally at every clock, and carries a gap. V360's necessity
 is now a measured leaf, not an argument.
+
+## V359 run note (post-run)
+PENTLADDER-NO-CROSSING, honest negative, wall 4 s on GPU 1. T0:
+the V357 artifact walk leaves W_1..W_30 re-derived bit-for-bit
+(exact-Python-int traces - int64 overflows at W_28, the re-
+derivation must be exact), and the booked frame factor measured:
+the 36-cell ladder at g = 0 is identically 1 (normalization), and
+the m = 2 moment ratio tr K^2 / W_2 = 3.000000 exactly - the
+booked 180/60 = 3. T0e: GPU batched (g, n) scan vs host at 5
+probes, 5.6e-17, cupy RTX 3090. CROSSINGS: |F_10^P(g)| = LOOP has
+ZERO roots on the booked 1e-3 grid over (0,1): the 36-cell traced-
+word ladder never descends to 1/(16 pi) - at the fifth itself
+|F_10^P(1/5)| = 0.2775 = 14.0 x LOOP. READING: C_P =
+3(|F_10^P(1/5)|/LOOP)^10 = 1.47e+12 vs COEF_OBS 2.07656 - rel dev
+7.08e+11, OUTSIDE the elected dial window (V355 read_dev leaf
+5.458e-13, read from the artifact, no hard-coded decimal). The
+pentagon engine's own rung-10 object does not carry the published
+reading chain: the closed 36-cell hop spectrum, gap 0.381966 from
+below and 5 - sqrt5-type structure from above, is structurally too
+far from a touching to be dialed - consistent with V357's VOID and
+with the PENTGAP leaf: on the closed cell no reading works; the
+masslessness question is V360's.

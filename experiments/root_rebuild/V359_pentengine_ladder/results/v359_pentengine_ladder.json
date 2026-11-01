@@ -1,0 +1,55 @@
+{
+ "id": "V359_pentengine_ladder",
+ "tier": 1,
+ "property": "the pentagon engine's own traced-word ladder: rung-10 crossings at the fifth and the reading against COEF_OBS inside the elected dial window",
+ "status": "PENTLADDER-NO-CROSSING",
+ "pass": true,
+ "data": {
+  "frame_factor_m2": 3.000000000000001,
+  "walks_rederived": {
+   "1": 0,
+   "2": 60,
+   "3": 120,
+   "4": 780,
+   "5": 3120,
+   "6": 16380,
+   "7": 78120,
+   "8": 394380,
+   "9": 1953120,
+   "10": 9784380
+  },
+  "gpu_backend": {
+   "backend": "cupy",
+   "device": "cupy b'NVIDIA GeForce RTX 3090'"
+  },
+  "LOOP": 0.019894367886486918,
+  "n_roots": 0,
+  "roots_g": [],
+  "roots_near_fifth": [],
+  "C_P_at_fifth": {
+   "F10_abs": 0.29359992242764404,
+   "C_P": 1470209325721.6416,
+   "COEF_OBS": 2.076564111173832,
+   "rel_dev": 708000931831.8087,
+   "window_read_dev": 5.457648321277802e-13
+  }
+ },
+ "checks": [
+  {
+   "name": "T0 the V357 artifact closed-walk leaves W_1..W_30 re-derived bit-for-bit from the face adjacency: bit-identical; the 36-cell ladder at g = 0 is F_m^P(0) = 1 exactly (m = 2..10, dev 0.0e+00) - the booked frame factor: 36 F_m^P(0) = 36 vs W_m, and the m = 2 moment ratio tr K^2 / W_2 = 3.000000 (booked 3 = 180/60)",
+   "pass": true
+  },
+  {
+   "name": "T0e GPU batched ladder scan vs host ladder (5 probes, F_10 at the booked grid): max dev 5.6e-17 (<= 1e-12); device in use: cupy b'NVIDIA GeForce RTX 3090'",
+   "pass": true
+  },
+  {
+   "name": "CROSSINGS: 0 root(s) of |F_10^P(g)| = LOOP on the booked 1e-3 grid (bisection 1e-9); within +-1e-4 of the fifth 1/5: 0 named by CF q <= 10000 (booked cheap class of the V335 dictionary: the booked V335 families on the certified V206 ladder functional; dictionary: CF q<=1e6, LOOP^k-forms q<=1e4 k<=12, V326 members x LOOP^k k<=90, PSLQ deg<=6 H<=20; contacts K1 1e-04, K3 0.05)",
+   "pass": true
+  },
+  {
+   "name": "READING: C_P = 3(|F_10^P(1/5)|/LOOP)^10 = 1.47021e+12 vs COEF_OBS = 2.07656: rel dev 7.080e+11 (dial window = the V355 read_dev leaf 5.458e-13: outside)",
+   "pass": true
+  }
+ ]
+}
