@@ -1,0 +1,161 @@
+{
+ "id": "V349_icosahedral_walk",
+ "tier": 1,
+ "property": "the new geometry BUILT FOR the 12-face cell: A5-covariant quantum walk with pentagon coins - gapless locus, topological protection, clock battery",
+ "status": "QW-GAPLESS-UNPROTECTED",
+ "pass": true,
+ "data": {
+  "zeros": [
+   {
+    "alpha_star": 1.3900599447844177,
+    "residual": 8.928968675547824e-14,
+    "zero_modes": 3,
+    "protection_worst_gap": 4.372370361086236e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.021236923048975537,
+     "g_cross_rung10": 0.021101744106070436,
+     "1/5": 0.021234911406487172
+    },
+    "margin": 0.021101744106070436
+   },
+   {
+    "alpha_star": 1.8336142694859645,
+    "residual": 1.5949330475549562e-13,
+    "zero_modes": 4,
+    "protection_worst_gap": 3.75355981872428e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.0918307863550143,
+     "g_cross_rung10": 0.09169560741210919,
+     "1/5": 0.09182877471252593
+    },
+    "margin": 0.09169560741210919
+   },
+   {
+    "alpha_star": 1.94161103872566,
+    "residual": 3.1274974095079007e-13,
+    "zero_modes": 3,
+    "protection_worst_gap": 4.860675117228614e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.10901900601746656,
+     "g_cross_rung10": 0.10888382707456146,
+     "1/5": 0.1090169943749782
+    },
+    "margin": 0.10888382707456146
+   },
+   {
+    "alpha_star": 2.0214801480827598,
+    "residual": 2.2906676555579184e-13,
+    "zero_modes": 5,
+    "protection_worst_gap": 3.189784812457856e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.12173056957199613,
+     "g_cross_rung10": 0.12159539062909103,
+     "1/5": 0.12172855792950776
+    },
+    "margin": 0.12159539062909103
+   },
+   {
+    "alpha_star": 2.7350010608037363,
+    "residual": 3.74145159378404e-14,
+    "zero_modes": 3,
+    "protection_worst_gap": 3.3921324972329594e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.23529094983098037,
+     "g_cross_rung10": 0.23515577088807527,
+     "1/5": 0.235288938188492
+    },
+    "margin": 0.23515577088807527
+   },
+   {
+    "alpha_star": 4.87750778606336,
+    "residual": 3.3986758947129184e-14,
+    "zero_modes": 3,
+    "protection_worst_gap": 3.626071020086076e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.5762814857636789,
+     "g_cross_rung10": 0.5761463068207737,
+     "1/5": 0.5762794741211905
+    },
+    "margin": 0.5761463068207737
+   },
+   {
+    "alpha_star": 5.083203692315255,
+    "residual": 2.2204460492503083e-15,
+    "zero_modes": 3,
+    "protection_worst_gap": 2.425162782476323e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.609019006017435,
+     "g_cross_rung10": 0.6088838270745299,
+     "1/5": 0.6090169943749466
+    },
+    "margin": 0.6088838270745299
+   },
+   {
+    "alpha_star": 5.8248331161764,
+    "residual": 7.654467337747683e-17,
+    "zero_modes": 3,
+    "protection_worst_gap": 7.962718338948779e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.7270529947673308,
+     "g_cross_rung10": 0.7269178158244256,
+     "1/5": 0.7270509831248424
+    },
+    "margin": 0.7269178158244256
+   },
+   {
+    "alpha_star": 5.841270323486818,
+    "residual": 2.8196302443491495e-13,
+    "zero_modes": 4,
+    "protection_worst_gap": 4.350480540750888e-05,
+    "protected": false,
+    "distances_to_desert": {
+     "g_obs": 0.72966905756141,
+     "g_cross_rung10": 0.7295338786185049,
+     "1/5": 0.7296670459189216
+    },
+    "margin": 0.7295338786185049
+   }
+  ],
+  "n_gapless_points": 9,
+  "desert_anchors": {
+   "g_obs": 0.19999798835751165,
+   "g_cross_rung10": 0.20013316730041675,
+   "1/5": 0.2
+  },
+  "closest_margin": 0.021101744106070436
+ },
+ "checks": [
+  {
+   "name": "T0c walk graph: 12 faces, 30 bonds (booked 30), pentagon cyclic orders closed at every face, vertex degree {5} (V345 counts)",
+   "pass": true
+  },
+  {
+   "name": "T0a walk unitarity and circle spectrum at sampled alphas: worst 7.5e-15 (<= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T0b A5-EQUIVARIANCE CERTIFICATE: the generators p5 (72 deg vertex) and p2 (180 deg edge), lifted to the 60 directed states, commute with U(alpha) at sampled alphas: worst 6.8e-16 (<= 1e-12) - the coin family IS A5-covariant, proved not assumed",
+   "pass": true
+  },
+  {
+   "name": "M1 gapless locus of U(alpha): 9 gapless points (grid 6284, polished), max zero modes at one point = 5 (published doubler count = 12)",
+   "pass": true
+  },
+  {
+   "name": "M2 protection tribunal (random bond phases + coin jitter, 6 amplitudes x 160 draws each): 0/9 gapless points stay <= 1e-6 (A5-PROTECTED), worst-gap chain reported per point",
+   "pass": true
+  },
+  {
+   "name": "M3 clock battery: 9 gapless points, nearest desert margin 2.110e-02 (guard 1e-9)",
+   "pass": true
+  }
+ ]
+}
