@@ -2651,3 +2651,71 @@ non-commuting unitary spectral problem (not claimed today). V370
 booked next: exact first-order singlet coupling under the bond-
 current operator - leakage ||(1-P_ker) J.L W|| and its channel
 decomposition.
+
+## V370 singlet leakage under the certified bond-current operator (booked BEFORE run; interaction programme, second cut)
+
+The corrected decomposition of V369 is itself a booked machine gate
+T0: 1/2(C2tot - C2_1 - C2_2 - C2_L) = J_1.J_2 + J_1.L + J_2.L on 6
+random E4 states <= 1e-9 (the error of the first cut becomes the
+verifiable identity of the second). Gauss on the kernel (Q_a W = 0)
+gives L_a W = -(T1_a + T2_a) W, hence
+    J.L W = -sum_a (T1_a + T2_a)^2 W = -(90 + 2 J_1.J_2) W,
+so the leakage of the neutral pair under the published bond-current
+operator is EXACTLY controlled by the current-current contraction on
+the kernel. MACHINE (seconds; V369 ARPACK cache = kernel + the four
+lowest channels, 400 columns exactly):
+  gates: W kernel dim 2 with ||C2 W|| <= 1e-9 and W^dag W = I;
+  M1: B = W^dag (J.L) W (Hermitian 2x2, first-order intra-kernel
+      interaction shifts - the corrected replacements for the dead
+      -77 numbers), reported with eigenvalues;
+  M2: leakage per channel l_c = ||P_c (J.L) W|| for c in {36, 64, 80,
+      84} plus the outside-the-four residue l_rest^2 = ||J.L W||^2 -
+      sum l_c^2 >= 0 (booked non-negativity);
+  total l = ||(1 - P_ker)(J.L) W||.
+Verdicts: LEAKAGE-ZERO (l <= 1e-12: the bond-current interaction
+PRESERVES gauge neutrality of the pair at first order - e^{i eta
+J.L} keeps the singlet subspace exactly, the door stays open but
+binding still needs the channel spectral comparison, booked V371) /
+LEAKS-<l>-DOM-<c> (l > 1e-12: the published interaction does not
+bind the neutral pair - it mixes it into charged channels at first
+order, channel weights reported; the naive interaction route to a
+physical sector closes) / GATE-FAIL. Tier 2, zero fitted, no new
+physics operators - every piece is the certified V79/V101 stack.
+
+### V370 post-run note (2026-11-02) - LEAKAGE-ZERO
+Facts as booked: J.L on the singlet kernel = -64 x I_2 exactly (the
+adjoint Casimir via Gauss; no first-order multiplicity splitting);
+total first-order leakage 7.3e-14 - the neutral pair is invariant
+under the published bond-current operator. T0 (the corrected V369
+decomposition) fires at 4.6e-15.
+Hygiene record (third appearance of the Lanczos-degeneracy family):
+the k=400 SM cache has O(1) CROSS-cluster overlap - the first pass
+reported channel weight l_36 = 90.51 = 64*sqrt(2) = ||J.L W||
+against a total of 7.3e-14: pure contamination. Booked correction:
+in the zero-leakage branch every channel weight is bounded by the
+projector-free ||eps|| and weights are declared not-resolved-and-
+moot; the leaking branch (not reached today) cross-orthogonalizes
+clusters with a rank assert. Fresh-checkout fallback (V370 builds
+the cache itself if V369 ran none) verified end-to-end by deleting
+the cache and re-running.
+Scope held: single-bond restriction, first order only; the deformed
+step e^{i eta J.L} U_step is NOT closed on today's subspaces, so no
+threshold claim in either direction - the interaction neither binds
+nor breaks the pair at this cut.
+
+### V371 shape booking (2026-11-02; NO run booked today - machine beyond scope)
+The honest remaining question for door n°2: spectrum of the deformed
+step exp(i eta sum_b J_b.L_b) . U_step on the two-quanta + flux
+sector of the TORUS (the lattice sum, not one bond). What today's
+machine CANNOT honestly bound: (i) the contact/kernel subspace is
+not invariant under the deformed step beyond one bond; (ii) the SM
+cache basis has cross-cluster contamination; (iii) additive-phase
+bookkeeping is invalid (non-commuting factors - V369 lesson).
+What a V371 run requires: Krylov (Lanczos on the unitary) spectral
+scan of the deformed step in a fixed total-momentum sector,
+eta-scan of isolated-eigenvalue continuation from the composite
+band, cross-orthonormalized channel sectors by exact diagonalization
+of C2_tot in reduced blocks. Cost booked when the cut is taken:
+multi-RHS Krylov on 2.9M-dim fibers, one programme-day, GPU-heavy.
+Trigger: only as its own booked session - NOT to be improvised
+inside a fold.

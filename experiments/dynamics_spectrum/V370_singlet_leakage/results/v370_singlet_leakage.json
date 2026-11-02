@@ -1,0 +1,27 @@
+{
+ "id": "V370_singlet_leakage",
+ "tier": 2,
+ "residual": true,
+ "property": "does the certified bond-current interaction preserve or mix the neutral pair subspace",
+ "status": "LEAKAGE-ZERO (the certified bond-current interaction preserves gauge neutrality of the singlet pair at first order; intra-kernel shifts -64.000000 / -64.000000; binding still needs the channel spectral comparison - V371 question)",
+ "pass": true,
+ "data": {
+  "B_eigs": [
+   -63.999999999999986,
+   -63.99999999999996
+  ],
+  "l_total": 7.292530716405999e-14,
+  "l_channels": {},
+  "residue": 0.0
+ },
+ "checks": [
+  {
+   "name": "T0 corrected identity 1/2(C2tot-blocks) = 1/2 J1.J2 sym + J.L (rel <= 1e-9): 4.6e-15: True",
+   "pass": true
+  },
+  {
+   "name": "kernel gate: dim 2, ||C2 W|| 2.4e-15: True",
+   "pass": true
+  }
+ ]
+}

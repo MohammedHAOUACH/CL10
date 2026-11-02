@@ -1339,3 +1339,32 @@ and protocol: the F8 selection leg that V285 + V286 withhold stays
 withheld on this route as well, and the paper's Section 11.6 wording
 (the finite measure does not measurably select the cone; the
 implemented generator moves it at 1.570796) stands as written.
+
+**The reality-interface and interaction cuts V366-V370 (2026-11-01/02).**
+The empty physical sector (V259/V268, CONJUNCTION-DEAD) was attacked
+from the content side and from the interaction side, both booked
+before running. Content: **V366** SINGLET-ADMIT - on the certified
+Spin(10) action the singlet kernels of five extended fibers measure
+the character-theory values exactly (1, 1, 0, 2, 9): the published
+emptiness is a content theorem, and neutral composites start at two
+matter quanta + one flux unit. Dynamics at the published step:
+**V367** COMPOSITE-GAMMA-BOUND-1.007 - the pair is an invariant
+subspace of the clock step, isolated at contact, and the clock's
+internal layer is the identity on the intertwiner space (4e-15);
+**V368** WINDOW-NOT-RIGID-2.0e-05 - at fixed total momentum the
+continuum sweeps every relative kinematics and the window collapses:
+the pair is continuum-embedded at the free-hop + Gauss dynamics.
+Interaction: **V369** ANCHOR-DRIFT (negative kept verbatim) - the
+booked Casimir binding arithmetic omits the J_1.J_2 current-current
+term: the shortcut to a threshold is dead; **V370** LEAKAGE-ZERO -
+the bond-current operator is exactly -64 on the singlet kernel
+(adjoint Casimir via Gauss) with total first-order leakage
+7.3e-14: the published interaction neither binds nor breaks the
+neutral pair. Door n°2 stands with its honest open condition: a
+threshold requires the interacting-lattice spectrum of the deformed
+step (V371, shape booked, machine beyond today). House hygiene
+lesson recorded three times by this programme: Lanczos (which='SM')
+returns defective bases on degenerate towers - intra-cluster Gram
+-1/2, and at large k, cross-cluster orthogonality must be enforced
+or declared (channel weights moot when the projector-free total
+leakage is machine-zero).
