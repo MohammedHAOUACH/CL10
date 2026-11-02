@@ -2576,3 +2576,78 @@ producing an edge below the continuum) - the honest remaining shape
 of the interacting-sector problem. V369 (grid convergence of the min
 gap) booked as optional hygiene only; it cannot change the sign of
 the result (denser continuum can only shrink gaps).
+
+## V369 pair-binding onset at the certified layer interaction (booked BEFORE run; interaction programme, first cut)
+
+Follows the reality-interface cut (door n°2 open condition: an
+interaction producing a threshold below the continuum edge). The
+certified candidate interaction EXISTS: the bond-current Hamiltonian
+H = J.L of Section 7.1 / V101 (units of eta; published numbers E0 =
+-5802.398188196636 eta, gap 42.09063148320456 eta, re-read from V101's
+artifact at runtime as anchor E-eta). The Casimir identity (booked as
+T0, machine-checked on 6 random E4 states, <= 1e-9):
+    J.L = 1/2 (C2_tot - C2_1 - C2_2 - C2_L) = 1/2 (C2_tot - 154)
+with C2(32) = 45 (per particle, Schur on the irreducible 32; V259
+towers 45/85/117 on 32 x 45 certify it) and C2(45) = 64 (V366 E1
+second level). Consequences booked as anchors BEFORE any scanning:
+  T1 kernel: W^dag (J.L) W = -77 I_2 exactly to 1e-12 (composite shift);
+  T2 channel tower: nonzero C2_tot channels of E4 from eigsh (k=400,
+     cupy einsum matvec) with the V366 anchor (first nonzero 36,
+     multiplicity 2 at its head) and V368 anchor (eta=0 torus min gap
+     2.0e-05 reproduced by the SAME machinery);
+  T3 the 18-eta slope: binding separation composite vs the c=36 channel
+     edge = 18 eta per Casimir arithmetic - machine slope over the eta
+     scan must match 18 within 0.5 or CASIMIR-SLOPE-DRIFT (red).
+
+MACHINE (E4 fiber 46080 = 32 x 32 x 45, then sublattice 64 for bands):
+(i) cupy matvec C2_tot via einsum on (32,32,45) tensors; eigsh k=400
+SM -> channel tower {0, c1=36, c2, c3} with multiplicities;
+(ii) channel projectors P_c for the THREE lowest nonzero channels by
+shift-invert eigsh (sigma = c +- 0.5 bracket), orthonormality P^dag P
+= I to 1e-10, C2_tot P = c P residual <= 1e-8;
+(iii) true channel internal bands: phases of P_c^dag (U32 (x) U32)
+P_c (eigh of the compressed block) - NOT single-particle phase sums
+(the generous union bound is known to cover the circle and is used
+for context only);
+(iv) eta scan {0.05..1.00 step 0.05} + refinement: composite band
+{beta_a(k1)+beta_b(k2) + omega - 77 eta} vs the true c=36 band
+{beta + ph_int(36) + (36-154)eta/2} over 12 booked K of the 6^3 torus
+(seed 0x51 + K=0 + V368's worst-K); omega rows as V367/V368;
+omega=0 stays a control (excluded from BOUND reading).
+Verdict words: BINDING-ONSET-<eta*> (the composite band exits the
+TRUE nearest-channel band for eta > eta*, with the 18-eta Casimir
+slope certified; eta is declared-not-read in the published theory,
+so the O-card stays open and the sentence is conditional);
+NO-ONSET-IN-SCAN (gap never opens over the scan - honest red for the
+interaction programme's first cut); CASIMIR-SLOPE-DRIFT / ANCHOR-
+DRIFT (machine failure, no interpretation). Tier 2, residual, zero
+fitted. Cost: cupy eigsh + compressed blocks, ~10 min.
+
+HONEST BOUNDS booked with the run: contact-pair placement (relative
+kinematics sampled, not full Fock); channels above the three lowest
+NOT compared (their bands sit higher in energy by the Casimir
+arithmetic - monotone in c - so the nearest channel is the binding
+edge; monotonicity booked as T2c: c1 < c2 < c3 and shifts monotone);
+one-flux sector; eta scan not a claim about the published eta (which
+is declared). V370 (dispersion of the bound band = lifetime) booked
+only if ONSET fires.
+
+### V369 post-run note (2026-11-02) - booked identity FALSE, honest negative
+V369 ran as booked and the machine declared V369-ANCHOR-DRIFT
+(artifact kept verbatim, pass false). Cause is mine, not the
+machine's: the booked T0 identity J.L = 1/2(C2tot - C21 - C22 - C2L)
+omits the current-current contraction - the correct decomposition is
+1/2(C2tot - sum of blocks) = J_1.J_2 + J_1.L + J_2.L. The -77 / -59
+/ 18-eta arithmetic belongs to a DIFFERENT operator (total cross
+term), not to the published bond-current Hamiltonian (V101). The
+flat eta-profile (gap ~1e-5 at every eta, slope -0.000) additionally
+kills the additive-phase picture: e^{i eta J.L} does not commute
+with the step's internal layer. Sound reusable pieces: E4 channel
+tower {36 x 40, 64 x 149, 108, 101}, projectors to 3e-15 (Gram
+-1/2, V366 precedent again), V368/V101 anchors green, ARPACK cache.
+Door n°2 status after the first interaction cut: the Casimir
+shortcut to a threshold is DEAD; the correct binding question is a
+non-commuting unitary spectral problem (not claimed today). V370
+booked next: exact first-order singlet coupling under the bond-
+current operator - leakage ||(1-P_ker) J.L W|| and its channel
+decomposition.

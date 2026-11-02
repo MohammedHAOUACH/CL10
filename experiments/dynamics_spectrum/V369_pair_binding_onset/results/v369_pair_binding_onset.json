@@ -1,0 +1,98 @@
+{
+ "id": "V369_pair_binding_onset",
+ "tier": 2,
+ "residual": true,
+ "property": "does the certified bond-current interaction open a binding window for the singlet pair below the nearest continuum channel",
+ "status": "V369-ANCHOR-DRIFT",
+ "pass": false,
+ "data": {
+  "tower": [
+   [
+    35.999999999999204,
+    40
+   ],
+   [
+    63.999999999997975,
+    149
+   ],
+   [
+    79.9999999999982,
+    108
+   ],
+   [
+    83.99999999999797,
+    101
+   ]
+  ],
+  "gaps": {
+   "0.05": 8.895161959010522e-06,
+   "0.1": 1.052832430126216e-06,
+   "0.15000000000000002": 3.436709519810677e-05,
+   "0.2": 3.764811358220044e-05,
+   "0.25": 6.56064711712645e-06,
+   "0.30000000000000004": 9.835862263329886e-05,
+   "0.35000000000000003": 7.650339635034697e-05,
+   "0.4": 9.164136233863474e-06,
+   "0.45": 3.47174765416014e-05,
+   "0.5": 5.0744062999541484e-05,
+   "0.55": 1.0272103292408019e-05,
+   "0.6000000000000001": 8.282943647586194e-05,
+   "0.65": 1.4839735616334337e-05,
+   "0.7000000000000001": 9.072781042007705e-05,
+   "0.75": 3.739586028572717e-05,
+   "0.8": 0.00010397897480984852,
+   "0.8500000000000001": 5.38874806181866e-05,
+   "0.9": 5.779697936958428e-05,
+   "0.9500000000000001": 1.8067039682989616e-05,
+   "1.0": 1.5458597133033436e-05
+  },
+  "eta_star": null,
+  "slope": -2.858302898179139e-05,
+  "anchor_g0_min": 2.0170827926158097e-05,
+  "Ks": [
+   0,
+   8,
+   11,
+   37,
+   44,
+   86,
+   89,
+   95,
+   105,
+   108,
+   129,
+   135,
+   191
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 Casimir identity ||J.L - (C2tot-C21-C22-C2L)/2|| rel <= 1e-9 on 6 random states: 1.1e+00: False",
+   "pass": false
+  },
+  {
+   "name": "T1 kernel: dim 2 (booked 2), ||(J.L + 77) W|| <= 1e-12: 1.9e+00: False",
+   "pass": false
+  },
+  {
+   "name": "T2 anchor: V368 eta=0 min gap 2.017083e-05 reproduced to 1e-9: 2.017083e-05: True",
+   "pass": "True"
+  },
+  {
+   "name": "T2 tower: head channel 36 mult 40 >= 2, monotone True, not truncated True: True",
+   "pass": true
+  },
+  {
+   "name": "channel projectors: C2 resid <= 1e-8 and P^dag P = I <= 1e-10 on all three: True",
+   "pass": true
+  },
+  {
+   "name": "T3 18-eta Casimir slope: fit -0.000 in 18+-0.5: False",
+   "pass": false
+  },
+  {
+   "name": "E-eta anchor: V101 published E0 = -5802.398188 eta re-read: True",
+   "pass": true
+  }
+ ]
+}
