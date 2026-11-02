@@ -2698,6 +2698,11 @@ moot; the leaking branch (not reached today) cross-orthogonalizes
 clusters with a rank assert. Fresh-checkout fallback (V370 builds
 the cache itself if V369 ran none) verified end-to-end by deleting
 the cache and re-running.
+Cache-basis dependence booked: total leakage 7.3e-14 (first
+eigenbasis, built inside V369) vs 8.8e-14 (rebuilt basis) - the
+1e-13 band is the floor of the cached decomposition (degenerate
+kernel re-rotation), not a physical drift; the -64 I_2 eigenvalues
+are identical to 1e-6 printout on both bases.
 Scope held: single-bond restriction, first order only; the deformed
 step e^{i eta J.L} U_step is NOT closed on today's subspaces, so no
 threshold claim in either direction - the interaction neither binds

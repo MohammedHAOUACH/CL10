@@ -1359,7 +1359,8 @@ booked Casimir binding arithmetic omits the J_1.J_2 current-current
 term: the shortcut to a threshold is dead; **V370** LEAKAGE-ZERO -
 the bond-current operator is exactly -64 on the singlet kernel
 (adjoint Casimir via Gauss) with total first-order leakage
-7.3e-14: the published interaction neither binds nor breaks the
+7.3e-14/8.8e-14 across cached-eigenbasis rebuilds: the published
+interaction neither binds nor breaks the
 neutral pair. Door n°2 stands with its honest open condition: a
 threshold requires the interacting-lattice spectrum of the deformed
 step (V371, shape booked, machine beyond today). House hygiene

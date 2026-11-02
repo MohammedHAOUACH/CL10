@@ -1,6 +1,13 @@
 # V370 run notes - singlet leakage under the certified bond-current operator
 
-Run: GPU 1 pinned, 19.5 s, exit 0, tier 2, residual True.
+Run 1 (cache path): GPU 1 pinned, 19.5 s, exit 0, tier 2, residual
+True; total leakage 7.321011e-14.
+Run 2 (fallback branch, cache deleted - fresh-checkout path): GPU 1,
+644 s, exit 0, same checks green; total leakage 8.780863e-14. The
+7.3/8.8e-14 band is the floor of the cached eigenbasis decomposition
+(the degenerate kernel re-rotates between rebuilds), not a physical
+drift; J.L = -64.000000 on both bases. Prose in catalogue, paper and
+register quotes the band.
 VERDICT: **LEAKAGE-ZERO**. T0 (corrected V369 decomposition) fires at
 4.6e-15; kernel gate green (dim 2, ||C2 W|| 2.4e-15).
 

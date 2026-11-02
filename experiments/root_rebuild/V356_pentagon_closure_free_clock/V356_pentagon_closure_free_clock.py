@@ -328,11 +328,10 @@ def main():
                    "device in use: %s" % (gpu_dev, devname),
                    gpu_dev <= 1e-12))
 
-    if (checks[0][1] and checks[1][1] and checks[2][1] and checks[3][1]
-            and checks[4][1]):
+    if all(c[1] for c in checks):
         status, ok = "PENTAGON-CLOSURE-CLOCK-FREE", True
     elif not (checks[0][1] and checks[1][1] and checks[2][1]
-              and checks[4][1]):
+              and checks[3][1]):
         status, ok = "MACHINERY-DRIFT", False
     else:
         status, ok = "PENTAGON-CLOSURE-STILL-CLOCKBOUND", True

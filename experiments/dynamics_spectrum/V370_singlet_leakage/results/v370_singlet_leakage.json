@@ -7,10 +7,10 @@
  "pass": true,
  "data": {
   "B_eigs": [
-   -63.999999999999986,
-   -63.99999999999996
+   -64.00000000000007,
+   -63.99999999999999
   ],
-  "l_total": 7.292530716405999e-14,
+  "l_total": 8.780863294571952e-14,
   "l_channels": {},
   "residue": 0.0
  },
@@ -20,7 +20,7 @@
    "pass": true
   },
   {
-   "name": "kernel gate: dim 2, ||C2 W|| 2.4e-15: True",
+   "name": "kernel gate: dim 2, ||C2 W|| 2.1e-15: True",
    "pass": true
   }
  ]
