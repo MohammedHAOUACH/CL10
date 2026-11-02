@@ -2831,3 +2831,57 @@ Machine (all booked before the run):
  phases only; no ell>=3, no multi-line, no torus hopping of the
  line. These limits are the difference between this cut and the
  full V371 lattice-sum question, which remains booked unrun.
+
+## Roll-up: the reality-interface phase V366-V372 (2026-11-02, phase end)
+
+Seven cuts attacked door n°2 of CONJUNCTION-DEAD - can the certified
+clock step ever carry a physical (gauge-neutral, isolated) asymptotic
+state? - and the honest sum closes the phase with the door standing:
+
+- V366 SINGLET-ADMIT E1:1-E2:1-E3:0-E4:2-E5:9: the certified gauge
+  action DOES admit singlet matter for enlarged content (conjugate
+  charge pairs necessary). The published emptiness of the physical
+  sector is a CONTENT theorem, not a property of the intertwiner
+  machinery - the machinery was always able to build neutral states.
+- V367 COMPOSITE-GAMMA-BOUND-1.007: the singlet pair is an invariant
+  subspace of the certified clock step, isolated AT CONTACT (1.007
+  rad), and the clock's internal layer acts as the identity on it
+  (4e-15).
+- V368 WINDOW-NOT-RIGID-2.0e-05: that isolation disappears at generic
+  torus momenta - the fixed-K continuum sweeps all bond phases; the
+  correct condition is a THRESHOLD (energy below the continuum edge),
+  not a phase offset. A stable composite needs dynamics beyond the
+  published free hop + Gauss.
+- V369/V370: the certified bond-current coupling was brought to the
+  pair sector - V370 LEAKAGE-ZERO: J.L acts on the ell=1 contact
+  kernel as -64 I_2 exactly (leak 8.8e-14): the certified interaction
+  is a pure phase on the minimal channel.
+- V372 TORUS-SINGLET-TOWER-ALIVE: the exact cluster census licenses
+  the contact cut (ell=1 pure phase x 24 bonds, ell=2 six channels x
+  24 pairs on N=2^3; five anchors, shape gates, trace ratio 2.000000).
+- V371 NO-THRESHOLD-CONTACT-CUT: the bond-current deformation is NOT
+  a pure phase at ell=2 - it splits the six channels into the bands
+  {-96, -96, -64, -64, 0, 0} - but it never re-isolates: the
+  deformation displaces the continuum by up to 72 rad/step against
+  the 2.0171e-05 rad/step free isolation (V368 anchor reproduced to
+  1e-9), and eta >= 2*pi/72 = 0.087 zeroes every window by smear
+  alone. Door n°2 does not open at the contact cut.
+
+The full lattice-sum version of V371 - the pair delocalized over the
+torus, the flux line a dynamical degree of freedom, a genuine
+eigenvalue problem below the continuum edge - stays BOOKED, UNRUN:
+its verdict word is not on record and no negative is claimed for it.
+
+Machinery lessons booked along the way (no claim moved by any of
+them): the kernel operator is the diagonal Casimir sum_a (J_a^tot)^2,
+and a "linear collapse" to (sum_a J_a)^2 is a DIFFERENT operator with
+a dense zero spectrum (V371); fast coupling evaluation needs the
+IN-SCRIPT operator self-test (coupling form == loop-anchored form,
+5.7e-16) - one permutation typo silently changed the operator; a
+small eigsh residual does not certify the RIGHT kernel - the
+fiber-span J.L-invariance leak gate (3.2e-3 wrong span vs 8.8e-14
+anchor) is what catches it (V371); the SA-endpoint Lanczos needs
+tol >= 1e-9 above the roundoff floor plus Rayleigh-Ritz polish and a
+partial-Ritz fallback to land all six vectors; and a booked verdict
+word whose key number is the wrong observable (V368's "broken" at
+1e-6) must be corrected before the artifact ships.
