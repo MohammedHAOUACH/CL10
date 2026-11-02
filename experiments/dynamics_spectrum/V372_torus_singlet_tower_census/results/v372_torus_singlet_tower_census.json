@@ -1,0 +1,76 @@
+{
+ "id": "V372_torus_singlet_tower_census",
+ "tier": 2,
+ "residual": true,
+ "property": "gauss-singlet channels of the torus composite tower beyond one flux line (V371 prerequisite)",
+ "status": "TORUS-SINGLET-TOWER-ALIVE (ell=1: 2 channels x 12 bonds, ell=2: 6 channels x 24 adjacent pairs -> the V371 deformed-channel cut is licensed on the ell<=2 sector; ell=1 alone is pure phase and cannot bind)",
+ "pass": true,
+ "data": {
+  "anchors": {
+   "ker_32x32": 2,
+   "ker_45x45": 1,
+   "ker_E4": 2,
+   "min_eigs_32x32": [
+    -6.58167381636528e-32,
+    1.4210854715201986e-13,
+    35.999999999999744,
+    35.99999999999982
+   ],
+   "min_eigs_45x45": [
+    0.0,
+    63.99999999999943,
+    63.999999999999574,
+    63.99999999999959
+   ],
+   "min_abs_eigs_E4": [
+    3.1540248782221476e-14,
+    4.05986640036836e-14,
+    35.99999999999949,
+    35.9999999999998
+   ]
+  },
+  "cluster_census": {
+   "ker_ell1": 2,
+   "ker_ell2": 6,
+   "dim_ell1_fiber": 46080,
+   "dim_ell2_fiber": 2073600
+  },
+  "torus": {
+   "sites": 8,
+   "bonds": 12,
+   "adjacent_pairs": 24,
+   "bond_orbits": 3
+  },
+  "pure_phase_ell1": "booked consequence of V370 (no run here): on the torus with a single flux line every other bond is empty of both matter and flux, so Sum_b J_b.L_b = -64 on the whole ell=1 singlet tower and the deformed step is e^{-64 i eta} x identity there - no threshold move at ell=1; the ell=2 sector (interior Gauss (L_f1+L_f2)|psi>=0, touching contraction (J_A-J_B).L_f1) is the first place the published interaction can act."
+ },
+ "checks": [
+  {
+   "name": "Casimir trace ratio gate tr(C2,45)/tr(C2,32) = 2.000000 (D5 weight model: 2.000000): True",
+   "pass": "True"
+  },
+  {
+   "name": "A1 dense ker(32x32) = 2 (booked 2), min eigs ['-6.58e-32', '1.42e-13', '3.60e+01', '3.60e+01']: True",
+   "pass": true
+  },
+  {
+   "name": "A2 dense ker(45x45) = 1 (booked 1), min eigs ['0.00e+00', '6.40e+01', '6.40e+01', '6.40e+01']: True",
+   "pass": true
+  },
+  {
+   "name": "A3 eigsh SM ker(32x32x45) = 2 (booked 2), min |eigs| ['3.15e-14', '4.06e-14', '3.60e+01', '3.60e+01']: True",
+   "pass": true
+  },
+  {
+   "name": "cluster-shape gates: 16x16bar [1, 45, 210] (1/45/210), 32x32 [2, 20, 90, 240, 252, 420] (20/240/252/2/420/90), 45x45 [1, 45, 54, 210, 770, 945] (1/45/54/210/770/945): True",
+   "pass": true
+  },
+  {
+   "name": "cluster census matches A1-A3 + E1 + E2: 2/1/2/1/1 vs 2/1/2/1/1; unknown shared clusters []: True",
+   "pass": true
+  },
+  {
+   "name": "torus N=2^3 counts: 12 bonds, 24 adjacent pairs, 3 bond orbits (booked 12/24/3): True",
+   "pass": true
+  }
+ ]
+}

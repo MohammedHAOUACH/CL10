@@ -2724,3 +2724,110 @@ of C2_tot in reduced blocks. Cost booked when the cut is taken:
 multi-RHS Krylov on 2.9M-dim fibers, one programme-day, GPU-heavy.
 Trigger: only as its own booked session - NOT to be improvised
 inside a fold.
+
+## V372_torus_singlet_tower_census - BOOKING (2026-11-02, run following,
+tier 2, residual; category dynamics_spectrum; suite 284)
+Property: does the two-quanta + flux composite class of the N=2^3 torus
+carry GAUSS-SINGLET channels beyond the single flux line - the
+prerequisite the V371 deformed-step programme needs.
+Reason for the census (booked consequence of V370, no run needed): on
+the torus with one flux line (ell=1), the only flux link touches the
+matter and every other bond is empty, so Sum_b J_b.L_b = J_b0.L_b0 =
+-64 on the E4-type kernel (V370 verbatim) - the deformed step is the
+PURE PHASE e^{-64 i eta} on the whole ell=1 singlet tower: it cannot
+move a threshold. Binding therefore REQUIRES the ell=2 sector. There
+the interior site carries no matter, Gauss forces (L_f1 + L_f2)|psi> =
+0, and the touching contraction becomes (J_A - J_B).L_f1 - a different
+operator with a different Casimir bookkeeping (the V369 sign lesson
+reappears with a flipped cross term): not a phase.
+Machine (all booked before the run):
+ A1 anchor: ker(32 (x) 32) = 2 (dense eigvalsh, 1024).
+ A2 anchor: ker(45 (x) 45) = 1 (dense eigvalsh, 2025; adjoint square).
+ A3 anchor: ker(E4) = 2 (V366 verbatim, LinearOperator eigsh, 46080).
+ T  torus counts (N=2^3): 8 sites, 12 undirected bonds, 120 composable
+    adjacent bond pairs (8 sites x C(6,2)), 3 bond orbits under
+    translations - exact enumeration, structural gates.
+ M  ell=2 fiber: 32 (x) 32 (x) 45 (x) 45 (dim 2,073,600), charges
+    Q^a = T_a(g1) + T_a(g2) + L_a(f1) + L_a(f2), C2 = sum Q^2 by
+    cupy-einsum matvec (V370 fallback pattern), eigsh which='SM'
+    k=12, kernel block Gram -1/2 fix with rank assert (house
+    hygiene), residual gate ||C2 W|| < 1e-8, W^dag W defect < 1e-12.
+Verdicts: anchors break -> MACHINERY-DRIFT (exit 1). ker_ell2 >= 1 ->
+TORUS-SINGLET-TOWER-ALIVE (V371 licensed on the ell<=2 sector, count
+booked for the Krylov assembly). ker_ell2 = 0 ->
+TORUS-SINGLET-TOWER-LINE1-ONLY (with the pure-phase consequence the
+published interaction CANNOT open a threshold through any ell<=2
+singlet channel: V371 closes at ell<=2; the next honest steps are
+ell>=3 or a content extension - no run today either way).
+Scope limits booked: single quanta pair (fermions, one flux line),
+N=2^3 finite size (a census, not a thermodynamic statement), NO
+dynamics computed here (no step projection, no eta scan - that is
+V371 proper), adjoint flux lines only.
+
+### V372 machine correction (booked before the run, after script
+inspection)
+The Weyl weight-lookup formula as first drafted (m_V(w rho - rho)) is
+WRONG (it fails its own anchor ker(32x32)=2 on paper) - replaced
+BEFORE any run by the exact dense-Casimir cluster method: decompose
+32x32 (1024, eigvalsh), 45x45 (2025, eigvalsh) and 16x16bar (256,
+from AC.weyl_generators) by C2 eigengroups; the irrep table is read
+from the cluster dims (16x16bar = 1+45+210 fixes the 45 and 210 C2
+values; 45x45 clusters must have dims {1,45,54,210,770,945} (the 45'/1670 first sketched from the weight algebra are WRONG - an inspection run of the cluster machinery gives 45x45 = (1+54+945) sym + (45+210+770) antisym; shape gate uses the machine fact));
+mult(1; V tensor F) = sum over C2-matched shared clusters of the copy
+counts; an unidentified shared value -> EXT-GROUP-MISMATCH. Anchors
+gated: ker(32x32)=2, ker(45x45)=1, E4=2, E1=1, E2=1 (V366).
+Torus anchor corrected: N=2^3 has 8 sites, 12 undirected bonds,
+24 adjacent bond pairs (8 sites x C(3,2) - undirected incidence, NOT
+the directed count 120 first drafted), 3 bond orbits. The ell=2
+cupy-eigsh-on-2.07M path is NOT used (the cluster method is exact and
+finishes in seconds; GPU stays free for V371 proper).
+
+## V371_deformed_contact_channels - FORMAL BOOKING (2026-11-02, run
+following; tier 2, residual; category dynamics_spectrum; suite 285).
+This is the executable first cut of the V371 shape booked earlier
+today; the full torus lattice-sum spectral question (multi-line
+Krylov) stays booked and unrun.
+Property: under the published bond-current deformation e^{i eta
+Sum_b J_b.L_b}, do the certified singlet channels acquire
+channel-dependent phases that RE-OPEN a gap of the pair against the
+two-quanta continuum at the contact cut - the door n°2 opening
+condition, decided at the scope V372 licenses.
+Machine (all booked before the run):
+ Fiber: pair at sites (A,B) on the contact bond b0; flux line of
+ length ell=1 (b0) or ell=2 (A-m-B via interior m), orientation
+ along the path; charges T1 at A, T2 at B, L_f1 at A and m, L_f2 at
+ m and B with interior Gauss (L_f1 - L_f2)|psi> = 0 at m.
+ T0 anchor: the constructed charge set has EXACTLY the V372 kernel
+ counts: dim ker C2(ell=1 fiber) = 2 (V369/V370 basis rebuilt),
+ dim ker C2(ell=2 fiber, 2.07M) = 6 - the orientation convention is
+ gated by this count; mismatch -> MACHINERY-DRIFT, no run.
+ A  exact bases: ell=1 kernel from the V366 E4 machinery (2 vectors,
+    46080); ell=2 six vectors by Haar-averaged intertwiners:
+    X <- (1/N) sum_g rho_M(g) X0 rho_F(g)^T, N = 200 random group
+    elements (products of exp(i theta_a T_a), fixed seed), pairings
+    (trivial x trivial: 2; 45 x 45: X 90x45; 210 x 210: X 420x210);
+    gates: max_a ||M_a X - X F_a|| <= 1e-8, ||C2 v|| <= 1e-8 on
+    every assembled fiber vector, Gram defect <= 1e-12.
+ B  deformation spectrum: D2 = W^dag (J.L sum over path bonds) W
+    (6x6 hermitian; explicit charges, einsum on the 2.07M fiber,
+    cupy GPU 1) and the 2x2 ell=1 block which must reproduce
+    -64 I_2 (V370 anchor in-repo). Facts booked: d_1..d_6.
+ C  window scan at the V368 torus kinematics: dressed channel
+    phases theta_k(eta) = theta_pair + eta d_k against the contact
+    continuum bands of V367/V368 (anchors: gamma = 1.006652 at
+    contact; torus min gap 2.017083e-5 over the 216 K of the 6^3
+    grid, seed 0x51 - machinery re-used, continuum recomputed
+    independently in-script). eta grid [0,1] step 0.02.
+    window(eta) = min over K and k of dist(theta_k(eta),
+    band(K)). GATE BOOKED NOW: window re-opened iff
+    max_eta window(eta) >= 0.05 rad/step.
+ Verdicts: THRESHOLD-REOPENED-CONTACT-CUT (window >= 0.05 at some
+ eta) / NO-THRESHOLD-CONTACT-CUT (honest negative: the deformation
+ phases never clear the continuum at this cut) / MACHINERY-DRIFT.
+ Scope limits booked: contact geometry for the pair (the V367
+ invariant-subspace scope); one flux line, length <= 2; channel
+ PHASES only - hopping-induced channel mixing stays out (V368
+ already showed hopping collapses the free window); eta first-order
+ phases only; no ell>=3, no multi-line, no torus hopping of the
+ line. These limits are the difference between this cut and the
+ full V371 lattice-sum question, which remains booked unrun.
