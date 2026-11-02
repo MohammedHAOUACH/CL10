@@ -77,6 +77,7 @@ DERIVED = {
     r"2.1\times10^{-66}": r"5.293e-39 GeV^-2 x 3.89379338e-28 cm^2/GeV^2 (cl10/config.yaml units.gev2_to_cm2): 2.061e-66 cm^2",
     r"8.2\times10^{-11}": r"the unwashed delta_B_0param = 6.8134e-10 (V55) times the booked washout kappa_f = 0.12: 8.18e-11",
     r"8.0\times10^{3}": r"the V296 ledger gap: eps_CP = 4.857e-6 (V55 eta_cp/structure/eps_CP) over eta_B = 6.1e-10: 7.96e3",
+    r"7.3\times10^{-14}": r"V370 total first-order leakage on the FIRST cached eigenbasis, recorded in experiments/dynamics_spectrum/V370_singlet_leakage/run_notes.md (the artifact stores the rebuilt-basis value 8.78e-14)",
 }
 
 # a number whose own sentence cites a source is backed by that source: the

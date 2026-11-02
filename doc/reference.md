@@ -1369,3 +1369,35 @@ returns defective bases on degenerate towers - intra-cluster Gram
 -1/2, and at large k, cross-cluster orthogonality must be enforced
 or declared (channel weights moot when the projector-free total
 leakage is machine-zero).
+
+**The torus tower and the deformed contact cut V372-V371
+(2026-11-02).** The booked door n°2 scope was decided at its
+decidable cut. **V372** TORUS-SINGLET-TOWER-ALIVE - the exact
+dense-Casimir cluster census fires every shape gate (32x32
+{2,20,90,240,252,420}, 45x45 {1,45,54,210,770,945}, 16x16bar
+{1,45,210}, trace ratio 2.000000) and reproduces the five kernel
+anchors: on N=2^3, ell=1 carries 2 singlet channels x 12 bonds
+(pure phase -64, cannot bind), ell=2 carries 6 channels x 24
+adjacent pairs. **V371** NO-THRESHOLD-CONTACT-CUT - on the
+certified 6-dim fiber kernel (Casimir residuals 5e-15, JL-leak
+3e-14) the deformation splits channels into bands {-96,-96,-64,
+-64,0,0} - not a phase - but the same operator swings the
+two-quanta continuum across [-64,+8]: smear 72 rad/step vs the
+2.0171e-05 free isolation (V368 kinematics to 1e-9); no eta
+re-isolates, and eta >= 2pi/72 = 0.087 zeroes every window by
+smear alone. The full lattice-sum version stays booked unrun.
+Machinery lessons recorded by the V371 development: (i) the
+anchored kernel operator is the diagonal Casimir sum_a (J_a^tot)^2
+- collapsing the generator loop to (sum_a J_a)^2 is a DIFFERENT
+operator (dense continuum at zero, no kernel) and its drift verdict
+fires correctly; (ii) fast evaluation via precomputed leg-pair
+couplings (sum-of-squares pair factor 2) must carry an in-script
+self-test against the 45-loop form - one wrong inverse permutation
+otherwise silently changes the operator (self-test gate 5.7e-16);
+(iii) an eigsh span can have residuals 3e-15 yet be the WRONG span
+for a proportional-anchor gate (JL-invariance leak 3.2e-3 vs
+8.8e-14) - anchor gates pair with invariance-leak gates; (iv)
+ARPACK tol=0 asks for residuals below the Lanczos roundoff floor on
+large-norm operators (never converges), and shared-isotypic
+sandwich subspaces are not invariant under the total generator
+([Q_a, sum Q^2] != 0) - restrict only by proven invariance.
