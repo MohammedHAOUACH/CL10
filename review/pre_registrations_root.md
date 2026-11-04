@@ -3175,3 +3175,31 @@ substituted. If T2 finds any rung with residual <= 1e-9, the rung
 pair is recorded as a NEW closure candidate and V377's verdict word
 carries MODULE-CLOSURE-RUNG-FOUND with its measured m - booked
 before the run as the only positive branch.
+
+## V377 booking correction (pre-run, declared; 2026-11-04, before any
+run of V377)
+
+Two booked constants in the V377 booking are corrected BEFORE the run
+(no result exists yet; nothing else in the booking moves):
+
+- T3 hierarchy column: the booked deficit interval [0.22, 0.31]
+  omitted the quaternionic pi/2 read 2.299444 from the V312 artifact.
+  Corrected booked reading: the absolute deficit |coef - observed|
+  over every member that carries a ladder object lies in
+  [0.2229, 0.6330] (closest 0.2228796480336257, the V312
+  closest_read field itself; farthest from the certified pi/4 read
+  2.7095258500787756 minus 2.076564111173832).
+- T2 rung census: as booked ("residual > 1e-9") the grid fires
+  trivially - loop^n itself falls under 2pi x 1e-9 at n >= 5, an
+  epsilon-closure by DECOUPLING (the level carries vanishing phase
+  per stage), which is not a new clock and closes nothing of the
+  spinor block. Corrected booked gates: (i) NO rung admits an exact
+  closure (the continued-fraction residual is strictly > 0 for every
+  (n, m <= 10^6) on the grid); (ii) the epsilon-closure threshold is
+  booked at n* = 5 (least n with loop^n / (2pi) <= 1e-9) and is
+  recorded as data with the decoupling interpretation; (iii) the
+  closure CLOCK class {pi/2, pi/4, 3pi/4} is measured unchanged when
+  the cell is built on the epsilon-closed rungs (5,5) and (7,7).
+  The booked positive branch MODULE-CLOSURE-RUNG-FOUND therefore
+  fires only on exact closure; the epsilon branch is booked as
+  MODULE-CLOSURE-RUNG-EPS-DECOUPLED and moves no clock.
