@@ -3263,3 +3263,16 @@ re-measured in T0 (pub_R_cluster_sizes) is the reference; if the
 host re-measure differs from the V337 GPU field, the host field is
 used verbatim as the reference and the difference recorded as a
 backend artifact (V337 T0c precedent).
+
+## V378 post-run note (T2 correction; 2026-11-04, after the run)
+
+The booked T2 line ("every class point closes at order <= 10") is
+true of the INTERNAL 2I layer (measured 36/36, max order 10) but not
+of the full engine step: the step closes at 27/36 points - exactly
+the rational-multiple-of-pi beta columns - and NEVER at beta = 1/5
+rad (a transport phase of 0.2 rad/stage is incommensurate with 2pi,
+closure_k None to cap 240). The clock-free witness stands where the
+booking intended it - the internal layer carries the closure with no
+clock cost at every 5-fold angle - and the measured full-step split
+27/36 (not 36/36) is booked as the corrected statement. No other
+gate moved; DILEMMA-BROKEN branch: 0 of 36.
