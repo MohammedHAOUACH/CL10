@@ -3214,3 +3214,52 @@ field, gated bit-exactly): closest deficit == 0.2228796480336257
 certified pi/4 read 2.7095258500787756 minus 2.076564111173832,
 bit-exactly); the interval statement becomes [0.22288, 0.63296].
 No physics interpretation changed by the amendment.
+
+## V378_crystalline_dilemma_witness - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 291).
+Property: V377's named surviving structure - the crystalline dilemma
+- put to a direct witness test on the repository's ONLY clock-free
+closure engine (the 2I engine, cl10/supercell_2i, the branch module
+booked by V337): does ANY member of the 2I engine class carry the
+full conjunction CLOSURE (at GAMMA, order <= 240) + gapless M-points
+(min |phase| <= 1e-9 over all M-points) + the published R cluster-
+size signature + internal mirror <= 1e-10 + unitarity <= 1e-11?
+Booked class (all booked before the run): omega = pi*j/5 for
+j = 1..9 (the 5-fold angles at which the binary-icosahedral element
+has finite order; V337 used j in {1,2,4}); beta in the four readings
+{SC.G10 (published), pi/5, 2*pi/5, 1/5 (the empirical transport
+pin)} - 9 x 4 = 36 points. Machinery: the V337 helper set
+(phases, cluster sizes, unitarity, closure_k cap 240 tol 1e-8)
+re-implemented in-script on HOST numpy (V337 ran cupy GPU 1; the
+class is 256-dimensional, host-exact).
+T0 self-tests (booked anchors): (i) the PUBLISHED step re-measured
+through this machinery: M-gap < 1e-9, R signature equal to the V337
+T0a pub_R_cluster_sizes field read from the artifact, mirror
+<= 1e-12; (ii) the three V337 grid points inside the booked class
+(j in {1,2,4} x beta in {pi/4, pi/5, 2pi/5}) reproduce the V337
+artifact rows at 1e-8 (backend cross-check, host vs the V337 cupy
+values).
+T1 (booked reading, decided BEFORE the run): NO point of the class
+satisfies the full conjunction: the points with gapM = 0 fire at
+beta in {pi/5} where the R signature fails (the V337 rows show
+gapM = 0.0000 exactly at (2pi/5, pi/5) and (4pi/5, pi/5), R False),
+and the points holding the published R signature (beta = G10 = pi/4
+class) all carry gapM >= 0.1047 (the V337 row minimum at the class
+j = 2, beta = pi/4). BOOKED: min over R-holding class points of gapM
+= 0.10471975511965977 (== pi/30 exactly? measured and reported -
+the booking fixes the V337 row value 0.1047 as the floor to be
+reproduced, not an exact claim).
+T2 clock side (booked): every class point closes at GAMMA at order
+<= 10 (the 5-fold structure forces it; measured closure_k recorded
+per point) - closure is clock-FREE over the whole class, witnessed.
+Decision (booked words): 0 of 36 conjunction points ->
+CRYSTALLINE-DILEMMA-WITNESSED (the clock can be born only by
+killing the gapless M or the published R multiplets: no built
+module carries both sides); any point with the full conjunction ->
+DILEMMA-BROKEN with its (omega, beta, closure_k, gapM) recorded -
+booked as the only branch that could carry a module-side solution.
+Contingency (declared): the R signature of the PUBLISHED step
+re-measured in T0 (pub_R_cluster_sizes) is the reference; if the
+host re-measure differs from the V337 GPU field, the host field is
+used verbatim as the reference and the difference recorded as a
+backend artifact (V337 T0c precedent).
