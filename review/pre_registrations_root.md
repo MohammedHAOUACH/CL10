@@ -3656,3 +3656,23 @@ engine). Negative branch: any gate fails -> CUBOND-FAILS with
 the gate named.
 Contingency: none of the gates uses the GPU; host numpy,
 256-dim, seconds.
+
+## Roll-up addendum: the cubond theorem V383 (2026-11-04, suite
+296)
+
+The creative turn the programme was waiting for: after 285
+experiments measured commutative tangent algebras (0.0e+00) and
+V185 proved the Kronecker form responsible, the V118 cone
+precondition was realized NOT by repairing the published bond
+but by moving the algebra into the bond: gamma = Pauli (x) spin
+is an exact Clifford on the certified algebra; the engine is
+unitary, corner-causal, velocity-commutator 2.0, cones exactly
+isotropic at speed 1, and it contains the V380 carrier as an
+exact factor. The theorem is booked with its full price: 16
+gapless doubler sites, front sqrt(3), and the ladder functional
+on an entangled engine named as the open design problem - the
+one certified road left to O8/F2. Suite 296: 293 publication +
+3 alt_step; booked FAILs stand at two (V369, V381 - both the
+booked physics branch firing on real data), plus V373's crash
+log (infrastructure: GPU contention from an unrelated user
+process holding 22.3 GB) pending its re-run.

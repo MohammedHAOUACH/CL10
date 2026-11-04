@@ -1,0 +1,130 @@
+{
+ "id": "V381_free_clock_carrier_arbitration",
+ "tier": 2,
+ "residual": 1.3322676295501878e-15,
+ "property": "the V380 carrier put to the clock-arbitration re-run: closure, gapless M and R across eight betas, tier 2, O8/O9",
+ "status": "CARRIER-ARBITRATION-BREAKS (see failing gates)",
+ "pass": false,
+ "data": {
+  "carrier_rows": [
+   {
+    "beta": "pi/4",
+    "closure_k": 2,
+    "closure_err": 1.3322676295501878e-15,
+    "unitarity": 2.2215299868541707e-16,
+    "gapM": 0.0,
+    "R": [
+     32,
+     48
+    ],
+    "zeropoint": 2.1316282072803006e-14
+   },
+   {
+    "beta": "pi/3",
+    "closure_k": 6,
+    "closure_err": 3.2855346348445947e-15,
+    "unitarity": 6.661718104854808e-16,
+    "gapM": 0.018238265314139957,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 0.0
+   },
+   {
+    "beta": "pi/5",
+    "closure_k": 10,
+    "closure_err": 5.2488826623830144e-15,
+    "unitarity": 4.440892098500626e-16,
+    "gapM": 0.3141592653589774,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 2.842170943040401e-14
+   },
+   {
+    "beta": "2pi/5",
+    "closure_k": 10,
+    "closure_err": 5.166551457048473e-15,
+    "unitarity": 2.222446001501234e-16,
+    "gapM": 0.751203342469632,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 5.684341886080802e-14
+   },
+   {
+    "beta": "pi/6",
+    "closure_k": 6,
+    "closure_err": 3.4233625569168413e-15,
+    "unitarity": 7.771561172376096e-16,
+    "gapM": 0.5235987755982967,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 8.526512829121202e-14
+   },
+   {
+    "beta": "1/5rad",
+    "closure_k": null,
+    "closure_err": null,
+    "unitarity": 8.88206546852104e-16,
+    "gapM": 0.6070097628829672,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 2.842170943040401e-14
+   },
+   {
+    "beta": "g_obs",
+    "closure_k": null,
+    "closure_err": null,
+    "unitarity": 1.998404507261095e-15,
+    "gapM": 0.6070194183879954,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 2.842170943040401e-14
+   },
+   {
+    "beta": "0.3rad",
+    "closure_k": null,
+    "closure_err": null,
+    "unitarity": 3.3306690738754696e-16,
+    "gapM": 0.12873311996950054,
+    "R": [
+     16,
+     48
+    ],
+    "zeropoint": 2.842170943040401e-14
+   }
+  ],
+  "R_reference": [
+   32,
+   48
+  ]
+ },
+ "checks": [
+  [
+   "carrier internal u_2i(pi/2, e_z): spatial triple S_a^2 = I/4 (max 0.0e+00), internal mirror 0.0e+00 <= 1e-10: True",
+   true
+  ],
+  [
+   "unitarity <= 1e-11 and 0-point <= 1e-9 at every beta: True / True",
+   true
+  ],
+  [
+   "closure: EVERY rational-multiple-of-pi beta closes (order <= 24: [('2pi/5', 10), ('pi/3', 6), ('pi/4', 2), ('pi/5', 10), ('pi/6', 6)]) and NO rational-radians beta closes (1/5 rad and 0.3 rad: None to cap 24) - the closure forcing leaves the booked {pi/2, pi/4, 3pi/4}: the clock is FREED into the rational-pi family: True",
+   true
+  ],
+  [
+   "spectrum contacts at every closed rational-pi beta: gapM = 0 (<= 1e-9) and R signature == [32, 48]: False",
+   false
+  ]
+ ]
+}

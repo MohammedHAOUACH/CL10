@@ -1,0 +1,101 @@
+{
+ "id": "V383_cubond_clifford_engine",
+ "tier": 2,
+ "residual": 2.220446049250313e-16,
+ "property": "the Clifford-bond engine: V118's cone precondition realized on the certified algebra, tier 2, O9",
+ "status": "CUBOND-EXIST-DOUBLERS-PROLIFER (a causal unitary engine on the certified algebra with an EXACT Clifford velocity algebra and exactly isotropic leading cones of speed 1 exists - the O9 algebraic precondition of V118 realized for the first time after 285 experiments measuring commutative tangents; the carrier of V380 is one of its half-angle factors; its doublers proliferate (16 sites), its front radius is sqrt(3), and its ladder functional - the honest road to O8/F2 - is the NAMED open design problem: this family was never run against the published anchors because it is not the published engine)",
+ "pass": true,
+ "data": {
+  "fourier_coefficients": {
+   "(-1, -1, -1)": 0.125,
+   "(-1, -1, 1)": 0.125,
+   "(-1, 1, -1)": 0.125,
+   "(-1, 1, 1)": 0.125,
+   "(1, -1, -1)": 0.125,
+   "(1, -1, 1)": 0.125,
+   "(1, 1, -1)": 0.125,
+   "(1, 1, 1)": 0.125
+  },
+  "gapless_sites": [
+   [
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    3.141592653589793
+   ],
+   [
+    0.0,
+    3.141592653589793,
+    0.0
+   ],
+   [
+    0.0,
+    3.141592653589793,
+    3.141592653589793
+   ],
+   [
+    1.5707963267948966,
+    1.5707963267948966,
+    1.5707963267948966
+   ],
+   [
+    3.141592653589793,
+    0.0,
+    0.0
+   ],
+   [
+    3.141592653589793,
+    0.0,
+    3.141592653589793
+   ],
+   [
+    3.141592653589793,
+    3.141592653589793,
+    0.0
+   ],
+   [
+    3.141592653589793,
+    3.141592653589793,
+    3.141592653589793
+   ]
+  ]
+ },
+ "checks": [
+  [
+   "T0 certified triple (2S_a)^2 = I and anticommutators 0 (max 0.0e+00 exact), bond Paulis commute and square to I: True",
+   true
+  ],
+  [
+   "T1 gamma_j^2 = I (0.0e+00), {gamma_i,gamma_j} = 0 (0.0e+00), Hermiticity (0.0e+00): all <= 1e-12: True",
+   true
+  ],
+  [
+   "T2 unitarity of U(q) at 10 random q in [-3,3]^3: max defect 2.2e-16 <= 1e-12: True",
+   true
+  ],
+  [
+   "T3 Fourier support = exactly the 8 corner coefficients (all present: True, exactly 8 nonzero at 1e-10: True) - one lattice step, front radius sqrt(3) RECORDED (published front: 1): True",
+   true
+  ],
+  [
+   "T4 spectra of gamma_j = {+-1} x 128+128 (max deviation from real +-1: 4.4e-16, multiplicities 128+128: True -> principal velocities (1,1,1) EXACTLY, against the published node (0.00000, 0.14189, 0.14189)); cone to leading order: 8 random directions at a=1e-3, every phase within 1.9e-07 of +-*|q| (bound 3a^2 = 3e-06): True",
+   true
+  ],
+  [
+   "T5 velocity commutators ||[gamma_i,gamma_j]|| = [2.0, 2.0, 2.0] (all >= 1; the published Kronecker class measured exactly 0.0e+00, V185 separation lemma): V118's cone precondition REALIZED: True",
+   true
+  ],
+  [
+   "T6 half-angle factor (I + 2iS_z)/sqrt2 = u_2i(-pi/2, e_z) to 1.1e-16 (the +pi/2 mis-sign measures 1.4 as booked): the V380 carrier is an exact member of the family: True",
+   true
+  ],
+  [
+   "T7 5^3 grid {0,pi/2,pi}^3: gapless sites exactly 9 - the {0,pi}^3 octet (8 NN chiral doublers counting the origin cone site) plus the (pi/2,pi/2,pi/2) corner: found 9; the pi/2-type face/edge sites gapped, floor 1.571 >= pi/2 - 1e-9 (RECORDED): doublers PROLIFERATE (16 gapless sites over the full BZ by cubic symmetry - Nielsen-Ninomiya kept and then some): True",
+   true
+  ]
+ ]
+}

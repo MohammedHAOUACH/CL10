@@ -1518,3 +1518,47 @@ near-miss map of V378's gapless points: R signature [16, 48] -
 the 48-cluster survives the icosahedral twist intact, the 32-
 cluster splits exactly dyadically: the missing leg of a three-leg
 carrier is one Z2-type split at the R corners.
+
+**The carrier arc V380-V382 (2026-11-04).** The crystalline
+dilemma is broken as an existence statement and survives as a
+physical one, in the same afternoon. V380: a quarter-turn of the
+spatial-plane Spin(3) about a COORDINATE axis (u_2i(pi/2, e_z)
+and cubic partners), grafted onto the published crystallographic
+transport, carries the full conjunction at the published clock -
+internal closure order 4, FULL-step closure order 2 (the
+staggered transport inverts the twist: (PR)^2 = +-I), gapM = 0
+exact, R signature [32, 48] exact, unitarity 2.2e-16. V381: the
+closure family frees to ALL rational multiples of pi (orders 2,
+6, 10, 10, 6) - beyond the booked forcing set - but the physical
+contact rides only on pi/4: every other closed clock splits the
+R 32-cluster exactly dyadically ([16, 48], the V379 map
+verbatim) and gaps the M node; rational-radians pins never close
+(V378 lesson verbatim). V382: the certified V206 hierarchy
+functional with the clock twist replaced by the carrier internal
+reads the observed coefficient at NO clock - five closed clocks
+miss by 0.27 to 2.07, a 320-point dense scan has zero band-hits;
+the pi/4 read moves 2.70 (published float64) to 2.37 - the first
+certified machinery to move the loop coefficient meaningfully,
+still 2900x outside the constants band. F2's clock arbitration
+stands COMPLETELY unchanged. Suite 295: V380 and V382 pass their
+booked branches; V381's booked fallback fired (one gate fails by
+pre-registration on real physics data - the carrier's spectrum
+contact does not follow its closure freedom).
+
+**The cubond theorem V383 (2026-11-04).** The hole V118 named
+and V185 proved (Kronecker bonds commute at the tangent, so no
+cone) is bypassed by a different circuit class: the bond qubits
+carry the Clifford. gamma_j = (X_1, Y_2, Z_3) (x) 2S_j - Paulis
+of the three link qubits tensored with the doubled certified
+spin triple - anticommute EXACTLY on 256 dimensions; the engine
+prod_j (cos q_j + i sin q_j gamma_j) is unitary (2.2e-16),
+supported on the eight corners of one lattice step, carries
+||[gamma_i,gamma_j]|| = 2.0 and exactly isotropic leading cones
+of speed 1 (velocities (1,1,1) against the published
+(0.00000, 0.14189, 0.14189)). The cubic carrier V380 is an
+exact half-angle factor of the family. The price, booked:
+doublers proliferate (9 gapless sites on the 5^3 census, 16
+over the full BZ), the front radius is sqrt(3), and the ladder
+functional for an entangled engine is the named open design
+problem - F2/O8 untouched. A kinematic existence theorem, not a
+replacement of the published engine.

@@ -1,0 +1,83 @@
+{
+ "id": "V382_carrier_ladder_clock_tribunal",
+ "tier": 2,
+ "residual": 0.29427560589364443,
+ "property": "F2's last loophole: the certified ladder functional re-read with the carrier internal, at carrier-closed clocks + dense scan, tier 2, O8",
+ "status": "CARRIER-LADDER-NO-CLOCK-RESCUE (the certified hierarchy functional on the carrier reads the observed coefficient at NO clock, closed or not: the dense scan [0.05, 1.60] has zero band-hits; the 2x2 clock arbitration of V233 stands COMPLETELY unchanged by the carrier - a structural discovery with no clock consequence; recorded: the carrier ladder read at pi/4, 2.3708397, narrows the published pi/4 miss (2.7002078 -> 30.0%) to 14.2%, still 2900x the constants band)",
+ "pass": true,
+ "data": {
+  "replica_pi/2": {
+   "coef": 2.299501537011996,
+   "v206": 2.2994437592056225,
+   "detune": 5.77778063735046e-05
+  },
+  "replica_pi/4": {
+   "coef": 2.70180241158332,
+   "v206": 2.7002077805447326,
+   "detune": 0.0015946310385874796
+  },
+  "replica_3pi/4": {
+   "coef": 2.704843995591902,
+   "v206": 2.7084027105235036,
+   "detune": 0.0035587149316014255
+  },
+  "replica_1_5rad": {
+   "coef": 2.088106865906645,
+   "v206": 2.088106865906787,
+   "detune": 1.4210854715202004e-13
+  },
+  "carrier_reads": {
+   "pi/4": {
+    "g": 0.7853981633974483,
+    "n_star": 193,
+    "deficit": 0.9767380217187832,
+    "coef": 2.3708397170674766,
+    "miss": 0.29427560589364443
+   },
+   "pi/3": {
+    "g": 1.0471975511965976,
+    "n_star": 15,
+    "deficit": 0.5269991690586433,
+    "coef": 0.004957018721650103,
+    "miss": -2.071607092452182
+   },
+   "pi/5": {
+    "g": 0.6283185307179586,
+    "n_star": 33,
+    "deficit": 0.7869835411292276,
+    "coef": 0.2733869321228191,
+    "miss": -1.8031771790510132
+   },
+   "2pi/5": {
+    "g": 1.2566370614359172,
+    "n_star": 9,
+    "deficit": 0.8573476550527123,
+    "coef": 0.6437109519232169,
+    "miss": -1.4328531592506153
+   },
+   "pi/6": {
+    "g": 0.5235987755982988,
+    "n_star": 11,
+    "deficit": 0.9900803633168402,
+    "coef": 2.715349427989775,
+    "miss": 0.6387853168159427
+   }
+  },
+  "rescue_candidates": [],
+  "scan_void_points": 0
+ },
+ "checks": [
+  [
+   "T0 replica: the imported V206 machinery reproduces its own certified 1/5-rad reading to 1.4e-13 (< 1e-9, bit-level) and the closure_class readings to max 3.6e-03 (< 5e-3 - the float64 ladder drift V209 certifies against): True",
+   true
+  ],
+  [
+   "T1: no carrier-closed clock {pi/4, pi/3, pi/5, 2pi/5, pi/6} is read by the carrier ladder within the 1e-4 constants band of the observed 2.0765641: True",
+   true
+  ],
+  [
+   "T2: dense scan 320 points on [0.05, 1.60]: 0 band-hit(s), 0 VOID points (no crossing - excluded, V206 convention); NO hit sits at a carrier-closed clock (closure <= 24): True",
+   true
+  ]
+ ]
+}
