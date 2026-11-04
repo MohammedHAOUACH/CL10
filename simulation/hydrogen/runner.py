@@ -18,7 +18,7 @@ The runner for the 3-D hydrogen atom (CL10).
     time-stepping: build the drawn eigenstates and write the **transition
     table** (the Rydberg gaps and every dipole matrix element the drive reads)
     to ``results/hydrogen_transition_table.json``, the artefact the selection
-    rules quoted in ``doc/reference.md`` are read from.
+    rules quoted in ``doc/facts_ledger.md`` are read from.
 
 ``python -m simulation.hydrogen --interactive`` -> the **live VisPy window**:
     the atom as a **MIP volume** of ``|psi|**2``, the photon fields as the
@@ -221,7 +221,7 @@ def write_transition_table(cfg):
     """Record the level scheme and every dipole matrix element ``<i|z|j>``
     (in cells) that the dipole approximation uses, as a JSON artefact.
 
-    The selection rules quoted in ``doc/reference.md`` are statements about
+    The selection rules quoted in ``doc/facts_ledger.md`` are statements about
     this table - the forbidden elements against the allowed ones - so the
     table is written where the number audit looks for evidence: each quoted
     dipole is a leaf of this file, not a sentence about it. The construction

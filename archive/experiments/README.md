@@ -1,19 +1,19 @@
 # The verification program
 
-275 experiments (the 272 of the publication programme - the 245 founding plus
-the 27 of the root_rebuild root-rebuild and elected-theory programmes - plus
-the 3 exploration
-experiments of the `alt_step` programme: V191, V192, V201; the `alt_gauged`
-(V175-V179) and `alt_nonpert` (V180-V183) bond-current chains and the
-superseded composition audit V94 stand retired 2026-10-28 in the git
-history), grouped by
-the part of `doc/final_publication.md` they validate.  Each experiment
+301 experiments (the 298 of the publication line-up — the founding suites,
+the root-rebuild and elected-theory arc, the tribunal and carrier arcs, the
+cubond arc (V383–V388: exact Clifford bond engine, certified ladder
+functional, content census, chiral ledger, doubler masses, Standard-Model
+pattern test), the four `beyond_step` lattice-sum measurements — plus the
+3 exploration experiments of `alt_step`: V191, V192, V201; retired
+experiments stand in the git history), grouped by the part of
+`doc/final_publication.md` they validate. Each experiment
 recomputes a published number from the construction, states the provenance of
 every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**83 of the 264 publication experiments still write the older
+**83 of the 298 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -21,12 +21,12 @@ run_validation.py` gates them by fingerprint (only new or changed experiments
 re-run; `--full` re-executes all) and rolls the verdicts up into
 `results/validation_summary.json`.
 
-The paper these experiments validate: [the consolidated paper](../doc/final_publication.md) —
-compiled PDF in `../doc/`, on the
+The paper these experiments validate: [the consolidated paper](../../doc/final_publication.md) —
+compiled PDF in `../../doc/`, on the
 [v1.2 release](https://github.com/MohammedHAOUACH/CL10/releases) and on
 [Zenodo](https://zenodo.org/records/23321228); cite:
 [10.5281/zenodo.23321106](https://doi.org/10.5281/zenodo.23321106).
-Back to the [CL10 README](../README.md).
+Back to the [CL10 README](../../README.md).
 
 A script never hard-codes its own category: sibling experiments and their
 verdicts are addressed by name through `cl10.paths.exp`, so moving an

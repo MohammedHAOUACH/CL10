@@ -71,13 +71,13 @@ The compiled PDF (`review/tools/build_pdfs.sh`) is an asset of the [v1.2 GitHub 
 All 25 figures are **computed from the construction** — `python3 -m make_figures`,
 no hand-entered data ([make_figures/README.md](make_figures/README.md)); each is
 placed in the paper and validated by the named experiment
-([experiments/README.md](experiments/README.md)).
+([experiments/README.md](archive/experiments/README.md)).
 
 | | |
 |---|---|
-| <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
-| <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](experiments/phenomenology/V62_hydrogen_production), §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (§12). |
-| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (§13.4). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](experiments/dynamics_spectrum/V115_cone_isotropy)) — reported as O9/F1, not hidden. |
+| <img src="doc/figures/fig3_one_object_32spectrum.png" width="440"><br>**Fig. 3 — the one object**: the 32-level on-site QCA spectrum and its invariants ([`V43`](archive/experiments/spacetime_matter/V43_qca_spectrum)). | <img src="doc/figures/fig1_young.png" width="440"><br>**Fig. 1 — the Young double-slit as a single-electron measurement** on the automaton (the Tonomura flow): the wave + collapse run of `simulation/young`. |
+| <img src="doc/figures/fig2_hydrogen.png" width="440"><br>**Fig. 2 — hydrogen driven by the CL10 lattice photon**: resonant $1s\to 2p$ absorption, the $296^3$ GPU run ([`V62`](archive/experiments/phenomenology/V62_hydrogen_production), §6). | <img src="doc/figures/fig17_ladder_of_scales.png" width="440"><br>**Fig. 17 — the ladder of scales**: one loop factor $(1/16\pi)^n$ organises the four scales — the ansatz, its fitted coefficients named (§12). |
+| <img src="doc/figures/fig20_desert_unification.png" width="440"><br>**Fig. 20 — the desert solution**: three $10\oplus\overline{10}$ pairs + one $(1,2)$ pair meet at $M_X = 1.8\times10^{16}$ GeV — at the cost of two fitted thresholds (§13.4). | <img src="doc/figures/fig8_isotropy_search.png" width="440"><br>**Fig. 8 — the isotropy search, a computed failure**: no isotropy point exists on the full Wilson family ([`V115`](archive/experiments/dynamics_spectrum/V115_cone_isotropy)) — reported as O9/F1, not hidden. |
 
 ## The layout
 
@@ -88,7 +88,7 @@ CL10/
 │   ├── README.md           # the paper tree: what each file is, the dependency direction, the build commands
 │   ├── final_publication.md  # the consolidated paper
 │   ├── *.pdf                 # the compiled paper
-│   ├── reference.md          # the technical reference (exact constructions, numerical protocol, reproducibility)
+│   ├── facts_ledger.md       # the facts ledger (exact constructions, numerical protocol, reproducibility)
 │   ├── api.md                # the complete CL10 API reference
 │   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = hydrogen product)
 ├── review/                   # the manuscript pipeline + the provenance guard
@@ -153,24 +153,26 @@ CL10/
 │   ├── uvrunning.py          # the UV-bounded discrete RG: the coarse-graining tower U^(2^p) is bounded (no Landau pole); the coupling values stay open (O4)
 │   ├── four_limits.py        # the four limits and their common object (V59): bookkeeping that groups the residuals, not a derivation
 │   └── paths.py              # the experiment-path resolver: an experiment is addressed by name, never by category
-├── experiments/              # the verification program: 301 experiments in 17 categories (298 publication - including the 42 root_rebuild programmes of 2026-11-01, the 2026-11-04 tribunal and the carrier arc - + 3 alt_step exploration; the six O8 dead-end mechanism experiments retired 2026-10-27 and the alt_gauged/alt_nonpert bond-current chains with the superseded V94 retired 2026-10-28, git history)
-│   ├── algebra_root/         # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
-│   ├── spacetime_matter/     # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
-│   ├── dynamics_spectrum/    # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228), the paired-sector reality-interface and interaction cuts (V366–V372)
-│   ├── gauged_layer/         # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement, the dressed-gate quintet (V140/V141)
-│   ├── gravity/              # the discrete EH action, curvature from any metric, 3+1 evolution, the metric-as-bilinear content theorem and the committed exact-cone generator (V208)
-│   ├── scales_loopfactor/    # the closed-loop factor and its weight functional, the angle-selection census, the ladder length, the composition law, the rung arithmetic, the module's closed-word census and K0 rung labels (V218, V221)
-│   ├── couplings_unification/# alpha_10 = 1/25, the desert solution, the proton lifetime, the supplier search
-│   ├── neutrino/             # the seesaw ladder, the 1/3 candidate, the protection, the Delta L = 2 no-go
-│   ├── cosmology_darkmatter/ # the 118 GeV ladder mass and its carrier (the cell singlet B), the spinor-module no-go, the relic abundance, the portal
-│   ├── baryogenesis/         # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
-│   ├── family_number/        # why the count 3 is an input, and what its symmetric alternative costs
-│   ├── phenomenology/        # the 296^3 hydrogen run (Fig. 2)
-│   ├── pillar_surgery/       # bounded surgery of the four pillars: the clock, the root signature, the lightcone dictionary, the four-scale ledger (V308-V314)
-│   ├── theory_hunt/          # the hunt for the closest theory: quantizer census, weight double-contact, selection conjunction, five-contact ledger (v1 + v2 with the supply slots), rung-weight census, sector-sum and resummation supply tests, cone decoration census, joint-centre rung-17 test, channel-triple test, dictionary bridge theorem, the six open-problem closure censuses, the clock-transcendence test, the clock-closure rigidity theorem, and the named-clock-root census (V315-V335)
-│   ├── root_rebuild/         # the root rebuild and the elected theory: the 2/5 root and 2I engine (V336-V338), the icosahedral cell and its nodes, contacts and clocks (V339-V344, V349), the 12-face closed sphere and its engine transplant (V345-V348), backreaction fixed points and the one-loop inverse sector (V350-V353), the elected theory - uniqueness at the fifth and the one-dial build (V354-V355), and the pentagon engine rebuild - the closure-free clock, the built engine and its gap, the extended pentagrid gapless verdict (V356-V360), and the rhombic dodecahedral cell - exactly gapless, its complete engine built, the elected battery ruling it not the clock (V361-V362), and the Escher stellation of that cell - tips and notches exactly complementary, a mechanically keyed perfect tiling (V363) - and the tension ledger certifying the elected dial unnamed by any pair of published named quantities (V364) - and unnamed even as an algebraic invariant of its own dressing machinery (V365)
-│   ├── alt_step/             # exploration: the root-swap cone searches at the root's own clock (V191, V192, V201)
-│   └── README.md             # every experiment, its verdict, and the paper section it validates
+├── archive/                  # the frozen record: the verification program exactly as executed, kept for reproducibility
+│   └── experiments/          # 301 experiments in 17 categories (298 publication — including the root-rebuild, tribunal, carrier and cubond arcs — + 3 alt_step exploration; retired experiments live in the git history)
+│       ├── algebra_root/     # the root, the 36-level cell definition (V196), the closure of the coupling, the provenance audit
+│       ├── spacetime_matter/ # the (1+3) subalgebra, one anomaly-free generation, the 45, the mirror, the flavour structure
+│       ├── dynamics_spectrum/ # unitarity, the causal radius, the n-particle sector, the doubling, the node geometry, the cone isotropy no-gos (V115/V118/V142), the graviton content, the continuum census, the icosahedral shift module (V212–V217, V219, V220) and its covariant Clifford-bond cell (V225–V228), the paired-sector reality-interface and interaction cuts (V366–V372)
+│       ├── gauged_layer/     # the adjoint bond layer: Gauss, the centre obstruction, the area law, confinement, the dressed-gate quintet (V140/V141)
+│       ├── gravity/          # the discrete EH action, curvature from any metric, 3+1 evolution, the metric-as-bilinear content theorem and the committed exact-cone generator (V208)
+│       ├── scales_loopfactor/ # the closed-loop factor and its weight functional, the angle-selection census, the ladder length, the composition law, the rung arithmetic, the module's closed-word census and K0 rung labels (V218, V221)
+│       ├── couplings_unification/ # alpha_10 = 1/25, the desert solution, the proton lifetime, the supplier search
+│       ├── neutrino/         # the seesaw ladder, the 1/3 candidate, the protection, the Delta L = 2 no-go
+│       ├── cosmology_darkmatter/ # the 118 GeV ladder mass and its carrier (the cell singlet B), the spinor-module no-go, the relic abundance, the portal
+│       ├── baryogenesis/     # the Sakharov audit, the asymmetry product, the washout, the real-form obstruction
+│       ├── family_number/    # why the count 3 is an input, and what its symmetric alternative costs
+│       ├── phenomenology/    # the 296^3 hydrogen run (Fig. 2)
+│       ├── pillar_surgery/   # bounded surgery of the four pillars: the clock, the root signature, the lightcone dictionary, the four-scale ledger (V308-V314)
+│       ├── theory_hunt/      # the hunt for the closest theory: quantizer census, weight double-contact, selection conjunction, five-contact ledger (v1 + v2 with the supply slots), rung-weight census, sector-sum and resummation supply tests, cone decoration census, joint-centre rung-17 test, channel-triple test, dictionary bridge theorem, the six open-problem closure censuses, the clock-transcendence test, the clock-closure rigidity theorem, and the named-clock-root census (V315-V335)
+│       ├── root_rebuild/     # the root rebuild and the elected theory: the 2/5 root and 2I engine (V336-V338), the icosahedral cell and its nodes, contacts and clocks (V339-V344, V349), the 12-face closed sphere and its engine transplant (V345-V348), backreaction fixed points and the one-loop inverse sector (V350-V353), the elected theory — uniqueness at the fifth and the one-dial build (V354-V355), and the pentagon engine rebuild — the closure-free clock, the built engine and its gap, the extended pentagrid gapless verdict (V356-V360), and the rhombic dodecahedral cell — exactly gapless, its complete engine built, the elected battery ruling it not the clock (V361-V362), and the Escher stellation of that cell — tips and notches exactly complementary, a mechanically keyed perfect tiling (V363) — and the tension ledger certifying the elected dial unnamed by any pair of published named quantities (V364) — and unnamed even as an algebraic invariant of its own dressing machinery (V365) — and the module-replacement tribunal and the carrier arc (V377-V382) — and the cubond arc: the exact Clifford bond engine on the certified algebra (V383), its certified ladder functional lifted to the engine (V384), the engine's content census (V385), chiral-continuity ledger (V386), doubler masses under the engine's own Wilson selection (V387) and the Standard-Model pattern test of the selected content (V388)
+│       ├── beyond_step/      # the lattice-sum scope of the composite door and the dressed class: full-lattice pair plus string (V373), the threshold scan (V374), the dressed-spectra contact census (V375), the CP-odd theorem on the dressed class (V376)
+│       ├── alt_step/         # exploration: the root-swap cone searches at the root's own clock (V191, V192, V201)
+│       └── README.md         # every experiment, its verdict, and the paper section it validates
 ├── simulation/               # the 3-D visualizations on the CL10 engine
 │   ├── README.md             # the three simulations: what each shows, what is CL10 and what is input, the shared conventions
 │   ├── young/                # the Young double-slit as a single-electron measurement (Fig. 1)
@@ -191,7 +193,7 @@ import time — **CuPy** (GPU) when available, else **JAX** (XLA/GPU, with
 float64 enabled), else **NumPy** (CPU) — and exposes one array type `E.Array`
 plus the primitives every experiment and every module uses (matmul, `einsum`,
 `roll`, the spectral operators, the QCA step, the integrator). All of `cl10/`
-and `experiments/` go through this one core, so the whole theory runs on the
+and `archive/experiments/` go through this one core, so the whole theory runs on the
 **RTX 3090** out of the box and degrades to CPU cleanly.
 
 **One file holds the numbers.** `cl10/config.yaml` (loaded by `cl10/config.py`)
@@ -277,7 +279,7 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 The paper states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
 **ten falsifiers** (F1–F10). `run_validation.py` gates the **301** experiments
-of `experiments/` (17 categories — the 294 of the publication programme, which include the 42 experiments of the root-rebuild, elected-theory, module-tribunal, carrier and cubond programmes, and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md), plus the 4 of the beyond-step programme): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
+of `archive/experiments/` (17 categories — the 298 of the publication line-up, which include the root-rebuild, elected-theory, module-tribunal, carrier and cubond arcs and the four `beyond_step` lattice-sum measurements, and the 3 of the `alt_step` exploration line-up, catalogued in [archive/experiments/README.md](archive/experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the

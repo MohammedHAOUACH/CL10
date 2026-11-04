@@ -1,14 +1,15 @@
-# CL10 — Technical Reference
+# CL10 — Facts Ledger
 
-A **professional** reference for the **implementation** of Causal Clifford
+A **professional** ledger for the **implementation** of Causal Clifford
 Theory on the GUT root (CL10).  It fixes the **exact** constructions used
 by the code, the **numerical** protocol, and the **reproducibility**
-information.
+information: the dated facts, measurements and protocol decisions, newest
+first where sections are appended.
 
 The **physics** (the theorems, the claims, the verification program, the
 ten open problems O1–O10, the falsifiers F1–F10) lives in
 `doc/final_publication.md`; the **Python interface** lives in `doc/api.md`.
-This reference is the companion to both: it says *how* each construction
+This ledger is the companion to both: it says *how* each construction
 is built, so that every number in the publication is reproducible.
 
 **Conventions.**  Planck units $\hbar = c = \ell_P = t_P = 1$.  All
