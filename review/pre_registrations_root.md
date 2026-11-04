@@ -3729,3 +3729,44 @@ GATES:
 Contingency: VOID crossings (no n* <= 600) recorded and
 excluded (V206 convention); A_lambda built from the V206
 module's P/EV import - no re-diagonalization.
+
+## V384 norm-lift correction (declared 2026-11-04, during the T0
+design-anchor phase; T1/T2 physics gates NEVER evaluated before
+this correction)
+
+The booked norm-lift (Cartan content of the BOND TRACE) is
+wrong, and the booking's own death-gate caught it: the bond
+trace of any monomial of the cubond engine is either the scalar
+cos^3(ng) identity (Cartan-traceless) or zero - the Pauli bond
+coefficients are traceless - so the Cartan norm of the DENOMINATOR
+G^n vanishes identically for every entangling engine (the
+division-by-zero crash IS the measurement of that fact). The
+corrected lift: the Cartan norm over EVERY bond block,
+norm(X) = (1/(8.32)) sum_{a,b} sum_i |tr(C_i X^{ab})|: on the
+lifted published engine (blocks = 8 copies of the internal step,
+off-diagonal zero) this equals the published cartan_norm term
+by term EXACTLY (8/256 = 1/32), and on entangling engines it is
+generically nonzero (off-diagonal Pauli blocks and the diagonal
+SxSySz block carry the Cartan content). F_n is a ratio, so the
+normalization constant is immaterial; the anchor gate T0 keeps
+its 1e-8/5e-3 thresholds. T1/T2 untouched and unrun.
+
+## Roll-up addendum: the cubond pair (V383-V384, 2026-11-04,
+suite 297) - the year's creative arc completes
+
+V383: the V118/V185 named hole - non-commutative tangent
+algebras on the certified algebra - REALIZED (exact Clifford
+bond engine, cones isotropic at speed 1, carrier an exact
+factor). V384: the ladder of the same family, written through
+the forced block-wise lift (anchor at 2.8e-13 on the published
+readings - the design's own death-gate caught two lift bugs
+before any physics gate ran), reads the coefficient at NO
+clock. Pair booked in the paper (section 6.3): the cone and the
+coefficient are carried by different circuit classes in
+everything built. Design space closed family by family: the
+published engine (F2 FIRED), module replacements (V377), the
+carrier (V382), the entangling Clifford bond (V384); the only
+reading that reaches the observed value anywhere remains the
+unclosed rational-radians pin 1/5 (to 0.55%). The residue is
+named, final in form, and every route to it is now a certified
+measurement rather than an opinion.

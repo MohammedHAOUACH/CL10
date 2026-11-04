@@ -1562,3 +1562,21 @@ over the full BZ), the front radius is sqrt(3), and the ladder
 functional for an entangled engine is the named open design
 problem - F2/O8 untouched. A kinematic existence theorem, not a
 replacement of the published engine.
+
+**The cubond ladder V384 (2026-11-04).** The named design
+problem of V383 - the hierarchy functional on an entangling
+engine - is answered by the exact lift: the sector hop is
+linear in the engine (ma_lambda = A_lambda C, verified at
+1e-16), the dressing is sum_lambda phase_lambda (I_8 x
+A_lambda) G, the Cartan norm runs over every bond block (the
+booked bond-trace version vanishes identically on entangling
+engines - Pauli coefficients are traceless - and the anchor
+death-gate caught it). The anchor reproduces the certified
+readings (1/5-rad to 2.8e-13 at n* = 10; closure clocks within
+the float64 drift). The cubond engine reads pi/4 at n* = 206,
+coef 2.3828879 - the largest certified move toward the observed
+2.0765641 (2.7002 -> 2.3708 -> 2.3829) - and every other clock
+lands 2 orders of magnitude below; dense scan: zero hits. The
+coefficient is not carried by bond geometry. Pair-booked with
+V383: in everything built, the cone and the coefficient ride
+different circuit classes - a measured statement.
