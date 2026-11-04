@@ -3203,3 +3203,14 @@ Two booked constants in the V377 booking are corrected BEFORE the run
   The booked positive branch MODULE-CLOSURE-RUNG-FOUND therefore
   fires only on exact closure; the epsilon branch is booked as
   MODULE-CLOSURE-RUNG-EPS-DECOUPLED and moves no clock.
+
+Amendment to the same-day correction (run had begun; ONE gate line
+affected, reported post-run per house convention): the T3 closest
+bound was itself a rounded constant (0.2229) and the exact artifact
+value 0.2228796480336257 missed its own rounded gate. Corrected
+gate (booked semantics - the closest read IS the V312 closest_read
+field, gated bit-exactly): closest deficit == 0.2228796480336257
+(|d| <= 1e-12) and largest deficit == 0.6329617389049436 (the
+certified pi/4 read 2.7095258500787756 minus 2.076564111173832,
+bit-exactly); the interval statement becomes [0.22288, 0.63296].
+No physics interpretation changed by the amendment.
