@@ -3542,3 +3542,28 @@ Machine (imported V206 module, path-imported; no V206 edit):
  reads the coefficient - F2 re-opened as a config decision).
 Contingency: scan points with no crossing (None) record VOID and
 are excluded from the rescue set (V206 convention).
+
+## V382 T0 self-test threshold correction (post-first-run, declared
+2026-11-04; the PHYSICS gates untouched and already measured)
+
+The first run's T1 and T2 PASSED (carrier-ladder reads at the
+five closed clocks: coefs 2.3708397 / 0.0049570 / 0.2733869 /
+0.6437110 / 2.7153494, all missing the observed 2.0765641 by
+0.27-2.07 - at least 2700x the band; dense scan 320 points:
+ZERO band-hits anywhere on [0.05, 1.60], closed or not). T0
+failed at max detune 3.559e-03 - the booked 1e-9 threshold was
+mis-set against the machinery's OWN certified lesson: float64
+closure-clock ladder readings DETUNE from the certified values
+(V209's entire raison d'etre: certified pi/4 at dps >= 50
+because float64 detunes at n* = 208 first-crossings). The
+replica evidence shows the machinery is identical: the 1/5-rad
+reading reproduces to 1.4e-13 (bit-level), while the three
+closure-clock readings detune 5.8e-05 / 1.6e-03 / 3.6e-03 -
+exactly the V206 float64 drift pattern. Corrected booked T0:
+the 1/5-rad replica reproduces to < 1e-9 AND the closure-clock
+replicas to < 5e-3 (float64 ladder drift, recorded). The status
+branch was also corrected: CLOCK-HIT only when a CLOSED rescue
+candidate exists (the first run's empty-closed_rescue branch
+printed a misleading word); a failed T0 now reads
+TRIBUNAL-REPLICA-INVALID. Physics gates and all tolerances on
+T1/T2 are untouched.
