@@ -3311,3 +3311,57 @@ closure consumes the clock). Booking corrections: two pre-run
 interpretation moved by any of them. Fold state: V377/V378 verdicts
 green standalone; the fingerprint gate will run them at the next
 fold (new experiments, library state unchanged).
+
+## V379_hierarchy_coefficient_shadow_tribunal - BOOKING (2026-11-04,
+run following; tier 2; category root_rebuild; suite 292).
+Property: the sharpest unnamed contact found by hand after the
+tribunal - the hierarchy coefficient observed, 2.076564111173832
+(V233 field), sits 3.8e-05 from 3*exp(-1/e) - INSIDE the booked
+1e-04 observation band, with zero fitted parameters. Is this a
+birth channel or a shadow? And what is the exact shape of the
+V378 near-miss (the R leg)?
+Machine (all booked before the run):
+ T0 web anchors (artifact-gated): observed 2.076564111173832 and
+   uncertainty 0.0001 from the V233 readings field; the certified
+   crossing read 2.7095258500787756 (V209/V233); the certified
+   crossing F and rho from the V312 ladder_runs fields (read at
+   run, named); phi from the V337 T0b golden-ratio field.
+ T1 the trap reading (mpmath 40 dp): A = 3*exp(-1/e) computed to
+   40 dp; |A - observed| measured; BOOKED: the deviation is inside
+   the booked band (3.8e-05 < 1e-04) - the hit is REAL as a
+   numerical fact and gets recorded, whatever T3 says.
+ T2 required-exponent census: n_req = ln(observed/3) /
+   ln(16*pi*F_cert) for the certified F reads (the three reads of
+   Section 12.4: published 0.019186391026184392, certified crossing
+   0.01968515418112789, float64 pair); BOOKED readings: published
+   read gives n_req ~ 10.21 (the fitted rung-10 reading, known);
+   the certified crossing gives n_req ~ 34.8-36.2 - and GATE: no
+   web integer (the module dimension 36, the rungs 10/17/208, the
+   walk lengths, the vertex invariants I_n in {1,1,6,23,141}) sits
+   within the n_req uncertainty of any read - recorded, not
+   asserted: every |n_req - integer| is printed and gated > 0.05.
+ T3 the web-membership tribunal on e: X = exp(-1/e) (and 1/e)
+   tested against the certified web basis {16pi, 1/pi, phi, loop,
+   F_cert reads, rho = 0.9780302704295731, and the structural
+   integers 3, 30, 32, 36, 45, 64, 248} by the V340 pattern -
+   pslq([1, x, y, x*y], maxcoeff 200) over every pair and every
+   singleton; BOOKED: no relation is found (all pslq outputs None
+   at maxcoeff 200 and the pair products) - e-type transcendentals
+   are OFF the web: the 1.8e-05 hit has no mechanism and is
+   declared a SHADOW; the booked decision word is
+   E-SHADOW-COEFFICIENT-NO-WEB-CONTACT, with the fallback
+   E-WEB-CONTACT-FOUND (booked, declared) if any relation fires.
+ T4 the R near-miss map (measurement, gates): the four 2I gapless
+   points of V378 ((omega/pi, beta) = (0.4, 2pi/5), (0.8, pi/5),
+   (1.2, pi/5), (1.6, 2pi/5)) re-measured in-script; the R
+   cluster signatures recorded; BOOKED (from the pre-run probe
+   recorded in the run notes): the signature is [16, 48] at every
+   point - the 48-cluster of the published [32, 48] SURVIVES and
+   the 32-cluster splits exactly dyadically 16+16 - so the missing
+   third leg of the three-leg solution requirement is precisely
+   "a clock-free closure core whose action preserves the 32-
+   cluster at the R corners": recorded as the shape constraint on
+   any future module-side candidate.
+Contingency: the F_cert reads are taken from artifact fields
+(V312/V209); if a field is absent the read is recorded VOID and
+the T2 gate runs on the present reads only.
