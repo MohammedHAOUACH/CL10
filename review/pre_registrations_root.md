@@ -3486,3 +3486,59 @@ FREED into the whole rational-pi family, not made continuous:
 the F2 question transfers to "does a rational-pi clock of the
 carrier read the hierarchy coefficient" - which is V382's
 booked question, not this one.
+
+## V381 self-test arithmetic corrections (post-first-run, declared
+2026-11-04; the PHYSICS gates are untouched)
+
+The first run failed three gates; two failures were arithmetic
+bugs in my own check lines, not physics: (1) the internal-mirror
+line computed |ph|+ph (misplaced parenthesis), reading 1.6 where
+the internal spectrum +-pi/4 x 16+16 is exactly mirror-paired;
+(2) the zero-point line summed raw phases: at beta = pi/4 the sum
+is exactly 2*pi - the 0-point is the sum MOD 2*pi, and 2*pi is 0.
+Both lines corrected (no tolerance touched, no physics gate
+changed); the run is re-issued. The third failure - T2 spectrum
+contacts at every closed rational-pi beta - is real: only
+beta = pi/4 carries gapM = 0 AND the published [32, 48]; every
+other closed beta (pi/3, pi/5, 2pi/5, pi/6) and every rational-
+radians beta reads R = [16, 48] with a gapped M. The booked
+verdict CARRIER-ARBITRATION-BREAKS stands on that gate alone.
+
+## V382_carrier_ladder_clock_tribunal - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 295).
+Property: the last leg of the carrier story. V381 left the clock
+arbitration alive: the carrier's physical contact rides only on
+beta = pi/4 (the published clock); every other closed clock reads
+R = [16, 48] with gapped M; the 1/5-rad pin never closes. The
+open question, booked here as the tribunal's ONLY question: does
+the certified hierarchy functional - the loop ladder of V206,
+with its clock twist REPLACED by the carrier internal u_2i(pi/2,
+e_z) (the transport hop phases e^{i g E /2} untouched, the ladder
+walk untouched) - read the observed coefficient 2.076564111173832
+(within the stated 1e-4 constants uncertainty) at any clock that
+the CARRIER step actually closes at (closure <= 24 measured on
+the V380 carrier at the carrier GAMMA point)? If yes, F2's
+closure axiom dissolves on the carrier and the clock becomes a
+certified reading; if no (booked reading), the clock arbitration
+of V233 stands COMPLETELY unchanged by the carrier discovery.
+Machine (imported V206 module, path-imported; no V206 edit):
+ Fn_of replicated with G -> u_2i(pi/2, (1,0,0)); sector_hops,
+ reading, CARTAN, LOOP, EV, P, D_L all imported unchanged;
+ nmax = 600; coefficient = 3 (F/LOOP)^10.
+ T0 replica self-test: the published Fn_of at {pi/2, pi/4, 3pi/4}
+   reproduces the V206 closure_class coefs to 1e-9, and
+   coef_at_fifth to 1e-9 - the imported machinery is the
+   certified one.
+ T1 carrier-ladder reads: at the five carrier-closed clocks
+   {pi/4, pi/3, pi/5, 2pi/5, pi/6} (V381 orders 2/6/10/10/6):
+   record n*, deficit, coef; gate: none within 1e-4 of observed.
+ T2 dense scan: g on a 320-point grid over [0.05, 1.60]: for any
+   g with |coef(g) - observed| <= 1e-4 (a rescue candidate),
+   measure carrier-step closure at GAMMA (cap 24): gate: NO
+   rescue candidate has closure <= 24.
+ Decision: CARRIER-LADDER-NO-CLOCK-RESCUE (F2 stands on the
+ carrier; the carrier is a structural discovery with NO clock
+ consequence) / CARRIER-LADDER-CLOCK-HIT (a closed carrier clock
+ reads the coefficient - F2 re-opened as a config decision).
+Contingency: scan points with no crossing (None) record VOID and
+are excluded from the rescue set (V206 convention).
