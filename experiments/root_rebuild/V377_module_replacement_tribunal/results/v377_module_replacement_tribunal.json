@@ -1,0 +1,136 @@
+{
+ "id": "V377_module_replacement_tribunal",
+ "tier": 2,
+ "residual": 0.5853981633974483,
+ "property": "module-replacement contact stationarity over the built class: closure census of the committed cell and the rung lattice (new), contact ledger over every built member (artifact-gated), tier 2, O8/O9/O3/O4/O5/O7",
+ "status": "MODULE-REPLACEMENT-CONTACT-STATIONARY (no built module member moves a contact of the ten-to-one: the clock column min distance 0.585398 >= 0.28 in every closure class, the hierarchy deficit stays in [0.2229, 0.6330] for every ladder-bearing member, the ladder objects are VOID exactly where closure is clock-free (V356/V357/V359), content columns reproduce verbatim; rung branch MODULE-CLOSURE-RUNG-EPS-DECOUPLED: rung closure exists only by decoupling (n* = 5), never exactly; the named surviving structure is the crystalline dilemma - the ladder needs a crystallographic shift module, clock-free closure needs a non-crystallographic one, no built member carries both)",
+ "pass": true,
+ "data": {
+  "loop": 0.019894367886486918,
+  "rung_phase_A": 7.873909773730346e-06,
+  "rung_phase_B": 9.711838380882492e-18,
+  "closure_defect_min": 6.299127817942849e-05,
+  "closure_defect_argm": 8,
+  "rung_exact_min_residual": 1.4578890402443411e-52,
+  "rung_eps_nstar": 5,
+  "rung55_order8_defect": 2.4931058067729084e-08,
+  "rung77_order8_defect": 9.867360597180334e-12,
+  "g_obs": 0.19999798835751165,
+  "observed_coef": 2.076564111173832,
+  "deficits_abs": {
+   "pi*1/2": 0.2228796480336257,
+   "pi*1/4": 0.6315437077252146,
+   "pi*3/4": 0.6291582885604554,
+   "pi/4 certified": 0.6329617389049433
+  },
+  "clock_col_min_dist": 0.5853981633974483,
+  "star_nearest_02": 0.5853981633974483,
+  "two_i_holds": 0
+ },
+ "checks": [
+  [
+   "LOOP = 1/(16pi) = 0.0198943... from the library (dev 0.00e+00 <= 1e-15): True",
+   true
+  ],
+  [
+   "rung phases loop^3, loop^10 match the config rungs (3, 10) exactly (dev 0.0e+00, 0.0e+00): True",
+   true
+  ],
+  [
+   "36-level cell step at g = pi/4 unitary (defect 1.44e-15 <= 1e-12): True",
+   true
+  ],
+  [
+   "cell eigenphase multiset at Gamma, g = pi/4 is {+-pi/4 x 10, +-3pi/4 x 6, +-loop^3, +-loop^10} (max dev 2.33e-15 <= 1e-12): True",
+   true
+  ],
+  [
+   "spinor block alone closes at order 8 (defect 4.89e-15 <= 1e-12): True",
+   true
+  ],
+  [
+   "full 36-level cell NEVER closes at g = pi/4: min over m = 1..24 of |U^m - I| is 6.2991e-05 at m = 8, >= the booked 1.4e-5 floor (obstructing phases 12*loop^3, 12*loop^10): True",
+   true
+  ],
+  [
+   "rung grid (n = 1..30): NO rung admits an exact closure - min continued-fraction residual ||m*loop^n/2pi|| over m <= 1e6 is 1.458e-52 > 0.0: True",
+   true
+  ],
+  [
+   "epsilon-closure threshold measured n* = 5 == booked 5 (loop^n/(2pi) <= 1e-9; a DECOUPLING, not a clock): True",
+   true
+  ],
+  [
+   "cell on the epsilon-closed rungs (5,5), (7,7): order-8 defect 2.493e-08, 9.867e-12 - strictly > 0 (no exact closure) and < 1e-6 (decoupled): closure clocks stay {pi/2, pi/4, 3pi/4}, no new clock: True",
+   true
+  ],
+  [
+   "g_obs = 0.19999798835751165 read from the V233 readings field (exact match): True",
+   true
+  ],
+  [
+   "certified pi/4 read 2.7095258500787756 agrees between V233 and V209 (bit-identical): True",
+   true
+  ],
+  [
+   "quaternionic (p = 0) closure-clock reads {2.299444, 2.708108, 2.705722} from the V312 artifact: True",
+   true
+  ],
+  [
+   "hierarchy column over ladder-bearing members: |coef - 2.076564111173832| in [0.22288, 0.63296] - measured [0.222880, 0.632962], endpoints bit-exact to the V312 closest_read and the certified pi/4 read: True",
+   true
+  ],
+  [
+   "star module: nearest closed star point to the pin 0.2 is at distance 0.585398 (V249 field, = pi/4 - 0.2): True",
+   true
+  ],
+  [
+   "star closures {1:1, 2:3} at eta = 0, ZERO closures at every booked eta twist (the twist moves nothing): True",
+   true
+  ],
+  [
+   "clock column: NO member with a closure reaches g_obs - min clock-contact distance over committed {pi/2, pi/4, 3pi/4} and the star class is 0.585398 >= booked 0.28 floor: True",
+   true
+  ],
+  [
+   "2I engine: 0 of 9 angle-grid points keep unitarity + gapless M + exact 3-fold R + mirror (booked 0 of 9): True",
+   true
+  ],
+  [
+   "V356_pentagon_closure_free_clock verdict-word gate ('PENTAGON-CLOSURE-CLOCK-FREE' on record): True",
+   true
+  ],
+  [
+   "V359_pentengine_ladder verdict-word gate ('PENTLADDER-NO-CROSSING' on record): True",
+   true
+  ],
+  [
+   "V357_pentagon_walk_ladder verdict-word gate ('PENTAGON-LADDER-VOID' on record): True",
+   true
+  ],
+  [
+   "V342_icosahedral_node_census verdict-word gate ('N2B-NODE-ORBIT-557-CONE-ANISOTROPIC' on record): True",
+   true
+  ],
+  [
+   "V350_backreaction_fixed_point verdict-word gate ('FP-DEGENERATE-RIGID-DENSITY' on record): True",
+   true
+  ],
+  [
+   "signature column: the p = 0 member is quaternionic (J^2 = -1.0, V117 T3 field) - the CP-content structure changes but V312 keeps the odd-n rule (no new CP number) and the deficit column is unchanged: True",
+   true
+  ],
+  [
+   "V312 odd-n selection rule survives on p = 0 (field true): True",
+   true
+  ],
+  [
+   "dressed-class CP column: worst booked invariant 2.66e-15 <= 1e-12 (V376 artifact): True",
+   true
+  ],
+  [
+   "dressed-ladder column: zero contacts (V375 artifact): True",
+   true
+  ]
+ ]
+}
