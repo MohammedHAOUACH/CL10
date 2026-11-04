@@ -277,7 +277,7 @@ python3 -m pytest tests/         # the engine invariants as an executable guard 
 The paper states the **seven criteria** a unification claim must meet (with the
 paper's own verdict on each), the **ten open problems** (O1–O10) and the
 **ten falsifiers** (F1–F10). `run_validation.py` gates the **289** experiments
-of `experiments/` (16 categories — the 282 of the publication programme, which include the 30 experiments of the root-rebuild and elected-theory programmes, and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md)): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
+of `experiments/` (17 categories — the 282 of the publication programme, which include the 30 experiments of the root-rebuild and elected-theory programmes, and the 3 of the `alt_step` exploration programme, catalogued in [experiments/README.md](experiments/README.md), plus the 4 of the beyond-step programme): by default it re-runs only the experiments that are new or changed since the last gate and folds the rest from their verdict JSONs (`--full` re-executes every one), and
 writes
 
 > **hard-tier verdict** = every tier 0–3 check PASS — the single object, the
