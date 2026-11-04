@@ -3091,3 +3091,87 @@ alone next fold with the block checkpoints warm. Fingerprints stay at
 the suite-285 library state. V369's committed ANCHOR-DRIFT honest
 negative (pass=False since suite 282, machine green) is the single
 FAILED verdict in the 289-experiment roll-up, unchanged.
+
+# The module-replacement tribunal: V377-V378 (2026-11-04, booked
+BEFORE any run; category root_rebuild continuation; the ten-to-one
+attacked as a class question)
+
+## V377_module_replacement_tribunal - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 290).
+Property: does any BUILT module replacement move any contact of the
+ten-to-one? The replacement class is exactly the set of module/
+internal-layer constructions the repository has actually built and
+committed (no paper candidates): the committed 36-level cell; the
+altcell signature family (Cl(10-q,q), the q=0 member the V117/V312
+quaternionic root); the 2I engine internal layer (V337); the star
+module (V244/V249); the pentagon engine (V356-V360); the rhombic cell
+(V361-V362); and the rung lattice itself (n_A, n_B free). Every
+contact is the published number, read from the committed artifacts
+where the member already measured it and recomputed in-script where
+the member is the committed cell or the rung lattice.
+Machine (all booked before the run):
+ T0 internal self-tests (no contact): LOOP = 1/(16pi) = 0.0198943...
+  from cl10.u10pred to 1e-15; rung phases loop^n (cell.rung_phase)
+  match the config rungs (3, 10) to 0.0; the committed cell step at
+  g = pi/4 and Gamma has the eigenphase multiset
+  {+-(pi/4) x 10, +-(3pi/4) x 6} + {+-loop^3, +-loop^10} to 1e-12;
+  unitarity defect of cell_step_np <= 1e-12.
+ T1 closure census of the COMMITTED cell (new): for m = 1..24 the
+  full 36-level step U_cell(g=pi/4)^m never returns to I - the
+  booked expectation: |U^m - I|_max >= 1.4e-5 for every m (the
+  singlet phases 2*loop^3 and 2*loop^10 per 12 stages are the
+  obstructing phases; the spinor block alone closes at order 8):
+  the closure axiom is confined to the spinor block BY MEASUREMENT,
+  for the published rungs.
+ T2 rung-lattice closure census (new): over (n_A, n_B) in 1..30 x
+  1..30, the singlet block can close only if some m <= 10^6 has
+  ||m*loop^n / (2pi)|| <= 1e-9 (continued-fraction convergents);
+  booked reading: NO rung in the range admits closure - the least
+  residual over the whole grid is booked to be > 1e-5 (measured
+  first-run; the gate is > 1e-9 as booked) - so no rung choice ever
+  extends the closure class; the closure clocks stay {pi/2, pi/4,
+  3pi/4} for every rung choice (declared: the blkdiag structure
+  makes g-independence exact; the census measures the rung side).
+ T3 the contact ledger (artifact-gated): for every member read the
+  committed artifact fields and compute the contact shifts:
+  - clock contact: min over closure clocks |g - g_obs| at
+    g_obs = 0.1999980 (V206/V233 booked): committed class -> 0.5854;
+    p=0 quaternionic clocks pi/2, pi/4, 3pi/4 (V117 fields) -> same;
+    star closures and dial distances from V249 fields (0.585, 0.285);
+    2I: 0 of 9 angle-grid points keep structure (V337 field).
+    BOOKED: the minimum clock-contact distance over the class is
+    achieved by NO member below 0.28.
+  - hierarchy-deficit contact (O8): the certified reads at the
+    closure clocks: 2.7095/2.711 (V209/V233 fields) and the
+    quaternionic reads {2.2994, 2.7081, 2.7057} (V312 fields)
+    against 2.076564111173832: BOOKED: every member's deficit is
+    in [0.22, 0.31] - the +30% deficit is module-invariant;
+    the star and pentagon members carry NO ladder crossing object
+    (V249 eta-twist moves nothing; V359 NO-CROSSING field) - a
+    member either has the ladder and pays the deficit, or lacks
+    the ladder object entirely.
+  - content contacts (O3/O4/O5/O7/O10): V117 T3 antiunitary
+    deviation 1.414 at every signature; V312 odd-n selection rule
+    survives on p=0; V342 icosahedral-cell chiral test fails
+    (557 nodes multi-orbit, cones anisotropic 0.023-0.354); V350
+    backreaction fixed-point rigidity 4.34e-14; V376 dressed class
+    CP-even. BOOKED: no member changes any of these by a booked
+    contact amount (each artifact field gated to its published
+    digits).
+ T4 decision (booked word): if every contact column is stationary
+  across the class, the verdict word is
+  MODULE-REPLACEMENT-CONTACT-STATIONARY, with the NAMED SURVIVING
+  STRUCTURE booked verbatim: the crystalline dilemma - the ladder
+  objects exist only on crystallographic shift modules (V357 void
+  on the pentagon), and clock-free closure exists only off them
+  (V334 escape branch, V356 realizes it on I_h) - so within the
+  built class the clock can be born only at the cost of the ladder
+  that reads it. Any module-side solution must break that dilemma,
+  not pick a member.
+Contingency (declared): if an artifact lacks a booked field, the
+member's column is recorded VOID and named; the verdict word then
+carries the clause "over the members with fields"; no field is
+substituted. If T2 finds any rung with residual <= 1e-9, the rung
+pair is recorded as a NEW closure candidate and V377's verdict word
+carries MODULE-CLOSURE-RUNG-FOUND with its measured m - booked
+before the run as the only positive branch.
