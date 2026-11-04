@@ -3470,3 +3470,19 @@ beta) over beta in {pi/4, pi/3, pi/5, 2pi/5, 1/5, g_obs =
 Contingency: closure search caps at 24 for speed; if a beta reads
 None at cap 24 but the phase table is a clean 2-torsion set,
 record VOID + the table (no gate loosened).
+
+## V381 booking correction (pre-run, declared; 2026-11-04)
+
+The probe before the run measured the involution claim directly:
+step^2 = +-I at beta = pi/4 (defect 1.33e-15) but NOT at beta =
+1/5 rad (0.66). Corrected booked reading for T1/T3: the carrier
+closes at order <= 24 at the SIX rational-multiples-of-pi betas
+of the class (and the closure forcing leaves the booked set:
+pi/3, pi/5, 2pi/5, pi/6 are closed, gapless-M and R-intact
+clocks OUTSIDE {pi/2, pi/4, 3pi/4}) and does NOT close at the
+two rational-RADIANS betas (1/5, 0.3) - the V378 transport-
+incommensurability lesson verbatim. The clock is therefore
+FREED into the whole rational-pi family, not made continuous:
+the F2 question transfers to "does a rational-pi clock of the
+carrier read the hierarchy coefficient" - which is V382's
+booked question, not this one.
