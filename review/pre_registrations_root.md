@@ -3080,7 +3080,14 @@ npz checkpoints with sha transplant discipline; gates must pin basis
 invariants, not representation conventions; verification tiers on the
 SAME products).
 
-Fold state: incremental fold at suite 289 (library hash moved; the
-fold re-runs the full gate). V369's committed ANCHOR-DRIFT honest
+Fold state: the full incremental gate at suite 289 (library hash moved;
+the whole suite re-runs) reached ~100/289 before being stopped by
+directive: V374/V375/V376 PASS verbatim in the fold, V373 CRASHED on a
+cupy context-init OutOfMemoryError (16,384 B, 0 allocated) at t=592 s
+- a transient GPU-contingency at jobs=2 with the inference server
+resident, before any physics of the run; the standalone V373 artifact
+is green and its fingerprints left unrecorded, so the gate re-runs it
+alone next fold with the block checkpoints warm. Fingerprints stay at
+the suite-285 library state. V369's committed ANCHOR-DRIFT honest
 negative (pass=False since suite 282, machine green) is the single
-FAILED in the 289-experiment roll-up, unchanged.
+FAILED verdict in the 289-experiment roll-up, unchanged.
