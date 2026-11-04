@@ -1,0 +1,53 @@
+{
+ "id": "V375_dressed_no_ladder_contact",
+ "property": "do dressed eigenphase differences reproduce published empirical ladder contacts",
+ "tier": 2,
+ "checks": [
+  [
+   "contact harvest mechanical: 5 V52 rows with rung/ladder (booked 5): True",
+   true
+  ],
+  [
+   "the five harvested values == the booked set {0.019894, 0.1999980, 1.18, 3, 118}: True",
+   true
+  ],
+  [
+   "test count T = 1195 x 5 = 5975 <= 2.5e7 (booked false-hit bound T x 4e-24 = 2.39e-20 <= 1e-16): True",
+   true
+  ]
+ ],
+ "data": {
+  "contacts": [
+   {
+    "quantity": "g_obs = 0.1999980 (the loop-hierarchy clock)",
+    "value": "0.1999980",
+    "value_str": "0.1999980"
+   },
+   {
+    "quantity": "n_2step = 3 (the seesaw exponent)",
+    "value": "3",
+    "value_str": "3"
+   },
+   {
+    "quantity": "1.18 (the DM-mass coefficient)",
+    "value": "1.18",
+    "value_str": "1.18"
+   },
+   {
+    "quantity": "the sub-Planck DM scale",
+    "value": "118",
+    "value_str": "~118 GeV (rung 10)"
+   },
+   {
+    "quantity": "the ladder base 1/(16 pi)",
+    "value": "0.019894",
+    "value_str": "0.019894 (declared)"
+   }
+  ],
+  "near_misses_decimal": 0,
+  "hits": []
+ },
+ "pass": true,
+ "status": "DRESSED-NO-LADDER-CONTACT (honest negative: 1195 dressed eigenphase differences x 5 harvested contacts, T = 5975 exact-Decimal tests at relative 1e-12, booked false-hit chance T x 4e-24 = 2.39e-20; zero hits: the dressing machinery is blind to the empirical ladder)",
+ "residual": 2.39e-20
+}
