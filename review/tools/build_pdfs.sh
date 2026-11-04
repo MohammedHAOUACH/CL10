@@ -6,7 +6,7 @@ cd "$(dirname "$0")/../../doc"
 python3 ../review/tools/fit_tables.py final_publication.md
 for f in final_publication; do
   pandoc "$f.md" -o "$f.tex" --standalone --pdf-engine=xelatex \
-    -V geometry:margin=0.9in -V fontsize=10pt -V colorlinks -V linkcolor=blue -V lang=en-US
+    -V geometry:margin=0.75in -V fontsize=10pt -V colorlinks -V linkcolor=blue -V lang=en-US
   python3 ../review/tools/fix_tables.py "$f.tex"
   xelatex -interaction=nonstopmode "$f.tex" >/dev/null
   xelatex -interaction=nonstopmode "$f.tex" >/dev/null
