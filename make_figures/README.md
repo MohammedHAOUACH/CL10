@@ -39,10 +39,10 @@ python3 -m make_figures --cpu          # force the numpy backend
    GPU through the same backend switch). It is the slowest figure (~15 min
    on an RTX 3090); `--fast` skips it.
 4. **Fig. 2 (hydrogen)** is *not* a matplotlib figure of this package: it
-   is the product of `experiments/phenomenology/V62_hydrogen_production`
+   is the product of `archive/experiments/phenomenology/V62_hydrogen_production`
    (production 296³ GPU run), invoked here as a subprocess so it re-pins its
    own card and writes `doc/figures/fig2_hydrogen.png` +
-   `experiments/phenomenology/V62_hydrogen_production/results/fig2_hydrogen.meta.json`
+   `archive/experiments/phenomenology/V62_hydrogen_production/results/fig2_hydrogen.meta.json`
    itself. A nonzero V62 exit code fails the whole run.
 
 ## Conventions

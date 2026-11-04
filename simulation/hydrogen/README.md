@@ -140,7 +140,7 @@ default **1**, the free card — and degrades to NumPy only without a GPU):
   differences (relative error 0) and the E1 selection rules come out of the
   lattice wavefunctions — the `dipole_mat` matrix elements of the forbidden
   transitions are ~0, so those transitions never fire.
-- `experiments/phenomenology/V62_hydrogen_production/` — the **production
+- `archive/experiments/phenomenology/V62_hydrogen_production/` — the **production
   experiment**: the full `296^3` run on the **GPU** with the complete photon
   script (Lyman-alpha twice, `1s→3p`, `2p→3d`, one off-resonant control).  It
   measures every claim of Fig. 2 at production resolution (including the

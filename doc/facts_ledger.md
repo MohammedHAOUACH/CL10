@@ -128,11 +128,11 @@ $32\times32$ symplectic-Pauli representation of `clifford` on the GPU
 not an artifact of one construction.  `kingdon` is used for **symbolic**
 algebraic verification only (the heavy numerics stay on the CuPy engine).
 
-**The protocol.**  Each experiment (248 of them under `experiments/<category>/`: the 245 of the publication programme, and the 3 of the `alt_step` exploration programme):
+**The protocol.**  Each experiment (301 of them under `archive/experiments/<category>/`: the 298 of the publication line-up, and the 3 of the `alt_step` exploration line-up):
 1. constructs the relevant object from the **declared** inputs (no fit, unless the experiment names a fitted coefficient);
 2. computes the **residual** against the stated value;
 3. writes a **JSON verdict** `{id, tier, property, pass, residual,
-   status, data, wall_time}` to `experiments/<category>/<id>/results/` — `tier` ($0$–$6$)
+   status, data, wall_time}` to `archive/experiments/<category>/<id>/results/` — `tier` ($0$–$6$)
    is written by the tiered checks (the root, the kinematics, the dynamics, the
    cosmology and the falsifiability tiers); the residual-attack checks record
    their verdict against a named open problem and omit it;
@@ -495,7 +495,7 @@ availability statement and in `make_figures/README.md`.  Two figures are
  (the Young double-slit, the `simulation/young` 3-D QCA wave) and **Fig. 2**
  (hydrogen, the **V62** production $296^3$ run of the `simulation/hydrogen`
  engine on the GPU, invoked as a subprocess; its meta JSON lands in
- `experiments/phenomenology/V62_hydrogen_production/results/`, and its content is
+ `archive/experiments/phenomenology/V62_hydrogen_production/results/`, and its content is
  checked by **V62** itself).  `--fast` skips these two heavy
  figures; `--only N [N..]` regenerates a subset; `--cpu` forces numpy.
 
@@ -755,7 +755,7 @@ RANKS the compound theories by worst normalized contact. Nothing was
 refitted; every input carries a provenance tag.
 
 **V315 - the closure-quantizer census.**
-`experiments/theory_hunt/V315_closure_quantizer_census` censuses all 784
+`archive/experiments/theory_hunt/V315_closure_quantizer_census` censuses all 784
 booked-class deformations of the six-stage step - 64 per-stage spin-connection
 twist decorations at `angle.alpha_10` (V277's `bloch_dec` with the scan clock
 in both `stage_matrix` slots; identity-degenerate at q = 0 by V277's booked
@@ -938,7 +938,7 @@ stands. 255/247 is booked, zero-fitted and algebraic, for a future
 pre-registered ledger question.
 
 **V324 - the closest-theory ledger, version 2.**
-`experiments/theory_hunt/V324_closest_theory_ledger_v2` re-scores the
+`archive/experiments/theory_hunt/V324_closest_theory_ledger_v2` re-scores the
 whole V318 48-row space (48 clocks x 3 W slots x 4 chi slots = 576
 rows) with the two supplier-graded slots the programme produced after
 the arbiter ran: the V323 joint-centre rung-17 multipliers
@@ -958,7 +958,7 @@ stand. This is the one branch in the programme that a reserved slot
 did close at the pass level.
 
 **V325 - the channel triple against the certified crossing.**
-`experiments/theory_hunt/V325_channel_triple_f208` asks whether a
+`archive/experiments/theory_hunt/V325_channel_triple_f208` asks whether a
 booked 3-of-12 channel triple (the V205/V316 W3 machinery) multiplies
 the certified F_208 = 0.019692794505156912 (anchor replayed exactly,
 T0c 0.0) onto the observed coefficient at the root clock: mu_req =
@@ -975,7 +975,7 @@ band-units off; 0 of 220 inside; density expected 0.0102, razor.
 selection instance; the V317 word stands.
 
 **V326 - the phase-dictionary bridge (the structural repair, closed as
-a theorem).** `experiments/theory_hunt/V326_phase_dictionary_bridge`
+a theorem).** `archive/experiments/theory_hunt/V326_phase_dictionary_bridge`
 asks whether any uniform rescaling c of the phase dictionary (9-member
 class {1, 2, 4, 1/2, 1/4, pi, 2*pi, 1/pi, 1/(2*pi)}) closes a clock
 that also reads the observed coefficient inside coef_band_abs. The
@@ -1034,7 +1034,7 @@ so every on-disk verdict was re-measured against the pillar-surgery
 library, not just the seven new experiments.
 
 **V308 - variant readings of the loop machinery at the fifth clock.**
-`experiments/pillar_surgery/V308_coefficient_variants_fifth_clock`
+`archive/experiments/pillar_surgery/V308_coefficient_variants_fifth_clock`
 re-runs the V203 machinery at g = 1/5 and asks whether any variant
 reading closes the -0.55% gap to the observed 2.0765641. T0 reproduces
 V206's booked 2.088106866 to <1e-9. The certified-continuation recipe
@@ -1156,7 +1156,7 @@ Reader instruction: "the physics must be true as well" — applied to the one
 sector carrying a value inside the measured data (the 1/3 candidate).
 
 **V303 - the junction energy selects the democratic onset of r.**
-`experiments/neutrino/V303_junction_energy_r` sweeps the V127 junction
+`archive/experiments/neutrino/V303_junction_energy_r` sweeps the V127 junction
 vacuum energy over its stable branch $r < 2$ — a branch V127 never entered
 (its points $0.5, 1.0, 3.0$ are all at or past the crossings) - with the
 convention booked before the run: both functionals in the canonical
@@ -1191,7 +1191,7 @@ energy-selected onset ($1/3 = 1/(1+r)$ at $r = 2$) — a boundary, marginal
 attractor with a named 2.7 % atmospheric residual, not a landing.
 
 **V304 - the realizable mixing census: empty.**
-`experiments/family_number/V304_realizable_mixing_census` closes V104's
+`archive/experiments/family_number/V304_realizable_mixing_census` closes V104's
 generic scan from the other side: over the ENTIRE booked realizable
 scalar sector - all 7 non-empty combinations of the V291 neutral host
 channels $\{6,7,9\}$, chain-H energies $32, 32, 48$, total $c = 112$
@@ -1207,7 +1207,7 @@ named input, now on the exhaustiveness of the realizable set rather than
 a sample.
 
 **V305 - the neutrino contacts of the selected spectrum.**
-`experiments/neutrino/V305_onset_neutrino_contacts`: at the attractor
+`archive/experiments/neutrino/V305_onset_neutrino_contacts`: at the attractor
 $r = 2$ the spectrum $(0, 0.0086, 0.0487)$ eV sums to $0.057349$ eV,
 $10.7\%$ under the booked ceiling $0.0642$ eV (the atmospheric point
 $r = 1.9191$ gives $0.0587$); the bare ladder (sum $0.146$ eV) stays
@@ -1231,7 +1231,7 @@ supplied, the 2.7 % atmospheric residual and the declared $m_D$ standing.
 holds nothing up.** The reader asked whether the correction that could
 supply the $-2.70\%$ atmospheric gap exists. Two experiments, both
 pre-run-classed:
-`experiments/neutrino/V306_coefficient_census_atm_gap` runs the bounded
+`archive/experiments/neutrino/V306_coefficient_census_atm_gap` runs the bounded
 census of every booked coefficient against both gap forms — 19 constants
 (13 bookable scalars, `coupling.ALPHA_10`, $g_{\rm obs}$, $v$/$M_P$,
 $\rho_{V276}$, `LOOP`), 1387 two-constant expressions, $r_{\rm atm}$
@@ -1245,7 +1245,7 @@ unfixed; $(1-\rho) + 1/208$, $9.3\times10^{-4}$. Nothing closer than 1e-3
 exists in the reserved class — the no-go is the booked content, and the
 gap stands as a named declared residual. **R-COEFFICIENT-SUPPLIED**
 (coincidences reserved; no mechanism).
-`experiments/neutrino/V307_onset_runaway_structure` then asks whether the
+`archive/experiments/neutrino/V307_onset_runaway_structure` then asks whether the
 selection itself is an attractor. It is not, in the energetic sense: the
 tree level is exactly $r$-flat on the FULL 12-set (deviation $0.0$, not
 just on the triangle), so all of the selection is one-loop, and the
@@ -1273,7 +1273,7 @@ are unchanged.
 
 ## The geometry measure and the flavour host (2026-10-29): V302
 
-`experiments/family_number/V302_mD_host_forcing` asks whether the
+`archive/experiments/family_number/V302_mD_host_forcing` asks whether the
 democratic rank-1 $m_D$ — measured symmetry-free by V294 (the
 $S_3$-commutant of the family action contains rank-3 elements) — is
 selected instead by the energetics of the booked dynamical chain. The
@@ -1297,7 +1297,7 @@ strengthened, not moved.
 
 ## V301 - the geometry gap against the ladder band (2026-10-29)
 
-`experiments/gravity/V301_geometry_gap_ladder` asks whether the only
+`archive/experiments/gravity/V301_geometry_gap_ladder` asks whether the only
 scale the geometry statistical sector demonstrably generates - the
 non-perturbative screening mass of the V289 measure - can sit at the
 ladder loop base. The V289 protocol replays exactly (seed-289 beta = 1
@@ -1321,7 +1321,7 @@ scale coincidence.
 
 ## V300 - the cone concentration of the geometry measure (2026-10-29)
 
-`experiments/gravity/V300_cone_measure_selection` puts the paper's
+`archive/experiments/gravity/V300_cone_measure_selection` puts the paper's
 statement "the finite measure on the geometry group (V289) does not
 measurably select" the light cone to measurement. The V289 protocol
 replays exactly (seed-289 beta = 1, 2 rows reproduced with defect

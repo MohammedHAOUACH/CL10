@@ -8,7 +8,7 @@ JAX → NumPy) and one parameter-panel convention (`config.yaml`). Back to the
 | package | what it shows | what is CL10, what is input | paper artifact |
 |---|---|---|---|
 | [`young/`](young/README.md) | the Young double-slit as a **measurement process**: one electron at a time, diffracting, reduced to one detected point; the accumulated detections build the pattern | the discrete wave equation, the Laplacian and the Born-rule sampling are all 0-parameter | **Fig. 1** (`make_figures` runs it as a figure) |
-| [`hydrogen/`](hydrogen/README.md) | the 3-D hydrogen atom driven by a photon wave packet: resonant absorption, the $1s\to2p$ deformation, re-emission | the **atom is an input** (the real Rydberg eigenstates); the **photon is the CL10** free massless 3-D field | **Fig. 2** — the panels are the product of `experiments/phenomenology/V62_hydrogen_production`; this package makes the video and stills |
+| [`hydrogen/`](hydrogen/README.md) | the 3-D hydrogen atom driven by a photon wave packet: resonant absorption, the $1s\to2p$ deformation, re-emission | the **atom is an input** (the real Rydberg eigenstates); the **photon is the CL10** free massless 3-D field | **Fig. 2** — the panels are the product of `archive/experiments/phenomenology/V62_hydrogen_production`; this package makes the video and stills |
 | [`blackhole/`](blackhole/README.md) | fire particles with the keyboard and watch the geodesic draw itself on the embedding well | the Schwarzschild metric of `cl10.gravity` ($M = 1$, $G = c = 1$), the Christoffel symbols by central finite difference, the geodesic equation; the integration is fixed-step RK4 (Fig. 12 uses `solve_ivp`) | none (the visualization twin of Fig. 12's left panel) |
 
 ## Run
