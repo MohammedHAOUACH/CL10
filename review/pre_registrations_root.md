@@ -3567,3 +3567,92 @@ candidate exists (the first run's empty-closed_rescue branch
 printed a misleading word); a failed T0 now reads
 TRIBUNAL-REPLICA-INVALID. Physics gates and all tolerances on
 T1/T2 are untouched.
+
+## Roll-up addendum: the carrier arc V380-V382 (2026-11-04, suite
+295)
+
+The tribunal closed the module side; the number side closed for
+its best candidate (V379); the carrier arc closed the YEAR by
+finding the carrier and losing it in the same breath. V380:
+u_2i(pi/2, coordinate axis) - a quarter-turn of the spatial-plane
+Spin(3) about a cubic axis on the published transport - carries
+the FULL three-leg conjunction at the published clock (closure
+order 2, gapM = 0.0, R [32, 48] exact, x3 axes): the crystalline
+dilemma is broken as an existence statement. V381: the closure
+family frees to every rational multiple of pi (2, 6, 10, 10, 6)
+but the physics rides ONLY at pi/4 - every other closed clock:
+R = [16, 48] dyadic split + gapped M; the rational-radians pins
+(1/5 rad, g_obs) never close: F2's arbitration re-runs on the
+carrier and SURVIVES (booked fallback fired, the suite's second
+booked FAILED alongside V369 - the gate fails on real physics
+by pre-registration, not on machinery). V382: the certified
+ladder with the carrier internal reads the coefficient at NO
+clock (five closed clocks off by 0.27-2.07; 320-point dense scan:
+zero band-hits) - the pi/4 read moves 2.7002 -> 2.3708, the
+first certified machinery to move the loop coefficient
+meaningfully, still 2900x the band. The end state of the
+autonomy programme: the solution's anatomy is fully bounded from
+every side - module side (V377/V378), number side (V379),
+carrier side (V380-V382) - and every bound is certified data,
+not opinion. Two self-test arithmetic corrections were declared
+mid-arc (V381 mirror/zero-point lines; V382 replica threshold
+against the V209 float64-drift lesson); no physics gate or
+tolerance was moved after any measurement.
+
+## V383_cubond_clifford_engine - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 296).
+Property: the named hole of V118/V185 - does ANY causal unitary
+engine on the certified algebra carry a NON-commutative tangent
+algebra (the cone precondition every constructed step failed,
+measured 0.0e+00 for 285 experiments)? Construction found by
+symmetry (paper-first, then the single user-authorized probe):
+the Clifford-bond engine. gamma_j = P_j (x) R_j: P_j the Pauli
+of bond-link qubit j (X_1, Y_2, Z_3 - commuting on the 8-dim
+bond factor of V138), R_j = 2S_j the certified V337 spatial-
+plane spin triple (involution, anticommuting, exactly 0.0e+00).
+P commuting x R anticommuting => gamma anticommuting: EXACT
+Clifford on 256. Engine U(q) = prod_j (cos q_j + i sin q_j
+gamma_j).
+Gates (booked before the formal run):
+ T0 self-tests: triple (2S)^2 = I and anticommutators <= 1e-12;
+   Pauli algebra exact.
+ T1 gamma: gamma_j^2 = I, {gamma_i,gamma_j} = 0, Hermiticity,
+   all <= 1e-12.
+ T2 unitarity of U(q) at 10 random q <= 1e-12.
+ T3 Fourier support: exactly the 8 corner coefficients
+   (n in {-1,+1}^3) nonzero at 1e-10 - hops within one step of
+   the nearest-neighbor cube; the front radius sqrt(3) (against
+   the published radius 1) is RECORDED, not a gate.
+ T4 leading cone: spectra of every gamma_j = +-1, 128+128
+   (principal velocities (1,1,1) exactly - the published node
+   measured (0.00000, 0.14189, 0.14189), V118); and 8 random
+   directions at a=1e-3: every phase within 3a^2 + 1e-10 of
+   +-*|q| (the O(q^2) band-bend bound booked now - a lattice
+   cone is exactly linear only to leading order, as V102
+   taught).
+ T5 velocity algebra: ||[gamma_i,gamma_j]|| = 2.0 +- 1e-12 at
+   all three pairs; booked reading: >= 1 everywhere - V118's
+   cone precondition REALIZED for the first time (published
+   class: exactly 0.0e+00, the separation lemma V185).
+ T6 carrier embedding: (I + 2iS_z)/sqrt2 = u_2i(-pi/2, e_z)
+   to 1e-12 - the V380 carrier is an exact half-angle factor of
+   the family (the probe measured 1.1e-16 against -pi/2 and a
+   mis-signed 1.4e+00 against +pi/2: the sign is booked).
+ T7 node census on the 5^3 grid {0,pi/2,pi}^3: gapless sites
+   (gap to {0,pi} <= 1e-9) exactly 9 - the {0,pi}^3 octet
+   (NN chiral doublers: 8 counting the origin) plus the
+   (pi/2,pi/2,pi/2) corner; the 18 face/edge pi/2-type sites
+   gapped with floor pi/2 (recorded, not gated). DOUBLERS
+   PROLIFERATE - 16 gapless sites over the full BZ by cubic
+   symmetry: Nielsen-Ninomiya kept and then some; recorded in
+   the verdict word.
+Verdict: CUBOND-EXIST-DOUBLERS-PROLIFER (the O9 algebraic
+precondition is realized on the certified algebra; the ladder
+functional on an entangled engine is the NAMED open design
+problem - F2/O8 stand UNtouched: this engine is a new family,
+never a replacement of the published one, and it was never run
+against the published anchors because it is not the published
+engine). Negative branch: any gate fails -> CUBOND-FAILS with
+the gate named.
+Contingency: none of the gates uses the GPU; host numpy,
+256-dim, seconds.
