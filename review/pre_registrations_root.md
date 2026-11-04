@@ -3676,3 +3676,56 @@ one certified road left to O8/F2. Suite 296: 293 publication +
 booked physics branch firing on real data), plus V373's crash
 log (infrastructure: GPU contention from an unrelated user
 process holding 22.3 GB) pending its re-run.
+
+## V384_cubond_ladder_functional - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 297).
+Property: the named open design problem of V383 - the certified
+hierarchy functional (V206: sector hops, Cartan norms, rung
+crossing, LOOP) was built for internal-only 32-dim twist steps.
+Does the ENTANGLING bond engine carry the observed coefficient
+reading? The design, booked before any measurement:
+
+THE LIFT (structural, forced by linearity, not chosen freely):
+V206's sector hop is linear in the engine operator G:
+ma_lambda = Tr_L[(P_lambda (G x I))(I x rho)] equals
+ma_lambda = A_lambda C for 32-dim blocks C, with the FIXED
+content operator A_lambda = (1/45) sum_j P_lambda^{jj} (the
+diagonal-block sum of the sector projector; rho is the maximally
+mixed adjoint state - both are V85/V79 content data, unchanged).
+For any engine on bond(8) x internal(32), the hop lifts BLOCK-
+WISE: M_engine = sum_lambda phase_lambda (I_8 x A_lambda) G_eng
+(exactly the published dressing with the bond factor inert);
+the Cartan norm lifts as norm(X) = sum_i |tr(C_i Tr_8 X)|/256
+(Tr_8 = bond block-trace; 256 = 8x32 keeps the published
+normalization); F_n, first crossing, deficit, 3 d^10: UNCHANGED.
+The engine clocked: G_gamma(g) = prod_j (cos g + i sin g
+gamma_j) = the cubond engine at the cubic-symmetric momentum
+(g,g,g) - expansion over the 8 fixed corner monomials
+Gamma_S (S subset {1,2,3}) with coefficients f_S(g);
+the clocked left-dresser L(g) = sum_lambda e^{i(g/2)E_lambda}
+(I_8 x A_lambda).
+
+GATES:
+ T0 (the lift anchor - the design must die if this fails): run
+   the lifted machinery on the PUBLISHED engine lifted to 256,
+   G = I_8 x step_pub(g): it must reproduce the certified V206
+   closure_class readings within the V382 convention (5e-3,
+   float64 ladder drift) AND coef_at_fifth within 1e-8
+   (bit-level class: crossing n* = 208 stable).
+ T1 cubond reads at the five clocks {pi/4, pi/3, pi/5, 2pi/5,
+   pi/6} (closures of the cubond factors at rational pi):
+   n*, deficit, coef; gate: none within 1e-4 of the observed.
+ T2 dense scan: 96 points on [0.05, 1.60] (cost: 256-dim,
+   booked reduced grid vs V382's 320): no |coef - observed| <=
+   1e-4 with G_gamma(g*) closed to cap 24.
+ Decision: CUBOND-LADDER-NO-CONTACT (the entangling bond does
+ not carry the coefficient reading either - the ladder content
+ is not the bond geometry, and F2's named residue stands with
+ one fewer candidate mechanism) / CUBOND-LADDER-READS-OBSERVED
+ (g* found: the design question becomes physical - F2 re-opens
+ as a NEW program: the physics-contact census of the cubond
+ family, booked here as the obligation: gapless content,
+ chirality, and the clock closure of G_gamma(g*)).
+Contingency: VOID crossings (no n* <= 600) recorded and
+excluded (V206 convention); A_lambda built from the V206
+module's P/EV import - no re-diagonalization.
