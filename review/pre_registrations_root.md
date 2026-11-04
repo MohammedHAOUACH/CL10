@@ -3276,3 +3276,38 @@ booking intended it - the internal layer carries the closure with no
 clock cost at every 5-fold angle - and the measured full-step split
 27/36 (not 36/36) is booked as the corrected statement. No other
 gate moved; DILEMMA-BROKEN branch: 0 of 36.
+
+## Roll-up: the module-replacement tribunal V377-V378 (2026-11-04,
+phase end)
+
+The ten-to-one attacked as a class question, all booked before any
+run, every booking executed:
+
+- V377 MODULE-REPLACEMENT-CONTACT-STATIONARY: across the complete
+  class of BUILT replacements (signature family, 2I engine, star,
+  pentagon, free rung lattice 1..30) NO contact of the ten moves -
+  clock column >= 0.585398 everywhere, hierarchy deficit in
+  [0.22288, 0.63296] for every ladder-bearing member, content
+  columns verbatim. New measurements: the committed cell never
+  closes (closure axiom confined to the spinor block: min defect
+  6.30e-05 at m = 8); no rung closes exactly (CF floor 1.46e-52);
+  rung epsilon-closure (n* = 5) is decoupling, not a clock.
+- V378 CRYSTALLINE-DILEMMA-WITNESSED: on the only clock-free engine
+  built, closure is free (internal 36/36 at order <= 10; full step
+  27/36 - rational-pi betas only) but gapless M and the published
+  R multiplets never co-occur (gap floor 0.104720 where R holds);
+  the booked DILEMMA-BROKEN branch - the only module-side solution
+  carrier - fired 0 of 36.
+
+The phase closes the MODULE SIDE as a search and names what a
+module-side solution would have to be: a single module carrying a
+clock-free closure core, a crystallographic walk ladder, and the
+published R multiplets at once. Every built carrier so far holds at
+most two of the three legs (2I: closure+R, no gapless M; pentagon
+grid: gapless M, no ladder crossing; cubic committed: ladder+M,
+closure consumes the clock). Booking corrections: two pre-run
+(V377 deficit interval and rung-census semantics) and one post-run
+(V378 internal-vs-step closure split) - all declared in place, no
+interpretation moved by any of them. Fold state: V377/V378 verdicts
+green standalone; the fingerprint gate will run them at the next
+fold (new experiments, library state unchanged).
