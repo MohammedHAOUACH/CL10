@@ -1,0 +1,84 @@
+{
+ "id": "V379_hierarchy_coefficient_shadow_tribunal",
+ "tier": 2,
+ "residual": 3.7771492207061596e-05,
+ "property": "the 3*exp(-1/e) hit on the hierarchy coefficient put to the web-membership tribunal, required-exponent census, and the R near-miss shape map, tier 2, O8",
+ "status": "E-SHADOW-COEFFICIENT-NO-WEB-CONTACT (3*exp(-1/e) reproduces the observed hierarchy coefficient to 3.777149e-05 - inside the observation band, zero fitted parameters - but neither exp(1/e) nor exp(-1/e) sits on ANY bounded integer relation to the certified web (pslq, maxcoeff 200, 22 basis numbers), and no web integer reads the required exponent: the cleanest number hit in the theory's history is a SHADOW with no mechanism; F2 stands. The shape constraint on any module-side solution from the near-miss map: the clock-free core must preserve the 32-cluster at R - the 48 leg already survives, the M leg already survives, only the dyadic 16+16 split of the 32 blocks the three-leg carrier)",
+ "pass": true,
+ "data": {
+  "three_exp_minus_one_over_e": "2.076601882666039061596266",
+  "deviation_to_observed": "3.7771492e-5",
+  "n_req_by_F_read": {
+   "pi*1/2": {
+    "n_req": "13.833596",
+    "dist_to_nearest_web_int": "3.166"
+   },
+   "pi*1/4": {
+    "n_req": "35.940798",
+    "dist_to_nearest_web_int": "0.0592"
+   },
+   "pi*3/4": {
+    "n_req": "35.634026",
+    "dist_to_nearest_web_int": "0.366"
+   }
+  },
+  "web_basis_size": 22,
+  "web_hits": [],
+  "R_published": [
+   32,
+   48
+  ],
+  "R_at_gapless_2I_points": [
+   [
+    0.4,
+    [
+     16,
+     48
+    ]
+   ],
+   [
+    0.8,
+    [
+     16,
+     48
+    ]
+   ],
+   [
+    1.2,
+    [
+     16,
+     48
+    ]
+   ],
+   [
+    1.6,
+    [
+     16,
+     48
+    ]
+   ]
+  ]
+ },
+ "checks": [
+  [
+   "anchors from artifacts: observed 2.076564111173832 +- 0.0001 (V233 field), the three V312 F_cross reads, rho = 0.9780302704295731 (V312 field): True",
+   true
+  ],
+  [
+   "TRAP: 3*exp(-1/e) = 2.0766018826660391 ; |A - observed| = 3.777149e-05 < the booked band 1.0e-04 - the hit is a REAL numerical fact (rel 1.82e-05), recorded regardless of the tribunal: True",
+   true
+  ],
+  [
+   "required-exponent census: n_req(observed, F_cross reads) = {\"pi*1/2\": {\"n_req\": \"13.833596\", \"dist_to_nearest_web_int\": \"3.166\"}, \"pi*1/4\": {\"n_req\": \"35.940798\", \"dist_to_nearest_web_int\": \"0.0592\"}, \"pi*3/4\": {\"n_req\": \"35.634026\", \"dist_to_nearest_web_int\": \"0.366\"}} - no web integer (1,6,10,17,23,30,32,36,45,64,141,208) sits within 0.05 of any required exponent: True",
+   true
+  ],
+  [
+   "web-membership tribunal: pslq([1,X,w]) and pslq([1,X,w,Xw]) at maxcoeff 200 over BOTH e-targets and the full certified web basis (22 numbers): 0 relations fired - e-type transcendentals are OFF the web: True",
+   true
+  ],
+  [
+   "R near-miss map: published signature [32, 48]; at all four 2I gapless points the signature is [16, 48] - the 48-cluster SURVIVES, the 32-cluster splits exactly dyadically: True",
+   true
+  ]
+ ]
+}

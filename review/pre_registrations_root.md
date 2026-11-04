@@ -3365,3 +3365,18 @@ Machine (all booked before the run):
 Contingency: the F_cert reads are taken from artifact fields
 (V312/V209); if a field is absent the read is recorded VOID and
 the T2 gate runs on the present reads only.
+
+## Roll-up addendum: V379 shadow tribunal (2026-11-04, phase end)
+
+The module side closed (V377/V378); the number side closed for its
+best candidate (V379): 3 exp(-1/e) within 3.777149e-05 of the
+observed hierarchy coefficient is a SHADOW - no web relation, no
+exponent reading (nearest: module DIM 36, off by 0.0592 ~ 6
+sigma). The tribunal programme now states the complete solution
+geometry: a module-side solution, if it exists, is a single module
+with (i) a clock-free closure core, (ii) the crystallographic walk
+ladder, (iii) the published R multiplets - and its defect at the
+best built points is measured: one dyadic 16+16 split of the R
+32-cluster. No number-relation route to the ten open values
+survives inside the bounded web. Both search directions are now
+bounded by certified data, not by opinion.

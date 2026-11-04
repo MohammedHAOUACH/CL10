@@ -1503,3 +1503,18 @@ must be stated at the level measured (internal 36/36 vs full step
 27/36); transport betas rational in RADIANS never close the staggered
 layer (incommensurate with 2pi); host-vs-cupy reproduction of the
 2I class is BIT-EXACT (9 overlap rows, 0.0e+00).
+
+**The shadow tribunal V379 (2026-11-04).** The single cleanest
+number contact ever found against the theory's measured values -
+3 exp(-1/e) within 3.777149e-05 of the observed hierarchy
+coefficient, zero fitted parameters, inside the observation band -
+is a CERTIFIED SHADOW: neither e-transcendental sits on any bounded
+integer relation to the certified web (pslq maxcoeff 200, 22 basis
+numbers, 40-dp verification; two pslq degeneracy traps booked -
+integer-basis triviality and collinear X/Xw columns), and the
+required exponent (35.94 at the pi/4 F-cross read) misses every
+web integer including the module dimension 36 by ~6 sigma. The
+near-miss map of V378's gapless points: R signature [16, 48] -
+the 48-cluster survives the icosahedral twist intact, the 32-
+cluster splits exactly dyadically: the missing leg of a three-leg
+carrier is one Z2-type split at the R corners.
