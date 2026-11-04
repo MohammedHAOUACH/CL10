@@ -3431,3 +3431,42 @@ Contingency: if a diagonal-axis element cannot be built from the
 triple exactly (irrational n components at float64), the closure
 gate at T1 uses tolerance 1e-8 and the defect is recorded - the
 conjunction gate is not loosened.
+
+## V381_free_clock_carrier_arbitration - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 294).
+Property: V380 fired the booked solution branch (DILEMMA-BROKEN:
+u_2i(pi/2, coordinate axis), full-step closure order 2, gapM =
+0.0 exact, R [32,48] exact, x3 axes). The booked obligation: the
+F2 clock arbitration re-run on this carrier. The claim to test:
+the staggered transport INVERTS the spatial-plane twist
+(P R(theta) P = R(-theta)), so (PR)^2 = ±I for EVERY angle -
+closure is clock-free at EVERY beta, and the clock becomes a
+free parameter of a CLOSED step, pinned only by the ladder/
+hierarchy contacts - the arbitration paradox F2 fired on
+dissolves IF the physics contacts hold across the beta range.
+Machine (booked): the carrier step S2.step(q, u_2i(pi/2, e_z),
+beta) over beta in {pi/4, pi/3, pi/5, 2pi/5, 1/5, g_obs =
+0.19999798835751165, 0.3, pi/6} (8 reads):
+ T1 gates: unitarity <= 1e-11; FULL-step closure at GAMMA <= 24
+   at EVERY beta (booked reading: order 2 everywhere); internal
+   mirror <= 1e-10; 0-point (sum of GAMMA phases) <= 1e-9.
+ T2 spectrum contacts at EVERY beta: gapM = 0 (min |phase| over
+   all M-points <= 1e-9); R signature == [32, 48]; GAMMA
+   degeneracy recorded.
+ T3 the clock reading: at beta = g_obs and 1/5 the step is CLOSED
+   (order <= 24) with T2 intact - the booked reading: TRUE - so
+   the clock-contact distance to a closed, physical step is 0:
+   the {pi/2, pi/4, 3pi/4} closure FORCING is void on this
+   carrier. Record the full table.
+ T4 ladder obligation (declared scope split): the hierarchy
+   coefficient re-read (3(16 pi F_cross)^10) requires the
+   certified traced-loop ladder machinery re-run on the carrier
+   engine - a separate booking (V382); this experiment books
+   only: the carrier's walk ladder is the PUBLISHED cubic walk
+   (transport untouched - structural, recorded), and the F2
+   verdict word: FREE-CLOCK-CARRIER-CONFIRMED if T1+T2+T3 all
+   hold at all 8 betas; CARRIER-ARBITRATION-BREAKS with the
+   failing beta/gate named otherwise.
+Contingency: closure search caps at 24 for speed; if a beta reads
+None at cap 24 but the phase table is a clean 2-torsion set,
+record VOID + the table (no gate loosened).
