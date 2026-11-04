@@ -1401,3 +1401,69 @@ ARPACK tol=0 asks for residuals below the Lanczos roundoff floor on
 large-norm operators (never converges), and shared-isotypic
 sandwich subspaces are not invariant under the total generator
 ([Q_a, sum Q^2] != 0) - restrict only by proven invariance.
+
+**The beyond-step programme V373-V376 (2026-11-04).** One pair+string
+machine used on four openings, every booking run. **V373**
+FULL-LATTICE-MACHINERY-BUILT - the gauge-invariant pair + straight
+geodesic flux-line machine on the N^3 torus: pair channels
+{0:2, 36:20, 64:90, 84:240, 96:420, 100:252} and link-pair channels
+{0:1, 64:45, 80:54, 96:210, 128:945, 144:770} measured as certified
+fusion blocks (generator-block Casimir defects <= 1e-8); the chain
+kernels MEASURED per chain length - contact 2, ell=1 six, ell=2 22,
+ell=3 singlet-sector 12 (I_4 = 12/2 = 6, the booked prediction
+output); the 2-link kernel reproduces the V371 d_k set and span
+exactly (min overlap singular value 1.0000000000), the V100/V101
+24-state glued anchor re-derived from measured fusion data
+(6 x m_45^2 with m_45 = 90/45 = 2), the string Casimir MEASURED flat
+at 64.000000 per link, V368 free gap to 0.0e+00, two solver routes
+agreeing. **V374** NO-THRESHOLD-LATTICE-SUM - the V371 window
+machine lifted to full lattice sums (continuum 14155776 states per K
+at N=6, inside the booked 2e7 fiber gate) and dressed with the
+measured spectra: the nominal phase window g = E_c - E_0 opens (max
+0.192971 rad/step at eta 0.48 on the resolved N=6 sums; the N=4
+coarse-lattice 0.887356 collapses under refinement), but the booked
+finite-size conjunction fails cleanly - the lowest composite weight
+is a plane-wave pair and <d_geo(r)^2> grows 4.5 to 9.5 (ratio
+2.111, the exact uniform-pair value) - no localization; the door
+n-2 stays closed at full lattice-sum scope and the V371 "booked
+unrun" clause retires. **V375** DRESSED-NO-LADDER-CONTACT - the
+mechanical harvest returns exactly the five booked V52 ladder
+contacts {0.019894, 0.1999980, 1.18, 3, 118}; 1195 dressed
+eigenphase differences (V373 kernel spectra + V374 scan rows) x 5
+contacts = T = 5975 machine-exact Decimal tests at relative 1e-12:
+ZERO hits (closest miss at relative 3.5e-2), booked false-hit
+chance 2.39e-20 - the dressing machinery is blind to the empirical
+ladder. **V376** CP-EVEN-DRESSED-CLASS-CLOSED - the V52 CP-odd
+census re-run on the dressed class {W U (W = v101_gap x G10 =
+33.057905, the V251 dressed hop; step unitarity 3.1e-15),
+exp(i eta sum_b J_b.L_b) U (the bond-current operator MEASURED a
+scalar on the internal space: sum_a T_a T_a = 45.000000 I at
+0.0e+00, so the dressing is a global phase and the 45 rotation
+factors unchanged - declared), and the V373 internal generator}:
+every booked invariant (2- and 3-rotation products full, the
+n4_sample = 200000 seed-0 4-rotation sample, every B-violating
+sandwich full, the democratic Yukawa) is <= 1e-12 at every eta in
+{0, 0.02, ..., 1} for all three members (worst 2.66e-15, not
+marginal), cross-verified by an mpmath-40-digit tier agreeing to
+2.9e-16; the channel-space relative phases are recorded as data,
+not as invariants of the booked class, and the named eta_CP
+residual of Table 6 stands.
+
+Machinery lessons from the programme (kept for the audit): (i) an
+einsum label collision in a fiber embedding silently drops a link
+axis - the signature is a NON-algebraic-clean spectrum from an
+operator built from compact-algebra generators, and the fix is the
+explicit two-stage GEMM contraction; (ii) channel dicts keyed by
+raw eigenvalue floats miss their own anchors - round keys at
+construction; (iii) sector-blocked spectra must be compared as
+SORTED multisets (a sector-ordered comparison "fails" with a max
+dev equal to the band span); (iv) per-block npz checkpoints with a
+script-sha guard make the 1 h chain census resumable at block
+granularity - transplant the sha only when an edit provably
+excludes the solver region; (v) booked gate strings can encode a
+representation convention (the pre-rebuild w* = -w): the current
+Pauli basis carries a REAL volume element (w* = +w, recorded), and
+gates must pin basis-invariant content (w^2 = -1, exact
+anticommutation with all 10 generators, both at 0.0e+00);
+(vi) verification tiers compare float64 and mpmath on the SAME
+products, never on independent samplings.

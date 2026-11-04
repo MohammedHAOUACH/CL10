@@ -2885,3 +2885,202 @@ tol >= 1e-9 above the roundoff floor plus Rayleigh-Ritz polish and a
 partial-Ritz fallback to land all six vectors; and a booked verdict
 word whose key number is the wrong observable (V368's "broken" at
 1e-6) must be corrected before the artifact ships.
+
+# The beyond-step programme: pre-registrations V373-V376 (2026-11-02,
+all four booked BEFORE any run; category beyond_step, new; one
+machinery used on three openings)
+
+## V373_full_lattice_pair_string - BOOKING (2026-11-02, run following;
+tier 1; category beyond_step; suite 286).
+Property: can the pair+flux-line sector of the Λ³ torus, treated as a
+gauge-invariant full lattice problem at fixed total momentum K, carry
+the door n°2 question at all - i.e. does the machinery that V371
+booked-but-never-ran EXIST, gated against everything the
+reality-interface phase already measured?
+Machine (all booked before the run):
+ Hilbert space: matter pair of quanta at grid sites (A,B) on the
+  N^3 torus, separation r over ALL grid separations, fixed total
+  momentum K; flux sector = ONE straight geodesic flux line of
+  length ell = d_geo(r) joining A to B. Booked scope (declared, not
+  justified dynamically): the single flux line is the V368 content
+  theorem's minimal gauge content, and the straight line is the
+  minimal-length representative for separation r.
+ Operators imported verbatim: V79 adjoint_link_operators /
+  root_generators / structure_constants (the same import V371 uses);
+  V101 zero_modes (the intertwiner kernel solver, J_sub W + W L^T)
+  generalized to chains of ell+1 links. The kernel DIMENSIONS of the
+  chain problem are MEASURED per chain length, never assumed: the
+  fusion semiring of the 45-algebra beyond r in {1, 45, 210} is a
+  measurement OUTPUT of this experiment, not an input.
+ Effective Hermitian generator (booked form):
+   H = H_hop (x) I_flux + I_matter (x) sum_{links in string}
+       sum_a L_a L_a + eta * (bond-current deformation in the
+       certified channel basis).
+  The per-link string Casimir coefficient is MEASURED from the
+  adjoint representation in-script, not assumed. H_hop is the V368
+  free two-quanta dispersion machinery re-used verbatim (seed 0x51);
+  the deformation uses the V371 fast coupling form (K_M, K_F, C_MM,
+  C_FF, C_MF, pair factor 2) with the V371 in-script operator
+  self-test against the 45-loop anchored form (<= 1e-14) - the
+  permanent guard from the V371 machinery lesson.
+ Gates:
+  A1 N=2 contact reduction reproduces V371 verbatim: ker counts 2
+    (ell=1) and 6 (ell=2), the deformation spectrum d_k set =
+    {-96, -96, -64, -64, 0, 0} exactly, and J.L = -64 I_2 on the
+    ell=1 kernel with invariance leak <= 1e-12. The ell=1 kernel is
+    RE-DERIVED in-script (no V369 SM-400 cache dependency - the
+    fold that regenerated it was killed by user directive).
+  A2 eta = 0 free min gap reproduces the V368 2.017083e-05 to 1e-9.
+  A3 measured chain-kernel dimensions for ell = 1..3 anchor on the
+    V100/V101 values: ell=1 kernel as in V101's three-site chain
+    (Gram rank 24, six-fold top degeneracy); the r = 1, 45, 210
+    fusion multiplicities at ell=2 match V100 (I_2 = 1, I_3 = 1,
+    r = 210 channel constructed, 24-state kernel); ell=3 (I_4 = 6
+    from V100) is a prediction OUTPUT recorded for the ledger.
+ Verdicts: FULL-LATTICE-MACHINERY-BUILT (all three gates fire) /
+ MACHINERY-DRIFT (any gate fails: no spectral claim is made).
+ Scope limits booked: one flux line, straight and geodesic; no
+ multi-line, no flux-line hopping; the string Casimir term is the
+ booked effective generator, not a derivation from the clock step.
+
+## V374_lattice_sum_threshold - BOOKING (2026-11-02, run following
+V373; tier 1; category beyond_step; suite 287). The V371 verdict word
+"the full lattice-sum version stays booked unrun" is retired by this
+entry: the question becomes executable at the scope booked here.
+Property: for the V373 operator, is there an eta at which the lowest
+singlet-channel eigenvalue E_0(eta, K) drops below the two-quanta+
+string continuum edge E_c(eta, K) - a genuine THRESHOLD bound state,
+the door n°2 opening condition at full-lattice scope?
+Machine: V373's operator, N in {4, 6} (fallback N in {4, 6, 8}
+booked; gate: total fiber <= 2e7 states, else declare the
+restriction in the artifact); K in {Gamma, the V368 worst-K grid
+points}. Lanczos: lowest singlet-channel eigenvalue E_0(eta,K) and
+continuum edge E_c(eta,K) (lowest two-quanta+string continuum
+state), gap g = E_c - E_0; eta grid [0,1] step 0.02.
+ Bound-state criterion booked: REOPENED iff max over (eta,K) of
+ g >= 0.05 rad/step AND the lowest state's <d_geo(r)^2> STOPS
+ GROWING with N (finite-size test N=4 vs N=6 - a continuum state
+ spreads with the lattice, a bound state does not).
+ Verdicts: THRESHOLD-REOPENED-LATTICE-SUM / NO-THRESHOLD-LATTICE-SUM
+ / MACHINERY-DRIFT.
+ Contingencies booked (declared in artifact and run_notes if used,
+ never silently taken): if the N=6 fiber exceeds memory, K = Gamma
+ only plus string length <= N/3; if chain-kernel dimensions explode
+ beyond 2e7 states at ell=3, fall back to ell <= 2 with N up to 8
+ and record the long-string sector as UNMEASURED.
+
+## V375_dressed_no_ladder_contact - BOOKING (2026-11-02, booked
+before running, executed after V373/V374; tier 2, honest-negative
+search; category beyond_step; suite 288).
+Property: do the eigenphase differences of the DRESSED generator
+(V373/V374 spectra) reproduce any of the published empirical ladder
+contacts - i.e. does the beyond-step dressing machinery "know" the
+ladder, or is it blind to it?
+Machine: take the dressed eigenphase spectra measured by the V373
+and V374 artifacts (eigenvalue differences of the dressed
+generator, machine-exact Decimal where finite). Contact harvest is
+MECHANICAL (the V364 style): the five empirical ladder contacts of
+the V52 provenance table (v52_parameter_audit.json rows whose
+quantity or note contains "rung" or "ladder" - exactly five rows
+booked: the ladder base 1/(16 pi) = 0.019894 (declared), g_obs =
+0.1999980 (rung-10 loop-hierarchy clock), the DM-mass coefficient
+1.18, n_2step = 3 (two-step seesaw ladder exponent), and the
+sub-Planck DM scale rung-10 value (118 GeV row). Harvest count is a
+gate: five found or the protocol gate fails.
+ Tests: every dressed eigenphase difference against every contact,
+ exact-Decimal at relative 1e-12. False-hit bookkeeping booked NOW
+ (counting stated): T = (#differences) x 5 single-point tests, each
+ false-hit chance <= 2e-12 (relative-1e-12 band on the 2 pi circle
+ of continuous phases); a HIT must ALSO reproduce at the adjacent
+ eta grid point (the spectrum is re-diagonalized there; the two
+ chances are independent) so the per-test chance is <= 4e-24, and
+ the booked false-hit chance is T x 4e-24 <= 1e-16 for T up to
+ 2.5e7 (T is printed in the artifact).
+ Verdicts: DRESSED-LADDER-CONTACT-HIT / DRESSED-NO-LADDER-CONTACT.
+ The zero-hit branch is the honest negative: pass = True with the
+ protocol gates (harvest count = 5, test count, false-hit bound
+ stated). A NONZERO hit is a major positive: before committing it
+ is re-tested mechanically against the V364 named-value harvest -
+ a contact already named would contradict V364; double-named
+ artifacts get cross-checked, never silently re-labelled.
+
+## V376_dressed_cp_odd_census - BOOKING (2026-11-02, booked before
+running; independent of V373/V374; tier 2, theorem extension;
+category beyond_step; suite 289).
+Property: does the V52 computed theorem "every CP-odd invariant of
+the published QCA vanishes" extend from the published step U to the
+DRESSED class {W U, e^{i eta sum_b J_b.L_b} U, and the V373 full
+generator} - i.e. is the dressing CP-even to measured exactness, or
+does it carry CP-odd content the bare QCA provably lacks?
+Machine: the CP-odd invariant machinery is RE-USED, not reinvented:
+ cl10/parameter_audit.py cp_odd_theorem (the invariant list: Im Tr
+ of every 2- and 3-rotation product (full), the booked 4-rotation
+ sample n4_sample = 200000 seed 0, every B-violating
+ h_i R_ab h_j R_cd sandwich (full), and the rank-1 real democratic
+ Yukawa invariant Im (Y Y^dag)^2) and the CP operator from the SAME
+ source (the pseudoscalar w, the Cl(10,0) volume element, w^2 = -1,
+ w* = -w). The dressed step replaces U in every invariant; all
+ booked invariants are evaluated at eta in {0, 0.02, ..., 1} as
+ machine-exact traces (mpmath high-precision; the V52 TOL = 1e-12
+ is the booked decision threshold).
+ Verdicts: CP-EVEN-DRESSED-CLASS-CLOSED / CP-ODD-FOUND-DRESSED.
+ Pass gate for the CLOSED branch: every booked invariant value
+ |I| <= 1e-12 at every eta, printed per eta.
+ Scope booked: this extends the theorem from the bare root step to
+ the booked dressed class; it is NOT a claim that no CP-odd
+ operator exists anywhere in the lattice theory (the named
+ eta_CP residual of Table 6 stands).
+
+## Roll-up: the beyond-step programme V373-V376 (2026-11-04, phase end)
+
+All four bookings ran; the one machine served four openings and the
+full lattice-sum scope of door n°2 closes on measurement:
+
+- V373 FULL-LATTICE-MACHINERY-BUILT (tier 1, suite 286): the
+  gauge-invariant pair + straight-geodesic-string machine certified
+  end to end - fusion census measured ({0:2, 36:20, 64:90, 84:240,
+  96:420, 100:252}; {0:1, 64:45, 80:54, 96:210, 128:945, 144:770}),
+  chain kernels measured per length (2, 6, 22, 12 singlet sector),
+  I_4 = 6 as booked-prediction output, V371 kernel/d_k/span and the
+  V100/V101 24-state glued anchor reproduced from measured fusion
+  data, string Casimir flat at 64.000000/link, V368 free gap to
+  0.0e+00, two solver routes agreeing, V101 top degeneracy 6.
+- V374 NO-THRESHOLD-LATTICE-SUM (tier 1, suite 287): full lattice
+  sums at N=4/6 (continuum 14155776 states per K, inside the booked
+  2e7 gate; K = Gamma + gap_order top-12 declared per grid; ell<=2
+  value sets with the ell=3 contingency recorded - its value sets
+  coincide). The nominal window g = E_c - E_0 opens (0.192971 at
+  eta 0.48 resolved; 0.887356 coarse collapses under refinement),
+  but the booked conjunction needs localization and the finite-size
+  discriminator fails cleanly: <d_geo^2> 4.5 -> 9.5 (ratio 2.111,
+  exact uniform-pair value). Door n°2 stays closed at full
+  lattice-sum scope; the V371 "booked unrun" clause retires.
+- V375 DRESSED-NO-LADDER-CONTACT (tier 2, suite 288): mechanical
+  harvest = exactly the five booked contacts; T = 5975 exact-Decimal
+  tests (1195 dressed differences x 5, adjacency retest booked and
+  implemented; V373-family adjacency adapted to second-route
+  reproduction, DECLARED): zero hits, false-hit chance 2.39e-20.
+  The dressing is blind to the empirical ladder.
+- V376 CP-EVEN-DRESSED-CLASS-CLOSED (tier 2, suite 289): V52 census
+  re-used on the dressed class {W U (W = v101_gap x G10 = 33.057905
+  artifact-gated), e^{i eta J.L} U (measured scalar dressing,
+  sum_a T_a T_a = 45.000000 I at 0.0e+00 - declared reduction), V373
+  generator}: every booked invariant <= 1e-12 at all 51 etas (worst
+  2.66e-15), mpmath-40d tier agreeing to 2.9e-16, eta=0 column
+  reproducing V52 exactly. Channel-space phases recorded as data,
+  not invariants; the named eta_CP residual stands.
+
+Contingencies declared where taken (V374 ell<=3 fiber gate, K-set
+interpretation; V375 V373-family adjacency adaptation; V376 basis
+convention record and eta-independent verification tier). Machinery
+lessons recorded in the run notes and reference (einsum label
+collision -> non-algebraic-clean spectra as detector; rounded channel
+keys; sorted-multiset comparison for sector-blocked spectra; per-block
+npz checkpoints with sha transplant discipline; gates must pin basis
+invariants, not representation conventions; verification tiers on the
+SAME products).
+
+Fold state: incremental fold at suite 289 (library hash moved; the
+fold re-runs the full gate). V369's committed ANCHOR-DRIFT honest
+negative (pass=False since suite 282, machine green) is the single
+FAILED in the 289-experiment roll-up, unchanged.
