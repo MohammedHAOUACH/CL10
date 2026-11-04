@@ -1,0 +1,492 @@
+{
+ "id": "V378_crystalline_dilemma_witness",
+ "tier": 2,
+ "residual": 0.10471975511965721,
+ "property": "conjunction census of the 2I engine class - clock-free closure x gapless M x published R x mirror, the V377 named surviving structure put to a witness test, tier 2, O8/O9",
+ "status": "CRYSTALLINE-DILEMMA-WITNESSED (0 of 36 class points carry the full conjunction: the internal 2I layer closes at every class point at order <= 10 - the clock is born FREE there - yet the gapless M and the published R multiplets NEVER co-occur: gapM = 0 only where R fails, and R holds only at gapM >= 0.104720; on this engine the clock can live only by killing the gapless spectrum or its R structure: no built module carries both sides of the dilemma)",
+ "pass": true,
+ "data": {
+  "backend": "numpy (host; V337 ran cupy GPU1)",
+  "class_rows": [
+   {
+    "omega_over_pi": 0.2,
+    "beta": 0.7853981633974483,
+    "unitarity": 3.336138517081563e-16,
+    "gapM": 0.31415926535897776,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 10,
+    "closure_err": 1.9777942526733977e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.2,
+    "beta": 0.6283185307179586,
+    "unitarity": 6.661706747263749e-16,
+    "gapM": 0.6283185307179561,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 1.3322676295501878e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.2,
+    "beta": 1.2566370614359172,
+    "unitarity": 1.4432899320127035e-15,
+    "gapM": 0.628318530717955,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 3.1086244689504383e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.2,
+    "beta": 0.2,
+    "unitarity": 1.110226406326833e-15,
+    "gapM": 0.9211690282419457,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 10,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.4,
+    "beta": 0.7853981633974483,
+    "unitarity": 3.33149805470481e-16,
+    "gapM": 0.10471975511965799,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 5,
+    "closure_err": 1.847891413943022e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.4,
+    "beta": 0.6283185307179586,
+    "unitarity": 6.661646352439542e-16,
+    "gapM": 0.4578908953635864,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 1.1102230246251565e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.4,
+    "beta": 1.2566370614359172,
+    "unitarity": 8.8823838042161e-16,
+    "gapM": 0.0,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 1.7058177863933392e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.4,
+    "beta": 0.2,
+    "unitarity": 8.881891609388722e-16,
+    "gapM": 1.5494875589599049,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 5,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.6,
+    "beta": 0.7853981633974483,
+    "unitarity": 6.66183438577272e-16,
+    "gapM": 0.10471975511965793,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 10,
+    "closure_err": 2.3339299232174308e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.6,
+    "beta": 0.6283185307179586,
+    "unitarity": 8.88198990786253e-16,
+    "gapM": 0.17042763535436667,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 1.5543122344752192e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.6,
+    "beta": 1.2566370614359172,
+    "unitarity": 8.881784197001252e-16,
+    "gapM": 0.1912744536073019,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 1.5543122344752192e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.6,
+    "beta": 0.2,
+    "unitarity": 8.881824084164747e-16,
+    "gapM": 0.22831853071795696,
+    "mirror": 1.1102230246251565e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 10,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.8,
+    "beta": 0.7853981633974483,
+    "unitarity": 4.440892098500626e-16,
+    "gapM": 0.3141592653589776,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 5,
+    "closure_err": 2.3809712471128865e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.8,
+    "beta": 0.6283185307179586,
+    "unitarity": 6.661414874198286e-16,
+    "gapM": 0.0,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 1.9245745585677146e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.8,
+    "beta": 1.2566370614359172,
+    "unitarity": 4.441286837482875e-16,
+    "gapM": 0.437044077110652,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 8.881784197001252e-16,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 0.8,
+    "beta": 0.2,
+    "unitarity": 9.992078009683429e-16,
+    "gapM": 0.29285049752398706,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 5,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.0,
+    "beta": 0.7853981633974483,
+    "unitarity": 2.220446049250313e-16,
+    "gapM": 0.5235987755982964,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 2,
+    "closure_internal_k": 2,
+    "closure_err": 6.250480737842606e-16,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.0,
+    "beta": 0.6283185307179586,
+    "unitarity": 4.441807747651695e-16,
+    "gapM": 0.1704276353543691,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 2,
+    "closure_err": 1.562620184460652e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.0,
+    "beta": 1.2566370614359172,
+    "unitarity": 4.440892098500626e-16,
+    "gapM": 0.6283185307179557,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 2,
+    "closure_err": 1.5626201844606525e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.0,
+    "beta": 0.2,
+    "unitarity": 4.441241351254746e-16,
+    "gapM": 2.1778060896778646,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 2,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.2,
+    "beta": 0.7853981633974483,
+    "unitarity": 1.5543714444297453e-15,
+    "gapM": 0.31415926535897604,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 5,
+    "closure_err": 7.327471962526033e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.2,
+    "beta": 0.6283185307179586,
+    "unitarity": 1.5543274443289839e-15,
+    "gapM": 0.0,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 3.3306690738754696e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.2,
+    "beta": 1.2566370614359172,
+    "unitarity": 1.3322939429019216e-15,
+    "gapM": 0.43704407711065163,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 3.910111660406551e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.2,
+    "beta": 0.2,
+    "unitarity": 8.881784197001252e-16,
+    "gapM": 0.2928504975239877,
+    "mirror": 2.220446049250313e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 5,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.4,
+    "beta": 0.7853981633974483,
+    "unitarity": 6.6631669937367575e-16,
+    "gapM": 0.10471975511965721,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 10,
+    "closure_err": 5.591414802595585e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.4,
+    "beta": 0.6283185307179586,
+    "unitarity": 4.442022066953357e-16,
+    "gapM": 0.17042763535436692,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 3.1915277308221804e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.4,
+    "beta": 1.2566370614359172,
+    "unitarity": 6.661758362290361e-16,
+    "gapM": 0.19127445360730144,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 2.4041890313316014e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.4,
+    "beta": 0.2,
+    "unitarity": 6.661486038788277e-16,
+    "gapM": 0.2283185307179553,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 10,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.6,
+    "beta": 0.7853981633974483,
+    "unitarity": 9.992007221626409e-16,
+    "gapM": 0.10471975511965875,
+    "mirror": 0.0,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 5,
+    "closure_err": 7.973862971230184e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.6,
+    "beta": 0.6283185307179586,
+    "unitarity": 6.661418357006038e-16,
+    "gapM": 0.4578908953635872,
+    "mirror": 0.0,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 4.665578789702112e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.6,
+    "beta": 1.2566370614359172,
+    "unitarity": 5.551304357617021e-16,
+    "gapM": 0.0,
+    "mirror": 0.0,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 5,
+    "closure_err": 3.0995241199760427e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.6,
+    "beta": 0.2,
+    "unitarity": 8.882162549439593e-16,
+    "gapM": 1.5494875589599044,
+    "mirror": 0.0,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 5,
+    "closure_err": null,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.8,
+    "beta": 0.7853981633974483,
+    "unitarity": 8.881784197001252e-16,
+    "gapM": 0.31415926535897826,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": true,
+    "closure_k": 10,
+    "closure_internal_k": 10,
+    "closure_err": 5.923249156789647e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.8,
+    "beta": 0.6283185307179586,
+    "unitarity": 1.3323160965933488e-15,
+    "gapM": 0.6283185307179564,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 2.886579864025407e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.8,
+    "beta": 1.2566370614359172,
+    "unitarity": 1.110238467228227e-15,
+    "gapM": 0.628318530717955,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": 5,
+    "closure_internal_k": 10,
+    "closure_err": 3.658784127972682e-15,
+    "holds": false
+   },
+   {
+    "omega_over_pi": 1.8,
+    "beta": 0.2,
+    "unitarity": 3.3313239358678183e-16,
+    "gapM": 0.921169028241947,
+    "mirror": 4.440892098500626e-16,
+    "R_holds": false,
+    "closure_k": null,
+    "closure_internal_k": 10,
+    "closure_err": null,
+    "holds": false
+   }
+  ],
+  "n_holds": 0,
+  "n_closed": 27,
+  "R_reference": [
+   32,
+   48
+  ],
+  "gapM_floor_R_holding": 0.10471975511965721,
+  "gapM_zero_points": [
+   [
+    0.4,
+    1.2566370614359172
+   ],
+   [
+    0.8,
+    0.6283185307179586
+   ],
+   [
+    1.2,
+    0.6283185307179586
+   ],
+   [
+    1.6,
+    1.2566370614359172
+   ]
+  ]
+ },
+ "checks": [
+  [
+   "Spin(3) triple from the three spatial planes: S_a^2 = I/4 (max 0.0e+00), anticommutators (0.0e+00), U_2I(2pi/5)^5 + I = 1.7e-16 (order 10) - the V337 T0b structure re-certified host-side: True",
+   true
+  ],
+  [
+   "published step re-measured through the V378 machinery: M-gap 0.0e+00 < 1e-9, mirror 8.9e-16 < 1e-12, R cluster signature [32, 48] == the V337 T0a field [32, 48] (backend reference match): True",
+   true
+  ],
+  [
+   "clock side: the 2I INTERNAL layer closes at every class point (36/36, order <= 10) - closure is clock-free in the internal layer; the FULL step closes at 27/36 = every rational-multiple-of-pi beta and never at beta = 1/5 rad (transport phase 0.2 rad/stage is incommensurate with 2pi): True",
+   true
+  ],
+  [
+   "the 9 V337 grid points inside the booked class reproduce host-side vs the V337 cupy artifact at max |d gapM| 0.0e+00 <= 1e-8: True",
+   true
+  ],
+  [
+   "the R-holding points of the class (beta = G10 = the published class) all carry gapM >= 0.1047 - measured floor 0.104720 (booked from the V337 row); gapM = 0 fires ONLY where R fails, at [(0.4, 1.2566370614359172), (0.8, 0.6283185307179586), (1.2, 0.6283185307179586), (1.6, 1.2566370614359172)]: True",
+   true
+  ]
+ ]
+}
