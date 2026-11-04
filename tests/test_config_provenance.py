@@ -28,7 +28,7 @@ _ATTR = re.compile(r"\bCFG\.([a-z_][A-Za-z0-9_]*(?:\.[A-Za-z0-9_]+)+)")
 _GET = re.compile(r"\bCFG\.get\(\s*[\"']([A-Za-z0-9_.]+)[\"']")
 _ITEM = re.compile(r"\bCFG((?:\[[\"'][A-Za-z0-9_]+[\"']\])+)")
 
-SEARCH = ["cl10", "experiments", "make_figures", "simulation", "tests"]
+SEARCH = ["cl10", "archive/experiments", "make_figures", "simulation", "tests"]
 
 
 def _raw():

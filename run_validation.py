@@ -3,7 +3,7 @@
 """
 CL10 — the verification runner.
 
-Runs every experiment under ``experiments/`` (in name order), reads each
+Runs every experiment under ``archive/experiments/`` (in name order), reads each
 JSON verdict, and writes a single summary to ``results/validation_summary.json``.
 
 Usage::
@@ -49,7 +49,7 @@ from tqdm import tqdm
 from cl10 import config as _config
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-EXPS = os.path.join(ROOT, "experiments")
+EXPS = os.path.join(ROOT, "archive", "experiments")
 
 
 def find_experiments():

@@ -1,8 +1,8 @@
 {
-  "n": 291,
-  "n_pass": 290,
+  "n": 297,
+  "n_pass": 294,
   "n_inconclusive": 0,
-  "n_failed": 1,
+  "n_failed": 3,
   "pass": false,
   "backend_parent": "cupy",
   "backend_requested": "auto",
@@ -10,7 +10,7 @@
   "n_backend_gpu": 58,
   "hard_tier": false,
   "hard_tier_inconclusive": [],
-  "hard_tier_n": 151,
+  "hard_tier_n": 157,
   "n_untiered": 83,
   "untiered": [
     "V100_vertex_correction",
@@ -98,7 +98,7 @@
     "V99_three_site_chain"
   ],
   "hard_tier_criterion": "all of tiers 0-3 PASS",
-  "n_named_residuals": 146,
+  "n_named_residuals": 151,
   "named_residuals": [
     "V103_democratic_point",
     "V104_mixing_manifold",
@@ -229,6 +229,11 @@
     "V376_dressed_cp_odd_census",
     "V377_module_replacement_tribunal",
     "V378_crystalline_dilemma_witness",
+    "V379_hierarchy_coefficient_shadow_tribunal",
+    "V381_free_clock_carrier_arbitration",
+    "V382_carrier_ladder_clock_tribunal",
+    "V383_cubond_clifford_engine",
+    "V384_cubond_ladder_functional",
     "V38_couplings_root",
     "V41_smatrix",
     "V43_qca_spectrum",
@@ -367058,12 +367063,12 @@
       "tier": 1,
       "property": "the full-lattice pair+straight-flux-string machinery, gated on every reality-interface anchor (the V371 full lattice-sum machine, built at last)",
       "residual": false,
-      "pass": true,
+      "pass": false,
       "inconclusive": false,
-      "status": "FULL-LATTICE-MACHINERY-BUILT (gauge-invariant pair+straight-string machinery measured per chain length: chain-kernel dims ell=1 6, ell=2 22, ell=3 singlet-sector 12 (I_4 = 6, booked prediction output); V371 contact reproduction ker 2/6 + d_k set + -64 I_2 leak 1.4e-13; V368 free-gap reproduction 0.0e+00; string Casimir 64.000000/link measured; I_2=1, I_3=1 and the V100/V101 24-state glued-kernel anchor reproduced from measured fusion data)",
+      "status": "FULL-LATTICE-MACHINERY-BUILT (gauge-invariant pair+straight-string machinery measured per chain length: chain-kernel dims ell=1 6, ell=2 22, ell=3 singlet-sector 12 (I_4 = 6, booked prediction output); V371 contact reproduction ker 2/6 + d_k set + -64 I_2 leak 1.4e-13; V368 free-gap reproduction 0.0e+00; string Casimir 64.000000/link measured; I_2=1, I_3=1 and the V100/V101 24-state glued-kernel anchor reproduced from measured fusion data) [STALE: this experiment crashed after the verdict was written]",
       "returncode": null,
       "crashed": false,
-      "stale": false,
+      "stale": true,
       "wall_time": null,
       "backend": null,
       "verdict": {
@@ -373913,6 +373918,105 @@
       }
     },
     {
+      "id": "V379_hierarchy_coefficient_shadow_tribunal",
+      "dir": "V379_hierarchy_coefficient_shadow_tribunal",
+      "tier": 2,
+      "property": "the 3*exp(-1/e) hit on the hierarchy coefficient put to the web-membership tribunal, required-exponent census, and the R near-miss shape map, tier 2, O8",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "E-SHADOW-COEFFICIENT-NO-WEB-CONTACT (3*exp(-1/e) reproduces the observed hierarchy coefficient to 3.777149e-05 - inside the observation band, zero fitted parameters - but neither exp(1/e) nor exp(-1/e) sits on ANY bounded integer relation to the certified web (pslq, maxcoeff 200, 22 basis numbers), and no web integer reads the required exponent: the cleanest number hit in the theory's history is a SHADOW with no mechanism; F2 stands. The shape constraint on any module-side solution from the near-miss map: the clock-free core must preserve the 32-cluster at R - the 48 leg already survives, the M leg already survives, only the dyadic 16+16 split of the 32 blocks the three-leg carrier)",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V379_hierarchy_coefficient_shadow_tribunal",
+        "tier": 2,
+        "residual": 3.7771492207061596e-05,
+        "property": "the 3*exp(-1/e) hit on the hierarchy coefficient put to the web-membership tribunal, required-exponent census, and the R near-miss shape map, tier 2, O8",
+        "status": "E-SHADOW-COEFFICIENT-NO-WEB-CONTACT (3*exp(-1/e) reproduces the observed hierarchy coefficient to 3.777149e-05 - inside the observation band, zero fitted parameters - but neither exp(1/e) nor exp(-1/e) sits on ANY bounded integer relation to the certified web (pslq, maxcoeff 200, 22 basis numbers), and no web integer reads the required exponent: the cleanest number hit in the theory's history is a SHADOW with no mechanism; F2 stands. The shape constraint on any module-side solution from the near-miss map: the clock-free core must preserve the 32-cluster at R - the 48 leg already survives, the M leg already survives, only the dyadic 16+16 split of the 32 blocks the three-leg carrier)",
+        "pass": true,
+        "data": {
+          "three_exp_minus_one_over_e": "2.076601882666039061596266",
+          "deviation_to_observed": "3.7771492e-5",
+          "n_req_by_F_read": {
+            "pi*1/2": {
+              "n_req": "13.833596",
+              "dist_to_nearest_web_int": "3.166"
+            },
+            "pi*1/4": {
+              "n_req": "35.940798",
+              "dist_to_nearest_web_int": "0.0592"
+            },
+            "pi*3/4": {
+              "n_req": "35.634026",
+              "dist_to_nearest_web_int": "0.366"
+            }
+          },
+          "web_basis_size": 22,
+          "web_hits": [],
+          "R_published": [
+            32,
+            48
+          ],
+          "R_at_gapless_2I_points": [
+            [
+              0.4,
+              [
+                16,
+                48
+              ]
+            ],
+            [
+              0.8,
+              [
+                16,
+                48
+              ]
+            ],
+            [
+              1.2,
+              [
+                16,
+                48
+              ]
+            ],
+            [
+              1.6,
+              [
+                16,
+                48
+              ]
+            ]
+          ]
+        },
+        "checks": [
+          [
+            "anchors from artifacts: observed 2.076564111173832 +- 0.0001 (V233 field), the three V312 F_cross reads, rho = 0.9780302704295731 (V312 field): True",
+            true
+          ],
+          [
+            "TRAP: 3*exp(-1/e) = 2.0766018826660391 ; |A - observed| = 3.777149e-05 < the booked band 1.0e-04 - the hit is a REAL numerical fact (rel 1.82e-05), recorded regardless of the tribunal: True",
+            true
+          ],
+          [
+            "required-exponent census: n_req(observed, F_cross reads) = {\"pi*1/2\": {\"n_req\": \"13.833596\", \"dist_to_nearest_web_int\": \"3.166\"}, \"pi*1/4\": {\"n_req\": \"35.940798\", \"dist_to_nearest_web_int\": \"0.0592\"}, \"pi*3/4\": {\"n_req\": \"35.634026\", \"dist_to_nearest_web_int\": \"0.366\"}} - no web integer (1,6,10,17,23,30,32,36,45,64,141,208) sits within 0.05 of any required exponent: True",
+            true
+          ],
+          [
+            "web-membership tribunal: pslq([1,X,w]) and pslq([1,X,w,Xw]) at maxcoeff 200 over BOTH e-targets and the full certified web basis (22 numbers): 0 relations fired - e-type transcendentals are OFF the web: True",
+            true
+          ],
+          [
+            "R near-miss map: published signature [32, 48]; at all four 2I gapless points the signature is [16, 48] - the 48-cluster SURVIVES, the 32-cluster splits exactly dyadically: True",
+            true
+          ]
+        ]
+      }
+    },
+    {
       "id": "V37_eh_action",
       "dir": "V37_eh_action",
       "tier": 2,
@@ -373954,6 +374058,736 @@
           "residual": "none new (the non-linear completion beyond the quadratic order remains the Choptuik model, as before)"
         },
         "wall_time": 0.022
+      }
+    },
+    {
+      "id": "V380_cubic_axis_clockfree_core",
+      "dir": "V380_cubic_axis_clockfree_core",
+      "tier": 2,
+      "property": "the three-leg carrier search: finite-order spatial-plane twists about cubic axes - clock-free closure x gapless M x published R x crystallographic ladder, tier 2, O8/O9",
+      "residual": false,
+      "pass": true,
+      "inconclusive": false,
+      "status": "DILEMMA-BROKEN (3 carrier point(s): [{\"axis\": [1.0, 0.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 1.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 0.0, 1.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}]) - follow-up obligation booked: F2 clock re-arbitration on this carrier, closure consumes no clock at any g",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V380_cubic_axis_clockfree_core",
+        "tier": 2,
+        "residual": 0.0,
+        "property": "the three-leg carrier search: finite-order spatial-plane twists about cubic axes - clock-free closure x gapless M x published R x crystallographic ladder, tier 2, O8/O9",
+        "status": "DILEMMA-BROKEN (3 carrier point(s): [{\"axis\": [1.0, 0.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 1.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 0.0, 1.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}]) - follow-up obligation booked: F2 clock re-arbitration on this carrier, closure consumes no clock at any g",
+        "pass": true,
+        "data": {
+          "class_rows": [
+            {
+              "axis": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "omega": 3.141592653589793,
+              "closure_internal": 2,
+              "closure_step": 2,
+              "unitarity": 2.220446049250313e-16,
+              "gapM": 0.5235987755982967,
+              "R": [
+                64,
+                96
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "omega": 3.141592653589793,
+              "closure_internal": 2,
+              "closure_step": 2,
+              "unitarity": 2.220446049250313e-16,
+              "gapM": 0.5235987755982964,
+              "R": [
+                64,
+                96
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "omega": 3.141592653589793,
+              "closure_internal": 2,
+              "closure_step": 2,
+              "unitarity": 2.220446049250313e-16,
+              "gapM": 0.5235987755982968,
+              "R": [
+                64,
+                96
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "omega": 1.5707963267948966,
+              "closure_internal": 4,
+              "closure_step": 2,
+              "unitarity": 2.2215299868541707e-16,
+              "gapM": 0.0,
+              "R": [
+                32,
+                48
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": true
+            },
+            {
+              "axis": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "omega": 1.5707963267948966,
+              "closure_internal": 4,
+              "closure_step": 2,
+              "unitarity": 2.2215299868541707e-16,
+              "gapM": 0.0,
+              "R": [
+                32,
+                48
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": true
+            },
+            {
+              "axis": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "omega": 1.5707963267948966,
+              "closure_internal": 4,
+              "closure_step": 2,
+              "unitarity": 2.2215299868541707e-16,
+              "gapM": 0.0,
+              "R": [
+                32,
+                48
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": true
+            },
+            {
+              "axis": [
+                0.5773502691896258,
+                0.5773502691896258,
+                0.5773502691896258
+              ],
+              "omega": 2.0943951023931953,
+              "closure_internal": 3,
+              "closure_step": 2,
+              "unitarity": 8.882055243408597e-16,
+              "gapM": 0.5235987755982968,
+              "R": [
+                25,
+                31,
+                32,
+                33,
+                39,
+                96
+              ],
+              "mirror": 2.220446049250313e-16,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                0.5773502691896258,
+                -0.5773502691896258,
+                0.5773502691896258
+              ],
+              "omega": 2.0943951023931953,
+              "closure_internal": 3,
+              "closure_step": 2,
+              "unitarity": 8.881784197001252e-16,
+              "gapM": 0.5235987755982968,
+              "R": [
+                26,
+                30,
+                31,
+                33,
+                34,
+                38,
+                96
+              ],
+              "mirror": 2.220446049250313e-16,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "omega": 2.0943951023931953,
+              "closure_internal": 3,
+              "closure_step": 2,
+              "unitarity": 8.886119947416683e-16,
+              "gapM": 0.5235987755982963,
+              "R": [
+                24,
+                28,
+                30,
+                34,
+                36,
+                40,
+                96
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": false
+            },
+            {
+              "axis": [
+                0.0,
+                0.0,
+                1.0
+              ],
+              "omega": 2.0943951023931953,
+              "closure_internal": 3,
+              "closure_step": 2,
+              "unitarity": 8.886119947416683e-16,
+              "gapM": 0.523598775598297,
+              "R": [
+                24,
+                26,
+                30,
+                34,
+                38,
+                40,
+                96
+              ],
+              "mirror": 0.0,
+              "T1": true,
+              "T2": false
+            }
+          ],
+          "per_point": [
+            "1/0/0 w=3.1416 gapM=5.2360e-01 R=64,96",
+            "0/1/0 w=3.1416 gapM=5.2360e-01 R=64,96",
+            "0/0/1 w=3.1416 gapM=5.2360e-01 R=64,96",
+            "1/0/0 w=1.5708 gapM=0.0000e+00 R=32,48",
+            "0/1/0 w=1.5708 gapM=0.0000e+00 R=32,48",
+            "0/0/1 w=1.5708 gapM=0.0000e+00 R=32,48",
+            "0.57735/0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=25,31,32,33,39,96",
+            "0.57735/-0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=26,30,31,33,34,38,96",
+            "1/0/0 w=2.0944 gapM=5.2360e-01 R=24,28,30,34,36,40,96",
+            "0/0/1 w=2.0944 gapM=5.2360e-01 R=24,26,30,34,38,40,96"
+          ]
+        },
+        "checks": [
+          [
+            "Spin(3) spatial triple re-certified: S_a^2 = I/4 (max 0.0e+00), anticommutators (0.0e+00): True",
+            true
+          ],
+          [
+            "published anchor through this machinery: M-gap 0.0e+00 < 1e-9, R signature [32, 48] == [32, 48]: True",
+            true
+          ],
+          [
+            "T1 gates over the class: 10/10 points carry unitarity + internal closure <= 12 + step closure <= 240 + mirror <= 1e-10 (per-point table in data): recorded",
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "V381_free_clock_carrier_arbitration",
+      "dir": "V381_free_clock_carrier_arbitration",
+      "tier": 2,
+      "property": "the V380 carrier put to the clock-arbitration re-run: closure, gapless M and R across eight betas, tier 2, O8/O9",
+      "residual": true,
+      "pass": false,
+      "inconclusive": false,
+      "status": "CARRIER-ARBITRATION-BREAKS (see failing gates)",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V381_free_clock_carrier_arbitration",
+        "tier": 2,
+        "residual": 1.3322676295501878e-15,
+        "property": "the V380 carrier put to the clock-arbitration re-run: closure, gapless M and R across eight betas, tier 2, O8/O9",
+        "status": "CARRIER-ARBITRATION-BREAKS (see failing gates)",
+        "pass": false,
+        "data": {
+          "carrier_rows": [
+            {
+              "beta": "pi/4",
+              "closure_k": 2,
+              "closure_err": 1.3322676295501878e-15,
+              "unitarity": 2.2215299868541707e-16,
+              "gapM": 0.0,
+              "R": [
+                32,
+                48
+              ],
+              "zeropoint": 2.1316282072803006e-14
+            },
+            {
+              "beta": "pi/3",
+              "closure_k": 6,
+              "closure_err": 3.2855346348445947e-15,
+              "unitarity": 6.661718104854808e-16,
+              "gapM": 0.018238265314139957,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 0.0
+            },
+            {
+              "beta": "pi/5",
+              "closure_k": 10,
+              "closure_err": 5.2488826623830144e-15,
+              "unitarity": 4.440892098500626e-16,
+              "gapM": 0.3141592653589774,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 2.842170943040401e-14
+            },
+            {
+              "beta": "2pi/5",
+              "closure_k": 10,
+              "closure_err": 5.166551457048473e-15,
+              "unitarity": 2.222446001501234e-16,
+              "gapM": 0.751203342469632,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 5.684341886080802e-14
+            },
+            {
+              "beta": "pi/6",
+              "closure_k": 6,
+              "closure_err": 3.4233625569168413e-15,
+              "unitarity": 7.771561172376096e-16,
+              "gapM": 0.5235987755982967,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 8.526512829121202e-14
+            },
+            {
+              "beta": "1/5rad",
+              "closure_k": null,
+              "closure_err": null,
+              "unitarity": 8.88206546852104e-16,
+              "gapM": 0.6070097628829672,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 2.842170943040401e-14
+            },
+            {
+              "beta": "g_obs",
+              "closure_k": null,
+              "closure_err": null,
+              "unitarity": 1.998404507261095e-15,
+              "gapM": 0.6070194183879954,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 2.842170943040401e-14
+            },
+            {
+              "beta": "0.3rad",
+              "closure_k": null,
+              "closure_err": null,
+              "unitarity": 3.3306690738754696e-16,
+              "gapM": 0.12873311996950054,
+              "R": [
+                16,
+                48
+              ],
+              "zeropoint": 2.842170943040401e-14
+            }
+          ],
+          "R_reference": [
+            32,
+            48
+          ]
+        },
+        "checks": [
+          [
+            "carrier internal u_2i(pi/2, e_z): spatial triple S_a^2 = I/4 (max 0.0e+00), internal mirror 0.0e+00 <= 1e-10: True",
+            true
+          ],
+          [
+            "unitarity <= 1e-11 and 0-point <= 1e-9 at every beta: True / True",
+            true
+          ],
+          [
+            "closure: EVERY rational-multiple-of-pi beta closes (order <= 24: [('2pi/5', 10), ('pi/3', 6), ('pi/4', 2), ('pi/5', 10), ('pi/6', 6)]) and NO rational-radians beta closes (1/5 rad and 0.3 rad: None to cap 24) - the closure forcing leaves the booked {pi/2, pi/4, 3pi/4}: the clock is FREED into the rational-pi family: True",
+            true
+          ],
+          [
+            "spectrum contacts at every closed rational-pi beta: gapM = 0 (<= 1e-9) and R signature == [32, 48]: False",
+            false
+          ]
+        ]
+      }
+    },
+    {
+      "id": "V382_carrier_ladder_clock_tribunal",
+      "dir": "V382_carrier_ladder_clock_tribunal",
+      "tier": 2,
+      "property": "F2's last loophole: the certified ladder functional re-read with the carrier internal, at carrier-closed clocks + dense scan, tier 2, O8",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CARRIER-LADDER-NO-CLOCK-RESCUE (the certified hierarchy functional on the carrier reads the observed coefficient at NO clock, closed or not: the dense scan [0.05, 1.60] has zero band-hits; the 2x2 clock arbitration of V233 stands COMPLETELY unchanged by the carrier - a structural discovery with no clock consequence; recorded: the carrier ladder read at pi/4, 2.3708397, narrows the published pi/4 miss (2.7002078 -> 30.0%) to 14.2%, still 2900x the constants band)",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V382_carrier_ladder_clock_tribunal",
+        "tier": 2,
+        "residual": 0.29427560589364443,
+        "property": "F2's last loophole: the certified ladder functional re-read with the carrier internal, at carrier-closed clocks + dense scan, tier 2, O8",
+        "status": "CARRIER-LADDER-NO-CLOCK-RESCUE (the certified hierarchy functional on the carrier reads the observed coefficient at NO clock, closed or not: the dense scan [0.05, 1.60] has zero band-hits; the 2x2 clock arbitration of V233 stands COMPLETELY unchanged by the carrier - a structural discovery with no clock consequence; recorded: the carrier ladder read at pi/4, 2.3708397, narrows the published pi/4 miss (2.7002078 -> 30.0%) to 14.2%, still 2900x the constants band)",
+        "pass": true,
+        "data": {
+          "replica_pi/2": {
+            "coef": 2.299501537011996,
+            "v206": 2.2994437592056225,
+            "detune": 5.77778063735046e-05
+          },
+          "replica_pi/4": {
+            "coef": 2.70180241158332,
+            "v206": 2.7002077805447326,
+            "detune": 0.0015946310385874796
+          },
+          "replica_3pi/4": {
+            "coef": 2.704843995591902,
+            "v206": 2.7084027105235036,
+            "detune": 0.0035587149316014255
+          },
+          "replica_1_5rad": {
+            "coef": 2.088106865906645,
+            "v206": 2.088106865906787,
+            "detune": 1.4210854715202004e-13
+          },
+          "carrier_reads": {
+            "pi/4": {
+              "g": 0.7853981633974483,
+              "n_star": 193,
+              "deficit": 0.9767380217187832,
+              "coef": 2.3708397170674766,
+              "miss": 0.29427560589364443
+            },
+            "pi/3": {
+              "g": 1.0471975511965976,
+              "n_star": 15,
+              "deficit": 0.5269991690586433,
+              "coef": 0.004957018721650103,
+              "miss": -2.071607092452182
+            },
+            "pi/5": {
+              "g": 0.6283185307179586,
+              "n_star": 33,
+              "deficit": 0.7869835411292276,
+              "coef": 0.2733869321228191,
+              "miss": -1.8031771790510132
+            },
+            "2pi/5": {
+              "g": 1.2566370614359172,
+              "n_star": 9,
+              "deficit": 0.8573476550527123,
+              "coef": 0.6437109519232169,
+              "miss": -1.4328531592506153
+            },
+            "pi/6": {
+              "g": 0.5235987755982988,
+              "n_star": 11,
+              "deficit": 0.9900803633168402,
+              "coef": 2.715349427989775,
+              "miss": 0.6387853168159427
+            }
+          },
+          "rescue_candidates": [],
+          "scan_void_points": 0
+        },
+        "checks": [
+          [
+            "T0 replica: the imported V206 machinery reproduces its own certified 1/5-rad reading to 1.4e-13 (< 1e-9, bit-level) and the closure_class readings to max 3.6e-03 (< 5e-3 - the float64 ladder drift V209 certifies against): True",
+            true
+          ],
+          [
+            "T1: no carrier-closed clock {pi/4, pi/3, pi/5, 2pi/5, pi/6} is read by the carrier ladder within the 1e-4 constants band of the observed 2.0765641: True",
+            true
+          ],
+          [
+            "T2: dense scan 320 points on [0.05, 1.60]: 0 band-hit(s), 0 VOID points (no crossing - excluded, V206 convention); NO hit sits at a carrier-closed clock (closure <= 24): True",
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "V383_cubond_clifford_engine",
+      "dir": "V383_cubond_clifford_engine",
+      "tier": 2,
+      "property": "the Clifford-bond engine: V118's cone precondition realized on the certified algebra, tier 2, O9",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CUBOND-EXIST-DOUBLERS-PROLIFER (a causal unitary engine on the certified algebra with an EXACT Clifford velocity algebra and exactly isotropic leading cones of speed 1 exists - the O9 algebraic precondition of V118 realized for the first time after 285 experiments measuring commutative tangents; the carrier of V380 is one of its half-angle factors; its doublers proliferate (16 sites), its front radius is sqrt(3), and its ladder functional - the honest road to O8/F2 - is the NAMED open design problem: this family was never run against the published anchors because it is not the published engine)",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V383_cubond_clifford_engine",
+        "tier": 2,
+        "residual": 2.220446049250313e-16,
+        "property": "the Clifford-bond engine: V118's cone precondition realized on the certified algebra, tier 2, O9",
+        "status": "CUBOND-EXIST-DOUBLERS-PROLIFER (a causal unitary engine on the certified algebra with an EXACT Clifford velocity algebra and exactly isotropic leading cones of speed 1 exists - the O9 algebraic precondition of V118 realized for the first time after 285 experiments measuring commutative tangents; the carrier of V380 is one of its half-angle factors; its doublers proliferate (16 sites), its front radius is sqrt(3), and its ladder functional - the honest road to O8/F2 - is the NAMED open design problem: this family was never run against the published anchors because it is not the published engine)",
+        "pass": true,
+        "data": {
+          "fourier_coefficients": {
+            "(-1, -1, -1)": 0.125,
+            "(-1, -1, 1)": 0.125,
+            "(-1, 1, -1)": 0.125,
+            "(-1, 1, 1)": 0.125,
+            "(1, -1, -1)": 0.125,
+            "(1, -1, 1)": 0.125,
+            "(1, 1, -1)": 0.125,
+            "(1, 1, 1)": 0.125
+          },
+          "gapless_sites": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              3.141592653589793
+            ],
+            [
+              0.0,
+              3.141592653589793,
+              0.0
+            ],
+            [
+              0.0,
+              3.141592653589793,
+              3.141592653589793
+            ],
+            [
+              1.5707963267948966,
+              1.5707963267948966,
+              1.5707963267948966
+            ],
+            [
+              3.141592653589793,
+              0.0,
+              0.0
+            ],
+            [
+              3.141592653589793,
+              0.0,
+              3.141592653589793
+            ],
+            [
+              3.141592653589793,
+              3.141592653589793,
+              0.0
+            ],
+            [
+              3.141592653589793,
+              3.141592653589793,
+              3.141592653589793
+            ]
+          ]
+        },
+        "checks": [
+          [
+            "T0 certified triple (2S_a)^2 = I and anticommutators 0 (max 0.0e+00 exact), bond Paulis commute and square to I: True",
+            true
+          ],
+          [
+            "T1 gamma_j^2 = I (0.0e+00), {gamma_i,gamma_j} = 0 (0.0e+00), Hermiticity (0.0e+00): all <= 1e-12: True",
+            true
+          ],
+          [
+            "T2 unitarity of U(q) at 10 random q in [-3,3]^3: max defect 2.2e-16 <= 1e-12: True",
+            true
+          ],
+          [
+            "T3 Fourier support = exactly the 8 corner coefficients (all present: True, exactly 8 nonzero at 1e-10: True) - one lattice step, front radius sqrt(3) RECORDED (published front: 1): True",
+            true
+          ],
+          [
+            "T4 spectra of gamma_j = {+-1} x 128+128 (max deviation from real +-1: 4.4e-16, multiplicities 128+128: True -> principal velocities (1,1,1) EXACTLY, against the published node (0.00000, 0.14189, 0.14189)); cone to leading order: 8 random directions at a=1e-3, every phase within 1.9e-07 of +-*|q| (bound 3a^2 = 3e-06): True",
+            true
+          ],
+          [
+            "T5 velocity commutators ||[gamma_i,gamma_j]|| = [2.0, 2.0, 2.0] (all >= 1; the published Kronecker class measured exactly 0.0e+00, V185 separation lemma): V118's cone precondition REALIZED: True",
+            true
+          ],
+          [
+            "T6 half-angle factor (I + 2iS_z)/sqrt2 = u_2i(-pi/2, e_z) to 1.1e-16 (the +pi/2 mis-sign measures 1.4 as booked): the V380 carrier is an exact member of the family: True",
+            true
+          ],
+          [
+            "T7 5^3 grid {0,pi/2,pi}^3: gapless sites exactly 9 - the {0,pi}^3 octet (8 NN chiral doublers counting the origin cone site) plus the (pi/2,pi/2,pi/2) corner: found 9; the pi/2-type face/edge sites gapped, floor 1.571 >= pi/2 - 1e-9 (RECORDED): doublers PROLIFERATE (16 gapless sites over the full BZ by cubic symmetry - Nielsen-Ninomiya kept and then some): True",
+            true
+          ]
+        ]
+      }
+    },
+    {
+      "id": "V384_cubond_ladder_functional",
+      "dir": "V384_cubond_ladder_functional",
+      "tier": 2,
+      "property": "the certified hierarchy functional on the entangling cubond engine - block-wise exact lift, cubic clock, tier 2, O8/F2",
+      "residual": true,
+      "pass": true,
+      "inconclusive": false,
+      "status": "CUBOND-LADDER-NO-CONTACT (the entangling bond engine, put to the SAME certified ladder machinery through the forced block-wise lift, reads the observed coefficient at NO clock: the five closed clocks and a 96-point scan all miss; the coefficient is not carried by bond geometry - the design space of the ladder is closed one family wider, and F2's named residue stands)",
+      "returncode": null,
+      "crashed": false,
+      "stale": false,
+      "wall_time": null,
+      "backend": null,
+      "verdict": {
+        "id": "V384_cubond_ladder_functional",
+        "tier": 2,
+        "residual": 0.3063237974792017,
+        "property": "the certified hierarchy functional on the entangling cubond engine - block-wise exact lift, cubic clock, tier 2, O8/F2",
+        "status": "CUBOND-LADDER-NO-CONTACT (the entangling bond engine, put to the SAME certified ladder machinery through the forced block-wise lift, reads the observed coefficient at NO clock: the five closed clocks and a 96-point scan all miss; the coefficient is not carried by bond geometry - the design space of the ladder is closed one family wider, and F2's named residue stands)",
+        "pass": true,
+        "data": {
+          "anchor_pi/2": {
+            "coef": 2.2995015370138363,
+            "v206": 2.2994437592056225,
+            "detune": 5.777780821381029e-05,
+            "n_star": 102
+          },
+          "anchor_pi/4": {
+            "coef": 2.7018024115886092,
+            "v206": 2.7002077805447326,
+            "detune": 0.001594631043876582,
+            "n_star": 208
+          },
+          "anchor_3pi/4": {
+            "coef": 2.704843995596866,
+            "v206": 2.7084027105235036,
+            "detune": 0.0035587149266373963,
+            "n_star": 208
+          },
+          "anchor_1/5rad": {
+            "coef": 2.0881068659065107,
+            "v206": 2.088106865906787,
+            "detune": 2.7622348852673895e-13,
+            "n_star": 10
+          },
+          "cubond_reads": {
+            "pi/4": {
+              "g": 0.7853981633974483,
+              "n_star": 206,
+              "deficit": 0.9772332513997457,
+              "coef": 2.382887908653034,
+              "miss": 0.3063237974792017
+            },
+            "pi/3": {
+              "g": 1.0471975511965976,
+              "n_star": 11,
+              "deficit": 0.5733107024560646,
+              "coef": 0.01150858014601455,
+              "miss": -2.065055531027818
+            },
+            "pi/5": {
+              "g": 0.6283185307179586,
+              "n_star": 19,
+              "deficit": 0.26201203374674237,
+              "coef": 4.574394714737612e-06,
+              "miss": -2.0765595367791176
+            },
+            "2pi/5": {
+              "g": 1.2566370614359172,
+              "n_star": 8,
+              "deficit": 0.59320489668772,
+              "coef": 0.016187080549443657,
+              "miss": -2.0603770306243887
+            },
+            "pi/6": {
+              "g": 0.5235987755982988,
+              "n_star": 11,
+              "deficit": 0.29124417835136246,
+              "coef": 1.3173275824864772e-05,
+              "miss": -2.0765509378980074
+            }
+          },
+          "rescue_candidates": [],
+          "scan_void_points": 0,
+          "cubond_read_summary": [
+            2.3828879,
+            0.0115086,
+            4.6e-06,
+            0.0161871,
+            1.32e-05
+          ]
+        },
+        "checks": [
+          [
+            "T0 lift anchor: the 256-dim block-wise lift of the certified machinery on the lifted published engine reproduces the V206 1/5-rad reading to 2.8e-13 (< 1e-8) and the three closure_class readings to max 3.6e-03 (< 5e-3, float64 ladder drift): True",
+            true
+          ],
+          [
+            "T1: no cubond clock {pi/4, pi/3, pi/5, 2pi/5, pi/6} is read by the lifted ladder within the 1e-4 constants band of the observed 2.0765641: True",
+            true
+          ],
+          [
+            "T2: dense scan 96 points on [0.05, 1.60]: 0 band-hit(s) (0 VOID, excluded - V206 convention); none at a closed G_gamma(g*): True",
+            true
+          ]
+        ]
       }
     },
     {

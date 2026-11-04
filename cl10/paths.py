@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Where the experiments live.
 
-The verification program is organised as ``experiments/<category>/<Vxx>/``.  An
+The verification program is organised as ``archive/experiments/<category>/<Vxx>/``.  An
 experiment refers to a sibling (to import its module, to read its verdict JSON)
 or to its own output by name, never by category: the category is resolved here,
 so moving an experiment between categories moves a directory and nothing else.
@@ -11,11 +11,11 @@ import glob
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-EXPERIMENTS = os.path.join(ROOT, "experiments")
+EXPERIMENTS = os.path.join(ROOT, "archive", "experiments")
 
 
 def exp(*parts):
-    """Path inside ``experiments/<category>/<Vxx>/...``, resolved by name.
+    """Path inside ``archive/experiments/<category>/<Vxx>/...``, resolved by name.
 
     ``exp("V65_wilson")`` is the experiment directory;
     ``exp("V65_wilson", "results", "v65_wilson.json")`` is a file inside it.
