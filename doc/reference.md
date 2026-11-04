@@ -1467,3 +1467,39 @@ gates must pin basis-invariant content (w^2 = -1, exact
 anticommutation with all 10 generators, both at 0.0e+00);
 (vi) verification tiers compare float64 and mpmath on the SAME
 products, never on independent samplings.
+
+**The module-replacement tribunal V377-V378 (2026-11-04).** The
+ten-to-one attacked as a class question, booked before the runs.
+**V377** MODULE-REPLACEMENT-CONTACT-STATIONARY: over every module the
+repository has BUILT (committed 36-cell, signature family, 2I engine,
+star module, pentagon engine, free rung lattice), NO contact of the
+open list moves: the clock column keeps min distance 0.585398 to the
+fitted clock in every closure class, the hierarchy deficit stays in
+[0.22288, 0.63296] for every ladder-bearing member (endpoints
+bit-exact to the V312 closest_read and the certified pi/4 read), the
+ladder objects are VOID exactly where closure is clock-free, and the
+content columns reproduce verbatim. New measurements: the committed
+cell never closes (min |U^m - I| = 6.30e-05 at m = 8 - the closure
+axiom is confined to the spinor block by measurement), and the rung
+lattice admits NO exact closure (continued-fraction floor 1.46e-52
+over m <= 1e6; epsilon-closure from n* = 5 is DECOUPLING, clock
+unchanged - the cell on rungs (5,5)/(7,7) keeps {pi/2, pi/4, 3pi/4}).
+**V378** CRYSTALLINE-DILEMMA-WITNESSED: the named surviving structure
+put to a direct witness on the only clock-free engine built (2I):
+over the full 5-fold class (9 omega x 4 beta), the internal layer
+closes at every point (order <= 10 - the clock born FREE) and the
+full step at 27/36, but gapless M and the published R signature
+[32, 48] NEVER co-occur: gapM = 0 only where R fails, R holds only
+at gapM >= 0.104720; the DILEMMA-BROKEN branch (the only module-side
+solution carrier booked) fired 0 of 36. The module-side of the
+ten-to-one is closed as a search; a surviving solution must carry a
+clock-free closure core AND a crystallographic walk ladder AND the
+published R multiplets at once, and no built module carries two legs
+without failing the third.
+
+Tribunal machinery lessons: gate intervals must be booked as artifact
+values (a rounded 0.2229 bound missed its own exact value); closure
+must be stated at the level measured (internal 36/36 vs full step
+27/36); transport betas rational in RADIANS never close the staggered
+layer (incommensurate with 2pi); host-vs-cupy reproduction of the
+2I class is BIT-EXACT (9 overlap rows, 0.0e+00).
