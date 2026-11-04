@@ -3770,3 +3770,117 @@ reading that reaches the observed value anywhere remains the
 unclosed rational-radians pin 1/5 (to 0.55%). The residue is
 named, final in form, and every route to it is now a certified
 measurement rather than an opinion.
+
+## V385_cubond_content_census - BOOKING (2026-11-04, run following;
+tier 2; category root_rebuild; suite 298).
+Property: quelles particules habitent le cone du lien de Clifford.
+Machine: les 256 etats de bond(8) x interne(32) du moteur V383;
+les cinq generateurs de Cartan 32-dim C_k = 1j(h_a h_{a+1}),
+a in (0,2,4,6,8) (clifford.generators, pattern V65.cartan_weights
+mais en 32-dim); base propre commune par combinaison sqrt(1,2,3,5,7).
+T0 self-test: algebre gamma re-certifiee (gamma_j^2 = I,
+anticommutateurs <= 1e-12); la forme 16-dim de reference
+(V65.cartan_weights) reproduit son propre multiset de 16 poids
+(off <= 1e-9, comme certifie dans ses notes).
+T1 poids 32: les 32 poids (5 composantes) du multiset interne
+sont exactement la reunion lam16 et -lam16 (multi-tri equals,
+chaque composante <= 1e-9) — le miroir de V52 verifie sur le
+moteur encheveetre; lire lam16 depuis l'artefact V65 (cle
+"weights" ou equivalente; grep "cartan" dans
+archive/experiments/**/V65_wilson/results/v65_wilson.json; si
+absent, recalculer via V65.cartan_weights() dans le script,
+auto-enregistre).
+T2 contenu au point Gamma: U(0) = I: la totalite des 256 etats
+est a phase 0 (gap 0.0e+00 attendu <= 1e-12); le multiset des
+256 poids (8 copies x 32) egale 8 x (lam16 + (-lam16)).
+Decision: CUBOND-CONTENT-VERBATIM (le cone porte exactement le
+contifie certifie de la cellule — ni nouvelle particule ni
+perte: le theoreme d'existence ne modifie pas l'inventaire) /
+CUBOND-CONTENT-SHIFTS (un des gates de multiset echoue — nommer
+le poids manquant).
+Contingence: aucune; numpy host, 256-dim, secondes.
+
+## V386_cubond_chirality_nn_ledger - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 299).
+Property: le cone est-il chiral comme le modele standard?
+Machine: G5 = gamma_1 gamma_2 gamma_3 sur 256; derivees
+tangentes exactes: F_j' = i gamma_j F_j (produit de facteurs
+commutants), S_j(node) = i dU/dq_j evalue analytiquement aux
+16 sites gapless de V383 T7 (les 8 de {0,pi}^3 et les 8 coins
+(+-(pi/2)) par symetrie cubique — enumerer explicitement les
+16 sites: {0,pi}^3 et (±pi/2,±pi/2,±pi/2)).
+T0: reprise exacte des gamma de V383 (0.0e+00).
+T1: G5 anti-hermitienne (G5 + G5^dag = 0 <= 1e-12), G5^2 = -I
+(<= 1e-12), spectre = +-i avec multiplicités 128/128.
+T2: en chaque site, S_j = somme_k M_jk gamma_k + terme scalaire
+(projection exacte: M_jk = 1/256 tr(S_j gamma_k) — les gamma
+forment une base orthogonale des produits de Clifford; si la
+composante scalaire depasse 1e-9, l'enregistrer, ne pas la
+corriger); chiralite chi(site) = sign det M; gate: somme de chi
+sur les 8 sites {0,pi}^3 = 0 (bilan NN: les doubleurs annulent
+la chiralite) et la table des 16 chi est enregistree dans data.
+T3 (contenu chiral): aux 8 sites {0,pi}^3, les operateurs S
+ferment l'algebre de Clifford (normes des commutateurs >= 1);
+gate: 8/8 sites.
+Decision: CUBOND-CHIRAL-LEDGER-NN-CLOSED (le cone est vectoriel:
+128+128 helictes, bilan total nul — le contenu n'est PAS chiral
+comme le SM dans cette famille, enregistre comme mesure) /
+CUBOND-CHIRAL-ANOMALY (un gate echoue — nommer le site).
+
+## V387_cubond_doubler_masses - BOOKING (2026-11-04, run following;
+tier 2; category root_rebuild; suite 300).
+Property: que deviennent les masses des 16 parasites quand le
+facteur de Wilson certifie (V65) agit sur le lien de Clifford.
+Machine: U'(q) = (I_8 x W(q)) @ U_gamma(q), W(q) = diag(exp(-1j *
+w * phi(q) * d32)), phi(q) = somme_j (1 - cos q_j) (forme exacte
+de V65.step_wilson l.122-127), d32 = diagonale des charges de
+D(theta) = cos(theta) X + sin(theta) Y en 32-dim: X,Y =
+combinaisons Cartan de coefficients ux[0], ys[0] de
+V65.identify_XY(lam16) (V65_wilson l.91-116, meme base Cartan
+32-dim que V385); theta = 1.7308 (provenance: texte V86; grep
+"theta" dans l'artefact V86 d'abord, utiliser la constante
+bookee si absent); grille w = {0.1,0.2,...,1.0}.
+T0: le multiset des valeurs propres de C_X en 16-dim egale
+x_target = tri([1x10, -3x5, 5]) (<= 1e-9) — la certification V65
+rejouee; W(w=0) = I: U'(q) == U_gamma(q) bit a bit (<= 1e-14).
+T1 (survivants): sur la grille 5^3 {0,pi/2,pi}^3 x 8 sites
+pleins: compter les sites gapless (gap <= 1e-9) pour chaque w;
+prediction bookee AVANT mesure: le nombre de poids 32 de charge
+nulle c = ux[0]/ys[0] (c·lam = 0 a 1e-9 pres) x 8 facteurs de
+liaison = N_pred — calculer N_pred dans le script a partir des
+poids V385 (artefact lu) et l'imprimer; gate: pour tout w >= 0.5,
+gapless == N_pred exactement.
+T2 (cone vivant): gap a Gamma = 0 <= 1e-12 pour tout w; pentes:
+S'_j mesurees par difference finie a q=1e-4, h=1e-5:
+||S'_j - gamma_j|| <= 1e-5 (le facteur W est O(q^2) a l'origine).
+T3 (masses enregistrees): pour w = 1.0, aux 16 sites parasites,
+enregistrer le gap minimal des etats gape (data, pas de gate).
+Decision: CUBOND-DOUBLER-MASS-SELECTIVE (les parasites acquierent
+une masse, le cone survit intact, les survivants = contenu de
+charge nulle — le probleme des 16 est resolu au niveau du
+mecanisme certifie) / WILSON-DOUBLERS-EVADE (T1 echoue) /
+WILSON-KILLS-CONE (T2 echoue).
+
+## V388_cubond_sm_selection - BOOKING (2026-11-04, run following;
+tier 2; category root_rebuild; suite 301).
+Property: la selection de contenu du mecanisme Wilson sur le lien
+de Clifford reproduit-elle le pattern du modele standard?
+Machine: le dispositif de V387 a w = 1.0; sous-espace gapless
+aux sites doubles = etats de charge nulle; recenser leurs poids
+d'hypercharge Y = (coefficients ys[0]) sur ce sous-espace;
+multiset mesure vs target certifie V112 (artefact
+v112_dark_u1_portal.json, lire la cle des multiplicites de
+classes; si la cle est absente, target bookee = [(1,1.0),
+(1,-0.0),(6,0.166667),(3,0.333333),(3,-0.666667),(2,-0.5)]).
+T0: re-utilisation des artefacts V385/V386/V387 (aucun recalcul
+des poids/charges — les lire).
+T1: cardinalite du survivant == somme des multiplicites target.
+T2: multiset des valeurs Y des survivants == multiset target
+aux valeurs arrondies a 6 decimales pres (tri equals <= 1e-6).
+Decision: CUBOND-SELECTS-SM-PATTERN (T1+T2 vrais — le contenu
+sans masse du lien de Clifford habille porte exactement les
+classes du SM: resultat physique positif majeur) /
+CUBOND-SELECTS-OTHER (T1 vrai, T2 faux: enregister les valeurs
+mesurees) / CUBOND-SELECTS-LESS (T1 faux: enregister cardinalite
+et valeurs).
+Contingence: aucune; numpy host; secondes-minutes.
