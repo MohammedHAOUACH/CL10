@@ -1,0 +1,65 @@
+{
+ "id": "V388_cubond_sm_selection",
+ "tier": 2,
+ "residual": 0.0,
+ "property": "Standard-Model selection test of the Wilson mechanism on the Clifford bond, tier 2",
+ "status": "CUBOND-SELECTS-LESS (the Wilson selection on the Clifford bond at the booked junction angle theta = 1.7308 leaves 0 survivor weights of zero charge against the 16 classes of the certified Standard Model target; the measured cardinality and values are recorded: the selection at the physical angle closes NO massless SM content on this family - the smallest nonzero charge is 0.005216, the tension of the physical reading against exact closure, already named by the clock programme)",
+ "pass": true,
+ "data": {
+  "survivor_weights": [],
+  "survivor_Y": [],
+  "state_level_zero_modes_at_w1": {
+   "[-1.5708, -1.5708, -1.5708]": 0,
+   "[-1.5708, -1.5708, 1.5708]": 0,
+   "[-1.5708, 1.5708, -1.5708]": 0,
+   "[-1.5708, 1.5708, 1.5708]": 0,
+   "[0.0, 0.0, 3.1416]": 0,
+   "[0.0, 3.1416, 0.0]": 0,
+   "[0.0, 3.1416, 3.1416]": 0,
+   "[1.5708, -1.5708, -1.5708]": 0,
+   "[1.5708, -1.5708, 1.5708]": 0,
+   "[1.5708, 1.5708, -1.5708]": 0,
+   "[1.5708, 1.5708, 1.5708]": 0,
+   "[3.1416, 0.0, 0.0]": 0,
+   "[3.1416, 0.0, 3.1416]": 0,
+   "[3.1416, 3.1416, 0.0]": 0,
+   "[3.1416, 3.1416, 3.1416]": 0
+  },
+  "target_Y_multiset": [
+   -0.666667,
+   -0.666667,
+   -0.666667,
+   -0.5,
+   -0.5,
+   -0.0,
+   0.166667,
+   0.166667,
+   0.166667,
+   0.166667,
+   0.166667,
+   0.166667,
+   0.333333,
+   0.333333,
+   0.333333,
+   1.0
+  ]
+ },
+ "checks": [
+  [
+   "T0 the four measurements are read from disk, all pass-flagged: V385 (weights, 32 rows), V386 (NN ledger closed), V387 (N_pred = 0, theta = 1.7308), V112 (target classes [[1, 1.0], [1, -0.0], [6, 0.166667], [3, 0.333333], [3, -0.666667], [2, -0.5]]): True",
+   true
+  ],
+  [
+   "T1 survivor cardinality: 0 weights of zero charge (consistent with the V387 state-level counts at w = 1.0: all 15 parasite sites hold 0 zero modes: True) against the target sum of multiplicities = 16: False",
+   false
+  ],
+  [
+   "T2 Y multiset of the survivors empty against the certified V112 target [-0.666667, -0.666667, -0.666667, -0.5, -0.5, -0.0, 0.166667, 0.166667, 0.166667, 0.166667, 0.166667, 0.166667, 0.333333, 0.333333, 0.333333, 1.0]: sorted equality at 6-decimal rounding <= 1e-6: False",
+   false
+  ],
+  [
+   "measurement integrity: the survivor census is consistent with the V387 artifact (weights 0, state-level counts all 0): True",
+   true
+  ]
+ ]
+}
