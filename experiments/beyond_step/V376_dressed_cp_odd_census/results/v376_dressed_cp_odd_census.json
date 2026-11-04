@@ -1,0 +1,566 @@
+{
+ "id": "V376_dressed_cp_odd_census",
+ "property": "does the CP-odd-vanishing theorem extend from the bare step to the dressed class {W U, e^{i eta J.L} U, V373 generator}",
+ "tier": 2,
+ "checks": [
+  [
+   "CP operator from the same source: w^2 = -1 (defect 0.00e+00) and w anticommutes with all 10 generators (defect 0.00e+00), both <= 1e-12; w* sign convention recorded as data (+w (current Pauli basis), the booked -w is the pre-rebuild basis phase): True",
+   true
+  ],
+  [
+   "V52 TOL = 1.0e-12 <= booked 1e-12 decision threshold: True",
+   true
+  ],
+  [
+   "eta = 0 column reproduces the published V52 census exactly (max dev 0.00e+00 <= 1e-12): True",
+   true
+  ],
+  [
+   "W = v101_gap x G10 from artifacts; V251's omega rows == gap x 0.2 (the then-clock G10, recorded): current W = 33.057904663: True",
+   true
+  ],
+  [
+   "W U step unitary (defect 3.11e-15 <= 1e-12): True",
+   true
+  ],
+  [
+   "internal-space bond-current operator sum_a T_a.T_a = C2 I with C2 = 45.000000 is a MEASURED scalar (dev 0.00e+00 <= 1e-12): the members 2/3 dressings are global phases on this space, the 45 rotation factors unchanged: True",
+   true
+  ],
+  [
+   "mpmath-40d verification vs float64 census: deviation bound 2.90e-16 (<= 1e-14): True",
+   true
+  ],
+  [
+   "closed-branch gate: every member max across all 51 etas <= 1e-12 (with verification bound): True",
+   true
+  ]
+ ],
+ "data": {
+  "w_star_convention_measured": "+w (current Pauli basis)",
+  "W_dressed_hop": 33.057904663147674,
+  "W_historical_V251": 8.418126296640912,
+  "V251_omega_over_gap": 0.19999999999999998,
+  "internal_C2_measured": 45.0,
+  "mpmath_40d_per_eta_max": {
+   "0.0": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.02": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.04": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.06": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.08": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.1": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.12": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.14": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.16": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.18": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.2": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.22": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.24": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.26": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.28": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.3": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.32": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.34": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.36": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.38": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.4": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.42": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.44": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.46": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.48": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.5": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.52": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.54": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.56": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.58": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.6": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.62": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.64": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.66": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.68": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.7": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.72": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.74": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.76": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.78": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.8": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.82": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.84": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.86": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.88": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.9": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.92": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.94": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.96": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "0.98": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   },
+   "1.0": {
+    "exp(i eta J.L) U": 3.7406835958009925e-41,
+    "V373 full generator (internal action)": 3.7406835958009925e-41,
+    "W U": 2.8698592549372254e-42
+   }
+  },
+  "mpmath_tier_note": "factor sets measured eta-independent (scalar dressing gate); verification tier computed once per factor set, recorded at every booked eta",
+  "mpmath_float_bound": 2.9040269150165053e-16,
+  "per_eta_maxima": {
+   "0.0": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.02": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.04": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.06": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.08": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.1": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.12": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.14": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.16": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.18": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.2": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.22": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.24": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.26": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.28": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.3": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.32": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.34": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.36": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.38": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.4": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.42": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.44": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.46": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.48": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.5": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.52": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.54": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.56": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.58": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.6": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.62": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.64": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.66": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.68": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.7": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.72": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.74": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.76": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.78": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.8": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.82": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.84": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.86": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.88": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.9": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.92": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.94": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.96": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "0.98": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   },
+   "1.0": {
+    "W U": 2.6645352591003757e-15,
+    "exp(i eta J.L) U": 1.7763568394002505e-15,
+    "V373 full generator (internal action)": 1.7763568394002505e-15
+   }
+  },
+  "channel_space_phase_record_max_abs_imTr": 22.808676780902452
+ },
+ "pass": true,
+ "status": "CP-EVEN-DRESSED-CLASS-CLOSED (every booked invariant |I| <= 1e-12 at every eta for all three class members; the dressings are measured scalars on the internal space and the W-dressed step keeps the 0-parameter algebraic cancellations; channel-space relative phases recorded as data, not invariants of the booked class; the named eta_CP residual stands)",
+ "residual": 2.6645352591003757e-15
+}
