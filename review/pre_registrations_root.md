@@ -3380,3 +3380,54 @@ best built points is measured: one dyadic 16+16 split of the R
 32-cluster. No number-relation route to the ten open values
 survives inside the bounded web. Both search directions are now
 bounded by certified data, not by opinion.
+
+## V380_cubic_axis_clockfree_core - BOOKING (2026-11-04, run
+following; tier 2; category root_rebuild; suite 293).
+Property: the one carrier class the tribunal missed. V377/V378
+tested clock-free cores about the ICOSAHEDRAL 5-fold axis (which
+breaks the cubic R structure: signature [16, 48] at the gapless
+points). A clock-free core about a CUBIC axis - a finite-order
+element of the Spin(3) of the three SPATIAL planes about a
+coordinate axis (order 4), a body diagonal (order 6 element,
+2pi/3), or the same axes at order-2/3/4 angles - preserves the
+cubic little-group structure at R by symmetry, closes at fixed
+order independent of any clock, and runs on the crystallographic
+transport (the ladder machinery of the published engine). The
+three legs the tribunal proved necessary could co-occur HERE.
+Class (booked before the run, 10 points): u_2i(omega, n) with
+(Sx, Sy, Sz) the V337-certified spatial triple:
+  - n in {e_x, e_y, e_z}, omega = pi     (2-fold axes: u = -2i n.S,
+    u^2 = -I, order 4 in SU(2));
+  - n in {e_x, e_y, e_z}, omega = pi/2   (4-fold angles);
+  - n = (1,1,1)/sqrt3, omega = 2pi/3, and n = (1,-1,1)/sqrt3,
+    omega = 2pi/3                        (body diagonals, 3-fold).
+Transport beta = G10 (the published class - the ladder and the
+frozen clock class are untouched); the internal element is the
+ONLY deviation from the published engine.
+Gates (all booked, all measured, host numpy):
+ T0 self-test: the Spin(3) triple S_a^2 = I/4, anticommutators 0,
+   re-certified (V337/V378 pattern); the published step anchor:
+   M-gap < 1e-9, R signature == the V337 T0a reference, unitarity.
+ T1 per point: unitarity of the step <= 1e-11 at GAMMA/M/R;
+   internal closure order <= 12 (clock-free, expected 4/4/6);
+   FULL-step closure at GAMMA <= 240; internal mirror <= 1e-10.
+ T2 the conjunction: gapM (min |phase| over ALL M-points) <= 1e-9
+   AND R signature == the published [32, 48] AND T1 all hold.
+ T3 (booked reading, decided now): NO point of the 10 carries the
+   T2 conjunction - the geometric obstruction V334 named survives
+   even on cubic axes: a finite-order spatial-plane twist is NOT
+   in the centralizer of the staggered transport's degeneracy
+   structure; the booked words: CUBIC-CORE-STILL-BROKEN with the
+   per-point table recorded. FALLBACK (booked, the solution
+   branch): DILEMMA-BROKEN if any point passes T2 - then its
+   (n, omega) and the measured closure orders are the carrier's
+   first data, and the follow-up obligation is booked here: the
+   clock-contact re-arbitration must be re-run (F2) with this
+   carrier, because the closure no longer consumes the clock at
+   ANY g - the clock becomes free in the step and pinned only by
+   the ladder coefficient, dissolving the arbitration paradox
+   that F2 fired on.
+Contingency: if a diagonal-axis element cannot be built from the
+triple exactly (irrational n components at float64), the closure
+gate at T1 uses tolerance 1e-8 and the defect is recorded - the
+conjunction gate is not loosened.
