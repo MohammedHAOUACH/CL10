@@ -76,11 +76,11 @@ import numpy as np
 from scipy.linalg import expm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 
 
 def art(area, exp, key):
-    pth = os.path.join(ROOT, "experiments", area, exp, "results",
+    pth = os.path.join(ROOT, "archive", "experiments", area, exp, "results",
                        "%s.json" % exp.lower())
     with open(pth) as fh:
         j = json.load(fh)

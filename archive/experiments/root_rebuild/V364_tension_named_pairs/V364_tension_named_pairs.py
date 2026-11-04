@@ -18,18 +18,18 @@ from decimal import Decimal, getcontext
 
 getcontext().prec = 40
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 FILES = [
-    "experiments/scales_loopfactor/V206_clock_tension/results/v206_clock_tension.json",
-    "experiments/couplings_unification/V247_two_dial_desert_contacts/results/v247_two_dial_desert_contacts.json",
-    "experiments/theory_hunt/V335_named_clock_roots/results/v335_named_clock_roots.json",
-    "experiments/root_rebuild/V350_backreaction_fixed_point/results/v350_backreaction_fixed_point.json",
-    "experiments/root_rebuild/V352_oneloop_external_backreaction/results/v352_oneloop_external_backreaction.json",
-    "experiments/root_rebuild/V353_inverse_external_sector/results/v353_inverse_external_sector.json",
-    "experiments/root_rebuild/V354_elect_read_root_degeneracy/results/v354_elect_read_root_degeneracy.json",
-    "experiments/root_rebuild/V355_elect_one_dial/results/v355_elect_one_dial.json",
+    "archive/experiments/scales_loopfactor/V206_clock_tension/results/v206_clock_tension.json",
+    "archive/experiments/couplings_unification/V247_two_dial_desert_contacts/results/v247_two_dial_desert_contacts.json",
+    "archive/experiments/theory_hunt/V335_named_clock_roots/results/v335_named_clock_roots.json",
+    "archive/experiments/root_rebuild/V350_backreaction_fixed_point/results/v350_backreaction_fixed_point.json",
+    "archive/experiments/root_rebuild/V352_oneloop_external_backreaction/results/v352_oneloop_external_backreaction.json",
+    "archive/experiments/root_rebuild/V353_inverse_external_sector/results/v353_inverse_external_sector.json",
+    "archive/experiments/root_rebuild/V354_elect_read_root_degeneracy/results/v354_elect_read_root_degeneracy.json",
+    "archive/experiments/root_rebuild/V355_elect_one_dial/results/v355_elect_one_dial.json",
 ]
 
 

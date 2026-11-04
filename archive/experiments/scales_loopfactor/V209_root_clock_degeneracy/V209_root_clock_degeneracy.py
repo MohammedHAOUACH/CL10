@@ -53,7 +53,7 @@ import scipy.sparse as sp
 import mpmath as mp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                                   # noqa: E402
 sys.path.insert(0, exp("V79_gauged_bond_layer"))

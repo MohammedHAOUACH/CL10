@@ -31,12 +31,12 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                                        # noqa: E402
-sys.path.insert(0, os.path.join(ROOT, "experiments", "gauged_layer",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "gauged_layer",
                                 "V79_gauged_bond_layer"))
-sys.path.insert(0, os.path.join(ROOT, "experiments", "scales_loopfactor",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "scales_loopfactor",
                                 "V85_closed_loop_factor"))
 
 from V79_gauged_bond_layer import (adjoint_link_operators,        # noqa: E402

@@ -29,9 +29,9 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "root_rebuild",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "root_rebuild",
                                 "V350_backreaction_fixed_point"))
 from cl10.paths import exp  # noqa: E402
 import V350_backreaction_fixed_point as V350  # noqa: E402

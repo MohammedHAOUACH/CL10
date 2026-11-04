@@ -16,18 +16,18 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "gauged_layer",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "gauged_layer",
                                 "V79_gauged_bond_layer"))
-sys.path.insert(0, os.path.join(ROOT, "experiments", "dynamics_spectrum",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "dynamics_spectrum",
                                 "V369_pair_binding_onset"))
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
                                    root_generators,
                                    structure_constants)
 
 dim = 32 * 32 * 45
-CACHE = os.path.join(ROOT, "experiments", "dynamics_spectrum",
+CACHE = os.path.join(ROOT, "archive", "experiments", "dynamics_spectrum",
                      "V369_pair_binding_onset", "results", "v369_sm400.npz")
 
 

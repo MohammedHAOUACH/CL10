@@ -62,7 +62,7 @@ os.environ["CL10_BACKEND"] = "numpy"
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 # reference spectrum: the g = 1/5 Wilson-family member (paper 8.4):
 # the entangling-bond search space (Propositions 4-5: gapless region

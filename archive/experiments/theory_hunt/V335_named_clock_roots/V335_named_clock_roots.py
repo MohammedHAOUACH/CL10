@@ -40,7 +40,7 @@ import mpmath
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp  # noqa: E402
 from cl10 import config as _config  # noqa: E402
@@ -49,7 +49,7 @@ CFG = _config.CFG
 
 _spec = importlib.util.spec_from_file_location(
     "v206mach",
-    os.path.join(ROOT, "experiments", "scales_loopfactor",
+    os.path.join(ROOT, "archive", "experiments", "scales_loopfactor",
                  "V206_clock_tension", "V206_clock_tension.py"))
 V = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(V)

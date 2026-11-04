@@ -82,7 +82,7 @@ import time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 from cl10 import clifford, config, engine as E, spacetime  # noqa: E402
@@ -95,7 +95,7 @@ TOL = 1e-13      # the band this experiment states its defects in
 
 
 def art(exp, key):
-    pth = os.path.join(ROOT, "experiments", "gravity", exp, "results", "%s.json" % exp.lower())
+    pth = os.path.join(ROOT, "archive", "experiments", "gravity", exp, "results", "%s.json" % exp.lower())
     with open(pth) as fh:
         j = json.load(fh)
     for k in key.split("."):

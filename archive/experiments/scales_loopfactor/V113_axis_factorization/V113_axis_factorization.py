@@ -38,7 +38,7 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 # pinned 1/5 reference branch: F10_REF = 0.01918639 and the
 # coefficient-3 reading are reference-branch statements (the clock

@@ -257,7 +257,7 @@ def main():
                          and ratio is not None))})
 
     data["conventions"] = {
-        "rule_source": "experiments/couplings_unification/"
+        "rule_source": "archive/experiments/couplings_unification/"
                        "V237_desert_threshold_matching/V237_desert_"
                        "threshold_matching.py l. 142-225 copied verbatim",
         "content": "composite multiplicity table: joint Cartan weights "

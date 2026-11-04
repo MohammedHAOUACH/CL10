@@ -51,7 +51,7 @@ import time
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 # pinned 1/5 reference branch: at the pi/4 clock every word Cartan
 # amplitude is a numerical zero (Cartan-dark propagator) and the word

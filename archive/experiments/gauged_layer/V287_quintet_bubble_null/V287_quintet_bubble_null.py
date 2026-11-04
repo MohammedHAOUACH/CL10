@@ -56,7 +56,7 @@ from scipy.optimize import minimize                       # noqa: E402
 from scipy.linalg import logm                             # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                                # noqa: E402
 from cl10 import engine as E                              # noqa: E402

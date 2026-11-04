@@ -53,7 +53,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 # the reference branch of this measurement is the implemented 1/5 clock,
 # the branch V102/V115/V65 publish on. cl10.config freezes the clock at
 # its own import, so pin it here (V118/V186/V187/V207 preamble order).

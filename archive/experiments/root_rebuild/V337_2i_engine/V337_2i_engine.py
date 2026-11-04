@@ -22,7 +22,7 @@ os.environ["CL10_BACKEND"] = "cupy"
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 import numpy as np  # noqa: E402  (env pins above affect cl10 only)

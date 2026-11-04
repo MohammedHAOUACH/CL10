@@ -34,7 +34,7 @@ import os
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 PI = round(float(np.pi / 2), 9)
 from cl10 import supercell as SC  # noqa: E402
 

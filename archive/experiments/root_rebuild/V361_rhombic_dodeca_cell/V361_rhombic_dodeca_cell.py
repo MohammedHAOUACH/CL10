@@ -39,7 +39,7 @@ from itertools import product, combinations
 import numpy as np                  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 DIRS = sorted({d for d in product((-1, 0, 1), repeat=3)
@@ -249,7 +249,7 @@ def main():
     Kf = np.array(K.tolist(), dtype=float)
     wK = np.sort(np.linalg.eigvalsh(Kf))
     hopgap = float(np.min(np.abs(wK)))
-    with open(os.path.join(ROOT, "experiments", "root_rebuild",
+    with open(os.path.join(ROOT, "archive", "experiments", "root_rebuild",
                            "V358_pentengine_engine_rebuild", "results",
                            "v358_pentengine_engine_rebuild.json")) as fh:
         t58 = json.dumps(json.load(fh))

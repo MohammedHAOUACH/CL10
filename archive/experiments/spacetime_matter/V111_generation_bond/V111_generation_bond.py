@@ -28,7 +28,7 @@ import numpy as np
 from scipy.optimize import least_squares
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 
 TARGET = (0.308, 0.0222, 0.470)     # sin^2 th12, sin^2 th13, sin^2 th23
 

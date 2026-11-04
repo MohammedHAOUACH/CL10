@@ -121,7 +121,7 @@ import numpy as np
 os.environ["CL10_BACKEND"] = "numpy"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 # reference spectrum: the g = 1/5 Wilson-family member (paper 8.2) -
 # the nodal-plane density recomputed in T1 must be measured on the

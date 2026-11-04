@@ -64,7 +64,7 @@ os.environ["CL10_ANGLE"] = "0.2"
 
 import numpy as np
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))

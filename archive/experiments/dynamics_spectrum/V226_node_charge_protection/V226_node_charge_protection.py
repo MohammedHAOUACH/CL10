@@ -83,7 +83,7 @@ from cl10 import spincell as SP
 from cl10 import supercell as SC
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 RADII = (3e-3, 1e-2, 4e-2)          # the enclosing spheres

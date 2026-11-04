@@ -49,7 +49,7 @@ os.environ["CL10_BACKEND"] = "numpy"   # V199's own convention, booked
 import numpy as np                                       # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                              # noqa: E402
 sys.path.insert(0, exp("V199_a_to_bb_channel"))

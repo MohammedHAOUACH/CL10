@@ -25,12 +25,12 @@ import mpmath
 getcontext().prec = 40
 mpmath.mp.dps = 40
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "root_rebuild",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "root_rebuild",
                                 "V350_backreaction_fixed_point"))
 import V350_backreaction_fixed_point as V350  # noqa: E402
-sys.path.insert(0, os.path.join(ROOT, "experiments", "root_rebuild",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "root_rebuild",
                                 "V352_oneloop_external_backreaction"))
 import V352_oneloop_external_backreaction as V352  # noqa: E402
 
@@ -95,7 +95,7 @@ def _hops_mp(G):
 def main():
     checks, data = [], {}
     v355 = json.load(open(os.path.join(
-        ROOT, "experiments/root_rebuild/V355_elect_one_dial/results/"
+        ROOT, "archive/experiments/root_rebuild/V355_elect_one_dial/results/"
         "v355_elect_one_dial.json")))
     beta = float(v355["data"]["beta_elect"])
     alpha = beta * LOOP

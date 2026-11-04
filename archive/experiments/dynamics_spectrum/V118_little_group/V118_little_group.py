@@ -65,7 +65,7 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 # reference spectrum: the g = 1/5 Wilson-family member (paper 8.2):
 # the dispersive node tangent speeds (0, 0.14189, 0.14189) and the

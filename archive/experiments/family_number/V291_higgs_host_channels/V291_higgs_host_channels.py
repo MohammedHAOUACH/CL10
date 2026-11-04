@@ -40,7 +40,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
 import numpy as np                                        # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 os.environ.setdefault("CL10_ANGLE", "0.2")
 from cl10 import engine as E                               # noqa: E402
@@ -49,7 +49,7 @@ from cl10.paths import exp                                # noqa: E402
 _v79 = exp("V79_gauged_bond_layer")
 if not os.path.isdir(_v79):
     import glob as _g
-    _v79 = _g.glob(os.path.join(ROOT, "experiments", "*",
+    _v79 = _g.glob(os.path.join(ROOT, "archive", "experiments", "*",
                                 "V79_gauged_bond_layer"))[0]
 sys.path.insert(0, _v79)
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402

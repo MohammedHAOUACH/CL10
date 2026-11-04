@@ -34,7 +34,7 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 
 SUPPORT = [(0, 1, 3), (0, 3, 1), (1, 0, 3), (3, 0, 1), (1, 3, 0), (3, 1, 0)]
 

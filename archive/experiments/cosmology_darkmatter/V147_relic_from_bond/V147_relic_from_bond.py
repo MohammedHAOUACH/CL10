@@ -51,7 +51,7 @@ import sys
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 os.environ["CL10_BACKEND"] = "numpy"  # the V123 machinery is host-numpy: pin the core
 os.environ["CL10_ANGLE"] = "0.2"  # the nodal-plane D and the abundance numbers are 1/5-branch (V123) quantities: pin the clock, the closed default_branch angle must not leak into the recomputation

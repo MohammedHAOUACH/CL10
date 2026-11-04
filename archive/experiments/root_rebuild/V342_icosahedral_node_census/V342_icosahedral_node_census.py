@@ -15,9 +15,9 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "root_rebuild",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "root_rebuild",
                                 "V341_icosahedral_internal_dressing"))
 from V341_icosahedral_internal_dressing import cell_build, wrap  # noqa
 

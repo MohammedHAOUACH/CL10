@@ -38,9 +38,9 @@ from fractions import Fraction
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "couplings_unification",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "couplings_unification",
                                 "V64_desert"))
 
 from cl10 import config as CFG                                     # noqa: E402

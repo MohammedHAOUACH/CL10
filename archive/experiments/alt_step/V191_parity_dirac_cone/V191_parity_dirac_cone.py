@@ -81,7 +81,7 @@ from scipy.linalg import expm  # noqa: E402
 from scipy.optimize import minimize_scalar  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 from cl10 import supercell as SC                      # noqa: E402

@@ -56,7 +56,7 @@ import time
 import numpy as np                                        # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp                                # noqa: E402
 sys.path.insert(0, exp("V285_most_local_lightlike_generator"))

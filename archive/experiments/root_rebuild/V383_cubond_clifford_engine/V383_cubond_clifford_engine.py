@@ -25,7 +25,7 @@ import time
 os.environ["CL10_BACKEND"] = "numpy"
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 import numpy as np  # noqa: E402

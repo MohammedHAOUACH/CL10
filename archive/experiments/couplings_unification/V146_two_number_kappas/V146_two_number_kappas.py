@@ -44,7 +44,7 @@ import numpy as np
 from scipy.linalg import eigh as geigh
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 from cl10.paths import exp
 sys.path.insert(0, exp("V65_wilson"))

@@ -57,7 +57,7 @@ from itertools import product
 import numpy as np                      # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
 
 NORMALS = sorted({(a, b, c) for (a, b, c) in product((-1, 0, 1), repeat=3)

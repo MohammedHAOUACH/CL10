@@ -258,7 +258,7 @@ def main():
 
     data["conventions"] = {
         "cartan_source": "P block: V65/V67 convention, "
-                         "experiments/spacetime_matter/"
+                         "archive/experiments/spacetime_matter/"
                          "V67_breaking_chain.py l. 63-70 (clifford."
                          "generators, planes (0,2,4,6,8), conjugated by "
                          "SC.sectors()[0]); Q block: centralizer of a "

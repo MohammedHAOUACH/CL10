@@ -89,9 +89,9 @@ import numpy as np
 import scipy.sparse.linalg as spla
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(HERE)))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 sys.path.insert(0, ROOT)
-sys.path.insert(0, os.path.join(ROOT, "experiments", "gauged_layer",
+sys.path.insert(0, os.path.join(ROOT, "archive", "experiments", "gauged_layer",
                                 "V79_gauged_bond_layer"))
 from V79_gauged_bond_layer import (adjoint_link_operators,  # noqa: E402
                                    root_generators,

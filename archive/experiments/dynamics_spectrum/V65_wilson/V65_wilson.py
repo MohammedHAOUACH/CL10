@@ -47,7 +47,7 @@ import time
 
 import numpy as np
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 sys.path.insert(0, ROOT)
 # reference spectrum: the g = 1/5 member of the Wilson FAMILY (paper
 # 8.1-8.2: this is where the doubler-gap mechanism and the dispersive
