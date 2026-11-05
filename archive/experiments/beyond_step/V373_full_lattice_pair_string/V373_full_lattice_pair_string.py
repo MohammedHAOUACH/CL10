@@ -85,6 +85,14 @@ import time
 os.environ.setdefault("OMP_NUM_THREADS", "4")
 os.environ.setdefault("MKL_NUM_THREADS", "4")
 
+# Pinned BEFORE any cl10 import: this experiment is a combinatorial
+# fusion census of small clusters, not big linear algebra. On cupy it ran
+# 6623 s (vs ~25 min on numpy, byte-identical verdict) and its host-side
+# staging grew into the tens of GB - the 2026-11-05 fold froze the box at
+# 59/62 GiB while the inference server held 52 GiB. The numpy pin is the
+# same safety the cone programme scripts carry.
+os.environ["CL10_BACKEND"] = "numpy"
+
 import numpy as np
 import scipy.sparse.linalg as spla
 
