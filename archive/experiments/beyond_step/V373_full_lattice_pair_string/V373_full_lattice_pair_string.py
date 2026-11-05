@@ -981,15 +981,37 @@ def main():
     def _fmt(x):
         return "%.6g" % x
 
-    def _ck_get(stage, key):
+    def _ck_sig(Jgens, right):
+        """content signature of the operator stack a block was solved with.
+        The fusion channels carry degenerate eigenspaces (a 20-fold at
+        cv 36), whose eigenbasis LAPACK/cuSOLVER may rotate freely; two
+        processes build the same channels from last-bit-different coupling
+        bytes (measured 2026-11-05: the fold's subprocess cache-hit the
+        previous process's vectors, the span check collapsed to 0.005).
+        A cache hit is only valid if the generator bytes reproduce
+        EXACTLY; otherwise the block is re-solved in this process."""
+        h = hashlib.sha256()
+        h.update(np.ascontiguousarray(np.stack(Jgens),
+                                      dtype=np.complex128).tobytes())
+        h.update(np.ascontiguousarray(np.stack(right[1]),
+                                      dtype=np.complex128).tobytes())
+        if right[0] == "prod":
+            h.update(np.ascontiguousarray(np.stack(right[2]),
+                                          dtype=np.complex128).tobytes())
+        return h.hexdigest()[:16]
+
+    def _ck_get(stage, key, sig):
         fn = os.path.join(CKD, "%s_%s.npz" % (stage, key))
         if not os.path.exists(fn):
             return None
         with np.load(fn) as z:
-            return [z["v%d" % i] for i in range(len(z.files))]
+            if "sig" not in z.files or str(z["sig"]) != sig:
+                return None
+            return [z["v%d" % i] for i in range(len(z.files) - 1)]
 
-    def _ck_put(stage, key, vecs):
+    def _ck_put(stage, key, vecs, sig):
         np.savez(os.path.join(CKD, "%s_%s.npz" % (stage, key)),
+                 sig=sig,
                  **{"v%d" % i: np.asarray(v, dtype=np.complex128)
                     for i, v in enumerate(vecs)})
 
@@ -1001,10 +1023,11 @@ def main():
     # booked chain length.
     Nl1, Uf = {}, {}
     for cv, (E, Jr, nR) in pair_ch.items():
-        v = _ck_get("n1", _fmt(cv))
+        sig = _ck_sig(Jr, ("leg", Ls))
+        v = _ck_get("n1", _fmt(cv), sig)
         if v is None:
             v = hom_null(Jr, ("leg", Ls))
-            _ck_put("n1", _fmt(cv), v)
+            _ck_put("n1", _fmt(cv), v, sig)
         Nl1[cv] = len(v)
         if v:
             Uf[cv] = v
@@ -1020,10 +1043,11 @@ def main():
     for cv, (E, Jr, nR) in pair_ch.items():
         t = 0
         for lkv, (El, gL, nL) in ll_ch.items():
-            v = _ck_get("e1", "%s|%s" % (_fmt(cv), _fmt(lkv)))
+            sig = _ck_sig(Jr, ("leg", gL))
+            v = _ck_get("e1", "%s|%s" % (_fmt(cv), _fmt(lkv)), sig)
             if v is None:
                 v = hom_null(Jr, ("leg", gL))
-                _ck_put("e1", "%s|%s" % (_fmt(cv), _fmt(lkv)), v)
+                _ck_put("e1", "%s|%s" % (_fmt(cv), _fmt(lkv)), v, sig)
             if v:
                 U2[(cv, lkv)] = v
                 c1pat["%s|%s" % (round(cv, 4),
@@ -1064,10 +1088,11 @@ def main():
         for lkv, (El, gL, nL) in ll_ch.items():
             log("chain ell=2 block cv %s lkv %s" % (round(cv, 3),
                                                     round(lkv, 3)))
-            v = _ck_get("n2", "%s|%s" % (_fmt(cv), _fmt(lkv)))
+            sig = _ck_sig(Jr, ("prod", gL, Ls))
+            v = _ck_get("n2", "%s|%s" % (_fmt(cv), _fmt(lkv)), sig)
             if v is None:
                 v = hom_null(Jr, ("prod", gL, Ls))
-                _ck_put("n2", "%s|%s" % (_fmt(cv), _fmt(lkv)), v)
+                _ck_put("n2", "%s|%s" % (_fmt(cv), _fmt(lkv)), v, sig)
             t += len(v)
             if v:
                 U3[(cv, lkv)] = v
@@ -1093,10 +1118,11 @@ def main():
         for lkvB, (EB, gB, nB) in ll_ch.items():
             log("chain ell=3 singlet block %s x %s"
                 % (round(lkvA, 3), round(lkvB, 3)))
-            v = _ck_get("n3s", "%s|%s" % (_fmt(lkvA), _fmt(lkvB)))
+            sig = _ck_sig(Jr0, ("prod", gA, gB))
+            v = _ck_get("n3s", "%s|%s" % (_fmt(lkvA), _fmt(lkvB)), sig)
             if v is None:
                 v = hom_null(Jr0, ("prod", gA, gB))
-                _ck_put("n3s", "%s|%s" % (_fmt(lkvA), _fmt(lkvB)), v)
+                _ck_put("n3s", "%s|%s" % (_fmt(lkvA), _fmt(lkvB)), v, sig)
             Nc3s += len(v)
             if v:
                 U4[(lkvA, lkvB)] = v
