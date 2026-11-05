@@ -11,13 +11,13 @@
     "beta": 1.5707963267948966,
     "g": 1.5707963267948966,
     "order": 2,
-    "closest_vbar_to_1": 0.29289321881473807
+    "closest_vbar_to_1": 0.2928932188149014
    },
    {
     "beta": 1.5707963267948966,
     "g": 0.7853981633974483,
     "order": 4,
-    "closest_vbar_to_1": 0.2928932188180575
+    "closest_vbar_to_1": 0.2928932188182274
    },
    {
     "beta": 0.7853981633974483,
@@ -48,14 +48,14 @@
     "g": 1.5707963267948966,
     "sector_leakage": 2.3751978356800067e-16,
     "sector_block_err": 3.4460603862004946e-15,
-    "spectral_mirror_err": 2.220446049250313e-15
+    "spectral_mirror_err": 2.1094237467877974e-15
    },
    {
     "beta": 1.5707963267948966,
     "g": 0.7853981633974483,
-    "sector_leakage": 6.299326652093897e-16,
-    "sector_block_err": 2.3326348679404215e-15,
-    "spectral_mirror_err": 2.588207426157396e-15
+    "sector_leakage": 6.16079139687863e-16,
+    "sector_block_err": 2.198129442157285e-15,
+    "spectral_mirror_err": 2.886579864025407e-15
    },
    {
     "beta": 0.7853981633974483,
@@ -97,7 +97,7 @@
       -2.6179938779914944,
       -0.5235987755982991
      ],
-     "chirality": 1.0
+     "chirality": -1.0
     },
     {
      "beta": 1.5707963267948966,
@@ -117,7 +117,7 @@
       -2.0943951023931957,
       -1.0471975511965979
      ],
-     "chirality": 1.0
+     "chirality": -1.0
     },
     {
      "beta": 1.5707963267948966,
@@ -137,7 +137,7 @@
       -1.5707963267948966,
       -1.5707963267948966
      ],
-     "chirality": -1.0
+     "chirality": 1.0
     },
     {
      "beta": 1.5707963267948966,
@@ -147,7 +147,7 @@
       -3.141592653589793,
       -1.5707963267948966
      ],
-     "chirality": -1.0
+     "chirality": 1.0
     },
     {
      "beta": 1.5707963267948966,
@@ -197,7 +197,7 @@
       -2.6179938779914944,
       2.094395102393195
      ],
-     "chirality": -1.0
+     "chirality": 1.0
     },
     {
      "beta": 0.7853981633974483,
@@ -207,7 +207,7 @@
       0.0,
       0.0
      ],
-     "chirality": -1.0
+     "chirality": 1.0
     },
     {
      "beta": 0.7853981633974483,
@@ -257,14 +257,14 @@
       -3.141592653589793,
       0.0
      ],
-     "chirality": -1.0
+     "chirality": 1.0
     }
    ],
-   "sum": -2.0,
+   "sum": 4.0,
    "v63_closed_sum": -6.0,
    "v132_inapplicable_at_closed_clock": true
   },
-  "backend": "cupy"
+  "backend": "numpy"
  },
  "checks": [
   {
@@ -276,7 +276,7 @@
    "pass": true
   },
   {
-   "name": "K3 CPT on the two-dial step at all 3 dial points: 16<->16bar leakage max 6.30e-16, 16-block error max 3.45e-15, spectral mirror max 2.59e-15 (V63 published sector_leakage 5.65e-16, sector_block_err 1.94e-15); the mirror is beta-blind (the 45 generators are even, they commute with w)",
+   "name": "K3 CPT on the two-dial step at all 3 dial points: 16<->16bar leakage max 6.16e-16, 16-block error max 3.45e-15, spectral mirror max 2.89e-15 (V63 published sector_leakage 5.65e-16, sector_block_err 1.94e-15); the mirror is beta-blind (the 45 generators are even, they commute with w)",
    "pass": true
   },
   {
@@ -288,10 +288,10 @@
    "pass": true
   },
   {
-   "name": "K6 V63 chirality_at at the matched nodes of the dial points (18 nodes): signs [-1, 1], sum -2.0. V132's published fact: the point-node chirality convention is inapplicable at the closed clock at 12/12 nodes (the naive sum -6.0 is sign noise on flat tangents); V63 closed-clock sum = -6.0, V132's 1/5-clock control sum = {'grid_min_gap': 0.0005085414602753469, 'grid_min_at': [-0.4. The decoupled hop inherits the same convention-inapplicability (the flat tangent axis is a bond-factor property) - reported, not claimed fixed",
+   "name": "K6 V63 chirality_at at the matched nodes of the dial points (18 nodes): signs [-1, 1], sum 4.0. V132's published fact: the point-node chirality convention is inapplicable at the closed clock at 12/12 nodes (the naive sum -4.0 is sign noise on flat tangents); V63 closed-clock sum = -6.0, V132's 1/5-clock control sum = {'grid_min_gap': 0.0005085414602747917, 'grid_min_at': [-0.4. The decoupled hop inherits the same convention-inapplicability (the flat tangent axis is a bond-factor property) - reported, not claimed fixed",
    "pass": true
   }
  ],
- "status": "TWO-DIAL ALGEBRA REPLICATION, REPLICATION-OK (zero fitted parameters, 1 s): at the three closure points whose nodes come closest to c = 1 ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]), the tier-0-3 algebraic kernels of the published theory survive the hop decoupling: matter content (36 levels, Tr Y = Tr Y^3 = 0), the exact-zero anomalies (V11), CPT (sector leakage <= 6.3e-16, spectral mirror <= 2.6e-15), the 45 internal generators and the Yukawa content are beta-blind by construction and numerically unchanged; the only kinematic kernel, the V63 node chirality, inherits V132's closed-clock convention-inapplicability. Decoupling the hop breaks no algebraic win.",
+ "status": "TWO-DIAL ALGEBRA REPLICATION, REPLICATION-OK (zero fitted parameters, 1 s): at the three closure points whose nodes come closest to c = 1 ([(1.5708, 1.5708), (1.5708, 0.7854), (0.7854, 1.5708)]), the tier-0-3 algebraic kernels of the published theory survive the hop decoupling: matter content (36 levels, Tr Y = Tr Y^3 = 0), the exact-zero anomalies (V11), CPT (sector leakage <= 6.2e-16, spectral mirror <= 2.9e-15), the 45 internal generators and the Yukawa content are beta-blind by construction and numerically unchanged; the only kinematic kernel, the V63 node chirality, inherits V132's closed-clock convention-inapplicability. Decoupling the hop breaks no algebraic win.",
  "pass": true
 }

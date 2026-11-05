@@ -3,31 +3,31 @@
  "data": {
   "coarse": {
    "grid": 15,
-   "min_gap": 0.0005085414602750693
+   "min_gap": 0.0005085414602747362
   },
   "node": {
-   "gap": 4.18554080283684e-14,
+   "gap": 4.168887457467463e-14,
    "q0": [
     -2.1890560982273333,
     -1.4445960718722506,
     0.0
    ],
-   "gap_at_q0": 9.637457498712365e-12,
+   "gap_at_q0": 9.637290965258671e-12,
    "star_size": 24,
    "stabilizer_order": 2,
    "orbits": 12
   },
   "zero": {
-   "gap_at_q0": 9.637457498712365e-12,
+   "gap_at_q0": 9.637290965258671e-12,
    "in_plane_profile": {
-    "1e-03": 0.00017727463921324293,
-    "1e-02": 0.0017707458120722608,
-    "5e-02": 0.00880855687469223
+    "1e-03": 0.0001772746392130764,
+    "1e-02": 0.0017707458120720942,
+    "5e-02": 0.008808556874692064
    },
    "profile_over_gap": [
-    18394336.80894864,
-    183735784.2884231,
-    913991773.8541641
+    18394654.665105697,
+    183738959.26307815,
+    914007567.7330799
    ]
   },
   "dispersion": {
@@ -61,9 +61,9 @@
    "v_max": 0.2193,
    "anisotropy": 0.8565891472868217,
    "off_plane_gap": {
-    "1e-01": 0.0005066565062487594,
-    "1e-02": 5.067729390406672e-06,
-    "1e-03": 5.066786951113401e-08
+    "1e-01": 0.0005066565062489259,
+    "1e-02": 5.067729390573206e-06,
+    "1e-03": 5.066786967766746e-08
    }
   },
   "little_group": {
@@ -81,7 +81,7 @@
    "pass": true
   },
   {
-   "name": "T2 the gap at the refined point is 9.6e-12, while moving 1e-3, 1e-2, 5e-2 along the plane costs {'1e-03': '1.8e-04', '1e-02': '1.8e-03', '5e-02': '8.8e-03'} - a factor 913991773 above the point value: the gap vanishes at the point and grows linearly away from it, the signature of a simple zero, not a floor",
+   "name": "T2 the gap at the refined point is 9.6e-12, while moving 1e-3, 1e-2, 5e-2 along the plane costs {'1e-03': '1.8e-04', '1e-02': '1.8e-03', '5e-02': '8.8e-03'} - a factor 914007567 above the point value: the gap vanishes at the point and grows linearly away from it, the signature of a simple zero, not a floor",
    "pass": true
   },
   {

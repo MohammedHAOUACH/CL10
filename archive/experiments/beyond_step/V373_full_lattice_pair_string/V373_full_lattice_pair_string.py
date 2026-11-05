@@ -85,13 +85,16 @@ import time
 os.environ.setdefault("OMP_NUM_THREADS", "4")
 os.environ.setdefault("MKL_NUM_THREADS", "4")
 
-# Pinned BEFORE any cl10 import: this experiment is a combinatorial
-# fusion census of small clusters, not big linear algebra. On cupy it ran
-# 6623 s (vs ~25 min on numpy, byte-identical verdict) and its host-side
-# staging grew into the tens of GB - the 2026-11-05 fold froze the box at
-# 59/62 GiB while the inference server held 52 GiB. The numpy pin is the
-# same safety the cone programme scripts carry.
-os.environ["CL10_BACKEND"] = "numpy"
+# NOT numpy-pinnable (measured 2026-11-05, twice): the big chain blocks
+# (s ~ 1.3e7) go through the host ARPACK fallback, whose workd is
+# 3*ncv*s fp64 - ~10 GB - and whose matvecs take minutes each. The
+# pinned run died at the cgroup cap after 2716 s; the unpinned run on a
+# FULL card OOMed the card and the host (59/62 GiB). The published route
+# is the GPU big-block path of hom_null (fp32 Lanczos + fp64 polish);
+# it needs a GPU CARD WITH ROOM. The fold runner therefore pins it to a
+# free card from the outside (CUDA_VISIBLE_DEVICES) and runs the whole
+# sweep under a cgroup memory cap, so a runaway experiment is killed
+# (visible FAILED) instead of freezing the box.
 
 import numpy as np
 import scipy.sparse.linalg as spla

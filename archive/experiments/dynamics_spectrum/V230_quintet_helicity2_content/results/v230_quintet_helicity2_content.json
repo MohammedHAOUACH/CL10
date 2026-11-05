@@ -126,51 +126,51 @@
     "irreps": {
      "sym^0": {
       "dimension": 1,
-      "projector_rank": 8.922623008227133e-17,
-      "multiplicity": 8.922623008227133e-17,
+      "projector_rank": 5.298179261907427e-17,
+      "multiplicity": 5.298179261907427e-17,
       "basis_count": 0,
-      "hermiticity_defect": 1.536270057191454e-17,
-      "idempotency_defect": 1.24716766557524e-17
+      "hermiticity_defect": 1.4802973661668754e-17,
+      "idempotency_defect": 1.4762787398809245e-17
      },
      "sym^1": {
       "dimension": 2,
-      "projector_rank": 32.000000000000014,
-      "multiplicity": 16.000000000000007,
+      "projector_rank": 32.00000000000003,
+      "multiplicity": 16.000000000000014,
       "basis_count": 32,
-      "hermiticity_defect": 1.262398081224171e-16,
-      "idempotency_defect": 5.27836898610756e-16
+      "hermiticity_defect": 1.6438736123006356e-16,
+      "idempotency_defect": 5.551919799029146e-16
      },
      "sym^2": {
       "dimension": 3,
-      "projector_rank": 3.2132959178813795e-15,
-      "multiplicity": 1.0710986392937932e-15,
+      "projector_rank": 3.111754860253909e-15,
+      "multiplicity": 1.0372516200846364e-15,
       "basis_count": 0,
-      "hermiticity_defect": 1.022673699196952e-16,
-      "idempotency_defect": 7.593865946244521e-17
+      "hermiticity_defect": 1.0815898766385294e-16,
+      "idempotency_defect": 8.098762354121636e-17
      },
      "sym^3": {
       "dimension": 4,
       "projector_rank": 64.00000000000004,
       "multiplicity": 16.00000000000001,
       "basis_count": 64,
-      "hermiticity_defect": 4.916648255427464e-16,
-      "idempotency_defect": 1.182627150547274e-15
+      "hermiticity_defect": 4.433086609875384e-16,
+      "idempotency_defect": 1.3528759333804705e-15
      },
      "sym^4": {
       "dimension": 5,
-      "projector_rank": 5.605338448116679e-16,
-      "multiplicity": 1.1210676896233357e-16,
+      "projector_rank": 7.064327696109291e-16,
+      "multiplicity": 1.412865539221858e-16,
       "basis_count": 0,
-      "hermiticity_defect": 2.0308603736647433e-16,
-      "idempotency_defect": 1.5248088080603855e-16
+      "hermiticity_defect": 2.1570918127290624e-16,
+      "idempotency_defect": 1.7205041329402684e-16
      },
      "sym^5": {
       "dimension": 6,
-      "projector_rank": 96.00000000000004,
-      "multiplicity": 16.000000000000007,
+      "projector_rank": 96.00000000000006,
+      "multiplicity": 16.00000000000001,
       "basis_count": 96,
-      "hermiticity_defect": 1.1562881926962544e-15,
-      "idempotency_defect": 1.3589960773148655e-15
+      "hermiticity_defect": 1.0408340855860843e-15,
+      "idempotency_defect": 1.5156133818568223e-15
      }
     },
     "note": "V225: the gap cluster is the coin-spinor representation times the internal sector - helicity 1/2 content, no quintet piece"
