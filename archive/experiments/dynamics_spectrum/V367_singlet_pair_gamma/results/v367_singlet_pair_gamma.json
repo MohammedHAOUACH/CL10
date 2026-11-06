@@ -9,17 +9,17 @@
   "gates": {
    "c1": 3.3306690738754696e-16,
    "c2_kernel_dim": 2,
-   "c2_resid": 4.8238265158694635e-15,
+   "c2_resid": 5.048056045329409e-15,
    "g2_plane_span": 1.5788995281571398e-15,
    "g2_product": 4.552696590625486e-15,
-   "g2_spot_rel": 1.3340455554576064e-15,
-   "g1_unitarity": 7.993605777301127e-15,
+   "g2_spot_rel": 1.3322857520668944e-15,
+   "g1_unitarity": 9.769962616701378e-15,
    "g3_anomaly": 0.0
   },
   "window_gaps": {
    "0": 0.0,
-   "plus": 1.0066516641284449,
-   "minus": 1.0066516641284435
+   "plus": 1.0066516641284426,
+   "minus": 1.0066516641284444
   },
   "composite_phases_first16": [
    -3.141592653589793,
@@ -42,7 +42,7 @@
  },
  "checks": [
   {
-   "name": "C2 anchor: E4 kernel dim 2 (V366 booked 2), ||C2 W|| 4.8e-15: True",
+   "name": "C2 anchor: E4 kernel dim 2 (V366 booked 2), ||C2 W|| 5.0e-15: True",
    "pass": true
   },
   {
@@ -54,7 +54,7 @@
    "pass": true
   },
   {
-   "name": "G1 contact-basis step unitarity (128x128, flux phase is a scalar): defect 8.0e-15: True",
+   "name": "G1 contact-basis step unitarity (128x128, flux phase is a scalar): defect 9.8e-15: True",
    "pass": true
   },
   {

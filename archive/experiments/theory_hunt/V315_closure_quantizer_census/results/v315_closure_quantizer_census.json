@@ -165562,7 +165562,7 @@
    "residual": 7.867207079039827e+34
   },
   "status": "QUANTIZER-NEGATIVE",
-  "wall_time": 767.9184968471527,
+  "wall_time": 758.1133058071136,
   "fitted_inputs": []
  },
  "checks": [

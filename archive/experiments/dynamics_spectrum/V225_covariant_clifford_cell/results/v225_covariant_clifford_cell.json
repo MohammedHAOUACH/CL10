@@ -4,7 +4,7 @@
   "property": "the 2I-covariant star cell with a Clifford bond layer: the exactness of the intertwining, the node arithmetic in the internal-map exponent, the 2I content of the gap subspace, the tangent algebra's anticommutators, commutators and velocity spectra per irrep piece, and the exponent of the dispersion tracked through the gap subspace",
   "residual": true,
   "pass": true,
-  "status": "2I-COVARIANT CLIFFORD STAR CELL at the default clock g = 0.785398 (layers 1, internal exponent 4). (T1) the bond operators U_d = -(vhat_d . sigma) intertwine the binary icosahedral action exactly (3.5e-15 over 120 lifts, U_d^2 = 1 to 2.2e-16, U_(-d) = -U_d to 0.0e+00); the six axes are six equiangular lines at 0.447214 with fourth-moment defect 2.7e-15 where the cubic axes give 0.400; the step is 2I-invariant at the zone centre to 2.5e-15 and inversion is broken by 1.414. The census on 2I: 1.0 linear equivariant, so v.sigma.q is forced, and the first anisotropic equivariant sits at degree 5. (T2) the internal map has order 8 (U16^8 - I = 5.8e-15, U16^4 - I = 2.0e+00) and with the Clifford layer the kinetic phases at the zone centre are pinned to 0 and pi, so the node closes exactly for exponent 0 or 4 mod 8: 14 of 42 entries gapless, and the measured cell has gap 1.4e-17 with 192 zero eigenphases of 384. (T3) the cluster of 192 vectors splits as sym^1 x16, sym^3 x16, sym^5 x16 -- the coin-spinor representation times the internal sector, the projectors idempotent to 1.5e-15. (T4) on that subspace the three generators have equal norms 10.7600, 10.7600, 10.7600 (spread 7.1e-15); they COMMUTE (2.1e-14, 1.9e-14, 1.9e-14), which is the Abelian case V216 excluded, so the cluster as a whole does not carry the Clifford identity -- its off-diagonal anticommutators are 1.62, where V215 measured failures of 2.000 and 0.444 -- and the velocity spectrum is identical in the three directions to 3.1e-15. Per piece: sym^1 speeds [[0.448332, 32]]; sym^3 speeds [[0.089666, 32], [0.268999, 32]]; sym^5 speeds [[0.186477, 32], [0.682352, 32], [0.764874, 32]] -- the 2-dimensional spinor piece sym^1 carries the Clifford module exactly: anticommutators 5.0e-16, squares 0.201002 times the identity (scalar defect 4.7e-16), and one speed 0.448332 with multiplicity 32; the higher symmetric powers do not carry it (sym^3: 2.0e-02, sym^5: 1.5e-01); the generators are normal throughout (non-normality at most 7.4e-15). (T5) the phase spread tracked through the cluster is linear (exponent 1) in all 19 tracked directions (1 of the 20 sampled rays carry bands pinned at phase zero to machine precision and lie in the gapless set): inner-edge exponent 1.0000..1.0000, outer-edge 1.0000..1.0000, outer velocities 1.0688..1.3441. (T6) controls: the spinless assignment is gapless with inversion unbroken (0.0e+00) and exponent [2.0] on the 1 of 2 sampled rays that open at all, the other 1 staying gapless at every radius: quadratic at the edge that does open, as Proposition 6 says, and a gapless set rather than a point, as V227 T5 measures for the Clifford cell. Its tangent generator compressed to the touching subspace of norm 0.00; the quaternionic bond assignment intertwines exactly (3.5e-15) but its bonds square to minus the identity (2.0), and the cell built on it has no node at all (gap 1.571).",
+  "status": "2I-COVARIANT CLIFFORD STAR CELL at the default clock g = 0.785398 (layers 1, internal exponent 4). (T1) the bond operators U_d = -(vhat_d . sigma) intertwine the binary icosahedral action exactly (3.5e-15 over 120 lifts, U_d^2 = 1 to 2.2e-16, U_(-d) = -U_d to 0.0e+00); the six axes are six equiangular lines at 0.447214 with fourth-moment defect 2.7e-15 where the cubic axes give 0.400; the step is 2I-invariant at the zone centre to 2.5e-15 and inversion is broken by 1.414. The census on 2I: 1.0 linear equivariant, so v.sigma.q is forced, and the first anisotropic equivariant sits at degree 5. (T2) the internal map has order 8 (U16^8 - I = 4.9e-15, U16^4 - I = 2.0e+00) and with the Clifford layer the kinetic phases at the zone centre are pinned to 0 and pi, so the node closes exactly for exponent 0 or 4 mod 8: 14 of 42 entries gapless, and the measured cell has gap 1.4e-17 with 192 zero eigenphases of 384. (T3) the cluster of 192 vectors splits as sym^1 x16, sym^3 x16, sym^5 x16 -- the coin-spinor representation times the internal sector, the projectors idempotent to 1.4e-15. (T4) on that subspace the three generators have equal norms 10.7600, 10.7600, 10.7600 (spread 1.1e-14); they COMMUTE (2.2e-14, 2.0e-14, 2.0e-14), which is the Abelian case V216 excluded, so the cluster as a whole does not carry the Clifford identity -- its off-diagonal anticommutators are 1.62, where V215 measured failures of 2.000 and 0.444 -- and the velocity spectrum is identical in the three directions to 7.5e-15. Per piece: sym^1 speeds [[0.448332, 32]]; sym^3 speeds [[0.089666, 32], [0.268999, 32]]; sym^5 speeds [[0.186477, 32], [0.682352, 32], [0.764874, 32]] -- the 2-dimensional spinor piece sym^1 carries the Clifford module exactly: anticommutators 4.8e-16, squares 0.201002 times the identity (scalar defect 4.3e-16), and one speed 0.448332 with multiplicity 32; the higher symmetric powers do not carry it (sym^3: 2.4e-02, sym^5: 1.3e-01); the generators are normal throughout (non-normality at most 7.5e-15). (T5) the phase spread tracked through the cluster is linear (exponent 1) in all 19 tracked directions (1 of the 20 sampled rays carry bands pinned at phase zero to machine precision and lie in the gapless set): inner-edge exponent 1.0000..1.0000, outer-edge 1.0000..1.0000, outer velocities 1.0688..1.3441. (T6) controls: the spinless assignment is gapless with inversion unbroken (0.0e+00) and exponent [2.0] on the 1 of 2 sampled rays that open at all, the other 1 staying gapless at every radius: quadratic at the edge that does open, as Proposition 6 says, and a gapless set rather than a point, as V227 T5 measures for the Clifford cell. Its tangent generator compressed to the touching subspace of norm 0.00; the quaternionic bond assignment intertwines exactly (3.5e-15) but its bonds square to minus the identity (2.0), and the cell built on it has no node at all (gap 1.571).",
   "data": {
     "clock": 0.7853981633974483,
     "branch": "default",
@@ -49,8 +49,8 @@
       }
     },
     "invariance": {
-      "covariance_defect": 2.488019618569667e-15,
-      "inversion_defect_at_origin": 1.414213562373094
+      "covariance_defect": 2.488045372620827e-15,
+      "inversion_defect_at_origin": 1.4142135623730943
     },
     "twoI": {
       "order": 120,
@@ -137,7 +137,7 @@
         "kind": "clifford",
         "layers": 1,
         "internal_exponent": 3,
-        "gap": 0.7853981633974427,
+        "gap": 0.7853981633974426,
         "gapless_count": 0,
         "dim": 384
       },
@@ -145,7 +145,7 @@
         "kind": "clifford",
         "layers": 1,
         "internal_exponent": 4,
-        "gap": 1.3877787807814444e-17,
+        "gap": 1.3877787807814494e-17,
         "gapless_count": 192,
         "dim": 384
       },
@@ -153,7 +153,7 @@
         "kind": "clifford",
         "layers": 1,
         "internal_exponent": 6,
-        "gap": 1.5707963267948848,
+        "gap": 1.570796326794885,
         "gapless_count": 0,
         "dim": 384
       },
@@ -161,7 +161,7 @@
         "kind": "clifford",
         "layers": 1,
         "internal_exponent": 12,
-        "gap": 6.938893903907236e-18,
+        "gap": 7.459310946700279e-17,
         "gapless_count": 192,
         "dim": 384
       },
@@ -193,7 +193,7 @@
         "kind": "clifford",
         "layers": 2,
         "internal_exponent": 3,
-        "gap": 0.7853981633974422,
+        "gap": 0.7853981633974421,
         "gapless_count": 0,
         "dim": 768
       },
@@ -201,7 +201,7 @@
         "kind": "clifford",
         "layers": 2,
         "internal_exponent": 4,
-        "gap": 4.4673675654774653e-17,
+        "gap": 7.806255641895368e-18,
         "gapless_count": 384,
         "dim": 768
       },
@@ -209,7 +209,7 @@
         "kind": "clifford",
         "layers": 2,
         "internal_exponent": 6,
-        "gap": 1.5707963267948846,
+        "gap": 1.5707963267948848,
         "gapless_count": 0,
         "dim": 768
       },
@@ -217,7 +217,7 @@
         "kind": "clifford",
         "layers": 2,
         "internal_exponent": 12,
-        "gap": 0.0,
+        "gap": 8.673617379884025e-18,
         "gapless_count": 384,
         "dim": 768
       },
@@ -233,7 +233,7 @@
         "kind": "vector",
         "layers": 1,
         "internal_exponent": 1,
-        "gap": 0.7853981633974461,
+        "gap": 0.7853981633974465,
         "gapless_count": 0,
         "dim": 384
       },
@@ -249,7 +249,7 @@
         "kind": "vector",
         "layers": 1,
         "internal_exponent": 3,
-        "gap": 0.7853981633974424,
+        "gap": 0.7853981633974421,
         "gapless_count": 0,
         "dim": 384
       },
@@ -257,7 +257,7 @@
         "kind": "vector",
         "layers": 1,
         "internal_exponent": 4,
-        "gap": 1.570796326794889,
+        "gap": 1.5707963267948886,
         "gapless_count": 0,
         "dim": 384
       },
@@ -265,7 +265,7 @@
         "kind": "vector",
         "layers": 1,
         "internal_exponent": 6,
-        "gap": 2.7105054312137717e-19,
+        "gap": 1.105886215935215e-17,
         "gapless_count": 192,
         "dim": 384
       },
@@ -273,7 +273,7 @@
         "kind": "vector",
         "layers": 1,
         "internal_exponent": 12,
-        "gap": 1.5707963267948737,
+        "gap": 1.5707963267948732,
         "gapless_count": 0,
         "dim": 384
       },
@@ -281,7 +281,7 @@
         "kind": "vector",
         "layers": 2,
         "internal_exponent": 0,
-        "gap": 1.5707963267948957,
+        "gap": 1.570796326794896,
         "gapless_count": 0,
         "dim": 768
       },
@@ -305,7 +305,7 @@
         "kind": "vector",
         "layers": 2,
         "internal_exponent": 3,
-        "gap": 0.7853981633974424,
+        "gap": 0.7853981633974428,
         "gapless_count": 0,
         "dim": 768
       },
@@ -313,7 +313,7 @@
         "kind": "vector",
         "layers": 2,
         "internal_exponent": 4,
-        "gap": 1.5707963267948886,
+        "gap": 1.5707963267948892,
         "gapless_count": 0,
         "dim": 768
       },
@@ -321,7 +321,7 @@
         "kind": "vector",
         "layers": 2,
         "internal_exponent": 6,
-        "gap": 3.295974604355965e-17,
+        "gap": 6.938893903907102e-18,
         "gapless_count": 384,
         "dim": 768
       },
@@ -353,7 +353,7 @@
         "kind": "scalar",
         "layers": 1,
         "internal_exponent": 2,
-        "gap": 0.7853981633974444,
+        "gap": 0.7853981633974441,
         "gapless_count": 0,
         "dim": 384
       },
@@ -361,7 +361,7 @@
         "kind": "scalar",
         "layers": 1,
         "internal_exponent": 3,
-        "gap": 1.5265566588595907e-16,
+        "gap": 3.209238430557103e-17,
         "gapless_count": 72,
         "dim": 384
       },
@@ -369,7 +369,7 @@
         "kind": "scalar",
         "layers": 1,
         "internal_exponent": 4,
-        "gap": 2.356194490192337,
+        "gap": 2.3561944901923364,
         "gapless_count": 0,
         "dim": 384
       },
@@ -377,7 +377,7 @@
         "kind": "scalar",
         "layers": 1,
         "internal_exponent": 6,
-        "gap": 0.7853981633974362,
+        "gap": 0.7853981633974365,
         "gapless_count": 0,
         "dim": 384
       },
@@ -409,7 +409,7 @@
         "kind": "scalar",
         "layers": 2,
         "internal_exponent": 2,
-        "gap": 0.7853981633974446,
+        "gap": 0.7853981633974441,
         "gapless_count": 0,
         "dim": 768
       },
@@ -417,7 +417,7 @@
         "kind": "scalar",
         "layers": 2,
         "internal_exponent": 3,
-        "gap": 4.3368086899420254e-18,
+        "gap": 0.0,
         "gapless_count": 192,
         "dim": 768
       },
@@ -425,7 +425,7 @@
         "kind": "scalar",
         "layers": 2,
         "internal_exponent": 4,
-        "gap": 0.7853981633974397,
+        "gap": 0.7853981633974407,
         "gapless_count": 0,
         "dim": 768
       },
@@ -433,7 +433,7 @@
         "kind": "scalar",
         "layers": 2,
         "internal_exponent": 6,
-        "gap": 0.7853981633974367,
+        "gap": 0.7853981633974343,
         "gapless_count": 0,
         "dim": 768
       },
@@ -441,7 +441,7 @@
         "kind": "scalar",
         "layers": 2,
         "internal_exponent": 12,
-        "gap": 0.7853981633974234,
+        "gap": 0.7853981633974229,
         "gapless_count": 0,
         "dim": 768
       }
@@ -452,164 +452,158 @@
         4
       ],
       "dim": 384,
-      "internal_order_defect_8": 5.773193775297521e-15,
-      "internal_order_defect_4": 1.999999999999999
+      "internal_order_defect_8": 4.927755118065419e-15,
+      "internal_order_defect_4": 1.9999999999999991
     },
     "node": {
-      "gap": 1.3877787807814444e-17,
+      "gap": 1.3877787807814494e-17,
       "gapless_count": 192,
       "cluster": 192,
       "irreps": {
         "sym^0": {
           "dimension": 1,
-          "projector_rank": 5.298179261907427e-17,
-          "multiplicity": 5.298179261907427e-17,
+          "projector_rank": 8.922623008227133e-17,
+          "multiplicity": 8.922623008227133e-17,
           "basis_count": 0,
-          "hermiticity_defect": 1.4802973661668754e-17,
-          "idempotency_defect": 1.4762787398809245e-17
+          "hermiticity_defect": 1.536270057191454e-17,
+          "idempotency_defect": 1.24716766557524e-17
         },
         "sym^1": {
           "dimension": 2,
-          "projector_rank": 32.00000000000003,
-          "multiplicity": 16.000000000000014,
+          "projector_rank": 32.000000000000014,
+          "multiplicity": 16.000000000000007,
           "basis_count": 32,
-          "hermiticity_defect": 1.6438736123006356e-16,
-          "idempotency_defect": 5.551919799029146e-16
+          "hermiticity_defect": 1.262398081224171e-16,
+          "idempotency_defect": 5.27836898610756e-16
         },
         "sym^2": {
           "dimension": 3,
-          "projector_rank": 3.111754860253909e-15,
-          "multiplicity": 1.0372516200846364e-15,
+          "projector_rank": 3.2132959178813795e-15,
+          "multiplicity": 1.0710986392937932e-15,
           "basis_count": 0,
-          "hermiticity_defect": 1.0815898766385294e-16,
-          "idempotency_defect": 8.098762354121636e-17
+          "hermiticity_defect": 1.022673699196952e-16,
+          "idempotency_defect": 7.593865946244521e-17
         },
         "sym^3": {
           "dimension": 4,
           "projector_rank": 64.00000000000004,
           "multiplicity": 16.00000000000001,
           "basis_count": 64,
-          "hermiticity_defect": 4.433086609875384e-16,
-          "idempotency_defect": 1.3528759333804705e-15
+          "hermiticity_defect": 4.916648255427464e-16,
+          "idempotency_defect": 1.182627150547274e-15
         },
         "sym^4": {
           "dimension": 5,
-          "projector_rank": 7.064327696109291e-16,
-          "multiplicity": 1.412865539221858e-16,
+          "projector_rank": 5.605338448116679e-16,
+          "multiplicity": 1.1210676896233357e-16,
           "basis_count": 0,
-          "hermiticity_defect": 2.1570918127290624e-16,
-          "idempotency_defect": 1.7205041329402684e-16
+          "hermiticity_defect": 2.0308603736647433e-16,
+          "idempotency_defect": 1.5248088080603855e-16
         },
         "sym^5": {
           "dimension": 6,
-          "projector_rank": 96.00000000000006,
-          "multiplicity": 16.00000000000001,
+          "projector_rank": 96.00000000000004,
+          "multiplicity": 16.000000000000007,
           "basis_count": 96,
-          "hermiticity_defect": 1.0408340855860843e-15,
-          "idempotency_defect": 1.5156133818568223e-15
+          "hermiticity_defect": 1.1562881926962544e-15,
+          "idempotency_defect": 1.3589960773148655e-15
         }
       }
     },
     "tangent": {
       "norms": [
-        10.759976191423291,
-        10.759976191423284,
-        10.759976191423286
+        10.75997619142327,
+        10.75997619142328,
+        10.759976191423272
       ],
       "anticommutators": [
-        1.4488403275755748,
-        1.2497341845483152,
-        1.6180339887498913
+        1.5325650918918086,
+        1.3362886115677424,
+        1.618033988749895
       ],
       "commutators": [
-        2.1080915136017514e-14,
-        1.9458467995323517e-14,
-        1.916495899454634e-14
+        2.1901775044614012e-14,
+        2.0026511838795413e-14,
+        1.9601178034627493e-14
       ],
       "square_max": [
-        1.1402468871713556,
-        1.2720001775253038,
-        1.3090169943749466
+        1.1426975364614074,
+        1.2662825459459035,
+        1.309016994374949
       ],
       "spectra": {
         "d0": {
-          "frobenius": 10.759976191423291,
+          "frobenius": 10.75997619142327,
           "levels": [
             [
-              1.2172812566793812e-17,
+              8.048374447936416e-18,
               64
             ],
             [
-              0.7071067811865421,
+              0.7071067811865422,
               64
             ],
             [
-              1.1441228056353592,
+              1.1441228056353578,
               64
             ]
           ],
-          "min": 1.2172812566793812e-17,
-          "max": 1.144122805635376
+          "min": 8.048374447936416e-18,
+          "max": 1.1441228056353765
         },
         "d1": {
-          "frobenius": 10.759976191423284,
+          "frobenius": 10.75997619142328,
           "levels": [
             [
-              3.261110026882871e-17,
+              4.0844723060207805e-17,
               64
             ],
             [
-              0.7071067811865409,
+              0.7071067811865417,
               64
             ],
             [
-              1.1441228056353598,
+              1.1441228056353587,
               64
             ]
           ],
-          "min": 3.261110026882871e-17,
-          "max": 1.144122805635375
+          "min": 4.0844723060207805e-17,
+          "max": 1.1441228056353774
         },
         "d2": {
-          "frobenius": 10.759976191423286,
+          "frobenius": 10.759976191423272,
           "levels": [
             [
-              9.107550097282963e-16,
+              9.258510643503985e-16,
               64
             ],
             [
-              0.7071067811865425,
+              0.7071067811865426,
               64
             ],
             [
-              1.1441228056353607,
+              1.1441228056353585,
               64
             ]
           ],
-          "min": 9.107550097282963e-16,
-          "max": 1.1441228056353774
+          "min": 9.258510643503985e-16,
+          "max": 1.144122805635384
         }
       },
       "spectra_difference": [
-        2.886579864025407e-15,
-        3.1086244689504383e-15,
-        2.6645352591003757e-15
+        2.3314683517128287e-15,
+        6.661338147750939e-15,
+        7.549516567451064e-15
       ],
       "per_irrep": {
         "sym^1": {
           "size": 32,
           "norms": [
-            2.5361507101204004,
             2.5361507101204,
-            2.5361507101204
+            2.5361507101203995,
+            2.536150710120399
           ],
           "levels": [
-            [
-              [
-                0.44833234130930166,
-                32
-              ]
-            ],
             [
               [
                 0.4483323413093015,
@@ -618,32 +612,38 @@
             ],
             [
               [
-                0.44833234130930144,
+                0.4483323413093012,
+                32
+              ]
+            ],
+            [
+              [
+                0.4483323413093014,
                 32
               ]
             ]
           ],
           "spectra_diff": [
-            6.661338147750939e-16,
-            6.106226635438361e-16,
+            5.551115123125783e-16,
+            3.3306690738754696e-16,
             5.551115123125783e-16
           ],
-          "anticommutator_defect": 4.983741487213084e-16,
-          "square_max": 0.2010018882638821,
-          "square_defect": 4.722059888593535e-16,
-          "nonnormality": 1.8502472321590178e-15
+          "anticommutator_defect": 4.845100550708747e-16,
+          "square_max": 0.20100188826388185,
+          "square_defect": 4.26320989139881e-16,
+          "nonnormality": 1.8842322904948262e-15
         },
         "sym^3": {
           "size": 64,
           "norms": [
-            1.6040025466867829,
+            1.604002546686782,
             1.6040025466867818,
             1.6040025466867822
           ],
           "levels": [
             [
               [
-                0.08966646826185933,
+                0.08966646826185905,
                 32
               ],
               [
@@ -653,64 +653,64 @@
             ],
             [
               [
-                0.08966646826185919,
+                0.08966646826185933,
                 32
               ],
               [
-                0.2689994047855796,
+                0.2689994047855809,
                 32
               ]
             ],
             [
               [
-                0.08966646826185955,
+                0.0896664682618594,
                 32
               ],
               [
-                0.2689994047855802,
+                0.26899940478558043,
                 32
               ]
             ]
           ],
           "spectra_diff": [
-            9.43689570931383e-16,
-            6.106226635438361e-16,
-            4.440892098500626e-16
+            7.216449660063518e-16,
+            1.0547118733938987e-15,
+            5.273559366969494e-16
           ],
-          "anticommutator_defect": 0.019689801216207243,
-          "square_max": 0.05005058315759203,
-          "square_defect": 0.01148369510748039,
-          "nonnormality": 1.2455546435280822e-15
+          "anticommutator_defect": 0.024387888900428804,
+          "square_max": 0.052078937456375735,
+          "square_defect": 0.012806842466926507,
+          "nonnormality": 1.2660987553604197e-15
         },
         "sym^5": {
           "size": 96,
           "norms": [
-            5.893481678261051,
-            5.893481678261051,
-            5.8934816782610575
+            5.893481678261052,
+            5.893481678261053,
+            5.89348167826105
           ],
           "levels": [
             [
               [
-                0.1864771483940067,
+                0.18647714839400717,
                 32
               ],
               [
-                0.6823518582658352,
+                0.6823518582658356,
                 32
               ],
               [
-                0.764874114657408,
+                0.7648741146574091,
                 32
               ]
             ],
             [
               [
-                0.1864771483940068,
+                0.1864771483940069,
                 32
               ],
               [
-                0.6823518582658326,
+                0.6823518582658342,
                 32
               ],
               [
@@ -720,28 +720,28 @@
             ],
             [
               [
-                0.18647714839400764,
+                0.1864771483940068,
                 32
               ],
               [
-                0.6823518582658339,
+                0.6823518582658329,
                 32
               ],
               [
-                0.7648741146574095,
+                0.7648741146574086,
                 32
               ]
             ]
           ],
           "spectra_diff": [
-            2.6645352591003757e-15,
-            5.995204332975845e-15,
-            5.662137425588298e-15
+            1.6653345369377348e-15,
+            2.1094237467877974e-15,
+            2.9976021664879227e-15
           ],
-          "anticommutator_defect": 0.14957601458175382,
-          "square_max": 0.5374984333804693,
-          "square_defect": 0.25024215768673386,
-          "nonnormality": 7.351250905053603e-15
+          "anticommutator_defect": 0.13172618324106303,
+          "square_max": 0.5319451651238198,
+          "square_defect": 0.24245822775413806,
+          "nonnormality": 7.506491682313813e-15
         }
       }
     },
@@ -749,88 +749,88 @@
       "directions": 20,
       "tracked": 19,
       "exponent_inner": [
-        0.9999999996777263,
-        0.9999999735299947,
-        0.9999999841437746,
-        0.9999986193142608,
-        0.9999998657331576,
-        0.9999992502991251,
-        0.9999999906598299,
-        0.9999998231845761,
-        0.999999879848582,
-        0.9999999847843274,
-        0.9999998489920897,
-        0.9999998801833225,
-        0.9999992370648249,
-        0.999998727682123,
-        0.9999995769850001,
-        0.9999998858113072,
-        0.9999995343752018,
-        0.999999996116574,
-        0.9999997178374436
+        0.9999999997323727,
+        0.9999999735305465,
+        0.9999999841429791,
+        0.9999986193144252,
+        0.9999998657355118,
+        0.9999992502970678,
+        0.9999999906744861,
+        0.9999998231718356,
+        0.9999998798440115,
+        0.9999999847723517,
+        0.9999998489875253,
+        0.9999998801818304,
+        0.9999992370655731,
+        0.999998727681418,
+        0.999999576985998,
+        0.9999998858094947,
+        0.9999995343734601,
+        0.9999999961357536,
+        0.9999997178339141
       ],
       "exponent_outer": [
-        0.9999935196564884,
-        0.99999405591966,
-        0.9999938244768483,
-        0.9999919909335804,
-        0.9999931137524415,
-        0.9999922303541431,
-        0.9999935750909984,
-        0.9999927483586982,
-        0.9999929294443962,
-        0.9999933136696793,
-        0.9999928754788782,
-        0.9999932394585934,
-        0.9999921848491266,
-        0.9999920039240265,
-        0.9999925200093022,
-        0.9999944140406009,
-        0.9999925320263864,
-        0.9999939008845916,
-        0.9999949360051557
+        0.9999935196571802,
+        0.999994055920415,
+        0.9999938244765466,
+        0.999991990933048,
+        0.9999931137530167,
+        0.9999922303554192,
+        0.9999935750900277,
+        0.9999927483576754,
+        0.9999929294441043,
+        0.9999933136715546,
+        0.9999928754777899,
+        0.9999932394583017,
+        0.9999921848487293,
+        0.9999920039232045,
+        0.9999925200090873,
+        0.9999944140415562,
+        0.9999925320259251,
+        0.9999939008850193,
+        0.9999949360045683
       ],
       "velocity_inner": [
-        0.013799522555158863,
-        0.07738292654314478,
-        0.06000597758274316,
-        0.558094467945167,
-        0.17406384710091638,
-        0.4112536200124823,
-        0.046256900552806,
-        0.19974037840529724,
-        0.16466380633132746,
-        0.05880515481321261,
-        0.18459152018805622,
-        0.1644334140676263,
-        0.41486722946836585,
-        0.5357459793592686,
-        0.3089226455046203,
-        0.16052861239029745,
-        0.32410670796830315,
-        0.030308638954338375,
-        0.2523110516479194
+        0.01379952255505357,
+        0.07738292654317099,
+        0.060005977582782116,
+        0.5580944679451425,
+        0.17406384710097558,
+        0.41125362001239973,
+        0.04625690055290619,
+        0.19974037840533382,
+        0.1646638063311294,
+        0.058805154813193754,
+        0.18459152018816616,
+        0.16443341406770381,
+        0.41486722946827226,
+        0.5357459793592341,
+        0.3089226455046104,
+        0.16052861239037516,
+        0.32410670796840146,
+        0.03030863895434987,
+        0.252311051647873
       ],
       "velocity_outer": [
-        1.2090341875963952,
-        1.1579341945160566,
-        1.1802597357436229,
-        1.3440793867186078,
-        1.2463195108955378,
-        1.3238398073211828,
-        1.203852512012375,
-        1.2789540057353082,
-        1.2628861272351137,
-        1.2280970740036405,
-        1.2676958449474476,
-        1.2348929375786881,
-        1.3277104575143428,
-        1.3429890949150318,
-        1.2989320874565473,
-        1.122513878925634,
-        1.2978884218307796,
-        1.1729361965606713,
-        1.0687875502529052
+        1.209034187596523,
+        1.1579341945159023,
+        1.1802597357437403,
+        1.344079386718536,
+        1.2463195108955485,
+        1.3238398073211397,
+        1.20385251201239,
+        1.2789540057352256,
+        1.2628861272349663,
+        1.2280970740034942,
+        1.2676958449475642,
+        1.2348929375788003,
+        1.3277104575143794,
+        1.342989094915149,
+        1.298932087456554,
+        1.1225138789256515,
+        1.297888421830853,
+        1.1729361965608083,
+        1.0687875502529962
       ],
       "radii": [
         0.01,
@@ -852,10 +852,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999999996777263,
-          "exponent_outer": 0.9999935196564884,
-          "velocity_inner": 0.013799522555158863,
-          "velocity_outer": 1.2090341875963952
+          "exponent_inner": 0.9999999997323727,
+          "exponent_outer": 0.9999935196571802,
+          "velocity_inner": 0.01379952255505357,
+          "velocity_outer": 1.209034187596523
         },
         {
           "u": [
@@ -870,10 +870,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999999735299947,
-          "exponent_outer": 0.99999405591966,
-          "velocity_inner": 0.07738292654314478,
-          "velocity_outer": 1.1579341945160566
+          "exponent_inner": 0.9999999735305465,
+          "exponent_outer": 0.999994055920415,
+          "velocity_inner": 0.07738292654317099,
+          "velocity_outer": 1.1579341945159023
         },
         {
           "u": [
@@ -888,10 +888,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999999841437746,
-          "exponent_outer": 0.9999938244768483,
-          "velocity_inner": 0.06000597758274316,
-          "velocity_outer": 1.1802597357436229
+          "exponent_inner": 0.9999999841429791,
+          "exponent_outer": 0.9999938244765466,
+          "velocity_inner": 0.060005977582782116,
+          "velocity_outer": 1.1802597357437403
         },
         {
           "u": [
@@ -906,10 +906,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999986193142608,
-          "exponent_outer": 0.9999919909335804,
-          "velocity_inner": 0.558094467945167,
-          "velocity_outer": 1.3440793867186078
+          "exponent_inner": 0.9999986193144252,
+          "exponent_outer": 0.999991990933048,
+          "velocity_inner": 0.5580944679451425,
+          "velocity_outer": 1.344079386718536
         },
         {
           "u": [
@@ -924,10 +924,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999998657331576,
-          "exponent_outer": 0.9999931137524415,
-          "velocity_inner": 0.17406384710091638,
-          "velocity_outer": 1.2463195108955378
+          "exponent_inner": 0.9999998657355118,
+          "exponent_outer": 0.9999931137530167,
+          "velocity_inner": 0.17406384710097558,
+          "velocity_outer": 1.2463195108955485
         },
         {
           "u": [
@@ -942,10 +942,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999992502991251,
-          "exponent_outer": 0.9999922303541431,
-          "velocity_inner": 0.4112536200124823,
-          "velocity_outer": 1.3238398073211828
+          "exponent_inner": 0.9999992502970678,
+          "exponent_outer": 0.9999922303554192,
+          "velocity_inner": 0.41125362001239973,
+          "velocity_outer": 1.3238398073211397
         },
         {
           "u": [
@@ -960,10 +960,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999999906598299,
-          "exponent_outer": 0.9999935750909984,
-          "velocity_inner": 0.046256900552806,
-          "velocity_outer": 1.203852512012375
+          "exponent_inner": 0.9999999906744861,
+          "exponent_outer": 0.9999935750900277,
+          "velocity_inner": 0.04625690055290619,
+          "velocity_outer": 1.20385251201239
         },
         {
           "u": [
@@ -978,10 +978,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999998231845761,
-          "exponent_outer": 0.9999927483586982,
-          "velocity_inner": 0.19974037840529724,
-          "velocity_outer": 1.2789540057353082
+          "exponent_inner": 0.9999998231718356,
+          "exponent_outer": 0.9999927483576754,
+          "velocity_inner": 0.19974037840533382,
+          "velocity_outer": 1.2789540057352256
         },
         {
           "u": [
@@ -996,10 +996,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.999999879848582,
-          "exponent_outer": 0.9999929294443962,
-          "velocity_inner": 0.16466380633132746,
-          "velocity_outer": 1.2628861272351137
+          "exponent_inner": 0.9999998798440115,
+          "exponent_outer": 0.9999929294441043,
+          "velocity_inner": 0.1646638063311294,
+          "velocity_outer": 1.2628861272349663
         },
         {
           "u": [
@@ -1014,10 +1014,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999999847843274,
-          "exponent_outer": 0.9999933136696793,
-          "velocity_inner": 0.05880515481321261,
-          "velocity_outer": 1.2280970740036405
+          "exponent_inner": 0.9999999847723517,
+          "exponent_outer": 0.9999933136715546,
+          "velocity_inner": 0.058805154813193754,
+          "velocity_outer": 1.2280970740034942
         },
         {
           "u": [
@@ -1032,10 +1032,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999998489920897,
-          "exponent_outer": 0.9999928754788782,
-          "velocity_inner": 0.18459152018805622,
-          "velocity_outer": 1.2676958449474476
+          "exponent_inner": 0.9999998489875253,
+          "exponent_outer": 0.9999928754777899,
+          "velocity_inner": 0.18459152018816616,
+          "velocity_outer": 1.2676958449475642
         },
         {
           "u": [
@@ -1050,10 +1050,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999998801833225,
-          "exponent_outer": 0.9999932394585934,
-          "velocity_inner": 0.1644334140676263,
-          "velocity_outer": 1.2348929375786881
+          "exponent_inner": 0.9999998801818304,
+          "exponent_outer": 0.9999932394583017,
+          "velocity_inner": 0.16443341406770381,
+          "velocity_outer": 1.2348929375788003
         },
         {
           "u": [
@@ -1068,10 +1068,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999992370648249,
-          "exponent_outer": 0.9999921848491266,
-          "velocity_inner": 0.41486722946836585,
-          "velocity_outer": 1.3277104575143428
+          "exponent_inner": 0.9999992370655731,
+          "exponent_outer": 0.9999921848487293,
+          "velocity_inner": 0.41486722946827226,
+          "velocity_outer": 1.3277104575143794
         },
         {
           "u": [
@@ -1086,10 +1086,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.999998727682123,
-          "exponent_outer": 0.9999920039240265,
-          "velocity_inner": 0.5357459793592686,
-          "velocity_outer": 1.3429890949150318
+          "exponent_inner": 0.999998727681418,
+          "exponent_outer": 0.9999920039232045,
+          "velocity_inner": 0.5357459793592341,
+          "velocity_outer": 1.342989094915149
         },
         {
           "u": [
@@ -1104,10 +1104,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999995769850001,
-          "exponent_outer": 0.9999925200093022,
-          "velocity_inner": 0.3089226455046203,
-          "velocity_outer": 1.2989320874565473
+          "exponent_inner": 0.999999576985998,
+          "exponent_outer": 0.9999925200090873,
+          "velocity_inner": 0.3089226455046104,
+          "velocity_outer": 1.298932087456554
         },
         {
           "u": [
@@ -1122,10 +1122,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999998858113072,
-          "exponent_outer": 0.9999944140406009,
-          "velocity_inner": 0.16052861239029745,
-          "velocity_outer": 1.122513878925634
+          "exponent_inner": 0.9999998858094947,
+          "exponent_outer": 0.9999944140415562,
+          "velocity_inner": 0.16052861239037516,
+          "velocity_outer": 1.1225138789256515
         },
         {
           "u": [
@@ -1140,10 +1140,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999995343752018,
-          "exponent_outer": 0.9999925320263864,
-          "velocity_inner": 0.32410670796830315,
-          "velocity_outer": 1.2978884218307796
+          "exponent_inner": 0.9999995343734601,
+          "exponent_outer": 0.9999925320259251,
+          "velocity_inner": 0.32410670796840146,
+          "velocity_outer": 1.297888421830853
         },
         {
           "u": [
@@ -1158,10 +1158,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.999999996116574,
-          "exponent_outer": 0.9999939008845916,
-          "velocity_inner": 0.030308638954338375,
-          "velocity_outer": 1.1729361965606713
+          "exponent_inner": 0.9999999961357536,
+          "exponent_outer": 0.9999939008850193,
+          "velocity_inner": 0.03030863895434987,
+          "velocity_outer": 1.1729361965608083
         },
         {
           "u": [
@@ -1190,10 +1190,10 @@
             0
           ],
           "gapless_ray": false,
-          "exponent_inner": 0.9999997178374436,
-          "exponent_outer": 0.9999949360051557,
-          "velocity_inner": 0.2523110516479194,
-          "velocity_outer": 1.0687875502529052
+          "exponent_inner": 0.9999997178339141,
+          "exponent_outer": 0.9999949360045683,
+          "velocity_inner": 0.252311051647873,
+          "velocity_outer": 1.0687875502529962
         }
       ]
     },
@@ -1203,47 +1203,47 @@
         "gapless": 120,
         "dim": 384,
         "cluster": 120,
-        "max_tangent_norm": 1.851227245947472e-14,
-        "max_tangent_radius": 9.016421823448846e-15,
+        "max_tangent_norm": 2.764036842652477e-14,
+        "max_tangent_radius": 1.391645861664119e-14,
         "inversion_defect": 0.0,
         "rotation_defect": 9.420554752102651e-16,
         "gapless_rays": 1,
         "exponents": [
-          1.999999990904941
+          1.9999999781321705
         ]
       },
       "vector_quaternion": {
-        "gap": 1.570796326794889,
+        "gap": 1.5707963267948886,
         "gapless": 0,
         "dim": 384,
         "cluster": 0,
         "max_tangent_norm": 0.0,
         "max_tangent_radius": 0.0,
-        "inversion_defect": 1.414213562373094,
-        "rotation_defect": 2.488045372620827e-15,
+        "inversion_defect": 1.4142135623730943,
+        "rotation_defect": 2.485216525018636e-15,
         "gapless_rays": 0,
         "exponents": [
-          -0.0008482339259478127,
-          -0.0007923344178779479
+          -0.0008482339259483342,
+          -0.000792334417877631
         ]
       }
     },
     "engine": {
-      "backend": "numpy",
+      "backend": "cupy",
       "einops": true,
       "kingdon": true,
       "array": "ndarray",
       "gpu_min_free_mib": 2048,
       "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
-      "lattice_fields_roll_einsum_matmul": "numpy",
-      "square_algebra_min_dim": 0,
-      "eigendecomposition_min_dim": 0,
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
       "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
       "eig_verification": {
         "tolerance": 1e-06,
         "identities": "sum(lam)=tr A, sum(lam^2)=tr A^2",
-        "calls": 0,
-        "rejected": 0
+        "calls": 21,
+        "rejected": 7
       },
       "pool_njobs": 1
     },
@@ -1271,22 +1271,22 @@
       {
         "name": "T2 the node exists exactly when the internal map rides with exponent 0 or 4 mod 8",
         "pass": true,
-        "detail": "the internal map has order 8: U16^8 - I = 5.8e-15 while U16^4 - I = 2.0e+00; with the Clifford bond layer the kinetic phases at the zone centre are pinned to 0 and pi independently of the clock, so the node closes only for exponent 0 or 4 mod 8; gapless entries 14 of 42 (kind, layers, exponent) tried: clifford/L1/x0(192/384 zeros), clifford/L1/x4(192/384 zeros), clifford/L1/x12(192/384 zeros), clifford/L2/x0(384/768 zeros), clifford/L2/x4(384/768 zeros), clifford/L2/x12(384/768 zeros), vector/L1/x2(192/384 zeros), vector/L1/x6(192/384 zeros), vector/L2/x2(384/768 zeros), vector/L2/x6(384/768 zeros), scalar/L1/x1(120/384 zeros), scalar/L1/x3(72/384 zeros), scalar/L2/x1(192/768 zeros), scalar/L2/x3(192/768 zeros)"
+        "detail": "the internal map has order 8: U16^8 - I = 4.9e-15 while U16^4 - I = 2.0e+00; with the Clifford bond layer the kinetic phases at the zone centre are pinned to 0 and pi independently of the clock, so the node closes only for exponent 0 or 4 mod 8; gapless entries 14 of 42 (kind, layers, exponent) tried: clifford/L1/x0(192/384 zeros), clifford/L1/x4(192/384 zeros), clifford/L1/x12(192/384 zeros), clifford/L2/x0(384/768 zeros), clifford/L2/x4(384/768 zeros), clifford/L2/x12(384/768 zeros), vector/L1/x2(192/384 zeros), vector/L1/x6(192/384 zeros), vector/L2/x2(384/768 zeros), vector/L2/x6(384/768 zeros), scalar/L1/x1(120/384 zeros), scalar/L1/x3(72/384 zeros), scalar/L2/x1(192/768 zeros), scalar/L2/x3(192/768 zeros)"
       },
       {
         "name": "T3 the gap subspace at the node is the 12-dimensional coin-spinor representation times the internal sector, with no component missing",
         "pass": true,
-        "detail": "gap 1.4e-17, 192 zero eigenphases of 384; the cluster holds 192 vectors (largest |sin theta| inside it 7.7e-15) and splits as sym^1: multiplicity 16.0 (rank 32 of dim 2), sym^3: multiplicity 16.0 (rank 64 of dim 4), sym^5: multiplicity 16.0 (rank 96 of dim 6); the six projectors' ranks sum to 192 (the cluster size) and their idempotency defects are at most 1.5e-15 -- the characters come from the group, not from a table, and the internal sector is the multiplicity space"
+        "detail": "gap 1.4e-17, 192 zero eigenphases of 384; the cluster holds 192 vectors (largest |sin theta| inside it 7.6e-15) and splits as sym^1: multiplicity 16.0 (rank 32 of dim 2), sym^3: multiplicity 16.0 (rank 64 of dim 4), sym^5: multiplicity 16.0 (rank 96 of dim 6); the six projectors' ranks sum to 192 (the cluster size) and their idempotency defects are at most 1.4e-15 -- the characters come from the group, not from a table, and the internal sector is the multiplicity space"
       },
       {
         "name": "T4 on the gap cluster the three tangent generators commute, share one norm, and have a direction-independent velocity spectrum",
         "pass": true,
-        "detail": "norms of the three generators on the 192-vector cluster: 10.759976, 10.759976, 10.759976 (spread 7.1e-15); their commutators ['2.1e-14', '1.9e-14', '1.9e-14'] -- on the cluster as a whole the compressed algebra is commutative, the three branches of the cone are simultaneously diagonalisable, and that is the Abelian case V216 excluded: the Clifford structure is not to be looked for at this level; off-diagonal anticommutators ['1.45', '1.25', '1.62'] against the failure V215 measured of 2.000 (star zone centre) and 0.444 (cubic M); the velocity spectrum is identical for the three directions to 3.1e-15, levels [[[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]]] (max |V_j^2| on the cluster 1.3090)"
+        "detail": "norms of the three generators on the 192-vector cluster: 10.759976, 10.759976, 10.759976 (spread 1.1e-14); their commutators ['2.2e-14', '2.0e-14', '2.0e-14'] -- on the cluster as a whole the compressed algebra is commutative, the three branches of the cone are simultaneously diagonalisable, and that is the Abelian case V216 excluded: the Clifford structure is not to be looked for at this level; off-diagonal anticommutators ['1.53', '1.34', '1.62'] against the failure V215 measured of 2.000 (star zone centre) and 0.444 (cubic M); the velocity spectrum is identical for the three directions to 7.5e-15, levels [[[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]], [[0.0, 64], [0.707107, 64], [1.144123, 64]]] (max |V_j^2| on the cluster 1.3090)"
       },
       {
         "name": "T4b the Clifford identity and a single velocity live on the spinor piece: the anticommutators vanish, the squares are scalar, and the speed is one number",
         "pass": true,
-        "detail": "sym^1 (32-dimensional): speed levels [[0.448332, 32]], norms [2.536151, 2.536151, 2.536151], spectra of the three directions equal to 6.7e-16, off-diagonal anticommutator 5.0e-16, max |V_j^2| 0.201002 with scalar defect 4.7e-16, non-normality 1.9e-15; sym^3 (64-dimensional): speed levels [[0.089666, 32], [0.268999, 32]], norms [1.604003, 1.604003, 1.604003], spectra of the three directions equal to 9.4e-16, off-diagonal anticommutator 2.0e-02, max |V_j^2| 0.050051 with scalar defect 1.1e-02, non-normality 1.2e-15; sym^5 (96-dimensional): speed levels [[0.186477, 32], [0.682352, 32], [0.764874, 32]], norms [5.893482, 5.893482, 5.893482], spectra of the three directions equal to 6.0e-15, off-diagonal anticommutator 1.5e-01, max |V_j^2| 0.537498 with scalar defect 2.5e-01, non-normality 7.4e-15; pieces with a single speed: ['sym^1'].  On the 2-dimensional spinor piece the generators therefore form a Clifford module: sym^1 carries squares 0.201002 times the identity (defect 4.7e-16) and vanishing anticommutators (5.0e-16), with one velocity 0.448332 -- isotropy by uniqueness, since the piece is the spinor representation tensored with the internal multiplicity space, and Schur leaves no room for a direction-dependent coefficient.  The higher pieces (the symmetric powers of the spinor inside the cluster) do not carry the identity, which is why the cluster as a whole does not either."
+        "detail": "sym^1 (32-dimensional): speed levels [[0.448332, 32]], norms [2.536151, 2.536151, 2.536151], spectra of the three directions equal to 5.6e-16, off-diagonal anticommutator 4.8e-16, max |V_j^2| 0.201002 with scalar defect 4.3e-16, non-normality 1.9e-15; sym^3 (64-dimensional): speed levels [[0.089666, 32], [0.268999, 32]], norms [1.604003, 1.604003, 1.604003], spectra of the three directions equal to 1.1e-15, off-diagonal anticommutator 2.4e-02, max |V_j^2| 0.052079 with scalar defect 1.3e-02, non-normality 1.3e-15; sym^5 (96-dimensional): speed levels [[0.186477, 32], [0.682352, 32], [0.764874, 32]], norms [5.893482, 5.893482, 5.893482], spectra of the three directions equal to 3.0e-15, off-diagonal anticommutator 1.3e-01, max |V_j^2| 0.531945 with scalar defect 2.4e-01, non-normality 7.5e-15; pieces with a single speed: ['sym^1'].  On the 2-dimensional spinor piece the generators therefore form a Clifford module: sym^1 carries squares 0.201002 times the identity (defect 4.3e-16) and vanishing anticommutators (4.8e-16), with one velocity 0.448332 -- isotropy by uniqueness, since the piece is the spinor representation tensored with the internal multiplicity space, and Schur leaves no room for a direction-dependent coefficient.  The higher pieces (the symmetric powers of the spinor inside the cluster) do not carry the identity, which is why the cluster as a whole does not either."
       },
       {
         "name": "T5 the phase spread at the touching grows linearly with the radius in every sampled direction that is not itself in the gapless set, and the bands pinned at phase zero are counted rather than stepped over",
@@ -1300,5 +1300,5 @@
       }
     ]
   },
-  "wall_time": 28.786
+  "wall_time": 31.604
 }

@@ -63,7 +63,7 @@
   },
   "published_anchor": {
    "kron_err": 3.376611507232129e-16,
-   "M_gap_published": 3.122502256758256e-17
+   "M_gap_published": 5.551115123125791e-17
   },
   "internal_exponent": 5,
   "tribunal": "g_obs naming remains V338/V340-closed"
@@ -74,7 +74,7 @@
    "pass": true
   },
   {
-   "name": "T0a published engine anchor: bloch == kron(P, U^6) to 3.4e-16; published M-point gaplessness 3.1e-17",
+   "name": "T0a published engine anchor: bloch == kron(P, U^6) to 3.4e-16; published M-point gaplessness 5.6e-17",
    "pass": true
   },
   {

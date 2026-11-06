@@ -4810,12 +4810,12 @@
   "published_reference": "12 doubler channels at M (cubic engine, closed clock)",
   "anchor": {
    "kron_err": 3.376611507232129e-16,
-   "M_gap": 3.122502256758256e-17
+   "M_gap": 5.551115123125791e-17
   }
  },
  "checks": [
   {
-   "name": "T0 published anchor: bloch == kron(P, U^6) 3.4e-16, M-point gap 3.1e-17",
+   "name": "T0 published anchor: bloch == kron(P, U^6) 3.4e-16, M-point gap 5.6e-17",
    "pass": true
   },
   {

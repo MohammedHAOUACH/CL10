@@ -23,7 +23,7 @@
     48
    ],
    "pub_internal_mirror": 8.881784197001252e-16,
-   "pub_zone_pair": 1.047197551196576,
+   "pub_zone_pair": 1.0471975511965754,
    "pub_unitarity": 7.216449660063518e-15,
    "pub_closure_k": 2
   },
@@ -31,8 +31,8 @@
    {
     "omega": 0.2,
     "beta": 0.25,
-    "unitarity": 3.336138517081563e-16,
-    "gapM": 0.31415926535897776,
+    "unitarity": 2.22881819797135e-16,
+    "gapM": 0.3141592653589776,
     "R_signature": [
      32,
      48
@@ -43,22 +43,22 @@
     "zero_point": 5.684341886080802e-14,
     "det_phase": 0.0,
     "closure_k": 10,
-    "closure_err": 1.9777942526733977e-15,
+    "closure_err": 1.8586864594931187e-15,
     "holds": false
    },
    {
     "omega": 0.2,
     "beta": 0.2,
-    "unitarity": 6.662061265551661e-16,
-    "gapM": 0.6283185307179561,
+    "unitarity": 6.661828262558334e-16,
+    "gapM": 0.6283185307179564,
     "R_signature": [
      16,
      48
     ],
     "R_matches_published": false,
     "internal_mirror": 1.1102230246251565e-16,
-    "zone_pair": 1.2566370614359164,
-    "zero_point": 62.83185307179582,
+    "zone_pair": 1.2566370614359155,
+    "zero_point": 37.69911184307753,
     "det_phase": 0.0,
     "closure_k": 5,
     "closure_err": 1.3322676295501878e-15,
@@ -67,8 +67,8 @@
    {
     "omega": 0.2,
     "beta": 0.4,
-    "unitarity": 1.4432899320127035e-15,
-    "gapM": 0.628318530717955,
+    "unitarity": 1.3323137423055784e-15,
+    "gapM": 0.6283185307179552,
     "R_signature": [
      16,
      48
@@ -76,7 +76,7 @@
     "R_matches_published": false,
     "internal_mirror": 1.1102230246251565e-16,
     "zone_pair": 0.0,
-    "zero_point": 12.566370614359158,
+    "zero_point": 18.84955592153875,
     "det_phase": 0.0,
     "closure_k": 5,
     "closure_err": 3.1086244689504383e-15,
@@ -85,8 +85,8 @@
    {
     "omega": 0.4,
     "beta": 0.25,
-    "unitarity": 4.440892098500626e-16,
-    "gapM": 0.10471975511965799,
+    "unitarity": 3.33149805470481e-16,
+    "gapM": 0.1047197551196578,
     "R_signature": [
      32,
      48
@@ -94,24 +94,24 @@
     "R_matches_published": true,
     "internal_mirror": 1.1102230246251565e-16,
     "zone_pair": 0.0,
-    "zero_point": 5.684341886080802e-14,
+    "zero_point": 0.0,
     "det_phase": 0.0,
     "closure_k": 10,
-    "closure_err": 1.847891413943022e-15,
+    "closure_err": 1.8475159867092277e-15,
     "holds": false
    },
    {
     "omega": 0.4,
     "beta": 0.2,
-    "unitarity": 6.661646352439542e-16,
-    "gapM": 0.4578908953635864,
+    "unitarity": 6.661640674967488e-16,
+    "gapM": 0.45789089536358546,
     "R_signature": [
      16,
      48
     ],
     "R_matches_published": false,
     "internal_mirror": 1.1102230246251565e-16,
-    "zone_pair": 1.5543122344752192e-15,
+    "zone_pair": 0.0,
     "zero_point": 0.0,
     "det_phase": 0.0,
     "closure_k": 5,
@@ -121,7 +121,7 @@
    {
     "omega": 0.4,
     "beta": 0.4,
-    "unitarity": 8.8823838042161e-16,
+    "unitarity": 8.881848576192538e-16,
     "gapM": 0.0,
     "R_signature": [
      16,
@@ -129,18 +129,18 @@
     ],
     "R_matches_published": false,
     "internal_mirror": 1.1102230246251565e-16,
-    "zone_pair": 0.0,
-    "zero_point": 1.4210854715202004e-14,
+    "zone_pair": 4.440892098500626e-16,
+    "zero_point": 0.0,
     "det_phase": 0.0,
     "closure_k": 5,
-    "closure_err": 1.7058177863933392e-15,
+    "closure_err": 1.6724051623455373e-15,
     "holds": false
    },
    {
     "omega": 0.8,
     "beta": 0.25,
-    "unitarity": 4.440946149219938e-16,
-    "gapM": 0.3141592653589776,
+    "unitarity": 4.440892098500626e-16,
+    "gapM": 0.3141592653589775,
     "R_signature": [
      32,
      48
@@ -151,13 +151,13 @@
     "zero_point": 5.684341886080802e-14,
     "det_phase": 0.0,
     "closure_k": 10,
-    "closure_err": 2.3809712471128865e-15,
+    "closure_err": 2.3216789657908533e-15,
     "holds": false
    },
    {
     "omega": 0.8,
     "beta": 0.2,
-    "unitarity": 6.661414874198286e-16,
+    "unitarity": 6.661338147750939e-16,
     "gapM": 0.0,
     "R_signature": [
      16,
@@ -169,21 +169,21 @@
     "zero_point": 0.0,
     "det_phase": 0.0,
     "closure_k": 5,
-    "closure_err": 1.9245745585677146e-15,
+    "closure_err": 1.876596527257783e-15,
     "holds": false
    },
    {
     "omega": 0.8,
     "beta": 0.4,
-    "unitarity": 4.441286837482875e-16,
-    "gapM": 0.437044077110652,
+    "unitarity": 4.441042767705365e-16,
+    "gapM": 0.4370440771106513,
     "R_signature": [
      16,
      48
     ],
     "R_matches_published": false,
     "internal_mirror": 2.220446049250313e-16,
-    "zone_pair": 2.1094237467877974e-15,
+    "zone_pair": 0.0,
     "zero_point": 0.0,
     "det_phase": 0.0,
     "closure_k": 5,
@@ -192,8 +192,8 @@
    }
   ],
   "T0c": {
-   "eig_host_vs_gpu": 1.3322676295501878e-15,
-   "pow_host_vs_gpu": 1.4432899320127035e-15
+   "eig_host_vs_gpu": 7.771561172376096e-16,
+   "pow_host_vs_gpu": 1.2212453270876722e-15
   },
   "status": "ENGINE2I-STRUCTURE-BREAKS"
  },
@@ -207,7 +207,7 @@
    "pass": true
   },
   {
-   "name": "T0c GPU-1 (cupy, CUDA_VISIBLE_DEVICES=1) vs host numpy: eigenphases at GAMMA max diff 1.33e-15, 39-step power scan 1.44e-15 - verdicts are path-invariant",
+   "name": "T0c GPU-1 (cupy, CUDA_VISIBLE_DEVICES=1) vs host numpy: eigenphases at GAMMA max diff 7.77e-16, 39-step power scan 1.22e-15 - verdicts are path-invariant",
    "pass": true
   },
   {

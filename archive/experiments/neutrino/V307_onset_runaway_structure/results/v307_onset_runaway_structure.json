@@ -79,7 +79,7 @@
    "candidate_vacuum_factor": 4.000000000000001
   },
   "status": "ONSET-RUNAWAY-EXACT",
-  "wall_time": 0.06180381774902344,
+  "wall_time": 0.06189131736755371,
   "fitted_inputs": []
  },
  "checks": [

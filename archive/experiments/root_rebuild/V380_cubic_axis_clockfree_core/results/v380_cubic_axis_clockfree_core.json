@@ -3,7 +3,7 @@
  "tier": 2,
  "residual": 0.0,
  "property": "the three-leg carrier search: finite-order spatial-plane twists about cubic axes - clock-free closure x gapless M x published R x crystallographic ladder, tier 2, O8/O9",
- "status": "DILEMMA-BROKEN (3 carrier point(s): [{\"axis\": [1.0, 0.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 1.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 0.0, 1.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.2215299868541707e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}]) - follow-up obligation booked: F2 clock re-arbitration on this carrier, closure consumes no clock at any g",
+ "status": "DILEMMA-BROKEN (3 carrier point(s): [{\"axis\": [1.0, 0.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.220446049250313e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 1.0, 0.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.220446049250313e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}, {\"axis\": [0.0, 0.0, 1.0], \"omega\": 1.5707963267948966, \"closure_internal\": 4, \"closure_step\": 2, \"unitarity\": 2.220446049250313e-16, \"gapM\": 0.0, \"R\": [32, 48], \"mirror\": 0.0, \"T1\": true, \"T2\": true}]) - follow-up obligation booked: F2 clock re-arbitration on this carrier, closure consumes no clock at any g",
  "pass": true,
  "data": {
   "class_rows": [
@@ -17,7 +17,7 @@
     "closure_internal": 2,
     "closure_step": 2,
     "unitarity": 2.220446049250313e-16,
-    "gapM": 0.5235987755982967,
+    "gapM": 0.5235987755982968,
     "R": [
      64,
      96
@@ -55,7 +55,7 @@
     "closure_internal": 2,
     "closure_step": 2,
     "unitarity": 2.220446049250313e-16,
-    "gapM": 0.5235987755982968,
+    "gapM": 0.5235987755982964,
     "R": [
      64,
      96
@@ -73,7 +73,7 @@
     "omega": 1.5707963267948966,
     "closure_internal": 4,
     "closure_step": 2,
-    "unitarity": 2.2215299868541707e-16,
+    "unitarity": 2.220446049250313e-16,
     "gapM": 0.0,
     "R": [
      32,
@@ -92,7 +92,7 @@
     "omega": 1.5707963267948966,
     "closure_internal": 4,
     "closure_step": 2,
-    "unitarity": 2.2215299868541707e-16,
+    "unitarity": 2.220446049250313e-16,
     "gapM": 0.0,
     "R": [
      32,
@@ -111,7 +111,7 @@
     "omega": 1.5707963267948966,
     "closure_internal": 4,
     "closure_step": 2,
-    "unitarity": 2.2215299868541707e-16,
+    "unitarity": 2.220446049250313e-16,
     "gapM": 0.0,
     "R": [
      32,
@@ -130,14 +130,15 @@
     "omega": 2.0943951023931953,
     "closure_internal": 3,
     "closure_step": 2,
-    "unitarity": 8.882055243408597e-16,
+    "unitarity": 8.881784197001252e-16,
     "gapM": 0.5235987755982968,
     "R": [
-     25,
+     28,
+     30,
      31,
-     32,
      33,
-     39,
+     34,
+     36,
      96
     ],
     "mirror": 2.220446049250313e-16,
@@ -154,14 +155,13 @@
     "closure_internal": 3,
     "closure_step": 2,
     "unitarity": 8.881784197001252e-16,
-    "gapM": 0.5235987755982968,
+    "gapM": 0.523598775598297,
     "R": [
-     26,
      30,
      31,
+     32,
      33,
      34,
-     38,
      96
     ],
     "mirror": 2.220446049250313e-16,
@@ -178,14 +178,14 @@
     "closure_internal": 3,
     "closure_step": 2,
     "unitarity": 8.886119947416683e-16,
-    "gapM": 0.5235987755982963,
+    "gapM": 0.5235987755982969,
     "R": [
+     23,
      24,
-     28,
-     30,
-     34,
-     36,
+     26,
+     38,
      40,
+     41,
      96
     ],
     "mirror": 0.0,
@@ -202,14 +202,12 @@
     "closure_internal": 3,
     "closure_step": 2,
     "unitarity": 8.886119947416683e-16,
-    "gapM": 0.523598775598297,
+    "gapM": 0.5235987755982969,
     "R": [
-     24,
      26,
-     30,
-     34,
+     29,
+     35,
      38,
-     40,
      96
     ],
     "mirror": 0.0,
@@ -224,10 +222,10 @@
    "1/0/0 w=1.5708 gapM=0.0000e+00 R=32,48",
    "0/1/0 w=1.5708 gapM=0.0000e+00 R=32,48",
    "0/0/1 w=1.5708 gapM=0.0000e+00 R=32,48",
-   "0.57735/0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=25,31,32,33,39,96",
-   "0.57735/-0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=26,30,31,33,34,38,96",
-   "1/0/0 w=2.0944 gapM=5.2360e-01 R=24,28,30,34,36,40,96",
-   "0/0/1 w=2.0944 gapM=5.2360e-01 R=24,26,30,34,38,40,96"
+   "0.57735/0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=28,30,31,33,34,36,96",
+   "0.57735/-0.57735/0.57735 w=2.0944 gapM=5.2360e-01 R=30,31,32,33,34,96",
+   "1/0/0 w=2.0944 gapM=5.2360e-01 R=23,24,26,38,40,41,96",
+   "0/0/1 w=2.0944 gapM=5.2360e-01 R=26,29,35,38,96"
   ]
  },
  "checks": [

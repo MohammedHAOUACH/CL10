@@ -3,11 +3,11 @@
  "tier": 1,
  "residual": false,
  "property": "the full-lattice pair+straight-flux-string machinery, gated on every reality-interface anchor (the V371 full lattice-sum machine, built at last)",
- "status": "FULL-LATTICE-MACHINERY-BUILT (gauge-invariant pair+straight-string machinery measured per chain length: chain-kernel dims ell=1 6, ell=2 22, ell=3 singlet-sector 12 (I_4 = 6, booked prediction output); V371 contact reproduction ker 2/6 + d_k set + -64 I_2 leak 1.4e-13; V368 free-gap reproduction 0.0e+00; string Casimir 64.000000/link measured; I_2=1, I_3=1 and the V100/V101 24-state glued-kernel anchor reproduced from measured fusion data)",
- "pass": true,
+ "status": "V373-MACHINERY-DRIFT (a booked gate failed; no spectral claim is made)",
+ "pass": false,
  "data": {
   "operator_selftest": 5.670834537910824e-16,
-  "ll_genblock_defect": 3.126388037344441e-13,
+  "ll_genblock_defect": 3.410605131648481e-13,
   "pair_census": {
    "0.0": 2,
    "36.0": 20,
@@ -96,76 +96,76 @@
   },
   "dk_factored": {
    "contact": [
-    -64.0,
-    -64.0
+    -0.06765437905888957,
+    0.28720709425117624
    ],
    "chain_ell1": [
-    -95.99999999999991,
-    -95.99999999999974,
-    -63.99999999999999,
-    -63.999999999999964,
-    -1.717075114544831e-64,
-    1.7191558633571156e-64
+    -0.11781650552965213,
+    -0.01510586963301322,
+    -8.488137804500732e-64,
+    8.604369664339163e-64,
+    0.06714018172366329,
+    0.22888235048790312
    ],
    "chain_ell2": [
-    -96.00000000000045,
-    -96.00000000000028,
-    -96.00000000000026,
-    -95.99999999999967,
-    -95.99999999999932,
-    -95.99999999999903,
-    -95.99999999999893,
-    -95.99999999999841,
-    -64.0000000000001,
-    -64.00000000000007,
-    -64.00000000000003,
-    -64.0,
-    -64.0,
-    -63.99999999999996,
-    -63.999999999999936,
-    -63.99999999999991,
-    -63.9999999999999,
-    -63.99999999999985,
-    -63.99999999999978,
-    -63.999999999999645,
-    -1.8171721958040618e-59,
-    7.080683111954904e-63
+    -0.06765437905888086,
+    -0.05260622648826571,
+    -0.03939717021948907,
+    -0.037859564367142176,
+    -0.03529933254802055,
+    -0.02608619527049768,
+    -0.022517353053762675,
+    -0.01583970894869852,
+    -0.010009966947530527,
+    -0.007745479001373169,
+    1.1025949186525224e-47,
+    6.992674835274708e-47,
+    0.004386889265689639,
+    0.00820822396576437,
+    0.013597107992765915,
+    0.01509223113528491,
+    0.016808059268097246,
+    0.02407027733134921,
+    0.07976832340549662,
+    0.11990453307911682,
+    0.131303021219708,
+    0.2872070942511897
    ],
    "chain_ell3_singlet": [
-    -3.522023829371376e-49,
-    -8.218924413781097e-50,
-    -2.39177778591088e-55,
-    -4.530725105154755e-60,
-    -2.0903204845352164e-62,
-    -1.0079337235512437e-63,
-    1.7471566697296497e-63,
-    3.8021702775313963e-59,
-    1.3989704702827724e-49,
-    1.2815437659377697e-48,
-    1.7698881268233952e-48,
-    9.345173324866306e-48
+    -1.939699171487321e-48,
+    -2.967121568990329e-49,
+    -1.633581931993576e-49,
+    -7.601937006060346e-50,
+    -3.4587208186566708e-50,
+    -1.0005670267360303e-55,
+    -1.0236747104523249e-61,
+    -7.419313041530273e-64,
+    8.620062361888628e-64,
+    5.908302247244805e-61,
+    1.4879729757428496e-58,
+    2.95334831890069e-50
    ]
   },
   "dk_fiber_ell2": [
-   -96.0000000000011,
-   -96.00000000000048,
-   -64.00000000000037,
-   -64.00000000000021,
-   -5.145719585478388e-13,
-   4.0088512082622266e-13
+   -96.0,
+   -95.99999999999959,
+   -63.99999999999997,
+   -63.999999999999645,
+   5.704825269639119e-15,
+   6.860299412999814e-14
   ]
  },
  "checks": [
   {
-   "name": "A1a ell=1 in-script (no cache): ker 2 (2), ||C2 W|| 3.1e-15, J.L eig [-64. -64.] (-64,-64) <=1e-12, span leak 1.4e-13 (<=1e-12): True",
+   "name": "A1a ell=1 in-script (no cache): ker 2 (2), ||C2 W|| 3.6e-15, J.L eig [-64. -64.] (-64,-64) <=1e-12, span leak 1.8e-13 (<=1e-12): True",
    "pass": true
   },
   {
-   "name": "A1b ell=2 full-fiber: ker 6 (6), ||C4 v|| 7.4e-15, Gram defect 1.1e-14: True",
+   "name": "A1b ell=2 full-fiber: ker 6 (6), ||C4 v|| 7.1e-15, Gram defect 2.4e-14: True",
    "pass": true
   },
   {
-   "name": "A1c deformation set d_k == {-96,-96,-64,-64,0,0} exactly: max dev 1.09e-12 (<=1e-9); fiber JL leak 1.2e-14 (<=1e-3): True",
+   "name": "A1c deformation set d_k == {-96,-96,-64,-64,0,0} exactly: max dev 4.12e-13 (<=1e-9); fiber JL leak 7.2e-15 (<=1e-3): True",
    "pass": true
   },
   {
@@ -173,7 +173,7 @@
    "pass": true
   },
   {
-   "name": "link-pair channel generator blocks: sum gL^2 == measured Casimir value per block, max defect 3.13e-13 (<=1e-8): True",
+   "name": "link-pair channel generator blocks: sum gL^2 == measured Casimir value per block, max defect 3.41e-13 (<=1e-8): True",
    "pass": true
   },
   {
@@ -221,16 +221,16 @@
    "pass": true
   },
   {
-   "name": "kernel-basis deformation on the contact fiber reproduces the V370 -64 anchor: max dev 0.00e+00 (<=1e-6): True",
-   "pass": "True"
+   "name": "kernel-basis deformation on the contact fiber reproduces the V370 -64 anchor: max dev 6.43e+01 (<=1e-6): False",
+   "pass": "False"
   },
   {
-   "name": "kernel-basis deformation on the 2-link chain reproduces the fiber set {-96,-96,-64,-64,0,0}: max dev 2.56e-13 (<=1e-6): True",
-   "pass": "True"
+   "name": "kernel-basis deformation on the 2-link chain reproduces the fiber set {-96,-96,-64,-64,0,0}: max dev 9.60e+01 (<=1e-6): False",
+   "pass": "False"
   },
   {
-   "name": "2-link chain block-span == V371 fiber kernel span (min overlap singular value 1.0000000000 >= 1-1e-8): True",
-   "pass": true
+   "name": "2-link chain block-span == V371 fiber kernel span (min overlap singular value 0.0050908201 >= 1-1e-8): False",
+   "pass": false
   },
   {
    "name": "second solver route (materialized link-pair gens), singlet channel: 2-link 2 == block 2, 3-link 2 == block 2: True",

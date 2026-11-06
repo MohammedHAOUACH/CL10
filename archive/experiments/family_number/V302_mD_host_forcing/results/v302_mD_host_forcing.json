@@ -109,7 +109,7 @@
    "family_coverage_note": "the host-to-family map is NOT booked: the pair occupation's angle is stated conditionally on two-family coverage"
   },
   "status": "MD-HOST-ASYMMETRIC",
-  "wall_time": 0.006897687911987305,
+  "wall_time": 0.006632089614868164,
   "fitted_inputs": []
  },
  "checks": [

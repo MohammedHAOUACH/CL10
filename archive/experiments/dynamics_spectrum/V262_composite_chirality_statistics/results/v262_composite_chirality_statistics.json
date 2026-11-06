@@ -7,7 +7,7 @@
  "branch": "NO-LOCUS",
  "data": {
   "conventions": {
-   "cartan_source": "P block: V65/V67 convention, experiments/spacetime_matter/V67_breaking_chain.py l. 63-70 (clifford.generators, planes (0,2,4,6,8), conjugated by SC.sectors()[0]); Q block: centralizer of a generic element in the committed V79 structure constants (rank 5); seed 0x62",
+   "cartan_source": "P block: V65/V67 convention, archive/experiments/spacetime_matter/V67_breaking_chain.py l. 63-70 (clifford.generators, planes (0,2,4,6,8), conjugated by SC.sectors()[0]); Q block: centralizer of a generic element in the committed V79 structure constants (rank 5); seed 0x62",
    "cartan_rank": 5,
    "parity": "odd (half-integer/fermionic) iff the kernel state carries P-block (single-matter-quantum, spinorial centre) support ||w_P|| > 0; even otherwise",
    "little_group": "V244 convention: polyhedral_group().elements, molien_counts dmax = 6"
@@ -43,7 +43,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 15.720331907272339
+  "wall_time": 15.768548250198364
  },
  "checks": [
   {

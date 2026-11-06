@@ -2,14 +2,14 @@
  "id": "V354_elect_read_root_degeneracy",
  "tier": 1,
  "property": "one dressing, two conditions: can the fifth be simultaneously read and born in the published arithmetic",
- "status": "ELECT-SPLIT",
+ "status": "ELECT-READ-ROOT-DEGENERATE-NO-ARITH",
  "pass": true,
  "data": {
   "tree_offset_g_obs_minus_fifth": -2.0116424883642736e-06,
   "elect": {
    "J1-identity": {
     "alpha_read": [
-     -0.0030950442429002545
+     -0.0030950442428093056
     ],
     "alpha_root": [
      -1.28982931827195,
@@ -19,15 +19,15 @@
     ],
     "degeneracies": [
      {
-      "alpha": -0.003095044242559194,
-      "gap": 6.821210263296962e-13
+      "alpha": -0.0030950442425137195,
+      "gap": 5.911720765694461e-13
      }
     ],
-    "closest_gap": 6.821210263296962e-13
+    "closest_gap": 5.911720765694461e-13
    },
    "J2-cartan2": {
     "alpha_read": [
-     -0.0006190088486164305
+     -0.0006190088485254811
     ],
     "alpha_root": [
      -1.8115471093449742,
@@ -43,7 +43,7 @@
      1.9697238124441356
     ],
     "degeneracies": [],
-    "closest_gap": 0.14436900880205045
+    "closest_gap": 0.1443690088019595
    },
    "J3-step(1/5)": {
     "alpha_read": [
@@ -77,19 +77,19 @@
   },
   "census": {
    "J1-identity": {
-    "alpha": -0.003095044242559194,
-    "beta": -0.1555738920793496,
+    "alpha": -0.0030950442425137195,
+    "beta": -0.1555738920770638,
     "hits": []
    }
   }
  },
  "checks": [
   {
-   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 lands on the published g_obs to 3.1e-12 (<= 1e-8: the paper's own -2.012e-06 offset re-derived); reading at 1/5 = 2.088107 vs the V206 coef_at_fifth artifact 2.088107 (|d| 3.5e-13 <= 1e-9)",
+   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 lands on the published g_obs to 3.1e-12 (<= 1e-8: the paper's own -2.012e-06 offset re-derived); reading at 1/5 = 2.088107 vs the V206 coef_at_fifth artifact 2.088107 (|d| 5.5e-13 <= 1e-9)",
    "pass": true
   },
   {
-   "name": "V354 per channel: READ amplitudes {'J1-identity': [np.float64(-0.00309504)], 'J2-cartan2': [np.float64(-0.00061901)], 'J3-step(1/5)': [np.float64(-0.46283751), np.float64(-0.00029956)]} / ROOT amplitudes {'J1-identity': [np.float64(-1.28982932), np.float64(-0.75), np.float64(-0.00309504), np.float64(1.6188917)], 'J2-cartan2': [np.float64(-1.81154711), np.float64(-1.70813311), np.float64(-1.50116284), np.float64(-0.6143727), np.float64(-0.42247433), np.float64(-0.3), np.float64(0.14375), np.float64(0.5), np.float64(1.1149195), np.float64(1.9), np.float64(1.96972381)], 'J3-step(1/5)': [np.float64(-1.86432612), np.float64(-1.78322656), np.float64(-1.43822866), np.float64(-1.23383589), np.float64(-1.19434784), np.float64(-1.0101011), np.float64(-0.99173331), np.float64(-0.59815404), np.float64(-0.36130664), np.float64(-0.14119056), np.float64(0.01994689), np.float64(0.25), np.float64(0.43109153), np.float64(0.59464709), np.float64(0.87668802), np.float64(1.26052433), np.float64(1.57335841), np.float64(1.75989139), np.float64(1.95959905)]} / closest gap {'J1-identity': np.float64(6.821210263296962e-13), 'J2-cartan2': np.float64(0.14436900880205045), 'J3-step(1/5)': np.float64(0.02024645579454047)} / degeneracies {'J1-identity': [{'alpha': np.float64(-0.003095044242559194), 'gap': np.float64(6.821210263296962e-13)}], 'J2-cartan2': [], 'J3-step(1/5)': []}",
+   "name": "V354 per channel: READ amplitudes {'J1-identity': [np.float64(-0.00309504)], 'J2-cartan2': [np.float64(-0.00061901)], 'J3-step(1/5)': [np.float64(-0.46283751), np.float64(-0.00029956)]} / ROOT amplitudes {'J1-identity': [np.float64(-1.28982932), np.float64(-0.75), np.float64(-0.00309504), np.float64(1.6188917)], 'J2-cartan2': [np.float64(-1.81154711), np.float64(-1.70813311), np.float64(-1.50116284), np.float64(-0.6143727), np.float64(-0.42247433), np.float64(-0.3), np.float64(0.14375), np.float64(0.5), np.float64(1.1149195), np.float64(1.9), np.float64(1.96972381)], 'J3-step(1/5)': [np.float64(-1.86432612), np.float64(-1.78322656), np.float64(-1.43822866), np.float64(-1.23383589), np.float64(-1.19434784), np.float64(-1.0101011), np.float64(-0.99173331), np.float64(-0.59815404), np.float64(-0.36130664), np.float64(-0.14119056), np.float64(0.01994689), np.float64(0.25), np.float64(0.43109153), np.float64(0.59464709), np.float64(0.87668802), np.float64(1.26052433), np.float64(1.57335841), np.float64(1.75989139), np.float64(1.95959905)]} / closest gap {'J1-identity': np.float64(5.911720765694461e-13), 'J2-cartan2': np.float64(0.1443690088019595), 'J3-step(1/5)': np.float64(0.02024645579454047)} / degeneracies {'J1-identity': [{'alpha': np.float64(-0.0030950442425137195), 'gap': np.float64(5.911720765694461e-13)}], 'J2-cartan2': [], 'J3-step(1/5)': []}",
    "pass": true
   }
  ]

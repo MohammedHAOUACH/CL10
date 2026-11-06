@@ -27,7 +27,7 @@
      0.28352
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.29457208450269645
+    "dvv": 0.29457208450258526
    },
    {
     "q0": [
@@ -41,7 +41,7 @@
      0.28312
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.29231871836817
+    "dvv": 0.29231871836806855
    },
    {
     "q0": [
@@ -55,7 +55,7 @@
      0.28379
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2955726732155354
+    "dvv": 0.2955726732155052
    },
    {
     "q0": [
@@ -69,7 +69,7 @@
      0.28353
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2952032748404215
+    "dvv": 0.2952032748402938
    },
    {
     "q0": [
@@ -83,7 +83,7 @@
      0.28345
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2940813056943023
+    "dvv": 0.2940813056942807
    },
    {
     "q0": [
@@ -97,7 +97,7 @@
      0.28347
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2940639507671921
+    "dvv": 0.29406395076710606
    },
    {
     "q0": [
@@ -111,7 +111,7 @@
      0.28345
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.29424618162424937
+    "dvv": 0.29424618162421823
    },
    {
     "q0": [
@@ -125,7 +125,7 @@
      0.28353
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.29418364122356216
+    "dvv": 0.2941836412236529
    },
    {
     "q0": [
@@ -139,7 +139,7 @@
      0.28351
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2945399059660001
+    "dvv": 0.29453990596589286
    },
    {
     "q0": [
@@ -153,7 +153,7 @@
      0.28346
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2942109773692909
+    "dvv": 0.2942109773691859
    },
    {
     "q0": [
@@ -167,7 +167,7 @@
      0.28385
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.2956440665721659
+    "dvv": 0.2956440665719696
    },
    {
     "q0": [
@@ -181,7 +181,7 @@
      0.28319
     ],
     "n_linear_dirs": 100,
-    "dvv": 0.29283229363199914
+    "dvv": 0.2928322936318591
    }
   ],
   "dvv_m_nodes_pi4": [
@@ -191,7 +191,7 @@
      1.5708,
      0.0
     ],
-    "node_gap": 1.3214515999633165e-15,
+    "node_gap": 1.4730724597133116e-15,
     "axis_speeds": [
      0.57745,
      0.57745,
@@ -210,7 +210,7 @@
      0.0,
      1.5708
     ],
-    "node_gap": 1.5231820895502206e-15,
+    "node_gap": 1.3106676859729636e-15,
     "axis_speeds": [
      0.57745,
      0.00025,
@@ -229,7 +229,7 @@
      1.5708,
      1.5708
     ],
-    "node_gap": 1.4222300680832865e-15,
+    "node_gap": 1.3399465967772046e-15,
     "axis_speeds": [
      0.00025,
      0.57745,
@@ -248,7 +248,7 @@
      -1.5708,
      0.0
     ],
-    "node_gap": 1.4876816001571729e-15,
+    "node_gap": 1.0365948286938263e-15,
     "axis_speeds": [
      0.57745,
      0.57725,
@@ -267,7 +267,7 @@
      0.0,
      -1.5708
     ],
-    "node_gap": 1.3738950011026369e-15,
+    "node_gap": 1.5259873378364626e-15,
     "axis_speeds": [
      0.57745,
      0.00025,
@@ -286,7 +286,7 @@
      1.5708,
      -1.5708
     ],
-    "node_gap": 1.335335266355653e-15,
+    "node_gap": 1.3915964161521389e-15,
     "axis_speeds": [
      0.00025,
      0.57745,
@@ -305,7 +305,7 @@
      1.5708,
      0.0
     ],
-    "node_gap": 1.604504558823973e-15,
+    "node_gap": 1.4039899176173734e-15,
     "axis_speeds": [
      0.57725,
      0.57745,
@@ -324,7 +324,7 @@
      0.0,
      1.5708
     ],
-    "node_gap": 1.600679029290875e-15,
+    "node_gap": 1.3267527576867457e-15,
     "axis_speeds": [
      0.57725,
      0.00025,
@@ -343,7 +343,7 @@
      -1.5708,
      1.5708
     ],
-    "node_gap": 1.6916857224322438e-15,
+    "node_gap": 1.4017238629178686e-15,
     "axis_speeds": [
      0.00025,
      0.57725,
@@ -362,7 +362,7 @@
      -1.5708,
      0.0
     ],
-    "node_gap": 1.4943274724059595e-15,
+    "node_gap": 1.463217899144409e-15,
     "axis_speeds": [
      0.57725,
      0.57725,
@@ -381,7 +381,7 @@
      0.0,
      -1.5708
     ],
-    "node_gap": 1.6325371567385962e-15,
+    "node_gap": 1.5001053871886635e-15,
     "axis_speeds": [
      0.57725,
      0.00025,
@@ -400,7 +400,7 @@
      -1.5708,
      -1.5708
     ],
-    "node_gap": 1.6201438301338202e-15,
+    "node_gap": 1.535806180343437e-15,
     "axis_speeds": [
      0.00025,
      0.57725,
@@ -416,11 +416,11 @@
   ],
   "dvv_selective": {
    "v_principal": [
-    0.19999840104947303,
-    0.2004287331051593,
-    0.28351484304588503
+    0.19999840104953714,
+    0.20042873310521206,
+    0.2835148430459253
    ],
-   "dvv": 0.29457520142215415,
+   "dvv": 0.29457520142202814,
    "theta_star": 1.7307836435290485,
    "w_star": 6.262416033503524e-09,
    "node_gaps": [
@@ -430,7 +430,7 @@
       1.5708,
       0.0
      ],
-     "node_gap": 0.00020028776918208616
+     "node_gap": 0.0002002877691823447
     },
     {
      "q0": [
@@ -438,7 +438,7 @@
       0.0,
       1.5708
      ],
-     "node_gap": 0.00020028776918253033
+     "node_gap": 0.00020028776918261585
     },
     {
      "q0": [
@@ -446,7 +446,7 @@
       1.5708,
       1.5708
      ],
-     "node_gap": 0.0002002877691822134
+     "node_gap": 0.00020028776918225568
     },
     {
      "q0": [
@@ -454,7 +454,7 @@
       -1.5708,
       0.0
      ],
-     "node_gap": 0.00020028776918228487
+     "node_gap": 0.00020028776918238917
     },
     {
      "q0": [
@@ -462,7 +462,7 @@
       0.0,
       -1.5708
      ],
-     "node_gap": 0.00020028776918225907
+     "node_gap": 0.00020028776918232471
     },
     {
      "q0": [
@@ -470,7 +470,7 @@
       1.5708,
       -1.5708
      ],
-     "node_gap": 0.00020028776918223806
+     "node_gap": 0.00020028776918222573
     },
     {
      "q0": [
@@ -478,7 +478,7 @@
       1.5708,
       0.0
      ],
-     "node_gap": 0.00020028776918233442
+     "node_gap": 0.00020028776918247203
     },
     {
      "q0": [
@@ -486,7 +486,7 @@
       0.0,
       1.5708
      ],
-     "node_gap": 0.00020028776918241056
+     "node_gap": 0.0002002877691826163
     },
     {
      "q0": [
@@ -494,7 +494,7 @@
       -1.5708,
       1.5708
      ],
-     "node_gap": 0.00020028776918244877
+     "node_gap": 0.00020028776918231393
     },
     {
      "q0": [
@@ -502,7 +502,7 @@
       -1.5708,
       0.0
      ],
-     "node_gap": 0.00020028776918237207
+     "node_gap": 0.00020028776918254906
     },
     {
      "q0": [
@@ -510,7 +510,7 @@
       0.0,
       -1.5708
      ],
-     "node_gap": 0.0002002877691824792
+     "node_gap": 0.0002002877691825128
     },
     {
      "q0": [
@@ -518,19 +518,19 @@
       -1.5708,
       -1.5708
      ],
-     "node_gap": 0.00020028776918250084
+     "node_gap": 0.00020028776918235456
     }
    ]
   },
   "dvv_star_line": {
-   "v_min": 0.0001473336534718628,
-   "v_max": 1.2036421790389347,
-   "dvv": 0.9998775934774988
+   "v_min": 0.00014733365353662798,
+   "v_max": 1.2036421790394214,
+   "dvv": 0.999877593477445
   },
   "contact": {
-   "best_dvv": 0.29231871836817,
+   "best_dvv": 0.29231871836806855,
    "bound": 8e-15,
-   "ratio": 36539839796021.25,
+   "ratio": 36539839796008.56,
    "worst_dvv": 1.0
   }
  },
@@ -544,7 +544,7 @@
    "pass": true
   },
   {
-   "name": "T2 the same nodes at the closed clock g = pi/4: the twelve nodes are exactly gapless (max node gap 1.7e-15); along the three axis directions one is FLAT (published (0, 0.14189, 0.14189)) and the measured axis speeds are [np.float64(0.57745), np.float64(0.57745), np.float64(0.00025)] with the tensor fit [0.0, 0.00072, 0.8165] on the linear subspace - the flat direction enters the pre-registered formula, so delta_v/v = 1 exactly: the closed clock does not rescue isotropy, it adds an exactly flat branch",
+   "name": "T2 the same nodes at the closed clock g = pi/4: the twelve nodes are exactly gapless (max node gap 1.5e-15); along the three axis directions one is FLAT (published (0, 0.14189, 0.14189)) and the measured axis speeds are [np.float64(0.57745), np.float64(0.57745), np.float64(0.00025)] with the tensor fit [0.0, 0.00072, 0.8165] on the linear subspace - the flat direction enters the pre-registered formula, so delta_v/v = 1 exactly: the closed clock does not rescue isotropy, it adds an exactly flat branch",
    "pass": true
   },
   {
@@ -556,6 +556,6 @@
    "pass": true
   }
  ],
- "status": "LORENTZ CONTACT, F9-FIRED (zero fitted parameters, 18 s): the node velocity tensor measured against the electron-sector SME ceiling delta v/v <= 8.0e-15 (Kostelecky-Mewes arXiv:0801.0287v16 Table D6, |c_(TY)|, retrieved 2026-10-23; recorded in cl10/config.yaml bounds:). At the implemented clock g = 1/5 the twelve M nodes carry delta_v/v = 0.296 (the 0.200/0.200/0.284 tensor of the paper); at the closed clock pi/4 the nodes are exactly gapless and one axis is exactly flat: delta_v/v = 1; the selective-reading Wilson cones at theta* = 1.730784 (the node the manuscript names as the electron's, whichever three of the degenerate orbit it is - V74's rank-1 fact and V115's orbit-identical measurement make the choice immaterial) give delta_v/v = 0.295; the star nodal line dips from 1.20 to 6.9e-3 in transverse speed: delta_v/v = 0.9999. The best delta_v/v anywhere in the named set is 0.292, i.e. 3.65e+13 TIMES the measured ceiling - fourteen orders of magnitude past the bound even at the most isotropic named node. F9 FIRES: the contact is not 'O10 saves it by having no candidate' alone - with a candidate it is refuted by fourteen orders, and O9's gap column must state the ratio, not just the spread.",
+ "status": "LORENTZ CONTACT, F9-FIRED (zero fitted parameters, 7 s): the node velocity tensor measured against the electron-sector SME ceiling delta v/v <= 8.0e-15 (Kostelecky-Mewes arXiv:0801.0287v16 Table D6, |c_(TY)|, retrieved 2026-10-23; recorded in cl10/config.yaml bounds:). At the implemented clock g = 1/5 the twelve M nodes carry delta_v/v = 0.296 (the 0.200/0.200/0.284 tensor of the paper); at the closed clock pi/4 the nodes are exactly gapless and one axis is exactly flat: delta_v/v = 1; the selective-reading Wilson cones at theta* = 1.730784 (the node the manuscript names as the electron's, whichever three of the degenerate orbit it is - V74's rank-1 fact and V115's orbit-identical measurement make the choice immaterial) give delta_v/v = 0.295; the star nodal line dips from 1.20 to 6.9e-3 in transverse speed: delta_v/v = 0.9999. The best delta_v/v anywhere in the named set is 0.292, i.e. 3.65e+13 TIMES the measured ceiling - fourteen orders of magnitude past the bound even at the most isotropic named node. F9 FIRES: the contact is not 'O10 saves it by having no candidate' alone - with a candidate it is refuted by fourteen orders, and O9's gap column must state the ratio, not just the spread.",
  "pass": true
 }

@@ -2,7 +2,7 @@
  "id": "V353_inverse_external_sector",
  "tier": 1,
  "property": "the exact external dressing that closes the clock tension (meeting inversion), and whether the published arithmetic can carry it",
- "status": "NEW-THEORY-REQUIRED",
+ "status": "NO-PUBLISHED-ARITHMETIC-FIX",
  "pass": true,
  "data": {
   "tenth_root_dressing_needed": 0.9994458344608501,
@@ -25,9 +25,7 @@
   "inverted": {
    "J1-identity": {
     "tree_selfconsistency_dev": 3.0968561048894117e-12,
-    "nonzero_selfconsistent": [
-     -7.450580596923818e-10
-    ],
+    "nonzero_selfconsistent": [],
     "meetings": []
    },
    "J2-cartan2": {
@@ -41,21 +39,11 @@
     "meetings": []
    }
   },
-  "census": {
-   "J1-identity|self": {
-    "alpha": -7.450580596923818e-10,
-    "beta_alpha_over_loop": -3.7450702829239233e-08,
-    "hits": [
-     "alpha=0/1"
-    ],
-    "pslq_beta_deg6": null,
-    "pslq_alpha": null
-   }
-  }
+  "census": {}
  },
  "checks": [
   {
-   "name": "T0 published fingerprint objects re-derived: the dressing factor making the 1/5 coefficient exact is (COEF_OBS/coef_at_fifth)^(1/10) = %.12f (a %+.3e correction); the V205 amplitude pair is required %.9f vs branch-1/5 %.9f (gap %+.3e = the published 0.055%% fingerprint): reported as a measurement pair, no identity asserted (booking correction of the first-run gate)",
+   "name": "T0 published fingerprint objects re-derived: the dressing factor making the 1/5 coefficient exact is (COEF_OBS/coef_at_fifth)^(1/10) = 0.999445834461 (a -5.542e-04 correction); the V205 amplitude pair is required 0.963878757 vs branch-1/5 0.964413150 (gap +5.344e-04 = the published 0.055% fingerprint): reported as a measurement pair, no identity asserted (booking correction of the first-run gate)",
    "pass": true
   },
   {
@@ -63,7 +51,7 @@
    "pass": true
   },
   {
-   "name": "A one-loop beta zeros (extended: gauge copies 0..2, 16-families 0..16, adjoint scalars 0..20): 16 total, 15 nontrivial; exact condition n_f + n_s = 11 n_g; n_f = 3 headline examples: [{'n_gauge': 1, 'n_families16': 3, 'n_scalar_adj': 19}]",
+   "name": "A one-loop beta zeros (extended: gauge copies 0..2, 16-families 0..16, adjoint scalars 0..20): 16 total, 15 nontrivial; exact condition n_f + n_s = 22 n_g (704/3 n_g = 32/3 (n_f + n_s): booking-text slip corrected from 11 to 22, the arithmetic was always exact); n_f = 3 headline examples: [{'n_gauge': 1, 'n_families16': 3, 'n_scalar_adj': 19}]",
    "pass": true
   },
   {
@@ -71,7 +59,7 @@
    "pass": true
   },
   {
-   "name": "B/C solved dressings + census: {'J1-identity|self': (np.float64(-7.450580596923818e-10), ['alpha=0/1'])}",
+   "name": "B/C solved dressings + census: {}",
    "pass": true
   }
  ]

@@ -12,8 +12,8 @@
     "evidence": {
      "sphere_status": "SPHERE-ENGINE-CLOCK-VOID",
      "contacts_within_1e-9": 0,
-     "rung_defect_at_g_obs": 0.004883417406518035,
-     "rung_defect_at_g_cross": 0.009210168724635297
+     "rung_defect_at_g_obs": 0.0048834174064922775,
+     "rung_defect_at_g_cross": 0.009210168724637074
     }
    },
    {

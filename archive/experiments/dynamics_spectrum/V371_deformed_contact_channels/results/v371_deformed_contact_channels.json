@@ -7,22 +7,22 @@
  "pass": true,
  "data": {
   "ell1_kernel_source": "V369 sm400 cache (V370 source)",
-  "leak_ell1": 8.44876776463334e-14,
+  "leak_ell1": 8.44876776463333e-14,
   "JL_fiber_band": [
-   -64.00000000000001,
-   8.000000000000009
+   -64.00000000000007,
+   8.000000000000016
   ],
-  "ritz_polish_residual": 6.2312628451228806e-15,
-  "leak_ell2_rel": 2.985412005592992e-14,
+  "ritz_polish_residual": 7.80409511483809e-15,
+  "leak_ell2_rel": 1.5022357213302852e-14,
   "D2_eigs": [
-   -96.00000000000013,
-   -95.99999999999842,
-   -64.00000000000296,
-   -63.99999999999963,
-   -3.2549388164840366e-13,
-   3.851844818586739e-14
+   -96.00000000000071,
+   -95.99999999999989,
+   -64.00000000000145,
+   -63.99999999999965,
+   1.1935166987556261e-13,
+   6.764561941757496e-13
   ],
-  "D2_nonphase": 64.00000000000004,
+  "D2_nonphase": 64.00000000000068,
   "window_scan": {
    "etas": [
     0.0,
@@ -144,7 +144,7 @@
    "pass": true
   },
   {
-   "name": "T0 ell=2: full-fiber ker 6 (V372's 6), max ||O^2 v|| 5.1e-15 (<=1e-8), Gram defect 4.9e-14: True",
+   "name": "T0 ell=2: full-fiber ker 6 (V372's 6), max ||O^2 v|| 6.7e-15 (<=1e-8), Gram defect 1.6e-14: True",
    "pass": true
   },
   {
@@ -156,7 +156,7 @@
    "pass": true
   },
   {
-   "name": "fiber kernel JL-invariance leak (rel) 3.0e-14 (<=1e-3): True",
+   "name": "fiber kernel JL-invariance leak (rel) 1.5e-14 (<=1e-3): True",
    "pass": true
   }
  ]

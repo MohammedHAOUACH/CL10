@@ -31,7 +31,7 @@
    "C_P": 1470209325721.6416,
    "COEF_OBS": 2.076564111173832,
    "rel_dev": 708000931831.8087,
-   "window_read_dev": 5.457648321277802e-13
+   "window_read_dev": 5.367828090284986e-13
   }
  },
  "checks": [
@@ -48,7 +48,7 @@
    "pass": true
   },
   {
-   "name": "READING: C_P = 3(|F_10^P(1/5)|/LOOP)^10 = 1.47021e+12 vs COEF_OBS = 2.07656: rel dev 7.080e+11 (dial window = the V355 read_dev leaf 5.458e-13: outside)",
+   "name": "READING: C_P = 3(|F_10^P(1/5)|/LOOP)^10 = 1.47021e+12 vs COEF_OBS = 2.07656: rel dev 7.080e+11 (dial window = the V355 read_dev leaf 5.368e-13: outside)",
    "pass": true
   }
  ]

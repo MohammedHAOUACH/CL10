@@ -7,9 +7,9 @@
  "data": {
   "a_ins_from_V205": 0.9644131499665388,
   "correction_size_at_1_5": {
-   "J1-a_ins*I": 0.0033130582282878684,
-   "J2-cartan2": 0.017176550467000683,
-   "J3-G(1/5)": 0.03549309099247004
+   "J1-a_ins*I": 0.0033130582282878476,
+   "J2-cartan2": 0.017176550467000565,
+   "J3-G(1/5)": 0.035493090992470014
   },
   "gpu_backend": true,
   "fixed_points": {
@@ -93,7 +93,7 @@
    "pass": "True"
   },
   {
-   "name": "T0e GPU batched scan vs host ladder (5 probes): max dev 8.8e-16 (<= 1e-9); device in use: cupy",
+   "name": "T0e GPU batched scan vs host ladder (5 probes): max dev 8.5e-16 (<= 1e-9); device in use: cupy",
    "pass": true
   },
   {

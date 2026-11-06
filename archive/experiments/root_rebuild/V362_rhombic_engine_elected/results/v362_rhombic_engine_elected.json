@@ -71,7 +71,7 @@
    "C_R": 15014941.835659385,
    "COEF_OBS": 2.076564111173832,
    "rel_dev": 7230665.154184759,
-   "dial_window_read_dev": 5.457648321277802e-13
+   "dial_window_read_dev": 5.367828090284986e-13
   }
  },
  "checks": [
@@ -96,7 +96,7 @@
    "pass": true
   },
   {
-   "name": "T3 READING: C_R = 3(|F_10^Rh(1/5)|/LOOP)^10 = 1.50149e+07 vs COEF_OBS = 2.07656: rel dev 7.231e+06 (elected dial window read_dev leaf 5.458e-13: outside)",
+   "name": "T3 READING: C_R = 3(|F_10^Rh(1/5)|/LOOP)^10 = 1.50149e+07 vs COEF_OBS = 2.07656: rel dev 7.231e+06 (elected dial window read_dev leaf 5.368e-13: outside)",
    "pass": true
   }
  ]

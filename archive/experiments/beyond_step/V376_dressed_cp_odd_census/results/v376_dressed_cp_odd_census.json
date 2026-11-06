@@ -558,7 +558,7 @@
     "V373 full generator (internal action)": 1.7763568394002505e-15
    }
   },
-  "channel_space_phase_record_max_abs_imTr": 22.808676780902452
+  "channel_space_phase_record_max_abs_imTr": 4.072559653870734
  },
  "pass": true,
  "status": "CP-EVEN-DRESSED-CLASS-CLOSED (every booked invariant |I| <= 1e-12 at every eta for all three class members; the dressings are measured scalars on the internal space and the W-dressed step keeps the 0-parameter algebraic cancellations; channel-space relative phases recorded as data, not invariants of the booked class; the named eta_CP residual stands)",

@@ -3,7 +3,7 @@
  "data": {
   "mirror": {
    "involution_err": 0.0,
-   "commutes_with_U32": 7.791361360319882e-16,
+   "commutes_with_U32": 7.043917247687978e-16,
    "sector_split": 6.661338147750939e-16
   },
   "commutant": {
@@ -78,7 +78,7 @@
  "pass": true,
  "checks": [
   {
-   "name": "T0 the pseudoscalar is an exact Z2 of the internal step (G^2 = I to 0.0e+00, [G,U32] = 7.8e-16) and splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16)",
+   "name": "T0 the pseudoscalar is an exact Z2 of the internal step (G^2 = I to 0.0e+00, [G,U32] = 7.0e-16) and splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16)",
    "pass": true
   },
   {
@@ -98,5 +98,5 @@
    "pass": true
   }
  ],
- "status": "EXACT Z2 GRADINGS OF THE STEP (O7). The mirror is the pseudoscalar: G^2 = I to 0.0e+00, [G,U32] = 7.8e-16, and it splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16). Enumerating the whole Clifford grading group: 2 of the 1024 products commute with the internal step, generating a grading group of 1 independent elements; U32 has a simple spectrum, so its commutant is abelian of dimension 32 and every exact internal Z2 is a sign choice on its 32 eigenstates (2147483648 of them), of which exactly two are Clifford elements. Of the 1 non-trivial exact gradings, 1 are mirror-type (constant on the 16) and 0 are not; 0 of the non-mirror ones make a neutral colour-singlet weight odd, and 0 of those do it WITHOUT making any coloured weight odd. The V65 Wilson extension is weight-diagonal and changes nothing (2 -> 2). VERDICT: no exact Z2 grading of the implemented step (nor of its Wilson extension) makes a neutral weight odd without also making a coloured one odd: V88's asked-for parity does not exist inside the Clifford algebra of the root, so the mirror Z2 really is the only exact stability carrier, and V75's spectral no-go stands on top of a symmetry-level one."
+ "status": "EXACT Z2 GRADINGS OF THE STEP (O7). The mirror is the pseudoscalar: G^2 = I to 0.0e+00, [G,U32] = 7.0e-16, and it splits the module into the 16 and the 16-bar (eigenspace error 6.7e-16). Enumerating the whole Clifford grading group: 2 of the 1024 products commute with the internal step, generating a grading group of 1 independent elements; U32 has a simple spectrum, so its commutant is abelian of dimension 32 and every exact internal Z2 is a sign choice on its 32 eigenstates (2147483648 of them), of which exactly two are Clifford elements. Of the 1 non-trivial exact gradings, 1 are mirror-type (constant on the 16) and 0 are not; 0 of the non-mirror ones make a neutral colour-singlet weight odd, and 0 of those do it WITHOUT making any coloured weight odd. The V65 Wilson extension is weight-diagonal and changes nothing (2 -> 2). VERDICT: no exact Z2 grading of the implemented step (nor of its Wilson extension) makes a neutral weight odd without also making a coloured one odd: V88's asked-for parity does not exist inside the Clifford algebra of the root, so the mirror Z2 really is the only exact stability carrier, and V75's spectral no-go stands on top of a symmetry-level one."
 }

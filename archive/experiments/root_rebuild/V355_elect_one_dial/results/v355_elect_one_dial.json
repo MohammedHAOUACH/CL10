@@ -5,11 +5,11 @@
  "status": "ELECT-BUILT",
  "pass": true,
  "data": {
-  "alpha_elect": -0.003095044242559194,
-  "beta_elect": -0.1555738920793496,
+  "alpha_elect": -0.0030950442425137195,
+  "beta_elect": -0.1555738920770638,
   "battery": {
    "birth_dev": 3.72524233682725e-12,
-   "read_dev": 5.457648321277802e-13,
+   "read_dev": 5.367828090284986e-13,
    "gcross_dressed": 0.20013522988494253,
    "gcross_dev": 2.0625845257860043e-06,
    "rung_star": 10,
@@ -18,7 +18,7 @@
  },
  "checks": [
   {
-   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 on the published g_obs to 3.1e-12 (<= 1e-8); reading at 1/5 vs the V206 coef_at_fifth artifact rel 1.7e-13 (<= 1e-9)",
+   "name": "T0 tree guards: rootB(1/5, 0) = 0.1999979884 on the published g_obs to 3.1e-12 (<= 1e-8); reading at 1/5 vs the V206 coef_at_fifth artifact rel 2.6e-13 (<= 1e-9)",
    "pass": true
   },
   {
@@ -26,7 +26,7 @@
    "pass": "True"
   },
   {
-   "name": "B2 EXACT READING: the dressed ladder at the born clock reads 2.0765641112 vs COEF_OBS 2.0765641112 - rel 5.5e-13 (<= 1e-8): the paper's reading claim UPGRADED from relative 1e-5 at the inverted g_obs to exact at the rational fifth",
+   "name": "B2 EXACT READING: the dressed ladder at the born clock reads 2.0765641112 vs COEF_OBS 2.0765641112 - rel 5.4e-13 (<= 1e-8): the paper's reading claim UPGRADED from relative 1e-5 at the inverted g_obs to exact at the rational fifth",
    "pass": true
   },
   {
@@ -42,7 +42,7 @@
    "pass": true
   },
   {
-   "name": "B6 DIAL ACCOUNTING: exactly 1 new constant (beta_elect = -0.155573892079 (alpha/LOOP, from the V354 artifact)); the published V248 zero-dial ledger is CONTRADICTED BY ONE - stated verbatim per booking",
+   "name": "B6 DIAL ACCOUNTING: exactly 1 new constant (beta_elect = -0.155573892077 (alpha/LOOP, from the V354 artifact)); the published V248 zero-dial ledger is CONTRADICTED BY ONE - stated verbatim per booking",
    "pass": true
   }
  ]

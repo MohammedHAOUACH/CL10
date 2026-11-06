@@ -7,7 +7,7 @@
  "branch": "NO-CONTENT",
  "data": {
   "conventions": {
-   "rule_source": "experiments/couplings_unification/V237_desert_threshold_matching/V237_desert_threshold_matching.py l. 142-225 copied verbatim",
+   "rule_source": "archive/experiments/couplings_unification/V237_desert_threshold_matching/V237_desert_threshold_matching.py l. 142-225 copied verbatim",
    "content": "composite multiplicity table: joint Cartan weights of the singlet kernel (V262 Cartan convention); kernel states are Spin(10) singlets (annihilated by all 45 charges) -> db = (0, 0, 0), no (1,2) branching",
    "inequality": "realizable iff |dz12| <= spacing12 (V237's own)",
    "kernel_tolerance": 1e-09
@@ -33,7 +33,7 @@
   },
   "backend": "cupy",
   "fitted_inputs": [],
-  "wall_time": 8.076222896575928
+  "wall_time": 8.011647701263428
  },
  "checks": [
   {

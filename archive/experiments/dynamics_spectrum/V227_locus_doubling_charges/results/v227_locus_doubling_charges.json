@@ -4,7 +4,7 @@
   "property": "the gapless locus of the 2I-covariant Clifford cell inside the first zone with each point's touching dimension, transverse exponent and Berry charge, the flux bookkeeping against spheres around the zone, the measured absence of a reciprocal lattice vector of the icosahedral module, and the exactly-zero trusted sphere of the spinless control",
   "residual": true,
   "pass": true,
-  "status": "GAPLESS LOCUS AND DOUBLING BOOKKEEPING of the 2I-covariant Clifford cell at the default clock g = 0.785398 (layers 1, internal exponent 4). (T1) the locus over |q| <= pi/ell = 1.6516: smallest gap 0.0e+00; 12 components of the locus resolved to 12 gapless points, 0 isolated point nodes, 12 pierced by gapless rays; the gapless grid points lie on 3 lines through the origin, and 2 of the 3 probed stay gapless to 1e-12 at every probe out to r 1.4; touching dimensions [8, 14, 14, 12, 12, 9, 16, 9, 13, 10, 8, 8]. (T2) 0 of 12 locus points have a flux whose sphere kept full link rank; every sphere about a locus point lost rank (smallest link overlaps ['9e-16', '3e-16', '6e-17', '2e-16', '8e-16', '4e-16', '6e-17', '3e-16', '3e-16', '2e-16', '7e-17', '1e-16'], integer defects [0.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0]), so no Berry charge is defined anywhere on the locus and the summed trusted charge is +0. (T3) spheres around the zone centre give 1.652:None, 1.239:13, 0.826:15, 0.413:14; 1 give an integer to machine precision, 2 sit pinned at a half-integer, 1 refuse, and exactly 1 sphere is trusted (flux 13), so radius independence is not established; the trichotomy is; the summed trusted node charge is +0. (T4) the module has no period: the integrality search over the direction-coefficient matrix bottoms out at defect 0.1459, so there is no Brillouin zone to double over, and the gapless lines run out through the zone edge (the sphere at rmax is the one that refuses); the module's shortest rational-direction hop is norm 2.0000, displacement [0.0, 0.0, 2.0], 17 steps. (T5) the spinless control's zone-centre touching is 36 bands at phase zero, gapless along the transverse probe ray (gapless ray), and its trusted sphere of radius 0.040 gives charge 0 (defect 5.1e-15, smallest link overlap 0.9998): exactly zero where every sphere about the Clifford cell's locus points lost rank.",
+  "status": "GAPLESS LOCUS AND DOUBLING BOOKKEEPING of the 2I-covariant Clifford cell at the default clock g = 0.785398 (layers 1, internal exponent 4). (T1) the locus over |q| <= pi/ell = 1.6516: smallest gap 0.0e+00; 12 components of the locus resolved to 12 gapless points, 0 isolated point nodes, 12 pierced by gapless rays; the gapless grid points lie on 3 lines through the origin, and 2 of the 3 probed stay gapless to 1e-12 at every probe out to r 1.4; touching dimensions [13, 2, 10, 19, 13, 3, 12, 10, 10, 14, 4, 8]. (T2) 0 of 12 locus points have a flux whose sphere kept full link rank; every sphere about a locus point lost rank (smallest link overlaps ['4e-16', '2e-16', '1e-16', '2e-16', '2e-16', '1e-16', '1e-16', '7e-16', '3e-16', '3e-16', '1e-16', '1e-16'], integer defects [0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.0, 0.5, 0.0, 0.0]), so no Berry charge is defined anywhere on the locus and the summed trusted charge is +0. (T3) spheres around the zone centre give 1.652:None, 1.239:17, 0.826:16, 0.413:17; 3 give an integer to machine precision, 0 sit pinned at a half-integer, 1 refuse, and exactly 3 sphere is trusted (flux 17), so radius independence is not established; the trichotomy is; the summed trusted node charge is +0. (T4) the module has no period: the integrality search over the direction-coefficient matrix bottoms out at defect 0.1459, so there is no Brillouin zone to double over, and the gapless lines run out through the zone edge (the sphere at rmax is the one that refuses); the module's shortest rational-direction hop is norm 2.0000, displacement [0.0, 0.0, 2.0], 17 steps. (T5) the spinless control's zone-centre touching is 46 bands at phase zero, gapless along the transverse probe ray (gapless ray), and its trusted sphere of radius 0.040 gives charge 0 (defect 1.5e-15, smallest link overlap 0.9998): exactly zero where every sphere about the Clifford cell's locus points lost rank.",
   "data": {
     "clock": 0.7853981633974483,
     "branch": "default",
@@ -22,7 +22,7 @@
       "grid_min": {
         "gap": 0.0,
         "q": [
-          -1.32,
+          -1.54,
           0.0,
           0.0
         ]
@@ -30,7 +30,7 @@
       "thresholds": [
         {
           "tol": 1e-08,
-          "grid_points": 39
+          "grid_points": 38
         },
         {
           "tol": 1e-06,
@@ -76,7 +76,7 @@
           -0.0
         ],
         "probes": 6,
-        "gapless_to_1e-12": 5,
+        "gapless_to_1e-12": 3,
         "largest_gap": 2.9802322387695312e-08
       },
       {
@@ -104,30 +104,354 @@
     "nodes": [
       {
         "q": [
-          -1.32,
+          -1.54,
           0.0,
           0.0
         ],
         "gap": 0.0,
         "from": [
-          -1.32,
+          -1.54,
           0.0,
           0.0
         ],
-        "count": 8,
+        "count": 13,
         "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 1.0000025936243904,
+        "first_outside": 2.1073424255447017e-08,
+        "isolation": 21073.42425544702,
+        "exponent": 1.0000004130035531,
         "pierced_rays": 11,
         "mesh_rays": 42,
         "flux": {
-          "chern": 6.999999999999997,
-          "nearest_integer": 7,
-          "integer_defect": 2.6645352591003757e-15,
+          "chern": 9.5,
+          "nearest_integer": 10,
+          "integer_defect": 0.5,
           "sector": "negative",
           "bands_in_sector": 96,
-          "min_link_overlap": 8.847344812000634e-16,
+          "min_link_overlap": 3.6658862050258837e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000004,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 9.5,
+            "nearest_integer": 10,
+            "integer_defect": 0.5,
+            "bands_in_sector": 96,
+            "min_link_overlap": 3.6658862050258837e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000004,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 7.5000000000000036,
+            "nearest_integer": 8,
+            "integer_defect": 0.49999999999999645,
+            "bands_in_sector": 96,
+            "min_link_overlap": 6.257235774711258e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 10.500000000000009,
+            "nearest_integer": 11,
+            "integer_defect": 0.4999999999999911,
+            "bands_in_sector": 96,
+            "min_link_overlap": 2.3861870466505068e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000038,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 10,
+        "chern_defect": 0.5
+      },
+      {
+        "q": [
+          -0.88,
+          0.0,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          -0.88,
+          0.0,
+          0.0
+        ],
+        "count": 2,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 1.00000235955876,
+        "pierced_rays": 16,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 8.0,
+          "nearest_integer": 8,
+          "integer_defect": 0.0,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.760764387743548e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000003,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 8.0,
+            "nearest_integer": 8,
+            "integer_defect": 0.0,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.760764387743548e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 6.4999999999999964,
+            "nearest_integer": 6,
+            "integer_defect": 0.49999999999999645,
+            "bands_in_sector": 96,
+            "min_link_overlap": 3.2498860834939534e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000029,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 6.000000000000004,
+            "nearest_integer": 6,
+            "integer_defect": 4.440892098500626e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.4396430999141325e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000036,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 8,
+        "chern_defect": 0.0
+      },
+      {
+        "q": [
+          -0.44,
+          0.0,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          -0.44,
+          0.0,
+          0.0
+        ],
+        "count": 10,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 1.0000026001453601,
+        "pierced_rays": 13,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 9.5,
+          "nearest_integer": 10,
+          "integer_defect": 0.5,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.078264438282048e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000003,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 9.5,
+            "nearest_integer": 10,
+            "integer_defect": 0.5,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.078264438282048e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 9.000000000000012,
+            "nearest_integer": 9,
+            "integer_defect": 1.2434497875801753e-14,
+            "bands_in_sector": 96,
+            "min_link_overlap": 5.4864507446752026e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000038,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 9.000000000000004,
+            "nearest_integer": 9,
+            "integer_defect": 3.552713678800501e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.2688947958930402e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 10,
+        "chern_defect": 0.5
+      },
+      {
+        "q": [
+          0.0,
+          -1.54,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          -1.54,
+          0.0
+        ],
+        "count": 19,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 1.0000054020836153,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 4.0000000000000036,
+          "nearest_integer": 4,
+          "integer_defect": 3.552713678800501e-15,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 2.4817294546814547e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000003,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 4.0000000000000036,
+            "nearest_integer": 4,
+            "integer_defect": 3.552713678800501e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 2.4817294546814547e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 9.000000000000007,
+            "nearest_integer": 9,
+            "integer_defect": 7.105427357601002e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.276819767339266e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000033,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 5.999999999999993,
+            "nearest_integer": 6,
+            "integer_defect": 7.105427357601002e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 2.98520780104258e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 4,
+        "chern_defect": 3.552713678800501e-15
+      },
+      {
+        "q": [
+          0.0,
+          -1.1,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          -1.1,
+          0.0
+        ],
+        "count": 13,
+        "cluster_top": 0.0,
+        "first_outside": 2.1073424255447017e-08,
+        "isolation": 21073.42425544702,
+        "exponent": 1.0000109112038902,
+        "pierced_rays": 17,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 6.500000000000003,
+          "nearest_integer": 7,
+          "integer_defect": 0.49999999999999734,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.6463732223734986e-16,
           "link_rank_ok": false,
           "frame_condition_max": 1.0000000000000029,
           "radius": 0.01,
@@ -138,11 +462,11 @@
         },
         "flux_attempts": [
           {
-            "chern": 6.999999999999997,
+            "chern": 6.500000000000003,
             "nearest_integer": 7,
-            "integer_defect": 2.6645352591003757e-15,
+            "integer_defect": 0.49999999999999734,
             "bands_in_sector": 96,
-            "min_link_overlap": 8.847344812000634e-16,
+            "min_link_overlap": 1.6463732223734986e-16,
             "link_rank_ok": false,
             "frame_condition_max": 1.0000000000000029,
             "radius": 0.01,
@@ -152,11 +476,92 @@
             "mesh_triangles": 180
           },
           {
-            "chern": 6.000000000000003,
+            "chern": 6.499999999999999,
             "nearest_integer": 6,
-            "integer_defect": 2.6645352591003757e-15,
+            "integer_defect": 0.4999999999999991,
             "bands_in_sector": 96,
-            "min_link_overlap": 1.0563335552166265e-16,
+            "min_link_overlap": 1.1316312569307384e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 8.500000000000007,
+            "nearest_integer": 9,
+            "integer_defect": 0.4999999999999929,
+            "bands_in_sector": 96,
+            "min_link_overlap": 9.364279278732739e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 7,
+        "chern_defect": 0.49999999999999734
+      },
+      {
+        "q": [
+          0.0,
+          -0.66,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          -0.66,
+          0.0
+        ],
+        "count": 3,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 1.0000031969155045,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 9.000000000000002,
+          "nearest_integer": 9,
+          "integer_defect": 1.7763568394002505e-15,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.2804223926459043e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.0000000000000033,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 9.000000000000002,
+            "nearest_integer": 9,
+            "integer_defect": 1.7763568394002505e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.2804223926459043e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000033,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 7.500000000000002,
+            "nearest_integer": 8,
+            "integer_defect": 0.4999999999999982,
+            "bands_in_sector": 96,
+            "min_link_overlap": 4.062650917401453e-17,
             "link_rank_ok": false,
             "frame_condition_max": 1.0000000000000029,
             "radius": 0.04,
@@ -166,13 +571,418 @@
             "mesh_triangles": 180
           },
           {
-            "chern": 8.000000000000005,
+            "chern": 9.500000000000007,
+            "nearest_integer": 10,
+            "integer_defect": 0.4999999999999929,
+            "bands_in_sector": 96,
+            "min_link_overlap": 2.3876199853064946e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000036,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 9,
+        "chern_defect": 1.7763568394002505e-15
+      },
+      {
+        "q": [
+          0.0,
+          -0.22,
+          0.0
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          -0.22,
+          0.0
+        ],
+        "count": 12,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 1.0000053674230072,
+        "pierced_rays": 17,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 6.5000000000000036,
+          "nearest_integer": 7,
+          "integer_defect": 0.49999999999999645,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.4294173575656363e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.0000000000000036,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 6.5000000000000036,
+            "nearest_integer": 7,
+            "integer_defect": 0.49999999999999645,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.4294173575656363e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000036,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 5.499999999999999,
+            "nearest_integer": 5,
+            "integer_defect": 0.4999999999999991,
+            "bands_in_sector": 96,
+            "min_link_overlap": 4.7897472633203026e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000038,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 7.999999999999992,
+            "nearest_integer": 8,
+            "integer_defect": 7.993605777301127e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 7.225377184516897e-18,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000033,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 7,
+        "chern_defect": 0.49999999999999645
+      },
+      {
+        "q": [
+          0.0,
+          0.0,
+          -1.54
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          0.0,
+          -1.54
+        ],
+        "count": 10,
+        "cluster_top": 0.0,
+        "first_outside": 2.1073424255447017e-08,
+        "isolation": 21073.42425544702,
+        "exponent": 0.9999997432493982,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 7.000000000000005,
+          "nearest_integer": 7,
+          "integer_defect": 5.329070518200751e-15,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 7.358056615103326e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.0000000000000029,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 7.000000000000005,
+            "nearest_integer": 7,
+            "integer_defect": 5.329070518200751e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 7.358056615103326e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000029,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 7.499999999999999,
+            "nearest_integer": 7,
+            "integer_defect": 0.4999999999999991,
+            "bands_in_sector": 96,
+            "min_link_overlap": 5.0869150663447996e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000033,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 7.999999999999995,
             "nearest_integer": 8,
             "integer_defect": 5.329070518200751e-15,
             "bands_in_sector": 96,
-            "min_link_overlap": 3.7119420606362945e-17,
+            "min_link_overlap": 5.214466237550492e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000027,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 7,
+        "chern_defect": 5.329070518200751e-15
+      },
+      {
+        "q": [
+          0.0,
+          0.0,
+          -1.1
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          0.0,
+          -1.1
+        ],
+        "count": 10,
+        "cluster_top": 0.0,
+        "first_outside": 2.580956827951785e-08,
+        "isolation": 25809.56827951785,
+        "exponent": 0.9999997728625006,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 12.000000000000007,
+          "nearest_integer": 12,
+          "integer_defect": 7.105427357601002e-15,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 3.2537570128655577e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.0000000000000029,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 12.000000000000007,
+            "nearest_integer": 12,
+            "integer_defect": 7.105427357601002e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 3.2537570128655577e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000029,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 5.999999999999999,
+            "nearest_integer": 6,
+            "integer_defect": 8.881784197001252e-16,
+            "bands_in_sector": 96,
+            "min_link_overlap": 6.169396414428433e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000027,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 4.000000000000003,
+            "nearest_integer": 4,
+            "integer_defect": 2.6645352591003757e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 2.3228707477240477e-17,
             "link_rank_ok": false,
             "frame_condition_max": 1.000000000000003,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 12,
+        "chern_defect": 7.105427357601002e-15
+      },
+      {
+        "q": [
+          0.0,
+          0.0,
+          -0.66
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          0.0,
+          -0.66
+        ],
+        "count": 14,
+        "cluster_top": 0.0,
+        "first_outside": 2.1073424255447017e-08,
+        "isolation": 21073.42425544702,
+        "exponent": 0.9999997458492467,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 8.499999999999996,
+          "nearest_integer": 8,
+          "integer_defect": 0.49999999999999645,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 3.3220610330328112e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000003,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 8.499999999999996,
+            "nearest_integer": 8,
+            "integer_defect": 0.49999999999999645,
+            "bands_in_sector": 96,
+            "min_link_overlap": 3.3220610330328112e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 6.000000000000001,
+            "nearest_integer": 6,
+            "integer_defect": 8.881784197001252e-16,
+            "bands_in_sector": 96,
+            "min_link_overlap": 6.694520760744226e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000029,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 8.000000000000002,
+            "nearest_integer": 8,
+            "integer_defect": 1.7763568394002505e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 4.151210618501643e-18,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.12,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          }
+        ],
+        "chern": 8,
+        "chern_defect": 0.49999999999999645
+      },
+      {
+        "q": [
+          0.0,
+          0.0,
+          -0.22
+        ],
+        "gap": 0.0,
+        "from": [
+          0.0,
+          0.0,
+          -0.22
+        ],
+        "count": 4,
+        "cluster_top": 0.0,
+        "first_outside": 1.4901161193847656e-08,
+        "isolation": 14901.161193847656,
+        "exponent": 0.9999997336803067,
+        "pierced_rays": 18,
+        "mesh_rays": 42,
+        "flux": {
+          "chern": 7.000000000000003,
+          "nearest_integer": 7,
+          "integer_defect": 2.6645352591003757e-15,
+          "sector": "negative",
+          "bands_in_sector": 96,
+          "min_link_overlap": 1.2609352235970624e-16,
+          "link_rank_ok": false,
+          "frame_condition_max": 1.000000000000003,
+          "radius": 0.01,
+          "window": 1.5707963267948966,
+          "window_chosen_by_ladder": true,
+          "mesh_points": 92,
+          "mesh_triangles": 180
+        },
+        "flux_attempts": [
+          {
+            "chern": 7.000000000000003,
+            "nearest_integer": 7,
+            "integer_defect": 2.6645352591003757e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.2609352235970624e-16,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.01,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 6.999999999999997,
+            "nearest_integer": 7,
+            "integer_defect": 2.6645352591003757e-15,
+            "bands_in_sector": 96,
+            "min_link_overlap": 1.679732496551373e-17,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.000000000000003,
+            "radius": 0.04,
+            "window": 1.5707963267948966,
+            "window_chosen_by_ladder": true,
+            "mesh_points": 92,
+            "mesh_triangles": 180
+          },
+          {
+            "chern": 8.500000000000004,
+            "nearest_integer": 9,
+            "integer_defect": 0.49999999999999645,
+            "bands_in_sector": 96,
+            "min_link_overlap": 8.741925944328178e-18,
+            "link_rank_ok": false,
+            "frame_condition_max": 1.0000000000000038,
             "radius": 0.12,
             "window": 1.5707963267948966,
             "window_chosen_by_ladder": true,
@@ -185,32 +995,32 @@
       },
       {
         "q": [
-          -0.88,
           0.0,
-          0.0
+          0.0,
+          0.22
         ],
         "gap": 0.0,
         "from": [
-          -0.88,
           0.0,
-          0.0
+          0.0,
+          0.22
         ],
-        "count": 14,
+        "count": 8,
         "cluster_top": 0.0,
-        "first_outside": 2.9802322387695312e-08,
-        "isolation": 29802.322387695312,
-        "exponent": 0.9999998873963,
-        "pierced_rays": 16,
+        "first_outside": 2.1073424255447017e-08,
+        "isolation": 21073.42425544702,
+        "exponent": 0.9999997422863547,
+        "pierced_rays": 18,
         "mesh_rays": 42,
         "flux": {
-          "chern": 5.500000000000002,
+          "chern": 5.999999999999997,
           "nearest_integer": 6,
-          "integer_defect": 0.4999999999999982,
+          "integer_defect": 2.6645352591003757e-15,
           "sector": "negative",
           "bands_in_sector": 96,
-          "min_link_overlap": 2.7104147396176753e-16,
+          "min_link_overlap": 1.3531570583248132e-16,
           "link_rank_ok": false,
-          "frame_condition_max": 1.000000000000003,
+          "frame_condition_max": 1.0000000000000033,
           "radius": 0.01,
           "window": 1.5707963267948966,
           "window_chosen_by_ladder": true,
@@ -219,13 +1029,13 @@
         },
         "flux_attempts": [
           {
-            "chern": 5.500000000000002,
+            "chern": 5.999999999999997,
             "nearest_integer": 6,
-            "integer_defect": 0.4999999999999982,
+            "integer_defect": 2.6645352591003757e-15,
             "bands_in_sector": 96,
-            "min_link_overlap": 2.7104147396176753e-16,
+            "min_link_overlap": 1.3531570583248132e-16,
             "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
+            "frame_condition_max": 1.0000000000000033,
             "radius": 0.01,
             "window": 1.5707963267948966,
             "window_chosen_by_ladder": true,
@@ -233,13 +1043,13 @@
             "mesh_triangles": 180
           },
           {
-            "chern": 8.999999999999998,
-            "nearest_integer": 9,
-            "integer_defect": 1.7763568394002505e-15,
+            "chern": 7.0,
+            "nearest_integer": 7,
+            "integer_defect": 0.0,
             "bands_in_sector": 96,
-            "min_link_overlap": 1.355680929295974e-16,
+            "min_link_overlap": 3.475304505390307e-17,
             "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000027,
+            "frame_condition_max": 1.0000000000000033,
             "radius": 0.04,
             "window": 1.5707963267948966,
             "window_chosen_by_ladder": true,
@@ -247,13 +1057,13 @@
             "mesh_triangles": 180
           },
           {
-            "chern": 6.000000000000003,
-            "nearest_integer": 6,
-            "integer_defect": 2.6645352591003757e-15,
+            "chern": 4.499999999999997,
+            "nearest_integer": 4,
+            "integer_defect": 0.49999999999999734,
             "bands_in_sector": 96,
-            "min_link_overlap": 4.355420207666203e-18,
+            "min_link_overlap": 2.3405825403824788e-17,
             "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
+            "frame_condition_max": 1.000000000000003,
             "radius": 0.12,
             "window": 1.5707963267948966,
             "window_chosen_by_ladder": true,
@@ -262,817 +1072,7 @@
           }
         ],
         "chern": 6,
-        "chern_defect": 0.4999999999999982
-      },
-      {
-        "q": [
-          -0.44,
-          0.0,
-          0.0
-        ],
-        "gap": 0.0,
-        "from": [
-          -0.44,
-          0.0,
-          0.0
-        ],
-        "count": 14,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 1.0000022920803808,
-        "pierced_rays": 12,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 7.5000000000000036,
-          "nearest_integer": 8,
-          "integer_defect": 0.49999999999999645,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 5.825580751071727e-17,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000036,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 7.5000000000000036,
-            "nearest_integer": 8,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 5.825580751071727e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 4.4999999999999964,
-            "nearest_integer": 4,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 5.283764296720251e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 5.499999999999995,
-            "nearest_integer": 5,
-            "integer_defect": 0.49999999999999467,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.8436319135655306e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 8,
-        "chern_defect": 0.49999999999999645
-      },
-      {
-        "q": [
-          0.0,
-          -1.54,
-          0.0
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          -1.54,
-          0.0
-        ],
-        "count": 12,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 1.000010947026223,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 9.500000000000004,
-          "nearest_integer": 10,
-          "integer_defect": 0.49999999999999645,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 1.9093558730353504e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000033,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 9.500000000000004,
-            "nearest_integer": 10,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.9093558730353504e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 3.999999999999998,
-            "nearest_integer": 4,
-            "integer_defect": 2.220446049250313e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 6.942173560002533e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 5.9999999999999964,
-            "nearest_integer": 6,
-            "integer_defect": 3.552713678800501e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 2.0649289793708318e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 10,
-        "chern_defect": 0.49999999999999645
-      },
-      {
-        "q": [
-          0.0,
-          -1.1,
-          0.0
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          -1.1,
-          0.0
-        ],
-        "count": 12,
-        "cluster_top": 0.0,
-        "first_outside": 2.580956827951785e-08,
-        "isolation": 25809.56827951785,
-        "exponent": 1.0000105090356641,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 9.500000000000004,
-          "nearest_integer": 10,
-          "integer_defect": 0.49999999999999645,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 7.836827810679377e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000038,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 9.500000000000004,
-            "nearest_integer": 10,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 7.836827810679377e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000038,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 7.0,
-            "nearest_integer": 7,
-            "integer_defect": 0.0,
-            "bands_in_sector": 96,
-            "min_link_overlap": 5.879033723673428e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000029,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 6.999999999999995,
-            "nearest_integer": 7,
-            "integer_defect": 5.329070518200751e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 7.256663062668622e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 10,
-        "chern_defect": 0.49999999999999645
-      },
-      {
-        "q": [
-          0.0,
-          -0.66,
-          0.0
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          -0.66,
-          0.0
-        ],
-        "count": 9,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 1.0000160119821064,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 7.499999999999998,
-          "nearest_integer": 7,
-          "integer_defect": 0.4999999999999982,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 3.5410211790052276e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000029,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 7.499999999999998,
-            "nearest_integer": 7,
-            "integer_defect": 0.4999999999999982,
-            "bands_in_sector": 96,
-            "min_link_overlap": 3.5410211790052276e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000029,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 6.5000000000000036,
-            "nearest_integer": 7,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 3.556761639002144e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 7.0,
-            "nearest_integer": 7,
-            "integer_defect": 0.0,
-            "bands_in_sector": 96,
-            "min_link_overlap": 3.2968289482751863e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 7,
-        "chern_defect": 0.4999999999999982
-      },
-      {
-        "q": [
-          0.0,
-          -0.22,
-          0.0
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          -0.22,
-          0.0
-        ],
-        "count": 16,
-        "cluster_top": 0.0,
-        "first_outside": 2.9802322387695312e-08,
-        "isolation": 29802.322387695312,
-        "exponent": 1.0000041203446581,
-        "pierced_rays": 17,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 8.000000000000002,
-          "nearest_integer": 8,
-          "integer_defect": 1.7763568394002505e-15,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 5.614498598441282e-17,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000029,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 8.000000000000002,
-            "nearest_integer": 8,
-            "integer_defect": 1.7763568394002505e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 5.614498598441282e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000029,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 5.499999999999997,
-            "nearest_integer": 5,
-            "integer_defect": 0.49999999999999734,
-            "bands_in_sector": 96,
-            "min_link_overlap": 5.240986108820984e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 8.500000000000002,
-            "nearest_integer": 9,
-            "integer_defect": 0.4999999999999982,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.1439033190806924e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 8,
-        "chern_defect": 1.7763568394002505e-15
-      },
-      {
-        "q": [
-          0.0,
-          0.0,
-          -1.54
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          0.0,
-          -1.54
-        ],
-        "count": 9,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 0.999999743488333,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 6.500000000000001,
-          "nearest_integer": 7,
-          "integer_defect": 0.4999999999999991,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 2.6066561648951065e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.000000000000003,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 6.500000000000001,
-            "nearest_integer": 7,
-            "integer_defect": 0.4999999999999991,
-            "bands_in_sector": 96,
-            "min_link_overlap": 2.6066561648951065e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 8.500000000000004,
-            "nearest_integer": 9,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.2962282181609784e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000029,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 7.499999999999997,
-            "nearest_integer": 7,
-            "integer_defect": 0.49999999999999734,
-            "bands_in_sector": 96,
-            "min_link_overlap": 9.341290302596374e-18,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 7,
-        "chern_defect": 0.4999999999999991
-      },
-      {
-        "q": [
-          0.0,
-          0.0,
-          -1.1
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          0.0,
-          -1.1
-        ],
-        "count": 13,
-        "cluster_top": 0.0,
-        "first_outside": 2.1073424255447017e-08,
-        "isolation": 21073.42425544702,
-        "exponent": 0.9999997346602052,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 7.499999999999999,
-          "nearest_integer": 7,
-          "integer_defect": 0.4999999999999991,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 2.6083140668069403e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.000000000000003,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 7.499999999999999,
-            "nearest_integer": 7,
-            "integer_defect": 0.4999999999999991,
-            "bands_in_sector": 96,
-            "min_link_overlap": 2.6083140668069403e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 9.500000000000002,
-            "nearest_integer": 10,
-            "integer_defect": 0.4999999999999982,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.1670402468580826e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 7.000000000000005,
-            "nearest_integer": 7,
-            "integer_defect": 5.329070518200751e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 2.0046744673888906e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 7,
-        "chern_defect": 0.4999999999999991
-      },
-      {
-        "q": [
-          0.0,
-          0.0,
-          -0.66
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          0.0,
-          -0.66
-        ],
-        "count": 10,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 0.9999997323922483,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 4.5,
-          "nearest_integer": 4,
-          "integer_defect": 0.5,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 1.538243800691442e-16,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000033,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 4.5,
-            "nearest_integer": 4,
-            "integer_defect": 0.5,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.538243800691442e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 6.9999999999999964,
-            "nearest_integer": 7,
-            "integer_defect": 3.552713678800501e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.3752689125955385e-16,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 6.000000000000003,
-            "nearest_integer": 6,
-            "integer_defect": 2.6645352591003757e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 9.453776663850457e-18,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000004,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 4,
-        "chern_defect": 0.5
-      },
-      {
-        "q": [
-          0.0,
-          0.0,
-          -0.22
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          0.0,
-          -0.22
-        ],
-        "count": 8,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 0.9999997286600822,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 9.500000000000004,
-          "nearest_integer": 10,
-          "integer_defect": 0.49999999999999645,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 6.887509160246519e-17,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000033,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 9.500000000000004,
-            "nearest_integer": 10,
-            "integer_defect": 0.49999999999999645,
-            "bands_in_sector": 96,
-            "min_link_overlap": 6.887509160246519e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 5.999999999999997,
-            "nearest_integer": 6,
-            "integer_defect": 2.6645352591003757e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 6.172853693687078e-18,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.000000000000003,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 7.499999999999999,
-            "nearest_integer": 7,
-            "integer_defect": 0.4999999999999991,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.5999335027172046e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 10,
-        "chern_defect": 0.49999999999999645
-      },
-      {
-        "q": [
-          0.0,
-          0.0,
-          0.22
-        ],
-        "gap": 0.0,
-        "from": [
-          0.0,
-          0.0,
-          0.22
-        ],
-        "count": 8,
-        "cluster_top": 0.0,
-        "first_outside": 1.4901161193847656e-08,
-        "isolation": 14901.161193847656,
-        "exponent": 0.9999997398316884,
-        "pierced_rays": 18,
-        "mesh_rays": 42,
-        "flux": {
-          "chern": 4.9999999999999964,
-          "nearest_integer": 5,
-          "integer_defect": 3.552713678800501e-15,
-          "sector": "negative",
-          "bands_in_sector": 96,
-          "min_link_overlap": 9.628454748845527e-17,
-          "link_rank_ok": false,
-          "frame_condition_max": 1.0000000000000033,
-          "radius": 0.01,
-          "window": 1.5707963267948966,
-          "window_chosen_by_ladder": true,
-          "mesh_points": 92,
-          "mesh_triangles": 180
-        },
-        "flux_attempts": [
-          {
-            "chern": 4.9999999999999964,
-            "nearest_integer": 5,
-            "integer_defect": 3.552713678800501e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 9.628454748845527e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.01,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 10.000000000000007,
-            "nearest_integer": 10,
-            "integer_defect": 7.105427357601002e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 1.6494054233731037e-17,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000033,
-            "radius": 0.04,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          },
-          {
-            "chern": 4.9999999999999964,
-            "nearest_integer": 5,
-            "integer_defect": 3.552713678800501e-15,
-            "bands_in_sector": 96,
-            "min_link_overlap": 9.922940625875103e-18,
-            "link_rank_ok": false,
-            "frame_condition_max": 1.0000000000000036,
-            "radius": 0.12,
-            "window": 1.5707963267948966,
-            "window_chosen_by_ladder": true,
-            "mesh_points": 92,
-            "mesh_triangles": 180
-          }
-        ],
-        "chern": 5,
-        "chern_defect": 3.552713678800501e-15
+        "chern_defect": 2.6645352591003757e-15
       }
     ],
     "isolated": [],
@@ -1092,15 +1092,15 @@
       },
       {
         "radius": 1.2387247496977964,
-        "chern": 13,
-        "defect": 7.105427357601002e-15,
+        "chern": 17,
+        "defect": 1.0658141036401503e-14,
         "attempts": [
           {
-            "chern": 13.000000000000007,
-            "nearest_integer": 13,
-            "integer_defect": 7.105427357601002e-15,
+            "chern": 17.00000000000001,
+            "nearest_integer": 17,
+            "integer_defect": 1.0658141036401503e-14,
             "bands_in_sector": 96,
-            "min_link_overlap": 5.247693618957979e-18,
+            "min_link_overlap": 3.968576179664319e-18,
             "link_rank_ok": false,
             "frame_condition_max": 1.0000000000000027,
             "radius": 1.2387247496977964,
@@ -1113,15 +1113,15 @@
       },
       {
         "radius": 0.825816499798531,
-        "chern": 15,
-        "defect": 0.4999999999999929,
+        "chern": 16,
+        "defect": 1.0658141036401503e-14,
         "attempts": [
           {
-            "chern": 14.500000000000007,
-            "nearest_integer": 15,
-            "integer_defect": 0.4999999999999929,
+            "chern": 16.00000000000001,
+            "nearest_integer": 16,
+            "integer_defect": 1.0658141036401503e-14,
             "bands_in_sector": 96,
-            "min_link_overlap": 6.19785211474049e-18,
+            "min_link_overlap": 5.012452996025565e-18,
             "link_rank_ok": false,
             "frame_condition_max": 1.0000000000000033,
             "radius": 0.825816499798531,
@@ -1134,15 +1134,15 @@
       },
       {
         "radius": 0.4129082498992655,
-        "chern": 14,
-        "defect": 0.49999999999999645,
+        "chern": 17,
+        "defect": 1.0658141036401503e-14,
         "attempts": [
           {
-            "chern": 13.500000000000004,
-            "nearest_integer": 14,
-            "integer_defect": 0.49999999999999645,
+            "chern": 17.00000000000001,
+            "nearest_integer": 17,
+            "integer_defect": 1.0658141036401503e-14,
             "bands_in_sector": 96,
-            "min_link_overlap": 5.0110990545541e-18,
+            "min_link_overlap": 3.416301026212322e-18,
             "link_rank_ok": false,
             "frame_condition_max": 1.0000000000000027,
             "radius": 0.4129082498992655,
@@ -1272,20 +1272,20 @@
       "gap": 0.0,
       "exponent": null,
       "touching": {
-        "count": 36,
+        "count": 46,
         "cluster_top": 0.0,
         "first_outside": 1.4901161193847656e-08,
         "isolation": 14901.161193847656
       },
       "flux": {
-        "chern": 5.1261553367906264e-15,
+        "chern": -1.5131648296979176e-15,
         "nearest_integer": 0,
-        "integer_defect": 5.1261553367906264e-15,
+        "integer_defect": 1.5131648296979176e-15,
         "sector": "negative",
         "bands_in_sector": 192,
-        "min_link_overlap": 0.9998132699407518,
+        "min_link_overlap": 0.9998132699408548,
         "link_rank_ok": true,
-        "frame_condition_max": 1.0000000000000049,
+        "frame_condition_max": 1.0000000000000056,
         "radius": 0.04,
         "window": 1.5707963267948966,
         "window_chosen_by_ladder": true,
@@ -1294,13 +1294,13 @@
       },
       "flux_attempts": [
         {
-          "chern": 5.1261553367906264e-15,
+          "chern": -1.5131648296979176e-15,
           "nearest_integer": 0,
-          "integer_defect": 5.1261553367906264e-15,
+          "integer_defect": 1.5131648296979176e-15,
           "bands_in_sector": 192,
-          "min_link_overlap": 0.9998132699407518,
+          "min_link_overlap": 0.9998132699408548,
           "link_rank_ok": true,
-          "frame_condition_max": 1.0000000000000049,
+          "frame_condition_max": 1.0000000000000056,
           "radius": 0.04,
           "window": 1.5707963267948966,
           "window_chosen_by_ladder": true,
@@ -1310,15 +1310,15 @@
       ]
     },
     "engine": {
-      "backend": "numpy",
+      "backend": "cupy",
       "einops": true,
       "kingdon": true,
       "array": "ndarray",
       "gpu_min_free_mib": 2048,
       "config": "/home/yo/Desktop/code/CL10/cl10/config.yaml",
-      "lattice_fields_roll_einsum_matmul": "numpy",
-      "square_algebra_min_dim": 0,
-      "eigendecomposition_min_dim": 0,
+      "lattice_fields_roll_einsum_matmul": "cupy",
+      "square_algebra_min_dim": 64,
+      "eigendecomposition_min_dim": 512,
       "eigendecomposition_below_threshold": "numpy (measured faster; no batched device eig)",
       "eig_verification": {
         "tolerance": 1e-06,
@@ -1332,17 +1332,17 @@
       {
         "name": "T1 the gapless locus inside the first zone is counted, its components resolved at the grid's own resolution, and each resolved one classified by whether the gaplessness runs off it along rays",
         "pass": true,
-        "detail": "1791 grid points over |q| <= pi/ell = 1.6516 (spacing 0.22): smallest gap 0.0e+00 at [-1.32, 0.0, 0.0]; grid points below 1e-08: 39; 1e-06: 43; 1e-03: 43; 1e-02: 43; 6e-02: 283; 12 components refined to 12 gapless points, 0 isolated point nodes, 12 pierced by gapless rays: q [-1.32, 0.0, 0.0] gap 0.0e+00 touching 8 bands (isolation 1.5e+04), 11/42 rays gapless, exponent 1.000; q [-0.88, 0.0, 0.0] gap 0.0e+00 touching 14 bands (isolation 3.0e+04), 16/42 rays gapless, exponent 1.000; q [-0.44, 0.0, 0.0] gap 0.0e+00 touching 14 bands (isolation 1.5e+04), 12/42 rays gapless, exponent 1.000; q [0.0, -1.54, 0.0] gap 0.0e+00 touching 12 bands (isolation 1.5e+04), 18/42 rays gapless, exponent 1.000; q [0.0, -1.1, 0.0] gap 0.0e+00 touching 12 bands (isolation 2.6e+04), 18/42 rays gapless, exponent 1.000; q [0.0, -0.66, 0.0] gap 0.0e+00 touching 9 bands (isolation 1.5e+04), 18/42 rays gapless, exponent 1.000; q [0.0, -0.22, 0.0] gap 0.0e+00 touching 16 bands (isolation 3.0e+04), 17/42 rays gapless, exponent 1.000; q [0.0, 0.0, -1.54] gap 0.0e+00 touching 9 bands (isolation 1.5e+04), 18/42 rays gapless, exponent 1.000 | 3 lines through the origin carry the gapless grid points, 2 of the 3 probed stay gapless to 1e-12 out to r 1.4: [1.0, -0.0, -0.0]: 5/6 probes gapless to 1e-12 out to r 1.4 (largest 3.0e-08) | [-0.0, 1.0, -0.0]: 6/6 probes gapless to 1e-12 out to r 1.4 (largest 0.0e+00) | [-0.0, -0.0, 1.0]: 6/6 probes gapless to 1e-12 out to r 1.4 (largest 0.0e+00)"
+        "detail": "1791 grid points over |q| <= pi/ell = 1.6516 (spacing 0.22): smallest gap 0.0e+00 at [-1.54, 0.0, 0.0]; grid points below 1e-08: 38; 1e-06: 43; 1e-03: 43; 1e-02: 43; 6e-02: 283; 12 components refined to 12 gapless points, 0 isolated point nodes, 12 pierced by gapless rays: q [-1.54, 0.0, 0.0] gap 0.0e+00 touching 13 bands (isolation 2.1e+04), 11/42 rays gapless, exponent 1.000; q [-0.88, 0.0, 0.0] gap 0.0e+00 touching 2 bands (isolation 1.5e+04), 16/42 rays gapless, exponent 1.000; q [-0.44, 0.0, 0.0] gap 0.0e+00 touching 10 bands (isolation 1.5e+04), 13/42 rays gapless, exponent 1.000; q [0.0, -1.54, 0.0] gap 0.0e+00 touching 19 bands (isolation 1.5e+04), 18/42 rays gapless, exponent 1.000; q [0.0, -1.1, 0.0] gap 0.0e+00 touching 13 bands (isolation 2.1e+04), 17/42 rays gapless, exponent 1.000; q [0.0, -0.66, 0.0] gap 0.0e+00 touching 3 bands (isolation 1.5e+04), 18/42 rays gapless, exponent 1.000; q [0.0, -0.22, 0.0] gap 0.0e+00 touching 12 bands (isolation 1.5e+04), 17/42 rays gapless, exponent 1.000; q [0.0, 0.0, -1.54] gap 0.0e+00 touching 10 bands (isolation 2.1e+04), 18/42 rays gapless, exponent 1.000 | 3 lines through the origin carry the gapless grid points, 2 of the 3 probed stay gapless to 1e-12 out to r 1.4: [1.0, -0.0, -0.0]: 3/6 probes gapless to 1e-12 out to r 1.4 (largest 3.0e-08) | [-0.0, 1.0, -0.0]: 6/6 probes gapless to 1e-12 out to r 1.4 (largest 0.0e+00) | [-0.0, -0.0, 1.0]: 6/6 probes gapless to 1e-12 out to r 1.4 (largest 0.0e+00)"
       },
       {
         "name": "T2 the charge question at the resolved points is decided, not assumed: either a sphere about a locus point keeps full link rank and returns an integer, or none of them does and every reading is marked meaningless by its own link overlap",
         "pass": true,
-        "detail": "0 of 12 gapless points have a flux whose sphere kept full link rank (12 were not trusted); charges: ; their sum is +0; the untrusted readings sit at integer defects [0.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.0, 0.5, 0.5, 0.5, 0.5, 0.0] with smallest link overlaps ['9e-16', '3e-16', '6e-17', '2e-16', '8e-16', '4e-16', '6e-17', '3e-16', '3e-16', '2e-16', '7e-17', '1e-16'] -- a flux pinned at a half-integer over rank-deficient links is the mark of a sphere cut by a gapless line, not the mark of a charge"
+        "detail": "0 of 12 gapless points have a flux whose sphere kept full link rank (12 were not trusted); charges: ; their sum is +0; the untrusted readings sit at integer defects [0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.0, 0.5, 0.0, 0.0] with smallest link overlaps ['4e-16', '2e-16', '1e-16', '2e-16', '2e-16', '1e-16', '1e-16', '7e-16', '3e-16', '3e-16', '1e-16', '1e-16'] -- a flux pinned at a half-integer over rank-deficient links is the mark of a sphere cut by a gapless line, not the mark of a charge"
       },
       {
         "name": "T3 the spheres about the zone centre sort themselves: a radius either keeps rank and lands on an integer flux, or is pinned at a half-integer because a gapless line cuts the sphere, or refuses outright -- and whether the integers agree across radii is then read off",
         "pass": true,
-        "detail": "spheres about the zone centre at radii 1.6516 (sector changes size: the sector changes size over the sphere: the mesh crosses a gap closing), 1.2387 (flux 13, defect 7.1e-15), 0.8258 (flux 15, defect 5.0e-01), 0.4129 (flux 14, defect 5.0e-01); 1 give an integer flux to machine precision [13], 2 are pinned at a half-integer (defects [0.5, 0.5]), 1 refuse because the sector changes size; only 1 of the 4 spheres is trusted (flux 13 at radius 1.2387), so this census cannot decide radius independence at all; what it does decide is the trichotomy -- an uncuts sphere lands on an integer, a sphere a gapless line cuts pins at a half-integer, and a sphere the lines run straight through refuses; the summed trusted node charges are +0"
+        "detail": "spheres about the zone centre at radii 1.6516 (sector changes size: the sector changes size over the sphere: the mesh crosses a gap closing), 1.2387 (flux 17, defect 1.1e-14), 0.8258 (flux 16, defect 1.1e-14), 0.4129 (flux 17, defect 1.1e-14); 3 give an integer flux to machine precision [17, 16, 17], 0 are pinned at a half-integer (defects []), 1 refuse because the sector changes size; only 3 of the 4 spheres is trusted (flux 17 at radius 1.2387), so this census cannot decide radius independence at all; what it does decide is the trichotomy -- an uncuts sphere lands on an integer, a sphere a gapless line cuts pins at a half-integer, and a sphere the lines run straight through refuses; the summed trusted node charges are +0"
       },
       {
         "name": "T4 the doubling theorem's hypothesis is not available to this module: no nonzero reciprocal vector makes every direction's phase trivial",
@@ -1352,9 +1352,9 @@
       {
         "name": "T5 the control that turns the failures above into a statement about the cell rather than about the instrument: the spinless cell's sphere about the same zone centre keeps full link rank and returns exactly zero flux",
         "pass": true,
-        "detail": "scalar bond assignment: smallest sampled gap 0.0e+00 at [-1.54, 0.0, 0.0]; its zone-centre touching is 36 bands at phase zero and it stays gapless along the transverse probe ray (gapless ray), so it is not a point node either; its sphere of radius 0.040 kept rank (smallest link overlap 0.9998, 192 bands in sector) and gives charge 0 (defect 5.1e-15): exactly zero, where every sphere about a locus point of the Clifford cell lost rank"
+        "detail": "scalar bond assignment: smallest sampled gap 0.0e+00 at [-1.54, 0.0, 0.0]; its zone-centre touching is 46 bands at phase zero and it stays gapless along the transverse probe ray (gapless ray), so it is not a point node either; its sphere of radius 0.040 kept rank (smallest link overlap 0.9998, 192 bands in sector) and gives charge 0 (defect 1.5e-15): exactly zero, where every sphere about a locus point of the Clifford cell lost rank"
       }
     ]
   },
-  "wall_time": 449.081
+  "wall_time": 460.01
 }

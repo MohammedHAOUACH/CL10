@@ -7,7 +7,7 @@
  "branch": "STAR-CLOCK-QUANTIZED",
  "data": {
   "factorization": {
-   "max_defect": 6.367167763562643e-16,
+   "max_defect": 7.947987303456223e-16,
    "samples": [
     {
      "q": [
@@ -17,7 +17,7 @@
      ],
      "beta": 0.2,
      "g": 1.1,
-     "max_abs": 6.145525706514756e-16
+     "max_abs": 7.947987303456223e-16
     },
     {
      "q": [
@@ -27,7 +27,7 @@
      ],
      "beta": 0.7853981633974483,
      "g": 0.37,
-     "max_abs": 3.55715613020066e-16
+     "max_abs": 4.847302891456678e-16
     },
     {
      "q": [
@@ -37,7 +37,7 @@
      ],
      "beta": 0.63,
      "g": 1.1,
-     "max_abs": 2.664255158816851e-16
+     "max_abs": 3.1031676915590914e-16
     },
     {
      "q": [
@@ -47,7 +47,7 @@
      ],
      "beta": 0.63,
      "g": 0.7853981633974483,
-     "max_abs": 5.79553433516819e-16
+     "max_abs": 5.623929632534478e-16
     },
     {
      "q": [
@@ -57,7 +57,7 @@
      ],
      "beta": 0.2,
      "g": 1.1,
-     "max_abs": 6.367167763562643e-16
+     "max_abs": 6.291476391278812e-16
     },
     {
      "q": [
@@ -67,7 +67,7 @@
      ],
      "beta": 1.21,
      "g": 1.1,
-     "max_abs": 3.2368285245694683e-16
+     "max_abs": 3.201681141057157e-16
     },
     {
      "q": [
@@ -77,7 +77,7 @@
      ],
      "beta": 1.21,
      "g": 0.37,
-     "max_abs": 3.0562657329293367e-16
+     "max_abs": 2.9893669801409083e-16
     },
     {
      "q": [
@@ -87,7 +87,7 @@
      ],
      "beta": 0.63,
      "g": 0.7853981633974483,
-     "max_abs": 6.145525706514756e-16
+     "max_abs": 4.742874840267547e-16
     }
    ]
   },
@@ -139,7 +139,7 @@
      "g": 0.7853981633974483,
      "eta": 0.0,
      "order": 2,
-     "closure_err": 6.730692791403943e-14
+     "closure_err": 4.715192032976612e-14
     },
     {
      "beta": 0.7853981633974483,
@@ -153,7 +153,7 @@
      "g": 0.7853981633974483,
      "eta": 0.0,
      "order": 2,
-     "closure_err": 6.62020285306862e-14
+     "closure_err": 4.654523966144964e-14
     }
    ]
   },
@@ -207,17 +207,17 @@
    "beta": 0.7853981633974483,
    "g": 0.7853981633974483,
    "eta": 0.0,
-   "gap_at_gamma": 6.9388939039072114e-18,
-   "v214_gap_at_zero": 6.9388939039072114e-18,
-   "unitarity": 1.7319479184152442e-14,
-   "v214_unitarity": 1.809663532830635e-14,
+   "gap_at_gamma": 3.491130995403318e-17,
+   "v214_gap_at_zero": 1.0408340855860522e-17,
+   "unitarity": 1.4876988529977098e-14,
+   "v214_unitarity": 1.5543122734300296e-14,
    "closure_order": 2,
-   "spectral_err": 6.730692791403943e-14,
-   "direct_entry_max": 4.168263741916973e-14,
-   "direct_spectral": 6.201003794544972e-14,
+   "spectral_err": 4.715192032976612e-14,
+   "direct_entry_max": 4.0538346080553665e-14,
+   "direct_spectral": 6.170859891691043e-14,
    "note": "V214 recorded the published star step at the closed clock but no closure order; T4 measures it here and reproduces V214's recorded numbers as the control"
   },
-  "backend": "numpy",
+  "backend": "cupy",
   "fitted_inputs": [],
   "inputs": {
    "twist_direction": "D = cos(theta_root) X + sin(theta_root) Y, the V67 Cartan combinations with the V65 X_coef [1.0, 1.0, -1.0, -1.0, -1.0], Y_coef [-0.25, -0.25, -0.16666666666666666, -0.16666666666666666, -0.16666666666666666], theta_root 1.7307836435290485 (desert.theta_root_rad); restricted to the 16 sector through sectors()[0] exactly as V67:64-66 (no fallback needed)",
@@ -227,7 +227,7 @@
  },
  "checks": [
   {
-   "name": "T1 the star step factorizes exactly, bloch_star(q; beta, g) = kron(Pi_t S_t(q; beta), U16(g)^12): max element defect over 8 random q-points 6.37e-16 < 1e-13 (the mixed-product identity; the 512-fold flat GAMMA node of V244 is its consequence)",
+   "name": "T1 the star step factorizes exactly, bloch_star(q; beta, g) = kron(Pi_t S_t(q; beta), U16(g)^12): max element defect over 8 random q-points 7.95e-16 < 1e-13 (the mixed-product identity; the 512-fold flat GAMMA node of V244 is its consequence)",
    "pass": true
   },
   {
@@ -239,10 +239,10 @@
    "pass": true
   },
   {
-   "name": "T4 control at (beta = g = pi/4, eta = 0): the kron form reproduces the published bloch_star to 7.95e-16, the GAMMA gap 6.939e-18 matches V214's 6.939e-18 (|diff| 0.0e+00 < 1e-15), the unitarity defect 1.732e-14 matches V214's 1.810e-14; the closure order of the published star step (first measurement; V214 recorded no order) is k = 2, spectral err 6.731e-14, direct 1024-dim check entry-max 4.168e-14, spectral 6.201e-14",
+   "name": "T4 control at (beta = g = pi/4, eta = 0): the kron form reproduces the published bloch_star to 6.66e-16, the GAMMA gap 3.491e-17 matches V214's 1.041e-17 (|diff| 2.5e-17 < 1e-15), the unitarity defect 1.488e-14 matches V214's 1.554e-14; the closure order of the published star step (first measurement; V214 recorded no order) is k = 2, spectral err 4.715e-14, direct 1024-dim check entry-max 4.054e-14, spectral 6.171e-14",
    "pass": true
   }
  ],
- "status": "star module closure, STAR-CLOCK-QUANTIZED (23 s): no closed star clock reaches either pin: the clock exclusion is a property of the module class, not of one lattice. C_star: 4 closed point(s) on the 61x61 grid at the eta ladder, orders [1, 2]; nearest closed point to g = 0.2 at distance 5.854e-01, to g = 0.5 at distance 2.854e-01; the factorization kron identity holds to 6.4e-16 and the published step reproduces V214 exactly at the closed clock.",
+ "status": "star module closure, STAR-CLOCK-QUANTIZED (10 s): no closed star clock reaches either pin: the clock exclusion is a property of the module class, not of one lattice. C_star: 4 closed point(s) on the 61x61 grid at the eta ladder, orders [1, 2]; nearest closed point to g = 0.2 at distance 5.854e-01, to g = 0.5 at distance 2.854e-01; the factorization kron identity holds to 7.9e-16 and the published step reproduces V214 exactly at the closed clock.",
  "pass": true
 }

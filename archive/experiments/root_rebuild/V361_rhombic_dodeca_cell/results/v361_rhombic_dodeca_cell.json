@@ -192,7 +192,7 @@
   },
   "backend": {
    "device": "cupy b'NVIDIA GeForce RTX 3090'",
-   "host_numpy_gate_dev_L8_L10": 5.240252676230739e-14
+   "host_numpy_gate_dev_L8_L10": 5.5067062021407764e-14
   },
   "fcc_gap_sequence_N": [
    2048,
@@ -250,7 +250,7 @@
    "pass": true
   },
   {
-   "name": "T0e spectra on cupy b'NVIDIA GeForce RTX 3090': host numpy identity gate at L = 8, 10: max dev 5.2e-14 (<= 1e-10); FCC NN tight binding central splitting N = [2048, 4000, 6912] -> ['0.00000', '0.00000', '0.01177'] (finite-N splitting leaves; the thermodynamic statistic is the T5b Fermi-surface certificate, machinery correction booked in the registration amendment)",
+   "name": "T0e spectra on cupy b'NVIDIA GeForce RTX 3090': host numpy identity gate at L = 8, 10: max dev 5.5e-14 (<= 1e-10); FCC NN tight binding central splitting N = [2048, 4000, 6912] -> ['0.00000', '0.00000', '0.01177'] (finite-N splitting leaves; the thermodynamic statistic is the T5b Fermi-surface certificate, machinery correction booked in the registration amendment)",
    "pass": true
   },
   {

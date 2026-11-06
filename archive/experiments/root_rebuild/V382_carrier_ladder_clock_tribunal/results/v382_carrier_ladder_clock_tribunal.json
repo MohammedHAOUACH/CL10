@@ -1,52 +1,52 @@
 {
  "id": "V382_carrier_ladder_clock_tribunal",
  "tier": 2,
- "residual": 0.29427560589364443,
+ "residual": 0.29427560589401125,
  "property": "F2's last loophole: the certified ladder functional re-read with the carrier internal, at carrier-closed clocks + dense scan, tier 2, O8",
  "status": "CARRIER-LADDER-NO-CLOCK-RESCUE (the certified hierarchy functional on the carrier reads the observed coefficient at NO clock, closed or not: the dense scan [0.05, 1.60] has zero band-hits; the 2x2 clock arbitration of V233 stands COMPLETELY unchanged by the carrier - a structural discovery with no clock consequence; recorded: the carrier ladder read at pi/4, 2.3708397, narrows the published pi/4 miss (2.7002078 -> 30.0%) to 14.2%, still 2900x the constants band)",
  "pass": true,
  "data": {
   "replica_pi/2": {
-   "coef": 2.299501537011996,
+   "coef": 2.2994437592056225,
    "v206": 2.2994437592056225,
-   "detune": 5.77778063735046e-05
+   "detune": 0.0
   },
   "replica_pi/4": {
-   "coef": 2.70180241158332,
+   "coef": 2.7002077805447326,
    "v206": 2.7002077805447326,
-   "detune": 0.0015946310385874796
+   "detune": 0.0
   },
   "replica_3pi/4": {
-   "coef": 2.704843995591902,
+   "coef": 2.7084027105235036,
    "v206": 2.7084027105235036,
-   "detune": 0.0035587149316014255
+   "detune": 0.0
   },
   "replica_1_5rad": {
-   "coef": 2.088106865906645,
+   "coef": 2.088106865906787,
    "v206": 2.088106865906787,
-   "detune": 1.4210854715202004e-13
+   "detune": 0.0
   },
   "carrier_reads": {
    "pi/4": {
     "g": 0.7853981633974483,
     "n_star": 193,
-    "deficit": 0.9767380217187832,
-    "coef": 2.3708397170674766,
-    "miss": 0.29427560589364443
+    "deficit": 0.9767380217187983,
+    "coef": 2.3708397170678435,
+    "miss": 0.29427560589401125
    },
    "pi/3": {
     "g": 1.0471975511965976,
     "n_star": 15,
-    "deficit": 0.5269991690586433,
-    "coef": 0.004957018721650103,
+    "deficit": 0.5269991690586425,
+    "coef": 0.00495701872165003,
     "miss": -2.071607092452182
    },
    "pi/5": {
     "g": 0.6283185307179586,
     "n_star": 33,
-    "deficit": 0.7869835411292276,
-    "coef": 0.2733869321228191,
-    "miss": -1.8031771790510132
+    "deficit": 0.7869835411292271,
+    "coef": 0.27338693212281723,
+    "miss": -1.803177179051015
    },
    "2pi/5": {
     "g": 1.2566370614359172,
@@ -68,7 +68,7 @@
  },
  "checks": [
   [
-   "T0 replica: the imported V206 machinery reproduces its own certified 1/5-rad reading to 1.4e-13 (< 1e-9, bit-level) and the closure_class readings to max 3.6e-03 (< 5e-3 - the float64 ladder drift V209 certifies against): True",
+   "T0 replica: the imported V206 machinery reproduces its own certified 1/5-rad reading to 0.0e+00 (< 1e-9, bit-level) and the closure_class readings to max 0.0e+00 (< 5e-3 - the float64 ladder drift V209 certifies against): True",
    true
   ],
   [

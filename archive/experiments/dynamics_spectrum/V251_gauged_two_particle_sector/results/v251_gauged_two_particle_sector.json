@@ -28,61 +28,61 @@
    }
   },
   "gauss": {
-   "max_over_a_states_grid": 0.4918003846855254,
+   "max_over_a_states_grid": 0.4918003846855246,
    "min_per_charge_over_grid": {
-    "0": 0.4839747898299748,
-    "1": 0.4312488372044206,
-    "2": 0.466580613755563,
-    "3": 0.47520580258314027,
-    "4": 0.4638498679857091,
-    "5": 0.45855373500897295,
-    "6": 0.45797731606577774,
-    "7": 0.38866068667675063,
-    "8": 0.4210122213261194,
-    "9": 0.46202562953293813,
-    "10": 0.44316230236960535,
-    "11": 0.45526015414750615,
-    "12": 0.45374971068220216,
-    "13": 0.4495999721268159,
-    "14": 0.47357588764395425,
-    "15": 0.467587015141715,
-    "16": 0.38548615783978024,
-    "17": 0.4813334277262749,
-    "18": 0.396326583313863,
-    "19": 0.4568075594749378,
-    "20": 0.4742530524349189,
-    "21": 0.4558870080486203,
-    "22": 0.4620710548692299,
-    "23": 0.44556795134768584,
-    "24": 0.4679613139336577,
-    "25": 0.3793237708306831,
-    "26": 0.4381313166689759,
-    "27": 0.4901519264090075,
-    "28": 0.4465029541400244,
-    "29": 0.4720953069164538,
-    "30": 0.4384147129722759,
-    "31": 0.37823951610224116,
-    "32": 0.44101239792485053,
-    "33": 0.46007527166288037,
-    "34": 0.4711734862888438,
-    "35": 0.4707025362083118,
-    "36": 0.40641346159328484,
-    "37": 0.44295441666627844,
-    "38": 0.4826416113048426,
-    "39": 0.4657033795428913,
-    "40": 0.4649932588506206,
-    "41": 0.46736708189228554,
-    "42": 0.4409316554746388,
-    "43": 0.4332414274805491,
-    "44": 0.47683284810052773
+    "0": 0.4839747898299794,
+    "1": 0.43124883720442236,
+    "2": 0.466580613755562,
+    "3": 0.4752058025831404,
+    "4": 0.46384986798570627,
+    "5": 0.4585537350089733,
+    "6": 0.45797731606577535,
+    "7": 0.38866068667674997,
+    "8": 0.4210122213261192,
+    "9": 0.4620256295329401,
+    "10": 0.4431623023696057,
+    "11": 0.4552601541475079,
+    "12": 0.45374971068219716,
+    "13": 0.44959997212681735,
+    "14": 0.47357588764395236,
+    "15": 0.46758701514171697,
+    "16": 0.38548615783977525,
+    "17": 0.4813334277262706,
+    "18": 0.39632658331386345,
+    "19": 0.4568075594749379,
+    "20": 0.4742530524349148,
+    "21": 0.4558870080486192,
+    "22": 0.46207105486923183,
+    "23": 0.4455679513476877,
+    "24": 0.4679613139336596,
+    "25": 0.3793237708306834,
+    "26": 0.438131316668972,
+    "27": 0.4901519264090096,
+    "28": 0.44650295414002383,
+    "29": 0.4720953069164561,
+    "30": 0.43841471297227586,
+    "31": 0.3782395161022398,
+    "32": 0.44101239792484603,
+    "33": 0.46007527166288603,
+    "34": 0.4711734862888472,
+    "35": 0.4707025362083169,
+    "36": 0.4064134615932884,
+    "37": 0.4429544166662814,
+    "38": 0.4826416113048411,
+    "39": 0.4657033795428948,
+    "40": 0.4649932588506208,
+    "41": 0.46736708189228454,
+    "42": 0.44093165547463375,
+    "43": 0.4332414274805526,
+    "44": 0.4768328481005278
    },
    "coupling_only_defect": 4.85722573273506e-17,
-   "h1_leak_min": 1.2681449285537272,
-   "h1_leak_max": 1.9786250633492726,
+   "h1_leak_min": 1.2681449285537276,
+   "h1_leak_max": 1.9786250633492688,
    "attribution": {
     "pp_block_ident_defect": 1.1102230246251565e-16,
     "non_pp_blocks_max": 4.85722573273506e-17,
-    "linear_defect_at_Q0": 1.3711087792518093
+    "linear_defect_at_Q0": 1.3711087792518135
    },
    "states": 40,
    "seed": "0x51",
@@ -97,16 +97,16 @@
    "gap_provenance": "V101 measured gap at rest 42.090631 x eta 0.200",
    "p_pole_shifts": {
     "0": {
-     "max": 0.060733789241297576,
-     "mean": 0.0020964745698002192
+     "max": 0.06073378924129802,
+     "mean": 0.0020964745697998615
     },
     "plus": {
-     "max": 0.08432524143438203,
-     "mean": 0.0024281962116075332
+     "max": 0.08432524143438602,
+     "mean": 0.0024281962116062296
     },
     "minus": {
-     "max": 0.047241778934496104,
-     "mean": 0.001857303744789018
+     "max": 0.04724177893449788,
+     "mean": 0.0018573037447880793
     }
    }
   },
@@ -124,18 +124,18 @@
   "spectrum": {
    "n_spectra": 648,
    "dim": 1568,
-   "min": -40.46622028983168,
-   "max": 12.418126296641056,
-   "unitarity_max": 5.773160586010367e-15,
+   "min": -40.46622028983169,
+   "max": 12.418126296640981,
+   "unitarity_max": 7.061018441116187e-14,
    "p_block_defect": 0.0,
-   "wall_time_s": 3778.0994238853455
+   "wall_time_s": 429.5656340122223
   },
   "grid": {
    "axes": 6,
    "points": 216,
    "chunk": 216
   },
-  "backend": "numpy",
+  "backend": "cupy",
   "fitted_inputs": [],
   "inputs": {
    "clocks": {
@@ -155,7 +155,7 @@
    "pass": true
   },
   {
-   "name": "T2 (a) boundedness and (d) unitarity: all 648 spectra finite, global min/max [-40.4662, 12.4181]; max ||exp(iH2) exp(iH2)^dag - I|| = 5.77e-15 < 1e-13",
+   "name": "T2 (a) boundedness and (d) unitarity: all 648 spectra finite, global min/max [-40.4662, 12.4181]; max ||exp(iH2) exp(iH2)^dag - I|| = 7.06e-14 < 1e-13",
    "pass": true
   },
   {
@@ -171,6 +171,6 @@
    "pass": true
   }
  ],
- "status": "gauged two-particle sector on 1568 = 128 (spinor Bloch) + 1440 (32 x 45 adjoint link), 6^3 grid x 3 omega rows, 3912 s: the construction is consistent - the V126 Casimir tower is exact [(-32, 32), (-12, 288), (4, 1120)] (integrality 9.2e-14), the V177 vertex coupling is exactly Gauss invariant to 4.9e-17, the P-block is H1 to 0.0e+00, unitarity 5.8e-15, bounded [-40.47, 12.42]. Branch SECTOR-BLOCKED: Gauss. The Gauss check fails (max 4.918e-01): the vertex coupling, the T.L tower, the block structure and unitarity are exact, but the committed step H1 = i log bloch leaks every one of the 45 total charges (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979]) - the step is gauge-EXPLICIT (V67) and the leak is inherited from V140 T2's bare-gate vertex-charge leak. No exact gauged two-particle sector exists on the published step at the root; per the pre-registered rule V252-V256 record the floor (they still measure their own quantities on this constructed H2).",
+ "status": "gauged two-particle sector on 1568 = 128 (spinor Bloch) + 1440 (32 x 45 adjoint link), 6^3 grid x 3 omega rows, 556 s: the construction is consistent - the V126 Casimir tower is exact [(-32, 32), (-12, 288), (4, 1120)] (integrality 9.2e-14), the V177 vertex coupling is exactly Gauss invariant to 4.9e-17, the P-block is H1 to 0.0e+00, unitarity 7.1e-14, bounded [-40.47, 12.42]. Branch SECTOR-BLOCKED: Gauss. The Gauss check fails (max 4.918e-01): the vertex coupling, the T.L tower, the block structure and unitarity are exact, but the committed step H1 = i log bloch leaks every one of the 45 total charges (per-point max_a ||[H1, Q_P^a]|| in [1.268, 1.979]) - the step is gauge-EXPLICIT (V67) and the leak is inherited from V140 T2's bare-gate vertex-charge leak. No exact gauged two-particle sector exists on the published step at the root; per the pre-registered rule V252-V256 record the floor (they still measure their own quantities on this constructed H2).",
  "pass": true
 }

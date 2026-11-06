@@ -2701,7 +2701,7 @@
   },
   "backend": {
    "dense_eigvalsh": "cupy b'NVIDIA GeForce RTX 3090'",
-   "host_numpy_gate_dev_L8_L16": 8.171241461241152e-14,
+   "host_numpy_gate_dev_L8_L16": 7.460698725481052e-14,
    "jax": {
     "device": "cuda:0",
     "cross_check_worst_eig_dev": 0.0
@@ -2737,7 +2737,7 @@
    "pass": true
   },
   {
-   "name": "T0e spectra: cupy dense eigvalsh on cupy b'NVIDIA GeForce RTX 3090' with host numpy identity gate at L = 8, 12: worst eigenvalue dev 8.2e-14 (<= 1e-10); jax cross-check at L = 12: {'device': 'cuda:0', 'cross_check_worst_eig_dev': 0.0}",
+   "name": "T0e spectra: cupy dense eigvalsh on cupy b'NVIDIA GeForce RTX 3090' with host numpy identity gate at L = 8, 12: worst eigenvalue dev 7.5e-14 (<= 1e-10); jax cross-check at L = 12: {'device': 'cuda:0', 'cross_check_worst_eig_dev': 0.0}",
    "pass": true
   },
   {
