@@ -3884,3 +3884,103 @@ CUBOND-SELECTS-OTHER (T1 vrai, T2 faux: enregister les valeurs
 mesurees) / CUBOND-SELECTS-LESS (T1 faux: enregister cardinalite
 et valeurs).
 Contingence: aucune; numpy host; secondes-minutes.
+
+## V389_fibonacci_quasicrystal_module - BOOKING (2026-11-06, run
+following; tier 1; category root_rebuild; suite 301).
+Property: fournir mu = 0.9737449189568225 (V325, cle
+data.certified.mu_req) par un NOUVEL INVARIANT certifie - route
+R1 de la section 16. L'objet doit porter les DEUX jambes:
+cloture clock-free (la leg ico-scale de V356) ET rapport de
+croissance de l'echelle egale a rho x mu^(1/208) (rho: V276,
+cle data.machinery.rho), soit 0.9779051756640066 calcule des
+artefacts AVANT l'implementation. Seule geometrique jamais
+construite reunissant les deux jambes candidatees: le module
+quasicristallin Z[phi] (inflation de Fibonacci).
+Machine: mot de Fibonacci w_{k+1} = w_k w_{k-1} (entiers exacts,
+|w_k| = F_{k+2}, k = 10, 11, 12); modulation m_j = 1 (L),
+phi (S); etage compose S_phi^(k)(g) = produitordonne_j
+step(g m_j) (step = pas certifie a 45 plans de V350, importe);
+hop compose M_phi = sum_{i<3} ph_i(g) Ma_i(S_phi)
+(hops_hoisted de V350 avec G -> S_phi); chaine B et functional
+INCHANGES: F_n^phi = cartan_norm(Bn^phi)/cartan_norm(Gn^phi),
+Gn = S_phi^n, nmax = 400.
+T0: gardes de construction: (a) longueurs |w_k| = F_{k+2}
+exactes en entiers; (b) unitarite max|S^dagger S - I| <= 1e-10
+a g = pi/4; (c) identite algebrique: modulation uniforme
+(m_j = 1 partout) donne S = step(g)^|w_k| a 1e-12 pres; (d)
+lecture hote non habillee au cinquieme = feuille V206
+data.data_clock.coef_at_fifth a 1e-9 (garde de machinerie).
+T1 (jambe cloture): pour les cinq horloges {pi/4, 1/5, 1/6,
+1/7, pi/6}: existe-t-il q <= 12 (meme q pour toutes) avec
+max|S_phi^(12)(g)^q -+ I| <= 1e-10? CLOSURE-CLOCK-FREE si oui
+(enregistrer q), sinon CLOCK-CONSUMING (enregistrer le q minimal
+par horloge, ou son absence pour q <= 12).
+T2 (jambe invariant): r_k = (F_24^phi / F_22^phi)^(1/2) a
+g = pi/4 pour k = 10, 11, 12; existence: max - min <= 2e-3
+(sinon RHO-NONCONV, void enregistre). rho_phi := moyenne.
+GATE: |rho_phi - rho x mu^(1/208)| <= 1e-6. Enregistrer aussi
+les ecarts a rho et rho x mu.
+T3 (jambe croisement): pour chaque des cinq horloges: premier
+n* <= 400 ou 16 pi F_n^phi traverse 1; deficit := 16 pi
+F_{n*}^phi. GATE: |deficit - mu| <= 1e-6. Enregistrer la valeur
+la plus proche et n*.
+T4 (jambe contenu): le contenu interne 32 n'est pas modifie:
+max |||lambda|| - 1| <= 1e-10 sur le spectre de
+S_phi^(12)(pi/4); deplacement spectral vs pas certifie
+ENREGISTRE seulement (pas de gate).
+Decision: FIBONACCI-SUPPLIES-MU (T2 ET T3 vrais - premiere
+fourniture de mu par nouvel invariant; resultat physique majeur);
+FIBONACCI-PARTIAL (exactement une jambe; enregistrer);
+FIBONACCI-NULL (aucune).
+Contingence: numpy host; 32x32, n <= 400; secondes-minutes;
+aucune donnee observee n'entre dans une garde.
+
+## V390_dressed_class_rigidity - BOOKING (2026-11-06, run
+following; tier 2; category root_rebuild; suite 301).
+Property: fournir mu par les coefficients habilles - route R2.
+Le theoreme 5.3 autorise "le clock dans les coefficients"; V355
+l'a realise une fois avec un cadran AJUSTE (V355, cle
+data.alpha_elect = -3.0950442425137195e-3). Test de RIGIDITE de
+la classe entiere des habillages admissibles (machinerie V352
+importee; la chaine B est LINEAIRE en alpha J): (i) la lecture
+au cinquieme ne determine-t-elle qu'un scalaire effectif
+(order lineaire); (ii) un element J deplacement-elle le
+croisement certifie de mu? Deplacement requis =
+0.9638788 - 0.9898678167368703 = -0.025989 (deficit certifie:
+V209, cle data.certified."pi/4@1e-8".deficit). Si non sur la
+parametrisation nommee bornee, la classe est declaree incapable
+de fournir mu: theoreme d'exclusion, pas un null de plus.
+Machine: classe NOMMEE de 8 elements, aucun ajustement:
+J1 = I (publie V355); J2 = 5I (sonde exacte: lecture(alpha, 5I)
+= lecture(5 alpha, I) structurellement, donc alpha_J2 =
+alpha_J1/5 a 1e-12 - verifie, pas presume); J3 = sum CARTAN^2
+(publie V354); J4 = step(1/5); J5 = PLANES[0]; J6 = PLANES[13];
+J7 = Casimir sum sur les 45 plans de (i H_a H_b)^2; J8 =
+hop sum sum_{i<3} ph_i(1/5) Ma_i. Lecture:
+C(alpha) = 3 (|F~_10(1/5; alpha J)|/LOOP)^10, solution par
+bissection (arbre [-0.5, 0.5], 40 iterations).
+T0: J1 reproduit la feuille publiee:
+|alpha_J1 - alpha_elect(artefact V355)| <= 1e-12.
+T1: echelle unique: pour chaque J, alpha_J; prediction lineaire
+L_J = [C(eps) - C(0)]/eps a eps = 1e-6,
+alpha_lin = (COEF - C(0))/L_J; garde: |alpha_J - alpha_lin| <=
+1e-4 max(1, |alpha_J|); et J2: |5 alpha_J2 - alpha_J1| <= 1e-12.
+T2: croisement certifie habille: pour chaque J a son alpha_J:
+d_J = 16 pi F~_208(pi/4; alpha_J J) sur la chaine hote (nmax =
+208), d_0 idem J = 0; shift_J := d_J - d_0. GATE:
+max_J |shift_J| <= 1e-3. Enregistrer aussi d_0 vs la feuille
+certifiee V209 (contexte, 50 chiffres vs float64: ecart attendu
+~3e-4, pas de gate). Si un |shift_J| >= 5e-3: SUPPLIER-CANDIDATE
+(nommer J; verifier T3).
+T3: stabilite de l'echelle: avec alpha_J, les croisements de
+C(g) - COEF sur la grille g in [0.10, 0.35] (pas 1e-3): le seul
+ croisement dans [0.19, 0.21] est a <= 1e-9 de 1/5 (racine par
+bissection); compter et enregistrer tous les croisements.
+Decision: DRESSED-CLASS-RIGID-NO-MU (T1 ET T2 et T3 - la classe
+entiere ne peut pas fournir mu: requis 2,6e-2, rigidite mesuree
+<= 1e-3; la fuite exige un nouvel algebre - these du papier
+confirmee par exclusion de classe); SUPPLIER-J-FOUND (un J
+passe T2 et tient T3 - mu fourni par contrainte, resultat
+majeur); CLASS-BROKEN (T0 echoue - derive de machinerie, void
+honnete).
+Contingence: numpy host; 8 elements, chaines n <= 208; minutes.
