@@ -1581,3 +1581,41 @@ lands 2 orders of magnitude below; dense scan: zero hits. The
 coefficient is not carried by bond geometry. Pair-booked with
 V383: in everything built, the cone and the coefficient ride
 different circuit classes - a measured statement.
+
+**Data-level re-audit of the elected arc (2026-11-06, no re-run).**
+All 301 verdict JSONs harvested (439,571 numeric leaves) and
+cross-searched against the open constants. Three corrections,
+all from reading the producing scripts: (1) the ROOT condition
+of V354 is the READ condition continued - V352.rootB (line 199,
+docstring "Continuation root of 3(F~_10/LOOP)^10 = COEF_OBS")
+finds the g-root of the same read-out equation the READ gate
+solves at g = 1/5, so ROOT(alpha) = 1/5 <=> READ(alpha) = COEF
+identically, and the V354 degeneracy gap 5.912e-13 is the floor
+of two bracketed bisections on one function; V354/V355/V364/
+V365 stand numerically, their "born vs read" reading does not:
+naming beta_elect is naming COEF_OBS. (2) The V354 channel J2 =
+sum C_k C_k acts as exactly 5I (Cl(0,10): disjoint Cartan pairs,
+each C_k^2 = +I), a rescaled copy of J1 - confirmed by the
+artifact: alpha_read,J2 = alpha_read,J1 / 5 to 6e-11 - so the
+per-channel uniqueness was decided on one identity channel plus
+the step channel. (3) The desert-coupling contact of the F2
+two-contact arbitration is the alpha10 = g^2 convention
+(cl10/coupling.py:42): alpha10(1/5) = 0.04 identically; at pi/4
+the convention reads pi^2/16 = 0.6169; the arbitration is
+carried by the coefficient contact alone. Collapse: required =
+(COEF/3)^(1/10) = 0.9638787569864106 (V205 leaf, exact tenth
+root); certified crossing deficit = 16 pi F_208 =
+0.9898678167368703 (V203/V209); their ratio mu =
+0.9737449189568225 is already in the data (V325 mu_req), and
+the whole O4/O8/F2 residue is that one multiplier. Supply
+searches all null: V325's 220 channel triples give best mu
+0.9693946861469172 (gap 0.004350232809905319); the 12 node
+factors of V316 are exactly degenerate (all 0.0838951247704 -
+channel-blind confirmed); no artifact leaf matches beta, mu or
+g_obs outside their own families (direct + rational-factor
+scans); the pentagon/rhombic engines (V359/V362) do not carry
+the certified crossing (0 roots / roots 0.1883 and 0.1922,
+reads 1.47e12 / 1.50e7). Paper corrected at Section 10.5, the
+O8/O4-facing F2 row, Table 6 (fitted 12 -> 13, beta counted as
+the read-out restated), the criteria row, the abstract and the
+conclusion; the classification labels ELECT-* stay as filed.
