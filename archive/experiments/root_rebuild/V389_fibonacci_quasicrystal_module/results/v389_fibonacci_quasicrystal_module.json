@@ -1,0 +1,96 @@
+{
+ "id": "V389_fibonacci_quasicrystal_module",
+ "tier": 1,
+ "property": "can the quasicrystal Z[phi] (Fibonacci) module carry both legs - clock-free closure and rho x mu^(1/208) with a mu crossing - i.e. supply mu as a new certified invariant",
+ "status": "FIBONACCI-NULL",
+ "pass": true,
+ "data": {
+  "word_lengths": [
+   89,
+   144,
+   233,
+   377
+  ],
+  "unitarity_dev": 2.63677968349087e-13,
+  "uniform_identity_dev": 0.0,
+  "undressed_fifth_read": 2.08810686590646,
+  "closure_q": {
+   "pi/4": "none<=12",
+   "1/5": "none<=12",
+   "1/6": "none<=12",
+   "1/7": "none<=12",
+   "pi/6": "none<=12"
+  },
+  "ratio_k": {
+   "F12=144": 0.5065153527961829,
+   "F13=233": 0.41802297985866893,
+   "F14=377": 0.39933942289197105
+  },
+  "ratio_spread": 0.10717592990421182,
+  "rho_phi": 0.44129258518227427,
+  "gap_to_target": 0.5366125904817323,
+  "gap_to_rho": 0.5367376852472989,
+  "gap_to_rho_mu": 0.5110594212344897,
+  "target": 0.9779051756640066,
+  "crossings": {
+   "pi/4": [
+    49,
+    0.2571386856189562
+   ],
+   "1/5": [
+    13,
+    0.573363102678569
+   ],
+   "1/6": [
+    9,
+    0.39694800389759793
+   ],
+   "1/7": [
+    9,
+    0.4891358730077403
+   ],
+   "pi/6": [
+    9,
+    0.08492473676715849
+   ]
+  },
+  "nearest_mu_gap": 0.4003818162782534,
+  "eig_modulus_dev": 1.3355982986240633e-13,
+  "spectral_shift_vs_certified": 0.44688750144719835,
+  "ratio_nonconv": true
+ },
+ "checks": [
+  {
+   "name": "T0a exact Fibonacci lengths: last three words have lengths (144, 233, 377) = Fibonacci integers (exact string recurrence)",
+   "pass": true
+  },
+  {
+   "name": "T0b unitarity: max|S_phi^(144->377)(pi/4)^dag S - I| = 2.6e-13 (<= 1e-10)",
+   "pass": true
+  },
+  {
+   "name": "T0c algebra identity: uniform modulation (m = 1) gives S = step(g)^377 to 0.0e+00 (<= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T0d host machinery: undressed fifth read 2.088107 vs V206 coef_at_fifth artifact 2.088107 (|d| 3.3e-13 <= 1e-9)",
+   "pass": true
+  },
+  {
+   "name": "T1 closure leg: CLOCK-CONSUMING: no q <= 12 closes simultaneously (per-clock: pi/4:none, 1/5:none, 1/6:none, 1/7:none, pi/6:none)",
+   "pass": false
+  },
+  {
+   "name": "T2 invariant leg: convergence spread 1.1e-01 (<= 2e-3: False); rho_phi = 0.4412925852 vs target rho x mu^(1/208) = 0.9779051757 (|d| = 5.37e-01 <= 1e-6: False); gaps to rho 5.37e-01, rho*mu 5.11e-01",
+   "pass": false
+  },
+  {
+   "name": "T3 crossing leg: first 16pi F_n^phi crossing n*/deficit per clock {'pi/4': (49, 0.2571386856189562), '1/5': (13, 0.573363102678569), '1/6': (9, 0.39694800389759793), '1/7': (9, 0.4891358730077403), 'pi/6': (9, 0.08492473676715849)}; nearest |deficit - mu| = 4.004e-01 (gate 1e-6: False)",
+   "pass": false
+  },
+  {
+   "name": "T4 content leg: spectrum of S_phi^(377)(pi/4) on the unit circle (max ||lambda|-1| = 1.3e-13 <= 1e-10); sorted eigenphase shift vs certified step^377 = 0.4469 rad/level (recorded only)",
+   "pass": true
+  }
+ ]
+}
