@@ -1339,8 +1339,8 @@ def main():
             # 3-link deformation spectrum)
             M = (np.ascontiguousarray(u.transpose(0, 2, 1))
                  .reshape(-1, nL) @ EllT)
-            basis3.append((cv, M.reshape(u.shape[0], 45, 45, 45)
-                           .transpose(0, 2, 3, 1)))
+            basis3.append((cv, np.ascontiguousarray(
+                M.reshape(u.shape[0], 45, 45, 45).transpose(0, 2, 3, 1))))
     basis4 = []
     for (lkvA, lkvB), vm4 in U4.items():
         EA, gA, nA = ll_ch[lkvA]
@@ -1351,9 +1351,9 @@ def main():
             # GEMM-form contraction of "jkl,abk,cdn->jabcd" (the
             # unoptimized einsum dispatch on the (945,945) blocks
             # was measured to stall for over an hour per tensor)
-            basis4.append((0.0, np.tensordot(
+            basis4.append((0.0, np.ascontiguousarray(np.tensordot(
                 np.tensordot(u, EAb, axes=([1], [2])),
-                EBb, axes=([1], [2]))))
+                EBb, axes=([1], [2])))))
     log("kernel-tensor counts: contact %d, ell1 %d, ell2 %d, "
         "ell3-singlet %d"
         % (len(basis1), len(basis2), len(basis3), len(basis4)))
@@ -1389,14 +1389,21 @@ def main():
         out = []
         for cv, Ms in groups.items():
             n = len(Ms)
-            flat = [np.asarray(M).ravel() for M in Ms]
+            # memory-bounded by construction: the bases are stored
+            # C-contiguous at assembly (ravel below is a VIEW, no copy)
+            # and the deformation image is computed ONE VECTOR AT A TIME.
+            # Holding the whole ys list cost 3x the basis (~10 GB at the
+            # ell=4 basis: the 2026-11-05 swap-thrash freeze that killed
+            # services); the per-pair arithmetic below is UNCHANGED.
+            flat = [np.ascontiguousarray(M).ravel() for M in Ms]
             Bm = np.zeros((n, n), dtype=np.complex128)
             Am = np.zeros((n, n), dtype=np.complex128)
-            ys = [jl_on_factored(cv, M) for M in Ms]
             for p in range(n):
+                yp = jl_on_factored(cv, Ms[p])
                 for q in range(n):
                     Bm[p, q] = np.vdot(flat[p], flat[q])
-                    Am[p, q] = np.vdot(flat[q], ys[p])
+                    Am[p, q] = np.vdot(flat[q], yp)
+                del yp
             Bm = (Bm + Bm.conj().T) / 2.0
             Am = (Am + Am.conj().T) / 2.0
             bv, bu = np.linalg.eigh(Bm)
@@ -1479,6 +1486,11 @@ def main():
         np.savez(os.path.join(HERE, "results",
                               "v373_channels_ell%d.npz" % ell),
                  metas=np.asarray(metas, dtype=np.float64), **arrs)
+        # release per ell as written (V374 reloads from disk): keeps the
+        # tail's anon footprint bounded instead of holding all four
+        # bases to the end of the run
+        basis.clear()
+        arrs.clear()
     np.savez(os.path.join(HERE, "results", "v373_channels.npz"),
              P1=P1,
              chain_kernel_dims=np.asarray([ker1_hom, ker_c1, ker_c2,
