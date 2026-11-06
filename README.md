@@ -93,7 +93,7 @@ CL10/
 │   └── figures/              # the 25 publication figures (make_figures/; fig 1 = young QCA, fig 2 = hydrogen product)
 ├── review/                   # the manuscript pipeline + the provenance guard
 │   ├── README.md            # what each tool does
-│   ├── pre_registrations.md  # the booking record: every experiment's question, object class and branch words, written and committed BEFORE the run
+│   ├── pre_registrations.md  # the pre-registration record: every experiment's question, object class and branch words, written and committed BEFORE the run
 │   ├── tools/
 │       ├── fit_tables.py     # per-table column widths from content (sqrt(L) balance + longest-word floor)
 │       ├── fix_tables.py     # post-pandoc: atomic table cells (no mid-row page splits), repeated headers
