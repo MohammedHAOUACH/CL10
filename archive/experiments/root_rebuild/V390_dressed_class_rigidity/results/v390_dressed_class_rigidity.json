@@ -1,0 +1,235 @@
+{
+ "id": "V390_dressed_class_rigidity",
+ "tier": 2,
+ "property": "can any member of the named dressed-coefficient class move the certified n=208 crossing by mu (supply mu through the clock-in-the-coefficient escape), or is the whole class rigid",
+ "status": "SUPPLIER-CANDIDATE-NO-MU clean[J1-identity,J2-5I,J3-cartan2,J7-casimir45] cancellation-lifted[J4-step(1/5),J8-hopsum(1/5)] (the identity channel moves the certified deficit by 1.2600e-02 = 48.5% of the required mu-shift, exactly the first-order LOOP(n-1)alpha dressing; nearest mu gap 1.3389e-02; the non-scalar members lift the certified parity cancellation at the high rungs - the one-loop dressed observable is unbounded there; mu NOT supplied: the dressed route is excluded as a class with a measured 2.063-fold shortfall)",
+ "pass": true,
+ "data": {
+  "casimir45_vs_45I_dev": 0.0,
+  "cartan2_vs_5I_dev": 0.0,
+  "alpha_J1-identity": -0.0030950442428775227,
+  "alpha_lin_J1-identity": -0.0030873348967516753,
+  "bracket_expansions_J1-identity": 0,
+  "alpha_J2-5I": -0.0006190088485755046,
+  "alpha_lin_J2-5I": -0.0006174649898271936,
+  "bracket_expansions_J2-5I": 0,
+  "alpha_J3-cartan2": -0.0006190088485755046,
+  "alpha_lin_J3-cartan2": -0.0006174649898271936,
+  "bracket_expansions_J3-cartan2": 0,
+  "alpha_J4-step(1/5)": -0.00029956356096136035,
+  "alpha_lin_J4-step(1/5)": -0.00029881514108945177,
+  "bracket_expansions_J4-step(1/5)": 0,
+  "alpha_J5-plane0": null,
+  "alpha_J6-plane13": null,
+  "alpha_J7-casimir45": -6.877876095586551e-05,
+  "alpha_lin_J7-casimir45": -6.860500998327351e-05,
+  "bracket_expansions_J7-casimir45": 0,
+  "alpha_J8-hopsum(1/5)": -0.000390740491425277,
+  "alpha_lin_J8-hopsum(1/5)": -0.0003897589456347944,
+  "bracket_expansions_J8-hopsum(1/5)": 0,
+  "lin_gap_J1-identity": 7.709346125847442e-06,
+  "lin_gap_J2-5I": 1.5438587483109683e-06,
+  "lin_gap_J3-cartan2": 1.5438587483109683e-06,
+  "lin_gap_J4-step(1/5)": 7.484198719085768e-07,
+  "lin_gap_J7-casimir45": 1.7375097259200018e-07,
+  "lin_gap_J8-hopsum(1/5)": 9.815457904825751e-07,
+  "X208_undressed": 0.9885808677684247,
+  "deficit_certified_leaf": 0.9898678167368703,
+  "required_shift_mu": -0.02598905975045973,
+  "rung_rel_shift_J1": [
+   -0.012622659502515367,
+   -0.01274580740010086,
+   -0.012868955297686613
+  ],
+  "first_order_prediction": -0.012745807398602883,
+  "rel_shift_J1-identity": {
+   "rungs": [
+    -0.012622659502515367,
+    -0.01274580740010086,
+    -0.012868955297686613
+   ],
+   "spread": 0.01932367149760135
+  },
+  "rel_shift_J2-5I": {
+   "rungs": [
+    -0.012622659502515367,
+    -0.01274580740010086,
+    -0.012868955297686613
+   ],
+   "spread": 0.01932367149760135
+  },
+  "rel_shift_J3-cartan2": {
+   "rungs": [
+    -0.012622659502515367,
+    -0.01274580740010086,
+    -0.012868955297686613
+   ],
+   "spread": 0.01932367149760135
+  },
+  "rel_shift_J4-step(1/5)": {
+   "rungs": [
+    921366626.323028,
+    921409842.3936747,
+    921452235.3010713
+   ],
+   "spread": 9.29108569330228e-05
+  },
+  "probe_shift_J5-plane0": 26054267852.382275,
+  "probe_shift_J6-plane13": 4.77808931585999e-05,
+  "rel_shift_J7-casimir45": {
+   "rungs": [
+    -0.012622659503072006,
+    -0.012745807400662834,
+    -0.012868955298253899
+   ],
+   "spread": 0.019323671497584745
+  },
+  "rel_shift_J8-hopsum(1/5)": {
+   "rungs": [
+    932188519.9070146,
+    932232243.5711699,
+    932275134.4036258
+   ],
+   "spread": 9.29108569335009e-05
+  },
+  "shift_208": {
+   "J1-identity": -0.012600261340000918,
+   "J2-5I": -0.012600261340000918,
+   "J3-cartan2": -0.012600261340000918,
+   "J4-step(1/5)": 910888141.5639064,
+   "J5-plane0": 26054267852.382275,
+   "J6-plane13": 4.77808931585999e-05,
+   "J7-casimir45": -0.012600261340556473,
+   "J8-hopsum(1/5)": 921586960.3112925
+  },
+  "candidates": [
+   "J1-identity",
+   "J2-5I",
+   "J3-cartan2",
+   "J4-step(1/5)",
+   "J7-casimir45",
+   "J8-hopsum(1/5)"
+  ],
+  "mu_gaps": {
+   "J1-identity": 0.013388798410458813,
+   "J2-5I": 0.013388798410458813,
+   "J3-cartan2": 0.013388798410458813,
+   "J4-step(1/5)": 910888141.5898955,
+   "J7-casimir45": 0.013388798409903258,
+   "J8-hopsum(1/5)": 921586960.3372816
+  },
+  "mu_hits": [],
+  "roots_J1-identity": [
+   0.168222,
+   0.172139,
+   0.186662,
+   0.2,
+   0.230903,
+   0.232652,
+   0.264079,
+   0.284188,
+   0.285131,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "roots_J2-5I": [
+   0.168222,
+   0.172139,
+   0.186662,
+   0.2,
+   0.230903,
+   0.232652,
+   0.264079,
+   0.284188,
+   0.285131,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "roots_J3-cartan2": [
+   0.168222,
+   0.172139,
+   0.186662,
+   0.2,
+   0.230903,
+   0.232652,
+   0.264079,
+   0.284188,
+   0.285131,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "roots_J4-step(1/5)": [
+   0.168222,
+   0.172138,
+   0.186664,
+   0.2,
+   0.230904,
+   0.23265,
+   0.26408,
+   0.28418,
+   0.285138,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "roots_J7-casimir45": [
+   0.168222,
+   0.172139,
+   0.186662,
+   0.2,
+   0.230903,
+   0.232652,
+   0.264079,
+   0.284188,
+   0.285131,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "roots_J8-hopsum(1/5)": [
+   0.168222,
+   0.172138,
+   0.186664,
+   0.2,
+   0.230904,
+   0.23265,
+   0.26408,
+   0.28418,
+   0.285138,
+   0.287922,
+   0.32687,
+   0.327455
+  ],
+  "clean_candidates": [
+   "J1-identity",
+   "J2-5I",
+   "J3-cartan2",
+   "J7-casimir45"
+  ],
+  "cancellation_lifted": [
+   "J4-step(1/5)",
+   "J8-hopsum(1/5)"
+  ]
+ },
+ "checks": [
+  {
+   "name": "T0 published dial: J1 fifth-read solved at alpha = -0.0030950442428775 vs the V355 artifact alpha_elect -0.0030950442425137 (|d| = 3.6e-13 <= 1e-12)",
+   "pass": true
+  },
+  {
+   "name": "T1 one effective scale: linear prediction |alpha - alpha_lin| <= 1e-4 max(1,|alpha|) for every solved member (gaps {'J1-identity': 7.709346125847442e-06, 'J2-5I': 1.5438587483109683e-06, 'J3-cartan2': 1.5438587483109683e-06, 'J4-step(1/5)': 7.484198719085768e-07, 'J5-plane0': None, 'J6-plane13': None, 'J7-casimir45': 1.7375097259200018e-07, 'J8-hopsum(1/5)': 9.815457904825751e-07}); exact rescaling |5 alpha_J2 - alpha_J1| = 0.00e+00 <= 1e-12",
+   "pass": true
+  },
+  {
+   "name": "T2 certified pi/4 crossing at n=208 under every dressed member: max |shift| = 9.216e+08 (rigidity gate 1e-3), vs the shift required to supply mu = -2.5989e-02; rung consistency of the J1 relative shift at n=206/208/210: ['-1.2623e-02', '-1.2746e-02', '-1.2869e-02'] (spread 1.9% <= 15%; first-order LOOP(n-1)alpha prediction -1.2746e-02) - machine guard True; screening >= 5e-3 fires for ['J1-identity', 'J2-5I', 'J3-cartan2', 'J4-step(1/5)', 'J7-casimir45', 'J8-hopsum(1/5)']; nearest |shift - required| = 1.3389e-02 (mu match gate 1e-6); undressed X208 0.988581 (certified leaf context 0.9898678167368703)",
+   "pass": true
+  },
+  {
+   "name": "T3 scale stability: for every SOLVED member, the only crossing of the dressed rung-10 ladder in [0.19, 0.21] is at 1/5 to <= 1e-9 (no clock migration or proliferation across the class)",
+   "pass": true
+  }
+ ]
+}
