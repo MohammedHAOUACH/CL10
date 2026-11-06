@@ -1619,3 +1619,79 @@ reads 1.47e12 / 1.50e7). Paper corrected at Section 10.5, the
 O8/O4-facing F2 row, Table 6 (fitted 12 -> 13, beta counted as
 the read-out restated), the criteria row, the abstract and the
 conclusion; the classification labels ELECT-* stay as filed.
+
+## LA FOURNITURE DE MU - LES DEUX ROUTES, FORMALISEES ET TOMBÉES (V389-V390, 2026-11-06)
+
+mu = 0.9737449189568225 (V325, cle data.certified.mu_req) - fournir
+mu, c'est predire v/M_P depuis la racine : le probleme de la
+hierarchie lui-meme. Deux routes sont admissibles sous le theoreme
+5.3 ; les deux ont ete reservees AVANT run (review/
+pre_registrations_root.md, commit 2026-11-06) et executees ; les
+deux tombent, chacune avec du contenu certifie nouveau.
+
+R1 (V389, FIBONACCI-NULL) : seule geometrie candidate a porter les
+DEUX jambes du dilemme du porteur (V377), le module quasicristallin
+Z[phi]. Engine composite : produit ordonne des pas certifies
+step(g m_j), m in {1, phi}, sur les mots de Fibonacci 144/233/377
+(longueurs entieres exactes, unitarite 2.6e-13, limite uniforme =
+step^377 a 0.0e+00), functional certifie inchange. AUCUNE cloture
+clock-free (pas de q <= 12 avec S^q = +-I a pi/4, 1/5, 1/6, 1/7,
+pi/6) - l'irrationnel phi consomme le clock exactement la ou la
+leg ico-scale de V356 avait gagne ; AUCUN invariant de croissance
+(rapports 0.5065/0.4180/0.3993 sur les trois approximants, spread
+0.107 > 2e-3 : RHO-NONCONV ; rho_phi 0.4413 vs la cible bookée
+rho x mu^(1/208) = 0.9779052, gap 0.537) ; croisement le plus
+proche 0.2571 a n* = 49 vs mu (gap 0.400). Contenu interne intact
+(spectre unitaire 1.3e-13 ; shift de phases 0.447 rad/niveau,
+enregistre). Le dilemme du porteur survit exact au module Z[phi].
+
+R2 (V390, SUPPLIER-CANDIDATE-NO-MU) : l'echappatoire « le clock
+dans les coefficients » est fermee en CLASSE avec insuffisance
+mesuree. Classe nommee de 8 habillages (I, 5I, sum C^2 = 5I
+-identite Cartan, step(1/5), deux plans, Casimir = 45I -plans
+involutions-, hop sum) ; lecture au cinquieme resolue par membre :
+T0 J1 reproduit alpha_elect = -3.0950442425137195e-3 (feuille
+V355) a 3.6e-13 ; T1 un seul scalaire effectif (ecarts lineaires
+<= 7.7e-6 ; rescalings exacts |5 alpha_J2 - alpha_J1| <= 1e-12) ;
+structurel : les plans sans trace ne se couplent PAS a la lecture
+du coefficient au cinquieme (aucune solution, reponse ~1e-10).
+Deplacement du croisement certifie pi/4 a n = 208 par difference
+habillee-moins-nue au rung d'annulation (proxy float64 : feuille
+V276 0.98948 vs certifie 50 chiffres 0.9898678167368703 ; garde
+machine = coherence de rung des deplacements relatifs a
+n = 206/208/210 : -1.2623e-2, -1.2746e-2, -1.2869e-2, spread 1.9% ;
+le dressing de premier ordre certifie LOOP (n-1) alpha_elect =
+-1.27458e-2 est reproduit a 1e-6 relatif) : le sous-espace scalaire
+(5I, sum C^2, Casimir - un seul cadran effectif) deplace le deficit
+certifie de **-1.2600e-2 = 48.5%** du deplacement requis
+-0.0259891 (= (mu - 1) x 0.9898678167368703) : le sens est bon,
+l'amplitude manque d'un facteur **2.063** - les deux contacts
+(lecture exacte au cinquieme, fourniture a 208) sont incompatibles
+dans la classe, arithmeticement : la poussee disponible au rung 208
+est LOOP x 207 x alpha et alpha est epingle par le cinquieme.
+Les membres non-scalaires (step(1/5), hop sum) SOULEVENT
+l'annulation de parite certifiee aux grands rungs (+9.2e8 :
+l'observable one-loop habillee n'y est pas definie - l'extension
+de classe casse structurellement la). T3 : aucun membre resolu ne
+deplace le clock - la traverse du cinquieme reste a 1/5 a 1e-9
+pres. Les traverses de lecture (1/5) et certifiee (pi/4) sont deux
+objets distincts que le cadran meut a la fois et ne joint pas.
+
+Effet : la fourniture de mu ne survit que comme fourniture de
+STRUCTURE certifiee nouvelle (la route R1 ; reponse negative pour
+Z[phi] a ce jour) ; la reponse de l'echelle certifiee elle-meme
+aux habillages est exacte, dans le bon sens, et insuffisante du
+facteur certifie 2.063 (0.0259891 / 0.0126003). Fold 2026-11-06 :
+303 verdict JSONs sur disque (299 PASS + 4 FAILED rouges par
+construction, inchanges), 176 feuilles numeriques nouvelles pour
+les deux dossiers (30 + 146) - convention : un JSON verdict par
+dossier ; le compte 439,571 du fold 2026-11-04 provenait d'un
+autre walk (306 basenames) et reste inchange comme enregistrement
+historique. Artefacts : results/
+v389_fibonacci_quasicrystal_module.json, results/
+v390_dressed_class_rigidity.json. Les compteurs README (303/300)
+et la table root_rebuild de archive/experiments/README.md sont
+alignes ; le papier ne change pas - ses affirmations (« tous les
+efforts de fourniture sont nuls ; la fuite exige un nouvel
+algebre ») etaient bookées et restent exactes, maintenant avec
+l'exclusion de classe et le facteur 2.063 en registre.

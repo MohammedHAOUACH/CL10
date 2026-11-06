@@ -1,10 +1,12 @@
 # The verification program
 
-301 experiments (the 298 of the publication line-up — the founding suites,
+303 experiments (the 300 of the publication line-up — the founding suites,
 the root-rebuild and elected-theory arc, the tribunal and carrier arcs, the
 cubond arc (V383–V388: exact Clifford bond engine, certified ladder
 functional, content census, chiral ledger, doubler masses, Standard-Model
-pattern test), the four `beyond_step` lattice-sum measurements — plus the
+pattern test), the mu-supply route pair (V389–V390: quasicrystal-module
+census, dressed-class rigidity), the four `beyond_step` lattice-sum
+measurements — plus the
 3 exploration experiments of `alt_step`: V191, V192, V201; retired
 experiments stand in the git history), grouped by the part of
 `doc/final_publication.md` they validate. Each experiment
@@ -13,7 +15,7 @@ every input it uses, and writes a JSON verdict to `<experiment>/results/`:
 `pass`, `status`, and the tier of the claim it tests - `0` the root, `1` the
 object and its kinematics, `2` the dynamics, `3` the anomaly-free matter and
 the couplings, `4` exploration, `5` the falsifiers, `6` the provenance and
-**83 of the 298 publication experiments still write the older
+**83 of the 300 publication experiments still write the older
 verdict (`pass`, `status`, `data`) with no `tier`, `property` or `wall_time`.**
 They count in PASS/FAILED but sit outside the tier accounting, and the runner
 prints that denominator on the hard-tier line instead of hiding it.  `python3
@@ -478,6 +480,8 @@ the claim asserts, not when a script merely mentions the word.
 | `V386_cubond_chirality_nn_ledger` | **CUBOND-CHIRAL-LEDGER-NN-CLOSED** (tier 2): is the cone chiral like the Standard Model? No - it is vectorlike, measured. G5 = gamma_1 gamma_2 gamma_3 on 256: anti-Hermitian, G5^2 = -I exactly (0.0e+00), spectrum pure +-i with multiplicities **128/128**; exact tangents S_j = i dU/dq_j = -U gamma_j (no finite differences); at the 8 Nielsen-Ninomiya sites {0,pi}^3 the chi table (-1,+1,+1,-1,+1,-1,-1,+1) sums to **0 exactly** (the doublers cancel the chirality), the S operators close the Clifford algebra with min commutator norm 2.000000 at 8/8 sites; the 8 corner doublers project degenerate (det M = 0 recorded) |
 | `V387_cubond_doubler_masses` | **CUBOND-DOUBLER-MASS-SELECTIVE** (tier 2): the certified Wilson factor (V65 shape, lifted to the 32-dim module) acting on the Clifford bond at the physical angle theta = 1.7308: **N_pred = 0** survivors (no weight of the 32 has zero D-charge; smallest charge **0.005216** - the clock tension written into the mass floor), every one of the 15 nonzero-momentum gapless sites loses every exactly-gapless state at every w >= 0.5, the Gamma cone survives (gap 4.4e-16) with slopes (1,1,1) to **5.0e-09**, parasite masses recorded at w = 1: floor **0.010432**, max **0.031296** - the sixteen-parasite problem resolved at the level of the certified mechanism |
 | `V388_cubond_sm_selection` | **CUBOND-SELECTS-LESS** (tier 2, booked negative): does the Wilson content-selection on the Clifford bond reproduce the Standard Model pattern? At theta = 1.7308 the zero-charge kernel is EMPTY - **0** survivor weights against the **16** certified V112 classes (1, 0, 6 x 1/6, 3 x 1/3, 3 x -2/3, 2 x -1/2); consistent with the V387 state-level counts (all 15 parasite sites hold 0 zero modes at w = 1); the smallest charge 0.005216 is the clock tension written into the selection: the machinery gaps everything and closes no massless SM content beyond the cone |
+| `V389_fibonacci_quasicrystal_module` | **FIBONACCI-NULL** (tier 1, O8 route R1, booked negative): does the quasicrystal Z[phi] module supply mu as a NEW CERTIFIED INVARIANT? The composite engine step(g m_j), m in {1, phi}, over the Fibonacci words F12/F13/F14 = 144/233/377 with the certified functional unchanged: BOTH legs fail simultaneously - closure: no q <= 12 with S^q = +-I at any of the five clocks (CLOCK-CONSUMING: the irrational phi consumes the clock exactly where the V356 ico-scale leg had won); invariant: the composite growth ratio does not converge (spread 0.107 > 2e-3, RHO-NONCONV; rho_phi = 0.4413 vs the booked target rho x mu^(1/208) = 0.97791, gap 0.537); crossing: nearest deficit 0.2571 at n* = 49 vs mu (gap 0.400); the 32 internal content is untouched (unitary spectrum 1.3e-13; eigenphase shift 0.447 rad/level recorded) - the V377 carrier dilemma survives exactly against the Z[phi] module |
+| `V390_dressed_class_rigidity` | **SUPPLIER-CANDIDATE-NO-MU** (tier 2, O8 route R2): can ANY member of the named dressed-coefficient class (8: I, 5I, sum C^2 = 5I, step(1/5), 2 planes, Casimir = 45I, hop sum) supply mu through the "clock inside the coefficient"? Tested as a class, not as a dial: the fifth-read solved per member (T0: J1 reproduces the published alpha_elect to 3.6e-13; T1: one effective scalar - linear gaps <= 7.7e-6, exact 1/5 and 1/45 rescalings to 1e-12); the certified pi/4 crossing at n = 208 shifted by the dressed-minus-bare difference at the cancellation rungs (rung-consistency machine guard: relative shifts -1.2623e-2 / -1.2746e-2 / -1.2869e-2 at n = 206/208/210, spread 1.9% - the certified first-order dressing LOOP (n-1) alpha reproduced to relative 1e-6): the scalar subfamily - ONE effective dial - moves the certified deficit by **-1.2600e-2 = 48.5%** of the required -0.0259891: right direction, **x2.063 measured shortfall** - the fifth-read and the mu-supply contacts are incompatible inside the class; the non-scalar members lift the certified parity cancellation at the high rungs (+9.2e8 unbounded one-loop observable); traceless planes decouple (no fifth-read solution); T3: every solved member keeps the read crossing at 1/5 to <= 1e-9 - the dressed route excluded as a class, the supply still needs a new algebra |
 
 ### `alt_step` (exploration programme)
 | id | verdict |
